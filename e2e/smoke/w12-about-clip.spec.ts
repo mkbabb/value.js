@@ -58,16 +58,21 @@ interface Reading {
 
 async function readOnce(page: Page): Promise<Reading> {
     return page.evaluate(() => {
-        const paneOf = (label: string): HTMLElement => {
+        // The Picker region's first child is its card. Since X-W12U .k2
+        // (A2-VA-L1-1, `ca65ae049`) About composes PaneShell: the region's
+        // first child is the `.pane-shell` wrapper (overflow visible) and the
+        // CARD is its `.pane-shell__card` (overflow-hidden, PaneShell.vue:33)
+        // — re-baselined X-W12U .q2.
+        const paneOf = (label: string, selector: string): HTMLElement => {
             const region = document.querySelector(
                 `main [role="region"][aria-label="${label}"]`,
             );
-            const pane = region?.firstElementChild as HTMLElement | null;
+            const pane = region?.querySelector<HTMLElement>(selector) ?? null;
             if (!pane) throw new Error(`the ${label} region renders no pane`);
             return pane;
         };
-        const picker = paneOf("Picker");
-        const about = paneOf("About");
+        const picker = paneOf("Picker", ":scope > *");
+        const about = paneOf("About", ":scope > .pane-shell > .pane-shell__card");
         const cs = getComputedStyle(about);
         const scrollerEl = about.querySelector<HTMLElement>(".fading-scroll--y");
         return {

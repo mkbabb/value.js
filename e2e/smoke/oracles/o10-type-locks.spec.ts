@@ -63,7 +63,11 @@ async function readVoice(page: Page, selector: string): Promise<TypeVoice> {
     }, selector);
 }
 
-const PICKER_TRIGGER = ".pane-shell .space-trigger";
+// `.pane-shell` names every PaneShell wrapper since X-W12U .k2 (A2-VA-L1-1,
+// `ca65ae049`), About included, so it no longer singles out the picker: the
+// picker's trigger is the one in its own header (ColorPicker.vue:35) —
+// re-baselined X-W12U .q2.
+const PICKER_TRIGGER = ".picker-header .space-trigger";
 const ABOUT_TRIGGER = ".about-card .space-trigger";
 const ABOUT_TITLE = ".about-card .pane-header-title";
 
@@ -156,11 +160,12 @@ test.describe("O-10a — the mobile matrix (390)", () => {
         expect(Math.abs(picker.sizePx - display2)).toBeLessThanOrEqual(0.5);
         expect(picker.weight).toBe("400");
 
-        // Switch the mobile slot to the About pane (the segmented control).
-        const nav = page.getByRole("navigation", {
-            name: "Application navigation",
-        });
-        await nav.getByRole("button", { name: "About", exact: true }).click();
+        // Re-baselined X-W12U .q2 to X.W5.c (`50633f195`, "one mount, ordered
+        // regions"): the mobile pane index and its segmented Picker/About
+        // switch were DELETED — a phone lays the Home view's regions out in
+        // order, so the About pane is the second region, reached by scrolling.
+        const about = page.getByRole("region", { name: "About", exact: true });
+        await about.scrollIntoViewIfNeeded();
         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
 
         // display-1 floor-pins at heading (1.618rem) on phones, so the pane
@@ -277,7 +282,7 @@ for (const vp of [
                 `/#/?space=lab&color=${encodeURIComponent("lab(38% 32 24)")}`,
             );
             await expect(mainPane(page)).toBeVisible();
-            const trigger = page.locator(".pane-shell .space-trigger").first();
+            const trigger = page.locator(PICKER_TRIGGER).first();
             await trigger.click();
             const optionCount = await page.locator('[role="option"]').count();
             await page.keyboard.press("Escape");
