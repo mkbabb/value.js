@@ -2167,3 +2167,77 @@ W12U.md :4 "Blocks: X-W8"; LEDGER :42 X-W8 `planned` (opens after W4·W5·W6·W7
 
 ### Verdict
 **NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 2 MINOR · 2 INFO). Close 3 holds where it acted: every claimed GREEN this seat re-ran reproduces (typecheck ×2 · lint ×2 · `.k2` static ×2 · A2-VA-X-14 ×2 both themes · served pair ×2 · X-13-RUN + R-m-2 ×2 · banked smoke figures · bounds · masking 0 · families · E-3 · E13). The one HIGH is C7-1: two smoke-perf cells sit outside every relief §0fh gives. The row stays **IMPLEMENTED**, not CLOSED.
+
+## Repair 5 (repair round 1 on Check 7, 2026-10-16)
+
+SERVED MODEL: claude-opus-5-5. Track A, HEAD `bcbc1c887` at open. The task calls this "Repair 1"; the record already holds Repair 1–4, so this takes the next free number (as Check 7 did). Spec `W12U.md` read whole (110 lines, addenda (a)–(g)); record read: Check 7 whole. Crash recovery ⟨`git status --porcelain -- demo e2e <W12U-evidence> <record> LEDGER.md INBOX.md`⟩ → 13 modified `demo/**` paths + `demo/test/extract/extract-image-actions.test.ts` (untracked) — X-DS's in-flight pass (the X-DS extract/specimen family; none is a W12U unit's partial work; not touched), `s/results/final/probe-share-dark.txt` (pre-existing, not this repair's) and three untracked `q2/logs|results/v3chk-*` (a sibling check's; not touched). **No product or test byte landed in this repair**: every C7 defect at ≥ MEDIUM measured to a cause outside §1 or to an orchestrator act, so the repair is measurement + escalation. Evidence: `W12U-evidence/r1c7/` (`9ae5e6f87`).
+
+### C7-1 (HIGH) — smoke-perf G2 and O-5: decomposed at the bytes
+**G2, the instrument.** Four detached worktrees (scratch, removed at the end), each `npm run build` then `vite build --mode gh-pages --sourcemap hidden` (hidden maps add no byte to the JS), A/B on the `@mkbabb/glass-ui@7.0.0` tarball, C/D on the installed 10.1.0. Gate instrument ⟨`node scripts/perf/eager-bytes.mjs`⟩ ×2 per tree (`r1c7/g2-instrument-x2.txt`), identical both runs:
+
+| tree | commit | glass | eager JS gz | modules | verdict |
+|---|---|---|---|---|---|
+| A — X-W2 AFTER | `6a5fea762` | 7.0.0 | **280,801** (raw 886,610; W2's 280,811 within its 10 B band) | 6 | GREEN |
+| B — last glass-7 tree | `92160802a` (= `c8a4959dd~1`) | 7.0.0 | **315,911** | 8 | RED |
+| C — X-W7L.m repin | `c8a4959dd` | 10.1.0 | **319,711** | 7 | RED |
+| D — this seat's HEAD | `bcbc1c887` | 10.1.0 | **331,631** (Close 3 read 331,540 over its working tree) | 9 | RED |
+
+So G2 left GREEN **before** the glass repin: A→B +35,110 B; the repin B→C +3,800; C→D +11,920.
+
+**G2, by owner.** ⟨`node r1c7/eager-attrib.mjs <tree>/dist/gh-pages --json`⟩ ×2 per tree → r1 ≡ r2 byte-identical (`cmp`), banked `r1c7/attrib-{A,B,C,D}.json`, grouped in `r1c7/g2-decomposition.txt` (sourcemap segments → source owner; each chunk's gz shared pro rata over its mapped raw bytes; the groups sum to the instrument's totals exactly):
+
+| owner | A | D | A→B | B→C | C→D | **A→D** |
+|---|---|---|---|---|---|---|
+| value lib dist — `src/**` (`subpaths/css.js` + the lib's shared chunks) | 10,749 | 36,600 | +18,958 | −1 | +6,894 | **+25,851** |
+| `demo/**` | 78,291 | 94,432 | +4,243 | −1,892 | +13,790 | **+16,141** |
+| reka-ui + its deps (`@internationalized/number`, floating-ui, …) | 44,784 | 52,012 | +14,431 | +6,396 | −13,599 | **+7,228** |
+| other npm / runtime (vue, vue-router, vueuse, lucide, keyframes) | 70,349 | 72,260 | −136 | −850 | +2,897 | **+1,911** |
+| glass-ui | 76,628 | 76,327 | −2,384 | +145 | +1,938 | **−301** |
+
+- **Glass is not the cause** (−301 B net), so class (c) does not apply to G2. No O-row is owed.
+- **The dominant cause is `src/**`.** The library's `css` subpath grew from 43,973 to 278,110 raw bytes (12,237 → 42,647 B gz). The cause is the X·P parser track: BBNF-generated grammar re-emits and CSS L4 coverage, X.P.W7.k2/.l/.l2 (24 `src` commits between A and B) and X.P.W8 (18 between C and D). The demo reaches that subpath at boot through `parseCssColor`/`serializeCssColor` in `demo/color-session/*`, which is the colour the first paint needs.
+- **No in-bounds cure can turn G2 GREEN:** A + the `src/**` delta alone = 280,801 + 25,851 = **306,652 B > 286,720 B**. That holds even if every `demo/**` and reka byte added since X-W2 were removed. §1 bars `src/**`, and W2.md §11 guardrail 1 bars a seat from re-baselining the bar. The `demo/**` growth (+16,141; C→D +13,790, the W12U/X-DS feature bytes) is real product growth. Cutting it would not move the verdict, so no demo cure was attempted. A demo cure "at its root with the G2 falsifier RED→GREEN" is therefore not achievable in this wave → **ESC-W12U-r5-1** (below).
+
+**O-5, the jitter source.** Probe `r1c7/o5-probe.mjs`: the spec's collector and launch args, the same 4,000 ms window after the main pane, plus rAF timestamps, longtask start/duration, `long-animation-frame` entries, and canvas-mount times. Two rounds of 3 sittings each over D, plus A (the X-W2 tree) in r2. Files: `r1c7/o5-r{1,2}.txt`.
+- D, warm sittings (r1 s2/s3, r2 s2/s3): max gap 318.6–353.4 ms = 15.1–16.7× median. In every one, **0 longtasks inside the gap**, and the gap's one LoAF has `blockingDuration 0`, `scripts []` and `renderStart ≈ duration`. The frame waits ~330 ms before rendering starts while the main thread does nothing. The gap opens ~600 ms after `goo-blob-canvas` mounts (2,112 → 2,711; 2,150 → 2,733).
+- D, cold first sitting (r1 s1, r2 s1): one ~2.8–3.1 s stall straight after the `atmosphere-canvas` mount, with 0 longtasks inside.
+- A, r2: the **same two shapes**. Cold s1: a 3,177 ms gap with no LoAF and no longtask. Warm s2: 340.7 ms, starting 168 ms after `goo-blob-canvas`, with `scripts []` and `block 0`. Warm s3: 142.7 ms (4.9×).
+- So O-5's source is unchanged since X-W2's own census (`evidence/W2/o5-remeasure.txt`): a presentation-side stall on the software-GL compositor at each WebGL canvas's first draw, carrying no main-thread work. It is not a `demo/**` import (class (b) fails: no script in the gap) and not glass (class (c) fails: the canvases are the consumer's atmosphere and hero). Today's 618.6 ms (Close 3) and 318–353 ms (here) sit inside the band X-W2 measured (2,625 ms). The leg has stood RED since X-W1's G-6 ruling removed its `test.fail()` ("a red stays red with its cite"), and that ruling names no curing wave → **ESC-W12U-r5-2**.
+
+### C7-3 (MEDIUM) — the SwiftShader drag paint rate, diagnosed
+Probe `r1c7/drag-probe.mjs`: the smoke project's SwiftShader args, w12-drag's viewport, theme, route, 3 s settle and 2 s there-and-back path, run on the surface and slider-L legs. D's built bundle, 5 arms, ×2 (`r1c7/drag-r{1,2}.txt`, load 8.7–12.5):
+
+| arm | surface frames (r1 / r2) | surface p50 ms | slider L frames |
+|---|---|---|---|
+| as-is | **5 / 5** | 417 / 570 | 13 / 12 |
+| atmosphere + goo-blob canvases `display:none` | 19 / 20 | 119 / 118 | 18 / 17 |
+| every `backdrop-filter: none` | 18 / 19 | 125 / 120 | 17 / 18 |
+| both removed | 23 / 17 | 96 / 119 | 17 / 19 |
+| blank 1440 page repainting a full fill per move | — / **262** | — / 7.8 | — |
+
+(r1's blank arm read 0 frames, an instrument fault: the init script does not reach `setContent`. Its collector was inlined for r2.)
+
+- **The cause is the product's composition on a CPU rasteriser, not the harness.** SwiftShader repaints a plain 1440 fill at ~128 fps, and frames track input moves 1:1 in every arm.
+- The surface drag (it recolours the atmosphere) pairs live WebGL canvases with backdrop-filter glass, and every blurred layer re-rasterises on the CPU each frame. That is ~2 fps, 5 frames per drag.
+- Removing either the canvases or the backdrop gives ~19 frames (> 10). On the real-GPU cell of record the same drag is in budget (addendum (e); `t/drag-refresh-relative-r{12,34}.txt`).
+- So `> 10` on software GL measures the CPU cost of glass over WebGL. It is not a test of collector liveness. Restoring `> 10` needs a product change to that composition: fewer blurred layers over the live atmosphere, or pausing the atmosphere repaint during a drag. That is a design act in X-W10's lane (Canonical Design and Motion), not a W12U row.
+- Lowering the floor to `> 1` stays as committed (`2c1ba07e1`). The diagnosis is now recorded, and the floor's ruling goes to the orchestrator → **ESC-W12U-r5-3**.
+
+### C7-2 (MEDIUM), C7-4 / C7-5 (MINOR), C7-6 (INFO)
+- **C7-2:** the cure is an orchestrator ruling admitting a "(c′) later value wave" class, plus addenda beside `W10.md` and the X·P track spec naming o18 ×6 · o19 ×4 · o26 · o28 · webgl-blob-idle ×2 · o22-specimen-legibility · o23:225 by id. `waves/W10.md` and the X·P specs are outside §1, and the ruling is not a seat's act → **ESC-W12U-r5-4**.
+- **C7-4:** the O-85 addendum for X-13-RUN-PEAK is the orchestrator's relay, per Check 7's own cure, and is not a one-command act. It is carried to the orchestrator and no INBOX row is minted here: a relay row follows a sent letter.
+- **C7-5:** :9000 must run under `dev.sh up`, which is the orchestrator's (dev.sh is never touched). This repair needed no :9000 read: the built bundles were served by `serve-built.mjs` on :8193/:8194 and stopped after each round. Carried.
+- **C7-6:** no act owed (§0fh.4).
+
+### Gate re-reading
+No cure byte landed, so no product gate moves. typecheck, lint, `npm test` and smoke stand as Check 7 reproduced them. The instruments this repair added were each double-run, with r1 ≡ r2 (G2 instrument and attribution, byte-identical) and the probe shapes reproducing (O-5 gap class, drag arms). Every published figure above is quoted from those settled files. Scratch worktrees removed at the end (⟨`git worktree list | grep -c scratchpad`⟩ → 0, read before this record's commit).
+
+### Escalations (orchestrator)
+| id | defect | measured reason | asks |
+|---|---|---|---|
+| ESC-W12U-r5-1 | C7-1 G2 | +25,851 of the +50,830 B gz since X-W2 is `src/**` (the lib `css` subpath, the X·P parser). A + that delta alone is 306,652 > 286,720. Glass −301. Out of §1, and the bar can't be moved by a seat (W2 §11 g1) | a dated owner for G2: the X·P track for the parser's eager weight (a split css subpath, or a lighter boot-colour path), or a §3a triumvirate on the bar. The `demo/**` +16,141 is ruled lawful growth or routed with it |
+| ESC-W12U-r5-2 | C7-1 O-5 | zero-script pre-render stall at the WebGL canvases' first draw on SwiftShader, the same class at X-W2's tree. No class (a)/(b)/(c) fits, and X-W1 G-6 named no curing wave | a dated owner (the real-GPU oracle CC-029 lane, or X-W10's motion/atmosphere scope) for the leg as cited |
+| ESC-W12U-r5-3 | C7-3 | SwiftShader paints a plain fill at 262 frames/drag. The product reads 5 only with WebGL × backdrop together, and either alone gives ≥ 17 | rule the software-GL liveness floor (`> 1` as committed, or a frames-track-moves restatement), or route the glass-over-live-WebGL composition cost to X-W10 |
+| ESC-W12U-r5-4 | C7-2 | owner-class ruling plus addenda beside W10.md and the X·P spec, both outside §1 | the dated ruling and the two addenda |
+
+The row stays **IMPLEMENTED**.
