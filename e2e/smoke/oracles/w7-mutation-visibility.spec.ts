@@ -176,7 +176,14 @@ userTest.describe("G13 · library rows", () => {
         await page.goto("/#/palettes");
         await page.getByRole("button", { name: "Palette menu" }).first().click();
         await page.getByRole("menuitem", { name: /Export/ }).click();
-        await page.getByRole("menuitem", { name: /JSON/ }).click();
+        // X-W12U .q2 (r6): a click that lands while the menu is still entering
+        // leaves the Export sub-trigger focused with its sub-menu shut (the
+        // snapshot: `menuitem "Export" [active]`, no JSON row). ArrowRight is
+        // the sub-trigger's own keyboard open (WAI-ARIA menu pattern), and on
+        // an already-open sub-menu it only moves focus into it.
+        const json = page.getByRole("menuitem", { name: /JSON/ });
+        if (!(await json.isVisible())) await page.keyboard.press("ArrowRight");
+        await json.click();
         await expect(page.getByRole("status").filter({ hasText: "This palette has no colors to export." })).toBeVisible();
     });
 
