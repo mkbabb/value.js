@@ -85,63 +85,17 @@
             </div>
         </div>
 
-        <!-- X-DS pass 3 (V3C-05): the image actions are ONE labelled action row,
-             and only the live ones are shown. With no image the drop zone is
-             the one intake (R-20), so Replace and Reset are absent rather than
-             parked as dead glyphs; the camera is a two-way door (XW-8 · EC-5),
-             pressed while live. X-DS pass 5 (V5C-07): the actions wear the
-             text rung (as "Delete all" does), so the glyphs start at the
-             column edge with the labels and rails above them; the group pulls
-             back by the rung's own inline pad (glass's `--space-residue`).
-             X-DS pass 6 (V6C-08): ONE text-action ink per pane — the group
-             sets the certified muted plate ink ("Delete all"'s) on its enabled
-             actions once, so the dark scheme's accent (gold) rung ink no longer
-             reads as decoration beside it; disabled keeps glass's own ink. -->
-        <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)" role="group" aria-label="Image actions">
-            <Button
-                v-if="hasImage"
-                emphasis="text"
-                size="sm"
-                :disabled="standDown"
-                @click="$emit('upload')"
-            >
-                <Upload aria-hidden="true" />
-                Replace image
-            </Button>
-            <Button
-                emphasis="text"
-                size="sm"
-                :disabled="disabled"
-                :aria-pressed="cameraLive"
-                @click="$emit('camera')"
-            >
-                <Camera aria-hidden="true" />
-                {{ cameraLive ? "Close camera" : "Open camera" }}
-            </Button>
-            <Button
-                v-if="hasImage"
-                emphasis="text"
-                size="sm"
-                :disabled="standDown"
-                @click="$emit('reset')"
-            >
-                <RotateCcw aria-hidden="true" />
-                Reset
-            </Button>
-        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { Upload, Camera, RotateCcw } from "@lucide/vue";
-import { Button } from "@mkbabb/glass-ui/button";
 import { Slider } from "@mkbabb/glass-ui/slider";
 import { Label } from "@mkbabb/glass-ui/label";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { GRAPHICS_CONTRAST_FLOOR } from "../../color-session/ink";
 
-const { k, found = null, chromaWeight, gradient, cssColor, disabled, hasImage, cameraLive = false } =
+const { k, found = null, chromaWeight, gradient, cssColor, disabled, cameraLive = false } =
     defineProps<{
         k: number;
         /** Colours the developed palette actually holds (null before a run develops). */
@@ -152,8 +106,8 @@ const { k, found = null, chromaWeight, gradient, cssColor, disabled, hasImage, c
         cssColor?: string | undefined;
         /** A run is in flight: every control stands down (XW-8 · EC-6). */
         disabled?: boolean | undefined;
-        hasImage?: boolean | undefined;
-        /** The camera is open: its own control is the exit, the rest stand down. */
+        /** The camera is open: the image column's camera control is the exit;
+         *  these controls stand down. */
         cameraLive?: boolean;
     }>();
 
@@ -204,9 +158,6 @@ const railStyle = computed(() => ({
 defineEmits<{
     "update:k": [value: number];
     "update:chromaWeight": [value: number];
-    upload: [];
-    camera: [];
-    reset: [];
 }>();
 </script>
 

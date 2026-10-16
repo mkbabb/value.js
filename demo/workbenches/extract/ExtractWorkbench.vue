@@ -69,6 +69,56 @@
                         </div>
                     </div>
                 </Transition>
+
+                <!-- X-DS pass 9 (V9C-06): the image actions are SOURCE actions, so they
+                     sit with the source — under the drop zone / viewfinder they replace,
+                     in the image column — and the sliders lead straight into the
+                     instrument they shape. (They sat in ExtractControls after the
+                     sliders, away from the zone the camera substitutes for.)
+                     X-DS pass 3 (V3C-05): the image actions are ONE labelled action row,
+                     and only the live ones are shown. With no image the drop zone is
+                     the one intake (R-20), so Replace and Reset are absent rather than
+                     parked as dead glyphs; the camera is a two-way door (XW-8 · EC-5),
+                     pressed while live. X-DS pass 5 (V5C-07): the actions wear the
+                     text rung (as "Delete all" does), so the glyphs start at the
+                     column edge with the labels and rails above them; the group pulls
+                     back by the rung's own inline pad (glass's `--space-residue`).
+                     X-DS pass 6 (V6C-08): ONE text-action ink per pane — the group
+                     sets the certified muted plate ink ("Delete all"'s) on its enabled
+                     actions once, so the dark scheme's accent (gold) rung ink no longer
+                     reads as decoration beside it; disabled keeps glass's own ink. -->
+                <div class="flex flex-wrap items-center gap-1 ms-[calc(-1*var(--space-residue))] *:enabled:text-(color:--ink-muted)" role="group" aria-label="Image actions">
+                    <Button
+                        v-if="!!session.previewUrl.value"
+                        emphasis="text"
+                        size="sm"
+                        :disabled="actionsStandDown"
+                        @click="openFilePicker()"
+                    >
+                        <Upload aria-hidden="true" />
+                        Replace image
+                    </Button>
+                    <Button
+                        emphasis="text"
+                        size="sm"
+                        :disabled="session.isProcessing.value"
+                        :aria-pressed="cameraLive"
+                        @click="toggleCamera()"
+                    >
+                        <Camera aria-hidden="true" />
+                        {{ cameraLive ? "Close camera" : "Open camera" }}
+                    </Button>
+                    <Button
+                        v-if="!!session.previewUrl.value"
+                        emphasis="text"
+                        size="sm"
+                        :disabled="actionsStandDown"
+                        @click="session.onReset()"
+                    >
+                        <RotateCcw aria-hidden="true" />
+                        Reset
+                    </Button>
+                </div>
             </div>
 
             <!-- Controls + result column. X-DS VR3-02: the controls and the
@@ -82,13 +132,9 @@
                     :gradient="session.kSliderGradient.value"
                     :css-color="cssColorOpaque ?? ''"
                     :disabled="session.isProcessing.value"
-                    :camera-live="camera.state.value !== 'off'"
-                    :has-image="!!session.previewUrl.value"
+                    :camera-live="cameraLive"
                     @update:k="session.onKChange"
                     @update:chroma-weight="session.onChromaChange"
-                    @upload="openFilePicker"
-                    @camera="toggleCamera"
-                    @reset="session.onReset"
                 />
 
                 <!-- Error (error ≠ empty: an explicit destructive line). The
@@ -223,7 +269,8 @@
 <script setup lang="ts">
 import { computed, inject, onBeforeUnmount, onDeactivated, useTemplateRef, watch } from "vue";
 import { useFileDialog } from "@vueuse/core";
-import { Aperture, X } from "@lucide/vue";
+import { Aperture, Camera, RotateCcw, Upload, X } from "@lucide/vue";
+import { Button } from "@mkbabb/glass-ui/button";
 import { DockControl } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { SpaceId } from "@mkbabb/value.js/color";
@@ -296,6 +343,13 @@ async function onFile(file: File) {
     camera.stop();
     await session.onFile(file);
 }
+
+/** The camera is open: its own control is the exit (XW-8 · EC-5). */
+const cameraLive = computed(() => camera.state.value !== "off");
+/** XW-8: a run in flight or a live camera stands the image actions down. */
+const actionsStandDown = computed(
+    () => session.isProcessing.value || cameraLive.value,
+);
 
 function toggleCamera() {
     if (camera.state.value === "off") void camera.start();

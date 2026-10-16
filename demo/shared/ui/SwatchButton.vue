@@ -39,16 +39,20 @@ import { Button } from "@mkbabb/glass-ui/button";
 import { WatercolorDot } from "./watercolor-dot";
 import { contrastInkFor } from "../../color-session/ink";
 
-/** The swatch size tokens — the four seats the app measures a swatch at:
- *  `sm` a dense add grid (Mix), `md` a palette card and the Generate plate,
- *  `lg` the Current Palette row, `xl` the Extract result. */
-export type SwatchSize = "sm" | "md" | "lg" | "xl";
+/** The swatch size tokens — the seats the app measures a swatch at:
+ *  `sm` a dense add grid (Mix), `md` a palette card, `lg` the Current Palette
+ *  row, `xl` the Extract result, and `fill` a RESULT row whose cells share the
+ *  row's width (the Generate plate; X-DS pass 9, V9C-07: the result leads its
+ *  plate). A `fill` cell grows from the `md` floor to a 5rem cap, square, and
+ *  a long palette wraps at the floor. */
+export type SwatchSize = "sm" | "md" | "lg" | "xl" | "fill";
 
 const SIZE: Record<SwatchSize, string> = {
     sm: "w-8 h-8",
     md: "w-9 h-9 sm:w-10 sm:h-10",
     lg: "w-11 h-11 sm:w-12 sm:h-12",
     xl: "w-12 h-12 sm:w-14 sm:h-14",
+    fill: "flex-1 basis-0 min-w-9 sm:min-w-10 max-w-20 h-auto aspect-square",
 };
 
 const {

@@ -436,5 +436,11 @@ watch(
     inline-size: 55%;
     block-size: 55%;
     pointer-events: none;
+    /* V9C-01: the wax is a positioned stacking context (glass's
+       WatercolorDot: relative + isolate + filter), so a static sibling
+       paints UNDER it whatever the DOM order. The ink is positioned and
+       lifted one step so the view glyph paints over the wax. No rim. */
+    position: relative;
+    z-index: 1;
 }
 </style>

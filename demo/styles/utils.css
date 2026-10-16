@@ -64,7 +64,8 @@
 }
 
 /* Dashed inset well — the recessed container that collects an in-progress set
- * of colors (the mix "Selected" tray, the current-palette editor). Both sites
+ * of colors (the current-palette editor; the mix "Selected" tray left it for
+ * the bare-section grammar at X-DS pass 9, V9C-05). Both sites
  * used `.dashed-well` as a never-defined phantom (inv-N-7); this mints the
  * intended affordance in house tokens: a dashed-bordered, faintly-recessed
  * column that visually groups its swatch row + label, echoing the dashed

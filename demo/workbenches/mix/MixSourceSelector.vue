@@ -170,8 +170,12 @@ const swatchKeys = computed(() => {
                 aria-label="Colors"
                 class="flex flex-col gap-3"
             >
-                <!-- Selected colors + add button -->
-                <div class="dashed-well">
+                <!-- Selected colors + add button. X-DS pass 9 (V9C-05): ONE
+                     section grammar with "Saved palettes" below — a bare head
+                     over its row, no well. The tray's pre-X well was the
+                     largest tone block on the card while it held one control,
+                     and set its head at a second inset. -->
+                <div class="flex flex-col gap-2">
                     <!-- W5-7: the "N colors" counter died — it restated the
                          visible chips (and read "1 colors" at one). -->
                     <!-- X-DS pass 1 (V1C-04): a Mix section speaks the app's ONE section-head voice (Fraunces sentence case, as the gradient's "Stops"). -->
@@ -299,7 +303,7 @@ const swatchKeys = computed(() => {
                 v-if="savedPalettes.length === 0"
                 compact
                 message="No saved palettes yet."
-                hint="Save a palette, then pour it — or its colours — in here."
+                hint="Save a palette, then pour it or its colors in here."
             />
             <ul v-else class="grid gap-2">
                 <li

@@ -26,13 +26,14 @@
                 :class="{ invisible: nameYielded }"
                 :title="palette.name"
             >{{ palette.name }}</span>
-            <!-- S.W7-7: the featured badge's gold TEXT shimmer consumes the
-                 producer's ONE metal register (glass-ui `.gold-shimmer`).
+            <!-- X-DS pass 9 (V9C-03): the featured badge is FLAT gold ink —
+                 the gold border and the gold icon carry its meaning; the idle
+                 metal sweep (glass `.gold-shimmer`) carried no state.
                  Priority 3: the label yields before the mark. -->
             <Badge
                 v-if="palette.tier === 'featured'"
                 variant="outline"
-                class="featured-badge gold-shimmer text-mono-small shrink-0 gap-1 border-gold"
+                class="featured-badge text-mono-small shrink-0 gap-1 border-gold"
             >
                 <span class="featured-badge__icon inline-flex" title="Featured">
                     <Award class="w-3 h-3" aria-hidden="true" />
@@ -164,12 +165,13 @@ const {
     }
 }
 
-/* S.W7-7 (god-module census §2.2): the badge's gold text shimmer is the
- * producer's `.gold-shimmer` metal register; this block keeps only what the
- * register doesn't own — the outline hue and the icon ink. (Moved here from
- * PaletteCard.vue with the badge, X.W7.c.) */
+/* The featured badge's gold: the outline, the label ink and the icon ink,
+ * all flat (X-DS pass 9, V9C-03: the idle `.gold-shimmer` sweep is retired
+ * here; the label takes the `.gold-shimmer-icon` recipe's flat gold).
+ * (Moved here from PaletteCard.vue with the badge, X.W7.c.) */
 .featured-badge {
     border-color: var(--color-gold);
+    color: var(--color-gold);
 }
 .featured-badge__icon svg {
     stroke: var(--color-gold);

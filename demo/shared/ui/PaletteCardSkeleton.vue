@@ -38,22 +38,20 @@
                 />
             </template>
         </div>
-        <!-- The metadata row — develops after the strip. -->
-        <div class="px-3 py-2.5 flex items-center gap-2">
-            <template v-if="instrument">
-                <div class="shadow-block-name text-subheading h-[1lh] w-32 rounded-md" />
-                <div class="shadow-block-count text-subheading h-[1lh] w-6 rounded-md" />
-            </template>
-            <template v-else>
-                <Skeleton
-                    class="text-subheading h-[1lh] w-32 rounded-md"
-                    :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
-                />
-                <Skeleton
-                    class="text-subheading h-[1lh] w-6 rounded-md"
-                    :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
-                />
-            </template>
+        <!-- The metadata row — develops after the strip. LOADING registers
+             only: X-DS pass 9 (V9C-04) drops it from the instrument face,
+             whose two blank slabs (a fake name, a fake count) changed with
+             nothing and only mimicked a loading card. The k cells carry the
+             instrument's meaning. -->
+        <div v-if="!instrument" class="px-3 py-2.5 flex items-center gap-2">
+            <Skeleton
+                class="text-subheading h-[1lh] w-32 rounded-md"
+                :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.1}s` }"
+            />
+            <Skeleton
+                class="text-subheading h-[1lh] w-6 rounded-md"
+                :style="{ '--skeleton-shimmer-delay': `${count * 0.12 + 0.22}s` }"
+            />
         </div>
         <!-- X.W12U.s2 (N-17 after UIA-V-30): below 30rem the settled card
              seats its meta cluster (tags, vote) on its own row beneath the
@@ -120,7 +118,7 @@ import { Skeleton } from "@mkbabb/glass-ui";
  * R12 species kept whole, not re-designed: Extract's standing k-threaded
  * undeveloped plate (`data-slot="shadow-palette"`, the o9 oracle's seat), the
  * genesis `ec1b200` register (card-true material, solid hairline, muted
- * cells; meta blocks at 60/40 of the ink). X-DS pass 8 (V3C-02, the X-DS
+ * cells; its meta blocks retired at X-DS pass 9, V9C-04). X-DS pass 8 (V3C-02, the X-DS
  * canon and addendum (a): no idle pulse on chrome that carries no state):
  * the LIVING staggered pulse is retired, so the face is static; X-DS value
  * pass 5 (P5C-03) leaves it an outline (hairline card + hairline seams).
@@ -163,24 +161,12 @@ const instrument = computed(() => variant === "instrument");
     --animate-ambient-pulse-easing: var(--ease-standard);
 }
 
-/* The instrument face's genesis ink ladder (`ec1b200`: strip = muted · meta =
- * muted/60,/40), spoken through the ONE loading-ink recipe root
- * (`--skeleton-ink`, utils.css `.skeleton-ink-register`), which certifies the
- * block as a bounded tone-step of the plate's `bg-well` ground in both schemes.
- * The steps fade INTO the plate by a color-mix step (never element opacity —
- * D6). */
 /* X-DS value pass 5 (P5C-03): the idle instrument carries no state, so its
  * cells take no fill step (light: the heaviest-toned block in the card; dark:
  * a pill whose seams were lost). The live-k segmentation is the card's own
  * hairline (`--card-edge`) between cells, in both schemes. */
 .shadow-seg + .shadow-seg {
     border-inline-start: 1px solid var(--card-edge);
-}
-.shadow-block-name {
-    background: color-mix(in oklab, var(--skeleton-ink) 60%, transparent);
-}
-.shadow-block-count {
-    background: color-mix(in oklab, var(--skeleton-ink) 40%, transparent);
 }
 
 /* The meta row of a narrow settled card (PaletteInspector's < 30rem rule). */

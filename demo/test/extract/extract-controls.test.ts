@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { mount } from "@vue/test-utils";
 import ExtractControls from "../../workbenches/extract/ExtractControls.vue";
 
-const base = { k: 16, chromaWeight: 0.5, gradient: null, hasImage: true } as const;
+const base = { k: 16, chromaWeight: 0.5, gradient: null } as const;
 
 describe("ExtractControls", () => {
     // jsdom ships no `ResizeObserver` (the glass controls measure themselves).
@@ -53,42 +53,19 @@ describe("ExtractControls", () => {
         expect(style).toMatch(/background-color/);
     });
 
-    // glass 10.1.0 DockControl: a disabled control stays PRESENT and FOCUSABLE —
-    // it stamps `aria-disabled="true"`, never the native `disabled` (X-W7L).
-    // X-DS pass 3 (V3C-05): the image actions are labelled glass Buttons (native
-    // `disabled`), named by their visible text.
-    const actions = (w: ReturnType<typeof mount>) =>
-        w.findAll('[role="group"][aria-label="Image actions"] button');
-    const action = (w: ReturnType<typeof mount>, name: string) => {
-        const b = actions(w).find((x) => x.text().trim() === name);
-        if (!b) throw new Error(`no "${name}" action`);
-        return b;
-    };
-
-    it("XW-8: `disabled` reaches all five controls", () => {
+    // X-DS pass 9 (V9C-06): the image actions moved to the image column
+    // (ExtractWorkbench; their contract is extract-image-actions.test.ts). The
+    // controls keep XW-8 for their own two sliders.
+    it("XW-8: `disabled` reaches both sliders", () => {
         const w = mount(ExtractControls, { props: { ...base, found: null, disabled: true } });
-        expect(actions(w).map((b) => [b.text().trim(), b.attributes("disabled") !== undefined])).toEqual([
-            ["Replace image", true],
-            ["Open camera", true],
-            ["Reset", true],
-        ]);
         const sliders = w.findAll('[role="slider"]');
         expect(sliders).toHaveLength(2);
         for (const s of sliders) expect(s.attributes("data-disabled") ?? s.attributes("aria-disabled")).toBeDefined();
+        expect(w.find('[role="group"][aria-label="Image actions"]').exists()).toBe(false);
     });
 
-    it("XW-8: while the camera is live its control is the way out (pressed), and the rest stand down", () => {
+    it("XW-8: while the camera is live the sliders stand down", () => {
         const w = mount(ExtractControls, { props: { ...base, found: null, cameraLive: true } });
-        const camera = action(w, "Close camera");
-        expect(camera.attributes("aria-pressed")).toBe("true");
-        expect(camera.attributes("disabled")).toBeUndefined();
-        expect(action(w, "Replace image").attributes("disabled")).toBeDefined();
-    });
-
-    // X-DS pass 3 (V3C-05): only the live actions are shown — with no image
-    // the drop zone is the one intake, so Replace and Reset are absent.
-    it("R-20 / V3C-05: with no image the drop zone is the one intake; only the camera action shows", () => {
-        const w = mount(ExtractControls, { props: { ...base, hasImage: false, found: null } });
-        expect(actions(w).map((b) => b.text().trim())).toEqual(["Open camera"]);
+        for (const s of w.findAll('[role="slider"]')) expect(s.attributes("data-disabled") ?? s.attributes("aria-disabled")).toBeDefined();
     });
 });

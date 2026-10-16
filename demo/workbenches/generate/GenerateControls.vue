@@ -166,7 +166,13 @@ defineExpose({ regenerate, save, copyColors });
                  per (color,i). T-28's outline law rides: NO geometric focus
                  ring on the organic edge (the filled-dot register — rings ride
                  the silhouette via the producer P5 register, or do not exist —
-                 the MixSourceSelector precedent). -->
+                 the MixSourceSelector precedent). X-DS pass 9 (V9C-07): the
+                 cells share the well's width (SwatchButton `fill`), so the
+                 result leads the plate rather than sitting under half of it.
+                 Legibility at a collision seed (a swatch near the field) wants
+                 the dot's own P5 solid-ring register, which glass does not
+                 ship at this size — cited to glass (O-87), never a geometric
+                 ring here. -->
             <div class="px-3 pb-1 flex flex-wrap gap-1.5">
                 <!-- A2-VA-L1-15: the app's one SwatchButton; its `done` check
                      is the copy verb's verdict. -->
@@ -174,7 +180,7 @@ defineExpose({ regenerate, save, copyColors });
                     v-for="(css, i) in palette"
                     :key="i"
                     :color="css"
-                    size="md"
+                    size="fill"
                     :seed="`gen-${css}-${i}`"
                     :done="copiedIndex === i"
                     class="generate-swatch active:scale-95 transition-transform"
