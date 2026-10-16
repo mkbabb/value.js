@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+# X.W12U.m3 R-m-2 BEFORE (the one line reverted to 0.8125rem on the served tree, then restored): ⟨guarded --light --timeout 5 -- node m3/probe-h1-rung-m3.mjs 844 390 {light,dark}⟩
+844x390 light / {"fontSize":"13px","lineHeight":"15.6px","family":"Fraunces, \"Fraunces Fallback\", serif","displayToken":"\"Fraunces\", \"Fraunces Fallback\", serif","rungs":{"micro":"11px","caption":"13.1324px","small":"14.91px"},"h1":[86,101],"bandBottom":78,"stageTop":101} onRung(caption) false fits true face true RED
+844x390 dark / {"fontSize":"13px","lineHeight":"15.6px","family":"Fraunces, \"Fraunces Fallback\", serif","displayToken":"\"Fraunces\", \"Fraunces Fallback\", serif","rungs":{"micro":"11px","caption":"13.1324px","small":"14.91px"},"h1":[86,101],"bandBottom":78,"stageTop":101} onRung(caption) false fits true face true RED

@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5
+## tc run 1 HEAD 14440ef0b
+lib 0
+demo 0
+test 0
+e2e 0
+load { 13.85 16.61 18.73 }
+## lint run 1 ⟨npx eslint . --max-warnings=0⟩
+rc=0
+## tc run 2 HEAD 14440ef0b
+lib 0
+demo 0
+test 0
+e2e 0
+load { 29.08 21.93 20.47 }
+## lint run 2 ⟨npx eslint . --max-warnings=0⟩
+rc=0
