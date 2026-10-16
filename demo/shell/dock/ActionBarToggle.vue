@@ -150,9 +150,15 @@ function onSlotSettled(e: TransitionEvent) {
    dock-controls/icon-button.css), never a specificity fight: inline padding
    at the Button-primitive px-3/py-2 scale (the box lands at the sibling
    controls' 2.5rem height), breathing margin off the folded separator, and
-   the label's em-gap between glyph, wordmark, and affordance arrow. */
+   the label's em-gap between glyph, wordmark, and affordance arrow.
+   Since glass 10.1.0 (X.W7L.m `c8a4959dd`) the in-dock rule
+   `.glass-dock .dock-icon-button { padding: var(--dock-icon-padding, …) }`
+   (0,2,0) outranks `.dock-icon-button--compact` (0,1,0) inside the dock, so
+   the padding a dock seat wears is read from `--dock-icon-padding`; the seat
+   states its box on that hook too (X-W12U .q2, o15 T-36 RED: 4px). */
 .dock-tools-btn {
     --dock-compact-control-padding: 0.5rem 0.75rem;
+    --dock-icon-padding: 0.5rem 0.75rem;
     margin-inline: 0.25rem;
     gap: 0.5em;
 }
