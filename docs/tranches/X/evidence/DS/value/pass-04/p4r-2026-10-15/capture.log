@@ -1,0 +1,37 @@
+{"name":"palettes-1440-light.png","ok":true,"attempt":1}
+{"name":"picker-1440-light.png","ok":true,"attempt":1}
+{"name":"extract-1440-light.png","ok":true,"attempt":1}
+{"name":"mix-1440-light.png","ok":true,"attempt":1}
+{"name":"generate-1440-light.png","ok":true,"attempt":1}
+{"name":"gradient-1440-light.png","ok":true,"attempt":1}
+{"name":"atmosphere-1440-light.png","ok":true,"attempt":1}
+{"name":"blob-1440-light.png","ok":true,"attempt":1}
+{"name":"picker-390-light.png","ok":true,"attempt":1}
+{"name":"palettes-390-light.png","ok":true,"attempt":1}
+{"name":"browse-1440-light.png","ok":false,"error":"TimeoutError: locator.waitFor: Timeout 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('article').first() to be visible\u001b[22m\n"}
+{"name":"extract-390-light.png","ok":true,"attempt":1}
+{"name":"mix-390-light.png","ok":true,"attempt":1}
+{"name":"generate-390-light.png","ok":true,"attempt":1}
+{"name":"gradient-390-light.png","ok":true,"attempt":1}
+{"name":"atmosphere-390-light.png","ok":true,"attempt":1}
+{"name":"blob-390-light.png","ok":true,"attempt":1}
+{"name":"picker-1440-dark.png","ok":true,"attempt":1}
+{"name":"palettes-1440-dark.png","ok":true,"attempt":1}
+{"name":"browse-390-light.png","ok":false,"error":"TimeoutError: locator.waitFor: Timeout 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('article').first() to be visible\u001b[22m\n"}
+{"name":"extract-1440-dark.png","ok":true,"attempt":1}
+{"name":"mix-1440-dark.png","ok":true,"attempt":1}
+{"name":"generate-1440-dark.png","ok":true,"attempt":1}
+{"name":"gradient-1440-dark.png","ok":true,"attempt":1}
+{"name":"atmosphere-1440-dark.png","ok":true,"attempt":1}
+{"name":"blob-1440-dark.png","ok":true,"attempt":1}
+{"name":"picker-390-dark.png","ok":true,"attempt":1}
+{"name":"palettes-390-dark.png","ok":true,"attempt":1}
+{"name":"browse-1440-dark.png","ok":false,"error":"TimeoutError: locator.waitFor: Timeout 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('article').first() to be visible\u001b[22m\n"}
+{"name":"extract-390-dark.png","ok":true,"attempt":1}
+{"name":"mix-390-dark.png","ok":true,"attempt":1}
+{"name":"generate-390-dark.png","ok":true,"attempt":1}
+{"name":"gradient-390-dark.png","ok":true,"attempt":1}
+{"name":"atmosphere-390-dark.png","ok":true,"attempt":1}
+{"name":"blob-390-dark.png","ok":true,"attempt":1}
+{"name":"browse-390-dark.png","ok":false,"error":"TimeoutError: locator.waitFor: Timeout 120000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('article').first() to be visible\u001b[22m\n"}
+FAILED 4 OF 36
