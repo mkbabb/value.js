@@ -1,0 +1,816 @@
+{
+ "morph-light-1440": {
+  "blur": {
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "input.fira-code.number-field__input.field-control"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 68,
+    "w": 178,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 81,
+    "trackX": 0,
+    "trackW": 178
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 68,
+    "w": 178,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 81,
+    "trackX": 0,
+    "trackW": 178
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 68,
+    "w": 178,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 81,
+    "trackX": 0,
+    "trackW": 178
+   },
+   {
+    "label": "Low",
+    "kind": "plain",
+    "h": 36,
+    "w": 642,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 510
+   },
+   {
+    "label": "High",
+    "kind": "plain",
+    "h": 36,
+    "w": 642,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 510
+   }
+  ],
+  "levelsCardH": 303,
+  "tilesWhole": 6
+ },
+ "morph-light-1024": {
+  "blur": {
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "input.fira-code.number-field__input.field-control"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 62,
+    "trackX": 170,
+    "trackW": 344
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 62,
+    "trackX": 170,
+    "trackW": 344
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 62,
+    "trackX": 170,
+    "trackW": 344
+   },
+   {
+    "label": "Low",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 382
+   },
+   {
+    "label": "High",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 382
+   }
+  ],
+  "levelsCardH": 302,
+  "tilesWhole": 4
+ },
+ "morph-light-390": {
+  "blur": {
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "input.fira-code.number-field__input.field-control"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 241,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 241,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 241,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "Low",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 260,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "High",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 260,
+    "trackX": 0,
+    "trackW": 332
+   }
+  ],
+  "levelsCardH": 372,
+  "tilesWhole": 2
+ },
+ "paper-light-1440": {
+  "blur": {
+   "nav.sidebar-nav#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": "opaque",
+    "cls": "sidebar-nav.glass-quiet.scrollbar-thin"
+   },
+   "article#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": "opaque",
+    "cls": "glass-resting.card.paper-article.leading-relaxed"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "input.field-control.glass-control-edge.search-field-input"
+   ]
+  }
+ },
+ "paper-light-390": {
+  "blur": {
+   ".floating-toc-bar#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": "opaque",
+    "cls": "floating-toc-bar.floating-toc-bar--trigger.glass-resting"
+   },
+   "article#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": "opaque",
+    "cls": "glass-resting.card.paper-article.leading-relaxed"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate"
+   ]
+  }
+ },
+ "equation-light-1440": {
+  "blur": {
+   ".configurator-stage#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": null,
+    "cls": "configurator-stage.relative.min-h-0.min-w-0"
+   },
+   "aside.configurator-aside#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": null,
+    "cls": "configurator-aside.flex.min-h-0.min-w-0"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "div.configurator-stage.relative.min-h-0",
+    "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+    "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "span.slider-range.glass-liquid-fill",
+    "aside.configurator-aside.flex.min-h-0",
+    "input.field-control.glass-control-edge.w-full",
+    "input.field-control.glass-control-edge.w-20",
+    "input.field-control.glass-control-edge.w-20",
+    "button.button.tap-squish.focus-ring",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Harmonics",
+    "kind": "hint",
+    "h": 90.7,
+    "w": 380,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 224,
+    "trackX": 0,
+    "trackW": 380
+   },
+   {
+    "label": "Displayed harmonics",
+    "kind": "hint",
+    "h": 90.7,
+    "w": 380,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 308,
+    "trackX": 0,
+    "trackW": 380
+   }
+  ],
+  "levelsCardH": null,
+  "tilesWhole": null
+ },
+ "equation-light-390": {
+  "blur": {
+   "aside.configurator-aside#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": null,
+    "cls": "configurator-aside.flex.min-h-0.min-w-0"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "aside.configurator-aside.flex.min-h-0",
+    "input.field-control.glass-control-edge.w-full",
+    "input.field-control.glass-control-edge.w-20",
+    "input.field-control.glass-control-edge.w-20",
+    "button.button.tap-squish.focus-ring",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Harmonics",
+    "kind": "hint",
+    "h": 99.8,
+    "w": 314,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 152,
+    "trackX": 0,
+    "trackW": 314
+   },
+   {
+    "label": "Displayed harmonics",
+    "kind": "hint",
+    "h": 99.8,
+    "w": 314,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 242,
+    "trackX": 0,
+    "trackW": 314
+   }
+  ],
+  "levelsCardH": null,
+  "tilesWhole": null
+ },
+ "visualize-light-1440": {
+  "blur": {
+   ".configurator-stage#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.994 0.96 0.926)",
+    "surface": null,
+    "cls": "configurator-stage.relative.min-h-0.min-w-0"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "div.configurator-stage.relative.min-h-0",
+    "button.button.tap-squish.focus-ring"
+   ]
+  }
+ },
+ "morph-dark-1440": {
+  "blur": {
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "input.fira-code.number-field__input.field-control"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 68,
+    "w": 178,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 81,
+    "trackX": 0,
+    "trackW": 178
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 68,
+    "w": 178,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 81,
+    "trackX": 0,
+    "trackW": 178
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 68,
+    "w": 178,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 81,
+    "trackX": 0,
+    "trackW": 178
+   },
+   {
+    "label": "Low",
+    "kind": "plain",
+    "h": 36,
+    "w": 642,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 510
+   },
+   {
+    "label": "High",
+    "kind": "plain",
+    "h": 36,
+    "w": 642,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 510
+   }
+  ],
+  "levelsCardH": 303,
+  "tilesWhole": 6
+ },
+ "morph-dark-1024": {
+  "blur": {
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "input.fira-code.number-field__input.field-control"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 62,
+    "trackX": 170,
+    "trackW": 344
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 62,
+    "trackX": 170,
+    "trackW": 344
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 62,
+    "trackX": 170,
+    "trackW": 344
+   },
+   {
+    "label": "Low",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 382
+   },
+   {
+    "label": "High",
+    "kind": "plain",
+    "h": 36,
+    "w": 514,
+    "inline": true,
+    "labelX": 0,
+    "fieldX": 48,
+    "trackX": 132,
+    "trackW": 382
+   }
+  ],
+  "levelsCardH": 302,
+  "tilesWhole": 4
+ },
+ "morph-dark-390": {
+  "blur": {
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "button.control-surface.glass-control-edge.glass-capsule-hover",
+    "input.fira-code.number-field__input.field-control",
+    "input.fira-code.number-field__input.field-control"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 241,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 241,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "Duration",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 241,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "Low",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 260,
+    "trackX": 0,
+    "trackW": 332
+   },
+   {
+    "label": "High",
+    "kind": "plain",
+    "h": 82,
+    "w": 332,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 260,
+    "trackX": 0,
+    "trackW": 332
+   }
+  ],
+  "levelsCardH": 372,
+  "tilesWhole": 2
+ },
+ "paper-dark-1440": {
+  "blur": {
+   "nav.sidebar-nav#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": "opaque",
+    "cls": "sidebar-nav.glass-quiet.scrollbar-thin"
+   },
+   "article#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": "opaque",
+    "cls": "glass-resting.card.paper-article.leading-relaxed"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "input.field-control.glass-control-edge.search-field-input"
+   ]
+  }
+ },
+ "paper-dark-390": {
+  "blur": {
+   ".floating-toc-bar#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": "opaque",
+    "cls": "floating-toc-bar.floating-toc-bar--trigger.glass-resting"
+   },
+   "article#0": {
+    "backdrop": "none",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": "opaque",
+    "cls": "glass-resting.card.paper-article.leading-relaxed"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate"
+   ]
+  }
+ },
+ "equation-dark-1440": {
+  "blur": {
+   ".configurator-stage#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": null,
+    "cls": "configurator-stage.relative.min-h-0.min-w-0"
+   },
+   "aside.configurator-aside#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": null,
+    "cls": "configurator-aside.flex.min-h-0.min-w-0"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "div.configurator-stage.relative.min-h-0",
+    "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track",
+    "div.segmented-indicator.segmented-indicator--js.glass-capsule",
+    "div.dock-plate",
+    "button.button.tap-squish.focus-ring",
+    "span.slider-range.glass-liquid-fill",
+    "aside.configurator-aside.flex.min-h-0",
+    "input.field-control.glass-control-edge.w-full",
+    "input.field-control.glass-control-edge.w-20",
+    "input.field-control.glass-control-edge.w-20",
+    "button.button.tap-squish.focus-ring",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Harmonics",
+    "kind": "hint",
+    "h": 90.7,
+    "w": 380,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 224,
+    "trackX": 0,
+    "trackW": 380
+   },
+   {
+    "label": "Displayed harmonics",
+    "kind": "hint",
+    "h": 90.7,
+    "w": 380,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 308,
+    "trackX": 0,
+    "trackW": 380
+   }
+  ],
+  "levelsCardH": null,
+  "tilesWhole": null
+ },
+ "equation-dark-390": {
+  "blur": {
+   "aside.configurator-aside#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": null,
+    "cls": "configurator-aside.flex.min-h-0.min-w-0"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "aside.configurator-aside.flex.min-h-0",
+    "input.field-control.glass-control-edge.w-full",
+    "input.field-control.glass-control-edge.w-20",
+    "input.field-control.glass-control-edge.w-20",
+    "button.button.tap-squish.focus-ring",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "input.fira-code.number-field__input.field-control",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge",
+    "button.toggle-group__item.control-surface.glass-control-edge"
+   ]
+  },
+  "rows": [
+   {
+    "label": "Harmonics",
+    "kind": "hint",
+    "h": 99.8,
+    "w": 314,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 152,
+    "trackX": 0,
+    "trackW": 314
+   },
+   {
+    "label": "Displayed harmonics",
+    "kind": "hint",
+    "h": 99.8,
+    "w": 314,
+    "inline": false,
+    "labelX": 0,
+    "fieldX": 242,
+    "trackX": 0,
+    "trackW": 314
+   }
+  ],
+  "levelsCardH": null,
+  "tilesWhole": null
+ },
+ "visualize-dark-1440": {
+  "blur": {
+   ".configurator-stage#0": {
+    "backdrop": "blur(20px) saturate(1.5)",
+    "bg": "color(srgb 0.2074 0.165013 0.1326)",
+    "surface": null,
+    "cls": "configurator-stage.relative.min-h-0.min-w-0"
+   },
+   "backdropBlurEls": [
+    "div.dock-plate",
+    "div.configurator-stage.relative.min-h-0",
+    "button.button.tap-squish.focus-ring"
+   ]
+  }
+ }
+}
