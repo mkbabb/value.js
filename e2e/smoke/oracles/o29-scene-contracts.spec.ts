@@ -55,7 +55,12 @@ const INTERACTIVE =
 
 /** The scene's regions as the shell mounted them, IN ORDER: `role:label`. */
 async function regionsOf(page: Page): Promise<string[]> {
-    return page.locator('.pane-container [role="region"]').evaluateAll((els) =>
+    // The scene rows are the pane container's OWN regions. Re-baselined
+    // X-W12U .q2: glass 10.1.0's Disclosure (X.W7L.m `c8a4959dd`) renders each
+    // open panel as an aria-labelledby `role="region"` (WAI accordion), so the
+    // descendant read also counted the easing row's open panel (`undefined:null`,
+    // `W12U-evidence/q2/probes/probe-regions.mjs`).
+    return page.locator('.pane-container > [role="region"]').evaluateAll((els) =>
         els.map((el) => {
             const role = [...el.classList]
                 .find((c) => c.startsWith("pane-wrapper--"))
@@ -579,11 +584,12 @@ test.describe("j4 short landscape", () => {
         test(`short landscape — ${hash}: the last control and the preview are both reachable at 720×450`, async ({
             page,
         }) => {
-            // Honest-RED carry (COHESION §0bb ESC-W6j-1): j4 RETIRED GREEN under
-            // its MEASURE-AT-OPEN clause (6dfdd8d2); the blob limb's stronger
-            // simultaneous property is shell arrangement, owned by X-W8 .i.
-            if (hash === "blob")
-                test.fail(true, "J4-SHORT-LANDSCAPE-BLOB → X-W8 .i");
+            // COHESION §0bb ESC-W6j-1 carried the blob limb's simultaneous
+            // property as honest-RED J4-SHORT-LANDSCAPE-BLOB (→ X-W8 .i) under
+            // an expected-failure marker. At HEAD `5731fe6ce` the property
+            // HOLDS (X-W12U .q2 r1: "Expected to fail, but passed"), so the
+            // marker is retired and the limb gates like the atmosphere one;
+            // the row's discharge is reported to X-W8 .i (X-W12U .q2 receipt).
             await openScene(page, hash, stageLabel);
             if (hash === "blob")
                 await expect(
