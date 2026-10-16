@@ -1908,3 +1908,55 @@ That row is **chrome looping animations 91 → 100.** Each added row is glass `S
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probes with `--light`, check and lint with `--light --timeout 15`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--light --timeout 20`.
 - Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port, not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 6 (the seventh redeploy's pass 6; critic C6; evidence in `pass-39/`)
+
+**Cure commit:** keyframes.js `1d18c6f0` (master, pushed fast-forward `fa09924b..1d18c6f0`). **Evidence:** value.js `b35311520` (`evidence/DS/keyframes/pass-39/`):
+- `c6-probe.mjs`, `c6-probe.json` (0 fails, 14 cells);
+- `after/`: `cube-timeline`, `square`, `square-dock`, `spring` and `spring-dock` at 1440 and 390, `ghost-zoom` at 1440, and `amiga` and `easing` at 390, each in light and dark;
+- `cure/`: `amiga-geo.mjs` and `amiga-390-before.png` (the KF-C6-04 (a) diagnosis);
+- `census.json`, `census.log`, `census-frames/`;
+- the gate logs `check-*`, `lint-*` and `test-demo-*`.
+
+The critic's BEFORE frames are `critic-p6-2026-10-15/`. Every capture is headless real Chrome (§0ei). The task named `pass-06/`, which already holds the first workflow's pass-6 evidence, so the frames go to `pass-39/`, following the pass-23..38 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C6-01 (low) | **The ghost diamond is drawn, not bordered.** `TimelineTrack.vue`'s `.keyframe-ghost` is an inline SVG polygon on the resting marker's footprint (24 px box, vertices on the marker's 22.6 px diagonal), with `pathLength="16"`, a `1 1` dash and a half-dash offset. The dash period divides the perimeter, so every vertex and every side's midpoint carries one dash (two per side), and no corner loses its stroke. Same ink (`text-foreground/40` → `currentColor`); the rounded corner is gone with the border. | Two ghosts per empty track, both schemes, both widths: `svg`, 24×24, pathLength 16, dash `1px, 1px`, stroke at /0.4. Frame: `after/ghost-zoom-1440-*` (a closed dashed diamond). |
+| KF-C6-02 (low) | `SquareMini.vue`'s field is a **hairline**: stroke 14 → 6 user units (about 0.5 px at SCALE 20/240), opacity 0.35 kept. The tips beside the box now read as the ends of a drawn path, not as solid wedges. The tour data and motion are unchanged (OA-32). | stroke-width 6 at every cell. Frames: `after/square-dock-*`. |
+| KF-C6-03 (low) | **`SpringMini.vue` takes the icons' common weight.** The rail is full mini-ink (the 0.45 opacity is deleted) at 2 px and ends at the ring's new edge. The ball goes from 4 to 5.5 units, and its carriage is re-seated so the ball still rides x 3 → 15. The ring goes from 7 to 8.5 units, with the 1.5 px dash and 0.6 ring opacity kept. No colour or motion change. | Rail 2 px tall at opacity 1; ball 5.5 px and ring 8.5 px in the 20 px glyph. Frames: `after/spring-dock-*`. |
+| KF-C6-04 (b) (trivial) | **The Square caption's measure is centred on the field.** The measure is still 2 × travel + box (KF-C22-03), but `left` takes off half the box, and the column is `align-items: center; text-align: center`. The caption now overhangs both field edges by the box's half-size, the reach the subject itself takes. | 1440: field 802..1114, caption 785..1131 on one line, centre delta 0. 390: two lines, centre delta 0. Frames: `after/square-*`. |
+| KF-C6-04 (c) (trivial) | **Re-seat ends on the figure's edge.** A quiet Button paints no box, so its label ended at its own inline padding plus 1 px, short of the band's end. At lg, `.spring-reseat` takes `margin-inline-end: calc(var(--plot-inset-end) − (button-size/2 − space-residue) − 1px)`, the end-side twin of `button-text-flush`. | 1440: the label ends at **1230**, the trace plot and title row at **1230** (it ended at 1214). Frames: `after/spring-1440-*`. |
+
+**Not cured (named)**
+- **KF-C6-04 (a), the Amiga room at 390:** the critic's cause is falsified by measurement. The canvas (the stage) spans 102..715, and the free band between the dock (bottom 92) and the sheet (top 723) has its centre at 407.5, against the canvas's 408. The stage is centred in the free band. The ball, which is the scene's subject and the orbit pivot (T.A9: "Subject = pivot = framing"), sits on that centre. The room reads low because the camera looks down at the D-11 lift (whose φ bias is ruled arithmetic) and is dollied out for the portrait sweep (D-6), so the floor recedes below the ball. Centring the room would move the subject off centre (by a camera view offset or a pivot shift), which reverses those rulings. That is left for the owner to decide. Frames: `cure/amiga-390-before.png`, `after/amiga-390-*`.
+- **KF-C6-04 (d), the Easing specimen scroller at 390:** marked optional by the critic and not taken. A row-aligned port, or scroll padding at rest, would need the port height to follow the specimen rows, which are content-sized. Frames: `after/easing-390-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C6-G1:** the dark secondary Button halo (Import, Apply CSS), filled fields beside transparent or grey Selects, the closed Select's up caret (`in-data-[state=open]:rotate-180`, KF-C5-03), the resting plate's and sheet's blur and tonal slab, the asymmetric collapsed dock tile and the play-bubble halo. These are cited against **O-87 FLAT-LIGHTING** (KF-C1-01, KF-C1-10, KF-C5-03, KF-C3-G1) and **O-88 DOCK-COLLAPSE-MOTION** (KF-C1-12), and are re-judged at the 10.2.0 repin. No local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): **identical to pass 38 on every row.**
+- Static: 5 box-shadow declarations, 1 looping animation (`charLift`).
+- Chrome: 310 shadow elements, 938 layers (max 6), 192 non-floating, 416 inset highlights, 278 backdrop blur, 54 control gradients, 100 looping animations.
+- Subject: 0 on every row.
+
+The verdict stays **RED**, held by the glass-owned rows and pass 38's named Skeleton loop row (the unpainted `skeleton-breathe` in the content-visibility-hidden Keyframes pane).
+
+**Gates** (the live tree: master `1d18c6f0`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk and an untracked `test/demo/scenes/easing-reset-order.test.ts`)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **928/928, 151 files, twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- The served probe (`c6-probe.mjs`, 0 fails) is the falsifier for -01, -02, -03 and -04 (b, c).
+
+**Disclosures**
+- **At 390 the empty Timeline's ghosts sit under the resting sheet** (cy 895), so there is no 390 ghost zoom. The 390 geometry is still asserted.
+- **The Square glyph still shows the field's three tips beside the box,** now as hairlines rather than wedges. The tour's 0 % pose is the origin (`squareTourKeyframes`), so the critic's other option (rest the box at the first corner) does not apply without changing the tour data. The next critic re-judges the glyph's legibility.
+- **Concurrency:** `KeyframeTimeline.vue` (another seat's hunk) and the untracked test were not touched. The keyframes.js cure commit and the value.js evidence and receipt commits are pathspec-only. One value.js commit waited out another process's `index.lock`.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes with `--light --timeout 10`, check and lint with `--light --timeout 15`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--light --timeout 20`.
+- Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port, not this seat's) was reused.
+- Nothing of this seat's was left running.
