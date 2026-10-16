@@ -5312,3 +5312,63 @@ READ-ONLY at kf `57fb241a` in the clean detached worktree `/Users/mkbabb/Program
 - **Commits:** kf `389e31d2` (pushed). value.js: this receipt + `evidence/W13X/a3o/**`, one pathspec commit.
 - **Gates:** A3 GREEN ×2 at HEAD ✓ · falsifier trips/clears ×2 ✓ · A3 GREEN at `71480d85` ✓ · check 0 / lint 0 ✓ · 0 product bytes, rail-fill kept ✓.
 - **Residuals:** honest-RED SHEET-POSITION (M1) stays as ruled. B7 SPECULAR-REST is outside this oracle. **Escalations: none.** Next: close (verify-only, §0ev.2), then the check.
+
+## RESUME 5 — Close
+
+- **SERVED MODEL:** claude-opus-5-5. Track B close seat, 2026-10-16, VERIFY-ONLY (0 product bytes): COHESION §0fm.5 · KF-W13.md ADDENDUM (k) · §0ev.2 (read now, load recorded) · §0fl.4 (`--light` with the reason disclosed counts as read). kf HEAD = origin `389e31d2` (⟨`git -C keyframes.js fetch && git rev-parse --short HEAD`; `… origin/master`⟩ → `389e31d2` · `389e31d2`); value.js HEAD `35b0b40e0` at open. Runs at the clean worktree `keyframes-wt-W13X-open4` (detached `389e31d2`, `git status --porcelain -uno` empty; `node_modules` symlinked, glass `10.1.0`); `test:demo` in the main tree (R3-4). Logs: `keyframes/evidence/W13X/close6/` (runners `run-close.sh`, `run-reread.sh`).
+- **`--light` reason (§0fl.4):** as RESUME 4's close — the kf roster launches chromium only (`scripts/lib/demo-driver.mjs:564`); one run at a time, serial; RESUME 3 measured heavy-queue starvation.
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS; not a close-seat path; untouched) + 2 untracked old letters. value.js: record, LEDGER, INBOX and `evidence/W13X/` clean at open (only Track A's ` M …/A/X-W12U.md` and older untracked evidence dirs of other waves). No inherited partial work.
+
+### Act 1 — commits and bounds
+
+| unit | kf commits → paths | value.js commits → paths | in grant? |
+|---|---|---|---|
+| open (seat 0) | none | `14bb06f9a` → record (+41) · LEDGER (row cell) · INBOX (+1 sweep line) · `evidence/W13X/open-r5/{run-a3.sh,a3-57fb241a-r1.log.txt,a3-57fb241a-r2.log.txt}` | YES |
+| `.a3o` | `389e31d2` → ⟨`git show --stat 389e31d2`⟩ `scripts/observe/demo/live-session-mobile.mjs \| 8 +++++++-` (1 file; the A3 block `:1151-1157`) | `35b0b40e0` → record (+29) · `evidence/W13X/a3o/**` (11 files) | YES (the §0fm.2 grant: the A3 block only; own receipt + `a3o/**`) |
+
+**Landed wrong: 0.** Byte re-measure at this seat: ⟨`git grep -n 'querySelectorAll(".controls-pane-wrapper")' 389e31d2 -- scripts/observe/demo/live-session-mobile.mjs`⟩ → `:1157`; ⟨`git grep -n '\[class\*=rail\]' 389e31d2 -- …/live-session-mobile.mjs`⟩ → `:1155` only, a comment naming the retired substring (no live selector); ⟨`git diff --stat 57fb241a 389e31d2`⟩ → `1 file changed, 7 insertions(+), 1 deletion(-)` (0 product bytes); ⟨`git grep -l rail-fill 389e31d2 -- demo | wc -l`⟩ → **7** (not renamed, §0fm.3); ⟨`git log --oneline 389e31d2..origin/master`⟩ → empty.
+
+### Act 2 — the gates, re-run by this seat at kf `389e31d2` (load beside each; §0ev.2)
+
+| gate | BEFORE (RESUME 5 baseline / RESUME 4 close) | AFTER (this seat, `close6/`) | result |
+|---|---|---|---|
+| kf ⟨`guarded --light -- npm run check`⟩ ×2 (worktree) | EXIT 0 ×2 (RESUME 4 close) | `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` · `EXIT=0` ×2 (07:02:20 load 16.9 · 07:02:38 load 15.9) | **GREEN ×2** |
+| kf ⟨`npm run lint`⟩ ×2 (worktree) | EXIT 0 ×2 (457/1661) | `✔ no dependency violations found (457 modules, 1661 dependencies cruised)` · `EXIT=0` ×2 (load 14.5 / 15.0) | **GREEN ×2** |
+| kf ⟨`npm run build`⟩ · ⟨`npm run gh-pages`⟩ (worktree) | GREEN | build `✓ built in 3.09s` `EXIT=0` · gh-pages `✓ built in 1.37s` `EXIT=0` | **GREEN** |
+| kf `test:demo` ⟨`guarded --light -- npx vitest run --project demo --maxWorkers=2`⟩ ×2, main tree (R3-4; X-DS's dirty `KeyframeTimeline.vue` in place, disclosed in each log header) | 155/941 ×2 | `Test Files 155 passed (155)` · `Tests 941 passed (941)` · `EXIT=0` ×2 (07:12:10 load 14.5 · 07:13:44 load 18.1) | **GREEN ×2** |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1`⟩ ×2 over the `389e31d2` gh-pages dist (worktree, after build) | RESUME 4 close: `passed 3/6` · `4/6`, ✗ B7 · M1 · **A3 ×2** | r1 (07:03–07:07, load 12.9→11.8): `passed: 4/6` · `✗ failed: live-session, live-session-mobile` · r2 (07:07–07:12, load 11.8→14.5): `passed: 3/6` · `✗ failed: smoke, live-session, live-session-mobile`. live-session: only `✗ B7 the glass ::before carry NO bloom at rest` (honest-RED SPECULAR-REST). live-session-mobile: only `✗ M1 sheet OPEN / SCROLL / RE-OPEN` (honest-RED SHEET-POSITION); **`✓ A3 appearance — ghost rail ABSENT on the home sweep: home (railless, wrapper null×null) + sequence (paned, …)` ×2**. smoke (r2 only): `✗ heavy chunks requested at first paint: …/vendor-three-nw0IrzH_.js` | **GREEN within the honest-RED set (B7 · SHEET-POSITION) — A3 RED ×2 → GREEN ×2** |
+| smoke §0ev.2 re-read ⟨`… run-demo-roster.mjs --workers=1 --only=smoke`⟩ ×2 | RESUME 4: 3 pass / 2 fail of 5 | re-read 1 (07:15:38, load 22.6) `passed: 1/1` `EXIT=0` · re-read 2 (07:15:44, load 21.6) `passed: 1/1` `EXIT=0` | **not RED by §0fa item 9 (passes on re-run); intermittent persists — residual R5-2** |
+| `.a3o` synthetic falsifier, re-run by this seat ⟨`close6/run-reread.sh`⟩ (reads the selector from the shipped oracle) | unit: trips/clears ×2 | `{"selector":".controls-pane-wrapper","before":{"ghostCol":false,…,"n":0},"injected":{"ghostCol":true,…,"n":1},"removed":{"ghostCol":false,…,"n":0},"verdict":"FALSIFIER-TRIPS-AND-CLEARS"}` `EXIT=0` (07:15:49, load 22.4) | **GREEN (×3 total with the unit's ×2)** |
+| A3 at `71480d85` under the new selector | — | cited from `.a3o` (`a3o/a3-oracle389e31d2-dist71480d85-r1.log.txt`, `✓ A3 …`); not re-run — the oracle and that dist are both byte-fixed | cited GREEN |
+| every row dispositioned (addendum (h)/(j)/(k)) | `.a3` ESCALATED | ESC-W13X-a3-1 RULED (§0fm) and cured by `.a3o`; `.r3res2e` KILLED-BY-DELETION (§0fl.1); `.r3res2f` kf half RE-HOMED to X-W11 (§0fl.2) | **GREEN — 0 OPEN** |
+
+### Act 3 — verification artefacts
+
+- Unit receipts: 1 of 1 under `## RESUME 5 — Unit receipts` (`### KF.W13X.a3o`), with the selector's emitted-class enumeration cited at `path:line` (`AnimationControlsGroup.css:50-51/:70-73/:241-242`, `ControlsPaneWrapper.vue:247-257`).
+- Evidence: ⟨`ls keyframes/evidence/W13X/a3o/ | wc -l`⟩ → 11 (runners, falsifier, A3 ×2 at HEAD + ×1 at `71480d85`, build, check, lint, falsifier ×2); `open-r5/` (runner + 2 A3 BEFORE logs); this seat's `close6/` (2 runners; check ×2, lint ×2, build, gh-pages, e2e ×2, test:demo ×2, smoke re-read ×2, falsifier re-run ×1).
+- Hygiene: ⟨`pgrep -fl 'keyframes-wt-W13X-open4|run-demo-roster|falsifier-a3o'`⟩ → empty; worktree `keyframes-wt-W13X-open4` ⟨`git status --porcelain`⟩ → empty (detached `389e31d2`); no dev server started; every run headless under `guarded`.
+
+### Act 4 — E13 mail sweep
+
+⟨`ls -t glass-ui/docs/tranches | head -1`⟩ → `BL`. ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ (INBOX mtime 06:49) → value `V/` 0 · `V/coordination` 0 · glass `BL/` 0 · `BL/coordination` 0 · `BK/coordination` 0 · keyframes `V/coordination` 0 · atlas `P/coordination` 0. ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → **0**. **0 UNREAD in scope.** A dated sweep line is appended to INBOX.
+
+### Residuals, with owners
+
+- **R5-1 · honest-RED, carried unchanged — B7 SPECULAR-REST (live-session) · SHEET-POSITION (live-session-mobile M1 OPEN/SCROLL/RE-OPEN) — owner: glass-ui (relayed; ADOPT-AT-LANDING).** Exactly the set addenda (i)/(j)/(k) name; nothing else is RED in the roster beyond R5-2.
+- **R5-2 · smoke `heavy chunks requested at first paint: vendor-three` — intermittent, 1 of 4 readings at this seat (r2), passing on both §0ev.2 re-reads — owner: the next X-DS/KF pass that touches the home boot path (R4-3 carried).** Not RED under §0fa item 9; recurrent across four sittings, so the check should weigh whether a load-flake reading still holds.
+- **R5-3 · relieved by ruling (carried from R4-2):** `.r3res2e` KILLED-BY-DELETION (§0fl.1); the `.r3res2f` kf half RE-HOMED BY ID to the X-W11 release repin (owner act: value.js 4.1.x publish).
+- **R5-4 · carried instruments:** R3-4 (worktree `test:demo` cannot load one glass subpath through a symlinked `node_modules`; read in the main tree); RESUME 3's `.r3res2d` residuals; X-DS's uncommitted `KeyframeTimeline.vue` (not this wave's, never touched).
+
+### Escalation from this seat
+
+None. ESC-W13X-a3-1 is RULED (§0fm) and discharged by `.a3o`.
+
+### Four-verb line
+
+**IMPLEMENTED: YES** (moved from NO). KF-W13.md §State holds IMPLEMENTED at NO "until the gates green"; addendum (k)'s gate set now reads GREEN at kf `389e31d2`: A3 RED ×2 → GREEN ×2 at HEAD and GREEN at `71480d85`, the synthetic falsifier trips/clears (×3), check · lint ×2 0, test:demo 155/941 ×2, kf e2e `--workers=1` ×2 RED only within the honest-RED set B7 · SHEET-POSITION, every row cured, re-homed by id, or relayed (0 OPEN). **VERIFIED: NO** — the spec designates the check (an audit seat) and a successor close, not this seat, to stamp it.
+
+### Commits (RESUME 5)
+
+kf: `389e31d2` (`.a3o`; pushed `57fb241a..389e31d2 → master`). value.js: `14bb06f9a` (open) · `35b0b40e0` (`.a3o` receipt + `a3o/**`) · this close (record + `close6/**` + INBOX sweep line + LEDGER), one pathspec commit.
+
+- **Self-count:** ⟨`sed -n '/^## RESUME 5 — Close/,$p' KF-W13X.md | grep -c '^- \*\*R5-'`⟩ → **4** residual rows (1 honest-RED carried, 1 intermittent, 1 relieved by ruling, 1 carried instruments); 1 kf wave commit; 0 landed wrong; 0 UNREAD.

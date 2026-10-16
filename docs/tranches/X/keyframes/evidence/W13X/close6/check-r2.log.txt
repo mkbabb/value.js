@@ -1,0 +1,13 @@
+# 2026-10-16 07:02:38 load: 15.91 17.08 20.22 dir: /Users/mkbabb/Programming/keyframes-wt-W13X-open4 head: 389e31d2 dirty: 
+
+> @mkbabb/keyframes.js@6.0.0 check
+> vue-tsc --noEmit -p tsconfig.json && vue-tsc --noEmit -p tsconfig.test.json && npm run proof:structure
+
+
+> @mkbabb/keyframes.js@6.0.0 proof:structure
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=0
+# end 07:02:56 load: 14.51 16.70 20.01
