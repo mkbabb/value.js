@@ -3953,3 +3953,28 @@ Rulings:
    - R-3: the CHANGELOG line for `.cust2` and `.ifsemi` is written in the product's CHANGELOG under Unreleased;
    - R-4: the untracked `evidence/W8/l-g1-r1/bootstrap-read-e-bytes.txt` is committed to its MANIFEST.
 6. **Order:** `.ifsemi`, then L-G1 by entry diff, then the close (verify-only), then the check. W8.md ADDENDUM (e) carries this ruling.
+
+## §0fh — 2026-10-15: X-W12U's open escalations RULED (ESC-W12Uq-1/-2/-3/-4, X-13-RUN, R-m-2, A2-VA-X-14, ESC-W12Uh-1); the wave re-opens as `.q2 → .k3 → .m3 → close`
+X-W12U ended NOT-CONFORMANT after 2 repairs (Check 6). Every HIGH waited on a ruling, and none existed. Ruled:
+1. **ESC-W12Uq-1 is GRANTED as unit `.q2`, the smoke triage.** Every failing test in `smoke --workers=1` is classified, one by one, into exactly one of three classes:
+   - **(a) stale oracle.** The product changed lawfully under a named unit or commit, so the oracle is re-baselined to it, citing that commit. Granted: the failing files under `e2e/smoke/**` and their goldens.
+   - **(b) value.js product regression.** It is cured at its root in `demo/**`, with the cure named and its falsifier going RED→GREEN.
+   - **(c) producer (glass).** The O-row is named; it becomes honest-RED and ADOPT-AT-LANDING.
+   - **Barred:** deleting a test, `.skip`/`.fixme`, or weakening an assertion beyond what the lawful product now does.
+   - **Output:** a classified table. The gate is then `smoke --workers=1` GREEN ×2 except the named (c) rows.
+2. **ESC-W12Uq-3:** each row's owner is the class `.q2` gives it: (b) is `.q2` itself, and (c) is the named O-row.
+3. **ESC-W12Uq-2:** §0ex is extended to every orphaned dirty path of a dead seat, whatever its mtime. `.q2` adopts `.q`'s seven orphan edits. It reads each diff, commits each correct one with its cause named, and corrects the rest forward. GREEN readings count only on committed bytes.
+4. **X-13-RUN is a DESIGN RULING.**
+   - **The defect:** at 360 px with a coarse pointer, the Tools face needs 346 px of seats in a 304 px run.
+   - **The cure:** every seat keeps ≥ 44 px. The seat set is the priority-ranked prefix that fits the run. The remainder moves to the face's existing menu surface, and no new component is built.
+   - **Priority** is the face's declared order. When it is undeclared, `.m3` declares it from usage: commit as the primary action, then the most-used.
+   - When glass O-85 DOCK-PRIORITY-OVERFLOW lands, it is adopted.
+   - Identity colour, type and motion are untouched (§0dm).
+5. **R-m-2, the H1 band:** the H1 takes the nearest existing type-scale rung that fits the measured band. No new rung, and the identity typeface stays. `.m3` cures it.
+6. **A2-VA-X-14 OVERLYING-HOST-UNBOUNDED-1440 is ROWED to `.k3`.** At desktop, an overlying pane owns its own bounded scroll container, as seated panes do, so its header condenses on that host's scroll. The probe keeps both arms: overlying with room, and seated.
+7. **The `.k2` probe settle race (C6-3)** is cured in `.k3`: the probe settles on the routed pane's own instance being active (present and not `isDeactivated`), never on census agreement alone. The served pair is then re-read ×2.
+8. **The quiet-window clause is SUPERSEDED** (addendum (f) "quiet reads", and addendum (e) WebKit 3×). Under §0ev.2, a functional read is taken now: up to 3 re-runs with load recorded, through `guarded --exclusive webkit` for WebKit. The machine law (§0fb, §0fd) replaces "quiet window". No read waits for a window.
+9. **ESC-W12Uq-4, guard starvation, is CURED by the orchestrator.** `guarded` admits first come, first served (tickets), and it has 5 slots, with the load, process and memory gates as the protection. Tested 2026-10-15.
+10. **ESC-W12Uh-1, the degraded :9000, is ROUTED and CURED by the orchestrator.** Vite on :9000 had been up 1 d 9 h at 3.7 GB RSS. Beside it were 3 stale `build:watch` trees (one 2 d 6 h old), a stale :9273 vite, and two surviving `dev.sh up` supervisors. All were stopped, and the stack was restarted. Docker had died under them.
+11. **The LEDGER cell** (C6-7) is refreshed by the next close seat.
+12. **Order:** `.q2 → .k3 → .m3 → close → check`. W12U.md ADDENDUM (g) carries this ruling.
