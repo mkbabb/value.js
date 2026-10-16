@@ -1,0 +1,413 @@
+{
+  "base": "http://localhost:9000",
+  "results": [
+    {
+      "cell": "view-menu-1440",
+      "theme": "light",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 488,
+        "y": 61,
+        "w": 192,
+        "h": 326
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 584,
+          "y": 224,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 546,
+          "y": 143,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 143,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        },
+        {
+          "x": 546,
+          "y": 322,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 322,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 2
+    },
+    {
+      "cell": "view-menu-1440",
+      "theme": "dark",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 488,
+        "y": 61,
+        "w": 192,
+        "h": 326
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 584,
+          "y": 224,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 546,
+          "y": 143,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 143,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        },
+        {
+          "x": 546,
+          "y": 322,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 322,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 2
+    },
+    {
+      "cell": "card-menu-1440",
+      "theme": "light",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 531,
+        "y": 362,
+        "w": 142,
+        "h": 211
+      },
+      "zContent": "auto",
+      "zWrapper": "auto",
+      "paintTopAll": false,
+      "points": [
+        {
+          "x": 602,
+          "y": 468,
+          "onFloater": false,
+          "top": "button.button.tap-squish.focus-ring"
+        },
+        {
+          "x": 573,
+          "y": 415,
+          "onFloater": false,
+          "top": "div."
+        },
+        {
+          "x": 630,
+          "y": 415,
+          "onFloater": false,
+          "top": "div."
+        },
+        {
+          "x": 573,
+          "y": 531,
+          "onFloater": false,
+          "top": "div.palette-card.group.rounded-card"
+        },
+        {
+          "x": 630,
+          "y": 531,
+          "onFloater": false,
+          "top": "div.palette-card.group.rounded-card"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "card-menu-1440",
+      "theme": "dark",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 531,
+        "y": 362,
+        "w": 142,
+        "h": 211
+      },
+      "zContent": "auto",
+      "zWrapper": "auto",
+      "paintTopAll": false,
+      "points": [
+        {
+          "x": 602,
+          "y": 468,
+          "onFloater": false,
+          "top": "button.button.tap-squish.focus-ring"
+        },
+        {
+          "x": 573,
+          "y": 415,
+          "onFloater": false,
+          "top": "div."
+        },
+        {
+          "x": 630,
+          "y": 415,
+          "onFloater": false,
+          "top": "div."
+        },
+        {
+          "x": 573,
+          "y": 531,
+          "onFloater": false,
+          "top": "div.palette-card.group.rounded-card"
+        },
+        {
+          "x": 630,
+          "y": 531,
+          "onFloater": false,
+          "top": "div.palette-card.group.rounded-card"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "overflow-menu-390",
+      "theme": "light",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 50,
+        "y": 69,
+        "w": 227,
+        "h": 270
+      },
+      "zContent": "auto",
+      "zWrapper": "auto",
+      "paintTopAll": false,
+      "points": [
+        {
+          "x": 163,
+          "y": 204,
+          "onFloater": false,
+          "top": "div.title-row.w-full.min-w-0"
+        },
+        {
+          "x": 118,
+          "y": 136,
+          "onFloater": false,
+          "top": "div.card-header.card-header--shrink.picker-header"
+        },
+        {
+          "x": 209,
+          "y": 136,
+          "onFloater": false,
+          "top": "div.card-header.card-header--shrink.picker-header"
+        },
+        {
+          "x": 118,
+          "y": 285,
+          "onFloater": false,
+          "top": "div.spectrum-picker.flex.w-full"
+        },
+        {
+          "x": 209,
+          "y": 285,
+          "onFloater": false,
+          "top": "div.spectrum-picker.flex.w-full"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "overflow-menu-390",
+      "theme": "dark",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 50,
+        "y": 69,
+        "w": 227,
+        "h": 270
+      },
+      "zContent": "auto",
+      "zWrapper": "auto",
+      "paintTopAll": false,
+      "points": [
+        {
+          "x": 163,
+          "y": 204,
+          "onFloater": false,
+          "top": "div.title-row.w-full.min-w-0"
+        },
+        {
+          "x": 118,
+          "y": 136,
+          "onFloater": false,
+          "top": "div.card-header.card-header--shrink.picker-header"
+        },
+        {
+          "x": 209,
+          "y": 136,
+          "onFloater": false,
+          "top": "div.card-header.card-header--shrink.picker-header"
+        },
+        {
+          "x": 118,
+          "y": 285,
+          "onFloater": false,
+          "top": "div.spectrum-picker.flex.w-full"
+        },
+        {
+          "x": 209,
+          "y": 285,
+          "onFloater": false,
+          "top": "div.spectrum-picker.flex.w-full"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "mix-select-1440",
+      "theme": "light",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 220,
+        "y": 214,
+        "w": 628,
+        "h": 384
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 534,
+          "y": 406,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 408,
+          "y": 310,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 660,
+          "y": 310,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        },
+        {
+          "x": 408,
+          "y": 521,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 660,
+          "y": 521,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 1
+    },
+    {
+      "cell": "mix-select-1440",
+      "theme": "dark",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 220,
+        "y": 214,
+        "w": 628,
+        "h": 384
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 534,
+          "y": 406,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 408,
+          "y": 310,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 660,
+          "y": 310,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        },
+        {
+          "x": 408,
+          "y": 521,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 660,
+          "y": 521,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 1
+    }
+  ]
+}

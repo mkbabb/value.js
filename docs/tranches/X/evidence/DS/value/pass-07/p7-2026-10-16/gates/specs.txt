@@ -1,0 +1,10 @@
+e2e/smoke/oracles/v7r-overlay-layer.spec.ts
+e2e/smoke/flows/palette-flag.spec.ts
+e2e/smoke/flows/palette-fork.spec.ts
+e2e/smoke/flows/palette-delete.spec.ts
+e2e/smoke/flows/palette-edit.spec.ts
+e2e/smoke/oracles/w7-inspector-rows.spec.ts
+e2e/smoke/oracles/w7-destructive-seats.spec.ts
+e2e/smoke/oracles/w7-mutation-visibility.spec.ts
+e2e/smoke/oracles/o18-contrast-census.spec.ts
+e2e/smoke/crash-battery.spec.ts
