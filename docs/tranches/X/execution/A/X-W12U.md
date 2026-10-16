@@ -1646,3 +1646,73 @@ W12U.md :4 "Blocks: X-W8"; LEDGER :42 X-W8 `planned` (W8.md :6 names X-W5/W6/W7;
 IMPLEMENTED is not stamped (Close 2 did not stamp it; Repair 3 did not); the row stays **PARTIAL**, moved lawfully (PARTIAL → RESUME 2 → PARTIAL at Close 2 → Check 4 → Repair 3 → this check).
 
 **Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 2 HIGH · 2 MEDIUM · 2 MINOR · 1 INFO). Repair 3 holds where it acted: C4-3 cured (served GREEN ×2 reproduced here), C4-6 cured (routing landed upstream: `npm test` now reads only the standing 7), C4-2's relay limb cured. Gates reproduced by this seat: 11 (typecheck ×2 · lint ×2 · `.k2` static ×2 · L1-18 · served k2+x2 ×2 · `npm test` r1 = standing 7 · bounds · masking 0 · families · E-3 · E13). Failed or unmet: smoke `--workers=1` (banked RED, unrelieved), WebKit 3× (owed), `npm test` r2 (not admitted; RED by relief only).
+
+## Repair 4 (repair round 2 on Check 5, 2026-10-15)
+
+SERVED MODEL: claude-opus-5-5. Track A repair seat, HEAD at open `1777b8911` (the Check 5 commit). The task names the register "Check 2" and asks for "Repair 2". The record already holds Check 1–5 and Repair 1–3, so this section takes the next free number, Repair 4, following Check 5's own numbering. Spec `W12U.md` read whole (96 lines, addenda (a)–(f)). Record read: Repair 3 and Check 5.
+
+**Crash recovery.** ⟨`git status --porcelain -- demo e2e/smoke docs/tranches/X/waves/W12U-evidence docs/tranches/X/execution docs/tranches/X/relay docs/tranches/V/coordination`⟩ shows:
+- The paths Check 5 already named: `.q`'s seven ESC-W12Uq-2 orphans, X-DS and KF paths, and `s/results/final/probe-share-dark.txt`. None of these was touched.
+- Seven untracked `W12U-evidence/close2/x2-r3r{1,2,3,4,5,7,8}.json` (mtimes 10-15 19:33–20:14). These are Repair 3's served-x2 outputs, inherited from this unit's predecessor seat. Their bytes were read and they are committed here as evidence, unchanged.
+
+**Host, for the owner's question ("why did the computer crash again").**
+- ⟨`uptime`⟩ → up 6 days 2:03, load 9.29 / 12.76 / 16.68, falling to 8.26 / 10.03 / 14.01. ⟨`memory_pressure`⟩ → free 68 %. ⟨`sysctl vm.swapusage`⟩ → 8785 of 10240 MB (86 %). ⟨`last -4`⟩ → console session live since 10-15 11:42.
+- ⟨`ls -t /Library/Logs/DiagnosticReports | head`⟩ → only `.diag` resource reports (spotlightknowledged 19:11, rsync 19:08, mysqld 18:53). There is no panic and no WindowServer report.
+- ⟨`ls -t ~/Library/Logs/DiagnosticReports | head`⟩ → the newest are Firefox `plugin-container` at 19:25 and `node` at 18:55 (other sessions' automation). The newest WebKit report is `WebContent.Development` at 10-14 12:42.
+- Since Check 5 there has been no new crash. The one session loss on record is still 10-14 13:24: the WindowServer `abort()` after the Playwright WebKit WebContent storm (ESC-W12Uq-4). It was not a kernel panic and not an OOM. The host is still in the pre-crash signature: swap 86 % and Firefox and node automation crashing in other sessions.
+- **Other sessions told:** ⟨`ListAgents`⟩ → peers gaggle, hassio-config, dns-analysis, glass-ui-2c and sci-report. The one WebKit producer counterparty, `glass-ui-2c`, received the host note in the C5-6 send below: WebKit runs only under `guarded --exclusive webkit`. No message went to the root session, because §0ag says a message to root aborts in-flight seats.
+
+### C5-6 (MINOR): O-74e delivered live. CURED
+- **Cure (E13 outbound, the spec's route at §1: "a dated O-74 addendum plus the live glass session"):** ⟨`ListAgents`⟩ → one glass session, `glass-ui-2c` (busy). One `SendMessage` carried O-74e L24-1 DOCK-PILL-SHORT-HEIGHT whole: the measure, the consumer half landed at `foundation.css:541-552`, the cause, the ask, and the reply request. Result: `success: true`, msg `154eca51-9f8a-49f2-9dad-376a48c8d9ad`. INBOX row O-74e changes from `WRITTEN — AWAITING DELIVERY (orchestrator relays)` to `SENT 2026-10-15 live to glass-ui-2c (msg 154eca51); awaiting glass mirror + reply`, and a delivery line is appended. 0 bytes were written in the glass tree. **Commit `3da356e3a`.**
+- **Re-reading ×2:** ⟨`git show HEAD:docs/tranches/V/coordination/INBOX.md | grep -c 154eca51`⟩ → 2 · 2. The glass mirror (`BK/coordination`) is glass's act. It is not this seat's to write.
+- **INBOX working-copy hazard (found while measuring, repaired losslessly):**
+  - At 21:03:48 the working `INBOX.md` was truncated to 5 lines, while HEAD had 624. This was the orchestrator's `f55da8882` append, and its 4 new lines were written as the whole file.
+  - ⟨`while read l; do grep -qxF "$l" <HEAD copy>; done`⟩ → `missing=0`: every working line was already in HEAD.
+  - The working copy was rewritten from `git show HEAD:…` (lossless). After that, ⟨`git status --porcelain -- INBOX.md`⟩ → clean and `wc -l` → 624.
+  - Without this repair, the next pathspec commit of INBOX by any seat would have deleted the ledger.
+
+### C5-5 (MINOR): the overlying condense-with-room branch has no live surface. ESCALATED with the measurement
+- **Attempted cure 1, re-aim the arm.** Check 5's cure was to aim the overlying arm at an overlying pane with room at 1440. The probe was temporarily extended to read every `PaneShell` route that looked overlying (`/admin/users`, `/palettes`, `/browse`). ⟨`guarded --light -- node k2/probe-k2-rows.mjs 1440 900 dark`⟩ → `r4/k2-1440-dark-a.txt`:
+  - `/palettes` read `host:false · room 427`, and `/browse` read `host:false · room 0`. Both are **seated**: `PalettesPane.vue:2` and `BrowsePane.vue:2` carry `<PaneShell seated …>` since X-DS. So the two new arms were mis-aimed, and the probe edit was reverted (my own bytes, never committed).
+  - Of the ten `PaneShell` consumers, ⟨`grep -rl '<PaneShell' demo`⟩, only `AdminPane` and `NotFoundPane` are overlying.
+- **Attempted cure 2, seed `/admin/users` rows.** ⟨`guarded --light -- node r4/diag-admin-room.mjs 1440 900`⟩ ×2 → `{"title":"Users 47","host":true,"hostSH":3177,"hostCH":3177,"scrollers":[],"docSH":3299}` · the same (`r4/diag-admin-room-1440{,-b}.txt`).
+  - The 47-user seed (`x/seed-x.mjs:7`) is already there.
+  - At 1440 the overlying `.card-scroll-host` is not height-bounded, so it grows to its content (3177 = 3177), and the **document** scrolls instead (docSH 3299 over 900).
+  - No seed can give the host room. The `<CardHeader shrink>` condense is bound to the host's scroll, so on desktop it can never fire on the one overlying route that has content.
+- **Why escalated, not cured:** the cure is a layout ruling at the shell level, not a probe re-aim. Either bound the overlying owner at desktop, so that `AdminPane` scrolls in its own host the way the seated ports do (`/mix` room 426), or rule that the document is the desktop scroller and the overlying header condenses on document scroll. That is a `.k`/`.m`-class product decision on `PaneShell` (X-DS also writes `PaneShell`, in pass 7 `9c72466ad`). It is not a one-command repair, and a probe arm that passes vacuously would mask it.
+- **Proposed new row:** **A2-VA-X-14 (MINOR) OVERLYING-HOST-UNBOUNDED-1440**, falsifier `r4/diag-admin-room.mjs`. It goes to the next `.k`/`.m` sitting. The k2 probe is unchanged at `59a98f1c1`, with `/admin/users` as the honest no-room arm.
+- **Gate effect:** the temporary run read `RED 2 (of 41)`. Its 2 REDs are exactly the two mis-aimed seated arms. All 38 original checks read GREEN in that run, `/admin/users overlying` included. With the probe bytes reverted, nothing this seat committed moves the served k2/x2 gate, and Check 5's banked reading stands: `GREEN 38/38` + `GREEN 3/3` ×2.
+
+### C5-1 (HIGH), C5-2 (HIGH), C5-4 (MEDIUM): ESCALATED, no in-bounds cure
+- ⟨`grep -n 'ESC-W12Uq\|X-13-RUN\|R-m-2' docs/tranches/X/COHESION.md | wc -l`⟩ ×2 → 0 · 0 at 21:07. Nothing has been ruled since Check 5.
+- **C5-1:** the cure needs the orchestrator's ESC-W12Uq-1 ruling (an oracle re-baseline unit, or a grant for the ~30 listed non-`w12u-*` oracle files) and an owner for each ESC-W12Uq-3 row. §1 grants this seat only new `w12u-*` specs.
+- **C5-2:** the cure needs the owner's rulings on X-13-RUN (which seats the 360 coarse Tools face shows) and on R-m-2 (the H1 band). Both are consumer design choices with no O-row.
+- **C5-4:** the seven `.q` orphans are decided by the ESC-W12Uq-1 ruling. They were left untouched.
+
+### C5-3 (MEDIUM): ESCALATED to the owner's quiet window
+The 1-minute load fell to 8.3 during this sitting. But the 5- and 15-minute loads read 10.0 and 14.0, swap held at 86 %, and the only session loss on record is the WebKit WebContent storm. Check 5's cure names "the owner's quiet window" under `guarded --exclusive webkit` (the flag is confirmed present: ⟨`guarded --help`⟩ → `--exclusive NAME`). The owner has not banked a quiet window, so this seat did not start three WebKit runs on a host in the pre-crash signature.
+
+### C5-7 (INFO): carried
+The guard's queue fairness belongs to the owner. ESC-W12Uh-1 (`:9000` degraded) is for the orchestrator to route. At this sitting ⟨`curl -w '%{time_total}' localhost:9000/`⟩ → `200 0.009 s`, so `:9000` was healthy.
+
+### Gate re-reading (only the gates a cure could move)
+| gate | Check 5 | this seat | verdict |
+|---|---|---|---|
+| E13 | 0 UNREAD; O-74e awaiting delivery | ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ ×2 → 0 · 0. O-74e SENT (msg `154eca51`) | **GREEN** |
+| served k2 + x2 (§3) | GREEN ×2 | no committed byte of this seat touches the probe, `demo/**` or `e2e/**`. Banked | **GREEN ×2 (banked, Check 5)** |
+| typecheck / lint / `npm test` | 0 ×2 / 0 ×2 / standing 7 | not moved: no `demo/**`, `src/**`, `test/**` or `e2e/**` byte | banked |
+| smoke `--workers=1` | RED | not run (C5-1) | **RED** |
+| WebKit 3× (e) | 1 of 3 | not run (C5-3) | **PARTIAL** |
+
+### Repair commits
+- `3da356e3a`: the O-74e delivery row and line in INBOX (C5-6).
+- The evidence + record commit that carries this section: `r4/` (the C5-5 diagnostic ×2 and the temporary probe reading) and the seven inherited `close2/x2-r3r*.json`.
+
+### Verdict
+Cured: **C5-6** (O-74e delivered live, `3da356e3a`). Escalated with measured reasons:
+- **C5-5:** the overlying host is unbounded at 1440. No live overlying surface has room, so the re-aim was impossible. Proposed row A2-VA-X-14.
+- **C5-1, C5-2, C5-4:** owner and orchestrator rulings, 0 in COHESION.
+- **C5-3:** the owner's quiet window.
+- **C5-7:** owner and orchestrator.
+
+The §3 bar is still unmet (smoke RED, WebKit 3×), so the row stays **PARTIAL**. IMPLEMENTED is not stamped.
