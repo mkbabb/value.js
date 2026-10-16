@@ -1,0 +1,126 @@
+{
+ "paper-light-1440": {
+  "rest": {
+   "n": 13,
+   "hovered": 0,
+   "leaf": {
+    "text": "0.1.Introduction",
+    "rowBg": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 290,
+    "chevronInside": false,
+    "hover": false
+   }
+  },
+  "hover": {
+   "n": 13,
+   "hovered": 1,
+   "leaf": {
+    "text": "0.1.Introduction",
+    "rowBg": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 290,
+    "chevronInside": false,
+    "hover": false
+   },
+   "hoverRow": {
+    "text": "2.Lens I: Linear Algebra",
+    "rowBg": "oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 260,
+    "chevronInside": true,
+    "hover": true
+   }
+  },
+  "left": {
+   "n": 13,
+   "hovered": 0,
+   "leaf": {
+    "text": "0.1.Introduction",
+    "rowBg": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 290,
+    "chevronInside": false,
+    "hover": false
+   }
+  }
+ },
+ "equation-light-390": {
+  "load": {
+   "plateRadius": "50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%",
+   "plateW": 370,
+   "shellRadius": "9999px"
+  },
+  "late": {
+   "plateRadius": "50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%",
+   "plateW": 370,
+   "shellRadius": "9999px"
+  }
+ },
+ "paper-dark-1440": {
+  "rest": {
+   "n": 13,
+   "hovered": 0,
+   "leaf": {
+    "text": "0.1.Introduction",
+    "rowBg": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 290,
+    "chevronInside": false,
+    "hover": false
+   }
+  },
+  "hover": {
+   "n": 13,
+   "hovered": 1,
+   "leaf": {
+    "text": "0.1.Introduction",
+    "rowBg": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 290,
+    "chevronInside": false,
+    "hover": false
+   },
+   "hoverRow": {
+    "text": "2.Lens I: Linear Algebra",
+    "rowBg": "oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 260,
+    "chevronInside": true,
+    "hover": true
+   }
+  },
+  "left": {
+   "n": 13,
+   "hovered": 0,
+   "leaf": {
+    "text": "0.1.Introduction",
+    "rowBg": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "linkBg": "rgba(0, 0, 0, 0)",
+    "rowW": 290,
+    "linkW": 290,
+    "chevronInside": false,
+    "hover": false
+   }
+  }
+ },
+ "equation-dark-390": {
+  "load": {
+   "plateRadius": "50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%",
+   "plateW": 370,
+   "shellRadius": "9999px"
+  },
+  "late": {
+   "plateRadius": "50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%",
+   "plateW": 370,
+   "shellRadius": "9999px"
+  }
+ }
+}
