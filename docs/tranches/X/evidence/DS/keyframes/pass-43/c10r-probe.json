@@ -1,0 +1,67 @@
+{
+  "cells": {
+    "square-1440-light": {},
+    "spring-1440-light": {
+      "axis": [
+        "0",
+        "time · 26 stops",
+        "2000 ms"
+      ]
+    },
+    "sequence-1440-light": {},
+    "easing-1440-light": {
+      "selectLabels": [
+        "Easing",
+        "Custom"
+      ]
+    },
+    "square-390-light": {},
+    "spring-390-light": {
+      "axis": [
+        "0",
+        "time · 26 stops",
+        "2000 ms"
+      ]
+    },
+    "sequence-390-light": {},
+    "easing-390-light": {
+      "selectLabels": [
+        "Easing",
+        "All",
+        "Custom"
+      ]
+    },
+    "square-1440-dark": {},
+    "spring-1440-dark": {
+      "axis": [
+        "0",
+        "time · 26 stops",
+        "2000 ms"
+      ]
+    },
+    "sequence-1440-dark": {},
+    "easing-1440-dark": {
+      "selectLabels": [
+        "Easing",
+        "Custom"
+      ]
+    },
+    "square-390-dark": {},
+    "spring-390-dark": {
+      "axis": [
+        "0",
+        "time · 26 stops",
+        "2000 ms"
+      ]
+    },
+    "sequence-390-dark": {},
+    "easing-390-dark": {
+      "selectLabels": [
+        "Easing",
+        "All",
+        "Custom"
+      ]
+    }
+  },
+  "fails": []
+}
