@@ -1244,3 +1244,33 @@ This is the cure seat for critic **F4X** (the redeploy's pass-4 critic, 2026-10-
 - `v-hover-*-1440` (pointer at 230,640);
 - `paper-*` at 1440 and 390;
 - each in light and dark.
+
+### pass 5
+This is the cure seat for critic **F5X** (the redeploy's pass-5 critic, 2026-10-16). The BEFORE is the critic's cells (`equation-*-390`, `dock-equation-late`, `toc-hover`), which the critic did not commit; the earlier sets under `pass-05/` (`critic-f7`, `f5`, `f7`) are left as they were.
+- fourier `52a68a0`, on `m/w1-bump-migration`, one file (`web/src/components/paper/PaperTocTree.vue`), committed by pathspec and pushed fast-forward `9c82849..52a68a0`. The push also carried `6b46ef1`, another seat's F.REL commit that was local on the branch.
+- value.js (this commit) holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-05/f5x/`.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F5X-C1 | Tokens before instances. The selected leaf's plate moves from an ad-hoc `color-mix(--muted 40%)` to glass's `--fill-selected` (0.12) on `--foreground`. Hover now paints the **row**, `.toc-row:has(> .toc-link:not([aria-current]):hover)`, on `--fill-hover` (0.05), and the link's own quiet-Button hover fill is set transparent. Both states share the row's shape, with the chevron inside, and the row carries glass's engage transition. No shadow or weight step was added. **Measured** (`f5x-probe.json`, 1440, both themes): the leaf row's alpha is 0.12 and the hovered row's ("2. Lens I") is 0.05, both 290px wide with the chevron inside; the link fill is transparent; the fill clears when the pointer leaves. Frames: `toc-hover-*-1440`, `paper-*-1440`. |
+| DS-F5X-T1 | The probe parks the pointer at (0,0) before navigating and throws unless no `.toc-link` matches `:hover` at rest. Measured: 0 hovered in both themes (`rest.hovered`). |
+
+**Glass-owned, cited, not overridden.** fourier sets no `.dock-plate` radius and no `--mouse-x`/`--mouse-y`.
+- **DS-F5X-G1** (the /equation 390 dock plate is an ellipse inside the pill). Re-measured: `.dock-plate` border-radius is `50% calc(49.0385% + 0.307692px) calc(49.0385% + 0.307692px) 50%` at load and still after 8 s idle, at a plate width of 370px; the `.app-dock` shell is `9999px`. This is a new witness on **O-88 DOCK-COLLAPSE-MOTION**: the morph must settle the plate on `--radius-pill`, including on the always-expanded first mount, with a born-RED witness at 390 on a 370px dock. It is held honest-RED until the 10.2.0 repin. Frames: `equation-*-390`, `dock-equation-late`.
+- **DS-F5X-G2** (the centred hover specular on the /paper ToC aside, `.glass-floating::before`). Folded into **DS-F4X-G1** under **O-87 FLAT-LIGHTING** as a second site, with no new row; re-judged at the 10.2.0 repin. It is visible in `toc-hover-*-1440`.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f5x/census-after.json`). Still RED on the glass rows, and unchanged by this cure.
+- Static: 7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, 212 backdrop blur, 0 control gradients, 0 looping animations. These equal pass 4 F4X's read exactly.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice. `vitest run --maxWorkers=2`: 116/116 (20 files), twice (under `guarded --light`).
+- **e2e: GREEN ×2.** The five specs that read the ToC (`e2e-specs.txt`: `f-w14-uia`, `f-w14u-paper`, `f-w14u-misc`, `f-w14-residuals`, `f-w14u-t`) ran headless on chromium plus mobile-chromium with 1 worker against `:3100`. Run A: 92/92 passed. Run B: 92/92 passed.
+- **No visual golden was re-baselined**; `web/e2e/` was left clean after both runs.
+
+**Frames** (`pass-05/f5x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f5x-probe.mjs` against `:3100`:
+- `paper-*-1440` (at rest) and `toc-hover-*-1440` (pointer on a non-selected row);
+- `equation-*-390` and `dock-equation-late` (light, after 8 s idle);
+- each in light and dark.
