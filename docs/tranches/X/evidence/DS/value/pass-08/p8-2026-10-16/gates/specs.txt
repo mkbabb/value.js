@@ -1,0 +1,8 @@
+e2e/smoke/oracles/o7-card-census.spec.ts
+e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+e2e/smoke/oracles/o18-contrast-census.spec.ts
+e2e/smoke/oracles/o21-space-catalog-truth.spec.ts
+e2e/smoke/oracles/o22-specimen-legibility.spec.ts
+e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts
+e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts
+e2e/smoke/flows/palette-save.spec.ts
