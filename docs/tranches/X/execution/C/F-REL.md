@@ -1522,3 +1522,46 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-15 ~20:00–21:3
 **Adjacent edits** (§0bt): `.gitignore:94` `+!tests/fixtures/*.png` — the blanket `*.png` ignore (`.gitignore:91`) refused the fixture (⟨`git check-ignore -v`⟩ → `.gitignore:91:*.png`); the negation follows the file's own `!assets/**/*.png` / `!docs/**/*.png` idiom. It is a different hunk from `.mem2`'s granted `!scripts/export-birefnet-lite.py` (near L58-68); `.gitignore` was clean before and after.
 
 **Residuals:** none for this unit. F.CT3 takes this test as its merge-forward base (§0ff ruling 3). **Escalations:** none. **Status: DONE.**
+
+### F-REL.mem2 — landing seat (RESUME 2026-10-15 (c))
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-15 23:36 – 2026-10-16 ~04:10 local. Spec: COHESION §0ey (L3800-3807), §0ex, §0ff ruling 2 (L3927); F-REL.md addenda (b) L45-46 and (c) L48-54; this record's RESUME (c) Unit plan row.
+
+**Crash recovery.**
+- ⟨`git status --porcelain` (fourier)⟩, read against the writable set → ` M .gitignore` · ` M api/Dockerfile` · ` M scripts/model-smoke.sh` · ` M src/fourier_analysis/contours/ml.py` · `?? bench/contours/memory.py` · `?? tests/test_contour_ml_memory.py`, plus `scripts/export-birefnet-lite.py` (present, hidden by `.gitignore:58 scripts/*` until the negation). The `.mem3` commit `6b46ef1` was local, `[ahead 1]`.
+- **Inherited from a killed predecessor landing seat** (it died in the 21:37 kernel panic, §0fi): `.gitignore` (mtime Oct 15 21:32) carries exactly the granted line `+!scripts/export-birefnet-lite.py` at L66, beside the other tracked scripts. The predecessor also left `~/.fourier-frel/mem2/cur.patch` (⟨`diff cur.patch frel-mem2-wip.patch`⟩ → identical) and a stale `heavy.lock` (`F-REL.mem2 landing smoke1 … pid 78875`; ⟨`ps -p 78875`⟩ → no process). Its gates log held only `== smoke1 start 21:34:53`, so no reading was banked, and every gate was re-run here.
+- **The five `.mem2` paths were read whole and checked against §0ey route (a):**
+  - `ml.py`: `BIREFNET_LITE` is `birefnet-lite-512` at `input_size=512`, URL `…/releases/download/models-2026-10/birefnet-lite-512.onnx`, sha256 `6dd4c52c…1793`.
+  - `_open_session` turns the arena and the memory pattern off. The subject sessions are opened per run and released.
+  - `scripts/export-birefnet-lite.py` pins torch 2.5.1 in its PEP 723 inline metadata only. ⟨`grep -n torch pyproject.toml`⟩ → nothing, so torch is used at export time only.
+  - `api/Dockerfile` sets `MALLOC_ARENA_MAX=1`. `model-smoke.sh` runs under the compose memory cap with 7 portraits on fresh threads.
+  - `bench/contours/memory.py` and `tests/test_contour_ml_memory.py` are new (5 tests).
+  - Bytes: ⟨`git diff` of the 4 tracked paths vs `frel-mem2-wip.patch`⟩ differs only by the `.gitignore` hunk. ⟨`cmp`⟩ of the 3 untracked files vs the `wip-*` copies → identical.
+  - Everything conforms, so it is adopted unchanged. Untouched: `.worktrees/f-ct3`, the X-DS `web/src` paths, and value.js `scripts/dev/dev.sh`.
+
+**Lock and guard.** The stale lock was taken over by the chain `~/.fourier-frel/mem2l/chain.sh` at 23:38:53. The chain takes the lock only when the holder's pid is dead, touches it every 20 s and releases it at its end. Every step ran through `~/.claude/guard/guarded` with `COMPUTE_CONCURRENCY=1` and `VIRTUAL_ENV`/`FOURIER_MODEL_DIR` unset. Logs: `~/.dev-logs/frel/mem2l-{chain,smoke1,smoke2,gmem1,gmem2,giou1,giou2,tests1,tests2,api1,api2,apiR1,apiR2}.log`. The guard FIFO held several steps for 20–45 min behind other seats' heavy runs (all five slots busy). Waits are recorded and do not affect the readings.
+
+**Gates on the combined bytes** (the tree = `6b46ef1` (`.mem3`) + the X-DS web-only `52a68a0` + the five `.mem2` paths + the negation):
+
+| Gate | BEFORE (Baseline, RESUME (c)) | AFTER (this seat) |
+|---|---|---|
+| G-mem2: 2G container smoke ×2 | RED at HEAD; banked 1490 MB on the uncommitted bytes | ⟨`guarded -- env IMAGE=fourier-backend:model-smoke-mem2l scripts/model-smoke.sh`⟩ (the build fetched and sha-verified the release asset into `/opt/fourier-models`) → hardening `--read-only --tmpfs=/tmp --cap-drop=ALL --security-opt=no-new-privileges:true --memory=2147483648 --memory-swap=2147483648 --network=none`; 7/7 portraits (NES-ROB 47 · cauchy 85 · chef 93 · daraksha 66 · euler 92 · human 50 · joseph-fourier 57 contours); `cgroup memory.peak: 1460 MB of 2048 MB`, `model-smoke: PASS`, rc 0. Run 2 (`SKIP_BUILD=1`) → 7/7 with the same counts, `1405 MB of 2048 MB`, PASS, rc 0. **GREEN ×2** |
+| G-mem: peak RSS ≤ 1.6 GB ×2 | RED at HEAD; banked 1412 / 1502 MB | ⟨`guarded -- docker run --rm --network=none -v assets:ro -v ~/.fourier-samples <built image> … bench.contours.memory --tag mem2l-linux-<i> --no-masks`⟩ → `peak 1432.8 MB (bar 1638) failures 0 pass True` · `peak 1457.1 MB … pass True`. ⟨`json` over `memory.json`⟩ → 134 rows each; the largest extraction is 1263.6 / 1306.2 MB; server sweep peak 1432.8 / 1457.1 MB. sha256 (first 16): `9a1c856730a54c9e` · `227989b3fab8266e`. **GREEN ×2** |
+| G-iou: mean ≥ 0.97, min ≥ 0.93 ×2 | RED at HEAD; banked 0.9864 / 0.9444 | ⟨`guarded -- env FOURIER_MODEL_DIR=~/.fourier-frel/mem2/models … bench.contours.memory --tag mem2l-512-<i> --stages --no-server && … --iou mem-before mem2l-512-<i>`⟩ → `subject {'mean': 0.9864, 'min': 0.9444} pass True` both times (ensemble 0.982 / 0.9075 before the parsers). ⟨`a['rows'] == b['rows']`⟩ → `True` over 19 rows. **GREEN ×2** |
+| pytest `tests/` ×2 (with `.mem3`) | banked 1 failed / 175 (the person-cut test) | ⟨`guarded -- uv run --no-sync pytest tests/ -q -p no:cacheprovider`⟩ → `176 passed in 255.88s` · `176 passed in 278.33s`. **GREEN ×2** (the `.mem3` re-premise holds on the landed `.mem2`) |
+| api pytest ×2 | banked 344 ×2 | First pair: `13 failed, 331 passed` ×2, all of them `pymongo.errors.OperationFailure: available disk space of 242348032 bytes is less than required minimum of 524288000 (OutOfDiskSpace)`. This is the environment, not the code: the shared `value-js-dev-mongo` on `:27017` sat on a full Docker VM disk (⟨`docker exec value-js-dev-mongo df -h /data/db`⟩ → `59G 56G 209M 100%`). Cure: I removed this unit's own two smoke images (`fourier-backend:model-smoke-mem2`, `…-mem2l`) and ran ⟨`docker builder prune -f --filter until=24h`⟩ → `3.746GB` reclaimed; then `/data/db` read `4.0G` free. Re-run ⟨same command⟩ → `344 passed in 62.07s` · `344 passed in 57.11s`. **GREEN ×2** |
+
+**Commit and push** (fourier, `m/w1-bump-migration`):
+- ⟨`git fetch` + `git pull --ff-only`⟩ fast-forwarded to `6f2748e`. The X-DS lane had already pushed `52a68a0` and `6f2748e`, both web-only (`PaperTocTree.vue`, `GalleryCard.vue`; ⟨`git diff --stat 52a68a0 HEAD`⟩ → 1 web file). Those pushes carried `.mem3`'s `6b46ef1` to origin before `.mem2`, so the "pushed together" lock was pre-empted by a sibling lane's push. This seat never pushed `6b46ef1` alone. Both commits now sit in one contiguous push window on origin, and no reading depends on the order.
+- One atomic pathspec commit adopts the uncommitted `.mem2` cure by name ("adopts the uncommitted .mem2 cure of 2026-10-13 … and the orphaned hunk of 2026-10-09"): **`e89b032`** `fix(contours · F.REL .mem2): the extraction fits the API's 2G — …`, 7 files, +745/−34. The paths are `.gitignore`, `api/Dockerfile`, `bench/contours/memory.py`, `scripts/export-birefnet-lite.py`, `scripts/model-smoke.sh`, `src/fourier_analysis/contours/ml.py` and `tests/test_contour_ml_memory.py`. ⟨`git diff --cached --name-only`⟩ before the commit listed exactly those 7.
+- ⟨`git fetch` + `git pull --ff-only`⟩ → up to date. ⟨`git push origin m/w1-bump-migration`⟩ → `52a68a0..e89b032`, no force. ⟨`git status -sb`⟩ → in sync with origin.
+
+**CI.** `ci.yml` runs on push only for `master`, so the run was dispatched: ⟨`gh workflow run CI --ref m/w1-bump-migration`⟩ → run `38868934803`, headSha `e89b032`. ⟨`gh run view 38868934803 --json jobs`⟩ → `api/tests (with live Mongo) success` · `web (vue-tsc + vite build) success` · `production compose boot + health success` · `e2e (Playwright, …)` still in progress at this receipt. **CI api ✓.** The e2e reading of this run belongs to `.w` (w-2, the latency rows re-read after `.mem2` lands).
+
+**Adjacent edits:** none beyond the writable set. The `.gitignore` line is the granted negation (§0ff ruling 1).
+
+**Residuals:**
+- R-mem2l-1: the push order of `6b46ef1` was pre-empted by the X-DS lane's push of `52a68a0` (see above). It is a record fact, not a defect.
+- R-mem2l-2: the shared Docker VM disk is near full (52 of 59 GB after the prune). It starves the shared dev Mongo, and other seats' images make up most of it. This is named for the owner/`.vb`/`.g` seats and is not this unit's to prune further.
+
+**Escalations:** none. **Status: DONE.** Next: `.w` (re-sit).
