@@ -861,3 +861,46 @@ The relaunched workflow dispatched this seat as "pass 9" with critic P9R's 9 row
 - `PaletteInspector`'s `cssColor` prop is now read by nothing (it fed only the slug's first-colour ink). Hosts still pass it, and two of them, `ExtractWorkbench.vue` among them, carry other seats' hunks. Retiring it is a small host sweep for the seat that owns those files.
 - Judge the empty well's row-as-command at 390. Judge the "by \<author\>" line against the tag chips' register.
 - The glass rows wait on O-87 / O-88. The open owner rulings are unchanged.
+
+### pass 10 (2026-10-16): critic V10 — one interior-rule voice, the Extract stat's column edge, the inspector's dead prop
+
+The relaunched workflow dispatched this seat as "pass 10" with critic V10's 4 rows. Evidence is in `pass-10/`.
+
+**Commits.** value.js `a5383d50c` (the cure) and `f982aca30` (frames, probe, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-10/`) |
+|---|---|---|---|
+| V10-01 (low) | **Cured at the root, glass first.** | One interior-rule voice, which is glass's seam. Gradient's three section `<hr>`s become glass `<Separator decorative />`. Every other in-card rule paints glass's seam ink through a new `border-seam` utility: `foundation.css` `@theme` `--color-seam` = foreground at `var(--ink-seam)`. That is a pure consume of glass's token, not an override, and no wrapper was added. The rules it covers: Mix's footer, the card's slug-row and swatch-row rules (`PaletteCardSwatches.vue`), the Config footer (`ConfigSliderPane.vue` `.config-action-bar`, was `--border` at 35 %, on Atmosphere and Blob), and the two admin panel rules (`AdminFlaggedPanel.vue`, was `border-border/50`; `AdminUsersPanel.vue`, was `border-border`). `--card-edge` stays the **perimeter** hairline, and the Gradient code paper now takes it (`GradientCodeEditor.vue`, was `border-border/40`). | `probe-v10.json`. Light: Gradient's 3 separators, the Atmosphere and Blob footers, Mix's footer and the card's slug-row rule all compute `oklab(0.216 … / 0.08)`, the same as the About card's 6 glass Separators on Home (`picker-1440-*`). Dark: all of them compute `oklab(0.925 … / 0.08)`. The code paper computes `/ 0.12` (perimeter). Gradient renders 0 `<hr>`. Frames `gradient-rule-*`, `atmosphere-rule-*`, `blob-rule-*`, `mix-rule-*`, `browse-expanded-1440-*`. |
+| V10-T1 (trivial) | **Cured.** | `ExtractWorkbench.vue`: the stat wrapper drops its `px-1`. The file carries another seat's uncommitted hunks, so only this seat's lines were staged (index blob = HEAD + this change). | `extract-loaded-1440-*`: stat x 224 = "Colors" x 224 = "Chroma weight" x 224. At 390: 33 = 33 = 33. `paddingLeft` 0. |
+| V10-T2 (trivial) | **Cured, by deletion.** | `PaletteInspector`'s dead `cssColor` prop is removed, along with its three host bindings (`BrowsePane.vue`, `PalettesPane.vue`, `ExtractWorkbench.vue`, the last hunk-staged). `BrowsePane`'s now-unused `CSS_COLOR_KEY` inject goes too. `ExtractWorkbench` keeps its inject, because `ExtractControls` still reads it. No behaviour change. | Type-check 0 ×2. |
+| V10-G1 (low) | **Glass-owned: cited, not overridden.** | The floater material, the dock fold and its 390 plate, the hero bead, the title-field rim and the wide-select pill are standing rows, already relayed (O-87 FLAT-LIGHTING: V7R-02, V8C-03, V8C-04, P4R-02, P4R-03, P9R-G1, P9R-G3; O-88 DOCK-COLLAPSE-MOTION: P9R-G2, P5C-01). There is no new ask and no local shim. They stay honest-RED until the 10.2.0 repin. | Census overlay `floaterMaxLayers` 8 (glass). |
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).**
+  - Routes: max 6 layers, inset highlights 368, drop-shadow 8, gradient fills on controls 22.
+  - Overlays: floater max layers 8.
+  - These are glass rows, and the counts move with route state (pass 9 read 339 and 17; pass 8 read 367 and 22), so this pass claims nothing about them.
+- **Consumer:**
+  - Computed: 0 multi-layer, 0 inset highlights, 0 drop-shadows, 0 control gradients, looping 0.
+  - Static: 17 box-shadow declarations, unchanged.
+- Overlay paint-top failures: 0.
+
+**Frames.** Headless real Chrome (§0ei), on :9000, served by `vite --port 9000` with `VITE_API_URL` set same-origin (the e2e webServer's env).
+- A first capture ran without that variable. The app's dev-misconfigured banner showed and Browse could not load, so every cell was re-captured on the corrected server. Only the corrected set is committed.
+- The server serves the working tree, so other seats' uncommitted hunks show in the frames.
+- 36/36 route frames.
+- 8 opened-overlay frames.
+- 16 V10 probe cells.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2, with the **same 7** standing failures (diffed against pass 9: ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6). None is in this diff.
+- **e2e** (headless, workers 1, own server :9190). **A strict ×2 GREEN.**
+  - smoke: pass 9's 12 specs plus `views/mix.spec.ts` and `scene-action-contract.spec.ts`, 65/65 ×2.
+  - smoke-admin: `admin-populated.spec.ts`, 3/3 ×2.
+- No visual golden was re-baselined.
+
+**For the next critic.**
+- Judge whether the seat-weight rules (0.08) now read too faint against the cream card in light at 390, where the Gradient sections sit close together.
+- The `--card-edge` perimeter set: card outline, wells, code paper, the easing rows and the stop rail's inset ring.
+- The glass rows wait on O-87 / O-88.
