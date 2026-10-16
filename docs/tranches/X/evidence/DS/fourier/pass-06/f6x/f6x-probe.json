@@ -1,0 +1,1718 @@
+{
+ "visualize-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nVisuali",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.2)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.configurator-stage.relative.min-h-0.min-w-0",
+   "txt": "Draw any outline in circ",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "Choose an image",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(0px) saturate(1.605)",
+   "bg": null,
+   "an": null
+  }
+ ],
+ "equation-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nEquatio",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.2)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.configurator-stage.relative.min-h-0.min-w-0",
+   "txt": "Σ\nSigma notation (compac",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track.eq-toggle",
+   "txt": "Σ\nSigma notation (compac",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) 0px 1px 2px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule.glass-drag-grabbable",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.07) 0px 1px 2px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.glass-dock.horizontal.shape-pill.expanded",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(0px) saturate(1.2)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-range.glass-liquid-fill",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px -1px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "aside.configurator-aside.flex.min-h-0.min-w-0",
+   "txt": "Function\nf(t)\nExpression",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.w-full.fira-code",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.w-20.text-center",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.w-20.text-center",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "Compute",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(0px) saturate(1.605)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Square wave",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Sawtooth",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Triangle",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "|sin(x)|",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "x(π−x)",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Gaussian",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Step",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "x²",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Auto",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(7.07071% + 5.15152px), color(srgb 0.11 0",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(100% - 6px), color(srgb 0.11 0.098 0.09 ",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "sin\n⁡\nsin\nTrig",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "𝑒\n𝑖\ne\ni\nExp",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "𝐴\n𝑒\nAe\nPolar",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  }
+ ],
+ "morph-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nMorph\nL",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.2)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.glass-resting.morph-button",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "Export",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.config-card",
+   "txt": "Settle Out\n\nShape degrad",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.68759 0.136247 0.0725575 / 0.775) 0px, oklab(0.68759 0.136247 0.0725575 / 0.775) calc(13.3333% + 4.4px), color(srgb 0.11 0.098",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "txt": "Linear",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.config-card",
+   "txt": "Morph\n\nCross-fade at low",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.715267 0.139266 -0.0133231 / 0.775) 0px, oklab(0.715267 0.139266 -0.0133231 / 0.775) calc(0% + 6px), color(srgb 0.11 0.098 0.0",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "txt": "Linear",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.config-card",
+   "txt": "Settle In\n\nResolves to f",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.68759 0.136247 0.0725575 / 0.775) 0px, oklab(0.68759 0.136247 0.0725575 / 0.775) calc(13.3333% + 4.4px), color(srgb 0.11 0.098",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "txt": "Linear",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.20397 0.148263 0.0829736 / 0.1), color(srgb 0.20397 0.148263 0.0829736 / 0.1)), linear-gradient(color(srgb 0.994 0.96 0.926 / 0.15)",
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.levels-card",
+   "txt": "Harmonic Levels\nLow\nHigh",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(8.33333% + 5px), color(srgb 0.11 0.098 0",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.28 0.0167833 0.0248661 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.691138 0.12331 0.0739592 / 0.775) 0px, oklab(0.691138 0.12331 0.0739592 / 0.775) calc(100% - 6px), color(srgb 0.11 0.098 0.09 ",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.grid-cell",
+   "txt": "n=50",
+   "bs": "color(srgb 0.859497 0.139733 0.139504 / 0.15) 0px 0px 0px 2px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  }
+ ],
+ "gallery-light-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.11 0.098 0.09 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nGallery",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.2)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.search-field-input",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nplush-eve",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nstark-cat",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nwoven-sta",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nember-pul",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  }
+ ],
+ "visualize-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nVisuali",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.3) brightness(1.14)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.configurator-stage.relative.min-h-0.min-w-0",
+   "txt": "Draw any outline in circ",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "Choose an image",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(0px) saturate(1.8)",
+   "bg": null,
+   "an": null
+  }
+ ],
+ "equation-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nEquatio",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.3) brightness(1.14)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.configurator-stage.relative.min-h-0.min-w-0",
+   "txt": "Σ\nSigma notation (compac",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.segmented-tabs.segmented-tabs--pill.glass-capsule-track.eq-toggle",
+   "txt": "Σ\nSigma notation (compac",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.11) 0px 1px 2px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.segmented-indicator.segmented-indicator--js.glass-capsule.glass-drag-grabbable",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.11) 0px 1px 2px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.glass-dock.horizontal.shape-pill.expanded",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(0px) saturate(1.3) brightness(1.14)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-range.glass-liquid-fill",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.04) -0.75px 2px 8px -1px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "aside.configurator-aside.flex.min-h-0.min-w-0",
+   "txt": "Function\nf(t)\nExpression",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -4px, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(20px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.w-full.fira-code",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.w-20.text-center",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.w-20.text-center",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "Compute",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(0px) saturate(1.8)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Square wave",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Sawtooth",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Triangle",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "|sin(x)|",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "x(π−x)",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Gaussian",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Step",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "x²",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "Auto",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) calc(7.07071% + 5.15152px), color(srgb 0.",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) calc(100% - 6px), color(srgb 0.978993 0.9",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "sin\n⁡\nsin\nTrig",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "𝑒\n𝑖\ne\ni\nExp",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "button.toggle-group__item.control-surface.glass-control-edge.glass-capsule-hover",
+   "txt": "𝐴\n𝑒\nAe\nPolar",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  }
+ ],
+ "morph-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nMorph\nL",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.3) brightness(1.14)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.glass-resting.morph-button",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.glass-capsule",
+   "txt": "Export",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 8px 24px 0px, color(srgb 0.914 0.9 0.886 / 0.05) 0px 0px 0px 0.5px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.config-card",
+   "txt": "Settle Out\n\nShape degrad",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.523409 0.108925 0.0476926 / 0.775) 0px, oklab(0.523409 0.108925 0.0476926 / 0.775) calc(13.3333% + 4.4px), color(srgb 0.978993",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "txt": "Linear",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.config-card",
+   "txt": "Morph\n\nCross-fade at low",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.551086 0.0936279 -0.00646001 / 0.775) 0px, oklab(0.551086 0.0936279 -0.00646001 / 0.775) calc(0% + 6px), color(srgb 0.978993 0",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "txt": "Linear",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.config-card",
+   "txt": "Settle In\n\nResolves to f",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.523409 0.108925 0.0476926 / 0.775) 0px, oklab(0.523409 0.108925 0.0476926 / 0.775) calc(13.3333% + 4.4px), color(srgb 0.978993",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.control-surface.glass-control-edge.glass-capsule-hover.h-(--control-h-md)",
+   "txt": "Linear",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": "linear-gradient(color(srgb 0.0927547 0.0503523 0.00879371 / 0.14), color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)), linear-gradient(color(srgb 0.2074 0.16501",
+   "an": null
+  },
+  {
+   "el": "div.glass-resting.card.levels-card",
+   "txt": "Harmonic Levels\nLow\nHigh",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) calc(8.33333% + 5px), color(srgb 0.978993",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.fira-code.number-field__input.field-control.glass-control-edge",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "span.slider-track.track-well",
+   "txt": "",
+   "bs": "oklab(0.34 0.0115033 0.0277069 / 0.16) 0px 1px 0px 0px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, oklab(0.558183 0.0955875 0.0526017 / 0.775) 0px, oklab(0.558183 0.0955875 0.0526017 / 0.775) calc(100% - 6px), color(srgb 0.978993 0.9",
+   "an": null
+  },
+  {
+   "el": "span.slider-thumb.glass-specular-track",
+   "txt": "",
+   "bs": "color(srgb 0.914 0.9 0.886 / 0.06) 0px 2px 8px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.button.tap-squish.focus-ring.grid-cell",
+   "txt": "n=50",
+   "bs": "color(srgb 0.877849 0.362313 0.362194 / 0.15) 0px 0px 0px 2px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  }
+ ],
+ "gallery-dark-1440": [
+  {
+   "el": "div.paper-grid.fixed.inset-0.-z-10",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": "linear-gradient(to right, color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0, 0) 1px), linear-gradient(color(srgb 0.914 0.9 0.886 / 0.128) 1px, rgba(0, 0, 0,",
+   "an": null
+  },
+  {
+   "el": "div.app-dock.glass-dock.horizontal.shape-pill",
+   "txt": "ℱourier analysis\nGallery",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.14) 0px 0px 20px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.dock-plate",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": null,
+   "bf": "blur(16px) saturate(1.3) brightness(1.14)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "button.dock-icon-button.glass-specular-track.glass-capsule-hover.sun-moon-toggle",
+   "txt": "",
+   "bs": null,
+   "ts": null,
+   "f": "brightness(1)",
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "input.field-control.glass-control-edge.search-field-input",
+   "txt": "",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "ts": null,
+   "f": null,
+   "bf": "blur(14px) saturate(1.5)",
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nplush-eve",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nstark-cat",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nwoven-sta",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "article.glass-resting.card.gallery-card.deferred-section",
+   "txt": "e2e-seed:f-w14\nember-pul",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.914 0.9 0.886 / 0.12) 0px 4px 20px 0px, color(srgb 0.914 0.9 0.886 / 0.08) 0px 4px 16px 0px",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  },
+  {
+   "el": "div.badge-atom.justify-center.rounded-badge.whitespace-nowrap",
+   "txt": "ℱ\nEpicycles",
+   "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.48) 0px 0px 0px 1px inset",
+   "ts": null,
+   "f": null,
+   "bf": null,
+   "bg": null,
+   "an": null
+  }
+ ]
+}

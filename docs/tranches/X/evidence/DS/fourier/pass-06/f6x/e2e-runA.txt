@@ -1,0 +1,73 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 49 tests using 1 worker
+
+[1/49] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 light › grid, filters, modal, drafts
+[2/49] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 light › grid, filters, modal, drafts
+[3/49] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 dark › grid, filters, modal, drafts
+[4/49] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 dark › grid, filters, modal, drafts
+[5/49] [chromium] › e2e/f-w14u-gallery.spec.ts:128:5 › g39 UIA-F-39 — search, tier and basis narrow on the server › each control's value reaches GET /api/visualizations and the grid follows
+[6/49] [chromium] › e2e/f-w14u-gallery.spec.ts:176:5 › g46 UIA-F-46 — Like is a toggle, and it persists › press → liked (+1), press → unliked (−1), press → liked; a reload keeps it
+[7/49] [chromium] › e2e/f-w14u-gallery.spec.ts:221:5 › g96 UIA-F-96 — Open Visualizer opens the saved entity › the CTA routes to /v/<visualization slug>
+[8/49] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (1440) › Escape and an outside press close it; the press opens nothing behind
+[9/49] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (390) › Escape and an outside press close it; the press opens nothing behind
+[10/49] [chromium] › e2e/f-w14u-gallery.spec.ts:268:5 › g98 UIA-F-98 ⊕ g186 UIA-F-186 — the card is glass Card; tier, focus and selection separate › radius --radius-card, no role=button div, no offset stamp; tier rim ≠ focus ink, elevation kept
+[11/49] [chromium] › e2e/f-w14u-gallery.spec.ts:304:5 › g99 UIA-F-99 ⊕ g187 UIA-F-187 — the title leads; one basis vocabulary › card and dialog show the title; names come from it; filter and badge share labels
+[12/49] [chromium] › e2e/f-w14u-gallery.spec.ts:332:5 › g184 UIA-F-184 — one clear control, a query-aware empty state, Skeleton loading › the native cancel is withdrawn; a nomatch names the query and clears; loading is skeletons
+[13/49] [chromium] › e2e/f-w14u-gallery.spec.ts:373:5 › g185 UIA-F-185 — the drawer's Selects keep the producer's sizing › no consumer h-8 / rounded-lg / border override; the drawer is glass's plate
+[14/49] [chromium] › e2e/f-w14u-gallery.spec.ts:388:5 › g188 UIA-F-188 ⊕ g247 UIA-F-247 — the modal's controls are glass's; gallery micro-issues › tier is one 3-state ToggleGroup; the CTA is primary; no consumer rim; no chatter; no bounce
+[15/49] [chromium] › e2e/f-w14u-gallery.spec.ts:429:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › glass Card at --radius-card; no My Drafts disclosure; a Draft badge; a link opens /w/<slug>
+[16/49] [chromium] › e2e/f-w14u-gallery.spec.ts:458:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › the empty Drafts state has its action
+[17/49] [chromium] › e2e/f-w14u-gallery.spec.ts:470:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › the publishing row is busy, the others live; no-contour is disabled with a reason; the toast names the piece
+[18/49] [chromium] › e2e/f-w14u-gallery.spec.ts:496:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › logging out keeps the local drafts listed (one rule)
+[19/49] [chromium] › e2e/f-w14u-gallery.spec.ts:519:5 › g248 UIA-F-248 — a draft card's hover is visible › hovering a draft changes its paint
+[20/49] [chromium] › e2e/f-w14v-au4.spec.ts:82:5 › L1-9 — the three destructive confirms are one ConfirmDialog › gallery, users and flagged confirms mount shared/ConfirmDialog.vue
+[21/49] [chromium] › e2e/f-w14v-au4.spec.ts:107:5 › L1-10 — TierMark reads the tier, TierControl sets it, the store mutates it › card, modal and flagged row share the readout; card and modal share the setter
+[22/49] [chromium] › e2e/f-w14v-au4.spec.ts:133:5 › L1-10 — TierMark reads the tier, TierControl sets it, the store mutates it › the flagged Keep speaks through the gallery store's setTier (the fork is gone)
+[23/49] [chromium] › e2e/f-w14v-au4.spec.ts:146:5 › L1-27 — users and flagged on glass DataTable, one pager, admin-row.css retired › users and flagged are DataTables; users and audit share one Pager; the toolbar is its own file
+[24/49] [chromium] › e2e/f-w14v-au4.spec.ts:175:13 › L2-9 — the card modal is inset @ 360 › gutters ≥ --space-section (light)
+[25/49] [chromium] › e2e/f-w14v-au4.spec.ts:175:13 › L2-9 — the card modal is inset @ 360 › gutters ≥ --space-section (dark)
+[26/49] [chromium] › e2e/f-w14v-au4.spec.ts:175:13 › L2-9 — the card modal is inset @ 390 › gutters ≥ --space-section (light)
+[27/49] [chromium] › e2e/f-w14v-au4.spec.ts:175:13 › L2-9 — the card modal is inset @ 390 › gutters ≥ --space-section (dark)
+[28/49] [chromium] › e2e/f-w14v-au4.spec.ts:175:13 › L2-9 — the card modal is inset @ 430 › gutters ≥ --space-section (light)
+[29/49] [chromium] › e2e/f-w14v-au4.spec.ts:175:13 › L2-9 — the card modal is inset @ 430 › gutters ≥ --space-section (dark)
+[30/49] [chromium] › e2e/f-w14v-au4.spec.ts:203:5 › L2-10 — admin checkboxes are ≥ 44 px on touch › user rows and gallery cards
+[31/49] [chromium] › e2e/f-w14v-au4.spec.ts:223:9 › L2-11 — the audit ledger fits @ 360 › card-per-row projection, no sideways pan
+[32/49] [chromium] › e2e/f-w14v-au4.spec.ts:223:9 › L2-11 — the audit ledger fits @ 390 › card-per-row projection, no sideways pan
+[33/49] [chromium] › e2e/f-w14v-au4.spec.ts:223:9 › L2-11 — the audit ledger fits @ 430 › card-per-row projection, no sideways pan
+[34/49] [chromium] › e2e/f-w14v-au4.spec.ts:258:9 › L3-1 — the users toolbar @ 1440 light › search, sort and the overflow share one row
+[35/49] [chromium] › e2e/f-w14v-au4.spec.ts:258:9 › L3-1 — the users toolbar @ 1440 dark › search, sort and the overflow share one row
+[36/49] [chromium] › e2e/f-w14v-au4.spec.ts:275:9 › L3-2 — the flagged actions @ 390 light › no action runs past the row
+[37/49] [chromium] › e2e/f-w14v-au4.spec.ts:275:9 › L3-2 — the flagged actions @ 390 dark › no action runs past the row
+[38/49] [chromium] › e2e/f-w14v-au4.spec.ts:294:9 › L3-3 — the gallery chrome light › 1440: tabs and search share one row; 390: tabs then search, no count row
+[39/49] [chromium] › e2e/f-w14v-au4.spec.ts:294:9 › L3-3 — the gallery chrome dark › 1440: tabs and search share one row; 390: tabs then search, no count row
+[40/49] [chromium] › e2e/f-w14v-au4.spec.ts:318:9 › L3-4 — the phone gallery @ 390 light › the grid shows two columns
+[41/49] [chromium] › e2e/f-w14v-au4.spec.ts:318:9 › L3-4 — the phone gallery @ 390 dark › the grid shows two columns
+[42/49] [chromium] › e2e/f-w14v-au4.spec.ts:333:5 › X-8 — the audit log's filters, header and chips @ 1440 › filters sized to their tokens, IP hash one line, chips carry one destructive signal
+[43/49] [chromium] › e2e/gallery.spec.ts:56:5 › Gallery UX › gallery page renders with tabs and search bar
+[44/49] [chromium] › e2e/gallery.spec.ts:84:5 › Gallery UX › switching to drafts tab shows drafts section
+[45/49] [chromium] › e2e/gallery.spec.ts:101:5 › Gallery UX › search bar filter drawer toggles
+[46/49] [chromium] › e2e/gallery.spec.ts:126:5 › Gallery UX › login form shows the format placeholder and dice button
+[47/49] [chromium] › e2e/gallery.spec.ts:151:5 › Gallery UX › a gallery card opens its modal and the modal names itself
+[48/49] [chromium] › e2e/gallery.spec.ts:180:5 › Gallery UX › no console errors OR warnings on gallery page
+[49/49] [chromium] › e2e/gallery.spec.ts:226:5 › Visualizer overlay dock › visualizer surfaces its overlay control dock
+  49 passed (1.7m)
