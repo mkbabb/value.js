@@ -2419,3 +2419,95 @@ Re-run at baseline only the gates the owed units turn (`.g2s`: scratch-entry/eag
 | `X.W12U.g2d` | opus | ADDENDUM (h) `.g2d` :117-120; COHESION §0fr.1 (`.g2d`, the bar), §0fr.2 (O-5 GPU witness + its cure); record Repair 5 C7-1/C7-3 (`r1c7/eager-attrib.mjs`, `o5-probe.mjs`) | `demo/**` (never an X-DS dirty path); `docs/tranches/X/waves/W12U-evidence/g2d/**` (the audit table, the GPU witness probe, readings); record (own receipt) | eager-graph audit table: every eager module either needed before first paint or moved lazy at its root, each move named with its gz bytes (×2, from settled builds); G2 measured eager total ×2 ≤ 307,200 B gz; O-5 on the GPU witness ×2 GREEN (if RED: the atmosphere and hero canvases take first draw at idle after first paint, a product act, never a test change); routes still render their features (no cut); typecheck/lint 0 ×2 | each lazy move at its ROOT import (no wrapper module, KISS); one commit per meaning; never edits the G2 bar constant (the close seat writes the settled bar) |
 
 ## RESUME 4 — Unit receipts
+
+### X.W12U.g2s
+
+SERVED MODEL: claude-opus-5-5 · 2026-10-16 · HEAD at open `be50b240c` (docs-only since the RESUME 4 baseline `34abc09b3`; ⟨`git diff --stat 34abc09b3 HEAD -- src demo package.json vite.config.ts`⟩ → empty) · **status ESCALATED (ESC-W12U-g2s-1)**: the specified cure (2b) is built and correct, but the gate it serves cannot turn at the bytes, because a 7th eager importer of `./css` sits in glass-ui (READ-ONLY). No product commit was made; the cure is banked as a patch.
+
+**Crash recovery.** ⟨`git status --porcelain -- src test CHANGELOG.md demo/color-session docs/tranches/X/waves/W12U-evidence/g2s docs/tranches/X/execution/A/X-W12U.md package.json`⟩ → empty. Nothing was inherited.
+
+**Act 1: the scratch entry, measured first (×2).** `g2s/scratch-entry.mjs` bundles a module that imports ONLY `parseCssColor`/`serializeCssColor` from a built tree's subpath. It uses vite/rolldown (the demo's bundler, minified, tree-shaken) and sits beside a module that re-exports the whole `./css`. The tree is a detached worktree of `be50b240c` under `~/.dev-logs/w12u-g2s/tree` (APFS-cloned `node_modules`, `npm run build`, guarded).
+- ⟨`node g2s/scratch-entry.mjs <tree> css <out>`⟩ ×2 → `g2s/scratch-before.txt`, identical both runs:
+  - `entry(css) raw=253597 gz=35838 stylesheet/value-rules-present=[valueTop,ruleList,atKeyframes,declaration,timingFunction]`
+  - `full raw=282494 gz=42868 [same five]`
+- **Verdict: INSEPARABLE, not shakeable-but-unshaken.** The colour-only bundle keeps 88 % of the whole `./css` bytes and every stylesheet and value rule. The cause is the shape of the emitted module:
+  - `src/css/bbnf/generated/grammar.js` is ONE closure, `createParser(A)`, whose return object references every rule (`:3663`).
+  - Its prologue requires every `ACTION_KINDS` action in the table (`:13`), so the action table is the full one too.
+  - `parseCssColor` calls `parser.entries.colorTop` from that closure (`index.ts`, `load.ts`).
+  - No `sideEffects` flag or `/*#__PURE__*/` annotation can separate rules inside one used closure, so branch (2a) has no defect to cure.
+- Emitter probe (pinned emitter `bbnf-lang-x-p-w7-typescript` `f0059db14`, the one `bench/records/W8cust/gen-pinned.mjs` pins; the installed devDependency 0.1.4 has no `bbnf` bin):
+  - `css.bbnf --entries colorTop` emits 183 rules, the same as the full emit (rules are not pruned per entry; 109,851 / 15,042 B minified).
+  - A `color.bbnf` root with `{...mathActions, ...colorActions}` emits 72 rules, 39,446 / 6,151 B.
+  - The full table against `color.bbnf` refuses: `bbnf: emit: action for unknown rule \`numeric\``.
+  - So (2b) is the lawful branch.
+
+**Act 2: cure (2b) built as specified (working tree only; banked as `g2s/cure-2b.patch`, 21 files, `git apply`-able on `be50b240c`).**
+- **Grammar.** One rule moves and no rule is copied: `colorTop = sp >> color << sp ;` goes from `value.bbnf` to `color.bbnf`, which `value.bbnf` already imports. `color.bbnf` is compiled as a root of its own, with entry `colorTop`, into `src/css/bbnf/generated/color.{js,d.ts}` (sha256 `0872a62d…`). `css.bbnf` is re-emitted with `colorTop` dropped from its entries (sha256 `fbcf5c8d…`). ⟨`node g2s/gen-pinned-g2s.mjs --check`⟩ ×2 → both `current`.
+- **Entry.** `src/css/bbnf/color-actions.ts` holds `{...mathActions, ...colorActions}` (the same action objects). `src/css/bbnf/color-parse.ts` holds the ONE `parseCssColor`, over `createParser(actions).entries.colorTop`. `bbnf/index.ts` re-exports it, so `/css` is unchanged.
+- **Subpath.** `src/subpaths/color.ts` adds `parseCssColor`, `serializeCssColor` and the PSL-2 types `CssColor`, `CssColorSpace`, `ParseIssue`, `ParseResult`. They are forwarded at the subpath, not through `../color/index`, because `css/bbnf/color.ts` imports that barrel and a barrel re-export would make a cycle. ⟨`grep -c '_2\b' dist/subpaths/{color,css}.d.ts`⟩ → 0 / 0.
+- **Importers.** The 6 importers (`picker-color` `generate-color` `view-accent` `palettes-ramp` `format-color` `ink`) are moved to `@mkbabb/value.js/color`. ⟨`grep -l value.js/css demo/color-session/*.ts`⟩ → none.
+- **Tests.**
+  - `test/css/color-entry.test.ts` (5 tests):
+    - every emitted colour rule is defined in `color`/`math`/`tokens.bbnf`;
+    - no rule is defined twice across `src/css/grammar/*.bbnf`;
+    - the action kinds equal `css.bbnf`'s;
+    - no value or stylesheet rule is carried;
+    - `./color` and `./css` export the identical function objects;
+    - round-trips work.
+  - `test/v4-c1.test.ts:473` adds the 2 new `./color` names.
+- **Changelog.** A CHANGELOG Unreleased line is written in the patch. Its "35,830" figure is provisional and must be re-read on landing.
+- **Adjacent (§0bt), in the patch:**
+  - `scripts/gen-grammar.mjs`: two TARGETS, the same concern, so that `--check` covers the second emitted module;
+  - `test/v4-c1.test.ts:473`: the surface oracle names the 2 new exports.
+- **Gate readings on the cure (working tree, informational, since nothing was committed):**
+
+| gate | reading |
+|---|---|
+| typecheck 4 programs | ⟨`guarded --light -- npm run -s typecheck`⟩ rc=0 |
+| lint | ⟨`npm run -s lint`⟩ rc=0 |
+| `npm test` | ⟨`guarded -- npx vitest run --maxWorkers=2`⟩ → `Tests 7 failed \| 1219 passed (1226)`; the 7 are exactly the standing set (ink D6 ×2 · T-35 ×3 · spectrum-luma C-5 · reka-binding NG-6) |
+| E-6 | ⟨`npx esbuild --minify --loader=js < generated/grammar.js \| wc -c / gzip \| wc -c`⟩ → `112616 / 15619` (≤ 125,646 / 15,650); the colour module is `39446 / 6147` |
+| MIRROR | ⟨`guarded -- npm run -s test:css-equivalence -- --maxWorkers=2`⟩ → `Tests 19 passed (19)`, `MIRROR-DEFECTS [1-9]` 0 (27 × `MIRROR-DEFECTS 0`) |
+| V-C | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ → `TOTAL 6267 2369 3898 0 0 0 0 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` |
+
+These were ×1 each; ×2 is owed at landing.
+- **Scratch entry on the cure (×2, `g2s/scratch-after-cure-2b.txt`, identical):**
+  - `entry(color) raw=100351 gz=17675 rules-present=[]`
+  - `entry(css) raw=100349 gz=17675 rules-present=[]` (`./css`'s `parseCssColor` now shakes too)
+  - `full raw=350336 gz=49821`: the whole `./css` now carries both parsers, +6,953 gz over 42,868.
+
+**Act 3: the gate, read on a worktree build of `be50b240c` + `cure-2b.patch`.** Steps: `npm run build`, then `vite build --mode gh-pages --sourcemap hidden`, then ⟨`node r1c7/eager-attrib.mjs dist/gh-pages`⟩ ×2 → `g2s/cure-2b-attrib-r{1,2}.txt` (`cmp` identical).
+
+| reading | baseline (`open4/attrib-r1.txt`) | with cure (2b) |
+|---|---|---|
+| eager JS total gz | 331,628 (raw 1,095,664) | **338,560** (raw 1,133,354), **+6,932** |
+| `other:subpaths/css.js` | 33,221 gz / 150,993 raw | 53,507 gz (pro rata) / 130,078 raw |
+| `other:serialize-*.js` (the new colour chunk) | — | 15,836 gz / 58,472 raw |
+
+The `./css` share does **not** fall. The whole stylesheet grammar is still in the eager `index-*.js`: ⟨`grep -c atKeyframes|ruleList|timingFunction index-*.js`⟩ → 1 each, and `colorTop` 0. The colour grammar now rides beside it.
+
+**Root cause, measured.** The eager `index-*.js` sourcemap lists `../../subpaths/css.js` together with `node_modules/@mkbabb/glass-ui/dist/value-DMhh2R94.js`. That glass module's line 1 is `import { parseCssColor as t } from "@mkbabb/value.js/css"`, and glass `color.js:1` and `aurora.js:6` import it eagerly. A minimal reproduction is in `g2s/chunk-exp/` (`RESULTS.txt`):
+- An eager `import { parseCssColor } from css.js`, with a lazy chunk using `parseTimingFunction`, puts the whole grammar in the EAGER chunk: `index` 191,508 / 39,138, `atKeyframes:true`.
+- The same import taken from `color.js` leaves the grammar LAZY: `index` 61,785 / 16,345, `atKeyframes:false`; `lazy` 129,569 / 23,156.
+- Chunk placement is per module. `dist/subpaths/css.js` carries the grammar's own statements, so ANY eager `./css` importer, even for a name `css.js` only re-exports, keeps the grammar eager.
+- A re-export-only facade does not have this effect (synthetic `facade/` case: the heavy module stays lazy).
+
+The other demo `./css` importers (gradient, extract, markdown, palettes export/search) are not in the eager map. Glass `easing.js` (`parseTimingFunction`) is in the lazy `GradientPane-*.js`. So the eager `./css` edge left after the 6 moves is glass's alone.
+
+**ESC-W12U-g2s-1 (HIGH, orchestrator).** The specified cure is lawful and complete as authored: one root, the same BBNF grammar, no hand parser, and E-6, MIRROR, V-C, typecheck, lint and `npm test` all hold. But its gate ("the eager css share falls from 33,221") cannot turn at these bytes. Landing it alone would raise G2 by +6,932 gz, because the colour grammar would be eager twice. Per METHOD, nothing is substituted. Measured arms:
+- **(a) Producer row.** glass `value-*.js` (`composables/color/value`) and `accent-tone-solve` take `parseCssColor`/`serializeCssColor` from `@mkbabb/value.js/color`. This needs (2b) published, then glass cut and repinned. With the 6 moves plus glass's, the reexport/variant shape is the expected outcome (grammar lazy). Not reachable inside X-W12U.
+- **(b) Library emission.** The production lib build emits `dist/subpaths/css.js` as a re-export facade, with the grammar in its own chunk, so an eager `./css` import of a colour name stops pinning the grammar (the `facade/` measurement). This is `vite.config.ts` `build.rolldownOptions`, outside both §0fr.1 roots and this unit's bounds, and it would need a grant. A first scratch try (a `codeSplitting` group over `src/css/**`) captured the colour modules too, via recursive dependencies, and left the eager total at 338,138. It was reverted and is not a solution yet.
+- **(c)** Hold `.g2s` and let `.g2d` and the §0fr.1 bar absorb the residual. The cure patch stays banked for when (a) or (b) lands.
+
+**Residuals.**
+- `g2s/cure-2b.patch` is UNLANDED. Its CHANGELOG figure must be re-measured on landing.
+- The whole `./css` grows by +6,953 gz for consumers of every `./css` name (keyframes `engine`). L-G1 would read the changed `css.js` entry bytes on landing.
+- `scripts/gen-grammar.mjs` cannot run with the installed `@mkbabb/bbnf-lang@0.1.4` (no bin). This predates the unit; `bench/records/W8cust/gen-pinned.mjs` is the standing workaround.
+
+**Teardown.**
+- ⟨`git worktree list | grep -c w12u-g2s`⟩ → 0.
+- Product paths restored to HEAD (own paths only): ⟨`git status --porcelain -- src test CHANGELOG.md scripts/gen-grammar.mjs demo/color-session`⟩ → empty.
+- `dist/` rebuilt at HEAD (`dist/subpaths/css.js` 278,110 B).
+- `scripts/dev/dev.sh` was never touched. No X-DS path was touched.
+- Commits: evidence + this receipt only (below).
+- Evidence commit: `eba7f2ff8` (`W12U-evidence/g2s/**`); receipt commit: this one.
