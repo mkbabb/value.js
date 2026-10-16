@@ -943,3 +943,35 @@ The workflow dispatched this seat as "pass 11" with critic V11's single row. The
 **For the next critic.**
 - The consumer's lighting vocabulary is now one stamp, `--shadow-cartoon` (8px), routed to `--shadow-card`. Judge whether the plate stamp's weight in dark (50 % mix) still reads as the pre-glass era's tone.
 - The glass rows still wait on O-87 / O-88.
+
+### pass 12 (2026-10-16): critic V12 — the dark stamp's register again, and the glass rows
+
+The workflow dispatched this seat as "pass 12" with critic V12's two rows. Neither row is a seat's cure: one is an owner ruling and one is owned by glass. **No source changed.** Evidence is in `pass-12/`.
+
+**Commits.** value.js `780401800` (frames, the stamp sample, census and gates). This receipt is committed after it.
+
+| id | verdict | cure / reason | measured (`pass-12/`) |
+|---|---|---|---|
+| V12-01 (low) | **Not a seat's cure: owner DESIGN-RULING (P6-B1).** This is the same row as VC6-04, sighted again, and the critic's own cure says to bank it. | The dark stamp is Pole A of the P6-B1 register bracket (`foundation.css`, `.dark --shadow-color` stone ink at a 50 % `--shadow-cartoon` mix). T.W8 P6-R1 pinned the stone to retire the cream slab that the owner had sighted. The other pole is the original's lighter grey offset, already framed at pass 6 (`pass-06/vc6-2026-10-15/poles-{A,B}-picker-1440-dark.png`). If the owner rules for the original's tone, the only knob is `.dark --shadow-color`: a mid slate step, for example about 35–40 % foreground on stone. It keeps one layer, zero blur and no producer fork. A seat may not pick the register, so nothing ships. | `stamp-sample.json` (`stamp-sample.py`; picker 1440 dark; the 8px band past the left plate's bottom and the About plate's right edge, against the field just beyond). **Today (Pole A)** the stamp is rgb(56,23,32) over rgb(92,22,42), **1.22:1**, and rgb(60,23,30) over rgb(98,22,38), **1.25:1**. That is identical to pass 11 and the pass 6 Pole A frame. **Pole B** is rgb(74,72,70) over the same fields, **1.43:1 / 1.41:1**. Pole B also leaves the wine hue for a neutral grey, so it separates by hue as well as by contrast. The critic's reading holds: today the stamp is a darker band in the field, not an ink stamp. |
+| V12-G1 (low) | **Glass-owned: honest-RED, cited against O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** No local override. | The rows are the 390 dock lozenge's spill, the dock folding to its seal when a menu opens, the hero bead glowing through the view and card menus, the colour-space select's 9-layer stack and gradient wash, the hero bead's specular body and double drop, and the disabled Mix primary's tan plate. All were already relayed (V7R-02, V8C-03, V8C-04, P4R-02, P4R-03, P9R-G1, P9R-G2, P9R-G3, P5C-01, VC3-02). They are re-judged at the glass 10.2.0 repin. | The census's glass rows are unchanged (below). In the overlays, the select floater still carries 8 layers (`overlays.json`, `div[select-content]`) with paint-top passing on every cell. |
+
+**Census** (`census-after.json`, `--base :9011 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).** The gate is byte-identical to pass 11: max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, and floater max layers 8.
+- **Consumer static totals are identical to pass 11:** 17 box-shadow declarations and 2 lighting-token definitions (`--shadow-cartoon`, light and dark).
+
+**Frames.** Headless real Chrome (§0ei), served by `vite --port 9011 --strictPort` (same-origin `VITE_API_URL`, its own deps cache) and stopped afterwards.
+- Counts: 36 of 36 route frames, and 8 opened-overlay frames with 0 paint-top failures.
+- The server serves the working tree, so other seats' uncommitted hunks show in the frames.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2, with the **same 7** standing failures as pass 11 (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6).
+- **e2e:** pass 11's set was re-run as a no-change control (headless, workers 1, own server :9190), **strict ×2 GREEN**:
+  - smoke, 14 specs: 65/65 ×2;
+  - smoke-admin: 3/3 ×2.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- This is pass 12, the X-DS floor. Its critic found nothing that a consumer seat may cure: one owner ruling and the standing glass rows.
+- The open owner rulings are P5C-02 (P5-B1), VC6-04 / V12-01 (P6-B1, the dark stamp's register; one knob, both poles framed and measured), VC5-01 and VC4-09.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
