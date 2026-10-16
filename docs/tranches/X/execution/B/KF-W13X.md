@@ -5184,3 +5184,19 @@ Row stays **PARTIAL** pending the orchestrator's ESC-W13X-a3-1 ruling. After tha
 - **Honest-RED set (relieved):** B7 SPECULAR-REST · SHEET-POSITION, both glass-owned, named by id in (i)/(j), and relayed. **Unrelieved:** A3.
 - **Hygiene:** this seat's roster tree exited under `guarded` and the worktree is clean. A headless shell seen after the run (pid 27086, parent `node census.mjs http://127.0.0.1:7250`, started after this seat's run ended) belongs to a sibling seat and was left alone.
 - **Self-count:** ⟨`sed -n '/^## RESUME 4 — Check 2/,$p' KF-W13X.md | grep -c '^| \(HIGH\|MINOR\|INFO\) |'`⟩ → 3 rows (1 HIGH · 1 MINOR · 1 INFO). 4 GREENs reproduced. Gates failed: A3. The LEDGER status cell is not changed (PARTIAL stands); one event line is appended.
+
+## RESUME 4 — Repair 2
+
+SERVED MODEL: claude-opus-5-5 · seat: REPAIR round 2 · kf HEAD `57fb241a` (⟨`git -C keyframes.js rev-parse --short HEAD`⟩ → `57fb241a`, unmoved since Check 2).
+
+Crash-recovery: ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS's; KF-W13.md §B.2 Do-NOT-touch; outside this wave's writable set; left alone) + two old untracked coordination letters. ⟨`git status --porcelain docs/tranches/X/execution/B/`⟩ → empty. No inherited edits in scope.
+
+Ruling re-check: ⟨`grep -n '^## §0f[m-z]' COHESION.md`⟩ → none; ⟨`grep -n 'W13X-a3-1' COHESION.md`⟩ → none; ⟨`tail -1 KF-W13.md`⟩ → addendum (j)'s last line (no addendum (k)). **ESC-W13X-a3-1 remains unruled.**
+
+| Check 2 defect | Disposition | Commit | Gate re-reading |
+|---|---|---|---|
+| HIGH: A3 ghost-rail RED (×4), ESC-W13X-a3-1 unruled | **ESCALATED, not cured.** Both cure arms lie outside this seat's grant: arm (a) renames the KF-C5-01 `rail-fill` token across X-DS's file set (another unit's files; needs a §0ev.3 grant); arm (b) edits the oracle selector at `scripts/observe/demo/live-session-mobile.mjs:1151`, which without an explicit not-masking ruling is a HIGH masking defect. The choice is the orchestrator's (a dated COHESION § + KF-W13 addendum (k)). | none | none moved (0 product bytes); Check 2's `check2-r4/a3-r1.log.txt` RED stands |
+| MINOR: smoke vendor-three intermittent (R4-3) | **NOT CURED; carried.** No one-command cure: it needs a quiet-host reproduction on the next X-DS/KF boot-path pass. Stays relieved under §0fa.9. | none | n/a |
+| INFO: .a3 diagnosis confirmed | no action | none | n/a |
+
+Self-count: 3 defects read · 0 cured · 1 HIGH escalated · 1 MINOR carried · 0 product bytes · 0 gates re-run (no cure could move any; Check 2's banked readings stand) · 1 commit (this section). Row stays **PARTIAL** pending the ESC-W13X-a3-1 ruling; then A3 RED → GREEN ×2, a fresh close, a fresh check.
