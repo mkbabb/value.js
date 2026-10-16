@@ -597,3 +597,10 @@ RESUME 2 Check 3 is NOT-CONFORMANT on one HIGH: the six R-3 rows of ESC-W13X-r3r
 - The `.r3res2f` kf half is RE-HOMED BY ID to the X-W11 release repin, after the value.js 4.1.x publish (an owner act). The pin bump and `AnimationOptions` unit plumbing are granted there, with a falsifier ×2.
 - New unit `.a3` cures the mobile `#/sequence` ghost rail introduced at X-DS `fa09924b`, at root under §0ev.3. X-DS's desktop intent is kept. A3 must go RED → GREEN ×2.
 - Then the close (honest-RED exactly B7 · SHEET-POSITION), then the check.
+
+## ADDENDUM 2026-10-16 (k): ESC-W13X-a3-1 ruled (COHESION §0fm)
+- The A3 RED is a stale oracle: `[class*=rail]` matches the KF-C5-01 token `rail-fill`, and there is no ghost column.
+- `.a3o` re-points the A3 selector at `live-session-mobile.mjs:1151` to the rail track's exact emitted class(es), cited at the bytes. No substring match and no exclusion list; the geometry test is unchanged.
+- A synthetic hollow rail-track falsifier must trip A3 ×2; A3 must read GREEN ×2 at HEAD and at `71480d85`.
+- `rail-fill` is not renamed.
+- Then the close and the check (honest-RED exactly B7 · SHEET-POSITION).

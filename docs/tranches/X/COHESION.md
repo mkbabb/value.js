@@ -4039,3 +4039,22 @@ RESUME 3 cured `.r3res2a`–`.r3res2d` and the value.js half of `.r3res2f` (`4da
    - The receipt names the cure to X-DS (a line in its keyframes pass record), so its next pass inherits it.
 4. **Guard starvation (C2r3-3 / C3r3-3, INFO).** Gates read under `--light` with the reason disclosed count as read. The orchestrator will not widen the slots: five heavy slots is the machine law.
 5. **Order:** `.a3 → close (verify-only, §0ev.2) → check`. The honest-RED set is exactly B7 SPECULAR-REST · SHEET-POSITION. The close relieves `.r3res2e` by (1) and the `.r3res2f` kf half by (2). KF-W13.md ADDENDUM (j) carries this ruling.
+
+## §0fm — 2026-10-16: ESC-W13X-a3-1 RULED. The A3 RED is a stale oracle and the oracle is cured (arm (b), bounded); the wave re-opens as `.a3o → close → check`
+`.a3` measured the root at the bytes:
+- The A3 trip is the oracle's substring selector `[class*=rail]` (`scripts/observe/demo/live-session-mobile.mjs:1151`) matching the KF-C5-01 marker token `rail-fill` on the Stagger card (`SequenceTimeline.vue:20/:21/:28`).
+- At 390 px the card renders at the same rect with or without the token, `display:block; flex:0 1 auto`. Every fill rule sits inside `@media (min-width:1024px)`.
+- Removing the token in the live DOM clears the trip. No hollow column renders.
+
+So nothing in the product regressed. This is class (a) of §0fh item 1: a stale oracle, which is re-baselined to the lawful product. Ruled:
+1. **Arm (b) is GRANTED as unit `.a3o`, and ruled NOT masking because it is bounded.** Grant: `scripts/observe/demo/live-session-mobile.mjs` (the A3 block only).
+   - The oracle's intent, stated in its own comment at `:1144-1150`, is "the rail track": a tall, narrow, empty side column.
+   - The selector names that element by the class or classes the rail layout actually emits, enumerated from the rail's CSS/template at the bytes and cited in the receipt, plus `.controls-pane-wrapper` as before.
+   - Barred: a substring match, and an exclusion list (`:not(.rail-fill)` or the like).
+   - The geometry test (width > 200, height > 300, not the full-width sheet) is unchanged.
+2. **The oracle must still catch a real ghost rail.**
+   - A falsifier injects a synthetic hollow rail-track column into the live DOM with the rail's own class, at the ghost geometry, and A3 must read `ghostCol=true`. It removes the column and A3 reads GREEN. This is done ×2.
+   - At `71480d85` (pre-token) the new selector reads GREEN, as the old one did.
+3. **Arm (a), renaming `rail-fill`, is NOT taken.** The token names its desktop role, and it is X-DS's canon (KF-C5-01, §0dm/§0ek). A rename to satisfy a substring would bend product naming to a test.
+4. **Gate:** live-session-mobile A3 GREEN ×2 at kf HEAD. B7 SPECULAR-REST and SHEET-POSITION stay the only honest-REDs.
+5. **Order:** `.a3o → close (verify-only, §0ev.2) → check`. KF-W13.md ADDENDUM (k) carries this ruling.
