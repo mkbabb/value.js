@@ -160,8 +160,8 @@ describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () 
 });
 
 describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 referent; the per-site surface cure)", () => {
-    it("the ruled form: three analogous stops, ±40°; the two per-site floors", () => {
-        expect(PALETTES_RAMP_SHIFTS).toEqual([-40, 0, 40]);
+    it("the ruled form: three stops fanned ±60° (X-DS value pass 4, P4R-01); the two per-site floors", () => {
+        expect(PALETTES_RAMP_SHIFTS).toEqual([-60, 0, 60]);
         expect(RAMP_TEXT_CONTRAST_FLOOR).toBe(4.5);
         expect(RAMP_LARGE_TEXT_CONTRAST_FLOOR).toBe(3);
     });

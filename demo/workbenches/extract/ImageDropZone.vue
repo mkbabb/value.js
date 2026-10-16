@@ -42,11 +42,14 @@
             />
             <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha dies — the
                  muted token is already the de-emphasis rung. -->
-            <div v-else class="flex flex-col items-center gap-2 py-6 plate-ink">
-                <ImagePlus class="w-7 h-7" />
+            <!-- X-DS value pass 4 (P4R-04): the verb is the pane's one intake, so
+                 it takes the plate's foreground ink; only the glyph stays on the
+                 de-emphasis rung (it used to carry the whole column, verb too). -->
+            <div v-else class="flex flex-col items-center gap-2 py-6">
+                <ImagePlus class="w-7 h-7 plate-ink" />
                 <!-- X-DS pass 2 (V2C-14): a verb speaks the pane-verb voice, not
                      the mono of values. -->
-                <span class="font-display text-small text-center px-4">Upload image</span>
+                <span class="font-display text-small text-center px-4 text-foreground">Upload image</span>
             </div>
         </Transition>
 
