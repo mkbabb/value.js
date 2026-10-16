@@ -1945,3 +1945,42 @@ The full `oracles-safari` project was read once (r3, `75ebff961`): 138 ✓ / 28 
   - every (b) falsifier went RED→GREEN
   - typecheck 0 ×2 and lint 0 ×2
 - Short of the gate: WebKit is GREEN on both reads taken, 2 of the 3 required (ESC-W12Uq2-1).
+
+### X.W12U.k3
+
+SERVED MODEL: claude-opus-5-5. Track A, HEAD at open `7c0ba5993`. Authority: W12U.md ADDENDUM (g) `.k3` :104-107; COHESION §0fh.6/.7; Repair 4 C5-5 (A2-VA-X-14 proposal); Check 6 C6-3/C6-6. Id cited per the RESUME 3 Open id note: **A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440)**, distinct from A2-VA-X-14 (slug-edit). Outputs: `W12U-evidence/k3/`.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ filtered to this unit's set → no inherited path: `demo/shell/PaneShell.vue`, `demo/shared/ui/PaneHeader.vue`, `k2/probe-k2-rows.mjs`, `r4/diag-admin-room.mjs`, `k3/**`, `e2e/smoke/w12u-k*` all clean. The dirty `demo/**` paths (`demo/styles/shell.css` mtime 10-16 07:47, `utils.css`, `Dock.vue`, the X-DS pass-9 set named in RESUME 3 Open) belong to other writers and were not touched. **Clean-window (§0ev.3):** the natural home of a row-contract rule is `demo/styles/shell.css`, but it was dirty from a live writer (07:47 today, with a X-DS V7R-01 hunk), so the cure is colocated in `PaneShell.vue`, the owner it bounds (as PaneHeader colocates `.pane-scroll-fade`). PaneShell.vue was clean at each commit.
+
+**Act 1: measure before edit.**
+- Falsifier extended first (the two §0fh.6 arms, theme arg) in `r4/diag-admin-room.mjs`: overlying-with-room `/admin/users` = host present, `hostSH > hostCH`, `docSH ≤ innerHeight+1`, `data-condensed` false→true on a host scroll→false at the top, title px ≤ rest; seated `/mix` = no host, a port, never condenses, title at rest.
+- ⟨`guarded --light --timeout 5 -- node r4/diag-admin-room.mjs 1440 900 {light,dark}`⟩ (load 18.4 / 25.1) → both themes `overlying-with-room RED {"hostSH":3177,"hostCH":3177,"docSH":3299,"before":"false","after":"false","back":"false"}` · `seated /mix GREEN` → `RED 1 (of 2)` (`k3/x14-before-{light,dark}.txt`). Born-RED reproduces seat-0's baseline byte-for-byte.
+- ⟨`guarded --light -- node k3/diag-ancestors.mjs 1440 900`⟩ (the host's ancestor chain): `/admin/users` host 3177 · card 3179 · `.pane-shell` 3179 · `.pane-wrapper` 3179 (block) · `.pane-container` grid row `3179.16px` · `main` 3203 · `.app-layout` rows `72px 3202.75px`; `/mix` wrapper `d=flex` (the inspector row contract), container 621, `main` 804 (the band). **Cause:** the overlying owner is a one-region scene; no stage sets its row, so the region's content sets the grid row and the document grows (the shell's `100svh` FLOOR, X.W5.b).
+
+**Act 2: the host cure (commit `888a7f9e4`, `demo/shell/PaneShell.vue` + `r4/diag-admin-room.mjs`).** The row contract's own idiom (shell.css `.pane-row-follow`), keyed on the overlying owner:
+- PaneShell's root carries `pane-shell--overlying` when not `seated`.
+- An unscoped `<style>` block in PaneShell.vue: `.pane-container:has(> .pane-wrapper > .pane-shell--overlying)` → `flex: 1 1 auto` (the scene grid fills `<main>`'s band); its wrapper → a flex column; the shell → `block-size: auto; flex: 0 1 auto; min-block-size: 0` (content height, with the band as ceiling); and under the same `pane-row` two-track container query as the row contract, the wrapper → `contain: size layout`, so the content no longer sets the row.
+- No clip anywhere (no `overflow` on root, shell, wrapper or card); the block law `min-block-size: 100svh` is untouched; one track (phones, portrait tablet) keeps the document as the scroll column.
+- Side readings ⟨`guarded --light -- node k3/diag-ancestors.mjs …`⟩ after the cure: Not Found at 1440 keeps content height (card 293 inside a 780 wrapper, docSH 900); at 390 `/admin/users` still grows the document (docSH 4781, host = content) and Not Found keeps content height (card 308, docSH 844). So the short overlying pane gains no dead plate, and the phone column is unchanged.
+
+**Act 3: the probe settle cure (commit `066d89eb4`, `k2/probe-k2-rows.mjs` only), C6-3 / §0fh.7.** The Repair 3 settle, which ended when two census walks agreed, is retired. `go()` now returns only when `routedActive()` holds: every visible `main .pane-wrapper[data-pane=K]` holds PaneSlot's KeepAlive child keyed `K` (`:key="liveKey"`), not `isUnmounted`, not `isDeactivated`, with `vnode.el` inside that wrapper. It polls 40 × 500 ms; on a timeout it throws, so the run fails loudly, never reads. Census agreement alone never settles. No `catch` is added. The host cure and the probe cure are separate commits (lock).
+
+**Act 4: gate readings on committed bytes (HEAD `066d89eb4`; load recorded per §0ev.2).**
+
+| gate | command | BEFORE | AFTER | state |
+|---|---|---|---|---|
+| A2-VA-X-14 (§0fh.6) overlying-with-room + seated, 1440×900 | ⟨`guarded --light --timeout 5 -- node r4/diag-admin-room.mjs 1440 900 {light,dark}`⟩ | light and dark `RED 1 (of 2)`: overlying `hostSH 3177 = hostCH 3177 · docSH 3299 · after "false"`; seated GREEN | r1 light `GREEN 2/2` (load 29.5) · r1 dark `GREEN 2/2` (23.6) · r2 light `GREEN 2/2` (20.5) · r2 dark `GREEN 2/2` (19.2); overlying `hostSH 3177 > hostCH 778 · docSH 900 · before false → after true → back false · title 41.888 → 25.888 px`; seated `/mix` `host false · port true · after false · title 41.888 = rest` | **RED→GREEN ×2, both themes** |
+| served pair (k2 + x2, 390×844 light) with the active-instance settle | ⟨`guarded --light --timeout 12 -- sh k3/served.sh {b,c}`⟩ | Check 6: a `RED 3 (of 38)` (census race), b/c `GREEN 38/38` + `3/3` | b `GREEN 38/38` + x2 `GREEN 3/3` (load 18.6→21.7) · c `GREEN 38/38` + x2 `GREEN 3/3` (load 21.0→22.1) | **GREEN ×2** |
+| `.k2` static | ⟨`sh k2/check-k2-static.sh \| tail -1`⟩ ×2 | `GREEN 30/30` | `GREEN 30/30` · `GREEN 30/30` (`k3/k2-static.txt`) | **GREEN ×2** |
+| typecheck lib/demo/test/e2e | ⟨`guarded --light --timeout 6 -- sh close2/tc.sh`⟩ ×2 | `0 0 0 0` | `lib 0 demo 0 test 0 e2e 0` (load 41.4) · the same (load 33.4) (`k3/tc-r{1,2}.txt`) | **GREEN ×2** |
+| lint | ⟨`guarded --light --timeout 6 -- sh k3/lint.sh`⟩ ×2 (eslint's own rc) | `rc=0` | `rc=0` (load 31.9) · `rc=0` (load 24.7) (`k3/lint-r{1,2}.txt`) | **GREEN ×2** |
+
+- Side read (not a gate): the k2 probe at desktop ⟨`guarded --light -- node k2/probe-k2-rows.mjs 1440 900 dark`⟩ → `GREEN 38/38`. Its overlying arm now takes the **with-room** branch: `/admin/users overlying GREEN {"host":true,"room":2399,"gate":76.8,"after":"true","titlePx":25.888,"back":"false"}`, beside `/mix seated GREEN {"room":426,"after":"false"}` (`k3/k2-1440-dark.txt`). That is Check 5's "aim the overlying arm at a pane with room" (C5-5), now satisfied by the product. A first 1440 attempt (`k3/k2-1440-dark-r1-killed.txt`, load ≈30) read every view `RED []` (no visible pane header after the 90 s header wait), so this seat killed it. ⟨`node k3/diag-headers.mjs 1440 900 dark`⟩ then read `/` and `/palettes` headers present, with no plate. The re-run above is GREEN. The anomaly is recorded, not cured: it is a boot read under load, outside the §3 served gate (390).
+- Pre-commit read `a` (same bytes as the commits; `k3/k2-a.txt` `GREEN 38/38`, `k3/x2-a.json` 3/3, load 22.8→30.9) is not counted toward the ×2.
+- Masking ⟨`git diff 7c0ba5993..HEAD -- demo docs/tranches/X/waves/W12U-evidence | grep '^+' | grep -cE 'test\.skip|fixme|force: ?true|catch|allowlist|eslint-disable|ts-ignore|ts-expect-error|retries'`⟩ → 0. E13 ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ → 0.
+
+**Commits:** `888a7f9e4` (host cure + falsifier arms) · `066d89eb4` (probe settle cure) · `037869420` (evidence, `k3/**`) · this receipt. **Adjacent edits:** none. **Inherited paths:** none. `scripts/dev/dev.sh` untouched; no glass-ui write.
+
+**Residuals.** (1) The cure lives in PaneShell.vue's unscoped style, not in `demo/styles/shell.css` beside the row contract, because shell.css was dirty from a live writer (§0ev.3). A later seat may move the four rules there verbatim when that file is clean; the bytes would not change. (2) The overlying bound applies under the `pane-row` two-track query, so it covers 1024×768 as well as 1440; 768 and the phones keep the document column. (3) The killed 1440 boot read above.
+
+**Verdict: DONE.** Every gate turned GREEN ×2: A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440) RED→GREEN in both themes with both arms; the served pair 38/38 + 3/3 ×2 under the active-instance settle; `.k2` static 30/30 ×2; typecheck 0 ×2; lint 0 ×2. C6-3 and C6-6 are cured.
