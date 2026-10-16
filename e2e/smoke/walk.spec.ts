@@ -87,8 +87,10 @@ test("walk all user views sequentially with zero console errors", async ({
                 main.getByRole("heading", { name: "Generate" }).last(),
             ).toBeVisible();
             await expect(
+                // The field's title is "Preset" since CC-047 (`583715162`,
+                // LabeledField) — re-baselined X-W12U .q2.
                 main
-                    .getByRole("combobox", { name: "Generation preset" })
+                    .getByRole("combobox", { name: "Preset" })
                     .last(),
             ).toBeVisible();
         },

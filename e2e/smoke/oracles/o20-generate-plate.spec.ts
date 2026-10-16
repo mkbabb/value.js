@@ -68,7 +68,9 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         await expect(plate).toBeVisible();
 
         // Open the Preset menu; every row carries a stamped preview strip.
-        await page.getByRole("combobox", { name: "Generation preset" }).click();
+        // The field's title is "Preset" since CC-047 (`583715162`, LabeledField)
+        // — re-baselined X-W12U .q2.
+        await page.getByRole("combobox", { name: "Preset" }).click();
         const listbox = page.getByRole("listbox");
         await expect(listbox).toBeVisible();
         const chips = listbox.locator("[data-stops]");
