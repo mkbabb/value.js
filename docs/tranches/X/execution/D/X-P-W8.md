@@ -1650,3 +1650,64 @@ Self-count: 9 gate rows, 9 GREEN, 0 RED. The L-G1 cell count is 103 of 103 GREEN
 - **Residuals:** the close seat's check-as-audit (§0eq) reads these banked records and does not re-time them.
 - **Escalations:** none (0 cells straddle; no ESC-W8lg1c3-n minted).
 - **Mail:** the RESUME 5 Open's E13 sweep stands for this sitting; this unit added no mail.
+
+## RESUME 5 2026-10-15 — Close (workflow close seat, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **IMPLEMENTED**
+
+- **Crash recovery:** ⟨`git status --porcelain -- docs/tranches/X/execution/D/X-P-W8.md docs/tranches/X/execution/LEDGER.md src/css test/css bench/records`⟩ → empty in this seat's set. Nothing inherited. parse-that ⟨`git -C ../parse-that log --oneline -1`⟩ → `cb9c0d4` (unmoved; its dirty `rust/**`, `README.md`, `.cargo/config.toml` belong to another session, untouched).
+- **§0fb / §0fd:** one sequential runner `bench/records/W8close6/gates.sh` under ⟨`~/.claude/guard/guarded --light --timeout 60 -- sh gates.sh`⟩ in `run_in_background`; vitest `--maxWorkers=2`; 1-min load 7.45–9.44 (`run.log`). No browser, server or watcher. L-G1 is audited from the banked `.lg1c3` records and not re-timed (§0eq).
+- **Product:** ⟨`git diff --stat 4eaf27fbe HEAD -- src test bench/paired bench/wpt-conformance bench/css-equivalence`⟩ → empty, so the product is `.ifsemi`'s `4eaf27fbe`.
+
+### Act 1 — commit roster (⟨`git show --name-only`⟩)
+| unit | commit | paths | in writable set? |
+|---|---|---|---|
+| `.ifsemi` | `4eaf27fbe` | `src/css/grammar/value.bbnf` · `src/css/bbnf/value.ts` · `src/css/bbnf/generated/grammar.{js,d.ts}` · `test/css/bbnf-if-semicolon.test.ts` · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` | yes |
+| `.ifsemi` | `aab9281fb` | `bench/records/W8ifsemi/**` (12 files) | yes |
+| `.ifsemi` | `b7b08e49b` | `docs/tranches/X/parse-that/waves/W8.md` (ADDENDUM (e) receipt line only) | yes |
+| `.ifsemi` | `5b8837bf7` | `CHANGELOG.md` (R-3) | yes |
+| `.ifsemi` | `ac162cc91` | `docs/tranches/X/parse-that/evidence/W8/l-g1-r1/{bootstrap-read-e-bytes.txt,MANIFEST-2026-10-15.sha256}` (R-4) | yes (MANIFEST beside, E-3) |
+| `.ifsemi` | `66ee43f81` | `DIVERGENCE-LEDGER.md` (§19-S addendum (b) correction beside) | yes |
+| `.ifsemi` | `5de66784f` | this record | yes |
+| `.lg1c3` | `8b46df2f5` | `bench/records/W8lg1c3/**` (61 files) | yes |
+| `.lg1c3` | `693991c13` | this record | yes |
+
+`test/v4-css-emerging.test.ts` untouched (falsifier READ-ONLY): ⟨`git log --oneline 196a2aaae..HEAD -- test/v4-css-emerging.test.ts`⟩ → empty. `scripts/dev/dev.sh` in no commit. Landed-wrong (bounds): none.
+
+### Act 2 — gates re-run by this seat (BEFORE = RESUME 5 Baseline at `196a2aaae`, product `7516f0d8c`; AFTER = HEAD `d9851e5c8`, product `4eaf27fbe`; outputs in `bench/records/W8close6/`, commit `d9851e5c8`, MANIFEST.sha256 32/32 OK)
+| Gate (ADDENDUM (e) / Unit plan) | Command | BEFORE | AFTER (×2) | GREEN def. | Verdict |
+|---|---|---|---|---|---|
+| `if()` falsifier + `.semi` + `.cust2` + new `if;` file | ⟨`npx vitest run test/v4-css-emerging.test.ts test/css/bbnf-if-semicolon.test.ts test/css/bbnf-semicolon.test.ts test/css/bbnf-custom-semicolon.test.ts --maxWorkers=2`⟩ | v4-css-emerging 20/22 (2 RED) ×2; bbnf-if-semicolon RED 14 failed \| 7 passed (cited `W8ifsemi`) | `Test Files 4 passed (4)` · `Tests 106 passed (106)` ×2 (v4-css-emerging 22 · if-semicolon 21 · semicolon 20 · custom-semicolon 43) | all pass | GREEN (RED→GREEN) |
+| probe ×2 | ⟨`npx vite-node bench/records/W8semi/probe.ts …`⟩ (`probe-{1,2}.txt`, bodies identical) | `if(…; else: blue)` refused | `if(supports(color: red): red; else: blue)` · `if(style(--x: 1): red; else: blue;)` ACCEPTED; `if(foo)` refused; `rotate(0;1deg)` · keyframes `translate(0;1px)` refused css_syntax; `--x:f(a;b)` · `[a;[b]]` · `{a;b}` · `"a;b"` · `--x: ;` ACCEPTED; `--x:a;b` · `[a;b}` refused | `;` only between `if()` branches; `.semi`/`.cust2` stand | GREEN |
+| V-C ×2 | ⟨`npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ | 6267/3898/0 | `TOTAL 6267 2369 3898 0 …` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | 0 unruled, 0 stale | GREEN |
+| css-equivalence ×2 | ⟨`npm run -s test:css-equivalence -- --maxWorkers=2`⟩ | 19/19 MIRROR 0 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 (25 / 24 `MIRROR-DEFECTS 0` lines) | 19/19, MIRROR 0 | GREEN |
+| test/css ×2 | ⟨`npx vitest run test/css --maxWorkers=2`⟩ | 19/281 | `Test Files 20 passed (20)` · `Tests 302 passed (302)` ×2 | all pass | GREEN |
+| L-G2 ×2 | ⟨`node bench/paired/build.mjs`⟩ exit 0; ⟨`node bench/paired/equiv.mjs product …`⟩ | 3371 | `compared 1376531/1376531 rows · mismatches 3345` ×2; ⟨`gunzip -c bench/records/W8ifsemi/equiv-1.json.gz \| cmp - equiv-$i.json`⟩ → identical ×2; ⟨`node bench/records/W8ifsemi/delta.mjs`⟩ → `identical 3345 · gone 26 · moved 0 · new 0` ×2 | every new row a named class | GREEN (0 new) |
+| prefix ×2 | same | 0 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | 0 | GREEN |
+| L-G3 | ⟨`grep -rln "instrument\|__prof\|PC\[\|NOW()" src/css/bbnf/generated \| wc -l`⟩ | 0 | `0` | 0 | GREEN |
+| `--check` ×2 (pinned `f0059db14`) | ⟨`node bench/records/W8cust/gen-pinned.mjs --check`⟩ | `75c8393d…` | `is current (sha256 e6e0e5cac19d…)` ×2 | current | GREEN |
+| audit (pinned) | ⟨`node bench/records/W8cust/audit-pinned.mjs`⟩ | 179/0/0 | `rules 183 · checks 1432206855 · violations 0 · modeDiffs 0` | 0 | GREEN |
+| E-6 ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js \| wc -c` / `\| gzip \| wc -c`⟩ | 110324 / 15239 | `112913` / `15644` ×2; delta +2589 / +405 | ≤ 125,646 raw / ≤ 15,650 gz (ADDENDUM (e) receipt; cap 15,700) | GREEN (6 B gz headroom) |
+| vue-tsc lib · test | ⟨`npx vue-tsc -p tsconfig.{lib,test}.json --noEmit`⟩ | 0 · 0 | exit 0 · exit 0; logs 0 bytes | 0 | GREEN |
+| eslint | ⟨`npx eslint src/css test/css bench/wpt-conformance bench/css-equivalence --max-warnings=0`⟩ | 0 | exit 0, 0 bytes | 0 | GREEN |
+| build | ⟨`npm run build`⟩ | OK | exit 0, `✓ built in 3.94s` | OK | GREEN |
+| L-G1 entry diff | ⟨`node bench/records/W8lg1c/entry-diff.mjs <scratch> 7516f0d8c 4eaf27fbe`⟩ | — | `ENTRIES CHANGED 7 of 7` | changed → re-read owed | reproduces `.lg1c3`; the re-read is banked |
+| L-G1 ×2 audit (§0eq) | ⟨`git archive HEAD bench/records/W8lg1c3 \| tar -x`; `shasum -a 256 -c MANIFEST.sha256`⟩; ⟨`node bench/paired/bootstrap.mjs <tree>/{node,browser}/*.json`⟩ ×2 | `.lg1c2` 103/103 on `7516f0d8c` | `60` OK ×2; `c715860e34b6…` ×2, ⟨`cmp`⟩ = committed `bootstrap-read.txt` ×2; STRADDLE\|RED lines `0` ×2; tightest Firefox rej `parseKeyframeSelector` rep0 ub 0.994 | median AND ub < 1.0 every cell | GREEN |
+
+Self-count: 16 rows; 16 GREEN; 0 RED. Every `.ifsemi`/`.lg1c3` published figure reproduces: 22/22, 21/21, 106/106, 6267/3898/0/0, 19/19 MIRROR 0, 20/302, 3345 (gone 26 · new 0), prefix 0, `e6e0e5ca…`, 183/0/0, 112,913/15,644, 7 of 7, 60/60, `c715860e…`.
+
+### Act 3 — verification artefacts
+W8.md has no separate §Verification Artefacts section. ADDENDUM (e)'s falsifier list (v4-css-emerging 22/22 ×2; `.semi` and `.cust2` falsifiers ×2; V-C ×2, MIRROR 0, L-G2, L-G3, `--check` ×2) plus its E-6 receipt line and the R-2/R-3/R-4 discharges are the artefact set. Every falsifier is read in Act 2. R-3: ⟨`git show --stat 5b8837bf7`⟩ → `CHANGELOG.md` only. R-4: `ac162cc91` committed the bytes and a dated MANIFEST beside the README (E-3). R-2: the `.ifsemi` receipt records bbnf-lang#2 OPEN.
+
+### Act 4 — E13 mail
+⟨`find <p> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md`⟩ → empty on value `V/` and `V/coordination`, glass `BK/coordination` and `BL/` (the newest glass tranche, ⟨`ls -td ../glass-ui/docs/tranches/*/ \| head -2`⟩ → `BL/`, `BK/`), and keyframes `V/coordination`. Glass `BL/coordination` and atlas `P/coordination` do not exist. ⟨`grep -cE '^\| .*\| *UNREAD *\|' INBOX.md`⟩ → `0`. INBOX.md has an uncommitted working-copy edit from another seat, so this seat appends no sweep line there. The sweep is recorded here.
+
+### Escalations
+None.
+
+### Residuals (named owners)
+- **R-1 · check seat (§0eq):** the tightest L-G1 margin is Firefox rej `parseKeyframeSelector` rep 0, ub 0.994 (it read 0.924 at `.lg1c2`). It is GREEN by §0ev.1, and the check audits it from the bank.
+- **R-2 · orchestrator / owner (MINOR):** E-6 gz headroom is 6 B (15,644 against the 15,650 ceiling). The next byte-changing unit will cross it and must escalate; it cannot shave.
+- **R-3 · producer (bbnf-lang#2, non-blocking by §0fe):** the emitter-size row is still OPEN.
+- **R-4 · orchestrator (non-blocking):** `l-g1-r1/README.md` names an absent `bootstrap-read-final.txt`. The R-4 manifest header records this.
+
+### State
+ADDENDUM (e)'s falsifiers are all GREEN ×2. Its order (`.ifsemi` → L-G1 by entry diff (`.lg1c3`, 103/103) → close) is complete, and every stay-GREEN gate holds on `4eaf27fbe`. Row 108 is set to **IMPLEMENTED 2026-09-17** (RESUME 5 Close 2026-10-15). Next: check-as-audit per §0eq. That check, not this seat, stamps CLOSED.
