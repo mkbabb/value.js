@@ -6,8 +6,16 @@
         <!-- X.W12U.h · A2-VA-L3-4: with no swatches the well is ONE line, the
              caption and the add slot side by side; it spent a caption row and a
              second row holding the lone "+" before the first saved palette. -->
+        <!-- X-DS pass 9 (P9R-05): empty, the row is the one command — a click
+             on "Start a new palette" adds the current colour, as the trailing
+             add slot does. The slot stays the keyboard stop and the accessible
+             name; the row only widens its pointer target, so the label's
+             action rung is a promise the hit area keeps. -->
         <div
             class="flex items-center justify-between gap-2"
+            :class="savedColorStrings.length === 0 && 'cursor-pointer'"
+            data-well-label-row
+            @click="savedColorStrings.length === 0 && addCurrentColor()"
         >
             <!-- X-DS V8C-02: the well's label is the pane's action, so it speaks
                  the body rung in foreground ink at 600 — one step over

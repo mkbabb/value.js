@@ -142,7 +142,7 @@
                 :colors="palette.colors"
                 :is-local="palette.isLocal"
                 :display-slug="showSlug ? displaySlug : undefined"
-                :safe-first-color="safeFirstColor"
+                :slug-is-author="palette.userSlug != null"
                 :open-popover-index="openPopoverIndex"
                 :swatch-size="swatchSize"
                 @popover-open="onPopoverOpenChange"
@@ -174,7 +174,6 @@ import type { Palette, PaletteColor } from "../types";
 import { getPaletteKind, type PaletteKind } from "../utils";
 import { writeClipboard } from "@mkbabb/glass-ui";
 import { useLiquidPress } from "@mkbabb/glass-ui/motion";
-import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import {
     SELECTED_ENTITY_KEY,
     type PaletteSceneTarget,
@@ -240,17 +239,7 @@ const emit = defineEmits<{
     editTags: [palette: Palette];
 }>();
 
-// S.W2 W2-9: a palette with zero colors is a real, reachable state (a
-// freshly-created palette before any swatch). This neutral mid-gray is the
-// designed empty-state swatch, named rather than an inline magic literal.
-const EMPTY_PALETTE_SWATCH = "#888";
-
 const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
-const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? EMPTY_PALETTE_SWATCH);
-
-// D6 (T.W3-5): the card IS the rung-2 WELL (Q4) — ink certifies on THAT tier.
-const { safeCss } = useSafeAccentFn("well");
-const safeFirstColor = computed(() => safeCss(firstColor.value));
 const displaySlug = computed(() => props.palette.userSlug ?? props.palette.slug);
 
 const renaming = ref(false);
@@ -535,16 +524,18 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
     min-inline-size: 0;
 }
 
-/* X-DS pass 6 (V6C-06): each colour appears once per state. Expanded, the
- * editable swatch row below carries the colours, so the specimen strip
- * collapses to a hairline band (the card keeps its colour edge; the row is
- * the colours). The aside layout's vertical strip is the card's spine and
+/* X-DS pass 6 (V6C-06) · pass 9 (P9R-03): each colour appears once per
+ * state. Expanded, the editable swatch row below carries the colours, so the
+ * specimen strip collapses to nothing (block-size 0, so the fold still
+ * transitions). The 0.25rem remnant it used to keep could not take its 1rem
+ * start radii and ran square over the card's curved corners, a rule laid on
+ * the card. The aside layout's vertical strip is the card's spine and
  * stays. */
 .palette-card :deep([data-color-strip][data-orientation="horizontal"]) {
     transition: block-size var(--duration-normal) var(--ease-standard);
 }
 .palette-card[data-selected]:not([data-layout="aside"]) :deep([data-color-strip][data-orientation="horizontal"]) {
-    block-size: 0.25rem;
+    block-size: 0;
 }
 @media (prefers-reduced-motion: reduce) {
     .palette-card :deep([data-color-strip][data-orientation="horizontal"]) {
@@ -567,7 +558,11 @@ async function copyWithVerdict(text: string, what: string): Promise<void> {
         margin-inline-start: 0.75rem;
         padding-block-end: 0.5rem;
     }
-    .palette-card:not([data-layout="aside"]) > .palette-card__detail {
+    /* X-DS pass 9 (P9R-01): a DESCENDANT, not a child — the detail band sits
+     * inside the Collapsible's `display: contents` root, so a child selector
+     * never matched and the band kept the `detail` area (row 3), painting the
+     * swatches over the meta row on every expanded narrow card. */
+    .palette-card:not([data-layout="aside"]) .palette-card__detail {
         grid-area: auto;
         grid-row: 4;
         grid-column: 1 / -1;

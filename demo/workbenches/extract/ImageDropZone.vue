@@ -55,21 +55,24 @@
 
         <!-- R-8 / R-27: the populated affordance is a real badge, painted on
              every device (no hover gate, no focus-visible dead code) on its own
-             opaque ground — never plate ink composited over specimen pixels. -->
+             opaque ground — never plate ink composited over specimen pixels.
+             X-DS pass 9 (P9R-06): it speaks the verb with its glyph (the
+             click opens the eyedropper); the bare noun "sample" read as a
+             caption on the user's own image. -->
         <Badge
             v-if="preview"
             data-zone-affordance
             variant="secondary"
             size="sm"
-            class="absolute bottom-1.5 right-1.5"
-        >sample</Badge>
+            class="absolute bottom-1.5 right-1.5 gap-1"
+        ><Pipette class="w-3 h-3" aria-hidden="true" />Pick a color</Badge>
     </div>
 </template>
 
 <script setup lang="ts">
 import { useTemplateRef } from "vue";
 import { useDropZone } from "@vueuse/core";
-import { ImagePlus } from "@lucide/vue";
+import { ImagePlus, Pipette } from "@lucide/vue";
 import { Badge } from "@mkbabb/glass-ui/badge";
 
 const { preview, disabled = false } = defineProps<{
