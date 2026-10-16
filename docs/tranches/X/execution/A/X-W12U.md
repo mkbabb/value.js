@@ -2313,3 +2313,64 @@ Crash recovery: ⟨`git status --porcelain`⟩ lists the same dirty `demo/**` se
 - Host load at this read: 19.3.
 
 Cured: 0. Escalated: 5 (C8-1 … C8-5, routed to ESC-W12U-r5-1..4 plus the C7-4/C7-5 relays). The row stays **IMPLEMENTED**.
+
+## Check 9 (L-20 fresh adversarial pass 3 on Close 3, after Repair 6, 2026-10-16)
+
+SERVED MODEL: claude-opus-5-5. VERIFY-ONLY, Track A, HEAD `82fc32fbb` (Repair 6's record commit). The task calls this "Check 3". The record already holds Checks 1–8, so this takes the next free number. Spec `W12U.md` read whole (110 lines, addenda (a)–(g)). COHESION §0fh read whole. Record read: Close 3, Check 7, Repair 5, Check 8, Repair 6. Crash recovery ⟨`git status --porcelain -- <record> LEDGER.md`⟩ → empty. Outputs: `W12U-evidence/c9/`.
+
+### Rulings since Repair 6 (read at the bytes)
+- ⟨`grep -c 'ESC-W12U-r5' COHESION.md`⟩ → `0`.
+- ⟨`grep -c 'ESC-W12U-r5' waves/W12U.md`⟩ → `0`.
+- ⟨`git log -1 -- waves/W12U.md`⟩ → `bbad57399` (§0fh, 2026-10-15). Addendum (g) is the latest.
+- ⟨`awk 'NR>4010' COHESION.md | grep -c W12U`⟩ → `0`. The §0fi–§0fq entries rule other waves.
+- §0fh.1 (c) still reads *"producer (glass). The O-row is named"*. No ruling admits a non-glass owner class.
+
+### Gates re-run by this seat (axis 1, load 15.6–22.9)
+- typecheck ⟨`guarded --light --timeout 6 -- sh W12U-evidence/close2/tc.sh`⟩ ×2 → `lib 0 demo 0 test 0 e2e 0` ×2 (`c9/tc-r{1,2}.txt`). **Reproduces.**
+- lint ⟨`guarded --light --timeout 6 -- npx eslint . --max-warnings=0`⟩ ×2 → `rc=0` ×2 (`c9/lint-r{1,2}.txt`). **Reproduces.**
+- `.k2` static ⟨`sh k2/check-k2-static.sh | tail -1`⟩ ×2 → `GREEN 30/30` ×2. **Reproduces.**
+- G2 figures (axis 9) ⟨`grep gz r1c7/g2-instrument-x2.txt`⟩ → r1 ≡ r2: A 280,801 GREEN · B 315,911 · C 319,711 · D 331,631 RED, against a bar of 286,720. **Reproduces.**
+- Not re-run: the served pair, X-14, X-13-RUN/R-m-2, smoke, WebKit and `npm test`. No product or test byte has landed since Check 7 reproduced them (Repairs 5 and 6 are evidence and record only). They are cited.
+
+### Axes 2–9
+- **Bounds (2)** ⟨`git show --name-only` over the W12U commits `9ae5e6f87..82fc32fbb` `| grep -vE '^docs/tranches/X/(waves/W12U-evidence/|execution/A/X-W12U.md$|execution/LEDGER.md$)'`⟩ → 0. ⟨`git log 970f6d9fd~1..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → 0. **HELD.**
+- **Masking (3):** no `demo/**` or `e2e/**` byte has been added since Check 7's reading (0 hits over `.q2`→`.m3`). **HELD.**
+- **Families (4):** Repair 6 is one record and ledger commit, `82fc32fbb`. **HELD.**
+- **E-3 (5)** ⟨`git diff --stat 970f6d9fd~1 HEAD -- W12U.md registry/adjudicated/ AUDIT-2-value.md`⟩ → empty. **HELD.**
+- **E13 (6)** ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0. The sweep (`find … -newer INBOX.md`) → glass `BL/FORMATION-PROGRESS.md` only, which is a progress log, not a letter. **GREEN.**
+- **Four-verb (7):** IMPLEMENTED, unchanged. **Lawful.**
+- **Goal (8):** every row is CURED, ADOPT or honest-RED as Close 3 read it. The §3 smoke gate is not, as below.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C9-1 | HIGH | C8-1 / C7-1 stand. The §3 gate "smoke GREEN `--workers=1`" (the addendum (g) gate is "GREEN ×2 except the named (c) rows") carries smoke-perf **G2** (331,631 > 286,720 B gz) and **O-5** (boot jitter) RED. §0fh.1 (c) is glass-only, and glass is −301 B net. No ruling exists after two repair rounds (ESC-W12U-r5-1/-2 → 0 hits). An escalation is not relief. | `r1c7/g2-instrument-x2.txt`; COHESION §0fh.1; the grep above | The orchestrator rules ESC-W12U-r5-1/-2, and a dated W12U addendum names the owners as relief. No seat act can cure this: `src/**` is barred by §1, and A plus the src delta = 306,652 > the bar. |
+| C9-2 | MEDIUM | C8-2 stands: the 15 X-W10 / X·P cells are relieved in substance only (ESC-W12U-r5-4 unruled). | Repair 6 | the ruling, plus addenda beside W10.md and the X·P spec |
+| C9-3 | MEDIUM | C8-3 stands: the `w12-drag.spec.ts:136` software-GL floor `> 1` is diagnosed but not ruled (ESC-W12U-r5-3). It is not a mask: liveness is still asserted and the real-GPU budget is untouched. | `r1c7/drag-r{1,2}.txt`; `2c1ba07e1` | rule the floor, or route it to X-W10 |
+| C9-4 | MINOR | C8-4 / C8-5 carried: the boot-path lever folds into r5-1; the O-85 relay for X-13-RUN-PEAK and the :9000 `server.watch.ignored` root are still owed. | Repair 6 | orchestrator acts |
+
+### Honest-RED set (axis 10)
+Relieved by the spec, with owners named:
+- `npm test` standing 7: INK-VEIL-MIDBAND → O-62 (a); C-5 / NG-6 → X-W8 `.i`.
+- smoke-perf G3/G4: X-W2's own honest-RED G3.
+- DOCK-CAP-ELLIPSE: O-83 / O-83a.
+- A2-VA-L3-6 / X-8: HELD for glass §11.
+- A2-VA-L2-1: O-74 / O-59.
+- L2-4 stage 80: O-74e L24-1.
+- X-3 / X-5: O-74c G-1 / G-2.
+- L3-2 pane limb / L3-3: O-74.
+
+Relieved in substance only: the 15 X-W10 / X·P cells (C9-2).
+
+**Not relieved:** smoke-perf G2 and O-5 (C9-1).
+
+### Successors
+- W12U.md :4 reads "Blocks: X-W8". LEDGER X-W8 is `planned`, opening after W4·W5·W6·W7 (all CLOSED, so those conjuncts are GREEN) and after X-W12U CLOSED.
+- The conjunct "X-W12U CLOSED" is **NOT GREEN**, so X-W8 stays lawfully blocked.
+- X-W10 waits on X-W8, so it stays blocked behind it.
+
+### Verdict
+**NOT-CONFORMANT**: 0 BLOCKER · 0 CRITICAL · 1 HIGH · 2 MEDIUM · 1 MINOR.
+- Every GREEN this seat re-ran reproduces: typecheck ×2 · lint ×2 · `.k2` static ×2 · G2 figures · bounds · masking · families · E-3 · E13.
+- The HIGH can move only on an orchestrator ruling (ESC-W12U-r5-1/-2). Three L-20 passes have now read it identically, and no repair seat can act on it.
+- The row stays **IMPLEMENTED**.
