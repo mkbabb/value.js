@@ -1,0 +1,164 @@
+{
+  "cells": {
+    "square-1440-light": {
+      "plates": [
+        {
+          "cls": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto ",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto "
+        }
+      ],
+      "preset": null
+    },
+    "spring-1440-light": {
+      "plates": [
+        {
+          "cls": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful"
+        }
+      ],
+      "preset": {
+        "outlineStyle": "dashed",
+        "outlineColor": "color(srgb 0.493698 0.351392 0.798991 / 0.65)"
+      }
+    },
+    "sequence-1440-light": {
+      "plates": [
+        {
+          "cls": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove"
+        }
+      ],
+      "preset": null
+    },
+    "easing-1440-light": {
+      "plates": [],
+      "preset": null
+    },
+    "square-390-light": {
+      "plates": [
+        {
+          "cls": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto ",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto "
+        }
+      ],
+      "preset": null
+    },
+    "spring-390-light": {
+      "plates": [
+        {
+          "cls": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful"
+        }
+      ],
+      "preset": {
+        "outlineStyle": "dashed",
+        "outlineColor": "color(srgb 0.493698 0.351392 0.798991 / 0.65)"
+      }
+    },
+    "sequence-390-light": {
+      "plates": [
+        {
+          "cls": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove"
+        }
+      ],
+      "preset": null
+    },
+    "easing-390-light": {
+      "plates": [],
+      "preset": null
+    },
+    "square-1440-dark": {
+      "plates": [
+        {
+          "cls": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto ",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto "
+        }
+      ],
+      "preset": null
+    },
+    "spring-1440-dark": {
+      "plates": [
+        {
+          "cls": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful"
+        }
+      ],
+      "preset": {
+        "outlineStyle": "dashed",
+        "outlineColor": "color(srgb 0.744689 0.583611 0.927227 / 0.65)"
+      }
+    },
+    "sequence-1440-dark": {
+      "plates": [
+        {
+          "cls": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove"
+        }
+      ],
+      "preset": null
+    },
+    "easing-1440-dark": {
+      "plates": [],
+      "preset": null
+    },
+    "square-390-dark": {
+      "plates": [
+        {
+          "cls": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto ",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card square-stage grid h-full max-h-full w-full lg:mx-8 lg:w-auto "
+        }
+      ],
+      "preset": null
+    },
+    "spring-390-dark": {
+      "plates": [
+        {
+          "cls": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card spring-target relative flex flex-col items-center gap-8 h-ful"
+        }
+      ],
+      "preset": {
+        "outlineStyle": "dashed",
+        "outlineColor": "color(srgb 0.744689 0.583611 0.927227 / 0.65)"
+      }
+    },
+    "sequence-390-dark": {
+      "plates": [
+        {
+          "cls": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove",
+          "backdrop": "blur(16px) saturate(1.5)",
+          "shadowLayers": 5,
+          "restingAncestor": "glass-resting card seq-target w-full h-full max-h-full min-h-0 flex flex-col ove"
+        }
+      ],
+      "preset": null
+    },
+    "easing-390-dark": {
+      "plates": [],
+      "preset": null
+    }
+  }
+}
