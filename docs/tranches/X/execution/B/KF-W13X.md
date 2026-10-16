@@ -5242,3 +5242,44 @@ Self-count: 3 defects read · 0 cured · 1 HIGH escalated · 1 MINOR carried · 
 - **Honest-RED set (relieved):** B7 SPECULAR-REST · SHEET-POSITION. **Unrelieved:** A3.
 - **Hygiene:** ⟨`pgrep -fl 'keyframes-wt-W13X-open4|run-demo-roster'`⟩ → empty after the run; worktree clean; no server started.
 - **Self-count:** ⟨`sed -n '/^## RESUME 4 — Check 3/,$p' KF-W13X.md | grep -c '^| \(HIGH\|MINOR\|INFO\) |'`⟩ → 3 rows (1 HIGH · 1 MINOR · 1 INFO). 4 GREENs reproduced. Gates failed: A3. LEDGER status cell unchanged (PARTIAL stands); one event line appended.
+
+## RESUME 5 — Open (re-open on addendum (k), COHESION §0fm)
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, seat 0, 2026-10-16 (execution under the owner's begin-word of 2026-09-17). RESUME mode: ⟨`grep -n '^| KF.W13X' LEDGER.md`⟩ → `:65` "PARTIAL — RESUME 4 CLOSE …"; this record exists.
+- **Authority:** COHESION §0fm items 1–5 (`:4043-4060`; ESC-W13X-a3-1 RULED, arm (b) granted as `.a3o`, arm (a) NOT taken) · KF-W13.md ADDENDUM (k) (`:601-606`, binding) · §0fl.1/.2 (`.r3res2e` and the `.r3res2f` kf half relieved at the close) · §0fl.4 (`--light` with the reason disclosed counts as read) · §0ev.2/§0ev.3 · §0fb/§0fd/§0fi (guard, reaper, zone watchdog; WebKit via `guarded --exclusive webkit`) · X-DS canon §0ek · headless §0ei · no durable /tmp §0eo. Record read: `## RESUME 4 — Open/Baseline/Unit plan/Unit receipts` (`:4947-5026`) and `## RESUME 4 — Check 3` (`:5204-5244`).
+- **Bytes:** ⟨`git -C keyframes.js rev-parse --short HEAD origin/master`⟩ → `57fb241a` `57fb241a` (unmoved since RESUME 4). value.js HEAD `efddf81a6` (the §0fm chassis). ⟨`git -C keyframes.js log --oneline 71480d85..57fb241a -- scripts/observe/demo/live-session-mobile.mjs`⟩ → empty (the oracle is byte-identical at both readings); `:1151` = `querySelectorAll("[class*=rail], .controls-pane-wrapper")`.
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS; outside `.a3o`'s grant) + 2 old untracked letters. `scripts/observe/demo/live-session-mobile.mjs` clean. value.js: ⟨`git status --porcelain -- docs/tranches/X/execution/ docs/tranches/X/keyframes/evidence/W13X`⟩ → ` M execution/A/X-W12U.md` (Track A) · `?? evidence/W13X/r3res2d/frames/` (RESUME 3 `.r3res2d` leftovers, not this seat's) · `?? open-r5/` (this seat). No inherited partial work.
+- **alreadyDone (commits exist; never re-dispatched):** first sitting `.g0 .x .r .mobile .dock .spring .springd .sequence .timeline .keyframes .easing .cube .matrix .amiga .square .controls .overlays .transport .home .scene .lib .sections .sq+dh`; RESUME 1 `.pc .dh2 .esc1 .esc2 .esc3 .cube2 .r4lib .r4state .r4pane .r4transport .r4shell .r4dock .r4panes .r4cube .r4shared .r4prose .rel`; RESUME 2 `.pc2 .r4ribbon .r4init .r4fade .r4press .r4shared2 .r3res .rel2`; RESUME 3 `.r3res2a .r3res2b .r3res2c .r3res2d .r3res2e .r3res2f`; RESUME 4 `.a3` (diagnosis, 0 product bytes; receipt `:4995`). ⟨`git -C keyframes.js log --oneline --all --grep=a3o`⟩ → empty; ⟨`git log --oneline --grep=a3o`⟩ → only the §0fm ruling `7b28bd516` + chassis `efddf81a6` (docs). **Owed: `.a3o` only.**
+- **"Opens after":** KF.W13W — LEDGER `:64` CLOSED 2026-09-17 (unchanged). §0fm in COHESION (`:4043`), addendum (k) in the spec (`:601`). **MET.**
+
+### E13 mail sweep (Step-0)
+⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 06:39): value `V/` 0 · `V/coordination` 0 · glass `BL/coordination` 0 · keyframes `V/coordination` 0 · atlas `P/coordination` 0 · glass `BL/` `FORMATION-PROGRESS.md` (glass's formation file, not a letter) · glass `BK/coordination` `valuejs-outbound-2026-10-16-frel-w2-bk-relay.md` = O-97 (value.js outbound, rowed INBOX `:575`). ⟨`grep -c '^|.*| *\**UNREAD\** *|' INBOX.md`⟩ → 0. **0 unrowed inbound, 0 UNREAD.** A dated sweep line is appended to INBOX.
+
+## RESUME 5 — Baseline
+
+READ-ONLY at kf `57fb241a` in the clean detached worktree `/Users/mkbabb/Programming/keyframes-wt-W13X-open4` (⟨`git -C … status --porcelain -uno`⟩ empty; node_modules symlinked), value.js `efddf81a6`. A RESUME open re-runs only what the owed unit turns. `check` ×2 EXIT 0 · `lint` ×2 (457/1661) · `build` + `gh-pages` · `test:demo` 155/941 ×2 are cited from RESUME 4 Check 3 at this same kf head (unmoved).
+
+| gate | command | reading | result |
+|---|---|---|---|
+| `.a3o` A3 oracle (live-session-mobile) at kf HEAD | ⟨`evidence/W13X/open-r5/run-a3.sh <n>`⟩ = `guarded --light --timeout 10 -- npm run gh-pages` then `guarded --light --timeout 15 -- env KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1 --only=live-session-mobile` | r1 06:49:44–06:51:13 (load 19.3) · r2 06:51:13–06:52:41 (load 20.7): `✗ A3 appearance — a ghost rail SURVIVES on the home sweep (home: railless=true ghostCol=false; sequence: railless=false ghostCol=true)` · `passed: 0/1` · `EXIT=1` ×2 (`open-r5/a3-57fb241a-r{1,2}.log.txt`). The same run's M1 ✗ is SHEET-POSITION (honest-RED) | **RED ×2** (`--light`: one chromium, one dist, serial; reason disclosed per §0fl.4) |
+| A3 at `71480d85` (pre-token) | the unit's own reading after the re-point (§0fm.2) | banked GREEN by the RESUME 3/4 bisect (old selector) | must stay GREEN under the new selector |
+| synthetic-ghost falsifier | the unit authors it (§0fm.2) | does not exist yet | must read `ghostCol=true` with the injected column, GREEN on removal, ×2 |
+| close readings | `test:demo` ×2 · kf e2e `--workers=1` ×2 · `gh-pages` · check · lint | banked at RESUME 4 Close/Checks | the close re-reads NOW under §0ev.2 |
+
+**greenBeforeCure (R.2):** none. A3 reads RED ×2 at the bytes (×7 across RESUME 4–5).
+
+**Rail-track seat at the bytes (for the unit's enumeration, not a ruling):** ⟨`git -C keyframes.js grep -n -E 'grid-(column|area)[^;]*rail' HEAD -- demo`⟩ → one hit, `demo/components/instrument/transport/AnimationControlsGroup.css:242` `grid-column: rail;` on `.controls-layout > :deep(.controls-pane-wrapper)` (inside `@container controls-layout (min-width: 64rem)`); the `[rail]` track is declared at `:50-51` (`--rail-track`, `grid-template-columns: [rail] var(--rail-track) [stage] …`), zeroed at `:70-73` (`.controls-layout--railless`). `.a3o` enumerates the rail element's emitted class(es) from these bytes and the template and cites them.
+
+## RESUME 5 — Unit plan
+
+**Order (§0fm.5, addendum (k); strictly serial, at most 1 concurrent):** `.a3o` → close (verify-only, §0ev.2: up to 3 re-reads with load recorded; check · lint · `test:demo` ×2 (`--light` with the reason disclosed counts as read, §0fl.4) · kf e2e `--workers=1` ×2 over a clean gh-pages dist (WebKit only via `guarded --exclusive webkit`) · `gh-pages`; honest-RED exactly B7 SPECULAR-REST · SHEET-POSITION; relieves `.r3res2e` by §0fl.1 and the `.r3res2f` kf half by §0fl.2) → check (an audit). **1 unit, Opus** (§0fm names no Fable seat; owner Opus-only 2026-09-23).
+
+| # | unit | ruling | writable | gate |
+|---|---|---|---|---|
+| S1 | `.a3o` | §0fm.1–4 · addendum (k) | kf `scripts/observe/demo/live-session-mobile.mjs` — the A3 block only (`:1135-1185` region; the selector at `:1151`); value.js: own receipt under `## RESUME 5 — Unit receipts`, `docs/tranches/X/keyframes/evidence/W13X/a3o/**` | A3 GREEN ×2 at kf HEAD (gh-pages dist, `--only=live-session-mobile`); synthetic hollow rail-track column with the rail's own class at ghost geometry → `ghostCol=true`, removed → GREEN, ×2; A3 GREEN at `71480d85`; check · lint 0 |
+
+### Brief
+
+- **`.a3o`** — (1) Crash-recovery read; the oracle path must be clean. (2) Enumerate the rail track's emitted class(es) from the bytes: the `[rail]` grid track (`AnimationControlsGroup.css:50-51/:70-73`) is occupied by `.controls-pane-wrapper` (`:241-242`), plus any rail plate/track class its template (`ControlsPaneWrapper.vue`) emits; cite each `path:line`. (3) Re-point `:1151` to exactly those classes (+ `.controls-pane-wrapper` as before); no `[class*=…]` substring, no `:not(...)` exclusion list; the width/height/full-width-sheet geometry test and the oracle comment's intent untouched (update the comment to name the exact classes). (4) Falsifier (evidence script under `a3o/`, reusing the oracle's `withPage`/`navToScene`): on `#/sequence` at 390×844 inject a hollow column with the rail's own class at ghost geometry (w > 200, h > 300, < vw − 8) → `ghostCol=true`; remove → false; ×2. (5) A3 GREEN ×2 at HEAD; A3 GREEN at `71480d85` (detached scratch worktree, the new selector applied there read-only or by running the HEAD oracle against that dist). (6) `rail-fill` NOT renamed; 0 product bytes. All runs via `guarded`, headless, `--workers=1`, browsers closed in `finally`. kf pathspec commit + push; receipt + evidence pathspec commit in value.js.
+
+## RESUME 5 — Unit receipts
