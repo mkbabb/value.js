@@ -1,0 +1,1061 @@
+
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 81 tests using 1 worker
+
+[1/81] [chromium] › e2e/f-w13-image-controls.spec.ts:78:5 › G-b — F.W13 image-mode controls act (frame 3) › at rest the drop target opens the picker by key; with an image the Image layer discloses
+[2/81] [chromium] › e2e/f-w13-image-controls.spec.ts:102:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: every sidebar control acts and every icon-only command is a circle
+  1) [chromium] › e2e/f-w13-image-controls.spec.ts:102:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: every sidebar control acts and every icon-only command is a circle 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.getAttribute: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.viz-panel-left-wrap').getByRole('button', { name: /^Basis/ })
+
+
+      33 | async function openLayer(side: Locator, name: RegExp): Promise<Locator> {
+      34 |     const trigger = side.getByRole("button", { name });
+    > 35 |     if ((await trigger.getAttribute("aria-expanded")) !== "true") await trigger.click();
+         |                        ^
+      36 |     await expect(trigger).toHaveAttribute("aria-expanded", "true");
+      37 |     return trigger;
+      38 | }
+        at openLayer (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w13-image-controls.spec.ts:35:24)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w13-image-controls.spec.ts:113:15
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w13-image-controls-G-b-—-41774-on-only-command-is-a-circle-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w13-image-controls-G-b-—-41774-on-only-command-is-a-circle-chromium/error-context.md
+
+
+[3/81] [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback
+  2) [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: getByRole('button', { name: /(Play|Pause) animation/ })
+    Expected pattern: /dock-icon-button/
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveClass" with timeout 5000ms
+      - waiting for getByRole('button', { name: /(Play|Pause) animation/ })
+
+
+      203 |
+      204 |         const play = page.getByRole("button", { name: /(Play|Pause) animation/ });
+    > 205 |         await expect(play).toHaveClass(/dock-icon-button/);
+          |                            ^
+      206 |         await expectCircle(play);
+      207 |
+      208 |         // Playback autostarts once the decomposition lands; toggle from there.
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w13-image-controls.spec.ts:205:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w13-image-controls-G-b-—-c6fba-circle-and-toggles-playback-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w13-image-controls-G-b-—-c6fba-circle-and-toggles-playback-chromium/error-context.md
+
+
+[4/81] [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 1440] 15 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[5/81] [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+  3) [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales 
+
+    Test timeout of 300000ms exceeded.
+
+    Error: locator.click: Test timeout of 300000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" type="button" tabindex="-1" class="segmented-tab" aria-selected="false">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en">…</html> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <html lang="en">…</html> intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      509 × retrying click action
+            - waiting 500ms
+            - waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      244 |             if (page.viewportSize()!.width < 1024) {
+      245 |                 await expect(page.locator(".canvas-stage")).not.toHaveClass(/panel-inactive/, { timeout: 60_000 });
+    > 246 |                 await page.getByRole("tab", { name: "Controls" }).click();
+          |                                                                   ^
+      247 |             }
+      248 |             await expect(sliderRoot(page, "Harmonics")).toBeVisible({ timeout: 90_000 });
+      249 |             await page.getByRole("button", { name: /^Contour/ }).first().click();
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-control-row.spec.ts:246:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-control-row-G-h-cont-ed22a-eight-·-type-spacing-scales-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-control-row-G-h-cont-ed22a-eight-·-type-spacing-scales-chromium/error-context.md
+
+
+[6/81] [chromium] › e2e/f-w14-uia.spec.ts:26:5 › UIA-F-1 — a featured entry renders the strip, not a crash › the pager lives inside its Carousel; no useCarousel pageerror
+[7/81] [chromium] › e2e/f-w14-uia.spec.ts:62:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-2: a cold deep link sends GET /api/visualizations/<slug> and leaves the upload stage
+[8/81] [chromium] › e2e/f-w14-uia.spec.ts:73:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-3: an in-app push /w/ → /v/ stays on /v/ with no orphaned transition
+[9/81] [chromium] › e2e/f-w14-uia.spec.ts:86:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-50: an unknown path renders a titled, noindexed not-found card
+[10/81] [chromium] › e2e/f-w14-uia.spec.ts:99:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-4: /v/<unknown> names the failed slug instead of the upload prompt
+[11/81] [chromium] › e2e/f-w14-uia.spec.ts:107:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-49: the error card's action is labelled, and nothing covers the diagnosis
+[12/81] [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock
+  4) [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      126 |         const bar = page.locator(".mini-progress").first();
+      127 |         await expect(bar).toHaveAttribute("role", "progressbar");
+    > 128 |         await expect.poll(async () => Number(await bar.getAttribute("aria-valuenow")), { timeout: 10_000 }).toBeGreaterThan(0);
+          |                                                                                                             ^
+      129 |         const fill = await bar.evaluate((el) => {
+      130 |             const ind = el.firstElementChild as HTMLElement;
+      131 |             const r = ind.getBoundingClientRect();
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:128:109
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-7-—-the-co-5c96b-inted-fill-tracks-the-clock-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-7-—-the-co-5c96b-inted-fill-tracks-the-clock-chromium/error-context.md
+
+
+[13/81] [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels
+  5) [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0.2
+    Received:   0
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      173 |         await page.goto(`/v/${viz.slug}`);
+      174 |         const bar = page.locator(".mini-progress").first();
+    > 175 |         await expect.poll(async () => Number(await bar.getAttribute("aria-valuenow")), { timeout: 10_000 }).toBeGreaterThan(0.2);
+          |                                                                                                             ^
+      176 |         // Paused by keyboard: a pointer press on a persistent dock control can
+      177 |         // be discarded by the producer's click-integrity guard mid-morph
+      178 |         // (UIA-F-8, glass), which would leave the clock running.
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:175:109
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-17-—-every-30a57-th-off-removes-their-pixels-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-17-—-every-30a57-th-off-removes-their-pixels-chromium/error-context.md
+
+
+[14/81] [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled
+  6) [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      224 |     await page.goto(`/v/${viz.slug}`);
+      225 |     const edit = page.getByRole("button", { name: "Edit contour" }).first();
+    > 226 |     await edit.hover();
+          |                ^
+      227 |     await page.waitForTimeout(600);
+      228 |     await edit.click();
+      229 |     const shell = page.locator(".editor-shell:not(.is-hidden) > .editor-shell").first();
+        at openEditor (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:226:16)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:248:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-16-—-Undo--b79fc--the-dock-s-Undo-is-enabled-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-16-—-Undo--b79fc--the-dock-s-Undo-is-enabled-chromium/error-context.md
+
+
+[15/81] [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace
+[16/81] [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save'
+  7) [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save' 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      307 |         await page.goto(`/v/${viz.slug}`);
+      308 |         // The canvas dock expands under the pointer (its persistent control).
+    > 309 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      310 |         const publish = page.getByRole("button", { name: "Publish to Gallery" }).first();
+      311 |         await expect(publish).toBeVisible();
+      312 |         await page.waitForTimeout(600);
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:309:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-18-—-one-P-e5917-ws-no-false-Could-not-save--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-18-—-one-P-e5917-ws-no-false-Could-not-save--chromium/error-context.md
+
+
+[17/81] [chromium] › e2e/f-w14-uia.spec.ts:321:5 › UIA-F-19 — one drop, one upload › a file dropped over a loaded image sends exactly one POST /api/images
+[18/81] [chromium] › e2e/f-w14-uia.spec.ts:356:5 › UIA-F-20 — the paper restores its scroll position › a reload returns to the saved section instead of the top
+[19/81] [chromium] › e2e/f-w14-uia.spec.ts:377:5 › UIA-F-24 — floating ToC chapter rows navigate; the disclosure toggles › tapping a chapter row scrolls to it; the chevron is its own control
+[20/81] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[21/81] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+[22/81] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[23/81] [chromium] › e2e/f-w14-uia.spec.ts:493:5 › UIA-F-48 — the Drafts card sits inside the column gutter › its right edge stays inside its column and the viewport
+[24/81] [chromium] › e2e/f-w14-uia.spec.ts:518:5 › UIA-F-41 — the gallery column never scrolls sideways at 390 (consumer half) › focusing the last admin tab leaves the column at scrollLeft 0
+[25/81] [chromium] › e2e/f-w14-uia.spec.ts:539:5 › UIA-F-45 — focus opens inside the card modal and stays there › initial focus is the dialog's title and Tab never reaches the page behind
+[26/81] [chromium] › e2e/f-w14-uia.spec.ts:555:5 › UIA-F-40 — the admin grid does not wait on admin stats › a slow stats call neither delays the grid request nor shows the empty CTA over entries
+[27/81] [chromium] › e2e/f-w14-uia.spec.ts:576:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload
+[28/81] [chromium] › e2e/f-w14-uia.spec.ts:643:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card
+[29/81] [chromium] › e2e/f-w14-uia.spec.ts:643:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card
+  8) [chromium] › e2e/f-w14-uia.spec.ts:643:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      633 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      634 |     const card = page.locator(".eq-card");
+    > 635 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      636 |     return card;
+      637 | }
+      638 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:635:50)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:644:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/error-context.md
+
+
+[30/81] [chromium] › e2e/f-w14-uia.spec.ts:666:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor
+  9) [chromium] › e2e/f-w14-uia.spec.ts:666:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      633 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      634 |     const card = page.locator(".eq-card");
+    > 635 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      636 |     return card;
+      637 | }
+      638 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:635:50)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-uia.spec.ts:667:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/error-context.md
+
+
+[31/81] [chromium] › e2e/f-w14-uia.spec.ts:693:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one
+[32/81] [chromium] › e2e/f-w14-uia.spec.ts:721:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport
+[33/81] [chromium] › e2e/f-w14-uia.spec.ts:763:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-28/F-29: the login form opens in a popover; its error wraps in its own line
+[34/81] [chromium] › e2e/f-w14-uia.spec.ts:783:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-30: logged in, the account is one trigger and the dark-mode toggle stays on the plate
+[35/81] [chromium] › e2e/f-w14-uia.spec.ts:809:5 › UIA-F-22 — mobile paper search: one instance, and a tapped result navigates › one listbox, no duplicate ids, and tapping a result scrolls to it
+[36/81] [chromium] › e2e/f-w14-uia.spec.ts:833:5 › UIA-F-23 — the floating ToC's Close search closes with a query typed › one tap on Close search closes the search and it stays closed
+[37/81] [chromium] › e2e/f-w14-uia.spec.ts:850:5 › UIA-F-25 — the search palette has one dismissal owner › no ✕ under Clear, and Esc collapses the palette keeping the query
+[38/81] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[G-g 1440 light] veils=0 surface=rgba(253, 245, 236, 1) card=rgba(253, 245, 236, 1) stage=rgba(253, 245, 236, 1) ΔE(surface,card)=0.0000 ΔE(surface,stage)=0.0000 ink=10 min=6.08
+
+[39/81] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+  10) [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 light) › no veil on any ancestor · surface = --card = the stage's · ink AA 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" type="button" tabindex="-1" class="segmented-tab" aria-selected="false">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en">…</html> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en">…</html> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        174 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+          - retrying click action
+            - waiting 500ms
+
+
+      33 |     if (page.viewportSize()!.width < 1024) {
+      34 |         await expect(page.locator(".canvas-stage")).not.toHaveClass(/panel-inactive/, { timeout: 60_000 });
+    > 35 |         await page.getByRole("tab", { name: "Controls" }).click();
+         |                                                           ^
+      36 |     }
+      37 |     // The frame's state: the sidebar is in (at 390 the Controls tab selected
+      38 |     // above, the stage behind it).
+        at loadImage (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-veil.spec.ts:35:59)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-veil.spec.ts:199:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-veil-G-g-—-OA-43-the-73123---card-the-stage-s-·-ink-AA-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-veil-G-g-—-OA-43-the-73123---card-the-stage-s-·-ink-AA-chromium/error-context.md
+
+
+[40/81] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[G-g 1440 dark] veils=0 surface=rgba(53, 42, 34, 1) card=rgba(53, 42, 34, 1) stage=rgba(53, 42, 34, 1) ΔE(surface,card)=0.0000 ΔE(surface,stage)=0.0000 ink=47 min=4.66
+
+[41/81] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+  11) [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" type="button" tabindex="-1" class="segmented-tab" aria-selected="false">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en" class="dark">…</html> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <html lang="en" class="dark">…</html> intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      169 × retrying click action
+            - waiting 500ms
+            - waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      33 |     if (page.viewportSize()!.width < 1024) {
+      34 |         await expect(page.locator(".canvas-stage")).not.toHaveClass(/panel-inactive/, { timeout: 60_000 });
+    > 35 |         await page.getByRole("tab", { name: "Controls" }).click();
+         |                                                           ^
+      36 |     }
+      37 |     // The frame's state: the sidebar is in (at 390 the Controls tab selected
+      38 |     // above, the stage behind it).
+        at loadImage (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-veil.spec.ts:35:59)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14-veil.spec.ts:199:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-veil-G-g-—-OA-43-the-db196---card-the-stage-s-·-ink-AA-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-veil-G-g-—-OA-43-the-db196---card-the-stage-s-·-ink-AA-chromium/error-context.md
+
+
+[42/81] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[43/81] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  12) [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.controls-dock-anchor .glass-dock')
+    Expected pattern: /\bcollapsed\b/
+    Received string:  "glass-dock horizontal shape-pill expanded fit-content"
+    Timeout: 30000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 30000ms
+      - waiting for locator('.controls-dock-anchor .glass-dock')
+        2 × locator resolved to <div expanded="true" data-morphing="" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+          - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+        61 × locator resolved to <div expanded="true" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+           - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+
+
+      72 |     // re-seats after the layer swap); wait until its box holds still.
+      73 |     const dock = page.locator(".controls-dock-anchor .glass-dock");
+    > 74 |     await expect(dock).toHaveClass(/\bcollapsed\b/, { timeout: 30_000 });
+         |                        ^
+      75 |     let last = "";
+      76 |     await expect
+      77 |         .poll(async () => {
+        at traceOff (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:74:24)
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:42:16)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:141:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-18b10-lyph-and-stays-on-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-18b10-lyph-and-stays-on-the-plate-chromium/error-context.md
+
+
+[44/81] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+  13) [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.animation-dock')
+    Expected pattern: /\bcollapsed\b/
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveClass" with timeout 30000ms
+      - waiting for locator('.animation-dock')
+
+
+      42 |     if (setup) await setup(page);
+      43 |     await page.mouse.move(5, 5);
+    > 44 |     await expect(page.locator(".animation-dock")).toHaveClass(/\bcollapsed\b/, { timeout: 30_000 });
+         |                                                   ^
+      45 |     await expect(page.locator(".controls-dock-anchor .glass-dock")).toHaveClass(/\bcollapsed\b/, {
+      46 |         timeout: 30_000,
+      47 |     });
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:44:51)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:105:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-97c1e-ts-unit-the-dock-s-own-size-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-97c1e-ts-unit-the-dock-s-own-size-chromium/error-context.md
+
+
+[45/81] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  14) [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.controls-dock-anchor .glass-dock')
+    Expected pattern: /\bcollapsed\b/
+    Received string:  "glass-dock horizontal shape-pill expanded fit-content"
+    Timeout: 30000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 30000ms
+      - waiting for locator('.controls-dock-anchor .glass-dock')
+        3 × locator resolved to <div expanded="true" data-morphing="" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+          - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+        60 × locator resolved to <div expanded="true" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+           - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+
+
+      72 |     // re-seats after the layer swap); wait until its box holds still.
+      73 |     const dock = page.locator(".controls-dock-anchor .glass-dock");
+    > 74 |     await expect(dock).toHaveClass(/\bcollapsed\b/, { timeout: 30_000 });
+         |                        ^
+      75 |     let last = "";
+      76 |     await expect
+      77 |         .poll(async () => {
+        at traceOff (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:74:24)
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:42:16)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:141:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-42b00-lyph-and-stays-on-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-42b00-lyph-and-stays-on-the-plate-chromium/error-context.md
+
+
+[46/81] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[47/81] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  15) [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.animation-dock')
+    Expected: visible
+    Timeout: 60000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 60000ms
+      - waiting for locator('.animation-dock')
+
+
+      36 |     if (mobile) {
+      37 |         await expect(page.getByRole("tab", { name: "Canvas" })).toHaveAttribute("aria-selected", "true", { timeout: 60_000 });
+    > 38 |         await expect(page.locator(".animation-dock")).toBeVisible({ timeout: 60_000 });
+         |                                                       ^
+      39 |     } else {
+      40 |         await expect(page.getByRole("button", { name: /Replace image/ })).toBeVisible({ timeout: 60_000 });
+      41 |     }
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:38:55)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-d.spec.ts:141:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-81b17-lyph-and-stays-on-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-81b17-lyph-and-stays-on-the-plate-chromium/error-context.md
+
+
+[48/81] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1440 light) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[49/81] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1024 light) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[50/81] [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (light) › the sheet is a plain column within the shell and the viewport
+  16) [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (light) › the sheet is a plain column within the shell and the viewport 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" type="button" tabindex="-1" class="segmented-tab" aria-selected="false">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en">…</html> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en">…</html> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        173 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+          - retrying click action
+            - waiting 500ms
+
+
+      28 |     if (page.viewportSize()!.width < 1024) {
+      29 |         await expect(page.locator(".canvas-stage")).not.toHaveClass(/panel-inactive/, { timeout: 60_000 });
+    > 30 |         await page.getByRole("tab", { name: "Controls" }).click();
+         |                                                           ^
+      31 |     }
+      32 |     await expect(page.locator(".viz-panel-left-wrap")).toBeVisible({ timeout: 60_000 });
+      33 |     await expect(page.getByRole("button", { name: /Replace image/ })).toBeVisible({ timeout: 30_000 });
+        at loadImage (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-s.spec.ts:30:59)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-s.spec.ts:152:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-s-G-s-—-OA-59-the-3-8113b--the-shell-and-the-viewport-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-s-G-s-—-OA-59-the-3-8113b--the-shell-and-the-viewport-chromium/error-context.md
+
+
+[51/81] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1440 dark) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[52/81] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1024 dark) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[53/81] [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (dark) › the sheet is a plain column within the shell and the viewport
+  17) [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (dark) › the sheet is a plain column within the shell and the viewport 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" type="button" tabindex="-1" class="segmented-tab" aria-selected="false">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en" class="dark">…</html> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <html lang="en" class="dark">…</html> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        173 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+          - retrying click action
+            - waiting 500ms
+
+
+      28 |     if (page.viewportSize()!.width < 1024) {
+      29 |         await expect(page.locator(".canvas-stage")).not.toHaveClass(/panel-inactive/, { timeout: 60_000 });
+    > 30 |         await page.getByRole("tab", { name: "Controls" }).click();
+         |                                                           ^
+      31 |     }
+      32 |     await expect(page.locator(".viz-panel-left-wrap")).toBeVisible({ timeout: 60_000 });
+      33 |     await expect(page.getByRole("button", { name: /Replace image/ })).toBeVisible({ timeout: 30_000 });
+        at loadImage (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-s.spec.ts:30:59)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-s.spec.ts:152:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-s-G-s-—-OA-59-the-3-e39cd--the-shell-and-the-viewport-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-s-G-s-—-OA-59-the-3-e39cd--the-shell-and-the-viewport-chromium/error-context.md
+
+
+[54/81] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[55/81] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[56/81] [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why
+[57/81] [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing
+[58/81] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[59/81] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[60/81] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[61/81] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[62/81] [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading
+[63/81] [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in
+  18) [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in 
+
+    Test timeout of 90000ms exceeded.
+
+    Error: locator.hover: Test timeout of 90000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      279 |         await page.goto(`/v/${viz.slug}`);
+      280 |         await expect(page.getByRole("button", { name: "Log in" })).toBeVisible({ timeout: 30_000 });
+    > 281 |         await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                          ^
+      282 |         const publish = page.getByRole("button", { name: "Publish to Gallery" }).first();
+      283 |         await expect(publish).toBeVisible();
+      284 |         await page.waitForTimeout(600);
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:281:74
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-c40d5-nd-opens-the-inline-sign-in-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-c40d5-nd-opens-the-inline-sign-in-chromium/error-context.md
+
+
+[64/81] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[65/81] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[66/81] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+  19) [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+
+    Error: the sliders do not share one accent
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 1
+    Received:   1
+
+      401 |             // accent; each wears its owner's hue from the one palette, and none is
+      402 |             // the error ink.
+    > 403 |             expect.soft(new Set(fills).size, "the sliders do not share one accent").toBeGreaterThan(1);
+          |                                                                                     ^
+      404 |             const hues = await side.evaluate((root, owner) => {
+      405 |                 const probe = document.createElement("span");
+      406 |                 root.appendChild(probe);
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:403:85
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected value: "Epicycles"
+    Received array: []
+
+      471 |                 expect.soft(s.track, `slider "${s.label}" is not the error ink`).not.toEqual(hues.destructive);
+      472 |             }
+    > 473 |             expect(hues.chips.map((c) => c.label)).toContain("Epicycles");
+          |                                                    ^
+      474 |             for (const c of hues.chips) {
+      475 |                 if (!c.want) continue; // "Off" is not a basis
+      476 |                 const d = Math.abs(((c.bg.hue - c.want.hue + 540) % 360) - 180);
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:473:52
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-cd617-each-slider-its-owner-s-hue-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-cd617-each-slider-its-owner-s-hue-chromium/error-context.md
+
+
+[67/81] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+  20) [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" tabindex="0" type="button" data-active="" aria-selected="true" class="segmented-tab">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      230 × retrying click action
+            - waiting 500ms
+            - waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      61 |     const viz = seededViz();
+      62 |     await page.goto(`/v/${viz.slug}`);
+    > 63 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Controls" }).click();
+         |                                                                                              ^
+      64 |     await expect(page.locator(".viz-panel-left-wrap")).toBeVisible({ timeout: 60_000 });
+      65 |     await page.waitForTimeout(600);
+      66 | }
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:63:94)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:301:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-f9a5f-ew-layer-one-amplitude-view-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-f9a5f-ew-layer-one-amplitude-view-chromium/error-context.md
+
+
+[68/81] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[69/81] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+  21) [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Controls' })
+        - locator resolved to <button role="tab" tabindex="0" type="button" data-active="" aria-selected="true" class="segmented-tab">Controls</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      230 × retrying click action
+            - waiting 500ms
+            - waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <li tabindex="0" data-slot="toast" data-state="open" data-surface="glass" data-reveal="overlay" data-corner="top-left" data-tone="destructive" data-reka-collection-item="" data-swipe-direction="right" class="glass-floating glass-reveal glass-vaporize glass-corner-host [--corner-affordance-host-border:1px] [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] group pointer-events-auto relative flex w-full items-center justify-between space-x-4 rounded-card …>…</li> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      61 |     const viz = seededViz();
+      62 |     await page.goto(`/v/${viz.slug}`);
+    > 63 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Controls" }).click();
+         |                                                                                              ^
+      64 |     await expect(page.locator(".viz-panel-left-wrap")).toBeVisible({ timeout: 60_000 });
+      65 |     await page.waitForTimeout(600);
+      66 | }
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:63:94)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14u-vstage.spec.ts:372:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-8ecb8-each-slider-its-owner-s-hue-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-8ecb8-each-slider-its-owner-s-hue-chromium/error-context.md
+
+
+[70/81] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[71/81] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[72/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-light › frames the unread views d1440-light
+[73/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light
+  22) [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light 
+
+    Error: Timeout 40000ms exceeded while waiting on the predicate
+
+      194 |             await canvasTab.click();
+      195 |             await expect(page.locator(".animation-dock")).toBeVisible({ timeout: 4_000 });
+    > 196 |         }).toPass({ timeout: 40_000 });
+          |            ^
+      197 |         tabPresses.set(tag, presses);
+      198 |     }
+      199 |     await expect(page.locator(".animation-dock")).toBeVisible({ timeout: 30_000 });
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:196:12)
+        at walkWorkspace (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:262:5)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:338:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au0-au0-m390-light-frames-the-unread-views-m390-light-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au0-au0-m390-light-frames-the-unread-views-m390-light-chromium/error-context.md
+
+
+[74/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-light › frames the unread views t768-light
+[75/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light
+  23) [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light 
+
+    Test timeout of 240000ms exceeded.
+
+    Error: locator.hover: Test timeout of 240000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      202 |
+      203 | async function expandCanvasDock(page: Page): Promise<void> {
+    > 204 |     await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                      ^
+      205 |     await page.waitForTimeout(700);
+      206 | }
+      207 |
+        at expandCanvasDock (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:204:70)
+        at walkWorkspace (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:266:11)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:338:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au0-au0-t1024-light-930da-he-unread-views-t1024-light-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au0-au0-t1024-light-930da-he-unread-views-t1024-light-chromium/error-context.md
+
+
+[76/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark
+[77/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark
+  24) [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark 
+
+    Error: Timeout 40000ms exceeded while waiting on the predicate
+
+      194 |             await canvasTab.click();
+      195 |             await expect(page.locator(".animation-dock")).toBeVisible({ timeout: 4_000 });
+    > 196 |         }).toPass({ timeout: 40_000 });
+          |            ^
+      197 |         tabPresses.set(tag, presses);
+      198 |     }
+      199 |     await expect(page.locator(".animation-dock")).toBeVisible({ timeout: 30_000 });
+        at openViz (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:196:12)
+        at walkWorkspace (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:262:5)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:338:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au0-au0-m390-dark-frames-the-unread-views-m390-dark-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au0-au0-m390-dark-frames-the-unread-views-m390-dark-chromium/error-context.md
+
+
+[78/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-dark › frames the unread views t768-dark
+[79/81] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark
+  25) [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark 
+
+    Test timeout of 240000ms exceeded.
+
+    Error: locator.hover: Test timeout of 240000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      202 |
+      203 | async function expandCanvasDock(page: Page): Promise<void> {
+    > 204 |     await page.getByRole("button", { name: "Edit contour" }).first().hover();
+          |                                                                      ^
+      205 |     await page.waitForTimeout(700);
+      206 | }
+      207 |
+        at expandCanvasDock (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:204:70)
+        at walkWorkspace (/Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:266:11)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/p10x-cure/web/e2e/f-w14v-au0.spec.ts:338:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au0-au0-t1024-dark-frames-the-unread-views-t1024-dark-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au0-au0-t1024-dark-frames-the-unread-views-t1024-dark-chromium/error-context.md
+
+
+[80/81] [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m360-light-loggedin › frames the logged-in shell m360-light-loggedin
+[81/81] [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m430-light-loggedin › frames the logged-in shell m430-light-loggedin
+  Slow test file: [chromium] › e2e/f-w14-control-row.spec.ts (5.4m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  25 failed
+    [chromium] › e2e/f-w13-image-controls.spec.ts:102:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: every sidebar control acts and every icon-only command is a circle 
+    [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+    [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales 
+    [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock 
+    [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels 
+    [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled 
+    [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save' 
+    [chromium] › e2e/f-w14-uia.spec.ts:643:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:666:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+    [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 light) › no veil on any ancestor · surface = --card = the stage's · ink AA 
+    [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA 
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+    [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size 
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+    [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (light) › the sheet is a plain column within the shell and the viewport 
+    [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (dark) › the sheet is a plain column within the shell and the viewport 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue 
+    [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light 
+    [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light 
+    [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark ─
+    [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark 
+  56 passed (35.8m)

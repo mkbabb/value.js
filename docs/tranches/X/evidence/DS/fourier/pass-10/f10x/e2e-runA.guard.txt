@@ -1,0 +1,2 @@
+[guarded] waiting for headroom (1571 processes)
+[guarded] headroom wait expired after 30 min (1615 processes); proceeding (recorded)

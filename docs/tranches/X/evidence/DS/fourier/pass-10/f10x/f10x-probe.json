@@ -1,0 +1,200 @@
+{
+ "morph-light-1440": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "1px solid rgba(0, 0, 0, 0)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 122,
+   "tileH": 122,
+   "ratio": 1,
+   "radius": "16px",
+   "radiusOverW": 0.131,
+   "svg": [
+    64,
+    64
+   ],
+   "labelPx": 14.384
+  }
+ },
+ "morph-light-1024": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "1px solid rgba(0, 0, 0, 0)"
+  },
+  "shellScrolled": {
+   "mainScrollTop": 200,
+   "mainScrollable": true,
+   "scrolled": "true",
+   "borderTop": "1px solid color(srgb 0.778 0.7052 0.622 / 0.45)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 96.4,
+   "tileH": 96.4,
+   "ratio": 1,
+   "radius": "16px",
+   "radiusOverW": 0.166,
+   "svg": [
+    51,
+    51
+   ],
+   "labelPx": 13.5104
+  }
+ },
+ "morph-light-390": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "1px solid rgba(0, 0, 0, 0)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 60,
+   "tileH": 62.3,
+   "ratio": 1.039,
+   "radius": "16px",
+   "radiusOverW": 0.267,
+   "svg": [
+    33,
+    33
+   ],
+   "labelPx": 12.179
+  }
+ },
+ "gallery-light-1440-err": "page.evaluate: TypeError: Cannot read properties of null (reading 'children')\n    at eval (eval at evaluate (:303:30), <anonymous>:5:26)\n    at UtilityScript.evaluate (<anonymous>:305:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+ "gallery-light-390-err": "page.evaluate: TypeError: Cannot read properties of null (reading 'children')\n    at eval (eval at evaluate (:303:30), <anonymous>:5:26)\n    at UtilityScript.evaluate (<anonymous>:305:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+ "equation-light-1440": {
+  "aside": {
+   "aside": [
+    100,
+    888
+   ],
+   "scrollH": 810,
+   "clientH": 786,
+   "scrollTop": 0,
+   "fadeEnd": "",
+   "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 16px), rgba(0, 0, 0, 0) 100%)",
+   "asideBorderBottom": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "fsBorderBottom": "0px solid rgb(28, 25, 23)",
+   "scrolledEnd": null
+  }
+ },
+ "morph-dark-1440": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "1px solid rgba(0, 0, 0, 0)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 122,
+   "tileH": 122,
+   "ratio": 1,
+   "radius": "16px",
+   "radiusOverW": 0.131,
+   "svg": [
+    64,
+    64
+   ],
+   "labelPx": 14.384
+  }
+ },
+ "morph-dark-1024": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "1px solid rgba(0, 0, 0, 0)"
+  },
+  "shellScrolled": {
+   "mainScrollTop": 200,
+   "mainScrollable": true,
+   "scrolled": "true",
+   "borderTop": "1px solid color(srgb 0.3944 0.34 0.2856 / 0.45)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 96.4,
+   "tileH": 96.4,
+   "ratio": 1,
+   "radius": "16px",
+   "radiusOverW": 0.166,
+   "svg": [
+    51,
+    51
+   ],
+   "labelPx": 13.5104
+  }
+ },
+ "morph-dark-390": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "1px solid rgba(0, 0, 0, 0)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 60,
+   "tileH": 62.3,
+   "ratio": 1.039,
+   "radius": "16px",
+   "radiusOverW": 0.267,
+   "svg": [
+    33,
+    33
+   ],
+   "labelPx": 12.179
+  }
+ },
+ "gallery-dark-1440-err": "page.evaluate: TypeError: Cannot read properties of null (reading 'children')\n    at eval (eval at evaluate (:303:30), <anonymous>:5:26)\n    at UtilityScript.evaluate (<anonymous>:305:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+ "gallery-dark-390-err": "page.evaluate: TypeError: Cannot read properties of null (reading 'children')\n    at eval (eval at evaluate (:303:30), <anonymous>:5:26)\n    at UtilityScript.evaluate (<anonymous>:305:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+ "equation-dark-1440": {
+  "aside": {
+   "aside": [
+    100,
+    888
+   ],
+   "scrollH": 810,
+   "clientH": 786,
+   "scrollTop": 0,
+   "fadeEnd": "",
+   "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 16px), rgba(0, 0, 0, 0) 100%)",
+   "asideBorderBottom": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+   "fsBorderBottom": "0px solid rgb(233, 230, 226)",
+   "scrolledEnd": null
+  }
+ }
+}

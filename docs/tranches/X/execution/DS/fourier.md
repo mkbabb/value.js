@@ -1408,3 +1408,40 @@ This is the cure seat for critic **F9X** (the redeploy's pass-9 critic, 2026-10-
 - `morph-*` at 1440, 1024 and 390, scrolled to the levels card;
 - `visualize-*` (the empty stage) at 1440 and 390;
 - each in light and dark.
+
+### pass 10
+This is the cure seat for critic **F10X** (the redeploy's pass-10 critic, 2026-10-16). The BEFORE is this seat's own reading of the critic's cells on the pre-cure tree, `pass-10/f10x/before/` (frames and `f10x-probe.json`: /morph at 1440, 1024 and 390; /gallery at 1440 and 390; /equation at 1440; light and dark). The other sets under `pass-10/` (`critic-f12` and the loose F12 files) are left as they were.
+- fourier `73fc6ec`, on `m/w1-bump-migration`, two files (`web/src/App.vue`, `web/src/components/morph/HarmonicLevelGrid.vue`), committed by pathspec and pushed fast-forward `06c2d92..73fc6ec`.
+- value.js (this commit) holds the AFTER frames, the probe and its JSON, the census, the gate and e2e logs and the refused C2 trial, all in `pass-10/f10x/`.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F10X-C1 | **Cured.** The tile's corner is `--radius-card` at every pointer, one declaration in the existing `glass-overrides` block. The recipe derives its corner from the control height (`--button-size / 2`), which the coarse ramp grows to 30 px; on a 60 px track that made a stadium. The shape is capped at `min(64px, 65%)` of the tile's content box, so the shape, the gap and the caption label fit inside the tile's `aspect-ratio: 1`. The two rows of 5 are kept. **Measured** (`f10x-probe.json`, both themes): at 390 the tiles are 60 × 62.3 (ratio 1.04, against 1.33 before), the radius is 16 px = 0.27 × W (30 px = 0.5 × W before), and the shape is 33 px. At 1024 the tiles are 96.4 × 96.4 (96 × 108 before) with a 51 px shape. At 1440 they are unchanged at 122 square, with the 64 px shape and a 16 px radius (20 before). Identity is unchanged: the accent-red shapes, the mono caption labels, the bound and active edges, and the press scale. |
+| DS-F10X-C2 | **REFUSED: a conflict with a standing ruling, so it is the owner's pick.** The cure was tried and measured (`c2-refused/`): `--page-measure: 80rem` centred on `.gallery-grid-host` and the toolbar row gave four 303 px tracks, centred on the dock's axis (host 80 → 1360, no phantom track). But it moves the gallery's content edge to 96 px at 1440. That fails **f-w14v-au1 L3-6** ("the content edge holds across route switches": `gutters {"visualize":16,"equation":16,"gallery":96}`), which holds the one page gutter of X.F.W14V.au1 **A2-FO-L3-6**. Restating that spec would undo a ruled cure, so the change is reverted. **ESC-DS-F10X-C2:** either every route takes the origin's centred measure (and au1 L3-6 is restated by ruling), or the gallery keeps the shared gutter. |
+| DS-F10X-C3 | **Cured with the finding's first arm.** `<main>` carries a 1 px block-start border: transparent at rest, and `--border-soft` once it has scrolled (`data-scrolled` from a passive scroll listener on the existing `main` ref). This is the same hairline as DS-F5-C4. The edge is pulled up its own pixel (`-mt-px`), so no route moves. **Measured:** at rest `1px solid rgba(0,0,0,0)` on every cell; on /morph 1024 scrolled 200 px, `data-scrolled="true"` and `1px solid color(srgb .778 .705 .622 / .45)` in light and `(… .394 .34 .286 / .45)` in dark. The `morph-*-1024-scrolled` frames show the rule where the card used to be sliced at y≈155. There is no new component, no shadow, no gradient and no keyframes. |
+| DS-F10X-T1 | **Closed by reading.** The aside is not a bare clip. Glass's `FadingScroll` (`scroll-mode="auto"`) already ends it on a 16 px block-end mask fade (`linear-gradient(… calc(100% - 16px), transparent 100%)`), and the aside has its own 1 px edge. Its overflow at 1440 is 24 px (810 / 786). A wider fade would be glass's `--fade-scroll-width`, which is not overridden locally. |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F10X-G0** has no new witness. Everything measured falls within the held rows: DS-F2R-G1, DS-F6X-G1 and DS-F8X-G1 (casts and bevels, and the cream cast in dark), DS-F7X-G1, DS-F4X-G1, DS-F2R-G2, DS-F5X-G1, DS-F3C-G1/G3/G4 and DS-F9X-G1. The census re-reads the dark `.dock-plate` at `blur(16px) saturate(1.3) brightness(1.14)`. These are held honest-RED on **O-87 FLAT-LIGHTING** and re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs` against the final tree on `:3124`; `f10x/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations). The cure adds no lighting site.
+- Computed sums: 260 shadow elements, 670 layers, 202 multi-layer stacks, 202 inset highlights, 156 backdrop blur, 0 control gradients, 0 looping animations.
+- **The fall from pass 9's 378 / 950 / 284 / 284 / 208 is not this cure.** By the time of the census the dev gallery was empty (the API returned `items: []`), because the e2e seed's rows had been removed. The gallery's card casts dropped out with them. Still RED on the glass rows.
+
+**Gates** (`f10x/gates.txt`).
+- On the final tree (HEAD `6b98e22` plus the two files, worktree `p10x-cure`): `vue-tsc -b` 0 twice, and `vitest run --maxWorkers=2` 116/116 (20 files) twice, under `guarded --light`. On the merged tree (HEAD `06c2d92` plus the cure): `vue-tsc -b` 0.
+- **e2e:** the union of pass 9's 21 specs and every spec that reaches /gallery or the levels card, 33 in all (`e2e-specs.txt`). They ran headless with `--project=chromium --project=mobile-chromium`, 1 worker, each against its own vite server for the tree under test.
+  - **Environment, recorded:** the shared dev API on `:8000` rate-limited, then died, partway through this seat. A destructive "Rate limit exceeded" toast covered the 390 Controls tab, which accounts for the 25 reds in `e2e-cure-3124-reds.txt`. The seed then failed (`POST /api/sessions` 500, `e2e-head-baseline-3125-reds.txt`). The seat restarted the API on `:8000` with `COMPUTE_CONCURRENCY=1`, `COMPUTE_RATE_LIMIT=1000`, `WRITE_RATE_LIMIT=1000` and `BLOB_DIR` under `~/.cache` (scripts/e2e.sh's harness), and stopped it at the end.
+  - Run A, with C2 still applied: 356 passed, 2 failed: d2 and **au1 L3-6**, the C2 conflict above.
+  - Runs B and C, on the final tree after the refusal: 357 passed with 1 failed, then 356 passed with 2 failed. **Every red is `f-w14u-d` d2 at 1440**, the pre-existing intermittent recorded at passes 8 and 9 (it fails on a clean HEAD). au1 L3-6 passed in both.
+  - The merged tree (with F.REL .x5's AppDock `2a519c9`) ran the dock and shell specs (`f-w14v-nav`, `shell-header`, `f-w14u-shell`, `f-w14v-au1`, `f-w14u-misc`) on `:3100`: 83/83, twice.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD. Both worktrees were removed.
+
+**Frames** (`pass-10/f10x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei; 390 with touch), `f10x-probe.mjs` against the final tree:
+- `morph-*` at 1440, 1024 and 390, scrolled to the levels card, plus `morph-*-1024-scrolled` (main scrolled 200 px, the C3 rule);
+- `equation-*-1440` (the T1 reading);
+- each in light and dark.
+- The /gallery cells have no AFTER, because C2 was refused and the gallery is unchanged from HEAD; the empty dev gallery at capture time is recorded in `f10x-probe.json`. The C2 trial frames are in `c2-refused/`, and the BEFORE frames in `before/`.

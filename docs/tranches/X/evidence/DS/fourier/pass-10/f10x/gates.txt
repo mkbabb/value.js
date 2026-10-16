@@ -1,0 +1,24 @@
+== FIRST BLOCK: main tree on :3100-era (C2 still applied, plus another seat's uncommitted AppDock.vue)
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== FINAL TREE (HEAD 6b98e22 + App.vue + HarmonicLevelGrid.vue; worktree p10x-cure), after the C2 refusal
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== MERGED TREE (HEAD 06c2d92 + the cure, main checkout)
+exit 0
