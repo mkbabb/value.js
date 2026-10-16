@@ -722,7 +722,15 @@ test("gradient selector aurora", async ({ page }) => {
         // L3 — none fits: the dated ask carries the census, and nothing moves locally.
         const askPath = join(process.cwd(), "docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md");
         expect(existsSync(askPath), "no fitting primitive and no dated ask").toBe(true);
-        const ask = readFileSync(askPath, "utf8");
+        // The letter (dated against glass 7.0.0) is immutable (E-3); its census
+        // is re-run beside it as a dated addendum whenever the installed glass
+        // moves. Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`).
+        const censusAddenda = [
+            "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md",
+        ].map((f) => join(process.cwd(), f));
+        const ask = [askPath, ...censusAddenda]
+            .map((f) => readFileSync(f, "utf8"))
+            .join("\n");
         expect(ask).toContain(`\`@mkbabb/glass-ui\` **${manifest.version}**`);
         expect(ask, "the ask's census hash is stale — re-run the census").toContain(indexHash);
         for (const name of ["Aurora", "useAurora", "createAurora", "paletteToCssGradient", "auroraFallbackGround"]) {
