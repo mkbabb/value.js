@@ -74,3 +74,10 @@ pytest and the api tests GREEN ×2; web vue-tsc, vitest and e2e GREEN ×2 (the n
   - **(b) Glass cause:** hold X-5 @390 by test id in `producer-held.json` with a new O-id, expiring at the 10.2.0 repin, and relay it to BK.
 - In either arm: X-5 ×2 in the container, darwin stays GREEN, and a fresh m/w1 CI is GREEN outside the manifest.
 - Then `.g` (merge), `.d` (deploy), the close and the check.
+
+## ADDENDUM 2026-10-16 (f): ESC-FREL-d-3 RULED (COHESION §0fq)
+- `.pd`:
+  - PD-1 arm (a): `application/json` leaves `nginx/fourier.conf` `gzip_types`, so the strong ETag survives the edge. Strong If-Match comparison is kept. Test: GET → PATCH with If-Match under gzip gives 200, a stale tag gives 412, in local nginx-docker and on prod ×2.
+  - PD-2: `CORSMiddleware` is registered outermost in `api/main.py`, so a 429 carries CORS and `RateLimit-*` is exposed. Pytest RED → GREEN ×2.
+- `.g2`: merge to master, then master CI GREEN ×2.
+- `.d`: deploys once the owner sets R-h1 (`FOURIER_DEPLOY_ALERT_WEBHOOK`); until then BLOCKED-ON-OWNER. After the deploy, prod-verify 21/21 ×2.

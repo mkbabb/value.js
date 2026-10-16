@@ -4099,3 +4099,16 @@ F.CT3 ran its four bounded rounds. The failing rows fell 15 → 11 → 11 → 9.
   - (3) The pre-F.CT judged baseline (§0eu.1) was never taken.
   - (4) The chef-2, chef, llama-1 and sponge-scared recall drops are attributed to F.REL `.mem2` (BiRefNet-512), with frames.
 - **Ruled:** (d)'s bound is honoured, and a fifth round of the same method is not opened. §0eg's lesson stands: past the bound, more rounds converge on the method's ceiling. Any further contour phase is an OWNER decision, named in the close report with these four residuals. F.REL ships the contour pipeline as it stands at `bf16b1e`.
+
+## §0fq — 2026-10-16: ESC-FREL-d-3 RULED (PD-1 strong validator, PD-2 CORS outermost); `.x5` and `.g` landed; F.REL re-opens as `.pd → .g2 → .d`, and the deploy waits on the owner's R-h1
+1. **PD-1 is ruled arm (a): the strong validator survives, and RFC 9110 strong comparison stays.** Arm (b), opaque-tag comparison, is refused, because it would weaken the API's concurrency contract to suit a proxy. Grant: `nginx/fourier.conf`.
+   - The edge stops compressing API JSON. `application/json` leaves `gzip_types`, so a proxied API response keeps its strong `ETag`.
+   - The SPA's text, JS, CSS and SVG keep gzip.
+   - **Test:** a curl reading against the deployed edge. GET, then PATCH with `If-Match` replaying the GET's `ETag` under `Accept-Encoding: gzip`, must give 200; a stale tag must give 412. It is read ×2 after the deploy, and a local nginx-in-docker reading is taken before the merge.
+2. **PD-2: CORS is the outermost middleware.** Grant: `api/main.py`, middleware order only. `CORSMiddleware` is added last, so every response including a 429 carries the CORS headers. `RateLimit-*` must appear in `CORS_EXPOSE_HEADERS`, added there if absent.
+   - **Test:** an api pytest showing that a rate-limited cross-origin request gets a 429 carrying `Access-Control-Allow-Origin` and the `RateLimit-*` headers. It is RED → GREEN ×2.
+3. **R-h1, the deploy alert webhook (`FOURIER_DEPLOY_ALERT_WEBHOOK`), is an OWNER act and stays one.** The host hook fails closed without it by design, and no seat invents a webhook endpoint.
+   - `.pd` → `.g2` (merge to master, CI GREEN ×2) proceed now.
+   - `.d` then deploys the moment R-h1 is set. The poller is started before the push, then prod-verify 21/21 ×2.
+   - Until then F.REL's LEDGER row reads **BLOCKED-ON-OWNER (R-h1)**. That is the one honest wait, and it is named in the close report.
+4. **Order:** `.pd → .g2 → .d (on R-h1) → close → check`. F-REL.md ADDENDUM (f) carries this ruling.
