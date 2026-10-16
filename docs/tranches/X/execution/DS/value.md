@@ -702,3 +702,41 @@ This receipt is committed after them.
 - Judge the outline instrument's 1 px seams at 390 dark, and the swap from outline to the filled imminent skeleton when a run starts. That swap is now a material change; the layout is unchanged.
 - P5C-02 waits on the owner (P5-B1), alongside VC6-04, VC5-01 and VC4-09.
 - P5C-01's halo and rims wait on glass (O-87 / O-88). The wax tile itself is owner-ruled identity.
+
+### pass 6 (re-dispatch, 2026-10-16): no findings above trivial — the pinned loupe's second shadow
+
+The relaunched workflow dispatched this seat as "pass 6" with **no findings**: the critic found nothing above trivial. The task was to refine the remaining trivial items toward the original styles without regressing anything. `pass-06/` already holds pass 6's own evidence and the VC6 re-dispatch's, so this seat's evidence is in `pass-06/p6-2026-10-16/`.
+
+**Commits.** value.js `5f33874b4` (the refinement) and `af459967c` (AFTER frames, probe, crops, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-06/p6-2026-10-16/`) |
+|---|---|---|---|
+| P6-T1 (trivial) | **Refined, by deletion.** | `ImageEyedropper.vue`: `.loupe-pinned` re-declared a heavier float shadow (`0 4px 16px` at 20 % vs the loupe's 15 %), a second lighting state on the one floating surface. The rule is deleted. The loupe keeps its one neutral shadow (V1-18) in both states, and the pin is carried by the `--primary` ring alone. No counter-style was added. | `probe-p6-loupe.json`: in both schemes the box-shadow is `0 4px 16px` at 0.15 at hover **and** at pin (was 0.20 at pin). The ring is `--primary` at pin: oklch(0.305 0.082 130) light, oklch(0.958 0.08 130) dark. Crops: `crops/loupe-{hover,pinned}-1440-{light,dark}.png`. |
+
+Other trivial rows were left on purpose:
+- The other remaining consumer shadow sites are focus rings, hairline edges and MixSourceSelector's two-ring selection. MixSourceSelector carries another seat's uncommitted hunks.
+- P4R-05's verb row sits in `GenerateControls.vue`, which also carries another seat's uncommitted hunks.
+- The outline instrument's seams (P5C-03) sit in the dirty Extract files.
+
+None of these was touched.
+
+**Census** (`census-after.json`, `--base :9000 --widths 1440 --themes light,dark --settle 15000`, guarded `--light`).
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, inset highlights 364, drop-shadow 8, gradient fills on controls 22.
+- **Consumer:** box-shadow layers 116 (single-layer), backdrop blur 18, looping 0. No inset highlights, drop-shadows or control gradients.
+- Static consumer sites: box-shadow declarations **18 → 17**, layers 22 → 21 (the deleted pin rule). The computed census does not see the change, because no loupe is mounted on a route frame.
+
+**Frames.** 36/36 route frames (9 routes × light/dark × 1440/390), headless real Chrome (§0ei), through the pass-4 `harness.mjs`, on :9000. That server serves the working tree, so other seats' uncommitted hunks show in the frames. Also: the four loupe crops above.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1212/1219 ×2, with the **same 7** standing failures both runs: ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6.
+- **e2e** (smoke, headless, workers 1, own server :9181): o7-card-census, o9-shadow-palette, o18-contrast-census, 37 tests.
+  - **31/37 ×2**, with the **same 6** failures both runs. All six are o18 contrast-ink rows, and none reads a box-shadow or the loupe: graph nodes F-3 (dark), the IDENTITY leg T-35 (light), the admin pill A-1 (both schemes), and the profile menu row labels N-3 (both schemes).
+  - o7 and o9 pass ×2.
+
+  Not a strict ×2 GREEN; nothing in this diff. No visual golden was re-baselined.
+
+**For the next critic.**
+- Judge the pinned loupe at 390 on a coarse pointer. The ring is now the pin's only signal, and it is 2 px.
+- The open owner rulings are unchanged: P5C-02 (P5-B1), VC6-04 (P6-B1), VC5-01 and VC4-09.
+- The glass rows wait on O-87 / O-88.
