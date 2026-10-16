@@ -904,3 +904,42 @@ The relaunched workflow dispatched this seat as "pass 10" with critic V10's 4 ro
 - Judge whether the seat-weight rules (0.08) now read too faint against the cream card in light at 390, where the Gradient sections sit close together.
 - The `--card-edge` perimeter set: card outline, wells, code paper, the easing rows and the stop rail's inset ring.
 - The glass rows wait on O-87 / O-88.
+
+### pass 11 (2026-10-16): critic V11 — the dead hover-lift lighting tokens
+
+The workflow dispatched this seat as "pass 11" with critic V11's single row. The critic found nothing above trivial. Evidence is in `pass-11/`.
+
+**Commits.** value.js `1e03023ea` (the cure) and `cd1024b18` (frames, probe, census, gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-11/`) |
+|---|---|---|---|
+| V11-T1 (trivial) | **Cured, by deletion.** | `foundation.css`: the `--shadow-card-hover` alias is deleted in both places (`@theme` and light `:root`), along with both value.js `--shadow-cartoon-hover` overrides (the light and dark 10px stamps). Glass's own `--shadow-cartoon-hover` default is glass's and is left alone (read-only). `animations.css`: the stage's `overflow-clip-margin: 10px` comment now budgets for `--shadow-cartoon`'s 8px reach, which leaves a 2px margin; the value is unchanged. `demo/DESIGN.md` no longer documents the dead rung (§ Depth law 3, § Shadows, the `:root` override list). Nothing was added. | `probe-v11.json`, light and dark at 1440. The root `--shadow-card-hover` computes empty. `--shadow-cartoon` and `--shadow-card` still compute value's 8px stamp. 32 hovers ran across the pane plates, Browse and Palettes cards, the swatches and the hero; 0 of them changed `box-shadow`. Frames `hover-picker-1440-*`. |
+
+**Remaining trivial refinement.** Nothing beyond V11-T1 was named, so no further density, border or tone change was made. Adding one would have been invention, not cure.
+
+**Census** (`census-after.json`, `--base :9011 --widths 1440 --themes light,dark --settle 15000`, guarded).
+- **Verdict RED, on glass rows only (O-87).** These counts are byte-identical to pass 10:
+  - routes: max 6 layers, inset highlights 368, drop-shadow 8, gradient fills on controls 22;
+  - overlays: floater max layers 8.
+- **Consumer:**
+  - static lighting-token definitions fall from **4 to 2**; the two left are `--shadow-cartoon`, light and dark;
+  - every other static total is unchanged, including 17 box-shadow declarations;
+  - computed is unchanged, as expected from deleting tokens that never painted.
+- Overlay cells: 8, with 0 paint-top failures and 0 errors.
+
+**Frames.** Headless real Chrome (§0ei), served by `vite --port 9011 --strictPort` with `VITE_API_URL` set same-origin and its own deps cache.
+- Port :9000 was held by another process, so this seat used its own port and stopped the server afterwards.
+- The server serves the working tree, so other seats' uncommitted hunks show in the frames.
+- Counts: 36 of 36 route frames, 8 opened-overlay frames and 2 hover cells.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2, with the **same 7** standing failures as pass 10 (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6). None is in this diff.
+- **e2e** (headless, workers 1, own server :9190), **strict ×2 GREEN.** `foundation.css` is global, so pass 10's whole set was re-run:
+  - smoke, 14 specs: 65/65 ×2;
+  - smoke-admin: 3/3 ×2.
+- No visual golden was re-baselined.
+
+**For the next critic.**
+- The consumer's lighting vocabulary is now one stamp, `--shadow-cartoon` (8px), routed to `--shadow-card`. Judge whether the plate stamp's weight in dark (50 % mix) still reads as the pre-glass era's tone.
+- The glass rows still wait on O-87 / O-88.
