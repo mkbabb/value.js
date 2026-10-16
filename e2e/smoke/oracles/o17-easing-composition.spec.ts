@@ -188,7 +188,15 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page 
     // ── 3. Dot rest: no travel dot (r=0.03), no play pill; bezier canvas
     //      carries exactly its 2 endpoints + 2 handles.
     await expect(svg.locator("circle[r='0.03']")).toHaveCount(0);
-    await expect(svg.locator("circle")).toHaveCount(4);
+    // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`): the two
+    // bezier handles moved off the curve canvas onto the picker's own handle
+    // overlay (`[data-slot="easing-handles"]`, each a `role="slider"` circle,
+    // `glass-ui/dist/easing.js:635-670`); the canvas keeps its 2 endpoints.
+    // Still exactly 2 endpoints + 2 handles.
+    await expect(svg.locator("circle")).toHaveCount(2);
+    await expect(
+        row.locator('#easing-authoring-0 [data-slot="easing-handles"] circle[role="slider"]'),
+    ).toHaveCount(2);
     await expect(
         row.getByRole("button", { name: /trace the curve|climb the staircase/i }),
     ).toHaveCount(0);
