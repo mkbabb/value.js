@@ -1,0 +1,6 @@
+# 2026-10-16 06:37:19 load: 38.11 33.03 28.22 head: 57fb241a
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=0

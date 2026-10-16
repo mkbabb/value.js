@@ -1,0 +1,6 @@
+# 2026-10-16 06:37:46 load: 32.37 32.11 28.05
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+
+✓ built in 1.97s
+EXIT=0
