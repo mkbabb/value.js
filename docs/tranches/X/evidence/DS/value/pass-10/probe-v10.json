@@ -1,0 +1,141 @@
+{
+  "base": "http://localhost:9000",
+  "results": [
+    {
+      "cell": "gradient-rule-light",
+      "ok": true,
+      "seams": [
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)"
+      ],
+      "hr": 0,
+      "codePaper": "oklab(0.216128 0.00350075 0.00518669 / 0.12)"
+    },
+    {
+      "cell": "gradient-rule-dark",
+      "ok": true,
+      "seams": [
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)"
+      ],
+      "hr": 0,
+      "codePaper": "oklab(0.925196 0.00238398 0.00574207 / 0.12)"
+    },
+    {
+      "cell": "atmosphere-rule-light",
+      "ok": true,
+      "rules": [
+        "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+      ],
+      "seams": []
+    },
+    {
+      "cell": "atmosphere-rule-dark",
+      "ok": true,
+      "rules": [
+        "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+      ],
+      "seams": []
+    },
+    {
+      "cell": "blob-rule-light",
+      "ok": true,
+      "rules": [
+        "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+      ],
+      "seams": []
+    },
+    {
+      "cell": "blob-rule-dark",
+      "ok": true,
+      "rules": [
+        "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+      ],
+      "seams": []
+    },
+    {
+      "cell": "mix-rule-light",
+      "ok": true,
+      "rules": [
+        "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+      ],
+      "seams": []
+    },
+    {
+      "cell": "mix-rule-dark",
+      "ok": true,
+      "rules": [
+        "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+      ],
+      "seams": []
+    },
+    {
+      "cell": "browse-expanded-1440-light",
+      "ok": true,
+      "slugRowRule": "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+    },
+    {
+      "cell": "browse-expanded-1440-dark",
+      "ok": true,
+      "slugRowRule": "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+    },
+    {
+      "cell": "picker-1440-light",
+      "ok": true,
+      "seams": [
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+        "oklab(0.216129 0.00349092 0.00518243 / 0.08)"
+      ]
+    },
+    {
+      "cell": "picker-1440-dark",
+      "ok": true,
+      "seams": [
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+        "oklab(0.925202 0.00234182 0.00572368 / 0.08)"
+      ]
+    },
+    {
+      "cell": "extract-loaded-1440-light",
+      "ok": true,
+      "statX": 224,
+      "colorsLabelX": 224,
+      "chromaLabelX": 224,
+      "statPadLeft": "0px"
+    },
+    {
+      "cell": "extract-loaded-1440-dark",
+      "ok": true,
+      "statX": 224,
+      "colorsLabelX": 224,
+      "chromaLabelX": 224,
+      "statPadLeft": "0px"
+    },
+    {
+      "cell": "extract-loaded-390-light",
+      "ok": true,
+      "statX": 33,
+      "colorsLabelX": 33,
+      "chromaLabelX": 33,
+      "statPadLeft": "0px"
+    },
+    {
+      "cell": "extract-loaded-390-dark",
+      "ok": true,
+      "statX": 33,
+      "colorsLabelX": 33,
+      "chromaLabelX": 33,
+      "statPadLeft": "0px"
+    }
+  ]
+}

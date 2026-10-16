@@ -1,0 +1,15 @@
+{
+  "base": "http://localhost:9000",
+  "results": [
+    {
+      "cell": "browse-expanded-1440-light",
+      "ok": true,
+      "slugRowRule": "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+    },
+    {
+      "cell": "browse-expanded-1440-dark",
+      "ok": true,
+      "slugRowRule": "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+    }
+  ]
+}
