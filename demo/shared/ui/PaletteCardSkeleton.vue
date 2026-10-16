@@ -1,19 +1,21 @@
 <template>
     <div
         :data-slot="instrument ? 'shadow-palette' : 'palette-card-skeleton'"
-        class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden"
-        :class="instrument && 'shadow-palette'"
+        class="skeleton-ink-register rounded-card border border-card-edge overflow-hidden"
+        :class="instrument ? 'shadow-palette' : 'bg-well'"
         :role="instrument ? undefined : 'status'"
         :aria-label="instrument ? undefined : 'Loading palette'"
         :aria-hidden="instrument ? 'true' : undefined"
     >
-        <!-- The strip — the plate develops left to right. The instrument
-             face keeps a hairline of the well ground between its cells so
-             the live-k segmentation reads. X-DS pass 8 (V3C-02): the
-             instrument face is STILL. Nothing is loading at Extract's empty
-             rest, so an idle pulse said "loading" where the truth is
-             "empty"; motion stays on the loading registers below. -->
-        <div class="flex h-10 w-full" :class="instrument && 'gap-px'">
+        <!-- The strip — the plate develops left to right. X-DS pass 8
+             (V3C-02): the instrument face is STILL. Nothing is loading at
+             Extract's empty rest, so an idle pulse said "loading" where the
+             truth is "empty"; motion stays on the loading registers below.
+             X-DS value pass 5 (P5C-03): the instrument face is an OUTLINE —
+             the card's one hairline and a hairline between its k cells, no
+             well ground and no fill step — so the shape of the result reads
+             without a filled slab waiting for content. -->
+        <div class="flex h-10 w-full">
             <template v-if="instrument">
                 <div
                     v-for="i in count"
@@ -120,7 +122,8 @@ import { Skeleton } from "@mkbabb/glass-ui";
  * genesis `ec1b200` register (card-true material, solid hairline, muted
  * cells; meta blocks at 60/40 of the ink). X-DS pass 8 (V3C-02, the X-DS
  * canon and addendum (a): no idle pulse on chrome that carries no state):
- * the LIVING staggered pulse is retired, so the face is a static, flat well.
+ * the LIVING staggered pulse is retired, so the face is static; X-DS value
+ * pass 5 (P5C-03) leaves it an outline (hairline card + hairline seams).
  * Its semantics stay R7's: `aria-hidden`, NO role="status",
  * NO "Loading" label — nothing is loading, so a shimmering plate does not lie
  * to AT. It is not a LOADING register and never a filler: true-empty hosts
@@ -166,8 +169,12 @@ const instrument = computed(() => variant === "instrument");
  * block as a bounded tone-step of the plate's `bg-well` ground in both schemes.
  * The steps fade INTO the plate by a color-mix step (never element opacity —
  * D6). */
-.shadow-seg {
-    background: var(--skeleton-ink);
+/* X-DS value pass 5 (P5C-03): the idle instrument carries no state, so its
+ * cells take no fill step (light: the heaviest-toned block in the card; dark:
+ * a pill whose seams were lost). The live-k segmentation is the card's own
+ * hairline (`--card-edge`) between cells, in both schemes. */
+.shadow-seg + .shadow-seg {
+    border-inline-start: 1px solid var(--card-edge);
 }
 .shadow-block-name {
     background: color-mix(in oklab, var(--skeleton-ink) 60%, transparent);
