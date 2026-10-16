@@ -26,7 +26,7 @@
     <Card
         v-if="caught"
         tier="resting"
-        class="w-full h-full min-w-0 min-h-0 flex flex-col justify-center px-6"
+        class="paper-grain-overlay w-full h-full min-w-0 min-h-0 flex flex-col justify-center px-6"
     >
         <EmptyState
             ref="plateRef"

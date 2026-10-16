@@ -9,7 +9,7 @@
              owns the sub-lg width). -->
         <Card
             tier="resting"
-            class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible"
+            class="paper-grain-overlay relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible"
         >
             <!-- A2-VA-L1-2 — ONE condensing header: glass's. The scroll host is
                  glass's `.card-scroll-host`, an element INSIDE the plate (never

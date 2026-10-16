@@ -19,7 +19,7 @@
              resting surface filling the region, and the reload action. -->
         <Card
             tier="resting"
-            class="w-full h-full min-w-0 flex flex-col justify-center px-6"
+            class="paper-grain-overlay w-full h-full min-w-0 flex flex-col justify-center px-6"
         >
             <!-- X.W12.u3 (UIA-V-453): the loader's raw message (dev URL,
                  filesystem path, cache-buster) stays out of the UI — the

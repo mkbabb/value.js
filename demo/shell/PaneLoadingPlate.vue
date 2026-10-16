@@ -14,7 +14,7 @@
              continuation (PaneSlot.vue header). -->
         <Card
             tier="resting"
-            class="w-full h-full min-w-0 flex flex-col gap-4 px-4 sm:px-6 py-6"
+            class="paper-grain-overlay w-full h-full min-w-0 flex flex-col gap-4 px-4 sm:px-6 py-6"
             role="status"
             aria-busy="true"
         >

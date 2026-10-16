@@ -24,13 +24,19 @@
              `--pane-scroll` timeline the header veil reads.
              The `follow` row contract (`pane-row-follow`, shell.css) seats on
              this wrapper, which the card fills.
+             The plate's grain is ARMED here (`paper-grain-overlay`, glass's
+             own utility): glass 8.0.0 struck Card's `grain` prop and the
+             `data-grain` stamp ("a card that wants it arms it on the
+             element"), so every rung-1 plate lost its grain at the 10.1.0
+             repin (X-W7L RES-m-2 / C-CARD-STAMP; X-W12U .q2). The same class
+             rides the picker card and the loading / error plates.
              This comment sits INSIDE the root: a comment beside the root makes
              a dev-mode root fragment, which loses the pane swap's out-in
              continuation (§0ay ESC-W5t-2). -->
         <Card
             tier="resting"
             :class="[
-                'pane-shell__card relative flex flex-col w-full min-w-0 h-full overflow-hidden',
+                'pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden',
                 cardClass,
             ]"
         >
