@@ -153,7 +153,7 @@
                              so the data is never the part that is cut. -->
                         <div
                             v-if="session.dominant.value"
-                            class="flex flex-col gap-0.5 min-w-0 px-1"
+                            class="flex flex-col gap-0.5 min-w-0"
                         >
                             <span class="font-display text-display leading-none">
                                 {{ Math.round(session.dominantShare.value * 100)
@@ -182,7 +182,6 @@
                             :expanded="true"
                             :collapsible="false"
                             :layout="layout === 'split' && isWide ? 'aside' : 'default'"
-                            :css-color="cssColorOpaque ?? ''"
                             swatch-size="xl"
                             @click="() => {}"
                             @save="session.onSave"

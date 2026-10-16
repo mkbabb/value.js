@@ -129,7 +129,6 @@
                             :key="palette.id"
                             :palette="palette"
                             :expanded="pm.expandedId.value === palette.id"
-                            :css-color="cssColorOpaque"
                             draggable
                             @click="pm.toggleExpand(palette.id)"
                             @delete="(p) => onRequestDelete(p)"

@@ -118,7 +118,7 @@ defineExpose({ clearSelection, startMix, copyResult } satisfies MixSceneTarget);
                  honest restraint, the column-wise palette mix has no
                  single ramp to preview). The seat carries the body's gutter
                  and the config pane's footer hairline (one footer grammar). -->
-            <div class="flex-none px-4 sm:px-6 pt-3 pb-4 border-t border-card-edge">
+            <div class="flex-none px-4 sm:px-6 pt-3 pb-4 border-t border-seam">
                 <MixConfigBar
                     v-model:color-space="colorSpace"
                     v-model:hue-method="hueMethod"

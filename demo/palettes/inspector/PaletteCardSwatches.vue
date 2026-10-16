@@ -8,7 +8,7 @@
              the slug it copies. -->
         <div
             v-if="displaySlug"
-            class="px-3 pt-2 flex items-center gap-1 border-t border-card-edge"
+            class="px-3 pt-2 flex items-center gap-1 border-t border-seam"
         >
             <span class="text-small text-muted-foreground truncate max-w-tooltip"><template v-if="slugIsAuthor">by </template><span class="font-mono">{{ displaySlug }}</span></span>
             <Button
@@ -24,7 +24,7 @@
         </div>
         <div
             class="px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
-            :class="!displaySlug && 'border-t border-card-edge'"
+            :class="!displaySlug && 'border-t border-seam'"
         >
             <SwatchHoverMenu
                 v-for="(color, i) in colors"

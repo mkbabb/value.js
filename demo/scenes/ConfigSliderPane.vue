@@ -277,6 +277,6 @@ function resetDefaults() {
     justify-content: flex-end;
     gap: 0.5rem;
     padding: 0.625rem 0.75rem;
-    border-top: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
+    border-top: 1px solid var(--color-seam);
 }
 </style>

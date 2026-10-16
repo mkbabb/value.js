@@ -177,7 +177,7 @@
                     </div>
                 </div>
                 <!-- Expandable user palettes -->
-                <CollapsibleContent class="border-t border-border bg-muted/30">
+                <CollapsibleContent class="border-t border-seam bg-muted/30">
                 <div class="px-3 py-3">
                     <div v-if="loadingUserPalettes" class="grid gap-2" role="status" aria-label="Loading palettes">
                         <AdminListSkeleton v-for="i in 2" :key="i" />

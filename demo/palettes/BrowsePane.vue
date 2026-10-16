@@ -96,7 +96,6 @@
                     :key="palette.slug"
                     :palette="palette"
                     :expanded="pm.expandedId.value === palette.slug"
-                    :css-color="cssColorOpaque"
                     :is-owned="palette.userSlug === pm.userSlug.value"
                     :is-admin="pm.isAdminAuthenticated.value"
                     show-slug
@@ -228,7 +227,6 @@ import {
 import { Search, Trash2 } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
-import { CSS_COLOR_KEY } from "../color-session/keys";
 import { PaletteCardGrid } from "./browser/card";
 import PaletteCardSkeleton from "../shared/ui/PaletteCardSkeleton.vue";
 import PaletteInspector from "./inspector/PaletteInspector.vue";
@@ -242,7 +240,6 @@ import PaneShell from "../shell/PaneShell.vue";
 import type { Palette, Tag } from "./types";
 import { useDialogBrowseActions } from "./browser/dialog";
 
-const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(BROWSE_PORT_KEY)!;
 
 // W5-1: the developing-wall shadow count — a handful of plates reads as "the

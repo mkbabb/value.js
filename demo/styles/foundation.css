@@ -141,6 +141,15 @@
      * `border-[var(--card-edge)]` reach (DESIGN.md §Idioms NOT used). */
     --color-card-edge: var(--card-edge);
 
+    /* ── The interior-rule bridge (X-DS pass 10 · V10-01) ──
+     * ONE interior-rule voice, glass first: an in-card rule (a footer or
+     * section rule, the line between a card's rows) paints glass's own seam
+     * ink (`--ink-seam`, the same tone glass <Separator> paints), never the
+     * perimeter `--card-edge` and never the khaki `--border`. A pure consume of
+     * glass's token as the `border-seam` utility; `--card-edge` stays the
+     * PERIMETER hairline (card outline, wells, code paper). */
+    --color-seam: color-mix(in oklab, var(--foreground) calc(var(--ink-seam) * 100%), transparent);
+
     /* ── The material-ladder bridges (T.W3-1 — D1; owned in :root below) ──
      * `bg-well` / `bg-stage` / `text-on-stage-chrome` etc. resolve the rung-2
      * WELL and rung-4 STAGE tokens as first-class utilities so no consumer

@@ -172,7 +172,7 @@
             </div>
 
             <!-- Flag details -->
-            <div class="border-t border-border/50 px-3 py-2 flex flex-col gap-1.5">
+            <div class="border-t border-seam px-3 py-2 flex flex-col gap-1.5">
                 <div
                     v-for="(flag, i) in item.flags"
                     :key="i"

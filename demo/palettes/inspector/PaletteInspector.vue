@@ -196,7 +196,6 @@ const props = withDefaults(
         palette: Palette;
         /** The SELECTED entity: its detail band is open and its verbs are the dock's set. */
         expanded?: boolean | undefined;
-        cssColor?: string | undefined;
         isOwned?: boolean | undefined;
         isAdmin?: boolean | undefined;
         showSlug?: boolean | undefined;
