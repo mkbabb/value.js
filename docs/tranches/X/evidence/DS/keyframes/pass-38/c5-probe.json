@@ -1,0 +1,177 @@
+{
+ "cells": {
+  "sequence-1440-light": {
+   "portTop": 128,
+   "portBottom": 749,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "lanesBottom": 728,
+   "rowCentres": [
+    283,
+    366,
+    447,
+    528,
+    609,
+    690
+   ]
+  },
+  "cube-timeline-1440-light": {
+   "portTop": 128,
+   "portBottom": 688,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "trackBottom": 260,
+   "textTop": 446,
+   "textBottom": 496,
+   "noticeTop": 280,
+   "noticeBottom": 671,
+   "above": 186,
+   "below": 192
+  },
+  "cube-keyframes-1440-light": {
+   "portTop": 128,
+   "portBottom": 688,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "wellBottom": 688,
+   "editorBottom": 688
+  },
+  "easing-1440-light": {
+   "portTop": 128,
+   "portBottom": 544,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "durationBottom": 527,
+   "plot": 215,
+   "gap": 17
+  },
+  "spring-1440-light": {
+   "portTop": 128,
+   "portBottom": 544,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "state": "closed",
+   "legend": false,
+   "titleBottom": 525,
+   "plotTop": null,
+   "plotBottom": null
+  },
+  "home-1440-light": {
+   "text": "from the dock above, then press Play below.",
+   "glyphs": 0
+  },
+  "home-390-light": {
+   "text": "from the dock above, then press Play below.",
+   "glyphs": 0
+  },
+  "sequence-1440-dark": {
+   "portTop": 128,
+   "portBottom": 749,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "lanesBottom": 728,
+   "rowCentres": [
+    283,
+    366,
+    447,
+    528,
+    609,
+    690
+   ]
+  },
+  "cube-timeline-1440-dark": {
+   "portTop": 128,
+   "portBottom": 688,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "trackBottom": 260,
+   "textTop": 446,
+   "textBottom": 496,
+   "noticeTop": 280,
+   "noticeBottom": 671,
+   "above": 186,
+   "below": 192
+  },
+  "cube-keyframes-1440-dark": {
+   "portTop": 128,
+   "portBottom": 688,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "wellBottom": 688,
+   "editorBottom": 688
+  },
+  "easing-1440-dark": {
+   "portTop": 128,
+   "portBottom": 544,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "durationBottom": 527,
+   "plot": 215,
+   "gap": 17
+  },
+  "spring-1440-dark": {
+   "portTop": 128,
+   "portBottom": 544,
+   "frameBottom": 750,
+   "scrollRange": 0,
+   "state": "closed",
+   "legend": false,
+   "titleBottom": 525,
+   "plotTop": null,
+   "plotBottom": null
+  },
+  "home-1440-dark": {
+   "text": "from the dock above, then press Play below.",
+   "glyphs": 0
+  },
+  "home-390-dark": {
+   "text": "from the dock above, then press Play below.",
+   "glyphs": 0
+  },
+  "easing-1280x800": {
+   "portTop": 122,
+   "portBottom": 521,
+   "frameBottom": 655,
+   "scrollRange": 0,
+   "durationBottom": 481,
+   "plot": 128
+  },
+  "easing-1280x760": {
+   "portTop": 102,
+   "portBottom": 506,
+   "frameBottom": 639,
+   "scrollRange": 0,
+   "durationBottom": 461,
+   "plot": 128
+  },
+  "easing-1024x768": {
+   "portTop": 106,
+   "portBottom": 509,
+   "frameBottom": 643,
+   "scrollRange": 0,
+   "durationBottom": 463,
+   "plot": 128
+  },
+  "easing-1440x1080": {
+   "portTop": 139,
+   "portBottom": 724,
+   "frameBottom": 930,
+   "scrollRange": 0,
+   "durationBottom": 686,
+   "plot": 363
+  },
+  "monaco-shrink-1080-to-900": {
+   "tall": {
+    "well": 868,
+    "port": 868,
+    "wellH": 729
+   },
+   "short": {
+    "well": 688,
+    "port": 688,
+    "wellH": 560
+   }
+  }
+ },
+ "fails": []
+}
