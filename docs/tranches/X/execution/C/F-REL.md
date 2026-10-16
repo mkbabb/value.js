@@ -1933,3 +1933,71 @@ No re-pointed row read RED, so there is no consumer regression to cure in `web/s
 **Adjacent edits (§0bt).** `web/e2e/contrast-floor.spec.ts` (manifest `pairs` read and the held branch; granted in the plan). `web/e2e/f-w14-uia.spec.ts:463-471`: R-10's cure site is the test's read, same concern, no assertion removed.
 
 **Residuals.** (1) UIA-F-42's flake is cured locally; the fresh m/w1 CI that `.vb2` dispatches is its CI witness. (2) The O-97 rows lift at the glass 10.2.0 repin; until then they are held by pair id. (3) ECD D-6 (3.032) and FR-EQR-7[instance] (4.487 vs 3) are GREEN; D-6's headroom is thin, recorded. (4) PSM-4 and PV D/M-8 grade the hosts' opaque plate; the dialog's translucent composite stays SS-13's. **Escalations: none.**
+
+### F-REL.vb2
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~06:45–08:45 local. Spec read whole: `fourier/waves/F-REL.md` (69 lines; ADDENDUM (d) `.vb2` L63-67), COHESION §0fk (L4007-4027; §0fl after it rules KF.W13X only, nothing for this unit); this record's RESUME (d) header, baseline, plan, the `.w2` receipt, and the `.vb` re-sit 4 receipt (ESC-FREL-vb-1, L1615-1663).
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ (fourier) → ` M web/e2e/f-w14u-misc.spec.ts` · ` M …/morph/HarmonicLevelGrid.vue` · ` M …/visualization/VisualizationView.vue` · `?? .worktrees/` (sibling lanes; none in this unit's set, none touched). value.js `execution/C/F-REL.md`: clean. Nothing inherited.
+
+**Act 1 — anchors at the bytes.** ⟨`sed -n 138-146p web/e2e/fixtures/gallery.ts`⟩ → L140 `page.route("**/api/visualizations**", … {items, next_cursor, has_more})` (the list body for every match, the detail GET included). ⟨`sed -n 359-370p web/src/stores/gallery.ts`⟩ → `recordView` reads `api.getVisualization(slug)` and writes `views: data.views` onto the entry. ⟨`sed -n 259-283p api/routers/visualizations.py`⟩ → the detail handler reads `doc`, then `$inc views`, then returns `_public_doc(doc)` (the document as read, pre-increment). ci.yml anchors as the baseline read them: e2e-tests L284-286 `runs-on: ubuntu-latest`, no `container:`; L318 `npx playwright install --with-deps chromium`; L392 `--reporter=list`; upload L409-415 `if: always()`. Finding at the bytes: `--reporter=list` overrides the config's `reporter: "html"` (`web/playwright.config.ts:142`), so `web/playwright-report/` was never written and the kept upload had nothing to carry (CI 38868934803: 0 artefacts). (c) therefore needs the html reporter on the step, not a second upload.
+
+**Act 2 — the stub (fourier `c14d73f`).** `stubGallery` keeps one route; a `GET` whose pathname is exactly `/api/visualizations/{slug}` answers with the matching item from `items` (404 problem when absent); every other match keeps the list body. With `ENTRY.views = 12` the count is 12 on either side of the read, so nothing races. ⟨`guarded --light -- npx vue-tsc --noEmit`⟩ (web; tsconfig includes `e2e/**/*.ts`) → rc 0.
+
+**Act 3 — item 5 read before any re-mint (instrument `~/.fourier-frel/vb/r5.sh` + `r5-outer.sh` = re-sit 4's `r4.sh`/`r4-outer.sh` with log/tag names changed and an optional `GREP` passed as `-g`; `linux-out/linux-in5.sh` = `linux-in.sh` + the same `GREP`; scratch worktree `~/.fourier-frel/g-wt` ⟨`git checkout --detach dfdf0fd`⟩ + this unit's `gallery.ts`; private mongod :27118, API :8191 `COMPUTE_CONCURRENCY=1`, vite :3192, container `frel-vb` = `mcr.microsoft.com/playwright:v1.61.0-noble`, ⟨`npx playwright --version`⟩ in each linux log head → `Version 1.61.0`; `--workers=1`; heavy.lock no-clobber + `guarded`).** The lock was held by F.CT3 r2 (pid 12736, then 42095/98860); taken 11:10:49Z, guard-admitted 11:39:42Z. ⟨`r5-outer.sh D1 L1`⟩ (no update) → darwin `1 failed, 5 passed` (item 5: `317 pixels (ratio 0.01)`), linux `1 failed, 5 passed` (item 5: `267 pixels (ratio 0.01)`); items 1·6·7, 2, 8, 3, @coarse 4 ✓ on both.
+
+Diff read region by region (PIL over `checkpoint-card-modal-{expected,actual}.png`, 448×628, per band: pixels with a channel delta >16, their bbox, and the max delta):
+
+| band (y) | linux >16 / max Δ | darwin >16 / max Δ |
+|---|---|---|
+| header: title, slug, date (0-95) | 0 / 2 | 0 / 1 |
+| thumbnail tile (96-360) | 0 / 0 | 0 / 0 |
+| stats row (361-405) | **664**, bbox x 43-168 y 380-393 / 170 | **728**, bbox x 43-169 y 380-393 / 170 |
+| rule + Decomposition chip (406-495) | 0 / 0 | 0 / 0 |
+| Parameters, `N=64` (496-560) | 0 / 0 | 0 / 0 |
+| Open Visualizer CTA (561-628) | 0 / 2 | 0 / 2 |
+
+Eye-read: expected = eye icon, a blank, "views", "3 likes"; actual = "12 views", the likes pill moved right by the numeral's width. The only moved region is the count the stub now makes deterministic, and it reads `ENTRY.views` = 12, the value the server returns. **This is the lawful product, so item 5 is re-baselined.** (The ≤2 LSB in the header and CTA bands are under the comparator's threshold and pass in every verify run below.)
+
+**Act 4 — re-mint item 5 only, then verify.** ⟨`MODE=update GREP="item 5" r5-outer.sh DU LU`⟩ → `1 passed` each, linux log `checkpoint-card-modal-chromium-linux.png is re-generated`. ⟨`cmp` of the container's 6 `*-linux.png` against the scratch tree's⟩ → 5 same + the new item-5 golden; ⟨`git status --porcelain`⟩ (scratch) → only `gallery.ts` + the two `checkpoint-card-modal-chromium-{darwin,linux}.png`. Bytes 29512→29773 (darwin), 24685→24909 (linux). Read of the new linux golden: "12 views · 3 likes", everything else as before. Then ⟨`r5-outer.sh D2 L2 D3 L3`⟩ (no update, 12:11:49–12:15:34Z, load 10-15):
+
+| run | darwin | linux (v1.61.0-noble) |
+|---|---|---|
+| 2 | ⟨`vb5-darwin-D2.log`⟩ → `6 passed (14.4s)` rc=0 | ⟨`linux-r5-L2.log`⟩ → `6 passed (16.6s)` rc=0 |
+| 3 | ⟨`vb5-darwin-D3.log`⟩ → `6 passed (11.3s)` rc=0 | ⟨`linux-r5-L3.log`⟩ → `6 passed (14.6s)` rc=0 |
+
+Teardown: ⟨`lsof -iTCP:8191 -iTCP:3192 -iTCP:27118 -sTCP:LISTEN | wc -l`⟩ → `0`; ⟨`docker ps --filter name=frel-vb -q | wc -l`⟩ → `0`; heavy.lock released (absent). Logs `~/.dev-logs/frel/vb5-*.log`, `~/.fourier-frel/vb/linux-out/linux-r5-*.log`.
+
+**Act 5 — landing and the CI change.** ⟨`git fetch` + `git pull --ff-only`⟩ (fourier) → ff to `4be7443` (F.CT3 r2 `5d7c126` + its merge); ⟨`git diff --stat dfdf0fd 4be7443 -- web .github`⟩ → empty, so the readings above stand at the landed bytes. Commit 1 `c14d73f` = `web/e2e/fixtures/gallery.ts` + `checkpoint-card-modal-chromium-{darwin,linux}.png` (the cure and the golden it lawfully moves, one family). Commit 2 `386397e` = `.github/workflows/ci.yml`, e2e-tests job only (hunks at L284, L313, L389; no other job touched): `container: image: mcr.microsoft.com/playwright:v1.61.0-noble`; the mongo service's `ports:` dropped and `MONGO_URI` → `mongodb://mongo:27017/fourier` (service by name inside a job container); `Install Playwright browsers` → `Playwright matches the container image` (`test "$(npx playwright --version)" = "Version 1.61.0"`; the browsers are baked into the image); the gating step `--reporter=list,html` with `PLAYWRIGHT_HTML_OPEN=never`. The `Upload Playwright report` step (`if: always()`) is kept unchanged, not duplicated. ⟨`ruby -ryaml -e 'YAML.load_file(...)'`⟩ → ok. ⟨`git push origin m/w1-bump-migration`⟩ → ff `4be7443..386397e`, no force. CI triggers on push only for master, so the run was dispatched: ⟨`gh workflow run ci.yml --ref m/w1-bump-migration`⟩ → **run 38899400446** at `386397e`.
+
+**Act 6 — the fresh m/w1 CI (38899400446), read.** ⟨`gh run view 38899400446 --json jobs`⟩ → web ✓ · api/tests ✓ · production compose ✓ · e2e **failure**. e2e steps: `Initialize containers` ✓, `Playwright matches the container image` ✓, backend ✓ (mongo reached as `mongo`), vite ✓, manifest ✓, `Run Playwright e2e` ✗, honest-red ✓ (still RED as declared), `Upload Playwright report` ✓. ⟨`gh api …/runs/38899400446/artifacts`⟩ → `playwright-report 11924551` bytes (before: 0 artefacts on 38868934803); downloaded to `~/.fourier-frel/vb2-ci-report/` → `index.html`, `data/` (9 files), `trace/`. Log `~/.dev-logs/frel/vb2-ci-38899400446.log`. The gating cells: **`1 failed · 2 flaky · 3 skipped · 524 passed (43.6m)`**.
+- visual-checkpoint 6/6 ✓ first attempt (items 1·6·7, 2, **5**, 8, 3; @coarse 4): the ESC-FREL-vb-1 RED (items 3 and 5) is gone in the renderer of record.
+- contrast-floor ✓ ×3 and UIA-F-42 ✓ first attempt (the `.w2` CI witness its receipt named).
+- flaky (pass on retry, not gate-failing): `equation-interaction.spec.ts:77` (G-F9-6) and `f-w14v-eq2.spec.ts:39` (q1 detached Configurator).
+- **failed ×3: `f-w14v-au1.spec.ts:397` au1 X-5 (390 logged in)**: `/equation: app-dock scrollers` received `["dock-layer dock-layer--full dock-run is- 348/346"]`: the logged-in app dock's run overflows its layer by 2 px at 390.
+
+**X-5 at 390 is a renderer-of-record finding, not a flake (measured).** It was ✓ on `ubuntu-latest` at `e89b032` (CI 38868934803, test 338), and no `web/` byte moved for the dock since. Instrument `~/.fourier-frel/vb/r6.sh` / `r6-outer.sh` / `linux-out/linux-in6.sh` = r5 with the spec parameterised (`SPEC`, chromium only), scratch at `386397e` clean: ⟨`SPEC=e2e/f-w14v-au1.spec.ts GREP="X-5" r6-outer.sh L1 D1 L2`⟩ (13:06–13:08Z) → linux v1.61.0-noble L1 `1 failed, 1 passed` (390 ✘ `348/346`, 360 ✓), L2 identical, darwin D1 `2 passed`. So in the image the goldens are minted on, the `/equation` dock run is 2 px wider than its layer at 390 (font metrics of the container's font set; ubuntu-latest's and darwin's fit). The cure sits in the dock's paint (`web/src` dock content, or glass's `dock-layer`), which is neither this unit's writable set nor this concern (§0bt excludes a different concern and glass), so it is escalated, not patched, and not held.
+
+**Gates (BEFORE → AFTER).**
+
+| Gate | BEFORE (RESUME (d) baseline) | AFTER | State |
+|---|---|---|---|
+| deterministic gallery detail-route stub | absent (L140 list shape for every match) | `c14d73f`: detail `GET` → the entity / 404 | **GREEN** |
+| item 5 re-baselined only on a read lawful diff | golden encodes the blank count | diff read by band (table above): only the stats row moves; re-minted item 5 only, darwin + linux | **GREEN** |
+| visual-checkpoint ×2 locally in `v1.61.0-noble` (guarded, heavy.lock) | banked ×2 at `e89b032` (old fixture) | L2 `6 passed` rc=0 · L3 `6 passed` rc=0 (darwin D2/D3 `6 passed` ×2) | **GREEN ×2** |
+| CI e2e job runs in the container | `runs-on: ubuntu-latest`, no `container:` | `386397e`; 38899400446 `Initialize containers` ✓, version check ✓ | **GREEN** |
+| report artefact uploads on failure (existing `if: always()` kept) | step present, nothing written (`list` only; 0 artefacts) | `--reporter=list,html`; 38899400446 failed and uploaded `playwright-report` 11924551 B (frames + traces) | **GREEN** |
+| visual-checkpoint on a fresh m/w1 CI | 38868934803 items 3 and 5 RED | 38899400446: 6/6 ✓ first attempt | **GREEN** |
+| a fresh m/w1 CI GREEN outside the manifest | 38868934803 RED | 38899400446: `1 failed` (au1 X-5 @390, reproduced ×2 locally in the image) · 2 flaky · 524 passed | **RED** (escalated) |
+
+**Commits.** fourier m/w1: `c14d73f` (stub + item-5 goldens), `386397e` (CI e2e job), both after `fetch` + `pull --ff-only`, pushed ff (origin `386397e`). value.js: this receipt.
+
+**Adjacent edits (§0bt).** None.
+
+**Residuals.** (1) Flaky on CI (pass on retry): `equation-interaction.spec.ts:77` and `f-w14v-eq2.spec.ts:39`; named, not gate-failing, not this unit's. (2) The instrument scripts `r5*`/`r6*`/`linux-in5.sh`/`linux-in6.sh` live under `~/.fourier-frel/vb/` (durable, not /tmp). (3) Item 3's former CI RED did not recur in the container (✓ first attempt), so its cause on `ubuntu-latest` needs no further reading.
+
+**Escalation ESC-FREL-vb2-1 (blocks `.g`'s merge lock: the fresh m/w1 CI is not GREEN outside the manifest).** In the renderer of record `mcr.microsoft.com/playwright:v1.61.0-noble`, `f-w14v-au1.spec.ts:397` au1 X-5 (390 logged in) fails deterministically: `/equation` `dock-layer dock-layer--full dock-run` scrollWidth 348 > clientWidth 346 (CI 38899400446 ✘ ×3; local container ✘ ×2; darwin ✓; ubuntu-latest ✓ at `e89b032`). The renderer change §0fk.2 (b) ordered exposes it; the cure is in the dock's paint (`web/src` dock content at 390, or glass `dock-layer` if the run's width is the producer's), outside `.vb2`'s set and concern. Rulings asked: (a) grant a unit the `/equation` app-dock content at 390 (`web/src`, read in the image: which item's metrics overrun by 2 px) to cure it at the root under the container; or (b) if the overrun is glass's `dock-layer` run sizing, hold X-5 @390 in `producer-held.json` with an O-id and relay it to glass BK. No golden, no test and no floor was changed for it.
+
+**E13.** ⟨`grep -E '^\| I-' V/coordination/INBOX.md | grep -c '| UNREAD'`⟩ → `0`; ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 1 · 0; the one is `glass-ui/docs/tranches/BL/FORMATION-PROGRESS.md` (glass's own formation log, not a letter to value.js). 0 UNREAD in scope.
+
+**Status: ESCALATED** (every `.vb2` cure landed and its gates GREEN; the fresh m/w1 CI is RED on one test outside this unit's set, ESC-FREL-vb2-1).
