@@ -1611,3 +1611,52 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~03:50– loc
 **Residuals.** R-w1..R-w3 carry. UIA-F-42 is a reported CI flake (passed on retry #1). Host carries 1–6 from sitting 2 carry. **E13:** 0 UNREAD; no new producer row, so no BK relay.
 
 **Status: ESCALATED** (ESC-FREL-w-1). Gates GREEN: w-2 latency ×19, manifest printed by CI, vue-tsc ×2, vitest ×2.
+
+### F-REL.vb — re-sit 4 (RESUME 2026-10-15 (c); at the post-`.w` HEAD `e89b032`)
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~08:20–08:45Z. Spec read whole (`fourier/waves/F-REL.md`, 54 lines; addendum (a) `.vb` L42); COHESION §0ew bullet 3 (L3785-3787), §0ex, §0ff read at the bytes, the later addenda (§0fg–§0fj, to L4005) grepped for `.vb`/`visual-checkpoint` → no new ruling on this unit.
+
+**Crash recovery.** ⟨`git status --porcelain | grep visual-checkpoint`⟩ (fourier) → 0 paths. ⟨`git status --porcelain -- docs/tranches/X/execution/C/F-REL.md`⟩ (value.js) → clean. Nothing inherited. ⟨`git fetch` + `git status -sb`⟩ (fourier) → `m/w1-bump-migration...origin/m/w1-bump-migration`, in sync at `e89b032`.
+
+**What moved since the re-sit 3 reading at `3084b6c`.** ⟨`git log --oneline 3084b6c..origin/m/w1-bump-migration`⟩ → `512f5a9` (`.vb`'s f-w14 adoption), `9c82849` (X-DS pass 4 F4C), `6b46ef1` (`.mem3`), `52a68a0` (X-DS pass 5 F5X: the ToC state fills), `6f2748e` (X-DS pass 6 F6X: a GalleryCard comment), `e89b032` (`.mem2`). ⟨`git log -1 --format=%h -- web/e2e/visual-checkpoint.spec.ts-snapshots`⟩ → `3d2f80d` (no golden moved since). `.w` re-sit 3 handed two frames here by name: `checkpoint-disclosure-body` (item 3) and `checkpoint-card-modal` (item 5), both RED after retries on CI `38868934803` at `e89b032` (item 5: `289 pixels (ratio 0.01)` ×3; item 3: ✘ ×3).
+
+**Instrument (re-sit 3's, moved to HEAD).**
+- Scratch worktree `~/.fourier-frel/g-wt` ⟨`git checkout --detach e89b032`⟩ → `e89b032`, ⟨`git status --porcelain | wc -l`⟩ → `0`; `package-lock.json` unchanged `3084b6c..e89b032` (its `node_modules` stands).
+- `~/.fourier-frel/vb/r4.sh` / `r4-outer.sh` = re-sit 3's `r3.sh` / `r3-outer.sh` with only the log/tag names changed (⟨`diff r3.sh r4.sh`⟩ → 9 name-only hunks): private `mongod :27118`, API :8191 at `COMPUTE_CONCURRENCY=1` with CI's rate env, vite :3192, container `frel-vb` (`mcr.microsoft.com/playwright:v1.61.0-noble`; ⟨`npx playwright --version`⟩ in the log head → `Version 1.61.0`), tree re-synced (⟨`diff -rq` src + e2e⟩ → `synced`; lock sha `62eef004…` host = container).
+- `linux-in.sh` read at the bytes still said `--workers=2` (re-sit 3's receipt says it was changed to 1; the file did not carry it). Corrected now: ⟨`sed -i '' 's/--workers=2/--workers=1/'`⟩ → `grep -c workers=1` → `1`.
+- Instrument defect: `r4-outer.sh` runs under `noclobber`, so its first `>>` to the not-yet-existing drive log was refused (⟨`vb4-outer.out`⟩ → `no such file or directory: …vb4-drive.log`); the log was created by hand at 08:26:51Z and every later line landed. No run was affected.
+- Lock: `.worktrees/heavy.lock` held by `F.CT3 r1 (seat 4) attr … pid 87710`; mine taken with no-clobber at 08:32:41Z; guard queue (5th) admitted at 08:39:06Z; ⟨`guarded rc=0`⟩ and lock released 08:40:28Z. Logs `~/.dev-logs/frel/vb4-*.log`, `~/.fourier-frel/vb/linux-out/linux-r4-L*.log`.
+
+**Readings at `e89b032` (no `--update-snapshots`; load 16–21; 6 tests = 5 `chromium` + 1 `@coarse` `mobile-chromium`, `--workers=1`).**
+
+| run | darwin (headless local) | linux (v1.61.0-noble) |
+|---|---|---|
+| 1 | ⟨`vb4-darwin-D1.log`⟩ → 6 passed (15.8s), rc=0 | ⟨`linux-r4-L1.log`⟩ → 6 passed (17.1s), rc=0 |
+| 2 | ⟨`vb4-darwin-D2.log`⟩ → 6 passed (14.2s), rc=0 | ⟨`linux-r4-L2.log`⟩ → 6 passed (14.3s), rc=0 |
+
+- Items 3 and 5 pass on both platforms ×2 in this instrument. **No frame changed because of `.w` or the X-DS passes (`9c82849` `52a68a0` `6f2748e`), so nothing is re-baselined: a no-op.** ⟨`git status --porcelain web/e2e/visual-checkpoint.spec.ts-snapshots | wc -l`⟩ → `0` (main tree) and `0` (scratch); ⟨sha256 of the container's 6 `*-linux.png` after L2 vs the main tree's⟩ → `6 same`.
+- Goldens unchanged since `3d2f80d` (⟨`stat -f %z`⟩ darwin/linux): admin-banner 29907/25539 · card-hover 7992/7654 · card-modal 29512/24685 · card-resting 3387/3037 · disclosure-body 49944/42055 · tooltip-trigger 3266/3138.
+- Eye-read (Read of `checkpoint-card-modal-chromium-linux.png`): title, `amber-fox-spiral-one · Sep 1, 2026` (an absolute date, so no clock drift in the frame), the solid-green stub tile, **a blank view count before "views"**, "3 likes", Decomposition "Epicycles", Harmonics `N=64`, the "Open Visualizer" pill. The redesigned state, as accepted by §0ew.
+
+**Why CI is RED where this instrument is GREEN (measured, not cured: outside this set).**
+1. **CI does not render in the docker image.** ⟨`sed -n 284,410p .github/workflows/ci.yml`⟩ → the e2e job is `runs-on: ubuntu-latest` with `npx playwright install --with-deps chromium`, no `container:`. §0ew's premise "the official Playwright docker image … which is how CI renders" does not hold at the bytes; four of six docker-minted linux goldens still matched CI (items 1·6·7, 2, 8, 4 ✓ in `38868934803`), so the image is a close but not exact witness.
+2. **Item 5 has a capture race in its fixture (the likely 289 px).** Opening the modal fires `recordView` (`web/src/stores/gallery.ts:359-366`: `GET /api/visualizations/{slug}`, then `views: data.views`). `stubGallery` (`web/e2e/fixtures/gallery.ts:140`) answers `**/api/visualizations**` — the detail GET included — with the LIST body `{items, next_cursor, has_more}`, so `data.views` is `undefined` and the count blanks (this is R-vb-1's cause). Locally the GET resolves before the capture, so the golden encodes the blank. On CI the log shows the dialog "not stable" twice before capture (⟨`w3-pw.log` L1232-1280⟩), consistent with a capture before the GET lands, which still paints `12`. The cure is a detail-route stub returning `ENTRY` in `e2e/fixtures/gallery.ts` (then the frame re-baselines with `12 views`), which is outside `.vb`'s set (goldens only). Re-baselining the golden alone would only move the race, so it is not done.
+3. **Item 3 on CI: cause not determined.** CI ran the reporter `list` only, so no `playwright-report` was produced (⟨`gh api …/runs/38868934803/artifacts`⟩ → `total_count 0`) and the log truncates before item 3's error body. It passes ×2 per platform here at the same SHA.
+
+**Gates BEFORE → AFTER.**
+- G-vb darwin ×2: GREEN ×2 at `3084b6c` → **GREEN ×2 at `e89b032`**.
+- G-vb linux ×2 (v1.61.0-noble): GREEN ×2 at `3084b6c` → **GREEN ×2 at `e89b032`**.
+- (Not this unit's gate; read for `.g`) CI `38868934803` items 3 and 5: RED on `ubuntu-latest`.
+
+**Commits.** fourier: none (no-op; nothing to push). value.js: this record.
+
+**Adjacent edits.** None.
+
+**Residuals / escalation.**
+- **ESC-FREL-vb-1 (for `.g`'s CI gate):** items 3 and 5 RED on CI's `ubuntu-latest` renderer while GREEN in the docker image. Rulings asked: (a) grant `web/e2e/fixtures/gallery.ts` (a detail-route stub returning `ENTRY`) to cure item 5's race at the root, then re-baseline item 5 on both platforms; (b) either run the CI e2e job in `mcr.microsoft.com/playwright:v1.61.0-noble` (`container:`) so the goldens' renderer is CI's, or rule that linux goldens are minted from a CI run; (c) add the `html` reporter (or `--output` upload) to the CI e2e step so a failing frame's actual/diff PNGs are inspectable (item 3).
+- R-vb-1 (blank modal view count) now has its measured cause (item 2 above).
+- Teardown: ⟨`lsof -iTCP:8191 -iTCP:3192 -iTCP:27118 -sTCP:LISTEN | wc -l`⟩ → `0`; ⟨`docker ps --filter name=frel-vb -q | wc -l`⟩ → `0`; `heavy.lock` absent.
+
+**E13.** ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0; ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. No producer row, so no BK relay.
+
+**Status: DONE** (unit gates GREEN ×2 ×2; no-op re-baseline), with ESC-FREL-vb-1 handed to `.g`.
