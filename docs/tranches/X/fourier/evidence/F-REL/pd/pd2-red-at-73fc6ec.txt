@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+PD-2 born-RED reading 2026-10-16 at fourier 73fc6ec (api/main.py unedited; only the new test present): ⟨uv run --extra dev pytest api/tests/test_cors_rate_limited.py -q --tb=short⟩ →
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_cross_origin_429_carries_cors_and_ratelimit_headers ___________
+api/tests/test_cors_rate_limited.py:62: in test_cross_origin_429_carries_cors_and_ratelimit_headers
+    assert headers["access-control-allow-origin"] == _ORIGIN
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'access-control-allow-origin'
+=========================== short test summary info ============================
+FAILED api/tests/test_cors_rate_limited.py::test_cross_origin_429_carries_cors_and_ratelimit_headers
+1 failed in 0.99s

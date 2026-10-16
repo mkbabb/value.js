@@ -1,0 +1,21 @@
+SERVED MODEL: claude-opus-5-5
+PD-2 + suites, 2026-10-16, fourier checkout (api run 1-2 + tests run 1 with the cure uncommitted on 73fc6ec; tests run 2 at f97d9cb = the PD-2 commit). ⟨~/.fourier-frel/pd/outer.sh → guarded → all.sh⟩; api/ against a private mongod :27118:
+api run 1 head 73fc6ec start 2026-10-16T20:24:48Z
+345 passed in 48.64s
+rc=0 end 2026-10-16T20:25:38Z
+api run 2 head 73fc6ec start 2026-10-16T20:25:38Z
+345 passed in 61.40s (0:01:01)
+rc=0 end 2026-10-16T20:26:41Z
+tests run 1 head 73fc6ec start 2026-10-16T20:26:41Z
+188 passed in 347.53s (0:05:47)
+rc=0 end 2026-10-16T20:32:29Z
+tests run 2 head f97d9cb start 2026-10-16T20:32:29Z
+188 passed in 326.02s (0:05:26)
+rc=0 end 2026-10-16T20:37:56Z
+pd all done 2026-10-16T20:37:56Z
+
+Focused PD-2 x2 ⟨uv run --extra dev pytest api/tests/test_cors_rate_limited.py api/tests/test_cors.py api/tests/test_unhandled_error_cors.py api/tests/conformance/test_rate_limit.py -q⟩:
+............................................                             [100%]
+44 passed in 0.83s
+............................................                             [100%]
+44 passed in 0.75s

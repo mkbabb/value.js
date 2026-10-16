@@ -2503,3 +2503,39 @@ Groups: `[[F-REL.pd], [F-REL.g2], [F-REL.d]]`.
 | F-REL.d | §0fq.3; §Units `.d` (F-REL.md:32-38) | fourier `scripts/**` (prod-verify); value.js `docs/tranches/X/fourier/evidence/F-REL/` | ONLY if R-h1 is set: health poller started before the push; webhook health-gated switch; no outage; prod-verify 21/21 ×2; PD-1 curl on prod ×2 (gzip GET → If-Match 200, stale 412); smoke, cert, openapi | R-h1 is the owner's act (§0fq.3): no seat invents a webhook; if unset → no deploy, return BLOCKED-ON-OWNER (R-h1) with every other gate read GREEN; host never hand-edited |
 
 ## RESUME 2026-10-16 (f) — Unit receipts
+
+### F-REL.pd
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 20:20–20:45Z. Spec: COHESION §0fq.1-2 + F-REL.md ADDENDUM (f) + this RESUME (f) plan row.
+
+**Crash recovery.** ⟨`git status --porcelain | grep -E 'nginx/fourier.conf|api/main.py|api/config.py|api/tests/test_cors'`⟩ → empty: nothing inherited. Branch `m/w1-bump-migration`, HEAD `73fc6ec` = origin. X-DS dirty `web/**` and `.worktrees/f-ct3` never touched.
+
+**Anchors at the true bytes.** `nginx/fourier.conf:76` `gzip_types text/plain application/json …` ✓; `api/main.py:100` UnhandledErrorProblem · `:103` CORSMiddleware · `:115` RateLimitHeaderMiddleware ✓; `api/config.py:66` `CORS_EXPOSE_HEADERS = ("ETag", "RateLimit-Reset")` ✓. Drift found: a fourth middleware, `@app.middleware("http") reject_dollar_keys` (`api/main.py:131`), registered AFTER CORS, i.e. it was the outermost layer; "CORS added LAST" (the lock) therefore places the CORS registration after it, not merely after RateLimit — recorded as INTENT at the true bytes (same file, middleware order only; its dollar-key 400 now also carries CORS).
+
+**Acts, in order.**
+1. PD-2 born-RED test `api/tests/test_cors_rate_limited.py`: POST × (write budget) then one more with `Origin` = the first allowed origin, through the full ASGI stack; asserts 429, `access-control-allow-origin` = origin, `ratelimit-limit` = budget, `ratelimit-remaining` = 0, `ratelimit-reset` ≥ 0, and `ratelimit-reset` ∈ `access-control-expose-headers`. ⟨`guarded --light -- uv run --extra dev pytest api/tests/test_cors_rate_limited.py -q`⟩ at `73fc6ec` → `1 failed` · `KeyError: 'access-control-allow-origin'` (RED for the named reason; `evidence/F-REL/pd/pd2-red-at-73fc6ec.txt`).
+2. Cure `api/main.py` (order + comments only): registration order is now UnhandledErrorProblem → RateLimitHeaderMiddleware → `reject_dollar_keys` → CORSMiddleware (LAST = outermost). UnhandledErrorProblem stays inside CORS. The RateLimit comment now reads "Registered BEFORE CORS … sits INSIDE CORS".
+3. ⟨focused ×2: `test_cors_rate_limited.py test_cors.py test_unhandled_error_cors.py conformance/test_rate_limit.py`⟩ → `44 passed` · `44 passed`.
+4. ⟨`~/.fourier-frel/pd/outer.sh` (heavy.lock noclobber → `guarded --rss-gb 20 --timeout 90` → `all.sh`, private mongod :27118)⟩ → `pytest api/` `345 passed` ×2 (344 banked + the new test; incl. `test_cors.py`), `pytest tests/` `188 passed` ×2 (rc 0 each; `evidence/F-REL/pd/pd2-green-and-suites.txt`).
+5. Commit PD-2 `f97d9cb` (pathspec `api/main.py api/tests/test_cors_rate_limited.py`, after fetch + `pull --ff-only`).
+6. PD-1 `nginx/fourier.conf`: `application/json` leaves `gzip_types` (→ `text/plain application/javascript text/css image/svg+xml`), with a 4-line comment naming the weak-ETag cause. Strong comparison kept: ⟨`sed -n 41p api/lib/crud/etag.py`⟩ → `if header != expected_etag:` (unchanged; arm (b) refused).
+7. PD-1 local nginx-in-docker reading ⟨`~/.fourier-frel/pd/pd1-outer.sh` (heavy.lock → `guarded` → `pd1.sh before 1` then `pd1.sh after 2`)⟩: API `f97d9cb` on :8191 (private mongod :27119 seeded with one image + one contour row, `COMPUTE_CONCURRENCY=1`), edge = `nginx:alpine` (nginx/1.31.2) with the conf dir mounted as `docker-compose.prod.yml` mounts `./nginx` and an upstream pin under `fourier-upstreams/`, `frontend` = `nginx:alpine` serving fixture js/css/svg. All requests `Accept-Encoding: gzip`:
+   - BEFORE (HEAD conf): GET → `ETag W/"28e8…"` · `Content-Encoding: gzip` → PATCH If-Match replayed → `412` (the production defect reproduced locally).
+   - AFTER reading 1: GET → `ETag "4e36…"` (strong) · no content-encoding → PATCH If-Match replayed → `200`; stale tag → `412`; DELETE current → `204`; SPA `/app.js` (application/javascript) · `/app.css` · `/icon.svg` → `Content-Encoding: gzip`.
+   - AFTER reading 2: `"7300…"` → PATCH `200`; stale → `412`; DELETE `204`; js/css/svg gzip.
+   - Teardown: ⟨`lsof -iTCP:8191,27119,27118,8088 -sTCP:LISTEN | wc -l`⟩ → `0`; ⟨`docker ps -a | grep -c frel-pd`⟩ → `0`; heavy.lock absent. Evidence `evidence/F-REL/pd/pd1-local-nginx-docker.txt`.
+8. Commit PD-1 `01253e3` (pathspec `nginx/fourier.conf`), push ⟨`git push origin m/w1-bump-migration`; `git rev-parse --short origin/m/w1-bump-migration`⟩ → `01253e3`.
+
+**Gates BEFORE → AFTER.**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| PD-1 local nginx-docker: gzip GET → If-Match 200, stale 412, SPA js/css/svg gzip | RED (W/ tag → 412) | GREEN ×2 |
+| PD-2 pytest cross-origin 429 carries ACAO + RateLimit-Limit/-Remaining/-Reset | RED at `73fc6ec` | GREEN ×2 (focused) + ×2 (in `api/` 345) |
+| `api/` incl. `test_cors.py` | 344 banked | 345 ×2 |
+| `pytest tests/` non-regression | 188 banked | 188 ×2 |
+| strong If-Match comparison (`etag.py:41`) | kept | kept |
+
+**Escalation ESC-FREL-pd-1 (that row only).** §0fq.2 asks for `RateLimit-*` in `CORS_EXPOSE_HEADERS`. `RateLimit-Reset` is already exposed (`api/config.py:66`). Exposing `-Limit` and `-Remaining` too would break the exposure oracle `api/tests/test_cors.py:118-120` (`set(CORS_EXPOSE_HEADERS) == _client_read_headers()`). ⟨`grep -rhoE '\.headers\.get\(\s*"[A-Za-z-]+"' web/src | sort | uniq -c`⟩ → `ETag`, `RateLimit-Reset` only, so the client reads neither of them. Per the lock, `api/config.py` and `test_cors.py` are UNCHANGED (⟨`git diff --quiet HEAD -- api/config.py api/tests/test_cors.py`⟩ → unchanged). The 429 does carry all three fields on the wire (asserted). The open question is whether a browser script may read `-Limit` and `-Remaining`. There are two candidate rulings: (a) the client is the source of truth, so `-Reset` alone satisfies §0fq.2; or (b) the client reads the full trio, in which case `web/src` gains the reads and config gains the exposure. That is the orchestrator's or owner's call. It does not block `.g2`.
+
+**Adjacent edits:** none. **Residuals:** ESC-FREL-pd-1 above; the prod PD-1 curl ×2 belongs to `.d` (on R-h1). The X-DS lane's dirty `web/**` paths were left untouched.
