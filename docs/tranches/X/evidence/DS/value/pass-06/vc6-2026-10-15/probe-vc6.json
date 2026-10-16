@@ -1,0 +1,173 @@
+{
+  "base": "http://localhost:9000",
+  "katex": {
+    "light": {
+      "voice": true,
+      "rows": 4,
+      "overflowing": 2,
+      "detail": [
+        {
+          "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px"
+        },
+        {
+          "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px"
+        },
+        {
+          "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L",
+          "scrollWidth": 431,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px"
+        },
+        {
+          "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\c",
+          "scrollWidth": 505,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px"
+        }
+      ]
+    },
+    "dark": {
+      "voice": true,
+      "rows": 4,
+      "overflowing": 2,
+      "detail": [
+        {
+          "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px"
+        },
+        {
+          "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px"
+        },
+        {
+          "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L",
+          "scrollWidth": 431,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px"
+        },
+        {
+          "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\c",
+          "scrollWidth": 505,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px"
+        }
+      ]
+    }
+  },
+  "tooltips": {
+    "light": {
+      "voice": true,
+      "Reset color": {
+        "text": "Reset to the default color.",
+        "lines": 1,
+        "descBoxW": 310,
+        "textW": 199,
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+      },
+      "Copy color": {
+        "text": "Copy the current color.",
+        "lines": 1,
+        "descBoxW": 310,
+        "textW": 178,
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+      },
+      "Random color": {
+        "text": "Pick a random color.",
+        "lines": 1,
+        "descBoxW": 310,
+        "textW": 156,
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+      }
+    },
+    "dark": {
+      "voice": true,
+      "Reset color": {
+        "text": "Reset to the default color.",
+        "lines": 1,
+        "descBoxW": 310,
+        "textW": 199,
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+      },
+      "Copy color": {
+        "text": "Copy the current color.",
+        "lines": 1,
+        "descBoxW": 310,
+        "textW": 178,
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+      },
+      "Random color": {
+        "text": "Pick a random color.",
+        "lines": 1,
+        "descBoxW": 310,
+        "textW": 156,
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+      }
+    }
+  },
+  "poles": {
+    "A": {
+      "shadowColor": "color(srgb 0.11 0.098 0.09)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)",
+      "cardBoxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+    },
+    "B": {
+      "shadowColor": "color-mix(in oklab, hsl(30 14% 90%) 34%, hsl(24 9% 4%))",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in oklab, hsl(30 14% 90%) 34%, hsl(24 9% 4%))",
+      "cardBoxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i"
+    }
+  },
+  "code": {
+    "dark": {
+      "ground": "oklch(0.345 0.05 9.83402)",
+      "groundToken": "oklch(from oklch(95.832172477266% 0.021053120065 9.83402284231deg) 0.345 min(c * 2.5, 0.05) h)",
+      "accent": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+      "inks": {
+        "--code-ink": 9.49,
+        "--code-comment": 5.15,
+        "--code-keyword": 4.99,
+        "--code-entity": 5.47,
+        "--code-string": 5.95,
+        "--code-number": 6.27
+      }
+    },
+    "light": {
+      "ground": "oklch(0.913 0.03 9.83402)",
+      "groundToken": "oklch(from oklch(30.464908167469% 0.121841444973 9.83402284231deg) 0.913 min(c, 0.03) h)",
+      "accent": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)",
+      "inks": {
+        "--code-ink": 16.07,
+        "--code-comment": 5.25,
+        "--code-keyword": 4.86,
+        "--code-entity": 5.35,
+        "--code-string": 4.92,
+        "--code-number": 4.87
+      }
+    }
+  }
+}
