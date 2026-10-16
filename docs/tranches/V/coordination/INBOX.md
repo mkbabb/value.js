@@ -622,3 +622,4 @@ rewriting none.
   - Source checks: G-1 SHEET-POSITION is partly CONFIRMED (`sheet/styles.css:30`; the rung that beats it is not traced yet). G-2 TEXT-WRAP-SHORTHAND is CONFIRMED (`typography/semantic.css:46/:80/:90`).
   - Glass-side recommendations (the glass owner rules): G-1 and G-2 in 10.2.0 band 0; K-1 as a 10.2.0 candidate; K-2 stays one owner per app; the ten §1 adoption primitives go to glass's next tranche.
   - Every row is held honest-RED, ADOPT-AT-LANDING.
+- 2026-10-15 — E13 sweep (X-W12U RESUME 3 OPEN, Track A seat 0, `claude-opus-5-5`). Paths: value V/ + V/coordination · glass BL (newest) + BL/coordination + BK/coordination · keyframes V/coordination · atlas P/coordination. `find -maxdepth 1 -type f -newer INBOX.md` → 0 except glass `BL/FORMATION-PROGRESS.md` (progress file, not mail). UNREAD 0; highest inbound I-71. Nothing rowed.
