@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+# 2026-10-16 06:58:19 load: 13.47 14.94 20.50 head: 389e31d2
+{"selector":".controls-pane-wrapper","before":{"ghostCol":false,"vw":390,"n":0},"injected":{"ghostCol":true,"vw":390,"n":1},"removed":{"ghostCol":false,"vw":390,"n":0},"verdict":"FALSIFIER-TRIPS-AND-CLEARS"}
+EXIT=0
+# end 06:58:39
