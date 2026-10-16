@@ -2040,3 +2040,72 @@ Readings, 360 coarse:
 - Not run: smoke `--workers=1` (this is not `.m3`'s gate; the close seat reads it). The desktop `scene-action-contract` 390 workbench legs are fine-pointer, three seats, and fit.
 
 **Verdict: DONE.** X-13-RUN is GREEN ×2 in both themes at 360/390/430/844×390 (the m2 gate, plus the m3 box gate: seats ≥ 44, run fits in layout, overflow in the menu). R-m-2 is GREEN ×2 in both themes (caption rung, fits the band, face kept), with the stage top re-read ×2. Typecheck 0 ×2 and lint 0 ×2.
+
+## Close 3 (RESUME 3 close seat, 2026-10-16)
+
+SERVED MODEL: claude-opus-5-5. Track A close seat, VERIFY-ONLY, HEAD at open `9db19dec3` (`.m3`'s receipt); glass 10.1.0. Spec `W12U.md` read whole (110 lines, addenda (a)–(g)); record read: the RESUME 3 open → plan (:1776-1819) and the `.q2` / `.k3` / `.m3` receipts (:1824-2042), Close 2 (:1425-1489) for form. Crash recovery ⟨`git status --porcelain -- <record> LEDGER.md INBOX.md`⟩ → empty: no inherited partial close. Outputs: `W12U-evidence/close3/` (new) and `q2/{logs,results}/cl1*,cl2*` (the `.q2` instrument, tags `cl1`/`cl2`/`cl2b`).
+
+### Commit roster (act 1)
+⟨`git cat-file -e <c>`; `git merge-base --is-ancestor <c> HEAD`; `git show --name-only --format= <c>`⟩ over all 44 commits (223 path rows); every commit exists and is on HEAD:
+- `.q2` (36): `970f6d9fd` … `7c0ba5993` (the unit return's list).
+- `.k3` (4): `888a7f9e4` `066d89eb4` `037869420` `6bab513d3`.
+- `.m3` (4): `8c9d1cd8a` `3c4fb2f08` `978d46e53` `9db19dec3`.
+- Paths outside `e2e/smoke/** · demo/** · W12U-evidence/** · the record` ⟨`… | grep -vE '^(e2e/smoke/|demo/|docs/tranches/X/waves/W12U-evidence/|docs/tranches/X/execution/A/X-W12U.md$)'`⟩ → **0**. `scripts/dev/dev.sh`, `glass-ui`, `src/`, `package.json` ⟨grep⟩ → **0**. The `demo/**` set (15 paths: `app/{App,ErrorBoundary}.vue`, `color-session/keys.ts`, `picker/{ColorPicker.vue,sceneActions.ts}`, `shell/{PaneErrorPlate,PaneLoadingPlate,PaneShell}.vue`, `shell/dock/{ActionBarToggle.vue,layers/ActionBarLayer.vue,layers/GenericActionBar.vue}`, `test/palettes/plate-mass.test.ts`, `test/shell/scene-actions-unregistered.test.ts`, `workbenches/gradient/GradientVisualizer/{GradientEasingEditor.vue,easing/EasingAuthoringStage.vue}`) meets none of the X-DS dirty paths named in RESUME 3 Open.
+
+### Landed wrong (recorded, not fixed here)
+None. 44 of 44 on HEAD, all inside the plan's writable sets.
+
+### Instrument note: :9000 hung, diagnosed and restarted (Instrument law)
+- ⟨`curl -w '%{http_code} %{time_total}' --max-time 20 localhost:9000/`⟩ → `000` every 30 s from 10:17 to 10:28. ⟨`ps -o etime,%cpu,rss -p 47358`⟩ → the `dev.sh up` vite child up 10 h 42, 96 % CPU, RSS 3.09 GB. ⟨`sample 47358 3`⟩ → the main thread is in JS (`SetPrototypeForEach`, `StringIndexOf`, Scavenger GC), not I/O. The dev log shows `hmr update …/demo/styles/foundation.css` every ~20 s up to 10:04, then nothing, and foundation.css's mtime is Oct 9. This is ESC-W12Uh-1's signature (§0fh.10) again (`close3/diag-9000-hang.txt`).
+- Act: the hung vite (serving no request) was stopped and :9000 restarted from the repo root with dev.sh's own frontend command and env (`.env` sourced, `VITE_API_URL=http://localhost:3000`, the running dev.sh api `/health` 200), under `guarded --light --rss-gb 6 --timeout 180`. dev.sh was not edited; its api and build:watch children were not touched. A first env-less restart read the app as "dev misconfigured" (`close3/light-r0b-noenv.txt`); that round is **void** (instrument fault) and is not counted. The killed hung round is kept (`close3/light-r0-9000-hung.txt`). When this seat ends, its guarded vite ends with it, so :9000 needs the orchestrator's `dev.sh up` (residual R-C3-1).
+- The served reads run against the working tree, which carries X-DS's dirty pass-9 paths; none of them is a subject of these gates (the `Dock.vue` hunk is a `z-index` on the view glyph). Smoke and `npm test` ran on the detached export of the committed `9db19dec3`.
+
+### Gate table (acts 2–3), re-run by this seat
+| gate (spec) | BEFORE (RESUME 3 baseline, 10-15) | AFTER (this seat, 10-16) | verdict |
+|---|---|---|---|
+| `.q2` smoke `--workers=1` whole, Chromium, on committed bytes (ADDENDUM (g); §3) | `smoke` 229 ✓ / 62 ✘ (banked `.q`) | ⟨`sh q2/batch.sh cl1 9db19dec3 C`⟩ (10:06–10:41, load1 18.7–23.7): smoke-admin 21 ✓ · smoke-mobile 7 ✓ · smoke-reactivity 2 ✓ · smoke-perf 4 ✓ / 3 ✘ · smoke **277 ✓ / 16 ✘ / 2 skipped**. ⟨`… cl2 …`⟩ (10:54–11:26, load1 14.3–20.3): 21 · 7 · 2 · 4 ✓ / 3 ✘ · smoke 276 ✓ / 17 ✘. The 16 smoke failures of cl1 are byte-identical to `.q2` r11's ⟨`diff r11.f cl1.f`⟩ → SAME; the 3 perf failures are G2, G3/G4, O-5 in both. cl2's 17th is `w12-dock.spec.ts:303` (2): `browserContext.newPage: Target page, context or browser has been closed`, a harness crash, not an assertion. It passed in cl1 and r11, and its re-read ⟨`… cl2b … C smoke -- e2e/smoke/w12-dock.spec.ts`⟩ (12:09, load1 9.3) → **6/6 passed**. It is recorded as a §0ev.2 transient (1 re-run of 3) and nothing is loosened | **GREEN ×2 except the named (c) rows** |
+| the named (c) rows (owners from `.q` ESC-W12Uq-3) | — | X-W10: o18 ×6, o19 ×4, o26, o28, webgl-blob-idle ×2 · X·P parser: o22-specimen-legibility, o23:225 · X-W2 §3a: perf G2, G3/G4, O-5 | honest-RED, owned |
+| A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440), both arms, 1440×900 | light and dark `RED 1 (of 2)` (`hostSH 3177 = hostCH 3177 · docSH 3299`) | ⟨`guarded --light -- node r4/diag-admin-room.mjs 1440 900 {light,dark}`⟩ r1 (10:37, load 17–26) and r2 (10:43, load 12–16): each theme `GREEN 2/2`; overlying `hostSH 3177 > hostCH 777 · docSH 900 · before false → after true → back false`; seated `/mix` `host false · port true · after false · title 41.888 = rest` (`close3/light-r{1,2}.txt`) | **GREEN ×2, both themes** |
+| served pair k2 + x2, 390×844 light, active-instance settle (`.k3`; §3 served falsifiers) | intermittent RED (Check 6 `a` RED 3/38) | ⟨`guarded --light -- sh k3/served.sh close3-r{1,2}`⟩ → r1 `GREEN 38/38` + `GREEN 3/3` · r2 `GREEN 38/38` + `GREEN 3/3` | **GREEN ×2** |
+| X-13-RUN (`.m3`): m2 dock-layers + m3 tools-run, 360/390/430/844×390 × light/dark | 360 light `RED 2/3` | ⟨`sh m3/run-m3.sh close3-r{1,2}`⟩ (10:49–11:00, load 9–24): 16 of 16 cells `GREEN 3/3` per round; ⟨`grep -c RED`⟩ → 0 · 0 (`m3/results/close3-r{1,2}.txt`) | **GREEN ×2, both themes** |
+| R-m-2 H1 rung + stage re-read, 844×390 | `13px` off-scale | the same rounds: `fontSize 13.1324px` = caption rung, Fraunces kept, GREEN ×2 per theme; `h1 [47,86,750,16] · band [47,8,750,70] · stage [47,101,…]` | **GREEN ×2** (stage target 80 stays O-74e L24-1) |
+| typecheck lib/demo/test/e2e (§3 `npm run check`; there is no `check` script, so it is the four programs plus lint) | `0 0 0 0` | ⟨`guarded --light -- sh close2/tc.sh`⟩ r1 `lib 0 demo 0 test 0 e2e 0` · r2 the same | **GREEN ×2** |
+| lint | `rc=0` | ⟨`guarded --light -- npx eslint . --max-warnings=0`⟩ r1 `rc=0` · r2 `rc=0` | **GREEN ×2** |
+| `.k2` static | `GREEN 30/30` | ⟨`sh k2/check-k2-static.sh \| tail -1`⟩ r1 `GREEN 30/30` · r2 `GREEN 30/30` | **GREEN ×2** |
+| `npm test` (§3) on committed `9db19dec3` | banked 7 / 1212 | ⟨`guarded --timeout 30 -- npx vitest run --maxWorkers=2`⟩ in the export tree (admitted after ~30 min waiting for headroom at 1557 processes) → `Tests 7 failed \| 1209 passed (1216)`: `test/ink.test.ts` ×5 (D6 ×2, T-35 ×3) = INK-VEIL-MIDBAND → O-62 (a) · `test/spectrum-luma.test.ts` C-5 and `demo/test/shell/reka-binding-idiom.test.ts` NG-6 → X-W8 `.i` (`close3/npm-test-r1.txt`) | **RED by relief: the standing 7, unchanged; no new failure** |
+| WebKit 3× (ADDENDUM (e)/(g); `.q2` ESC-W12Uq2-1): `smoke-safari` dual-webgl-atmosphere + `oracles-safari` o3, `guarded --exclusive webkit`, on committed bytes | `.q2`: 2 of 3 (r3 `75ebff961` load 20s, w10 `bd9e828e0`), both GREEN | ⟨`sh q2/batch.sh clw1 9db19dec3 W -- dual-webgl-atmosphere o3-headed-gpu-probe`⟩: smoke-safari `2 passed` (14:55, load1 9.6→11.4) · oracles-safari `2 passed` (15:48, load1 22.1→28.7). ⟨`… clw2 …`⟩ smoke-safari `2 passed` (16:14, load1 11.1→19.9); its o3 leg was withdrawn while it queued behind two glass `--exclusive webkit` runs (90 min each). Admission took 2 h 7 min to the first lock (queue behind glass BL runs, then 30-min headroom waits at 1530–1668 processes) | **GREEN: the third read is banked.** dual-webgl-atmosphere 4/4 GREEN (r3, w10, clw1, clw2); o3 3/3 GREEN (r3, w10, clw1). The last read of each is on the unit tip `9db19dec3`. ESC-W12Uq2-1 is **discharged** |
+| E-3 | — | ⟨`git log --format=%h 9db19dec3..HEAD -- docs/tranches/X/waves/W12U.md docs/tranches/X/audit/AUDIT-2-value.md`⟩ → empty | **HELD** |
+| E13 | 0 UNREAD | ⟨`find <7 paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → glass BL `FORMATION-PROGRESS.md` only (glass's progress log, no letter to value.js) · the rest 0; ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ → 0; sweep line appended to INBOX | **GREEN** |
+| masking | — | ⟨`git diff 970f6d9fd~1..9db19dec3 -- demo e2e/smoke \| grep '^+' \| grep -cE 'test\.skip\|\.fixme\|force: ?true\|allowlist\|eslint-disable\|ts-ignore\|ts-expect-error\|retries'`⟩ → `0` (the whole RESUME 3, `.q2` → `.m3`); the same over `7c0ba5993..9db19dec3` (`.k3` + `.m3`) → `0` | **HELD** |
+
+### Post-tip commits by other writers (recorded, not W12U units)
+After `9db19dec3` and before this close: X-DS `ff7ea01b3` · `a86622b18` · `a5383d50c` (`demo/**`, X-DS's own passes), `afdbb0fa2` (`fix(e2e · V-1)`: Chromium projects default to chrome-headless-shell) and `b50a9e574` (`fix(X-W12U .q2 · chrome-assay V-3)`: another seat rewrote `W12U-evidence/q2/{batch,run}.sh` to one guarded admission per project). The smoke and `npm test` reads above are on `9db19dec3`, so they do not cover those bytes. The W12U-evidence edit at `b50a9e574` was made outside every W12U unit. It changes the instrument, not a gate: the per-project admission is why the WebKit o3 leg re-queues for the lock. That is recorded here for the Check, and nothing in it is reverted.
+
+### Residuals (named owners)
+- **The named (c) smoke rows (16 smoke + 3 perf)**, honest-RED, owned: X-W10 (o18 ×6, o19 ×4, o26, o28, webgl-blob-idle ×2); X·P parser (o22-specimen-legibility, o23:225); X-W2 §3a (perf G2, G3/G4, O-5).
+- **`npm test` standing 7**: INK-VEIL-MIDBAND → O-62 (a) (`test/ink.test.ts` ×5); C-5 and NG-6 → X-W8 `.i`.
+- **X-13-RUN-PEAK** (producer, from `.m3`): glass 10.1.0 `DockCrossfade reserve="inline"` latches its peak from a face's `scrollWidth`. This is not in a gate. The relay is **still owed** (outside every unit's bounds): orchestrator → glass, as an O-85 addendum.
+- **A2-VA-L2-4 stage-top target 80**: stage 101 at 844×390; the glass half is O-74e L24-1.
+- **Carried from Close 2 unchanged**: A2-VA-L2-1 (O-74 / O-59) · X-3 / X-5 (O-74c G-1 / G-2) · L3-2 pane limb / L3-3 (O-74) · A2-VA-L3-6 / X-8 HELD for glass §11 · DOCK-CAP-ELLIPSE (O-83 / O-83a) · `.vscode/launch.json` (owner).
+- **`.k3` (1)**: the overlying-host rules live in PaneShell.vue's unscoped style; they may move verbatim to `demo/styles/shell.css` when that file is clean.
+- **`.q2` R-2 / R-3**: the WebKit-only oracles-safari rows and the Chromium-only API rows go to a WebKit diagnosis seat; the timing transients are recorded and not loosened. This close adds one more transient: `w12-dock:303` in cl2 (browser closed under `newPage`), which re-read 6/6.
+- **R-C3-1 (host; ESC-W12Uh-1 recurring)**: :9000's vite hung again (10 h 42 m up, 3.09 GB, HMR storm on an unchanged `foundation.css`). This seat restarted it under the guard for its reads, and that server ended at its 180-min bound. A later `vite --port 9000` (pid 10610, not this seat's) now serves. The root cure (`server.watch.ignored`, ESC-W12Uh-1) is still unrouted.
+
+### Escalations
+- ESC-W12Uq2-1: **discharged** (the third WebKit read is banked GREEN).
+- Carried: ESC-W12Uh-1 (:9000 degradation; the root is unrouted) · ESC-W12Uh-2 (a mirror goes stale across `dist/`). ESC-W12Um2-1 was relayed as O-74e (INBOX :615).
+
+### Teardown
+⟨`git worktree remove --force ~/.dev-logs/w12u-q2/tree-9db19dec3`⟩ → removed; ⟨`git worktree list \| grep -c w12u-q2`⟩ → 0. This seat's guarded vite on :9000 has ended (rc 124 at its bound). The WebKit tickets were withdrawn (SIGTERM, then `kill -9` on this seat's own verified guard pid 96457; ⟨`lsof slots/ex-webkit`⟩ → only other repos' runs). No browser or server of this seat remains. `scripts/dev/dev.sh` was not edited.
+
+### State
+Four-verb line: **IMPLEMENTED** (2026-10-16, this seat). ADDENDUM (g)'s RESUME 3 bar is met on the unit tip `9db19dec3`:
+- `.q2`: smoke `--workers=1` is GREEN ×2 except the named (c) rows, and WebKit 3× is GREEN.
+- `.k3`: A2-VA-X-14 (§0fh.6) and the served pair are each GREEN ×2.
+- `.m3`: X-13-RUN and R-m-2 are each GREEN ×2.
+- typecheck and lint are each 0 ×2.
+- `npm test` is at the standing 7, by relief.
+
+VERIFIED is not this seat's verb: per §3, the row flips CLOSED on a CONFORMANT Check.
+
+**Close 3 commits:** `72b48dcec` (evidence: `close3/**`, `q2/{logs,results}/cl1·cl2·cl2b·clw1·clw2-*`, `k3/{k2,x2}-close3-r{1,2}`, `m3/results/close3-r{1,2}.txt`; 46 files) · this record + LEDGER :39 + INBOX sweep line. Pushed to `origin` (no force).
