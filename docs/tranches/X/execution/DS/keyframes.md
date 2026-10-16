@@ -2101,3 +2101,52 @@ The verdict stays **RED**, held by the glass-owned rows and the named Skeleton l
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
 - The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 10 (the seventh redeploy's pass 10; critic C10r; evidence in `pass-43/`)
+
+**Cure commit:** keyframes.js `f266ed44` (pushed fast-forward to master, `547d188c..f266ed44`). **Evidence:** value.js `956e76794` (`evidence/DS/keyframes/pass-43/`):
+- `c10r-probe.mjs`, `c10r-probe.json` (the falsifier for -01, plus a reading of G1);
+- `after/`: `square`, `spring`, `sequence` and `easing` at 1440 and 390, each in light and dark;
+- `census.json`, `census.log`;
+- the gate logs `check-*`, `lint-*` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). `pass-10/` already holds the first workflow's pass-10 evidence, so the frames go to `pass-43/`, following the pass-23..42 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C10r-01 (trivial) | **One unit per axis.** In `SpringTrace.vue`'s time-axis foot, the middle legend `time (ms) · N stops` becomes `time · N stops`. The mono end tick keeps `2000 ms`, so the unit is stated once, on the tick register. | The axis foot reads `0` · `time · 26 stops` · `2000 ms` at 1440 and 390 in both schemes. The probe fails if `(ms)` returns or if `ms` appears other than once (0 fails). Frames: `after/spring-*`. |
+
+**Cited (glass, not overridden)**
+- **KF-C10r-G1, the EasingPicker preset Select reads "Custom" while the curve is `ease`:** the served reading at all 4 easing cells is `Custom`. Glass 10.1.0's EasingPicker has no `preset` in `EasingPickerValue` and stamps "custom" whenever points are seeded. The consumer seat (`useEasingPickerSeat.ts`) already passes the quad, and its SeatSeed note names this as glass's ask. The ask is for glass to accept `initial.preset` or to match the seeded quad against its catalogue. Cited against **O-87 FLAT-LIGHTING** (the affordance rider). No counter-label.
+- **KF-C10r-G2:** the rows held from KF-C9r-G1 and G2 are unchanged at glass 10.1.0:
+  - the resting-plate backdrop blur and the 5-layer stack (`glass-resting`, material.css);
+  - the cream Input fills and the taupe 'All' and Bezier/Steps tracks;
+  - the up caret, the pill radii, and the control-surface gradients and edge insets;
+  - the ghost staircase, the dock plate halo, and the collapsed dock tile with its play-bubble halo.
+  
+  Cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**. Re-judge at the 10.2.0 repin. No local override.
+- **KF-C10r-02, the phone sheet title competes with the stage's display title:** the critic gives no consumer cure now. Re-read the heading ladder at the 10.2.0 repin under the O-87 proportion rider. If it still competes, step the sheet title one rung down at the token, not per instance. Frames: `after/*-390-*`.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): **identical to pass 42 on all 49 tallies.**
+- Static: 5 box-shadow declarations, 1 looping animation.
+- Chrome: 310 shadow elements, 938 layers (max 6), 278 backdrop blur.
+
+The legend change is text only, so no tally could move. The verdict stays **RED**, held by the glass-owned rows and the named Skeleton loop row.
+
+**Gates** (the live tree at `f266ed44`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **936/936 (154 files), twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- The served probe (`c10r-probe.mjs`, 0 fails) is the falsifier for -01.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk was not touched. Every commit is pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm). The cure removes only a repeated unit.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
+- The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
