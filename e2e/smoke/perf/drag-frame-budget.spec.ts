@@ -34,7 +34,9 @@ test("slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundl
     page,
 }) => {
     await installFrameCollector(page);
-    await page.goto("/#/picker");
+    // The picker scene's address is `/#/`; since X-W3's G-20 `/#/picker` is the
+    // `not-found` scene, which has no channel slider to drag (X-W12U .q).
+    await page.goto("/#/");
 
     const renderer = await detectRenderer(page);
     const soft = isSoftwareGL(renderer);

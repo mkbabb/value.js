@@ -46,7 +46,11 @@ import { mainPane } from "../fixtures/dock";
  * compositor screenshot + read layout — read-only, never interaction.
  */
 
-const BOOT_URL = "/#/picker?space=oklch&color=oklch(0.65 0.22 250)";
+// The picker scene's address is `/#/` (router `name: "picker"`). Since X-W3's
+// G-20 the old `/#/picker` resolves to the `not-found` scene, which mounts
+// neither GL surface — so both tests timed out waiting for canvases that scene
+// never has, at any host load (X-W12U .q, the addendum (e) WebKit re-read).
+const BOOT_URL = "/#/?space=oklch&color=oklch(0.65 0.22 250)";
 
 const CONSOLE_FAIL_SUBSTRINGS = [
     "webglcontextlost",
