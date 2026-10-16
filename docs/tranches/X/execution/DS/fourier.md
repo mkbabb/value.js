@@ -1216,3 +1216,31 @@ This is the cure for critic **F3C** (the third redeploy's pass-3 critic). The BE
 - **No visual golden was re-baselined.** `web/e2e/screenshots/` was backed up before the runs and restored after each one; this seat left no changes in it.
 
 **Frames** (`pass-03/f3c/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f3c-cure-probe.mjs` against `:3100`: `paper-*` and `v-*` at 1440 and 390, each in light and dark. The `v-*-390` frames show the Controls tab, not the stage.
+
+### pass 4
+This is the cure seat for critic **F4X** (the redeploy's pass-4 critic, 2026-10-15). The BEFORE is the critic's frame set, `pass-04/critic-p4-2026-10-15/` (its frames and `p4-critic-probe.mjs`/`.json`).
+- **No fourier change.** None of the three rows is a consumer defect: two are glass-owned and one is a witness. fourier stays at `6b46ef1` on `m/w1-bump-migration`, and nothing was pushed.
+- value.js `293019af0` holds the AFTER frames, the probe and its JSON, the census and the gate logs, all in `pass-04/f4x/`. The other sets under `pass-04/` are left as they were.
+
+**Glass-owned, cited, not overridden.** No local override exists or was added; fourier sets no `--glass-specular-intensity-*` and no `--mouse-x`/`--mouse-y` (grep of `web/src`).
+- **DS-F4X-G1** (the hover disc on the /v stage sits at the centre, not under the pointer). Re-measured at fourier HEAD (`f4x-probe.json`). `.configurator-stage` is `glass-floating`. Its `::before` is glass 10.1.0 `material.css`'s radial gradient at `var(--mouse-x,50%) var(--mouse-y,50%)` with `plus-lighter`. Both variables are empty on the stage, so the disc is centred. Opacity goes from 0 at rest to 0.1 (light) or 0.08 (dark) with the pointer at (230,640). Held honest-RED on **O-87 FLAT-LIGHTING** until the 10.2.0 repin: a resting stage gets no hover specular, or the disc tracks the pointer. Frames: `v-hover-*-1440` against `v-*-1440`.
+- **DS-F4X-G2** (/paper's ScrollProgressRim draws a full-width track at value 0). Re-measured: `.scroll-progress-rim__track` is 3px tall and 1424px wide at 1440 (374px at 390). It is `oklch(0.888 …)` in light and `oklch(0.131 …)` in dark, while `__fill` is transparent. It is for relay to glass beside **O-87**: draw the fill only, or use a hairline track, and hide the rim at value 0. If glass declines, the owner rules whether /paper keeps the rim (UIA-F-157's ruled rim test stands, DS-F4R-C6). Fourier supplies only the chapter-hue `stops`. Frames: `paper-*`.
+
+**Witness (no cure owed).**
+- **DS-F4X-W1:** the 390 Canvas-tab legend is witnessed. "Epicycles" is in the bold CM serif with the ℱ mark in the identity red, and "39 of 401 circles" is in mono beneath it, top-left in the stage, as at 1440. This closes the 390 gap left at pass 3 F3C, so DS-F3C-C2 holds at 390. Frames: `v-light-390`, `v-dark-390`.
+
+**Census** (`scripts/ds-census.mjs` on `:3100`; `f4x/census-after.json`). Still RED on the glass rows, and unchanged by this pass.
+- Static: 7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations.
+- Computed sums: 378 shadow elements, 950 layers, 284 multi-layer stacks, 284 inset highlights, 212 backdrop blur, 0 control gradients, 0 looping animations. These equal pass 3 F3C's read exactly.
+
+**Gates.**
+- `vue-tsc -b`: 0, twice.
+- `vitest run --maxWorkers=2`: 116/116 (20 files), twice. Run 1 waited about 20 minutes for a heavy `guarded` slot (12–14 queued). Run 2 ran under `guarded --light`, because the suite takes 2.3s.
+- **e2e: not run.** No fourier file changed, so no spec touches a changed file.
+- **No visual golden was re-baselined.**
+
+**Frames** (`pass-04/f4x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei), `f4x-probe.mjs` against `:3100`, using the critic's cells:
+- `v-*` at 1440 and 390 (390 on the Canvas tab);
+- `v-hover-*-1440` (pointer at 230,640);
+- `paper-*` at 1440 and 390;
+- each in light and dark.
