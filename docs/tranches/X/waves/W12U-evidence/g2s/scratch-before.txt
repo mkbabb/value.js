@@ -1,0 +1,4 @@
+entry(css) raw=253597 gz=35838 stylesheet/value-rules-present=[valueTop,ruleList,atKeyframes,declaration,timingFunction]
+full raw=282494 gz=42868 stylesheet/value-rules-present=[valueTop,ruleList,atKeyframes,declaration,timingFunction]
+entry(css) raw=253597 gz=35838 stylesheet/value-rules-present=[valueTop,ruleList,atKeyframes,declaration,timingFunction]
+full raw=282494 gz=42868 stylesheet/value-rules-present=[valueTop,ruleList,atKeyframes,declaration,timingFunction]
