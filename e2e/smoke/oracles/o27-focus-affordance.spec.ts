@@ -110,7 +110,12 @@ test("BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD"
     const geom = await handle.evaluate((el) => {
         const before = getComputedStyle(el, "::before");
         // getBoundingClientRect is CSS (layout) px, dpr-independent.
-        const rect = el.getBoundingClientRect();
+        // Re-baselined X-W12U .q2 to X-W4 · C4 (`666978d4c`): "the 20px
+        // silhouette now rides a 24px target" — the SEAT is the ≥24px box and
+        // the visual dot is its `.rail-handle-face`, so the visual reads there.
+        const face = el.querySelector(".rail-handle-face");
+        if (!face) throw new Error("the handle paints no .rail-handle-face");
+        const rect = face.getBoundingClientRect();
         return {
             hitW: parseFloat(before.width),
             hitH: parseFloat(before.height),
@@ -334,8 +339,14 @@ test("BR-1 forced-colors · EVERY operable control class paints an outline, not 
     const missing: WhcmRosterRow[] = [];
     const wrongRegister: WhcmRosterRow[] = [];
 
+    // The dock's view-select names VIEWS, not panes: the view whose stage is
+    // the Picker is "Home" (`shell/viewSchema.ts` VIEW_MAP, stage pane
+    // `color-picker`; the select reads Home · Palettes · Browse · Extract · Mix
+    // · Generate · Gradient — `W12U-evidence/q2/probes/probe-view-options.mjs`).
+    // Re-baselined X-W12U .q2; the roster keeps its pane names.
+    const VIEW_OPTION = { Picker: "Home", Gradient: "Gradient" } as const;
     for (const view of ["Picker", "Gradient"] as const) {
-        await openView(page, view);
+        await openView(page, VIEW_OPTION[view]);
         await paneSettled(page);
         // X.W12U.s3 · UIA-V-605: easing rows rest closed; the rail's controls
         // are measured on an OPEN row, so open the first one.
