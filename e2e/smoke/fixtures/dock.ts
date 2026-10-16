@@ -39,16 +39,32 @@ import type { Locator, Page } from "@playwright/test";
  * (mobile `:collapse="false"`, or desktop's expanded first-paint).
  */
 export async function expandDock(page: Page): Promise<void> {
+    const dock = page.locator(".glass-dock").first();
+    const settled = () =>
+        expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
+            timeout: 5000,
+        });
+    // A morph already in flight (an idle collapse under way) is read at its
+    // END, never mid-flight, so "already expanded" is not misread.
+    await settled();
     const collapsedPill = page.locator(".glass-dock.collapsed");
     if (await collapsedPill.count()) {
         // Real click on the pill body; the dock un-collapses on the click.
         await collapsedPill.click();
         // The collapse↔expand morph runs the dock's single settling spring;
         // wait for `[data-morphing]` to clear so the controls inside are at rest.
-        await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-            timeout: 5000,
-        });
+        await settled();
     }
+    // X-W12U .q2 (X-W7L C-DOCK-IDLE, glass 9.0.0+ at X.W7L.m `c8a4959dd`): an
+    // UNHOVERED, unheld desktop dock idles shut `DOCK_COLLAPSE_DELAY_MS`
+    // (3600 ms) after its last release, so an expanded dock could collapse
+    // between this call and the caller's click (r1: o14 ×3 read
+    // "Select view … element is not visible" with the pill collapsed). A
+    // user reaching for a dock control has the pointer ON the dock, which is
+    // what holds it open: rest the pointer on the plate's own inline-start
+    // padding (no control sits there, so no control's hover state is armed).
+    const box = await dock.boundingBox();
+    if (box) await page.mouse.move(box.x + 3, box.y + box.height / 2);
 }
 
 /**

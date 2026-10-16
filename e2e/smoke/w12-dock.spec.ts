@@ -1,6 +1,7 @@
 // SERVED MODEL: claude-opus-5-5
 import { test, expect, type Page, type Locator, type BrowserContext } from "@playwright/test";
 import { mkdirSync, writeFileSync, renameSync } from "node:fs";
+import { expandDock } from "./fixtures/dock";
 
 /**
  * X.W12.e · OA-6 / OA-22 / OA-55 — THE DOCK SITS ON GLASS'S PRIMITIVES.
@@ -422,6 +423,14 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
         await snap("selected");
         await page.keyboard.press("Escape");
         await page.waitForTimeout(400);
+        // Re-baselined X-W12U .q2 (X-W7L C-DOCK-IDLE, glass 9.0.0+ at X.W7L.m
+        // `c8a4959dd`): closing the select releases the dock's last hold with
+        // the pointer away, so the desktop dock idles shut and the Tools seat
+        // is no longer rendered (probe-dock-tab.mjs "after escape: … Expand
+        // dock"). A keyboard user reopens it first; focus inside the dock then
+        // holds it open. The pointer is returned to rest before the frame.
+        await expandDock(page);
+        await page.mouse.move(2, 2);
         // keyboard focus on the view trigger: from its next sibling, Shift+Tab
         await tools.focus();
         await page.keyboard.press("Shift+Tab");
