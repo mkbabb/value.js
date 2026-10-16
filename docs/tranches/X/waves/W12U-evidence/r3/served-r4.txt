@@ -1,0 +1,8 @@
+# load { 31.72 26.25 24.24 }
+GREEN 38/38
+390x844 light / maxSW=390 F1=true(bleed carrier 32.3 vs t33 1.2) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /palettes maxSW=390 F1=true(bleed carrier 34 vs t33 1) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /admin/users maxSW=390 F1=true(bleed carrier 33.7 vs t33 1.3) F2=true F3=true F4=true F5=true → GREEN
+GREEN 3/3
+# load { 28.08 26.94 24.84 }
+rc=0

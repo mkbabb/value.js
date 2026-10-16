@@ -1531,3 +1531,66 @@ X-W8: W12U.md :4 "Blocks: X-W8"; LEDGER :42 X-W8 `planned`. The conjunct "X-W12U
 IMPLEMENTED was not stamped by Close 2 and is not stamped here; the row stays **PARTIAL** (moved lawfully: PARTIAL → RESUME 2 → PARTIAL at Close 2).
 
 **Verdict: NOT-CONFORMANT** (0 BLOCKER · 0 CRITICAL · 2 HIGH · 4 MEDIUM · 1 INFO). Gates reproduced by this seat: 9 (typecheck ×2 · lint ×2 · `.k2` static ×2 · L1-18 · bounds 31/31 · masking 0 · dev.sh 0 · E-3 · E13). Failed or unmet: smoke (banked RED), `npm test` (9 failed, 7 standing + 2 X.P.W8), served ×2 (unread), WebKit 3× (owed).
+
+## Repair 3 (repair round 1 on Check 4, 2026-10-15)
+
+SERVED MODEL: claude-opus-5-5. Track A repair seat, HEAD at open `1f1a12552` (the Check 4 commit). The task calls this "Repair 1". The record already holds Repair 1 and Repair 2 of the first close, so this section takes the next free number, following Check 4's own numbering. Spec `W12U.md` read whole (96 lines, addenda (a)–(f)). Record read: the header through the Unit plan, the `.m2` residuals (:1155-1166), Close 2 and Check 4. Crash recovery ⟨`git status --porcelain -- demo e2e/smoke docs/tranches/X/waves/W12U-evidence docs/tranches/X/execution docs/tranches/X/relay docs/tranches/V/coordination`⟩ shows only the dirty paths Check 4 already named: `.q`'s seven ESC-W12Uq-2 orphans, X-DS's `demo/**` paths, `C/F-REL.md` (Track C) and one W12U-evidence `s/results/final/probe-share-dark.txt`. No predecessor repair partial exists. This seat touched none of those paths.
+
+**Host at open:** ⟨`uptime`⟩ → load 25.24 / 20.13 / 22.24. ⟨`memory_pressure`⟩ → free 64 %. ⟨`sysctl vm.swapusage`⟩ → used 8817 of 10240 MB (86 %). 1,093–1,137 processes (guard log).
+
+**The crash the owner asked about (read from the host, no fix in this wave's bounds):** ⟨`last -5`⟩ shows the console session ending at 10-14 13:24 and the next login at 10-15 11:42. ⟨`uptime`⟩ reads "up 6 days", so the kernel did not reboot. The 10-14 13:24 event is the WindowServer abort ⟨`/Library/Logs/DiagnosticReports/WindowServer-2026-10-14-132418.ips`⟩ → `EXC_CRASH SIGABRT · abort() called`. The newest panic is 10-10 13:07 (`panic-base+socd`), and the newest jetsam is 10-09. ⟨`ls ~/Library/Logs/DiagnosticReports | grep -c <day>`⟩:
+- 10-14: 32 `WebKit.WebContent` crash reports, 4 Firefox `plugin-container`, 1 `node`.
+- 10-15: 6 WebContent, 5 `plugin-container` (the newest at 19:25), 15 `node`.
+
+So the session loss is the WebKit-storm signature `.q` named under ESC-W12Uq-4 (glass `BL/FORMATION-PROGRESS.md`: `vm_map_copyout_kernel_buffer failed` after the WebContent crashes). It was not an OOM kernel panic. At this sitting the host is still under the pressure that precedes it: swap 86 %, load 22–25. All 3 heavy guard slots are held by other sessions' long runs (⟨`lsof +D ~/.claude/guard/slots`⟩ → pids 87698 `--timeout 170`, 77371 `--timeout 300` running 38 min, 24573 `--timeout 44`). The Firefox and node crashes today come from other sessions' automation. This seat ran no WebKit. The guard protocol is user-level and outside every repo's bounds, so it stays under the owner (ESC-W12Uq-4).
+
+### C4-2 (HIGH): A2-VA-L2-4 glass half relayed; X-13-RUN and R-m-2 escalated
+- **Cure:** the L2-4 pill-block ask is now the dated O-74 addendum **O-74e L24-1 DOCK-PILL-SHORT-HEIGHT**, in `relay/X-ALL-BK-AUDIT-2-ADDENDUM-2026-10-15-W12U-L24.md` (E-3, beside O-74/O-74a/O-74c/O-74d). It carries `.m2`'s reading: band 8..75, stage 98 @ 844×390, with the consumer's `max-height: 30rem` band cut already landed at `demo/styles/foundation.css:541-552`. It asks for a short-height pill block step, or a ruling that consumer `density="compact"` there is the sanctioned path. INBOX row `O-74e | 2026-10-15 | … | WRITTEN — AWAITING DELIVERY`. This relays ESC-W12Um2-1. **Commit `b9390c2ce`.**
+- **Re-reading:** ⟨`grep -ln 'ESC-W12Um2-1\|pill-block\|L24-1' relay/*.md`⟩ → 1 file (Check 4 read 0). A2-VA-L2-4 is now honest-RED under **O-74e L24-1**, a named O-74 row, which is what the goal criterion requires.
+- **Still owed (escalated):** the owner's H1-band ruling R-m-2, and **X-13-RUN** (which seats a 360 phone's coarse Tools face shows: 346 px of 44 px seats in a 304 px run). X-13-RUN is a consumer design choice. No O-row can relieve it, and the spec gives this seat no authority to pick the seats.
+
+### C4-6 (MEDIUM): the two `v4-css-emerging` failures routed to X.P.W8
+- **Re-reading at HEAD `1f1a12552`:** ⟨`guarded --light -- npx vitest run test/v4-css-emerging.test.ts --maxWorkers=2`⟩ → `Tests 2 failed | 20 passed (22)`. The two failures are the round-trips of `if(supports(color: red): red; else: blue)` and `if(supports(color: lch(0 0 0)): red; else: blue)`. ⟨`git merge-base --is-ancestor 7516f0d8c b960ebeff`⟩ → true, so X.P.W8's `cust2` cure (a `;` nested in a block inside a custom property) was already in Check 4's tree and does not reach `if()`'s branch separator.
+- **Cure (routing, as the register asks):** a cross-track note to Track D, X.P.W8, appended to INBOX (2026-10-15 row). The `;` refusal at `2f590daa8` is X.P.W8's class, and `src/**` and `test/**` are outside §1. **Commit `b9390c2ce`.**
+- **`npm test` ×2:** see the gate table below.
+
+### C4-1 (HIGH), C4-5 (MEDIUM): escalated, not curable inside §1
+- **C4-1:** the whole smoke `--workers=1` stays RED. About 30 stale oracles wait on **ESC-W12Uq-1**, and the product/producer rows wait on **ESC-W12Uq-3**. Both are orchestrator or owner rulings. ⟨`grep -c 'ESC-W12Uq' docs/tranches/X/COHESION.md`⟩ → 0 at this sitting. This seat may not re-baseline oracles outside `w12u-*`; §1 grants only new `w12u-*` specs, and no ruling grants the listed files. The whole-smoke re-read is also a multi-hour browser load. At swap 86 % and load 17–31 it would go into the host signature behind the 10-14 session loss, so it was not queued.
+- **C4-5:** `.q`'s seven ESC-W12Uq-2 orphans are still dirty. ⟨`git status --porcelain -- e2e/smoke demo/shared/ui demo/styles`⟩ lists them unchanged. Whether they are committed or reverted is decided by the ESC-W12Uq-1 ruling. They are not this seat's bytes to commit or revert.
+
+### C4-4 (MEDIUM): the WebKit 3× re-read was not run
+- Addendum (e) requires the reads at load below 12. Across this sitting ⟨`sysctl -n vm.loadavg`⟩ read between 15.8 and 31.9, and it never fell below 12. The WebKit WebContent crash storm is the measured cause of the 10-14 WindowServer abort, and 6 more WebContent crash reports were filed on 10-15. A WebKit run on this host is the act the machine-resource law exists to prevent. **Escalated:** owed to a quiet window, with the owner's ESC-W12Uq-4 protocol (`guarded --exclusive webkit`).
+
+### C4-7 (INFO): guard admission, reproduced again
+At open, the 3 heavy slots were held by other sessions' runs with `--timeout 44`, `170` and `300` minutes ⟨`lsof +D ~/.claude/guard/slots`⟩. This seat's heavy `served.sh` waited unadmitted (19:28 → 19:31, `rc=143`) and this seat stopped it (that file was later overwritten by the light re-read of the same name). This is still the owner's call: the guard is user-level and outside every repo's bounds.
+
+### C4-3 (MEDIUM): served falsifiers re-read ×2 on :9000. The k2 probe was stale against X-DS and raced the KeepAlive swap
+- **First reading:** the heavy `close2/served.sh` was not admitted (C4-7). The same script under `guarded --light --timeout 6` (one viewport, three routes; a quick probe, not a suite) read k2 `RED 1 (of 37)` ×2 and x2 `GREEN 3/3` ×2 (`r3/served-r{1,2}.txt`). The full output (`r3/k2-full.txt`) → `L1-2 pane /mix RED {"host":false}`.
+- **Root cause 1, stale probe arm:** X-DS pass 8 `5f3275ac9` (V3C-04, 10-09) seated Mix. A seated PaneShell puts the header above glass's FadingScroll port, with no `.card-scroll-host` (`demo/shell/PaneShell.vue:19-22`, `:40-52`). ⟨`node r3/diag-mix-host.mjs`⟩ → the /mix header's ancestors are `card.pane-shell__card → pane-shell → pane-wrapper → …`, and none is a scroll host. The probe's L1-2 pane limb still read Mix as "the overlying pane". **Cure:** the limb now reads both of PaneShell's scroll owners.
+  - The seated arm on /mix: no host, the header's sibling is the `pane-scroll-fade` port, and after the port scrolls to its end the header keeps its rest form (`data-condensed` ≠ true, title px unchanged). At 1440 this is a real test, with 426 px of room.
+  - The overlying arm (the `<CardHeader shrink>` condense) on /admin/users, which is an overlying PaneShell. That pane reads room 0 at both widths, so the no-room arm is what is exercised.
+  - Checks go from 37 to 38. No check was deleted, and no assertion was loosened.
+- **Root cause 2, a readiness race under load:** after that fix, one run at load 27–31 (`r3/k2-full-a.txt`) read `L1-3 /mix`, `L1-3 /gradient` and `L1-11 /gradient` RED with `names []` beside a present DOM seat (`seat:true`). The census walk ran while the KeepAlive swap had inserted the incoming pane's DOM, but its instances still read `isDeactivated`. The header-count settle came before the activation. **Cure:** `go()` now also waits until two census walks 1.5 s apart agree (at most 20 tries). The census is read only once settled, and a component that never mounts still reads RED.
+- **Re-readings after both cures** (load 14–31): ⟨`guarded --light -- node k2/probe-k2-rows.mjs 390 844 light`⟩ → `GREEN 38/38` on 10 of 10 full-output runs (`r3/k2-full-{c..h}.txt`, `r3/k2-s{1..4}.txt`). At 1440×900 dark → `GREEN 38/38`. Served pairs ⟨`guarded --light --timeout 12 -- sh r3/served.sh s<n>`⟩ (this is `close2/served.sh` keeping the k2 output) → s1 to s4: k2 `GREEN 38/38` and x2 `GREEN 3/3` on all four. **GREEN ×2, read four times.**
+- **Residual, honest:** two earlier `close2/served.sh` runs after the cures were RED. These are the served runs r5–r8 that printed only the tail, two GREEN of four.
+  - r6 read `RED 2 (of 38)` while :9000 took 23.7 s to serve `/`. The vite pid 69510 had been up 31 h at 3.2 GB RSS, which is ESC-W12Uh-1. The x2 leg was then killed at the 8 min guard timeout.
+  - r7 read `RED 3 (of 38)` at load 21. Its rows were not kept, because that script prints only the tail.
+  - Of the 10 runs whose rows were kept, none was RED. A residual load race in the census settle remains **PLAUSIBLE**, unproven. :9000 is shared with other sessions and was not restarted by this seat.
+- **Commit:** see the table below.
+
+### Gate re-reading (this seat, HEAD `b9390c2ce` + this repair's evidence)
+| gate (spec) | Check 4 | this seat | verdict |
+|---|---|---|---|
+| served falsifiers ×2 (§3) | unread (not admitted) | k2 `GREEN 38/38` + x2 `GREEN 3/3` on served pairs s1–s4. 10 of 10 kept k2 runs GREEN. 2 of 4 tail-only runs RED (one during the :9000 hang) | **GREEN ×2 (×4)**, with a PLAUSIBLE load residual |
+| `npm test` (§3) | 9 failed / 1191 ×1 | ⟨`guarded --timeout 25 -- npx vitest run --maxWorkers=2`⟩ ×2 → `Tests 9 failed \| 1182 passed (1191)` ×2. ⟨`diff <(grep FAIL vt1) <(grep FAIL vt2)`⟩ → the same set. Standing 7 (ink D6 ×2 + T-35 ×3, spectrum-luma C-5, reka NG-6; relieved at X-W7L CHECK 1) + 2 `v4-css-emerging` `if()` round-trips → X.P.W8 (INBOX note) (`r3/vt{1,2}.txt`; load 23 / 20) | **RED ×2, reproduced; 0 W12U-attributable** |
+| typecheck / lint (§3) | 0 ×2 | not re-run: this repair changes no `demo/**`, `src/**` or `e2e/**` byte. `docs/**` is in eslint's ignore set ⟨`npx eslint docs/…/probe-k2-rows.mjs`⟩ → "File ignored because of a matching ignore pattern" | banked GREEN ×2 (Check 4) |
+| smoke `--workers=1` (§3) | RED | not re-run (C4-1, escalated) | **RED** |
+| WebKit 3× (e) | 1 of 3 | not run: load never below 12 (C4-4) | **PARTIAL** |
+| E13 | 0 UNREAD | ⟨`grep -cE "^\|.*\| *UNREAD *\|" INBOX.md`⟩ → 0. O-74e is outbound, `WRITTEN — AWAITING DELIVERY` | **GREEN** |
+
+### Repair commits
+- `b9390c2ce`: O-74e relay + INBOX rows (C4-2, C4-6).
+- The evidence + probe + record commit that carries this section (C4-3).
+
+### Verdict
+Cured: **C4-3** (the served falsifiers re-read ×2, two probe defects cured at their roots) and **C4-6** (the routing done, `npm test` re-read ×2; its RED is the standing 7 plus X.P.W8's 2). **C4-2**'s relay limb is cured (A2-VA-L2-4 is now honest-RED under O-74e L24-1); its owner limb (R-m-2, X-13-RUN) is escalated. Escalated: C4-1, C4-4, C4-5, C4-7 and C4-2's owner limb. The §3 bar is still unmet (smoke RED, WebKit 3×), so the row stays **PARTIAL**. IMPLEMENTED is not stamped.

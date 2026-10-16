@@ -1,0 +1,9 @@
+# 20:11:39 root 0.008599s
+# load { 14.14 17.66 19.52 }
+GREEN 38/38
+390x844 light / maxSW=390 F1=true(bleed carrier 32.2 vs t33 1.1) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /palettes maxSW=390 F1=true(bleed carrier 34 vs t33 1) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /admin/users maxSW=390 F1=true(bleed carrier 33.7 vs t33 1.3) F2=true F3=true F4=true F5=true → GREEN
+GREEN 3/3
+# load { 16.08 16.50 18.70 }
+rc=0

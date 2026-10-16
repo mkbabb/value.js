@@ -46,6 +46,17 @@ const go = async (route) => {
         if (c > 0 && c === last) break;
         last = c;
     }
+    // Repair 3 (2026-10-15): the header count can settle before the KeepAlive
+    // swap re-activates the cached pane (under host load 27-31 the census walk
+    // read the incoming pane's instances still `isDeactivated`, names [] beside
+    // a seated DOM). The census is read only once two walks 1.5 s apart agree.
+    let prev = "";
+    for (let i = 0; i < 20; i++) {
+        const cur = JSON.stringify((await mounted()).sort());
+        if (cur === prev) break;
+        prev = cur;
+        await p.waitForTimeout(1500);
+    }
 };
 
 /** The SFC files mounted in the live tree (the census walk, names only). */
@@ -124,28 +135,38 @@ const picker = await p.evaluate(async () => {
 check("L1-2 picker", picker.shrink && picker.host && !picker.sentinel && picker.before === "false" &&
     (picker.room > 0 ? picker.back === "false" && (picker.after === "true" || picker.room < 60) : picker.after === null) &&
     (phone || picker.display === "contents"), picker);
-// Mix is the overlying pane that follows the picker's row, so at desktop its
-// host has real scroll room (measured 1076 over 619 at 1440x900); panes that
-// grow to their content (the stage) and phones (the document scrolls) have
-// none, and there the check reads the no-room arm.
-await go("/mix");
-const pane = await p.evaluate(async () => {
+// L1-2, both scroll owners of PaneShell (Repair 3, 2026-10-15). Mix was the
+// overlying probe until X-DS pass 8 (5f3275ac9, V3C-04) seated it: a seated
+// header sits ABOVE glass's FadingScroll port as its sibling and keeps its rest
+// form (PaneShell.vue:19-22), so /mix now reads the seated arm. The overlying
+// arm (glass's `.card-scroll-host`, the `<CardHeader shrink>` condense) is read
+// on /admin/users, an overlying PaneShell (AdminPane, or the guard's Not Found
+// pane for a token-less visitor; both default to the overlying owner).
+const readPane = () => p.evaluate(async () => {
     const head = [...document.querySelectorAll("main .pane-header")].find((e) => e.getClientRects().length);
-    const host = head?.closest(".card-scroll-host");
-    if (!host) return { host: false };
-    const room = host.scrollHeight - host.clientHeight;
+    if (!head) return { head: false };
+    const host = head.closest(".card-scroll-host");
+    const port = host ?? (head.nextElementSibling?.classList.contains("pane-scroll-fade") ? head.nextElementSibling : null);
+    if (!port) return { head: true, host: false, port: false };
+    const room = port.scrollHeight - port.clientHeight;
     // glass's sufficiency gate: condense only when the overflow exceeds half
     // the header plus its 20 px threshold (card-ByyqRBvK.js, CardHeader)
     const gate = head.getBoundingClientRect().height / 2 + 20;
-    host.scrollTop = host.scrollHeight;
+    const restTitlePx = parseFloat(getComputedStyle(head.querySelector(".pane-header-title")).fontSize);
+    port.scrollTop = port.scrollHeight;
     await new Promise((r) => setTimeout(r, 900));
     const after = head.getAttribute("data-condensed");
     const titlePx = parseFloat(getComputedStyle(head.querySelector(".pane-header-title")).fontSize);
-    host.scrollTop = 0;
+    port.scrollTop = 0;
     await new Promise((r) => setTimeout(r, 900));
-    return { host: true, room, gate, after, titlePx, back: head.getAttribute("data-condensed"), restTitlePx: parseFloat(getComputedStyle(head.querySelector(".pane-header-title")).fontSize) };
+    return { head: true, host: !!host, port: true, room, gate, after, titlePx, back: head.getAttribute("data-condensed"), restTitlePx };
 });
-check("L1-2 pane /mix", pane.host && (pane.room <= pane.gate ? pane.after === "false" : pane.after === "true" && pane.back === "false" && pane.titlePx <= pane.restTitlePx), pane);
+await go("/mix");
+const seated = await readPane();
+check("L1-2 pane /mix seated", seated.head && !seated.host && seated.port && seated.after !== "true" && seated.titlePx === seated.restTitlePx, seated);
+await go("/admin/users");
+const pane = await readPane();
+check("L1-2 pane /admin/users overlying", pane.head && pane.host && (pane.room <= pane.gate ? pane.after === "false" : pane.after === "true" && pane.back === "false" && pane.titlePx <= pane.restTitlePx), pane);
 
 // L1-3: one interpolation pair, one vocabulary, on both hosts.
 for (const route of ["/mix", "/gradient"]) {
