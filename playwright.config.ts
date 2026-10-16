@@ -59,19 +59,23 @@ import { VISUAL_PROJECTS } from "./e2e/visual/visual.project.ts";
  *     headless. `--enable-unsafe-swiftshader` clears the Chromium 137+
  *     deprecation gate that otherwise refuses swiftshader-for-WebGL.
  *
- * 2 · CLEAN TEARDOWN. Playwright's default `chrome-headless-shell` binary, when
- *     swiftshader is forced, hangs on `browserContext.close()` — the software
- *     GPU process never exits, so teardown eats the full 30s test budget and
- *     fails every test even when the BODY passed (probed: body green + alive 3s,
- *     yet "Tearing down context exceeded the test timeout"). The full Chromium
- *     build (`channel: "chromium"`, new-headless mode) tears the GPU process
- *     down cleanly. So the Chromium projects pin BOTH `channel: "chromium"` and
- *     the swiftshader args (probed: stable AND teardown-clean → pass).
+ * 2 · CLEAN TEARDOWN — RE-PROBED 2026-10-16, channel now UNSET. At N.W2 the
+ *     default `chrome-headless-shell` hung on `browserContext.close()` with
+ *     swiftshader forced ("Tearing down context exceeded the test timeout"),
+ *     so the projects pinned `channel: "chromium"` (the full Chrome for
+ *     Testing build). Re-probed on Playwright 1.60 / chromium_headless_shell-
+ *     1228 with the SAME swiftshader args (smoke: page-load + crash-battery,
+ *     workers:1, guarded): 0 teardown timeouts, results identical to the CfT
+ *     run, 0 leftover browser processes. The full CfT build costs a GPU helper
+ *     at ~1000% CPU, crashpad handlers and multi-GB RSS per run on a shared
+ *     host, so the projects now take the default headless shell. Set
+ *     `channel: "chromium"` on a project only with a documented need (none
+ *     today); the swiftshader args stay on every Chromium project.
  *
  * The WebKit `smoke-safari` project takes neither (WebKit has its own GL stack
  * and ignores Chromium channel/flags).
  */
-const WEBGL_CHANNEL = "chromium" as const;
+const WEBGL_CHANNEL = undefined;
 const SWIFTSHADER_LAUNCH = {
     args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
 };
