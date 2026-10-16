@@ -1,0 +1,25 @@
+# 2026-10-16 06:28:35 load: 24.98 22.88 23.33 head: 57fb241a — §0ev.2 re-read of smoke after e2e-r1's vendor-three reading
+run-demo-roster — 1 observation(s) · one shared chromium + one served dist snapshot
+
+──── smoke ────
+  ✓ entry chunk assets/index-DhTTKDXv.js is substantial (308988 B > 50000 B floor)
+  ✓ entry's static import graph excludes vendor-monaco / vendor-three
+  ✓ CSS asset emitted (assets/index-DZnyjz2C.css)
+  ✓ critical-CSS <style data-critical> block inlined
+  ✓ main stylesheet deferred (media=print onload swap)
+  ✓ no loading-splash residue
+demo-smoke — inv γ (the demo cannot ship blank)
+  ✓ #app mounts with non-trivial children
+  ✓ home hero text renders
+  ✗ heavy chunks requested at first paint: http://127.0.0.1:57216/assets/vendor-three-nw0IrzH_.js
+  ✓ zero console errors during mount
+  ✓ zero uncaught pageerror during mount
+  ✓ no literal '[object Object]' text node
+
+demo-smoke — FAIL (1): the built demo violates inv γ.
+
+════ run-demo-roster — REPORT ════
+  passed: 0/1
+  ✗ failed: smoke
+EXIT=1
+# end 06:28:42

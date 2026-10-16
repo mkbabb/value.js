@@ -5023,3 +5023,66 @@ READ-ONLY at kf `57fb241a` in a clean detached worktree `/Users/mkbabb/Programmi
 - **Commits:** kf none. value.js: this receipt plus the `a3/` evidence (`diag.mjs`, `diag2.mjs`, `diag-57fb241a.txt`, `diag2-57fb241a.txt`), in one pathspec commit.
 - **DS line:** not appended. §0fl.3's line names *the cure*, and no cure landed. The diagnosis goes to X-DS through the orchestrator's ruling on ESC-W13X-a3-1.
 - **Residuals:** none beyond the escalation. Servers and browsers were closed by `withPage`'s finally. The scratch worktree is unchanged.
+
+## RESUME 4 — Close
+
+- **SERVED MODEL:** claude-opus-5-5. Track B close seat, 2026-10-16, VERIFY-ONLY (0 product bytes): COHESION §0fl.5 · KF-W13.md ADDENDUM (j) · §0ev.2 (read now, load recorded) · §0fl.4 (`--light` with the reason disclosed counts as read). kf HEAD = origin `57fb241a` (unmoved since the RESUME 4 open; ⟨`git -C keyframes.js fetch && git rev-parse --short HEAD origin/master`⟩ → `57fb241a 57fb241a`); value.js HEAD `b2389ada6` at open. Runs at the clean worktree `keyframes-wt-W13X-open4` (detached `57fb241a`, `git status --porcelain -uno` empty; `node_modules` symlinked to the main tree, glass `10.1.0`); `test:demo` in the main tree (R3-4). Logs: `keyframes/evidence/W13X/close5/` (runners `run-close.sh`, `run-close2.sh`).
+- **`--light` reason (§0fl.4):** RESUME 3's close measured heavy-queue starvation (a 20-min webkit-lock wait and a 12-min slot wait, both stopped); the kf roster launches chromium only (`scripts/lib/demo-driver.mjs:564`); one run at a time, serial.
+- **Crash recovery:** ⟨`git -C keyframes.js status --porcelain`⟩ → ` M demo/components/instrument/timeline/KeyframeTimeline.vue` (X-DS; not a close-seat path; untouched) + 2 untracked old letters. value.js: the record, LEDGER and INBOX clean at open (only Track A's ` M …/A/X-W12U.md`). No inherited partial work.
+- **Instrument note (own, disclosed):** `run-close.sh` omitted `npm run build` before the roster; its e2e r1 read `✗ browser half REQUIRED … dist/keyframes.js not built` on `subject-animates` (instrument, not product). r1 is kept as `e2e-r1-nodist-instrument.log.txt`; r2 was stopped mid-run (`e2e-r2-nodist-stopped.log.txt`; the orphaned roster tree was killed by this seat, 0 headless survivors). `run-close2.sh` builds, re-runs gh-pages, then the roster ×2 and `test:demo` ×2.
+
+### Act 1 — commits and bounds
+
+⟨`git show --stat <sha>`⟩ per commit:
+
+| unit | kf commits → paths | value.js commits → paths | in grant? |
+|---|---|---|---|
+| open (seat 0) | none | `469ec377e` → LEDGER (row cell) · `evidence/W13X/open-r4/{run-a3.sh,a3-57fb241a-r1.log.txt,a3-57fb241a-r2.log.txt}` · record | YES |
+| `.a3` | **none** (ESCALATED; ⟨`git -C keyframes.js log --oneline 57fb241a..HEAD`⟩ → empty; the three granted paths clean) | `b2389ada6` → record (+32) · `evidence/W13X/a3/{diag.mjs,diag2.mjs,diag-57fb241a.txt,diag2-57fb241a.txt}` | YES (record + `a3/**`; the X-DS `keyframes.md` line rightly not appended — no cure) |
+
+**Landed wrong: 0.** 0 kf commits this sitting; 2 value.js commits before this close, every path inside the RESUME 4 common writable set.
+
+### Act 2 — the gates, re-run by this seat at kf `57fb241a` (load beside each; §0ev.2)
+
+| gate | BEFORE (RESUME 4 baseline) | AFTER (this seat, `close5/`) | result |
+|---|---|---|---|
+| kf ⟨`guarded --light -- npm run check`⟩ ×2 (worktree) | EXIT 0 ×2 (cited from RESUME 3 Check 3, same head) | `proof:structure — PASS: scope=src clean (0 violations across R1–R6)` · `EXIT=0` ×2 (06:08:47–06:10:09, load 19.7 / 49.6 at start) | **GREEN ×2** |
+| kf ⟨`npm run lint`⟩ ×2 (worktree) | EXIT 0 ×2 (457/1661) | `✔ no dependency violations found (457 modules, 1661 dependencies cruised)` · `EXIT=0` ×2 (load 84.9 / 52.0 at start) | **GREEN ×2** |
+| kf ⟨`npm run build`⟩ · ⟨`npm run gh-pages`⟩ (worktree) | GREEN (RESUME 3) | build `EXIT=0` (06:16:10) · gh-pages `✓ built in 1.54s` / `1.50s` `EXIT=0` ×2 | **GREEN** |
+| kf `test:demo` ⟨`guarded --light -- npx vitest run --project demo --maxWorkers=2`⟩ ×2, main tree (R3-4; X-DS's dirty `KeyframeTimeline.vue` in place, disclosed in each log header) | 155/941 ×2 (cited) | `Test Files 155 passed (155)` · `Tests 941 passed (941)` · `EXIT=0` ×2 (06:25:04–06:28:22, load 20.8 / 24.6) | **GREEN ×2** |
+| kf e2e ⟨`KF_PLAYWRIGHT_DIR=<value.js> node scripts/run-demo-roster.mjs --workers=1`⟩ ×2 over the `57fb241a` gh-pages dist (worktree, after build) | RESUME 3 close: `passed 4/6` ×2 (B7 · M1 · A3) | r1 (06:16–06:20, load 19.1→17.1): `passed: 3/6` · `✗ failed: smoke, live-session, live-session-mobile` · r2 (06:20–06:25, load 17.1→20.8): `passed: 4/6` · `✗ failed: live-session, live-session-mobile`. live-session: only `✗ B7 … NO bloom at rest` (honest-RED). live-session-mobile: `✗ M1 sheet OPEN / SCROLL / RE-OPEN` (honest-RED SHEET-POSITION) **and `✗ A3 appearance — a ghost rail SURVIVES … (sequence: railless=false ghostCol=true)` ×2**. smoke (r1 only): `✗ heavy chunks requested at first paint: …/vendor-three-nw0IrzH_.js` | **RED — A3 ×2 outside the honest-RED set (ESC-W13X-a3-1)** |
+| smoke §0ev.2 re-read ⟨`… run-demo-roster.mjs --workers=1 --only=smoke`⟩ ×2 | — | re-read 1 `passed: 1/1` `EXIT=0` · re-read 2 `✗ heavy chunks … vendor-three` `EXIT=1`. Tally over this seat's 5 smoke readings (incl. the no-dist r1): 3 pass / 2 fail | **not RED by §0fa item 9 (load-flake: passes on re-run, as RESUME 2 ruled at `:4351`/`:4464`); recurrent — residual R4-3** |
+| A3 diagnosis (`.a3`'s, cited) | — | the trip = `[class*=rail]` substring on the `rail-fill` token of the Stagger card (`SequenceTimeline.vue:20/:21/:28`); in-page token strip: rects unchanged, oracle 0 (`a3/diag2-57fb241a.txt`) | **ESCALATED, unruled** |
+| X-DS pass-5 desktop `c5-probe.mjs` | banked GREEN at `fa09924b` | not re-run: no kf byte moved since `57fb241a` (the head the open read) | cited GREEN |
+| every row dispositioned (addendum (h)/(j)) | `.a3` OPEN | `.a3` ESCALATED (ESC-W13X-a3-1); `.r3res2e` KILLED-BY-DELETION (§0fl.1) and the `.r3res2f` kf half RE-HOMED to X-W11 (§0fl.2) — both relieved here by ruling | **RED (1 escalation unruled)** |
+
+### Act 3 — verification artefacts
+
+- Unit receipts: 1 of 1 under `## RESUME 4 — Unit receipts` (`### KF.W13X.a3`).
+- Evidence: ⟨`ls keyframes/evidence/W13X/a3/`⟩ → `diag-57fb241a.txt diag.mjs diag2-57fb241a.txt diag2.mjs` (4); `open-r4/` (runner + 2 A3 BEFORE logs); this seat's `close5/` (2 runners; check ×2, lint ×2, build, gh-pages ×2, e2e ×2 + the 2 no-dist instrument logs, smoke re-read ×2, test:demo ×2).
+- Hygiene: ⟨`pgrep -fl 'keyframes-wt-W13X-open4|run-demo-roster'`⟩ → empty; the worktree `keyframes-wt-W13X-open4` ⟨`git status --porcelain`⟩ → empty (detached `57fb241a`); no dev server was started.
+
+### Act 4 — E13 mail sweep
+
+⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`. ⟨`find <p> -maxdepth 1 -type f -newer V/coordination/INBOX.md`⟩ (reference: INBOX mtime 06:02) → value `V/` 0 · value `V/coordination` 0 · glass `BK/coordination` 0 · glass `BL/coordination` 0 · glass `BL/` 0 · keyframes `V/coordination` 0 · atlas `P/coordination` 0. ⟨`git show HEAD:docs/tranches/V/coordination/INBOX.md | grep -c '^|.*| *\**UNREAD\** *|'`⟩ → **0**. **0 UNREAD in scope.** A dated sweep line is appended to INBOX.
+
+### Residuals, with owners
+
+- **R4-1 · ESC-W13X-a3-1 (the A3 RED on mobile `#/sequence`), unruled — owner: the orchestrator (a dated COHESION ruling), cure seat per the ruling (X-DS's keyframes lane for arm (a), an observation-script grant for arm (b)).** The trip is the oracle's `[class*=rail]` substring (`scripts/observe/demo/live-session-mobile.mjs:1151`) on the KF-C5-01 `rail-fill` token; no box changes when the token is stripped. A3 RED ×2 again at this close.
+- **R4-2 · relieved by ruling:** `.r3res2e` KILLED-BY-DELETION (§0fl.1; receipt the 0-read at `099a1627`, unchanged in `demo/scenes/cube` at `57fb241a`); the `.r3res2f` kf half RE-HOMED BY ID to the X-W11 release repin (§0fl.2; the value.js 4.1.x publish is an owner act).
+- **R4-3 · smoke `heavy chunks requested at first paint: vendor-three` — intermittent, 2 of 5 readings at this seat (after 1 of 3 at RESUME 2 and at `repair-r2c1`/`close3`) — owner: the next X-DS/KF pass that touches the home boot path; not RED under §0fa item 9 (passes on re-run).** It is now recurrent across three sittings, so a load-flake reading should be re-examined at the check rather than re-booked silently.
+- **R4-4 · carried, unchanged:** honest-RED B7 SPECULAR-REST · SHEET-POSITION (glass, relayed); R3-4 instrument (worktree `test:demo` cannot load one glass subpath through a symlinked `node_modules`; read in the main tree here); RESUME 3's `.r3res2d` residuals.
+
+### Escalation from this seat
+
+None new. ESC-W13X-a3-1 (the unit's) stands unruled.
+
+### Four-verb line
+
+Not moved. KF-W13.md §State holds IMPLEMENTED at NO "until the gates green": ESC-W13X-a3-1 is unruled and the kf e2e roster carries A3 RED ×2 outside the honest-RED set (B7 · SHEET-POSITION), so addendum (j)'s "A3 must go RED → GREEN ×2" is not met. VERIFIED is a successor close's act.
+
+### Commits (RESUME 4)
+
+kf: none (`57fb241a` unmoved; ⟨`git -C keyframes.js rev-parse --short origin/master`⟩ → `57fb241a`). value.js: `469ec377e` (open) · `b2389ada6` (`.a3`) · this close (record + `close5/**` + INBOX sweep line + LEDGER), one commit.
+
+- **Self-count:** ⟨`sed -n '/^## RESUME 4 — Close/,$p' KF-W13X.md | grep -c '^- \*\*R4-'`⟩ → **4** residual rows (1 unruled escalation, 1 relieved by ruling, 1 intermittent, 1 carried); 0 kf wave commits; 0 landed wrong; 0 UNREAD.

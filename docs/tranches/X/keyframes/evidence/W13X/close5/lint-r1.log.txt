@@ -1,0 +1,11 @@
+# 2026-10-16 06:10:09 load: 84.86 39.80 30.84 dir: /Users/mkbabb/Programming/keyframes-wt-W13X-open4 head: 57fb241a dirty: 
+[guarded] waiting for headroom (load 85 > 72)
+
+> @mkbabb/keyframes.js@6.0.0 lint
+> depcruise --config .dependency-cruiser.cjs src demo && eslint demo
+
+
+✔ no dependency violations found (457 modules, 1661 dependencies cruised)
+
+EXIT=0
+# end 06:10:46 load: 51.99 37.03 30.24
