@@ -1804,3 +1804,57 @@ The census is unchanged because this pass's cures are fold, emphasis and proport
 - Nothing of this seat's was left running.
 
 **Concurrency:** keyframes.js master had no other seat's commits during this pass. The cure, evidence and receipt commits are pathspec-only.
+
+### pass 4 (the seventh redeploy's pass 4; a REPLAY of critic R6C4; no cure owed; recheck in `pass-37/`)
+
+**No cure commit.** The critic's six rows are the sixth redeploy's R6C4 rows. Pass 29 already cured the three consumer rows at keyframes.js `8343dbe8`, and that pass cited or stated the other three. This seat re-measured all of them at keyframes.js master `8963ea28`, the live tree with passes 5 to 10 on top. Every cure still holds, so nothing was changed in keyframes.js. **Evidence:** value.js `7945be1ba` (`evidence/DS/keyframes/pass-37/`). It holds:
+- `r6c4-probe.mjs` (pass 29's probe), `r6c4-probe.json` (0 fails) and `probe.log`;
+- `after/`, with the 28 route frames (7 routes, at 1440 and 390, light and dark), `controls-pane-{cube,amiga,square}-1440-*`, `pane-cube-keyframes-1440-*` and `cube-keyframes-{1440,390}-*`;
+- `census.json`, `census.log`, `census-frames/` and `census-recheck-390-settle10s.*`;
+- `cure/skeleton.mjs` and `cure/skeleton.log`;
+- the gate logs `check-*`, `lint-*` and `test-demo-*`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-04/`, which already holds the first workflow's pass-4 evidence. `pass-36/` holds an uncommitted `cure/` of the r6 pass-11 seat. So the frames go to `pass-37/`, following the pass-23..35 precedent.
+
+**Rechecked (consumer, held at HEAD)**
+
+| id | cure in place | served now |
+|---|---|---|
+| KF-R6C4-01 | The easing stage Card is content-sized, capped at the stage and hung from its top (`EasingTarget.vue`, `8343dbe8`). Later passes KF-C7-02 and KF-C10-10 did not reopen the band. | The band from the drawer's foot to the plate's foot is **29 px** at 1440 (the plate's padding plus the drawer's inset; the critic measured 111) and **25 px** at 390, in both schemes. Frames `after/easing-*`. |
+| KF-R6C4-02 | The Controls surface opens on its channel's name. Pass 9 (KF-C9) moved that title into glass `ConfiguratorLayer`'s header, which is the same header the Timeline, Easing, Physics and Stagger panes use. | `Rotations` (cube), `Spin` (amiga) and `Transform` (square) sit first in the pane, above the first field: y 137 at 1440, and y 797 of 844 in the 390 sheet's peek, in every cell. Frames `after/controls-pane-*`, `after/{cube,amiga,square}-390-*`. |
+| KF-R6C4-03 | Monaco's `wordWrap: "bounded"` breaks only after a space (`wrappingIndent: "indent"`), the well takes the buffer's content height, and the scrollbars are hidden. | Cube at 1440: 20 visual lines. The widest is 461.6 px against a 465.2 px view, and no slider is drawn. At 390: 24 lines, 352 against 369. `transform` breaks between `rotateX(…)` and `rotateY(…)`, never inside a token. Frames `after/pane-cube-keyframes-1440-*`, `after/cube-keyframes-*`. |
+
+**Probe restatement (no assertion weakened).** Pass 29's probe found the title through the `[data-pane-title]` marker. Pass 9 retired that marker along with the hand-rolled `h3`. The selector now also accepts `.configurator-layer-heading` in the active surface panel. The three conditions are unchanged: visible, in the viewport, and above the first field. The first run, before the restatement, failed all 12 title cells on `null`, and that log was overwritten by the re-run.
+
+**Not cured, stated**
+- **KF-R6C4-05 (trivial, owner's call):** this is unchanged since pass 29. The yellow face's black numeral in dark is a contrast choice that keeps the identity crayon (§0dm). It is an ask for the owner only if one numeral ink is wanted across all six faces.
+
+**Cited (glass, not overridden)**
+- **KF-R6C4-04:** glass EasingPicker draws the inactive mode's ghost staircase over the bezier in both modes. It is still visible in `after/easing-*` at glass 10.1.0. This is a rider to **O-87 FLAT-LIGHTING**, and it is not hidden locally.
+- **KF-R6C4-G1:** the resting and quiet Card stacks, the collapsed dock tile and its halo, the play bubble's halo, the control-surface gradients, the glass-control-edge insets, the input versus select fills, and the resting-card backdrop blur. They stay honest-RED against **O-87** and **O-88 DOCK-COLLAPSE-MOTION** and will be re-judged at the 10.2.0 repin. No local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): every static and chrome row is identical to pass 35 except one:
+- 310 shadow elements, 938 layers (max 6), 192 non-floating, 416 inset highlights, 278 backdrop blur, 54 control gradients;
+- the subject is 0 on every row.
+
+That row is **chrome looping animations 80 → 91.** Every added row is glass `Skeleton`'s `skeleton-breathe`, in `CSSCodeEditor`'s well, inside the force-mounted inactive Keyframes pane: 10 cells at 390 and spring 1440 dark.
+- That pane is `content-visibility: hidden` (`ChannelControls.vue`, B-2 cache). The well's ResizeObserver never fires there, so Monaco's boot waits and the Skeleton stays `booting`.
+- `cure/skeleton.mjs` measures `checkVisibility() === false` on it at both widths, so it is never painted.
+- The census's loop scan reads `document.getAnimations()` with no visibility filter, unlike its style scan. So whether the row counts depends on whether the idle warm has mounted the pane when the sample is taken. That timing changes with host load: the 1-minute load was about 30 here, against about 15 in pass 35. A 10 s settle re-check at 390 (`census-recheck-390-settle10s.*`) still counts it.
+- There is no visible idle motion, so this seat made no cure. It is **named for a later seat:** either filter the census's loop scan by `checkVisibility()`, or have the booting Skeleton not mount under a skipped pane.
+
+The verdict stays **RED**, held by the glass-owned rows and the KF-C3-02 loop row (charLift and TypingDots, which wait on the owner's ruling).
+
+**Gates** (the live tree: master `8963ea28` plus another seat's one-line uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **926/926, 151 files, twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served probe (`r6c4-probe.mjs`, 0 fails) is the falsifier for -01, -02 and -03.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes with `--light`, check and lint with `--light --timeout 15`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--light --timeout 20`.
+- The 1-minute load was about 30 during the runs.
+- Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port, not this seat's) was reused.
+- Nothing of this seat's was left running.
+
+**Concurrency:** keyframes.js master did not move during this pass, and no keyframes.js commit was made or pushed. `KeyframeTimeline.vue` (another seat's hunk) and `pass-36/` (the r6 pass-11 seat's) were not touched. The evidence and receipt commits are pathspec-only.
