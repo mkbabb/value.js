@@ -2150,3 +2150,52 @@ The legend change is text only, so no tally could move. The verdict stays **RED*
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
 - The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 11 (the seventh redeploy's pass 11; critic C11; evidence in `pass-44/`)
+
+**Cure commit:** keyframes.js `127cfeb2` (pushed fast-forward to master, `f266ed44..127cfeb2`). **Evidence:** value.js `6a4cdde50` (`evidence/DS/keyframes/pass-44/`):
+- `c11r-probe.mjs`, `c11r-probe.json` (the served falsifier for -01);
+- `after/`: `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390, each in light and dark;
+- `census.json`, `census.log`;
+- the gate logs `check-*`, `lint-*` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). `pass-11/` already holds the first workflow's pass-11 evidence, so the frames go to `pass-44/`, following the pass-23..43 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C11-01 (low) | **The sheen mounts when the boot begins, not when the component mounts.** `CSSCodeEditor.vue`'s phase gains `pending` before `booting`. The well's one ResizeObserver, which already held the Monaco boot until the well first has a box, now also moves the phase to `booting`. A well force-mounted in the hidden Keyframes pane stays `pending`: `aria-busy`, but no Skeleton, so glass's infinite `skeleton-breathe` never runs in a pane that is never opened. Glass's Skeleton is untouched. | On cube, amiga, square, easing and spring (sequence mounts no well at rest), at 1440 and 390 in both schemes, the inactive pane's well reads `pending`: busy, no editor, 0 Skeletons, and no running loop inside it (probe, 0 fails). Unit falsifier: `css-code-editor-seam` case (7) asserts no Skeleton in a held well and its arrival on the first box. It was born RED at `f266ed44` (1 of 8) and is GREEN after. A served read of `#/cube` at `f266ed44` showed 1 Skeleton in the well; at `127cfeb2` it shows 0. |
+
+**Refused (consumer note)**
+- **KF-C11-02 (trivial), the 'Sine' heading stranded at the 390 scroller's foot:** not cured. The fold falls wherever the viewport height puts it. A scroll-snap or a moved end fade would add a counter-style to the catalogue, or reach into glass's FadingScroll, to change one resting frame, and the critic calls it optional. The frames are `after/easing-390-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C11-G1:** the glass-owned rows are unchanged at glass 10.1.0:
+  - the Card resting material (`glass-resting`/`glass-quiet`, the 5-layer inset stack, and the resting backdrop blur smearing the grid crossings in the dark Square, Spring and Sequence stages);
+  - the control-edge and control-surface gradients;
+  - the closed Select up caret and the slider-track inset;
+  - the switch-thumb shadow;
+  - the collapsed dock tile and its halo, and the Scene menu's offset slab;
+  - the dark secondary-Button halo and the StatusDot ring;
+  - the EasingPicker ghost staircase and its 'Custom' label at `ease`.
+
+  Cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**. Re-judge at the 10.2.0 repin. No local override.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): one tally moved from pass 43, **chrome looping animations 100 → 80**. The 20 `skeleton-breathe` rows are gone. The 80 that remain are the home headline `wave-char` (68) and `TypingDots` (12), the owner-ruled set from KF-C3-02. Every other tally is identical, including chrome 310 shadow elements, 938 layers (max 6) and 278 backdrop blurs. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `127cfeb2`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **936/936 (154 files), twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk was not touched. Every commit is pathspec-only.
+- **RED proof:** to read the falsifier and the served Skeleton count against the old component, the HEAD `CSSCodeEditor.vue` was swapped in briefly from `git show` and then restored byte for byte from a scratch copy (the diff stat was re-checked). No stash and no reset.
+- **Identity:** no identity hue, type or motion changed (§0dm). The cure removes only a hidden, unpainted loop.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes and the census `--light`, the suites `--light --rss-gb 4`.
+- Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
