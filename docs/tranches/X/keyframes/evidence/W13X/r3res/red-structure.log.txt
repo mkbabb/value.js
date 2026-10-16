@@ -1,0 +1,14 @@
+f96bfee2
+19:26  up 6 days, 28 mins, 2 users, load averages: 18.37 14.90 21.03
+     × no vendor-highlight / html2canvas chunk rule or lazy entry 4ms
+     × dockEdge.ts is a demo composable, not an app file 1ms
+     × no file under demo/components imports from demo/app 20ms
+     × both docks read the seam from its one home 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/r3res-structure.test.ts > (1) vite.config.ts names no uninstalled package > no vendor-highlight / html2canvas chunk rule or lazy entry
+                // ×47\" DevTools noise. That x47 is benign dev-only diagnostics
+ FAIL  |demo| test/demo/r3res-structure.test.ts > (2) the dock-edge seam lives below the app and the components > dockEdge.ts is a demo composable, not an app file
+ FAIL  |demo| test/demo/r3res-structure.test.ts > (2) the dock-edge seam lives below the app and the components > no file under demo/components imports from demo/app
+ FAIL  |demo| test/demo/r3res-structure.test.ts > (2) the dock-edge seam lives below the app and the components > both docks read the seam from its one home
+ Test Files  1 failed (1)
+      Tests  4 failed (4)

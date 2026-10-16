@@ -1,0 +1,10 @@
+19:27  up 6 days, 30 mins, 2 users, load averages: 30.40 19.25 22.12
+     × each child's snapshot holds its own phase after a scrub of one child 16ms
+     × a restore from the record re-seats the siblings in phase 4ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: spin: expected undefined to deeply equal { t: 300, reversed: false, …(1) }
+- Expected:
++ Received:
+AssertionError: spin: expected +0 to be close to 5050, received difference is 5050, but expected 5e-7
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
