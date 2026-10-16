@@ -2248,3 +2248,63 @@ Every capture is headless real Chrome (§0ei). `pass-12/` already holds the firs
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
 - The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 13 (the seventh redeploy's pass 13; critic C13; evidence in `pass-46/`)
+
+**Cure commit:** keyframes.js `83958f48` (pushed fast-forward to master, `099a1627..83958f48`). **Evidence:** value.js `9d5500ed2` (`evidence/DS/keyframes/pass-46/`):
+- `c13-probe.mjs`, `c13-probe.json`, `c13-probe.log` (the served falsifier for -01, 0 fails);
+- `after/`: `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390, each in light and dark, plus `dock-<scene>-<width>-<scheme>` frames of the dock opened by hovering its face;
+- `census.json`, `census.log`;
+- the gate logs `check-*`, `lint-*`, `test-demo-1..3` and `test-demo-flake-r4dock.log`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-13/`, but `pass-13/` already holds the first workflow's committed evidence, so the frames go to `pass-46/`, following the pass-23..45 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C13-01 (low) | **The empty facet slot is a blank seat.** The owner ruled that the item set is identical on every scene (OA-37/46/51; UIA-KF-244 was KILLED on that invariant), so the seat stays. That is the critic's second option: an empty seat with no glyph. The fix is at the descriptor root, `controlSurfaces.ts`: `NO_FACET` (CircleDashed, "No facet for this scene") is replaced by `EMPTY_FACET_SLOT`, which has an empty label, icon and title and is disabled. `ChromeDock.vue` renders no glyph for it, sets no `aria-label` or `title`, and marks it `aria-hidden`. `CircleDashed` is dropped from the dock's glyph map, so the dashed ring keeps its single meaning in this app: the target or end-state ghost. The cube's disabled, named slot ("Matrix: select the Matrix channel", Grid3X3) is unchanged. No new component. | Probe at 1440 and 390, both schemes, 0 fails. amiga, square and sequence each have 4 items; the 4th has no svg, no `aria-label` or `title`, and `aria-hidden="true"`. No item anywhere wears `circle-dashed`. cube, easing and spring are as in pass 12 (`after/dock-amiga-1440-light.png`, `after/dock-sequence-390-dark.png`). Unit falsifier: the `dock-surface-items` no-facet case now asserts the blank seat exactly. It cannot pass at `099a1627`, where the slot reads "No facet". The sequence row of the "disables, never drops" case is restated to the blank label. |
+
+On sequence, the disabled Controls and Keyframes items are owner-ruled ("disabled, never dropped"). They stay, and are not re-litigated here.
+
+**Cited (glass, not overridden)**
+- **KF-C13-G1:** the EasingPicker preset Select reads 'Custom' at `ease`. At glass 10.1.0, `EasingPickerValue` has no preset field (`demo/composables/useEasingPickerSeat.ts:64-72`). This is glass work for the 10.2.0 repin: an `initial.preset` field, or matching the seeded quad against the catalogue. Cited against **O-87 FLAT-LIGHTING** as a state-truth rider. No local override.
+- **KF-C13-G2:** the held glass rows are unchanged at 10.1.0:
+  - cream Input fills against grey Select fills in light mode;
+  - the closed Select's up caret;
+  - pill fields;
+  - the dark secondary-Button halo;
+  - the resting cards' backdrop blur and halo, with grid bands showing through;
+  - the Bezier/Steps control-surface gradient;
+  - the ghost staircase;
+  - the collapsed dock tile and the play-bubble halo;
+  - the dock hover/active capsule appearing in light mode only.
+
+  Cited against **O-87 FLAT-LIGHTING** and **O-88 DOCK-COLLAPSE-MOTION**. Re-judge at the 10.2.0 repin.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): every chrome tally is identical to pass 45:
+- 310 shadow elements, 938 layers (max 6);
+- 416 inset highlights;
+- 278 backdrop blurs;
+- 54 control gradients;
+- 80 looping animations (the owner-ruled `wave-char` and `TypingDots`).
+
+The cure removes a glyph, not lighting. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `83958f48`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2 (plus a third run after the test edit, also 0).
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 938/938 (155 files) on runs 1, 3 and 4.
+  - Run 2 had one failure outside this cure, `r4dock-share-fallback.test.ts` (2): the link field's selection was `[145, 145]`, expected `[0, 145]`. That is a focus and selection timing flake in the share fallback. It passed in the other three runs, and its log is kept as `test-demo-flake-r4dock.log`.
+  - The first attempt before the run-1..4 set failed on this cure's own stale `["No facet", false]` sequence row, which was restated as above.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. Every commit is pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm). One meaningless glyph was removed.
+- **Width:** the blank seat keeps the dock's width on every scene, which is the ruled invariant. In the frames it reads as a slightly wider gap before the trailing separator.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light`, the suites `--light --rss-gb 4`.
+- The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
