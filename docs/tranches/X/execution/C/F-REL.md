@@ -1806,3 +1806,67 @@ Order of discharge: w-1 + vb-1 rulings → `.w`/`.vb` re-sits → a fresh m/w1 C
 **Push.** fourier: `HEAD` = `origin/m/w1-bump-migration` = `e89b032` (nothing to push; master is not this seat's to push). value.js: this close is pushed with `git push origin HEAD` (no force).
 
 **Teardown.** No server, browser, container or poller was started. The four light guarded runs exited rc 0.
+
+## RESUME 2026-10-16 (d) (§0fk + F-REL.md ADDENDUM (d)) — Open
+
+Seat 0, `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~04:48 local. LEDGER read first: F.REL = **BLOCKED-ON ESC-FREL-w-1 + ESC-FREL-vb-1** (not CLOSED), and this record exists, so this is RESUME MODE. The block is lifted by COHESION §0fk (L4007-4027; ⟨`wc -l COHESION.md`⟩ → `4027`, §0fk is the last addendum) and by spec addendum (d) at `fourier/waves/F-REL.md:56-69`.
+
+### Preconditions (bytes and ledger)
+- F.W14V CLOSED and F.CT phase 2 CLOSED honest-RED (§0eu): banked at the 2026-10-08 Open, unchanged.
+- ESC-FREL-w-1 RULED (§0fk.1, ruling (a)) → unit `.w2`. ESC-FREL-vb-1 RULED (§0fk.2, rulings (a)+(b)+(c)) → unit `.vb2`. g-6 and d-1 dissolve in order (§0fk.3-4). R-4/R-6 owner items, non-blocking; R-8 cured by the orchestrator (§0fk.5).
+- fourier tree: ⟨`git fetch`; `git rev-parse --short HEAD` / `origin/m/w1-bump-migration` / `origin/master`⟩ → `e89b032` · `e89b032` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 448`. Every landed unit (`.m` `.c` `.h` `.mem` `.mem2` `.mem3` `.vb`) has its commit on m/w1; `.mem3` `6b46ef1` and `.mem2` `e89b032` read in ⟨`git log --oneline -8 origin/m/w1-bump-migration`⟩.
+- ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38868934803 failure` · `38824079821 failure` · `38452213569 failure` (the w-1/vb-1 RED the rulings address).
+
+### Crash recovery
+- value.js: ⟨`git status --porcelain -- execution/C/F-REL.md execution/LEDGER.md V/coordination/INBOX.md`⟩ → empty. Nothing inherited.
+- fourier (seat 0 only reads it): ` M web/e2e/f-w14-control-row.spec.ts` · ` M web/src/components/paper/PaperTocBar.vue` · ` M …/PaperTocDrawer.vue` · ` M web/src/components/ui/SliderControl.vue` · `?? .worktrees/`: the live X-DS fourier lane (same set the RESUME (c) close read). None is in `.w2`'s or `.vb2`'s set as granted (`contrast-pairs.ts`, `producer-held.json`, `fixtures/gallery.ts`, `ci.yml` e2e job, goldens are all clean); a `.w2` `web/src` cure must not touch those four dirty paths (escalate if a cure lands on one).
+- ⟨`cat .worktrees/heavy.lock`⟩ → `F.CT3 r1 (seat 4) ct3-r1-full-pytest … pid 31152 2026-10-16T08:40:43Z`, live (⟨`ps -p 31152 -o etime=`⟩ → `15:19`). The heavy slot is held; no heavy gate is re-run at this open.
+
+### E13 mail sweep
+- Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` + `BL/coordination` + `P/coordination` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`: BL is the newest) · keyframes `keyframes.js` + `keyframes-v-exec` `V/coordination` · atlas `P/coordination`.
+- ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0 · 0 · 0 · 0 · 0.
+- ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+- **0 unrowed · 0 UNREAD.** A sweep line is appended to INBOX.
+
+## RESUME 2026-10-16 (d) — Baseline (BEFORE, read-only)
+
+⟨`uptime`⟩ → load `26.70 22.94 21.87`. Heavy slot held by F.CT3 (above), so heavy cells cite the RESUME (c) close table (same bytes, `e89b032`); static and network reads are taken now in the fourier main tree.
+
+| Gate (§0fk · addendum (d) · §Gates) | BEFORE (this open) | State |
+|---|---|---|
+| `.w2` contrast-floor ×3 GREEN ×2 outside the pair-level manifest | banked on CI 38868934803: light 18/36, dark 10/36, 6 awaiting | RED |
+| `.w2` pair-level key in the manifest | ⟨`node -e '…producer-held.json…'`⟩ → keys `servedModel, about, rows`, `rows` = 8; ⟨`grep -c 'pairId\|pair_id\|pair:' producer-held.json`⟩ → `0` | RED (absent) |
+| `.w2` FR-USB-5 ×3 retired | ⟨`grep -n FR-USB-5 web/e2e/contrast-pairs.ts`⟩ → L171-193: `[resting-border]` `[focused-border]` `[placeholder]` still graded | RED |
+| `.w2` six awaiting pairs authored | ⟨`sed -n 330,372p contrast-pairs.ts \| grep -c 'id:'`⟩ → `7` rows in `PAIRS_AWAITING_THEIR_OWNER` (L330) | RED |
+| `.w2` GAB-1 `--tier-*` / HLG-37 `[grid-cell-fill]` held by pair id | graded rows at L269/L281 (GAB-1) and L122 (HLG-37); no pair-level manifest key | RED |
+| `.w2` F-W4 §4 dated addendum + BK relay letter | ⟨`grep -n '^## §4' fourier/waves/F-W4.md`⟩ → L370; no addendum beside it; no outbound letter for w-1 | RED (absent) |
+| R-9 pytest tests/ ×2 | banked 176 ×2 at `e89b032` (`.mem2` landing); not re-read (heavy slot) | GREEN (banked; `.w2` re-reads) |
+| R-10 UIA-F-42 flake | retry #1 on CI 38868934803 (banked) | RED (flake) |
+| web vue-tsc / vitest ×2 | banked rc 0 ×2 / 116 ×2 at `e89b032` (RESUME (c) close) | GREEN (banked) |
+| `.vb2` deterministic detail-route stub | ⟨`grep -n 'route(' web/e2e/fixtures/gallery.ts`⟩ → L140 `**/api/visualizations**` (list shape for every match), L143 images, L156-160 admin; no detail/`recordView` route | RED (absent) |
+| `.vb2` CI e2e job in `mcr.microsoft.com/playwright:v1.61.0-noble` | ⟨`grep -n 'container:\|playwright:v' .github/workflows/ci.yml`⟩ → 0 lines; e2e-tests L284-286 `runs-on: ubuntu-latest` | RED |
+| `.vb2` report artefact on failure | ⟨`sed -n 409-415p ci.yml`⟩ → `Upload Playwright report` · `if: always()` · `actions/upload-artifact@v4` · `path: web/playwright-report/` inside e2e-tests (L284-431) | **GREEN before cure** (R.2 finding: present; `.vb2` reads it under the container and keeps it, failure-covering) |
+| `.vb2` visual-checkpoint ×2 local container + fresh m/w1 CI | banked GREEN ×2 darwin, ×2 v1.61.0-noble at `e89b032` (`.vb` re-sit 4); CI 38868934803 items 3/5 RED | RED (CI) |
+| G-vb goldens | 6 darwin · 6 linux (banked, RESUME (c) close) | GREEN (banked) |
+| `.g` master merged + master CI GREEN ×2 | `origin/master` `ad62881`, `1 448` | RED |
+| `.d` smoke on new SPA · openapi publish/remix/diff · PATCH preflight 2xx · prod-verify 20/20 · no outage | banked at the RESUME (c) close (same day): hotfix SPA PASS · `34 0.2.0 []` · `400` · 10/20 · unread | RED |
+| cert > 14 d · host health | banked Jan 4 2027 / Dec 22 2026 · `{"status":"ok"}` | GREEN (non-regression) |
+
+**Green before cure (R.2):** the `.vb2` (c) report-artefact upload already exists (`ci.yml:409-415`, `if: always()`). `.vb2` keeps it and verifies it runs under `container:`; it does not author a duplicate.
+
+## RESUME 2026-10-16 (d) — Unit plan
+
+- **alreadyDone** (their commits exist; never re-dispatched): `F-REL.m`, `F-REL.c`, `F-REL.h`, `F-REL.mem`, `F-REL.mem2`, `F-REL.mem3`, `F-REL.w`, `F-REL.vb`. (`.w` and `.vb` are superseded by the granted units `.w2` and `.vb2`; their landed commits are never redone.)
+- **Owed, strictly serial,** one unit at a time, every seat Opus 5.5: `.w2 → .vb2 → .g → .d`, then close, then check (§0fk.6).
+- **Binding on every unit:** branch `m/w1-bump-migration` until `.g`; `git fetch` + `git pull --ff-only` before every commit and push (X-DS also commits `web/` on m/w1); never force; pathspec commits only. Headless only (§0ei). Nothing durable in /tmp (§0eo): logs `~/.dev-logs/frel/`, work `~/.fourier-frel/`. Every heavy run via `~/.claude/guard/guarded` and the repo's `.worktrees/heavy.lock`, one at a time; Playwright `--workers=1`; API `COMPUTE_CONCURRENCY=1`; WebKit via `guarded --exclusive webkit`. Reads under load per §0ev.2. The X-DS lane's four dirty paths (Crash recovery) are never touched. **`.worktrees/f-ct3` is never touched.** glass READ-ONLY (relays ride mail). ESCALATED units do not halt the wave.
+
+Groups: `[[F-REL.w2], [F-REL.vb2], [F-REL.g], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.w2 | COHESION §0fk.1 + §0fk.5 (R-9/R-10) (L4009-4016, L4022-4024); addendum (d) `.w2` (F-REL.md:57-62) | fourier `web/e2e/contrast-pairs.ts`; `web/e2e/producer-held.json`; `web/src/**` (defect sites a re-pointed RED names; not the four X-DS dirty paths); §0bt adjacent: `web/e2e/contrast-floor.spec.ts` (only the lines that read the pair-level key); value.js: a dated addendum beside `fourier/waves/F-W4.md` §4 (new file `fourier/waves/F-W4.addendum-2026-10-16-contrast-pairs.md`); one BK relay letter `V/coordination/valuejs-outbound-2026-10-16-frel-w2-bk-relay.md` + its INBOX O-row | contrast-floor ×3 GREEN ×2 outside the pair-level manifest (`--workers=1`, guarded); every re-pointed row graded live at its unchanged floor; R-9 `pytest tests/` ×2; R-10 UIA-F-42 read/cured at root; vue-tsc / vitest ×2 | oracle header law: a row and its cure in the same commit; no floor lowered, no skip, no test-id hold for pair rows; canvas inks read from the drawing code's token/literal |
+| F-REL.vb2 | §0fk.2 (L4017-4021); addendum (d) `.vb2` (F-REL.md:63-67) | fourier `web/e2e/fixtures/gallery.ts`; `.github/workflows/ci.yml` (the `e2e-tests` job only); `web/e2e/visual-checkpoint.spec.ts-snapshots/**` (item 5 only, only on a read lawful diff) | visual-checkpoint GREEN ×2 locally in `mcr.microsoft.com/playwright:v1.61.0-noble`; a fresh m/w1 CI GREEN outside the manifest (e2e job in the container; the report artefact uploaded on failure) | no CI-minted goldens (one renderer of record); heavy.lock; the existing `if: always()` upload is kept, not duplicated |
+| F-REL.g | §Units `.g` (F-REL.md:31) + §0fk.3 (L4025) | the merge `m/w1-bump-migration → master` (no force); `.gitignore` (conflict → m/w1's side whole, R-3); `web/playwright.config.ts`, `web/e2e/**`, `.github/workflows/**` only if the merge needs them | merge lock: fresh m/w1 CI e2e GREEN outside the manifest; master CI GREEN ×2 | fetch before the merge; never force; merge after `.vb2` only |
+| F-REL.d | §Units `.d` (F-REL.md:32-38) + §0fk.4 | fourier `scripts/**` (prod-verify); value.js `docs/tranches/X/fourier/evidence/F-REL/` | smoke GREEN on the new SPA; cert > 14 d; health polled through the deploy (no outage); `scripts/prod-verify.mjs` 20/20; openapi has publish/remix/diff; PATCH preflight 2xx | fail-closed deploy via the standing workflow + webhook only; host never hand-edited; R-4/R-6 named as owner items, non-blocking; R-h2 named |
+
+## RESUME 2026-10-16 (d) — Unit receipts
