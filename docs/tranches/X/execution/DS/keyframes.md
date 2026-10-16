@@ -1858,3 +1858,53 @@ The verdict stays **RED**, held by the glass-owned rows and the KF-C3-02 loop ro
 - Nothing of this seat's was left running.
 
 **Concurrency:** keyframes.js master did not move during this pass, and no keyframes.js commit was made or pushed. `KeyframeTimeline.vue` (another seat's hunk) and `pass-36/` (the r6 pass-11 seat's) were not touched. The evidence and receipt commits are pathspec-only.
+
+### pass 5 (the seventh redeploy's pass 5; critic C5; evidence in `pass-38/`)
+
+**Cure commit:** keyframes.js `fa09924b` (master, pushed fast-forward `8963ea28..fa09924b`; the range also carries four other seats' local commits that sat unpushed on master: `893cddef`, `f0ed4cc6`, `dba6b10e`, `71480d85`). **Evidence:** value.js `8d5fc502a` (`evidence/DS/keyframes/pass-38/`):
+- `c5-probe.mjs`, `c5-probe.json` (0 fails), `probe.log`;
+- `after/`: `sequence`, `cube-timeline`, `cube-keyframes`, `easing`, `spring`, `home` and `controls-pane-cube` at 1440, and `square`, `home`, `cube-timeline` and `sequence` at 390, each in light and dark;
+- `cure/`: the `chain`, `overflow`, `labels`, `shot` and `skeleton` probes, plus `skeleton.log`;
+- `census.json`, `census.log`, `census-frames/`;
+- the gate logs `check-*`, `lint-*` and `test-demo-*`.
+
+The critic's BEFORE frames are `pass-37/after/` and `pass-37/critic-p5/frames/`. Every capture is headless real Chrome (§0ei). The task named `pass-05/`, which already holds the first workflow's pass-5 evidence, so the frames go to `pass-38/`, following the pass-23..37 precedent.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served (1440x900 unless named) |
+|---|---|---|
+| KF-C5-01 (medium) | **The figure takes the pane's free block.** One shared rule (`ControlsPaneWrapper.css`, lg only): the surface scroller is a column, and a box marked `.rail-fill` takes at least the free block and is itself a column. A glass ConfiguratorLayer marked `.rail-fill` passes the room through its open region (layout only). The chain is marked from the port to each figure. **Stagger:** the lane grid grows and its auto rows stretch alike, so the clock and the five lanes keep one pitch to the foot, each rail on its row's centre line. **Timeline (empty):** the notice takes what the track leaves, and its sentence is centred in it. **Monaco:** the well is a column whose size-contained box takes its floor plus any growth, so it shrinks with the pane. **Easing Curve:** the plot budget is re-measured on the footed pane (27.5 → 25.5rem, and 30.5 → 28.5rem where the narrow pane wraps). | Stagger lanes end at **728** of a 749 port (they ended at 459), with row centres every ~81 px. The empty Timeline's sentence sits 186 px under the track and 192 px over the port's end (it ended 360 px above the ribbon). The well ends on the ribbon at **688** (it ended at 636), and the editor is laid out to it. After a 1080 → 900 resize the well follows the port (729 → 560). On the Easing Curve the plot is 215 px (it was 183) and the duration row sits 17 px over the ribbon (the gap was ~50). The scroll range is 0 at 1440x900, 1280x800, 1280x760, 1024x768 and 1440x1080. Frames: `after/sequence-*`, `cube-timeline-1440-*`, `cube-keyframes-1440-*`, `easing-1440-*`. |
+| KF-C5-02 (medium) | **The pane has one scroller again.** The cause is deeper than the critic's timing read. Since KF-C10-10 footed the pane, the ChannelControls host's `h-full` resolved, so the facets overflowed inside the host's own `overflow-y-auto` column. There, the rail's FadingScroll end fade, `useFoldLanding` and the figure's overflow test (all of which read `.controls-surface`) saw no overflow. The host is now `min-h-full shrink-0` with no inner scroller. The figure's fit is read by a ResizeObserver on the scroller and the section, and not once at mount; it latches when it closes, or on the reader's first press, key, wheel or toggle. When the fold lands on a row's foot, the ribbon keeps the pane's foot (`margin-block-start: auto`). | Spring Physics, both schemes: a closed **Peak overshoot** row (title foot 525, port 544), with no legend shown without its field, and scroll range 0. Cube, amiga and square Controls: the fold lands on the `layer` row's foot (cap 390) and the ribbon stands at the foot (544..749). Frames: `after/spring-1440-*`, `after/controls-pane-cube-1440-*`. |
+| KF-C5-04 (low) | The deck reads **"from the dock above, then press Play below."** The Lucide `List` glyph, which stood for a list that is no longer below, is deleted with its rule and import. | Home at 1440 and 390, both schemes: the deck text as written, and 0 glyphs in the deck. Frames: `after/home-*`. |
+
+**Cited (glass, not overridden)**
+- **KF-C5-03:** glass `SelectTrigger`'s chevron uses `in-data-[state=open]:rotate-180`. The `in-*` variant matches any ancestor, so the open ConfiguratorLayer turns every closed Select's caret up, and an opened menu does not flip it. This is the same defect as KF-C10-01, relayed beside **O-87** as a proportion and affordance rider: scope the rotation to the trigger's own state. There is no local counter-rotation (`after/controls-pane-cube-1440-*` still shows it).
+
+**Not cured (named, owner calls)**
+- **KF-C5-05:** the sans label column is a standing ruling, not drift. `demo/styles/font-roles.json`'s `control-label` role reads: "field labels are CONTROLS: Jakarta medium (T.D4 demoted them off the mono voice…)". Its `_monoContract` (T.D4, RULED) confines Fira Code to the data register: "A new demo-authored mono UI label reds the census". Both consume the OD-6 owner token. Reviving ORIGIN's mono caption labels would reverse T.D4, so it is an owner §0dm call. The critic's own clause provides for this.
+- **KF-C5-01, the 390 Square half:** the field is the isotropic [-1,1]² envelope: one px per unit on both axes, with the box covering 2x2 cells (KF-C5-04, r5). On the portrait phone plate the inline term binds (3 × size = the arena's inline size less its pad), so a square field cannot grow into the block. Filling the plate's body would need one of two changes, each reversing a prior ruling: an anisotropic field (y travel larger than x, which breaks the one measure), or a content-height plate (which reverses KF-C9-04's one stage height). Neither was made here. The owner chooses. Frames: `after/square-390-*`.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`, 28 pages): every static and chrome row is identical to pass 37 except one:
+- 310 shadow elements, 938 layers (max 6), 192 non-floating, 416 inset highlights, 278 backdrop blur, 54 control gradients;
+- the subject is 0 on every row.
+
+That row is **chrome looping animations 91 → 100.** Each added row is glass `Skeleton`'s `skeleton-breathe` in the booting CSSCodeEditor well, inside the force-mounted inactive Keyframes pane: cube, amiga, square and easing at 1440 in both schemes, and spring at 1440 light. This is pass 37's named row, now sampled at 1440 too. `cure/skeleton.log` measures `checkVisibility() === false` on it (`monaco-pane inactive`), so it is never painted. Its cure is still named for a later seat: filter the census's loop scan by visibility, or do not mount the booting Skeleton under a skipped pane. The verdict stays **RED**, held by the glass-owned rows and the KF-C3-02 loop row.
+
+**Gates** (the live tree: master `fa09924b`, plus another seat's one-line uncommitted `KeyframeTimeline.vue` hunk, the `panel-content` class)
+- `npm run check`: exit 0, twice.
+- `npm run lint`: exit 0, twice.
+- `vitest run --project demo --maxWorkers=2`: **928/928, 151 files, twice.**
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+- The served probe (`c5-probe.mjs`, 0 fails) is the falsifier for -01, -02 and -04.
+
+**Disclosures**
+- **The equal-row spread puts half a pitch above the clock and below lane 5,** not the critic's n-1 gaps from end to end. The rows share one pitch, the playhead and gridlines run the whole height, and the labels stay on their rows.
+- **The empty Timeline is centred, not grown.** A track that grows with nothing on it would be filler.
+- **The KF-C5-02 change re-enables the fold landing and the end fade on every ChannelControls host** (both had been inert since KF-C10-10). The Controls panes now land on the `layer` row's foot, 26 px above the ribbon's rule. The easing numbers above are measured with the landing live.
+- **KeyframeTimeline.vue** was dirty with another seat's hunk. Only this seat's hunks were staged (the index blob is HEAD plus this change), and that hunk stays in the working tree.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes with `--light`, check and lint with `--light --timeout 15`, the suites with `--light --rss-gb 4 --timeout 15`, and the census with `--light --timeout 20`.
+- Each probe and the census used one browser, closed in `finally`. The keyframes dev server on :5173 (a kept port, not this seat's) was reused.
+- Nothing of this seat's was left running.
