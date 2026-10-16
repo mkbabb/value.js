@@ -4816,3 +4816,21 @@ kf (8, pushed by the units; ⟨`git rev-parse --short origin/master`⟩ at this 
 - **Hygiene:** no server was started. The one e2e run went through `guarded`, and the roster closes its own browser. The worktree is left at `099a1627` as found.
 - **LEDGER:** the row stays PARTIAL (NOT-CONFORMANT). One event line was appended.
 - **Self-count:** ⟨`sed -n '/^## RESUME 3 — Check 1/,$p' KF-W13X.md | grep -c '^| C1r3-'`⟩ → 5 (2 HIGH, 3 INFO).
+
+## RESUME 3 — Repair 1
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, repair round 1 on RESUME 3 Check 1, 2026-10-16. Product bytes changed: 0 in kf, glass and value.js. Authority: KF-W13.md (spec read whole) · ADDENDUM (h) `:589-590` · ADDENDUM (i) `:592-593` · KF.W13X base close line `:530` · COHESION §0fj.
+- **Crash recovery:** ⟨`git status --porcelain -- execution/B/KF-W13X.md execution/LEDGER.md`⟩ → empty. In kf, the only dirty product path is `demo/components/instrument/timeline/KeyframeTimeline.vue`. It belongs to X-DS, is outside this seat's set, and was left untouched. No inherited partial work.
+- **Rulings re-read at the head:** ⟨`grep -c 'r3res2e-1\|r3res2f-1' COHESION.md`⟩ → **0**. ⟨`git log -1 --oneline -- COHESION.md`⟩ → `efa8d3fda` (§0fk, the F.REL ruling), so there is no ruling after §0fj. The spec has no addendum after (i), and (i) relieves only B7 SPECULAR-REST and SHEET-POSITION.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| C1r3-1 HIGH: `.r3res2e` and `.r3res2f` (kf half) are OPEN and unruled | **ESCALATED.** There are three paths to a cure. (a) A dated ruling that records KILLED-BY-DELETION by id, because the subject was deleted at kf `e8144b0c`. (b) An owner reinstatement of a lit channel. (c) A grant of the value.js publish, the kf pin bump from `4.0.0` and the `AnimationOptions` plumbing as one unit, or the kf half re-homed by id. Each needs an orchestrator or owner act: ruling, publish or pin grant. None is a byte inside KF.W13X §0fj's grants, and a repair seat cannot mint its own ruling or relief. | none | not moved; the COHESION count is 0 as re-read above |
+| C1r3-2 HIGH: e2e A3 ghost rail on mobile `#/sequence` is RED outside the honest-RED set | **ESCALATED.** The bisect places the regression at X-DS r7 pass 5 `fa09924b`: GREEN at `71480d85`, RED from `fa09924b` on. X-DS owns those bytes, and X-DS has the shared timeline file (`KeyframeTimeline.vue`) dirty right now. A KF.W13X edit there would break disjointness ("never commit or revert X-DS's dirty files", base `:532`). The A3 relief is not in §0fj 8. The cure is X-DS curing it at the root, or the orchestrator ruling A3 into the relief set by id. | none | no re-run, since no byte moved. The check's reading stands: `check-r3/a3-099a1627-r1.log.txt` RED. |
+| C1r3-3 INFO: a Check 3 cited e2e banked at an older head | Below MINOR; no cure owed. §0ev.2 already binds later reads. | — | — |
+| C1r3-4 INFO: the worktree's symlinked `node_modules` cannot load one test | Below MINOR. The main tree reads 155/941 ×2. | — | — |
+| C1r3-5 INFO: the `.r3res2c` live-region cadence | Below MINOR; a recorded residual (§0fj 3). | — | — |
+
+- **Gates:** no cure landed, so no gate could move, and none was re-run. The check's double-run figures stand as banked: check ×2, lint 457/1661 ×2, test:demo 155/941 ×2 (main tree), value.js css 487 ×2, E-6 15,644 ×2.
+- **Verdict:** NOT-CONFORMANT carries forward. Cured 0 of 2 at ≥MEDIUM, and both are escalated to the orchestrator for a ruling. No seat is at fault: both escalations are lawful.
+- **Self-count:** ⟨`sed -n '/^## RESUME 3 — Repair 1/,$p' KF-W13X.md | grep -c '^| C1r3-'`⟩ → 5 (re-read ×2: 2 HIGH escalated · 3 INFO; cured 0).
