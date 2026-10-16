@@ -1,0 +1,8 @@
+r1 A 6a5fea762 eager JS raw= 886610 gz= 280801 = 274.2 KiB (bar 286720 B) -> GREEN
+r1 B 92160802a eager JS raw= 1038080 gz= 315911 = 308.5 KiB (bar 286720 B) -> RED
+r1 C c8a4959dd eager JS raw= 1039563 gz= 319711 = 312.2 KiB (bar 286720 B) -> RED
+r1 D bcbc1c887 eager JS raw= 1095664 gz= 331631 = 323.9 KiB (bar 286720 B) -> RED
+r2 A 6a5fea762 eager JS raw= 886610 gz= 280801 = 274.2 KiB (bar 286720 B) -> GREEN
+r2 B 92160802a eager JS raw= 1038080 gz= 315911 = 308.5 KiB (bar 286720 B) -> RED
+r2 C c8a4959dd eager JS raw= 1039563 gz= 319711 = 312.2 KiB (bar 286720 B) -> RED
+r2 D bcbc1c887 eager JS raw= 1095664 gz= 331631 = 323.9 KiB (bar 286720 B) -> RED

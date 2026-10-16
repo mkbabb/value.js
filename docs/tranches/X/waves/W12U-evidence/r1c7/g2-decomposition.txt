@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+X-W12U Repair 5 (C7-1) - G2 eager JS gz decomposed by owner, A=6a5fea762 (X-W2 AFTER, glass 7.0.0) B=c8a4959dd~1 (last glass-7 tree) C=c8a4959dd (X-W7L.m repin 10.1.0) D=bcbc1c887 (HEAD at this seat)
+instrument: eager-attrib.mjs over 'vite build --mode gh-pages --sourcemap hidden' in detached worktrees (glass 7.0.0 tarball for A/B); per-chunk gz distributed pro rata over mapped raw bytes
+totals gz {'A': 280801, 'B': 315911, 'C': 319711, 'D': 331631} chunks {'A': 6, 'B': 8, 'C': 7, 'D': 9}
+value lib dist (src/**: subpaths/css.js + shared lib chunks)             A= 10749 B= 29707 C= 29706 D= 36600 | A->B +18958  B->C     -1  C->D  +6894  A->D +25851
+demo/**                                                                  A= 78291 B= 82534 C= 80642 D= 94432 | A->B  +4243  B->C  -1892  C->D +13790  A->D +16141
+reka-ui + its deps                                                       A= 44784 B= 59215 C= 65611 D= 52012 | A->B +14431  B->C  +6396  C->D -13599  A->D  +7228
+other npm / bundler (vue, vue-router, vueuse, lucide, keyframes, runtime) A= 70349 B= 70213 C= 69363 D= 72260 | A->B   -136  B->C   -850  C->D  +2897  A->D  +1911
+glass-ui                                                                 A= 76628 B= 74244 C= 74389 D= 76327 | A->B  -2384  B->C   +145  C->D  +1938  A->D   -301

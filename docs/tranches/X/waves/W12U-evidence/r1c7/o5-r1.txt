@@ -1,0 +1,10 @@
+SERVED MODEL: claude-opus-5-5
+o5-probe.mjs round r1; D=bcbc1c887 built dist (worktree) on :8193, A=6a5fea762 built dist on :8194; SwiftShader headless, 1280x720
+== D load={ 10.95 13.82 16.62 }
+[o5-probe D-r1 s1] mainVisible@441 frames=10 median=66.3 max=3077.9 (46.4x) gap=[399,3477] longtasks=[[34,337]] longtasksInGap=0 loafInGap=[{"start":428,"dur":3062,"block":0,"scripts":[["index-BtRFCvj2.js","import.then",8]]}] hero=[] canvas=true
+[o5-probe D-r1 s2] mainVisible@183 frames=143 median=21.1 max=353.4 (16.7x) gap=[2857,3210] longtasks=[[13,106]] longtasksInGap=0 loafInGap=[{"start":2857,"dur":354,"block":0,"scripts":[]}] hero=[["HeroBlob-CKr4ZxyM.js",2217]] canvas=true
+[o5-probe D-r1 s3] mainVisible@184 frames=168 median=20.7 max=337.0 (16.3x) gap=[2609,2946] longtasks=[[14,106]] longtasksInGap=0 loafInGap=[{"start":2610,"dur":341,"block":0,"scripts":[]}] hero=[["HeroBlob-CKr4ZxyM.js",1994]] canvas=true
+== A load={ 12.47 14.04 16.65 }
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/r1c7/o5-probe.mjs:27:32 {
+  name: 'TimeoutError'
+note: r1 A leg failed at the probe's selector (the A tree predates route-title); r2 waits on 'main' for A

@@ -1,0 +1,222 @@
+{"SERVED MODEL": "claude-opus-5-5",
+ "dist": "<scratch>/wtB/dist/gh-pages",
+ "eagerJs": {
+  "count": 8,
+  "raw": 1038080,
+  "gz": 315911
+ },
+ "chunks": [
+  {
+   "href": "./assets/index-BbnXf9Vp.js",
+   "raw": 548009,
+   "gz": 176692
+  },
+  {
+   "href": "./assets/rolldown-runtime-QTnfLwEv.js",
+   "raw": 694,
+   "gz": 423
+  },
+  {
+   "href": "./assets/vue.runtime.esm-bundler-DIj9Ffv0.js",
+   "raw": 109846,
+   "gz": 41725
+  },
+  {
+   "href": "./assets/_plugin-vue_export-helper-B3ysoDQm-D8DCkUZU.js",
+   "raw": 36265,
+   "gz": 13338
+  },
+  {
+   "href": "./assets/PaneHeader-D1G3AVBq.js",
+   "raw": 209132,
+   "gz": 52854
+  },
+  {
+   "href": "./assets/css-Dx4fwuv9.js",
+   "raw": 129540,
+   "gz": 29042
+  },
+  {
+   "href": "./assets/picker-color-CNHn83LD.js",
+   "raw": 4335,
+   "gz": 1629
+  },
+  {
+   "href": "./assets/prng-2uS6J_A1-Bldl5jAI.js",
+   "raw": 259,
+   "gz": 208
+  }
+ ],
+ "owners": [
+  {
+   "owner": "npm:@mkbabb/glass-ui",
+   "raw": 186224,
+   "gz": 74244
+  },
+  {
+   "owner": "npm:reka-ui",
+   "raw": 161313,
+   "gz": 48996
+  },
+  {
+   "owner": "other:subpaths/css.js",
+   "raw": 115173,
+   "gz": 25821
+  },
+  {
+   "owner": "npm:@vue/runtime-core",
+   "raw": 61260,
+   "gz": 23282
+  },
+  {
+   "owner": "demo/shell",
+   "raw": 48463,
+   "gz": 22476
+  },
+  {
+   "owner": "demo/color-session",
+   "raw": 44513,
+   "gz": 20344
+  },
+  {
+   "owner": "demo/palettes",
+   "raw": 32625,
+   "gz": 15131
+  },
+  {
+   "owner": "demo/picker",
+   "raw": 26089,
+   "gz": 12100
+  },
+  {
+   "owner": "npm:vue-router",
+   "raw": 22890,
+   "gz": 10616
+  },
+  {
+   "owner": "npm:@vue/runtime-dom",
+   "raw": 26642,
+   "gz": 10125
+  },
+  {
+   "owner": "demo/color-picker",
+   "raw": 18283,
+   "gz": 8479
+  },
+  {
+   "owner": "npm:@vue/reactivity",
+   "raw": 17557,
+   "gz": 6673
+  },
+  {
+   "owner": "npm:@mkbabb/keyframes.js",
+   "raw": 15254,
+   "gz": 5646
+  },
+  {
+   "owner": "npm:@lucide/vue",
+   "raw": 12593,
+   "gz": 5483
+  },
+  {
+   "owner": "npm:@vueuse/core",
+   "raw": 12968,
+   "gz": 4800
+  },
+  {
+   "owner": "npm:@internationalized/number",
+   "raw": 8235,
+   "gz": 3819
+  },
+  {
+   "owner": "demo/platform",
+   "raw": 5850,
+   "gz": 2713
+  },
+  {
+   "owner": "other:anchors-DtONOvhx.js",
+   "raw": 9106,
+   "gz": 2042
+  },
+  {
+   "owner": "npm:@floating-ui/core",
+   "raw": 7973,
+   "gz": 2024
+  },
+  {
+   "owner": "npm:@floating-ui/dom",
+   "raw": 7063,
+   "gz": 1793
+  },
+  {
+   "owner": "npm:@vueuse/shared",
+   "raw": 4103,
+   "gz": 1519
+  },
+  {
+   "owner": "npm:@vue/shared",
+   "raw": 3633,
+   "gz": 1381
+  },
+  {
+   "owner": "other:operations-CeP11Miy.js",
+   "raw": 5211,
+   "gz": 1168
+  },
+  {
+   "owner": "npm:@floating-ui/utils",
+   "raw": 3750,
+   "gz": 952
+  },
+  {
+   "owner": "demo/shared",
+   "raw": 2297,
+   "gz": 842
+  },
+  {
+   "owner": "other:subpaths/math.js",
+   "raw": 1796,
+   "gz": 665
+  },
+  {
+   "owner": "npm:ohash",
+   "raw": 2571,
+   "gz": 653
+  },
+  {
+   "owner": "demo/scenes",
+   "raw": 969,
+   "gz": 449
+  },
+  {
+   "owner": "npm:@floating-ui/vue",
+   "raw": 1728,
+   "gz": 439
+  },
+  {
+   "owner": "nomap",
+   "raw": 694,
+   "gz": 423
+  },
+  {
+   "owner": "npm:aria-hidden",
+   "raw": 1474,
+   "gz": 374
+  },
+  {
+   "owner": "npm:vue",
+   "raw": 696,
+   "gz": 265
+  },
+  {
+   "owner": "npm:defu",
+   "raw": 651,
+   "gz": 165
+  },
+  {
+   "owner": "other:result-CZJK1CwL.js",
+   "raw": 50,
+   "gz": 11
+  }
+ ]
+}

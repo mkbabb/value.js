@@ -1,0 +1,232 @@
+{"SERVED MODEL": "claude-opus-5-5",
+ "dist": "<scratch>/wtD/dist/gh-pages",
+ "eagerJs": {
+  "count": 9,
+  "raw": 1095664,
+  "gz": 331631
+ },
+ "chunks": [
+  {
+   "href": "./assets/index-BtRFCvj2.js",
+   "raw": 477887,
+   "gz": 157773
+  },
+  {
+   "href": "./assets/rolldown-runtime-QTnfLwEv.js",
+   "raw": 694,
+   "gz": 423
+  },
+  {
+   "href": "./assets/vue.runtime.esm-bundler-CZavfU-W.js",
+   "raw": 109858,
+   "gz": 41722
+  },
+  {
+   "href": "./assets/dist-pmtx1RBP.js",
+   "raw": 16460,
+   "gz": 6877
+  },
+  {
+   "href": "./assets/collapsible-DFzK29Oh-C5iJczKI.js",
+   "raw": 16902,
+   "gz": 6410
+  },
+  {
+   "href": "./assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js",
+   "raw": 26075,
+   "gz": 9324
+  },
+  {
+   "href": "./assets/PaneShell-CVQwfdyN.js",
+   "raw": 281168,
+   "gz": 72034
+  },
+  {
+   "href": "./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+   "raw": 1240,
+   "gz": 682
+  },
+  {
+   "href": "./assets/css-CgSD0JjG.js",
+   "raw": 165380,
+   "gz": 36386
+  }
+ ],
+ "owners": [
+  {
+   "owner": "npm:@mkbabb/glass-ui",
+   "raw": 198608,
+   "gz": 76327
+  },
+  {
+   "owner": "npm:reka-ui",
+   "raw": 163553,
+   "gz": 43405
+  },
+  {
+   "owner": "other:subpaths/css.js",
+   "raw": 150993,
+   "gz": 33221
+  },
+  {
+   "owner": "demo/shell",
+   "raw": 48798,
+   "gz": 24267
+  },
+  {
+   "owner": "npm:@vue/runtime-core",
+   "raw": 61268,
+   "gz": 23281
+  },
+  {
+   "owner": "demo/color-session",
+   "raw": 44031,
+   "gz": 22356
+  },
+  {
+   "owner": "demo/palettes",
+   "raw": 36123,
+   "gz": 18341
+  },
+  {
+   "owner": "npm:vue-router",
+   "raw": 22884,
+   "gz": 11619
+  },
+  {
+   "owner": "demo/picker",
+   "raw": 22746,
+   "gz": 11549
+  },
+  {
+   "owner": "npm:@vue/runtime-dom",
+   "raw": 26632,
+   "gz": 10120
+  },
+  {
+   "owner": "demo/app",
+   "raw": 18019,
+   "gz": 9149
+  },
+  {
+   "owner": "npm:@vue/reactivity",
+   "raw": 17557,
+   "gz": 6671
+  },
+  {
+   "owner": "npm:@lucide/vue",
+   "raw": 12827,
+   "gz": 6140
+  },
+  {
+   "owner": "npm:@mkbabb/keyframes.js",
+   "raw": 15257,
+   "gz": 5479
+  },
+  {
+   "owner": "npm:@vueuse/core",
+   "raw": 12143,
+   "gz": 5145
+  },
+  {
+   "owner": "demo/shared",
+   "raw": 9257,
+   "gz": 4505
+  },
+  {
+   "owner": "demo/platform",
+   "raw": 5922,
+   "gz": 3007
+  },
+  {
+   "owner": "npm:@internationalized/number",
+   "raw": 8235,
+   "gz": 2117
+  },
+  {
+   "owner": "npm:@floating-ui/core",
+   "raw": 7975,
+   "gz": 2051
+  },
+  {
+   "owner": "other:anchors-DtONOvhx.js",
+   "raw": 9120,
+   "gz": 2007
+  },
+  {
+   "owner": "npm:@floating-ui/dom",
+   "raw": 7076,
+   "gz": 1819
+  },
+  {
+   "owner": "npm:@vueuse/shared",
+   "raw": 4089,
+   "gz": 1732
+  },
+  {
+   "owner": "npm:@vue/shared",
+   "raw": 3638,
+   "gz": 1382
+  },
+  {
+   "owner": "other:operations-CeP11Miy.js",
+   "raw": 5217,
+   "gz": 1148
+  },
+  {
+   "owner": "npm:@floating-ui/utils",
+   "raw": 3759,
+   "gz": 967
+  },
+  {
+   "owner": "demo/workbenches",
+   "raw": 1659,
+   "gz": 842
+  },
+  {
+   "owner": "npm:ohash",
+   "raw": 2571,
+   "gz": 661
+  },
+  {
+   "owner": "npm:@floating-ui/vue",
+   "raw": 1733,
+   "gz": 446
+  },
+  {
+   "owner": "nomap",
+   "raw": 694,
+   "gz": 423
+  },
+  {
+   "owner": "demo/scenes",
+   "raw": 820,
+   "gz": 416
+  },
+  {
+   "owner": "npm:aria-hidden",
+   "raw": 1474,
+   "gz": 379
+  },
+  {
+   "owner": "npm:vue",
+   "raw": 705,
+   "gz": 268
+  },
+  {
+   "owner": "other:subpaths/math.js",
+   "raw": 592,
+   "gz": 213
+  },
+  {
+   "owner": "npm:defu",
+   "raw": 651,
+   "gz": 167
+  },
+  {
+   "owner": "other:result-CZJK1CwL.js",
+   "raw": 50,
+   "gz": 11
+  }
+ ]
+}
