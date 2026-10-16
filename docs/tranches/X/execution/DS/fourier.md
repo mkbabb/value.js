@@ -1445,3 +1445,39 @@ This is the cure seat for critic **F10X** (the redeploy's pass-10 critic, 2026-1
 - `equation-*-1440` (the T1 reading);
 - each in light and dark.
 - The /gallery cells have no AFTER, because C2 was refused and the gallery is unchanged from HEAD; the empty dev gallery at capture time is recorded in `f10x-probe.json`. The C2 trial frames are in `c2-refused/`, and the BEFORE frames in `before/`.
+
+### pass 11
+This is the cure seat for critic **F11X** (the redeploy's pass-11 critic, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-11/f11x/`. The other sets under `pass-11/` (the F13 cure set and `before/`) are left as they were.
+- fourier `4de08dc`, on `m/w1-bump-migration`, seven files, committed by pathspec and pushed fast-forward `01253e3..4de08dc`. The files: `AppDock.vue`, `HarmonicLevelGrid.vue`, `MorphShapePreview.vue`, `VisualizationView.vue`, `stores/workspace.ts`, `e2e/contrast-pairs.ts` and `e2e/f-w14u-misc.spec.ts`.
+- value.js `118dee34b` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F11X-C1 | **Cured with the finding's first arm.** The measured rule (§0fo.2) is kept, and its answer is now the same on every route. `fitNavLabel` tries the run with every section's name, plus "Sections" for routes off the five, one after another in microtask turns, so no trial name is ever painted. The name shows only if the run holds all of them. The fit re-runs on viewport resize, font `loadingdone` and sign-in/out, and no longer on a route switch. A generation counter makes the latest fit win. **Measured** (`f11x-probe.json`, both themes): at 390 every route (/, /paper, /gallery, /visualize, /equation, /morph) shows the glyph-only form; the dock is 303 px and the run is 279/279 with 0 px overhang. Before, the widths were 348 / 358 / 370 / 354 / 303. The accessible name still carries the section. It adds no breakpoint, no wrapper and no glass override. |
+| DS-F11X-C2 | **Cured.** The edge now belongs to one state. The `.is-bound:not(.active)` full-ink edge is deleted, and the selection keeps the accent edge and its 2px 15% ring. Both bounds, the active one included, are marked on the caption at `--foreground` and weight 600. The red active caption is retired, so the caption carries one meaning. **Measured:** n=5 has the resting 50% edge, no ring, and a caption of `rgb(28,25,23)` / 600 (dark: `rgb(233,230,226)`). n=50 has the accent edge with the ring, and the same caption ink and weight. The contrast pair **FMD-18** is restated as `[bound-tile-caption]` (text, foreground on card), and m254 now reads the caption ink. Identity is unchanged: the accent-red shapes, the mono captions and the press scale. |
+| DS-F11X-T1 | **Cured.** The loaders' fallback strings are exported once as `LOAD_FALLBACK` from `stores/workspace.ts` and used at both loaders. `stageErrorDetail` returns nothing for them, so the mono diagnosis line renders only for a problem that carries its own detail. **Measured** (route-intercepted `/api/visualizations/f11x-missing`): a bare 502 renders the h1 and the lede only. A 503 problem with a detail renders the detail as the third line. |
+| DS-F11X-T2 | **Cured, in a different form from the one the finding suggested.** The finding's premise does not hold. The stage column is the plate's ruled 26rem (416 px) at both 1024 and 1440, not 576. The four readings, with their longest-word reservations, need 483 px on one line (phase 166, n 51, shape 111, total 119, plus 3 × 12 gap). One wrapping row (tried first; e2e runs A and B ran on it) left "total" alone on the second line. The family is now one 2-column grid: **phase · n over shape · total**, two even rows with aligned columns, phase first. It is 297 px at 1440 and 280 px at 1024, with tops 616/616/646/646. The phone's one-column band is unchanged. The dead `.phase-reading` rules are deleted. |
+
+**Glass-owned, cited, not overridden.**
+- **DS-F11X-G0** has no new witness. Everything measured falls within the held rows: DS-F8X-G1/F6X-G1, DS-F2R-G1, DS-F4X-G1, DS-F2R-G2/O-88, DS-F-G1, DS-F3C-G1/F9X-G1, DS-F3C-G3, DS-F4X-G2 and DS-F3C-G2. These are held honest-RED on **O-87 FLAT-LIGHTING** and **O-88**, re-judged at the glass 10.2.0 repin, with no local override.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3131`; `f11x/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations.
+- **The rise from pass 9's 378 / 950 / 284 / 284 / 208 is data, not the cure.** Per page, it is all on /gallery: 2 more seeded cards (elements 112 → 129). Every other page is flat apart from −1 element at 390. Still RED on the glass rows.
+
+**Gates** (`f11x/gates.txt`).
+- On the final tree: `vue-tsc -b` 0, twice, and `vitest run --maxWorkers=2` 116/116 (20 files), twice, under `guarded --light`.
+- **e2e:** 22 specs (`e2e-specs.txt`): every spec that reaches the app dock, /morph's levels or readout, or the /v error stage, plus `contrast-floor`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8011` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3131`. Both were stopped at the end.
+  - Runs A and B, on the flex-wrap T2 form: 229/229, twice.
+  - Runs C and D, on the final tree: 229/229, twice.
+  - The pre-existing `f-w14u-d` d2 intermittent is outside this spec set.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-11/f11x/`). Headless real Chrome (channel `chrome`, DPR 2; §0ei; 390 with touch), `f11x-probe.mjs` against the final tree:
+- `dock-*-390-<route>` (the dock band) on /, /paper, /gallery, /visualize, /equation and /morph;
+- `morph-*-{1440,1024,390}-{readout,levels,levels-card}`;
+- `v-error-{bare,detail}-*-1440`;
+- each in light and dark.
