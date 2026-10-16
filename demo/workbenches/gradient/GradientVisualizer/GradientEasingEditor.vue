@@ -139,7 +139,11 @@ async function copyLiteral(index: number, css: string) {
             class="easing-row border border-card-edge overflow-hidden"
             :style="row.ink ? { '--motion-accent': row.ink } : undefined"
         >
-            <AccordionTrigger class="interval-head w-full flex items-center gap-2.5 py-2 text-left">
+            <!-- X-DS pass 7 (VC7-01): the inset rides the CLASS, which glass's
+                 AccordionTrigger merges onto its <button>; this file's scoped
+                 attribute lands on the trigger's root <h3>, so a scoped
+                 `.interval-head` rule never reached the button. -->
+            <AccordionTrigger class="interval-head w-full flex items-center gap-2.5 py-2 px-(--easing-inset) text-left">
                 <span class="font-mono text-mono-small text-muted-foreground shrink-0">{{ row.label }}</span>
                 <!-- The specimen label (t-easing-pane §7): endpoint dots +
                      the interval-true micro glyph + the curve's name. -->
@@ -260,9 +264,6 @@ async function copyLiteral(index: number, css: string) {
 .easing-row {
     border-radius: var(--easing-radius-outer);
 }
-.interval-head {
-    padding-inline: var(--easing-inset);
-}
 .easing-row-body {
     padding-inline: var(--easing-inset);
     padding-block-end: var(--easing-inset);
@@ -271,14 +272,18 @@ async function copyLiteral(index: number, css: string) {
     border-radius: var(--easing-radius-inner);
 }
 
-/* The specimen-row head: a whisper hover + the house focus register (the
- * accent-aware ring the keystone mints — never a bespoke outline). */
-.interval-head:hover {
-    background-color: color-mix(in oklab, var(--foreground) 4%, transparent);
+/* The specimen-row head: a whisper hover on the ROW's radius (X-DS pass 7,
+ * VC7-01). The head is glass's trigger <button>, which this file's scoped
+ * attribute never reaches, so the rule pierces from the row. It is square: the
+ * row's `overflow-hidden` clips it to the row's outer radius, instead of
+ * glass's pill `--radius-control` plate floating inside a 16px card. The focus
+ * register is glass's own (`.disclosure-trigger:focus-visible`, the house
+ * ring); this file's copy of it was dead and is gone. */
+.easing-row :deep(.interval-head) {
+    border-radius: 0;
 }
-.interval-head:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring-shadow);
+.easing-row :deep(.interval-head:hover) {
+    background-color: color-mix(in oklab, var(--foreground) 4%, transparent);
 }
 
 /* The endpoint dots: the interval's two stop colors over the checker

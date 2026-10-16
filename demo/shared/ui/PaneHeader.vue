@@ -179,6 +179,11 @@ const { level = 2 } = defineProps<{
      * that compensated for the old `pb-2` set the rhythm per instance, and on
      * four panes jammed the first row against the header band. */
     --pane-header-gap: var(--phi-3);
+    /* X-DS pass 7 (VC7-03): THE TITLE-TO-CAPTION GAP. glass's header gap is
+     * `--card-gap` = `--space-atom`, which halves to 0.25rem under 768px, so on
+     * phones the caption sat 4px under a display title that wraps to two lines.
+     * The pane header holds the desktop rung (0.5rem) at every width. */
+    --card-gap: 0.5rem;
     /* X-DS pass 9 (V9C-02): THE PANE-TITLE RUNG — display-1, floored one
      * full rung ABOVE heading (the title rung, 2.058rem). display-1's clamp
      * floor-pins AT heading on phones (1.618rem = 25.9px), which left the pane
