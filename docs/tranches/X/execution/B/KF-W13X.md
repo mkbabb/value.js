@@ -4878,3 +4878,19 @@ kf (8, pushed by the units; ⟨`git rev-parse --short origin/master`⟩ at this 
 - **Hygiene:** no dev server was started. The roster closes its own browser. The worktree is returned to `099a1627`, as found.
 - **LEDGER:** the row stays PARTIAL (NOT-CONFORMANT). One event line was appended.
 - **Self-count:** ⟨`sed -n '/^## RESUME 3 — Check 2/,$p' KF-W13X.md | grep -c '^| C2r3-'`⟩ → 3 (2 HIGH, 1 INFO).
+
+## RESUME 3 — Repair 2
+
+- **SERVED MODEL:** claude-opus-5-5. Track B, repair round 2 on RESUME 3 Check 2, 2026-10-16. Product bytes changed: 0 in kf, glass and value.js. Authority: KF-W13.md (spec read whole) · ADDENDUM (h)/(i) · base close line · COHESION §0fj.
+- **Crash recovery:** ⟨`git status --porcelain -- execution/B/KF-W13X.md execution/LEDGER.md`⟩ → empty. The only dirty kf product path is still X-DS's `demo/components/instrument/timeline/KeyframeTimeline.vue` (1+/1−). It is outside this seat's set and was left untouched.
+- **Rulings re-read at the head:** ⟨`grep -c 'r3res2e-1\|r3res2f-1' COHESION.md`⟩ → **0**. ⟨`git log -1 --format=%h -- COHESION.md KF-W13.md`⟩ → `efa8d3fda` (§0fk, F.REL), so there is no ruling and no addendum after (i). kf HEAD is `57fb241a`, the same head Check 2 read A3 RED at.
+
+| defect | cure | commit | gate re-reading |
+|---|---|---|---|
+| C2r3-1 HIGH: `.r3res2e` and the kf half of `.r3res2f` are OPEN and unruled | **ESCALATED, round 2.** Every cure path needs an act outside this seat. (a) KILLED-BY-DELETION by id for r3res2e is a dated COHESION ruling, which belongs to the orchestrator. (b) r3res2f needs a value.js publish, a kf pin bump from `4.0.0` and `AnimationOptions` plumbing. The pin is excluded by the adjacent-line rule, and the publish needs an orchestrator or owner grant as one unit. | — | not re-run: no bytes moved |
+| C2r3-2 HIGH: e2e A3 ghost rail on mobile `#/sequence` is RED outside the honest-RED set | **ESCALATED, round 2.** The regression was introduced by X-DS `fa09924b` (bisect: `71480d85` GREEN). X-DS owns those bytes and holds `KeyframeTimeline.vue` dirty. A KF.W13X edit would break track disjointness, and it is not adjacent-line, because the concern belongs to X-DS. The cure is an X-DS root fix, or the orchestrator rules A3 into the §0fj 8 relief set by id. | — | not re-run: kf HEAD unchanged at `57fb241a` |
+| C2r3-3 INFO: guard starvation | Below MINOR; none owed. | — | — |
+
+- **Gates:** no cure landed, so no gate could move. Check 2's double-run figures stand: check ×2, lint 457/1661 ×2, test:demo 155/941 ×2, value.js css 487 ×2, E-6 15,644 ×2.
+- **Verdict:** NOT-CONFORMANT carries forward. Cured 0 of 2 at ≥MEDIUM; both are re-escalated to the orchestrator. **A further check/repair cycle cannot move this wave until one of those rulings lands.**
+- **Self-count:** ⟨`sed -n '/^## RESUME 3 — Repair 2/,$p' KF-W13X.md | grep -c '^| C2r3-'`⟩ → 3 (re-read ×2: 3/3; 2 HIGH escalated · 1 INFO; cured 0).
