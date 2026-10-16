@@ -47,5 +47,12 @@ test("admin tag delete DELETEs /admin/tags/<name>", async ({ page }) => {
         .getByRole("button", { name: "Delete tag ew3-doomed" })
         .filter({ visible: true })
         .dispatchEvent("click");
+    // X.W7.e (G14 · W7.89 · ATP-1): the destructive seat opens a confirm and
+    // DELETEs only from the dialog's own verb (X-W12U .q re-points the flow).
+    expect(deleteCalled, "no DELETE before the confirm").toBe(false);
+    await page
+        .getByRole("dialog", { name: "Delete tag?" })
+        .getByRole("button", { name: "Delete tag" })
+        .click();
     await expect.poll(() => deleteCalled).toBe(true);
 });
