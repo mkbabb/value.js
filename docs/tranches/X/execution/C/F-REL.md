@@ -1565,3 +1565,49 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-15 23:36 – 202
 - R-mem2l-2: the shared Docker VM disk is near full (52 of 59 GB after the prune). It starves the shared dev Mongo, and other seats' images make up most of it. This is named for the owner/`.vb`/`.g` seats and is not this unit's to prune further.
 
 **Escalations:** none. **Status: DONE.** Next: `.w` (re-sit).
+
+### F-REL.w — re-sit 3 (RESUME 2026-10-15 (c); after `.mem2` landed `e89b032`)
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~03:50– local. Spec read whole (`fourier/waves/F-REL.md`, 54 lines; addendum (a) `.w` L41); COHESION §0ev, §0ew bullet 2, §0ex, §0ff and the later addenda read to the file end (L4005). ⟨`grep -n 'ESC-FREL-w' COHESION.md`⟩ → 0 lines: w-1 and w-2 are still unruled.
+
+**Crash recovery.**
+- fourier: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only. Nothing dirty in the writable set (`web/src/**`, `producer-held.json`, `playwright.config.ts`, `ci.yml`); the X-DS paths named in the lock are clean at HEAD. Inherited nothing. ⟨`git fetch` + `git status -sb`⟩ → in sync with origin at `e89b032`.
+- value.js: `F-REL.md` clean. **`V/coordination/INBOX.md` was dirty: truncated to 2 lines** (596 B, mtime 2026-10-16 00:00; ⟨`git diff --stat`⟩ → `627 deletions`). Its one surviving line is the O-94a receipt, already in HEAD `20b364d5a`, so the working copy is a killed writer's overwrite with no live writer (§0ex). It is corrected forward: HEAD's 629 lines plus this unit's sweep line (the truncated bytes kept at `~/.fourier-frel/inbox-truncated-2026-10-16.md`).
+
+**E13.** ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination, keyframes-v-exec V/coordination, atlas P/coordination> -maxdepth 1 -type f -newer <00:00:47>`⟩ → 0 letters (glass `BL/FORMATION-PROGRESS.md` only, a formation file). ⟨`git show HEAD:INBOX.md | grep -E '^\| I-' | grep -c '| UNREAD'`⟩ → `0`. **0 UNREAD.**
+
+**Acts, in order.**
+1. **vue-tsc ×2 and vitest ×2 at `e89b032`** (main tree; ⟨`guarded --light -- npx vue-tsc -b --force`⟩, ⟨`guarded --light -- npx vitest run --maxWorkers=2`⟩; logs `~/.dev-logs/frel/w3-{vuetsc,vitest}-r{1,2}.log`) → vue-tsc rc 0 with 0 lines ×2; vitest `Test Files 20 passed (20)` / `Tests 116 passed (116)` ×2. **GREEN ×2.**
+2. **The post-`.mem2` CI e2e, read whole** (the w-2 (a) witness). ⟨`gh run view 38868934803 --json conclusion,jobs`⟩ (dispatched by `.mem2` at headSha `e89b032`, 07:42:34Z → 08:22:47Z) → `failure`: `api/tests success` · `web (vue-tsc + vite build) success` · `production compose boot + health success` · `e2e … failure`. ⟨`gh run view 38868934803 --log --job 116868180626 > ~/.dev-logs/frel/w3-ci-e2e.log`⟩ → 10,963 lines; the Playwright step isolated to `w3-pw.log` (1,429 lines). This is the first CI run since tranche J in which the suite **finished** (the runs at `c6a242d` and `512f5a9` were killed at the 1024 BiRefNet extraction).
+   - ⟨`grep -c '✓' w3-pw.log`⟩ → `522` result lines; ⟨`grep -c '✘'`⟩ → `16` (attempts, retries included); 3 `-` (the three pre-existing `visualization-crud.spec.ts:641` `test.fixme` keystones, untouched).
+   - **Failing after both retries, 5 tests in 2 families:** `contrast-floor.spec.ts:82` light arm (18 of 36) and dark arm (10 of 36), `:128` re-derivable expressions (6 awaiting); `visual-checkpoint.spec.ts:123` item 5 `checkpoint-card-modal` (`289 pixels (ratio 0.01)` ×3) and `:164` item 3 `checkpoint-disclosure-body` (✘ ×3).
+   - **Flaky, passed on retry #1:** `f-w14-uia.spec.ts:457` UIA-F-42 (✘ 6.3 s, then ✓). Reported as a flake under §0ev.2, not masked (CI's `retries: 2` is the config's standing value, not added here).
+3. **w-2: the 19 latency rows re-read on CI, all GREEN.** ⟨`grep -E '^  [✓✘-] ' w3-pw.log | grep -E 'equation-interaction|UIA-F-3[234]|au3.*L1-(6|13)|eq2|visual-baseline.*equation|f-w13-radius|visualization-crud|visualization-ux' | awk '{print $1}' | sort | uniq -c`⟩ → `36 ✓ · 3 -` (the 3 are the `fixme` keystones above, not latency rows). Named: S2 `equation-interaction:77` ✓; UIA-F-32 ✓, UIA-F-33/34 ×2 ✓; au3 L1-6 ✓ (11.9 s), L1-13 ×4 ✓; eq2 q1, q2, frames ×4 ✓; visual-baseline equation 375/1280/1440 ✓; f-w13-radius frames 1/2/5 ✓; visualization-crud lifecycle ×3 + ExportModal ×3 ✓; visualization-ux 128/145/332 ✓. **ESC-FREL-w-2 is discharged by its own route (a)**: on an uncontended runner, with `.mem2`'s bounded extraction, every latency row passes on its first attempt. It was the host, not the product.
+4. **contrast-floor ×3, read at the bytes.** The CI rows are identical to the 10-14 reading (light 18/36, dark 10/36, the same 6 awaiting a stack; the three DRIFT rows are AA-3 and GAB-1 tier numerals, live readings). ⟨`git log -1 --format=%h -- web/e2e/contrast-pairs.ts`⟩ → `a6d317d` (unchanged). Re-checked at `e89b032`: ⟨`grep -rn info-chip web/src`⟩ → 2 comment lines in `MorphShapePreview.vue` (L39, L327: "the eight `.info-chip` rules are DELETED"); ⟨`grep -cE 'foreground/12|foreground/30|placeholder:.*foreground/40' UserSlugBar.vue`⟩ → `0`; ⟨`grep -cE 'muted-foreground[^-]' PaperSearchModal.vue`⟩ → `0`. The failing stacks name chrome `web/src` no longer paints, so **no `web/src` edit can move them**; the frozen oracle still blocks. **ESC-FREL-w-1 is re-escalated by name** (below).
+5. **visual-checkpoint ×2 → `.vb`, by name.** `.vb` read both GREEN ×2 in the v1.61.0-noble image at `3084b6c`. Since then three X-DS web commits landed (⟨`git log --oneline 3084b6c..e89b032 -- web/src`⟩ → `9c82849` ConvergenceLegend + BasisSelector, `52a68a0` PaperTocTree's state fills, `6f2748e` a GalleryCard comment), none of which re-baselined a checkpoint (the §0ew standing rule). `52a68a0` touches the disclosure/ToC register (item 3). The card modal's 289 px is not explained by a `web/src` byte (the GalleryCard hunk is a CSS comment) and sits beside R-vb-1 (the modal's view-count text). Both are golden questions for the next unit, `.vb`, which owns `visual-checkpoint.spec.ts-snapshots/**`. Not a `.w` consumer defect: no `.w`-owned row.
+6. **Producer-held manifest: no change.** The honest-red step ⟨`Producer-held set … still RED as declared`⟩ → success, with `13 failed` (the 8 rows / 13 tests, each failing on its own token). No new producer-owned failure appeared, so no row is added and no BK relay is owed.
+
+**Gates BEFORE → AFTER (re-sit 3).**
+
+| Gate | BEFORE | AFTER | Verdict |
+|---|---|---|---|
+| e2e GREEN outside the manifest on the post-`.mem2` CI | not readable (CI killed at extraction; `.mem2` unlanded) | CI `38868934803` at `e89b032` finished: 5 RED after retries = contrast-floor ×3 (w-1) + visual-checkpoint items 3 and 5 (`.vb`); UIA-F-42 flaky | **RED** (w-1; `.vb`) |
+| w-2: the 19 latency rows | RED ×3 locally at load 120–200 (10-09); unread since | all ✓ on CI, first attempt (act 3) | **GREEN** (w-2 discharged, route (a)) |
+| contrast-floor ×3 | RED (18 L / 10 D / 6 awaiting) | RED, identical rows on CI; oracle `a6d317d` unchanged; no `web/src` stack paints them | **ESCALATED** (ESC-FREL-w-1) |
+| manifest printed by CI | printed at `c6a242d` | ⟨run 38868934803, step "Producer-held manifest"⟩ → `Producer-held e2e rows excluded from the gate: 8` + the `test | O-id | expiry` table; honest-red step success (`13 failed` as declared) | **GREEN** |
+| vue-tsc ×2 | rc 0 ×2 at `3d2f80d` | rc 0, 0 lines ×2 at `e89b032` | **GREEN** |
+| vitest ×2 | 116/116 ×2 at `3d2f80d` | 116/116 (20 files) ×2 at `e89b032` | **GREEN** |
+
+**Commits.**
+- fourier: none. No `.w`-owned `web/src` defect exists at `e89b032` (the RED set is the oracle and the goldens); `0a88d44` and `7f807a3` stand and were not redone.
+- value.js: the INBOX correction + sweep line (`docs(V·INBOX)`), and this record (`docs(X·exec) F-REL.w`).
+
+**Adjacent edits.** None. **Inherited:** value.js `V/coordination/INBOX.md` truncated to 2 lines by a dead writer at 00:00 — corrected forward to HEAD's bytes plus this unit's sweep line (Crash recovery).
+
+**ESC-FREL-w-1 — re-escalated by name (unruled since 2026-10-09; ⟨`grep -n 'ESC-FREL-w' COHESION.md`⟩ → 0).** contrast-floor ×3 is the only `.w` gate still RED, and it is RED solely on the frozen oracle `web/e2e/contrast-pairs.ts` (`a6d317d`), outside `.w`'s writable set. The rows, read from CI `38868934803` at `e89b032`, are exactly the 10-14 rows listed in sitting 2 above (light 18: FR-MSP-7, HLG-37, FR-USB-5 ×3, PSM-4 ×3, FR-EQR-7, GAB-1 ×4, AA-3 ×5; dark 10: FR-MSP-7, HLG-37, FR-USB-5 ×3, PSM-4 ×3, GAB-1 ×2; awaiting 6: FR-CP-D1, ECD D-5, ECD D-6, EV D·D-B3, PS D-B2, PV D/M-8). The ruling asked is unchanged: **(a)** grant `web/e2e/contrast-pairs.ts` (and the F-W4 §4 pair list) to a `.w` re-sit, to re-point every stale stack at the chrome X-DS now paints and split the producer rows (`GAB-1[--tier-*]`, `HLG-37[grid-cell-fill]`) into the manifest with a BK relay; or **(b)** rule the stale and awaiting pairs discharged where X-DS rebuilt the painter. Until then G-w cannot be GREEN outside the manifest, and `.g` stays locked behind it.
+
+**Handed to `.vb` by name:** `checkpoint-disclosure-body` (item 3; X-DS `52a68a0` changed the ToC register without a re-baseline) and `checkpoint-card-modal` (item 5; 289 px, linux) — re-read in the v1.61.0-noble image at `e89b032`.
+
+**Residuals.** R-w1..R-w3 carry. UIA-F-42 is a reported CI flake (passed on retry #1). Host carries 1–6 from sitting 2 carry. **E13:** 0 UNREAD; no new producer row, so no BK relay.
+
+**Status: ESCALATED** (ESC-FREL-w-1). Gates GREEN: w-2 latency ×19, manifest printed by CI, vue-tsc ×2, vitest ×2.
