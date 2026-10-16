@@ -1482,3 +1482,43 @@ Groups: `[[F-REL.mem3], [F-REL.mem2], [F-REL.w], [F-REL.vb], [F-REL.g], [F-REL.d
 | F-REL.d | §Units `.d` (F-REL.md:32-38) | `scripts/**` (the prod-verify probe); value.js `docs/tranches/X/fourier/evidence/F-REL/` | smoke GREEN; cert > 14 d; no outage (health polled through the deploy); `scripts/prod-verify.mjs` 20/20; openapi has publish/remix/diff; PATCH preflight 2xx | deploy only via the standing workflow + webhook; the host is never hand-edited; R-h1/R-h2 named; the two 10-09 draft rows are residual R-7 |
 
 ## RESUME 2026-10-15 (c) — Unit receipts
+
+### F-REL.mem3
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-15 ~20:00–21:35 local. Spec: COHESION §0ff ruling 1 (L3922-3926); F-REL.md addendum (c) (L48-54); this record's RESUME (c) Unit plan row.
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ in fourier, read against the writable set (`tests/test_contour_strokes.py`, `tests/fixtures/**`) → nothing dirty there. Inherited nothing. The five `.mem2` paths and the two X-DS web paths were left alone. `.worktrees/f-ct3` was never touched.
+
+**Lock.** `.worktrees/heavy.lock` was held by `F.CT3 r1 (seat 3) … pid 94482`. I waited, polling every 5 s, took it with a no-clobber write at 00:04:50Z, touched it every 20 s, and released it at 01:30:34Z (⟨`cat ~/.fourier-frel/mem3/lock.state`⟩). Every heavy run went through `~/.claude/guard/guarded` with `COMPUTE_CONCURRENCY=1`. My first gate attempt sat for 55 minutes in a stale guard admission wait (`guarded` was re-versioned mid-wait; later runs logged `waited=0s`). I killed only my own waiter, pid 76208, which had no children, and re-ran.
+
+**Act 1: derive the fixture at `512f5a9`.**
+- ⟨`git archive 512f5a9 src | tar -x -C ~/.fourier-frel/mem3/src512`⟩ produced a scratch copy. The tree's dirty `.mem2` `ml.py` was never read into the derivation.
+- ⟨`PYTHONPATH=…/src512/src … guarded … .venv/bin/python derive_human_leaf.py . tests/fixtures/human-leaf.png`⟩ printed:
+  - `ml.py: /Users/mkbabb/.fourier-frel/mem3/src512/src/…/ml.py`
+  - `model: birefnet-general-lite 1024 5600024376…3333`; the model file's sha256 is the same
+  - `image sha256: f10bbb43…3c888`
+  - `source: face-parsing shape: (1024, 1024)`
+  - `mask 364211 removed 32296 (0.0887) components 34 leaf 30797 (0.9536 of removed)`
+  - `wrote … sha256 806d371d…6f16`
+- Run 1 had a 14 GB cap. Guard killed it at teardown with `RSS 14.5 GB`, after the file was written and round-trip-asserted. Run 2 used `--rss-gb 16` and wrote to scratch: rc 0, the same readings, and the same file sha `806d371d…6f16`. The derivation is deterministic ×2.
+- Fixture: `tests/fixtures/human-leaf.png`, PNG mode `1`, 1024², 30,797 px, rows 425–794, cols 197–335.
+- Provenance is in `tests/fixtures/human-leaf.md`: source image and sha, model and sha, code at `512f5a9`, derivation, command, and file sha. The script is banked beside it as `tests/fixtures/derive_human_leaf.py`. Log: `~/.dev-logs/frel/mem3-derive{,-2}.log`.
+
+**Act 2: re-premise the one test.**
+- `test_person_cut_removes_what_stands_beside_the_sitter` now reads `mask, _ = subject_mask(image, config)`, then `mask = mask | np.asarray(Image.open(fixtures/human-leaf.png)).astype(bool)`, then `part_labels(image, mask)`. The docstring names the fixture.
+- ⟨`git show 6b46ef1 -- tests/test_contour_strokes.py | grep -c '^[-+].*assert'`⟩ → `0`. All six `assert` lines are byte-identical: `source == "face-parsing"`, the 3 % share, one object above 90 %, under 5 % person, and the sitter whole above 95 %.
+- No other test changed. The hunks are L506-514 (docstring and `PIL` import) and L524-528 (the union).
+
+**Act 3: gates** (log `~/.dev-logs/frel/mem3-gates.log`; the product = the tree with `.mem2`'s uncommitted `ml.py`, ⟨`grep -n 'birefnet-lite-512\|input_size=512' src/…/ml.py`⟩ → L81/84/87; imported from the tree, ⟨`python -c 'import …ml; print(ml.__file__)'`⟩ → `…/fourier-analysis/src/…/ml.py`):
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| person-cut test GREEN ×2 on the product | banked: 1 failed / 175 ×3 (0.44 % of the mask removed vs 3 %); no fixture | ⟨`guarded … pytest -q tests/test_contour_strokes.py::test_person_cut_removes_what_stands_beside_the_sitter`⟩ → `1 passed in 4.77s` · `1 passed in 5.18s` (01:29:35Z, 01:29:44Z; load 10) — **GREEN ×2** |
+| falsifier RED with the person cut disabled by local revert | — | scratch copy of the tree `src/` with `parts.py:383` `subject = person_cut(rgb, subject)` deleted (⟨`diff`⟩ → `383d382`; never in the tree, never committed), imported (⟨`parts: …/src-falsifier/src/…/parts.py`⟩) → `assert np.int64(1705) > (0.03 * np.int64(362348))` at `tests/test_contour_strokes.py:536`, `1 failed` — **RED as required** |
+| assertions byte-identical | reference text (Baseline) | ⟨`grep -c '^[-+].*assert'`⟩ on the commit → `0` — **GREEN** |
+
+**Commit** (fourier, `m/w1-bump-migration`, local only, NOT pushed — the `.mem2` landing seat pushes both together, §0ff ruling 2): ⟨`git fetch` + `git pull --ff-only`⟩ fast-forwarded `512f5a9 → 9c82849` (X-DS web-only: `ConvergenceLegend.vue`, `BasisSelector.vue`; no `src/`/`tests/` path, so the gate readings hold) → **`6b46ef1`** `test(contours · F.REL .mem3): …` (5 files, +86/−3), pathspec commit; ⟨`git status -sb`⟩ → `[ahead 1]`; ⟨`git show HEAD:tests/fixtures/human-leaf.png | shasum -a 256`⟩ → `806d371d…6f16` (= derived).
+
+**Adjacent edits** (§0bt): `.gitignore:94` `+!tests/fixtures/*.png` — the blanket `*.png` ignore (`.gitignore:91`) refused the fixture (⟨`git check-ignore -v`⟩ → `.gitignore:91:*.png`); the negation follows the file's own `!assets/**/*.png` / `!docs/**/*.png` idiom. It is a different hunk from `.mem2`'s granted `!scripts/export-birefnet-lite.py` (near L58-68); `.gitignore` was clean before and after.
+
+**Residuals:** none for this unit. F.CT3 takes this test as its merge-forward base (§0ff ruling 3). **Escalations:** none. **Status: DONE.**
