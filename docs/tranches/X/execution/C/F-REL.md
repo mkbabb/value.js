@@ -1660,3 +1660,44 @@ Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~08:20–08:4
 **E13.** ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0; ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`. No producer row, so no BK relay.
 
 **Status: DONE** (unit gates GREEN ×2 ×2; no-op re-baseline), with ESC-FREL-vb-1 handed to `.g`.
+
+### F-REL.g — sitting 5 (RESUME 2026-10-15 (c); the merge lock read at the bytes after `.vb` re-sit 4)
+
+SERVED MODEL: claude-opus-5-5. Seat 2026-10-16 ~04:35– local. Spec read whole (`fourier/waves/F-REL.md`, 54 lines; §Units `.g` L31, §Gates L39, addenda (a)–(c)); COHESION §0ew last bullet (L3789) and the later addenda to the file end (L4005) grepped for `ESC-FREL` → the last F.REL ruling is §0ff (L3915-3930); ⟨`grep -c 'ESC-FREL-w-1\|ESC-FREL-vb-1' COHESION.md`⟩ → `0`. **Status: ESCALATED. No merge, no push to master, no fourier commit.** Lock arm 1 is now met; arm 2 is not.
+
+**Crash recovery.** ⟨`git -C fourier-analysis status --porcelain`⟩ → ` M web/e2e/f-w14-control-row.spec.ts` · ` M web/src/components/paper/PaperTocBar.vue` · ` M …/PaperTocDrawer.vue` · ` M web/src/components/ui/SliderControl.vue` · `?? .worktrees/`. The one path inside this unit's set, `f-w14-control-row.spec.ts` (mtime 10-16 04:32, minutes before this seat), is **not a predecessor `.g` seat's work**: its diff (read whole) cites "X-DS pass 7 · DS-F7X-C2" (an `inline` row kind for the one-line slider rows) and moves together with the three dirty `web/src` paths (`SliderControl.vue` et al.), i.e. the live X-DS fourier pass-7 writer. It is a different concern and another lane's in-flight edit, so it is **left untouched** (not adopted, not staged). value.js: `execution/C/F-REL.md` clean.
+
+**Seat-0 brief, act by act.**
+1. **Fetch.** ⟨`git fetch -q origin`; `git rev-parse --short HEAD origin/m/w1-bump-migration origin/master`⟩ → `e89b032` · `e89b032` · `ad62881`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `1 448`.
+2. **Lock arm 1 — `.mem2` landed: MET.** `e89b032` (`fix(contours · F.REL .mem2)`) is on `origin/m/w1-bump-migration` with `.mem3` `6b46ef1` beneath it; the `.mem2` landing receipt above reads G-mem, G-mem2, G-iou, pytest `tests/` and api pytest GREEN ×2 and CI 38868934803 api ✓.
+3. **Lock arm 2 — m/w1 CI e2e GREEN outside the manifest: UNMET.** ⟨`gh run list --branch m/w1-bump-migration --limit 3`⟩ → `38868934803 failure e89b032` (newest; no later run) · `38824079821 failure 512f5a9` · `38452213569 failure c6a242d`. Run 38868934803 is the one `.w` re-sit 3 read whole: 5 tests RED after retries outside the 8-row manifest — contrast-floor ×3 (`contrast-floor.spec.ts:82` light 18/36 + dark 10/36, `:128` 6 awaiting) and visual-checkpoint items 3 (`checkpoint-disclosure-body`) and 5 (`checkpoint-card-modal`, 289 px). HEAD has not moved since that run, so no new CI reading can differ in bytes.
+4. **Merge dry-run (not performed).** ⟨`git merge-tree --write-tree --name-only origin/master origin/m/w1-bump-migration | grep -i conflict`⟩ → `CONFLICT (content): Merge conflict in .gitignore` — still the sole conflict; its resolution (m/w1's side whole) waits for the merge.
+
+**Why the merge is withheld, and why no cure is taken here (no substitute).**
+- Both RED families sit on escalations that are open and unruled: **ESC-FREL-w-1** (the frozen oracle `web/e2e/contrast-pairs.ts` at `a6d317d`; the failing stacks name chrome `web/src` no longer paints) and **ESC-FREL-vb-1** (items 3/5 RED on CI's `ubuntu-latest` renderer, GREEN ×2 ×2 in the docker image; the item-5 race in `web/e2e/fixtures/gallery.ts`'s list-body answer to the detail GET).
+- `web/e2e/**` is inside this unit's file bound, but the cures for both are rulings already asked of the owner (w-1 (a)/(b); vb-1 (a) fixture, (b) CI `container:` or CI-minted goldens, (c) a reporter). Re-premising a frozen oracle or choosing the CI renderer in a merge seat would pre-empt those rulings (E-3), and the seat-0 brief's stop rule binds: arm unmet → ESCALATE, do not merge.
+- A master push would also fire the host webhook deploy (R-h2) ahead of `.d`.
+
+**Gates (BEFORE → AFTER).** Heavy readings are cited, not re-run: HEAD is byte-identical to the banked readings (`e89b032`), and the main tree carries the live X-DS pass-7 `web/src` edits, so a local run here would measure another lane's partial work.
+| Gate | BEFORE (sitting 4, `512f5a9`) | AFTER (this sitting, `e89b032`) | Reading |
+|---|---|---|---|
+| m/w1 CI e2e GREEN outside the manifest | RED (38824079821, killed at the 4th extraction) | **RED** (38868934803 finished: contrast-floor ×3 + visual-checkpoint 3/5) | **RED** (w-1, vb-1) |
+| master CI GREEN with honest-RED set + manifest explicit | not reached (unmerged) | not reached (unmerged); m/w1: api ✓ web ✓ prod-compose ✓ manifest printed (8 rows, honest-red step ✓ `13 failed` as declared) e2e ✗ | **RED** (not reached) |
+| web vue-tsc ×2 | rc 0 ×2 | rc 0, 0 lines ×2 (banked, `.w` re-sit 3 at `e89b032`) | GREEN |
+| web vitest ×2 | 116/116 ×2 | 116/116 ×2 (banked, same) | GREEN |
+| web e2e ×2 | RED | RED on CI (above); `.vb` visual-checkpoint GREEN ×2 darwin + ×2 v1.61.0-noble | RED |
+
+**Commits.** fourier: none. value.js: this record only.
+**Adjacent edits.** None.
+
+**Escalation — ESC-FREL-g-6 (restates g-5 at `e89b032`; the `.mem2` arm is discharged).** `.g` cannot merge until e2e is GREEN outside the manifest, which needs, in order:
+1. A ruling on **ESC-FREL-w-1** (contrast-floor ×3: grant the oracle `web/e2e/contrast-pairs.ts` + the F-W4 §4 pair list to a `.w` re-sit, or rule the stale rows out by name).
+2. A ruling on **ESC-FREL-vb-1** (items 3/5: (a) the `gallery.ts` detail-route stub + item-5 re-baseline; (b) CI e2e in `mcr.microsoft.com/playwright:v1.61.0-noble` or CI-minted linux goldens; (c) a CI reporter artifact).
+3. A fresh m/w1 CI dispatch read GREEN outside the manifest; then `.g` re-sits: fetch, merge (`.gitignore` → m/w1's side whole), push without force, master CI ×2.
+`.d` stays blocked behind `.g`.
+
+**Residuals.** The merge, master push, master CI ×2 and the `.d` hand-off are not reached. UIA-F-42 CI flake (retry #1) carries from `.w`. The X-DS pass-7 dirty `f-w14-control-row.spec.ts` lies in `.g`'s bound but belongs to that lane; if it lands before `.g`'s re-sit, the next CI read includes it.
+**Teardown.** No server, browser, container or CI watcher started.
+**E13.** ⟨`find <value V, V/coordination, glass BK/coordination, BL, BL/coordination> -maxdepth 1 -type f -newer INBOX.md | wc -l`⟩ → 0 · 0 · 0 · 0 · 0; ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`.
+
+**Status: ESCALATED** (ESC-FREL-g-6 ← ESC-FREL-w-1 + ESC-FREL-vb-1).
