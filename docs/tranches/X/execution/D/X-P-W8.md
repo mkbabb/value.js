@@ -1711,3 +1711,58 @@ None.
 
 ### State
 ADDENDUM (e)'s falsifiers are all GREEN ×2. Its order (`.ifsemi` → L-G1 by entry diff (`.lg1c3`, 103/103) → close) is complete, and every stay-GREEN gate holds on `4eaf27fbe`. Row 108 is set to **IMPLEMENTED 2026-09-17** (RESUME 5 Close 2026-10-15). Next: check-as-audit per §0eq. That check, not this seat, stamps CLOSED.
+
+## RESUME 5 2026-10-15 — Check 1 (L-20 pass 1 of the RESUME 5 Close, `claude-opus-5-5`, Track D) — verify-only, 0 product bytes; verdict **CONFORMANT**
+
+- **Crash recovery:** ⟨`git status --porcelain -- src test bench docs/tranches/X/execution/D docs/tranches/X/execution/LEDGER.md`⟩ → empty. Nothing inherited. parse-that ⟨`git -C ../parse-that log --oneline -1`⟩ → `cb9c0d4` (unmoved; its dirty `rust/**`, `README.md`, `.cargo/config.toml` belong to another session, untouched). HEAD `49ce2e2c8`.
+- **Method:** the RESUME 5 Close's own runner (`bench/records/W8close6/gates.sh`), re-pointed only in its output paths to this seat's scratch, run once under ⟨`~/.claude/guard/guarded --light --timeout 60 -- sh gates.sh`⟩ in `run_in_background` (21:10–21:12; 1-min load 10.3–19.1). Every ×2 gate runs twice inside it. L-G1 is audited from the banked `.lg1c3` records and not re-timed (§0eq). No browser, server or watcher.
+
+### Axis 1 + 9 — every claimed GREEN, re-run by this seat on product `4eaf27fbe`
+| Gate | This seat's read (×2 where the gate is ×2) | Close claim | Reproduces |
+|---|---|---|---|
+| falsifiers (v4-css-emerging · if-semicolon · semicolon · custom-semicolon) | `Test Files 4 passed (4)` · `Tests 106 passed (106)` ×2 | 106/106 ×2 | yes |
+| probe ×2 | bodies identical ×2 (only the PID in the DEP0205 warning line differs); `if(…; else: blue)` and `if(…; else: blue;)` ACCEPTED, `if(foo)` · `rotate(0;1deg)` · keyframes `translate(0;1px)` · `--x:a;b` · `--x:[a;b}` refused css_syntax; `--x:f(a;b)` · `[a;[b]]` · `{a;b}` · `"a;b"` · `--x: ;` ACCEPTED | same | yes |
+| V-C ×2 | `TOTAL 6267 2369 3898 0 0 0 0 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 | same | yes |
+| css-equivalence ×2 | `Tests 19 passed (19)` ×2; ⟨`grep -cE 'MIRROR-DEFECTS [1-9]'`⟩ → `0` ×2 | 19/19 MIRROR 0 | yes |
+| test/css ×2 | `Test Files 20 passed (20)` · `Tests 302 passed (302)` ×2 | 20/302 | yes |
+| L-G2 ×2 | `compared 1376531/1376531 rows · mismatches 3345` ×2; ⟨`cmp`⟩ vs `W8ifsemi/equiv-1.json.gz` → exit 0 ×2; delta `identical 3345 · gone 26 · moved 0 · new 0` ×2 (delta-1 = delta-2) | 3345, gone 26, new 0 | yes |
+| prefix ×2 | `sheets 4 · rows 528 · declarations 1405 · refused 0 · mismatches 0` ×2 | 0 | yes |
+| L-G3 | `0` | 0 | yes |
+| `--check` ×2 | `is current (sha256 e6e0e5cac19d…)` ×2 | `e6e0e5ca…` | yes |
+| audit (pinned) | `rules 183 · checks 1432206855 · violations 0 · modeDiffs 0` | 183/0/0 | yes |
+| E-6 ×2 | `112913` / `15644` ×2 | 112,913 / 15,644 ≤ 15,650 (cap 15,700; raw ≤ 125,646) | yes |
+| vue-tsc lib · test | 0 bytes · 0 bytes (exit 0) | 0/0 | yes |
+| eslint | 0 bytes (exit 0) | 0 | yes |
+| build | `✓ built in 4.66s` | OK | yes |
+| L-G1 entry diff | `ENTRIES CHANGED 7 of 7` | 7 of 7 | yes |
+| L-G1 ×2 audit | ⟨`git archive HEAD bench/records/W8lg1c3 \| tar -x`; `shasum -a 256 -c MANIFEST.sha256 \| grep -c ': OK$'`⟩ → `60` ×2; ⟨`node bench/paired/bootstrap.mjs …`⟩ → `c715860e34b6fcd4…` ×2, ⟨`cmp`⟩ to the committed `bootstrap-read.txt` exit 0 ×2; STRADDLE\|RED `0` ×2 | 60/60, `c715860e…`, 103/103 | yes |
+
+Self-count: 16 gate rows; 16 reproduce; 0 fail. Note (INFO): `bench/paired/equiv.mjs` exits 1 by its own rule whenever `mismatches ≠ 0` (l.58), so the L-G2 run prints `exit 1` with the classed 3345 baseline. The gate reads the delta (0 new), not that exit code, as every prior W8 seat did.
+
+### Axes 2–8
+- **(2) Bounds:** ⟨`git show --stat`⟩ on `4eaf27fbe` `aab9281fb` `b7b08e49b` `5b8837bf7` `ac162cc91` `66ee43f81` `5de66784f` `8b46df2f5` `693991c13` `d9851e5c8` `49ce2e2c8`: every path is in the RESUME 5 Unit plan's writable set or is the close seat's record, ledger or evidence. ⟨`git diff --stat 196a2aaae..HEAD -- scripts/dev/dev.sh test/v4-css-emerging.test.ts bench/paired bench/wpt-conformance bench/css-equivalence`⟩ → empty. `dev.sh` is in no commit.
+- **(3) Masking:** the product diff (`value.bbnf` +15/−1, `value.ts` +59) is a BBNF arm (`ifCall`/`ifBranch`/`ifTerm`/`ifSemi`) plus a map action with no try/catch. ⟨`grep -nE '\.(skip|only|todo)|catch|try' test/css/bbnf-if-semicolon.test.ts`⟩ → none. ⟨`git diff 196a2aaae..HEAD -- test \| grep '^-.*expect'`⟩ → none removed. `ruled.json` and `w6-classes.ts` are untouched, so no allowlist grew. node_modules is untouched. Clean.
+- **(4) Commit families:** grammar, re-emission, action, falsifier and ledger addendum land together in `4eaf27fbe`, as in `.cust2`. Evidence, spec receipt line, CHANGELOG, R-4 and record each have one commit per meaning. Nothing is split.
+- **(5) E-3:** ⟨`git diff --stat 196a2aaae..HEAD -- docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/parse-that/waves/ docs/tranches/X/COHESION.md`⟩ → only `W8.md \| 1 +`. That line is the §0fg.3-mandated ADDENDUM (e) receipt line (insert-only). The DIVERGENCE-LEDGER has 0 removed lines (`4eaf27fbe` +16, `66ee43f81` +2, both dated addenda beside). The R-4 MANIFEST is dated and sits beside an unedited README.
+- **(6) Mail:** ⟨`grep -cE '^\| .*\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md`⟩ → `0`.
+- **(7) Four-verb line:** row 108 went OPEN → IMPLEMENTED at the close seat (`49ce2e2c8`). This check, not the close, moves it to CLOSED. That is lawful.
+- **(8) Goal at the bytes:** the product accepts the valid `if()` forms (`;` between branches only) and refuses `;` everywhere else for registered properties. V-C has 0 unruled misses. The probe above shows this byte-for-byte. The mint's named misses stay GREEN (test/css 302 and V-C cover them).
+
+### Axis 10 — honest-RED adjudication
+No gate is RED. The honest-RED set is empty.
+
+### Register
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | MINOR (mitigated) | E-6 gz headroom is 6 B (15,644 against 15,650) | size ×2 above | none owed here; ADDENDUM (c)/(e) already route any crossing to escalation, never shaving (close R-2) |
+| C1-2 | INFO | the tightest L-G1 cell is Firefox rej `parseKeyframeSelector`, ub 0.994 | `W8lg1c3/bootstrap-read.txt` (re-derived `c715860e…` ×2) | GREEN by §0ev.1; noted for the next byte-changing unit |
+| C1-3 | INFO | `l-g1-r1/README.md` names an absent `bootstrap-read-final.txt` | close R-4 | orchestrator, non-blocking |
+| C1-4 | INFO | bbnf-lang#2 emitter-size row is OPEN | `.ifsemi` receipt | producer; non-blocking per §0fe |
+
+0 BLOCKER, 0 CRITICAL, 0 HIGH.
+
+### Successors
+No wave spec declares "Opens after X.P.W8". ⟨`grep -rn 'Opens after' docs/tranches/X \| grep -E 'P\.W8'`⟩ outside W8.md → none (the hits are KF.W8). No successor is blocked by this wave.
+
+### Verdict
+**CONFORMANT.** Row 108 → `CLOSED 2026-09-17`.
