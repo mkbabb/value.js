@@ -4058,3 +4058,17 @@ So nothing in the product regressed. This is class (a) of §0fh item 1: a stale 
 3. **Arm (a), renaming `rail-fill`, is NOT taken.** The token names its desktop role, and it is X-DS's canon (KF-C5-01, §0dm/§0ek). A rename to satisfy a substring would bend product naming to a test.
 4. **Gate:** live-session-mobile A3 GREEN ×2 at kf HEAD. B7 SPECULAR-REST and SHEET-POSITION stay the only honest-REDs.
 5. **Order:** `.a3o → close (verify-only, §0ev.2) → check`. KF-W13.md ADDENDUM (k) carries this ruling.
+
+## §0fn — 2026-10-16: KF.W13X CLOSED (CONFORMANT-HONEST-RED, B7 · SHEET-POSITION); its D-1 is HOMED BY ID and cured now as `KF.W13X.smk`
+KF.W13X closed at Check 1 of RESUME 5 (`d6cfa3d2a`), with kf at `389e31d2`. That completes Track B: every KF wave is CLOSED. KF.W3 stays GATE-KEYED, so it opens or it does not.
+
+D-1 (MEDIUM) is the smoke check `heavy chunks requested at first paint: vendor-three`. It reads RED 4 times in 5, a deterministic race and not a load-flake:
+- The oracle (`scripts/observe/demo/smoke.mjs:129-134`, asserted at `:191-194`) records requests until after a hero poll that can run up to 9 s.
+- KFA-76's idle warm (`scenes.ts:144-150`) lawfully fetches `vendor-three` once idle arrives, after first paint.
+- The product keeps its stated intent, so this is §0fh class (a): a stale oracle.
+
+**Ruled:** arm (a) is granted as unit `KF.W13X.smk`. Grant: `scripts/observe/demo/smoke.mjs`, the heavy-request block only.
+- The smoke snapshots its heavy-request set at first paint and asserts on that snapshot. First paint is the page's own `first-contentful-paint` performance entry; where that entry is absent, the `#app` mount.
+- Arm (b) is not taken, because the KFA-76 warm is a lawful product act.
+- **Falsifier:** at a kf ref where three loads eagerly (a scratch import of `three` into the home boot path, never committed), the snapshot must trip. It must pass at HEAD ×2.
+- The unit commits to kf, pushes, and writes a receipt under KF.W13X's record.
