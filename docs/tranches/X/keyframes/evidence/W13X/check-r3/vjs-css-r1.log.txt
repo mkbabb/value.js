@@ -1,0 +1,33 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-frozen.test.ts (22 tests) 115ms
+ ✓ test/css/bbnf-images.test.ts (10 tests) 157ms
+ ✓ test/css/hex-color.test.ts (6 tests) 116ms
+ ✓ test/v4-c1.test.ts (36 tests) 95ms
+ ✓ test/css/css-color5.test.ts (23 tests) 60ms
+ ✓ test/css/bbnf-gap.test.ts (25 tests) 22ms
+ ✓ test/v4-css-emerging.test.ts (22 tests) 17ms
+ ✓ test/css/bbnf-fonts.test.ts (8 tests) 20ms
+ ✓ test/css/bbnf-values.test.ts (11 tests) 27ms
+ ✓ test/parser-totality.test.ts (123 tests) 21ms
+ ✓ test/css/bbnf-color5.test.ts (8 tests) 15ms
+ ✓ test/css/bbnf-if-semicolon.test.ts (21 tests) 14ms
+ ✓ test/css/bbnf-semicolon.test.ts (20 tests) 13ms
+ ✓ test/css/bbnf-grid.test.ts (8 tests) 11ms
+ ✓ test/css/bbnf-value.test.ts (7 tests) 11ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts (43 tests) 15ms
+ ✓ test/css/bbnf-refusal.test.ts (13 tests) 7ms
+ ✓ test/css/css-var-animation.test.ts (4 tests) 9ms
+ ✓ test/css/bbnf-depth.test.ts (2 tests) 7ms
+ ✓ test/css/animation-time-unit.test.ts (4 tests) 9ms
+ ✓ test/css/syntax-custom-ident.test.ts (39 tests) 13ms
+ ✓ test/css/bbnf-success-path.test.ts (11 tests) 10ms
+ ✓ test/css/custom-property-case.test.ts (4 tests) 6ms
+ ✓ test/css/custom-property-empty.test.ts (17 tests) 7ms
+
+ Test Files  24 passed (24)
+      Tests  487 passed (487)
+   Start at  05:14:15
+   Duration  9.00s (transform 432ms, setup 989ms, collect 2.18s, tests 796ms, environment 7.83s, prepare 1.24s)
+

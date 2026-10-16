@@ -1,0 +1,29 @@
+# 2026-10-16 05:26:00 load: 18.10 14.63 18.32 head: 099a1627
+
+✓ built in 2.67s
+run-demo-roster — 1 observation(s) · one shared chromium + one served dist snapshot
+
+──── live-session-mobile ────
+live-session-mobile observation — a REAL 390×844 + hasTouch context: sheet open/scroll/close/RE-OPEN + dock switch + touch-drag + play, every gesture a TOUCH gesture, ERROR BUDGET = 0 + an honest Glass Drawer/menubar overlap measurement
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  · UPSTREAM GLASS 5 OVERLAP (sheet OPEN): sheet.bottom 887 > menubar.top 716; the Drawer covers the menubar by 171px. This measured defect is queued to Glass 6; no clearance claim is made.
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 742px content in a 85px body) — below-fold controls are touch-unreachable
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  · UPSTREAM GLASS 5 OVERLAP (sheet CLOSED (peek)): sheet.bottom 887 > menubar.top 716; the Drawer covers the menubar by 171px. This measured defect is queued to Glass 6; no clearance claim is made.
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "Curve" PROJECTS — the T.B2-derived triad's tell, the #25 asymmetry cure)
+  ✓ M3 touch-drag: the /square touch drag COMPLETED — transform persists (matrix(1.10611, -6.08292e-06, 1.32222e-05, 1.106…) and getSelection() is empty (no touch-drag text selection)
+  · M4 play: the group-play button is behind the ADOPTED Drawer (bottom:0, z-modal 140) on 390×844 — UPSTREAM GLASS 5 OVERLAP queued to Glass 6; no touch-reachability claim is made here.
+  ✓ ERROR BUDGET = 0 across the mobile battery (sheet + dock + drag + play, all touch): zero HARD + zero PROMOTED charges (the lib-sourced live-session allowlist, by reference)
+  · Keyframes-owned mobile interaction observations completed; the Glass 5 Drawer/menubar overlap was reported separately above. Appearance observations run next.
+  ✓ A1 appearance — 390×844 hero/subject print-over contract holds: hero h1 (y 150–267) vs cube (y 298–510), overlap=0px² (disjoint)
+  ✓ A2 appearance — DARK --ball-tone/accent legible: the .dark token surface is LIVE (html.dark, backdrop rgb(11, 10, 9)), --ball-tone resolves the OD-6 accent (oklch(74% .13 305)); the violet tile ball (oklch(0.74 0.13 305)) contrasts 8.19 and the selected tile's accent name (rgb(233, 230, 226)) contrasts 15.90 — both ≥ the 3 legibility floor
+  ✗ A3 appearance — a ghost rail SURVIVES on the home sweep (home: railless=true ghostCol=false; sequence: railless=false ghostCol=true) — a hollow wide side column floats over the void (the XH-1 defect)
+
+live-session-mobile observation — FAIL (4): the 390×844 + hasTouch session found a Keyframes-owned touch, interaction, error-budget, or appearance defect.
+
+════ run-demo-roster — REPORT ════
+  passed: 0/1
+  ✗ failed: live-session-mobile
+EXIT=1
