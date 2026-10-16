@@ -1984,3 +1984,59 @@ SERVED MODEL: claude-opus-5-5. Track A, HEAD at open `7c0ba5993`. Authority: W12
 **Residuals.** (1) The cure lives in PaneShell.vue's unscoped style, not in `demo/styles/shell.css` beside the row contract, because shell.css was dirty from a live writer (§0ev.3). A later seat may move the four rules there verbatim when that file is clean; the bytes would not change. (2) The overlying bound applies under the `pane-row` two-track query, so it covers 1024×768 as well as 1440; 768 and the phones keep the document column. (3) The killed 1440 boot read above.
 
 **Verdict: DONE.** Every gate turned GREEN ×2: A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440) RED→GREEN in both themes with both arms; the served pair 38/38 + 3/3 ×2 under the active-instance settle; `.k2` static 30/30 ×2; typecheck 0 ×2; lint 0 ×2. C6-3 and C6-6 are cured.
+
+### X.W12U.m3
+
+SERVED MODEL: claude-opus-5-5. Track A, HEAD at open `6bab513d3`. Authority: W12U.md ADDENDUM (g) `.m3` :108-110; COHESION §0fh.4 (X-13-RUN), §0fh.5 (R-m-2), §0dm (identity kept); record `.m2` X-13-RUN (:1145, :1160), A2-VA-L2-4 / R-m-2 (:621, :1119). Spec read whole (110 lines).
+
+**Crash recovery.** ⟨`git status --porcelain`⟩ filtered to this unit's set → no inherited path in `demo/shell/dock/layers/**`, `demo/app/App.vue`, `demo/picker/**`, `demo/color-session/**`, `e2e/smoke/w12u-m*`, `W12U-evidence/m3/**`. The dirty `demo/**` paths are X-DS pass-9's (the RESUME 3 Open list, including `demo/shell/dock/Dock.vue`). This unit wrote none of them. **The §0ev.3 Dock.vue wait was not needed:** the cure sits in `layers/ActionBarLayer.vue` and `layers/GenericActionBar.vue`, which are clean, and Dock.vue was never edited.
+
+**Act 1: measure before edit.**
+- ⟨`guarded --light --timeout 5 -- node m2/probe-dock-layers-m2.mjs 360 780 light`⟩ (load 16.6) → toggled `run 28-332 sw/cw 346/304 · out ["Open color input"]` RED · colour-input `out ["Propose color name"]` RED → **`RED 2/3`** (the born-RED reproduced; `m3/results/x-13-run-before.txt`).
+- ⟨`node m3/diag-face.mjs 360 780`⟩: after one fit pass the run still read 346. The cause: the inner `<DockCrossfade reserve="inline">` (ActionBarLayer) held `min-inline-size: 220px`. ⟨`sed -n 949,960p node_modules/@mkbabb/glass-ui/dist/dock.js`⟩ shows glass 10.1.0's reserve **latches the peak face `scrollWidth` and only grows** (`e > u.value && (u.value = e)`). A face that drops seats keeps its old reserve. The input face itself is 144 px (`clamp(8rem,40vw,14rem)` at 360). The width came from the 5-seat actions face.
+- ⟨`node m3/diag-layers.mjs 360 780`⟩: the run's layout width is final at once (no width animation: `cw/sw 304/346` from t+0 to t+500 ms). An inactive face sits under an `[inert]` ancestor.
+- R-m-2 ⟨`node m3/probe-h1-rung-m3.mjs 844 390 {light,dark}`⟩ (cure line reverted on the served tree for this read, then restored) → `fontSize 13px` against rungs `micro 11px · caption 13.1324px · small 14.91px`: **off-scale** (`m3/results/r-m-2-before.txt`).
+
+**Act 2: the X-13-RUN cure (commit `8c9d1cd8a`).** Paths: `demo/color-session/keys.ts`, `demo/picker/sceneActions.ts`, `demo/shell/dock/layers/ActionBarLayer.vue`, `demo/shell/dock/layers/GenericActionBar.vue`.
+- **Priority declared** (§0fh.4: it was undeclared). `SceneAction.priority?: number` was added; undeclared means listed order. The palette scene already lists the commit act (Save) first. The colour face declares **Copy 1** (the commit act: the colour leaves the picker) · **Palettes 2** (where a colour is kept; it carries the AB-32 palette-open indicator) · **Random 3** · **Extract 4** · **Reset 5**. Display order is unchanged.
+- **The fit** (ActionBarLayer):
+  - It resets to every seat, then drops the lowest-priority seat while the run overflows.
+  - Overflow is read from layout boxes (the children's extent against the run's content box), not from `scrollWidth`, which counts a hover-scaled 48 px end seat.
+  - It runs only on the active face (no `[inert]` ancestor), and never while the colour input is open (deferred until the seats return, so the field is never remounted under typing).
+  - It refits on: mount; a run resize to a width it did not settle on; a scene token-set change; an inline viewport resize only (a soft keyboard's block resize does not refit).
+  - The crossfade is keyed on the kept count, so each fit is measured from a fresh glass reserve (the peak latch above). This is the only way a consumer can reset that producer state. It is retired when O-85 lands.
+- **The menu** (GenericActionBar): the remainder becomes glass `DropdownMenu` items behind a `DropdownMenuTrigger as-child` around a `DockControl` "More actions", the same 44 px seat type as Back and the arm toggle.
+  - No new component.
+  - The items keep the seat's name (including state words), disabled-when-inoperable, icon stroke, and dispatch.
+  - `DockTrigger for="dropdown"` was tried first and measured **40×32** at coarse (below the floor), so it was not used.
+- Identity colour, type and motion are untouched (§0dm). No glass bytes, no new type rung.
+
+**Act 3: the R-m-2 cure (commit `3c4fb2f08`, `demo/app/App.vue`).** `.route-title` `font-size: 0.8125rem` → `var(--text-caption)`. Caption is the nearest existing rung to the prior 13 px (13.13 px at 844; micro 11 and small 14.91 are further). Its 1.2 line box (15.76 px) fits the measured 16 px title band (h1 86–101 between band bottom 78 and stage top 101). Fraunces (display) is kept.
+
+**Act 4: gates on committed bytes** (⟨`sh m3/run-m3.sh r1`⟩ HEAD `3c4fb2f08` 09:47, load 13.4–19 · ⟨`sh m3/run-m3.sh r2`⟩ HEAD `60ac91d6d` (sibling commits only) 09:56–10:04, load 19.4–42.0; serial, each probe through `guarded --light`).
+
+| gate | BEFORE | AFTER r1 | AFTER r2 |
+|---|---|---|---|
+| X-13-RUN ⟨`m2/probe-dock-layers-m2.mjs {360 780, 390 844, 430 932, 844 390} {light,dark}`⟩ | 360 light `RED 2/3` (toggled + colour-input out) | `GREEN 3/3` ×8 (7 in `r1.txt`; the 390-light read printed no GEO line, because the runner's filter dropped its output, so it was re-read unfiltered → `GREEN 3/3`, `r1-m2-390-light-reread.txt`) | `GREEN 3/3` ×8 |
+| X-13-RUN seats ≥ 44 · run fits in layout · overflow in the menu ⟨`m3/probe-tools-run-m3.mjs` same 8 cells⟩ | (the probe is new; m2 BEFORE above) | `GREEN 3/3` ×8 | `GREEN 3/3` ×8 |
+| R-m-2 rung ⟨`m3/probe-h1-rung-m3.mjs 844 390 {light,dark}`⟩ | `13px` off-scale ×2 | `13.1324px` = caption, fits, face kept: GREEN ×2 | GREEN ×2 |
+| stage top re-read ⟨`m/probe-shell.mjs l844 {light,dark} landscape /`⟩ | 98 (`.m2`; band 67) | `h1 [47,86,750,16] · band [47,8,750,70] · stage [47,101,…]` ×2 | same ×2 |
+| typecheck lib/demo/test/e2e ⟨`guarded --light -- sh close2/tc.sh`⟩ | 0 (baseline) | `0 0 0 0` (HEAD `14440ef0b`) | `0 0 0 0` |
+| lint ⟨`guarded --light -- npx eslint . --max-warnings=0`⟩ | 0 | `rc=0` | `rc=0` |
+| vitest, touched scope ⟨`vitest run --maxWorkers=2 demo/test/shell/pane-popups-and-seats.test.ts demo/test/shell/scene-actions-unregistered.test.ts test/picker-blob-config.test.ts`⟩ | — | 9/9 | — |
+
+Readings, 360 coarse:
+- toggled: run `29-331 cw 302 · layoutExtent 302`; seats `Back · Copy · Random · Palettes · More actions · Open color input`, all 44×44; menu `["Reset color","Extract palette"]`, inside the viewport; run + menu = the full five, disjoint.
+- 390: the same prefix (run 302 ≤ 334).
+- 430 / 844×390: all five in the run, no More seat.
+- colour-input: run 302, `hidden []`, Apply 44×44.
+
+**Commits:** `8c9d1cd8a` (X-13-RUN) · `3c4fb2f08` (R-m-2) · `978d46e53` (evidence `W12U-evidence/m3/**`) · this record. Adjacent edits (§0bt): none. `demo/color-session/keys.ts` and `demo/picker/sceneActions.ts` are the face's priority declaration that §0fh.4 orders, inside `demo/**`.
+
+**Residuals and escalations.**
+- **X-13-RUN-PEAK (producer; owed a relay, which is outside this unit's bounds).** Glass 10.1.0 `DockCrossfade reserve="inline"` latches its peak from face `scrollWidth`, which counts a seat's `scale`. When the end seat (More actions) has just been pressed or opened (its box reads 2 px past the face, `m3/diag-ratchet.mjs`: face `ow/sw 176/178`), the next swap to the colour input latches 181–182. At 360 the run then reads `cw 304 · layoutExtent 308`, and Propose sits 4 px into the run's scroll. It stays inside the viewport and reachable, so this is not part of the gate. It is recorded each round as `colour-input-after-menu (producer residual, not gating)`. 390 and wider read 0. The consumer cannot reset a latch it does not own, beyond the per-fit key already used. **Ask (for the orchestrator: `relay/` and INBOX are not in this unit's set):** append it to the O-85 DOCK-PRIORITY-OVERFLOW chain: the reserve should read layout size (offset or max-content), not `scrollWidth`, and should re-baseline when the face set or the viewport inline size changes.
+- **A2-VA-L2-4 stage-top target 80** is still unmet (stage 101 at 844×390; band 70 + 8 gap + H1 16). Its glass half stays O-74e L24-1, per the gate text. The H1 rung is cured; the band is glass's.
+- When glass O-85 lands, ActionBarLayer's fit and crossfade key are retired for it (the source comments say so).
+- Not run: smoke `--workers=1` (this is not `.m3`'s gate; the close seat reads it). The desktop `scene-action-contract` 390 workbench legs are fine-pointer, three seats, and fit.
+
+**Verdict: DONE.** X-13-RUN is GREEN ×2 in both themes at 360/390/430/844×390 (the m2 gate, plus the m3 box gate: seats ≥ 44, run fits in layout, overflow in the menu). R-m-2 is GREEN ×2 in both themes (caption rung, fits the band, face kept), with the stage top re-read ×2. Typecheck 0 ×2 and lint 0 ×2.
