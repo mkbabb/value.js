@@ -1,0 +1,9 @@
+# 00:45:04 load { 24.55 24.94 23.30 } kf=71480d85 SEED_KF
+first samples /vendor-three|three\.module/: +74 e:vendor-three-nw0IrzH_.js | +78 a:vendor-three-nw0IrzH_.js | +84 e:vendor-three-nw0IrzH_.js | +84 add:vendor-three-nw0IrzH_.js | +106 ke:vendor-three-nw0IrzH_.js | +107 ke:vendor-three-nw0IrzH_.js
+first samples /vendor-monaco|monaco-editor/: +132 Lt:vendor-monaco-nwzXcI7Q.js | +133 Lt:vendor-monaco-nwzXcI7Q.js | +138 A9:vendor-monaco-nwzXcI7Q.js | +151 (anon):vendor-monaco-nwzXcI7Q.js | +151 toString:vendor-monaco-nwzXcI7Q.js | +151 (anon):vendor-monaco-nwzXcI7Q.js
+swap cube->amiga · load 24.02 · pageerrors 0
+dest(.amiga-canvas) inserted +25 ms · rAF +65 · painted +73 ms (end of the destination's LoAF; message +74)
+first vendor-three sample +74 ms -> paint-before-three GREEN · first vendor-monaco sample +132 ms -> paint-before-monaco GREEN
+swap LoAF>50: 1 · max JS self 17 ms -> GREEN (<= 200)
+  +21 dur 52 jsSelf 17 [vendor-reka-ui 10.7, vendor-prettier 1.5, KeyframesStringControls 1.2, AmigaScene 1.0, public 0.8] ["import.then /assets/index-CQB-yO1g.js 26"]
+window JS self 103.4 ms [vendor-three 27.9, vendor-reka-ui 23.1, KeyframesStringControls 11.4, vendor-monaco 10.6, index 10.5] · marker offset resolution 0.25 ms

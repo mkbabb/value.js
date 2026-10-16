@@ -1,0 +1,53 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes-wt-W13X-close3
+
+ ❯ |demo| test/demo/instrument/css-code-editor-seam.test.ts (8 tests | 2 failed) 3163ms
+     × (7) KF.W13X C1r2-2: a well in a skipped subtree reads no geometry and boots nothing until it is laid out 607ms
+     × (8) KF.W13X C1r2-3: the well's observer lays the live editor out and stops at unmount, so the outgoing editor never re-lays itself in a swap frame 56ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/instrument/css-code-editor-seam.test.ts > G-KFW12-4 — the Monaco seam > (7) KF.W13X C1r2-2: a well in a skipped subtree reads no geometry and boots nothing until it is laid out
+AssertionError: expected 8 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 8
+
+ ❯ test/demo/instrument/css-code-editor-seam.test.ts:382:35
+    380|             // Longer than a boot takes when the well has a box (cases…
+    381|             await sleep(600);
+    382|             expect(geometryReads).toBe(0);
+       |                                   ^
+    383|             expect(mounted.element.querySelector(".monaco-editor")).to…
+    384|             expect(mounted.element.querySelector("[aria-busy='true']")…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |demo| test/demo/instrument/css-code-editor-seam.test.ts > G-KFW12-4 — the Monaco seam > (8) KF.W13X C1r2-3: the well's observer lays the live editor out and stops at unmount, so the outgoing editor never re-lays itself in a swap frame
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ test/demo/instrument/css-code-editor-seam.test.ts:403:56
+    401|         await booted(mounted);
+    402|         const editor = monaco.editor.getEditors().find((e) => !before.…
+    403|         expect(editor.getRawOptions().automaticLayout).toBe(false);
+       |                                                        ^
+    404|         const layout = vi.spyOn(editor, "layout");
+    405|         resizeAll({ width: 400, height: 200 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 6 passed (8)
+   Start at  23:56:12
+   Duration  8.42s (transform 3.44s, setup 21ms, import 4.27s, tests 3.16s, environment 797ms)
+

@@ -1,0 +1,8 @@
+# 23:57:19 load { 27.42 32.25 33.98 }
+light: rules=1 removed=[] data-type=single
+light: served {"border-radius":"0px","background-color":"rgba(0, 0, 0, 0)","background-image":"none","backdrop-filter":"none","-webkit-backdrop-filter":"","box-shadow":"none"}
+light: reset changes NOTHING (computed style identical without it)
+dark: rules=1 removed=[] data-type=single
+dark: served {"border-radius":"0px","background-color":"rgba(0, 0, 0, 0)","background-image":"none","backdrop-filter":"none","-webkit-backdrop-filter":"","box-shadow":"none"}
+dark: reset changes NOTHING (computed style identical without it)
+TOTAL changed-properties=0

@@ -1,0 +1,9 @@
+# 00:44:13 load { 25.69 25.02 23.22 } kf=71480d85 gh-pages :5399
+first samples /vendor-three|three\.module/: +106 set:vendor-three-nw0IrzH_.js | +108 getHSL:vendor-three-nw0IrzH_.js | +112 length:vendor-three-nw0IrzH_.js | +112 length:vendor-three-nw0IrzH_.js | +113 dr:vendor-three-nw0IrzH_.js | +113 Dr:vendor-three-nw0IrzH_.js
+first samples /vendor-monaco|monaco-editor/: 
+swap cube->amiga · load 25.95 · pageerrors 0
+dest(.amiga-canvas) inserted +29 ms · rAF +98 · painted +105 ms (end of the destination's LoAF; message +106)
+first vendor-three sample +106 ms -> paint-before-three GREEN · first vendor-monaco sample +none ms -> paint-before-monaco n/a(no sample)
+swap LoAF>50: 1 · max JS self 47 ms -> GREEN (<= 200)
+  +22 dur 82 jsSelf 47 [vendor-reka-ui 29.8, index 13.9, glass-ui 1.8, AmigaScene 0.7, public 0.6] ["ViewTransitionCallback /assets/index-CQB-yO1g.js 6","import.then /assets/index-CQB-yO1g.js 58"]
+window JS self 117.5 ms [vendor-reka-ui 43.5, vendor-three 32.9, index 23.3, glass-ui 5.3, AmigaScene 5.0] · marker offset resolution 0.25 ms
