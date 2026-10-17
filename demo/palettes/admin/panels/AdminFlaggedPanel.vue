@@ -123,22 +123,27 @@
                         {{ item.palette?.name ?? item.paletteSlug }}
                     </span>
                     <!-- W5-5 (F-11): a null palette is a DELETED palette —
-                         say so in the K-INV5 small-caps annotation register,
-                         never a silent bare slug with an empty strip. -->
+                         say so, never a silent bare slug with an empty strip.
+                         X-DS pass 16 (V16-02): in the readout voice, and the
+                         owner slug exactly as stored: no case transform, no
+                         tracking, no small-caps (value-canon §2 Type). -->
                     <span
                         v-if="!item.palette"
-                        class="font-mono text-mono-caption text-muted-foreground opacity-70 tracking-wide"
-                        style="font-variant: small-caps"
+                        class="text-mono-small text-muted-foreground"
                     >palette deleted</span>
-                    <span v-else-if="item.palette.userSlug" class="text-mono-caption text-muted-foreground truncate">
+                    <span v-else-if="item.palette.userSlug" class="text-mono-small text-muted-foreground truncate">
                         {{ item.palette.userSlug }}
                     </span>
                 </div>
 
                 <div class="ms-auto flex items-center gap-1 shrink-0">
-                    <Badge tone="destructive" class="text-mono-caption shrink-0 me-2">
-                        {{ item.flagCount }}
-                    </Badge>
+                    <!-- X-DS pass 16 (V16-03): the app's ONE count idiom
+                         (V15-02) — a muted mono tabular numeral titled with
+                         its noun; red is never a resting beacon (W5-12). -->
+                    <span
+                        class="text-mono-small tabular-nums text-muted-foreground shrink-0 me-2"
+                        :title="`${item.flagCount} report${item.flagCount === 1 ? '' : 's'}`"
+                    >{{ item.flagCount }}</span>
                     <!-- W5-12 (F-8): the pair weighted asymmetrically — the
                          labeled neutral Dismiss is the primary affordance;
                          the delete is a QUIET icon (ink at rest, red only on
@@ -178,13 +183,13 @@
                     :key="i"
                     class="flex items-center gap-2"
                 >
-                    <Badge variant="secondary" class="text-mono-caption shrink-0">
+                    <Badge variant="secondary" class="text-mono-small shrink-0">
                         {{ flag.reason }}
                     </Badge>
                     <span v-if="flag.detail" class="text-mono-small text-muted-foreground truncate">
                         {{ flag.detail }}
                     </span>
-                    <span class="ml-auto text-mono-caption text-muted-foreground tabular-nums shrink-0">
+                    <span class="ml-auto text-mono-small text-muted-foreground tabular-nums shrink-0">
                         {{ formatDate(flag.createdAt) }}
                     </span>
                 </div>
@@ -200,7 +205,7 @@
         <Dialog v-model:open="confirmOpen">
             <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
-                    <DialogTitle>Delete flagged palette?</DialogTitle>
+                    <DialogTitle class="font-display font-medium">Delete flagged palette?</DialogTitle>
                     <DialogDescription>
                         This will delete the palette
                         <span class="font-display font-medium text-foreground">{{ confirmName }}</span>

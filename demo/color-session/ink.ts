@@ -8,7 +8,7 @@ import {
     type Color,
 } from "@mkbabb/value.js/color";
 
-export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome" | "veil";
+export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome" | "veil" | "modal";
 
 export const TEXT_CONTRAST_FLOOR = 4.5;
 export const GRAPHICS_CONTRAST_FLOOR = 3;
@@ -52,6 +52,14 @@ const RUNG_STEP = {
 } as const;
 
 const WELL_FOREGROUND_FRACTION = 0.08;
+
+/**
+ * X-DS pass 16 (V16-01) — glass 10.1.0's modal scrim (`--overlay-scrim`,
+ * `glass-fx.css`): `--overlay-scrim-ink` at 50 %, the same in both schemes. A
+ * modal's floating plate sits on it, so in light the plate composites over a
+ * DARK ground; the static model the live probe falls back to.
+ */
+const PRODUCER_SCRIM = { ink: "hsl(24 10% 10%)", alpha: 0.5 } as const;
 
 function parseOklch(source: string): Color<"oklch"> | null {
     const parsed = parseCssColor(source);
@@ -149,6 +157,8 @@ const FOREGROUND = {
     dark: requiredOklch(PRODUCER_TINTS.foreground.dark),
 } as const;
 
+const SCRIM_INK = requiredOklch(PRODUCER_SCRIM.ink);
+
 const VEIL_INK = {
     light: requiredOklch(PRODUCER_VEIL.ink.light),
     dark: requiredOklch(PRODUCER_VEIL.ink.dark),
@@ -164,6 +174,11 @@ export function producerRungTint(
         color: VEIL_INK[scheme],
         alpha: PRODUCER_VEIL.base[scheme] + RUNG_STEP[rung] * PRODUCER_VEIL.step,
     };
+}
+
+/** The static model's modal scrim recipe (glass 10.1.0). */
+export function producerScrimTint(): SurfaceTint {
+    return { color: SCRIM_INK, alpha: PRODUCER_SCRIM.alpha };
 }
 
 /**
@@ -200,6 +215,15 @@ export function resolveSurfaceLightness(
     }
 
     const ground = surfaceColor(ambientL);
+
+    if (surface === "modal") {
+        // V16-01: a modal's plate is the FLOATING rung laid over the scrim,
+        // which is laid over the ambient — two sRGB layers, the live recipes
+        // where measured (`tint` = the floating plate, `underTint` = the scrim).
+        const scrimmed = composite(ground, underTint ?? producerScrimTint());
+        return lightness(composite(scrimmed, tint ?? producerRungTint("floating", dark)));
+    }
+
     if (tint) return lightness(composite(ground, tint));
 
     if (surface === "veil") {

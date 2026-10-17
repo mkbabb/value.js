@@ -27,7 +27,11 @@
                 aria-label="Filter by target"
                 class="flex-1 min-w-[6rem] font-mono"
             />
-            <div class="flex-1" />
+            <!-- X-DS pass 16 (V16-05): the count and its Refresh are ONE
+                 non-wrapping cluster at the row's end (the Flagged and Tags
+                 header shape), so at 390 they drop to their own line
+                 together, never a lone glyph under the filters. -->
+            <div class="ms-auto flex items-center gap-2 shrink-0">
             <!-- S.W5-7: the naked count gains its unit, matching the
                  labeled counts everywhere else ("5 users", "2 flagged"). -->
             <!-- UIA-V-426: nor beside the error plate (a stale count there
@@ -52,6 +56,7 @@
             >
                 <RefreshCw class="h-3 w-3" :class="audit.loading.value && 'animate-spin'" aria-hidden="true" />
             </Button>
+            </div>
         </div>
 
         <!-- X.W7.d (N-2 · W7.61): signed out is its own register — never a
@@ -118,8 +123,12 @@
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
                 <!-- primary line: action badge + timestamp -->
-                <div class="flex items-center gap-2">
-                    <Badge variant="secondary" class="text-mono-caption shrink-0">
+                <!-- X-DS pass 16: the action is a machine identifier, shown in
+                     the case it has (V16-02, the readout voice, no caps); the
+                     line wraps the actor clause whole rather than cutting it
+                     mid-word (V16-05). -->
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                    <Badge variant="secondary" class="text-mono-small shrink-0">
                         {{ entry.action }}
                     </Badge>
                     <span class="text-small text-muted-foreground tabular-nums shrink-0">
@@ -128,7 +137,7 @@
                     <!-- X.W12U.s3 · UIA-V-424: the ledger answers "who" — the
                          acting admin's slug, a machine string in the readout
                          voice; an unattributed entry says so. -->
-                    <span class="text-mono-small text-muted-foreground truncate min-w-0" data-audit-actor>
+                    <span class="text-mono-small text-muted-foreground min-w-0 break-words" data-audit-actor>
                         by {{ entry.actorSlug ?? "an unrecorded admin" }}
                     </span>
                 </div>

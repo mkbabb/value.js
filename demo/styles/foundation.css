@@ -282,6 +282,14 @@
      * `useAtmosphereBoot`. Pre-boot it is the raw gold. */
     --ink-gold: var(--color-gold);
 
+    /* ── The modal plate's destructive ink (X-DS pass 16 · V16-01) ──
+     * glass's `--destructive` with its lightness certified against the modal
+     * ground (the floating plate over the scrim), stamped live by
+     * `useAtmosphereBoot`; `shell.css` seats it on the modal root. Pre-boot
+     * it is glass's red (computed here, on the root). The primary/muted pair
+     * falls back to the floating pair in `shell.css`. */
+    --ink-modal-destructive: var(--destructive);
+
     /* ── The per-view accent (S.W7 · W7-4 — navigation reads chromatically,
      * gamut-guaranteed). The former CSS relative-color derivation
      * (`oklch(from var(--accent-live) l c calc(h + shift))`) trusted the

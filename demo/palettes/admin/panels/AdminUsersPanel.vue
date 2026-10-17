@@ -249,14 +249,16 @@
         <Dialog v-model:open="confirmOpen">
             <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
-                    <DialogTitle>{{ confirmTitle }}</DialogTitle>
+                    <DialogTitle class="font-display font-medium">{{ confirmTitle }}</DialogTitle>
                     <DialogDescription>
                         {{ confirmDescription }}
-                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster -->
+                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
+                             X-DS pass 16 (V16-01): in the dialog the pill reads
+                             the modal plate's certified ink (the accent above
+                             is certified for the resting plate, not this one). -->
                         <span
                             v-if="confirmSlug"
-                            class="slug-pill inline-block align-middle mx-0.5"
-                            :style="{ color: safeAccent, borderColor: safeAccent }"
+                            class="slug-pill inline-block align-middle mx-0.5 border-current"
                         >{{ confirmSlug }}</span>
                         <template v-if="confirmTail">{{ confirmTail }}</template>
                     </DialogDescription>

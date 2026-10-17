@@ -74,6 +74,26 @@ function labelledButtons(file: string): { line: number; classes: string }[] {
     return out;
 }
 
+/** Every element named `tag` in a file's template (no label filter). */
+function elements(file: string, tags: string[]): { tag: string; line: number; classes: string }[] {
+    const src = readFileSync(file, "utf8");
+    const { descriptor } = parse(src, { filename: file });
+    const ast = descriptor.template?.ast;
+    if (!ast) return [];
+    const out: { tag: string; line: number; classes: string }[] = [];
+    const walk = (nodes: TemplateChildNode[]) => {
+        for (const n of nodes) {
+            if (n.type !== NodeTypes.ELEMENT) continue;
+            if (tags.includes(n.tag)) out.push({ tag: n.tag, line: n.loc.start.line, classes: classText(n) });
+            walk(n.children);
+        }
+    };
+    walk(ast.children);
+    return out;
+}
+
+const FAMILY = /(^|[\s'"`])font-(display|serif|mono|sans)\b/;
+
 describe("V15-03 — a labelled glass Button speaks the body voice", () => {
     const sites = vueFiles(DEMO).flatMap((f) =>
         labelledButtons(f).map((b) => ({ ...b, at: `${path.relative(DEMO, f)}:${b.line}` })),
@@ -85,8 +105,85 @@ describe("V15-03 — a labelled glass Button speaks the body voice", () => {
 
     it("no labelled Button sets a family utility on itself", () => {
         const offenders = sites
-            .filter((s) => /(^|[\s'"`])font-(display|serif|mono|sans)\b/.test(s.classes))
+            .filter((s) => FAMILY.test(s.classes))
             .map((s) => s.at);
+        expect(offenders).toEqual([]);
+    });
+});
+
+/**
+ * X-DS value pass 16 (V16-04) — a tab strip is control text too. A family
+ * utility on glass SegmentedTabs / Tabs re-voiced the Names strip in Fraunces,
+ * and the display face's taller line box pushed glass's sliding indicator out
+ * of its track. The strip speaks glass's default label voice, as Mix's does.
+ */
+describe("V16-04 — a glass tab strip speaks the body voice", () => {
+    const TABS = ["SegmentedTabs", "Tabs", "TabsList", "TabsTrigger"];
+    const sites = vueFiles(DEMO).flatMap((f) =>
+        /@mkbabb\/glass-ui\/(segmented-tabs|tabs)/.test(readFileSync(f, "utf8"))
+            ? elements(f, TABS).map((e) => ({ ...e, at: `${path.relative(DEMO, f)}:${e.line}` }))
+            : [],
+    );
+
+    it("finds the tab strips (the scan is not vacuous)", () => {
+        expect(sites.length).toBeGreaterThan(1);
+    });
+
+    it("no tab strip sets a family utility on itself", () => {
+        expect(sites.filter((s) => FAMILY.test(s.classes)).map((s) => s.at)).toEqual([]);
+    });
+});
+
+/**
+ * X-DS value pass 16 (V16-06) — ONE dialog-title voice. The house's title
+ * surfaces speak the display register (O-10d: `font-display font-medium`, the
+ * T.W4-6 rung), and three dialogs already did while the confirms kept glass's
+ * sans default, so the app titled its dialogs in two faces. Every DialogTitle
+ * carries the register.
+ */
+describe("V16-06 — every DialogTitle speaks the display register", () => {
+    const sites = vueFiles(DEMO).flatMap((f) =>
+        elements(f, ["DialogTitle"]).map((e) => ({ ...e, at: `${path.relative(DEMO, f)}:${e.line}` })),
+    );
+
+    it("finds the dialog titles (the scan is not vacuous)", () => {
+        expect(sites.length).toBeGreaterThan(8);
+    });
+
+    it("each carries font-display font-medium", () => {
+        const off = sites.filter((s) => !/\bfont-display\b/.test(s.classes) || !/\bfont-medium\b/.test(s.classes));
+        expect(off.map((s) => s.at)).toEqual([]);
+    });
+});
+
+/**
+ * X-DS value pass 16 (V16-02) — machine identifiers render as stored. The
+ * admin panes set slugs, reasons, actions and dates in glass's
+ * `text-mono-caption` (uppercase, tracked caps) and an inline small-caps note,
+ * so `crimson-owl-77` read CRIMSON-OWL-77. value-canon §2 Type: no uppercase
+ * tracking, no small-caps labels. The admin templates carry no case transform.
+ */
+describe("V16-02 — the admin panes show identifiers in the case they have", () => {
+    const ADMIN = path.join(DEMO, "palettes", "admin");
+    const CAPS = /\b(text-mono-caption|uppercase|small-caps|tracking-wide(r|st)?|tracking-\[)/;
+    const files = vueFiles(ADMIN);
+
+    it("scans the admin panes (not vacuous)", () => {
+        expect(files.length).toBeGreaterThan(5);
+    });
+
+    it("no admin template carries a case transform or caps tracking", () => {
+        const offenders = files.flatMap((f) => {
+            const tpl = parse(readFileSync(f, "utf8"), { filename: f }).descriptor.template;
+            if (!tpl) return [];
+            // comments blanked in place (line numbers kept): only markup counts
+            return tpl.content
+                .replace(/<!--[\s\S]*?-->/g, (c) => c.replace(/[^\n]/g, " "))
+                .split("\n")
+                .map((l, i) => ({ l, at: `${path.relative(DEMO, f)}:${tpl.loc.start.line + i}` }))
+                .filter(({ l }) => CAPS.test(l))
+                .map(({ at }) => at);
+        });
         expect(offenders).toEqual([]);
     });
 });

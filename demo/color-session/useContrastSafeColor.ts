@@ -50,9 +50,15 @@ import {
 // resolver yields null and the static producer MODEL in `./ink` serves; the
 // O-18 census enforces the live path in the real browser.
 
-const TIER_BG_TOKEN: Partial<Record<InkSurface, string>> = {
+/** A live-probed layer: a material rung, or the modal scrim beneath one. */
+type LiveLayer = InkSurface | "scrim";
+
+const TIER_BG_TOKEN: Partial<Record<LiveLayer, string>> = {
     resting: "--glass-plate-resting",
     floating: "--glass-plate-floating",
+    // V16-01: a modal's plate is glass's floating material, over the scrim.
+    modal: "--glass-plate-floating",
+    scrim: "--overlay-scrim",
     well: "--well-bg",
 };
 
@@ -147,7 +153,7 @@ function probeEl(): HTMLElement | null {
 }
 
 /** Read a tier's LIVE painted tint (recipe truth) — null when unmeasurable. */
-function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
+function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
     if (surface === "page") return undefined;
     let bg: string | undefined;
     if (surface === "chrome") {
@@ -241,8 +247,8 @@ interface TintCacheEntry {
     epoch: number;
     tint: SurfaceTint | undefined;
 }
-const liveTintCache = new Map<InkSurface, TintCacheEntry>();
-function resolveLiveTintCached(surface: InkSurface): SurfaceTint | undefined {
+const liveTintCache = new Map<LiveLayer, TintCacheEntry>();
+function resolveLiveTintCached(surface: LiveLayer): SurfaceTint | undefined {
     if (typeof document === "undefined") return undefined;
     const darkClass = document.documentElement.classList.contains("dark");
     const epoch = probeEpoch.value;
@@ -271,8 +277,13 @@ function surfaceLightnessNow(
         resolveLiveTintCached(surface),
         // The veil is an IN-PLATE fixture (T-34): its underlay referent is
         // the RESTING plate's live tint — `resolveSurfaceLightness` composes
-        // plate-over-ambient first, then the veil tint over the plate.
-        surface === "veil" ? resolveLiveTintCached("resting") : undefined,
+        // plate-over-ambient first, then the veil tint over the plate. A
+        // modal's underlay is the scrim (V16-01), composed the same way.
+        surface === "veil"
+            ? resolveLiveTintCached("resting")
+            : surface === "modal"
+              ? resolveLiveTintCached("scrim")
+              : undefined,
     );
 }
 
@@ -351,6 +362,28 @@ export function useContrastSafeColor(
         resolveMutedInk(floatingL.value, isDark.value),
     );
 
+    // X-DS pass 16 (V16-01): the SAME certified pair, against the MODAL plate.
+    // A dialog is glass's floating material too, but it sits on glass's 50 %
+    // ink scrim, so in light its ground is dark and the floating pair (solved
+    // over the bare ambient) put dark ink on it (1.27:1 read off the frame).
+    // The referent is the floating plate over the scrim over the ambient; the
+    // boot writer stamps `--ink-modal-primary` / `--ink-modal-muted`, and
+    // `shell.css` seats them on the modal root.
+    const modalL = computed(() =>
+        surfaceLightnessNow("modal", ambientLightness.value, isDark.value),
+    );
+    const modalInkCss = computed(() => resolvePlateInk(modalL.value, isDark.value));
+    const modalMutedInkCss = computed(() => resolveMutedInk(modalL.value, isDark.value));
+    // The destructive verb's red (glass `--destructive`, the scheme's arm of
+    // its `light-dark()` pair) certified on the same modal ground: the hue is
+    // kept and only the lightness walks (1.65:1 read off the light frame).
+    const modalDestructiveInkCss = computed(() =>
+        certifyAccentInk(
+            schemeTokenCss("--destructive", isDark.value, "hsl(0 72% 50%)"),
+            modalL.value,
+        ),
+    );
+
     // X-DS pass 15 (V15-01): the GOLD identity ink, certified on the same
     // resting plate. Gold (`--color-gold`, luminance 0.45) can never clear a
     // floor against a light plate raw (its ceiling against white is 2.10:1),
@@ -373,6 +406,9 @@ export function useContrastSafeColor(
         mutedInkCss,
         floatingInkCss,
         floatingMutedInkCss,
+        modalInkCss,
+        modalMutedInkCss,
+        modalDestructiveInkCss,
         goldInkCss,
     };
 }
@@ -381,10 +417,16 @@ export function useContrastSafeColor(
  *  (`--color-gold`, which glass publishes as a `light-dark()` pair; the demo's
  *  `@theme` literal where no cascade is mounted). */
 function goldIdentityCss(dark: boolean): string {
+    return schemeTokenCss("--color-gold", dark, "#D4AF37");
+}
+
+/** A root colour token as this scheme paints it (one arm of a `light-dark()`
+ *  pair), or `fallback` where no cascade is mounted. */
+function schemeTokenCss(token: string, dark: boolean, fallback: string): string {
     const live = typeof document === "undefined"
         ? ""
-        : getComputedStyle(document.documentElement).getPropertyValue("--color-gold").trim();
-    return lightDarkArm(live, dark) || "#D4AF37";
+        : getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+    return lightDarkArm(live, dark) || fallback;
 }
 
 /** One arm of a `light-dark(a, b)` value (the value itself when it is not one). */

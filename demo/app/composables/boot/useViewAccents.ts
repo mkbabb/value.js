@@ -52,7 +52,7 @@ import {
     bumpProbeEpochOnMount,
     resolveSurfaceLightnessLive,
 } from "../../../color-session/useContrastSafeColor";
-import { contrastInkFor } from "../../../color-session/ink";
+import { certifyAccentInk, contrastInkFor } from "../../../color-session/ink";
 import { resolveViewAccent } from "../../../color-session/view-accent";
 
 export interface UseViewAccentsOptions {
@@ -131,6 +131,26 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     // dark. Unifying accent + ramp onto ONE surface ground makes certified ≡
     // rendered. `derivedLightness` stays a watch dep only transitively (it
     // feeds `surfaceL`); the accent no longer reads the bare ambient.
+    // X-DS pass 16 (V16-01): the MODAL ground — glass's floating plate over
+    // its 50 % ink scrim over the ambient, the referent a dialog's text sits
+    // on. The view accent `--primary` paints a dialog's text verbs (Cancel),
+    // so the modal root gets its own certified accent and the ink that reads
+    // on it as a fill.
+    const modalL = computed(() =>
+        resolveSurfaceLightnessLive("modal", derivedLightness.value, isDark.value),
+    );
+    watch(
+        [safeAccentCss, modalL, () => currentConfig.value.accentHueShift],
+        ([css, mL, shift]) => {
+            const root = document.documentElement.style;
+            const accent = certifyAccentInk(resolveViewAccent(css, shift ?? 0, mL) ?? css, mL);
+            root.setProperty("--ink-modal-accent", accent);
+            const onAccent = contrastInkFor(accent);
+            if (onAccent) root.setProperty("--ink-modal-accent-fg", onAccent);
+        },
+        { immediate: true },
+    );
+
     watch(
         [
             safeAccentCss,

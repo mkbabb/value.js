@@ -30,7 +30,10 @@ compiled utilities paint) and are deleted.
   never on control text. A labelled glass `Button` is control text: its
   verb speaks glass's default label voice (the body sans), never a
   call-site `font-display` (X-DS value pass 15, V15-03; held by
-  `demo/test/shell/button-voice.test.ts`).
+  `demo/test/shell/button-voice.test.ts`). A glass tab strip
+  (`SegmentedTabs`, `Tabs`) is control text too (V16-04). Every
+  `DialogTitle` is a title surface and takes `font-display font-medium`, in
+  sentence case (V16-06); the same test holds both.
 - **Plus Jakarta Sans — the body voice.** Everything unmarked: prose, controls,
   labels, list rows. Real faces load from the corpus import
   (`@import "@mkbabb/glass-ui/styles/fonts"` — without it only the metric

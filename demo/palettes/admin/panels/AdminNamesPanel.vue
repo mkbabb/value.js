@@ -22,12 +22,14 @@
     <div v-else class="w-full grid gap-3 pb-3 min-w-0" :data-names-direction="namesDirection">
         <!-- X.W12U.s3 · UIA-V-420: Pending | Approved swaps whole panels, so the
              strip is a TABLIST (glass `semantics="tabs"`), each tab
-             `aria-controls` its panel, and each branch root is that tabpanel. -->
+             `aria-controls` its panel, and each branch root is that tabpanel.
+             X-DS pass 16 (V16-04): control text speaks glass's label voice
+             (DESIGN.md three-voice law), as Mix's strip does. -->
         <SegmentedTabs
             v-model="namesTab"
             variant="pill"
             semantics="tabs"
-            class="w-full font-display"
+            class="w-full"
             :options="namesTabOptions"
         />
 
@@ -193,7 +195,7 @@
         <Dialog v-model:open="confirmOpen">
             <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
-                    <DialogTitle>{{ confirmRequest?.title }}</DialogTitle>
+                    <DialogTitle class="font-display font-medium">{{ confirmRequest?.title }}</DialogTitle>
                     <DialogDescription>
                         {{ confirmRequest?.description }}
                         <!-- X.W12U.s3 · UIA-V-634: the name in the row's own (sans)

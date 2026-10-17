@@ -139,10 +139,13 @@
             <div v-for="[category, catTags] in tagsApi.groupedTags.value" :key="category">
                 <Label class="block mb-1.5">{{ category }}</Label>
                 <div class="flex flex-wrap gap-1.5">
+                    <!-- X-DS pass 16 (V16-08): a tag is drawn ONE way — the
+                         card's chip recipe (PaletteCardMeta: borderless,
+                         bg-muted/60, text-micro, muted ink), plus its remove ×. -->
                     <div
                         v-for="tag in catTags"
                         :key="tag.name"
-                        class="group flex items-center gap-1 max-w-full min-w-0 rounded-full border border-card-edge bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/50"
+                        class="group flex items-center gap-1 max-w-full min-w-0 rounded-full bg-muted/60 px-1.5 py-0.5 text-micro text-muted-foreground"
                     >
                         <!-- UIA-V-180: the chip holds ONE line — a long name
                              truncates inside the row (full name in `title`),
@@ -174,7 +177,7 @@
         <Dialog v-model:open="confirmOpen">
             <DialogContent surface="glass" dismiss="deliberate">
                 <DialogHeader>
-                    <DialogTitle>Delete tag?</DialogTitle>
+                    <DialogTitle class="font-display font-medium">Delete tag?</DialogTitle>
                     <DialogDescription>
                         This will permanently delete the tag
                         <span class="font-mono font-medium text-foreground">{{ confirmTag }}</span>

@@ -145,7 +145,7 @@
                 <Dialog v-model:open="deleteConfirmOpen">
                     <DialogContent surface="glass" dismiss="deliberate">
                         <DialogHeader>
-                            <DialogTitle>Delete palette?</DialogTitle>
+                            <DialogTitle class="font-display font-medium">Delete palette?</DialogTitle>
                             <DialogDescription>
                                 This will permanently delete
                                 <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>
@@ -166,7 +166,7 @@
                 <Dialog v-model:open="pm.showDeleteAllConfirm.value">
                     <DialogContent surface="glass" dismiss="deliberate">
                         <DialogHeader>
-                            <DialogTitle>Delete all saved palettes?</DialogTitle>
+                            <DialogTitle class="font-display font-medium">Delete all saved palettes?</DialogTitle>
                             <!-- X.W12U.s2 · UIA-V-547: the copy names the user's place, not
                                  the mechanism; UIA-V-278: while a search hides some of
                                  them, the dialog says the hidden ones go too. -->

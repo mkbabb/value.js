@@ -193,7 +193,7 @@
         <Dialog v-model:open="deleteConfirmOpen">
         <DialogContent surface="glass" dismiss="deliberate">
             <DialogHeader>
-                <DialogTitle>Delete palette?</DialogTitle>
+                <DialogTitle class="font-display font-medium">Delete palette?</DialogTitle>
                 <DialogDescription>
                     This will delete the palette
                     <span class="font-display font-medium text-foreground">{{ deleteConfirmName }}</span>

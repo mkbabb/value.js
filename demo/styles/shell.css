@@ -327,6 +327,40 @@
     );
 }
 
+/* X-DS pass 16 (V16-01): the same certified pair on the MODAL plate. A dialog
+ * is glass's floating material over glass's 50 % ink scrim, so in light its
+ * ground composites dark, and the floating pair above (solved over the bare
+ * ambient) left dark ink on it: 1.27:1 read off the frame. The boot writer
+ * certifies `--ink-modal-*` against the floating plate over the scrim over the
+ * ambient. Colour only: the plate, its blur and the scrim stay glass's
+ * (the light-modal composite is relayed on O-87, V16-G1). */
+.glass-floating[role="dialog"] {
+    /* the modal root declares no ink of its own, so its title and labels
+     * inherited the page's (light-scheme) body ink; they read the seat. */
+    color: var(--foreground);
+    --foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    /* the destructive verb's red, certified on the same ground (hue kept) */
+    --destructive: var(--ink-modal-destructive);
+    /* the view accent (a dialog's text verbs) and the ink that reads on it */
+    --primary: var(--ink-modal-accent, var(--accent-view));
+    --primary-foreground: var(--ink-modal-accent-fg, var(--background));
+    --popover-foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    --card-foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    --accent-foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    --muted-foreground: var(--ink-modal-muted, var(--ink-floating-muted));
+    --muted-foreground-strong: color-mix(
+        in oklab,
+        var(--ink-modal-muted, var(--ink-floating-muted)),
+        var(--ink-modal-primary, var(--ink-floating-primary)) 38.2%
+    );
+    --on-glass-muted: var(--ink-modal-muted, var(--ink-floating-muted));
+    --on-glass-muted-strong: color-mix(
+        in oklab,
+        var(--ink-modal-muted, var(--ink-floating-muted)),
+        var(--ink-modal-primary, var(--ink-floating-primary)) 38.2%
+    );
+}
+
 /* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the STAGE region (the picker +
  * its corner-breaking hero-blob ornament) paints above the right pane, so the
  * bead's overlap strip is never buried under the About card (the S-4 burial —

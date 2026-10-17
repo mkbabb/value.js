@@ -72,7 +72,10 @@
                          card is #2). -->
                     <TooltipContent :side="isLgViewport ? 'left' : 'bottom'" class="max-w-56">
                         <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
-                        <p class="font-mono text-mono-caption opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
+                        <!-- X-DS pass 16 (V16-08): the range is a readout, in the readout rung
+                             with no case transform, in the floater's certified
+                             muted ink (shell.css seats it on the tooltip plate). -->
+                        <p class="text-mono-small text-muted-foreground mt-0.5">{{ currentColorRanges[component] }}</p>
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>

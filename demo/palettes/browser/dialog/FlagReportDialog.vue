@@ -9,8 +9,10 @@
                 <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
                      body-voice `text-subheading` — the demo's dialog headers
                      join the display voice (≤500 non-bold). Producer-root
-                     candidate recorded with the W4-6 sweep (packet class). -->
-                <DialogTitle class="font-display font-medium">Report Palette</DialogTitle>
+                     candidate recorded with the W4-6 sweep (packet class).
+                     X-DS pass 16 (V16-06): every dialog title in the house
+                     takes this voice, and labels are in sentence case. -->
+                <DialogTitle class="font-display font-medium">Report palette</DialogTitle>
                 <DialogDescription>
                     Why are you reporting "{{ paletteName }}"?
                 </DialogDescription>

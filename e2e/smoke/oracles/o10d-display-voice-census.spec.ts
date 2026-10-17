@@ -322,7 +322,7 @@ test("O-10d census — gated title surfaces: report dialog · versions drawer ·
         .first();
     await menuButton.click();
     await page.getByRole("menuitem", { name: /Report/ }).click();
-    const reportTitle = page.getByRole("heading", { name: "Report Palette" });
+    const reportTitle = page.getByRole("heading", { name: "Report palette" });
     await expect(reportTitle).toBeVisible();
     const report = await typeVoice(reportTitle);
     expect(report.fontFamily, "Report dialog title off the display face").toMatch(

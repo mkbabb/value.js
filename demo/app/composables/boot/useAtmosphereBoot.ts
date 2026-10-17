@@ -90,6 +90,9 @@ export function useAtmosphereBoot(
         mutedInkCss,
         floatingInkCss,
         floatingMutedInkCss,
+        modalInkCss,
+        modalMutedInkCss,
+        modalDestructiveInkCss,
         goldInkCss,
     } = useContrastSafeColor(
         atmosphereColor,
@@ -134,6 +137,29 @@ export function useAtmosphereBoot(
         floatingMutedInkCss,
         (css) => {
             document.documentElement.style.setProperty("--ink-floating-muted", css);
+        },
+        { immediate: true },
+    );
+    // X-DS pass 16 (V16-01): the modal plate's pair — the floating rung over
+    // glass's scrim (a dialog's ground), seated on the modal root.
+    watch(
+        modalInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-modal-primary", css);
+        },
+        { immediate: true },
+    );
+    watch(
+        modalMutedInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-modal-muted", css);
+        },
+        { immediate: true },
+    );
+    watch(
+        modalDestructiveInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-modal-destructive", css);
         },
         { immediate: true },
     );
