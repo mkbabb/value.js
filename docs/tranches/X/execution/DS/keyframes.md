@@ -3078,3 +3078,55 @@ Both rows stay honest-RED until the repin. The consumer adds no override.
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 11 (the ninth redeploy's pass 11; critic C11; cure keyframes `ddf18e80`; evidence `pass-11/c11-2026-10-17/`)
+
+**Cure commit:** keyframes.js `ddf18e80` (master, pushed fast-forward). **Evidence:** value.js `001ea7127`, in `evidence/DS/keyframes/pass-11/c11-2026-10-17/`. `pass-11/` already holds an earlier round's committed evidence, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: the same cells as pass 10: every route at 1440/390 in light and dark, the empty cube Timeline before and after the one-press inline Import, the ribbon Import's paste dialog, and the cube controls pane.
+- `after/capture.json`: adds `band-empty-*` / `band-imported-*` (the Timeline's last content row against the ribbon's top) and `dialog-*.titleType` / `descriptionType` / `paneTitle`.
+- `capture.mjs`, `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), with one browser per run and a context per cell, all closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C11-03 (low): the paste dialog's title takes the pane-title rung.** In `CSSPasteDialog.vue`, the DialogTitle moves from `text-subheading` to `text-heading font-semibold`. That is glass `--type-heading` at the configurator section label's 600, the rung that 'Timeline' and 'Rotations' wear. The description stays in glass's body register.
+  - Measured at 1440 in both schemes: the title is 25.9px/600 (was 20.35px/600), and the pane's 'Rotations' title is 25.9px/600. The description is 18.6px/400.
+  - Frames: `after/cube-import-dialog-1440-*`.
+- **KF-C11-04 (low): the Timeline sizes to its content.** Since KF-C7-02, the empty-state notice follows the track in flow. After that, `.rail-fill` on the Timeline's chain (KF-C5-01) only grew a blank band between the lane and the ribbon's rule.
+  - The class is deleted at all four sites: ChannelControls' mount wrapper, and KeyframeTimeline's column, card body and ConfiguratorLayer. No counter-rule was added.
+  - The ribbon's rule now follows the last row, as on the Controls surface. Measured at 1440 in both schemes: 30px empty (last row at y 361, rule at y 391; was about 330px) and 37px imported (lane foot at y 473, rule at y 510; was about 220px).
+  - The pane frame still ends on the stage's foot (y 750, KF-C10-10). The left-over block now sits under the transport row inside the one frame, which is the Controls surface's ratified rule (KF-C7-02). The critic's first option, a taller stop lane, was not taken: a lane stretched to about 330px would be the same empty paper with two diamonds in it.
+  - Frames: `after/cube-timeline-{empty,imported}-1440-*`.
+
+**Refused / accepted as deliberate**
+- **KF-C11-07 (trivial): the end-caret clamp is kept, as the critic's second arm allows.** The 0% and 100% caret labels are clamped by the one edge band (`edgeOf`, LaneTrack) that the ruler's labels also read. KF-C1-16 deliberately lets the end labels start and end where the rail does. Centring them on their diamonds would mean overhanging the card's inset, and that would split the one edge rule into two.
+
+**Cited (glass, not overridden)**
+- **KF-C11-01 (medium): O-87 FLAT-LIGHTING, legibility rider.** In light mode, the modal `.glass-floating` over the 50% scrim settles to a taupe slab, rgb(119,110,101), with ink at 3.5:1. Its `saturate(1.5)` also blooms the cube's faces. Ask: a modal over a scrim takes a near-opaque paper (popover) surface in light mode, with no saturate boost and one quiet edge. Extends KF-C10-G1.
+- **KF-C11-02 (medium): O-87 proportion rider.** Under `(pointer: coarse)`, `--control-text` multiplies by 1.5, so Re-seat (18.27px) and 'To keyframes' outrank the 12.18px copy and the 14px heading they serve. Ask: grow the coarse hit box (block size and padding) and keep control type at its fine-pointer rung, or cap it at the body rung.
+- **KF-C11-05 (low): O-87.** The open Select listbox wears the 3-layer `--shadow-cartoon-*` stack (stacked offset plates) and, in dark, the floating material's corner gleam. Ask: one quiet neutral shadow and no internal gleam. Same family as KF-C1-02 and KF-C1-09.
+- **KF-C11-06 (low): O-87 proportion and affordance rider.** LabeledSlider's resting recipe is the scrubber's thumbless cylinder, so 'duration' reads as a progress readout. Ask: a quiet visible handle on parameter sliders, distinct from the timeline scrubber. The consumer keeps the producer's paint (OA-8).
+
+These rows stay honest-RED until the 10.2.0 repin. The consumer adds no override.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5199/ --widths 1440,390 --settle 5000`): identical to pass 10 (`pass-10/c10-2026-10-17/census.json`) in every key except `at`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree with this pass's changes, which also carried another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `KeyframeTimeline.vue` carried another seat's uncommitted hunk on the same `CardContent` line (`panel-content`). This seat staged an index blob of HEAD plus its own change (`git hash-object -w` and `git update-index --cacheinfo`), checked `git diff --cached`, and committed without a pathspec. The other seat's hunk stays unstaged in the working tree. `CSSPasteDialog.vue` and `ChannelControls.vue` were clean. The served frames include the other seat's hunks. The value.js commits are pathspec-only.
+- **Capture order:** the first capture ran before `font-semibold` was added (title 25.9px/700). Its frames were deleted, and the committed `after/` is the re-capture on the final tree.
+- **Dev server:** this seat served its own port (:5199) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the captures and the census: `--rss-gb 6` (browser pool; each queued for a slot first);
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
