@@ -1080,3 +1080,47 @@ The critic named one medium and three low consumer rows, one trivial row, one ro
 - O18-1296 (V15-04) stays with X-W10, with `--ink-gold` as its candidate.
 - The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01 and VC4-09.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 16 (2026-10-16): critic V16 — the first opened dialogs, the admin caps register, one count idiom, one dialog-title voice
+
+The critic named one high, one medium and five low consumer rows, one trivial row, one row that stays with an owner ruling, and the standing glass rows. Every consumer row is cured. V16-07 stays with the owner's V2C-15 ruling, and the glass rows (now with two pass-16 addenda) stay honest-RED. Evidence is in `pass-16/`.
+
+**Commits.** value.js `abfeb8a39` (the cure, 21 paths, including the O-87 addendum) and `80f613056` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-16/`) |
+|---|---|---|---|
+| V16-01 (high) | **CURED at the token seat.** | The ink resolver gains a **modal** referent. It is the floating plate over glass's scrim (`--overlay-scrim`) over the ambient, read from the live recipes, with the static model as fallback (`ink.ts` `"modal"`, `useContrastSafeColor` `modalL`). The boot writer stamps `--ink-modal-primary`, `--ink-modal-muted` and `--ink-modal-destructive`, which keeps the red's hue and walks only its lightness. `useViewAccents` stamps `--ink-modal-accent` and its on-fill ink `--ink-modal-accent-fg`, so Cancel, which paints `--primary`, is certified too. `shell.css` seats them all on `.glass-floating[role="dialog"]`, beside V5C-02. That is one selector and adds no wrapper. It also sets `color: var(--foreground)`, because the modal root declared no ink and its title and labels inherited the page body's ink. It changes colour only; glass's plate, blur and scrim are untouched. Surfaces stay `surface="glass"`. The users confirm's slug pill reads the modal ink, not the resting-plate accent. **Enrolled:** a new pixel row, `e2e/smoke/admin/o18-modal-ink.spec.ts`, checks the confirm's title, body and Cancel, and the Report dialog's title, body, every reason and Cancel, at ≥ 4.5:1 read off the frame. It was born-RED in light (2.19:1, 2.09:1) and is GREEN ×2. | `v16.json`, pixels: **light** confirm title 7.15–7.37, body 7.29–7.90, slug 7.39–7.57, Cancel 6.39–7.32, Delete 5.39–5.68. Report title 7.37–7.40, reasons 7.09–8.20, placeholder 9.1–9.3, Cancel 6.26–7.86. Before, these read 1.07–2.17. **Dark** holds 10–14 on text. **Residual, stated plainly:** in dark the destructive verb reads **4.14–4.54:1**. Glass's `secondary` destructive button lays a ~26 % tint of its own red under the red ink. The ink is certified against the plate, not the tint, so this is relayed as V16-G1's second half. The disabled Report verb (2.7–4.1) is exempt as a disabled control. Frames: `admin-confirm-*`, `report-*`. |
+| V16-02 (medium) | **CURED.** | Six sites move from `text-mono-caption` to `text-mono-small`: the flagged owner slug, the reason chips, the date (with tabular-nums), the "palette deleted" note (inline small-caps and `tracking-wide` deleted) and the audit action chips. The flagged owner is a plain muted mono slug. **Enrolled:** a leg of `button-voice.test.ts` fails on `text-mono-caption`, `uppercase`, `small-caps` or caps tracking in any admin template, with comments blanked first. It was born-RED and is GREEN. | `v16.json`, all 4 cells: every admin mono string has `text-transform: none`, `letter-spacing: normal` and `font-variant-caps: normal`, and 0 `text-mono-caption` remain. `crimson-owl-77`, `palette.feature` and `Jul 4` render as stored (`admin-flagged-*`, `admin-audit-*`). |
+| V16-03 (low) | **CURED.** | The destructive Badge comes off the count. The count is now the one count idiom: `text-mono-small tabular-nums text-muted-foreground`, titled "N report(s)". Red stays only on the delete glyph's hover and focus. | The counts `2` and `1` are muted ink with no fill, titled "2 reports" and "1 report". |
+| V16-04 (low) | **CURED (consumer half); glass half relayed.** | `font-display` comes off the Names `SegmentedTabs`, so the strip speaks the sans, as Mix's does. **Enrolled:** a `button-voice.test.ts` leg fails on a family utility on glass `SegmentedTabs`/`Tabs`. It was born-RED. **The overhang survives the face change.** The empty list reads indicator 235.8–275.5 against track 226.6–269.2, identical to the critic's Fraunces reading, from inline `height: 39.76px; translate: 4.04px 9.19px` against a 34.6 px tab. The populated list reads 230.7–282.4. So the overhang was never the face: it is glass's JS indicator measurement. It is relayed as an O-87 addendum, with no local override. | `v16.json` names: family Plus Jakarta Sans, labels "Pending · 2" / "Approved · 0" (`admin-names-*`). |
+| V16-05 (low) | **CURED.** | The audit toolbar's count and Refresh are now one `ms-auto` non-wrapping cluster, the shape of the Flagged and Tags headers. The spacer is deleted. The entry's meta line wraps (`flex-wrap`), and the actor clause is no longer truncated. | 390: the filters fill line 1, and "3 entries" sits with Refresh at the right of line 2 (count x 245, Refresh x 329, same row). 1440 is unchanged (beside the filters). All actor clauses read whole, none clipped (`admin-audit-390-*`). |
+| V16-06 (low) | **CURED.** | Ruling: the house's title surfaces speak the display register (O-10d gated title surfaces, T.W4-6), so every `DialogTitle` takes `font-display font-medium`. That adds 7 confirm titles to the 3 that already had it. It is written as "Report palette" (the o10d string updated). `DESIGN.md` states the ruling, and a `button-voice.test.ts` leg holds it. It was born-RED. | Fraunces titles on `admin-confirm-*` and `report-*`. |
+| V16-07 (low) | **Not cured: it stays with the owner's V2C-15 ruling.** | Nothing for a seat to cure. Frames are attached for the banked ask. | `admin-users-{1440,390}-{light,dark}.png`. |
+| V16-08 (trivial) | **CURED.** | The admin tag chip takes the card chip's recipe (borderless, `bg-muted/60`, `text-micro`, muted ink) and keeps its remove ×. The parse-echo space label drops `uppercase tracking-[0.14em]` and keeps its `--ink-muted`. The rail tooltip range moves to `text-mono-small text-muted-foreground`, the floater's certified muted ink, with no case transform. | `v16.json` tags: border 0, `bg-muted/60`, sans 11 px (`admin-tags-*`). |
+| V16-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88.** No local override. | The standing rows are unchanged. **New O-87 addenda (pass 16):** (a) in light, the modal plate at α 0.18 over a 50 % ink scrim composites dark; ask glass for a light ground in the light scheme, plus the destructive verb's own-tint contrast cost. (b) The SegmentedTabs indicator's geometry. Both are re-judged at the 10.2.0 repin. | The census glass rows are unchanged (below). |
+
+**Census** (`census-after.json`, `--base :9011 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded; 18 of 18 route cells, no errors).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls and floater max layers 8 (`overlays.json`, no paint-top failures). These are identical to pass 15.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+
+**Frames.** Headless real Chrome (§0ei), served by `vite --port 9011 --strictPort`.
+- Counts: 36 of 36 route frames, 8 overlay frames and 4 login frames.
+- V16 frames: 8 opened-dialog frames (`admin-confirm-*`, `report-*`) and 20 admin frames (users, flagged, audit, names and tags × 4 cells).
+- The server was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- Type-check: 0 ×2.
+- vitest: 1227/1234 ×2, with the same 7 standing failures as passes 13–15.
+- e2e:
+  - smoke-admin, 8 specs (pass 15's 7 plus `o18-modal-ink`): **20/20 ×2**.
+  - smoke, 24 specs (pass 15's 22 plus `o18-contrast-census` and `w7-destructive-seats`, because the ink resolver changed): **138 passed ×2**, with the same 6 failed ×2. All 6 are the standing class (c′) o18 cells homed by id to X-W10 (W10-ADDENDUM-2026-10-16-cprime §1, rows 1–6). None reads a changed surface.
+  - Pass 15's set is strict GREEN ×2.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Pass 16 cured every consumer row it owns. It opened dialogs for the first time, and the modal ground is now in the house's ink model.
+- Two residuals are stated for the next critic, both glass-material:
+  - the dark destructive verb's own-tint contrast (4.14–4.54);
+  - the SegmentedTabs indicator overhang.
+- The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01, VC4-09 and V2C-15 (V16-07).
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
