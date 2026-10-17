@@ -445,3 +445,38 @@ Seat `claude-opus-5-5`, 2026-10-17. Spec sections: W8.md X.W8.e `:197-206` · G-
 **Escalations** — none.
 **Adjacent edits** (§0bt) — none.
 **Inherited paths** — none.
+
+### X.W8.i
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec: W8.md ADDENDUM 2026-09-22 (second, §0aq) · ADDENDUM 2026-09-23 (second, §0bb `J4-SHORT-LANDSCAPE-BLOB`) · COHESION `:2692` · §0az `O12-3-HOVER-GPU` · X-W12U routes (C-5/NG-6, 844×390 CLS C10-1). Opens after `.e` (`3ecc1535f`).
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- <the .i writable set>`⟩ → empty. **Inherited paths — none.**
+2. Anchors at true bytes ⟨`grep -rEn 'isWide|isLgViewport' demo --include='*.vue' --include='*.ts'`⟩ → 6: `ExtractWorkbench.vue:230,309` · `ConsoleRail.vue:73,123` · `HeroBlob.vue:71,189` (spec's `:226/:118/:71` DRIFTED; INTENT at true bytes).
+3. Cure (one layout, no viewport fork): ExtractWorkbench — `layout === 'split' ? 'aside' : 'default'` (the aside spine is sized for the half column, the same measure a phone's stacked column gives); ConsoleRail — `side="left"` declared once, glass Tooltip's `avoidCollisions: !0` (`dist/tooltip-*.js:67`) flips it where left has no seat (t-mobile F-5); HeroBlob — `quality: appBlobConfig.quality` at every width (producer clamps backing DPR ≤ 2, `dist/color.glsl-*.js:4-7`; a uniform `half` would break o12 O-12·5's 0.6 backing floor at 1440). The three `useBreakpoint` imports deleted.
+4. ⟨`grep -rEo 'isWide|isLgViewport' demo/ --include='*.vue' --include='*.ts' | wc -l`⟩ → **0**. ⟨`npm run typecheck`⟩ (guarded --light) exit 0 · ⟨`npm run lint`⟩ exit 0 · ⟨`npx eslint <3 files> --max-warnings=0`⟩ exit 0 · ⟨`git diff --check`⟩ clean · targeted vitest over every suite importing the three SFCs (6 files) → `101 passed` ×2 (`W8-witness/i/vitest-targeted.txt`).
+5. C-5 measured: ⟨`npx vitest run test/spectrum-luma.test.ts`⟩ → RED, white stroke 45° 1.65 · 60° 1.07 · 120° 1.37 · 180° 1.25 :1. The oracle's `strokeContrast(h,1,1)` selects the stroke by `spectrumFieldIsLight(1,1)` (no hue argument) and the same file's M-12 pin asserts `spectrumFieldIsLight(1,1) === false`. At s=v=1 white fails at [45,60,120,180] and black fails at [240] (`W8-witness/i/c5-ng6-unsatisfiable.txt`) — **no (s,v) predicate, however cured, can pass**; the hue-aware cure needs the oracle to pass hue and the M-12 pin restated = a test/assertion edit outside the writable set. **ESCALATED, not substituted.**
+6. NG-6 measured: the failing case mounts glass-ui `Checkbox` with `{checked:true}` and expects `data-state="checked"` (reads `unchecked`) — a property of the READ-ONLY producer, not of any demo binding. ⟨`grep -rn ':checked\|update:checked\|v-model:checked' demo --include='*.vue'`⟩ → **0** (the SearchFilterBar subject site is gone since X.W12U.s2's TagChipSet; `demo/test/palettes/checkbox-contract.test.ts` holds the consumer ledger). No demo edit can flip it. **ESCALATED.**
+7. C7 struck with the measurement: ⟨`find demo -name 'DockStatusLamp*' | wc -l`⟩ → 0; ⟨`grep -rn DockStatusLamp demo | wc -l`⟩ → 0; deleted at `8b5b48347` (X-W12U .k2). **C7 STRUCK.**
+8. J4 / o29 blob limb: ⟨`git log -3 -- e2e/smoke/oracles/o29-scene-contracts.spec.ts`⟩ → the `test.fail` marker is ALREADY retired at `177301823` (X-W12U .q2: "Expected to fail, but passed" at `5731fe6ce`); the limb gates plain. Nothing to flip; no `shell.css` rule cut ahead of a measurement. Re-measure ⟨`VJS_E2E_PORT=8371 guarded --timeout 15 -- npx playwright test o29 -g "short landscape" --project=smoke --workers=1`⟩ → **guard-refused**: `[guarded] waiting for headroom (kernel zone data.kalloc.1024 at 13.5M (panics near 20.8M): reboot the Mac)`; stopped, no browser started (`zone.log` 08:16:57 inuse=13470925). **UNMEASURED this seat.**
+9. O12-3-HOVER-GPU: o12's leg 3 was RESTATED by X-W12U.b under COHESION §0dm ESC-W12d-1 (`o12-blob-seat.spec.ts:46-62`: the hero no longer parks and is `pointer-events-none` with no pointer host, so the 6/255 hover-wake premise is gone; the leg now bounds idle frame cost). The floor this id was registered against no longer exists in the oracle. The real-GPU read is headed-only, and headed browsers are banned by machine law (2026-10-14). **Reading: SUPERSEDED-BY-RULING (§0dm); no hover byte owed.** This is not a GREEN reading.
+10. 844×390 CLS (C10-1): the source is the colour-space select chevron (`svg.lucide<control-surface`, in-pane, 0.00001, base 0.00128). Re-reading it needs `reveal-run.sh` over a built `dist/gh-pages` plus a browser, and the guard refuses that at 13.5M. Its source is outside this unit's writable set. **UNMEASURED; the residual carries.**
+11. Full ⟨`npx vitest run --maxWorkers=2`⟩ ×2: not runnable as a heavy run under the zone watchdog. The known reds are C-5 + NG-6 (escalated above), so the gate cannot read GREEN regardless.
+
+**Commits** — `82bd72d2f` refactor(demo/picker,extract): delete the three C3 viewport layout forks (5 paths: the 3 SFCs + 2 witness files).
+
+**Gates BEFORE → AFTER**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-W8-i1 grep | RED 6 hits / 3 files | **GREEN** 0 |
+| G-W8-i1 full vitest ×2 | RED (C-5, NG-6) | **RED**: C-5 + NG-6 escalated; full run guard-refused (zone 13.5M) |
+| C-5 | RED | **RED: ESCALATED** (unsatisfiable inside bounds, witnessed) |
+| NG-6 | RED | **RED: ESCALATED** (producer property; 0 demo subject sites) |
+| J4-SHORT-LANDSCAPE-BLOB | marker retired `177301823` | **UNMEASURED** (guard-refused) |
+| O12-3-HOVER-GPU | 1.37/255 of record | **SUPERSEDED** by §0dm restatement (headed read banned) |
+| 844×390 CLS | 0.00001 | **UNMEASURED** (guard-refused; carries) |
+| C7 | file absent | **STRUCK** (0 files, 0 refs, `8b5b48347`) |
+
+**Escalations** — ESC-W8i-1 (C-5): the oracle's M-12 pin plus its 2-arg `strokeContrast` make 3:1-at-every-hue unsatisfiable for any `(s,v)` predicate. Ask: grant `test/spectrum-luma.test.ts` to pass hue through a hue-aware `spectrumFieldIsLight(h,s,v)`, with the M-12 pin restated over the new model, or rule the assertion's owner. ESC-W8i-2 (NG-6): the failing case asserts that glass-ui's Checkbox honours a `checked` prop. That is producer-owned and contradicts the file's own third case. Ask: rule the assertion an owner's (W1.a) re-author to "stale prop drives NOTHING" (`'unchecked'`), or relay it to glass. ESC-W8i-3 (host): the kernel zone is at 13.5M and the owner must reboot before J4 / CLS / the full vitest ×2 can be read.
+**Adjacent edits** (§0bt) — none.
+**Inherited paths** — none.
