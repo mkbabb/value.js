@@ -1,0 +1,740 @@
+{
+ "morph-light-1440": [
+  {
+   "card": "Settle Out",
+   "cardBox": {
+    "x": 596,
+    "w": 220
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 617,
+      "w": 60
+     },
+     "field": {
+      "x": 697.7,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 617,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 617,
+    "w": 178
+   }
+  },
+  {
+   "card": "Morph",
+   "cardBox": {
+    "x": 828,
+    "w": 220
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 849,
+      "w": 60
+     },
+     "field": {
+      "x": 929.7,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 849,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 849,
+    "w": 178
+   }
+  },
+  {
+   "card": "Settle In",
+   "cardBox": {
+    "x": 1060,
+    "w": 220
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 1081,
+      "w": 60
+     },
+     "field": {
+      "x": 1161.7,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 1081,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 1081,
+    "w": 178
+   }
+  },
+  {
+   "card": "levels",
+   "cardBox": {
+    "x": 596,
+    "w": 684
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Low",
+     "labelBox": {
+      "x": 617,
+      "w": 60
+     },
+     "field": {
+      "x": 685.4,
+      "w": 72
+     }
+    },
+    {
+     "label": "High",
+     "labelBox": {
+      "x": 617,
+      "w": 60
+     },
+     "field": {
+      "x": 685.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": null,
+   "easeSelect": null
+  }
+ ],
+ "morph-light-1024": [
+  {
+   "card": "Settle Out",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 473,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 541,
+    "w": 192
+   }
+  },
+  {
+   "card": "Morph",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 473,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 541,
+    "w": 192
+   }
+  },
+  {
+   "card": "Settle In",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 473,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 541,
+    "w": 192
+   }
+  },
+  {
+   "card": "levels",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Low",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    },
+    {
+     "label": "High",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": null,
+   "easeSelect": null
+  }
+ ],
+ "morph-light-390": [
+  {
+   "card": "Settle Out",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 29,
+      "w": 73.1
+     },
+     "field": {
+      "x": 270.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 29,
+    "w": 332
+   },
+   "easeSelect": {
+    "x": 29,
+    "w": 332
+   }
+  },
+  {
+   "card": "Morph",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 29,
+      "w": 73.1
+     },
+     "field": {
+      "x": 270.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 29,
+    "w": 332
+   },
+   "easeSelect": {
+    "x": 29,
+    "w": 332
+   }
+  },
+  {
+   "card": "Settle In",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 29,
+      "w": 73.1
+     },
+     "field": {
+      "x": 270.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 29,
+    "w": 332
+   },
+   "easeSelect": {
+    "x": 29,
+    "w": 332
+   }
+  },
+  {
+   "card": "levels",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Low",
+     "labelBox": {
+      "x": 29,
+      "w": 33.9
+     },
+     "field": {
+      "x": 289,
+      "w": 72
+     }
+    },
+    {
+     "label": "High",
+     "labelBox": {
+      "x": 29,
+      "w": 38.8
+     },
+     "field": {
+      "x": 289,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": null,
+   "easeSelect": null
+  }
+ ],
+ "morph-dark-1440": [
+  {
+   "card": "Settle Out",
+   "cardBox": {
+    "x": 596,
+    "w": 220
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 617,
+      "w": 60
+     },
+     "field": {
+      "x": 697.7,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 617,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 617,
+    "w": 178
+   }
+  },
+  {
+   "card": "Morph",
+   "cardBox": {
+    "x": 828,
+    "w": 220
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 849,
+      "w": 60
+     },
+     "field": {
+      "x": 929.7,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 849,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 849,
+    "w": 178
+   }
+  },
+  {
+   "card": "Settle In",
+   "cardBox": {
+    "x": 1060,
+    "w": 220
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 1081,
+      "w": 60
+     },
+     "field": {
+      "x": 1161.7,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 1081,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 1081,
+    "w": 178
+   }
+  },
+  {
+   "card": "levels",
+   "cardBox": {
+    "x": 596,
+    "w": 684
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Low",
+     "labelBox": {
+      "x": 617,
+      "w": 60
+     },
+     "field": {
+      "x": 685.4,
+      "w": 72
+     }
+    },
+    {
+     "label": "High",
+     "labelBox": {
+      "x": 617,
+      "w": 60
+     },
+     "field": {
+      "x": 685.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": null,
+   "easeSelect": null
+  }
+ ],
+ "morph-dark-1024": [
+  {
+   "card": "Settle Out",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 473,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 541,
+    "w": 192
+   }
+  },
+  {
+   "card": "Morph",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 473,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 541,
+    "w": 192
+   }
+  },
+  {
+   "card": "Settle In",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 473,
+    "w": 60
+   },
+   "easeSelect": {
+    "x": 541,
+    "w": 192
+   }
+  },
+  {
+   "card": "levels",
+   "cardBox": {
+    "x": 452,
+    "w": 556
+   },
+   "labelCol": "3.75rem",
+   "rows": [
+    {
+     "label": "Low",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    },
+    {
+     "label": "High",
+     "labelBox": {
+      "x": 473,
+      "w": 60
+     },
+     "field": {
+      "x": 541.2,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": null,
+   "easeSelect": null
+  }
+ ],
+ "morph-dark-390": [
+  {
+   "card": "Settle Out",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 29,
+      "w": 73.1
+     },
+     "field": {
+      "x": 270.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 29,
+    "w": 332
+   },
+   "easeSelect": {
+    "x": 29,
+    "w": 332
+   }
+  },
+  {
+   "card": "Morph",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 29,
+      "w": 73.1
+     },
+     "field": {
+      "x": 270.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 29,
+    "w": 332
+   },
+   "easeSelect": {
+    "x": 29,
+    "w": 332
+   }
+  },
+  {
+   "card": "Settle In",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Duration",
+     "labelBox": {
+      "x": 29,
+      "w": 73.1
+     },
+     "field": {
+      "x": 270.4,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": {
+    "x": 29,
+    "w": 332
+   },
+   "easeSelect": {
+    "x": 29,
+    "w": 332
+   }
+  },
+  {
+   "card": "levels",
+   "cardBox": {
+    "x": 16,
+    "w": 358
+   },
+   "labelCol": "",
+   "rows": [
+    {
+     "label": "Low",
+     "labelBox": {
+      "x": 29,
+      "w": 33.9
+     },
+     "field": {
+      "x": 289,
+      "w": 72
+     }
+    },
+    {
+     "label": "High",
+     "labelBox": {
+      "x": 29,
+      "w": 38.8
+     },
+     "field": {
+      "x": 289,
+      "w": 72
+     }
+    }
+   ],
+   "easeLabel": null,
+   "easeSelect": null
+  }
+ ]
+}
