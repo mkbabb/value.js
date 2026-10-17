@@ -580,3 +580,52 @@ Carried, not new: ESC-W8i-1 (C-5), ESC-W8i-2 (NG-6), ESC-W8i-3 (host reboot). No
 | VERIFIED | NO (not this seat's stamp; L-18 rider owed) |
 
 **Verdict: PARTIAL** — static/compile/lint/graph gates GREEN ×2; the suite and every heavy arm remain on R1/R2.
+
+## Check 1
+
+L-20 fresh adversarial pass 1, VERIFY-ONLY, `claude-opus-5-5`, 2026-10-17, HEAD `af19a20b1`. Spec read whole once; record read
+header → Unit plan, the `.i` receipt, and § Close. Crash-recovery ⟨`git status --porcelain -- <record> <LEDGER> W8-CLOSE.md`⟩ → empty.
+Host ⟨`tail -1 ~/.claude/guard/log/zone.log`⟩ → `08:27:01 inuse=13491884` (≥ 13M): every heavy arm stays guard-refused this seat too.
+
+### Axis readings
+
+1. **Claimed GREENs reproduce: 17 of 17.** ⟨G-1 four commands ×2⟩ → `0 96 53 0` both, local-barrel filter 0; root `@mkbabb/glass-ui` imports 7 (Accordion* ×1 · Alert* ×1 · Skeleton ×5; installed 10.1.0, 68 keys, no alert/skeleton/accordion subpath); root clipboard 0 · components.json / demo/ui / shared/utils.ts absent · `demo/@` 0 · clsx/twm 0/0 (and absent from node_modules) · tw-animate-css 1 · shared/debounce importers 11 · ⟨graph-v3 `--print-sccs` ×2 (guarded --light)⟩ → exit 0, `[runtime]`/`[load]` 0, sha256/16 `27d38866c7fae674` both (= `.c` after) · shim 0 / `<DockCrossfade` 3 · `update` emit 0, `@update=` 0 in ColorPicker, refs/clearHover 0 · overlay: `type="button"` ×3, execCommand result gates `flashCopied`, append/remove in try/finally, one timer cleared on `onScopeDispose` · `isAdminMode = computed(` · `chrome` rung only in a comment; chrome probe throws when unmeasurable (loud) · `400 LoC` 0, `demo/@/components/ui` 0, 4 `max-lines` pins = measured worsts (demo 1013 GradientStopRail · src 672 path.ts) · forks grep 0 · `btn-interactive` class sites 0 (3 comment hits). ⟨`guarded --light -- npm run typecheck` / `npm run lint`⟩ ×2 → `tc=0 lint=0` both runs. Targeted ⟨vitest over ink · spectrum-luma · reka-binding-idiom · dock-admin-mode · dock-command-registry · ink-real-composite, `--maxWorkers=2`⟩ → `7 failed | 42 passed (49)` — identical to Close; G-12 and REG suites pass.
+2. **Bounds**: ⟨`git show --stat` × 16 commits⟩ — every path inside its unit's set or a declared adjacent, except `demo/picker/ColorPicker.vue:63` (`15932a93a`, LW-1 of record, lawful §0bt parent binding, mis-recorded). `scripts/dev/dev.sh`: 0 commits in range.
+3. **No masking**: `ink-real-composite.test.ts` drops the deleted `chrome` rung from the rung loop and ADDS a token assertion + a measured-band fixture — re-pointed, not narrowed. The overlay's clipboard `catch` is the pre-existing feature fallback, not a defect mask. No `test.skip`, allowlist, node_modules patch.
+4. **Commit families**: one product commit per unit + receipt, plus `.dc`'s dated addendum — §Commit Plan held.
+5. **E-3**: ⟨`git diff --stat 17090b54a~1..HEAD -- registry/adjudicated/ CONFORMANCE-2026-08-03.md waves/ (minus census/witness/close)`⟩ → only `W8.md | 2 ++` = `0f2d34e61`'s dated ADDENDUM (0 deleted lines) — lawful addendum-beside per the file's own addenda practice.
+6. **Mail**: ⟨`find <6 paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 on every path; 0 table rows with status UNREAD.
+7. **Four-verb**: IMPLEMENTED PARTIAL / VERIFIED NO — lawful (no premature stamp).
+8. **Goal criterion at the bytes**: forwarding layer, config/dep residue and the four SCCs are gone and nothing replaced them — MET.
+9. **Published figures** (0/96/53/0 · 11 · 7 · 1013/672/357/539 · 7 failed | 42 passed) reproduce.
+
+### Axis 10 — RED gates adjudicated at the spec bytes
+
+| gate | relief at the spec bytes | owner named | reading |
+|---|---|---|---|
+| `npm run test` ink.test D6 ×2 + T-35 ×3 (G-5 cl.4 / G-15) | out-of-wave, pre-existing: INK-VEIL-MIDBAND → O-62 (a), the X-W7L/X-W12U honest-RED rows; G-15 is preservation and the composition is unchanged (X-W12U Close 8 `:3386` "INK-VEIL-MIDBAND ×5 · C-5 · NG-6") | yes | **HONEST-RED** |
+| DOCK-SCROLL-MORPH | ADDENDUM §0bc: "otherwise the row closes honest-RED by id with O-55" | yes (O-55) | **HONEST-RED** |
+| 7 root-barrel statements (G-3 narrowness) | no subpath exists in installed 10.1.0 — producer-owned (BK relay `alert-skeleton-subpaths`) | yes | GREEN at the spec's own clause (narrowest *published*) |
+| **C-5 · NG-6 (G-W8-i1 full-vitest ×2)** | **NONE.** COHESION §0aq `:2692-2694` and the W8 ADDENDUM route both canaries INTO `.i` "cured at their roots (test-owned, W1.a born-RED) … Bounds: the named files"; X-W7 / X-W7L / X-W12U all closed honest-RED by routing them HERE. ESC-W8i-1/-2 are open escalations with no ruling in COHESION (⟨`grep -n 'ESC-W8i' COHESION.md`⟩ → 0) | escalation only, no ruling | **UNRELIEVED RED** |
+| A3 · C2 (`.dc`, S-1's gates) · `npm run test:e2e` · G-15 visual pairs · J4 o29 · 844×390 CLS (C10-1 → `.i` per X-W12U Check 10) | none at the spec bytes; host-blocked (zone ≥ 13M, ESC-W8i-3 owner reboot) | owner act named, not a relief | **UNMEASURED — cannot be adjudicated GREEN or honest** |
+| G-8 motion arm | banked ×2 by `.d` (`G-8-G-13-probe.txt`, guarded, before the zone wall) | — | GREEN of record (not re-driven) |
+
+### Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | G-W8-i1's full-vitest ×2 arm is RED on C-5 + NG-6 with no relief at the spec bytes; this wave is their terminal owner by route | targeted vitest `7 failed \| 42 passed` (C-5, NG-6 among them); §0aq `:2694`; ESC-W8i-1/-2 unruled | owner rules ESC-W8i-1/-2 (C-5: hue-aware oracle + M-12 pin restated; NG-6: W1.a re-author or glass relay), then an `.i` re-sit cures at the root and the full suite reads ×2 |
+| HIGH (verification gap; no byte defect inferred) | S-1's A3/C2, `test:e2e`, G-15 visual pairs, J4, 844×390 CLS never measured | `dc-A3-C2-unmeasured.txt`; zone 13.49M at this seat | owner reboot (ESC-W8i-3); RESUME close seat measures them, then Check 2 |
+| MEDIUM | the Unit-plan `.i` writable set omits the two canary test files, though §0aq says "test-owned … Bounds: the named files"; the escalation's "outside the writable set" premise is therefore contestable | record Unit plan `.i` row vs COHESION `:2694` | the ESC-W8i-1/-2 ruling settles whether a re-author is inside `.i`'s bounds |
+| MINOR | LW-1: `ColorPicker.vue:63` edit not listed under `.d` adjacent edits | `git show --stat 15932a93a` | record addendum (already logged by Close) |
+| MINOR | `demo/DESIGN.md:248,258` stale `btn-interactive` canon | Close R5 | X-W10 (canon owner) |
+| INFO | 7 root-barrel imports have no subpath at 10.1.0 | exports map 68 keys | BK relay `alert-skeleton-subpaths` |
+
+**Honest-RED set (relieved)**: ink D6/T-35 ×5 → O-62 (a) · DOCK-SCROLL-MORPH → O-55.
+**Unrelieved**: C-5 · NG-6 (G-W8-i1). **Unmeasured**: A3 · C2 · test:e2e · G-15 pairs · J4 · 844×390 CLS.
+
+### Successors
+
+X-W10 `Opens after` "X-W5..X-W9 stable": X-W8 conjunct **RED** (not CLOSED) → lawfully BLOCKED. X-W11 "X-W0…X-W10 IMPLEMENTED": X-W8 IMPLEMENTED = PARTIAL → lawfully BLOCKED.
+
+**Verdict: NOT-CONFORMANT** — every claimed GREEN reproduces (17/17), bounds/E-3/mail/masking clean, but one HIGH unrelieved RED (C-5/NG-6) and the S-1 gates unmeasured. LEDGER status not promoted; event line appended.
