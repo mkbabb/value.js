@@ -4224,3 +4224,16 @@ So the 50 ms bound cannot be met by any lawful act on the boot task. A one-task 
    - G2 ≤ 294,912 ×2;
    - smoke ×2 except the named rows.
 5. **Order:** `.o5c → close → check`. W12U.md ADDENDUM (k) carries this ruling.
+
+## §0fw — 2026-10-17: ESC-W12U-o5c-1 RULED. Both readings are accepted as asked; `.o5c` is DONE; the close re-sits
+1. **(a) The boot bar is a same-load interleaved A/B, not an absolute 122 ms.**
+   - The pre-cure bytes (`955efaa03`) read 0 of 12 sittings ≤ 122 at load 11–15, so §0fv.1's absolute figure does not reproduce on this host.
+   - The bar is now: interleaved sittings of the pre-cure and post-cure bytes at the same load (≥ 6 each, load recorded). The post-cure mean must be ≤ the pre-cure mean, and the post-cure maximum ≤ the pre-cure maximum, ×2.
+   - The banked reading (≈151 → ≈117 ms mean, no `dock.js` in the boot task) is the evidence form.
+   - The remaining boot share is ruled first-paint state and is kept: the pane, inks 18.6 ms, aurora `color.wgsl` 23.1 ms. glass `useScrollTrigger` forcing the first layout (17.4 ms) is O-99, ADOPT-AT-LANDING.
+2. **(b) "Overture unchanged" is read as: the land is unchanged, nothing pops, and the band is constant.**
+   - The band rect, the pane top, the veil-to-land order and the land animation are identical. CLS stays 0.
+   - The veil shortening from 10–14 frames to 3 is the designed no-morph path of `useDockArrival` arriving settled. The old length was an artefact of incidental first-mount transitions in a forced style flush, so it is an improvement, not a change of design.
+   - O-4 order-invariance stays GREEN.
+3. **Login wall.** The close seat died on "Login expired" (an auth wall, not a defect). The close re-sits verify-only once the session's credentials are refreshed.
+4. **Order:** `close (verify-only: O-5 from mainVisible ×2 on GPU, the boot A/B ×2, G2 ≤ 294,912 ×2, smoke ×2 except the named rows) → check`. W12U.md ADDENDUM (l) carries this ruling.
