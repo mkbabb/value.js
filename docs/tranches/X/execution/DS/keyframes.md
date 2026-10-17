@@ -2454,3 +2454,55 @@ A label's visibility is not lighting. The verdict stays **RED**, held by the gla
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probe and the census `--light --rss-gb 6`, the suites `--light --rss-gb 4`.
 - The probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 5 (the eighth redeploy's pass 5; critic C5p; evidence in `pass-50/`)
+
+**Cure commit:** keyframes.js `efc606a2` (pushed fast-forward to master, `95965819..efc606a2`). **Evidence:** value.js `319e8606a` (`evidence/DS/keyframes/pass-50/`):
+- `c5-probe.mjs`, `c5-probe.json` (GREEN, 0 fails) and `c5-probe-before.json` (born RED at `95965819`, 10 fails);
+- `cure/geom.mjs` (the drawer and square measurements) and `cure/pick.mjs` (the fold after picks far down the catalogue);
+- `capture.mjs` and `after/`: the critic's cells. That is home, `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390 in light and dark, plus `cube-keyframes`, `cube-timeline` and `cube-dock-open` at 1440, and `after/capture.json` (the chevron witness);
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-05/`, but that folder already holds the first workflow's committed evidence, so the frames go to `pass-50/`, the next free folder (the pass-23..49 precedent). The critic's own frames are under `pass-37/critic-p5/` (untracked, the critic seat's).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C5p-06 (low) | **The stage drawer's fold lands at rest.** `EasingCatalogue.vue` `landDrawer` (KF-C5-09's rule) ran in the menu density only, because KF-C7-03 found that shrinking the stage drawer shortened the plate. Since KF-C7-03 the plate stands at the stage cap whatever the drawer's height, so the rule now serves both densities:<br>• a heading that the fold would cut goes under the fold whole;<br>• a tile that the fold would cut shows its designed peek (`scroll-padding-block-end`, 12 px, inside glass's 16 px end fade), or nothing where less than that peek would show;<br>• in the stage, a tile already showing half of itself or more is left as it stands, so the bare plate under the fold stays under half a row.<br>The fold re-lands after `landTop`'s rest scroll, and never on the user's own scroll. The drawer was already a glass `FadingScroll`; the critic's "no fade" was the 12 px of solid tile edge above the 16 px fade. | Probe, both schemes:<br>• 1440x900: the Sine tiles go from 28.3 px (12 solid) to 12 px, inside the fade;<br>• 1280x800: the Sine heading (14.3 px cut) goes under the fold;<br>• 390x844: the 4 px hairline under 'Sine' is gone (fold 690 → 686);<br>• 390x700: a 19 px solid sliver becomes a 12 px peek.<br>Picks of ease-in-out-expo, ease-in-back and steps leave a 12 px peek or at least half a row. `after/easing-*`. |
+
+**Refused (with the measurement or the standing ruling)**
+- **KF-C5p-07 (low): disproved by measurement.** KF-C7-05 holds on the served 390 frame. The field (195 px) plus the box's reach at x = ±1 (97 px) is 292 px, which is the plate's inner measure exactly (334 px less 2 × 1.25 rem; `c5-probe.json` `square-390-*`). The field can only grow by shrinking the box below its travel (box = travel is the subject's own proportion) or by pushing the box past the plate edge at ±1, where it would be clipped. The empty block above and below is plate height that an inline-bound subject cannot use. That plate height is KF-C9-04's sibling rule (one stage height across scenes). Changing the subject's proportion is an owner call.
+- **KF-C5p-04 (low): owner composition (§0dm).** The headline over the die is the owner's T.D9 / OD-4 seat ("it's OK if it sits a bit on top of the cube"; the overlap is WELCOME). This is the same row as KF-P1-22, KF-C9-06, KF-C10-09, KF-C14-04 and KF-C15-03. It is left for the owner (`after/home-1440-*`).
+- **KF-C5p-05 (low): standing ruling (T.D4).** The label column stays sans. `font-roles.json`'s `control-label` role and its `_monoContract` (T.D4, RULED) confine Fira Code to the data register: "A new demo-authored mono UI label reds the census". Reviving ORIGIN's mono labels would reverse T.D4, which is an owner §0dm call (as in KF-C5-05; the canon records the mono labels as a density/identity note).
+
+**Cited (glass, not overridden)**
+- **KF-C5p-01 (medium): O-87 rider (correctness).** Glass's SelectTrigger chevron uses `in-data-[state=open]:rotate-180`, and Tailwind v4's `in-*` matches any ancestor. Glass's own `.configurator-layer-region` carries `data-state=open`, so every closed Select in an open pane points up. Re-witnessed at `efc606a2` (`after/capture.json`): 'alternate' and 'forwards' are `closed` and rotated 180deg, with nearest open ancestor `DIV.configurator-layer-region`, in both schemes. The cure belongs in glass (scope the rotation to the trigger's own state). It is honest-RED until the 10.2.0 repin.
+- **KF-C5p-02 (low): O-87.** The dark `glass-capsule` drop takes the foreground ink and reads as a pale halo. This sharpens deferred KF-C1-01.
+- **KF-C5p-03 (low): O-87, PLAUSIBLE.** A resting-plate `backdrop-filter` blur over the page grid (deferred KF-C1-09). It is re-witnessed at the repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): identical to pass 49 in every tally:
+- chrome: 310 shadow elements, 938 layers (max 6);
+- 416 inset highlights;
+- 278 backdrop blurs;
+- 54 control gradients;
+- 80 looping animations (the owner-ruled `wave-char` and `TypingDots`).
+
+The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops. A scroll port's height is not lighting.
+
+**Gates** (the live tree at `efc606a2`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served falsifier is `c5-probe.mjs`: born RED at `95965819`, GREEN at `efc606a2`.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. Every commit is pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+- **`c5-probe-before.json`:** it was recorded before the hairline clause was added to the probe. Its 390x844 4 px sliver is in `cure/geom.mjs`'s numbers and in the critic's frame.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes, captures and census `--light --rss-gb 6`, the suites `--light --rss-gb 4`.
+- Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
+- Nothing of this seat's was left running.
