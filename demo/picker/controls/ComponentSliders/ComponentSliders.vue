@@ -186,12 +186,13 @@ function meterText(component: string): string {
     return `${s}${fmt.unit ?? ""}`;
 }
 
-// The needle's ink regime reads the SHARED plate-luma helper (B3 — one
-// function, one threshold): the ramp color under the thumb IS the live color,
-// so the thumb border, the WatercolorDot border, and the overlay contour ink
-// can never disagree about the same color.
+// The needle's ink regime reads the SHARED hue-aware plate helper (B3 — one
+// function, one decision; X.W8.i2): the ramp color under the thumb IS the
+// live color, so the thumb border and the WatercolorDot border can never
+// disagree about the same color.
 const thumbInk = computed(() => {
     return spectrumFieldIsLight(
+        clamp(channelNumber(HSVCurrentColor.value, "h"), 0, 360),
         clamp(channelNumber(HSVCurrentColor.value, "s"), 0, 1),
         clamp(channelNumber(HSVCurrentColor.value, "v"), 0, 1),
     )
