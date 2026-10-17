@@ -1,0 +1,821 @@
+{
+ "base": "http://localhost:9263",
+ "results": [
+  {
+   "file": "notfound-1440-light.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 464,
+     "w": 512,
+     "top": 113,
+     "h": 293
+    },
+    "header": {
+     "top": 114,
+     "bottom": 200
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   },
+   "edge": {
+    "x": 899,
+    "samples": [
+     [
+      175,
+      216,
+      132,
+      130
+     ],
+     [
+      180,
+      215,
+      130,
+      129
+     ],
+     [
+      185,
+      217,
+      132,
+      133
+     ],
+     [
+      190,
+      213,
+      128,
+      128
+     ],
+     [
+      195,
+      216,
+      130,
+      131
+     ],
+     [
+      200,
+      214,
+      128,
+      131
+     ],
+     [
+      205,
+      215,
+      128,
+      132
+     ],
+     [
+      210,
+      214,
+      127,
+      132
+     ],
+     [
+      215,
+      215,
+      126,
+      132
+     ]
+    ]
+   }
+  },
+  {
+   "file": "atmosphere-1440-light.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 464,
+     "w": 512,
+     "top": 113,
+     "h": 645
+    },
+    "header": {
+     "top": 114,
+     "bottom": 227
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   }
+  },
+  {
+   "file": "generate-1440-light.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 498,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 465,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 238,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 324,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 410,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 496,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 582,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 1160,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 927,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 967,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 1019,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "palettes-new-1440-light.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 713,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 700,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 496,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 768,
+     "w": 46,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 826,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 927,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 967,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 1019,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "notfound-390-light.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 16,
+     "w": 358,
+     "top": 127,
+     "h": 308
+    },
+    "header": {
+     "top": 128,
+     "bottom": 204
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   },
+   "edge": {
+    "x": 320,
+    "samples": [
+     [
+      179,
+      216,
+      134,
+      128
+     ],
+     [
+      184,
+      215,
+      132,
+      127
+     ],
+     [
+      189,
+      215,
+      132,
+      127
+     ],
+     [
+      194,
+      216,
+      133,
+      129
+     ],
+     [
+      199,
+      211,
+      127,
+      123
+     ],
+     [
+      204,
+      217,
+      134,
+      131
+     ],
+     [
+      209,
+      213,
+      129,
+      127
+     ],
+     [
+      214,
+      217,
+      133,
+      130
+     ],
+     [
+      219,
+      217,
+      133,
+      132
+     ]
+    ]
+   }
+  },
+  {
+   "file": "atmosphere-390-light.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 16,
+     "w": 358,
+     "top": 127,
+     "h": 622
+    },
+    "header": {
+     "top": 128,
+     "bottom": 228
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   }
+  },
+  {
+   "file": "generate-390-light.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 132,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 101,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 47,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 108,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 169,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 229,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 290,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 301,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 137,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 177,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 229,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "palettes-new-390-light.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 132,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 101,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 218,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 47,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 101,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 137,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 177,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 229,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "notfound-1440-dark.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 464,
+     "w": 512,
+     "top": 113,
+     "h": 293
+    },
+    "header": {
+     "top": 114,
+     "bottom": 200
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   },
+   "edge": {
+    "x": 899,
+    "samples": [
+     [
+      175,
+      136,
+      34,
+      36
+     ],
+     [
+      180,
+      133,
+      32,
+      34
+     ],
+     [
+      185,
+      134,
+      35,
+      37
+     ],
+     [
+      190,
+      131,
+      30,
+      34
+     ],
+     [
+      195,
+      133,
+      34,
+      36
+     ],
+     [
+      200,
+      131,
+      33,
+      36
+     ],
+     [
+      205,
+      131,
+      33,
+      36
+     ],
+     [
+      210,
+      130,
+      32,
+      37
+     ],
+     [
+      215,
+      131,
+      33,
+      37
+     ]
+    ]
+   }
+  },
+  {
+   "file": "atmosphere-1440-dark.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 464,
+     "w": 512,
+     "top": 113,
+     "h": 645
+    },
+    "header": {
+     "top": 114,
+     "bottom": 227
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   }
+  },
+  {
+   "file": "generate-1440-dark.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 498,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 465,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 238,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 324,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 410,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 496,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 582,
+     "w": 78,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 1160,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 927,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 967,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 1019,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "palettes-new-1440-dark.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 713,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 700,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 496,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 768,
+     "w": 46,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 826,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 927,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 967,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 1019,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "notfound-390-dark.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 16,
+     "w": 358,
+     "top": 127,
+     "h": 308
+    },
+    "header": {
+     "top": 128,
+     "bottom": 204
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   },
+   "edge": {
+    "x": 320,
+    "samples": [
+     [
+      179,
+      137,
+      35,
+      33
+     ],
+     [
+      184,
+      135,
+      32,
+      33
+     ],
+     [
+      189,
+      134,
+      33,
+      32
+     ],
+     [
+      194,
+      136,
+      34,
+      35
+     ],
+     [
+      199,
+      130,
+      28,
+      29
+     ],
+     [
+      204,
+      136,
+      35,
+      36
+     ],
+     [
+      209,
+      133,
+      31,
+      33
+     ],
+     [
+      214,
+      134,
+      34,
+      36
+     ],
+     [
+      219,
+      134,
+      34,
+      36
+     ]
+    ]
+   }
+  },
+  {
+   "file": "atmosphere-390-dark.png",
+   "ok": true,
+   "plate": {
+    "card": {
+     "x": 16,
+     "w": 358,
+     "top": 127,
+     "h": 622
+    },
+    "header": {
+     "top": 128,
+     "bottom": 228
+    },
+    "veil": "none",
+    "seated": true,
+    "docScroll": 0
+   }
+  },
+  {
+   "file": "generate-390-dark.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 132,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 101,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 47,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 108,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 169,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 229,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 290,
+     "w": 53,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 301,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 137,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 177,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 229,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  },
+  {
+   "file": "palettes-new-390-dark.png",
+   "ok": true,
+   "swatches": [
+    {
+     "x": 132,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 101,
+     "w": 40,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 218,
+     "w": 28,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 47,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 101,
+     "w": 42,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 137,
+     "w": 32,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 177,
+     "w": 44,
+     "maxStraightPx": 0
+    },
+    {
+     "x": 229,
+     "w": 24,
+     "maxStraightPx": 0
+    }
+   ]
+  }
+ ]
+}

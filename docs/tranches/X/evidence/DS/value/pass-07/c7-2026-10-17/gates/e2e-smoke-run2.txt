@@ -1,0 +1,62 @@
+(node:29432) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:29510) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 31 tests using 1 worker
+
+(node:29695) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' (21.2s)
+  ✓   2 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) (6.3s)
+  ✓   3 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) (7.1s)
+  ✓   4 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders (2.5s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub (3.9s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated (1.1s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header (2.5s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) (4.1s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column (1.0s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (4.2s)
+  ✓  11 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (4.8s)
+  ✓  12 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (2.7s)
+  ✓  13 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (4.1s)
+  ✓  14 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (6.6s)
+  ✓  15 [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead (3.1s)
+  ✓  16 [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields (3.6s)
+X.W6.f f8 CENSUS — distinctVisualSignatures = 18 of 18
+  (url-keyed would report 18 — the recorded false-GREEN trap, excluded)
+  rgb           seed=139 bg=lab(92 88.8 20 / 0.827) radius=23.4211% 76.5789% 75.3555% 24.6445% / 43.6606% 24.8166% 75.1834% 56.3394%
+  hsl           seed=151 bg=lab(92 88.8 20 / 0.827) radius=38.62% 61.38% 41.8862% 58.1138% / 76.6361% 26.1014% 73.8986% 23.3639%
+  hsv           seed=161 bg=lab(92 88.8 20 / 0.827) radius=63.356% 36.644% 74.3151% 25.6849% / 24.3797% 75.4923% 24.5077% 75.6203%
+  hwb           seed= 17 bg=lab(92 88.8 20 / 0.827) radius=35.3019% 64.6981% 60.0809% 39.9191% / 50.8487% 28.0749% 71.9251% 49.1513%
+  lab           seed= 63 bg=lab(92 88.8 20 / 0.827) radius=58.1404% 41.8596% 69.7% 30.3% / 23.0273% 35.3412% 64.6588% 76.9727%
+  lch           seed=135 bg=lab(92 88.8 20 / 0.827) radius=75.9955% 24.0045% 56.1283% 43.8717% / 47.7428% 23.8725% 76.1275% 52.2572%
+  oklab         seed=185 bg=lab(92 88.8 20 / 0.827) radius=34.5921% 65.4079% 29.5453% 70.4548% / 65.5605% 39.9849% 60.0151% 34.4395%
+  oklch         seed=  1 bg=lab(92 88.8 20 / 0.827) radius=64.9889% 35.0111% 66.2162% 33.7838% / 34.8126% 63.9556% 36.0444% 65.1874%
+  xyz           seed=123 bg=lab(92 88.8 20 / 0.827) radius=77.9535% 22.0465% 62.8153% 37.1847% / 76.1964% 22.2908% 77.7092% 23.8036%
+  kelvin        seed=249 bg=lab(92 88.8 20 / 0.827) radius=32.7486% 67.2514% 73.2236% 26.7764% / 53.2509% 74.7796% 25.2204% 46.7491%
+  srgb-linear   seed=102 bg=lab(92 88.8 20 / 0.827) radius=24.4176% 75.5824% 34.8167% 65.1833% / 63.0184% 25.6046% 74.3954% 36.9816%
+  display-p3    seed=118 bg=lab(92 88.8 20 / 0.827) radius=52.2055% 47.7945% 49.9445% 50.0555% / 72.2384% 25.2067% 74.7933% 27.7616%
+  a98-rgb       seed=202 bg=lab(92 88.8 20 / 0.827) radius=58.0477% 41.9523% 57.1131% 42.8869% / 72.4616% 33.2626% 66.7374% 27.5384%
+  prophoto-rgb  seed=179 bg=lab(92 88.8 20 / 0.827) radius=30.7185% 69.2815% 22.9077% 77.0923% / 42.2426% 21.2406% 78.7594% 57.7574%
+  rec2020       seed= 14 bg=lab(92 88.8 20 / 0.827) radius=66.624% 33.376% 43.441% 56.559% / 58.1172% 57.2564% 42.7436% 41.8828%
+  ictcp         seed=  3 bg=lab(92 88.8 20 / 0.827) radius=33.267% 66.733% 57.0025% 42.9975% / 26.7332% 57.697% 42.303% 73.2668%
+  jzazbz        seed=235 bg=lab(92 88.8 20 / 0.827) radius=42.5542% 57.4458% 37.6087% 62.3913% / 70.6899% 20.5531% 79.4469% 29.3101%
+  hex           seed=213 bg=lab(92 88.8 20 / 0.827) radius=33.6998% 66.3002% 70.2832% 29.7168% / 65.4062% 70.224% 29.776% 34.5938%
+  ✓  17 [smoke] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url (3.2s)
+  ✓  18 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static (465ms)
+  ✓  19 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:198:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers (2.4s)
+  ✓  20 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:217:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers (1.7s)
+  ✓  21 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:229:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers (539ms)
+  ✓  22 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:260:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) (437ms)
+  ✓  23 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (757ms)
+  ✓  24 [smoke] › e2e/smoke/page-load.spec.ts:71:1 › an unknown address announces its destination and is distinct from home (418ms)
+  ✓  25 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 light › token-less deep link fail-closes to Not Found at the typed address (295ms)
+  ✓  26 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 light › token-less in-app hash navigation fail-closes the same way (391ms)
+  ✓  27 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 light › admin token mounts the Tags pane with its rows, never the catch-all (469ms)
+  ✓  28 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 dark › token-less deep link fail-closes to Not Found at the typed address (289ms)
+  ✓  29 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 dark › token-less in-app hash navigation fail-closes the same way (366ms)
+  ✓  30 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 dark › admin token mounts the Tags pane with its rows, never the catch-all (404ms)
+  ✓  31 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (8.8s)
+
+  31 passed (1.7m)
