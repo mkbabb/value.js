@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+# §0fw.1 boot A/B: base=955efaa03 tree close8-base, post=a027974f6 tree close8; GREEN iff post mean <= base mean AND post max <= base max
+AB r1 base n=6 mean=124.3 max=135 | post n=6 mean=102.8 max=119 -> GREEN
+AB r2 base n=6 mean=128.8 max=142 | post n=6 mean=104.7 max=122 -> GREEN

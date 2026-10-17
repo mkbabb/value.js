@@ -1,0 +1,12 @@
+round 1 arm=base load=12.55 boot=122ms renderer=ANGLE Metal
+round 1 arm=post load=12.43 boot=84ms renderer=ANGLE Metal
+round 2 arm=base load=11.60 boot=116ms renderer=ANGLE Metal
+round 2 arm=post load=10.87 boot=99ms renderer=ANGLE Metal
+round 3 arm=base load=10.32 boot=142ms renderer=ANGLE Metal
+round 3 arm=post load=9.49 boot=99ms renderer=ANGLE Metal
+round 4 arm=base load=10.01 boot=133ms renderer=ANGLE Metal
+round 4 arm=post load=10.09 boot=122ms renderer=ANGLE Metal
+round 5 arm=base load=9.45 boot=132ms renderer=ANGLE Metal
+round 5 arm=post load=9.25 boot=116ms renderer=ANGLE Metal
+round 6 arm=base load=9.16 boot=128ms renderer=ANGLE Metal
+round 6 arm=post load=8.67 boot=108ms renderer=ANGLE Metal
