@@ -281,3 +281,110 @@ G-7 `:308-327`); this record header → Unit plan + the `.b` receipt; COHESION �
 here. (r2) the 7 pre-existing vitest REDs per the `.b` receipt (r1/r2). (r3) the oracle exits 0 whether or not
 components exist — RED is read from the printed `[runtime]`/`[load]` lines, as the falsifier transcript states.
 **Escalations** — none. **Adjacent edits** — none. **Inherited paths** — none.
+
+### X.W8.d
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec sections read: W8.md whole (534 lines; X.W8.d `:182-195`, G-8 and
+G-10..G-13 `:328-406`, addenda §0ba/§0bb); this record header → Unit plan + the `.c` receipt; COHESION
+⟨`grep -n 'W5-READY-DEAD\|BTN-INTERACTIVE\|X.W8.d' COHESION.md`⟩ → `:2951` (§0ba: both ids routed to `.d`),
+`:2960` (`W5-READY-DEAD` discharged at `16852e03`; `.d` confirms and strikes).
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- demo/picker demo/shell/dock demo/test/shell demo/color-session
+   demo/palettes/browser/card docs/tranches/X/waves/W8-witness <this record>`⟩ → empty. No inherited edits.
+2. **G-8.** ⟨`grep -nE 'useLayerTransition|SUB_LAYER' ActionBarLayer.vue`⟩ → 1 (`:99`, a comment naming the
+   retired composable); code already gone, `<DockCrossfade` ×3 (1 tag + 2 comments). Comment reworded to
+   "the local layer-transition shim" — count 0. Motion arm (Dock.md G-B): bounded chromium probe
+   `W8-witness/probe-g8-g13.mjs` (1 browser, 1 context per scheme, closed in `finally`), guarded, against
+   `npx vite --port 9248` (lane-local port — :9000 is the shared dev port; same tree, same dev build; server
+   stopped after). ×3 AFTER runs, both schemes: at the first rAF ≥ 60 ms (65–89 ms) BOTH faces carry a
+   `[data-crossfading]` ancestor, opacities intermediate (e.g. light is-leaving 0.625 / is-active 0.375);
+   14–17 moving frames over a ~30→270 ms window; **snap frames inside motion 0**. Clause reading recorded
+   in the witness: the rest frame before the click and the settled frames after are endpoints, a snap is an
+   extreme frame INSIDE the motion window. Falsifier (`:active="activeSubLayer"` → `active="actions"`,
+   scratch, byte copy restored, `cmp` identical) → no `[data-crossfading]`, 0 moving frames (RED).
+   Banked `W8-witness/G-8-G-13-probe.txt`.
+3. **G-10.** `ColorComponentDisplay.vue:87` `update: [value, component]` deleted; parent counterpart
+   `ColorPicker.vue:63` `@update="(v, c) => updateColorComponentDebounced(v, c)"` deleted (the lock's named
+   case — ColorPicker binds @update; the debounced updater keeps 2 live callers `:231`, `:418`).
+   `ActionBarLayer.vue:48` `colorInputRef` (2 hits: declaration + template `ref`, never read in script)
+   deleted with `:241 ref="colorInputRef"`. Already absent at baseline (recorded, nothing cut):
+   `canProposeName` prop + `:can-propose-name` binding and `clearHover`/`defineExpose` (ActionToolbar.vue
+   deleted `c00004924`; the 12 surviving `canProposeName` hits are the live input-arm field, `keys.ts:109,258`),
+   `actionToolbarRef` 0, `GradientPane.vue` inject (X-W6.a; 1 hit, its comment).
+4. **G-11.** `PointerDebugOverlay.vue`: `ok = document.execCommand("copy")` gates `flashCopied()`; the
+   append/select/exec/remove is `try { … } finally { removeChild }`; the two `setTimeout` arms share ONE
+   handle `copiedReset` (cleared on re-copy and in `onScopeDispose`); `type="button"` on the 3 action buttons.
+   `aria-controls` 0 at baseline (clause discharged). Falsifier suite `W8-witness/G-11/pointer-debug-copy.test.ts`
+   (+ harness `vitest.config.ts` beside it, include REPLACED to the witness dir) mounts the real SFC:
+   ⟨`npx vitest run --config docs/tranches/X/waves/W8-witness/G-11/vitest.config.ts`⟩ at HEAD bytes
+   (`git show HEAD:<file>`, restored, `cmp` identical) → **4 failed (4)**; at the cure → **4 passed (4)**.
+   Banked `W8-witness/G-11-falsifier.txt`.
+5. **G-12.** `useDockAdminMode.ts:36` already a `computed` (UIA-V-59) — clause 1 GREEN-BEFORE, no byte cut.
+   New `demo/test/shell/dock-admin-mode.test.ts`: the real `useViewManager` over a vue-router memory history
+   (same path stack + `back()` listener path as the app's hash routes, without jsdom's async traversal —
+   the first web-hash draft read `/atmosphere` after `back()`, measured, replaced): anonymous `/` →
+   `/atmosphere` → `back()` → `isAdminMode` false at every step; the authed arm vitest-stubbed (labelled
+   UNVERIFIABLE-HERE per the spec). → 2 passed. Falsifier: the stored latch (ref seeded from the view + a
+   one-way watch) reintroduced in scratch → **2 failed** (`expected true to be false`); restored, `git diff`
+   empty → 2 passed. Banked `W8-witness/G-12-latch-falsifier.txt`.
+6. **G-13.** `ink.ts`: `"chrome"` deleted from `InkSurface` and `RUNG_STEP` (the static rung); new
+   `resolvePaintedLightness(ambientL, tint: SurfaceTint)` — the measured-only referent, tint REQUIRED.
+   `useContrastSafeColor.ts`: the `chrome` branch of `resolveLiveTint` deleted; `paintedColor(el)` factored
+   from the veil walk; `resolveDockPlateTint(from): SurfaceTint` (non-optional) climbs from the consumer's
+   element and at each ancestor reads its own paint or its `:scope > .dock-plate` layer's (glass paints the
+   band on that child, `position:absolute; inset:0; z-index:-1`, never on `.glass-dock`) — unmeasurable
+   throws; `useChromeAccentFn(host)` certifies against it (cached per host × scheme × probe epoch; before
+   `host` mounts it makes no ink claim). `ProfileSection.vue:33` → `useChromeAccentFn(sectionRoot)` on its own
+   root. Browser readings (×3, both schemes): `.dock-plate` `color(srgb 0.204 0.148 0.083 / 0.1)` light,
+   `/ 0.14` dark; `.glass-dock` `rgba(0,0,0,0)`; Login trigger inline ink `oklch(0.3046 0.1218 9.83)` /
+   `oklch(0.9583 0.0211 9.83)` — defined (the spec's α 0.5392/0.5776 were glass-7 cells; 10.1.0's veil reads
+   0.10/0.14). Compile falsifier (`useSafeAccentFn("chrome")`, `resolveSurfaceLightness("chrome", …)`,
+   `resolvePaintedLightness(0.5, undefined)` in scratch) → 3 × TS2345, exit 2 (`W8-witness/G-13-compile-falsifier.txt`).
+   Runtime falsifier (walk re-pointed at the unpainted `.glass-dock` only) → `useChromeAccentFn: no painted
+   dock band above the host element` thrown, trigger ink absent (RED; in `G-8-G-13-probe.txt`).
+7. **W5-BTN-INTERACTIVE-DEAD.** ⟨`grep -rc btn-interactive node_modules/@mkbabb/glass-ui/dist`⟩ → 0 files;
+   demo CSS 0 rules (the atom left glass at `490cc46e3`, "land the Glass 7 … public-surface cut"). Class deleted
+   at `ColorInput.vue:71,81` and `CurrentPaletteEditor.vue:85,88,114`, with the three comments that claimed it.
+   ⟨`grep -rEn 'class="[^"]*btn-interactive' demo`⟩ → 0. Motion question rides O-52 R-2 (§0ba).
+8. **W5-READY-DEAD — confirmed and STRUCK.** ⟨`git show --stat 16852e03`⟩ → `demo/shell/useViewManager.ts`
+   −9 ("drop useViewManager's dead `ready` ref"); ⟨`grep -cw ready demo/shell/useViewManager.ts`⟩ → 0. No byte.
+9. Gates (guarded): ⟨`npm run typecheck`⟩ exit 0 · ⟨`npx eslint demo src api e2e test --max-warnings=0`⟩ exit 0 ·
+   ⟨`npm run lint`⟩ exit 0 · ⟨`git diff --check`⟩ clean (+ new files: 0 trailing-space lines) ·
+   ⟨`npm run test -- --maxWorkers=2`⟩ ×2 → `7 failed | 1229 passed (1236)` both, the SAME 7 the `.b`/`.c`
+   receipts book (ink.test.ts D6 ×2 + T-35 ×3; C-5; NG-6); +2 = the new G-12 suite. ⟨`VJS_E2E_PORT=9249 guarded
+   --timeout 44 -- npx playwright test --project=smoke --workers=1`⟩ (21.9 min) → **283 passed / 14 failed /
+   2 skipped**; the 14 by name ⊂ the X-W12U `.q2` banked `cl1` 16 (`W12U-evidence/q2/logs/cl1-smoke.log.txt`;
+   ⟨`comm -13` over both failure lists with `:line:col` stripped (o18 drifted +1 line)⟩ → **0 new**; `comm -23`
+   → o18 admin-pill (dark) and o22 captions, passing now). None in this unit's
+   graph except o18's file, whose profile-trigger chrome row PASSED.
+
+**Commit** — `15932a93a` refactor(demo/dock,picker): retire the layer-transition shim and the dead
+surface/state/ink (§Commit Plan 4; 18 paths: 9 product, 1 adjacent test, 1 new test, 7 witness; body names
+each deleted site and its parent counterpart).
+
+**Gates BEFORE → AFTER** (AFTER re-read at the committed bytes)
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-8 | RED (count 1, prose; motion arm unbanked) | **GREEN** — count 0, `<DockCrossfade` ≥ 1; motion arm ×3 both schemes: `[data-crossfading]` on both faces at +60 ms, snap 0; falsifier RED |
+| G-10 | RED — `update` emit + `@update` binding; `colorInputRef` unread | **GREEN** — emit 0, `@update=` on CCD 0, `colorInputRef` 0; canProposeName-prop / clearHover / actionToolbarRef / GradientPane inject 0 (GREEN-BEFORE) |
+| G-11 | RED — 5 of 6 (aria-controls discharged) | **GREEN** — execCommand checked, try/finally, handle cleared in `onScopeDispose`, `type="button"` ×3; falsifier 4/4 RED at HEAD, 4/4 GREEN cured |
+| G-12 | RED (test clause; latch already derived) | **GREEN** — `ref(` 0 in the composable; back-navigation suite 2/2; falsifier 2/2 RED |
+| G-13 | RED — `chrome` in `InkSurface` + `RUNG_STEP`, `SurfaceTint \| undefined` | **GREEN** — `chrome` 0 in ink.ts; fallback call sites = 3 × TS2345; live band tint defined (α 0.10 / 0.14), Login ink defined; unpainted re-point RED |
+| W5-BTN-INTERACTIVE-DEAD | RED — 5 class sites | **GREEN** — 0 class sites; 0 rules in glass dist / demo CSS |
+| W5-READY-DEAD | discharged `16852e03` | **STRUCK** — confirmed: `ready` 0 in `demo/shell/useViewManager.ts` |
+
+**Residuals** — (r1) the 7 pre-existing vitest REDs (`.b` r1/r2) and the 14 pre-existing smoke REDs (all in
+the X-W12U banked 16), neither in this unit's bounds. (r2) G-8 tail: after the motion settles (~270 ms) the
+leaving face keeps `is-leaving` at opacity 0 under `[data-crossfading]` until ~550 ms — the producer's settle
+window, glass-owned, not a snap; named for the close, no relay opened (no defect measured). (r3) G-13's
+eventual RETIREMENT against glass's `--glass-tint-source/strength` stays BLOCKED-ON TR#47 (CC-107), untouched.
+(r4) `useChromeAccentFn` makes no ink claim before its host mounts (one pre-mount render inherits the trigger's
+default ink; the template-ref write re-drives before paint).
+**Escalations** — none.
+**Adjacent edits** (COHESION §0bt) — `test/ink-real-composite.test.ts:109` (the rung table named the deleted
+`chrome: -1`; now asserts the published `--glass-veil-dock` recipe k = −1 instead) and `:161`/`:197-199` (the
+sweep's `"chrome"` surface now resolves through `resolvePaintedLightness` with the published band fixture
+`dockBand(dark)`); same concern (the oracle asserting the rung this unit deletes), no assertion removed,
+16/16 pass. `demo/picker/ColorPicker.vue:63` is the lock's named parent counterpart (in the writable set).
+**Inherited paths** — none.
