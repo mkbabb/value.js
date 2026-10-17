@@ -2800,3 +2800,68 @@ SERVED MODEL: claude-opus-5-5 · 2026-10-16 · HEAD at open `4e525939b` · autho
 - Masking scan ⟨`git show 1c04f8c68 \| grep '^+' \| grep -cE 'test\.skip\|\.fixme\|force: ?true\|allowlist\|eslint-disable\|ts-ignore\|ts-expect-error\|retries'`⟩ → `0`.
 
 **Commits:** `1c04f8c68` (product family, 24 files) · `f2d8b3739` (evidence `W12U-evidence/g2s2/**`, 91 files) · this receipt.
+
+### X.W12U.g2d2
+
+SERVED MODEL: claude-opus-5-5 · 2026-10-16 · HEAD at open `b9da2db7d` (the `.g2s2` receipt; product `1c04f8c68`) · authority W12U.md ADDENDUM (h) `.g2d` :117-120 + (i) :128; COHESION §0fr.1 (`.g2d`, the bar), §0fr.2 (O-5), §0ft.4 (re-sit order) · inputs: the `.g2d` receipt and `g2d/eager-audit.txt` (R1–R5) · evidence `W12U-evidence/g2d2/` (`README-commands.txt` names every command) · **status DONE** (G2 under the cap ×2; O-5 RED ×2 stays under ESC-W12U-g2d-2, unruled at the bytes ⟨`grep -c 'g2d-2' COHESION.md`⟩ → 0).
+
+**Crash recovery.** ⟨`git status --porcelain -- demo docs/tranches/X/waves/W12U-evidence/g2d2 <record>`⟩ → only `?? demo/app/.vite-critic-9216/` (an untracked vite cache, not this unit's, not touched). Nothing inherited. The prior `.g2d` R3 block (X-DS-dirty `Dock.vue`) is gone: `demo/**` has no tracked dirty path.
+
+**Acts, in order.**
+1. **Baseline on committed bytes.** ⟨`guarded --timeout 25 -- sh g2d/build-tree.sh b9da2db7d g2d2-base`⟩, then ⟨`eager-bytes.mjs` · `g2d/eager-files.mjs` · `g2d/audit-classify.mjs`⟩ ×2 → `eager JS count=11 raw=996612 gz=313423` ×2, files and audit r1 ≡ r2 (`cmp`). (`.g2s2` read 312,992 on `1c04f8c68`; the 431 B between is the tree at `b9da2db7d`, read here as the baseline.) Classes: P 274,458 · **R1 0** · R2 21,554 · R3 6,789 · R4 7,958 · R5 2,667.
+2. **R1 re-read.** The lib `./css` share fell to **0** at `.g2s2` (it was 33,221 at `.g2d`). What remains of the value lib is the `<color>` parse the boot needs (`color-grammar` 10,202 · `actions` 5,087): P by rule.
+3. **R2 re-read, the root cause.** Three eager demo modules imported names from the glass ROOT barrel: `PaneLoadingPlate.vue` (Skeleton) and `ProfileSection.vue` / `MobileMenuDropdown.vue` (Avatar, AvatarImage). Glass exports none of these from a subpath (`node_modules/@mkbabb/glass-ui/package.json` exports; `data-table.js` exports only `DataTable`). The Avatar renders only inside the opened `DropdownMenuContent`. The plate shows only after `PANE_LOAD_DELAY_MS` on an in-flight pane chunk, and its two bars are aria-hidden. Neither is needed before first paint. Scratch arms on `b9da2db7d` (`g2d2/exp/arm{D,E}.sh`, never committed): armD (Avatar only) → 313,396; armE (+ Skeleton) → **293,980**.
+4. **The moves.** Each move is made at its ROOT import with `defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.X))`: no wrapper module, no copied producer component, one commit per move. Each tree is the committed one (`build-tree.sh`), read ×2 with r1 ≡ r2.
+
+| # | commit | move | G2 ×2 | gz |
+|---|---|---|---|---|
+| 1 | `4a6db59b5` | `demo/shell/dock/menus/ProfileSection.vue` and `MobileMenuDropdown.vue`: `Avatar`/`AvatarImage` lazy (the menu body only) | 313,423 → **313,396** | **−27** alone (the Skeleton import still pins the root) |
+| 2 | `56e2abb58` | `demo/shell/PaneLoadingPlate.vue`: `Skeleton` lazy. After this, no eager module reaches the glass root, so the families that lazy chunks take (Dialog/Sheet, NumberField + `@internationalized`, Collapsible, RadioGroup, Switch, ToggleGroup, Configurator) stop riding the eager glass chunk | 313,396 → **293,980** | **−19,416** |
+
+   Landed total: **313,423 → 293,980 = −19,443 B gz**. The final tree equals armE, byte total for byte total.
+5. **What stays eager, re-read** (`g2d2/eager-audit.txt`; final audit ×2 identical):
+   - **P 273,726.**
+   - **R2 2,432.** reka HoverCard*, Toggle 583, status-dot 197. These sit together because of glass's own chunking (⟨`grep -l HoverCardRoot glass-ui/dist/*.js`⟩ → `popover-DA87hFBx.js`, `glass-ui.js`), reached from first-paint glass subpaths. No demo root import pins them.
+   - **R3 7,229.** The menu SFCs render first-paint dock triggers, so each module is needed at mount. `SlugEditLayer` mounts at boot and exposes `onStartSlugEdit`/`onCopySlug`, which the menus call synchronously through a template ref. A lazy layer would make the first call a no-op, which is a feature risk. A menu-body split would be a new module, not a root-import move (LOCK). Not moved.
+   - **R4 7,938.** The synchronous boot port contract, a port redesign (as at `.g2d`). Not moved.
+   - **R5 2,660.** A `vite.config.ts` define, outside `demo/**`. Not moved.
+6. **G2 against the cap.** Final `56e2abb58`: ⟨`node scripts/perf/eager-bytes.mjs`⟩ ×2 → `eager JS count=11 raw=922855 gz=293980` ×2 (json identical except `generatedAt`). It was re-read ×2 after the gh-pages rebuild (see Hygiene): 293,980 again. **≤ 307,200, so GREEN ×2** (13,220 under). The bar constant was not edited. Under §0fr.1 the close seat writes the settled bar: 293,980 rounded up to the next 1 KiB is **294,912** (288 KiB).
+7. **No feature cut (×2).**
+   - ⟨`guarded -- sh g2d2/moved-run.sh <final> 8196 final-r{1,2}`⟩ (new probe `g2d2/moved-probe.mjs`, headless `channel:'chrome'`) gave `VERDICT GREEN` ×2:
+     - the `@mbabb` menu at 1440 opens and its `.avatar` renders (`avatarBefore=0`, so the lazy one arrived);
+     - the 390 "Menu" opens and its avatar renders;
+     - a cold `#/extract` with `*Pane-*.js` held 2.5 s shows the plate with `bars=2` before the pane, then the pane;
+     - `pageErrors=[]`.
+   - ⟨`guarded -- sh g2d/nocut-run.sh <final> 8199 final-r{1,2}`⟩ gave `VERDICT GREEN (0 failures)` ×2: 10/10 routes render their H1-named main, the colour-input layer opens and parses, the lazy `ColorInput`/`dialog` chunks arrive, and `pageErrors=[]`.
+8. **O-5 real-GPU witness (×2).** ⟨`guarded --timeout 10 -- sh g2d/o5-run.sh <final> 8197 final-r{1,2} 3`⟩ at load 10.0–10.7. The renderer was asserted as `ANGLE Metal Renderer: Apple M5 Max` in 6/6 sittings, with 0 instrument faults. Median 16.7 ms; drops 0.4–1.2 %. The frames leg passes and the dropped-frames leg passes. The max-to-median leg fails: the max is 116.6–116.8 / 100.0 ms (**6.0–7.0×**, against the ≤ 3× leg) → `VERDICT RED 0/3` ×2. The gap is still the boot module task: one longtask of 92–106 ms in it, which LoAF attributes to `index-*.js`, before `mainVisible` (208–239 ms). This is down from 115–131 ms and 7–8× at `.g2d`, so the smaller graph shortened the evaluate, but not to 3 frames. No test was changed. The §0fr.2 cure (canvas first draw at idle after first paint) was already the shipped state at `.g2d`. **RED stays under ESC-W12U-g2d-2 (open, unruled at the bytes).**
+9. **Floors (×2) in the committed final tree.** ⟨`guarded --light -- npm run -s typecheck`⟩ ×2 → rc=0, `error TS` 0 / 0 (4 programs). ⟨`guarded --light -- npm run -s lint`⟩ ×2 → rc=0.
+
+**Gates: BEFORE → AFTER**
+
+| gate | before | after | state |
+|---|---|---|---|
+| eager-graph audit re-read on the `.g2s2` tree; each move named with gz ×2 | R1 0 · R2 21,554 · R3 6,789 · R4 7,958 · R5 2,667 | 2 moves (−27 · −19,416); R2 → 2,432 (producer chunking); R3/R4/R5 classed with reasons (`g2d2/eager-audit.txt`, ×2 identical) | **GREEN** |
+| G2 eager JS gz ×2 ≤ 307,200 | 313,423 ×2 | **293,980 ×2** (and ×2 after the rebuild) | **GREEN** |
+| O-5 real-GPU witness ×2 | RED ×2 (Close 4, 7–8×) | RED ×2 (6.0–7.0×; ANGLE-Metal asserted) | **RED → ESC-W12U-g2d-2** |
+| no feature cut; routes render | — | moved probe GREEN ×2 · no-cut GREEN ×2 | **GREEN** |
+| typecheck / lint 0 ×2 | 0 · 0 | 0 ×2 · 0 ×2 | **GREEN** |
+
+**Residuals (named).**
+- **ESC-W12U-g2d-2 (HIGH, O-5).** It stays open with the measured reason above. The boot task is now 92–106 ms (6–7× a 60 Hz median). The asks are the `.g2d` ones: rule the spike leg on the GPU cell, or name the owner who cuts the boot evaluate to ≤ 3 frames (glass dock / colour derive / Vue mount).
+- **R3 / R4 / R5.** These are classed in `g2d2/eager-audit.txt`, each with its reason and owner. Since G2 is under the cap, none is needed for the bar.
+- **R2 remainder, 2,432.** This is glass's `popover` chunk co-location. INFO only, no ask needed for G2.
+
+**Escalations:** none new.
+
+**Hygiene.**
+- The first probe batch ran while the floors' `pretypecheck` lib build was emptying `dist/` (including `dist/gh-pages`) in the same worktree. That batch was stopped and its reads deleted, never cited. gh-pages was rebuilt from the same committed bytes, G2 re-read ×2 (293,980, `readings/final-rebuild-eager-r{1,2}.json`), and every probe was re-run serially.
+- Worktrees: ⟨`git worktree list | grep -c g2d2`⟩ → 0. Ports: ⟨`lsof -ti :8196 -ti :8197 -ti :8199 | wc -l`⟩ → 0.
+- `scripts/dev/dev.sh`, glass-ui, sibling repos, `src/**` and package pins were never touched.
+- No skip, fixme or weakened assertion. Masking scan ⟨`git show 4a6db59b5 56e2abb58 | grep '^+' | grep -cE 'test\.skip|\.fixme|force: ?true|allowlist|eslint-disable|ts-ignore|ts-expect-error|catch'`⟩ → `0`.
+- Adjacent edits (§0bt): none.
+
+**Commits:**
+- `4a6db59b5` (menus' Avatar lazy)
+- `56e2abb58` (PaneLoadingPlate Skeleton lazy)
+- `2ad5b4b0a` (evidence `W12U-evidence/g2d2/**`, 40 files)
+- this receipt
