@@ -1734,3 +1734,37 @@ This is the cure seat for critic **F7C** (pass 7, 2026-10-17). The AFTER frames 
 - **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-veil-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-07/f7c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f7c-probe.mjs`: 4 PNGs of `/w/placid-stirring-opal-viper`, the 1440 aside and the 390 Controls tab, in light and dark.
+
+### pass 8
+This is the cure seat for critic **F8C** (pass 8, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-08/f8c/`. The other files and folders in `pass-08/` (`critic-f8c`, `f8x`, the f10 cure files, the loose frames) belong to other seats and are not part of this receipt.
+- fourier `47c5f71`, on `m/w1-bump-migration`, five paths, committed by pathspec and pushed fast-forward `a1dc2eb..47c5f71`.
+- value.js `0c1d6f066` holds the AFTER frames, the probe and its JSON, the census, the gate and e2e logs, and the O-87 relay addendum.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F8C-C1 | **/gallery takes /paper's page measure.** GalleryView's root column is the route's scroller, so it stays full width: the wheel and the scrollbar stay at the window's edge. It centres its content in the 72rem measure that /paper's `max-w-6xl` and /morph use, with one inline-padding utility on that existing container: `px-[max(0px,calc((100%-var(--container-6xl))/2))]`. Every child keeps its own `--page-gutter` inside the measure, as /paper's `.paper-layout` does. The toolbar, the grid, the admin banner, the carousel, Drafts and the admin tabs all move together. There is no new wrapper and no per-child override.<br>**Measured** (`f8c-probe.json`, headless real Chrome, DPR 2):<br>• At 1440 in light and dark, the toolbar box is 144 to 1296 (1152 = 72rem). The tabs and the grid start at x 160, and the grid is 1120 wide. auto-fill gives **4 columns of 271 px** (the last card's right edge is at 1280). There is no horizontal scroll.<br>• At 390 with touch, nothing moves: the grid is x 16, 358 wide, in 2 columns of 173 px.<br>• There are zero page errors.<br>Frames: `gallery-{light,dark}-{1440,390}.png`. |
+| DS-F8C-E1 | **Environment only; no code change.** The shared `:3100` server's stale prebundle (duplicate Vue) remains for its owner to restart with `--force`. This seat served its own vite on `:3150` with a private `cacheDir` (`~/.cache/fourier-f8c/vitecache`, never `--force` on the shared cache) and its own API on `:8020`, because `:8000` was down. |
+
+**Glass-owned: cited against O-87, not overridden locally.** The relay addendum is in `relay/X-ALL-BK-FLAT-LIGHTING.md`, dated 2026-10-17, for fourier pass 8. All three rows stay honest-RED until the glass 10.2.0 repin.
+- **DS-F8C-G1:** at coarse, Metric's `--control-label` (18.62 px) outranks its 14 px value. This widens the DS-F6C-G1 / DS-F3C-G1 type-ramp row to name Metric.
+- **DS-F8C-G2:** the material's hover specular disc blooms on the resting Configurator stage. The ask is no hover specular on resting or large panels.
+- **DS-F8C-G3:** in dark, the filled primary Button is told from the page by its 5-layer cast rather than by its tone. This is a named dark-arm instance of DS-F2R-G1 and DS-F3C-G3.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3150`; `f8c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 7 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f8c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 22 specs (`e2e-specs.txt`), every spec that reaches `/gallery`, including `visual-checkpoint` and `visual-baseline`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8020` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018/fourier`, a fresh `BLOB_DIR`) behind vite on `:3150`. Both were stopped at the end.
+  - **Run A** came before the restatement and the re-baseline: 275 passed and 4 failed, and the measure itself caused all four.
+    - `au1 L3-6 (1440)`: the gutters were `{visualize:16, equation:16, gallery:160}`.
+    - Three visual-checkpoint goldens changed geometry only: the card went from 277×238 to 245×214, and the admin banner from 1248 to 1120 wide.
+  - **au1 L3-6 is restated, not weakened.** At ≥ 640 the gallery's content edge must **equal** /paper's measure edge (strict `toBe`). Below 640 every route, gallery and /paper included, still shares the one gutter.
+  - **Named re-baseline** (§0ej; DS-F8C-C1; `rebaseline.txt`): `checkpoint-card-resting`, `checkpoint-card-hover` and `checkpoint-admin-banner` (chromium-darwin). These are the same card and banner in the narrower measure.
+  - **Runs B and C passed 279/279 each.**
+- The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-08/f8c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f8c-probe.mjs`: 4 PNGs of `/gallery`, at 1440 and 390, in light and dark.
