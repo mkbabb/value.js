@@ -1,0 +1,9 @@
+== run 1 vue-tsc -b: exit 0
+== run 1 vitest exit 0:  Test Files 20 passed (20)  Tests 116 passed (116) 
+== run 2 vue-tsc -b: exit 0
+== run 2 vitest exit 0:  Test Files 20 passed (20)  Tests 116 passed (116) 
+== e2e run 1 (final tree, headless chromium, --workers=1, preview :4190 built from the tree): 138 passed, exit 0 (e2e-run1.txt)
+== e2e run 2: 138 passed, exit 0 (e2e-run2.txt)
+   Specs (e2e-specs.txt): every spec naming the rail, the paper scroll port, the figures, /paper or the shell's <main> edge. The "failed" lines in the logs are test titles (failure-path tests), not failures.
+== No golden re-baselined (visual-checkpoint's goldens are gallery cards; nothing in this pass reaches them).
+Stack: private vite :3212 (serve.mjs, cacheDir ~/.cache/fourier-f6p/vitecache) proxying the running dev API on :8000 read-only, for the probe and census. Stopped at the end.

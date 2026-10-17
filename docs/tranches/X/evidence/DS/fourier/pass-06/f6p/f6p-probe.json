@@ -1,0 +1,360 @@
+{
+ "light-1440": {
+  "paperTop": {
+   "rail": {
+    "navScrollTop": 0,
+    "nav": {
+     "top": 89,
+     "bottom": 788,
+     "left": 162
+    },
+    "head": {
+     "top": 90,
+     "bottom": 215,
+     "left": 173
+    },
+    "label": {
+     "top": 157,
+     "bottom": 179,
+     "left": 183
+    },
+    "headFill": "rgb(253, 245, 236)",
+    "headHeldAtTop": true,
+    "labelInView": true
+   },
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "top": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0
+    },
+    "borderTop": "1px rgba(0, 0, 0, 0)",
+    "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+   },
+   "figure": null,
+   "portrait": null
+  },
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "paperMid": {
+   "rail": {
+    "navScrollTop": 0,
+    "nav": {
+     "top": 89,
+     "bottom": 876,
+     "left": 162
+    },
+    "head": {
+     "top": 90,
+     "bottom": 215,
+     "left": 173
+    },
+    "label": {
+     "top": 157,
+     "bottom": 179,
+     "left": 183
+    },
+    "headFill": "rgb(253, 245, 236)",
+    "headHeldAtTop": true,
+    "labelInView": true
+   },
+   "port": {
+    "scrollTop": 45731,
+    "scrolled": true,
+    "top": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0
+    },
+    "borderTop": "1px rgb(198, 180, 159)",
+    "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+   },
+   "figure": null,
+   "portrait": null
+  },
+  "paperLate": {
+   "rail": {
+    "navScrollTop": 475,
+    "nav": {
+     "top": 89,
+     "bottom": 876,
+     "left": 162
+    },
+    "head": {
+     "top": 90,
+     "bottom": 215,
+     "left": 173
+    },
+    "label": {
+     "top": 157,
+     "bottom": 179,
+     "left": 183
+    },
+    "headFill": "rgb(253, 245, 236)",
+    "headHeldAtTop": true,
+    "labelInView": true
+   },
+   "port": {
+    "scrollTop": 91688,
+    "scrolled": true,
+    "top": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0
+    },
+    "borderTop": "1px rgb(198, 180, 159)",
+    "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+   },
+   "figure": {
+    "blend": "multiply",
+    "filter": "none"
+   },
+   "portrait": null
+  },
+  "eqScrollers": []
+ },
+ "light-390": {
+  "paperTop": {
+   "rail": null,
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "top": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0
+    },
+    "borderTop": "1px rgba(0, 0, 0, 0)",
+    "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+   },
+   "figure": null,
+   "portrait": null
+  },
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "paperMid": {
+   "rail": null,
+   "port": {
+    "scrollTop": 46079,
+    "scrolled": true,
+    "top": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0
+    },
+    "borderTop": "1px rgb(198, 180, 159)",
+    "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+   },
+   "figure": {
+    "blend": "multiply",
+    "filter": "none"
+   },
+   "portrait": null
+  },
+  "paperLate": {
+   "rail": null,
+   "port": {
+    "scrollTop": 93464,
+    "scrolled": true,
+    "top": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0
+    },
+    "borderTop": "1px rgb(198, 180, 159)",
+    "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))"
+   },
+   "figure": {
+    "blend": "multiply",
+    "filter": "none"
+   },
+   "portrait": null
+  },
+  "eqScrollers": [
+   "fading-scroll fading-scroll--y configurator-controls flex-1 min-h-0 scrollbar-thin"
+  ]
+ },
+ "dark-1440": {
+  "paperTop": {
+   "rail": {
+    "navScrollTop": 0,
+    "nav": {
+     "top": 89,
+     "bottom": 788,
+     "left": 162
+    },
+    "head": {
+     "top": 90,
+     "bottom": 215,
+     "left": 173
+    },
+    "label": {
+     "top": 157,
+     "bottom": 179,
+     "left": 183
+    },
+    "headFill": "rgb(53, 42, 34)",
+    "headHeldAtTop": true,
+    "labelInView": true
+   },
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "top": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0
+    },
+    "borderTop": "1px rgba(0, 0, 0, 0)",
+    "border": "hsl(30 16% 34%)"
+   },
+   "figure": null,
+   "portrait": null
+  },
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "paperMid": {
+   "rail": {
+    "navScrollTop": 0,
+    "nav": {
+     "top": 89,
+     "bottom": 876,
+     "left": 162
+    },
+    "head": {
+     "top": 90,
+     "bottom": 215,
+     "left": 173
+    },
+    "label": {
+     "top": 157,
+     "bottom": 179,
+     "left": 183
+    },
+    "headFill": "rgb(53, 42, 34)",
+    "headHeldAtTop": true,
+    "labelInView": true
+   },
+   "port": {
+    "scrollTop": 45731,
+    "scrolled": true,
+    "top": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0
+    },
+    "borderTop": "1px rgb(101, 87, 73)",
+    "border": "hsl(30 16% 34%)"
+   },
+   "figure": null,
+   "portrait": null
+  },
+  "paperLate": {
+   "rail": {
+    "navScrollTop": 475,
+    "nav": {
+     "top": 89,
+     "bottom": 876,
+     "left": 162
+    },
+    "head": {
+     "top": 90,
+     "bottom": 215,
+     "left": 173
+    },
+    "label": {
+     "top": 157,
+     "bottom": 179,
+     "left": 183
+    },
+    "headFill": "rgb(53, 42, 34)",
+    "headHeldAtTop": true,
+    "labelInView": true
+   },
+   "port": {
+    "scrollTop": 91688,
+    "scrolled": true,
+    "top": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0
+    },
+    "borderTop": "1px rgb(101, 87, 73)",
+    "border": "hsl(30 16% 34%)"
+   },
+   "figure": {
+    "blend": "screen",
+    "filter": "invert(1) hue-rotate(180deg)"
+   },
+   "portrait": null
+  },
+  "eqScrollers": []
+ },
+ "dark-390": {
+  "paperTop": {
+   "rail": null,
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "top": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0
+    },
+    "borderTop": "1px rgba(0, 0, 0, 0)",
+    "border": "hsl(30 16% 34%)"
+   },
+   "figure": null,
+   "portrait": null
+  },
+  "paperScrollers": [
+   "paper-scroll"
+  ],
+  "paperMid": {
+   "rail": null,
+   "port": {
+    "scrollTop": 46079,
+    "scrolled": true,
+    "top": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0
+    },
+    "borderTop": "1px rgb(101, 87, 73)",
+    "border": "hsl(30 16% 34%)"
+   },
+   "figure": {
+    "blend": "screen",
+    "filter": "invert(1) hue-rotate(180deg)"
+   },
+   "portrait": null
+  },
+  "paperLate": {
+   "rail": null,
+   "port": {
+    "scrollTop": 93464,
+    "scrolled": true,
+    "top": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0
+    },
+    "borderTop": "1px rgb(101, 87, 73)",
+    "border": "hsl(30 16% 34%)"
+   },
+   "figure": {
+    "blend": "screen",
+    "filter": "invert(1) hue-rotate(180deg)"
+   },
+   "portrait": null
+  },
+  "eqScrollers": [
+   "fading-scroll fading-scroll--y configurator-controls flex-1 min-h-0 scrollbar-thin"
+  ]
+ }
+}
