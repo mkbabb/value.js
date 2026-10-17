@@ -4237,3 +4237,20 @@ So the 50 ms bound cannot be met by any lawful act on the boot task. A one-task 
    - O-4 order-invariance stays GREEN.
 3. **Login wall.** The close seat died on "Login expired" (an auth wall, not a defect). The close re-sits verify-only once the session's credentials are refreshed.
 4. **Order:** `close (verify-only: O-5 from mainVisible ×2 on GPU, the boot A/B ×2, G2 ≤ 294,912 ×2, smoke ×2 except the named rows) → check`. W12U.md ADDENDUM (l) carries this ruling.
+
+## §0fx — 2026-10-17: X-W12U CLOSED (honest-RED, every row owned); X-W8's ESC-W8i-1/-2 RULED; ESC-W8i-3 is the owner's reboot
+X-W12U is CLOSED. Its honest-REDs are the standing 7, the 15 (c′) cells → X-W10, G3/G4 per X-W2, O-99, ATMOS-DRAG-COMPOSITION → X-W10, and the glass O-rows. O-5 is GREEN ×2 on the real-GPU witness. X-W8 then ran: every unit landed and 17/17 GREENs reproduce, but its close is NOT-CONFORMANT on three items.
+1. **ESC-W8i-1 (C-5 `spectrum-luma`) is GRANTED as unit `.i2`, a product-model cure.**
+   - Text contrast over the spectrum field depends on the field's luminance, and luminance depends on hue (a saturated yellow is light where a saturated blue at the same `(s,v)` is dark). A `(s,v)`-only predicate is therefore the wrong model, not just a failing test.
+   - **Grant:** `demo/picker/controls/spectrumLuma.ts`, its two consumers (`ComponentSliders.vue`, `useSpectrumPlateStyle.ts`) and `test/spectrum-luma.test.ts`.
+   - **Cure:** `spectrumFieldIsLight(h, s, v)` computes the field colour's relative luminance through value.js's own colour maths (no hand constants) and picks the stroke that clears 3:1.
+   - The M-12 pin is restated over the hue-aware model in a dated W8.md addendum (E-3: the M-12 text is not rewritten). The 3:1-at-every-hue assertion stays exactly as strong.
+   - **Falsifier:** RED → GREEN ×2.
+2. **ESC-W8i-2 (NG-6, the reka canary) is ruled re-authored to the consumer contract (W1.a's owner).**
+   - The failing case asserts that glass's `Checkbox` honours a stale `checked` prop. That is a producer behaviour, and the file's own third case contradicts it.
+   - The case is re-authored: the consumer's `v-model` / `modelValue` binding drives the state, and a stale `checked` prop drives NOTHING (`'unchecked'`).
+   - Nothing is skipped or loosened; the assertion follows the API the consumer actually uses.
+3. **ESC-W8i-3: the heavy arms wait on the owner's reboot.** The kernel zone is at 13.5M+, and `guarded` refuses heavy runs at 13M (§0fi). The heavy arms are `npm run test:e2e`, G-8 motion, G-15, J4, CLS and the full vitest ×2.
+   - Track A resumes after the reboot with `.i2`, then the close, which reads every heavy arm ×2.
+   - No heavy arm is substituted by a `--light` reading.
+4. W8.md ADDENDUM (sixth) carries this ruling.
