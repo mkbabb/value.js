@@ -721,3 +721,56 @@ Bounds re-read ⟨`sed -n 2692,2694p COHESION.md`⟩ → "the two vitest canarie
 | 5 | INFO — 7 root-barrel imports, no subpath at 10.1.0 | no act; BK relay `alert-skeleton-subpaths` stands | — | — |
 
 Cured 0. Escalated 3 (ESC-W8i-1/-2 ∪ MEDIUM; ESC-W8i-3). No product byte written. Row stays PARTIAL.
+
+## Check 3
+
+L-20 fresh adversarial pass 3, VERIFY-ONLY, `claude-opus-5-5`, 2026-10-17 08:46 EDT, HEAD `dcb3bef98`. Spec read whole once; record read
+header → Unit plan, the `.i` receipt tail, § Close, § Check 1/2, § Repair 1/2. Crash-recovery ⟨`git status --porcelain -- docs/tranches/X/execution/`⟩ → empty.
+Host ⟨`zprint data.kalloc.1024`⟩ → `13539815` in use; ⟨`timeout 25 guarded --timeout 30 -- true`⟩ → `[guarded] waiting for headroom (kernel zone
+data.kalloc.1024 at 13.5M (panics near 20.8M): reboot the Mac)` exit 124 — every heavy arm is still guard-refused. ⟨`git log dcb3bef98..HEAD`⟩ → 0 commits since Repair 2.
+Ruling search ⟨`grep -rn 'ESC-W8i' COHESION.md INBOX.md`⟩ → 0 — **ESC-W8i-1/-2/-3 still unruled**.
+
+### Axis readings
+
+1. **Claimed GREENs reproduce: 17 of 17** (×2, this seat's own commands). ⟨G-1 four commands⟩ → `0 96 53 0` both · local-barrel 0 · root `@mkbabb/glass-ui` 7 · root clipboard 0 ·
+   components.json / demo/ui / shared/utils.ts absent (3/3) · `demo/@` 0 · clsx/twm `0 0` · tw-animate-css 1 · debounce importers 11 · shim `0` / `<DockCrossfade` `3` · forks 0 ·
+   ⟨`guarded --light -- node …/graph-v3.mjs --print-sccs`⟩ ×2 → exit 0, `[runtime]`/`[load]` 0, sha256/16 `27d38866c7fae674` both · `update:` 0, `@update=` 0, refs 0, clearHover 0 ·
+   overlay `type="button"` 3, dispose 2, `finally` 1, `aria-controls` 0 · `isAdminMode = computed(` (`:36`) · `chrome` in ink.ts only at `:13` (comment) · `400 LoC` 0, `demo/@/components/ui` 0, `max-lines` 5 ·
+   ⟨`npm run typecheck` · `npm run lint` · `npx eslint demo src api e2e test --max-warnings=0`⟩ (guarded --light) → `0 0 0` both runs ·
+   targeted ⟨`guarded --light -- npx vitest run <the 6 files> --maxWorkers=2`⟩ ×2 → `Tests  7 failed | 42 passed (49)` both (D6 ×2 · T-35 ×3 · C-5 · NG-6; G-12 + REG suites pass).
+2. **Bounds**: no new commit since Check 2; ⟨`git log 17090b54a~1..HEAD -- scripts/dev/dev.sh foundation.css .github src tsconfig.demo.json`⟩ → 0. Prior per-commit `--stat` audits stand.
+3. **Masking**: none new; Check 2's added-line grep (skip/only/test.fail/eslint-disable/ts-ignore) stands at 0.
+4. **Commit families**: held.
+5. **E-3**: ⟨`git diff --stat 17090b54a~1..HEAD -- registry/adjudicated/ waves/ (minus census/witness/close)`⟩ → `W8.md | 2 ++` only (dated addendum `0f2d34e61`).
+6. **Mail**: ⟨`find <6 paths> -maxdepth 1 -type f -newer INBOX.md`⟩ → 0 every path; UNREAD rows 0.
+7. **Four-verb**: IMPLEMENTED PARTIAL / VERIFIED NO — lawful.
+8. **Goal criterion at the bytes**: MET (forwarding layer, config/dep residue, the four SCCs gone; nothing replaced them).
+9. **Figures**: 0/96/53/0 · 11 · 7 · `7 failed | 42 passed` reproduce.
+
+### Axis 10 — RED gates at the spec bytes (independent reading)
+
+| gate | relief | owner | reading |
+|---|---|---|---|
+| ink.test D6 ×2 + T-35 ×3 (G-5 cl.4 / G-15) | pre-existing, out-of-wave: INK-VEIL-MIDBAND → O-62 (a) | O-62 (a) | **HONEST-RED** |
+| DOCK-SCROLL-MORPH | ADDENDUM §0bc "closes honest-RED by id with O-55" | O-55 | **HONEST-RED** |
+| C-5 (G-W8-i1) | none — §0aq `:2693-2694` routes it INTO `.i` "cured at their roots (test-owned) … Bounds: the named files"; `.i` witnessed it unsatisfiable without restating the M-12 pin (an oracle change only the owner may rule) | ESC-W8i-1, unruled | **UNRELIEVED RED** |
+| NG-6 (G-W8-i1) | a producer-property reading (glass Checkbox `checked`) would be producer relief, but no glass relay row and no ruling exist, and §0aq names it test-owned and routed here | ESC-W8i-2, unruled | **UNRELIEVED RED** |
+| A3 · C2 (S-1) · test:e2e · G-15 pairs · J4 o29 · 844×390 CLS | none at the spec bytes; host-blocked (zone 13.54M) | owner reboot ESC-W8i-3 — an act, not a relief | **UNMEASURED** |
+
+### Register
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| HIGH | G-W8-i1 full-vitest arm RED on C-5 + NG-6, no relief at the spec bytes (third pass, unchanged) | targeted vitest `7 failed \| 42 passed` ×2; ESC-W8i rulings 0 | owner rules ESC-W8i-1/-2; `.i` re-sit cures at the root; full suite ×2 |
+| HIGH (verification gap) | S-1 A3/C2, test:e2e, G-15 pairs, J4, 844×390 CLS never measured | zone 13,539,815; guard exit 124 | owner reboot (ESC-W8i-3); RESUME close seat measures; Check 4 |
+| MEDIUM | `.i` writable set vs §0aq "Bounds: the named files" | Check 1 row 3; Repair 2 row 3 | settled by the ESC-W8i-1/-2 ruling |
+| MINOR | `demo/DESIGN.md:248,258` stale `btn-interactive` canon | Close R5 | X-W10 |
+| INFO | 7 root-barrel imports, no subpath at 10.1.0 | 68-key map | BK relay `alert-skeleton-subpaths` |
+
+**Honest-RED (relieved)**: ink D6/T-35 ×5 → O-62 (a) · DOCK-SCROLL-MORPH → O-55. **Unrelieved**: C-5 · NG-6. **Unmeasured**: A3 · C2 · test:e2e · G-15 pairs · J4 · 844×390 CLS.
+
+### Successors
+
+X-W9 (`Opens after` X-W0) unaffected. X-W10 "X-W5…X-W9 stable": X-W8 conjunct RED → lawfully BLOCKED. X-W11 "X-W0…X-W10 IMPLEMENTED": X-W8 PARTIAL → lawfully BLOCKED.
+
+**Verdict: NOT-CONFORMANT** — 17/17 claimed GREENs reproduce; bounds, E-3, mail, masking, families clean; C-5/NG-6 HIGH unrelieved; S-1 + heavy arms unmeasured (host zone ≥ 13M). Further check/repair rounds cannot move this row until the owner rules ESC-W8i-1/-2 and reboots (ESC-W8i-3). LEDGER status not promoted; event line appended.
