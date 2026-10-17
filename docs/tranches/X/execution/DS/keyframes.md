@@ -2912,3 +2912,56 @@ Every capture is headless real Chrome (§0ei), one browser per run, closed in `f
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the probes, capture and census `--rss-gb 6` (browser pool), check and lint `--light`, and vitest `--rss-gb 8`.
 - The dev server on :5197 was stopped at the end, and nothing of this seat's was left running.
+
+### pass 8 (the ninth redeploy's pass 8; critic C8x; cure keyframes `b6d4352a`; evidence `pass-60/`)
+
+**Commits:** keyframes `b6d4352a` (pushed fast-forward to `master`, `281aaab9..b6d4352a`) and value.js `049b6475a` (`evidence/DS/keyframes/pass-60/`). The task named `pass-08/`, but that folder holds the first workflow's evidence (and `pass-59/` is pass 7's), so the frames go to the next free folder, `pass-60/`.
+
+**Evidence** (`pass-60/`):
+- `capture.mjs` (pass 7's script, re-pointed, with the KF-C8x-03 fix) and `after/`: the same cells as pass 7. That is every route at 1440 and 390 in light and dark; `cube-keyframes`, `cube-timeline` and `cube-dock-open` at 1440; `spring-peak-1440-*`; and `cube-sheet-press-390-*` (plus `-fullpage`).
+- `after/capture.json`, with the new `ribbon-edge-*` (KF-C8x-01) and `sheet-tap-*.afterPress.headerHovered` (KF-C8x-03).
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), one browser per run, closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C8x-01 (low): one edge over the ribbon.** In `RibbonBar.vue` the inset hairline is drawn only when the surface above is not Keyframes. The Keyframes surface ends in the full-bleed code well, and the well's own tone step is the one edge. Every other surface keeps the inset hairline from KF-C2-09 / KF-C9-07 / KF-C22-05. No new component and no counter-style: one element is not rendered.
+  - Measured at 1440x900 in both schemes: the ribbon has 0 separators, the well ends at y 680 (x 92–465), and the ribbon starts at 689. The doubled rule at 688 is gone.
+  - Frames: `after/cube-keyframes-1440-*`.
+  - The 60 px of empty well under line 18 is the editor's own height, and the critic's cure did not name it. It is left as it is.
+- **KF-C8x-03 (trivial): the press frame is at rest.** After the header press, the capture moves the pointer to (0,0), so `(hover: hover)` paints no hover fill into the frame. Measured `headerHovered: false` in both schemes, and the press still takes the detent from 0.12 to 0.36 (height 171 → 304). A second press at OPEN still folds the layer (57 px).
+  - Frames `after/cube-sheet-press-390-*` re-shot: the 'Rotations' row reads at rest, with no tinted slab.
+
+**Cited (glass, not overridden)**
+- **KF-C8x-02 (low): O-87 proportion rider.** Glass's `.configurator-layer-trigger:hover` paints a radius-less, full-width fill inside the rounded sheet and the rail layers. Ask: the hover fill takes the layer's inner radius, or is inset to the content column with `--radius-control`. Honest-RED until the 10.2.0 repin. It no longer appears in the rest-state evidence (KF-C8x-03), but it stays on hover.
+- **KF-C8x-G1 (low):** these glass rows were re-observed unchanged at 10.1.0 and are cited on O-87 FLAT-LIGHTING and O-88:
+  - the stacked pane and stage material (halo and resting-blur smear);
+  - the cream Input beside the grey Select;
+  - the closed Select's up caret;
+  - the pill field radius;
+  - the Import and Apply CSS capsule halo in dark;
+  - the thumbless sliders and the empty scrubber groove;
+  - the EasingPicker ghost staircase;
+  - the collapsed dock tile and the play bubble's tile halo;
+  - SHEET-POSITION.
+
+  All are held until the 10.2.0 repin, with no local override.
+
+**Refused:** none.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5198/ --widths 1440,390 --settle 5000`): identical to pass 7 (`pass-59/`) in every key except the timestamp and the base URL. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops. A removed `Separator` is a hairline border, which the census does not count.
+
+**Gates** (the live tree at `b6d4352a`, plus another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `RibbonBar.vue` was clean, and the keyframes commit is pathspec-only. The other seat's three dirty files were left untouched, and the served frames include their hunks. The value.js commits are pathspec-only.
+- **A served dev-server port of its own** (:5198). Its exit 144 is this seat's stop.
+- **Identity:** no identity hue, type or motion changed (§0dm). Apply CSS keeps its rainbow brush.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 90`, the capture and census `--rss-gb 6` (browser pool), check and lint `--light`, and vitest `--rss-gb 8`.
+- Nothing of this seat's was left running.
