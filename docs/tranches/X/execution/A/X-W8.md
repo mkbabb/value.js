@@ -125,3 +125,42 @@ Locks: serial a → b → c → d → dc → e → i (shared modify paths: `esli
 
 ## Unit receipts
 
+
+### X.W8.a
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec sections read: W8.md whole (534 lines); record header → Unit
+plan; COHESION §0j `:1217` + later addenda located by grep (no ruling past §0bd/§0de touches `.a`).
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- docs/tranches/X/waves/W8-census.md docs/tranches/X/execution/A/X-W8.md`⟩
+   → empty. No inherited edits.
+2. Product-byte identity of the two SHAs: ⟨`git diff --stat d17dece5a f79a79e14 -- demo src package.json`⟩ → empty;
+   ⟨`git status --porcelain -- demo src`⟩ → only `?? demo/app/.vite-critic-9216/` (0 census hits; untouched).
+3. The four G-1 commands run VERBATIM at `f79a79e14`, twice (separate invocations): **0 / 96 / 53 / 0** both runs.
+   Filter ⟨`… | grep -vc "@mkbabb/glass-ui/"`⟩ → **0** local-barrel statements (all 96 are producer subpaths).
+4. Enumerated: the 53 files (per-file counts; groups palettes 20 · workbenches 8 · shell 7 · shared 6 ·
+   picker 5 · scenes 5 · app 1 · test 1); the 96 by subpath (sum 96); the **11** `debounce` importers;
+   the **9** root-barrel `useClipboard`/`writeClipboard` statements (`./dom` exports both at 10.1.0,
+   `dist/dom.js:238`); the 7 root-only statements (Accordion/Alert/Skeleton — no subpath in the 68-key map).
+5. Moved paths verified at bytes: admin → `demo/palettes/admin/**` (15 files); `PointerDebugOverlay.vue` →
+   `demo/picker/debug/`; `ActionToolbar.vue` deleted `c00004924` (121 lines); `demo/ui/**` deleted `2ae7344d2`;
+   `usePalettePorts.ts` unmoved.
+6. tw-animate-css retention receipt: glass `dist/styles/utilities/btn.css` `sheet-animate` `@apply`s
+   `animate-in/out`, `fade-in/out`; glass peerDependency `tw-animate-css ^1.2.5`; demo authors 0 such classes.
+7. 90/48 and 107/49 marked **UNREPRODUCED** (no recorded command, L-9); 92/48 @ `41450f02` superseded by the bytes.
+8. Wrote `docs/tranches/X/waves/W8-census.md` (243 lines, line 1 SERVED MODEL) in four appends; `git diff --check` clean.
+
+**Commit** — `17090b54a` docs(x-w8): the C-16 residue census — recorded commands, 0/96/53/0 at f79a79e14
+(§Commit Plan 1; body names both superseded figures UNREPRODUCED). Subject reads 0/96/53/0, not the
+plan's 19/92/48/0 placeholder, because `<SHA>`'s numbers are the measured ones.
+
+**Gate** — G-1: RED (artifact absent) → **GREEN** (⟨`ls docs/tranches/X/waves/W8-census.md`⟩ present; four
+commands verbatim + outputs + SHA; file list enumerated; 90/48 + 107/49 UNREPRODUCED). Falsifier: re-run at
+`f79a79e14` → any number ≠ 0/96/53/0.
+
+**Bounds binding for later units (census-bound, input to `.b`)** — the spec's "48 consumer files" row is
+empty at the bytes (0 local-barrel imports); `.b`'s narrowness set = the 9 clipboard statements; the
+debounce set = 11 files; Button/Skeleton consumers live at `demo/palettes/admin/{UserSortMenu.vue,panels/PaginationBar.vue,panels/AdminListSkeleton.vue}`.
+§Triumvirate bounds-expansion trigger NOT tripped (53 ≤ 55, all under `demo/**`, no impure barrel).
+
+**Residuals** — none for `.a`. **Escalations** — none. **Adjacent edits** — none.
