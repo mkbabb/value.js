@@ -3369,3 +3369,63 @@ X-W12U: **IMPLEMENTED 2026-09-17** (execution opened under the 09-17 begin-word;
 Evidence: `W12U-evidence/close8/**`. Teardown: worktrees `~/.dev-logs/w12u-g2d/close8{,-base}/tree` removed (`git worktree remove`); ports 8251–8253, 8261/8262, 9171/9172 have 0 listeners.
 
 Close 8 commits: evidence `6b4a4c720` (`W12U-evidence/close8/**`, 34 files); this record hunk + the LEDGER row cell (one line), committed together and pushed.
+
+## Check 10 (L-20 fresh adversarial pass 1 on Close 8, 2026-10-17)
+
+SERVED MODEL: claude-opus-5-5. VERIFY-ONLY, Track A, HEAD `ff60d8afc` (Close 8's record commit). The task calls this "Check 1"; the record already holds Checks 1–9, so this takes the next free number. Spec `W12U.md` read whole (148 lines, addenda (a)–(l)); COHESION §0fr/§0fu/§0fw read at the bytes. Record read: header, RESUME 8 Open → Unit plan → receipts, Close 8, Check 9's register. Crash recovery ⟨`git status --porcelain -- docs/tranches/X/execution`⟩ → empty. Product bytes ⟨`git diff --stat a027974f6 HEAD -- src demo e2e scripts vite.config.ts vite.library.ts package.json`⟩ → empty, so `ff60d8afc` reads the same product as Close 8's `a027974f6`. Trees built fresh by `g2d/build-tree.sh` (post `ff60d8afc` → `~/.dev-logs/w12u-g2d/chk10/tree`; pre-cure `955efaa03` → `chk10-base/tree`), removed at teardown; ports 8251–8253, 8261/8262, 9171/9172 hold 0 listeners. Raw outputs: `~/.dev-logs/chk10-*` (outside the repo; this check writes no evidence bytes).
+
+### Gates re-run by this seat
+| gate | command | this check | Close 8 claim | reproduces |
+|---|---|---|---|---|
+| boot A/B vs `955efaa03` (§0fw.1) ×2 | ⟨`guarded -- sh close8/ab-interleave.sh B T chk10-ab-r{1,2} 6`⟩ | r1 (load 5.0–6.8): base 115·123·113·125·125·114 → mean 119.2, max 125; post 102·96·96·86·100·92 → mean 95.3, max 102. r2 (load 5.3–6.8): base 121·117·122·116·112·109 → mean 116.2, max 122; post 98·96·93·96·98·102 → mean 97.2, max 102. Every sitting `ANGLE Metal` | GREEN ×2 | **YES** (GREEN ×2) |
+| O-5 real-GPU from `mainVisible` ×2 | ⟨`o5c/o5-mv-run.sh T 8251 chk10-r{1,2} 3`⟩ | `VERDICT GREEN 3/3` ×2, max 16.8 ms, dropped 0 ×6; boot 100·92·86 / 92·86·83 → `BOOT GREEN 3/3 <= 122 ms` ×2 | GREEN ×2 | **YES** |
+| overture (§0fw.2) ×2 | ⟨`o5c/reveal-run.sh T 8252 chk10-r{1,2}`⟩ | 1280×720 light/dark `cls=0 pop=0`, rect `16,8,1248,72`, mainTop 88, `overture-plate-land 0.45s`, `seq=Vh:3`; 390×844 cls 0; 844×390 `cls=0.00001` ×2 (script `RED 3/4` on that cell only). Base tree read once for the comparison: 1280×720 `0.01702` ×2 themes, 390×844 `0.00059`, 844×390 `0.00128` | GREEN on the ruled reading; 844×390 named residual | **YES** (see C10-1) |
+| G2 eager gz ≤ 294,912 ×2 | ⟨`node scripts/perf/eager-bytes.mjs`⟩ in T | `"eagerJsGz": 294055` ×2 | 294,062 ×2 | **YES** (−7 B; same product, rebuilt; see C10-3) |
+| no feature cut | ⟨`g2d/nocut-run.sh T 8253 chk10-nocut`⟩ | `VERDICT GREEN (0 failures)` | GREEN ×2 | **YES** (×1) |
+| typecheck 4 programs + lint ×2 | ⟨`vue-tsc -p tsconfig.{lib,demo,test}.json` · `tsc -p tsconfig.e2e.json` · `eslint . --max-warnings=0`⟩ | `0 0 0 0 lint=0` ×2 | ×2 | **YES** |
+| `npm test` | ⟨`vitest run --maxWorkers=2`⟩ in T | `Tests 7 failed \| 1227 passed (1234)`; the 7 = INK-VEIL-MIDBAND ×5 (`test/ink.test.ts` D6/T-35) · C-5 · NG-6, the same three files as Close 8 | standing 7 | **YES** (RED by relief) |
+| smoke `--workers=1` (5 Chromium projects) | ⟨copy of `close8/smoke-batch.sh` writing to `~/.dev-logs/chk10-smoke`⟩ on T, load 14–18 | admin 25/25 · mobile 7/7 · reactivity 2/2 · perf 3 failed / 4 passed (`eager-payload:313` G2-constant, `:377` G3/G4, `o5-boot-pacing:74` SwiftShader) · smoke `14 failed · 2 skipped · 283 passed`. ⟨`diff cl8a.f chk10a.f`⟩ → the 14 are a strict subset of Close 8's 15 named (c′) cells (o18 `:1297` dark passed this run); 0 failures outside the named set; `o24-lcp-identity:100` passed | GREEN except named rows ×2 | **YES** (×1 by this seat; Close 8's ×2 logs cross-read) |
+| E13 | ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩; ⟨`find <6 paths> -maxdepth 1 -newer INBOX.md`⟩ | 0 UNREAD; only glass `BL/FORMATION-PROGRESS.md` (glass's own pass banks, no letter to value.js) | 0 / 0 | **YES** |
+
+### Published figures (write-then-measure, axis 9)
+⟨awk over `close8/ab-r{1,2}.txt` per arm⟩ → r1 base mean 124.3 max 135 / post 102.8 max 119; r2 base 128.8 max 142 / post 104.7 max 122: the record's figures exactly. ⟨`grep eagerJsGz close8/g2-r*.txt`⟩ → 294062 ×2. ⟨`grep 'Tests ' close8/npm-test-r*.log.txt`⟩ → `7 failed | 1227 passed (1234)` ×2. ⟨`diff cl8a-smoke.f cl8b-smoke.f`⟩ → empty; vs `close7/cl7a-smoke.f` → only the SERVED MODEL line. All reproduce.
+
+### Axes
+1. **GREENs reproduce:** 10 gate families re-run, 0 failed (table above).
+2. **Bounds:** Close 8's commits `6b4a4c720` (34 files, all `W12U-evidence/close8/**`) and `ff60d8afc` (record + LEDGER, 1-line row cell) are in bounds. Since Check 9 (`82fc32fbb..HEAD`), 48 W12U commits; ⟨`git show --name-only` minus `demo/ e2e/smoke/ W12U-evidence/ record LEDGER INBOX`⟩ leaves only: `1c04f8c68` `.g2s2` paths, each inside the §0ft.1 grant and its unit plan (:2742), with `vite.config.ts:18` and `scripts/ci/verify-packed-surface.mjs` declared as §0bt adjacent edits (:2759-2763); the O-98/O-99 letters and relays (mail); the `W10-ADDENDUM-2026-10-16-cprime.md` granted by §0fr.4; and orchestrator acts (COHESION, W12U.md addenda, chassis). ⟨`git log 7f580856..HEAD -- scripts/dev/dev.sh`⟩ → empty. **HELD.**
+3. **Masking:** ⟨`git diff 955efaa03 ff60d8afc -- demo e2e | grep -E '^\+.*(test\.skip|\.fixme|catch *\(|allowlist|force: *true)'`⟩ → 0. The `.o5c` diff (`9e0212c46`) was read: `dockMounted` opens via a posted message after the first rAF, the reveal watch keeps the finite-animation gate, and the 844×390 band reserve goes to `+ 1.5rem` with its measured reason. There is no try/catch, skip, or narrowed assertion. **HELD.**
+4. **Families:** `.o5c` product is one commit (`9e0212c46`), with evidence and receipt separate per the runbook; `.g2s2` is the one §0ft LOCK family (`1c04f8c68`). **HELD.**
+5. **E-3:** ⟨`git diff --stat 7f580856 HEAD -- docs/tranches/V/megatranche/registry/adjudicated/`⟩ → empty; ⟨`git diff 7f580856 HEAD -- waves/W12U.md | grep '^-[^-]'`⟩ → 0 removed lines, so the addenda are append-only. **HELD.**
+6. **Mail:** 0 UNREAD, 0 unrowed. **HELD.**
+7. **Four-verb line:** IMPLEMENTED at Close 8; the close did not self-stamp VERIFIED. The flip to CLOSED is this check's act (§3). **Lawful.**
+8. **Goal criterion:** the row-level disposition was audited by Checks 7–9, and their sole HIGH (C9-1: G2, O-5) and the MEDIUMs (C9-2 c′, C9-3 drag floor) are now ruled: §0fr.1–.4, §0fu.1 (bar 294,912), §0fv, §0fw. Every such ruled gate reads GREEN at the bytes here. The rows stand CURED, ADOPTED, or honest-RED with named O-rows (Check 9’s relieved set). The only W12U product bytes since Check 9 are the packaging and boot units (`.g2s2` `.g2d2` `.o5b` `.o5c`), and this seat’s smoke run holds every `w12u-*` row falsifier GREEN on them. **MET.**
+9. **Published figures:** reproduce (above).
+10. **Honest-RED adjudication:** below.
+
+### Register
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C10-1 | MINOR | §0fw.2 reads "CLS stays 0". The 844×390 cell reads `0.00001` ×2 (the colour-space select chevron, inside the pane, not the dock band), so the reveal script prints `RED 3/4`. This predates the cure: the pre-cure tree reads `0.00128` on the same cell, and `0.01702` at 1280×720. The cure improved every cell, and the ruled band/pop/land reading is identical. | `~/.dev-logs/chk10-reveal-{r1,r2,base}.txt` | Named residual → X-W8 `.i` (Close 8). Mitigated, so it does not block. |
+| C10-2 | INFO | The smoke-perf `eager-payload:313` assertion still compares against W2's committed 286,720 constant. That is lawful: §0fu.1 says "W2.md's constant is read through this ruling (E-3: the dated W2 text is not rewritten)", and G2 at the ruled bar reads 294,055 ≤ 294,912. | §0fu.1; this seat's G2 ×2 | none in W12U; the oracle constant follows the W2 owner's next re-baseline |
+| C10-3 | INFO | A fresh rebuild of the same product bytes reads G2 7 B under Close 8's figure (294,055 vs 294,062). Both are well under the bar. | g2 ×2 | none |
+| C10-4 | INFO | `o24-lcp-identity:100` (Close 8's one-batch load flake) passed in this seat's batch at load 14–18. | `chk10a-smoke-perf.log.txt` | X-W10 watch, as Close 8 routed |
+
+0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 1 MINOR (mitigated) · 3 INFO.
+
+### Honest-RED set (axis 10), with each RED's relief at the bytes
+- **`npm test` standing 7**: INK-VEIL-MIDBAND ×5 → O-62 (a) (producer, glass 10.2.0 light recut; `relay/X-ALL-BK-GLASS-VEIL-GREY-ADDENDUM-2026-09-25-W7L-I.md:21`). C-5 / NG-6 → X-W8 `.i` (`W8.md:526`, "the two vitest canaries … cured at their roots"), a later wave by the spec's own routing.
+- **smoke (c′) 15 cells** (14 RED this run): class (c′) admitted by §0fr.4 / ADDENDUM (h), named by id in `waves/W10-ADDENDUM-2026-10-16-cprime.md` → X-W10.
+- **smoke-perf G2-constant `eager-payload:313`**: read through §0fu.1 (bar 294,912; measured GREEN).
+- **smoke-perf G3/G4 `:377`**: X-W2's own honest-RED G3 (Check 9's relieved set).
+- **smoke-perf O-5 SwiftShader `o5-boot-pacing:74`**: INFORMATIONAL by §0fr.2; the gate is the real-GPU witness (GREEN ×2).
+- **844×390 sub-pixel CLS** (C10-1) → X-W8 `.i`.
+- Carried from Check 9's relieved set, owners unchanged: DOCK-CAP-ELLIPSE → O-83/O-83a · A2-VA-L3-6 / X-8 HELD for glass §11 · A2-VA-L2-1 → O-74/O-59 · L2-4 stage 80 → O-74e L24-1 · X-3/X-5 → O-74c G-1/G-2 · L3-2 pane limb / L3-3 → O-74 · ATMOS-DRAG-COMPOSITION → X-W10 (§0fr.3) · O-99 DOCK-MOUNT-COST → glass, ADOPT-AT-LANDING.
+- **Unrelieved RED:** none.
+
+### Successors
+- `W12U.md:4` names "Blocks: X-W8". The LEDGER row for X-W8 is `planned`, and its deps are W4·W5·W6·W7, all CLOSED (LEDGER :33-:35, :41), so those conjuncts are GREEN.
+- With this check, the conjunct "X-W12U CLOSED" turns GREEN, so X-W8 is no longer blocked by X-W12U. X-W12 and X-W7L are CLOSED.
+- X-W10 still waits on X-W8 (LEDGER :40), so it is lawfully blocked behind it.
+
+### Verdict
+**CONFORMANT-HONEST-RED.** Every claimed GREEN reproduces: 10 gate families, 0 failed. There are 0 BLOCKER, 0 CRITICAL and 0 HIGH findings, and every remaining RED is relieved by the spec or a ruling and has a named owner. The LEDGER row flips to **CLOSED 2026-09-17 (honest-RED: …)**.
