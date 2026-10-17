@@ -1255,3 +1255,33 @@ Critic C5 (fresh, at `f34718e2f`, in `pass-05/critic-c5-2026-10-17/`) named one 
 - This re-dispatch cured both actionable consumer rows. C5-03 is held as optional.
 - One row is routed to Track A: the NaN source in `dotPos` / `channelNumber`.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15), and so is P4R-01-R.
+
+### pass 6 (2026-10-17, re-dispatch): critic V6C — the under-label statement rung lives in EmptyState, and the draft well speaks the app's voice
+
+Critic V6C named two consumer rows (V6C-01 low, V6C-02 trivial), one carried consumer row (V6C-R1 = P4R-01-R) and the standing glass rows (V6C-G1). V6C-01 and V6C-02 are cured at the root. V6C-R1 stays open as before. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-06/c6-2026-10-17/`.
+
+**Commits.** value.js `233594f39` (the cure: 4 paths) and `a4c342bb3` (frames, probe, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-06/c6-2026-10-17/capture-c6.json`) |
+|---|---|---|---|
+| V6C-01 (low) | **CURED at the register (tokens before instances).** | EmptyState's `compact` register, which already meant "seated under its own label", now also sets the true-empty statement at the hint rung (`text-small` = `--type-small`) at 400, still Fraunces (O-10d's three-voice law). Mix's "Saved palettes" plate already passed `compact`. My Palettes' companion passes it through `PaletteCardGrid`'s new `emptyCompact` prop. The C5-02 `:deep(...) > p.font-display` override in `PalettesPane.vue` is deleted, and so is EmptyState's note naming the exception. No wrapper and no new dir. | The companion on /#/palettes, /browse, /generate, /gradient and /extract, both schemes: **1440**, label Fraunces 18.6/600 over statement 16.4/400. **390**, 16/600 over 14/400. **Mix**: "Saved palettes" 20.35/600 over the statement at 16.4/400 at 1440 (was 18.6/500, a 1.75 px near-tie) and 14/400 at 390. The app now sets "No saved palettes yet." at one rung per width. |
+| V6C-02 (trivial) | **CURED.** | `CurrentPaletteEditor.vue`: "Current Palette" becomes "Current palette" (sentence case, like every other head). The count takes the app's one count idiom (PaletteSpecimen): the bare `formatCount` numeral, muted mono `tabular-nums`, on the label's baseline beside it (the row is `items-baseline`, no longer `justify-between`), with "1 color" / "N colors" in `title`. | `palettes-new-*` (1440 and 390, both schemes): label "Current palette"; count text "1", title "1 color", `tabular-nums`, 8 px after the label (it used to sit at the row's far right edge). |
+| V6C-R1 (low, carried) | **OPEN, unchanged: P4R-01-R.** | It needs an ink-model unit that certifies display ink against the local (or brightest) field under its site, or an owner call on the margin. No local fudge on the title alone. | — |
+| V6C-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING (the dock layers, rim and halo, the bead specular and double drop-shadow, the 8-layer listbox floater stack with its cartoon rung and gradient fills, the control rims, Mix's disabled primary, the thumbless scrubber rails, the tinted Browse tag-overflow popover) and O-88 DOCK-COLLAPSE-MOTION (the 390 bulge, the collapsed seal).** No local override. | Every row was already relayed. They are re-judged at the 10.2.0 repin. | The census glass rows are unchanged (below). |
+
+**Census** (`census-after.json`, `--base :9263 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8. These are identical to pass 5.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c6.mjs` uses one browser for the run and a new context per cell, closing both in a `finally`. It took 28 of 28 cells: palettes, browse, generate, gradient, extract, mix and palettes-new (the well after one colour lands), each at 1440 and 390 in light and dark. The guarded dev server on :9263 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1234/1239 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3).
+- **e2e** (smoke, headless, workers 1, own server :9262; pass 5's 9 specs, including O-10d and the palettes empty-state and palette-save specs, `gates/specs.txt`): **49/49 ×2**, strict GREEN.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Both actionable consumer rows are cured.
+- P4R-01-R (V6C-R1) stays open.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15).
