@@ -4177,3 +4177,25 @@ The defect is in the library's packaging, and it harms every consumer, not only 
 2. **Arm (a) becomes a producer row.** The next O-n asks glass to import `parseCssColor` and `accent-tone-solve`'s colour functions from `@mkbabb/value.js/color` once value 4.1.x is published, ADOPT-AT-LANDING with the X-W11 repin. It is not needed for G2 once (b) lands, but it is the cleaner seam.
 3. **Arm (c), holding `.g2s`, is refused.** A known packaging defect is not left in a published library.
 4. **Order:** `.g2s2 → .g2d → close → check`. §0fr's G2 bar rule is unchanged (measured after both units, rounded up to 1 KiB, cap 300 KiB). W12U.md ADDENDUM (i) carries this ruling.
+
+## §0fu — 2026-10-17: X-W12U Close 5. The G2 bar is restated to 294,912 B; ESC-W12U-g2d-2 is RULED as unit `.o5b`, a product cure of the boot longtask
+`.g2s2` and `.g2d2` landed and are verified on `441ae4013`:
+- every lib subpath is a facade over shared chunks;
+- `./color` carries the `<color>`-rooted entry;
+- the eager css share fell from 33,221 B to 0;
+- E-6, MIRROR, V-C and L-G1 are GREEN;
+- O-98 COLOR-ENTRY-IMPORT is filed.
+
+G2 went from 331,631 to **293,980 B gz** ×2.
+1. **R-1, the G2 bar restatement (§0fr.1's rule applied):** the bar is **294,912 B gz** (293,980 rounded up to the next 1 KiB). It binds every later G2 reading, and W2.md's constant is read through this ruling (E-3: the dated W2 text is not rewritten).
+2. **ESC-W12U-g2d-2 (O-5 RED ×2 on the real-GPU witness, 24 of 24 sittings) is GRANTED as unit `.o5b`.**
+   - The measurement moved the cause. On real GPU, O-5 is one boot task of 92–122 ms in `index-*.js` before `mainVisible`. That is real main-thread work, not a software-GL artefact, so it is a value.js product defect and the cure goes at its root.
+   - **Grant:** `demo/**`.
+   - **Acts:**
+     - (i) Profile the boot task (a CPU profile of module evaluation and the first mount, headless real Chrome through `guarded`), naming the top contributors by self-time.
+     - (ii) Move every piece of work that first paint does not need out of the boot task, at its root. That covers registries, store hydration beyond the visible pane, worker or WASM spin-up, non-visible pane setup and font or catalogue preparation. Each moves to after first paint, at idle, or onto the interaction that needs it, and is named with its milliseconds.
+     - (iii) Where module evaluation itself dominates, split the module so its top level is cheap.
+     - No feature is cut, and no state that first paint shows is deferred (no flash of a wrong colour or theme).
+   - **If the profile names glass-ui module evaluation** as a dominant share, that share becomes a producer row (O-n, ADOPT-AT-LANDING), and the consumer share is cured here.
+   - **Gate:** O-5 on the real-GPU witness GREEN ×2, plus G2 ≤ 294,912 ×2. Smoke stays GREEN ×2 except the named rows.
+3. **Order:** `.o5b → close (verify-only) → check`. W12U.md ADDENDUM (j) carries this ruling.
