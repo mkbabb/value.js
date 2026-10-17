@@ -417,3 +417,31 @@ Seat `claude-opus-5-5`, 2026-10-17. Spec sections: COHESION §0k.3 **S-1** (`:14
 **Escalations** — the kernel-zone block (owner act: reboot) gates A3/C2's measurement; no spec escalation.
 **Adjacent edits** (§0bt) — `demo/app/App.vue:65` (the deleted `sceneActions` prop's parent binding `:scene-actions`) and `:347` (the router destructure no longer carries `sceneActions`); same concern, no assertion removed.
 **Inherited paths** — none.
+
+### X.W8.e
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec sections: W8.md X.W8.e `:197-206` · G-14 `:408-425`. Opens after `.dc` (`62fdd2b3b`). COHESION §0j → file end grepped for DR-17 / DR-18 / CC-082 / CC-090 / `max-lines` / LoC: no later ruling overrides the spec; W9.md `:150` names this unit's carve as "`.e` wires the CC-082 `max-lines` ratchet" and `:156` its region (disjoint from X-W4's / X-W9's objects).
+
+**Ruling — (ii) WIRED.** Rationale: (i) deletion leaves "no god modules" with no number and no check — canon would stop asserting an unmeasured figure but nothing would hold the line; (ii) makes the canon sentence and the tool say the same thing, can only descend, and is GREEN at HEAD by construction (G-14 scope guard: the breaches' cures are X-W5/X-W6's and X-W9's, not this wave's). Exactly one: the sentence is restated, not deleted.
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- docs/tranches/V/ARCHITECTURE.md eslint.config.js docs/tranches/X/waves/W8-witness docs/tranches/X/execution/A/X-W8.md`⟩ → empty. **Inherited paths — none.**
+2. Anchors at true bytes: ⟨`grep -n '400' docs/tranches/V/ARCHITECTURE.md`⟩ → `:944` only (anchor holds, the sentence spans `:943-945`); ⟨`grep -c max-lines eslint.config.js`⟩ → 0. Spec's src figures (`stylesheet.ts` 899 …) and api "0 over 350" are DRIFTED — re-measured below (INTENT: pin at the measured worst at true bytes).
+3. Band measurement, double-run ⟨`find <band> -type f \( -name '*.ts' -o -name '*.vue' \) -not -path '*/node_modules/*' -not -path '*/dist/*' [| api: grep -v/-E __tests__] | xargs wc -l | sort -rn | head -1`⟩ ×2 identical → demo `1013 GradientStopRail.vue` · src `672 src/transform/path.ts` · api/src modules `357 api/src/modules/palette/service/crud-list.ts` · api/src `__tests__` `539 …/palette-versions.test.ts`. Band choices: src = `src/**/*.ts` (W9.md G16's band; the two BBNF-generated `.js` under `src/css/bbnf/generated/` are emitted, not authored); api split product/tests so the tests' 539 does not loosen the modules' pin (every api test lives under `__tests__/`: ⟨`find api/src -name '*.test.ts' -not -path '*/__tests__/*' | wc -l`⟩ → 0); demo has 0 tracked `.js` (the untracked `.vite-critic-9216/` cache is `.js`, outside the band glob).
+4. Count parity: ⟨`npx eslint <the four worst files> --rule 'max-lines: [error, 356]'`⟩ → `File has too many lines (539|357|1013|672)` = `wc -l` exactly; ⟨GradientStopRail at max 1012 / 1013⟩ → exit 1 / 0.
+5. Wired: four `max-lines` objects in `eslint.config.js` (inserted before the X-W4 D2 object, which must stay last for its own rule) — demo `{ts,vue}` 1013 · `src/**/*.ts` 672 · `api/src/**/*.ts` ignoring `**/__tests__/**` 357 · `api/src/**/__tests__/**/*.ts` 539.
+6. Restated `ARCHITECTURE.md` §Colocation idiom (`:943-947`; diff hunk `@@ -943,3 +943,5 @@` only): the cap is the wired descend-only ratchet with the four pins; the `demo/@/components/ui/` exclusion dropped. ⟨`grep -c '400 LoC' docs/tranches/V/ARCHITECTURE.md`⟩ → 0 · ⟨`grep -c 'demo/@/components/ui' …`⟩ → 0. X-W9's `:657` region untouched.
+7. Falsifier: one file one line over each pin (`demo/__w8e_falsifier.ts` 1014 · `src/…` 673 · `api/src/…` 358 · `api/src/__tests__/…` 540) ⟨`npm run lint`⟩ (guarded --light) → 4 `max-lines` errors, exit 1; files removed → exit 0. Transcript `docs/tranches/X/waves/W8-witness/e-max-lines-falsifier.txt`.
+8. Gates (guarded --light): ⟨`npm run lint`⟩ ×2 → exit 0 / 0 · ⟨`npm run typecheck`⟩ exit 0 · ⟨`npx eslint demo src api e2e test --max-warnings=0`⟩ exit 0 · ⟨`git diff --check`⟩ clean.
+
+**Commits** — `df5737679` docs(x-w8): rule the demo/src LoC cap — wired (3 paths: `eslint.config.js`, `docs/tranches/V/ARCHITECTURE.md`, the witness).
+
+**Gates BEFORE → AFTER**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-14 LoC cap | RED — `:944` asserts ≤ 400 (+ excludes the deleted `demo/@/components/ui/`); `max-lines` 0 | **GREEN** — (ii): sentence restated to the wired ratchet; 4 `max-lines` pins; lint exit 0 ×2; falsifier RED (4 errors) committed |
+
+**Residuals** — the ratchet pins the breaches, it does not cure them: demo 1013 (X-W5/X-W6 owners), src 672 (X-W9 CC-090 split), api modules 357 (> the retired 350 figure; no owner named in this wave — named for the close). Lowering a pin rides the unit that lands the split.
+**Escalations** — none.
+**Adjacent edits** (§0bt) — none.
+**Inherited paths** — none.
