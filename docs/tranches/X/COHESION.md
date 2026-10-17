@@ -4153,3 +4153,27 @@ X-W12U Close 3 verified `.q2 .k3 .m3`. Checks 7–9 read one HIGH three times id
 4. prod-verify 21/21 ×2;
 5. the PD-1 prod curl pair ×2;
 6. close and check.
+
+## §0ft — 2026-10-16: ESC-W12U-g2s-1 RULED. Arm (b) with cure (2b), plus arm (a) as a producer row; `.g2s` re-sits as `.g2s2 → .g2d → close → check`
+`.g2s` measured the root:
+- `dist/subpaths/css.js` carries the grammar's own statements, so any eager importer of `./css` pins the whole grammar into the consumer's eager chunk, even when it imports one re-exported name.
+- glass-ui's `value-*.js` is such an importer, so cure (2b) alone, the `<color>`-rooted `./color` entry, would place the colour grammar in the eager set twice (+6,932 gz).
+
+The defect is in the library's packaging, and it harms every consumer, not only this demo. So the cure is at the library root:
+1. **`.g2s2` takes arm (b) and cure (2b) together, in one unit.** Grant:
+   - the library build config (`vite.config.ts`, the production lib build only);
+   - `src/css/bbnf/**` and the grammar files for the `<color>` root;
+   - `src/subpaths/**`;
+   - the 6 `demo/color-session` importers;
+   - the colour-entry tests;
+   - the CHANGELOG Unreleased line.
+
+   **The packaging:** every `dist/subpaths/*.js` is emitted as a re-export facade over shared chunks. The stylesheet grammar, the colour grammar and the shared math/colour action tables sit in their own chunks, so a consumer's bundler drops what it does not import. `package.json` `sideEffects` must be true to the bytes, read and fixed if absent or wrong.
+
+   **The falsifiers:**
+   - (i) the `g2s/chunk-exp` reproduction: an eager `parseCssColor` import from `./css` and from `./color` each leaves the stylesheet grammar out of the eager chunk, ×2;
+   - (ii) E-6 per §0fg item 3, MIRROR, V-C, L-G1 ×2 for every entry whose emitted bytes change, and the publint/attw-style export check if the repo has one;
+   - (iii) no public export is removed or renamed. `./css` still exports `parseCssColor`/`serializeCssColor`.
+2. **Arm (a) becomes a producer row.** The next O-n asks glass to import `parseCssColor` and `accent-tone-solve`'s colour functions from `@mkbabb/value.js/color` once value 4.1.x is published, ADOPT-AT-LANDING with the X-W11 repin. It is not needed for G2 once (b) lands, but it is the cleaner seam.
+3. **Arm (c), holding `.g2s`, is refused.** A known packaging defect is not left in a published library.
+4. **Order:** `.g2s2 → .g2d → close → check`. §0fr's G2 bar rule is unchanged (measured after both units, rounded up to 1 KiB, cap 300 KiB). W12U.md ADDENDUM (i) carries this ruling.
