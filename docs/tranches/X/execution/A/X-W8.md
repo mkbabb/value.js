@@ -702,3 +702,22 @@ LW-1 cured at Repair 1 (verified: `@update=` 0). **Honest-RED (relieved)**: ink 
 X-W9 (`Opens after` X-W0 only) — unaffected. X-W10 "X-W5…X-W9 stable": X-W8 conjunct RED → lawfully BLOCKED. X-W11 "X-W0…X-W10 IMPLEMENTED": X-W8 PARTIAL → lawfully BLOCKED.
 
 **Verdict: NOT-CONFORMANT** — 17/17 claimed GREENs reproduce; bounds, E-3, mail, masking, families clean; the C-5/NG-6 HIGH stands unrelieved and the S-1 + heavy arms stay unmeasured. LEDGER status not promoted; event line appended.
+
+## Repair 2
+
+REPAIR SEAT round 2, `claude-opus-5-5`, 2026-10-17, HEAD `f0836ed91`. Spec read whole once; record read header → Unit plan, the `.i`
+receipt tail (`:470-483`), § Repair 1, § Check 2. Crash-recovery ⟨`git status --porcelain -- docs/tranches/X/execution/ docs/tranches/X/waves/W8.md`⟩ → empty; no inherited edits.
+Host ⟨`tail -1 ~/.claude/guard/log/zone.log`⟩ → `08:42:04 inuse=13518970`; ⟨`timeout 20 guarded --timeout 30 -- true`⟩ →
+`[guarded] waiting for headroom (kernel zone data.kalloc.1024 at 13.5M (panics near 20.8M): reboot the Mac)` — heavy arms still guard-refused.
+Ruling search ⟨`grep -rn 'ESC-W8i' COHESION.md LEDGER.md INBOX.md`⟩ → LEDGER `:42,:958,:959,:960` only (this wave's own rows) — **0 rulings**.
+Bounds re-read ⟨`sed -n 2692,2694p COHESION.md`⟩ → "the two vitest canaries C-5 / NG-6 cured at their roots (test-owned, W1.a born-RED) · nothing else. Bounds: the named files."
+
+| # | Check 2 defect | cure / disposition | commit | gate re-reading |
+|---|---|---|---|---|
+| 1 | HIGH — G-W8-i1 full-vitest RED on C-5 + NG-6 | **ESCALATED, not cured (ESC-W8i-1/-2 stand).** Even granting the canary files in bounds (row 3), no root cure exists inside them without an owner ruling: C-5's M-12 pin with its 2-arg `strokeContrast` is unsatisfiable for any `(s,v)` predicate (`.i` receipt `:480`), so passing requires restating the oracle; NG-6's failing case asserts glass-ui Checkbox honours `checked` (producer-owned; 0 demo subject sites), so passing requires flipping `toBe("checked")` or a glass change. Both are assertion rewrites or a sibling-repo act — masking / out-of-repo under the standing law | — | ⟨`guarded --light -- npx vitest run test/spectrum-luma.test.ts demo/test/shell/reka-binding-idiom.test.ts --maxWorkers=2`⟩ ×2 → `Tests  2 failed \| 5 passed (7)` both (C-5, NG-6) — unchanged |
+| 2 | HIGH — A3/C2, test:e2e, G-15 pairs, J4 o29, 844×390 CLS unmeasured | **ESCALATED** (ESC-W8i-3, owner reboot): zone 13,518,970 ≥ 13M; the guard refuses every heavy arm | — | not runnable this seat |
+| 3 | MEDIUM — `.i` writable set vs §0aq "Bounds: the named files" | **ESCALATED with #1.** The bytes do name the canaries inside `.i`'s bounds; the premise "outside bounds" is therefore withdrawn as the reason — the operative reason is row 1's (no root cure without restating an oracle or a producer act). The owner's ESC-W8i-1/-2 ruling settles which | — | — |
+| 4 | MINOR — `demo/DESIGN.md:248,258` stale `btn-interactive` canon | **ROUTED** to X-W10 (canon owner); outside every W8 unit's bounds and another unit's row, so §0bt adjacency does not reach it | — | — |
+| 5 | INFO — 7 root-barrel imports, no subpath at 10.1.0 | no act; BK relay `alert-skeleton-subpaths` stands | — | — |
+
+Cured 0. Escalated 3 (ESC-W8i-1/-2 ∪ MEDIUM; ESC-W8i-3). No product byte written. Row stays PARTIAL.
