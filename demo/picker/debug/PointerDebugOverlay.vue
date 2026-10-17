@@ -47,15 +47,16 @@
                 <!-- Actions — sticky at bottom -->
                 <div class="debug-actions">
                     <button
+                        type="button"
                         class="debug-btn debug-btn-danger"
                         @click="debug.forceReleaseAllPointers()"
                     >
                         Reset
                     </button>
-                    <button class="debug-btn debug-btn-copy" @click="copyJSON">
+                    <button type="button" class="debug-btn debug-btn-copy" @click="copyJSON">
                         Copy JSON
                     </button>
-                    <button class="debug-btn" @click="debug.clearEvents()">
+                    <button type="button" class="debug-btn" @click="debug.clearEvents()">
                         Clear
                     </button>
                 </div>
@@ -65,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, inject } from "vue";
+import { ref, inject, onScopeDispose } from "vue";
 import { ChevronDown } from "@lucide/vue";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
 import { POINTER_DEBUG_KEY, TIMESTAMP_GAUGES } from "./usePointerDebug";
@@ -74,6 +75,16 @@ import DebugEventLog from "./DebugEventLog.vue";
 const debug = inject(POINTER_DEBUG_KEY)!;
 const open = ref(false); // start closed so it doesn't interfere
 const copied = ref(false);
+
+/** The one pending "copied!" reset; cleared on re-copy and on dispose so no
+ *  timer outlives the overlay. */
+let copiedReset: ReturnType<typeof setTimeout> | undefined;
+function flashCopied() {
+    clearTimeout(copiedReset);
+    copied.value = true;
+    copiedReset = setTimeout(() => { copied.value = false; }, 1500);
+}
+onScopeDispose(() => clearTimeout(copiedReset));
 
 /** Format by gauge kind (UIA-V-671): a stamp reads as its age, an integer
  *  count reads without a decimal, a measure keeps one. */
@@ -119,8 +130,7 @@ async function copyJSON() {
     const json = buildExportJSON();
     try {
         await navigator.clipboard.writeText(json);
-        copied.value = true;
-        setTimeout(() => { copied.value = false; }, 1500);
+        flashCopied();
     } catch {
         // Fallback: temporary textarea (older browsers / non-secure contexts).
         const ta = document.createElement("textarea");
@@ -128,11 +138,15 @@ async function copyJSON() {
         ta.style.cssText =
             "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
         document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-        copied.value = true;
-        setTimeout(() => { copied.value = false; }, 1500);
+        let ok = false;
+        try {
+            ta.select();
+            ok = document.execCommand("copy");
+        } finally {
+            document.body.removeChild(ta);
+        }
+        // Success is reported only when the browser says the copy happened.
+        if (ok) flashCopied();
     }
 }
 </script>

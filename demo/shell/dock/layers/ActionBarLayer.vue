@@ -45,7 +45,6 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 // --- Toolbar mode cycling (moved from ColorPicker) ---
 
-const colorInputRef = ref<InstanceType<typeof ColorInput> | null>(null);
 const toolbarMode = ref<"actions" | "input" | "propose">("actions");
 const inputArm = computed(() => actionSet.input ?? null);
 const showInput = computed(
@@ -96,8 +95,8 @@ const toggleLabel = computed(() => {
 // X.W12.e (OA-22): the sub-layer swap rides glass's own face-swap spine —
 // `<DockCrossfade :active>` hosting two `<DockLayer>` faces — on the ONE dock
 // spring (opacity overlap, peak reserve, inert + focus transfer all owned by
-// the producer). The local `useLayerTransition` successor (a 260 ms timer
-// copy of the retired producer composable, V-W44) is RETIRED with it: no
+// the producer). The local layer-transition shim (a 260 ms timer copy of
+// the retired producer composable, V-W44) is RETIRED with it: no
 // consumer copy of producer motion (SS-6/S-17).
 const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
 
@@ -238,7 +237,6 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             </DockLayer>
             <DockLayer v-if="inputArm" id="input">
                 <ColorInput
-                    ref="colorInputRef"
                     :propose-mode="toolbarMode === 'propose'"
                     class="min-w-0"
                     @proposed="onProposed"

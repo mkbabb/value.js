@@ -5,6 +5,7 @@ import {
     onMounted,
     ref,
     type ComputedRef,
+    type Ref,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import type { Color } from "@mkbabb/value.js/color";
@@ -14,6 +15,7 @@ import {
     certifyAccentInk,
     TEXT_CONTRAST_FLOOR,
     resolveMutedInk,
+    resolvePaintedLightness,
     resolvePlateInk,
     resolveSurfaceLightness,
     type InkSurface,
@@ -44,11 +46,12 @@ import {
 //
 // The referent is the tier's ACTUAL painted recipe, read live: a hidden probe
 // in the document's own cascade resolves the rung's background token
-// (color-mix, tint knob and all) to a concrete color+alpha; the dock band is
-// probed off the mounted `.dock-plate` element itself (its chrome recipe is
-// its own, thinner α). In non-browser contexts (jsdom — no canvas) the
-// resolver yields null and the static producer MODEL in `./ink` serves; the
-// O-18 census enforces the live path in the real browser.
+// (color-mix, tint knob and all) to a concrete color+alpha. In non-browser
+// contexts (jsdom — no canvas) the resolver yields null and the static
+// producer MODEL in `./ink` serves; the O-18 census enforces the live path in
+// the real browser. The dock band has NO model (X.W8.d · G-13): it is probed
+// off the element that actually paints it (`useChromeAccentFn`, below), and an
+// unmeasurable band is a loud defect, never a silent static rung.
 
 /** A live-probed layer: a material rung, or the modal scrim beneath one. */
 type LiveLayer = InkSurface | "scrim";
@@ -152,25 +155,49 @@ function probeEl(): HTMLElement | null {
     return tierProbe;
 }
 
+type PaintedColor = NonNullable<ReturnType<typeof resolveCssColorAlpha>>;
+
+/** An element's own painted background — null when it paints nothing (α 0)
+ *  or nothing can be measured (no canvas). */
+function paintedColor(el: Element): PaintedColor | null {
+    const c = resolveCssColorAlpha(getComputedStyle(el).backgroundColor);
+    return c && c.alpha > 0 ? c : null;
+}
+
+/**
+ * The dock band's LIVE tint, rooted on the element that actually paints it
+ * (X.W8.d · G-13 — the veil walk below, generalised). Glass 10 paints the
+ * band on a `.dock-plate` layer CHILD of the dock (`position: absolute;
+ * inset: 0; z-index: -1`), never on `.glass-dock` itself (transparent), so
+ * the walk climbs from the consumer's own element and, at each ancestor,
+ * reads the ancestor's own paint or its plate layer's. The return is
+ * NON-optional: a band that cannot be measured is a wiring defect, surfaced
+ * loudly — there is no static rung for it to fall back to.
+ */
+function resolveDockPlateTint(from: Element): SurfaceTint {
+    for (let n: Element | null = from; n && n !== document.body; n = n.parentElement) {
+        const plate = n.querySelector(":scope > .dock-plate");
+        const c = paintedColor(n) ?? (plate ? paintedColor(plate) : null);
+        if (c) return { color: srgbColor(c.r, c.g, c.b), alpha: c.alpha };
+    }
+    throw new Error(
+        "useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable",
+    );
+}
+
 /** Read a tier's LIVE painted tint (recipe truth) — null when unmeasurable. */
 function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
     if (surface === "page") return undefined;
     let bg: string | undefined;
-    if (surface === "chrome") {
-        // X.W7L.i: glass 10 paints the dock's material on `.dock-plate`
-        // (`--glass-veil-dock`); `.glass-dock` itself is transparent there,
-        // so probing it read α 0 and the static model served in its place.
-        const dock = document.querySelector<HTMLElement>(".dock-plate");
-        if (dock) bg = getComputedStyle(dock).backgroundColor;
-    } else if (surface === "veil") {
+    if (surface === "veil") {
         // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
         // layers (the veil recipe over its host plate) sit between its ink
         // and the ambient, and BOTH recipes are SUBTREE-LOCAL (the W55
         // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
         // probe reads the wrong cascade — probed live: root-context veil
         // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
-        // probed off the MOUNTED element itself (the `chrome`/`.dock-plate`
-        // precedent): the Card stamps `data-surface="veil"`, its painted
+        // probed off the MOUNTED element itself (the dock band's
+        // `.dock-plate` precedent): the Card stamps `data-surface="veil"`, its painted
         // recipe + its nearest painted ancestor (the resting plate) are
         // composited A-over-B in sRGB — the SAME alpha-composite model the
         // O-18 census measures with — into ONE effective tint. A per-layer
@@ -182,23 +209,16 @@ function resolveLiveTint(surface: LiveLayer): SurfaceTint | undefined {
             '[data-surface="veil"]',
         );
         if (!host) return undefined;
-        const veil = resolveCssColorAlpha(
-            getComputedStyle(host).backgroundColor,
-        );
-        if (!veil || veil.alpha === 0) return undefined;
-        let plate: ReturnType<typeof resolveCssColorAlpha> = null;
+        const veil = paintedColor(host);
+        if (!veil) return undefined;
+        let plate: PaintedColor | null = null;
         for (
             let n = host.parentElement;
             n && n !== document.body;
             n = n.parentElement
         ) {
-            const c = resolveCssColorAlpha(
-                getComputedStyle(n).backgroundColor,
-            );
-            if (c && c.alpha > 0) {
-                plate = c;
-                break;
-            }
+            plate = paintedColor(n);
+            if (plate) break;
         }
         if (plate) {
             const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
@@ -450,7 +470,7 @@ function lightDarkArm(css: string, dark: boolean): string {
  * Reactive composable that provides a `safeCss(color)` function for
  * converting any CSS color string to a certified-ink variant against the
  * SURFACE the consumer actually sits on (D6): pass the D1 rung — `"floating"`
- * for menu/dock chrome, `"resting"` for plate-seated ink, `"well"` for the
+ * for menu chrome, `"resting"` for plate-seated ink, `"well"` for the
  * opaque tone-step — and the referent composites the live ambient through
  * that rung's alpha. Defaults to the page ambient.
  *
@@ -469,6 +489,43 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
         return certifyAccentInk(
             css,
             surfaceLightnessNow(surface, ambient.value, isDark.value),
+            floor,
+        );
+    }
+
+    return { safeCss };
+}
+
+/**
+ * The dock band's certified ink (X.W8.d · G-13). The band has no static
+ * model, so the referent is the tint MEASURED off the element that paints the
+ * band above `host` (`resolveDockPlateTint`). Before `host` mounts nothing is
+ * measured and `safeCss` makes no ink claim (`undefined`: the binding drops
+ * out); once mounted, the template-ref write re-drives the reactive caller.
+ * The tint is cached per (host, scheme class, probe epoch) — the recipe is
+ * scheme/epoch-scoped, the ambient is what moves per frame (see the tint
+ * cache above).
+ */
+export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
+    const { isDark } = useGlobalDark();
+    const ambient = inject(INK_AMBIENT_KEY)!;
+    bumpProbeEpochOnMount();
+
+    let cached: { el: Element; dark: boolean; epoch: number; tint: SurfaceTint } | undefined;
+    function bandTint(el: Element, dark: boolean): SurfaceTint {
+        const epoch = probeEpoch.value;
+        if (cached?.el !== el || cached.dark !== dark || cached.epoch !== epoch) {
+            cached = { el, dark, epoch, tint: resolveDockPlateTint(el) };
+        }
+        return cached.tint;
+    }
+
+    function safeCss(css: string, floor?: number): string | undefined {
+        const el = host.value;
+        if (!el) return undefined;
+        return certifyAccentInk(
+            css,
+            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
             floor,
         );
     }

@@ -25,7 +25,9 @@ import {
     certifyAccentInk,
     producerRungTint,
     resolveMutedInk,
+    resolvePaintedLightness,
     resolveSurfaceLightness,
+    type SurfaceTint,
 } from "../demo/color-session/ink";
 
 function requiredOklch(source: string): Color<"oklch"> {
@@ -106,7 +108,12 @@ describe("X.W7L.i — the static model IS glass 10.1.0's published veil ladder",
         it(`ink, base and step match the installed tokens (${scheme})`, () => {
             const p = published[scheme];
             const ink = requiredOklch(p.ink);
-            const rungs = { quiet: -1, resting: 0, floating: 1, chrome: -1 } as const;
+            const rungs = { quiet: -1, resting: 0, floating: 1 } as const;
+            // X.W8.d · G-13: the dock band has no static rung (it is measured
+            // live); the band fixture below rides the published recipe, k = −1.
+            expect(token(light, "--glass-veil-dock")).toBe(
+                "calc(var(--glass-veil-base) - 1 * var(--glass-veil-step))",
+            );
             for (const [rung, k] of Object.entries(rungs) as [keyof typeof rungs, number][]) {
                 const tint = producerRungTint(rung, scheme === "dark");
                 expect(tint.alpha, `${rung} α`).toBeCloseTo(p.base + k * p.step, 10);
@@ -159,6 +166,16 @@ describe("X.W7L.i — the model composites the way the browser paints (source-ov
 /** Ambient 0 → 1 in steps of 0.025 (the unreachable band is ≥ 0.1 wide). */
 const SWEEP = Array.from({ length: 41 }, (_, i) => i / 40);
 const SURFACES = ["page", "resting", "floating", "chrome", "veil", "well"] as const;
+
+/** X.W8.d · G-13: the dock band ("chrome") has no static model — its referent
+ *  is the MEASURED `.dock-plate` tint, laid through `resolvePaintedLightness`.
+ *  The fixture is glass's published band recipe (`--glass-veil-dock` = base −
+ *  1·step over the veil ink, asserted above). */
+function dockBand(dark: boolean): SurfaceTint {
+    const step = Number(token(glassTokens("glass.css"), "--glass-veil-step"));
+    const resting = producerRungTint("resting", dark);
+    return { color: resting.color, alpha: resting.alpha - step };
+}
 const PICKS = [
     "oklch(0.55 0.18 260)", // url-color-precedence's URL_BLUE — boot died on it at 10.1.0
     "oklch(0.51 0.13 32)", // the owner brick
@@ -186,7 +203,9 @@ describe("X.W7L.i — ESC-W7Rm-1: the search never throws on a reachable floor",
         it(`every surface × the full ambient sweep × every pick certifies ≥ the floor (${dark ? "dark" : "light"})`, () => {
             for (const surface of SURFACES) {
                 for (const a of SWEEP) {
-                    const surfaceL = resolveSurfaceLightness(surface, a, dark);
+                    const surfaceL = surface === "chrome"
+                        ? resolvePaintedLightness(a, dockBand(dark))
+                        : resolveSurfaceLightness(surface, a, dark);
                     for (const pick of PICKS) {
                         const ink = certifyAccentInk(pick, surfaceL);
                         expect(ratioOn(ink, surfaceL), `${pick} on ${surface}@${a}`)

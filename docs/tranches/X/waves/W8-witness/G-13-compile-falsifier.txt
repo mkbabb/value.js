@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+# G-13 compile falsifier — X.W8.d, 2026-10-17
+
+Scratch edit of demo/shell/dock/menus/ProfileSection.vue (byte copy restored after): three fallback call sites inserted —
+  A  useSafeAccentFn("chrome")                          (the deleted static chrome rung, via the consumer API)
+  B  resolveSurfaceLightness("chrome", 0.5, false, undefined)  (the static model with the tint left out)
+  C  resolvePaintedLightness(0.5, undefined)               (an undefined-tolerating call site on the measured path)
+
+$ npx vue-tsc -p tsconfig.demo.json --noEmit
+demo/shell/dock/menus/ProfileSection.vue(37,52): error TS2345: Argument of type '"chrome"' is not assignable to parameter of type 'InkSurface | undefined'.
+demo/shell/dock/menus/ProfileSection.vue(39,45): error TS2345: Argument of type '"chrome"' is not assignable to parameter of type 'InkSurface'.
+demo/shell/dock/menus/ProfileSection.vue(40,50): error TS2345: Argument of type 'undefined' is not assignable to parameter of type 'SurfaceTint'.
+exit 2
+
+All three are compile errors. After restore: `grep -c FALSIFIER ProfileSection.vue` → 0; `npm run typecheck` exit 0.

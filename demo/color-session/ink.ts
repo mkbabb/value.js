@@ -8,7 +8,14 @@ import {
     type Color,
 } from "@mkbabb/value.js/color";
 
-export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome" | "veil" | "modal";
+/**
+ * The surfaces with a static producer MODEL. The dock band (the `.dock-plate`
+ * chrome) is deliberately absent (X.W8.d · G-13): its referent exists only as
+ * a MEASURED tint (`resolvePaintedLightness`), so a silent static fallback for
+ * it is unrepresentable — a call site that tolerates "unmeasured" does not
+ * compile.
+ */
+export type InkSurface = "page" | "resting" | "floating" | "well" | "veil" | "modal";
 
 export const TEXT_CONTRAST_FLOOR = 4.5;
 export const GRAPHICS_CONTRAST_FLOOR = 3;
@@ -34,7 +41,7 @@ const PRODUCER_TINTS = {
  * + `dark-arm.css`): every plate is `--glass-veil-ink` at the rung's alpha
  * (`color-mix(in srgb, ink / α 100%, --card)` at `--glass-level: 1`), laid
  * over the ground below it. Rung α = base + k·step (quiet −1, resting 0,
- * floating +1; the dock plate is `--glass-veil-dock` = −1). The 7.0.0
+ * floating +1; the dock plate has no static rung — it is measured live). The 7.0.0
  * cream-frost constants (card tint at α .65/.80) no longer describe any
  * painted surface; this is the static model the live probe falls back to.
  */
@@ -48,7 +55,6 @@ const RUNG_STEP = {
     quiet: -1,
     resting: 0,
     floating: 1,
-    chrome: -1,
 } as const;
 
 const WELL_FOREGROUND_FRACTION = 0.08;
@@ -234,6 +240,15 @@ export function resolveSurfaceLightness(
     }
 
     return lightness(composite(ground, producerRungTint(surface, dark)));
+}
+
+/**
+ * The effective lightness of a surface that exists ONLY as a measured tint
+ * (the dock band, G-13): the live recipe laid over the ambient. The tint is
+ * required — there is no model to fall back to.
+ */
+export function resolvePaintedLightness(ambientL: number, tint: SurfaceTint): number {
+    return lightness(composite(surfaceColor(ambientL), tint));
 }
 
 /** Certify a concrete CSS color against the surface it actually paints. */

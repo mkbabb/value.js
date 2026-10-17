@@ -84,7 +84,6 @@ const lineCount = computed(() =>
 );
 
 const emit = defineEmits<{
-    update: [value: number, component: string];
     input: [text: string, component: string];
 }>();
 

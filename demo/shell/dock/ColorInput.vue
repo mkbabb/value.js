@@ -60,15 +60,13 @@
                         </Tooltip>
                     </TooltipProvider>
 
-                    <!-- Inline send button — T.W5-R5: the spatial hover/press
-                         legs come from the producer `btn-interactive` atom
-                         (scale @ --spring-present-duration on
-                         --transition-liquid-spatial, house press/hover
-                         magnitudes + focus register); .send-btn keeps only
-                         seat geometry (see the scoped block). -->
+                    <!-- Inline send button — .send-btn keeps only seat
+                         geometry (see the scoped block). X.W8.d
+                         (W5-BTN-INTERACTIVE-DEAD): the `btn-interactive` atom
+                         left glass at 490cc46e; its dead class is deleted. -->
                     <button
                         v-if="proposeMode"
-                        class="send-btn btn-interactive"
+                        class="send-btn"
                         aria-label="Propose this color name"
                         :disabled="!proposedName.trim() || proposing"
                         @click="submitProposedName"
@@ -78,7 +76,7 @@
                     </button>
                     <button
                         v-else
-                        class="send-btn btn-interactive"
+                        class="send-btn"
                         aria-label="Apply color"
                         @click="onSubmitColor"
                     >
@@ -381,12 +379,10 @@ defineExpose({
 
 /* T.W5-R5 (T-14 / D7): the bespoke transform-on-bezier hover/press recipe
  * (scale 1.1/0.95 composed into `transform` @ --duration-fast --ease-standard
- * — the F3 spatial-on-bezier stray) is RETIRED onto the producer
- * `btn-interactive` atom (template class): the scale longhand rides
- * --transition-liquid-spatial @ --spring-present-duration, press/hover
- * magnitudes + focus ring + disabled opacity are the house registers. This
- * block keeps ONLY the seat geometry — the static translateY(-50%) transform
- * composes cleanly under the atom's `scale` longhand. */
+ * — the F3 spatial-on-bezier stray) stays RETIRED. The producer
+ * `btn-interactive` atom it moved onto left glass at 490cc46e and its class is
+ * deleted (X.W8.d, W5-BTN-INTERACTIVE-DEAD; the motion question rides O-52
+ * R-2). This block keeps ONLY the seat geometry. */
 .send-btn {
     position: absolute;
     right: 0.25rem;

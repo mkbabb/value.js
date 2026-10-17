@@ -76,16 +76,15 @@
                             <div class="flex gap-2 mt-2 self-center">
                                 <!-- W5-a11y: title is tooltip-only; add aria-label so AT reads it -->
                                 <!-- T.W5-R5 (T-14 / D7): the per-site spatial strays
-                                     (transition-all + hover:scale-110/active:scale-95 on the
-                                     dead 150ms bare-utility default — F3) retire onto the
-                                     producer's `btn-interactive` atom: the scale leg rides
-                                     --transition-liquid-spatial @ --spring-present-duration
-                                     (inherited, never re-implemented), press/hover magnitudes
-                                     + the house focus register come with it. -->
-                                <button class="btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
+                                     (transition-all + hover:scale-110/active:scale-95 — F3)
+                                     stay retired. X.W8.d (W5-BTN-INTERACTIVE-DEAD): the
+                                     `btn-interactive` atom they moved onto left glass at
+                                     490cc46e, so the class matched no rule and is deleted;
+                                     the press/hover motion question rides O-52 R-2. -->
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
                                     <Check class="w-5 h-5" :style="{ color: safeAccent }" aria-hidden="true" />
                                 </button>
-                                <button class="btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Cancel edit" aria-label="Cancel edit" @click.stop="emit('cancelEdit')">
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Cancel edit" aria-label="Cancel edit" @click.stop="emit('cancelEdit')">
                                     <Undo2 class="w-5 h-5 text-muted-foreground" aria-hidden="true" />
                                 </button>
                             </div>
@@ -111,7 +110,7 @@
                                 emphasis="text"
                                 icon-only
                                 size="lg"
-                                class="add-slot-ghost btn-interactive shrink-0 cursor-pointer"
+                                class="add-slot-ghost shrink-0 cursor-pointer"
                                 :aria-label="`Add current color ${formatCssCaption(cssColorOpaque)} to palette`"
                                 @click="addCurrentColor"
                             >

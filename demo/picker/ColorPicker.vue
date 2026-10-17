@@ -60,7 +60,6 @@
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
                     :space="model.selectedColorSpace"
-                    @update="(v, c) => updateColorComponentDebounced(v, c)"
                     @input="onComponentInput"
                 />
             </CardHeader>

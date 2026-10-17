@@ -1,0 +1,24 @@
+SERVED MODEL: claude-opus-5-5
+# G-11 falsifier — X.W8.d, 2026-10-17
+Suite: docs/tranches/X/waves/W8-witness/G-11/pointer-debug-copy.test.ts (mounts the real demo/picker/debug/PointerDebugOverlay.vue; harness config beside it).
+
+## FALSIFIED — PointerDebugOverlay.vue at HEAD (pre-cure bytes, `git show HEAD:<file>`)
+$ npx vitest run --config docs/tranches/X/waves/W8-witness/G-11/vitest.config.ts
+   × G-11 · PointerDebugOverlay copy + dispose > FALSIFIER: clipboard rejects AND execCommand fails → no 'copied!', textarea removed 62ms
+     → expected true to be false // Object.is equality
+   × G-11 · PointerDebugOverlay copy + dispose > execCommand throws → the textarea is still removed (try/finally) 10ms
+     → expected <textarea …(1)></textarea> to be null
+   × G-11 · PointerDebugOverlay copy + dispose > execCommand succeeds → 'copied!'; unmount clears the pending 1500 ms reset timer 11ms
+     → expected "clearTimeout" to be called with arguments: [ …(1) ]
+   × G-11 · PointerDebugOverlay copy + dispose > the three action buttons are type=button 6ms
+     → expected [ null, null, null ] to deeply equal [ 'button', 'button', 'button' ]
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  docs/tranches/X/waves/W8-witness/G-11/pointer-debug-copy.test.ts > G-11 · PointerDebugOverlay copy + dispose > FALSIFIER: clipboard rejects AND execCommand fails → no 'copied!', textarea removed
+ FAIL  docs/tranches/X/waves/W8-witness/G-11/pointer-debug-copy.test.ts > G-11 · PointerDebugOverlay copy + dispose > execCommand throws → the textarea is still removed (try/finally)
+ FAIL  docs/tranches/X/waves/W8-witness/G-11/pointer-debug-copy.test.ts > G-11 · PointerDebugOverlay copy + dispose > execCommand succeeds → 'copied!'; unmount clears the pending 1500 ms reset timer
+      Tests  4 failed (4)
+
+## CURED — the committed bytes (restored from the byte copy)
+$ npx vitest run --config docs/tranches/X/waves/W8-witness/G-11/vitest.config.ts
+ ✓ docs/tranches/X/waves/W8-witness/G-11/pointer-debug-copy.test.ts (4 tests) 111ms
+      Tests  4 passed (4)

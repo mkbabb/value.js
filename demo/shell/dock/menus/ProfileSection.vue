@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, inject } from "vue";
+import { computed, defineAsyncComponent, inject, useTemplateRef } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Shield,
 } from "@lucide/vue";
@@ -10,7 +10,7 @@ import {
     DropdownMenuSeparator, DropdownMenuLabel,
 } from "@mkbabb/glass-ui/menu";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
-import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
+import { useChromeAccentFn, useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
 import { DOCK_MENU_SIDE_OFFSET } from "./dockMenuOffset";
 
 // X.W12U.g2d2: the avatar renders only inside the opened menu body, so it loads with
@@ -29,8 +29,11 @@ const { cssColorOpaque, linkCopied } = defineProps<{
 // menu ground for roughly half of all picks per scheme. Two hosts, two
 // referents: the trigger sits ON THE DOCK BAND (chrome — its own thinner α),
 // the slug pill inside the menu popover (the floating rung); each ink
-// certifies against the surface it actually composites over.
-const { safeCss: chromeSafeCss } = useSafeAccentFn("chrome");
+// certifies against the surface it actually composites over. The band has no
+// static model (X.W8.d · G-13): its tint is measured off the plate that paints
+// above this section's own root.
+const sectionRoot = useTemplateRef<HTMLElement>("sectionRoot");
+const { safeCss: chromeSafeCss } = useChromeAccentFn(sectionRoot);
 const { safeCss: floatingSafeCss } = useSafeAccentFn("floating");
 const triggerInk = computed(() => chromeSafeCss(cssColorOpaque));
 const menuInk = computed(() => floatingSafeCss(cssColorOpaque));
@@ -55,7 +58,7 @@ function openRepository(): void {
 
 <template>
     <!-- Desktop-only: user/login section -->
-    <div class="hidden lg:flex items-center gap-1">
+    <div ref="sectionRoot" class="hidden lg:flex items-center gap-1">
         <DockSeparator />
 
         <!-- Logged in: "Account" button with dropdown -->
