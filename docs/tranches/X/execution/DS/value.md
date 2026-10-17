@@ -1156,3 +1156,40 @@ The workflow dispatched this seat as "pass 4" with critic P4R's rows **P4R-01..0
 - This dispatch's rows were stale by twelve passes. The next value seat needs a fresh critic at HEAD, not P4R's rows.
 - **P4R-01-R** is new and measured: in dark the Palettes title clears 2.65–2.82:1 on real pixels, against its 3:1 floor. Its root is the ink model's mean-ambient referent, not the ramp. It needs either an ink-model unit (certify display ink against the local, or brightest, field under its site) or an owner call on the margin.
 - P4R-02 and P4R-03 wait on glass (O-87). P4R-05 and the open owner rulings (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15) are unchanged.
+
+### pass 5 (2026-10-17): critic VP5 — the config fold lands on a row, Mix's empty Palettes tab speaks once, the menu strapline goes
+
+The critic named three low consumer rows, one trivial consumer row, one glass row (the scrubber's resting thumb) and the standing glass rows. Every consumer row is cured. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-05/vp5-2026-10-17/`.
+
+**Commits.** value.js `3d73afb54` (the cure, 4 source paths) and `129154ff3` (probes, frames, crops, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-05/vp5-2026-10-17/`) |
+|---|---|---|---|
+| VP5-01 (low) | **CURED (option 1: the fold lands on a row boundary).** | `ConfigSliderPane.vue`: a ResizeObserver on the follow port and its body reads where the port ends. The footer (`.config-action-bar`, which this pane owns) takes the remainder as its top margin, so the port ends exactly where the first row or section head that does not fit begins. The write lands one frame after the reading, because resizing the observed port inside its own callback is a ResizeObserver loop. The trim is read back into the available height, so it settles in one pass, and it is 0 whenever the content fits (Atmosphere, the 390 one-track column). There is no wrapper and no new class, and glass's FadingScroll and its mask are untouched. Option 2 was rejected: glass's feather is a `mask-image` on the port itself, so a well edge drawn on the port would be masked out with the content. A wider feather (one row pitch) was tried first and dropped, because it only dimmed the ghost (`blob-foot-crop-*` before/after). | `probe-vp5-before.json` → `probe-vp5-after.json`, /#/blob, both schemes. **1440×900:** the cut "Warp" row showed 19 px (label and value); it now shows 1 px of its 4 px row padding, with no glyph. Footer trim 18 px; the last whole row is Smoothness. **1280×800:** 22 px → 1 px, trim 21 px. /#/atmosphere: trim 0 (it fits). `probe-roloop.mjs`: 0 page or console errors across 1280×800 → 1100×760 → 1440×900 → 390×844 → 1440×900 (trim 21/19/19/0/19). The well's hairlines and tone dissolve in glass's 1.5rem pane feather above a plate band, then the rule (`blob-foot-crop-1440-{light,dark}.png` against the `-before` crops). |
+| VP5-02 (low) | **CURED.** | `MixSourceSelector.vue`: the Palettes tabpanel caption renders only when `savedPalettes.length > 0`. TRUE EMPTY is the EmptyState alone (A2-VA-L1-5 / T.W6.5 Lane S). There is no copy change and no new element. | `probe-vp5-after.json` mix, 1440 both schemes: caption `null`, 0 saved rows, the EmptyState's "No saved palettes yet. / Save a palette, then pour it or its colors in here." is the one voice (`mixpal-{1440,390}-*`). |
+| VP5-03 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING.** No local thumb shim. | The ask stands as the critic wrote it: a quiet resting thumb, or a single-edge leading-edge cap, on the scrubber register (one hairline, no specular, inside the single-quiet-edge ruling). The consumer adopts it at the 10.2.0 repin. Pass 5's open question ("does the thumbless default read as a control?") is answered **no** by this critic. | `blob-*`, `atmosphere-*` (the rails are unchanged). |
+| VP5-04 (trivial) | **CURED (deleted).** | The micro italic Fraunces strapline "Color space picker & converter" is deleted from `ProfileSection.vue` and `MobileMenuDropdown.vue`, together with its now-empty wrapper `div`. The menu header is the avatar plus the `@mbabb` handle. | `capture-vp5.json`: `usermenu-1440-*` and `dockmenu-390-*` read handle "@mbabb", strapline false. |
+| VP5-G1 (low) | **Glass-owned: honest-RED, cited on O-87 (and O-88 for the dock rows).** No local override. | Every row was already relayed: V7R-02, V8C-03, V8C-04, P4R-02, P4R-03, P9R-G1..G3, P5C-01 and VC3-02. They are re-judged at the 10.2.0 repin. | The census glass rows are unchanged (below). |
+
+**Census** (`census-after.json`, `--base :9231 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded; 18 of 18 route cells, 0 errors).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8. These are identical to the pass-4 re-dispatch.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+- A first census run lost its dark half when the guarded dev server reached its timeout. It was re-run whole on a fresh server, and only that run is committed.
+
+**Frames.** Headless real Chrome (§0ei), one browser per cell, closed in a `finally`. `capture-vp5.mjs` took 16 of 16 cells: blob, atmosphere and mixpal at 1440 and 390, `usermenu-1440` and `dockmenu-390`, each in light and dark. The fold probe adds blob and atmosphere at 1440×900 and 1280×800 in both schemes, plus crops. The server was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1227/1234 ×2, with the same 7 standing failures (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6).
+- **e2e** (smoke, headless, workers 1, own server :9232). The 11 specs that open /#/blob, /#/atmosphere, /#/mix or the dock menus: 68 passed / 5 failed, then 67 / 6.
+  - Every failure is in the standing class (c') o18 set homed by id to X-W10: :713, :993, :1297 a/b and :1322 a/b. The :1297 dark cell passed in run 1.
+  - The :1322 menu-row cells fail on Switch account, Logout, Regenerate slug and Copy slug, not on the deleted strapline.
+  - The other 10 spec files (walk, w12-dock, x-w7l-detached and the rest) are strict GREEN ×2, with 0 ResizeObserver-loop lines.
+- **Disclosed:** the first e2e pair ran on a draft of the snap. It wrote the trim inside the observer callback (an RO-loop window error, and one walk timeout) and kept a stale trim when the content fit (one x-w7l 1024×768 gutter read). Both were fixed, and every gate above was re-run on the final code.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Pass 5 cured every consumer row it owns.
+- One glass ask is new on the record: VP5-03, the scrubber's resting thumb, under O-87.
+- The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01, VC4-09 and V2C-15. P4R-01-R stays stated for an ink-model unit.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
