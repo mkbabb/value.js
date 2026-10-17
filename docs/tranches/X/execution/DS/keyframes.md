@@ -2545,3 +2545,55 @@ Every capture is headless real Chrome (§0ei). The task named `pass-06/`, but th
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
 - Each probe used one browser, closed in `finally`. Nothing of this seat's was left running.
+
+### pass 7 (the eighth redeploy's pass 7; critic C7; evidence in `pass-52/`)
+
+**Cure commit:** keyframes.js `bc1480b8` (pushed fast-forward to master, `bd3d5a38..bc1480b8`). **Evidence:** value.js `c50852896` (`evidence/DS/keyframes/pass-52/`):
+- `c7-probe.mjs`, `c7-probe.json` (GREEN, 0 fails) and `c7-probe-before.json` (born RED at `bd3d5a38`, 36 fails);
+- `easing-witness.mjs`, `easing-witness.json` (GREEN) and `easing-witness-before.json` (born RED at `bd3d5a38`, 2 fails);
+- `capture.mjs` and `after/`: the critic's cells (home, `cube`, `amiga`, `square`, `easing`, `spring`, `sequence` at 1440 and 390 in light and dark; `cube-keyframes`, `cube-timeline`, `cube-dock-open` at 1440; `after/capture.json`, the chevron witness), plus `spring-peak-open-*` at the probe's three viewports;
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-07/`, but that folder holds the first workflow's committed evidence, so the frames go to `pass-52/`, the next free folder (the pass-23..51 precedent).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C7-01 (medium) | **The Physics pane keeps its name, and both edges of its port are placed.** The critic's first cure, a sticky title row filled with the card's own fill, cannot be built honestly: the card is glass material (`glass-quiet`, a 10 % fill over a 14 px backdrop blur), so its own fill does not hide rows scrolled under it, and an opaque fill or a blur would be new lighting. `.channel-controls` also clips (`overflow: hidden`), so a sticky row would have stuck to the wrong box. The cure takes the repo's own idiom instead: the cube Matrix editor's `.pane-bounded` (ControlsPaneWrapper.css). On the desktop rail the Physics ConfiguratorLayer is bounded, its header stays above, and its body is one glass `FadingScroll` port (`data-fold-key="spring-physics"`).<br>• `useFoldLanding` lands every rail port (`[data-fold-key]`), not only `.controls-surface`. The footed set is provided to the facet (`FOLD_FOOTED_KEY`) for its port's end fade (KF-C25-01), and is null on the phone sheet, where the facet stays unbounded as before.<br>• New `landStart` is the mirror of KF-C4-03 at the top: an end-pinned port lowers its block until no line of text crosses its top edge or lies under its start fade. A boxed row's lower edge left under the fade is the cue. `revealFigure` and `land()`'s re-pin both call it.<br>• `SpringHeatmap`'s reveal and fit-watch read the port (`[data-fold-key]`).<br>No fill, no blur and no sticky are added: the header is simply outside the port. | Probe, Peak overshoot opened, at 600 and 2500 ms, both schemes:<br>• 1440x900: before, scrollTop 192 with the title at −55 to −16 (gone) and 'Smooth' under the top fade; after, the title whole at 137–176 above the port (top 192), the port at its end (189 of 189), and the axis caption at 502–520.7 against fold 520.8.<br>• 1280x800: before, the title gone and the tile names under the edge; after, the title at 131–170, the Smooth/Snappy row wholly above the port, and the caption at 492.5–510.7 against fold 510.8.<br>• 1440x1080: before, 'Physics · To keyframes' cut at 119.8–158.6 by the port top 138.8; after, the title at 148–187, the port at its end (34 of 34), and only the response slider's track under the start fade.<br>At rest (figure closed) the rail is unchanged at 1440x900 and 1280x800. The 390 sheet's peek still shows 'Physics · To keyframes'. `after/spring-peak-open-*`, `after/spring-*`. |
+| KF-C7-02 (low) | **The empty Timeline's line sits under its track.** The 0- and 1-keyframe notices drop `grow content-center text-center` and `text-body`. They now follow the track in flow, one column gap down, at caption ink (`text-caption text-muted-foreground`), start-aligned, and the free block falls below them (KF-C3-01's rule; KF-C3-12's one alignment is kept for both). The verbs are no longer bold ("import them to edit here"; "snapshot … or import CSS"), so the footer's Import, shown in the active fill, stays the one place to act. | `after/cube-timeline-1440-*`: "Rotations has 2 keyframes in CSS — import them to edit here." sits about 30 px under the ribbon, and the empty block falls under it above the footer. |
+| KF-C7-03 (trivial) | **A family heading and its first row are one unit.** In `EasingCatalogue`'s `landDrawer`, where the fold cuts a tile and no tile of the heading's family stands whole above it, the heading goes under the fold too. | `easing-witness`: before, at 390x844 'Sine' (654.3–678.3) rested alone on fold 686.1 in both schemes; after, the drawer ends under the Standard family with 'Sine' under the fold. 1440x900, 1280x800 and 390x700 are unchanged and GREEN. `after/easing-390-*`. |
+
+**Coordination:** `KeyframeTimeline.vue` carried another seat's uncommitted hunk (`panel-content` on the CardContent, line 35). This seat's hunks were disjoint. They were committed through an index blob (HEAD plus this seat's change, `git hash-object -w` and `git update-index --cacheinfo`), and `git diff --cached` was checked first. The other hunk is still unstaged in the working tree, untouched.
+
+**Cited (glass, not overridden)**
+- **KF-C7-G1 (medium): O-87 FLAT-LIGHTING**, rows a–h:
+  - the cartoon stamp (KF-C1-02);
+  - the menu's backdrop bloom (KF-C1-11);
+  - the input and Select fill mismatch (KF-C1-10);
+  - closed Select carets rotated inside the open configurator layer (KF-C5p-01), re-witnessed in `after/capture.json`;
+  - the capsule halo (KF-C5p-02);
+  - the play bubble's plate and halo in the 390 sheet (KF-C1-12);
+  - resting-plate blur blotches (KF-C5p-03);
+  - the EasingPicker ghost staircase (KF-R6C4-04).
+
+  They are honest-RED until the 10.2.0 repin.
+- **KF-C7-G2 (low): O-88 DOCK-COLLAPSE-MOTION**: the collapsed tile and its halo, and home's TypingDots, which are also under the standing owner ruling KF-C3-02. It is honest-RED until the 10.2.0 repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): identical to pass 51 in every tally. The only differing key is the timestamp. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops. Where a scroll port's edges fall is not lighting.
+
+**Gates** (the live tree at `bc1480b8`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served falsifiers are `c7-probe.mjs` and `easing-witness.mjs`, each born RED at `bd3d5a38` and GREEN at `bc1480b8`. The landing measures layout, which jsdom cannot.
+
+**Disclosures**
+- **Born-RED runs:** `c7-probe-before.json` was taken before any edit. `easing-witness-before.json` was taken with `EasingCatalogue.vue` restored to HEAD on the shared dev server (:5173, not this seat's), and the cure was re-applied before the GREEN run.
+- **Witness rounding:** `after/capture.json`'s `easing-drawer-390-*` rows were recorded with a rounded fold, which counted 'Sine' (top 654, the fold itself) as above the fold. `capture.mjs` now compares against `fold − 0.5`, and `easing-witness.json` holds the exact measure (GREEN).
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
+- Each probe used one browser, closed in `finally`. Nothing of this seat's was left running.
