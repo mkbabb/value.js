@@ -1,0 +1,1145 @@
+SERVED MODEL: claude-opus-5-5
+X-W8 RESUME close (§0fx) · G-8 motion arm + G-13 live tint, re-read ×2 at HEAD f47a1b4cf, 2026-10-17, against the tree's dev server :9000 (vite --port 9000 --strictPort, cwd this repo)
+$ ~/.claude/guard/guarded --timeout 10 -- node docs/tranches/X/waves/W8-witness/probe-g8-g13.mjs 9000   # run 1, exit 0
+{
+  "url": "http://localhost:9000/#/",
+  "schemes": {
+    "light": {
+      "g13": {
+        "darkClass": false,
+        "dockPlateBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+        "glassDockBg": "rgba(0, 0, 0, 0)",
+        "inkHost": "button \"Login\"",
+        "inkInlineColor": "oklch(0.304649 0.121841 9.83402)",
+        "inkComputedColor": "oklch(0.304649 0.121841 9.83402)"
+      },
+      "g8": {
+        "at60": {
+          "t": 75.7,
+          "faces": [
+            {
+              "id": "",
+              "cls": "is-leaving",
+              "opacity": 0.950334,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            },
+            {
+              "id": "",
+              "cls": "is-active",
+              "opacity": 0.0496664,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            }
+          ]
+        },
+        "motionWindowMs": [
+          75.7,
+          280.4
+        ],
+        "movingFrames": 9,
+        "snapFramesInsideMotion": 0,
+        "frameCount": 28,
+        "framesWithTwoFaces": 28,
+        "framesBothFacesAtExtremesWhileLeaving": 14,
+        "extremeFrames": [
+          {
+            "t": 39.1,
+            "faces": [
+              "is-leaving@1+xf",
+              "is-active@0+xf"
+            ]
+          },
+          {
+            "t": 316.4,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 319.6,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 335.8,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 355.7,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 392.6,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 397.5,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 413.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 435.4,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 458.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 480.5,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 525.7,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 570.7,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 616.2,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          }
+        ],
+        "firstFrames": [
+          {
+            "t": 39.1,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 1,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 75.7,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.950334,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.0496664,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 120.4,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.632586,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.367414,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 159.5,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.336562,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.663438,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 164.1,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.150345,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.849655,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 180,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.10075,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.89925,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 220,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.065553,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.934447,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 258.6,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.024475,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.975525,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    "dark": {
+      "g13": {
+        "darkClass": true,
+        "dockPlateBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+        "glassDockBg": "rgba(0, 0, 0, 0)",
+        "inkHost": "button \"Login\"",
+        "inkInlineColor": "oklch(0.958322 0.0210531 9.83402)",
+        "inkComputedColor": "oklch(0.958322 0.0210531 9.83402)"
+      },
+      "g8": {
+        "at60": {
+          "t": 80.8,
+          "faces": [
+            {
+              "id": "",
+              "cls": "is-leaving",
+              "opacity": 0.835225,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            },
+            {
+              "id": "",
+              "cls": "is-active",
+              "opacity": 0.164775,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            }
+          ]
+        },
+        "motionWindowMs": [
+          36.4,
+          269.8
+        ],
+        "movingFrames": 12,
+        "snapFramesInsideMotion": 0,
+        "frameCount": 31,
+        "framesWithTwoFaces": 31,
+        "framesBothFacesAtExtremesWhileLeaving": 13,
+        "extremeFrames": [
+          {
+            "t": 16.3,
+            "faces": [
+              "is-leaving@1+xf",
+              "is-active@0+xf"
+            ]
+          },
+          {
+            "t": 308,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 310.1,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 330.1,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 369,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 371.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 413.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 437.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 460.9,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 484.7,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 532.1,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 536.4,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 578.2,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          }
+        ],
+        "firstFrames": [
+          {
+            "t": 16.3,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 1,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 36.4,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.950334,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.0496664,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 80.8,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.835225,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.164775,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 83.3,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.56445,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.43555,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 101.7,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.392549,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.607451,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 142.2,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.29262,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.70738,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 144.8,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.174584,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.825416,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 184.5,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.122237,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.877763,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          }
+        ]
+      },
+      "pageErrors": []
+    }
+  }
+}
+$ ~/.claude/guard/guarded --timeout 10 -- node docs/tranches/X/waves/W8-witness/probe-g8-g13.mjs 9000   # run 2, exit 0
+{
+  "url": "http://localhost:9000/#/",
+  "schemes": {
+    "light": {
+      "g13": {
+        "darkClass": false,
+        "dockPlateBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+        "glassDockBg": "rgba(0, 0, 0, 0)",
+        "inkHost": "button \"Login\"",
+        "inkInlineColor": "oklch(0.304649 0.121841 9.83402)",
+        "inkComputedColor": "oklch(0.304649 0.121841 9.83402)"
+      },
+      "g8": {
+        "at60": {
+          "t": 63.1,
+          "faces": [
+            {
+              "id": "",
+              "cls": "is-leaving",
+              "opacity": 0.771683,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            },
+            {
+              "id": "",
+              "cls": "is-active",
+              "opacity": 0.228317,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            }
+          ]
+        },
+        "motionWindowMs": [
+          45.3,
+          286.6
+        ],
+        "movingFrames": 11,
+        "snapFramesInsideMotion": 0,
+        "frameCount": 29,
+        "framesWithTwoFaces": 29,
+        "framesBothFacesAtExtremesWhileLeaving": 12,
+        "extremeFrames": [
+          {
+            "t": 18.5,
+            "faces": [
+              "is-leaving@1+xf",
+              "is-active@0+xf"
+            ]
+          },
+          {
+            "t": 290.9,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 307,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 348.4,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 386.6,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 390.1,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 431.4,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 477.2,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 480.6,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 523.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 568.8,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 572.8,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          }
+        ],
+        "firstFrames": [
+          {
+            "t": 18.5,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 1,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 45.3,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.950334,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.0496664,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 63.1,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.771683,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.228317,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 80.7,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.501728,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.498272,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 124.8,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.382184,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.617816,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 145.6,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.25096,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.74904,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 166.3,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.146143,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.853857,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 186,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.065898,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.934102,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          }
+        ]
+      },
+      "pageErrors": []
+    },
+    "dark": {
+      "g13": {
+        "darkClass": true,
+        "dockPlateBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+        "glassDockBg": "rgba(0, 0, 0, 0)",
+        "inkHost": "button \"Login\"",
+        "inkInlineColor": "oklch(0.958322 0.0210531 9.83402)",
+        "inkComputedColor": "oklch(0.958322 0.0210531 9.83402)"
+      },
+      "g8": {
+        "at60": {
+          "t": 94.7,
+          "faces": [
+            {
+              "id": "",
+              "cls": "is-leaving",
+              "opacity": 0.770035,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            },
+            {
+              "id": "",
+              "cls": "is-active",
+              "opacity": 0.229965,
+              "transitionDuration": "0s",
+              "crossfadingAncestor": true
+            }
+          ]
+        },
+        "motionWindowMs": [
+          28.9,
+          277.9
+        ],
+        "movingFrames": 10,
+        "snapFramesInsideMotion": 0,
+        "frameCount": 25,
+        "framesWithTwoFaces": 25,
+        "framesBothFacesAtExtremesWhileLeaving": 10,
+        "extremeFrames": [
+          {
+            "t": 17.3,
+            "faces": [
+              "is-leaving@1+xf",
+              "is-active@0+xf"
+            ]
+          },
+          {
+            "t": 327.5,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 360.2,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 404.5,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 406.3,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 452.5,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 499.9,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 501.7,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 548.5,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          },
+          {
+            "t": 569.7,
+            "faces": [
+              "is-leaving@0+xf",
+              "is-active@1+xf"
+            ]
+          }
+        ],
+        "firstFrames": [
+          {
+            "t": 17.3,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 1,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 28.9,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.950334,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.0496664,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 53.7,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.898598,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.101402,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 94.7,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.770035,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.229965,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 135.3,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.449803,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.550197,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 175.8,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.214222,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.785778,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 178.2,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.081492,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.918508,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          },
+          {
+            "t": 216.2,
+            "faces": [
+              {
+                "id": "",
+                "cls": "is-leaving",
+                "opacity": 0.052703,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              },
+              {
+                "id": "",
+                "cls": "is-active",
+                "opacity": 0.947297,
+                "transitionDuration": "0s",
+                "crossfadingAncestor": true
+              }
+            ]
+          }
+        ]
+      },
+      "pageErrors": []
+    }
+  }
+}

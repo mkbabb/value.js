@@ -35,3 +35,17 @@ Honest-RED by id: DOCK-SCROLL-MORPH (O-55).
 
 The standing 7 → O-62 (a) for ink.test.ts D6 ×2 + T-35 ×3, ESC-W8i-1 for C-5, ESC-W8i-2 for NG-6 · the heavy arms → the owner reboots (ESC-W8i-3), then a RESUME close seat re-reads them ·
 the root-only glass symbols → BK relay `alert-skeleton-subpaths` · `demo/DESIGN.md:248,258` stale `btn-interactive` canon → X-W10 · the L-18 rider → the X-W8 CHECK seats.
+
+## ADDENDUM 2026-10-17 — RESUME close (§0fx), post-reboot (E-3: the close above is untouched)
+
+Close seat `claude-opus-5-5`, VERIFY-ONLY, HEAD `23304602e` at open (re-reads to `a00562fde`); zone 2393 — every heavy arm read. Full readings: record
+§ "RESUME 2026-10-17 (§0fx) — Close"; witness `W8-witness/close-*.txt`.
+
+| row | state now |
+|---|---|
+| §0aq / §0bb carries (`.i` + `.i2` `f34718e2f` `5169ccd00`) | C-5 GREEN ×4 · NG-6 GREEN ×4 · G-W8-i1 GREEN · J4 GREEN ×2 · **844×390 CLS RED ×2 `0.00001` (C10-1) → ESC-W8c-1** |
+| S-1 DockCommand | REG GREEN · A3 GREEN ×2 · C2 GREEN ×2 |
+| CC-080 G-8 | motion arm re-driven ×2 GREEN |
+| G-15 | typecheck/lint 0 ×4 · vitest 5 RED ×4 = O-62 (a) only · e2e 0 failures outside named rows · null-DELTA pair GREEN (60/60) · 12 WebKit cells pre-existing at wave-open |
+
+Four-verb: AUDITED YES · SPECIFIED YES · IMPLEMENTED **PARTIAL** (C10-1 only) · VERIFIED NO.

@@ -855,3 +855,160 @@ Seat `claude-opus-5-5`, 2026-10-17. Spec: W8.md ADDENDUM (sixth) `:538-541` · A
 **Escalations** — none.
 **Adjacent edits** (§0bt) — none.
 **Inherited paths** — none.
+
+## RESUME 2026-10-17 (§0fx) — Close
+
+Close seat `claude-opus-5-5`, 2026-10-17 14:55–(see end) EDT, VERIFY-ONLY (cures nothing). HEAD at open `23304602e`. Spec read whole once (546 lines, addenda
+through the seventh); record read header → RESUME Unit plan, the `.i2` receipt, and the prior § Close / § Check 3. Crash-recovery ⟨`git status --porcelain --
+docs/tranches/X/execution/ docs/tranches/X/waves/W8-CLOSE.md docs/tranches/X/waves/W8-witness`⟩ → empty; no inherited edits. Host ⟨`zprint data.kalloc.1024`⟩ →
+`2393` in use (post-reboot; ESC-W8i-3 discharged), memory free 84 %, load 15–38 — every heavy arm admissible, each run through `guarded` (heavy or browser
+pool, never `--light` for a browser run).
+
+### Act 1 — commit roster and bounds audit (`.i2`, the one unit owed at this RESUME)
+
+⟨`git show --stat --format=%s <sha>`⟩:
+
+| commit | paths | vs `.i2` writable set (RESUME Unit plan) |
+|---|---|---|
+| `f34718e2f` fix(demo/picker): hue-aware spectrumFieldIsLight | `spectrumLuma.ts` · `ComponentSliders.vue` · `useSpectrumPlateStyle.ts` · `test/spectrum-luma.test.ts` · `waves/W8.md` (+5, append-only: ⟨`git show f34718e2f -- W8.md \| grep -c '^-[^-]'`⟩ → 0) | IN BOUNDS |
+| `5169ccd00` test(demo/shell): NG-6 re-authored | `demo/test/shell/reka-binding-idiom.test.ts` | IN BOUNDS |
+| `23304602e` docs(X-W8 .i2): receipt | this record (+30) | IN BOUNDS |
+
+`ComponentSliders.vue` hunk = the comment and the `thumbInk` hue argument only; the `:197` `--slider-track-bg` var (CC-105, Do-NOT-touch) is untouched.
+No `.i2` commit touches `scripts/dev/dev.sh`, `foundation.css`, `.github/**`, `src/**`, `tsconfig.demo.json` or glass-ui. Units `.a`–`.i`: roster and bounds
+audit stand from the prior § Close Act 1 (no commit of theirs moved). **Note, not a W8 defect**: after `.i2`, the X-DS value pass-5 critic seat committed
+`f04cdc586` (15:26) into two `.i2` files (`spectrumLuma.ts` +20/−2, `test/spectrum-luma.test.ts` +9) under its own grant; every reading below that touches
+those files was re-taken at a HEAD that includes it (Act 2, run 3–4).
+
+### Act 2 — every gate re-run at this seat (×2; HEADs as stamped — four tracks commit concurrently)
+
+**Static, compile, lint, graph** (HEAD `23304602e`, re-read at `a00562fde`): ⟨G-1 four commands⟩ → `0 96 53 0` ×2 · local-barrel 0 · root `@mkbabb/glass-ui` 7 ·
+components.json / demo/ui / shared/utils.ts absent · `grep -c 'demo/@' eslint.config.js` 0 · clsx/twm pkg 0 lock 0 · tw-animate-css 1 · debounce importers 11 ·
+shim 0 / `<DockCrossfade` 3 · forks `isWide|isLgViewport` 0 · G-10: `update` emit 0, ColorPicker `@update=` 0, `colorInputRef|actionToolbarRef` 0, `clearHover` 0,
+`ActionToolbar.vue` itself deleted at `c00004924` (X-W12U `.k`; prop + its parent binding therefore 0 — the 12 live `canProposeName` hits are the session
+computed + scene arm, not the dead prop), GradientPane `inject(` 1 = a comment · G-11 (file now `demo/picker/debug/PointerDebugOverlay.vue`): `type="button"` 3 ·
+dispose 2 · `finally` 1 · `aria-controls` 0 · G-12 `isAdminMode = computed(` · G-13 `chrome` in ink.ts = `:13` comment only · G-14 `400 LoC` 0 /
+`demo/@/components/ui` 0 / `max-lines` 5. ⟨`guarded --light -- npm run typecheck` · `npm run lint` · `npx eslint demo src api e2e test --max-warnings=0`⟩ →
+`0 0 0` ×2 at `23304602e` and `0 0 0` ×2 at `a00562fde`. ⟨`guarded --light -- node …/graph-v3.mjs --print-sccs`⟩ ×2 → exit 0, `[runtime]`/`[load]` 0,
+sha256/16 `27d38866c7fae674` both (= `.c`'s after digest).
+
+**Full vitest** ⟨`guarded --timeout 30 -- npx vitest run --maxWorkers=2`⟩:
+
+| run | HEAD | Tests | failures |
+|---|---|---|---|
+| 1 | `23304602e` | `7 failed \| 1231 passed (1238)` | ink.test D6 ×2 + T-35 ×3 · `plate-mass.test.ts` ×2 (`page.evaluate: Execution context was destroyed … navigation` → then null rect) |
+| 2 | `23304602e`→(`f04cdc586` landed mid-run) | `5 failed \| 1234 passed (1239)` | ink.test D6 ×2 + T-35 ×3 only |
+| plate-mass alone ×2 | — | `4 passed (4)` ×2 | — (run-1 cells = a cold Vite dep-reload navigation under the harness, not a reading of the plate) |
+| 3 | `d1b58b094` | `5 failed \| 1234 passed (1239)` | ink.test D6 ×2 + T-35 ×3 only |
+| 4 | `d1b58b094` | `5 failed \| 1234 passed (1239)` | ink.test D6 ×2 + T-35 ×3 only |
+
+C-5 and NG-6 pass in all four runs (`.i2` cured, and held under `f04cdc586`). The 5 = INK-VEIL-MIDBAND → O-62 (a), honest-RED by id (Check 3 Axis 10).
+
+**Browser arms** (all `guarded`, browser pool; dev server `:9000` = this tree's `vite --port 9000 --strictPort`; e2e on lane-local ports 9661/9665):
+
+| arm | command | run 1 | run 2 | reading |
+|---|---|---|---|---|
+| G-8 motion (Dock.md G-B) | ⟨`guarded --timeout 10 -- node W8-witness/probe-g8-g13.mjs 9000`⟩ | +60 ms rAF at 75.7 / 80.8 ms (light/dark): both faces `[data-crossfading]`, opacities 0.950/0.050 · 0.835/0.165; moving 9 / 12; snap-inside-motion 0 | 63.1 / 94.7 ms: both `[data-crossfading]`, 0.772/0.228 · 0.770/0.230; moving 11 / 10; snap 0 | **GREEN ×2** |
+| G-13 live tint | same probe | ink host `button "Login"`, light `oklch(0.304649 0.121841 9.83402)`, dark `oklch(0.958322 0.0210531 9.83402)`; `.glass-dock` bg `rgba(0,0,0,0)` (the unpainted element is no longer the probe root) | identical | **GREEN ×2** |
+| S-1 A3 / C2 | ⟨`guarded --timeout 10 -- node …/app-wave/app-shell-truth-probe.mjs`⟩ UNMODIFIED | `mobileRegen390 {dockBtnFound, dockChanged:true, paneChanged:true}` · `desktopRegen1440 {…dockChanged:true…}` | identical | **GREEN ×2** |
+| J4 o29 short landscape | ⟨`guarded -- npx playwright test …/o29-scene-contracts.spec.ts --project=smoke -g "short landscape"`⟩ | `2 passed` | `2 passed` | **GREEN ×2** (also passed inside both full smoke runs) |
+| 844×390 CLS (C10-1) | ⟨`guarded -- sh W12U-evidence/o5c/reveal-run.sh <repo> 9693 w8close-r{1,2}`⟩ over `dist/gh-pages` | `cls=0 0 0 0.00001` · `VERDICT RED 3/4` · source `svg.lucide<control-surface [124,124,16,16]` | identical | **RED ×2 — unrelieved** (see Residuals R3) |
+
+**`npm run test:e2e`**, one `guarded` call per project (`--workers=1`; WebKit projects `--exclusive webkit`):
+
+| project | pass 1 | pass 2 | reading |
+|---|---|---|---|
+| smoke | `15 failed · 2 skipped · 282 passed` | `14 failed · 2 skipped · 283 passed` | every failure is a named (c′) cell of X-W12U Close 8 / C7-2 (o18 ×6 · o19 ×4 · o23:225 · o26 · o28 · webgl-blob-idle:210 ×2); ⟨`diff`⟩ pass 2 ⊂ pass 1 (o18 `:1297` dark passed in pass 2) — the same strict-subset behaviour X-W12U Check 10 recorded; **0 failures outside the named set** |
+| smoke-admin | `25 passed` | `25 passed` | GREEN ×2 |
+| smoke-mobile | `7 passed` | `7 passed` | GREEN ×2 |
+| smoke-reactivity | `2 passed` | `1 failed` (spectrum-drag median `56.8 ms` vs ≤ 50, load 15–17, tree reniced) · re-read ⟨`guarded --cpu-cores 0`⟩ ×2 → `2 passed` ×2 | GREEN (pass-2 cell = host load on a timing oracle; `.i2`'s per-input cost is one `convertColor` call) |
+| smoke-perf | `3 failed · 4 passed` | `3 failed · 4 passed` | the 3 named rows (`eager-payload:313` G2 · `:377` G3/G4 · `o5-boot-pacing:74` SwiftShader) — same as X-W12U Check 10 |
+| visual | `219 failed · 10 passed` | — | goldens minted at `e2347c0e5` (2026-09-18) vs a month of lawful product change across X-W5…X-W12U (size deltas e.g. 390×844 → 390×1102); not a W8 reading — W8's own semantics are read by the G-15 pair below; golden refresh = X-W10's visual canon (ESC-W7c-G11 route) |
+| oracles-safari | `25 failed · 147 passed` | — | 13 sit in the named (c′) specs (o18 ×7 — `:713` light is the WebKit-only extra · o19 ×4 · o23:225 · o28); 12 are WebKit-only (o11 gate 4 · o15b clip · o27 ×2 · o4 ×2 · w7-destructive-seats ×6) — adjudicated against the wave-open tree in Act 2b |
+| smoke-safari | `4 passed` | — | GREEN |
+
+**G-15 null-DELTA pair** (`W8-witness/close-G-15-null-delta.txt`). Instrument = X-W1's `e2e/visual` route census (the spec's preferred instrument; 390×844 ·
+1024×768 · 3440×1440, light + dark, its own tolerance). BEFORE = scratch worktree at `17090b54a` (product bytes = wave-open `d17dece5a`: ⟨`git diff --stat
+d17dece5a 17090b54a -- demo src package.json e2e`⟩ empty; own `npm ci --ignore-scripts`), goldens minted with `--update-snapshots=all`; AFTER = scratch worktree
+at `cac84202a` (post-`.c`; harness bytes identical) reading BEFORE's goldens. AFTER run 1 → `60 passed`; run 2 → `59 passed`, one cell
+(`1024 › generate · both · light`, 4602 px) — that cell alone ×2 on each tree → `1 passed` ×4 (capture nondeterminism on the generate route). The other 16
+cells fail IDENTICALLY on both trees with the harness's own `pane N is unreachable at 390` (390 second-pane census rows) — no pixel reading either side.
+**GREEN: every capturable cell is null-DELTA across `.b` + `.c`.** Scratch worktrees removed after the readings; nothing written to `e2e/`.
+
+**Act 2b — WebKit-only oracle cells vs the wave-open tree.** The 5 spec files (o11-header-gates · o15-dock-register · o27-focus-affordance ·
+o4-order-invariance · w7-destructive-seats) are byte-identical wave-open → HEAD (⟨`git diff --stat 17090b54a HEAD -- <the 5>`⟩ empty). ⟨(BEFORE worktree)
+`guarded --exclusive webkit --timeout 60 -- npx playwright test --project=oracles-safari <the 5>`⟩ → `12 failed · 15 passed`; ⟨`diff`⟩ of the failing-title
+sets BEFORE vs this seat's pass 1 → **empty: the same 12 cells fail before X-W8 wrote a byte.** Pre-existing, out-of-wave (no W8 commit can have caused them).
+Witness: `W8-witness/close-heavy-arms.txt`.
+
+### Act 3 — §Verification Artefacts as written
+
+`W8-census.md` present. `W8-witness/` now also holds this seat's: `close-G-8-G-13-reread.txt` (G-8 +60 ms phase samples and G-13 computed readings ×2) ·
+`close-A3-C2-measured.txt` (S-1 probe ×2, beside `dc-A3-C2-unmeasured.txt` — E-3) · `close-G-15-null-delta.txt` (the G-15 / G-9-family pair and its
+adjudication) · `close-heavy-arms.txt` (vitest ×4, e2e per project, reactivity re-read, WebKit wave-open comparison, J4 ×2, CLS ×2). G-9's own null-DELTA pair
+stays moot (no attribute existed to delete — GREEN-BEFORE `2ae7344d2`); the G-15 pair above covers the `.b` rewrite those families sit in.
+`W8-CLOSE.md` gains a dated RESUME addendum (E-3: its first close is untouched).
+
+### Act 4 — E13 sweep
+
+⟨`find <p> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md`⟩ (INBOX mtime 08:28) → value `V/` 0 · `V/coordination` 0 · glass
+`BK/coordination` 0 · keyframes `V/coordination` 0; glass newest tranche ⟨`ls -dt`⟩ → `BL` (no `coordination/`), depth 2 → `BL/FORMATION-PROGRESS.md` only
+(glass's own resume cursor, not a letter — as at every prior sweep); atlas → `atlas/docs` absent on this host (0). UNREAD I-rows
+⟨`grep -nE '^\| *I-[0-9]+ .*\| *UNREAD *\|' INBOX.md | wc -l`⟩ → `0`. **0 unrowed · 0 UNREAD in scope**; INBOX untouched.
+
+### Gate table BEFORE → AFTER (this RESUME)
+
+| gate | BEFORE (prior § Close / Check 3) | AFTER (this seat) |
+|---|---|---|
+| G-1 … G-14 | GREEN (G-8 motion banked by `.d`, not re-driven) | **GREEN ×2**, G-8 motion re-driven ×2 |
+| G-5 cl.4 / G-15 `npm run test` | RED — standing 7 (ink 5 · C-5 · NG-6) | **5 RED ×4 = ink D6 ×2 + T-35 ×3 only → O-62 (a), honest-RED by id**; C-5, NG-6 GREEN ×4 |
+| G-W8-i1 | grep GREEN; full vitest RED (C-5, NG-6) | **GREEN** — forks 0; full vitest carries only the O-62 (a) five |
+| G-15 `npm run test:e2e` | UNMEASURED | **READ ×2 (Chromium) / ×1 (WebKit, visual)** — 0 failures outside named rows: (c′) cells (C7-2) · perf 3 (X-W2 rows) · visual goldens stale vs `e2347c0e5` (X-W10 canon) · 12 WebKit cells **pre-existing at wave-open** (Act 2b) |
+| G-15 null-DELTA pairs | UNMEASURED | **GREEN** — 60/60 capturable cells (Act 2) |
+| REG (S-1) | GREEN | GREEN (full vitest ×4) |
+| A3 · C2 (S-1) | UNMEASURED | **GREEN ×2** |
+| J4 o29 short landscape | UNMEASURED | **GREEN ×2** |
+| 844×390 CLS (C10-1, routed into `.i`) | UNMEASURED | **RED ×2 — `0.00001`, unrelieved** |
+| DOCK-SCROLL-MORPH | honest-RED by id, O-55 | unchanged |
+
+### Commit roster
+
+`.a` `17090b54a` `76111e871` · `.b` `62bc3fbde` `ce77d32e2` · `.c` `9b92f36c9` `cac84202a` · `.d` `15932a93a` `2d3ac4fd0` · `.dc` `0f2d34e61` `639892d53`
+`62fdd2b3b` · `.e` `df5737679` `3ecc1535f` · `.i` `82bd72d2f` `740da7fcf` · `.i2` `f34718e2f` `5169ccd00` `23304602e` · prior close + checks (records only) ·
+this close (record + witness + W8-CLOSE addendum + LEDGER).
+
+### Residuals (named owners)
+
+- R1 ink.test D6 ×2 + T-35 ×3 (full vitest ×4) → INK-VEIL-MIDBAND, **O-62 (a)** — honest-RED by id (unchanged).
+- R2 e2e named rows → their owners: the (c′) cells (o18 · o19 · o23:225 · o26 · o28 · webgl-blob-idle:210) → the (c′) later value wave per X-W12U C7-2 /
+  W10.md addenda; perf `eager-payload:313/:377` · `o5-boot-pacing:74` → their X-W2 rows; visual goldens (219 cells vs `e2347c0e5`) → **X-W10** visual canon.
+- R3 **844×390 CLS `0.00001` ×2 (C10-1)** — source `svg.lucide<control-surface` (the colour-space select chevron, in-pane), routed into `.i` by X-W12U
+  Check 10; `.i`'s receipt records the source outside its writable set and no addendum grants it → **ESC-W8c-1** (below).
+- R4 12 WebKit-only oracle cells (o11 gate 4 · o15b clip · o27 ×2 · o4 ×2 · w7-destructive-seats ×6) — pre-existing at wave-open (Act 2b), not an X-W8
+  defect; no green `oracles-safari` baseline of record exists → orchestrator to home (authoring rows by ⟨`git log --diff-filter=A`⟩: o11 T.W3-4 · o15 T.W6 ·
+  o27 U.W-A11Y · o4 T.W0 · w7-destructive-seats X-W7).
+- R5 visual census: 16 cells `pane N is unreachable at 390` on both trees → X-W1 (census owner) / X-W10.
+- R6 DOCK-SCROLL-MORPH honest-RED → O-55 · 7 root-barrel rows → BK relay `alert-skeleton-subpaths` · `demo/DESIGN.md:248,258` stale `btn-interactive` → X-W10.
+- R7 L-18 rider: the check seats (fresh pass on this close) before ACCEPTED.
+
+### Escalations
+
+- **ESC-W8c-1 (NEW)** — C10-1 844×390 CLS reads `0.00001` ×2 (`VERDICT RED 3/4`); the only unit it was routed to (`.i`) does not hold the chevron's file,
+  and this seat cures nothing. Ask: the owner grants a unit (and file) to cure the chevron's in-pane shift at the root, or re-routes C10-1 to the colour-space
+  control's owner. ESC-W8i-1/-2/-3 are discharged (§0fx; reboot measured: zone 2393).
+
+### Landed-wrong (recorded, not fixed)
+
+None for `.i2`. LW-1 (MINOR, `.d`'s unlisted `ColorPicker.vue:63` adjacent edit) stands from the prior close.
+
+### Four-verb
+
+| verb | state |
+|---|---|
+| AUDITED | YES |
+| SPECIFIED | YES |
+| IMPLEMENTED | **PARTIAL** — every subtraction and every routed carry landed, and every spec gate reads GREEN or honest-RED by id, except the routed C10-1 cell (ESC-W8c-1) |
+| VERIFIED | NO (not this seat's stamp; L-18 check owed) |
+
+**Verdict: PARTIAL — C10-1 844×390 CLS RED ×2 (ESC-W8c-1); everything else GREEN ×2 or honest-RED by id, the 12 WebKit cells proven pre-existing.**
+Close ended 2026-10-17 ~19:55 EDT.
