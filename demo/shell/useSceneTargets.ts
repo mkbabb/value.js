@@ -158,15 +158,14 @@ export function useSceneTargets(): SceneTargets {
      * the INCOMING pane's name for a measured 1275 ms window. The slot now reports
      * the LIVE key beside the instance and the derivation is gone.
      *
-     * The scene-COMMAND registry (X-W4 · CC-043) is published from the two desktop
-     * seats exactly as X-W4 authored it. The mobile seat's command channel is NOT
-     * opened here: COHESION §0k.3 **S-1** rules that `bindPane` is "narrowed to
-     * non-command instance uses" and that "the `DockCommand` provide/inject
-     * registry lands at X-W8"; X-W5 holds A3's WITNESS and may not claim its cure.
-     * What the mobile seat DOES gain is the narrowed channel itself — the edit
-     * commit/cancel and the external-colour apply, which `bindPane` owns for all
-     * three seats (`usePaneRouter`), and which were structurally dead below the
-     * breakpoint because the mobile slot passed no mount report at all.
+     * This folds TARGETS only; it dispatches nothing. Every region reports through
+     * the one mount path (X.W5.a), so a scene's target registers at every width.
+     * The commands built over these targets reach the dock through the
+     * `DockCommand` registry (COHESION §0k.3 **S-1**, landed X.W8.dc):
+     * `useSceneActions` builds the typed `SceneActionSet` once and PROVIDES it
+     * (`DOCK_COMMAND_KEY`), and every dock seat injects it — desktop and mobile
+     * are one seat, so no breakpoint sits on the command path. `bindPane`
+     * (`usePaneRouter`) stays narrowed to the three non-command instance uses.
      */
     function onPaneMount(role: RegionRole, instance: unknown, key: string) {
         // What this ROLE can ever seat, derived from the scene table. A report is

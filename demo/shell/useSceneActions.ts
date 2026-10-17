@@ -8,7 +8,14 @@
 // `workbenches/{generate,gradient,mix}/`, `palettes/` — one `sceneActions.ts`
 // each); `usePaneRouter` keeps region resolution and only consumes this.
 
-import { computed, provide, shallowRef, type ComputedRef } from "vue";
+import {
+    computed,
+    inject,
+    provide,
+    shallowRef,
+    type ComputedRef,
+    type InjectionKey,
+} from "vue";
 import { Paintbrush, Palette } from "@lucide/vue";
 
 import type {
@@ -57,6 +64,37 @@ const VIEW_SCENES: Record<ViewId, SceneActionScene | null> = {
     "admin-tags": null,
     "not-found": null,
 };
+
+/**
+ * THE `DockCommand` REGISTRY (COHESION §0k.3 **S-1** · MT-DOCK-LAYERS-1, landed
+ * at X.W8.dc).
+ *
+ * The scene's typed `SceneActionSet` is built ONCE, below, and PROVIDED under
+ * this key; every dock seat INJECTS it. That is the whole of the command
+ * plumbing: there is no second copy carried by hand down a prop chain, no
+ * breakpoint predicate anywhere on the path, and no command dispatched through
+ * a pane instance ref — so the Regenerate a phone presses and the Regenerate a
+ * desktop presses are the same `SceneAction.state.run`, through the same
+ * `dispatch` and the same failure ledger. `bindPane` (`usePaneRouter`) stays
+ * narrowed to the three non-command instance uses S-1 names.
+ */
+export const DOCK_COMMAND_KEY: InjectionKey<ComputedRef<SceneActionSet | null>> =
+    Symbol("DOCK_COMMAND_KEY");
+
+/**
+ * A dock seat's one read of the registry. A seat mounted outside the shell
+ * that provides it is a wiring defect, and it fails HERE, loudly — never a
+ * seat that renders with no commands and looks merely empty.
+ */
+export function injectDockCommands(): ComputedRef<SceneActionSet | null> {
+    const commands = inject(DOCK_COMMAND_KEY, null);
+    if (commands === null) {
+        throw new Error(
+            "DOCK_COMMAND_KEY is not provided: a dock seat mounted outside the shell's useSceneActions",
+        );
+    }
+    return commands;
+}
 
 export interface SceneActionDeps {
     /** The color scene's target — the picker's own exposed contract, or null. */
@@ -206,6 +244,10 @@ export function useSceneActions(
                       : mixSceneActions(deps.scenePanes().mix, resolve),
         };
     });
+
+    // Provided ONCE, here, where it is built (S-1): every dock seat injects
+    // this very computed.
+    provide(DOCK_COMMAND_KEY, sceneActions);
 
     return sceneActions;
 }

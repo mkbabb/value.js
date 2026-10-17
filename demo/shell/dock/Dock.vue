@@ -22,13 +22,12 @@ import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { usePopupMutex } from "../../shared/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
-import type { SceneActionSet } from "../../color-session/keys";
+import { injectDockCommands } from "../useSceneActions";
 import type { EditTarget } from "../../color-session/color-model";
 
-const { linkCopied, editTarget, sceneActions } = defineProps<{
+const { linkCopied, editTarget } = defineProps<{
     linkCopied: boolean;
     editTarget: EditTarget | null;
-    sceneActions?: SceneActionSet | null;
 }>();
 const emit = defineEmits<{ shareLink: []; commitEdit: []; cancelEdit: [] }>();
 
@@ -42,7 +41,12 @@ const pm = inject(SESSION_PORT_KEY)!;
 // `v-else-if="genericBar"`, so the picker's bar suppressed the per-view bar on
 // every view where both existed (`VIEW_MAP.mix`). The Dock no longer chooses:
 // the contract already named the scene, and the Dock renders it.
-const actionSet = computed(() => sceneActions ?? null);
+//
+// X.W8.dc (COHESION §0k.3 S-1): the set is INJECTED from the shell's one
+// `DockCommand` registry, not carried down from App as an optional prop. This
+// Dock is the seat at every width — desktop and mobile are one seat — so the
+// Regenerate a phone presses runs the very `state.run` a desktop runs.
+const actionSet = injectDockCommands();
 const hasAnyActionBar = computed(() => actionSet.value !== null);
 
 // ── Admin mode (composable owns isAdminMode, viewEntries, watchers) ──

@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5
+X.W8.dc · A3 / C2 — UNMEASURED, guard-refused (2026-10-17)
+$ ~/.claude/guard/guarded --timeout 5 -- node docs/tranches/V/megatranche/audit/probes/app-wave/app-shell-truth-probe.mjs   (probe unmodified; dev :9000 = guarded npx vite --port 9000 --strictPort, HTTP 200)
+[guarded] waiting for headroom (kernel zone data.kalloc.1024 at 13.2M (panics near 20.8M): reboot the Mac)
+$ tail -1 ~/.claude/guard/log/zone.log
+2026-10-17 08:01:53 inuse=13325429 load=
+Machine law (~/.claude/CLAUDE.md, kernel zone watchdog): guarded refuses heavy runs at 13M — stop heavy work, owner reboots. The probe launches headless Chromium (3 contexts) => heavy; it was stopped while still queued (never admitted, 0 browsers launched). A3 {mobileChanged, desktopChanged} and C2 specimenChanged are NOT read at either the before or the after bytes. Re-run the same command unmodified after the reboot.

@@ -42,7 +42,6 @@ import type {
 } from "./useViewManager";
 import type {
     ColorSceneTarget,
-    SceneActionSet,
     ScenePaneTargets,
 } from "../color-session/keys";
 import { useSceneActions } from "./useSceneActions";
@@ -393,8 +392,10 @@ function componentFor(pane: PaneId): Component {
  * X-W5 may not claim C-3; A3's witness stays X-W5's, A3's cure moves to X-W8."*
  *
  * So: command dispatch through instance refs is NOT resurrected here. Scene
- * commands travel through X-W4's typed `SceneActionSet`, and their mobile seat
- * is the registry's at X-W8. What lives here is the edit channel and the
+ * commands travel through X-W4's typed `SceneActionSet`, which the shell builds
+ * once and PROVIDES as the `DockCommand` registry (`DOCK_COMMAND_KEY`,
+ * `useSceneActions.ts`, landed X.W8.dc); every dock seat — desktop and mobile
+ * are one seat — injects it. What lives here is the edit channel and the
  * external-colour apply — the three members S-1 names, and no fourth.
  */
 export interface PaneInstanceHandle {
@@ -445,7 +446,6 @@ export function usePaneRouter(
 ): {
     /** The current scene's regions, IN ORDER — the shell's one mount path. */
     regions: ComputedRef<ResolvedRegion[]>;
-    sceneActions: ComputedRef<SceneActionSet | null>;
     /** Register one region's mount reports. Required at every `PaneSlot`. */
     bindPane: (role: RegionRole) => (instance: unknown, key: string) => void;
     /** The ONE edit-commit home (fold W5F-59) — the dock seat and the palettes
@@ -637,7 +637,10 @@ export function usePaneRouter(
 
     // The ONE scene action set (X-W4 · CC-043) is the shell's `useSceneActions`;
     // each scene's verbs are built by the feature that owns them (A2-VA-L1-10).
-    const sceneActions = useSceneActions(viewManager, deps);
+    // It is not RETURNED: the builder provides it as the `DockCommand` registry
+    // (S-1 · X.W8.dc) and the dock injects it, so no caller can hand-carry a
+    // second copy down a prop chain.
+    useSceneActions(viewManager, deps);
 
-    return { regions, sceneActions, bindPane, commitEdit, cancelEdit };
+    return { regions, bindPane, commitEdit, cancelEdit };
 }

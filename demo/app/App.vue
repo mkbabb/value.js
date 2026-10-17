@@ -62,7 +62,6 @@
                 v-if="dockMounted"
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
-                :scene-actions="sceneActions"
                 @share-link="shareLink"
                 @commit-edit="commitEdit"
                 @cancel-edit="cancelEdit"
@@ -344,7 +343,7 @@ const { colorPicker: colorPickerRef, scenePanes, onPaneMount } = useSceneTargets
 
 // --- Pane routing — one source of truth: mobile single-slot, the two desktop
 //     slots, and the ONE scene action set all derive from one route table. ---
-const { regions, sceneActions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
+const { regions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
     viewManager,
     model,
     {

@@ -1,0 +1,8 @@
+SERVED MODEL: claude-opus-5-5
+⟨provide(DOCK_COMMAND_KEY, sceneActions) commented out in demo/shell/useSceneActions.ts; npx vitest run demo/test/shell/dock-command-registry.test.ts --maxWorkers=2 (guarded --light)⟩ → RED as designed; file restored byte-identical after (cp from backup).
+   × X.W8.dc · the DockCommand registry (S-1) > every dock seat injects the ONE provided set and drives the same handler 8ms
+   ✓ X.W8.dc · the DockCommand registry (S-1) > falsifier: a seat with no provider throws at its inject, never renders empty 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/shell/dock-command-registry.test.ts > X.W8.dc · the DockCommand registry (S-1) > every dock seat injects the ONE provided set and drives the same handler
+Error: DOCK_COMMAND_KEY is not provided: a dock seat mounted outside the shell's useSceneActions
+      Tests  1 failed | 1 passed (2)
