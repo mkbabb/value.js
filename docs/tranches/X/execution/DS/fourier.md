@@ -1938,3 +1938,41 @@ All three stay honest-RED on **O-87 FLAT-LIGHTING** and are re-judged at the gla
 **Frames** (`pass-06/f6p/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f6p-probe.mjs`, the critic's cells re-shot: 24 PNGs.
 - `paper`, `paper-mid`, `paper-late` and `equation-foot`, each at `{light,dark}-{1440,390}`;
 - `v-open`, `v-open-foot`, `dock-menu` and `404`, each at `{light,dark}-1440`.
+
+### pass 7
+This is the cure seat for critic **P7** (the redeploy's pass-7 critic, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-07/f7p/`; the BEFORE cells are the critic's frames (its `f6p` and `p7` cells). The other folders in `pass-07/` (`f7`, `f7c`, `f7x`, and the loose files) belong to other seats and are not part of this receipt.
+- fourier `4eb00c4` (`m/w1-bump-migration`, pushed fast-forward) holds the cure for C1 and T1.
+- latex-paper `04c3992` (DS-F7C-C2), local on `master`; the 0.3.0 changeset is extended. Not pushed and not published (an owner act, as at passes 5 and 6). The release must now also carry `04c3992`.
+- value.js `0496ac9bd` holds the AFTER frames, the probe and its JSON, the census and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F7C-C1 | **Cured.** The port's `border-block-start` (DS-F6P-C2) is deleted, so nothing runs full-bleed across the page grid or sits above the ToC band.<br>**Below lg**, the rule is at the cut, the ToC band's foot. `.floating-toc` ends one atom under the bar (/morph's band recipe, DS-F5-C4), and its `::after` is a 1px line hung at `-1px`, so the band's height does not change. PaperView sets `--floating-toc-rule: var(--border)` once the port has scrolled; at rest the line is transparent. The landscape arm (844×390) zeroes the foot pad, so the band stays one title rung.<br>**At lg**, the rule is a 1px sticky `::before` of `.paper-columns`, placed in the article's own grid cell (column 2, row 1, with the article), so it is exactly the article's measure.<br>No fade and no shadow (DS-F7-C3 stands).<br>**Measured** (`f7p-probe.json`): the port's `borderTopWidth` is `0px` in every cell. At 1440 scrolled, the `::before` is sticky, 1px, in grid column 2, and computes rgb(198 180 159) in light and rgb(101 87 73) in dark (`--border`); it is transparent at rest, and the article spans 510..1278. At 390 scrolled, the band spans 76..152 with the bar at 84..148, and the rule (`::after`, bottom `-1px`) computes `--border`; it is transparent at rest. At 844×390 the band spans 68..136 against the bar's 72..136.<br>The first cut drew the rule as a border with a foot pad. au1 L2-16 caught the landscape band growing past one title rung (23 > 14, `e2e-run0-first-cut.txt`), so the rule became the non-sizing `::after`. |
+| DS-F7C-C2 | **Cured at the latex-paper root (`04c3992`).** The template's line breaks around the period condensed to a `" . "` text node. The period now follows the title span with no whitespace (`<span class="paper-proof-title" …/>.`), and the built renderer emits `"."`. latex-paper `vitest` passed 128/128. There is no CSS patch in fourier.<br>**Served:** still 0.2.1 until the repin, so `paper-proof-*-1440` still reads "Proof ." (probe: `"Proof sketch . "`). **The fourier repin is owed** with the rest of 0.3.0. |
+| DS-F7C-T1 | **Cured.** `PaperPageReadout` reserves its widest string, `pg ${totalPages}/${totalPages}` (10 characters), as `min-inline-size: calc(var(--readout-chars) * (1ch + 0.02em) + 2px)`, using mono tabular figures, the tracking and the separator's margins. The bar sets the figures at the end, against the search button. In the desktop drawer, the readout keeps its full-width second line.<br>**Measured** (`f7p-probe.json` → `chevron`, 390, both themes): the chevron's x is 191.5 at pg 5, 11, 29, 57 and 101 of 110 (the critic measured 214 and then 205), and the readout is 77.5px wide throughout. |
+
+**Glass-owned rows.** These are held with no local override:
+- DS-F7C-G1: on /morph at 390 (coarse), Metric's label is on the `--control-label` rung, which grows under the coarse floor, so the label outranks its value. Glass should put it on a caption rung that does not inflate. It is relayed beside O-87 with the DS-F3C-G1 type-ramp row. `morph-{light,dark}-390` re-witness it unchanged.
+- DS-F7C-G2: in dark, the primary-emphasis fill sits almost on `--card`, and only the cast separates it (the DS-F5P-G0b family). Glass should give it a real tone step. `equation-foot-dark-*`, `visualize-dark-390` and `404-dark-1440` re-witness it.
+
+Both stay honest-RED on **O-87 FLAT-LIGHTING** and are re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3213`; `f7p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed: 394 shadow elements, 1006 layers, 300 multi-layer stacks, 300 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations. Pass 6 read 386 / 978 / 292 / 292. The whole delta is data: /gallery now serves 6 cards where it served 5, which is +2 glass elements (card and badge) and +7 layers in each of the 4 gallery cells. Every /paper cell is identical to pass 6. This pass added no shadow, filter or gradient. Still RED, on the glass rows only.
+
+**Gates** (`f7p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`, on the final tree.
+- **e2e:** 20 specs (`f7p/e2e-specs.txt`), every spec that names /paper, the ToC bar, the readout, the scroll port or its columns. They ran headless (chromium and mobile-chromium) with `--workers=1`.
+  - Against a preview built from the tree (`:4190`): 196 passed twice. The same 2 tests failed in each run, and both visit `/demo/shape-extractor`, a dev-only route that the production preview does not carry.
+  - Those 2 tests passed twice on the private dev server (3 passed, `e2e-devroute-dev-run*.txt`), and `f-w14u-misc` (dev-route frames) passed 29/29 twice there.
+  - So every touched spec is GREEN twice on a server that carries its route.
+- No golden was re-baselined. The misc spec's rewritten `e2e/screenshots/f-w14` frames were restored to HEAD.
+
+**Frames** (`pass-07/f7p/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f7p-probe.mjs`: 22 PNGs.
+- `paper`, `paper-mid` and `paper-late`, each at `{light,dark}-{1440,390}`;
+- `paper-mid-{light,dark}-844x390` and `paper-proof-{light,dark}-1440`;
+- `morph-{light,dark}-390` (G1);
+- `equation-foot-dark-{1440,390}`, `visualize-dark-390` and `404-dark-1440` (G2).
