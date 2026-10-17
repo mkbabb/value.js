@@ -774,3 +774,54 @@ Ruling search ⟨`grep -rn 'ESC-W8i' COHESION.md INBOX.md`⟩ → 0 — **ESC-W8
 X-W9 (`Opens after` X-W0) unaffected. X-W10 "X-W5…X-W9 stable": X-W8 conjunct RED → lawfully BLOCKED. X-W11 "X-W0…X-W10 IMPLEMENTED": X-W8 PARTIAL → lawfully BLOCKED.
 
 **Verdict: NOT-CONFORMANT** — 17/17 claimed GREENs reproduce; bounds, E-3, mail, masking, families clean; C-5/NG-6 HIGH unrelieved; S-1 + heavy arms unmeasured (host zone ≥ 13M). Further check/repair rounds cannot move this row until the owner rules ESC-W8i-1/-2 and reboots (ESC-W8i-3). LEDGER status not promoted; event line appended.
+
+## RESUME 2026-10-17 (§0fx) — Open
+
+Seat 0, `claude-opus-5-5`, 2026-10-17 14:50 EDT, HEAD `a706eff1d`. Authority: COHESION §0fx (`:4241-4256`) — **ESC-W8i-1 RULED** (C-5 = unit `.i2`,
+hue-aware `spectrumFieldIsLight(h,s,v)`), **ESC-W8i-2 RULED** (NG-6 re-authored to the consumer contract), **ESC-W8i-3 = the owner's reboot** —
+and W8.md ADDENDUM (sixth) (`:538-541`). Spec read whole once (541 lines).
+
+### Preconditions (bytes AND ledger)
+- Reboot ⟨`uptime`⟩ → `up 2:40`; ⟨`tail -1 ~/.claude/guard/log/zone.log`⟩ → `2026-10-17 14:43:56 inuse=1882`; ⟨`zprint data.kalloc.1024`⟩ → `2125` in use
+  (was 13,539,815 at Check 3) — **ESC-W8i-3 DISCHARGED; heavy arms admissible** (< 13M).
+- LEDGER `:42` X-W8 = PARTIAL (not CLOSED) → RESUME mode. Rulings ⟨`grep -n '§0fx' COHESION.md`⟩ → `:4241` present.
+- Landed units (commits exist, never re-dispatched): `.a` `.b` `.c` `.d` `.dc` `.e` `.i` (receipts above; `.i` = `82bd72d2f` + `740da7fcf`).
+  ⟨`git log --oneline --all --grep='W8.i2'`⟩ → 0 — `.i2` owed.
+- Crash-recovery ⟨`git status --porcelain -- demo/picker/controls test/spectrum-luma.test.ts demo/test/shell docs/tranches/X/waves/W8.md <record> W8-witness`⟩ → empty (no inherited partial work).
+
+### E13 Step-0 mail sweep
+Paths: value V/ + V/coordination · glass BK/coordination (⟨`ls -t glass-ui/docs/tranches`⟩ → `BL BK BJ`; BL has no `coordination/`, swept depth 2) ·
+keyframes V/coordination · atlas P/coordination. ⟨`find <p> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 08:28) → `0 0 0 0 0`, BL depth-2 → 0.
+UNREAD I-rows ⟨`grep -nE '^\| *I-[0-9]+ .*\| *UNREAD *\|' INBOX.md | wc -l`⟩ → `0`. Nothing to row; INBOX untouched.
+
+## RESUME 2026-10-17 (§0fx) — Baseline
+
+Only the gates the owed unit turns are re-run (banked baseline stands for the 17 reproduced GREENs, Check 3 Axis 1).
+⟨`guarded --light --timeout 5 -- npx vitest run test/spectrum-luma.test.ts demo/test/shell/reka-binding-idiom.test.ts --maxWorkers=2`⟩ →
+
+| gate | case | BEFORE |
+|---|---|---|
+| C-5 (G-W8-i1) | `C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue` | **RED** — `45° → 1.65:1, 60° → 1.07:1, 120° → 1.37:1, 180° → 1.25:1` |
+| C-5 companion | `is hue-blind by construction — the same (s,v) gives one answer for every hue` | GREEN (asserts the WRONG model §0fx.1 names; `.i2` re-states it) |
+| NG-6 (G-W8-i1) | `a \`:checked\` binding drives NOTHING — the stale-binding class, caught` | **RED** — state `"unchecked"` vs expected `"checked"` (the case asserts the producer behaviour §0fx.2 rules against) |
+| totals | | `Test Files 2 failed (2)` · `Tests 2 failed \| 5 passed (7)` |
+
+Heavy arms (full `npx vitest run` ×2, `npm run test:e2e`, G-8 motion, G-15 pairs, J4 o29, 844×390 CLS, A3/C2 probe) are NOT read here: they are the close's
+(§0fx.3 "the close, which reads every heavy arm ×2"). greenBeforeCure: none (both born-RED cases RED before the cure).
+
+## RESUME 2026-10-17 (§0fx) — Unit plan
+
+| # | unit | model | spec sections | gates |
+|---|---|---|---|---|
+| 1 | `X.W8.i2` | opus | W8.md ADDENDUM (sixth) `:538-541` · ADDENDUM (second, §0aq) `:526` · COHESION §0fx.1-2 `:4243-4252` | C-5 RED→GREEN ×2 · NG-6 RED→GREEN ×2 · `npm run typecheck` · product eslint 0 |
+
+Writable (`.i2`): `demo/picker/controls/spectrumLuma.ts` · `demo/picker/controls/ComponentSliders/ComponentSliders.vue` ·
+`demo/picker/controls/SpectrumCanvas/composables/useSpectrumPlateStyle.ts` · `test/spectrum-luma.test.ts` · `demo/test/shell/reka-binding-idiom.test.ts`
+(NG-6 case only, §0fx.2) · `docs/tranches/X/waves/W8.md` (dated ADDENDUM append only — the M-12 pin restatement) · this record (receipt).
+Locks: single unit, serial; Do-NOT-touch list stands (`foundation.css`, `--slider-track-bg` CSS sites incl. `ComponentSliders.vue:197`'s var, `src/**`, `.github/**`,
+`scripts/dev/dev.sh`). No test skipped or loosened; 3:1-at-every-hue stays exactly as strong.
+
+Then the **close** (separate verify-only seat): every heavy arm ×2 — full `npx vitest run`, `npm run test:e2e`, G-8 motion, G-15 pairs, J4 o29, 844×390 CLS,
+A3/C2 probe — never substituted by `--light`. Then the check.
+
+## RESUME 2026-10-17 (§0fx) — Unit receipts
