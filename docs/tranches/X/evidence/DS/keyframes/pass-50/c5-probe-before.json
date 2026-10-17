@@ -1,0 +1,192 @@
+{
+ "fails": [
+  "easing 1440x900 light: T:ease-in-sinesinu shows 28.3px at the fold (fade 16px, row 166px)",
+  "easing 1440x900 light: T:ease-out-sinesin shows 28.3px at the fold (fade 16px, row 166px)",
+  "easing 1440x900 light: T:ease-in-out-sine shows 28.3px at the fold (fade 16px, row 166px)",
+  "easing 1280x800 light: H:Sine shows 14.3px at the fold (fade 16px, row 31px)",
+  "easing 390x700 light: T:ease-in-outslow  shows 19.2px at the fold (fade 16px, row 107px)",
+  "easing 1440x900 dark: T:ease-in-sinesinu shows 28.3px at the fold (fade 16px, row 166px)",
+  "easing 1440x900 dark: T:ease-out-sinesin shows 28.3px at the fold (fade 16px, row 166px)",
+  "easing 1440x900 dark: T:ease-in-out-sine shows 28.3px at the fold (fade 16px, row 166px)",
+  "easing 1280x800 dark: H:Sine shows 14.3px at the fold (fade 16px, row 31px)",
+  "easing 390x700 dark: T:ease-in-outslow  shows 19.2px at the fold (fade 16px, row 107px)"
+ ],
+ "cells": {
+  "easing-1440x900-light": {
+   "fold": 721,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "T:ease-in-sinesinu",
+     "top": 692.28125,
+     "h": 165.8125,
+     "shown": 28.3
+    },
+    {
+     "k": "T:ease-out-sinesin",
+     "top": 692.28125,
+     "h": 165.8125,
+     "shown": 28.3
+    },
+    {
+     "k": "T:ease-in-out-sine",
+     "top": 692.28125,
+     "h": 165.8125,
+     "shown": 28.3
+    }
+   ]
+  },
+  "square-1440-light": {
+   "field": 312,
+   "box": 156,
+   "reach": 468,
+   "arena": 812,
+   "innerMeasure": 772
+  },
+  "easing-1280x800-light": {
+   "fold": 626,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "H:Sine",
+     "top": 611.359375,
+     "h": 30.53125,
+     "shown": 14.3
+    }
+   ]
+  },
+  "easing-390x844-light": {
+   "fold": 690,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "T:ease-in-sinesinu",
+     "top": 686.328125,
+     "h": 107.421875,
+     "shown": 3.7
+    },
+    {
+     "k": "T:ease-out-sinesin",
+     "top": 686.328125,
+     "h": 107.421875,
+     "shown": 3.7
+    }
+   ]
+  },
+  "square-390-light": {
+   "field": 195,
+   "box": 97,
+   "reach": 292,
+   "arena": 332,
+   "innerMeasure": 292
+  },
+  "easing-390x700-light": {
+   "fold": 546,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "T:ease-in-outslow ",
+     "top": 526.90625,
+     "h": 107.421875,
+     "shown": 19.2
+    }
+   ]
+  },
+  "easing-1440x900-dark": {
+   "fold": 721,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "T:ease-in-sinesinu",
+     "top": 692.28125,
+     "h": 165.8125,
+     "shown": 28.3
+    },
+    {
+     "k": "T:ease-out-sinesin",
+     "top": 692.28125,
+     "h": 165.8125,
+     "shown": 28.3
+    },
+    {
+     "k": "T:ease-in-out-sine",
+     "top": 692.28125,
+     "h": 165.8125,
+     "shown": 28.3
+    }
+   ]
+  },
+  "square-1440-dark": {
+   "field": 312,
+   "box": 156,
+   "reach": 468,
+   "arena": 812,
+   "innerMeasure": 772
+  },
+  "easing-1280x800-dark": {
+   "fold": 626,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "H:Sine",
+     "top": 611.359375,
+     "h": 30.53125,
+     "shown": 14.3
+    }
+   ]
+  },
+  "easing-390x844-dark": {
+   "fold": 690,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "T:ease-in-sinesinu",
+     "top": 686.328125,
+     "h": 107.421875,
+     "shown": 3.7
+    },
+    {
+     "k": "T:ease-out-sinesin",
+     "top": 686.328125,
+     "h": 107.421875,
+     "shown": 3.7
+    }
+   ]
+  },
+  "square-390-dark": {
+   "field": 195,
+   "box": 97,
+   "reach": 292,
+   "arena": 332,
+   "innerMeasure": 292
+  },
+  "easing-390x700-dark": {
+   "fold": 546,
+   "fade": 16,
+   "scrollTop": 0,
+   "maxBlockSize": "",
+   "crossing": [
+    {
+     "k": "T:ease-in-outslow ",
+     "top": 526.90625,
+     "h": 107.421875,
+     "shown": 19.2
+    }
+   ]
+  }
+ }
+}
