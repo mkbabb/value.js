@@ -1124,3 +1124,35 @@ The critic named one high, one medium and five low consumer rows, one trivial ro
   - the SegmentedTabs indicator overhang.
 - The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01, VC4-09 and V2C-15 (V16-07).
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 4 (re-dispatch, 2026-10-16/17): critic P4R again — already cured at `f7a21f95a` / `7de5c708e`; re-read at HEAD, no source change
+
+The workflow dispatched this seat as "pass 4" with critic P4R's rows **P4R-01..05** a second time. Those rows were cured at `f7a21f95a` (the first "pass 4 (re-dispatch, 2026-10-15/16)" receipt above), and P5C-03 (`7de5c708e`) refined P4R-04's ghost into an outline since. This seat read the tree and the served app at HEAD `8e12bce41`. Every cure still stands, so it changed **no source file**. Evidence is in `pass-04/redispatch-2026-10-16/`.
+
+**Commit.** value.js `fe3a6062a` (probe, frames, crops, census and gates). This receipt is committed after it.
+
+| id | state at HEAD | measured (`probe-p4r-reread.json`, headless real Chrome, §0ei) |
+|---|---|---|
+| P4R-01 | **The rainbow stands.** The max-chroma solve, the ±60° fan and the OKLCh recipe are unchanged (`palettes-ramp.ts`; `1c04f8c68` only re-pointed an import). **But the 3:1 floor is now missed in dark, measured on real pixels.** | The stops are byte-identical to pass 4. Light: L 0.40/0.39/0.37, C 0.20/0.16/0.08, **3.51–3.75:1**. Dark: L 0.66/0.66/0.64, C 0.24/0.23/0.14, violet to pink to orange (`crops/palettes-title-*`, `palettes-1440-dark.png`). **Dark contrast against the sampled plate under the title is 2.65–2.82:1**; pass 4 read 3.04–3.30. The stops did not move. The composited plate did: rgb 129/12/14 → 137/32/30 at 1440 and 119/12/23 → 128/33/38 at 390. Two probe runs agree to ±0.01. The layer stack under the title is the resting card (dark: `srgb .093 .050 .009 / 0.18`, no backdrop filter) over the body gradient and aurora. The stops are certified against a model ground (the resting tint over `derivedLightness`, the **mean** OKLab L of the aurora palette) with ×1.25 headroom. The title sits over a field region lighter than that mean, so the margin is consumed. **Not cured here, and no fudge:** raising the title's headroom alone would make the title site diverge from the house's one referent. The root is the D6 referent being a field mean rather than the local field under the text. That is an ink-model unit (it touches every certified ink on a moving aurora), and it is stated for the next critic and the orchestrator as **P4R-01-R (residual)**. The o14 title-ramp oracle (certified against the model) is GREEN ×2. |
+| P4R-02 | Held, glass-owned (O-87): the body voice's word space. No local word-spacing. | The critic's numbers stand (0.169 em space). |
+| P4R-03 | Held, glass-owned (O-87 single-edge refinement): the quiet-rest title field register. Honest-RED, no hand-rolled input. | — |
+| P4R-04 | **Cured and standing** (and refined by P5C-03). | All 4 cells: the ghost cells are transparent, an outline with 1 px seams (`crops/extract-card-after-*`). The "Upload image" verb is foreground ink (dark L 0.925, the same as the "Colors" label) and the glyph is plate-ink (L 0.713). The `crops/extract-card-before-*` pair re-injects the old pole and ink for comparison. |
+| P4R-05 | Not cured: an optional judgement call, held for the owner or a later critic (unchanged). | — |
+
+**Census** (`census-after.json`, `--base :9213 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87):** max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8 (0 paint-top failures).
+- **Consumer:** looping animations 0.
+- Identical to pass 16.
+
+**Frames.** 36/36 route frames (9 routes × light/dark × 1440/390; `capture.mjs`, headless real Chrome, 0 failed), plus `crops/`. They were served by `vite --port 9213` with `VITE_API_URL`, so Browse is shot on the in-page fixture. The server was stopped afterwards.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1227/1234 ×2, with the same 7 standing failures (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6).
+- **e2e** (smoke, headless, workers 1, own server :9214; pass 4's P4R set: o14-preview-truth, o9-shadow-palette, browse-loading, crash-battery, walk): **29/29 ×2**, strict GREEN.
+- No visual golden was re-baselined.
+
+**For the orchestrator.**
+- This dispatch's rows were stale by twelve passes. The next value seat needs a fresh critic at HEAD, not P4R's rows.
+- **P4R-01-R** is new and measured: in dark the Palettes title clears 2.65–2.82:1 on real pixels, against its 3:1 floor. Its root is the ink model's mean-ambient referent, not the ramp. It needs either an ink-model unit (certify display ink against the local, or brightest, field under its site) or an owner call on the margin.
+- P4R-02 and P4R-03 wait on glass (O-87). P4R-05 and the open owner rulings (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15) are unchanged.
