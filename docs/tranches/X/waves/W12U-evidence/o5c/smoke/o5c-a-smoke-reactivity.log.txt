@@ -1,0 +1,46 @@
+### smoke-reactivity (o5c-a) start 10-17 01:14:15 load1=13.78 tree=/Users/mkbabb/.dev-logs/w12u-g2d/o5c/tree rev=9e0212c46
+(node:7780) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:7821) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:7857) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[reactivity-instant] spectrum-drag deltas (ms): 22.20, 28.90, 110.10, 291.10, 1429.50
+[reactivity-instant] spectrum-drag median (ms): 110.10
+  ✘  1 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths (13.4s)
+  -  2 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps
+
+
+  1) [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m50[39m
+    Received:    [31m110.09999999403954[39m
+
+      132 |     console.log("[reactivity-instant] spectrum-drag median (ms):", median.toFixed(2));
+      133 |
+    > 134 |     expect(median).toBeLessThanOrEqual(50);
+          |                    ^
+      135 | });
+      136 |
+      137 | test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps", async ({
+        at /Users/mkbabb/.dev-logs/w12u-g2d/o5c/tree/e2e/smoke/reactivity-instant.spec.ts:134:20
+
+    Error Context: ../../../w12u-o5c/out/o5c-a-smoke-reactivity/reactivity-instant-spectru-87f31--50ms-median-across-5-paths-smoke-reactivity/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../w12u-o5c/out/o5c-a-smoke-reactivity/reactivity-instant-spectru-87f31--50ms-median-across-5-paths-smoke-reactivity/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../w12u-o5c/out/o5c-a-smoke-reactivity/reactivity-instant-spectru-87f31--50ms-median-across-5-paths-smoke-reactivity/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths 
+  1 did not run
+### smoke-reactivity end 10-17 01:14:36 load1=15.54 exit=1
