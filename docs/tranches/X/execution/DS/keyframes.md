@@ -2811,3 +2811,48 @@ Every capture is headless real Chrome (§0ei). The task named `pass-05/`, but th
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the capture and census `--rss-gb 6` (browser runs, not `--light`), check and lint `--light`, and vitest `--rss-gb 8`.
 - The capture used one browser, closed in `finally`. The dev server on :5193 was stopped (its exit 143 is that stop), and nothing of this seat's was left running.
+
+### pass 6 (the ninth redeploy's pass 6; critic C6; cure keyframes `eb149461`; evidence `pass-58/`)
+
+**Commits:** keyframes `eb149461` (pushed fast-forward to `master`) and value.js `c509f2a1a` (`evidence/DS/keyframes/pass-58/`). The task named `pass-06/`, but that folder holds the first workflow's evidence and `pass-56/`/`pass-57/` are taken, so the frames go to `pass-58/`.
+
+**Evidence** (`pass-58/`):
+- `capture.mjs` and `after/`: every route at 1440 and 390 in light and dark, plus `cube-keyframes`, `cube-timeline` and `cube-dock-open` at 1440;
+- `after/capture.json`, which includes `timeline-empty-{light,dark}`;
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei).
+
+**Cured (consumer)**
+- **KF-C6-01 (low): the empty Timeline's call to action was cut off from its sentence.**
+  - Change: the hint that names the scene's `@keyframes` now carries an inline **"Import <name>"** at the ribbon's leading emphasis (`secondary`). It is one group under the track (`KeyframeTimeline.vue`, the `sceneSummary` branch only).
+  - Measured at 1440 (both schemes): the hint spans 280-317, and the verb sits 8 px under it (325-361). The ribbon's Import (701-737) stays the persistent verb, and the inline one leaves with the empty state.
+  - The hint stays start-aligned under the track, so KF-C7-02 (no vertical centring) is not reversed. The rail height and the shell's uniform pane policy are unchanged.
+  - Frames: `after/cube-timeline-1440-*`.
+- **KF-C6-02 (low): the amiga stage has no title. Recorded as a design note** (`demo/DESIGN.md` §8). This is the critic's second option.
+  - Amiga shares the cube's immersive register: a full-bleed canvas with no DOM layer on the stage (T.A10). So it does not wear the plated scenes' `SceneStageHeader`.
+  - Its name is carried by the pane title ("Spin") at 1440 and by the sheet title at 390. Its readouts are the canvas's `SubjectAxes` fallback.
+  - At 390 the room is centred in the viewport, as the cube's is.
+  - A visible title for both 3D scenes is the unbuilt §8 `.stage-whisper` (U.B8), which is an owner call. Critics should stop flagging these two points.
+
+**Cited (glass, not overridden)**
+- **KF-C6-G1 (low): O-87 FLAT-LIGHTING.** The critic confirmed the resting-plate blur (deferred KF-C5p-03 / KF-C1-09): the ground grid smears through the resting card's `--glass-blur-*` backdrop.
+  - It is honest-RED until the 10.2.0 repin, then re-judged on the same frames (`after/{sequence,spring,square,easing}-390-dark`, `after/cube-timeline-1440-light`).
+  - The dark capsule halo on both Import verbs is the standing KF-C1-01 row.
+  - Nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5193/ --widths 1440,390 --settle 5000`): identical to pass 57 in every key except the timestamp. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `eb149461`, plus another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `SpringHeatmap.vue` and `KeyframeTimeline.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `KeyframeTimeline.vue` held another seat's `panel-content` hunk. This seat's hunks were staged alone: an index blob of HEAD plus this change, written with `hash-object -w` and `update-index --cacheinfo`, then checked with `git diff --cached` before the commit. That hunk, the other two dirty files and the untracked coordination files were not touched. The value.js commits are pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 90`, the capture and census `--rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
+- The capture used one browser, closed in `finally`. The dev server on :5193 was stopped (its exit 144 is that stop), and nothing of this seat's was left running.
