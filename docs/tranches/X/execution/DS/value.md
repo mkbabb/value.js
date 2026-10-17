@@ -1193,3 +1193,35 @@ The critic named three low consumer rows, one trivial consumer row, one glass ro
 - One glass ask is new on the record: VP5-03, the scrubber's resting thumb, under O-87.
 - The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01, VC4-09 and V2C-15. P4R-01-R stays stated for an ink-model unit.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 6 (2026-10-17): critic VC6 — the dock's menus hang below the dock
+
+The critic named one medium consumer row (VC6-01), the standing glass rows (VC6-G1) and two trivial consumer rows that are held by ruling (VC6-T1, VC6-T2). VC6-01 is cured at one shared value. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-06/vc6-2026-10-17/`.
+
+**Commits.** value.js `b84fda97d` (the cure: 1 new 12-line module plus 3 call-site files) and `b14cbad1e` (probe, frames, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-06/vc6-2026-10-17/`) |
+|---|---|---|---|
+| VC6-01 (medium) | **CURED.** | Glass exposes no dock-menu offset: `DropdownMenuContent`'s `sideOffset` is a number prop, default 4, and the dock has no offset token. So the one home is a single shared constant, `DOCK_MENU_SIDE_OFFSET = 17`, in `demo/shell/dock/menus/dockMenuOffset.ts`. It is the 12.5 px of plate below a centred trigger in the 56 px pill, plus the 4 px floater gap, rounded up. All five dock-seated sites read it as `:side-offset`: `ProfileSection.vue` ×3 (Profile, admin, @mbabb), `MobileMenuDropdown.vue` and `GenericActionBar.vue`'s overflow menu. There is no wrapper component and no glass override. If glass ever owns dock-menu placement (beside O-88), the constant goes. | `probe-vc6-before.json` → `probe-vc6-after.json`, gate `menu.top ≥ dock.bottom + 4`. **1440 (@mbabb):** menu top 60 → 73 against a dock bottom of 68.5, so the gap goes from −8.5 to +4.5 px. **390 (Menu):** 69 → 82 against 77, so −8 → +5 px. Light and dark read the same. The frames are `usermenu-1440-*` and `dockmenu-390-*`, each with a `-before` twin, and the dock's lower rim is whole above the menu. The GenericActionBar overflow trigger did not show at 390 or 1440 on /, mix, gradient, palettes or blob, even with the action bar open; it reads the same constant. The Profile and admin sites are not reachable without a session, and they use the same `DockTrigger` and the same constant. |
+| VC6-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING (the menu's 6-layer stack, the disabled primary's under-shadow, the bead specular, the scrubber thumb VP5-03) and O-88 DOCK-COLLAPSE-MOTION (the 390 plate bulge, the collapsed seal).** No local override. | Every row was already relayed. They are re-judged at the 10.2.0 repin. | The census glass rows are unchanged (below). |
+| VC6-T1 (trivial) | **Held by Gate A5 (X.W5.a).** No consumer change. | One visible route H1 is required, and the sr-only cure was struck. If the owner revisits A5, the pane title becomes the H1. | — |
+| VC6-T2 (trivial) | **Held by ruling V7C-04** (the follow companion ends with its row and scrolls). No change. | VP5-01's row-boundary fold holds. | `blob-1440x900-*`, `blob-1280x800-*`. |
+
+**Census** (`census-after.json`, `--base :9241 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8. These are identical to pass 5.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+
+**Frames.** Headless real Chrome (§0ei), one browser per cell, closed in a `finally`. `capture-vc6.mjs` took 20 of 20 cells: blob, atmosphere and mixpal at 1440 and 390; blob at 1440×900 and 1280×800; `usermenu-1440` and `dockmenu-390` (which also record the menu gap); each in light and dark. The probe adds the `-before` menu frames. The server was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1227/1234 ×2, with the same 7 standing failures (ink D6 ×2, T-35 ×3, spectrum-luma C-5, reka NG-6).
+- **e2e** (smoke, smoke-admin and smoke-mobile; headless, workers 1, own server :9242). The 19 spec files are pass 5's 11 plus every spec that opens a `[role=menu]` or the action bar. Both runs were 109 passed / 5 failed, and the 5 were identical.
+  - Every failure is in the standing class (c') o18 set homed to X-W10: :713, :993, :1297 light, and :1322 light/dark.
+  - The :1322 menu-row cells fail on the same alpha-0 reads as pass 5, not on the menu's new position.
+  - Every other spec is strict GREEN ×2.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Pass 6 cured its one actionable consumer row.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15), and so is P4R-01-R.
