@@ -1,13 +1,18 @@
 <!-- SERVED MODEL: claude-opus-5[1m] -->
 <template>
-    <PaneShell title="Not Found" :gutter="false">
+    <PaneShell title="Not Found" seated :gutter="false" class="max-w-(--pane-max)">
         <!-- A2-VA-L1-1: the one pane shell.
              X.W12.u3 — the dead end speaks the app's EmptyState register
              (UIA-V-447): one statement, the address that missed as the
              plate's machine-truth line in Fira on the certified ink
              (UIA-V-446/449; it replaces the two developer-voice sentences
              and the static muted ink), and the way home on glass's quiet
-             emphasis, which paints its own hover (UIA-V-183/656). -->
+             emphasis, which paints its own hover (UIA-V-183/656).
+             X-DS pass 7 (V7C-01/-03): the plate is SEATED, the shell's own
+             contract for a header with nothing scrolling under it, so the
+             header paints no rest veil (V4C-05's rule) and the 3-line plate
+             loses the tone band that ended in a step. It takes one pane column
+             (`--pane-max`), the single-pane measure Atmosphere already uses. -->
         <EmptyState
             variant="error"
             message="This address names no view of this app."

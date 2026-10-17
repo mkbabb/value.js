@@ -25,12 +25,25 @@ export function hashString(str: string): number {
 }
 
 
-/** Generate 8 random border-radius percentages in [lo, hi] using the given PRNG. */
+/** Generate 8 border-radius percentages for an organic blob, seeded by the PRNG.
+ *
+ * X-DS pass 7 (V7C-02): each SIDE's two corner radii are complementary (they sum
+ * to 100%), so no side keeps a straight run. Eight independent draws in [20, 80]
+ * let two corners on one side both land low (sum ~40%), and that side kept a flat
+ * 60% edge, which read as a tile clipped by its box at the swatch's `fill` size.
+ * The free corner of each side still draws in [lo, hi] (the seeded asymmetry, the
+ * dot's identity); its sibling takes the rest of the side. All 8 draws are still
+ * consumed, so the wobble channels seeded after them are unchanged. Order is the
+ * CSS shorthand's: horizontal tl tr br bl / vertical tl tr br bl. */
 export function randomRadii(rng: () => number, lo: number, hi: number): number[] {
     const out: number[] = [];
     for (let i = 0; i < 8; i++) {
         out.push(lo + rng() * (hi - lo));
     }
+    out[1] = 100 - out[0]!; // top: tl-h + tr-h
+    out[3] = 100 - out[2]!; // bottom: br-h + bl-h
+    out[7] = 100 - out[4]!; // left: tl-v + bl-v
+    out[6] = 100 - out[5]!; // right: tr-v + br-v
     return out;
 }
 

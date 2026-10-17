@@ -100,7 +100,9 @@ const {
     level?: 2 | 3 | 4;
     /** Header above a FadingScroll port (About, My Palettes, the config pane;
      *  X-DS pass 8 · V3C-04: Browse, Generate, Gradient, Extract and Mix too,
-     *  so every header in a row shares one tone — no rest veil). */
+     *  so every header in a row shares one tone — no rest veil; X-DS pass 7 ·
+     *  V7C-01: Not Found, whose short plate has nothing to scroll under it).
+     *  Only a pane whose body really scrolls UNDER its title overlies. */
     seated?: boolean;
     /** The companion row contract: follow the picker's row (shell.css). */
     follow?: boolean;
@@ -128,7 +130,7 @@ const bodyClass = computed(() => [
 /* X.W12U.k3 · A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440): THE OVERLYING
  * OWNER IS BOUNDED AT DESKTOP, AS THE SEATED PORTS ARE.
  *
- * The overlying owner (AdminPane, Not Found) is a one-region scene: no stage
+ * The overlying owner (AdminPane) is a one-region scene: no stage
  * sets its row, so its region grew to its content (the 47-user roster read
  * host 3177 = 3177 at 1440×900) and the DOCUMENT scrolled (3299 over 900).
  * Glass's `<CardHeader shrink>` condense reads the `.card-scroll-host`, so on
@@ -139,7 +141,7 @@ const bodyClass = computed(() => [
  * from the shell's `100svh` floor, the region wrapper takes `contain: size` so
  * its content no longer sets the row (a stretched grid item is definite), and
  * the pane takes its content height with the band as its CEILING — a short
- * pane (Not Found) keeps its content height, a long one shrinks to the band
+ * pane keeps its content height, a long one shrinks to the band
  * and scrolls in its own host. Nothing is clipped: the host is glass's scroll
  * owner, and the shell's block law (shell.css X.W5.b) is untouched.
  *
