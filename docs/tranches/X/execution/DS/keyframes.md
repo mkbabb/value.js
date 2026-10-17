@@ -2506,3 +2506,42 @@ The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loop
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probes, captures and census `--light --rss-gb 6`, the suites `--light --rss-gb 4`.
 - Each probe used one browser, closed in `finally`. The keyframes dev server on :5173 (not this seat's) was reused.
 - Nothing of this seat's was left running.
+
+### pass 6 (the eighth redeploy's pass 6; critic C6c; evidence in `pass-51/`)
+
+**Cure commit:** keyframes.js `bd3d5a38` (pushed fast-forward to master, `efc606a2..bd3d5a38`). **Evidence:** value.js `00a9d1612` (`evidence/DS/keyframes/pass-51/`):
+- `c6-probe.mjs`, `c6-probe.json` (GREEN, 0 fails) and `c6-probe-before.json` (born RED at `efc606a2`, 24 fails);
+- `capture.mjs` and `after/`: the critic's cells (home, `cube`, `amiga`, `square`, `easing`, `spring`, `sequence` at 1440 and 390 in light and dark; `cube-keyframes`, `cube-timeline`, `cube-dock-open` at 1440; `after/capture.json`, the chevron witness), plus `spring-peak-open-*` at the probe's three viewports;
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-06/`, but that folder holds the first workflow's committed evidence, so the frames go to `pass-51/`, the next free folder (the pass-23..50 precedent).
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C6c-01 (low) | **An end-pinned rail scroller stays at its end when the fold landing re-caps it.** `useFoldLanding`'s `land()` clears each scroller's `max-block-size` before `landFold` re-caps it. The browser clamped `scrollTop` to the taller port, and the lower cap then grew the range back under a `scrollTop` that no longer reached it. `revealFigure`'s end pin had run a frame earlier, so it was lost. `land()` now records whether a scroller rests at its end (`scrollTop > 0`, within 1 px of its max) and re-pins it after `landFold`. The fix is in the shared landing, so it holds whichever runs first, and `SpringHeatmap.vue`'s `revealFigure` drops its rAF deferral. A scroller at its top is untouched, so the KF-C25-01 foot/fade logic is unchanged. | The probe opens Peak overshoot and measures at 600 ms and 2500 ms in both schemes:<br>• 1440x900: before, scrollTop 175 of 192 with the labels at 516–535 against fold 527; after, 192 of 192 with the labels at 499–518.<br>• 1280x800: before, 191 of 201 (labels 493–512, fold 511); after, 201 of 201 (labels 483–502).<br>• 1440x1080: before, 6 of 28 (labels 696–715, fold 702); after, 28 of 28 (labels 674–692.5).<br>This restores KF-C5-01 and the KF-C15-01 1440x1080 claim. `after/spring-peak-open-*`. |
+
+**Cited (glass, not overridden)**
+- **KF-C6c-G1 (medium): O-87 FLAT-LIGHTING**, rows a–h, the same family as KF-C1-01/02/09/10/11, KF-C5p-01/02/03, KF-C7-04, KF-C11-08, KF-C9-05, KF-R6C4-04 and KF-C24-G2. Row (c) is re-witnessed at `bd3d5a38` in `after/capture.json`: 'alternate' and 'forwards' are `closed` and rotated 180deg under `DIV.configurator-layer-region`. It is honest-RED until the 10.2.0 repin.
+- **KF-C6c-G2 (medium): O-88 DOCK-COLLAPSE-MOTION**: the collapsed tile, the TypingDots, the play-bubble halo, and the ~120 ms Tab-into-collapsed-transport inline scroll that resolves when the morph completes. It is honest-RED until the 10.2.0 repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Standing owner rulings (re-observed, no cure)**
+- **KF-C6c-R1 (trivial):** OD-4/T.D9 hero overlap, the KF-C3-02 loop ruling owed, T.D4 sans labels, KF-C8-11 facing fade, and KF-R6C4-05 numeral ink. All wait for the owner's DESIGN-RULING (§0dm).
+
+**Census** (`scripts/ds-census.mjs --widths 1440,390 --settle 5000`): identical to pass 50 in every tally. The only differing key is the timestamp. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops. A scroll position is not lighting.
+
+**Gates** (the live tree at `bd3d5a38`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served falsifier is `c6-probe.mjs`: born RED at `efc606a2`, GREEN at `bd3d5a38`. The landing measures layout, which jsdom cannot.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. Every commit is pathspec-only. The born-RED run was taken with this seat's two files restored to HEAD on the shared dev server (:5173, not this seat's), and the cure was re-applied before the GREEN run.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
+- Each probe used one browser, closed in `finally`. Nothing of this seat's was left running.
