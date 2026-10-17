@@ -1008,3 +1008,39 @@ The critic named one consumer row and two glass rows. The consumer row is cured 
 - Pass 13 found one consumer row (cured) and two glass rows (V13-02 and V13-T1, cited on O-87).
 - The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01 and VC4-09.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 14 (2026-10-16): critic V14 — the orphaned V9C hunks, the unframed featured and admin cells, the doc's dead idioms, one button grammar
+
+The critic named three consumer rows, one trivial doc row and the standing glass rows. Every consumer row is cured; the glass row gains one O-87 addendum. Evidence is in `pass-14/`.
+
+**Commits.** value.js `e78a7fc5a` (V14-01, the V9C adoption), `5ca07270e` (V14-T2, V14-T1, V14-02) and `f6ee033cd` (frames, probes, census and gates). The V14-G1 addendum to `relay/X-ALL-BK-FLAT-LIGHTING.md` was committed inside the fourier seat's `0fc21ba29`, which committed that file whole while this seat's addendum stood in it; the text is this seat's and it is on HEAD. This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-14/`) |
+|---|---|---|---|
+| V14-01 (medium) | **CURED: the V9C rows adopted by id.** | The dead pass-9 seat's 10 modified demo files and 1 untracked test (X-W12U.md Act 4's orphan list) are committed whole as they stood. V9C-01: the dock's view glyph paints over the wax. V9C-03: the featured badge drops glass `.gold-shimmer` and is flat gold ink, which removes HEAD's one live idle loop. V9C-04: the idle Extract instrument loses its fake name and count slabs. V9C-05: Mix's Selected tray leaves `.dashed-well` for the bare-section grammar. V9C-06: the image actions sit under the drop zone, and their contract moves whole to `extract-image-actions.test.ts`. V9C-07: a `fill` swatch size lets Generate's result share the plate's width. V9C-02 and V9C-08 had already landed at `3f79672a6`. Each hunk was read against the canon before adoption; none adds a wrapper or a counter-style. | The dead seat's failing rows (`palette-card-layout`, `plate-mass`: hook timeouts under load) plus `demo/test/extract`: **36/36 ×2** (`gates/v9c-rows-run{1,2}.txt`). The frames are taken from a demo tree equal to committed HEAD `5ca07270e`: `tree-before.txt` shows an empty `git status -- demo`, and `tree-after.txt` shows that another seat's `demo/color-session/*` hunks arrived at 20:23:12, after the last reading at 20:18:50. In the frames, Extract's actions sit under the zone (`extract-*`), Generate's swatches span the plate (`generate-*`), and the Mix tray has no well (`mix-*`). |
+| V14-02 (low) | **CURED.** | The e2e browse fixture's first row (`e2e/smoke/fixtures/browse-palettes.ts`) is tier `featured`, and so are the pass harness's Neon Arcade and the census fixture's first row. The census route cells now install the same in-page `/palettes` shim as its overlay cells, so `/#/browse` is read on cards (91 → 136 elements per cell). A new probe, `v14.mjs`, frames the featured wall and one authed admin cell: the token is seeded the same way as in e2e `admin-auth`, and `/admin/*` is answered in-page. | `v14.json`. Featured badge, all 4 cells: **0 running animations**, `background-image: none`, flat gold ink `oklch(0.751 0.147 84.2)` in light and `oklch(0.784 0.143 86)` in dark (`featured-{1440,390}-{light,dark}.png`). Admin cell: the dock's gold admin ink runs **0 animations** in all 4 cells (`admin-users-*.png`). The admin view menu is framed at 1440 (`admin-view-menu-1440-*.png`); in admin mode it lists the admin views, so it shows no "Admin" entry. |
+| V14-T1 (trivial) | **CURED.** | `demo/DESIGN.md`: the `golden-text-shimmer` KEEP row and its use as the cubic-bezier exemplar are deleted. The glass `--shadow-cartoon-sm/md/lg` chip-rung mentions are deleted at :104, :153, law 2 and :194, since no demo consumer remains. | `grep -rn "shadow-cartoon-(sm\|md\|lg)" demo` finds only a historical comment in `PaletteInspector.vue`. |
+| V14-T2 (trivial) | **CURED.** | `PaletteCardSwatches.vue`: the hover card's Add / Edit / Copy are glass `Button icon-only emphasis="quiet" size="sm"`, the same as the slug copy beside them. The local hover, active-scale and ring classes are deleted, and no wrapper is added. The aria-labels are unchanged, so the format-color census rows B5–B7 hold. | e2e `w12-dock` (it drives `Edit color …`) passes ×2. |
+| V14-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88.** No local override. | The rows already relayed stand: the dock lozenge and its fold, the hero bead, the select stack, the Mix primary and V13-02. **New O-87 addendum (V14-G1):** glass `Input` keeps its own `backdrop-filter` inside a glass host. The ask is that a field on glass drops it, just as `--input-on-glass` drops its ground. These rows are re-judged at the 10.2.0 repin. | `login.json`: the dock slug field computes `blur(20px) saturate(1.5)` at 1440 and `blur(14px)` at 390, inside the blurred dock. Its fill still matches the Browse pill in 4 of 4 cells. |
+
+**Census** (`census-after.json`, `--base :9011 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded; one run, 18 of 18 route cells and 8 of 8 overlay cells, with no errors).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8 and no paint-top failures. These match the combined pass-13 reading.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+- The Browse cells now hold the featured card. The census cannot see the badge's old loop because it is gone, so the loop-free reading is confirmed directly by `v14.json`.
+
+**Frames.** Headless real Chrome (§0ei), served by `vite --port 9011 --strictPort` (same-origin `VITE_API_URL`, its own deps cache).
+- Counts: 36 of 36 route frames, 8 overlay frames, 4 login frames, 4 featured frames, 4 admin frames and 2 admin-menu frames.
+- After the readings the server hung (95 % CPU). It was force-stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1214/1221 ×2, with the **same 7** standing failures as pass 13.
+- **e2e** (headless, workers 1, own server :9190), **strict ×2 GREEN**:
+  - smoke, 20 specs: 95/95 ×2. That is pass 13's 16, plus `crash-battery`, `browse-loading`, `o20-generate-plate` and `o9-shadow-palette`.
+  - smoke-admin: 5/5 ×2.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Pass 14 cured every consumer row. It adopted the week-old V9C orphan set, so HEAD now ships what the frames show.
+- The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01 and VC4-09.
+- The glass rows, now including V14-G1, wait on O-87 / O-88 at the 10.2.0 repin.
