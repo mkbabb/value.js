@@ -629,3 +629,21 @@ Host ⟨`tail -1 ~/.claude/guard/log/zone.log`⟩ → `08:27:01 inuse=13491884` 
 X-W10 `Opens after` "X-W5..X-W9 stable": X-W8 conjunct **RED** (not CLOSED) → lawfully BLOCKED. X-W11 "X-W0…X-W10 IMPLEMENTED": X-W8 IMPLEMENTED = PARTIAL → lawfully BLOCKED.
 
 **Verdict: NOT-CONFORMANT** — every claimed GREEN reproduces (17/17), bounds/E-3/mail/masking clean, but one HIGH unrelieved RED (C-5/NG-6) and the S-1 gates unmeasured. LEDGER status not promoted; event line appended.
+
+## Repair 1
+
+REPAIR SEAT round 1, `claude-opus-5-5`, 2026-10-17, HEAD `ff9182149`. Spec read whole once; record read header → Unit plan, the `.i`
+escalation line (`:480`), § Check 1. Crash-recovery ⟨`git status --porcelain -- <record> <LEDGER> <.i set>`⟩ → empty; no inherited edits.
+Host ⟨`tail -1 ~/.claude/guard/log/zone.log`⟩ → `08:32:02 inuse=13500093` (≥ 13M): heavy arms stay guard-refused at this seat.
+Ruling search ⟨`grep -rn 'ESC-W8i' COHESION.md LEDGER.md INBOX.md`⟩ → LEDGER `:42`, `:958` only (this wave's own rows); **0 rulings**.
+
+| # | Check 1 defect | cure / disposition | commit | gate re-reading |
+|---|---|---|---|---|
+| 1 | HIGH — G-W8-i1 full-vitest RED on C-5 + NG-6, unrelieved | **ESCALATED, not cured.** The register's cure is an owner ruling (ESC-W8i-1 hue-aware `spectrumFieldIsLight(h,s,v)` + M-12 pin restated; ESC-W8i-2 W1.a re-author vs glass relay). COHESION carries no ruling; flipping NG-6's `toBe("checked")` or re-pinning C-5's M-12 oracle without it would be an assertion rewrite in place of a cure (masking) | — | ⟨`guarded --light -- npx vitest run test/spectrum-luma.test.ts demo/test/shell/reka-binding-idiom.test.ts --maxWorkers=2`⟩ ×2 → `2 failed \| 5 passed (7)` both (C-5, NG-6) — unchanged |
+| 2 | HIGH — A3/C2, test:e2e, G-15 pairs, J4 o29, 844×390 CLS unmeasured | **ESCALATED** (ESC-W8i-3 owner reboot): guard refuses heavy runs at kernel zone ≥ 13M; zone now 13,500,093 | — | not runnable this seat |
+| 3 | MEDIUM — `.i` writable set omits the two canary files vs §0aq `:2694` "Bounds: the named files" | **ESCALATED** with #1: COHESION `:2693-2694` names the canaries "cured at their roots (test-owned, W1.a born-RED)"; whether re-authoring a W1.a assertion is a root cure or an assertion change is exactly the question ESC-W8i-1/-2 put to the owner — this seat does not self-grant it | — | — |
+| 4 | MINOR — LW-1 `ColorPicker.vue:63` unlisted adjacent edit | **CURED by this addendum (E-3: the `.d` receipt bytes untouched).** `.d` adjacent edits, addendum-beside: `demo/picker/ColorPicker.vue:63` — ⟨`git show 15932a93a -- demo/picker/ColorPicker.vue`⟩ → `-  @update="(v, c) => updateColorComponentDebounced(v, c)"` (1 deletion): the parent binding of the deleted `ColorComponentDisplay` `update` emit (G-10's "no dangling counterpart"), lawful under §0bt | this commit | ⟨`grep -c '@update=' demo/picker/ColorPicker.vue`⟩ → 0 |
+| 5 | MINOR — `demo/DESIGN.md:248,258` stale `btn-interactive` canon | **ROUTED** to X-W10 (canon owner); `demo/DESIGN.md` is outside every W8 unit's File Bounds | — | — |
+| 6 | INFO — 7 root-barrel imports, no subpath at 10.1.0 | no act (G-3 holds at "narrowest published"); BK relay `alert-skeleton-subpaths` stands | — | — |
+
+Cured 1 (LW-1). Escalated 3 (ESC-W8i-1/-2 ∪ MEDIUM; ESC-W8i-3). No product byte written. Row stays PARTIAL.
