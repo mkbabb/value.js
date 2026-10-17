@@ -1794,3 +1794,29 @@ This is the cure seat for critic **F9C** (pass 9, 2026-10-17). The AFTER frames 
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-09/f9c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f9c-probe.mjs`: 8 PNGs, of `/404` and `/gallery`, at 1440 and 390, in light and dark.
+
+### pass 10
+This is the cure seat for critic **F10C** (pass 10, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-10/f10c/`, and the BEFORE frames are in `pass-10/f10c/before/`. The other files and folders in `pass-10/` (`critic-f12`, `f10x`, the f12 cure files, the loose frames) belong to other seats and are not part of this receipt.
+- fourier `6226157`, on `m/w1-bump-migration`, two paths, committed by pathspec and pushed fast-forward `4f77d94..6226157`.
+- value.js `dcd6d7708` holds the BEFORE and AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F10C-C1 | **The card's stats row ends one `--card-pad` from the bottom.** `.card-stats` is drawn at its 14 px stat glyphs' height (`--stat-glyph: 0.875rem`, as its `line-height`). The like Button keeps its 24 px hit box, and glass's coarse width floor and skin are untouched. A negative block margin, `calc((var(--stat-glyph) - 1.5rem) / 2)`, lets that box overflow the row without setting its height. There is no wrapper and no absolutely positioned target.<br>**Measured** (`f10c-probe.json` against `before/f10c-probe.json`), in both themes:<br>• At 1440 the glyph ink ends **13 px** from the card's bottom edge (it was 20.8), which matches the thumbnail's 13 px top inset. The row is 14 px tall (it was 29.5). The like hit box is 38.5×24.<br>• At 390 the inset is **9 px** (it was 16.8), against a 9 px top inset. The hit box is 44×24.<br>• The card is 15.5 px shorter. No horizontal scroll and no page errors.<br>Frames: `gallery-{light,dark}-{1440,390}.png`. |
+| DS-F10C-T1 | **The Basis busy notice takes the section head's gap.** The notice is BasisSelector's own, so the rule is scoped there. It gets `margin-block-end: calc(var(--spacing) * 4)`, the same step glass composes above it (the trigger's `py-2` under the heading plus the layer body's `py-2`). Before, the shared `.compute-status`'s `margin: 0` had zeroed the body's `space-y` step, and the notice sat flush on the Fourier caption.<br>**Measured** with the compute endpoints answering 429 in the probe, in both themes:<br>• At 1440 the gap is **16 px above and 16 px below** (it was 16 and 0).<br>• At 390 it is 19.7 px above and 16 px below. The 3.7 px residue above is inside the layer body, as glass composes it, and it is not countered locally.<br>• The Retry rung (18.3 px coarse, beside a 12.2 px caption) is unchanged. It is re-judged at the glass 10.2.0 repin under DS-F6C-G1, with no local override.<br>Frames: `v-{light,dark}-{1440,390}.png`. |
+| DS-F10C-E1 | **Environment only; no code change.** The shared `:3100` server still has a stale or duplicated prebundle, for its owner to restart with `--force`. This seat served its own vite on `:3171`, with a private `cacheDir` (`~/.cache/fourier-f10c/vitecache`), and its own API on `:8061` (`COMPUTE_CONCURRENCY=1`). Both were stopped at the end. |
+
+**Glass-owned rows:** none this pass, so there is no O-87 addendum.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3171`; `f10c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 9 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f10c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 25 specs (`e2e-specs.txt`). These are pass 9's 22 `/gallery` specs (including `visual-checkpoint` and `visual-baseline`, and `f-w14-uia-r2`, which drives `.like-btn`), plus the three that reach the Basis section: `f-w13-image-controls`, `f-w14v-detached` and `f-w14v-u4`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker, against the private stack. **Run A passed 316/316, and so did run B.**
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-10/f10c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f10c-probe.mjs`: 8 AFTER PNGs and 8 BEFORE PNGs, of `/gallery` and the `/v` Basis section, at 1440 and 390, in light and dark.
