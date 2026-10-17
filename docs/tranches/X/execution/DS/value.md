@@ -1285,3 +1285,34 @@ Critic V6C named two consumer rows (V6C-01 low, V6C-02 trivial), one carried con
 - Both actionable consumer rows are cured.
 - P4R-01-R (V6C-R1) stays open.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15).
+
+### pass 7 (2026-10-17): critic V7C — Not Found seats its header, the watercolor blob keeps no straight side
+
+Critic V7C named three consumer rows (V7C-01 medium, V7C-02 low, V7C-03 trivial) and the standing glass rows (V7C-G1). All three consumer rows are cured at the root. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-07/c7-2026-10-17/`.
+
+**Commits.** value.js `94441d77f` (the cure: 3 paths) and `513eeaff8` (frames, probe, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-07/c7-2026-10-17/capture-c7.json`) |
+|---|---|---|---|
+| V7C-01 (medium) | **CURED at the shell's contract.** | Not Found's short plate had nothing to scroll under its header but took PaneShell's overlying layout, so it fell through to the 0.52 rest veil. It now takes PaneShell's `seated` layout, which is the shell's existing contract for a header with nothing scrolling under it. V4C-05's rule (`.card:has(> .pane-header ~ .pane-scroll-fade)`) then paints no `::before`. `--pane-veil-rest` is unchanged. The one remaining overlying pane, Admin, has a body that scrolls under its title and keeps the banked rest veil (V2C-15). PaneShell's notes are corrected. No new rule, wrapper or dir. | `/#/nope` at 1440 and 390, both schemes: header `::before` `display: none`, seated true, no document scroll. A pixel column across the header's bottom edge (`edge`, 5 px steps from -25 to +15 px) varies by at most about 5 levels (grain noise). It was a 13-level step. |
+| V7C-02 (low) | **CURED at the shape source.** | `randomRadii` (`watercolor-dot/prng.ts`) now makes each side's two corner radii complementary: they sum to 100%, so no side keeps a straight run. The free corner of each side still draws in `[lo, hi]`, so the shape keeps its seeded organic asymmetry (identity, §0dm). All 8 draws are still consumed, so the wobble channels seeded after them are unchanged. The ghost reads the same `borderRadius`, so it still traces the solid. | Every watercolor swatch on `/#/generate` (11) and in the current-palette well (8), at 1440 and 390 in both schemes: the largest straight run, computed from the radii after CSS's overlap scaling, is **0 px** on every side. It was up to 55 px of a 78 px cell. |
+| V7C-03 (trivial) | **CURED.** | The Not Found PaneShell takes `max-w-(--pane-max)`, the one pane column Atmosphere already uses. The shell's `mx-auto` centres it. | At 1440 the plate is x 464–976, w 512, which is Atmosphere's exact box (it was 200–1240). At 390 both are 16–374. |
+| V7C-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | The rows are the hero bead, the dock's rim, halo, 390 bulge and collapsed tile, the card rims, the name-field rim stack, Mix's disabled primary and the thumbless scrubber rails. No local override. | They are re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9263 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8. These are identical to pass 6.
+- **Consumer:** looping animations 0. The static totals are unchanged.
+- One overlay cell (card-menu, `/#/browse`, dark) timed out on `page.goto` under machine load. The other 7 cells read the same as pass 6.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c7.mjs` uses one browser for the run and a new context per cell, closing both in a `finally`. It took 16 of 16 cells: notfound, atmosphere (the single-column reference), generate and palettes-new, each at 1440 and 390 in light and dark. The guarded dev server on :9263 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1234/1239 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3).
+- **e2e** (headless, workers 1, own server :9262, `gates/specs.txt`): **smoke 31/31 ×2** over 9 specs that touch the changed files, among them o11-header-gates (the veil contract), page-load and w12u-x-admin-tags (Not Found), and o20/o24/o9/o14/palette-save (the swatches). **smoke-admin route-guard 3/3 ×2.** Strict GREEN.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Every consumer row from V7C is cured.
+- P4R-01-R stays open.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15).
