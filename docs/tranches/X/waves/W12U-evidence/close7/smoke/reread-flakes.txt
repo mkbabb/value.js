@@ -1,0 +1,14 @@
+### e2e/smoke/webgl-blob.spec.ts:13 (smoke) r1 load1=16.29
+  ✓  1 [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost (18.1s)
+  1 passed (20.7s)
+### e2e/smoke/reactivity-instant.spec.ts:137 (smoke-reactivity) r1 load1=14.17
+[reactivity-instant] slider-keyboard median (ms): 12.30
+  ✓  1 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps (9.6s)
+  1 passed (12.3s)
+### e2e/smoke/webgl-blob.spec.ts:13 (smoke) r2 load1=15.56
+  ✓  1 [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost (19.2s)
+  1 passed (22.1s)
+### e2e/smoke/reactivity-instant.spec.ts:137 (smoke-reactivity) r2 load1=14.97
+[reactivity-instant] slider-keyboard median (ms): 12.50
+  ✓  1 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps (9.7s)
+  1 passed (12.2s)
