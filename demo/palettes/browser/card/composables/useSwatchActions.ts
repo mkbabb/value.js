@@ -2,7 +2,7 @@ import { ref, computed, inject } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { EditTarget } from "../../../../color-session/color-model";
 import { EDIT_TARGET_KEY } from "../../../../color-session/keys";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { CURRENT_PALETTE_ID } from "../../../constants";
 import { usePopupMutex } from "../../../../shared/usePopupMutex";
 

@@ -9,7 +9,7 @@ import { useMixingState } from "./composables/useMixingState";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import type { MixSceneTarget } from "../../color-session/keys";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import type { PaletteColor } from "../../palettes/types";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;

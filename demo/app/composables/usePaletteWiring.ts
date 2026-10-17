@@ -21,7 +21,7 @@ import type { ColorModel } from "../../color-session/color-model";
 import type { ColorPicker } from "../../picker";
 import type { ViewManager } from "../../shell/useViewManager";
 import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
-import { debounce } from "../../shared/utils";
+import { debounce } from "../../shared/debounce";
 import { providePalettePorts, type PalettePorts } from "../../palettes/usePalettePorts";
 
 export function usePaletteWiring(

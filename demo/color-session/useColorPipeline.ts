@@ -1,5 +1,5 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
-import { debounce } from "../shared/utils";
+import { debounce } from "../shared/debounce";
 import {
     PICKER_CHANNELS,
     channelNumber,

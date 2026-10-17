@@ -11,7 +11,7 @@ import { Slider } from "@mkbabb/glass-ui/slider";
 import { Label } from "@mkbabb/glass-ui/label";
 import { Button } from "@mkbabb/glass-ui/button";
 import { RefreshCw, Save, Copy } from "@lucide/vue";
-import { useClipboard, writeClipboard } from "@mkbabb/glass-ui";
+import { useClipboard, writeClipboard } from "@mkbabb/glass-ui/dom";
 // X-W4 · X.W4.b (CC-047) — the producer's published field composition
 // (`@mkbabb/glass-ui/labeled-field`, 7.0.0): `controlLabelable: false` for the
 // non-labelable combobox root, and the slot's `labelledBy` names the trigger, so

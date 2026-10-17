@@ -166,7 +166,7 @@ import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "../../browser/dateFormat";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
-import { debounce } from "../../../shared/utils";
+import { debounce } from "../../../shared/debounce";
 
 // D.W3 Lane B: route through pm.audit sub-object (was: direct getAuditLog)
 const pm = inject(ADMIN_PORT_KEY)!;

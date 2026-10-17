@@ -27,7 +27,7 @@
 import { computed, ref } from "vue";
 import { Check, Copy, SlidersHorizontal } from "@lucide/vue";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@mkbabb/glass-ui";
-import { useClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui/dom";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { serializeIntervalRamp } from "../composables/useGradientCSS";
 import EasingAuthoringStage from "./easing/EasingAuthoringStage.vue";

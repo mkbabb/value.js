@@ -5,7 +5,7 @@ import type { ColorModel } from "./color-model";
 import type { DisplayColorSpace } from "./color-model";
 import { resolveColorSpace, colorToHexString } from "./color-model";
 import { convertPickerColor, parsePickerColor, serializePickerColor } from "./picker-color";
-import { debounce } from "../shared/utils";
+import { debounce } from "../shared/debounce";
 
 /**
  * useColorUrl — the LIVE URL↔model sync, and nothing else.

@@ -1,9 +1,3 @@
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
 
 /**
  * The demo's ONE debounce (T.W6.5 Lane M · row 12 — the root-barrel shed).

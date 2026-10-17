@@ -1,6 +1,6 @@
 import { watch, type ShallowRef, type ComputedRef } from "vue";
 import { useStorage } from "@vueuse/core";
-import { debounce } from "../shared/utils";
+import { debounce } from "../shared/debounce";
 import { safeGetItem } from "../platform/storage/useSafeStorage";
 import { serializePickerColor, type PickerColor } from "./picker-color";
 import type { ColorModel } from "./color-model";

@@ -1,5 +1,5 @@
 import { computed, ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
-import { debounce } from "../shared/utils";
+import { debounce } from "../shared/debounce";
 import { generateSingleColor } from "./generate-color";
 import {
     PICKER_CHANNELS,

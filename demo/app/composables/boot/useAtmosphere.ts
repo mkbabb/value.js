@@ -30,7 +30,7 @@ import {
     type AuroraConfig,
 } from "@mkbabb/glass-ui/aurora";
 import { resolveCalibratedAtmosphere } from "./atmosphere-calibration";
-import { debounce } from "../../../shared/utils";
+import { debounce } from "../../../shared/debounce";
 import { safeSetItem } from "../../../platform/storage/useSafeStorage";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../scenes/atmosphere/aurora-atoms";

@@ -172,7 +172,7 @@ import { Button } from "@mkbabb/glass-ui/button";
 import { ChevronDown, MoreHorizontal, GripVertical } from "@lucide/vue";
 import type { Palette, PaletteColor } from "../types";
 import { getPaletteKind, type PaletteKind } from "../utils";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { useLiquidPress } from "@mkbabb/glass-ui/motion";
 import {
     SELECTED_ENTITY_KEY,

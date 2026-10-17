@@ -18,7 +18,7 @@ import { Slider } from "@mkbabb/glass-ui/slider";
 import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneShell from "../shell/PaneShell.vue";
-import { useClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui/dom";
 import { onBeforeUnmount, ref, useTemplateRef } from "vue";
 import { useResizeObserver } from "@vueuse/core";
 
