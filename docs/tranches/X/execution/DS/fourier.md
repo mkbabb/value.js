@@ -1701,3 +1701,36 @@ This is the cure seat for critic **F6C** (pass 6, 2026-10-17). The AFTER frames 
 - **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-06/f6c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f6c-probe.mjs`: 10 PNGs in light and dark of the forced-429 `/w` cells (1440 with the aside; 390 on the Canvas and Controls tabs) and after a stage Retry. The seat's fresh `BLOB_DIR` does not hold that image's blob, so the Image layer reads "Image unavailable" in these cells. That is a fixture artefact and not part of the finding.
+
+### pass 7
+This is the cure seat for critic **F7C** (pass 7, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-07/f7c/`. The other files and folders in `pass-07/` (`f7`, the f9 cure files) belong to earlier seats and are not part of this receipt.
+- fourier `a1dc2eb`, on `m/w1-bump-migration`, one file, committed by pathspec and pushed fast-forward `43fb488..a1dc2eb`.
+- value.js `241fa2c26` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F7C-C1 | **Each label keeps its one line.** In `ImageUpload.vue`, `.image-row` now wraps (`flex-wrap: wrap`, keeping its 0.75rem gap). The Replace Button carries `flex: none; white-space: nowrap` (scoped class `.image-replace`, set on glass's Button root), and `.image-missing p` is `nowrap`. There is no new wrapper and no override of glass's type rung.<br>**Measured** (`f7c-probe.json`, image-unavailable state, because the seat's fresh `BLOB_DIR` lacks the blob): at 390 with touch, in light and dark, the caption "Image unavailable" is 1 line (95.9 × 15.8). "Replace image" is a 1-line 190.8 × 44 pill that drops whole under the caption (y 224.1, under the caption's row), and the 314 px row does not overflow. At 1440 the caption and command stay side by side (Replace 140.4 × 36), as before.<br>Frames: `w-{light,dark}-{1440,390}-controls.png`. |
+| DS-F7C-E1 | **Environment only; no code change.** The shared `:3100` vite has a stale dependency prebundle, with Vue split across two chunks. This seat served its own vite on `:3139` with a private `cacheDir` (`~/.cache/fourier-f7c-vitecache`) and saw zero page errors on `/w`.<br>**Disclosure:** this seat first launched its vite with `--force` against the default cacheDir. That rewrote the shared `web/node_modules/.vite/deps` at 02:21, under the running `:3100`. The seat stopped it within a minute and restarted on the private cacheDir. The finding's cure still stands: the owner of `:3100` restarts it with `--force`. |
+
+**Glass-owned.** The coarse type rung of Button `sm` (18.27 px against the 12.18 px caption at 390) is still held on **DS-F6C-G1** under O-87. It is not overridden locally and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3139`; `f7c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 6 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f7c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 14 specs (`e2e-specs.txt`): every spec that reaches the Image layer's row (`coarse-pointer`, `f-w13-image-controls`, `f-w14-dpr`, `f-w14-veil`, `f-w14u-d`, `f-w14u-s`, `f-w14u-vstage`, `f-w14v-au2`, `f-w14v-detached`, `visualization-crud`), plus `visualization-ux`, `visual-checkpoint`, `visual-baseline` and `workspace-flow`.
+  - They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8019` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018/fourier`, a fresh `BLOB_DIR` under `~/.cache`) behind vite on `:3139`. Both were stopped at the end.
+  - **Run A: 106 passed, 3 skipped.**
+  - **Run B: 104 passed, 3 skipped, 2 failed**, both `f-w14u-d` d2 at 1440: the canvas dock never reaches `.collapsed` after its View-options menu closes. An earlier run B (`e2e-runB-first.txt`) failed the same two.
+- **d2 is not this change.**
+  - It fails with HEAD `43fb488`'s `ImageUpload.vue` swapped back in (`e2e-head-f-w14u-d.txt`: 1 failed, 1440 dark).
+  - It is intermittent on the cure tree (`e2e-f-w14u-d-repeat-cure.txt`, `--repeat-each=2`: 10 passed, 2 failed).
+  - It is a pre-existing dock-collapse flake in O-88 DOCK-COLLAPSE-MOTION territory, held honest-RED and not cured locally.
+  - Every other test is GREEN ×2.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-veil-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-07/f7c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f7c-probe.mjs`: 4 PNGs of `/w/placid-stirring-opal-viper`, the 1440 aside and the 390 Controls tab, in light and dark.
