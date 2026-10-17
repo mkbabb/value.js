@@ -1,0 +1,19 @@
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== e2e (22 specs in e2e-specs.txt: every spec that reaches /gallery, incl. visual-checkpoint and visual-baseline; chromium + mobile-chromium, workers=1, headless; own API :8020 COMPUTE_CONCURRENCY=1 rate limits 1000, dev mongo :27018/fourier, fresh BLOB_DIR; vite :3150 with a private cacheDir)
+run A (cure tree before the spec restatement and the re-baseline): 275 passed, 4 failed. All four are the measure itself: au1 L3-6 (1440) gutters {"visualize":16,"equation":16,"gallery":160}, and visual-checkpoint items 1·6·7 / 2 / 8 (card 277x238 -> 245x214, admin banner 1248 -> 1120 wide: geometry only)
+au1 L3-6 restated at >= 640: the gallery's content edge EQUALS /paper's measure edge (strict toBe); below 640 unchanged (one gutter across all routes incl. gallery and paper)
+named re-baseline (rebaseline.txt): checkpoint-card-resting, checkpoint-card-hover, checkpoint-admin-banner (chromium-darwin), DS-F8C-C1
+run B: 279 passed
+run C: 279 passed
+web/e2e/screenshots/f-w14/after-* frames rewritten by the runs were restored to HEAD after each run
