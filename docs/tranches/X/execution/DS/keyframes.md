@@ -3012,3 +3012,69 @@ All three are honest-RED until the 10.2.0 repin, with no local override.
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 60`, the capture and census `--rss-gb 6` (browser pool), check and lint `--light`, and vitest `--rss-gb 8`.
 - Nothing of this seat's was left running.
+
+### pass 10 (the ninth redeploy's pass 10; critic C10; cure keyframes `6fe8f57e`; evidence `pass-10/c10-2026-10-17/`)
+
+**Cure commit:** keyframes.js `6fe8f57e` (master, pushed fast-forward). **Evidence:** value.js `ff69538df`, in `evidence/DS/keyframes/pass-10/c10-2026-10-17/`. `pass-10/` already holds an earlier round's committed pass-10 evidence, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: every route at 1440/390 in light and dark, the empty cube Timeline before and after the one-press inline Import, the ribbon Import's paste dialog, and the cube controls pane. These are the same cells as pass 9 (`pass-61/`).
+- `after/capture.json`: `transport-<scene>-<scheme>`, `snapshot-glyph-*`, `inline-lead-*` and `dialog-*`.
+- `capture.mjs`, `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), with one browser per run and a context per cell, all closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C10-01 (low): the glyph now leads the word in the transport row.** In `PlaybackRibbon.vue`, Reverse puts `ArrowLeftRight` before its label, and Preview puts the eye/eye-off glyph stack before its label.
+  - The state still lives on the glyph: the arrow's `scale-x-[-1]` flip and the `preview-eye__*` cross-fade are unchanged.
+  - The `-ms-[calc(0.5rem+1px)]` gutter offset keeps its value. It now puts the leading glyph on the label column.
+  - No wrapper or class was added. The rule is now the instrument's single labelled-verb anatomy, so no second idiom is written into DESIGN.md.
+  - Measured at 1440 in both schemes, in all five transport scenes (cube, amiga, square, easing, spring): `glyphFirst: true` for both buttons. The Reverse glyph is at x 92 with its word at x 116; the field labels sit at x 93. The ribbon's Snapshot glyph is at x 94.
+  - Frames: `after/{cube,amiga,square,easing,spring}-1440-*`, plus the 390 sheets.
+- **KF-C10-02 (trivial): the probe counts real stops (evidence only).** The new `capture.mjs` counts `.keyframe-marker[role=slider]`, which is TimelineTrack's stop diamonds, and `.timeline-caret`. The old probe counted `[data-keyframe-id], [data-stop-id], .timeline-stop`, which matched nothing.
+  - After the inline Import, in both schemes, it records `stops: 2`, `stopValues: ["0%", "100%"]`, `carets: 2` and `dialogOpen: false`. This now matches the frames and pass 9's KF-C9-04 claim.
+  - `pass-61/capture.json` is a committed historical record, so it is left as it was. This receipt supersedes its `stops: 0`.
+
+**Cited (glass, not overridden)**
+- **KF-C10-G1 (low): extends KF-C4-17, KF-C4-G2 and KF-C7-11 on O-87 FLAT-LIGHTING.** The CSSPasteDialog's glass `.glass-floating` has three problems:
+  - in light mode it paints a dark warm tint under `blur(20px) saturate(1.5)`, which gives a muddy plate with the cube's crayons blooming through it;
+  - it carries 6 shadow layers;
+  - in dark mode its `0 8px 24px` drop is drawn in the light foreground ink, which reads as a halo.
+
+  Ask for the 10.2.0 token wave: a floating tint that stays light in the light scheme, lower saturate and blur, one quiet neutral drop, and never a light-ink drop in dark.
+- **KF-C10-G2 (low): re-observed unchanged at glass 10.1.0.** None of these is a new report:
+  - stacked pane and card material, halo and resting blur;
+  - cream Input next to grey Select;
+  - the closed Select's up caret;
+  - pill field radius;
+  - the open Select's doubled ring, its `--shadow-cartoon` menu and corner specular (KF-C9-01/-05);
+  - the capsule halo (KF-C1-01);
+  - thumbless fills and empty grooves;
+  - the EasingPicker ghost staircase, and 'Custom' under 'ease';
+  - the toast's detached close disc (KF-C2-14 / KF-C17-04);
+  - the 390 collapsed dock tile and the play bubble halo (O-88).
+
+  These are held against O-87 and O-88, to be re-judged on the same cells at the 10.2.0 repin.
+
+Both rows stay honest-RED until the repin. The consumer adds no override.
+
+**Refused:** none.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5199/ --widths 1440,390 --settle 5000`): identical to pass 9 (`pass-61/census.json`) in every key except the timestamp (`at`). The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree at `6fe8f57e`, which also carried another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `PlaybackRibbon.vue` was clean, so the commit is pathspec-only. The three other dirty files belong to another seat and were left unstaged and untouched. The served frames include their hunks. The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5199) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6` (browser pool);
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
