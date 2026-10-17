@@ -30,3 +30,13 @@ The real-GPU boot profile (headless real Chrome, ANGLE on Metal, 1280×720, `/`)
 Both retire to that rung when it ships.
 
 Nothing in value.js waits on this row.
+
+## ADDENDUM (same seat, after the post-cure profile, 2026-10-17)
+**R-3 (informational, ADOPT-AT-LANDING). `useScrollTrigger` forces the first layout inside the boot task.**
+- Post-cure profile on the committed tree `9e0212c46` (`X/waves/W12U-evidence/o5c/boot-profile-r1.txt`, the `o5b/boot-task-profile.mjs` instrument): `dock.js` no longer appears in the boot task, which sampled 111.8 / 96.2 ms.
+- The top glass self time is now:
+  - `color.wgsl` (aurora palette derive), 23.1 ms;
+  - `scrollReader-*.js`, 17.4 ms: `useScrollTrigger:T → scrollReader:cc → position`, a synchronous layout read at mount.
+- The callers are the first-paint pane primitives (`demo/shell/PaneShell.vue`, `demo/shared/ui/PaneHeader.vue`, glass `card`). The pane is first-paint state and stays in the first task (§0fv.2).
+- This is the same forced layout `.o5b`'s `expAD` arm saw. While the dock mounted in the boot task, the dock paid for it. Now the next layout reader pays.
+- **The ask:** read the first scroll position after the frame, or from an observer, instead of forcing layout at setup. The browser then lays out once, in the frame. Nothing in value.js waits on this row.
