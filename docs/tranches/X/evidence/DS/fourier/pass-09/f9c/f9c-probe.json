@@ -1,0 +1,350 @@
+{
+ "404-light-1440": {
+  "card": {
+   "x": 496,
+   "y": 404.6,
+   "w": 448,
+   "h": 170.7,
+   "right": 944
+  },
+  "h1": {
+   "x": 517,
+   "y": 425.6,
+   "w": 406,
+   "h": 44,
+   "right": 923
+  },
+  "h1FontSize": "41.888px",
+  "headerPad": "20px 20px 0px",
+  "cardPad": "1.25rem",
+  "titleInsetTop": 15,
+  "titleInsetLeft": 21,
+  "actions": [
+   {
+    "x": 517,
+    "y": 514.4,
+    "w": 226.1,
+    "h": 40,
+    "right": 743.1
+   },
+   {
+    "x": 751.1,
+    "y": 516.4,
+    "w": 126.4,
+    "h": 36,
+    "right": 877.5
+   }
+  ],
+  "actionsDeadRight": 66.5,
+  "scrollW": 1440,
+  "pageErrors": []
+ },
+ "404-dark-1440": {
+  "card": {
+   "x": 496,
+   "y": 404.6,
+   "w": 448,
+   "h": 170.7,
+   "right": 944
+  },
+  "h1": {
+   "x": 517,
+   "y": 425.6,
+   "w": 406,
+   "h": 44,
+   "right": 923
+  },
+  "h1FontSize": "41.888px",
+  "headerPad": "20px 20px 0px",
+  "cardPad": "1.25rem",
+  "titleInsetTop": 15,
+  "titleInsetLeft": 21,
+  "actions": [
+   {
+    "x": 517,
+    "y": 514.4,
+    "w": 226.1,
+    "h": 40,
+    "right": 743.1
+   },
+   {
+    "x": 751.1,
+    "y": 516.4,
+    "w": 126.4,
+    "h": 36,
+    "right": 877.5
+   }
+  ],
+  "actionsDeadRight": 66.5,
+  "scrollW": 1440,
+  "pageErrors": []
+ },
+ "404-light-390": {
+  "card": {
+   "x": 16,
+   "y": 368.8,
+   "w": 358,
+   "h": 182.5,
+   "right": 374
+  },
+  "h1": {
+   "x": 29,
+   "y": 381.8,
+   "w": 332,
+   "h": 27.2,
+   "right": 361
+  },
+  "h1FontSize": "25.888px",
+  "headerPad": "12px 12px 0px",
+  "cardPad": "0.75rem",
+  "titleInsetTop": 9,
+  "titleInsetLeft": 13,
+  "actions": [
+   {
+    "x": 29,
+    "y": 442.2,
+    "w": 297.2,
+    "h": 44,
+    "right": 326.2
+   },
+   {
+    "x": 24,
+    "y": 494.2,
+    "w": 157.8,
+    "h": 44,
+    "right": 181.8
+   }
+  ],
+  "actionsDeadRight": 47.8,
+  "scrollW": 390,
+  "pageErrors": []
+ },
+ "404-dark-390": {
+  "card": {
+   "x": 16,
+   "y": 368.8,
+   "w": 358,
+   "h": 182.5,
+   "right": 374
+  },
+  "h1": {
+   "x": 29,
+   "y": 381.8,
+   "w": 332,
+   "h": 27.2,
+   "right": 361
+  },
+  "h1FontSize": "25.888px",
+  "headerPad": "12px 12px 0px",
+  "cardPad": "0.75rem",
+  "titleInsetTop": 9,
+  "titleInsetLeft": 13,
+  "actions": [
+   {
+    "x": 29,
+    "y": 442.2,
+    "w": 297.2,
+    "h": 44,
+    "right": 326.2
+   },
+   {
+    "x": 24,
+    "y": 494.2,
+    "w": 157.8,
+    "h": 44,
+    "right": 181.8
+   }
+  ],
+  "actionsDeadRight": 47.8,
+  "scrollW": 390,
+  "pageErrors": []
+ },
+ "gallery-light-1440": {
+  "tabs": {
+   "x": 160,
+   "y": 96,
+   "w": 168.9,
+   "h": 43.5,
+   "right": 328.9
+  },
+  "searchRoot": {
+   "x": 344.9,
+   "y": 99.5,
+   "w": 935.1,
+   "h": 40,
+   "right": 1280
+  },
+  "searchField": {
+   "x": 344.9,
+   "y": 99.5,
+   "w": 935.1,
+   "h": 40,
+   "right": 1280
+  },
+  "grid": {
+   "x": 160,
+   "y": 155.5,
+   "w": 1120,
+   "h": 685.9,
+   "right": 1280
+  },
+  "columns": 4,
+  "columnEdges": [
+   [
+    160,
+    431
+   ],
+   [
+    443,
+    714
+   ],
+   [
+    726,
+    997
+   ],
+   [
+    1009,
+    1280
+   ]
+  ],
+  "scrollW": 1440,
+  "pageErrors": []
+ },
+ "gallery-dark-1440": {
+  "tabs": {
+   "x": 160,
+   "y": 96,
+   "w": 168.9,
+   "h": 43.5,
+   "right": 328.9
+  },
+  "searchRoot": {
+   "x": 344.9,
+   "y": 99.5,
+   "w": 935.1,
+   "h": 40,
+   "right": 1280
+  },
+  "searchField": {
+   "x": 344.9,
+   "y": 99.5,
+   "w": 935.1,
+   "h": 40,
+   "right": 1280
+  },
+  "grid": {
+   "x": 160,
+   "y": 155.5,
+   "w": 1120,
+   "h": 685.9,
+   "right": 1280
+  },
+  "columns": 4,
+  "columnEdges": [
+   [
+    160,
+    431
+   ],
+   [
+    443,
+    714
+   ],
+   [
+    726,
+    997
+   ],
+   [
+    1009,
+    1280
+   ]
+  ],
+  "scrollW": 1440,
+  "pageErrors": []
+ },
+ "gallery-light-390": {
+  "tabs": {
+   "x": 16,
+   "y": 92,
+   "w": 358,
+   "h": 43.5,
+   "right": 374
+  },
+  "searchRoot": {
+   "x": 16,
+   "y": 141.5,
+   "w": 358,
+   "h": 60,
+   "right": 374
+  },
+  "searchField": {
+   "x": 16,
+   "y": 141.5,
+   "w": 358,
+   "h": 60,
+   "right": 374
+  },
+  "grid": {
+   "x": 16,
+   "y": 217.5,
+   "w": 358,
+   "h": 752.3,
+   "right": 374
+  },
+  "columns": 2,
+  "columnEdges": [
+   [
+    16,
+    189
+   ],
+   [
+    201,
+    374
+   ]
+  ],
+  "scrollW": 390,
+  "pageErrors": []
+ },
+ "gallery-dark-390": {
+  "tabs": {
+   "x": 16,
+   "y": 92,
+   "w": 358,
+   "h": 43.5,
+   "right": 374
+  },
+  "searchRoot": {
+   "x": 16,
+   "y": 141.5,
+   "w": 358,
+   "h": 60,
+   "right": 374
+  },
+  "searchField": {
+   "x": 16,
+   "y": 141.5,
+   "w": 358,
+   "h": 60,
+   "right": 374
+  },
+  "grid": {
+   "x": 16,
+   "y": 217.5,
+   "w": 358,
+   "h": 752.3,
+   "right": 374
+  },
+  "columns": 2,
+  "columnEdges": [
+   [
+    16,
+    189
+   ],
+   [
+    201,
+    374
+   ]
+  ],
+  "scrollW": 390,
+  "pageErrors": []
+ }
+}
