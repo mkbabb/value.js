@@ -1,0 +1,129 @@
+{
+  "base": "http://localhost:9241",
+  "results": [
+    {
+      "name": "usermenu-1440-light",
+      "menu": {
+        "top": 60,
+        "bottom": 276,
+        "left": 776,
+        "right": 952
+      },
+      "dock": {
+        "top": 12.5,
+        "bottom": 68.5,
+        "left": 476.3,
+        "right": 963.7
+      },
+      "trigger": {
+        "top": 25.1,
+        "bottom": 56,
+        "left": 876.6,
+        "right": 951.7
+      },
+      "gap": -8.5,
+      "pass": false
+    },
+    {
+      "name": "dockmenu-390-light",
+      "menu": {
+        "top": 69,
+        "bottom": 329,
+        "left": 101,
+        "right": 277
+      },
+      "dock": {
+        "top": 21,
+        "bottom": 77,
+        "left": 101,
+        "right": 289
+      },
+      "trigger": {
+        "top": 33,
+        "bottom": 65,
+        "left": 237,
+        "right": 277
+      },
+      "gap": -8,
+      "pass": false
+    },
+    {
+      "name": "moreactions-390-light-mix",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "moreactions-390-light-gradient",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "moreactions-390-light-palettes",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "moreactions-390-light-blob",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "usermenu-1440-dark",
+      "menu": {
+        "top": 60,
+        "bottom": 276,
+        "left": 776,
+        "right": 952
+      },
+      "dock": {
+        "top": 12.5,
+        "bottom": 68.5,
+        "left": 476.3,
+        "right": 963.7
+      },
+      "trigger": {
+        "top": 25.1,
+        "bottom": 56,
+        "left": 876.6,
+        "right": 951.7
+      },
+      "gap": -8.5,
+      "pass": false
+    },
+    {
+      "name": "dockmenu-390-dark",
+      "menu": {
+        "top": 69,
+        "bottom": 329,
+        "left": 101,
+        "right": 277
+      },
+      "dock": {
+        "top": 21,
+        "bottom": 77,
+        "left": 101,
+        "right": 289
+      },
+      "trigger": {
+        "top": 33,
+        "bottom": 65,
+        "left": 237,
+        "right": 277
+      },
+      "gap": -8,
+      "pass": false
+    },
+    {
+      "name": "moreactions-390-dark-mix",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "moreactions-390-dark-gradient",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "moreactions-390-dark-palettes",
+      "skipped": "trigger not shown"
+    },
+    {
+      "name": "moreactions-390-dark-blob",
+      "skipped": "trigger not shown"
+    }
+  ]
+}
