@@ -1870,3 +1870,37 @@ This is the cure seat for critic **F12C** (pass 12, 2026-10-17). The AFTER frame
 - No golden was re-baselined.
 
 **Frames** (`pass-12/f12c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f12c-probe.mjs`: 10 AFTER PNGs.
+
+### pass 5
+This is the cure seat for critic **P5** (the redeploy's pass-5 critic, `pass-05/critic-p5-2026-10-17/`, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-05/f5p/`; the BEFORE cells are the critic's frames. The other folders in `pass-05/` (`f5`, `f5c`, `f5x`, `f7`, `critic-f7`) belong to other seats and are not part of this receipt.
+- **No fourier commit.** The pass's one consumer row was measured already cured, so the fourier tree is unchanged (`m/w1-bump-migration` at `2e11542`).
+- value.js `bb2eee510` holds the AFTER frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer finding.**
+
+| id | outcome |
+|---|---|
+| DS-F5P-T1 | **No change: measured already registered.** The empty stage's `.drop-target-grid` is already `background-attachment: fixed` (pass 8, DS-F8X-C2), so its origin is the viewport, the same as the page's `.paper-grid`.<br>**Measured** (`f5p-probe.json` → `gridT1`): column and row profiles from a DPR-2 frame, folded on the 64 px major pitch. The major lines sit at phase 0 (0.5 in dark, the centre of the 1 px line) inside the plate and on the page outside it, on both axes, in light and dark. Re-reading the critic's own `visualize-light-1440.png` gives the same result.<br>The step a reader sees at the hairline is the plate's quieter register (the layer's opacity is 0.035 / `--paper-grid-opacity`, from DS-F9X-C1) and the plate's own tone, not a phase shift. Opacity and identity are unchanged. |
+
+**Glass-owned rows (DS-F5P-G0a..G0e).** These were re-witnessed and are unchanged, with no local override:
+- G0a: the stage's hover disc is centred because `--mouse-x/y` is unset (DS-F4X-G1/F5X-G2);
+- G0b: the resting and plated casts (DS-F2R-G1/F6X-G1/F8X-G1);
+- G0c: the /v toolbar's doubled plate, and the transport's orphan `×` (DS-F3C-G2, DS-F2R-G2/F5X-G1);
+- G0d: the text-emphasis link changes hue family between themes (DS-F3C-G3);
+- G0e: ScrollProgressRim draws an empty track at 0 (DS-F4X-G2).
+
+They stay honest-RED on **O-87 FLAT-LIGHTING**, and G0c also on **O-88 DOCK-COLLAPSE-MOTION**. All are re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3211`; `f5p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 12 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f5p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** none. No fourier file changed, so no spec touches a changed file.
+- No golden was re-baselined.
+- The stack was a private vite on `:3211` (`serve.mjs`, its own `cacheDir`), proxying the running dev API on `:8000` read-only. It was stopped at the end.
+
+**Frames** (`pass-05/f5p/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f5p-probe.mjs`, the critic's cells re-shot: 26 PNGs.
+- `gallery`, `equation`, `equation-scroll`, `morph`, `v` and `visualize`, each at `{light,dark}-{1440,390}`;
+- `v-hover-{light,dark}-1440` (G0a, recorded unchanged).
