@@ -2769,3 +2769,45 @@ Every capture is headless real Chrome (§0ei). The task named `pass-10/`, but th
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 150`, the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
 - The first dev-server launch was backgrounded inside a finished shell, so the guard killed it at once ("caller died"). It was relaunched as a proper background task.
 - Each probe used one browser, closed in `finally`. The dev server on :5193 was stopped, and nothing of this seat's was left running.
+
+### pass 5 (the ninth redeploy's pass 5; a REPLAY of critic C5p; no cure owed; recheck in `pass-57/`)
+
+**No keyframes commit.** The seven findings are the eighth redeploy's C5p set, from the same critic frames (`pass-37/critic-p5/now/`, shot 2026-10-16 23:30, before `efc606a2`). Each row was cured or ruled at r8 pass 5 (keyframes `efc606a2`), and KF-C5p-06 was refined at r8 pass 10 (`8e34f482`, KF-C10x-02). This seat re-measured every row on the live tree at `8e34f482`, the precedent being the seventh redeploy's pass 4 (a replay of R6C4).
+
+**Evidence:** value.js `672e71fb8` (`evidence/DS/keyframes/pass-57/`):
+- `capture.mjs` and `after/`: home, `cube`, `amiga`, `square`, `easing`, `spring` and `sequence` at 1440 and 390 in light and dark, plus `cube-keyframes`, `cube-timeline` and `cube-dock-open` at 1440;
+- `after/capture.json`: the chevron witness, the square's reach, the easing fold, the label font and the hero band;
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-05/`, but that folder holds the first workflow's evidence, and `pass-56/` holds another seat's uncommitted r8 pass-11 work, so the frames go to `pass-57/`.
+
+**Re-witnessed (consumer rows; nothing owed)**
+
+| id | standing | measured at `8e34f482` |
+|---|---|---|
+| KF-C5p-06 (low) | Cured at `efc606a2`, refined at `8e34f482`. | **1440x900, both schemes:** the fold is at 705. The three Sine tiles show 12.3 px, which is the 12 px peek inside the 16 px end fade. 'Sine' (654-684) sits whole above them, so the peek reads as continuation (`after/easing-1440-*`). **390x844:** the fold is at 654, and 'Sine' starts at 654, wholly under it. Nothing crosses the fold, so there is no hairline. |
+| KF-C5p-07 (low) | Disproved by measurement at r8 pass 5. | **390, both schemes:** the field is 195 px and the box 97 px, so the reach is 292 px, equal to the plate's inner measure (292). The field already takes the plate's measure. Growing it would mean either shrinking the box below its travel or clipping the box at ±1. |
+| KF-C5p-04 (low) | Owner composition (§0dm; T.D9 / OD-4: the overlap is welcome). | Unchanged: the band top is 398 and the headline spans 398-584 (`after/home-1440-*`). It is held for the owner. |
+| KF-C5p-05 (low) | Standing ruling T.D4 (`font-roles.json` `_monoContract`). | The labels are still Plus Jakarta Sans. Reviving mono would reverse T.D4, which is an owner §0dm call. |
+
+**Cited (glass, not overridden)**
+- **KF-C5p-01 (medium): O-87 rider (correctness).** Still RED at glass 10.1.0. 'alternate' and 'forwards' are `closed` and rotated 180deg, and their nearest open ancestor is `DIV.configurator-layer-region`, in both schemes (`after/capture.json` `chevron-*`). The scene picker 'Cube' sits outside the layer and rests at 0deg, which confirms that the cause is the `in-*` ancestor match. It is honest-RED until the 10.2.0 repin.
+- **KF-C5p-02 (low): O-87.** The dark `glass-capsule` halo (deferred KF-C1-01).
+- **KF-C5p-03 (low): O-87, PLAUSIBLE.** The resting-plate blur (deferred KF-C1-09). It is re-witnessed at the repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5193/ --widths 1440,390 --settle 5000`): identical to pass 55 in every tally. The only differing keys are the timestamp and two `SpringHeatmap.vue` hit line numbers (757→761 and 916→928), which moved with another seat's uncommitted hunk. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `8e34f482`, plus another seat's uncommitted r8 pass-11 hunks in `ControlsPaneWrapper.vue`, `SpringHeatmap.vue` and `KeyframeTimeline.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** the three dirty keyframes files and `pass-56/` belong to another seat and were not touched. The served frames include those hunks. The `ControlsPaneWrapper.vue` hunk is focus-only (KF-C11-01) and does not change a resting frame. Every commit is pathspec-only.
+- **Identity:** nothing changed, so no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the capture and census `--rss-gb 6` (browser runs, not `--light`), check and lint `--light`, and vitest `--rss-gb 8`.
+- The capture used one browser, closed in `finally`. The dev server on :5193 was stopped (its exit 143 is that stop), and nothing of this seat's was left running.
