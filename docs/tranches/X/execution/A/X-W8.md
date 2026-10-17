@@ -228,3 +228,56 @@ tw-animate-css retention receipt).
 concern; for the wave close / its owner (`demo/color-session/ink.ts` last touched `abfeb8a39` V16). (r2) C-5 ·
 NG-6 stay `.i`'s. (r3) the 7 root-only glass statements ride the BK relay "alert-skeleton-subpaths".
 **Escalations** — none. **Adjacent edits** — none. **Inherited paths** — none.
+
+### X.W8.c
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec sections read: W8.md whole (534 lines; X.W8.c `:170-180`,
+G-7 `:308-327`); this record header → Unit plan + the `.b` receipt; COHESION §0j onward located by grep
+(⟨`grep -n 'W8\.c' COHESION.md`⟩ → only §0fc `X.P.W8.cust`, another track; no ruling names this unit).
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- demo/shell/dock demo/scenes/about/markdown docs/tranches/X/waves/W8-witness <this record>`⟩
+   → empty. No inherited edits.
+2. Anchors at bytes (HEAD `d68a010c4`): `Dock.vue:4` `import { GlassDock, DockLayerGroup, DockLayer } from "./";`
+   + `:5` the same subpath for `DockControl, DockSeparator`; `dock/index.ts` re-exports the three glass
+   symbols + `Dock` — ⟨`grep -rnE "from ['\"][^'\"]*dock/?['\"]" demo test e2e`⟩ (glass excluded) → sole
+   importer `demo/app/App.vue:206 { Dock }`. `Markdown.vue:40` `import type { DocModule } from "./";`;
+   `markdown/index.ts` holds `DocModule`/`DocItem`; other consumers ⟨`grep -rn 'DocModule\|DocItem' demo test e2e`⟩ → 0
+   (`AboutPane.vue:118` takes `{ Markdown }` only). Anchors match the spec's INTENT (line numbers drifted).
+3. BEFORE oracle ⟨`guarded --light -- node docs/tranches/V/megatranche/workflows/graph-v3.mjs --print-sccs`⟩ ×2 →
+   exit 0 / exit 0, sha256/16 `2528e824d3f07f88` both; file-level lines: `[load] Markdown` · `[load] Dock` ·
+   `[runtime] Dock` (3). Banked `W8-witness/G-7-graph-before.txt` (55 lines).
+4. Cure. Dock: `Dock.vue` imports `GlassDock, DockLayerGroup, DockLayer, DockControl, DockSeparator` from
+   `@mkbabb/glass-ui/dock` in ONE statement (merged with `:5`; prettier-wrapped); `dock/index.ts` = the one
+   line `export { default as Dock } from "./Dock.vue";`. Markdown: new leaf `markdown/types.ts` (the two
+   declarations, bytes verbatim); `index.ts` = `export { default as Markdown }` + `export type { DocModule,
+   DocItem } from "./types";`; `Markdown.vue:40` → `from "./types"`. Gradient trio + Admin/provider: 0 at
+   baseline (X-W6.c leaf; admin tree moved) → recorded closed, nothing cut. No forwarding directory, no new
+   module beyond the spec's named types module.
+5. AFTER oracle ×2 → exit 0 / exit 0, sha256/16 `27d38866c7fae674` both; file-level lines **0**
+   (classes per `graph-v3.mjs:461-472`: `[runtime]` = RUNTIME_KINDS, `[load]` = + type/dynamic edges).
+   Banked `W8-witness/G-7-graph-after.txt` (46 lines). Re-measured at the committed bytes → `27d38866c7fae674`.
+6. Falsifier: reinserted `import { GlassDock, DockLayerGroup, DockLayer } from "./";` after `Dock.vue:3`
+   (scratch copy kept) → oracle prints `[load] size=2 Dock` + `[runtime] size=2 Dock` (RED, both classes);
+   restored from the copy (⟨`git diff --stat`⟩ shows only the cure) → digest `27d38866c7fae674`, 0 lines.
+   Banked `W8-witness/G-7-graph-falsifier.txt` (16 lines).
+7. Gates (guarded): ⟨`npm run typecheck`⟩ exit 0 · ⟨`npx eslint demo src api e2e test --max-warnings=0`⟩ exit 0 ·
+   ⟨`npm run lint`⟩ exit 0 · ⟨`git diff --check`⟩ clean · ⟨`npm run test -- --maxWorkers=2`⟩ run 1
+   `7 failed | 1227 passed (1234)` — the SAME 7 the `.b` receipt books pre-existing (ink.test.ts D6 ×2 + T-35 ×3;
+   C-5; NG-6), none in this unit's import graph.
+   Run 2 identical: `7 failed | 1227 passed (1234)`, same 7 names.
+
+**Commit** — `9b92f36c9` refactor(demo/graph): close the four measured SCCs by ownership, not forwarding
+(§Commit Plan 3; 8 paths: the 5 product files + the 3 `W8-witness/G-7-*` transcripts; body required, carried).
+
+**Gates BEFORE → AFTER**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-7 | RED — 2 of 4 clusters: `[runtime]`+`[load]` Dock, `[load]` Markdown (3 file-level lines, ×2 identical); gradient + Admin/provider GREEN-BEFORE-CURE (0) | **GREEN** — 0 `[runtime]`, 0 `[load]` (×2 identical + at commit); each former cluster has one owner (Dock symbols → `@mkbabb/glass-ui/dock`; Markdown types → leaf `types.ts`); no forwarding directory; falsifier RED-then-restored, banked |
+
+**Residuals** — (r1) the oracle's `[ownership.pair] CPE L-24 · palettes ↔ shell owner=X-W8` and the 9-dir
+`[ownership]` lattice are DIRECTORY-granularity rows, not module SCCs; G-7's clauses read file-level classes
+(as the baseline records) and no file in this unit's set carries those edges — named for the wave close, not cut
+here. (r2) the 7 pre-existing vitest REDs per the `.b` receipt (r1/r2). (r3) the oracle exits 0 whether or not
+components exist — RED is read from the printed `[runtime]`/`[load]` lines, as the falsifier transcript states.
+**Escalations** — none. **Adjacent edits** — none. **Inherited paths** — none.
