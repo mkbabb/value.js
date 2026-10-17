@@ -1820,3 +1820,28 @@ This is the cure seat for critic **F10C** (pass 10, 2026-10-17). The AFTER frame
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-10/f10c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f10c-probe.mjs`: 8 AFTER PNGs and 8 BEFORE PNGs, of `/gallery` and the `/v` Basis section, at 1440 and 390, in light and dark.
+
+### pass 11
+This is the cure seat for critic **F11C** (pass 11, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-11/f11c/`. The other files and folders in `pass-11/` belong to other seats and are not part of this receipt.
+- fourier `61e0512`, on `m/w1-bump-migration`, one path, committed by pathspec and pushed fast-forward `6226157..61e0512`.
+- value.js `e97b2e7ce` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F11C-C1 | **One recovery grammar for a failed compute.** /equation's no-result failure now uses the shared `.compute-status` line, the one /visualize's stage and aside already use: the message, then glass's `emphasis="text"` Retry, kept in the `.eq-state` slot with `role="alert"`. The centred "Computation failed" title, the filled secondary pill with its leading RotateCcw and "Try again", and `.eq-state-failure` are **deleted**, not countered. The only addition is one `max-inline-size: 100%` on the line in that slot, as /visualize's stage gives its own. Glass's Button cast is not overridden: the pill that wore it is gone. The with-result overlay (`.eq-status`, quiet Retry) is untouched.<br>**Measured** (`f11c-probe.json`, with the compute endpoints answering 503), in both themes:<br>• At 1440 the /equation line is 273×36 at y 470, and /v's stage line is 245×36 at y 470. Both have a 14.4 px message and a text "Retry" with 0 glyphs, no box-shadow and a transparent fill.<br>• At 390 the line is 245×44 at 12.2 px, the same rung as /v's aside line (314×44, 12.2 px).<br>• There are 0 "Try again" buttons, no horizontal scroll and no page errors.<br>Frames: `equation-{light,dark}-{1440,390}.png` and `v-{light,dark}-{1440,390}.png`. |
+| DS-F11C-E1 | **Environment only; no code change.** The shared `:3100` server still has a stale or duplicated prebundle, for its owner to restart with `--force`, and `:8000` is down. This seat served its own vite on `:3191` through `createServer` **with cwd = the fourier repo root**, as the critic warned, so that Tailwind's source scan holds. It used a private `cacheDir` (`~/.cache/fourier-f11c/vitecache`) with `optimizeDeps.force`, and its own API on `:8071` (`COMPUTE_CONCURRENCY=1`). Both were stopped at the end. |
+
+**Glass-owned rows:** none this pass, so there is no O-87 addendum. The coarse Retry rung (DS-F6C-G1) is unchanged and is re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3191`; `f11c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 10 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only. The census serves /equation with a live API, so it does not reach the failure state. The removed pill's cast is counted in the probe instead.
+
+**Gates** (`f11c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 17 specs (`e2e-specs.txt`), every spec that reaches `/equation`. They include `f-w14u-eq` (q202 failure states; the no-Retry-on-4xx check) and `visual-checkpoint` and `visual-baseline`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker, against the private stack. **Run A passed 164/164, and so did run B.**
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-11/f11c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f11c-probe.mjs`: 8 AFTER PNGs, of the `/equation` and `/v` compute-failure states, at 1440 and 390, in light and dark.
