@@ -124,7 +124,7 @@ const TRACK = {
         "X-W12",
         "X-W12U"
       ],
-      "note": "LAST of the demo waves; deletes what W4/W5/W6/W7 rewired"
+      "note": "RESUME 2026-10-17 on COHESION §0fx + W8.md ADDENDUM (sixth) (binding; ESC-W8i-1/-2 RULED, ESC-W8i-3 = the owner reboot): every landed unit is alreadyDone, never re-dispatched. FIRST read tail -1 ~/.claude/guard/log/zone.log: if inuse >= 13,000,000 return {blocked:\"zone >= 13M: owner reboot owed (ESC-W8i-3)\"} without dispatching anything. Owed: [X.W8.i2] (grant demo/picker/controls/spectrumLuma.ts, ComponentSliders.vue, useSpectrumPlateStyle.ts, test/spectrum-luma.test.ts: hue-aware spectrumFieldIsLight(h,s,v) via value.js colour maths, no hand constants, stroke clears 3:1 at every hue; M-12 pin restated over the new model in a dated W8.md addendum; NG-6 case re-authored to the consumer contract: v-model drives state, a stale checked prop drives nothing (unchecked); falsifiers RED->GREEN x2). Then the close (verify-only) reading every heavy arm x2 (npm run test:e2e, G-8 motion, G-15, J4, CLS, full vitest), never substituted by --light. Then the check. ORIGINAL NOTE: LAST of the demo waves; deletes what W4/W5/W6/W7 rewired"
     },
     "X-W11": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W11.md",
