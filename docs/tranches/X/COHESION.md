@@ -4199,3 +4199,28 @@ G2 went from 331,631 to **293,980 B gz** ×2.
    - **If the profile names glass-ui module evaluation** as a dominant share, that share becomes a producer row (O-n, ADOPT-AT-LANDING), and the consumer share is cured here.
    - **Gate:** O-5 on the real-GPU witness GREEN ×2, plus G2 ≤ 294,912 ×2. Smoke stays GREEN ×2 except the named rows.
 3. **Order:** `.o5b → close (verify-only) → check`. W12U.md ADDENDUM (j) carries this ruling.
+
+## §0fv — 2026-10-17: ESC-W12U-o5b-1 RULED. Arm (b): O-5 reads its intent. Arm (a) is taken for the veiled dock only. `.o5c → close → check`
+`.o5b` measured the boot floor on real GPU:
+- one synchronous `router.isReady() → app.mount` task of 70–80 ms, even with the Dock cut and `useAtmosphereBoot` stubbed (scratch only);
+- what remains is Vue's vdom mount, module evaluation and the first style/layout;
+- moving non-first-paint work is worth about 4 ms;
+- the inks and the aurora palette are first-paint state;
+- no module top dominates.
+
+So the 50 ms bound cannot be met by any lawful act on the boot task. A one-task SPA mount is the irreducible boot. What O-5 tests is boot *jitter*, the cadence the user sees.
+1. **Arm (b): O-5's window opens at the first frame after `mainVisible`.**
+   - O-5 measures frame cadence from the frame the main pane is visible, over the same 4,000 ms, at ≤ 3× the median, on the real-GPU witness.
+   - The boot task before `mainVisible` is not jitter. It is boot cost, bounded by G2/G3/G4 and recorded here: it is banked every reading, and a reading above its pre-cure maximum of 122 ms is a regression.
+   - This restates the gate's instrument to its intent, as §0fr.2 did. It does not weaken it: post-visible spikes stay RED.
+2. **Arm (a), for the dock only.** The dock is veiled at first paint (the overture), so it is not shown, and mounting it in a later task is lawful and a real improvement (23–27 ms off the boot task).
+   - **`.o5c` (grant `demo/**`):** the dock mounts in the task after first paint, under the veil, at its root.
+   - **Required:** no visible pop and no layout shift. CLS = 0 on the cell, and the overture reveal is unchanged frame for frame.
+   - The pane stays in the first task.
+3. **Arm (c), the glass dock-mount cost, is filed as an O-row** (ADOPT-AT-LANDING) with `.o5b`'s measurement. It is informational, because it does not gate.
+4. **Gate:**
+   - O-5 (from `mainVisible`) GREEN ×2 on GPU;
+   - the boot task recorded ×2 and ≤ 122 ms;
+   - G2 ≤ 294,912 ×2;
+   - smoke ×2 except the named rows.
+5. **Order:** `.o5c → close → check`. W12U.md ADDENDUM (k) carries this ruling.
