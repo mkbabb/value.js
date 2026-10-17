@@ -1,0 +1,11 @@
+e2e/smoke/scene-action-contract.spec.ts
+e2e/smoke/w12-ground.spec.ts
+e2e/smoke/x-w7l-detached.spec.ts
+e2e/smoke/w12-dock.spec.ts
+e2e/smoke/a11y-select-title.spec.ts
+e2e/smoke/oracles/o22-status-lamp.spec.ts
+e2e/smoke/oracles/o15-dock-register.spec.ts
+e2e/smoke/oracles/o29-scene-contracts.spec.ts
+e2e/smoke/oracles/o18-contrast-census.spec.ts
+e2e/smoke/views/companion-pane-track-start.spec.ts
+e2e/smoke/walk.spec.ts
