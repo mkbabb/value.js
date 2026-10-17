@@ -480,3 +480,103 @@ Seat `claude-opus-5-5`, 2026-10-17. Spec: W8.md ADDENDUM 2026-09-22 (second, §0
 **Escalations** — ESC-W8i-1 (C-5): the oracle's M-12 pin plus its 2-arg `strokeContrast` make 3:1-at-every-hue unsatisfiable for any `(s,v)` predicate. Ask: grant `test/spectrum-luma.test.ts` to pass hue through a hue-aware `spectrumFieldIsLight(h,s,v)`, with the M-12 pin restated over the new model, or rule the assertion's owner. ESC-W8i-2 (NG-6): the failing case asserts that glass-ui's Checkbox honours a `checked` prop. That is producer-owned and contradicts the file's own third case. Ask: rule the assertion an owner's (W1.a) re-author to "stale prop drives NOTHING" (`'unchecked'`), or relay it to glass. ESC-W8i-3 (host): the kernel zone is at 13.5M and the owner must reboot before J4 / CLS / the full vitest ×2 can be read.
 **Adjacent edits** (§0bt) — none.
 **Inherited paths** — none.
+
+## Close
+
+Close seat `claude-opus-5-5`, 2026-10-17, VERIFY-ONLY (cures nothing). HEAD at open `740da7fcf`. Spec read
+whole once; record read header → Unit plan, the `.i` receipt (last section), and the `.d/.dc/.e` gate tables by grep.
+Crash-recovery ⟨`git status --porcelain -- docs/tranches/X/execution/A/X-W8.md docs/tranches/X/execution/LEDGER.md docs/tranches/X/waves/W8-CLOSE.md`⟩ → empty; no inherited edits.
+Host: ⟨`tail -1 ~/.claude/guard/log/zone.log`⟩ → `08:21:59 inuse=13482496`; ⟨`timeout 40 guarded --timeout 30 -- npx vitest run --maxWorkers=2`⟩ →
+`[guarded] waiting for headroom (kernel zone data.kalloc.1024 at 13.5M …): reboot the Mac)` → exit 124. **Every heavy arm is guard-refused this seat.**
+
+### Act 1 — commit roster and bounds audit (⟨`git show --stat --format= <sha>`⟩ per commit)
+
+| unit | commits | paths vs writable set |
+|---|---|---|
+| `.a` | `17090b54a` census · `76111e871` receipt | census + record only — IN BOUNDS |
+| `.b` | `62bc3fbde` · `ce77d32e2` | 26 paths: components.json, eslint.config.js, package{,-lock}.json, shared/{utils→debounce}.ts, the 11 debounce importers, the 9 clipboard sites, G-6 witness — IN BOUNDS |
+| `.c` | `9b92f36c9` · `cac84202a` | dock/{Dock.vue,index.ts}, markdown/{Markdown.vue,index.ts,types.ts}, 3 G-7 witness — IN BOUNDS |
+| `.d` | `15932a93a` · `2d3ac4fd0` | 18 paths; `test/ink-real-composite.test.ts` declared adjacent (§0bt); `demo/picker/ColorPicker.vue:63` (G-10's named parent `@update` binding) is NOT in the Unit-plan `.d` list and NOT under the receipt's "Adjacent edits" (the receipt calls it "in the writable set") — lawful under §0bt as the parent counterpart G-10 itself names, but **mis-recorded** (MINOR, landed-wrong of record) |
+| `.dc` | `0f2d34e61` addendum · `639892d53` · `62fdd2b3b` | shell/{usePaneRouter,useSceneTargets,useSceneActions}.ts, dock/Dock.vue, new registry test, 3 witness; `demo/app/App.vue` declared adjacent — IN BOUNDS |
+| `.e` | `df5737679` · `3ecc1535f` | eslint.config.js, ARCHITECTURE.md, witness — IN BOUNDS |
+| `.i` | `82bd72d2f` · `740da7fcf` | the 3 SFCs + 2 witness — IN BOUNDS |
+
+No commit touches `scripts/dev/dev.sh`, `foundation.css`, `.github/**`, `src/**`, `tsconfig.demo.json`, glass-ui.
+
+### Act 2 — every gate re-run at this seat (HEAD `740da7fcf`, ×2 unless noted)
+
+Grep arms, run twice (one-line form): ⟨G-1 four commands⟩ → `0 96 53 0` both runs; local-barrel filter `grep -v '@mkbabb/glass-ui/'` → 0;
+root-barrel clipboard statements → 0; root `from '@mkbabb/glass-ui'` → 7 (Accordion*/Alert*/Skeleton — no subpath at 10.1.0);
+`grep -c 'demo/@' eslint.config.js` → 0; clsx/tailwind-merge in package.json 0, lockfile 0; `tw-animate-css` 1; components.json, demo/ui, shared/utils.ts absent;
+shared/debounce importers 11; shim grep 0, `<DockCrossfade` 3; forks grep 0; `max-lines` 5. ⟨`node …/graph-v3.mjs --print-sccs`⟩ ×2 → exit 0, `[runtime]`/`[load]` lines **0**,
+sha256/16 `27d38866c7fae674` both (= `.c`'s after digest). `npm run typecheck` exit 0 · `npm run lint` exit 0 · `npx eslint demo src api e2e test --max-warnings=0` exit 0 — each ×2 (run 2: tc 0 · lint 0 · product eslint 0).
+Targeted ⟨`guarded --light -- npx vitest run test/ink.test.ts test/spectrum-luma.test.ts demo/test/shell/reka-binding-idiom.test.ts demo/test/shell/dock-admin-mode.test.ts demo/test/shell/dock-command-registry.test.ts test/ink-real-composite.test.ts --maxWorkers=2`⟩ ×2 → `7 failed | 42 passed (49)` both:
+ink.test.ts D6 ×2 + T-35 ×3, C-5, NG-6 — the standing 7; the G-12 suite, the REG suite and ink-real-composite all pass.
+
+| gate | BEFORE (baseline `d17dece5a`) | AFTER (this seat) |
+|---|---|---|
+| G-1 census | RED | **GREEN** — census present, line 1 SERVED MODEL, 3 UNREPRODUCED marks; commands reproduce 0/96/53/0 |
+| G-2 barrels | GREEN-BEFORE (`2ae7344d2`) | **GREEN** — 0 barrels, demo/ui absent, no new forwarding index |
+| G-3 owners | RED (9 root clipboard) | **GREEN** — 0 local-barrel; 0 root clipboard; typecheck 0; 7 root-only rows ride BK relay `alert-skeleton-subpaths` |
+| G-4 config/deps | RED | **GREEN** — components.json absent; `demo/@` 0; clsx/twm 0/0; tw-animate-css kept w/ receipt |
+| G-5 cn/debounce | RED | **GREEN on clauses 1-3**; clause 4 `npm run test` **RED/UNMEASURED** (full suite guard-refused; standing 7 RED in targeted run) |
+| G-6 lint | RED (ban) | **GREEN** — lint exit 0 ×2; ban present (`eslint.config.js:268`); falsifier committed (`W8-witness/G-6-lint-falsifier.txt`) |
+| G-7 SCCs | RED (Dock, Markdown) | **GREEN** — 0 runtime / 0 load ×2; before/after/falsifier banked |
+| G-8 shim | RED (count 1) | **GREEN (static)** — 0 / 3; motion arm banked by `.d` (`G-8-G-13-probe.txt`), not re-driven (heavy, zone-refused) |
+| G-9 Button/Skeleton | GREEN-BEFORE | **GREEN** — 0 attributes; null-DELTA moot (no attribute deleted this wave) |
+| G-10 dead surface | RED | **GREEN** — `update` emit 0, `@update=` 0, colorInputRef/actionToolbarRef 0, clearHover 0 |
+| G-11 overlay | RED | **GREEN** — aria-controls 0, execCommand checked in try/finally, `onScopeDispose(clearTimeout)`, `type="button"` ×3 |
+| G-12 latch | RED (test) | **GREEN** — `ref(` 0; back-navigation suite passes ×2 |
+| G-13 chrome rung | RED | **GREEN** — `chrome` only in a comment in ink.ts; compile falsifier banked by `.d` |
+| G-14 LoC cap | RED | **GREEN** — wired ratchet (`max-lines` ×5 incl. comment), `400 LoC` 0, `demo/@/components/ui` 0 in ARCHITECTURE.md, lint 0 |
+| G-15 preservation | GREEN (tc/lint) | **PARTIAL** — typecheck/lint/product-eslint 0; `npm run test` + `npm run test:e2e` + visual pairs **UNMEASURED** (guard-refused) |
+| G-W8-i1 | RED | grep **GREEN** 0; full vitest ×2 **RED** (C-5, NG-6 escalated) |
+| REG (S-1) | RED | **GREEN** — registry suite passes ×2 |
+| A3 / C2 | RED of record | **UNMEASURED** (heavy probe, zone-refused) |
+| J4 · 844×390 CLS | — | **UNMEASURED** (zone-refused) |
+| DOCK-SCROLL-MORPH | honest-RED | **honest-RED by id, O-55** |
+| W5-BTN-INTERACTIVE-DEAD | RED | **GREEN** — 0 class sites (5 hits are comments + `demo/DESIGN.md:248,258` prose) |
+| W5-READY-DEAD · C7 | — | **STRUCK** |
+
+### Act 3 — §Verification Artefacts as written
+
+`W8-census.md` present. `W8-witness/` holds: G-6 lint falsifier · G-7 before/after/falsifier · G-8 +60 ms phase samples and
+G-13 computed-style readings (`G-8-G-13-probe.txt`, `probe-g8-g13.mjs`) · G-11 falsifier suite · G-12 latch falsifier ·
+G-13 compile falsifier · G-14 ratchet falsifier (`e-max-lines-falsifier.txt`) · `.dc` registry falsifier + A3/C2-unmeasured + scroll-morph · `i/` C-5/NG-6 witness.
+**Absent**: the G-9 null-DELTA pairs (moot — no attribute existed to delete; GREEN-BEFORE at `2ae7344d2`) and the G-15 before/after visual pairs (heavy, guard-refused).
+`W8-CLOSE.md` created by this seat (dispositions, four-verb state, every gate's final cell).
+
+### Act 4 — E13 sweep
+
+⟨`find <path> -maxdepth 1 -type f -newer docs/tranches/V/coordination/INBOX.md`⟩ (INBOX mtime 06:17) over value `V/` + `V/coordination` ·
+glass BL (newest, ⟨`ls -dt`⟩ → BL BK BJ) + BK/coordination · keyframes `V/coordination` · atlas `P/coordination` →
+value `V/ARCHITECTURE.md` (`.e`'s own commit `df5737679`, not mail) · glass `BL/FORMATION-PROGRESS.md` (glass's resume cursor, not a letter); 0 elsewhere.
+**0 unrowed · 0 UNREAD in scope.** Sweep line appended to INBOX.md.
+
+### Residuals (named owners)
+
+- R1 `npm run test` full ×2 and G-W8-i1's full-vitest arm — the standing 7: ink.test.ts D6 ×2 + T-35 ×3 → INK-VEIL-MIDBAND, O-62 (a) (LEDGER X-W12U/X-W7L rows); C-5 → ESC-W8i-1, NG-6 → ESC-W8i-2 (owner ruling on the oracle owner; NG-6 producer-side → glass relay).
+- R2 UNMEASURED heavy arms — `npm run test:e2e`, G-8 motion re-drive, G-15 visual pairs, A3/C2 probe, J4 o29 short-landscape, 844×390 CLS: owner act **reboot** (ESC-W8i-3; zone 13.48M ≥ 13M), then a RESUME close seat re-reads them.
+- R3 DOCK-SCROLL-MORPH honest-RED by id → O-55 (glass BL N-7a).
+- R4 7 root-barrel statements (Accordion*/Alert*/Skeleton) → BK relay `alert-skeleton-subpaths`.
+- R5 `demo/DESIGN.md:248,258` still names `btn-interactive` as a consumed producer atom (stale canon after W5-BTN-INTERACTIVE-DEAD) → X-W10 (canon owner), MINOR.
+- R6 L-18 rider (two gestalt passes + Fable arbiter) owed before ACCEPTED → the X-W8 CHECK seats.
+
+### Escalations
+
+Carried, not new: ESC-W8i-1 (C-5), ESC-W8i-2 (NG-6), ESC-W8i-3 (host reboot). No new escalation from this seat.
+
+### Landed-wrong (recorded, not fixed)
+
+- LW-1 (MINOR): `15932a93a` edits `demo/picker/ColorPicker.vue:63` (G-10's named parent binding) without listing it under the `.d` receipt's "Adjacent edits"; the receipt line `:389` calls it "in the writable set", but the Unit-plan `.d` list does not carry it. Lawful under §0bt; the record is wrong, not the bytes.
+
+### Four-verb
+
+| verb | state |
+|---|---|
+| AUDITED | YES |
+| SPECIFIED | YES |
+| IMPLEMENTED | **PARTIAL** — every subtraction landed; G-5/G-15/G-W8-i1 suite clauses RED (standing 7) or UNMEASURED (guard-refused) |
+| VERIFIED | NO (not this seat's stamp; L-18 rider owed) |
+
+**Verdict: PARTIAL** — static/compile/lint/graph gates GREEN ×2; the suite and every heavy arm remain on R1/R2.
