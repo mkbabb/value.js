@@ -1613,3 +1613,29 @@ This is the cure seat for critic **F15X** (the redeploy's pass-15 critic, 2026-1
 - 22 PNGs in light and dark;
 - `f15x-probe.json`, which records each bar's variant, rail and fill tones and its sweep, the card's label, field and select boxes, and the band's rule.
 - At 390 the equation's cold state sits in the inactive Canvas tab, so the C1 cells are at 1440.
+
+### pass 16
+This is the cure seat for critic **F16X** (the redeploy's pass-16 critic, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-16/`.
+- fourier `a48bd7b`, on `m/w1-bump-migration`, three files, committed by pathspec and pushed fast-forward `70f1d8a..a48bd7b`.
+- value.js `1a54150b6` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F16X-C1 | **Cured at the token seat.** `--row-label-col: 3.75rem` moved from MorphPhaseConfig's `.config-card` to FourierMorphDemo's `.controls-column`, under the same `(min-width:1024px) and (pointer:fine)` gate. Every control row in the column now reads one label column: the phase cards' Duration and Easing, and the levels card's Low and High. SliderControl's 2.5rem fallback stays for other surfaces. This is one token move, with no wrapper and no new rule.<br>**Measured** (`f16x-probe.json`): at 1024, all four stacked cards start their fields at x 541.2 (the Easing select at 541.0); Low and High were at about 519. At 1440, the levels card's Low and High fields move to 685.4, a 3.75rem column inside the full-row card, and the phase cards still stack. At 390 nothing changes.<br>Frames: `morph-*-{1440,1024,390}-{stage,cards,levels}`. |
+| DS-F16X-T1 | **Kept as is.** The critic marked it optional. The 12rem Easing measure is pass 15's deliberate choice (a preset name, not the card's whole width, so the secondary control is not the card's heaviest element). Stretching it to the track's right edge would undo that. |
+
+**Glass-owned: DS-F16X-G0** has no new witness. It is folded into the held rows: the indeterminate Progress gleam and dark rail (pass 15's O-87 addendum); the Recomputing pill cast; the plated-primary casts (DS-F2R-G1, F6X-G1, F8X-G1); the pointer-centred specular (DS-F4X-G1, F5X-G2); the toolbar doubled ring (DS-F3C-G2); the transport's floating "1 ×" (DS-F2R-G2, F5X-G1, O-88); the Select fill (DS-F3C-G4); the 390 coarse-ramp inversions (DS-F3C-G1, F9X-G1); the aside top offset (DS-F-G3); and the resting-card casts in dark. These stay honest-RED on **O-87 FLAT-LIGHTING** (and O-88), to be re-judged at the glass 10.2.0 repin. There is no local override.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3136`; `pass-16/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 15 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`pass-16/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 18 specs (`e2e-specs.txt`): every spec that reaches /morph, the control rows or SliderControl, plus `visual-checkpoint` and `f-w14-residuals`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8016` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3136`. Both were stopped at the end.
+  - Runs A and B passed 182/182 each.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-16/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f16x-probe.mjs`: 18 PNGs of /morph (light and dark, 1440, 1024 and 390, each with stage, cards and levels), and `f16x-probe.json`, which records every card's label column, each row's label and field boxes, and the Easing select box.
