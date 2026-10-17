@@ -825,3 +825,33 @@ Then the **close** (separate verify-only seat): every heavy arm ×2 — full `np
 A3/C2 probe — never substituted by `--light`. Then the check.
 
 ## RESUME 2026-10-17 (§0fx) — Unit receipts
+
+### X.W8.i2
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec: W8.md ADDENDUM (sixth) `:538-541` · ADDENDUM (second, §0aq) `:526` · COHESION §0fx.1-2 (`:4243-4252`). Spec read whole once (541 lines).
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- <the 7 writable paths>`⟩ → empty. **Inherited paths — none.**
+2. Anchors at true bytes: ⟨`grep -rn 'spectrumLuma\|spectrumFieldIsLight\|SPECTRUM_LUMA_FLIP' demo src test e2e`⟩ → consumers exactly `ComponentSliders.vue:100,194` + `useSpectrumPlateStyle.ts:11,53` (the header's `useGamutOverlay` consumer does not exist at HEAD; doc corrected). ⟨`grep -rn -i 'luminance\|contrast' src`⟩ → `luminance`/`contrast` in `src/color/operations.ts:184,197` are module-private (not exported); the public colour subpath exports `hsv` + `convertColor`. Probe ⟨`guarded --light -- npx vite-node <scratch>/xyz-probe.ts`⟩ → `convertColor(hsv(·),"xyz")` is D65 and its `Y` = WCAG luminance (`60,1,1 → 0.92781 vs 0.9278`; `240,1,1 → 0.07219 vs 0.0722`; white `Y = 1`, black `0`) — so CIE Y is the no-hand-constant reading.
+3. Cure (§0fx.1): `spectrumLuma.ts` — `spectrumFieldLuminance(h,s,v)` = `Y` of `convertColor(hsv(h,s,v),"xyz")`; `spectrumFieldIsLight(h,s,v)` selects the stroke (plate black `hsv(0,0,0)` / white `hsv(0,0,1)`, through the same path) with the larger WCAG ratio (`contrastRatio`, flare 0.05 = the standard's constant); crossover floor ≈ 4.58:1 ⇒ ≥ 3:1 at every hue. The hue-blind `spectrumLuma(s,v)` and `SPECTRUM_LUMA_FLIP` deleted (0 other consumers). `ComponentSliders.vue` `thumbInk` and `useSpectrumPlateStyle.ts` `spectrumDotStyle` pass `clamp(channelNumber(HSVCurrentColor,"h"),0,360)`. `:197`'s `--slider-track-bg` var untouched (⟨`git show f34718e2f -- …ComponentSliders.vue`⟩ = the `thumbInk` hunk only).
+4. Test restatement (`test/spectrum-luma.test.ts`): the model pin now checks `spectrumFieldLuminance` against the oracle's independent `srgb-linear` × WCAG reading at 8 hues × 5 s × 5 v (bar 3 digits — WCAG publishes the library's XYZ row rounded to 4 decimals, max gap < 1.4e-4; endpoints exact); **M-12 restated hue-aware**: along `s=1,v=1`, every integer hue 0–359, selected ratio ≥ rejected ratio, plus neighbours at 60° (light) / 240° (dark); `hue-blind by construction` → `hue-aware by construction` (set size 2); **C-5 unchanged** except `strokeContrast` passes `h` (bar 3, `HUES` same 8).
+5. Falsifier ⟨`sed` the comparator `>` → `<` in `spectrumFieldIsLight`; `guarded --light -- npx vitest run test/spectrum-luma.test.ts`⟩ → `Tests 2 failed | 2 passed (4)` (M-12 + C-5 RED); file restored from a scratch copy (⟨`grep -c 'INK_LUMINANCE) > '`⟩ → 1).
+6. NG-6 (§0fx.2): case 2 re-authored — `{checked:true}` ⇒ `'unchecked'`; and beside a live model, `{checked:true, modelValue:false}` ⇒ `unchecked`, `{checked:false, modelValue:true}` ⇒ `checked` (v-model drives, stale prop drives nothing). Cases 1 and 3 untouched; header notes the re-author.
+7. W8.md ADDENDUM 2026-10-17 (seventh) appended (append-only, E-3): the model, the M-12 pin restated, C-5 unchanged.
+8. Gates ⟨`guarded --light --timeout 5 -- npx vitest run test/spectrum-luma.test.ts demo/test/shell/reka-binding-idiom.test.ts --maxWorkers=2`⟩ ×2 → `Test Files 2 passed (2)` · `Tests 7 passed (7)` both runs. Neighbours ⟨`… + test/slider-announcement.test.ts test/readout-reservation.test.ts`⟩ ×2 at HEAD `5169ccd00` → `Tests 28 passed (28)` both. ⟨`guarded --light -- npm run typecheck`⟩ ×2 → exit 0 both. ⟨`guarded --light -- npx eslint demo src api e2e test --max-warnings=0`⟩ ×2 → exit 0, 0 output lines both. ⟨`git diff --check`⟩ clean.
+
+**Commits** — `f34718e2f` fix(demo/picker): hue-aware spectrumFieldIsLight(h,s,v) — C-5 cured (5 paths: `spectrumLuma.ts` · `ComponentSliders.vue` · `useSpectrumPlateStyle.ts` · `test/spectrum-luma.test.ts` · `W8.md`) · `5169ccd00` test(demo/shell): NG-6 re-authored to the consumer contract (1 path).
+
+**Gates BEFORE → AFTER**
+| gate | BEFORE (RESUME Baseline) | AFTER |
+|---|---|---|
+| C-5 `selected stroke clears 3:1 at every hue` | RED `45° 1.65 · 60° 1.07 · 120° 1.37 · 180° 1.25 :1` | **GREEN ×2** |
+| NG-6 `:checked drives NOTHING` | RED (`unchecked` vs expected `checked`) | **GREEN ×2** (expects `unchecked`, §0fx.2) |
+| two-file totals | `2 failed \| 5 passed (7)` | `7 passed (7)` ×2 |
+| `npm run typecheck` | 0 (banked) | **0** ×2 |
+| product eslint `--max-warnings=0` | 0 (banked) | **0** ×2 |
+
+**Residuals** — the heavy arms (full `npx vitest run` ×2 incl. the ink D6/T-35 honest-REDs → O-62 (a), `npm run test:e2e`, G-8 motion, G-15 pairs, J4 o29, 844×390 CLS, A3/C2 probe) belong to the close seat (§0fx.3); not read here, not substituted by `--light`.
+**Escalations** — none.
+**Adjacent edits** (§0bt) — none.
+**Inherited paths** — none.
