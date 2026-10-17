@@ -1845,3 +1845,28 @@ This is the cure seat for critic **F11C** (pass 11, 2026-10-17). The AFTER frame
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-11/f11c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f11c-probe.mjs`: 8 AFTER PNGs, of the `/equation` and `/v` compute-failure states, at 1440 and 390, in light and dark.
+
+### pass 12
+This is the cure seat for critic **F12C** (pass 12, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-12/f12c/`; the BEFORE cells are pass 11's `pass-11/f11c/v-{light,dark}-1440.png`. The other files and folders in `pass-12/` belong to other seats and are not part of this receipt.
+- fourier `2e11542`, on `m/w1-bump-migration`, two paths, committed by pathspec and pushed fast-forward `61e0512..2e11542`.
+- value.js `fd31e4fbe` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F12C-C1 | **One compute-failure line per visible surface.** `BasisSelector` takes `stageSaysFailed`, which the view passes as `stageComputeFailed && !tabbed` (`tabbed` is the existing glass-read form, `sheet`). When it is true, the section does not render its `.compute-status` copy, and the stage's line takes `role="status"`, so the live region stays single. In the tabbed sheet both lines stay as they were, with the aside's still the live region. There is no new component, token or CSS.<br>**Measured** (`f12c-probe.json`, with the compute route answering 503):<br>• At 1440 (split form), in both themes, **1** visible `.compute-status` (was 2), on the stage at y 470, with 1 `role=status`. The Basis section's Fourier caption now sits at y 256, where the duplicate line used to sit.<br>• At 1024 (rail form): 1 visible line, on the stage.<br>• At 390, in both themes: 1 visible line on each tab (the aside's on Controls, the stage's on Canvas), with 1 `role=status`.<br>• No page errors and no horizontal scroll.<br>Frames: `v-{light,dark}-1440.png`, `v-light-1024.png`, `v-{light,dark}-390-{controls,canvas}.png`. |
+| DS-F12C-T1 | **No change, by the canon.** The aside's last section head is cut by honest scroll overflow. A fade would be a gradient, and padding tuned to land on a section rule would hold for only one content height, so neither was added. Frames for proportion: `equation-{light,dark}-1440.png`. |
+
+**Glass-owned rows (DS-F12C-G-held).** These were re-observed and are unchanged, with no local override. They stay honest-RED on **O-87 FLAT-LIGHTING** (DS-F-G1..G6, DS-F2R-G1, DS-F3C-G1/G3/G4, DS-F6C-G1, DS-F8C-G1/G2/G3) and **O-88 DOCK-COLLAPSE-MOTION** (DS-F2R-G2, DS-F3C-G2), and are re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3201`; `f12c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 11 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f12c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 9 specs (`e2e-specs.txt`): every spec that reaches the /v Basis section or the stage-state slot (`f-w13-image-controls`, `f-w14v-detached`, `f-w14v-u4`, `f-w14u-vstage`, `settings-persistence`, `slider-scrub-contrast`, `visualization-ux`), plus `visual-checkpoint` and `visual-baseline`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker, against a private stack: API `:8081` (`COMPUTE_CONCURRENCY=1`) and vite `:3201` (`createServer`, cwd = the fourier root, private `cacheDir`). Both were stopped at the end. **Run A passed 77/77, and so did run B.**
+- No golden was re-baselined.
+
+**Frames** (`pass-12/f12c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f12c-probe.mjs`: 10 AFTER PNGs.
