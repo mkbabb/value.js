@@ -1,0 +1,47 @@
+### smoke-reactivity (cl4a) start 10-16 19:10:31 load1=24.12 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02
+(node:88320) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:88361) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:88416) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[reactivity-instant] spectrum-drag deltas (ms): 19.70, 21.30, 22.10, 22.90, 25.50
+[reactivity-instant] spectrum-drag median (ms): 22.10
+  ✓  1 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:42:1 › spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths (18.4s)
+[reactivity-instant] slider-keyboard deltas (ms): 35.30, 121.10, 251.40
+[reactivity-instant] slider-keyboard median (ms): 121.10
+  ✘  2 [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps (1.7s)
+
+
+  1) [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m100[39m
+    Received:    [31m121.1000000089407[39m
+
+      254 |     // rationale (CDP keyboard.press has higher latency variance than
+      255 |     // mouse.up; 100ms is the RAIL perceptual-instant gate).
+    > 256 |     expect(median).toBeLessThanOrEqual(100);
+          |                    ^
+      257 | });
+      258 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/reactivity-instant.spec.ts:256:20
+
+    Error Context: ../out/cl4a-smoke-reactivity/reactivity-instant-slider--b5274-100ms-median-across-3-steps-smoke-reactivity/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/cl4a-smoke-reactivity/reactivity-instant-slider--b5274-100ms-median-across-3-steps-smoke-reactivity/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/cl4a-smoke-reactivity/reactivity-instant-slider--b5274-100ms-median-across-3-steps-smoke-reactivity/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [smoke-reactivity] › e2e/smoke/reactivity-instant.spec.ts:137:1 › slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps 
+  1 passed (22.8s)
+### smoke-reactivity end 10-16 19:10:59 load1=23.51 exit=1

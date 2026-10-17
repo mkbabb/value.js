@@ -1,0 +1,313 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/reactivity-instant.spec.ts",
+      "file": "smoke/reactivity-instant.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 paths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-reactivity",
+              "projectName": "smoke-reactivity",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18418,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[reactivity-instant] spectrum-drag deltas (ms): 19.70, 21.30, 22.10, 22.90, 25.50\n"
+                    },
+                    {
+                      "text": "[reactivity-instant] spectrum-drag median (ms): 22.10\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T23:10:35.066Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8c7dfc5940febaccf36f-3736e99fcb382b2c65d9",
+          "file": "smoke/reactivity-instant.spec.ts",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "slider-keyboard → component-readout wall-clock ≤ 100ms median across 3 steps",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-reactivity",
+              "projectName": "smoke-reactivity",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1699,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m100\u001b[39m\nReceived:    \u001b[31m121.1000000089407\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m100\u001b[39m\nReceived:    \u001b[31m121.1000000089407\u001b[39m\n    at /Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/reactivity-instant.spec.ts:256:20",
+                    "location": {
+                      "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/reactivity-instant.spec.ts",
+                      "column": 20,
+                      "line": 256
+                    },
+                    "snippet": "  254 |     // rationale (CDP keyboard.press has higher latency variance than\n  255 |     // mouse.up; 100ms is the RAIL perceptual-instant gate).\n> 256 |     expect(median).toBeLessThanOrEqual(100);\n      |                    ^\n  257 | });\n  258 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/reactivity-instant.spec.ts",
+                        "column": 20,
+                        "line": 256
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m100\u001b[39m\nReceived:    \u001b[31m121.1000000089407\u001b[39m\n\n  254 |     // rationale (CDP keyboard.press has higher latency variance than\n  255 |     // mouse.up; 100ms is the RAIL perceptual-instant gate).\n> 256 |     expect(median).toBeLessThanOrEqual(100);\n      |                    ^\n  257 | });\n  258 |\n    at /Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/reactivity-instant.spec.ts:256:20"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[reactivity-instant] slider-keyboard deltas (ms): 35.30, 121.10, 251.40\n"
+                    },
+                    {
+                      "text": "[reactivity-instant] slider-keyboard median (ms): 121.10\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T23:10:53.609Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity/reactivity-instant-slider--b5274-100ms-median-across-3-steps-smoke-reactivity/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q2/out/cl4a-smoke-reactivity/reactivity-instant-slider--b5274-100ms-median-across-3-steps-smoke-reactivity/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02/e2e/smoke/reactivity-instant.spec.ts",
+                    "column": 20,
+                    "line": 256
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8c7dfc5940febaccf36f-85e7a9dcddda2b8e373e",
+          "file": "smoke/reactivity-instant.spec.ts",
+          "line": 137,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T23:10:32.703Z",
+    "duration": 22801.53,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
