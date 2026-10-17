@@ -1,0 +1,53 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/shell/button-voice.test.ts (2 tests | 1 failed) 6ms
+   ✓ V15-03 — a labelled glass Button speaks the body voice > finds the labelled verbs (the scan is not vacuous) 1ms
+   × V15-03 — a labelled glass Button speaks the body voice > no labelled Button sets a family utility on itself 5ms
+     → expected [ 'app/ErrorBoundary.vue:41', …(16) ] to deeply equal []
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/shell/button-voice.test.ts > V15-03 — a labelled glass Button speaks the body voice > no labelled Button sets a family utility on itself
+AssertionError: expected [ 'app/ErrorBoundary.vue:41', …(16) ] to deeply equal []
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   "app/ErrorBoundary.vue:41",[39m
+[31m+   "palettes/BrowsePane.vue:72",[39m
+[31m+   "palettes/BrowsePane.vue:120",[39m
+[31m+   "palettes/BrowsePane.vue:142",[39m
+[31m+   "palettes/admin/panels/AdminAuditPanel.vue:81",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:70",[39m
+[31m+   "palettes/admin/panels/AdminNamesPanel.vue:68",[39m
+[31m+   "palettes/admin/panels/AdminNamesPanel.vue:141",[39m
+[31m+   "palettes/admin/panels/AdminTagsPanel.vue:125",[39m
+[31m+   "palettes/admin/panels/AdminUsersPanel.vue:19",[39m
+[31m+   "palettes/admin/panels/AdminUsersPanel.vue:31",[39m
+[31m+   "palettes/admin/panels/AdminUsersPanel.vue:82",[39m
+[31m+   "palettes/admin/panels/AdminUsersPanel.vue:155",[39m
+[31m+   "palettes/admin/panels/AdminUsersPanel.vue:210",[39m
+[31m+   "shell/PaneErrorPlate.vue:33",[39m
+[31m+   "workbenches/generate/GenerateControls.vue:205",[39m
+[31m+   "workbenches/mix/MixConfigBar.vue:103",[39m
+[31m+ ][39m
+
+ ❯ demo/test/shell/button-voice.test.ts:90:27
+     88|             .filter((s) => /(^|[\s'"`])font-(display|serif|mono|sans)\…
+     89|             .map((s) => s.at);
+     90|         expect(offenders).toEqual([]);
+       |                           ^
+     91|     });
+     92| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  20:41:22
+   Duration  802ms (transform 27ms, setup 38ms, collect 141ms, tests 6ms, environment 359ms, prepare 50ms)
+
