@@ -1,0 +1,162 @@
+{
+ "fails": [
+  "1440x900 light @600ms: scrollTop 175 of max 192",
+  "1440x900 light @600ms: axis labels 516-534.7 against fold 527",
+  "1440x900 light @2500ms: scrollTop 175 of max 192",
+  "1440x900 light @2500ms: axis labels 516-534.7 against fold 527",
+  "1280x800 light @600ms: scrollTop 191 of max 201",
+  "1280x800 light @600ms: axis labels 493.5-511.7 against fold 511",
+  "1280x800 light @2500ms: scrollTop 191 of max 201",
+  "1280x800 light @2500ms: axis labels 493.5-511.7 against fold 511",
+  "1440x1080 light @600ms: scrollTop 6 of max 28",
+  "1440x1080 light @600ms: axis labels 695.8-714.5 against fold 701.8",
+  "1440x1080 light @2500ms: scrollTop 6 of max 28",
+  "1440x1080 light @2500ms: axis labels 695.8-714.5 against fold 701.8",
+  "1440x900 dark @600ms: scrollTop 175 of max 192",
+  "1440x900 dark @600ms: axis labels 516-534.7 against fold 527",
+  "1440x900 dark @2500ms: scrollTop 175 of max 192",
+  "1440x900 dark @2500ms: axis labels 516-534.7 against fold 527",
+  "1280x800 dark @600ms: scrollTop 191 of max 201",
+  "1280x800 dark @600ms: axis labels 493.5-511.7 against fold 511",
+  "1280x800 dark @2500ms: scrollTop 191 of max 201",
+  "1280x800 dark @2500ms: axis labels 493.5-511.7 against fold 511",
+  "1440x1080 dark @600ms: scrollTop 6 of max 28",
+  "1440x1080 dark @600ms: axis labels 695.8-714.5 against fold 701.8",
+  "1440x1080 dark @2500ms: scrollTop 6 of max 28",
+  "1440x1080 dark @2500ms: axis labels 695.8-714.5 against fold 701.8"
+ ],
+ "cells": {
+  "spring-1440x900-light-600ms": {
+   "scrollTop": 175,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    516,
+    534.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-light-2500ms": {
+   "scrollTop": 175,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    516,
+    534.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-600ms": {
+   "scrollTop": 191,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    493.5,
+    511.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-2500ms": {
+   "scrollTop": 191,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    493.5,
+    511.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-600ms": {
+   "scrollTop": 6,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    695.8,
+    714.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-2500ms": {
+   "scrollTop": 6,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    695.8,
+    714.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-600ms": {
+   "scrollTop": 175,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    516,
+    534.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-2500ms": {
+   "scrollTop": 175,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    516,
+    534.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-600ms": {
+   "scrollTop": 191,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    493.5,
+    511.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-2500ms": {
+   "scrollTop": 191,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    493.5,
+    511.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-600ms": {
+   "scrollTop": 6,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    695.8,
+    714.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-2500ms": {
+   "scrollTop": 6,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    695.8,
+    714.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  }
+ }
+}
