@@ -335,4 +335,14 @@ async function onPublish(palette: Palette) {
     padding-block-start: 0;
     margin-block-start: calc(var(--phi-3) - 0.75rem);
 }
+/* X-DS value pass 5 (C5-02): under the well's action label ("Start a
+ * new palette", Fraunces body 600) the companion's true-empty statement is the
+ * quiet helper voice, a whole rung lower: the hint rung at 400, still in the
+ * display face (the three-voice law, O-10d). Fraunces 18.6/500 under Fraunces
+ * 18.6/600 read as a second heading of equal rank. The filtered register and
+ * every other host's EmptyState (Browse, Mix) are untouched. */
+.palettes-companion-grid > :deep([role="status"]:not([data-empty-register])) > p.font-display {
+    font-size: var(--type-small);
+    font-weight: 400;
+}
 </style>

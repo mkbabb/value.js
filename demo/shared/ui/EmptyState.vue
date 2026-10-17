@@ -77,8 +77,10 @@
              X-DS VC4-02: the true-empty statement speaks the body rung at 500,
              one step over the hint, at every host (Mix, Browse, My Palettes):
              under Mix's "Saved palettes" head (subheading, 600) it no longer
-             ties with its own heading. One register, set here; no host
-             re-ranks it. -->
+             ties with its own heading. One register, set here. The one host
+             exception is My Palettes' companion (X-DS value pass 5, C5-02):
+             under its well's Fraunces action label the statement takes the
+             hint rung at 400, still Fraunces (PalettesPane.vue's scoped rule). -->
         <p class="font-display text-body font-medium text-foreground max-w-[30ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>

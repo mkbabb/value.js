@@ -26,9 +26,25 @@ import { convertColor, hsv } from "@mkbabb/value.js/color";
 /** WCAG 2.x contrast-ratio flare term (the published standard's own constant). */
 const WCAG_FLARE = 0.05;
 
-/** Relative luminance (CIE Y, D65) of the HSV colour `(h°, s, v)`, s/v ∈ [0, 1]. */
+/** A channel the plate can paint: a non-finite reading (NaN before layout or
+ *  restore) is read as 0, so the predicate is total on the render path. */
+function finiteOr0(x: number): number {
+    return Number.isFinite(x) ? x : 0;
+}
+
+/**
+ * Relative luminance (CIE Y, D65) of the HSV colour `(h°, s, v)`, s/v ∈ [0, 1].
+ *
+ * X-DS value pass 5 (C5-01): TOTAL. Both callers sit on the render path (the
+ * dot's border, the needle's ink), and `hsv()` rejects a non-finite channel, so
+ * a NaN `s` or `v` (a `dotPos` or `channelNumber` reading before layout or
+ * restore; `clamp(NaN)` is still NaN) threw inside a computed and dropped the
+ * whole picker pane to its error plate. A non-finite channel now reads as 0
+ * here, at the one entry both instruments share. The throws below remain as
+ * assertions on the library's own conversion, which finite input cannot fail.
+ */
 export function spectrumFieldLuminance(h: number, s: number, v: number): number {
-    const field = hsv(h, s, v);
+    const field = hsv(finiteOr0(h), finiteOr0(s), finiteOr0(v));
     if (!field.ok) throw new Error(`spectrumFieldLuminance: hsv(${h}, ${s}, ${v}) — ${field.error.code}`);
     const xyz = convertColor(field.value, "xyz");
     if (!xyz.ok) throw new Error(`spectrumFieldLuminance: xyz conversion — ${xyz.error.code}`);

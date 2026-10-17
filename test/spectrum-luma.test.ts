@@ -136,4 +136,13 @@ describe("spectrumLuma — the shared plate regime", () => {
                 ` — cure routed to X-W4 (fold R23)`,
         ).toEqual([]);
     });
+
+    it("C5-01 · TOTAL on the render path — a non-finite channel reads as 0, never throws", () => {
+        // Born RED at f34718e2f: hsv() rejects NaN, and the helper threw inside
+        // the dot's and the needle's computeds, dropping the picker pane.
+        expect(() => spectrumFieldIsLight(Number.NaN, Number.NaN, Number.NaN)).not.toThrow();
+        expect(spectrumFieldIsLight(200, Number.NaN, 1)).toBe(spectrumFieldIsLight(200, 0, 1));
+        expect(spectrumFieldIsLight(60, 1, Number.NaN)).toBe(spectrumFieldIsLight(60, 1, 0));
+        expect(spectrumFieldLuminance(Number.POSITIVE_INFINITY, 0, 0)).toBe(spectrumFieldLuminance(0, 0, 0));
+    });
 });
