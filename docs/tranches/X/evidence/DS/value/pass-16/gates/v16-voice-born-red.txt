@@ -1,0 +1,99 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ❯ demo/test/shell/button-voice.test.ts (8 tests | 3 failed) 8ms
+   ✓ V15-03 — a labelled glass Button speaks the body voice > finds the labelled verbs (the scan is not vacuous) 0ms
+   ✓ V15-03 — a labelled glass Button speaks the body voice > no labelled Button sets a family utility on itself 0ms
+   ✓ V16-04 — a glass tab strip speaks the body voice > finds the tab strips (the scan is not vacuous) 0ms
+   × V16-04 — a glass tab strip speaks the body voice > no tab strip sets a family utility on itself 3ms
+     → expected [ Array(1) ] to deeply equal []
+   ✓ V16-06 — every DialogTitle speaks the display register > finds the dialog titles (the scan is not vacuous) 0ms
+   × V16-06 — every DialogTitle speaks the display register > each carries font-display font-medium 0ms
+     → expected [ 'palettes/BrowsePane.vue:196', …(6) ] to deeply equal []
+   ✓ V16-02 — the admin panes show identifiers in the case they have > scans the admin panes (not vacuous) 0ms
+   × V16-02 — the admin panes show identifiers in the case they have > no admin template carries a case transform or caps tracking 3ms
+     → expected [ …(7) ] to deeply equal []
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/shell/button-voice.test.ts > V16-04 — a glass tab strip speaks the body voice > no tab strip sets a family utility on itself
+AssertionError: expected [ Array(1) ] to deeply equal []
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   "palettes/admin/panels/AdminNamesPanel.vue:26",[39m
+[31m+ ][39m
+
+ ❯ demo/test/shell/button-voice.test.ts:133:78
+    131| 
+    132|     it("no tab strip sets a family utility on itself", () => {
+    133|         expect(sites.filter((s) => FAMILY.test(s.classes)).map((s) => …
+       |                                                                              ^
+    134|     });
+    135| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  demo/test/shell/button-voice.test.ts > V16-06 — every DialogTitle speaks the display register > each carries font-display font-medium
+AssertionError: expected [ 'palettes/BrowsePane.vue:196', …(6) ] to deeply equal []
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   "palettes/BrowsePane.vue:196",[39m
+[31m+   "palettes/PalettesPane.vue:148",[39m
+[31m+   "palettes/PalettesPane.vue:169",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:203",[39m
+[31m+   "palettes/admin/panels/AdminNamesPanel.vue:196",[39m
+[31m+   "palettes/admin/panels/AdminTagsPanel.vue:177",[39m
+[31m+   "palettes/admin/panels/AdminUsersPanel.vue:252",[39m
+[31m+ ][39m
+
+ ❯ demo/test/shell/button-voice.test.ts:155:38
+    153|     it("each carries font-display font-medium", () => {
+    154|         const off = sites.filter((s) => !/\bfont-display\b/.test(s.cla…
+    155|         expect(off.map((s) => s.at)).toEqual([]);
+       |                                      ^
+    156|     });
+    157| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  demo/test/shell/button-voice.test.ts > V16-02 — the admin panes show identifiers in the case they have > no admin template carries a case transform or caps tracking
+AssertionError: expected [ …(7) ] to deeply equal []
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [][39m
+[31m+ [[39m
+[31m+   "palettes/admin/panels/AdminAuditPanel.vue:122",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:130",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:131",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:133",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:139",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:181",[39m
+[31m+   "palettes/admin/panels/AdminFlaggedPanel.vue:187",[39m
+[31m+ ][39m
+
+ ❯ demo/test/shell/button-voice.test.ts:187:27
+    185|                 .map(({ at }) => at);
+    186|         });
+    187|         expect(offenders).toEqual([]);
+       |                           ^
+    188|     });
+    189| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 5 passed (8)
+   Start at  22:00:56
+   Duration  636ms (transform 25ms, setup 35ms, collect 126ms, tests 8ms, environment 191ms, prepare 47ms)
+

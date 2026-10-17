@@ -1,0 +1,630 @@
+{
+  "base": "http://localhost:9011",
+  "dialogs": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "kind": "admin-confirm",
+      "file": "admin-confirm-1440-light.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Delete all palettes?",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(146,39,74)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.16
+        },
+        {
+          "name": "body",
+          "text": "This permanently deletes the 4 palettes ",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(144,38,75)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.29
+        },
+        {
+          "name": "slug",
+          "text": "azure-fox-01",
+          "family": "\"Fira Code\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(143,37,74)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.39
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.962006 0.0191304 9.83402)",
+          "ground": "rgb(162,37,85)",
+          "ink": "rgb(255,238,239)",
+          "ratio": 6.39
+        },
+        {
+          "name": "confirm",
+          "text": "Delete all palettes",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.961598 0.018953 27.4847)",
+          "ground": "rgb(152,74,91)",
+          "ink": "rgb(255,238,235)",
+          "ratio": 5.39
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "modalAccent": "oklch(96.200630618254% 0.019130438122 9.83402284231deg)",
+        "modalDestructive": "oklch(96.159829894903% 0.018952986819 27.484704066596deg)",
+        "modalMuted": "oklch(95.99352490404% 0.003861589952 34.629978305623deg)",
+        "floatingPrimary": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "dialogBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "kind": "report",
+      "file": "report-1440-light.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Report palette",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(129,55,56)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.37
+        },
+        {
+          "name": "body",
+          "text": "Why are you reporting \"Harbor at Dusk\"?",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(129,57,60)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.24
+        },
+        {
+          "name": "option-1",
+          "text": "Inappropriate content",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(131,59,62)",
+          "ink": "rgb(246,242,239)",
+          "ratio": 7.09
+        },
+        {
+          "name": "option-last",
+          "text": "Other",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(132,39,67)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.95
+        },
+        {
+          "name": "textarea",
+          "text": "Additional details (optional)...",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(116,40,57)",
+          "ink": "rgb(247,244,243)",
+          "ratio": 9.12
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.959282 0.0325313 89.834)",
+          "ground": "rgb(156,50,77)",
+          "ink": "rgb(250,241,217)",
+          "ratio": 6.26
+        },
+        {
+          "name": "report",
+          "text": "Report",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0 56.0356 / 0.5)",
+          "ground": "rgb(143,78,67)",
+          "ink": "rgb(193,162,154)",
+          "ratio": 2.67
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "modalAccent": "oklch(95.928175437417% 0.032531309641 89.83402284231deg)",
+        "modalDestructive": "oklch(96.159829894903% 0.018952986819 27.484704066596deg)",
+        "modalMuted": "oklch(95.99352490404% 0.003861589952 34.629978305623deg)",
+        "floatingPrimary": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "dialogBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "kind": "admin-confirm",
+      "file": "admin-confirm-390-light.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Delete all palettes?",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(138,45,67)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.37
+        },
+        {
+          "name": "body",
+          "text": "This permanently deletes the 4 palettes ",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(146,37,79)",
+          "ink": "rgb(255,252,249)",
+          "ratio": 7.9
+        },
+        {
+          "name": "slug",
+          "text": "azure-fox-01",
+          "family": "\"Fira Code\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(148,34,80)",
+          "ink": "rgb(251,247,244)",
+          "ratio": 7.57
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.962006 0.0191304 9.83402)",
+          "ground": "rgb(145,35,79)",
+          "ink": "rgb(255,238,239)",
+          "ratio": 7.32
+        },
+        {
+          "name": "confirm",
+          "text": "Delete all palettes",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.961598 0.018953 27.4847)",
+          "ground": "rgb(134,81,73)",
+          "ink": "rgb(255,238,235)",
+          "ratio": 5.68
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "modalAccent": "oklch(96.200630618254% 0.019130438122 9.83402284231deg)",
+        "modalDestructive": "oklch(96.159829894903% 0.018952986819 27.484704066596deg)",
+        "modalMuted": "oklch(95.99352490404% 0.003861589952 34.629978305623deg)",
+        "floatingPrimary": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "dialogBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)"
+      }
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "kind": "report",
+      "file": "report-390-light.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Report palette",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(130,54,53)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.4
+        },
+        {
+          "name": "body",
+          "text": "Why are you reporting \"Harbor at Dusk\"?",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(132,57,44)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.18
+        },
+        {
+          "name": "option-1",
+          "text": "Inappropriate content",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(123,54,25)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 7.84
+        },
+        {
+          "name": "option-last",
+          "text": "Other",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(134,34,45)",
+          "ink": "rgb(245,241,238)",
+          "ratio": 8.2
+        },
+        {
+          "name": "textarea",
+          "text": "Additional details (optional)...",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0.00624853 56.0356)",
+          "ground": "rgb(107,42,50)",
+          "ink": "rgb(244,241,240)",
+          "ratio": 9.33
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.959282 0.0325313 89.834)",
+          "ground": "rgb(122,52,55)",
+          "ink": "rgb(250,241,217)",
+          "ratio": 7.86
+        },
+        {
+          "name": "report",
+          "text": "Report",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.95994 0 56.0356 / 0.5)",
+          "ground": "rgb(126,76,45)",
+          "ink": "rgb(185,160,144)",
+          "ratio": 2.87
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "modalAccent": "oklch(95.928175437417% 0.032531309641 89.83402284231deg)",
+        "modalDestructive": "oklch(96.159829894903% 0.018952986819 27.484704066596deg)",
+        "modalMuted": "oklch(95.99352490404% 0.003861589952 34.629978305623deg)",
+        "floatingPrimary": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(95.993967869014% 0.00624852743 56.035563601331deg)",
+        "dialogBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "kind": "admin-confirm",
+      "file": "admin-confirm-1440-dark.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Delete all palettes?",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(81,16,26)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 11.73
+        },
+        {
+          "name": "body",
+          "text": "This permanently deletes the 4 palettes ",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(76,15,27)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 12.13
+        },
+        {
+          "name": "slug",
+          "text": "azure-fox-01",
+          "family": "\"Fira Code\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(76,15,26)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 12.14
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.958322 0.0210531 9.83402)",
+          "ground": "rgb(69,13,27)",
+          "ink": "rgb(255,236,238)",
+          "ratio": 13.94
+        },
+        {
+          "name": "confirm",
+          "text": "Delete all palettes",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.703997 0.184 27.5)",
+          "ground": "rgb(90,29,28)",
+          "ink": "rgb(253,105,92)",
+          "ratio": 4.52
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "modalAccent": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+        "modalDestructive": "oklch(70.399683251232% 0.184 27.5deg)",
+        "modalMuted": "oklch(68.291768442785% 0.003821851545 41.86844006185deg)",
+        "floatingPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "kind": "report",
+      "file": "report-1440-dark.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Report palette",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(93,21,18)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 10.67
+        },
+        {
+          "name": "body",
+          "text": "Why are you reporting \"Harbor at Dusk\"?",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(92,30,26)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 10.2
+        },
+        {
+          "name": "option-1",
+          "text": "Inappropriate content",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(94,43,26)",
+          "ink": "rgb(234,231,227)",
+          "ratio": 9.28
+        },
+        {
+          "name": "option-last",
+          "text": "Other",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(74,33,22)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 11.1
+        },
+        {
+          "name": "textarea",
+          "text": "Additional details (optional)...",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(79,34,39)",
+          "ink": "rgb(158,155,154)",
+          "ratio": 4.78
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.958322 0.0525094 89.834)",
+          "ground": "rgb(75,13,22)",
+          "ink": "rgb(255,240,202)",
+          "ratio": 13.57
+        },
+        {
+          "name": "report",
+          "text": "Report",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0 67.7483 / 0.5)",
+          "ground": "rgb(69,22,14)",
+          "ink": "rgb(149,127,123)",
+          "ratio": 4.08
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "modalAccent": "oklch(95.832172477266% 0.052509353347 89.83402284231deg)",
+        "modalDestructive": "oklch(70.399683251232% 0.184 27.5deg)",
+        "modalMuted": "oklch(68.291768442785% 0.003821851545 41.86844006185deg)",
+        "floatingPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "kind": "admin-confirm",
+      "file": "admin-confirm-390-dark.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Delete all palettes?",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(85,19,23)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 11.32
+        },
+        {
+          "name": "body",
+          "text": "This permanently deletes the 4 palettes ",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(89,16,19)",
+          "ink": "rgb(242,239,235)",
+          "ratio": 12.15
+        },
+        {
+          "name": "slug",
+          "text": "azure-fox-01",
+          "family": "\"Fira Code\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(82,22,31)",
+          "ink": "rgb(238,235,231)",
+          "ratio": 11.83
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.958322 0.0210531 9.83402)",
+          "ground": "rgb(78,20,29)",
+          "ink": "rgb(255,236,238)",
+          "ratio": 12.82
+        },
+        {
+          "name": "confirm",
+          "text": "Delete all palettes",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.703997 0.184 27.5)",
+          "ground": "rgb(99,34,26)",
+          "ink": "rgb(253,105,92)",
+          "ratio": 4.14
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "modalAccent": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+        "modalDestructive": "oklch(70.399683251232% 0.184 27.5deg)",
+        "modalMuted": "oklch(68.291768442785% 0.003821851545 41.86844006185deg)",
+        "floatingPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)"
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "kind": "report",
+      "file": "report-390-dark.png",
+      "rows": [
+        {
+          "name": "title",
+          "text": "Report palette",
+          "family": "Fraunces",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(93,23,19)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 10.57
+        },
+        {
+          "name": "body",
+          "text": "Why are you reporting \"Harbor at Dusk\"?",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(99,26,18)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 10.01
+        },
+        {
+          "name": "option-1",
+          "text": "Inappropriate content",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(99,44,8)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 8.91
+        },
+        {
+          "name": "option-last",
+          "text": "Other",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(98,30,20)",
+          "ink": "rgb(233,230,226)",
+          "ratio": 9.84
+        },
+        {
+          "name": "textarea",
+          "text": "Additional details (optional)...",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "ground": "rgb(88,42,53)",
+          "ink": "rgb(171,151,142)",
+          "ratio": 4.2
+        },
+        {
+          "name": "cancel",
+          "text": "Cancel",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.958322 0.0525094 89.834)",
+          "ground": "rgb(93,25,20)",
+          "ink": "rgb(255,240,202)",
+          "ratio": 11.5
+        },
+        {
+          "name": "report",
+          "text": "Report",
+          "family": "\"Plus Jakarta Sans\"",
+          "transform": "none",
+          "color": "oklch(0.925202 0 67.7483 / 0.5)",
+          "ground": "rgb(77,31,9)",
+          "ink": "rgb(154,131,120)",
+          "ratio": 3.89
+        }
+      ],
+      "tokens": {
+        "modalPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "modalAccent": "oklch(95.832172477266% 0.052509353347 89.83402284231deg)",
+        "modalDestructive": "oklch(70.399683251232% 0.184 27.5deg)",
+        "modalMuted": "oklch(68.291768442785% 0.003821851545 41.86844006185deg)",
+        "floatingPrimary": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogClass": "glass-floating",
+        "dialogForeground": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+        "dialogBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)"
+      }
+    }
+  ],
+  "admin": []
+}

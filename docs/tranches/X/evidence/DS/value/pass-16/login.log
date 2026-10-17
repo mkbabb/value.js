@@ -1,0 +1,62 @@
+[
+  {
+    "theme": "light",
+    "width": 1440,
+    "file": "login-1440-light.png",
+    "browseSearchPill": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "field": {
+      "background": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+      "backdrop": "blur(20px) saturate(1.5)",
+      "color": "rgb(28, 25, 23)",
+      "placeholder": "rgb(0, 0, 0)",
+      "inputOnGlass": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 8%, transparent)",
+      "inDock": true
+    },
+    "match": true
+  },
+  {
+    "theme": "light",
+    "width": 390,
+    "file": "login-390-light.png",
+    "browseSearchPill": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "field": {
+      "background": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+      "backdrop": "blur(14px) saturate(1.5)",
+      "color": "rgb(28, 25, 23)",
+      "placeholder": "rgb(0, 0, 0)",
+      "inputOnGlass": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 8%, transparent)",
+      "inDock": true
+    },
+    "match": true
+  },
+  {
+    "theme": "dark",
+    "width": 1440,
+    "file": "login-1440-dark.png",
+    "browseSearchPill": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "field": {
+      "background": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+      "backdrop": "blur(20px) saturate(1.5)",
+      "color": "rgb(233, 230, 226)",
+      "placeholder": "rgb(255, 255, 255)",
+      "inputOnGlass": "color-mix(in oklab, hsl(30 14% 90%) 8%, transparent)",
+      "inDock": true
+    },
+    "match": true
+  },
+  {
+    "theme": "dark",
+    "width": 390,
+    "file": "login-390-dark.png",
+    "browseSearchPill": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "field": {
+      "background": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+      "backdrop": "blur(14px) saturate(1.5)",
+      "color": "rgb(233, 230, 226)",
+      "placeholder": "rgb(255, 255, 255)",
+      "inputOnGlass": "color-mix(in oklab, hsl(30 14% 90%) 8%, transparent)",
+      "inDock": true
+    },
+    "match": true
+  }
+]
