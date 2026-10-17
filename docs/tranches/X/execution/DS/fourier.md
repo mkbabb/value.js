@@ -1904,3 +1904,37 @@ They stay honest-RED on **O-87 FLAT-LIGHTING**, and G0c also on **O-88 DOCK-COLL
 **Frames** (`pass-05/f5p/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f5p-probe.mjs`, the critic's cells re-shot: 26 PNGs.
 - `gallery`, `equation`, `equation-scroll`, `morph`, `v` and `visualize`, each at `{light,dark}-{1440,390}`;
 - `v-hover-{light,dark}-1440` (G0a, recorded unchanged).
+
+### pass 6
+This is the cure seat for critic **P6** (the redeploy's pass-6 critic, `pass-06/critic-p6-2026-10-17/`, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-06/f6p/`; the BEFORE cells are the critic's frames. The other folders in `pass-06/` (`f6`, `f6c`, `f6x`, `f8`, `critic-f6`, `critic-f6x`, `critic-f8`) belong to other seats and are not part of this receipt.
+- fourier `076253a` (`m/w1-bump-migration`, pushed fast-forward) holds the cure.
+- value.js `6b610f5cf` holds the AFTER frames, the probe and its JSON, the pixel readings, the census and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F6P-C1 | **Cured.** The rail's search and its CONTENTS header (label, three tools, page readout) are one held head, `.sidebar-head` (`position: sticky; top: 0`), on the rail's own opaque fill (`--card`, which is what glass's `data-surface="opaque"` paints). Only the list scrolls under it. The nav stays the scroll port, so latex-paper's `useSidebarFollow` is untouched. The nav's top inset moved onto the head, so the layout at rest is unchanged. There is no new component, no shadow and no rule.<br>**Measured** (`f6p-probe.json` → `paperLate.rail`, 1440, both themes): `navScrollTop` 475 with the head held at the nav's top (`headHeldAtTop: true`) and the label in view. The rail in `paper-late-*-1440` now starts at the search field and CONTENTS, not mid-tree. |
+| DS-F6P-C2 | **Cured, with the hairline.** /paper owns its scroll, so the shell's `<main>` edge rule never showed there. `.paper-scroll` now ends on that same one hairline once scrolled (`data-scrolled` from the reading progress), and is transparent at rest. There is no fade and no shadow, so DS-F7-C3 stands.<br>The rule is **not** pulled up a pixel as the shell's is. `<main>` clips at its padding box, and the first cut's −1px rule sat inside `<main>`'s border band and was clipped away (measured: the border computed but painted no pixel), so the port now starts 1px lower.<br>The shell's own rule moves from `--border-soft` to `--border`, which has been the /morph band's rule since DS-F15X-T1, so the app has one hairline.<br>**Measured** (`f6p/pixels.txt`): two device rows of `--border` at the port's top, rgb(198 180 159) in light and rgb(101 87 73) in dark, at 1440 and 390. |
+| DS-F6P-C3 | **Cured (interim).** Line-art figures blend into `--card` through the token `--paper-figure-blend` (style.css: `multiply` in light, `screen` in dark), read only by `.paper-figure`; portraits keep their ground.<br>The first cut computed the blend but left the slab (#000). The cause is that each `.paper-window-section` has `content-visibility: auto`, whose paint containment isolates the blend group over a transparent backdrop. The section now takes `--card`, the tone it already sits on (the article is the opaque `--card` plate), so the blend reads the card and nothing else changes.<br>**Measured:** the Figure 6.1 ground reads rgb(53 42 34) in dark and rgb(253 245 236) in light, which is `--card`, where the critic's frames read 0 0 0 and 255 255 255. The asset-side repair (dark variants) stays **K-17** on the LATEX-PAPER relay. |
+| DS-F6P-C4 | **Cured in the method.** `f6p-probe.mjs` scrolls the real scrollers (`scrollAll`: every `overflow-y: auto|scroll` element, so the /equation aside at 1440 and `.configurator-controls` at 390), and it carries /paper top, mid and late cells at both widths in both themes. |
+
+**Glass-owned rows (DS-F6P-G1..G3).** These are held with no local override:
+- G1: the dock's section menu is a translucent lens over photographs, its `aria-current` row is unpainted, and its icons touch their labels (O-59, DS-F-G8);
+- G2: the /v Configurator aside's top inset shows a 5px sliver of the scrolled-away Sample Points slider;
+- G3: the /equation playback rail's light track is a 1px inset line under a 6px fill (track-well).
+
+All three stay honest-RED on **O-87 FLAT-LIGHTING** and are re-judged at the glass 10.2.0 repin. The `dock-menu-*`, `v-open-foot-*` and `equation-foot-*` AFTER frames re-witness them.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3212`; `f6p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 5 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only. This pass added no shadow, filter or gradient.
+
+**Gates** (`f6p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`, on the final tree.
+- **e2e:** 138/138 passed twice, in headless chromium with `--workers=1` against a preview built from the tree (`:4190`). The 13 specs (`f6p/e2e-specs.txt`) are every spec that names the rail, the paper scroll port, the figures, /paper or the shell's `<main>` edge.
+- No golden was re-baselined.
+
+**Frames** (`pass-06/f6p/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f6p-probe.mjs`, the critic's cells re-shot: 24 PNGs.
+- `paper`, `paper-mid`, `paper-late` and `equation-foot`, each at `{light,dark}-{1440,390}`;
+- `v-open`, `v-open-foot`, `dock-menu` and `404`, each at `{light,dark}-1440`.
