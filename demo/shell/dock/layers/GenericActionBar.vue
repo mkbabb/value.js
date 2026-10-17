@@ -42,6 +42,7 @@ import {
 import ActionButton from "../ActionButton.vue";
 import { usePopupMutex } from "../../../shared/usePopupMutex";
 import type { SceneAction, SceneActionState } from "../../../color-session/keys";
+import { DOCK_MENU_SIDE_OFFSET } from "../menus/dockMenuOffset";
 
 const { actions, accentColor, kept } = defineProps<{
     actions: readonly SceneAction[];
@@ -188,7 +189,7 @@ const failedMessage = computed(() =>
                     <Ellipsis class="w-6 h-6" />
                 </DockControl>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" class="z-popover min-w-menu font-display">
+            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
                 <DropdownMenuItem
                     v-for="action in menuSeats"
                     :key="action.token"

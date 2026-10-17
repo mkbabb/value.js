@@ -11,6 +11,7 @@ import {
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
+import { DOCK_MENU_SIDE_OFFSET } from "./dockMenuOffset";
 
 // X.W12U.g2d2: the avatar renders only inside the opened menu body, so it loads with
 // the menu, at its root import (glass exports Avatar from its root barrel only;
@@ -50,7 +51,7 @@ function openRepository(): void {
             <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockTrigger>
-            <DropdownMenuContent align="end" class="z-popover min-w-menu font-display">
+            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
                     <DropdownMenuLabel class="px-2 py-1.5">
