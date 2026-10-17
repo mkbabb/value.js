@@ -1,0 +1,326 @@
+{
+ "gallery-light-1440": {
+  "m": [
+   {
+    "card": {
+     "top": 155.5,
+     "bottom": 492.5,
+     "h": 337
+    },
+    "cardPad": "0.75rem",
+    "mediaTopInset": 13,
+    "statsRow": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeHitArea": "38.5x29.5",
+    "glyphInkBottomInset": 20.8,
+    "scrollW": 1440
+   },
+   {
+    "card": {
+     "top": 155.5,
+     "bottom": 492.5,
+     "h": 337
+    },
+    "cardPad": "0.75rem",
+    "mediaTopInset": 13,
+    "statsRow": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeHitArea": "38.5x29.5",
+    "glyphInkBottomInset": 20.8,
+    "scrollW": 1440
+   }
+  ],
+  "pageErrors": []
+ },
+ "gallery-dark-1440": {
+  "m": [
+   {
+    "card": {
+     "top": 155.5,
+     "bottom": 492.5,
+     "h": 337
+    },
+    "cardPad": "0.75rem",
+    "mediaTopInset": 13,
+    "statsRow": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeHitArea": "38.5x29.5",
+    "glyphInkBottomInset": 20.8,
+    "scrollW": 1440
+   },
+   {
+    "card": {
+     "top": 155.5,
+     "bottom": 492.5,
+     "h": 337
+    },
+    "cardPad": "0.75rem",
+    "mediaTopInset": 13,
+    "statsRow": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 450,
+     "bottom": 479.5,
+     "h": 29.5
+    },
+    "likeHitArea": "38.5x29.5",
+    "glyphInkBottomInset": 20.8,
+    "scrollW": 1440
+   }
+  ],
+  "pageErrors": []
+ },
+ "gallery-light-390": {
+  "m": [
+   {
+    "card": {
+     "top": 217.5,
+     "bottom": 460.3,
+     "h": 242.8
+    },
+    "cardPad": "0.5rem",
+    "mediaTopInset": 9,
+    "statsRow": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeHitArea": "44x29.5",
+    "glyphInkBottomInset": 16.8,
+    "scrollW": 390
+   },
+   {
+    "card": {
+     "top": 217.5,
+     "bottom": 460.3,
+     "h": 242.8
+    },
+    "cardPad": "0.5rem",
+    "mediaTopInset": 9,
+    "statsRow": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeHitArea": "44x29.5",
+    "glyphInkBottomInset": 16.8,
+    "scrollW": 390
+   }
+  ],
+  "pageErrors": []
+ },
+ "gallery-dark-390": {
+  "m": [
+   {
+    "card": {
+     "top": 217.5,
+     "bottom": 460.3,
+     "h": 242.8
+    },
+    "cardPad": "0.5rem",
+    "mediaTopInset": 9,
+    "statsRow": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeHitArea": "44x29.5",
+    "glyphInkBottomInset": 16.8,
+    "scrollW": 390
+   },
+   {
+    "card": {
+     "top": 217.5,
+     "bottom": 460.3,
+     "h": 242.8
+    },
+    "cardPad": "0.5rem",
+    "mediaTopInset": 9,
+    "statsRow": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeBtn": {
+     "top": 421.8,
+     "bottom": 451.3,
+     "h": 29.5
+    },
+    "likeHitArea": "44x29.5",
+    "glyphInkBottomInset": 16.8,
+    "scrollW": 390
+   }
+  ],
+  "pageErrors": []
+ },
+ "v-light-1440": {
+  "m": {
+   "note": {
+    "top": 256.1,
+    "bottom": 292.1,
+    "h": 36
+   },
+   "heading": {
+    "top": 209.5,
+    "bottom": 240.1,
+    "h": 30.5
+   },
+   "trigger": {
+    "top": 201.5,
+    "bottom": 248.1,
+    "h": 46.5
+   },
+   "groupLabel": {
+    "top": 292.1,
+    "bottom": 312.4,
+    "h": 20.4
+   },
+   "gapAboveFromHeadingBox": 16,
+   "gapAboveFromTrigger": 8,
+   "gapBelowToGroupLabel": 0,
+   "noteMarginBottom": "0px",
+   "retryFont": "14.384px",
+   "msgFont": "14.384px",
+   "scrollW": 1440
+  },
+  "pageErrors": []
+ },
+ "v-dark-1440": {
+  "m": {
+   "note": {
+    "top": 256.1,
+    "bottom": 292.1,
+    "h": 36
+   },
+   "heading": {
+    "top": 209.5,
+    "bottom": 240.1,
+    "h": 30.5
+   },
+   "trigger": {
+    "top": 201.5,
+    "bottom": 248.1,
+    "h": 46.5
+   },
+   "groupLabel": {
+    "top": 292.1,
+    "bottom": 312.4,
+    "h": 20.4
+   },
+   "gapAboveFromHeadingBox": 16,
+   "gapAboveFromTrigger": 8,
+   "gapBelowToGroupLabel": 0,
+   "noteMarginBottom": "0px",
+   "retryFont": "14.384px",
+   "msgFont": "14.384px",
+   "scrollW": 1440
+  },
+  "pageErrors": []
+ },
+ "v-light-390": {
+  "m": {
+   "note": {
+    "top": 339.1,
+    "bottom": 383.1,
+    "h": 44
+   },
+   "heading": {
+    "top": 288.8,
+    "bottom": 319.3,
+    "h": 30.5
+   },
+   "trigger": {
+    "top": 280.8,
+    "bottom": 327.3,
+    "h": 46.5
+   },
+   "groupLabel": {
+    "top": 383.1,
+    "bottom": 409.1,
+    "h": 26.1
+   },
+   "gapAboveFromHeadingBox": 19.7,
+   "gapAboveFromTrigger": 11.7,
+   "gapBelowToGroupLabel": 0,
+   "noteMarginBottom": "0px",
+   "retryFont": "18.2685px",
+   "msgFont": "12.179px",
+   "scrollW": 390
+  },
+  "pageErrors": []
+ },
+ "v-dark-390": {
+  "m": {
+   "note": {
+    "top": 339.1,
+    "bottom": 383.1,
+    "h": 44
+   },
+   "heading": {
+    "top": 288.8,
+    "bottom": 319.3,
+    "h": 30.5
+   },
+   "trigger": {
+    "top": 280.8,
+    "bottom": 327.3,
+    "h": 46.5
+   },
+   "groupLabel": {
+    "top": 383.1,
+    "bottom": 409.1,
+    "h": 26.1
+   },
+   "gapAboveFromHeadingBox": 19.7,
+   "gapAboveFromTrigger": 11.7,
+   "gapBelowToGroupLabel": 0,
+   "noteMarginBottom": "0px",
+   "retryFont": "18.2685px",
+   "msgFont": "12.179px",
+   "scrollW": 390
+  },
+  "pageErrors": []
+ }
+}

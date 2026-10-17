@@ -1,0 +1,8 @@
+== run 1 vue-tsc -b: exit 0
+== run 1 vitest run --maxWorkers=2: 20 files, 116/116 passed
+== run 2 vue-tsc -b: exit 0
+== run 2 vitest run --maxWorkers=2: 20 files, 116/116 passed
+== e2e: the 25 specs in e2e-specs.txt (pass 9's 22 /gallery specs plus f-w13-image-controls, f-w14v-detached, f-w14v-u4, which reach the Basis section). Headless, chromium + mobile-chromium, workers=1. Private API on :8061 (COMPUTE_CONCURRENCY=1, rate limits 1000, dev mongo :27018/fourier, private BLOB_DIR) behind a private vite on :3171 (its own cacheDir).
+run A: 316 passed (15.5m)
+run B: 316 passed (15.3m)
+No golden re-baselined. The web/e2e/screenshots/f-w14/after-* frames the runs rewrote were restored to HEAD after each run.
