@@ -223,11 +223,15 @@
                             </span>
                         </div>
 
+                        <!-- X.W8.i (C3 layout fork): the split seats the aside
+                             card at every width — one layout, no viewport rung
+                             (the aside spine is sized for the half column, the
+                             same measure the stacked column gives a phone). -->
                         <PaletteInspector
                             :palette="session.extractedPalette.value"
                             :expanded="true"
                             :collapsible="false"
-                            :layout="layout === 'split' && isWide ? 'aside' : 'default'"
+                            :layout="layout === 'split' ? 'aside' : 'default'"
                             swatch-size="xl"
                             @click="() => {}"
                             @save="session.onSave"
@@ -272,7 +276,6 @@ import { useFileDialog } from "@vueuse/core";
 import { Aperture, Camera, RotateCcw, Upload, X } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { DockControl } from "@mkbabb/glass-ui/dock";
-import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { formatCssCaption } from "../../color-session/format-color";
@@ -306,7 +309,6 @@ const cssColorOpaque = inject(CSS_COLOR_KEY, undefined);
 const session = useExtractSession();
 
 const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
-const { matches: isWide } = useBreakpoint("(min-width: 640px)");
 
 const camera = useCameraCapture(videoRef);
 // The live stream reaches whichever <video> the viewfinder mounted.

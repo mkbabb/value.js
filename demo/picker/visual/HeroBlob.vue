@@ -35,7 +35,6 @@ import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import type { OklchStop } from "@mkbabb/glass-ui/color";
-import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { clamp } from "@mkbabb/value.js/math";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../color-session/keys";
@@ -65,10 +64,6 @@ const blobRef = useTemplateRef<InstanceType<typeof Blob>>("blobRef");
 // the fresh computed object is exactly the wake-repaint shape the producer
 // built for — glass-ui Blob.vue AY.W-BLOB-CONFIG D1).
 const appBlobConfig = inject(BLOB_CONFIG_KEY)!;
-
-// The lg rung (width-only — the quality ladder cares about device scale, not
-// the X6 aspect law).
-const { matches: isLgViewport } = useBreakpoint("(min-width: 1024px)");
 
 // The picked colour made flesh, with the RAMP CEILING TRACKING THE PICKED C
 // (W6-4: the flat 0.16 ceiling literally cannot show the advertised ink — a
@@ -181,12 +176,12 @@ const heroRegister = computed<BlobConfig>(() => ({
     // shipped surface atom (Fresnel/iridescence/SSS/lit) untouched.
     surface: { ...appBlobConfig.surface, fissionAmp: HERO_FISSION_AMP },
     color: { ...appBlobConfig.color, paletteStops: heroStops.value },
-    // The <lg GL-lifecycle half of Q7 full presence (DESIGNED, not toggled):
-    // phones ship DPR ≈ 3 and every mainstream mobile GPU is fill-rate bound
-    // (genesis §2.4) — the hand-scale bead takes the producer's own half-res
-    // quality rung below lg (visually free at the ~73px floor; the producer's
-    // DPR ≤ 2 clamp still applies above it). lg+ keeps the app config's rung.
-    quality: isLgViewport.value ? appBlobConfig.quality : "half",
+    // X.W8.i (C3 layout fork deleted): ONE quality rung — the app config's
+    // (BlobPane-tunable) at every width. The viewport is not the device-scale
+    // signal the ladder wanted; the producer already bounds the fill-rate cost
+    // where it lives (its DPR ≤ 2 backing clamp, so a DPR-3 phone pays at most
+    // 2× like every other screen), and the bead is hand-scale everywhere.
+    quality: appBlobConfig.quality,
 }));
 
 // UIA-V-47: the producer's config contract is ONE LIVE OBJECT — `<Blob>` hands

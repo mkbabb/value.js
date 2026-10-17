@@ -66,11 +66,13 @@
                             >{{ componentGlyph(component) }}</span>
                         </button>
                     </TooltipTrigger>
-                    <!-- The anatomy popover re-seats at touch bands (t-mobile
-                         F-5: side=left has no seat at 390); it is also the
-                         static range's retirement home #1 (W4-3 — the About
-                         card is #2). -->
-                    <TooltipContent :side="isLgViewport ? 'left' : 'bottom'" class="max-w-56">
+                    <!-- The anatomy popover declares ONE side (X.W8.i, the C3
+                         layout fork deleted): where `left` has no seat (t-mobile
+                         F-5, 390) the producer's floater flips it by collision
+                         (glass Tooltip `avoidCollisions`), so no viewport rung
+                         re-seats it. It is also the static range's retirement
+                         home #1 (W4-3 — the About card is #2). -->
+                    <TooltipContent side="left" class="max-w-56">
                         <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
                         <!-- X-DS pass 16 (V16-08): the range is a readout, in the readout rung
                              with no case transform, in the floater's certified
@@ -93,7 +95,6 @@ import {
 } from "@mkbabb/glass-ui/tooltip";
 import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { contrastInkFor, resolveMutedInk } from "../../../color-session/ink";
 import {
     bumpProbeEpochOnMount,
@@ -118,9 +119,6 @@ const emit = defineEmits<{ select: [component: string] }>();
 
 const { currentColorSpace, currentColorRanges, cssColorOpaque } =
     inject(COLOR_MODEL_KEY)!;
-
-// The tooltip's honest seat flips at the touch band (t-mobile F-5).
-const { matches: isLgViewport } = useBreakpoint("(min-width: 1024px)");
 
 // --- THE INK SYSTEM (D5/D6 — the channel-color conceit is DEAD) -----------
 // The letters SPEAK INK. Rest letters wear the certified de-emphasis rung
