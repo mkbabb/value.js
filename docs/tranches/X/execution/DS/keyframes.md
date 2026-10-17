@@ -2965,3 +2965,50 @@ Every capture is headless real Chrome (§0ei), one browser per run, closed in `f
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 90`, the capture and census `--rss-gb 6` (browser pool), check and lint `--light`, and vitest `--rss-gb 8`.
 - Nothing of this seat's was left running.
+
+### pass 9 (the ninth redeploy's pass 9; critic C9; cure keyframes `df80593c`; evidence `pass-61/`)
+
+**Commits:** keyframes `df80593c` (pushed fast-forward to `master`, `b6d4352a..df80593c`) and value.js `b81b633df` (`evidence/DS/keyframes/pass-61/`). The task named `pass-09/`, but that folder holds the first workflow's evidence, so the frames go to the next free folder, `pass-61/`.
+
+**Evidence** (`pass-61/`):
+- `capture.mjs` and `after/`: every route at 1440 and 390 in light and dark; at 1440, `cube-timeline-empty-*`, `cube-timeline-imported-*` (after one press of the inline lead), `cube-import-dialog-*` (the ribbon Import) and `cube-controls-*`.
+- `after/capture.json` with `inline-lead-*` and `dialog-*`; `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), one browser per run, a context per cell, closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C9-04 (low): the inline lead is the act.** In `KeyframeTimeline.vue` the empty state's 'Import Rotations' calls a new `importScene()`, which awaits `importCSS(props.scene.css)`. If the import rejects, the house toast carries the message and the paste editor opens on the scene's draft (the KF-C24-05 prefill), so nothing is lost. The ribbon's Import keeps the dialog. No new component.
+  - Measured at 1440x900 in both schemes: one press, no dialog opens (`dialogOpen: false`), the hint leaves, the track holds the 0% and 100% stops, and the toast reads 'Imported 2 keyframes'.
+  - Frames: `after/cube-timeline-empty-1440-*` and `after/cube-timeline-imported-1440-*`.
+- **KF-C9-03 (low): the glyph leads the word.** `CSSPasteDialog.vue` renders the button's icon before `{{ buttonLabel }}`, so 'Import' and 'Add' match the ribbon's Import and the inline lead.
+  - Measured in both schemes: `glyphFirst: true` (the glyph at x 856 inside the button at x 839).
+  - Frames: `after/cube-import-dialog-1440-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C9-01 (low): a new O-87 FLAT-LIGHTING rider.** Glass `material.css` lights a cursor-following `::before` specular disc (`plus-lighter`, `--glass-specular-intensity-hover`) on `:hover`/`:active` for `.glass-wash`/`.glass-quiet`/`.glass-resting`/`.glass-card`. On a flat stage card it shows as banded rings. Ask: in the 10.2.0 token wave, remove the hover and active specular from the resting and quiet tiers, keeping it at most on pressable controls. The consumer adds nothing.
+- **KF-C9-02 (low): extends the KF-C1-09/KF-C1-10 and KF-C7-05 rows on O-87.** Glass NumberField keeps or brightens its field fill, its control-edge halo and its step-button shadows under `data-disabled`, so the disabled z-index stepper in `LayerConfigPanel.vue` outranks the enabled Select. Ask: NumberField takes the same field surface as Input and Select, with flat step buttons and no halo, and disabled recedes. The consumer passes `:disabled` correctly.
+- **KF-C9-05 (low, PLAUSIBLE): O-87, with KF-C1-02.** The open Select shows a doubled outline (its edge plus an offset open ring) and the menu shows the `--shadow-cartoon` stamp stack. Ask: one open ring that replaces the edge, and a single stamp on the menu.
+
+All three are honest-RED until the 10.2.0 repin, with no local override.
+
+**Owner ruling (not cured)**
+- **KF-C9-06 (trivial):** at 1440 the hero headline crosses the die. That is the blessed desktop poster composition (OD-4, UIA-KF-259). It is a DESIGN-RULING for the owner (§0dm); no seat moves the band.
+
+**Refused:** none.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5199/ --widths 1440,390 --settle 5000`): identical to pass 8 (`pass-60/`) in every key except the timestamp and the base URL. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `df80593c`, plus another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `KeyframeTimeline.vue` held another seat's `panel-content` hunk. This seat's hunks were staged alone: an index blob of HEAD plus this change, written with `hash-object -w` and `update-index --cacheinfo`, then checked with `git diff --cached` before the commit. Their hunk and the other two dirty files remain unstaged and untouched. The served frames include their hunks. `CSSPasteDialog.vue` was clean. The value.js commits are pathspec-only.
+- **A served dev-server port of its own** (:5199), stopped at the end.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 60`, the capture and census `--rss-gb 6` (browser pool), check and lint `--light`, and vitest `--rss-gb 8`.
+- Nothing of this seat's was left running.
