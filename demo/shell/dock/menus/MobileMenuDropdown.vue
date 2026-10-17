@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from "vue";
+import { computed, defineAsyncComponent, inject } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
 } from "@lucide/vue";
@@ -9,9 +9,14 @@ import {
     DropdownMenuSeparator, DropdownMenuLabel,
 } from "@mkbabb/glass-ui/menu";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
-import { Avatar, AvatarImage } from "@mkbabb/glass-ui";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
+
+// X.W12U.g2d2: the avatar renders only inside the opened menu body, so it loads with
+// the menu, at its root import (glass exports Avatar from its root barrel only;
+// an eager root import pins the whole barrel into the boot graph).
+const Avatar = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.Avatar));
+const AvatarImage = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.AvatarImage));
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
