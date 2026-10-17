@@ -37,7 +37,7 @@ import { Skeleton } from "@mkbabb/glass-ui";
 import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
-import type { DocModule } from "./";
+import type { DocModule } from "./types";
 import { useMarkdownColors } from "./composables/useMarkdownColors";
 import { useMarkdownHighlighting } from "./composables/useMarkdownHighlighting";
 

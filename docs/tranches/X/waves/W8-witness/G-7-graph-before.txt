@@ -1,0 +1,55 @@
+SERVED MODEL: claude-opus-5-5
+# G-7 BEFORE — X.W8.c, HEAD d68a010c4, 2026-10-17
+# cmd: ~/.claude/guard/guarded --light -- node docs/tranches/V/megatranche/workflows/graph-v3.mjs --print-sccs
+# run 1 exit 0 sha256/16 2528e824d3f07f88 · run 2 exit 0 sha256/16 2528e824d3f07f88 (identical)
+# file-level classes: [load] Markdown · [load] Dock · [runtime] Dock — 3 lines; [ownership*] rows are directory-granularity
+
+[load] size=2 Markdown owner=X.W8.c
+    · demo/scenes/about/markdown/Markdown.vue
+    · demo/scenes/about/markdown/index.ts
+[load] size=2 Dock owner=X.W8.c
+    · demo/shell/dock/Dock.vue
+    · demo/shell/dock/index.ts
+[ownership] size=9 demo feature lattice (coarse ownership component) owner=NONE (reason recorded)
+    · assets
+    · demo/app
+    · demo/color-session
+    · demo/palettes
+    · demo/picker
+    · demo/scenes
+    · demo/shared
+    · demo/shell
+    · demo/workbenches
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/app
+    · demo/picker
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/app
+    · demo/scenes
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/color-session
+    · demo/palettes
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/color-session
+    · demo/shared
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/palettes
+    · demo/shared
+[ownership.pair] size=2 CPE L-24 · palettes ↔ shell owner=X-W8 (SCC subtraction) — adjudicated CONFIRMED
+    · demo/palettes
+    · demo/shell
+[ownership.pair] size=2 Pane DI inversion · picker ↔ shell owner=NONE (reason recorded)
+    · demo/picker
+    · demo/shell
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/scenes
+    · demo/shell
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/shared
+    · demo/shell
+[ownership.pair] size=2 (UNNAMED) owner=(none) UNNAMED
+    · demo/shell
+    · demo/workbenches
+[runtime] size=2 Dock owner=X.W8.c
+    · demo/shell/dock/Dock.vue
+    · demo/shell/dock/index.ts
