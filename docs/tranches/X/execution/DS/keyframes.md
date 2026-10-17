@@ -2659,3 +2659,56 @@ That plate is KF-C10-10's frame-to-stage-foot rule, and it is not lighting. Lowe
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
 - Each probe used one browser, closed in `finally`. The dev server on :5193 was stopped, and nothing of this seat's was left running.
+
+### pass 9 (the eighth redeploy's pass 9; critic C9x; evidence in `pass-54/`)
+
+**Cure commit:** keyframes.js `05a715b1` (pushed fast-forward to master, `2e8097c8..05a715b1`). **Evidence:** value.js `f3fa8c04b` (`evidence/DS/keyframes/pass-54/`):
+- `capture.mjs` and `after/`: the route set (home, `cube`, `amiga`, `square`, `easing`, `spring`, `sequence` at 1440 and 390, light and dark); `cube-keyframes-{1440,390}-*` (the rail pane and the sheet's peek), with the header measured in `capture.json`; `spring-peak-open-*` at 1440x900, 1280x800 and 1440x1080, each shot only once the port is at rest;
+- the two `pass-53/after/spring-peak-open-1440x900-*` frames, replaced (KF-C9x-01);
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..5`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-09/`, but that folder holds the first workflow's committed pass-9 evidence, so the frames go to `pass-54/`, the next free folder (the pass-23..53 precedent). The seat served its own dev server on :5193 and stopped it at the end.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C9x-01 (low) | **The pass-53 peak-open frames now show the rest state.** They had been shot 400 ms after the probe's scroll-back, while the end-pinned port was still moving. The cure re-shoots them only once `scrollTop === scrollHeight - clientHeight` holds still for 10 frames, and force-adds them over the pass-53 frames. No code change. | 1440x900: scrollTop 200 of 200, port top 191.8, Bouncy/Gentle whole under the 'Physics' header, with no Smooth/Snappy sliver. 1280x800: 194 of 194. 1440x1080: 49 of 49. Both schemes. `pass-53/after/spring-peak-open-1440x900-*` = `pass-54/after/` (same files). |
+| KF-C9x-02 (low) | **The Keyframes header wears glass ConfiguratorLayer, the anatomy every other pane header wears.** The editor well moves out of `CSSCodeEditor`'s `#header` slot and into the layer. No new component is added:<br>• the label is the animation's name;<br>• the Parsed / Parse error / Applied status sits in `#actions` with `actions-when="always"`, so it stays in a folded header;<br>• the chevron folds the well (`aria-expanded`).<br>The section is `.panel-content`, as the Timeline's host is, so the layer's section hairline and tint read transparent inside the one pane frame (no card in a card). The body is flush (`p-0`) because the well already starts its code on the pane's one inset (KF-C11-01). The region is named by `aria-label`. `keyframes-pane-header.test.ts` restates the region and heading assertions against the layer and adds the fold. No assertion was weakened. | `capture.json`, at 1440 and 390 in both schemes: region "Rotations", title "Rotations", aria-expanded true, status "Parsed" ending 8 px before the chevron at the header's right edge. At 390 the peek now reads 'Rotations • Parsed ⌃', the same anatomy as the Controls peek. `after/cube-keyframes-*`. |
+
+**Trade (disclosed):** glass's `.configurator-layer` keeps a 1 px border, transparent here, on each side. The Monaco box is therefore 2 px narrower (371 px at 1440), and the default buffer's line 4 (`animation-timing-function: ease-in-out;`) now soft-wraps. The Timeline, Physics and Stagger panes pay the same 2 px. This seat did not override the glass border.
+
+**Cited (glass, not overridden)**
+- **KF-C9-G1 (medium): O-87 FLAT-LIGHTING**. These are unchanged at glass 10.1.0:
+  - the 3-layer `--shadow-cartoon` stamp on the menus and cards;
+  - the translucent menu and popover material that blooms the cube's faces and the progress bar behind the scene menu and the easing popover;
+  - the cream Input against the grey Select fill (light), and the filled Input against the clear Select (dark);
+  - the closed carets rotated 180deg inside the configurator region;
+  - the 'Apply CSS'/'Import' capsule halo in dark;
+  - the play-bubble plate;
+  - the resting-plate blur bands;
+  - the EasingPicker ghost staircase and its 'Custom' label;
+  - the z-index NumberField's lit steppers.
+
+  They are honest-RED until the 10.2.0 repin.
+- **KF-C9-G2 (low): O-88 DOCK-COLLAPSE-MOTION**: the collapsed tile and its halo. The TypingDots loop stays under owner ruling KF-C3-02 (§0dm). It is honest-RED until the 10.2.0 repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5193/ --widths 1440,390 --settle 5000`): identical to pass 53 in every tally. Only the timestamp differs. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `05a715b1`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: GREEN at 941/941 in runs 2, 4 and 5; the last two are consecutive.
+  - Runs 1 and 3 each failed one test: `r4dock-share-fallback.test.ts` (2), where the selection read `[145,145]` and not `[0,145]`.
+  - That test mounts `SharePopover`, which does not reach the changed files.
+  - It also failed once in isolation, then passed in isolation 3 of 3. This is a pre-existing timing flake, disclosed and not touched.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. The keyframes commit is pathspec-only. The value.js evidence index held only this seat's paths, which was checked before the commit.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
+- Each capture used one browser, closed in `finally`. The dev server on :5193 was stopped, and nothing of this seat's was left running.
