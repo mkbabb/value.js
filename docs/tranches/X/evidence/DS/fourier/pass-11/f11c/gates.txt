@@ -1,0 +1,8 @@
+== run 1 vue-tsc -b: exit 0
+== run 1 vitest run --maxWorkers=2: 20 files, 116/116 passed
+== run 2 vue-tsc -b: exit 0
+== run 2 vitest run --maxWorkers=2: 20 files, 116/116 passed
+== e2e: the 17 specs in e2e-specs.txt (every spec that reaches /equation, incl. f-w14u-eq q202 failure states, visual-checkpoint, visual-baseline). Headless, chromium + mobile-chromium, workers=1. Private API on :8071 (COMPUTE_CONCURRENCY=1, rate limits 1000, dev mongo :27018/fourier, private BLOB_DIR) behind a private vite on :3191 (createServer, cwd = fourier repo root, own cacheDir ~/.cache/fourier-f11c/vitecache, optimizeDeps.force).
+run A: 164 passed (6.4m)
+run B: 164 passed (6.4m)
+No golden re-baselined. The web/e2e/screenshots/f-w14/after-* frames the runs rewrote were restored to HEAD after each run. Both servers stopped at the end.

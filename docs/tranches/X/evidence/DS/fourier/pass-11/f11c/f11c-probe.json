@@ -1,0 +1,290 @@
+{
+ "equation-light-1440": {
+  "m": [
+   {
+    "where": "equation-stage",
+    "role": "alert",
+    "visible": true,
+    "box": {
+     "x": 365.4,
+     "y": 470,
+     "w": 273.3,
+     "h": 36
+    },
+    "msg": "The compute service is unavailable",
+    "msgFont": "14.384px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 1440
+   }
+  ],
+  "pageErrors": []
+ },
+ "equation-dark-1440": {
+  "m": [
+   {
+    "where": "equation-stage",
+    "role": "alert",
+    "visible": true,
+    "box": {
+     "x": 365.4,
+     "y": 470,
+     "w": 273.3,
+     "h": 36
+    },
+    "msg": "The compute service is unavailable",
+    "msgFont": "14.384px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 1440
+   }
+  ],
+  "pageErrors": []
+ },
+ "equation-light-390": {
+  "m": [
+   {
+    "where": "equation-stage",
+    "role": "alert",
+    "visible": true,
+    "box": {
+     "x": 72.4,
+     "y": 463.8,
+     "w": 245.2,
+     "h": 44
+    },
+    "msg": "The compute service is unavailable",
+    "msgFont": "12.179px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 390
+   }
+  ],
+  "pageErrors": []
+ },
+ "equation-dark-390": {
+  "m": [
+   {
+    "where": "equation-stage",
+    "role": "alert",
+    "visible": true,
+    "box": {
+     "x": 72.4,
+     "y": 463.8,
+     "w": 245.2,
+     "h": 44
+    },
+    "msg": "The compute service is unavailable",
+    "msgFont": "12.179px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 390
+   }
+  ],
+  "pageErrors": []
+ },
+ "v-light-1440": {
+  "m": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": true,
+    "box": {
+     "x": 379.3,
+     "y": 470,
+     "w": 245.3,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "14.384px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "x": 1022,
+     "y": 256.1,
+     "w": 380,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "14.384px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 1440
+   }
+  ],
+  "pageErrors": []
+ },
+ "v-dark-1440": {
+  "m": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": true,
+    "box": {
+     "x": 379.3,
+     "y": 470,
+     "w": 245.3,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "14.384px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "x": 1022,
+     "y": 256.1,
+     "w": 380,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "14.384px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 1440
+   }
+  ],
+  "pageErrors": []
+ },
+ "v-light-390": {
+  "m": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": false,
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "12.179px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "x": 38,
+     "y": 339.1,
+     "w": 314,
+     "h": 44
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "12.179px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 390
+   }
+  ],
+  "pageErrors": []
+ },
+ "v-dark-390": {
+  "m": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": false,
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "12.179px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "x": 38,
+     "y": 339.1,
+     "w": 314,
+     "h": 44
+    },
+    "msg": "Server busy, not computed yet",
+    "msgFont": "12.179px",
+    "button": "Retry",
+    "buttonEmphasis": "text",
+    "buttonGlyphs": 0,
+    "buttonShadow": "none",
+    "buttonBg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "tryAgainButtons": 0,
+    "scrollW": 390
+   }
+  ],
+  "pageErrors": []
+ }
+}
