@@ -1,0 +1,37 @@
+[guarded] waiting for headroom (load 36 > 36)
+{"file":"picker-1440-light.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"palettes-1440-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"browse-1440-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"extract-1440-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"mix-1440-light.png","ok":true,"heads":[{"t":"Selected","ff":"Fraunces","fs":"20.352px","fw":"600","top":285},{"t":"Saved palettes","ff":"Fraunces","fs":"20.352px","fw":"600","top":380},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"18.608px","fw":"500","top":468}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"generate-1440-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"gradient-1440-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"atmosphere-1440-light.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"blob-1440-light.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"picker-390-light.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"palettes-390-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":314},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":443}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"browse-390-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":1313},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":1442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"extract-390-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":867},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":996}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"mix-390-light.png","ok":true,"heads":[{"t":"Selected","ff":"Fraunces","fs":"20.352px","fw":"600","top":277},{"t":"Saved palettes","ff":"Fraunces","fs":"20.352px","fw":"600","top":371},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16px","fw":"500","top":460}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"generate-390-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":741},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":870}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"gradient-390-light.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":1249},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":1378}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"atmosphere-390-light.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"blob-390-light.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"picker-1440-dark.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"palettes-1440-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"browse-1440-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"extract-1440-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"mix-1440-dark.png","ok":true,"heads":[{"t":"Selected","ff":"Fraunces","fs":"20.352px","fw":"600","top":285},{"t":"Saved palettes","ff":"Fraunces","fs":"20.352px","fw":"600","top":380},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"18.608px","fw":"500","top":468}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"generate-1440-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"gradient-1440-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"18.608px","fw":"600","top":311},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16.4px","fw":"400","top":442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"atmosphere-1440-dark.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"blob-1440-dark.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"picker-390-dark.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"palettes-390-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":314},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":443}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"browse-390-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":1313},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":1442}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"extract-390-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":867},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":996}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"mix-390-dark.png","ok":true,"heads":[{"t":"Selected","ff":"Fraunces","fs":"20.352px","fw":"600","top":277},{"t":"Saved palettes","ff":"Fraunces","fs":"20.352px","fw":"600","top":371},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"16px","fw":"500","top":460}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"generate-390-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":741},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":870}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"gradient-390-dark.png","ok":true,"heads":[{"t":"Start a new palette","ff":"Fraunces","fs":"16px","fw":"600","top":1249},{"t":"No saved palettes yet.","ff":"Fraunces","fs":"14px","fw":"400","top":1378}],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"atmosphere-390-dark.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
+{"file":"blob-390-dark.png","ok":true,"heads":[],"alert":null,"lumaErrors":0,"errors":0}
