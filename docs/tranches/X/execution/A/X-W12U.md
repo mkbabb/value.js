@@ -3323,3 +3323,49 @@ No unit is owed, so per the RESUME-mode law no gate is re-run at baseline; the c
 ## RESUME 8 — Unit receipts
 
 (none owed)
+
+## Close 8 (RESUME 8 close seat, 2026-10-17)
+
+SERVED MODEL: claude-opus-5-5. Track A close seat, VERIFY-ONLY, on COHESION §0fw / ADDENDUM (l). HEAD at open `a027974f6` (the RESUME 8 open), glass 10.1.0. Spec `W12U.md` read whole (148 lines, addenda (a)–(l)). Record read per the context-economy law: header, Close 7 (:3230-3283), RESUME 8 Open → Unit plan → receipts (:3285-3325).
+
+Crash recovery ⟨`git status --porcelain -- docs/tranches/X/execution docs/tranches/X/waves/W12U-evidence`⟩: no `close8/` existed, so there is no inherited close work. The dirty `s/results/final/probe-share-dark.txt` and the untracked `q2/{logs,results}/v3chk-*` belong to other writers (as at Close 5/6/7) and stay unstaged.
+
+**Bytes read.** Every gate below is read on COMMITTED `a027974f6` (product = `.o5c` `9e0212c46` + X-DS VP5 `3d73afb54` + X-DS VC6 `b84fda97d`), so the X-DS VC6 delta Close 7 left unmeasured is now inside the reading. Post tree `~/.dev-logs/w12u-g2d/close8/tree`; the §0fw.1 pre-cure arm `~/.dev-logs/w12u-g2d/close8-base/tree` (`955efaa03`). Both were built by `g2d/build-tree.sh`. Commands: `W12U-evidence/close8/README-commands.txt`.
+
+### Commit roster (act 1)
+RESUME 8 owed no unit, so it landed no product commit. ⟨`git merge-base --is-ancestor <c> HEAD`; `git show --name-only --format= <c>`⟩: `.o5c` `9e0212c46` (3 files, `demo/app/App.vue`, `demo/app/composables/boot/useDockArrival.ts`, `demo/styles/foundation.css`) · `a9d3e125c` / `4ae794885` (INBOX + O-99 letter + relay) · `e81816a8a` (44 files, all `W12U-evidence/o5c/**`) · `3a551e1cd` (record + LEDGER) · Close 7 `5afcfba0e` (31 files, all `W12U-evidence/close7/**`) · `ddbfc0038` (COHESION + W12U.md, the §0fw ruling) · `568e7cc58` (chassis) · `a027974f6` (record + LEDGER). All are on HEAD. Paths outside each writable set: 0. `scripts/dev/dev.sh`, glass-ui, sibling repos, `src/**`, pins: 0.
+
+### Landed wrong (recorded, not fixed here)
+None.
+
+### Gate table (acts 2–3), BEFORE (RESUME 8 Baseline, banked) → AFTER (Close 8, `close8/`, on `a027974f6`)
+
+| gate (spec) | GREEN definition | BEFORE | AFTER (close8/) | state |
+|---|---|---|---|---|
+| boot bar, same-load interleaved A/B vs `955efaa03` (§0fw.1) | ≥ 6 sittings each, load recorded; post mean ≤ base mean AND post max ≤ base max; ×2 | owed (only 3+3 sittings banked at `o5c/ab-interleave{,-2}.txt`) | ⟨`close8/ab-interleave.sh B T close8-ab-r{1,2} 6`⟩ base/post alternating one sitting at a time, every sitting `ANGLE Metal`. r1 (load 11.9–13.2): base 129·121·118·131·135·112 → mean 124.3, max 135; post 107·96·95·119·106·94 → mean 102.8, max 119. r2 (load 8.7–12.6): base 122·116·142·133·132·128 → mean 128.8, max 142; post 84·99·99·122·116·108 → mean 104.7, max 122. `ab-verdict.txt` → GREEN ×2 | **GREEN ×2** |
+| O-5 real-GPU from `mainVisible` (§0fv.1) | 3/3 sittings ≤ 3× median, ANGLE Metal, ×2 | GREEN 3/3 ×2 (`close7/`) | ⟨`o5c/o5-mv-run.sh T 8251 close8-r{1,2} 3`⟩ max 16.8 ms (1.0×), dropped 0 in all 6; `VERDICT GREEN 3/3` ×2 (load 8.7 / 8.5); boot 99·83·84 / 103·87·85 ms, `BOOT GREEN 3/3 <= 122 ms` ×2 | **GREEN ×2** |
+| overture: land unchanged · no pop · band constant · CLS 0 (§0fw.2) | 1280×720 light+dark `cls=0 pop=0`, same band rect, same land | `close7/reveal-r{1,2}` | ⟨`o5c/reveal-run.sh T 8252 close8-r{1,2}`⟩ 1280×720 light/dark `cls=0 pop=0`, rect `16,8,1248,72`, mainTop 88, land `overture-plate-land 0.45s`, `seq=Vh:3` (the designed settled path, §0fw.2) ×2; 390×844 cls 0 ×2; 844×390 `cls=0.00001` ×2 (the pre-existing colour-space chevron, base 0.00128), so the script prints `VERDICT RED 3/4` on that cell only | **GREEN ×2 on the ruled reading**; 844×390 sub-pixel = named residual |
+| O-4 order-invariance (§0fw.2) | GREEN | GREEN (standing) | `o4-order-invariance.spec.ts:41` ✓ ✓ in cl8a and in cl8b | **GREEN ×2** |
+| G2 eager JS gz ≤ 294,912 (§0fu.1) | ≤ bar ×2 | 294,028 ×2 on `3a551e1cd` | ⟨`node scripts/perf/eager-bytes.mjs`⟩ `"eagerJsGz": 294062` ×2 (margin 850 B; +34 B over Close 7, whose only product delta is X-DS VC6 `b84fda97d`). The script's own `RED` is against its committed 286,720 constant, which is the named G2-constant row | **GREEN ×2** |
+| no feature cut (`g2d/nocut-run.sh`) | 0 failures ×2 | GREEN ×2 | `VERDICT GREEN (0 failures)` ×2 | **GREEN ×2** |
+| typecheck 4 programs + lint (`npm run check`) | 0 ×2 | `0 0 0 0 lint=0` ×2 | `floors-r{1,2}.txt`: `0 0 0 0 lint=0` ×2 | **GREEN ×2** |
+| `npm test` (§3) | GREEN | standing 7 | ⟨`vitest run --maxWorkers=2`⟩ `Tests 7 failed \| 1227 passed (1234)` ×2. The failing set is the same in both runs and the same as Close 7 r2 (`diff` of the FAIL/× lines → empty): ink D6/T-35 ×5, spectrum-luma C-5, reka NG-6 | **RED by relief** (standing 7; owners below) |
+| smoke `--workers=1` ×2 except the named rows | named rows only | cl7a 15 named (c′) | ⟨`close8/smoke-batch.sh cl8{a,b} T`⟩ smoke cl8a `15 failed · 2 skipped · 282 passed`, cl8b the same. `cl8a-smoke.f` = `cl8b-smoke.f` = Close 7's `cl7a-smoke.f` by title (`diff` → empty). admin 25/25 ×2 · mobile 7/7 ×2 · reactivity 2/2 ×2. perf cl8a: the 3 named rows (G2-constant `eager-payload:313`, G3/G4 `:377`, O-5 SwiftShader `o5-boot-pacing:74`). perf cl8b: the same 3 + `o24-lcp-identity:100` (LCP element `h2.card-title` vs `div.dock-plate` across schemes, load 12.7–19). That row passed in cl8a and both Close 7 batches; re-read isolated ×2 (`smoke/reread-flakes.txt`): ✓ ✓ (load 11.4 / 11.8) | **GREEN except named rows** (×2; the one-batch row re-read GREEN ×2) |
+| E13 (act 4) | 0 UNREAD, 0 unrowed | 0 / 0 | ⟨`find <dir> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 02:24): value `V/` 0 · `V/coordination/` 0 · glass `BK/coordination/` 0 · glass `BL/` → `FORMATION-PROGRESS.md` only (glass's own D2–D5 pass banks, no letter to value.js) · keyframes `V/coordination/` 0 · atlas `P/coordination/` absent; ⟨`ls -t glass-ui/docs/tranches \| head -3`⟩ → `BL BK BJ`; ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0 | **GREEN** |
+
+### Escalations
+None. ESC-W12U-o5c-1 is RULED (§0fw), and both of its arms read GREEN ×2 here in the ruled form: (a) the interleaved A/B, (b) the overture reading.
+
+### Residuals (named owners)
+- 844×390 sub-pixel in-pane shift `cls 0.00001` (the colour-space select chevron; pre-existing, base 0.00128): X-W8 `.i` polish. It is not the dock band.
+- `npm test` standing 7: INK-VEIL-MIDBAND → O-62 (a) (ink D6/T-35); C-5 and NG-6 → X-W8 `.i`.
+- smoke (c′) 15 cells → the W10.md addendum (§0fr); perf G2-constant row (the committed 286,720 constant, read through §0fu.1), G3/G4, O-5 SwiftShader (informational per §0fr) → X-W10.
+- `o24-lcp-identity:100`: failed in one batch of four under load 12.7–19, then re-read GREEN ×2 isolated. It is a load-sensitive LCP-candidate race between the card title and the dock plate → X-W10 (perf), to be watched at the check.
+- O-99 DOCK-MOUNT-COST (R-1/R-2/R-3) → glass-ui, ADOPT-AT-LANDING.
+
+### State (four-verb line)
+X-W12U: **IMPLEMENTED 2026-09-17** (execution opened under the 09-17 begin-word; this close re-sat 2026-10-17). Every ADDENDUM (l)/§0fw.4 gate reads GREEN ×2 on committed `a027974f6`: the boot A/B, O-5, the overture, O-4, G2, smoke except the named rows, and the floors. The spec does not designate this seat to stamp VERIFIED: the row flips CLOSED only on a CONFORMANT check (§3).
+
+Evidence: `W12U-evidence/close8/**`. Teardown: worktrees `~/.dev-logs/w12u-g2d/close8{,-base}/tree` removed (`git worktree remove`); ports 8251–8253, 8261/8262, 9171/9172 have 0 listeners.
+
+Close 8 commits: evidence `6b4a4c720` (`W12U-evidence/close8/**`, 34 files); this record hunk + the LEDGER row cell (one line), committed together and pushed.
