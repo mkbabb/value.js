@@ -2624,3 +2624,72 @@ Neither canvas contributes to the boot gap. The SwiftShader-era cause (a zero-sc
 - Worktrees: ⟨`git worktree list | grep -c w12u-g2d`⟩ → 0 (base, m1, m2, armA–C, final all removed). Scratch outputs stay under `~/.dev-logs/w12u-g2d/` (not /tmp).
 - Every server was stopped by its trap. ⟨`lsof -ti :8197 -ti :8198 -ti :8199`⟩ → none.
 - No X-DS path was staged or touched; `scripts/dev/dev.sh` was never touched.
+
+## Close 4 (RESUME 4 close seat, 2026-10-16)
+
+SERVED MODEL: claude-opus-5-5. Track A close seat, VERIFY-ONLY, HEAD at open `83decad02` (the `.g2d` receipt); glass 10.1.0. Spec `W12U.md` read whole (120 lines, addenda (a)–(h)); COHESION §0fr read (:4116-4140). Record read: the RESUME 4 Open → Unit plan (:2378-2421), the `.g2d` receipt (:2515-2626) and Close 3 (:2044-2112) for form. The `.g2s` receipt is cited from its unit return. Crash recovery ⟨`git status --porcelain -- <record> LEDGER.md INBOX.md W12U-evidence/close4 waves/W10*`⟩ → empty: no inherited partial close. Outputs: `W12U-evidence/close4/` (new) and `q2/{logs,results}/cl4a*,cl4b*` (the `.q2` smoke instrument, tags `cl4a`/`cl4b`).
+
+Every reading is on COMMITTED bytes `83decad02`. Two detached worktrees: `~/.dev-logs/w12u-g2d/close4/tree` (`g2d/build-tree.sh`: lib build, then gh-pages with hidden sourcemaps; G2, O-5, MIRROR, V-C) and `~/.dev-logs/w12u-q2/tree-83decad02` (`q2/export.sh`, which also carries `api/node_modules`; typecheck, lint, `npm test`, smoke). Both are removed at Teardown.
+
+### Commit roster (act 1)
+⟨`git merge-base --is-ancestor <c> HEAD`; `git show --name-only --format= <c>`⟩ over the 7 unit commits; each one exists and is on HEAD:
+- `.g2s` (2): `eba7f2ff8` (18 paths, all `W12U-evidence/g2s/**`) · `5c00616a1` (the record only). No product byte, so ESC-W12U-g2s-1 stands; the cure is banked as `g2s/cure-2b.patch`.
+- `.g2d` (5): `410e9ea60` (`demo/app/App.vue`) · `ec470afa4` (`demo/shell/dock/layers/ActionBarLayer.vue`) · `3fd1ba884` (`demo/app/App.vue`, `demo/picker/ColorPicker.vue`, `demo/picker/controls/ComponentSliders/composables/useSliderTouchGates.ts`, `demo/picker/controls/SpectrumCanvas/{SpectrumCanvas.vue,composables/useSpectrumPlateStyle.ts}`, `demo/shell/dock/layers/SlugEditLayer.vue`) · `a60500aee` (53 paths, all `W12U-evidence/g2d/**`) · `83decad02` (the record only).
+- Outside the plan's writable sets (`.g2s`: `src/**`, `test/**`, CHANGELOG, `demo/color-session/*`, `g2s/**`, record; `.g2d`: `demo/**` minus X-DS paths, `g2d/**`, record) → **0**. X-DS's dirty paths (`Dock.vue`, `shell.css`, `utils.css`, the eleven named at Open) in any unit commit → **0**. `scripts/dev/dev.sh`, glass-ui, `package.json` → **0**.
+
+### Landed wrong (recorded, not fixed here)
+None. 7 of 7 are on HEAD and inside their sets.
+
+### Gate table (acts 2–3), re-run by this seat on `83decad02`
+| gate (spec) | BEFORE (RESUME 4 Baseline, 10-16) | AFTER (this seat) | verdict |
+|---|---|---|---|
+| **G2 eager JS gz** at the settled bar: measured total ×2 rounded up to 1 KiB, cap 307,200 (ADDENDUM (h); §0fr.1) | `count=9 raw=1095664 gz=331628` ×2 | ⟨`node scripts/perf/eager-bytes.mjs`⟩ ×2 in the g2d tree → `count=11 raw=1087578 gz=329628` both runs (`close4/g2-eager-r{1,2}.json`). Rounded up to 1 KiB, the bar would be 329,728 (322 KiB). That is above the 307,200 cap, and the measured total exceeds the cap by 22,428 B | **RED ×2**. The bar cannot be settled; per §0fr.1 a total above the cap escalates with its decomposition, which is ESC-W12U-g2d-1 (`g2d/eager-audit.txt`). This seat does not write a bar constant |
+| eager lib `css` share (`.g2s`) | `33221 gz 150993 raw other:subpaths/css.js` ×2 | ⟨`node r1c7/eager-attrib.mjs dist/gh-pages`⟩ ×2 → `33221 gz 150993 raw other:subpaths/css.js` both runs; ⟨`cmp`⟩ → identical (`close4/attrib-r{1,2}.txt`) | **RED ×2, unchanged**. No `.g2s` product byte landed: ESC-W12U-g2s-1 |
+| E-6 (css grammar bytes; binds `.g2s`) | `raw=112913 gz=15644` ×2 | ⟨`git show HEAD:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js`⟩ → `wc -c` and `gzip < f \| wc -c` ×2 → `raw=112913 gz=15644` ×2. Instrument note: a first read with `gzip -c <file>` gave 15,652, because that header stores the 8-byte file name. Re-read from stdin, as the baseline did | **GREEN ×2** (≤ 125,646 / ≤ 15,650) |
+| MIRROR (css-equivalence) | `19 passed`, 0 defects ×2 | ⟨`guarded -- npm run -s test:css-equivalence -- --maxWorkers=2`⟩ ×2 in the g2d tree → `Tests 19 passed (19)` ×2; `MIRROR-DEFECTS [1-9]` → 0 and `MIRROR-DEFECTS 0` → 26 lines each (`close4/mirror-r{1,2}.txt`) | **GREEN ×2** |
+| V-C | GREEN ×2 | ⟨`guarded -- npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ ×2 → `TOTAL 6267 2369 3898 0 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` ×2 (`close4/vc-r{1,2}.txt`) | **GREEN ×2** |
+| **O-5 on the real-GPU witness ×2** (§0fr.2) | not authored (SwiftShader informational, 3,078 ms gap) | ⟨`guarded -- sh g2d/o5-run.sh <g2d tree> 8197 close4-r{1,2} 3`⟩. Both runs report renderer `ANGLE Metal Renderer: Apple M5 Max` in all 3 sittings. r1 (load 11.5): max 116.6 (7.0×) · 133.3 (8.0×) · 116.6 (7.0×), median 16.7, dropped 0.8–1.2 %. r2 (load 11.9): max 133.4 (8.0×) · 116.7 (7.0×) · 133.3 (8.0×), median 16.7, dropped 0.4 %. `VERDICT RED 0/3 green, 0 fault` ×2 (`close4/o5-gpu-r{1,2}.txt`). In every sitting the max gap is `[27–36, 146–169] ms`, before `mainVisible` (233–246 ms), and holds one longtask that LoAF attributes to `index-Dy4Uhd9u.js` alone. This is the boot module task, as `.g2d` measured; no canvas is in it | **RED ×2** (the spike leg; the frames and drop legs pass) → ESC-W12U-g2d-2 |
+| typecheck 4 programs + lint (§3 `npm run check`) | `0 0 0 0` · `rc=0` (Check 9, cited) | in the q2 export tree ×2 → r1 `lib 0 demo 0 test 0 e2e 0 lint 0` · r2 the same (`close4/floors-r{1,2}.txt`) | **GREEN ×2** |
+| `npm test` (§3) | the standing 7 | ⟨`guarded --timeout 30 -- npx vitest run --maxWorkers=2`⟩ in the q2 export tree → `Test Files 3 failed \| 88 passed (91)` · `Tests 7 failed \| 1211 passed (1218)`. The failures are `test/ink.test.ts` ×5 (D6 ×2, T-35 ×3), which is INK-VEIL-MIDBAND → O-62 (a), and `test/spectrum-luma.test.ts` C-5 and `demo/test/shell/reka-binding-idiom.test.ts` NG-6, both → X-W8 `.i` (`close4/npm-test-r1.txt`) | **RED by relief: the standing 7, unchanged; no new failure** |
+| **smoke `--workers=1` ×2, Chromium, on committed bytes**, except the named (c)/(c′) rows (§3; ADDENDUM (h); §0fr.5) | Close 3 cl1/cl2 on `9db19dec3`: smoke 277 ✓ / 16 ✘ (the 16 (c)) + perf 3 ✘ | ⟨`sh q2/batch.sh cl4a 83decad02 C`⟩ (19:08–19:38, load1 17.7–24.1): admin 21 ✓ · mobile 7 ✓ · reactivity 1 ✓ / 1 ✘ · perf 4 ✓ / 3 ✘ · smoke **279 ✓ / 16 ✘ / 2 skipped**. ⟨`… cl4b …`⟩ (19:38–20:12, load1 16.2–28.1): admin 21 · mobile 7 · reactivity 2 ✓ · perf 4 ✓ / 3 ✘ · smoke **280 ✓ / 15 ✘ / 2 skipped**. cl4b's 15 smoke failures are exactly the (c′) cells, less O22-SPEC-76, which reads GREEN in both runs (X-DS `ff7ea01b3` V8C-01; `close4/cl4{a,b}-smoke.f`, and ⟨`diff cl1 cl4b`⟩ → only that line). cl4a has two cells beyond (c′): `reactivity-instant.spec.ts:137` (median 121.1 ms > 100 at load1 23.5) and `o12-blob-seat.spec.ts:176` (70 draws over 67 frames, > 68). Each passes in cl4b. A targeted re-read on the same tree, ⟨`sh q2/run.sh cl4c <tree> <project> <id> --repeat-each=3`⟩ at load1 10.9–13.2, gives **3/3 ✓** for each (`q2/logs/cl4c-*`). They are recorded as load transients; no assertion was touched. The 3 perf ✘ are the same in both runs: G2 (`eager-payload:313`), G3/G4 (`:377`) and O-5 (`o5-boot-pacing:74`) | **GREEN ×2 except the named rows**: 15 (c′) cells (→ X-W10, `waves/W10-ADDENDUM-2026-10-16-cprime.md`) and 3 perf cells (G2, O-5 → ESC-W12U-g2d-1/-2; G3/G4 → X-W2 §3a). The two cl4a transients each re-read 4/4 GREEN |
+| (c′) addendum beside `waves/W10.md` (§0fr.4, granted to this seat) | — | written: `waves/W10-ADDENDUM-2026-10-16-cprime.md`. It homes the 16 ids by file:line, re-homes the two X·P-cited cells (O22-SPEC-76, O23-225) to X-W10, rows **ATMOS-DRAG-COMPOSITION** (§0fr.3), and records that §0fr.4's list sums to 16, not 15, with O22-SPEC-76 GREEN at these bytes | **DONE** |
+| drag floor `w12-drag.spec.ts:136` `> 1` on software GL (§0fr.3) | ruled LAWFUL (`2c1ba07e1`) | inside the smoke runs above: `w12-drag.spec.ts:75` (the test whose `:136` leg carries the floor) ✓ and `w12u-p-drag.spec.ts:205` ✓, both in cl4a and in cl4b | **GREEN ×2 (lawful as committed)** |
+| E-3 | — | ⟨`git log --format=%h 34abc09b3..HEAD -- docs/tranches/X/waves/W12U.md docs/tranches/X/waves/W10.md docs/tranches/X/audit/AUDIT-2-value.md`⟩ → empty. The W10 addendum is a new file beside `W10.md` | **HELD** |
+| E13 | 0 UNREAD (Open) | ⟨`find <7 paths> -maxdepth 1 -type f -newer INBOX.md`⟩ (value `V/`, `V/coordination/`; glass `BL/`, `BL/coordination/`, `BK/coordination/`; keyframes `V/coordination/`; atlas `P/coordination/`) → glass BL `FORMATION-PROGRESS.md` only (glass's progress log, not a letter), 0 on the other six; ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0; highest inbound I-71; sweep line appended to INBOX | **GREEN** |
+| masking | — | ⟨`git diff 34abc09b3..83decad02 -- demo e2e/smoke src \| grep '^+' \| grep -cE 'test\.skip\|\.fixme\|force: ?true\|allowlist\|eslint-disable\|ts-ignore\|ts-expect-error\|retries'`⟩ → `0` (the whole RESUME 4: `.g2s` and `.g2d`) | **HELD** |
+
+### Residuals (named owners)
+- **G2 eager JS 329,628 > cap 307,200 (+22,428), ×2.** The bar cannot be settled under §0fr.1. The decomposition is `g2d/eager-audit.txt`: R1 lib `./css` 33,221 (ESC-W12U-g2s-1; its arms are (a) a glass producer row for `value-*.js`/accent-tone-solve to import from `./color` after (2b) is published, (b) a `vite.config.ts` grant for a `subpaths/css.js` facade, (c) hold, with the cure banked as `g2s/cure-2b.patch`); R2 glass families pinned by root-barrel reachability 21,555 (glass exports `Skeleton`/`Avatar` from no subpath, so this is a glass producer row; arm C measured −19,474); R3 `Dock.vue`-rooted 6,810 (X-DS dirty path, movable once X-DS commits); R4 synchronous admin ports 7,977 (a port redesign); R5 the vue-router devtools define 2,673 (`vite.config.ts`). **Owner: the orchestrator's ruling on ESC-W12U-g2d-1 and ESC-W12U-g2s-1.**
+- **O-5 real-GPU witness RED ×2** (spike leg 7–8×, 12 of 12 sittings across `.g2d` and this close). The gap is the boot module task (`index-*.js` evaluate + Vue mount, before `mainVisible`). The §0fr.2 cure (canvases draw first at idle after first paint) is already shipped, so it cannot turn this leg. **Owner: the orchestrator's ruling on ESC-W12U-g2d-2.** The boot profile (`g2d/readings/profile-m2*`) bills `@vue/runtime-core`, glass `dock.js`, glass colour derive, glass `scrollReader`, and `useContrastSafeColor`.
+- **G3/G4** (`eager-payload:377`), RED ×2: X-W2 §3a, unchanged.
+- **The (c′) cells** (15 RED at these bytes, plus O22-SPEC-76 GREEN, to be confirmed): X-W10, by id, in `waves/W10-ADDENDUM-2026-10-16-cprime.md`. **ATMOS-DRAG-COMPOSITION**: X-W10, in the same addendum.
+- **`npm test` standing 7**: INK-VEIL-MIDBAND → O-62 (a) (`test/ink.test.ts` ×5); C-5 and NG-6 → X-W8 `.i`.
+- **Two load transients in cl4a** (`reactivity-instant:137` at load1 23.5; `o12-blob-seat:176`): each GREEN in cl4b and 3/3 in cl4c. They are recorded, not loosened, as `.q2` R-3's timing class.
+- **Carried from Close 3, unchanged**: X-13-RUN-PEAK (an O-85 addendum is owed, orchestrator → glass) · A2-VA-L2-4 stage-top 80 (O-74e L24-1) · A2-VA-L2-1 (O-74 / O-59) · X-3 / X-5 (O-74c) · L3-2 pane limb / L3-3 (O-74) · A2-VA-L3-6 / X-8 HELD for glass §11 · DOCK-CAP-ELLIPSE (O-83 / O-83a) · `.k3` (1) PaneShell overlying-host rules · `.q2` R-2 / R-3 · R-C3-1 / ESC-W12Uh-1 (:9000 degradation; this close made no :9000 read) · `.vscode/launch.json` (owner).
+
+### Escalations
+- **ESC-W12U-g2s-1** (HIGH, from `.g2s`): unruled. ⟨`grep -c 'g2s-1' docs/tranches/X/COHESION.md`⟩ → 0.
+- **ESC-W12U-g2d-1** (HIGH, G2 above the cap) and **ESC-W12U-g2d-2** (HIGH, O-5 GPU RED with the ruled cure already shipped): both unruled; this seat re-read each as RED ×2 on `83decad02`.
+- New at this close: none. §0fr.4's 15-versus-16 count is recorded in the W10 addendum and is not escalated, because all 16 ids are homed.
+- Carried: ESC-W12Uh-1 · ESC-W12Uh-2.
+
+### Teardown
+- ⟨`git worktree remove --force`⟩ on `~/.dev-logs/w12u-g2d/close4/tree` and `~/.dev-logs/w12u-q2/tree-83decad02`; ⟨`git worktree list | grep -cE 'close4|tree-83decad02'`⟩ → 0.
+- ⟨`lsof -ti :8197 -ti :9161 -ti :9162`⟩ → none. Every server and browser ran under `guarded` and ended with its run.
+- No X-DS path was staged or touched; `scripts/dev/dev.sh` was not edited. `W12U-evidence/s/results/final/probe-share-dark.txt` (dirty before this seat) and `q2/logs/v3chk-*` (another writer's) are not this seat's, so they were left unstaged.
+
+### State
+Four-verb line: **not moved.** It stays at **IMPLEMENTED** from Close 3. RESUME 4 is **BLOCKED-ON the orchestrator's rulings of ESC-W12U-g2s-1, ESC-W12U-g2d-1 and ESC-W12U-g2d-2**.
+- ADDENDUM (h)'s close bar has two gates that the units could not turn and that this seat re-read RED ×2 on committed `83decad02`: G2 at a settled bar (329,628, above the 307,200 cap) and O-5 on the real-GPU witness.
+- Everything else in the close bar is GREEN ×2 on `83decad02`:
+  - smoke `--workers=1`, except the named (c′) and perf rows;
+  - the (c′) addendum, written;
+  - the drag floor;
+  - E-6, MIRROR and V-C;
+  - typecheck and lint;
+  - E13.
+- `npm test` is at the standing 7, by relief.
+
+VERIFIED is not this seat's verb (§3: the row flips CLOSED on a CONFORMANT Check).
+
+**Close 4 commits:** `82853f087` (evidence: `close4/**`, `q2/{logs,results}/cl4{a,b,c}-*`, and `waves/W10-ADDENDUM-2026-10-16-cprime.md`; 43 files), then this record, LEDGER :39 and the INBOX sweep line. Pushed to `origin` (no force).
