@@ -2983,3 +2983,58 @@ Re-run at baseline only the gates `.o5b` turns (O-5 real-GPU, G2); the rest stan
 Groups: `[["X.W12U.o5b"]]`.
 
 ## RESUME 6 — Unit receipts
+
+### X.W12U.o5b
+
+SERVED MODEL: claude-opus-5-5. **Status: ESCALATED (ESC-W12U-o5b-1)** — act (i) turned ×2; the measured floor shows the ruled acts (ii)/(iii) cannot bring O-5 GREEN without a feature cut or a deferral of first-paint state, so no product move was landed (METHOD: an impossible cure is not substituted).
+
+**Acts, in order**
+1. Crash recovery ⟨`git status --porcelain -- demo docs/tranches/X/waves/W12U-evidence/o5b docs/tranches/V/coordination docs/tranches/X/execution | grep -v .vite-critic-9216`⟩ → empty. No inherited `.o5b` work.
+2. Committed tree ⟨`guarded --timeout 25 -- sh g2d/build-tree.sh HEAD o5b-base`⟩ → tree at `a43868f7b` (no product delta vs Close 5's `441ae4013`; the commits since are X-DS keyframes docs). Removed at the end ⟨`git worktree list | grep -c o5b`⟩ → 0; ⟨`lsof -ti tcp:8231 -ti tcp:8232 | wc -l`⟩ → 0.
+3. Instrument: `o5b/boot-task-profile.mjs` (+ `o5b/profile-run.sh`) — the `g2d/boot-profile.mjs` cell (headless `channel:'chrome'`, ANGLE-Metal asserted) with the samples restricted to the boot task's busy run and split by phase (under runtime-core `mount` vs module evaluation), self and inclusive per source-mapped file and per function.
+4. **(i) Profile ×2** ⟨`guarded --timeout 5 -- sh o5b/profile-run.sh <tree> 8231 base 2`⟩ → `base-profile-r1.txt`; ⟨`… base-r2 2`⟩ → `base-profile-r2.txt`. Every sitting `ANGLE Metal Renderer: Apple M5 Max`.
+
+| sitting | longtask | mount | module eval |
+|---|---|---|---|
+| r1 s1 | [15,+121] | 85.0 ms | 28.2 ms |
+| r1 s2 | [17,+115] | 76.1 | 31.1 |
+| r2 s1 | [17,+134] | 92.9 | 32.5 |
+| r2 s2 | [20,+137] | 92.4 | 34.5 |
+
+**Top contributors (source-mapped, ×2 agree):**
+- App.vue `setup`, 39–44 ms inclusive. Of that, `useAtmosphereBoot` takes 36–41 ms:
+  - `useContrastSafeColor`, 17–19 ms. Most of it is `ink.ts` `certify`, the `safeAccentColor` binary search, at 10–11 ms.
+  - The `useAtmosphere` aurora palette derive, 14–17 ms (glass `aurora.js` into the `color.wgsl-*` chunk, 13–16).
+  - `useViewAccents`, 6–7 ms, of which `palettes-ramp` is 4.4.
+- glass `dock.js` mount, 23–27 ms inclusive (18.5–18.9 self).
+- `@vue/runtime-core` self, 17–22 ms.
+- Module evaluation is spread across modules: no file exceeds 6 ms self outside `mount`, so act (iii), splitting a module top, has nothing dominant to split.
+5. **The first-paint audit of the profile (act (ii) candidates, measured):**
+   - The atmosphere canvas creation and arming: **~0 ms** in the boot task (arm expAD). Glass `useAurora` already arms at `requestIdleCallback` after intersection. The §0fr.2 named cure (the canvases' first draw after first paint, at idle) is therefore already the shipped behaviour, and moving it again recovers nothing.
+   - The inks (`--ink-*`, `--accent-live`, `--ink-ambient-l`) and the aurora palette that feeds `derivedLightness`: these are **first-paint state**. Every plate and text colour at first paint reads them, so deferring them is a wrong-colour flash, which §0fu.2 forbids.
+   - `--palettes-ramp-*`: about 4.4 ms. This is the one interaction- or route-only piece found. It is read only by the dock view-select's Palettes entry and the `/palettes` H1.
+   - Worker, WASM, registry and catalogue spin-up: none appear in the boot task's samples.
+6. **Floor arms**: scratch edits in the detached tree only. They were never committed, and the tree was restored (`git checkout`) and rebuilt before r2.
+   - expD, `<Dock/>` removed: longtask [14,+103] / [15,+87].
+   - expAD, plus `useAurora` given a null canvas: [16,+104] / [17,+88]. The forced first layout moves to glass `scrollReader` `position` (17 ms).
+   - **expFLOOR**, plus the whole `useAtmosphereBoot` stubbed: longtask **[19,+80] / [19,+74]** (`exp-floor-profile.txt`).
+   - ⟨`guarded --timeout 5 -- sh g2d/o5-run.sh <tree> 8232 expFLOOR 3`⟩ → max 66.5 / 50.0 / 66.7 ms (4.0× / 3.0× / 4.0×), **`VERDICT RED 1/3`** (`exp-floor-o5.txt`).
+   - So with two first-paint features cut (forbidden; this was measurement only), the single boot task still reads 70–80 ms, and O-5 (max frame delta ≤ 3 × median = 50 ms, the rendering step included) stays RED.
+7. Evidence commit ⟨`git commit … -- docs/tranches/X/waves/W12U-evidence/o5b`⟩ → **`d0de80276`**. No product commit.
+
+**Gate readings**
+
+| gate | before | after | state |
+|---|---|---|---|
+| (i) boot-task profile ×2, top contributors named | — | r1 + r2 (table above) | **GREEN** |
+| (ii) moves named with ms before/after ×2 | — | none landed: the only non-first-paint piece is 4.4 ms (palettes-ramp) against a ~70 ms excess | **RED (escalated)** |
+| O-5 real-GPU witness ×2 | RED (open6; Close 5 ×2) | unchanged bytes | **RED** |
+| G2 ≤ 294,912 ×2 | 293,980 ×2 (open6) | no product delta | GREEN (cited, bytes unchanged) |
+| nocut ×2, smoke ×2, typecheck/lint ×2, `npm test` | Close 5 | no product delta | cited (bytes unchanged) |
+
+**ESC-W12U-o5b-1 (to the orchestrator).** On a fresh context, O-5's gate needs the first boot task, plus its first render, under 50 ms. The measured boot is one synchronous `router.isReady()` → `app.mount` task, and its floor is 70–80 ms even with the glass dock and the whole atmosphere/ink boot cut. That floor is Vue vdom mount, module evaluation and first style/layout. The ruled acts (ii)/(iii) are worth at most about 4 ms here, so they cannot reach the bar. Options for a ruling:
+- (a) **Staged mount behind the overture veil.** The dock is veiled at first paint (`overture-dock-veiled`), so its mount, and the panes' `appear`, could land in later tasks, each under ~30 ms. This is an architectural change to the overture DAG and touches the "no first-paint state deferral" law, so it needs the owner's or orchestrator's reading of whether veiled = not shown.
+- (b) **Restate O-5's boot leg.** For example, measure the pacing window from `mainVisible`, or exclude the pre-first-paint task, as §0fr.2 did for software GL. That is a gate change, outside any seat.
+- (c) **A glass producer row** for the dock mount's 23–27 ms (`dock.js`, the largest single share; 18.5–18.9 ms self). It cannot close the gap alone (expD still reads 87–103 ms).
+
+No O-n letter was written, because no glass share dominates alone (§0fu.2's trigger names glass *module evaluation*; the dock share is mount). Residual: the 4.4 ms palettes-ramp move is ready for whichever ruling lands.
