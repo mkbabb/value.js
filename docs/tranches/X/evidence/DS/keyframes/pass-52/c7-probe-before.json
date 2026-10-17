@@ -1,0 +1,354 @@
+{
+ "fails": [
+  "1440x900 light @600ms: the 'Physics' title row scrolls inside the port (scrollTop 192; title -55--16.2, port top 128)",
+  "1440x900 light @600ms: the title -55--16.2 is not whole above the port (card 127, port top 128)",
+  "1440x900 light @600ms: text across the port's top edge or start fade (top 128, fade 16): smooth 142.5-165.5 | snappy 142.5-165.5",
+  "1440x900 light @2500ms: the 'Physics' title row scrolls inside the port (scrollTop 192; title -55--16.2, port top 128)",
+  "1440x900 light @2500ms: the title -55--16.2 is not whole above the port (card 127, port top 128)",
+  "1440x900 light @2500ms: text across the port's top edge or start fade (top 128, fade 16): smooth 142.5-165.5 | snappy 142.5-165.5",
+  "1280x800 light @600ms: the 'Physics' title row scrolls inside the port (scrollTop 201; title -70--31.2, port top 122)",
+  "1280x800 light @600ms: the title -70--31.2 is not whole above the port (card 121, port top 122)",
+  "1280x800 light @600ms: text across the port's top edge or start fade (top 122, fade 16): smooth 126.5-148.9 | snappy 126.5-148.9",
+  "1280x800 light @2500ms: the 'Physics' title row scrolls inside the port (scrollTop 201; title -70--31.2, port top 122)",
+  "1280x800 light @2500ms: the title -70--31.2 is not whole above the port (card 121, port top 122)",
+  "1280x800 light @2500ms: text across the port's top edge or start fade (top 122, fade 16): smooth 126.5-148.9 | snappy 126.5-148.9",
+  "1440x1080 light @600ms: the 'Physics' title row scrolls inside the port (scrollTop 28; title 119.8-158.6, port top 138.8)",
+  "1440x1080 light @600ms: the title 119.8-158.6 is not whole above the port (card 137.8, port top 138.8)",
+  "1440x1080 light @600ms: text across the port's top edge or start fade (top 138.8, fade 16): Physics 119.8-158.6 | To keyframes 121.2-157.2",
+  "1440x1080 light @2500ms: the 'Physics' title row scrolls inside the port (scrollTop 28; title 119.8-158.6, port top 138.8)",
+  "1440x1080 light @2500ms: the title 119.8-158.6 is not whole above the port (card 137.8, port top 138.8)",
+  "1440x1080 light @2500ms: text across the port's top edge or start fade (top 138.8, fade 16): Physics 119.8-158.6 | To keyframes 121.2-157.2",
+  "1440x900 dark @600ms: the 'Physics' title row scrolls inside the port (scrollTop 192; title -55--16.2, port top 128)",
+  "1440x900 dark @600ms: the title -55--16.2 is not whole above the port (card 127, port top 128)",
+  "1440x900 dark @600ms: text across the port's top edge or start fade (top 128, fade 16): smooth 142.5-165.5 | snappy 142.5-165.5",
+  "1440x900 dark @2500ms: the 'Physics' title row scrolls inside the port (scrollTop 192; title -55--16.2, port top 128)",
+  "1440x900 dark @2500ms: the title -55--16.2 is not whole above the port (card 127, port top 128)",
+  "1440x900 dark @2500ms: text across the port's top edge or start fade (top 128, fade 16): smooth 142.5-165.5 | snappy 142.5-165.5",
+  "1280x800 dark @600ms: the 'Physics' title row scrolls inside the port (scrollTop 201; title -70--31.2, port top 122)",
+  "1280x800 dark @600ms: the title -70--31.2 is not whole above the port (card 121, port top 122)",
+  "1280x800 dark @600ms: text across the port's top edge or start fade (top 122, fade 16): smooth 126.5-148.9 | snappy 126.5-148.9",
+  "1280x800 dark @2500ms: the 'Physics' title row scrolls inside the port (scrollTop 201; title -70--31.2, port top 122)",
+  "1280x800 dark @2500ms: the title -70--31.2 is not whole above the port (card 121, port top 122)",
+  "1280x800 dark @2500ms: text across the port's top edge or start fade (top 122, fade 16): smooth 126.5-148.9 | snappy 126.5-148.9",
+  "1440x1080 dark @600ms: the 'Physics' title row scrolls inside the port (scrollTop 28; title 119.8-158.6, port top 138.8)",
+  "1440x1080 dark @600ms: the title 119.8-158.6 is not whole above the port (card 137.8, port top 138.8)",
+  "1440x1080 dark @600ms: text across the port's top edge or start fade (top 138.8, fade 16): Physics 119.8-158.6 | To keyframes 121.2-157.2",
+  "1440x1080 dark @2500ms: the 'Physics' title row scrolls inside the port (scrollTop 28; title 119.8-158.6, port top 138.8)",
+  "1440x1080 dark @2500ms: the title 119.8-158.6 is not whole above the port (card 137.8, port top 138.8)",
+  "1440x1080 dark @2500ms: text across the port's top edge or start fade (top 138.8, fade 16): Physics 119.8-158.6 | To keyframes 121.2-157.2"
+ ],
+ "cells": {
+  "spring-1440x900-light-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 128,
+   "fold": 527,
+   "fade": 16,
+   "labels": [
+    499,
+    517.7
+   ],
+   "title": [
+    -55,
+    -16.2
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 142.5-165.5",
+    "snappy 142.5-165.5"
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-light-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 128,
+   "fold": 527,
+   "fade": 16,
+   "labels": [
+    499,
+    517.7
+   ],
+   "title": [
+    -55,
+    -16.2
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 142.5-165.5",
+    "snappy 142.5-165.5"
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-600ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "portTop": 122,
+   "fold": 511,
+   "fade": 16,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "title": [
+    -70,
+    -31.2
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 126.5-148.9",
+    "snappy 126.5-148.9"
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-2500ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "portTop": 122,
+   "fold": 511,
+   "fade": 16,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "title": [
+    -70,
+    -31.2
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 126.5-148.9",
+    "snappy 126.5-148.9"
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-600ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "portTop": 138.8,
+   "fold": 701.8,
+   "fade": 16,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "title": [
+    119.8,
+    158.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "Physics 119.8-158.6",
+    "To keyframes 121.2-157.2"
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-2500ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "portTop": 138.8,
+   "fold": 701.8,
+   "fade": 16,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "title": [
+    119.8,
+    158.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "Physics 119.8-158.6",
+    "To keyframes 121.2-157.2"
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 128,
+   "fold": 527,
+   "fade": 16,
+   "labels": [
+    499,
+    517.7
+   ],
+   "title": [
+    -55,
+    -16.2
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 142.5-165.5",
+    "snappy 142.5-165.5"
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 128,
+   "fold": 527,
+   "fade": 16,
+   "labels": [
+    499,
+    517.7
+   ],
+   "title": [
+    -55,
+    -16.2
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 142.5-165.5",
+    "snappy 142.5-165.5"
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-600ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "portTop": 122,
+   "fold": 511,
+   "fade": 16,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "title": [
+    -70,
+    -31.2
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 126.5-148.9",
+    "snappy 126.5-148.9"
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-2500ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "portTop": 122,
+   "fold": 511,
+   "fade": 16,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "title": [
+    -70,
+    -31.2
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "smooth 126.5-148.9",
+    "snappy 126.5-148.9"
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-600ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "portTop": 138.8,
+   "fold": 701.8,
+   "fade": 16,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "title": [
+    119.8,
+    158.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "Physics 119.8-158.6",
+    "To keyframes 121.2-157.2"
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-2500ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "portTop": 138.8,
+   "fold": 701.8,
+   "fade": 16,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "title": [
+    119.8,
+    158.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": true,
+   "startCut": [
+    "Physics 119.8-158.6",
+    "To keyframes 121.2-157.2"
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  }
+ }
+}

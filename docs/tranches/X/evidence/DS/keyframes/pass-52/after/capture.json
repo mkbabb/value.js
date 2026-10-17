@@ -1,0 +1,110 @@
+{
+ "easing-drawer-1440-light": {
+  "fold": 653,
+  "maxBlockSize": "399px",
+  "lastAbove": {
+   "kind": "tile",
+   "text": "ease-in-outslow st",
+   "top": 468,
+   "bottom": 634
+  },
+  "orphanHeading": false
+ },
+ "chevron-light": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "easing-drawer-390-light": {
+  "fold": 654,
+  "maxBlockSize": "392px",
+  "lastAbove": {
+   "kind": "heading",
+   "text": "Sine",
+   "top": 654,
+   "bottom": 678
+  },
+  "orphanHeading": true
+ },
+ "easing-drawer-1440-dark": {
+  "fold": 653,
+  "maxBlockSize": "399px",
+  "lastAbove": {
+   "kind": "tile",
+   "text": "ease-in-outslow st",
+   "top": 468,
+   "bottom": 634
+  },
+  "orphanHeading": false
+ },
+ "chevron-dark": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "easing-drawer-390-dark": {
+  "fold": 654,
+  "maxBlockSize": "392px",
+  "lastAbove": {
+   "kind": "heading",
+   "text": "Sine",
+   "top": 654,
+   "bottom": 678
+  },
+  "orphanHeading": true
+ }
+}

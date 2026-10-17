@@ -1,0 +1,88 @@
+{
+ "fails": [
+  "390x844 light: heading 'Sine' rests on the fold (654.3-678.3, fold 686.1) with no row under it",
+  "390x844 dark: heading 'Sine' rests on the fold (654.3-678.3, fold 686.1) with no row under it"
+ ],
+ "cells": {
+  "easing-390x844-light": {
+   "fold": 686.1,
+   "maxBlockSize": "424px",
+   "lastAbove": {
+    "kind": "heading",
+    "text": "Sine",
+    "top": 654.3,
+    "bottom": 678.3
+   }
+  },
+  "easing-390x700-light": {
+   "fold": 540.1,
+   "maxBlockSize": "278px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 526.9,
+    "bottom": 634.3
+   }
+  },
+  "easing-1440x900-light": {
+   "fold": 704.6,
+   "maxBlockSize": "451px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-out-sinesi",
+    "top": 692.3,
+    "bottom": 858.1
+   }
+  },
+  "easing-1280x800-light": {
+   "fold": 611.7,
+   "maxBlockSize": "367px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 442.3,
+    "bottom": 591.4
+   }
+  },
+  "easing-390x844-dark": {
+   "fold": 686.1,
+   "maxBlockSize": "424px",
+   "lastAbove": {
+    "kind": "heading",
+    "text": "Sine",
+    "top": 654.3,
+    "bottom": 678.3
+   }
+  },
+  "easing-390x700-dark": {
+   "fold": 540.1,
+   "maxBlockSize": "278px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 526.9,
+    "bottom": 634.3
+   }
+  },
+  "easing-1440x900-dark": {
+   "fold": 704.6,
+   "maxBlockSize": "451px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-out-sinesi",
+    "top": 692.3,
+    "bottom": 858.1
+   }
+  },
+  "easing-1280x800-dark": {
+   "fold": 611.7,
+   "maxBlockSize": "367px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 442.3,
+    "bottom": 591.4
+   }
+  }
+ }
+}
