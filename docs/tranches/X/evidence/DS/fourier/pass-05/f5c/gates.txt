@@ -1,0 +1,16 @@
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== e2e (35 specs in e2e-specs.txt, chromium + mobile-chromium, workers=1, headless; own API :8017 COMPUTE_CONCURRENCY=1, vite :3137)
+run A: 384 passed
+run B: 384 passed
+no visual golden re-baselined; web/e2e/screenshots/f-w14/after-* restored to HEAD after each run
