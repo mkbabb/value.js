@@ -1,0 +1,100 @@
+SERVED MODEL: claude-opus-5-5
+load 9.78 12.08 16.22
+[o5b-profile base s1] renderer=ANGLE ANGLE Metal Renderer: Apple M5 Max longtasks=[[15,121]] bootTaskSampled=118.8ms span=119.5ms
+  PHASE 85.0ms mount · 28.2ms eval/other-js · 5.6ms other
+  SELF
+    18.9ms npm:@mkbabb/glass-ui/dist/dock.js
+    17.0ms npm:@vue/runtime-core
+    13.5ms npm:@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js
+    13.1ms demo/color-session/useContrastSafeColor.ts
+    8.8ms color-BhA0dYV0.js
+    5.7ms npm:@vue/reactivity
+    4.5ms npm:reka-ui
+    4.1ms ((garbage collector))
+    4.1ms anchors-Dsys6KsZ.js
+    3.5ms npm:@mkbabb/glass-ui/dist/motionTempo-tscp92Nm.js
+    2.5ms npm:@vue/runtime-dom
+    1.9ms npm:@vue/shared
+    1.8ms npm:@mkbabb/glass-ui/dist/class-names-FlXcvRRT.js
+    1.4ms npm:@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js
+    1.1ms npm:vue-router
+    0.9ms color-grammar-DNChrspH.js
+    0.9ms npm:@vueuse/core
+    0.8ms npm:@mkbabb/glass-ui/dist/aurora.js
+    0.7ms (insertBefore)
+    0.7ms fading-scroll-CTeW3KNS-B8AR2kd9.js
+  INCL (demo/ + glass-ui)
+    84.8ms demo/app/main.ts
+    39.4ms demo/app/App.vue
+    36.5ms demo/app/composables/boot/useAtmosphereBoot.ts
+    26.3ms npm:@mkbabb/glass-ui/dist/dock.js
+    19.2ms demo/color-session/useContrastSafeColor.ts
+    15.9ms npm:@mkbabb/glass-ui/dist/aurora.js
+    13.9ms demo/app/composables/boot/useAtmosphere.ts
+    13.7ms npm:@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js
+    11.0ms demo/color-session/ink.ts
+    6.3ms demo/app/composables/boot/useViewAccents.ts
+    4.5ms demo/color-session/palettes-ramp.ts
+    3.8ms npm:@mkbabb/glass-ui/dist/useLiquidPress-h1scrPtP.js
+    3.7ms npm:@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js
+    3.5ms npm:@mkbabb/glass-ui/dist/motionTempo-tscp92Nm.js
+    2.1ms npm:@mkbabb/glass-ui/dist/select-fy3vtArm.js
+    1.9ms npm:@mkbabb/glass-ui/dist/class-names-FlXcvRRT.js
+    1.8ms demo/shell/dock/menus/ProfileSection.vue
+    1.4ms demo/color-session/picker-color.ts
+    1.4ms npm:@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js
+    1.3ms npm:@mkbabb/glass-ui/dist/color.js
+    1.2ms demo/color-session/useColorPipeline.ts
+    1.1ms npm:@mkbabb/glass-ui/dist/dark-pONY3x93.js
+    1.1ms demo/shell/usePaneRouter.ts
+    1.1ms demo/color-session/view-accent.ts
+    0.9ms demo/app/composables/boot/atmosphere-calibration.ts
+[o5b-profile base s2] renderer=ANGLE ANGLE Metal Renderer: Apple M5 Max longtasks=[[17,115]] bootTaskSampled=112.7ms span=113.4ms
+  PHASE 76.1ms mount · 31.1ms eval/other-js · 5.5ms other
+  SELF
+    22.2ms npm:@vue/runtime-core
+    18.5ms npm:@mkbabb/glass-ui/dist/dock.js
+    12.0ms demo/color-session/useContrastSafeColor.ts
+    8.9ms color-BhA0dYV0.js
+    6.3ms npm:@vue/reactivity
+    5.1ms npm:@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js
+    4.0ms ((garbage collector))
+    3.7ms npm:@mkbabb/glass-ui/dist/motionTempo-tscp92Nm.js
+    3.5ms anchors-Dsys6KsZ.js
+    3.5ms npm:@vue/runtime-dom
+    3.0ms npm:reka-ui
+    1.9ms npm:@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js
+    1.6ms npm:@vue/shared
+    1.2ms color-grammar-DNChrspH.js
+    1.0ms npm:@mkbabb/glass-ui/dist/class-names-FlXcvRRT.js
+    1.0ms npm:vue-router
+    0.8ms npm:@mkbabb/glass-ui/dist/aurora.js
+    0.8ms npm:@vueuse/core
+    0.7ms index-K4gSufYD.js
+    0.6ms (elementsFromPoint)
+  INCL (demo/ + glass-ui)
+    76.3ms demo/app/main.ts
+    29.7ms demo/app/App.vue
+    27.4ms npm:@mkbabb/glass-ui/dist/dock.js
+    26.5ms demo/app/composables/boot/useAtmosphereBoot.ts
+    17.4ms demo/color-session/useContrastSafeColor.ts
+    10.9ms demo/color-session/ink.ts
+    7.5ms npm:@mkbabb/glass-ui/dist/aurora.js
+    6.4ms demo/app/composables/boot/useViewAccents.ts
+    5.6ms demo/app/composables/boot/useAtmosphere.ts
+    5.3ms npm:@mkbabb/glass-ui/dist/color.wgsl-BTszLY39.js
+    4.4ms demo/color-session/palettes-ramp.ts
+    4.3ms npm:@mkbabb/glass-ui/dist/useLiquidPress-h1scrPtP.js
+    3.9ms npm:@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js
+    3.7ms npm:@mkbabb/glass-ui/dist/motionTempo-tscp92Nm.js
+    2.0ms npm:@mkbabb/glass-ui/dist/useResizeObserver-CdUlm2QZ.js
+    1.9ms demo/shell/dock/menus/ProfileSection.vue
+    1.6ms demo/color-session/picker-color.ts
+    1.5ms npm:@mkbabb/glass-ui/dist/select-fy3vtArm.js
+    1.2ms npm:@mkbabb/glass-ui/dist/dark-pONY3x93.js
+    1.2ms npm:@mkbabb/glass-ui/dist/class-names-FlXcvRRT.js
+    1.2ms demo/app/composables/boot/atmosphere-calibration.ts
+    1.1ms npm:@mkbabb/glass-ui/dist/color.js
+    0.8ms demo/color-session/useColorPipeline.ts
+    0.8ms npm:@mkbabb/glass-ui/dist/usePointerVelocityField-Lx26_Yap.js
+    0.8ms demo/app/composables/usePaletteWiring.ts
