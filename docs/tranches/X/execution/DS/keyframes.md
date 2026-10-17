@@ -2597,3 +2597,65 @@ Every capture is headless real Chrome (§0ei). The task named `pass-07/`, but th
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
 - Each probe used one browser, closed in `finally`. Nothing of this seat's was left running.
+
+### pass 8 (the eighth redeploy's pass 8; critic C8; evidence in `pass-53/`)
+
+**Cure commit:** keyframes.js `2e8097c8` (pushed fast-forward to master, `bc1480b8..2e8097c8`). **Evidence:** value.js `ae19e7aa5` (`evidence/DS/keyframes/pass-53/`):
+- `c8-probe.mjs`, `c8-probe.json` (GREEN, 0 fails) and `c8-probe-before.json` (born RED at `bc1480b8`, 16 fails);
+- `seam.mjs` and `after/seam-home-390-*` (KF-C8-02);
+- `capture.mjs` and `after/`: the critic's cells (home, `cube`, `amiga`, `square`, `easing`, `spring`, `sequence` at 1440 and 390 in light and dark; `cube-keyframes`, `cube-timeline`, `cube-dock-open` at 1440; `home-390-*-seam`, `cube-390-*-seam`), plus `spring-peak-open-*` at the probe's three viewports;
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-08/`, but that folder holds the first workflow's committed evidence, so the frames go to `pass-53/`, the next free folder (the pass-23..52 precedent). The seat served its own dev server on :5193, so the shared :5173 was not touched, and stopped it at the end.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C8-01 (low) | **An end-pinned port's top edge cuts no row and lays no fade on the first whole one.** `landStart` placed the edge by text only, so a painted box with no text of its own crossed it. The edge is now placed by **rows**: any box at most a row tall (`ROW_MAX_FADES` × fade) that the edge crosses goes above it whole, a label and its slider together, and a separator left at the edge goes with the row it closes. The edge then sits in the gap between two rows. The row gap (12 px) is narrower than glass's 16 px fade, so at that rest the port's **start fade is off** (the mirror of KF-C25-01's foot):<br>• `landStart` returns it and marks the port `data-fold-headed`;<br>• `useFoldLanding` returns `{ footed, headed }` (`FOLD_EDGES_KEY` replaces `FOLD_FOOTED_KEY`);<br>• the rail's surfaces and the Physics port bind glass `FadingScroll`'s own `fadeStart` prop from it.<br>Scrolled off the end, the fade is back as the cue. A tall box that paints (a figure) crossing the edge keeps the fade. The cap is cleared first, so the port takes the frame's free block before it gives up any row. The probe's startCut test is widened from own-text elements to painted boxes (background or border) and rows, and it also fails on a painted box under a live start fade. | The probe opens Peak overshoot and measures at 600 and 2500 ms, both schemes:<br>• 1440x1080: before, the edge 202.6 crossed the response row (`slider-range` 197–217); after, the port is at its end (49 of 49), 'damping' sits whole 11.4 px under the edge, and the start fade is off.<br>• 1440x900: before, the edge crossed the Smooth/Snappy tiles (136.5–201.8) and their value line; after, Bouncy/Gentle are whole at the edge (200 of 200).<br>• 1280x800: before, the edge crossed the tiles (126.5–187.4) and the next row lay under the fade; after, the port is clean (194 of 194).<br>Scrolled up 30 px, the fade returns in every cell. The axis caption stays above the fold and the title stays outside the port. `after/spring-peak-open-*`. |
+| KF-C8-02 (trivial) | **The die's faces meet without a seam.** The crayon `.face-fill` and the face's opaque ground (KFA-142) ended on the same edge. Both anti-aliased there, and the ground's light fringe leaked through the crayon's. `.cube-side > .face-fill` now overscans its ground by 0.5 px each side, so the ground's edge is wholly under crayon. A first try that overscanned the whole face (ground included) did not remove the line and was withdrawn. The faces stay flat. The depth, the per-face tonal step and the rounded corners are unchanged. | `after/seam-home-390-*` (3× device crops) against pass-52's `home-390-light.png`: the light hairline between the magenta top and the yellow left face is gone. The small wedge where three rounded corners meet is the origin die's rounded corner, not a seam, and is kept (§0dm). |
+
+**Trade (disclosed):** at 1440x1080 the content is 6 px taller than the port's whole block (518 against 512, with the field at its 8rem floor), so the whole response row cannot fit. The critic's two cures conflict here:
+- absorbing the foot would rest the edge 6 px into the response label;
+- keeping whole rows sends that row above the edge.
+
+Whole rows were chosen, and the free plate under the ribbon grows:
+
+| viewport | free plate before | free plate after |
+|---|---|---|
+| 1440x1080 | 49.1 px | 64.1 px |
+| 1440x900 | 34.9 px | 45.9 px |
+| 1280x800 | 24.3 px | 26.3 px |
+
+That plate is KF-C10-10's frame-to-stage-foot rule, and it is not lighting. Lowering the field's floor, or folding the free block into the field, would be a design ruling and was not taken.
+
+**Cited (glass, not overridden)**
+- **KF-C8-G1 (medium): O-87 FLAT-LIGHTING**:
+  - the dark pane-frame and stage-card halo;
+  - the cream Input against the grey Select fill;
+  - the closed Select carets rotated 180deg;
+  - the 'Apply CSS'/'Import' capsule halo in dark;
+  - the play-bubble plate;
+  - the resting-plate blur bands;
+  - the EasingPicker ghost staircase and its 'Custom' preset (KF-C13-G1: `EasingPickerValue` has no preset field).
+
+  They are honest-RED until the 10.2.0 repin.
+- **KF-C8-G2 (medium): O-88 DOCK-COLLAPSE-MOTION**: the collapsed tile and its halo, plus the TypingDots loop under owner ruling KF-C3-02. It is honest-RED until the 10.2.0 repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5193/ --widths 1440,390 --settle 5000`): identical to pass 52 in every tally. The only differing keys are the timestamp and the base URL. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `2e8097c8`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined. The served falsifier is `c8-probe.mjs`: born RED at `bc1480b8` and GREEN at `2e8097c8`.
+
+**Disclosures**
+- **Born-RED run:** the run was taken with this seat's three KF-C8-01 files restored to HEAD on this seat's own dev server, and the cure was copied back before the GREEN run. An earlier attempt failed to restore (a zsh word-splitting slip), so it measured the cure, not HEAD. That run surfaced a real bug: a tall layout group counted as a figure and held the fade on. The bug was fixed, the attempt was discarded, and the born-RED run was redone.
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. Every commit is pathspec-only.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
+- Each probe used one browser, closed in `finally`. The dev server on :5193 was stopped, and nothing of this seat's was left running.
