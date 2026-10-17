@@ -3226,3 +3226,58 @@ SERVED MODEL: claude-opus-5-5. Seat `.o5c` (Track A, RESUME 7, 2026-10-17). Auth
   - Mounted in its own task, the dock arrives settled. `useDockArrival` takes its designed no-morph path (the "P7 arrive-expanded" future) and reveals after 2 frames.
   - Restoring the old veil length would need a timer, which §0fv.2 and the brief forbid.
   - Ruling asked: accept "the reveal (land) unchanged + no pop + band constant" as the reading. Side effect: B2 (field ∧ dock-landed) can open earlier; the O-4 order is unaffected, and smoke `o4` stays ✓ ×2.
+
+## Close 7 (RESUME 7 close seat, 2026-10-17)
+
+SERVED MODEL: claude-opus-5-5. Track A close seat, VERIFY-ONLY. HEAD at open `3a551e1cd` (the `.o5c` receipt), glass 10.1.0. Spec `W12U.md` read whole (143 lines, addenda (a)–(k)). Record read: RESUME 7 Open → Unit plan (:3107-3151), the `.o5c` receipt (:3153-3228) and Close 6 (:3042-3105), per the context-economy law.
+
+Crash recovery ⟨`git status --porcelain -- docs/tranches/X/execution docs/tranches/X/waves/W12U*`⟩: no inherited close work. The dirty `s/results/final/probe-share-dark.txt` and the untracked `q2/{logs,results}/v3chk-*` belong to other writers (as at Close 5/6) and stay unstaged.
+
+**Product bytes read.** ⟨`git diff --stat 9e0212c46 HEAD -- src demo e2e scripts vite.config.ts vite.library.ts package.json`⟩ → 4 files, all X-DS VP5 (`3d73afb54`: `demo/scenes/ConfigSliderPane.vue`, `demo/shell/dock/menus/{MobileMenuDropdown,ProfileSection}.vue`, `demo/workbenches/mix/MixSourceSelector.vue`), landed after `.o5c`'s gate reads. HEAD's product therefore differs from the bytes `.o5c` measured, so **every gate is re-run here on COMMITTED `3a551e1cd`** (none cited on identity), from a detached worktree `~/.dev-logs/w12u-g2d/close7/tree` (`g2d/build-tree.sh`; removed at teardown). Commands: `W12U-evidence/close7/README-commands.txt`.
+
+### Commit roster (act 1)
+⟨`git merge-base --is-ancestor <c> HEAD`; `git show --name-only <c>`⟩: all 5 `.o5c` commits are on HEAD.
+- `9e0212c46` (product): `demo/app/App.vue`, `demo/app/composables/boot/useDockArrival.ts`, `demo/styles/foundation.css`. All in `demo/**`; none of the four X-DS paths.
+- `a9d3e125c`: `V/coordination/INBOX.md` (O-99 row + sweep line), `V/coordination/valuejs-outbound-2026-10-17-dock-mount-cost.md`, `X/relay/X-W12U-BK-DOCK-MOUNT-COST.md`.
+- `4ae794885`: the same three paths (the R-3 addendum).
+- `e81816a8a`: 44 paths ⟨`git show --name-only --format= e81816a8a | grep -vc '^docs/tranches/X/waves/W12U-evidence/o5c/'`⟩ → 0 outside `o5c/**`.
+- `3a551e1cd`: the record (+77) and `LEDGER.md` (one row cell, 1 line).
+
+Paths outside the unit's writable set → 0. `scripts/dev/dev.sh`, glass-ui, sibling repos, `src/**`, pins → 0.
+
+### Landed wrong (recorded, not fixed here)
+None.
+
+**Crash recovery (second close seat).** The first Close 7 seat was killed after `npm-test-r1` (03:59). Its record hunk (above, from the `## Close 7` header through "Landed wrong") and `close7/**` evidence were read whole and judged against the spec. They conform: every reading was taken on committed `3a551e1cd`, from the detached tree, with the committed `.o5c` witnesses. This seat finishes the work: `npm test` r2, E13, the gate table, LEDGER and push. Inherited paths: this record's Close 7 hunk and `W12U-evidence/close7/**`.
+
+**HEAD delta after the readings.** ⟨`git diff --stat 3a551e1cd HEAD -- src demo e2e scripts vite.config.ts vite.library.ts package.json`⟩ → 4 files: X-DS VC6 `b84fda97d` (`demo/shell/dock/layers/GenericActionBar.vue`, `demo/shell/dock/menus/{MobileMenuDropdown,ProfileSection}.vue`, new `dockMenuOffset.ts`; the dock-menu side offset). That is another writer's commit, outside W12U. The W12U gates stand on `3a551e1cd`, the wave's last product bytes. X-DS owns the VC6 bytes and its own gates (its receipt `bfa8d6aa6`).
+
+### Gate table (act 2–3), BEFORE (RESUME 7 Baseline, `955efaa03`) → AFTER (`3a551e1cd`)
+
+| gate (spec) | GREEN definition | BEFORE | AFTER (close7/) | state |
+|---|---|---|---|---|
+| O-5 real-GPU from `mainVisible` (§0fv.1) | 3/3 sittings ≤ 3× median, ANGLE Metal, ×2 | GREEN 3/3 ×2 | ⟨`o5c/o5-mv-run.sh T 8251 close7-r{1,2} 3`⟩ `ANGLE Metal Renderer: Apple M5 Max` 6/6; max 16.8 ms (1.0×), dropped 0; `VERDICT GREEN 3/3` ×2 (load 10.4 / 9.1) | **GREEN ×2** |
+| boot task ≤ 122 ms (§0fv.1, banked every sitting) | every sitting ≤ 122, ×2 | RED: 131·119·124 / 132·143·138 | r1 `109 · 86 · 88`; r2 `116 · 99 · 92` ms (one longtask each, start 15–20 ms); `BOOT GREEN 3/3 <= 122 ms` ×2 | **GREEN ×2** (load 9–10) |
+| G2 eager JS gz ≤ 294,912 (§0fu.1) | ≤ bar ×2 | 293,975 ×2 | ⟨`eager-bytes.mjs`⟩ `gz= 294028` ×2 (margin 884 B; the script prints its committed constant 286,720 → the named G2-constant row) | **GREEN ×2** |
+| CLS 0 on the cell; no pop; land unchanged (§0fv.2) | cls 0 at 1280×720 light+dark, pop 0 | — (born at `.o5c`) | ⟨`o5c/reveal-run.sh T 8252 close7-r{1,2}`⟩ 1280×720 light/dark `cls=0 pop=0`, rect `16,8,1248,72`, mainTop 88, land `overture-plate-land 0.45s`; 390×844 cls 0; 844×390 `cls=0.00001` (the pre-existing colour-space chevron, base 0.00128) → script `VERDICT RED 3/4` ×2 on that cell only | **GREEN ×2 on the cell**; 844×390 sub-pixel = named residual |
+| no feature cut (`g2d/nocut-run.sh`) | 0 failures ×2 | GREEN (cited) | `VERDICT GREEN (0 failures)` ×2; lazy chunks `ColorInput-*`, `dialog-*`, pageErrors [] | **GREEN ×2** |
+| typecheck 4 programs + lint (`npm run check`) | 0 ×2 | 0 0 0 0 lint=0 | `floors-r{1,2}.txt`: `0 0 0 0 lint=0` ×2 | **GREEN ×2** |
+| `npm test` (§3) | GREEN | standing 7 (Close 5) | ⟨`vitest run --maxWorkers=2`⟩ `Tests 7 failed \| 1227 passed (1234)` ×2. The failing set is the same by title in both runs and the same as Close 5's (ink D6/T-35 ×5, spectrum-luma C-5, reka NG-6) | **RED by relief** (standing 7; owners below) |
+| smoke `--workers=1` ×2 except the named rows | named rows only | cited Close 5 `cl5{a,b}`: 282 ✓ / 15 (c′) | ⟨`close7/smoke-batch.sh cl7{a,b} T`⟩ smoke cl7a `15 failed · 2 skipped · 282 passed`, cl7b `16 · 2 · 281`. The cl7a set equals Close 5's `cl5a-smoke.f` by title (`diff` → empty). cl7b's extra row is `webgl-blob.spec.ts:13` (load 22.5). perf ×2: the 3 named rows (G2-constant `eager-payload:313`, G3/G4 `:377`, O-5 SwiftShader `o5-boot-pacing:74`). admin 25/25 ×2 · mobile 7/7 ×2 · reactivity 2/2 in cl7b; in cl7a `:137` failed at load 12.8. The two one-batch rows were re-read isolated ×2 (`smoke/reread-flakes.txt`): webgl-blob:13 ✓ ✓ (load 16.3/15.6), reactivity:137 ✓ ✓ (median 12.3/12.5 ms) | **GREEN except named rows** (×2, with the load rows re-read) |
+| E13 (act 4) | 0 UNREAD, 0 unrowed | 0 / 0 | ⟨`find <dir> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 02:24): value `V/` 0 · `V/coordination/` 0 · glass `BK/coordination/` 0 · glass `BL/` → `FORMATION-PROGRESS.md` only (glass's own D2–D4 pass log, no letter to value.js) · keyframes `V/coordination/` 0; ⟨`ls -t glass-ui/docs/tranches \| head -3`⟩ → BL BK BJ; ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0. O-99 rowed at INBOX :577 | **GREEN** |
+
+### Escalations
+- **ESC-W12U-o5c-1 (a), the boot bar: RESOLVED BY MEASUREMENT.** At the close's load (9–10), committed `3a551e1cd` reads every sitting ≤ 122 ms ×2 (86–116 ms). The `.o5c` RED (8 of 24 sittings) was read at load 11–16, where the pre-cure bytes read 0 of 12. No ruling is now needed for arm (a). The load dependence is still real: a reading above 122 at high load is not by itself a regression signal, and the Check should read this gate at similar load.
+- **ESC-W12U-o5c-1 (b), "overture unchanged" frame for frame: OPEN, ruling asked.** Measured ×2 here: band rect, `mainTop`, the land animation (`overture-plate-land 0.45s`) and the veil-to-land order are identical, and pop is 0. The veiled interval is shorter (`seq=Vh:3`, was 10–14 frames on `955efaa03`), because the dock now mounts settled and `useDockArrival` takes its no-morph path. A close seat cannot rule this. The wave stays BLOCKED-ON this ruling: accept "land unchanged + no pop + constant band" as the reading of §0fv.2's "overture unchanged", or prescribe another reading.
+
+### Residuals (named owners)
+- 844×390 sub-pixel in-pane shift `cls 0.00001` (the colour-space select chevron; pre-existing, base 0.00128): owner X-W8 `.i` polish. It is not the dock band.
+- `npm test` standing 7: INK-VEIL-MIDBAND → O-62 (a) (ink D6/T-35); C-5 and NG-6 → X-W8 `.i`.
+- smoke (c′) 15 cells → the W10.md addendum (§0fr); perf G2-constant row (the committed 286,720 constant read through §0fu.1), G3/G4, O-5 SwiftShader (informational per §0fr) → X-W10.
+- O-99 DOCK-MOUNT-COST (R-1 dock.js top self-time, R-2 `--dock-pill-h`, R-3 `useScrollTrigger` forced first layout 17.4 ms) → glass-ui, ADOPT-AT-LANDING.
+- The HEAD product delta from X-DS VC6 (`b84fda97d`) is unmeasured by W12U → X-DS (its own gates).
+
+### State (four-verb line)
+X-W12U: **BLOCKED-ON ESC-W12U-o5c-1 (b)** (the ruling on the overture reading); not IMPLEMENTED until it is ruled. Every addendum (k) gate is GREEN ×2 on `3a551e1cd`: O-5, boot ≤ 122, G2, smoke except the named rows. The row flips CLOSED only on a CONFORMANT check (§3); this seat stamps no VERIFIED.
+
+Evidence commit `5afcfba0e`. Teardown: worktree `~/.dev-logs/w12u-g2d/close7/tree` removed (`git worktree remove`); ports 8251–8253, 9171/9172: 0 listeners.
