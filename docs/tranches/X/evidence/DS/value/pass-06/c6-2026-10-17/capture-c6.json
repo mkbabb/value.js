@@ -1,0 +1,717 @@
+{
+ "base": "http://localhost:9263",
+ "results": [
+  {
+   "file": "palettes-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "browse-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "generate-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "gradient-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "extract-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "mix-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Saved palettes",
+     "ff": "Fraunces",
+     "fs": "20.352px",
+     "fw": "600",
+     "top": 380
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 468
+    }
+   ],
+   "well": null,
+   "alert": null
+  },
+  {
+   "file": "palettes-new-1440-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Current palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 300
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 529
+    }
+   ],
+   "well": {
+    "label": "Current palette",
+    "count": {
+     "text": "1",
+     "title": "1 color",
+     "numeric": "tabular-nums",
+     "gapPx": 8,
+     "rowRightGapPx": 281
+    }
+   },
+   "alert": null
+  },
+  {
+   "file": "palettes-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 314
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 445
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "browse-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 1313
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 1444
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "generate-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 741
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 872
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "gradient-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 1249
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 1380
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "extract-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 867
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 998
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "mix-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Saved palettes",
+     "ff": "Fraunces",
+     "fs": "20.352px",
+     "fw": "600",
+     "top": 371
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 460
+    }
+   ],
+   "well": null,
+   "alert": null
+  },
+  {
+   "file": "palettes-new-390-light.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Current palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 301
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 525
+    }
+   ],
+   "well": {
+    "label": "Current palette",
+    "count": {
+     "text": "1",
+     "title": "1 color",
+     "numeric": "tabular-nums",
+     "gapPx": 8,
+     "rowRightGapPx": 163
+    }
+   },
+   "alert": null
+  },
+  {
+   "file": "palettes-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "browse-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "generate-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "gradient-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "extract-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 311
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 441
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "mix-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Saved palettes",
+     "ff": "Fraunces",
+     "fs": "20.352px",
+     "fw": "600",
+     "top": 380
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 468
+    }
+   ],
+   "well": null,
+   "alert": null
+  },
+  {
+   "file": "palettes-new-1440-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Current palette",
+     "ff": "Fraunces",
+     "fs": "18.608px",
+     "fw": "600",
+     "top": 300
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "16.4px",
+     "fw": "400",
+     "top": 529
+    }
+   ],
+   "well": {
+    "label": "Current palette",
+    "count": {
+     "text": "1",
+     "title": "1 color",
+     "numeric": "tabular-nums",
+     "gapPx": 8,
+     "rowRightGapPx": 281
+    }
+   },
+   "alert": null
+  },
+  {
+   "file": "palettes-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 314
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 445
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "browse-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 1313
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 1444
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "generate-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 741
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 872
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "gradient-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 1249
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 1380
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "extract-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Start a new palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 867
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 998
+    }
+   ],
+   "well": {
+    "label": "Start a new palette",
+    "count": null
+   },
+   "alert": null
+  },
+  {
+   "file": "mix-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Saved palettes",
+     "ff": "Fraunces",
+     "fs": "20.352px",
+     "fw": "600",
+     "top": 371
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 460
+    }
+   ],
+   "well": null,
+   "alert": null
+  },
+  {
+   "file": "palettes-new-390-dark.png",
+   "ok": true,
+   "heads": [
+    {
+     "t": "Current palette",
+     "ff": "Fraunces",
+     "fs": "16px",
+     "fw": "600",
+     "top": 301
+    },
+    {
+     "t": "No saved palettes yet.",
+     "ff": "Fraunces",
+     "fs": "14px",
+     "fw": "400",
+     "top": 525
+    }
+   ],
+   "well": {
+    "label": "Current palette",
+    "count": {
+     "text": "1",
+     "title": "1 color",
+     "numeric": "tabular-nums",
+     "gapPx": 8,
+     "rowRightGapPx": 163
+    }
+   },
+   "alert": null
+  }
+ ]
+}
