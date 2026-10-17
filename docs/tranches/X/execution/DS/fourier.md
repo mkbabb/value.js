@@ -1639,3 +1639,40 @@ This is the cure seat for critic **F16X** (the redeploy's pass-16 critic, 2026-1
 - **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-16/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f16x-probe.mjs`: 18 PNGs of /morph (light and dark, 1440, 1024 and 390, each with stage, cards and levels), and `f16x-probe.json`, which records every card's label column, each row's label and field boxes, and the Easing select box.
+
+### pass 5
+This is the cure seat for critic **F5C** (pass 5, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-05/f5c/`. The other folders in `pass-05/` (`f5`, `f5x`, `f7`, `critic-f7`) belong to earlier seats and are not part of this receipt.
+- fourier `8d6b3ab`, on `m/w1-bump-migration`, seven files, committed by pathspec and pushed fast-forward `a48bd7b..8d6b3ab`.
+- value.js `e6f32c8d3` holds the AFTER frames, the probe and its JSON, the census, the gate and e2e logs, and the O-87 relay addendum.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F5C-C1 | **The failure has its own channel.** The workspace store records a background compute's failure (contour extraction, epicycles, bases) in its own `computeError`, separate from `error`. `error` stays the toast and stage-card channel for acts the person started: save, visibility, delete, and a load. A 429 or 503 reads "Server busy, not computed yet"; anything else keeps the act's own fallback.<br>**The Basis layer stays mounted** on a failure (`hasData \|\| store.computeError`). It shows one muted status line (`--muted-foreground`, no surface, tint or border) with a glass `emphasis="text"` Retry button. Retry calls `store.retryCompute`, which re-extracts the contour if none exists and then runs both computes. The contour editor, where Contour is the aside's only layer (`defaultOpen`), shows the same line.<br>**Deleted:** ContourSettings' destructive `Alert` and `shortError`, and with them the glass root-barrel import. The loader's toast watcher was clearing `store.error` before that Alert could render, so the Alert never showed. The line uses one shared rule, `.compute-status` in `style.css`, with no new component.<br>**Measured** (`f5c-probe.json`, every compute answered 429 by `page.route`): no toast at 1440 or 390 in either theme. The layers are Image, Basis and Contour, with the status line in the Basis layer. After Retry, the computes land: the line is gone and Coefficients mounts.<br>Frames: `w-429-*-{1440,390}-controls`, `-after-retry`. |
+| DS-F5C-T1 | **Partly cured.** The toolbar row aligns on its block-end at ≥ sm (`sm:items-end`), so the search's foot sits on the tabs' underline. At 1440 the tablist bottom and the search bottom are both 139.5 px; before, the field was centred on the tab text. The underline is drawn inside glass's `SegmentedTabs`, so its length is not changed locally and the rule still stops under the tabs. Frames: `gallery-*-{1440,390}`. |
+| DS-F5C-T2 | The stale BasisCanvas comment now says the trail keeps the fourier identity hue at rest and on hover, and that the golden re-ink was deleted at pass 1, F1-05. |
+
+**Glass-owned rows.** Both are relayed as an O-87 FLAT-LIGHTING addendum (`relay/X-ALL-BK-FLAT-LIGHTING.md`) and are not overridden locally:
+- **DS-F5C-G1:** the toast's close glyph sits on the corner outside the plate; the plate stacks blur, a tinted bloom and a halo; and below sm the toast is forced to the top and covers the dock.
+- **DS-F5C-G2:** a menu row with `aria-current` paints nothing (folded into O-59). Re-measured: all five menu rows compute a transparent background, including Visualize, which carries `aria-current="page"`.
+
+Both stay honest-RED until the glass 10.2.0 repin. Since C1 removed the toasts for background computes, the toast now shows only after an act the person started.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3137`; `f5c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 16 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations).
+- Still RED, on the glass rows only.
+
+**Gates** (`f5c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 35 specs (`e2e-specs.txt`): every spec that reaches the Basis or Contour layer, Coefficients, a Retry, or the gallery toolbar and tabs, plus `workspace-flow`.
+  - They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8017` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3137`. Both were stopped at the end.
+  - Runs A and B passed 384/384 each.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-05/f5c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f5c-probe.mjs`: 18 PNGs in light and dark.
+- The forced-429 `/w` cells, before and after Retry;
+- `v-*-390` and `v-controls-*-390`;
+- `v-menu-*-1440` (G2, recorded unchanged);
+- `gallery-*-{1440,390}`.
