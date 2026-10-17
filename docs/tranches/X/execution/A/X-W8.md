@@ -164,3 +164,67 @@ debounce set = 11 files; Button/Skeleton consumers live at `demo/palettes/admin/
 §Triumvirate bounds-expansion trigger NOT tripped (53 ≤ 55, all under `demo/**`, no impure barrel).
 
 **Residuals** — none for `.a`. **Escalations** — none. **Adjacent edits** — none.
+
+### X.W8.b
+
+Seat `claude-opus-5-5`, 2026-10-17. Spec sections read: W8.md whole (534 lines; X.W8.b `:157-168`,
+G-2..G-6 + G-9 `:227-306`, §Scope 2-5); this record header → Unit plan + the `.a` receipt; COHESION
+§0j onward located by grep (no ruling past §0bd/§0de names `.b`; §0de reads the owner set as glass 10.1.0).
+
+**Acts, in order**
+1. Crash-recovery ⟨`git status --porcelain -- <the .b writable set>`⟩ → empty. No inherited edits.
+2. Measured at bytes (HEAD `76111e871`): `components.json` present (shadcn-vue CLI config, three stale
+   fields); `demo/shared/utils.ts` = `cn` (0 call sites) + `debounce` (11 importers, all `…/shared/utils"`);
+   ⟨`grep -rnE "(useClipboard|writeClipboard).*from ['\"]@mkbabb/glass-ui['\"]" demo`⟩ → 9; glass 10.1.0
+   `exports["./dom"]` → `dist/dom.d.ts` → `composables/dom/useClipboard.d.ts` declares both symbols; the
+   68-key map has no narrower key (⟨`Object.keys(exports).filter(/dom|clip|compos/)`⟩ → `['./dom']`);
+   eslint `:251-335` = the two U.W-DEMO objects (G-DEMO-3b over `demo/app/**`+`demo/@/{components,lib}/**`;
+   G-DEMO-1/3a/3b over `demo/@/composables/**`), every pattern on the `@components` alias (0 importers);
+   no producer dist imports `clsx`/`tailwind-merge` (⟨`grep -rlE "from ?['\"](clsx|tailwind-merge)['\"]"
+   node_modules/@mkbabb/{glass-ui,keyframes.js}/dist`⟩ → empty); no other lockfile package depends on them.
+3. `git rm components.json demo/shared/utils.ts`; `demo/shared/debounce.ts` = utils.ts lines 7-end
+   VERBATIM (doc comment + function; git records it R088 from utils.ts); 11 importers re-pointed
+   `shared/utils"` → `shared/debounce"` (⟨`grep -rn 'shared/utils' demo src test e2e | wc -l`⟩ → 0).
+4. The 9 clipboard statements re-pointed to `@mkbabb/glass-ui/dom` (GradientEasingEditor ·
+   GradientVisualizer · MixResultDisplay · MixPane · GenerateControls · ConfigSliderPane · ColorInput ·
+   PaletteInspector · useSwatchActions). Root-barrel residue ⟨`grep -rnE "from ['\"]@mkbabb/glass-ui['\"]" demo`⟩
+   → 7, all root-only at 10.1.0: Accordion* (GradientEasingEditor) · Alert* + Skeleton (Markdown.vue ×2) ·
+   Skeleton (PaletteCardSkeleton · AdminListSkeleton · AdminTagsPanel · VersionHistoryDrawer).
+5. `eslint.config.js`: the two dead objects replaced by ONE `files: ["demo/**/*.ts","demo/**/*.vue"]`
+   `no-restricted-imports` ban — groups `**/ui/<family>` for all 19 deleted families (segment-exact, so
+   `@mkbabb/glass-ui/<x>` and `demo/shared/ui/*` pass). `docs/**` ignore kept (`:42`, already wider than
+   `docs/tranches/**`). ⟨`grep -c 'demo/@' eslint.config.js`⟩ → 0; ⟨`grep -c '@components' eslint.config.js`⟩ → 0.
+6. ⟨`guarded --light -- npm uninstall clsx tailwind-merge`⟩ → package.json −2, lockfile −23;
+   ⟨`grep -c '"clsx"\|"tailwind-merge"\|node_modules/clsx"\|node_modules/tailwind-merge"' package.json package-lock.json`⟩ → 0 / 0;
+   ⟨`grep -c tw-animate-css package.json`⟩ → 1 (retained).
+7. G-6 falsifier (committed `docs/tranches/X/waves/W8-witness/G-6-lint-falsifier.txt`, 31 lines): prepended
+   `import { Button } from "../ui/button";` to `demo/shared/debounce.ts` → ⟨`npm run lint`⟩ **exit 1**,
+   `'../ui/button' import is restricted from being used by a pattern. G-6 (X.W8.b): …  no-restricted-imports`;
+   file restored from a scratch copy (⟨`git diff --stat -- demo/shared/debounce.ts`⟩ → empty) → lint **exit 0**.
+8. Gates (all via `~/.claude/guard/guarded`): ⟨`npm run typecheck`⟩ exit 0 · ⟨`npm run lint`⟩ exit 0 ×2 ·
+   ⟨`npx eslint demo src api e2e test --max-warnings=0`⟩ exit 0 · ⟨`npm run test -- --maxWorkers=2`⟩ ×2:
+   run 1 `9 failed | 1225 passed (1234)`, run 2 `7 failed | 1227 passed (1234)`. The 7 stable failures are
+   none of this unit's: `spectrum-luma` C-5 + `reka-binding-idiom` NG-6 (baseline RED, owned by `.i`) and
+   5 in `test/ink.test.ts` (D6 ×2, T-35 ×3) whose whole import graph (`demo/color-session/ink.ts` + the
+   `@mkbabb/value.js/{color,css}` self-alias → `src/**`) is byte-identical to HEAD (⟨`git diff --stat HEAD --
+   test/ink.test.ts demo/color-session/ink.ts src`⟩ → empty) — PRE-EXISTING at `76111e871`. Run 1's two extra
+   (`plate-mass` G20 · N-17) pass in isolation and in run 2 → machine-load flake.
+
+**Commit** — `62bc3fbde` refactor(demo/ui): delete the 19 shadcn barrels; consumers import their real
+glass-ui owner (§Commit Plan 2; 26 paths; body carries deletion + dependency + config surfaces and the
+tw-animate-css retention receipt).
+
+**Gates BEFORE → AFTER**
+| gate | BEFORE | AFTER |
+|---|---|---|
+| G-2 | GREEN-BEFORE-CURE (0 barrels, `demo/ui` absent since `2ae7344d2`) | **GREEN** — ⟨`find demo/ui -name index.ts \| wc -l`⟩ 0; no `index.ts` in the diff; nothing cut |
+| G-3 | RED (9 non-narrowest clipboard imports) | **GREEN** — local-barrel 0 (verbatim grep 96 = all producer subpaths); clipboard root imports 0; typecheck 0; 7 root-only statements recorded (no subpath at 10.1.0) |
+| G-4 | RED (components.json; `demo/@` 8; clsx+tw-merge 2/2) | **GREEN** — components.json absent; `demo/@` 0; clsx/tailwind-merge 0/0; tw-animate-css 1 + receipt (glass `btn.css` `sheet-animate` @applies `animate-in/out`/`fade-in`, ⟨`grep -c`⟩ 1 line; glass peer `tw-animate-css ^1.2.5`) |
+| G-5 | RED (utils.ts present) | **GREEN (own clauses)** — `cn(` 0; utils.ts absent; 11/11 importers → `shared/debounce` (⟨`grep -rln 'shared/debounce"' demo \| wc -l`⟩ 11). `npm run test` exit 1 on the 7 pre-existing failures above |
+| G-6 | RED (ban clause) | **GREEN** — lint exit 0; docs ignored; ban on 19 paths; falsifier exit 1 naming the ban |
+| G-9 | GREEN-BEFORE-CURE (`variant=`/`surface=` 0) | **GREEN** — ⟨`grep -cE 'variant=' PaginationBar.vue UserSortMenu.vue`⟩ 0 0; ⟨`grep -cE 'surface=\|variant=' AdminListSkeleton.vue`⟩ 0; no attribute to delete → no paint delta possible; null-DELTA pair not taken (nothing cut) |
+
+**Residuals** — (r1) `test/ink.test.ts` 5 RED pre-existing at `76111e871`, outside this unit's bounds and
+concern; for the wave close / its owner (`demo/color-session/ink.ts` last touched `abfeb8a39` V16). (r2) C-5 ·
+NG-6 stay `.i`'s. (r3) the 7 root-only glass statements ride the BK relay "alert-skeleton-subpaths".
+**Escalations** — none. **Adjacent edits** — none. **Inherited paths** — none.
