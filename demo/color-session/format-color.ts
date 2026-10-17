@@ -31,7 +31,7 @@
  * a no-op, so the library stays the single authority on SPELLING (keyword,
  * slash, `none`) — no regex over serialized output, no second serializer.
  */
-import { parseCssColor } from "@mkbabb/value.js/css";
+import { parseCssColor } from "@mkbabb/value.js/color";
 import { canonicalColor } from "../palettes/export/canonical";
 import type { DisplayColorSpace } from "./color-model";
 import {

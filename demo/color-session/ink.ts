@@ -2,13 +2,11 @@ import {
     convertColor,
     mixColors,
     oklch,
+    parseCssColor,
     safeAccentColor,
+    serializeCssColor,
     type Color,
 } from "@mkbabb/value.js/color";
-import {
-    parseCssColor,
-    serializeCssColor,
-} from "@mkbabb/value.js/css";
 
 export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome" | "veil";
 

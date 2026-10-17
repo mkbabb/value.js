@@ -5,6 +5,11 @@
 ### Added
 
 - `./css`: `collectAnimationOptions` keeps the author's time unit: each `CSSAnimationOptions` row gains `durationUnit` / `delayUnit` (`CssTimeUnit`, `"s" | "ms"`, lowercased; css-values-4 §7.3) beside a `duration` / `delay` read from a number, so a consumer can write `250ms` and `0.25s` back as authored (X.KF.W13X `.r3res2f`, UIA-KF-177). `duration` and `delay` are unchanged, still in seconds.
+- `./color`: `parseCssColor` and `serializeCssColor` (with the types they name: `CssColor`, `CssColorSpace`, `ParseResult`, `ParseIssue`) are published here too (X-W12U `.g2s2`). `parseCssColor` now runs on a `<color>`-rooted parser: the same BBNF grammar, `src/css/grammar/color.bbnf` compiled as a root of its own (entry `colorTop`, `src/css/bbnf/generated/color.js`). They are the same functions `./css` exports, which keeps both names. A bundle that imports only these two drops from 35,838 B gz (the whole `./css` grammar) to 17,728 B gz, from either subpath; a bundle of the whole `./css` grows from 42,868 to 49,918 B gz, because it now carries the colour parser beside the stylesheet parser.
+
+### Changed
+
+- Packaging: every `dist/subpaths/*.js` is now a re-export facade over shared chunks in `dist/` (the stylesheet grammar, the colour grammar, the shared math and colour action tables, and the colour, easing, math, transform, quantize and value areas, each its own chunk; `vite.library.ts`, `libraryCodeSplitting`). A consumer's bundler places code per module, so before this an eager import of any one `./css` name put the whole stylesheet grammar in the consumer's eager chunk; now an eager `parseCssColor` import from `./css` or `./color` leaves the stylesheet grammar in whichever lazy chunk uses it. `"sideEffects": false` is unchanged and was re-read against the emitted chunks: no chunk writes global state at load. The published import paths and export names are unchanged.
 
 ### Fixed
 

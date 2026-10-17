@@ -30,8 +30,7 @@
  * method (gamutMapSRGB) to ensure displayability.
  */
 
-import { mapColorToGamut, oklch } from "@mkbabb/value.js/color";
-import { serializeCssColor } from "@mkbabb/value.js/css";
+import { mapColorToGamut, oklch, serializeCssColor } from "@mkbabb/value.js/color";
 import { mulberry32 } from "./prng";
 
 // ── Preset definitions ──

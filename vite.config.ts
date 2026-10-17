@@ -15,6 +15,7 @@ import { deferGlassFonts } from "./plugins/vite-defer-glass-fonts";
 import { groundTokensPlugin } from "./plugins/vite-ground-tokens";
 
 import {
+    libraryCodeSplitting,
     libraryEntries,
     libraryExternal,
     libraryFileName,
@@ -162,6 +163,9 @@ export default defineConfig((mode) => {
                 },
                 rolldownOptions: {
                     external: libraryExternal,
+                    // X-W12U `.g2s2`: each subpath is a re-export facade over shared chunks
+                    // (`vite.library.ts`, `libraryCodeSplitting`).
+                    output: { codeSplitting: libraryCodeSplitting },
                     // H.W4 Lane A — strip per-module `//#region src/...` source-
                     // navigation markers from emitted library chunks. Default is
                     // `'simple'`, which emits one `//#region` + `//#endregion`

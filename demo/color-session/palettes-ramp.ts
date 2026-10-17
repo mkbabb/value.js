@@ -62,8 +62,7 @@
  * surface reads.
  */
 
-import { convertColor, oklch } from "@mkbabb/value.js/color";
-import { parseCssColor, serializeCssColor } from "@mkbabb/value.js/css";
+import { convertColor, oklch, parseCssColor, serializeCssColor } from "@mkbabb/value.js/color";
 
 import { certifyAccentInk } from "./ink";
 

@@ -7,11 +7,8 @@
 
 import type { CssList, CssScalar, CssValue } from "../../value";
 import { failure, success } from "../result";
-import type { CssColor, CssTimingFunction, KeyframeSelector, ParseResult } from "../types";
-import type { ColorNode } from "./color";
-import { asColorNode } from "./color";
+import type { CssTimingFunction, KeyframeSelector, ParseResult } from "../types";
 import { FAIL, parser } from "./load";
-import type { Numeric } from "./math";
 import type { Refused, SelectorNode, TimingNode, ValueNode } from "./value";
 import { keyframeSelector } from "./value";
 
@@ -20,26 +17,19 @@ import { keyframeSelector } from "./value";
  * to the generated entry (value | `FAIL`), with no per-call rule lookup, no intermediate result object and
  * no generic wrapper. `success`/`failure` (`../result`) is the result layer shared with the retired parser.
  */
-const { colorTop, valueTop, customTop, scalarTop, keyframeSelector: selectorEntry, timingFunction, commaItems, semiItems, spaceItems } = parser.entries;
+const { valueTop, customTop, scalarTop, keyframeSelector: selectorEntry, timingFunction, commaItems, semiItems, spaceItems } = parser.entries;
 
 const refusal = <T>(source: string, node: Refused): ParseResult<T> =>
     node.span === undefined
         ? failure(source, node.code, [node.expected])
         : failure(source, node.code, [node.expected], node.span.start, node.span.end);
 
-function colorResult(source: string, node: ColorNode): ParseResult<CssColor> {
-    switch (node.kind) {
-        case "color": return success(node.color);
-        case "context": return failure(source, "color_context_required", ["context-free color"]);
-        default: return failure(source, "css_syntax", [node.expected]);
-    }
-}
-
-/** `parseCssColor` — one whole `<color>`. */
-export function parseCssColor(source: string): ParseResult<CssColor> {
-    const node = colorTop(source);
-    return node === FAIL ? failure(source, "css_syntax", ["color"]) : colorResult(source, asColorNode(node as ColorNode | Numeric));
-}
+/**
+ * `parseCssColor` — one whole `<color>` — is read by the `<color>`-rooted parser (`./color-parse`,
+ * `color.bbnf` compiled alone), not by this one: a colour parse never loads the value and stylesheet
+ * productions (X-W12U `.g2s`). It is forwarded here so `/css` keeps its name.
+ */
+export { parseCssColor } from "./color-parse";
 
 function valueResult<T extends CssValue>(source: string, node: ValueNode): ParseResult<T> {
     return node.kind === "refused" ? refusal(source, node) : success(node as T);

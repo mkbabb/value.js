@@ -9,6 +9,11 @@
 @import "tokens.bbnf" ;
 @import "math.bbnf" ;
 
+// A whole colour — `parseCssColor`. This module is a root of its own as well as an import of
+// `value.bbnf`: `bbnf gen` compiles it alone, entry `colorTop`, into `generated/color.js`, the parse
+// `@mkbabb/value.js/color` publishes without the value and stylesheet productions (X-W12U `.g2s`).
+colorTop = sp >> color << sp ;
+
 color = colorMix | lightDark | relativeColor | rgbFn | hslFn | hwbFn | labFn | lchFn
       | oklabFn | oklchFn | colorFn | varFn | hex | colorKeyword ;
 

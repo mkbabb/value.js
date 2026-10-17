@@ -4,14 +4,17 @@
 // X.P.W7 `.v` — compiles value.js's CSS grammar ahead of time with `@mkbabb/bbnf-lang`'s `bbnf gen`
 // (a devDependency: value.js carries no parser library at runtime).
 //
-//   node scripts/gen-grammar.mjs           writes src/css/bbnf/generated/grammar.{js,d.ts}
-//   node scripts/gen-grammar.mjs --check   writes nothing; exits 1 when either file is stale (CI)
+//   node scripts/gen-grammar.mjs           writes src/css/bbnf/generated/{grammar,color}.{js,d.ts}
+//   node scripts/gen-grammar.mjs --check   writes nothing; exits 1 when any file is stale (CI)
 //
 // `bbnf gen` reads the action KINDS from the consumer's action table. value.js's table
 // (`src/css/bbnf/actions.ts`) is TypeScript whose imports node cannot resolve on its own, so it is
 // bundled first (esbuild, the toolchain's own bundler) into a module node can import; the table's
 // kinds, not its functions, are what the generator reads. The entries are the rules value.js calls:
 // the `/css` parse entries (`index.ts`) and the stylesheet layer's readers (`sheet.ts`).
+//
+// Two roots of the one grammar (X-W12U `.g2s`): `css.bbnf` whole, and `color.bbnf` alone for the
+// `<color>` parse (`color-parse.ts`), so a colour parse never carries the value and stylesheet rules.
 import { build } from "esbuild";
 import { spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, rmSync } from "node:fs";
@@ -20,18 +23,26 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const GRAMMAR = "src/css/grammar/css.bbnf";
-const ACTIONS = "src/css/bbnf/actions.ts";
-const OUT = "src/css/bbnf/generated/grammar.js";
-const ENTRIES = [
-    // `/css` (index.ts)
-    "colorTop", "scalarTop", "valueTop", "customTop", "keyframeSelector", "timingFunction",
-    "commaItems", "semiItems", "spaceItems",
-    // the stylesheet layer's readers (sheet.ts)
-    "ruleList", "atPrelude", "propertyName", "syntaxText", "syntaxAlts", "scopePrelude",
-    "functionHead", "functionParam", "paramHead", "declaration", "commaSpans",
-    "scrollFn", "viewFn", "timelineLead", "timelineLength", "dashedIdent", "ident",
-];
+const TARGETS = [{
+    grammar: "src/css/grammar/css.bbnf",
+    actions: "src/css/bbnf/actions.ts",
+    out: "src/css/bbnf/generated/grammar.js",
+    entries: [
+        // `/css` (index.ts)
+        "scalarTop", "valueTop", "customTop", "keyframeSelector", "timingFunction",
+        "commaItems", "semiItems", "spaceItems",
+        // the stylesheet layer's readers (sheet.ts)
+        "ruleList", "atPrelude", "propertyName", "syntaxText", "syntaxAlts", "scopePrelude",
+        "functionHead", "functionParam", "paramHead", "declaration", "commaSpans",
+        "scrollFn", "viewFn", "timelineLead", "timelineLength", "dashedIdent", "ident",
+    ],
+}, {
+    // `parseCssColor` (color-parse.ts), published on `/color` and `/css`
+    grammar: "src/css/grammar/color.bbnf",
+    actions: "src/css/bbnf/color-actions.ts",
+    out: "src/css/bbnf/generated/color.js",
+    entries: ["colorTop"],
+}];
 
 const pkg = path.join(REPO, "node_modules/@mkbabb/bbnf-lang/package.json");
 const { bin } = JSON.parse(readFileSync(pkg, "utf8"));
@@ -40,15 +51,18 @@ if (typeof cli !== "string") throw new Error(`gen-grammar: ${pkg} has no \`bbnf\
 
 const scratch = mkdtempSync(path.join(tmpdir(), "value-js-gen-grammar-"));
 try {
-    const table = path.join(scratch, "actions.mjs");
-    await build({
-        entryPoints: [path.join(REPO, ACTIONS)], outfile: table, bundle: true, platform: "node",
-        format: "esm", logLevel: "warning", absWorkingDir: REPO,
-    });
-    const args = [path.join(path.dirname(pkg), cli), "gen", GRAMMAR, "--actions", table, "--out", OUT,
-        "--entries", ENTRIES.join(","), ...process.argv.slice(2).filter((a) => a === "--check")];
-    const run = spawnSync(process.execPath, args, { cwd: REPO, stdio: "inherit" });
-    process.exitCode = run.status ?? 1;
+    process.exitCode = 0;
+    for (const [i, { grammar, actions, out, entries }] of TARGETS.entries()) {
+        const table = path.join(scratch, `actions-${i}.mjs`);
+        await build({
+            entryPoints: [path.join(REPO, actions)], outfile: table, bundle: true, platform: "node",
+            format: "esm", logLevel: "warning", absWorkingDir: REPO,
+        });
+        const args = [path.join(path.dirname(pkg), cli), "gen", grammar, "--actions", table, "--out", out,
+            "--entries", entries.join(","), ...process.argv.slice(2).filter((a) => a === "--check")];
+        const run = spawnSync(process.execPath, args, { cwd: REPO, stdio: "inherit" });
+        if ((run.status ?? 1) !== 0) process.exitCode = run.status ?? 1;
+    }
 } finally {
     rmSync(scratch, { recursive: true, force: true });
 }

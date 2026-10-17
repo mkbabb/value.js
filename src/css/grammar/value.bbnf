@@ -158,9 +158,6 @@ lineNames  = /\[\s*(?:(?:-?[a-zA-Z_\u0080-\uffff]|--)[\w\u0080-\uffff-]*(?:\s+(?
 scalarTop  = sp >> scalarTerm << sp ;
 scalarTerm = colorMix | lightDark | colorCall | numeric | string | operator | identTerm ;
 
-// A whole colour — `parseCssColor`.
-colorTop   = sp >> color << sp ;
-
 // ── keyframe selectors ────────────────────────────────────────────────────────────
 keyframeSelector = sp >> ( selectorKeyword | selectorNamed | percentage ) << sp ;
 selectorKeyword  = /(?:from|to)(?![\w-])/i ;
