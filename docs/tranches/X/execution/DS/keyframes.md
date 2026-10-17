@@ -3130,3 +3130,65 @@ These rows stay honest-RED until the 10.2.0 repin. The consumer adds no override
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 12 (the ninth redeploy's pass 12; critic C12; cure keyframes `ffad454a`; evidence `pass-12/c12-2026-10-17/`)
+
+**Cure commit:** keyframes.js `ffad454a` (master, pushed fast-forward). **Evidence:** value.js `c93edf649`, in `evidence/DS/keyframes/pass-12/c12-2026-10-17/`. `pass-12/` already holds an earlier round's committed evidence, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: the same cells as pass 11: every route at 1440/390 in light and dark, the empty cube Timeline before and after the one-press inline Import, the ribbon Import's paste dialog, and the cube controls pane.
+- `after/capture.json`: adds `lead-imported-*` (the lead capsule's glyph-to-edge, padding, content box and content width; which quiet labels show) and `well-imported-*` (the preview clone's painted bounds sampled every frame for 6 s, against the well's padding box).
+- `measure.json`: the row's measured one-row width with every label shown, and the well before the cure.
+- `capture.mjs`, `measure.mjs`, `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), with one browser per run and a context per cell, all closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C12-01 (low): the Timeline's labels yield at their measured one-row width.** This is the Keyframes ribbon's idiom (KF-C16-02).
+  - Measured on the served row: the five verbs with every label shown need 437.4px (27.3rem), and the rail gives the row 365.2px. The old 20rem threshold never fired, so flex shrank every Button below its content.
+  - In `KeyframeTimeline.vue`, the Import, Add and Export labels move from `@max-[20rem]:sr-only` to `@max-[28rem]:sr-only`, the first whole rem above the measure. The three go to their glyphs together and keep their `aria-label` and `title`.
+  - Snapshot, the lead, keeps its word and takes `shrink-0 whitespace-nowrap`, as Apply CSS does.
+  - Falsifier, met in both schemes in the imported state at 1440: glyph-to-edge and word-to-edge are 15px each (the 14px computed padding plus the 1px border), and the content box (86.1px) holds the content (86.1px). Before the cure, glyph-to-edge was 2.1px with about 12px of overflow on each side.
+  - No wrapper; glass's Button is not restyled.
+  - Frames: `after/cube-timeline-imported-1440-*`.
+- **KF-C12-02 (low): the preview cube is fitted by its rotational reach.** In `timelineEngine.ts`, `fitPreviewSubject` scales a `preserve-3d` subject by its bounding sphere, the space diagonal (side × √3), instead of the face diagonal.
+  - The well paints with no perspective (measured `perspective: none`), so the projection is orthographic and the sphere is the whole reach. No perspective allowance is needed.
+  - Flat subjects keep the face diagonal. `overflow-clip` stays as the safety net.
+  - Measured at 1440: the scale goes from 0.246 to 0.201. Before the cure, the clone painted 8.9px past the well's top and bottom. After it, the clone's painted bounds over 361 frames (6 s) stay inside the padding box in both schemes (top 193.3 against 192.8; bottom 286.3 against 286.8).
+  - Frames: `after/cube-timeline-imported-1440-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C12-G1 (medium): O-87 FLAT-LIGHTING** (with its proportion and affordance riders) and **O-88 DOCK-COLLAPSE-MOTION**. Every row was re-observed unchanged at glass 10.1.0, and each is the same as an earlier cited row (KF-C1-01/-02/-09/-10/-11/-12, KF-C2-14/C17-04, KF-C5p-01, KF-C4-06/C19-01, KF-C9-05, KF-C11-01/-05/-06, KF-C16-G1):
+  - the secondary capsule halo and its 4-layer edge stack;
+  - cream Inputs beside grey or transparent Selects;
+  - carets on closed Selects inside an open ConfiguratorLayer;
+  - the EasingPicker ghost staircase, the 'Custom' label, and the literal's rung and inset;
+  - thumbless fill sliders;
+  - the modal's taupe slab and saturate bloom;
+  - the toast's detached close disc;
+  - the resting-plate blur at 390 dark;
+  - the dock-plate and play-bubble halos, and the collapsed dock tile.
+
+  These rows stay honest-RED until the 10.2.0 repin. The consumer adds no override, and nothing was written to the glass inbox.
+
+**Carried (owner rulings, §0dm)**
+- **KF-C12-R1 (trivial):** the OD-4/T.D9 hero overlap, and the KF-C3-02 looping-chrome ruling (`AnimatedText.vue:165` charLift infinite, the census's only remaining demo-owned static RED). Both are left to the owner. No seat cures them.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5199/ --widths 1440,390 --settle 5000`): identical to pass 11 (`pass-11/c11-2026-10-17/census.json`) in every key except `at`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree with this pass's changes, which also carried another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `KeyframeTimeline.vue` again carried another seat's uncommitted `panel-content` hunk on the `CardContent` line. This seat staged an index blob of HEAD plus its own change (`git hash-object -w` and `git update-index --cacheinfo`), checked `git diff --cached`, and committed without a pathspec. The other seat's hunk stays unstaged in the working tree. `timelineEngine.ts` was clean. The served frames include the other seat's hunks. The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5199) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the measure, the capture and the census: `--rss-gb 6` (browser pool; the capture queued about 25 min for a slot);
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
