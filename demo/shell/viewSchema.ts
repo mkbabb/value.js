@@ -245,7 +245,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         accentHueShift: 0,
     },
     "admin-audit": {
-        label: "Audit Log",
+        label: "Audit log",
         regions: [{ role: "stage", pane: "admin-audit", label: "Audit" }],
         icon: ScrollText,
         accentHueShift: 0,

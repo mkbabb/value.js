@@ -78,7 +78,7 @@
             :detail="audit.loadError.value"
         >
             <template #action>
-                <Button size="sm" class="font-display" @click="audit.loadAuditLog()">
+                <Button size="sm" @click="audit.loadAuditLog()">
                     Retry
                 </Button>
             </template>

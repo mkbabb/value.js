@@ -34,7 +34,7 @@ const WALK: { path: string; heading: string; control: Control }[] = [
     },
     {
         path: "/#/admin/audit",
-        heading: "Audit Log",
+        heading: "Audit log",
         control: { kind: "button", name: "Refresh audit log" },
     },
     {

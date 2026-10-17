@@ -122,7 +122,7 @@
             :detail="tagsApi.loadError.value"
         >
             <template #action>
-                <Button size="sm" class="font-display" @click="tagsApi.loadTags()">
+                <Button size="sm" @click="tagsApi.loadTags()">
                     Retry
                 </Button>
             </template>

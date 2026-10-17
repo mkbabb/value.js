@@ -27,7 +27,10 @@ compiled utilities paint) and are deleted.
   section headings. The variable axes (`opsz` 9–144, `WONK`/`SOFT`) apply via the
   glass-ui utilities. Fraunces' single brand source is the Google Fonts `<link>`
   in `demo/app/index.html`. **Never** on body/control text; italics
-  never on control text.
+  never on control text. A labelled glass `Button` is control text: its
+  verb speaks glass's default label voice (the body sans), never a
+  call-site `font-display` (X-DS value pass 15, V15-03; held by
+  `demo/test/shell/button-voice.test.ts`).
 - **Plus Jakarta Sans — the body voice.** Everything unmarked: prose, controls,
   labels, list rows. Real faces load from the corpus import
   (`@import "@mkbabb/glass-ui/styles/fonts"` — without it only the metric
@@ -347,7 +350,7 @@ OKLab-driven throughout — the picker, the gradient interpolation, the harmony 
 
 Demo accent tokens (style.css `@theme`):
 
-- `--color-gold: #D4AF37` — the admin-mode + featured-palette accent. Animated gold-text-shimmer (PaletteCard.vue) uses a 4-stop gradient cycling through `--color-gold` ↔ `--color-gold-light`. The dock's admin-mode toggle (Dock.vue), the featured-badge stroke (PaletteCard), and the profile slug pill (ProfileSection.vue) all reach for the same token. Gold stays OUT of the measurement chrome (overlay/readout/thumbs — those read in ink + the live color).
+- `--color-gold: #D4AF37` — the admin-mode + featured-palette accent hue. Raw, it is never legible ink in light (luminance 0.45: at most 2.10:1 against white). `--ink-gold` is the certified form (X-DS pass 15, V15-01): gold's hue with its lightness walked to the text floor on the resting plate by the house certify (`useContrastSafeColor`), and the featured badge's glyph (PaletteSpecimen) paints it. The dock's admin-mode ink (Dock.vue, DockViewSelect) and the profile slug pill (ProfileSection.vue) still paint the raw token: O18-1296, X-W10's treatment decision, which should take `--ink-gold` as its candidate. Gold stays OUT of the measurement chrome (overlay/readout/thumbs — those read in ink + the live color).
 - `--color-gold-light: #F5E6A3` — shimmer counterpoint, only consumed by the gold-text-shimmer keyframe.
 
 **The dark ladder (R.W3 Lane A / A3).** The dark COLOR ladder is glass-ui 4.2's stepped warm dark-material ladder (page L4 → card/popover L16 → hover L22 → border L34, hue 24–36 throughout), consumed as shipped. The demo's former hue-217/224 `--popover`/`--border`/`--input` re-pins — the lone cool hues in the warm house — are DELETED, not retuned; zero dark borders compute in the 200–240 navy band. The only surviving `.dark` overrides are shadow-family (`--shadow-cartoon*` lightened, `--shadow`), which keep the cartoon language legible on the dark substrate.

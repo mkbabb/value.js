@@ -204,7 +204,7 @@ defineExpose({ regenerate, save, copyColors });
                          well. -->
                     <Button
                         emphasis="quiet"
-                        class="h-9 gap-2 font-medium font-display text-foreground shrink-0"
+                        class="h-9 gap-2 font-medium text-foreground shrink-0"
                         @click="regenerate()"
                     >
                         <RefreshCw class="w-4 h-4" aria-hidden="true" />

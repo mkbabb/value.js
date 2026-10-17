@@ -1,6 +1,7 @@
 import type { Page } from "@playwright/test";
 import { userTest as test, expect } from "../fixtures/user-auth";
 import { expandDock, mainPane } from "../fixtures/dock";
+import { routeBrowsePalettes } from "../fixtures/browse-palettes";
 
 /**
  * T.W3 W3-5 · O-18 — THE POPULATION CONTRAST CENSUS (SYNTHESIS §6.1 O-18).
@@ -1359,6 +1360,79 @@ for (const scheme of ["light", "dark"] as const) {
                 failures,
                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
             ).toEqual([]);
+        });
+    });
+}
+
+/**
+ * X-DS value pass 15 (V15-01) — THE FEATURED BADGE IS ENROLLED.
+ *
+ * The badge is the one tier mark on a card, and the census never read it, so a
+ * 1.76:1 label (raw `--color-gold` ink on the light card plate) shipped GREEN.
+ * Its label is TEXT (≥4.5:1, WCAG 1.4.3); at phone width the badge folds to its
+ * glyph alone, so the glyph is a graphic that must carry the tier by itself
+ * (≥3:1, WCAG 1.4.11). The identity leg holds the glyph's hue on gold (§0dm:
+ * the cure certifies gold's lightness, never strips the hue). Born-RED against
+ * the raw-gold ink, the same arithmetic as the admin pill above (A-1).
+ */
+const GOLD_HUE = 84;
+
+for (const scheme of ["light", "dark"] as const) {
+    test.describe(`O-18 census · V15-01 the featured badge (${scheme})`, () => {
+        test.use({ colorScheme: scheme });
+
+        test("the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold", async ({
+            page,
+        }) => {
+            await routeBrowsePalettes(page);
+            await page.goto("/#/browse");
+            await expect(mainPane(page)).toBeVisible();
+            const badge = page.locator(".featured-badge").first();
+            await expect(badge, "the featured badge mounts on the wall's first card").toBeVisible({
+                timeout: 15000,
+            });
+            await expect
+                .poll(
+                    () =>
+                        page.evaluate(() =>
+                            getComputedStyle(document.documentElement)
+                                .getPropertyValue("--ink-ambient-l")
+                                .trim(),
+                        ),
+                    { timeout: 8000 },
+                )
+                .not.toBe("");
+
+            const diag = (row: CensusRow) =>
+                `${row.name} ink ${row.ink} vs ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
+            const label = await censusElement(
+                page,
+                ".featured-badge .palette-specimen__yield-3",
+                "featured-label",
+            );
+            const glyph = await censusElement(page, ".featured-badge__icon", "featured-glyph");
+            expect(label, "the label is enrolled").not.toBeNull();
+            expect(glyph, "the glyph is enrolled").not.toBeNull();
+            expect(label!.ratio, diag(label!)).toBeGreaterThanOrEqual(TEXT_FLOOR);
+            expect(glyph!.ratio, diag(glyph!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+
+            // The identity leg: the glyph's painted ink stays a gold.
+            const hue = await page.evaluate(() => {
+                const el = document.querySelector<HTMLElement>(".featured-badge__icon")!;
+                const probe = document.createElement("div");
+                probe.style.color = `oklch(from ${getComputedStyle(el).color} l c h)`;
+                document.body.appendChild(probe);
+                const out = getComputedStyle(probe).color;
+                probe.remove();
+                const m = /oklch\(\s*[\d.]+%?\s+([\d.]+)\s+([\d.]+)/.exec(out);
+                return m ? { c: Number(m[1]), h: Number(m[2]) } : null;
+            });
+            expect(hue, "the glyph ink resolves in OKLCh").not.toBeNull();
+            expect(hue!.c, "the glyph is chromatic, not a grey").toBeGreaterThan(0.04);
+            expect(
+                Math.abs(((hue!.h - GOLD_HUE + 540) % 360) - 180),
+                `the glyph's hue ${hue!.h} stays on gold (${GOLD_HUE})`,
+            ).toBeLessThanOrEqual(20);
         });
     });
 }

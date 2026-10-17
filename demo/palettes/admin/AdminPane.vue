@@ -2,8 +2,10 @@
     <PaneShell :description="headerDescription" :gap="3">
         <!-- A2-VA-L1-1: the one pane shell. -->
         <template #title>
+            <!-- X-DS pass 15 (V15-02): no count chip beside the title — each
+                 pane's count is said once, where the list speaks (the users
+                 toolbar's "N users", the names tabs' "Pending · N"). -->
             {{ headerTitle }}
-            <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
         </template>
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
@@ -94,7 +96,6 @@
 <script setup lang="ts">
 import { Search } from "@lucide/vue";
 import { inject, computed } from "vue";
-import { Badge } from "@mkbabb/glass-ui/badge";
 
 import { ADMIN_PORT_KEY } from "../usePalettePorts";
 import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
@@ -124,7 +125,7 @@ const headerTitle = computed(() => {
     switch (subView) {
         case "admin-users": return "Users";
         case "admin-names": return "Names";
-        case "admin-audit": return "Audit Log";
+        case "admin-audit": return "Audit log";
         case "admin-flagged": return "Flagged";
         case "admin-tags": return "Tags";
     }
@@ -137,29 +138,6 @@ const headerDescription = computed(() => {
         case "admin-audit": return "View admin action history.";
         case "admin-flagged": return "Review reported palettes.";
         case "admin-tags": return "Manage palette tag taxonomy.";
-    }
-});
-
-const adminCount = computed(() => {
-    switch (subView) {
-        // A-3: suppress the badge while the roster/queue loads — a "0" over
-        // the loading skeletons lies (the length is 0 before data arrives).
-        case "admin-users":
-            // W7.62: the server's roster total, not the loaded page's length.
-            // UIA-V-168: a failed read has no count either.
-            return pm.loadingUsers.value || pm.usersAccess.value || pm.usersLoadError.value
-                ? null
-                : pm.adminUsersTotal.value;
-        // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
-        // pending+approved sum matched neither visible list.
-        case "admin-names":
-            // UIA-V-414: nor over the queue's load-error plate.
-            return pm.loadingColorQueue.value || pm.namesAccess.value || pm.queueLoadError.value
-                ? null
-                : pm.namesSearch.value.trim() !== ""
-                  ? pm.filteredColorQueue.value.length
-                  : pm.queuePager.total;
-        default: return null;
     }
 });
 

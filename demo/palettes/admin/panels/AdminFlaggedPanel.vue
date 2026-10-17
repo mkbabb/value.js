@@ -67,7 +67,7 @@
             :detail="flagged.loadError.value"
         >
             <template #action>
-                <Button size="sm" class="font-display" @click="flagged.loadFlagged()">
+                <Button size="sm" @click="flagged.loadFlagged()">
                     Retry
                 </Button>
             </template>

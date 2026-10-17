@@ -40,7 +40,7 @@ import { mainPane } from "../fixtures/dock";
 const ADMIN_ROUTES: { path: string; heading: string }[] = [
     { path: "/#/admin/users", heading: "Users" },
     { path: "/#/admin/names", heading: "Names" },
-    { path: "/#/admin/audit", heading: "Audit Log" },
+    { path: "/#/admin/audit", heading: "Audit log" },
     { path: "/#/admin/flagged", heading: "Flagged" },
     { path: "/#/admin/tags", heading: "Tags" },
 ];

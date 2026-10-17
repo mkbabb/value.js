@@ -65,7 +65,7 @@
                     :detail="pendingError"
                 >
                     <template #action>
-                        <Button size="sm" class="font-display" @click="emit('retryPending')">
+                        <Button size="sm" @click="emit('retryPending')">
                             Retry
                         </Button>
                     </template>
@@ -138,7 +138,7 @@
                     :detail="approvedError"
                 >
                     <template #action>
-                        <Button size="sm" class="font-display" @click="emit('retryApproved')">
+                        <Button size="sm" @click="emit('retryApproved')">
                             Retry
                         </Button>
                     </template>

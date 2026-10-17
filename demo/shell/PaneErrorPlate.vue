@@ -30,7 +30,7 @@
                 message="This scene could not be loaded. Reload to continue."
             >
                 <template #action>
-                    <Button size="sm" class="font-display mt-1" @click="reload">
+                    <Button size="sm" class="mt-1" @click="reload">
                         <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
                         Reload the app
                     </Button>

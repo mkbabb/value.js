@@ -12,6 +12,7 @@ import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
     certifyAccentInk,
+    TEXT_CONTRAST_FLOOR,
     resolveMutedInk,
     resolvePlateInk,
     resolveSurfaceLightness,
@@ -350,6 +351,21 @@ export function useContrastSafeColor(
         resolveMutedInk(floatingL.value, isDark.value),
     );
 
+    // X-DS pass 15 (V15-01): the GOLD identity ink, certified on the same
+    // resting plate. Gold (`--color-gold`, luminance 0.45) can never clear a
+    // floor against a light plate raw (its ceiling against white is 2.10:1),
+    // so the guard keeps its hue and walks only its lightness: a bronze in
+    // light, the gold itself where it already clears (dark). The gold paints a
+    // GLYPH (the featured badge's mark, which carries the tier alone at phone
+    // width; its words read in the plate's own ink), so its own floor is 3:1;
+    // it is certified at the TEXT floor because the modelled plate reads
+    // lighter than a saturated aurora patch under a card: at the graphics
+    // floor the frame measured 2.64:1, at the text floor 3.45:1
+    // (evidence/DS/value/pass-15/v15.json). The boot writer stamps `--ink-gold`.
+    const goldInkCss = computed(() =>
+        certifyAccentInk(goldIdentityCss(isDark.value), restingL.value, TEXT_CONTRAST_FLOOR),
+    );
+
     return {
         safeAccentCss,
         needsAdjustment,
@@ -357,7 +373,35 @@ export function useContrastSafeColor(
         mutedInkCss,
         floatingInkCss,
         floatingMutedInkCss,
+        goldInkCss,
     };
+}
+
+/** The gold identity hue as the cascade paints it in this scheme
+ *  (`--color-gold`, which glass publishes as a `light-dark()` pair; the demo's
+ *  `@theme` literal where no cascade is mounted). */
+function goldIdentityCss(dark: boolean): string {
+    const live = typeof document === "undefined"
+        ? ""
+        : getComputedStyle(document.documentElement).getPropertyValue("--color-gold").trim();
+    return lightDarkArm(live, dark) || "#D4AF37";
+}
+
+/** One arm of a `light-dark(a, b)` value (the value itself when it is not one). */
+function lightDarkArm(css: string, dark: boolean): string {
+    const m = /^light-dark\((.*)\)$/s.exec(css);
+    if (!m) return css;
+    const body = m[1]!;
+    let depth = 0;
+    for (let i = 0; i < body.length; i++) {
+        const ch = body[i];
+        if (ch === "(") depth++;
+        else if (ch === ")") depth--;
+        else if (ch === "," && depth === 0) {
+            return (dark ? body.slice(i + 1) : body.slice(0, i)).trim();
+        }
+    }
+    return css;
 }
 
 /**

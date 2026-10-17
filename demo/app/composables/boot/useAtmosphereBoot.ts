@@ -90,6 +90,7 @@ export function useAtmosphereBoot(
         mutedInkCss,
         floatingInkCss,
         floatingMutedInkCss,
+        goldInkCss,
     } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
@@ -133,6 +134,14 @@ export function useAtmosphereBoot(
         floatingMutedInkCss,
         (css) => {
             document.documentElement.style.setProperty("--ink-floating-muted", css);
+        },
+        { immediate: true },
+    );
+    // X-DS pass 15 (V15-01): the certified gold identity ink, same referent.
+    watch(
+        goldInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-gold", css);
         },
         { immediate: true },
     );

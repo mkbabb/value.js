@@ -38,7 +38,7 @@
             :detail="detail ?? undefined"
         >
             <template #action>
-                <Button size="sm" class="font-display mt-1" @click="reset">
+                <Button size="sm" class="mt-1" @click="reset">
                     <RotateCcw class="w-3.5 h-3.5 mr-1.5" aria-hidden="true" />
                     {{ retryLabel }}
                 </Button>

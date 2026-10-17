@@ -18,7 +18,7 @@
             <div class="flex-1" />
             <Button
                 size="xs"
-                class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
+                class="px-2.5 cursor-pointer text-caption gap-1.5"
                 :disabled="loading || emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
@@ -30,7 +30,7 @@
                  duplicate Refresh stands down; both are the recovery probe. -->
             <Button
                 size="xs"
-                class="px-2.5 cursor-pointer font-display text-caption gap-1.5"
+                class="px-2.5 cursor-pointer text-caption gap-1.5"
                 :disabled="loading"
                 @click="pm.retryAdminUsers()"
             >
@@ -79,7 +79,7 @@
             :detail="loadError"
         >
             <template #action>
-                <Button size="sm" class="font-display" @click="pm.retryAdminUsers()">
+                <Button size="sm" @click="pm.retryAdminUsers()">
                     Retry
                 </Button>
             </template>
@@ -138,9 +138,13 @@
                             :style="{ color: safeAccent, borderColor: safeAccent }"
                             :title="user.slug"
                         ><span class="truncate min-w-0">{{ slugHead(user.slug) }}</span><span class="shrink-0">{{ slugTail(user.slug) }}</span></span>
-                        <Badge variant="secondary" class="text-mono-small shrink-0">
-                            {{ user.paletteCount ?? 0 }}
-                        </Badge>
+                        <!-- X-DS pass 15 (V15-02): the app's ONE count idiom
+                             (PaletteSpecimen, V6C-04) — a muted mono tabular
+                             numeral, titled with its noun, no chip. -->
+                        <span
+                            class="text-mono-small tabular-nums text-muted-foreground shrink-0"
+                            :title="`${user.paletteCount ?? 0} palette${(user.paletteCount ?? 0) === 1 ? '' : 's'}`"
+                        >{{ user.paletteCount ?? 0 }}</span>
                     </component>
                     <div class="ms-auto flex items-center gap-1.5 shrink-0 py-1.5">
                         <!-- W5-12 (F-8): the disabled delete on 0-palette
@@ -156,7 +160,7 @@
                             v-if="user.paletteCount"
                             emphasis="secondary"
                             size="xs"
-                            class="px-2 cursor-pointer font-display text-caption"
+                            class="px-2 cursor-pointer text-caption"
                             :aria-label="`Delete all palettes of ${user.slug}`"
                             @click="onDeletePalettesClick(user.slug, user.paletteCount ?? 0)"
                         >
@@ -210,7 +214,7 @@
                                 <Button
                                     emphasis="secondary"
                                     size="xs"
-                                    class="px-2 cursor-pointer font-display text-caption gap-1"
+                                    class="px-2 cursor-pointer text-caption gap-1"
                                     :aria-pressed="palette.tier === 'featured'"
                                     :aria-label="`${palette.tier === 'featured' ? 'Unfeature' : 'Feature'} ${palette.name}`"
                                     @click="pm.onFeaturePalette(palette)"
@@ -277,7 +281,6 @@
 import { inject, ref, shallowRef, watch, type Component } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { Button } from "@mkbabb/glass-ui/button";
-import { Badge } from "@mkbabb/glass-ui/badge";
 import {
     Dialog,
     DialogContent,

@@ -71,7 +71,6 @@
                 <template #action>
                     <Button
                         size="sm"
-                        class="font-display"
                         @click="pm.retryRemotePalettes()"
                     >
                         Retry
@@ -117,7 +116,7 @@
                 <!-- X.W12U.s2 · UIA-V-122: a search that matches nothing says
                      so, and offers the way out. -->
                 <template v-if="narrowed" #emptyAction>
-                    <Button size="sm" class="font-display" @click="onClearNarrowing">
+                    <Button size="sm" @click="onClearNarrowing">
                         Clear search and filters
                     </Button>
                 </template>
@@ -141,7 +140,6 @@
             >
                 <Button
                     size="sm"
-                    class="font-display"
                     @click="onLoadMore()"
                 >
                     Load more
