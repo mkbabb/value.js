@@ -2856,3 +2856,59 @@ Every capture is headless real Chrome (§0ei).
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 90`, the capture and census `--rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
 - The capture used one browser, closed in `finally`. The dev server on :5193 was stopped (its exit 144 is that stop), and nothing of this seat's was left running.
+
+### pass 7 (the ninth redeploy's pass 7; critic C7; cure keyframes `281aaab9`; evidence `pass-59/`)
+
+**Commits:** keyframes `281aaab9` (pushed fast-forward to `master`, `eb149461..281aaab9`) and value.js `db333a7cf` (`evidence/DS/keyframes/pass-59/`). The task named `pass-07/`, but that folder holds the first workflow's evidence and `pass-58/` is taken, so the frames go to `pass-59/`.
+
+**Evidence** (`pass-59/`):
+- `capture.mjs` and `after/`: every route at 1440 and 390 in light and dark; `cube-keyframes`, `cube-timeline` and `cube-dock-open` at 1440; `spring-peak-1440-*` (Peak overshoot open); `cube-sheet-press-390-*` (plus `-fullpage`);
+- `after/capture.json`, with the easing fold, `timeline-empty-*` (the two Imports' emphasis), `spring-peak-*` and `sheet-tap-*`;
+- `c706/` (the KF-C7-06 still-pose comparison), `probes/`, `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), one browser per run, closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C7-01 (medium): the parked peek's title row raises the sheet.** `ControlsPaneWrapper.vue` takes a press on a ConfiguratorLayer header (pointer or key, both arrive as `click`) in the capture phase while the bottom sheet is parked. It raises the sheet to OPEN through the same open fact the drag and the grip key write. Once the sheet is OPEN or FULL, the layer's own collapse acts again. The short-landscape side sheet keeps its header toggle, because its rest is the rail with the body in view.
+  - Measured at 390x844, in both schemes: the first press takes the detent from 0.12 to 0.36 and the height from 171 to 304. The layer stays open (`aria-expanded` true, 403 px). A second press at OPEN folds the layer (57 px).
+  - The rise is still not visible on screen. The sheet computes `position: relative` because glass's `.glass-floating` outranks the sheet's own `fixed`: the standing glass SHEET-POSITION row (KF-C20-04 / KF-C8 / KF-C9), cited on O-87/O-88 and not overridden. So the frame `after/cube-sheet-press-390-*` still shows the peek strip (`-fullpage` shows the raised box below the fold). This is the consumer half, which the critic's cure names.
+- **KF-C7-02 (medium): the 390 drawer lands 'Sine' with its row's peek.** The defect had three causes:
+  - **A false scale.** `rowsOf` read the rounded `offsetHeight` against a 435.5 px rect as a 0.1 % scale, which moved every row 0.5 px down. The Sine row's 12 px peek read as 11.25 px. A rect within 1 px of the layout height is now unscaled.
+  - **A strict test.** The landing compared `shown > designed`. A peek that holds the designed one to the half px now holds it.
+  - **An early landing.** The landing ran mid-entrance and was never repeated. The fold is now landed again once the drawer's rendered box has held still for three frames.
+
+  Below lg the drawer also takes the plate's whole free block (no extra `--space-body` under it), because the plate's own 1rem padding already keeps the clip line inside the rim.
+  - Measured at 390x844 in both schemes: the fold moved from 654 to 698. 'Sine' sits at 654–678, above the 16 px fade, with its first row's 11.7 px peek. The dead band under the drawer is gone (drawer bottom 698 = catalogue bottom).
+  - At 1440x900 nothing changed: fold 705, Sine tiles showing 12.3 px.
+  - Frames: `after/easing-390-*`.
+- **KF-C7-03 (low): the empty Timeline has one lead.** In `KeyframeTimeline.vue` the ribbon's Import is quiet in every state, and the inline "Import Rotations" beside the hint is the one capsule. Measured at 1440 in both schemes: inline at 325–361 on the capsule, ribbon at 701–737 with a transparent fill. The ribbon verb stays labelled and persistent, so KF-C6-01 is not reversed. Frames: `after/cube-timeline-1440-*`.
+- **KF-C7-04 (low): an opened Peak overshoot keeps a peek of the rows above.** In `useFoldLanding.landStart`, the row just above an end-pinned port's top edge may be a box (a tile). In that case the edge rises to the foot of the box's own text, so its bottom padding and border sit under the start fade. The fade stays on as the cue. This mirrors `landFold`'s boxed-row cue (KF-C4-03).
+  - No line of text is cut or faded, so KF-C8-01's defect (an edge through the tiles' value line) stays cured.
+  - The peek is taken only where the shown edge is half a fade to a fade deep and the port can hold the rows from there to its end.
+  - Measured at 1440x900 in both schemes: the port is 192–521 at its end (scrollTop 189 = reach), not headed, and the start fade is on. Smooth/Snappy's feet show above Bouncy/Gentle, which are whole.
+  - Frames: `after/spring-peak-1440-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C7-05 (low): O-87 FLAT-LIGHTING rider.** In glass NumberField and Switch, the disabled state keeps the stepper discs' full fill and the checked track's full chroma. The consumer passes `disabled` correctly (`LayerConfigPanel.vue`). Ask: the disabled state takes the muted token. Honest-RED until the 10.2.0 repin.
+- **KF-C7-01's visible half:** SHEET-POSITION (above), O-87/O-88.
+
+**Refused**
+- **KF-C7-06 (low, PLAUSIBLE): refused on measurement.** A 1 px transparent outline on `.cube-side` was tried and withdrawn. At an identical still pose (the spin pinned by an injected style, 390@2x, `c706/`), no pixel differed by more than 59/255, and those are sub-pixel AA changes. The rims are antialiased with or without the outline, and the stepped numeral is the same in both (`c706/edge-cmp.png`, `c706/num-cmp.png`). The jaggies in the critic's frames are mid-spin rasters. The cube has no scale-up animation, so "render at final scale" has nothing to change. The fills and the tonal step are untouched.
+- **KF-C7-07 (trivial): refused.** Centring the empty-state group in the free band would reverse r8 KF-C7-02 (the line sits under the track it describes). Letting the track take the height would reverse the shell's uniform pane policy (D-8). The critic marked it optional.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5197/ --widths 1440,390 --settle 5000`): identical to pass 58 in every key except the timestamp and the base URL. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `281aaab9`, plus another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `ControlsPaneWrapper.vue` (+68, KF-C11-01 focus rules) and `KeyframeTimeline.vue` (`panel-content`) held another seat's hunks. This seat's hunks were staged alone: an index blob of HEAD plus this change, written with `hash-object -w` and `update-index --cacheinfo`, then checked with `git diff --cached` before the commit. Their hunks and `SpringHeatmap.vue` remain unstaged and untouched. My `onParkedHeaderPress` does not depend on their code. The served frames include their hunks. The value.js commits are pathspec-only.
+- **A served dev-server port of its own** (:5197), so no other seat's :5193 was touched.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the probes, capture and census `--rss-gb 6` (browser pool), check and lint `--light`, and vitest `--rss-gb 8`.
+- The dev server on :5197 was stopped at the end, and nothing of this seat's was left running.
