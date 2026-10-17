@@ -23,6 +23,7 @@
             class="col-span-full"
             :message="emptyText"
             :hint="emptyHint"
+            :compact="emptyCompact"
         >
             <template v-if="$slots.emptyAction" #action>
                 <slot name="emptyAction" />
@@ -38,6 +39,8 @@ defineProps<{
     empty?: boolean;
     emptyText?: string;
     emptyHint?: string;
+    /** The empty plate sits under its host's own label (EmptyState `compact`). */
+    emptyCompact?: boolean;
     gridClass?: string;
 }>();
 </script>

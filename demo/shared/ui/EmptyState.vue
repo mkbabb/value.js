@@ -77,11 +77,17 @@
              X-DS VC4-02: the true-empty statement speaks the body rung at 500,
              one step over the hint, at every host (Mix, Browse, My Palettes):
              under Mix's "Saved palettes" head (subheading, 600) it no longer
-             ties with its own heading. One register, set here. The one host
-             exception is My Palettes' companion (X-DS value pass 5, C5-02):
-             under its well's Fraunces action label the statement takes the
-             hint rung at 400, still Fraunces (PalettesPane.vue's scoped rule). -->
-        <p class="font-display text-body font-medium text-foreground max-w-[30ch] text-balance leading-snug">
+             ties with its own heading. One register, set here.
+             X-DS value pass 6 (V6C-01): `compact` — seated under its own label
+             (Mix's "Saved palettes", My Palettes' well label) — sets the
+             statement at the hint rung at 400, still Fraunces (O-10d's
+             three-voice law): the label above already speaks the head. -->
+        <p
+            :class="[
+                'font-display text-foreground max-w-[30ch] text-balance leading-snug',
+                compact ? 'text-small font-normal' : 'text-body font-medium',
+            ]"
+        >
             <slot>{{ message }}</slot>
         </p>
         <!-- X-DS pass 9 (V9C-08): the hint balances its lines, as the
@@ -138,8 +144,9 @@ withDefaults(
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */
         detail?: string | undefined;
-        /** A true-empty plate under its own section heading: no plate-scale
-         *  vertical padding (X-DS pass 8 · V3C-01). */
+        /** A true-empty plate under its own label: no plate-scale vertical
+         *  padding (X-DS pass 8 · V3C-01), and the statement at the hint rung
+         *  at 400 (X-DS value pass 6 · V6C-01). */
         compact?: boolean | undefined;
     }>(),
     { variant: "empty" },

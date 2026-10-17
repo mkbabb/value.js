@@ -12,7 +12,7 @@
              name; the row only widens its pointer target, so the label's
              action rung is a promise the hit area keeps. -->
         <div
-            class="flex items-center justify-between gap-2"
+            class="flex items-baseline gap-2"
             :class="savedColorStrings.length === 0 && 'cursor-pointer'"
             data-well-label-row
             @click="savedColorStrings.length === 0 && addCurrentColor()"
@@ -26,16 +26,19 @@
             >
                 {{
                     savedColorStrings.length > 0
-                        ? "Current Palette"
+                        ? "Current palette"
                         : "Start a new palette"
                 }}
             </span>
-            <!-- S.W5-7: singular form — "1 color", never "1 colors". -->
+            <!-- X-DS value pass 6 (V6C-02): the app's ONE count idiom
+                 (PaletteSpecimen): a bare muted mono tabular numeral on the
+                 label's baseline, beside it; the noun lives in `title`
+                 (S.W5-7's singular form — "1 color", never "1 colors"). -->
             <span
                 v-if="savedColorStrings.length > 0"
-                class="text-mono-small text-muted-foreground"
-                >{{ savedColorStrings.length }} color{{ savedColorStrings.length !== 1 ? "s" : "" }}</span
-            >
+                class="text-mono-small tabular-nums text-muted-foreground shrink-0"
+                :title="`${savedColorStrings.length} color${savedColorStrings.length === 1 ? '' : 's'}`"
+            >{{ formatCount(savedColorStrings.length).text }}</span>
         </div>
         <TransitionGroup
             name="vj-enter"
@@ -188,7 +191,7 @@
 <script setup lang="ts">
 import { inject, ref, toRef, TransitionGroup } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
-import { formatCssCaption } from "../../../color-session/format-color";
+import { formatCount, formatCssCaption } from "../../../color-session/format-color";
 import { Input } from "@mkbabb/glass-ui/input";
 import { Button } from "@mkbabb/glass-ui/button";
 import {
