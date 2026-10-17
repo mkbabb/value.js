@@ -1676,3 +1676,28 @@ Both stay honest-RED until the glass 10.2.0 repin. Since C1 removed the toasts f
 - `v-*-390` and `v-controls-*-390`;
 - `v-menu-*-1440` (G2, recorded unchanged);
 - `gallery-*-{1440,390}`.
+
+### pass 6
+This is the cure seat for critic **F6C** (pass 6, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-06/f6c/`. The other folders in `pass-06/` (`f6`, `f6x`, `f8`, `critic-*`) belong to earlier seats and are not part of this receipt.
+- fourier `43fb488`, on `m/w1-bump-migration`, one file, committed by pathspec and pushed fast-forward `8d6b3ab..43fb488`.
+- value.js holds the AFTER frames, the probe and its JSON, the census, the gate and e2e logs, and the O-87 relay addendum: `3c9b02e7e`.
+
+**Consumer finding, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F6C-C1 | **The stage carries the state.** A new `stageComputeFailed` (`store.computeError` set, not computing, no epicycle or bases data) renders the SAME `.compute-status` line (message plus a glass `emphasis="text"` Retry calling `store.retryCompute`) centred in the stage's existing message slot, `.stage-state--over`, where the first compute's busy mark sits. It uses one channel (`computeError`) and the shared rule in `style.css`, with no new component. One scoped rule keeps the line pressable inside the slot's `pointer-events: none` and bounds it to the stage. The aside's line stays unchanged and remains the only `role="status"`, so the failure is announced once.<br>**Measured** (`f6c-probe.json`, every compute answered 429 by `page.route`): at 1440 the stage line is centred on the plate (light: stage 970 × 798 at x 17; line 245 × 36 at x 379, y 470), and the aside line is still there. At 390 the Canvas tab now shows the line on the plate. There are no toasts. Pressing Retry **on the stage** after unrouting lands the computes in all four cells: both lines are gone and the epicycles draw.<br>Frames: `w-429-*-1440-controls`, `w-429-*-390-{canvas,controls}`, `w-429-*-{1440,390}-after-retry`. |
+
+**Glass-owned: DS-F6C-G1** is a new witness of the held coarse type-ramp inversion (DS-F3C-G1, F9X-G1). Measured at 390 with touch: the caption is 12.179 px and the text-emphasis Retry is 18.27 px (1.5×), in the aside and on the stage, in light and dark. At 1440 both are 14.384 px. The relay is widened by an O-87 addendum (`relay/X-ALL-BK-FLAT-LIGHTING.md`, 2026-10-17): a text-emphasis Button inherits the surrounding font size at every pointer and keeps only its hit floor. There is no local override, and the row stays honest-RED until the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3138`; `f6c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 5 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f6c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** the same 35 specs as pass 5 (`e2e-specs.txt`), since they cover every spec that reaches the stage, the Basis or Contour layer, Coefficients or a Retry. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8018` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3138`. Both were stopped at the end.
+  - Runs A and B passed 384/384 each.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-06/f6c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f6c-probe.mjs`: 10 PNGs in light and dark of the forced-429 `/w` cells (1440 with the aside; 390 on the Canvas and Controls tabs) and after a stage Retry. The seat's fresh `BLOB_DIR` does not hold that image's blob, so the Image layer reads "Image unavailable" in these cells. That is a fixture artefact and not part of the finding.
