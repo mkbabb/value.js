@@ -565,10 +565,18 @@
         --dock-gap: 0.5rem;
     }
 }
-/* the reserve drops only where the dock cannot collapse (Dock.vue:87) */
+/* the reserve drops only where the dock cannot collapse (Dock.vue:87).
+ * X.W12U.o5c (COHESION §0fv.2) — the floor now HOLDS the settled pill here too.
+ * The dock mounts in the task after first paint, so the band's first-paint
+ * height is its floor alone; at `+ 0.5rem` (48 px) the band painted short and
+ * grew to the pill-floored 62.5 px (pill 56 + the inline-flex line-box
+ * descent 6.5) when the dock mounted, shifting the pane 15 px (CLS 0.0143 at
+ * 844×390). The reserve is the measured settled band rounded up to the rem
+ * grid, the same idiom as the 72 px reserve above (`+ 1.5rem` = 64 ≥ 62.5);
+ * it retires to the producer pill-height rung with the other. */
 @media (max-height: 30rem) and (width < 1024px) {
     :root {
-        --dock-band-min-h: calc(var(--size-icon-btn) + 0.5rem);
+        --dock-band-min-h: calc(var(--size-icon-btn) + 1.5rem);
     }
 }
 

@@ -44,7 +44,9 @@
              band sits below (style.css §App layout). W2-3 (T.W2 · B1 dock
              voice): the dock arrives AS the pill — veiled during the producer
              mount-morph, revealed through the plate-land family (the M-14
-             booked-interim; mechanism in boot/useDockArrival.ts). -->
+             booked-interim; mechanism in boot/useDockArrival.ts). X.W12U.o5c
+             (§0fv.2): the band paints veiled in the first task; the dock
+             itself mounts in the task after first paint (`dockMounted`). -->
         <nav
             ref="dockNav"
             class="dock-band"
@@ -57,6 +59,7 @@
             @animationend="onDockLandEnd"
         >
             <Dock
+                v-if="dockMounted"
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
                 :scene-actions="sceneActions"
@@ -320,10 +323,8 @@ provide(OVERTURE_KEY, overture);
 // The dock's B1 voice (the M-14 booked-interim) — veil + reveal + the B2
 // noteDockLanded predicate live in boot/useDockArrival (full rationale there).
 const dockNav = useTemplateRef<HTMLElement>("dockNav");
-const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } = useDockArrival(
-    dockNav,
-    overture,
-);
+const { prmInstant, dockMounted, dockRevealed, onDockMorphSettled, onDockLandEnd } =
+    useDockArrival(dockNav, overture);
 
 // X.W5.c · gate C3 — the compound breakpoint predicate that drove the
 // single-mount v-if (min-width 1024px AND min-aspect-ratio 1.1, read through
