@@ -1582,3 +1582,34 @@ This is the cure seat for critic **F14X** (the redeploy's pass-14 critic, 2026-1
 **Frames** (`pass-14/f14x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f14x-probe.mjs` against the final tree:
 - `morph-*-{1440,1024,390}-{stage,levels}`, in light and dark;
 - `f14x-probe.json`, which records each cell's svg size, stroke width, `vector-effect`, rendered px for the plate and a tile, and their ratio.
+
+### pass 15
+This is the cure seat for critic **F15X** (the redeploy's pass-15 critic, 2026-10-16). The AFTER frames are in `evidence/DS/fourier/pass-15/f15x/`. Other files in `pass-15/` (the `f17-*` probe and its frames) belong to another seat and are not part of this receipt.
+- fourier `70f1d8a`, on `m/w1-bump-migration`, six files, committed by pathspec and pushed fast-forward `fd853a2..70f1d8a`.
+- value.js `0fc21ba29` holds the AFTER frames, the probe and its JSON, the census, the gate and e2e logs, and the O-87 relay addendum.
+
+**Consumer findings, cured at the root.**
+
+| id | cure |
+|---|---|
+| DS-F15X-C1 | The five indeterminate `Progress` sites drop `variant="liquid"` and use glass's default: `EquationView.vue` (the status pill and the cold "Computing…" state), `VisualizationView.vue` (both stage busy bars) and `ImageUpload.vue` (the replace upload). Size, aria and status text are unchanged, and the "busy" motion stays.<br>**Measured after the drop** (`f15x-probe.json`): with `:model-value="null"` the fill sits at translate -100% and paints nothing. The whole visible state is glass's `.track-flow::after`, a white `plus-lighter` gradient swept on a loop, on `--track-well-recess`, which is `oklch(0.131 0.003 57)` in dark. So glass's default indeterminate has the same gloss and the same black rail. That half is relayed as a **new witness on O-87 FLAT-LIGHTING** (addendum in `relay/X-ALL-BK-FLAT-LIGHTING.md`) and is not overridden locally.<br>Frames: `equation-computing-*-1440`, `equation-recompute-*-1440` (+ `-pill`), `visualize-busy-*-1440`. |
+| DS-F15X-C2 | At SliderControl's DS-F7X-C2 gate (`(min-width:1024px) and (pointer:fine)`), the Easing row has the Duration row's grammar: the label sits in the card's shared label column, then the select at a 12rem measure instead of `w-full`.<br>`--row-label-col` (3.75rem) is set on the phase card. SliderControl's plain-row label reads it, falling back to 2.5rem, so the levels card's Low and High rows are unchanged.<br>The row wraps back to the stack in a narrow card (the three-column 1440 cards). The coarse and phone ramps keep the stack.<br>**Measured at 1024:** the select starts on the Duration field's x (541.0 vs 541.2 px), at 192 px instead of about 500. There is no wrapper component, only tokens and layout.<br>Frames: `morph-*-{1440,1024,390}-cards`. |
+| DS-F15X-T1 | The /morph sticky band's block-end rule changes from `--border-soft` to `--border`. That is one token swap, with no shadow or fade. Measured at 390: `rgb(101, 87, 73)` in dark and `rgb(198, 180, 159)` in light.<br>Frames: `morph-*-390-levels`. |
+
+**Glass-owned: DS-F15X-G0** has no new witness. It is folded into the held rows: DS-F2R-G1, F6X-G1 and F8X-G1 (casts); canon glass item 7 (slider track-well); F3C-G4 (select); F3C-G1 and F9X-G1 (ramp); and F3C-G3 (`--primary`). These stay honest-RED on **O-87 FLAT-LIGHTING** (and O-88), to be re-judged at the glass 10.2.0 repin. There is no local override. The only new glass row from this pass is C1's glass half, described above.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3135`; `f15x/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 14. They are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The census routes do not open a busy state, so the `track-flow` loop that C1 measured is outside its cells. The census is still RED, on the glass rows only.
+
+**Gates** (`f15x/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 25 specs (`e2e-specs.txt`): pass 14's 14 specs, plus every spec that reaches /equation's busy states, the morph cards, the stage band or `progressbar`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker. The seat's own API ran on `:8015` (`COMPUTE_CONCURRENCY=1`, rate limits 1000, dev mongo `:27018`, `BLOB_DIR` under `~/.cache`) behind vite on `:3135`. Both were stopped at the end.
+  - Runs A and B passed 240/240 each.
+- **No visual golden was re-baselined.** The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-15/f15x/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f15x-probe.mjs`, which holds the compute requests open to show the busy states:
+- 22 PNGs in light and dark;
+- `f15x-probe.json`, which records each bar's variant, rail and fill tones and its sweep, the card's label, field and select boxes, and the band's rule.
+- At 390 the equation's cold state sits in the inactive Canvas tab, so the C1 cells are at 1440.
