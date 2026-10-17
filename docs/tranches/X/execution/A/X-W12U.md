@@ -3149,3 +3149,80 @@ Re-run at baseline only the gates `.o5c` turns (O-5 restated window, boot task, 
 Groups: `[["X.W12U.o5c"]]`.
 
 ## RESUME 7 — Unit receipts
+
+### X.W12U.o5c
+
+SERVED MODEL: claude-opus-5-5. Seat `.o5c` (Track A, RESUME 7, 2026-10-17). Authority: COHESION §0fv (:4203-4226, the file's last section; arms (a)(b)(c), gate 4, order 5) + W12U.md ADDENDUM (k) (:138-143). Spec read whole (143 lines). Record read: RESUME 7 Open → Unit plan (:3107-3151) only.
+
+**Act 0 — crash recovery.** ⟨`git status --porcelain -- demo docs/tranches/X/waves/W12U-evidence/o5c docs/tranches/V/coordination docs/tranches/X/relay docs/tranches/X/execution`⟩ → the four X-DS paths (`demo/scenes/ConfigSliderPane.vue`, `demo/shell/dock/menus/{MobileMenuDropdown,ProfileSection}.vue`, `demo/workbenches/mix/MixSourceSelector.vue`) + `?? demo/app/.vite-critic-9216/`, none in this unit's set. **No inherited `.o5c` work.** Those paths were never edited or staged.
+
+**Act 1 — anchors at true bytes.** `demo/app/App.vue:59-66` `<Dock …/>` inside `<nav ref="dockNav" class="dock-band" :class="[!dockRevealed && 'overture-dock-veiled', …]">` (:48-58), **true**. `useDockArrival` (`demo/app/composables/boot/useDockArrival.ts`: veil/reveal; the no-morph check `onMounted → rAF×2 → getAnimations`) and `useOverture` (B1 at `onMounted`; B2 = fieldArmed ∧ dockLanded), **true**. Veil = `.overture-dock-veiled { visibility: hidden }` (`overture.css:105`). Band floor `.dock-band { min-height: var(--dock-band-min-h) }` (`shell.css:149-155`), `--dock-band-min-h: calc(var(--size-icon-btn) + 2rem)` (`foundation.css:509`), and `+ 0.5rem` under `(max-height: 30rem) and (width < 1024px)` (`foundation.css:568-572`).
+
+**Act 2 — base reading on `955efaa03`** (⟨`$G --timeout 25 -- sh g2d/build-tree.sh 955efaa03 o5c-base`⟩ → built). New probe `o5c/reveal-probe.mjs` (per-rAF band layout rect, veil/land class, dock-in-DOM, band visibility, main `offsetTop`, layout-shift sum + sources, the dock's finite running animations). ⟨`$G --timeout 6 -- sh o5c/reveal-run.sh <base> 8241 base-r{1,2}`⟩ → `o5c/base-reveal-r{1,2}.txt`:
+- 1280×720 light/dark: `seq=Vh:12,Lv:253` / `Vh:10,Lv:253` (r1), `Vh:13` / `Vh:12` (r2). `rects=["16,8,1248,72"]` (one rect). `mainTop=[88]`. `pop=0`. **`cls=0.01702` ×2**, sources `card-content` / `card-title readout` / `control-surface` at 144–185 ms, all inside the picker pane; the band never moved.
+- 390×844: `cls=0.00059`; 844×390: `rects=["16,8,812,63"]`, `cls=0.00128`.
+- The dock is in the DOM from the first frame (`dockInDomAt` 25–34). It runs **incidental first-mount transitions**: `border-*-radius` 600 ms on the seal/watercolor seats and `opacity` 200 ms on `.dock-icon-button`, starting at its first style. The 200 ms opacity `transitionend` reveals the band (`onDockMorphSettled`), and the 600 ms radius transitions are still running at reveal (`runningAtReveal` `217/600` ×8).
+
+**Act 3 — the cure (commit 1, `9e0212c46`, 3 files).**
+- `useDockArrival.ts`:
+  - New `dockMounted` ref (`= prmInstant`). At `onMounted` (non-PRM) it opens from the first frame's `requestAnimationFrame` by a posted `MessageChannel` message. The frame renders (first paint), then the next task mounts the dock. One task later, never idle-indefinite, never a timer.
+  - The no-morph reveal check moves from `onMounted` to `watch(dockMounted, …, { flush: "post", once: true })`, so it is anchored on the dock's own mount, as before.
+  - PRM keeps instant states: no veil, so the dock is first-paint state there and mounts in the first task.
+- `App.vue`: `<Dock v-if="dockMounted" …>` at its root, inside the unchanged veiled `<nav>`. No wrapper, no try/catch, no `setTimeout`. The pane, inks, aurora and theme stay in the first task (untouched).
+- `foundation.css`: the short-landscape floor (see Act 4).
+- ⟨`npm run -s typecheck`⟩ → 0. ⟨`npx eslint <2 files> --max-warnings=0`⟩ → 0. The edited hunks are formatted by hand. Both files were already prettier-dirty at HEAD, so whole-file `--write` was not run.
+
+**Act 4 — the short-landscape floor (found by a scratch arm before commit, same commit).**
+- **Scratch arm:** the Act 3 diff applied in the base worktree, gh-pages rebuilt, read once, then restored with `git checkout --` and rebuilt. It read GREEN on 3 cells but **RED at 844×390**: `rects=["16,8,812,48","16,8,812,63"]`, `mainTop=[64,79]`, `cls=0.01434` (`pane-main`).
+- **Cause:** below 30rem of height and 1024 px of width the floor is 48 px, and the band was floored by the mounted pill itself. ⟨`band-floor-probe.mjs <base>`⟩ → `o5c/base-band-floor.txt`: `band 63 · bandMinH 48px · pill 56` at 844×390, 932×430 and 667×375; floor ≥ band at the 7 other viewports. The fractional read is band 62.5 = pill 56 + the inline-flex line-box descent 6.5.
+- **Cure at the root:** the floor holds the settled pill: `--dock-band-min-h: calc(var(--size-icon-btn) + 1.5rem)` = 64 ≥ 62.5. This is the measured settled band rounded up to the rem grid, the same idiom as the 72 px reserve (`+ 2rem` ≥ 71.4). Glass ships no pill-height token (⟨`grep -rhoE '\-\-dock-(pill|plate|h|height|band)[a-z-]*:' node_modules/@mkbabb/glass-ui/dist`⟩ → only `--dock-h` and the plate tier/border/inset tokens), so it retires to the producer rung with the other (O-99 R-2).
+- **Consequence:** the short-landscape band is 64 px, 1.5 px taller than base's 62.5 (pane top 79 → 80).
+
+**Act 5 — witness + evidence (commit 2).**
+- `o5c/o5-mv-witness.mjs`: the lawful §0fv.1 witness. Its measurement is `g2d/o5-gpu-witness.mjs`'s (that file and `open7/**` are untouched, E-3), with the window from the first rAF frame ≥ `mainVisible` over 4,000 ms, legs unchanged, ANGLE-Metal asserted (exit 2), the boot task banked (> 122 ms → `boot RED`, exit 1) and `preT0` listing every pre-`mainVisible` longtask.
+- Also committed: `o5-mv-run.sh`, `reveal-probe.mjs`, `reveal-run.sh`, `band-floor-probe.mjs`, `smoke-batch.sh` (a copy of q2's batch/run writing into `o5c/smoke/`), `README-commands.txt`, and every reading below.
+
+**Act 6 — gates on COMMITTED `9e0212c46`** (⟨`$G --timeout 25 -- sh g2d/build-tree.sh 9e0212c46 o5c`⟩ → built; every browser run through `guarded`, headless real Chrome, ANGLE-Metal asserted). Commands: `o5c/README-commands.txt`.
+
+| gate | BEFORE (`955efaa03`) | AFTER (`9e0212c46`) ⟨cmd⟩ → reading | state |
+|---|---|---|---|
+| O-5 real-GPU from `mainVisible` (`o5c/o5-mv-witness.mjs`) | open7 GREEN 3/3 ×2 | ⟨`sh o5c/o5-mv-run.sh <o5c> 8245 o5c-r{1..4} 3`⟩: `ANGLE Metal Renderer: Apple M5 Max` 12/12. Max 16.8 ms (1.0×), dropped 0, in every sitting. `VERDICT GREEN 3/3` ×4 | **GREEN ×4** |
+| boot task ≤ 122 ms every sitting | open7 119–143 (load 9.6–13.9); interleaved here 124–199, 0/12 ≤ 122 (load 11–15) | r1 `158·127·137` / r2 `138·127·138` (load 15–16) · r3 `152·133·131` / r4 `106·114·128` (load 11.5) → `BOOT RED` ×4. Interleaved with base (`ab-interleave{,-2}.txt`): o5c `137·106·126·146·98·96·112·94·90·148·131·124` (mean ≈ 117) vs base `196·124·138·199·141·128·184·160·157·125·136·129` (mean ≈ 151). One longtask before `mainVisible` each sitting (`preT0`): the dock task is < 50 ms and never appears as a longtask | **RED** (8/24 sittings ≤ 122; base 0/12 at the same load); **ESC-W12U-o5c-1 (a)** |
+| CLS 0 on the cell (incl. the dock band across the reveal) | 1280×720 `cls=0.01702` ×2 (in-picker sources) | ⟨`sh o5c/reveal-run.sh <o5c> 8244 o5c-r{1,2}`⟩: 1280×720 light/dark `cls=0` ×2; 390×844 `0` ×2; 844×390 `0.00001` ×2 (`svg.lucide<control-surface`, the colour-space select's chevron, a horizontal sub-pixel move inside the pane; base 0.00128 from the same source) | **GREEN ×2 at the cell**; 844×390 residual named (in-pane, pre-existing, 128× smaller) |
+| overture reveal frame-for-frame vs `955efaa03` (band rect + veil/land class timeline) | `rects=["16,8,1248,72"]`, `mainTop=[88]`, `seq=Vh:10–13,Lv:…`, land `overture-plate-land 0.45s 0s` + `--spring-dock` | band rect `16,8,1248,72` / `16,16,358,72` and `mainTop` 88 / 104 **identical, one value in every frame**. V→L class order identical. The land animation (name, duration, delay, timing function) is identical. `pop=0` (the dock is never in the DOM un-hidden before the land). **The veiled interval is 3 frames, not 10–14**: no finite dock transition runs (`dockAnims=[]`, `runningAtReveal=[]`), so the reveal takes `useDockArrival`'s no-morph path (rAF×2 after the dock's mount) instead of the base's incidental 200 ms `opacity` `transitionend`. 844×390 band 63 → 64 (the Act 4 floor) | band/land/pop **GREEN ×2**; literal per-frame veil count **RED by construction**; **ESC-W12U-o5c-1 (b)** |
+| G2 `eager-bytes.mjs` ≤ 294,912 | 293,975 ×2 | ⟨`(tree) node scripts/perf/eager-bytes.mjs` ×2⟩ → `raw= 923099 gz= 294083` ×2 (+108 B; margin 829) | **GREEN ×2** |
+| no-cut `g2d/nocut-run.sh` | Close 6 GREEN ×2 | ⟨`$G --timeout 10 -- sh g2d/nocut-run.sh <o5c> 8247 o5c-nocut-r{1,2}`⟩ → `VERDICT GREEN (0 failures)` ×2 | **GREEN ×2** |
+| typecheck 4 programs + lint | `0 0 0 0 lint=0` ×2 | ⟨`cp -cR api/node_modules <o5c>/api/; $G --light -- vue-tsc lib/demo/test + tsc e2e + npm run lint` ×2⟩ → `0 0 0 0 lint=0` ×2 | **GREEN ×2** |
+| smoke `--workers=1` ×2 except the named rows | Close 5 282 ✓ / 15 (c′) / 2 skip + perf 3 named | ⟨`sh o5c/smoke-batch.sh o5c-{a,b} <o5c>`⟩: admin 25 ✓, mobile 7 ✓, perf 4 ✓ / 3 ✘ (G2-constant `:313`, G3/G4 `:377`, O-5 SwiftShader `:74`), smoke **282 ✓ / 15 ✘ / 2 skipped** ×2. ⟨`diff o5c-a-smoke.f o5c-b-smoke.f`⟩ on `[smoke]` → identical, and == Close 5 `cl5a-smoke.f` by title. Reactivity: a `spectrum-drag` median 110.1 ✘ (load1 15.5 → 20.2), b 20.3 ✓. A/B ⟨`reactivity-instant.spec.ts:42` interleaved base/o5c ×2⟩ → 4/4 ✓ (4.4 / 4.6 / 4.9 / 6.1 ms) = load transient | **GREEN ×2 except the named rows** |
+| E13 | Open 0 UNREAD | sweep at filing: 0 unrowed · 0 UNREAD (INBOX sweep line) | GREEN |
+
+**Act 7 — arm (c), O-99 (commits 3a, 3b).**
+- `V/coordination/valuejs-outbound-2026-10-17-dock-mount-cost.md` and its BK mirror `X/relay/X-W12U-BK-DOCK-MOUNT-COST.md`:
+  - R-1: `dock.js` is the top self-time module of the boot task (18.9 / 18.5 ms self, 26.3 / 27.4 ms incl., `o5b/base-profile-r{1,2}.txt`).
+  - R-2: re-cites the `--dock-pill-h` rung.
+  - R-3, a same-seat addendum after the post-cure profile `o5c/boot-profile-r1.txt`: dock.js is absent from the boot task, which sampled 111.8 / 96.2 ms. `useScrollTrigger → scrollReader.position` now forces the first layout at pane mount (17.4 ms), the forced layout the dock used to pay for.
+- INBOX row O-99 after O-98, plus the E13 sweep line, both committed via index blob (⟨`git hash-object -w` + `git update-index --cacheinfo`⟩); the working tree was clean at both writes. Informational, ADOPT-AT-LANDING, gates nothing. Highest O-row before: O-98.
+
+**Commits (pathspec, `--no-verify`):** `9e0212c46` (1, product: `demo/app/App.vue`, `demo/app/composables/boot/useDockArrival.ts`, `demo/styles/foundation.css`) · `e81816a8a` (2, `W12U-evidence/o5c/**`, 44 files) · `a9d3e125c` + `4ae794885` (3, O-99 letter + mirror + INBOX row, then the R-3 addendum) · this record + LEDGER (4).
+**Adjacent edits:** none. All 3 product files sit in `demo/**`, and none is an X-DS path.
+**Inherited paths:** none.
+**Clean-up:** ⟨`git worktree remove --force ~/.dev-logs/w12u-g2d/{o5c-base,o5c}/tree`⟩. ⟨`git worktree list | grep -c w12u-g2d/o5c`⟩ → 0. ⟨`lsof -ti` on ports 8241–8248, 9171–9174⟩ → 0. ⟨`pgrep -f serve-built.mjs`⟩ → 0. The smoke JSON reporters are parked at `~/.dev-logs/w12u-o5c/json/`.
+
+**Residuals.**
+- R-1: the 844×390 in-pane select-chevron sub-pixel shift (`cls=0.00001`). It is pre-existing (base 0.00128) and not the dock band.
+- R-2: the short-landscape band is 64 px, 1.5 px taller than base's pill-floored 62.5. It is a measured constant until glass ships a pill-height rung (O-99 R-2).
+- R-3: the post-cure boot task is the pane mount plus first-paint state: aurora `color.wgsl` 23.1, `useScrollTrigger` forced layout 17.4 (O-99 R-3), inks 18.6.
+
+**ESCALATION — ESC-W12U-o5c-1** (for the Close or a ruling; no substitute cure was attempted).
+- **(a) Boot ≤ 122 ms every sitting cannot be read GREEN at today's host load.**
+  - The cure works. `dock.js` has left the boot task (profile), and interleaved with base at the same load the boot mean falls ≈ 151 → ≈ 117 ms.
+  - But the base itself reads 0/12 sittings ≤ 122 at load 11–15. §0fv.1's 122 ms "pre-cure maximum" was read at a quieter host and does not reproduce on the pre-cure bytes.
+  - o5c reads 8/24 ≤ 122. Cold first sittings run 137–158.
+  - The rest of the boot is the pane, the inks and the aurora (first-paint state, which §0fv.2 keeps in the first task), plus glass's forced first layout (O-99 R-3). No lawful `.o5c` act remains.
+  - Ruling asked: read the bar as a same-load interleaved A/B against the pre-cure bytes (o5c ≤ base, mean and max), or bank the reading in a quiet window.
+- **(b) "The overture reveal is unchanged frame for frame" cannot hold literally.**
+  - The band rect, pane top, V→L order and land animation are identical, and nothing pops.
+  - The veiled interval shortens from 10–14 frames to 3. On `955efaa03` the reveal fired on the 200 ms `opacity` `transitionend` of an incidental first-mount transition. Those transitions existed only because the boot task's forced style flush landed between the dock's insert and its post-mount writes.
+  - Mounted in its own task, the dock arrives settled. `useDockArrival` takes its designed no-morph path (the "P7 arrive-expanded" future) and reveals after 2 frames.
+  - Restoring the old veil length would need a timer, which §0fv.2 and the brief forbid.
+  - Ruling asked: accept "the reveal (land) unchanged + no pop + band constant" as the reading. Side effect: B2 (field ∧ dock-landed) can open earlier; the O-4 order is unaffected, and smoke `o4` stays ✓ ×2.
