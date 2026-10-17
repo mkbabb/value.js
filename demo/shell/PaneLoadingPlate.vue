@@ -26,6 +26,12 @@
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent } from "vue";
 import { Card } from "@mkbabb/glass-ui/card";
-import { Skeleton } from "@mkbabb/glass-ui";
+
+// X.W12U.g2d2: the plate shows only after PANE_LOAD_DELAY_MS on a pane chunk still
+// in flight, never at first paint, and its two bars are decorative (aria-hidden),
+// so the bars load at their root import. glass exports Skeleton from its root
+// barrel only, and an eager root import pins the whole barrel into the boot graph.
+const Skeleton = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.Skeleton));
 </script>
