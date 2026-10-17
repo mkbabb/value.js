@@ -2712,3 +2712,60 @@ Every capture is headless real Chrome (§0ei). The task named `pass-09/`, but th
 **Host (guard law)**
 - Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 120`, the captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
 - Each capture used one browser, closed in `finally`. The dev server on :5193 was stopped, and nothing of this seat's was left running.
+
+### pass 10 (the eighth redeploy's pass 10; critic C10x; evidence in `pass-55/`)
+
+**Cure commit:** keyframes.js `8e34f482` (pushed fast-forward to master, `05a715b1..8e34f482`). **Evidence:** value.js `71ffffb46` (`evidence/DS/keyframes/pass-55/`):
+- `capture.mjs` and `after/`: the route set (home, `cube`, `amiga`, `square`, `easing`, `spring`, `sequence` at 1440 and 390, light and dark), `cube-keyframes-{1440,390}-*` and `spring-peak-open-*` at 1440x900, 1280x800 and 1440x1080 (shot at rest). `after/capture.json` holds the measurements: the easing drawer's fold rows, Monaco's box width and visual line count, and the heatmap legend's runs.
+- `probe.mjs`, `frame-probe.mjs`, `port-probe.mjs` and `probe-before.json`: the geometry behind the KF-C10x-01 ruling.
+- `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2`, `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei). The task named `pass-10/`, but that folder holds the first workflow's committed pass-10 evidence, so the frames go to `pass-55/`, the next free folder (the pass-23..54 precedent). The seat served its own dev server on :5193 and stopped it at the end.
+
+**Cured (consumer, at the root)**
+
+| id | what changed | served |
+|---|---|---|
+| KF-C10x-02 (low) | **A heading stays above the fold with its row's peek.** `landDrawer`'s KF-C7-03 branch now applies only where the block cannot hold the next family's heading plus its first row's designed peek (`scroll-padding-block-end`, 0.75rem). In stage density, where the peek fits, the heading and that peek stay; the tile edge crossing the fold is the KF-C24-01 cue. The menu density keeps the C7-03 rule, because it is content-sized and leaves no plate. No mask or local fade was added. | 1440x900, both schemes: the drawer ends at 705, 13 px into the Sine tiles (692), with 'Sine' (654-684) whole above them. Before, it ended at 653 on Standard's foot. 28 px from the drawer to the plate's foot is the plate's own padding. 390x844: unchanged, the lone-'Sine' case (4 px of tile, under the peek), so the heading goes under with its row as KF-C7-03 ruled. 1280x800: unchanged, because the fold cuts the heading itself. `after/easing-*`. |
+| KF-C10x-03 (trivial) | **The code well gives back the layer's 2 px.** `.code-well__body`'s inline gutters are each `calc(… - 1px)`, which returns the 1 px transparent border glass's ConfiguratorLayer keeps on each side. The numerals stay on the 20 px column (the layer's edge plus the inset). Glass's border is not touched. `CSSCodeEditor` has one consumer, the Keyframes pane, which is always inside the layer. | 1440: Monaco is 373 px (it was 371). Line 4 `animation-timing-function: ease-in-out;` holds one line: 20 visual lines for 18 logical, so only lines 12 and 15 wrap, as before C9x. At 390 the box is 336 px and line 4 still wraps, as it did before C9x too; the finding was the 1440 cell. `after/cube-keyframes-*`. |
+| KF-C10x-04 (trivial) | **The swatch never stands alone.** The legend was a flex-wrap pair (swatch, then a nowrap sentence). It is now one text run: an unbreakable run of the swatch (an inline-block, `vertical-align: middle`, its old 0.375rem gap as a margin) plus '0 → 53 % overshoot ·', then a space, then the nowrap run 'set by damping alone'. The text and the hover title are unchanged. | 1280x800, both schemes: the first line reads swatch + '0 → 53 % overshoot ·' (top 312) and the second 'set by damping alone' (330). At 1440x900 and 1440x1080 it stays one line. `after/spring-peak-open-1280x800-*`. |
+
+**Refused on measurement (consumer; disclosed, not cured)**
+- **KF-C10x-01 (low).** The cure assumes the port leaves the frame's free block idle before giving up a row. Measurement says otherwise (`port-probe.mjs`, `frame-probe.mjs`):
+  - At 1440x1080, with 'Peak overshoot' open and the cap cleared, the port's fold is **512 px** against **518 px** of content (reach 6, the critic's 6 px shortfall). In that state the surface already takes the frame's whole block: the ribbon bar (205 px) sits flush at the pane frame's foot (930), with 0 px free under it. That is below the 10 px the rest state leaves, which is the critic's "29 px" visual inset of 10 px plus the ribbon's 12 px padding and the slot's 7 px.
+  - The 43 px of plate under the ribbon in the capped state is not idle block that the port declined. It is the 49 px response row that `placeStart` gave up, minus the 6 px reach: an end-pinned port must end on the content's end, and its top must sit between rows, so its block is `scrollHeight - top`.
+  - No placement of the port fits 518 px into 512. Either 6 px leaves the facet (its 12 px row rhythm, KF-C4-02; the bounded layer's body padding, which is glass's; or the opened figure's height), or a row is cut. Cutting the response row's top 6 px is the defect KF-C8-01 cured. Cutting the figure's axis caption is the defect KF-C6c-01 cured.
+  - At 1440x900 the reach is 175 px, so three rows go up whichever way the 16 px is spent; giving them to the port would leave either end room or a cut row.
+  - Each of those is a design trade, so it is held for the owner's or the next critic's ruling. The frames are unchanged (`after/spring-peak-open-1440x1080-*`, `-1440x900-*`).
+
+**Cited (glass, not overridden)**
+- **KF-C10x-G1 (medium): O-87 FLAT-LIGHTING**, a re-witness at glass 10.1.0:
+  - the cartoon offset stamp under the open Select menu, and its material bloom;
+  - the cream Input against the grey Select fill (light), and filled against clear (dark);
+  - closed carets rotated 180deg;
+  - the 'Apply CSS'/'Import' capsule halo in dark;
+  - the play-bubble plate straddling the 390 sheet;
+  - the resting-plate blur blotches;
+  - the EasingPicker ghost staircase and its 'Custom' label;
+  - the dark stage-plate halo.
+
+  They are honest-RED until the 10.2.0 repin.
+- **KF-C10x-G2 (low): O-88 DOCK-COLLAPSE-MOTION**: the collapsed tile and its halo. The TypingDots loop stays under owner ruling KF-C3-02 (§0dm). It is honest-RED until the 10.2.0 repin.
+- None of these is overridden locally, and nothing was written to the glass inbox.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5193/ --widths 1440,390 --settle 5000`): identical to pass 54 in every tally. The only differing keys are the timestamp and two `SpringHeatmap.vue` hit line numbers (749→757 and 904→916), which moved with the comment and legend lines. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (the live tree at `8e34f482`, plus another seat's uncommitted `KeyframeTimeline.vue` hunk)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941, ×2 consecutive. The pass-9 `r4dock-share-fallback` flake did not recur.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** another seat's `KeyframeTimeline.vue` hunk and the two untracked coordination files were not touched. The keyframes commit is pathspec-only. The value.js index held only this seat's paths, which was checked before each commit.
+- **Identity:** no identity hue, type or motion changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one after the other: the dev server `--light --timeout 150`, the probes, captures and census `--light --rss-gb 6`, check and lint `--light`, and vitest `--rss-gb 8`.
+- The first dev-server launch was backgrounded inside a finished shell, so the guard killed it at once ("caller died"). It was relaunched as a proper background task.
+- Each probe used one browser, closed in `finally`. The dev server on :5193 was stopped, and nothing of this seat's was left running.
