@@ -194,10 +194,10 @@ function openRepository(): void {
                     <Avatar decorative class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
-                    <div>
-                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
-                        <p class="text-micro italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
-                    </div>
+                    <!-- X-DS pass 5 (VP5-04): the header is the avatar and the
+                         handle. The micro italic strapline under it (the app's
+                         smallest text, decorative copy with no action) is gone. -->
+                    <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">

@@ -274,8 +274,12 @@ const swatchKeys = computed(() => {
             >
                 <!-- A2-VA-L1-5: the palettes are chosen in the one list below
                      (its ring-lit rows ARE the selection, W5-7); this panel
-                     only says what the mode wants. -->
-                <p class="text-caption text-muted-foreground">
+                     only says what the mode wants. X-DS pass 5 (VP5-02): it
+                     speaks only when that list has rows to pick;
+                     TRUE EMPTY is the list's EmptyState alone (T.W6.5 · Lane S),
+                     never a caption pointing at nothing above a second,
+                     different instruction. -->
+                <p v-if="savedPalettes.length > 0" class="text-caption text-muted-foreground">
                     {{ selectedPalettes.length < 2
                         ? "Pick two or more palettes below to pour together."
                         : "Press a palette again to take it out of the mix." }}

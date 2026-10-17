@@ -19,6 +19,8 @@ import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneShell from "../shell/PaneShell.vue";
 import { useClipboard } from "@mkbabb/glass-ui";
+import { onBeforeUnmount, ref, useTemplateRef } from "vue";
+import { useResizeObserver } from "@vueuse/core";
 
 /** A single slider definition inside a section. `key` may be a dot-path
  *  (e.g. `geometry.bodyRadius`) addressing a nested config atom. */
@@ -97,6 +99,47 @@ async function copyAsJson() {
 function resetDefaults() {
     Object.assign(config, structuredClone(defaults));
 }
+
+/* X-DS pass 5 (VP5-01): THE FOLD LANDS ON A ROW BOUNDARY. The port follows
+ * the picker's row (V4C-04), so its height has no tie to this population's
+ * row rhythm: at rest it ended 19px into "Warp", whose label and value sat as
+ * a half-height ghost on the footer seam while the well's hairlines ran on
+ * into the footer rule. The footer takes the remainder as its top margin, so
+ * the port ends exactly where the first row (or section head) that does not
+ * fit begins: no glyph of it shows, glass's feather dims only the last whole
+ * row, and the well dissolves above a quiet band of plate before the rule.
+ * When everything fits (Atmosphere, a phone's one-track column) the trim is
+ * 0. The trim is read back into `avail`, so it settles in one pass. */
+const body = useTemplateRef<HTMLElement>("body");
+const foldTrim = ref(0);
+function snapFold() {
+    const el = body.value;
+    const port = el?.parentElement;
+    if (!el || !port) return;
+    const avail = port.clientHeight + foldTrim.value;
+    let trim = 0;
+    if (port.scrollHeight > avail + 0.5) {
+        const top = port.getBoundingClientRect().top - port.scrollTop;
+        let end = 0;
+        for (const r of el.querySelectorAll(".configurator-row, .config-section-title")) {
+            const at = r.getBoundingClientRect().top - top;
+            if (at <= avail) end = Math.max(end, at);
+        }
+        if (end > 0) trim = Math.floor(avail - end);
+    }
+    if (trim !== foldTrim.value) foldTrim.value = trim;
+}
+// The write lands on the next frame: resizing the observed port inside its
+// own observer callback is a ResizeObserver loop (a window error).
+let snapFrame = 0;
+useResizeObserver(
+    () => [body.value, body.value?.parentElement],
+    () => {
+        cancelAnimationFrame(snapFrame);
+        snapFrame = requestAnimationFrame(snapFold);
+    },
+);
+onBeforeUnmount(() => cancelAnimationFrame(snapFrame));
 </script>
 
 <template>
@@ -126,6 +169,7 @@ function resetDefaults() {
                      config-slider rows judge this surface. -->
                 <div
                     v-if="sections.length > 0 || $slots.default"
+                    ref="body"
                     class="px-4 sm:px-6 pb-6"
                 >
                     <div class="config-console console-well flex flex-col gap-5">
@@ -186,7 +230,11 @@ function resetDefaults() {
                  floating GlassDock that used to wrap them is gone — a dock is
                  floating chrome, and a pill of pills inside a card was three
                  nested capsules for two commands. Only shown with sliders. -->
-            <div v-if="sections.length > 0" class="config-action-bar">
+            <div
+                v-if="sections.length > 0"
+                class="config-action-bar"
+                :style="foldTrim ? { marginBlockStart: `${foldTrim}px` } : undefined"
+            >
                 <Button size="sm" emphasis="quiet" @click="copyAsJson">
                     <Check v-if="jsonCopyStatus === 'success'" class="w-3.5 h-3.5" />
                     <Copy v-else class="w-3.5 h-3.5" />
