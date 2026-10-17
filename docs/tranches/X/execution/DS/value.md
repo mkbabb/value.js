@@ -1225,3 +1225,33 @@ The critic named one medium consumer row (VC6-01), the standing glass rows (VC6-
 **Loop state.**
 - Pass 6 cured its one actionable consumer row.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15), and so is P4R-01-R.
+
+### pass 5 (2026-10-17, re-dispatch): critic C5 — the spectrum predicate is total, and the companion's empty statement drops a rung
+
+Critic C5 (fresh, at `f34718e2f`, in `pass-05/critic-c5-2026-10-17/`) named one medium consumer row, one low, one trivial, and the standing glass rows. C5-01 and C5-02 are cured. C5-03 is optional and held, with the reason below. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-05/c5-2026-10-17/`.
+
+**Commits.** value.js `f04cdc586` (the cure: 4 paths) and `9b7a252d1` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-05/c5-2026-10-17/`) |
+|---|---|---|---|
+| C5-01 (medium) | **CURED at the helper's entry.** | `spectrumLuma.ts`: `spectrumFieldLuminance` reads a non-finite `h`, `s` or `v` as 0 before calling `hsv()`, so the one predicate both render-path instruments share (the dot's border, the needle's ink) can no longer throw inside a computed and drop the pane to its error plate. The remaining throws are assertions on the library's own conversion, which finite input cannot fail. The hue-aware model and the 3:1 law are unchanged. **Falsifier:** a new case in `test/spectrum-luma.test.ts`, RED against `1434921d6`'s helper and GREEN with the cure. **Routed to Track A (X-W8), by id:** the second half of the critic's cure, making `dotPos` and `channelNumber` never yield NaN. That lives in `SpectrumCanvas` and `color-session/picker-color.ts`, outside this seat's touch, and the predicate is now safe without it. | `capture-c5.json`: 0 `spectrumFieldLuminance` errors and 0 `main [role=alert]` plates in all 36 route cells (picker, mix and the rest, 1440 and 390, both schemes). |
+| C5-02 (low) | **CURED (the critic's hint-rung arm).** | One scoped rule in `PalettesPane.vue` on the companion's true-empty statement: `--type-small` at 400, still Fraunces. EmptyState's register for Browse and Mix is untouched, and its note now names this one exception. **The body-family arm was tried first and dropped:** O-10d (the three-voice law) RED'd it 1 of 49 ×2, with "empty-state statement off the display face" (`gates/draft/`). | Companion (/#/palettes, /browse, /generate; both schemes): **1440**, label Fraunces 18.6px/600 over statement Fraunces 16.4px/400 (was 18.6/500). **390**, 16px/600 over 14px/400. Mix's own EmptyState is unchanged at 18.6/500 (`palettes-*`, `browse-*`, `generate-*`, `mix-*`). |
+| C5-03 (trivial, optional) | **HELD, no change.** | Dropping "Selected" in true-empty leaves a lone dashed + slot with no visible label. Merging it with "Saved palettes" breaks the one section grammar of V9C-05. The critic marks it optional hierarchy polish, not lighting. The heads measure 20.35px/600 as the critic read them. | `mix-1440-*`, `mix-390-*`. |
+| C5-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING (bead specular, Generate name-field rim stack, Mix's disabled primary, the thumbless scrubber VP5-03, the tinted Browse tag-overflow popover) and O-88 DOCK-COLLAPSE-MOTION (the dock rim and halo, the 390 bulge, the collapsed seal).** No local override. | Every row was already relayed (V1C-G1..G4, VC4-06/07, VC5-G1, VP5-03, VC6-G1). They are re-judged at the 10.2.0 repin. | `scene-browse-open-1440-*`; the census glass rows are unchanged (below). |
+
+**Census** (`census-after.json`, `--base :9253 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8. These are identical to pass 6.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c5.mjs` uses one browser for the run and a new context per cell, closing both in a `finally`. It took 36 of 36 cells (9 routes × 1440 and 390 × light and dark), plus `scene-browse-open-1440-*`. The guarded dev server on :9253 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1234/1239 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3). C-5 and NG-6 have been GREEN since X.W8.i2.
+- **e2e** (smoke, headless, workers 1, own server :9252; 9 specs on the spectrum, the sliders and the palettes empty states, `gates/specs.txt`): **49/49 ×2**, strict GREEN.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- This re-dispatch cured both actionable consumer rows. C5-03 is held as optional.
+- One row is routed to Track A: the NaN source in `dotPos` / `channelNumber`.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15), and so is P4R-01-R.
