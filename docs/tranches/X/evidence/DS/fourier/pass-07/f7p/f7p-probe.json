@@ -1,0 +1,656 @@
+{
+ "light-1440": {
+  "paperTop": {
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "rect": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0,
+     "right": 1440
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": 88,
+    "bottom": 131558,
+    "left": 510,
+    "right": 1278
+   },
+   "rule1440": {
+    "content": "\"\"",
+    "position": "sticky",
+    "height": "1px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "gridColumn": "2"
+   },
+   "band": null,
+   "chevronX": null,
+   "readout": null,
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": []
+  },
+  "paperMid": {
+   "port": {
+    "scrollTop": 45730,
+    "scrolled": true,
+    "rect": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0,
+     "right": 1440
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -45642,
+    "bottom": 86152,
+    "left": 510,
+    "right": 1278
+   },
+   "rule1440": {
+    "content": "\"\"",
+    "position": "sticky",
+    "height": "1px",
+    "bg": "rgb(198, 180, 159)",
+    "gridColumn": "2"
+   },
+   "band": null,
+   "chevronX": null,
+   "readout": null,
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": [
+    "\"Proof . \"",
+    "\"Verification of Hermitian inner product axioms . \""
+   ]
+  },
+  "paperLate": {
+   "port": {
+    "scrollTop": 91687,
+    "scrolled": true,
+    "rect": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0,
+     "right": 1440
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -91599,
+    "bottom": 40261,
+    "left": 510,
+    "right": 1278
+   },
+   "rule1440": {
+    "content": "\"\"",
+    "position": "sticky",
+    "height": "1px",
+    "bg": "rgb(198, 180, 159)",
+    "gridColumn": "2"
+   },
+   "band": null,
+   "chevronX": null,
+   "readout": null,
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": [
+    "\"Proof sketch . \""
+   ]
+  },
+  "proofScroll": "Proof sketch . "
+ },
+ "light-390": {
+  "paperTop": {
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "rect": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0,
+     "right": 390
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": 160,
+    "bottom": 132501,
+    "left": 16,
+    "right": 374
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 76,
+     "bottom": 152,
+     "left": 0,
+     "right": 390
+    },
+    "rule": "rgba(0, 0, 0, 0)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 84,
+     "bottom": 148,
+     "left": 16,
+     "right": 374
+    }
+   },
+   "chevronX": 191.5,
+   "readout": {
+    "text": "pg 4/110",
+    "w": 77.5
+   },
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": []
+  },
+  "paperMid": {
+   "port": {
+    "scrollTop": 46080,
+    "scrolled": true,
+    "rect": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0,
+     "right": 390
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -45920,
+    "bottom": 88287,
+    "left": 16,
+    "right": 374
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 76,
+     "bottom": 152,
+     "left": 0,
+     "right": 390
+    },
+    "rule": "rgb(198, 180, 159)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 84,
+     "bottom": 148,
+     "left": 16,
+     "right": 374
+    }
+   },
+   "chevronX": 191.5,
+   "readout": {
+    "text": "pg 34/110",
+    "w": 77.5
+   },
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": [
+    "\"Proof . \"",
+    "\"Proof . \"",
+    "\"Proof . \""
+   ]
+  },
+  "paperLate": {
+   "port": {
+    "scrollTop": 93466,
+    "scrolled": true,
+    "rect": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0,
+     "right": 390
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -93306,
+    "bottom": 41851,
+    "left": 16,
+    "right": 374
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 76,
+     "bottom": 152,
+     "left": 0,
+     "right": 390
+    },
+    "rule": "rgb(198, 180, 159)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 84,
+     "bottom": 148,
+     "left": 16,
+     "right": 374
+    }
+   },
+   "chevronX": 191.5,
+   "readout": {
+    "text": "pg 68/110",
+    "w": 77.5
+   },
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": [
+    "\"Proof sketch . \""
+   ]
+  },
+  "chevron": [
+   {
+    "f": 0.02,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 5/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.1,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 11/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.3,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 29/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.6,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 57/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.95,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 101/110",
+     "w": 77.5
+    }
+   }
+  ],
+  "proofScroll": null,
+  "landscape": {
+   "port": {
+    "scrollTop": 46969,
+    "scrolled": true,
+    "rect": {
+     "top": 68,
+     "bottom": 390,
+     "left": 0,
+     "right": 844
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -46825,
+    "bottom": 87252,
+    "left": 16,
+    "right": 828
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 68,
+     "bottom": 136,
+     "left": 0,
+     "right": 844
+    },
+    "rule": "rgb(198, 180, 159)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 72,
+     "bottom": 136,
+     "left": 16,
+     "right": 828
+    }
+   },
+   "chevronX": 639.6,
+   "readout": {
+    "text": "pg 35/110",
+    "w": 83.4
+   },
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "proofs": [
+    "\"Proof . \"",
+    "\"Verification of Hermitian inner product axioms . \""
+   ]
+  }
+ },
+ "dark-1440": {
+  "paperTop": {
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "rect": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0,
+     "right": 1440
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": 88,
+    "bottom": 131558,
+    "left": 510,
+    "right": 1278
+   },
+   "rule1440": {
+    "content": "\"\"",
+    "position": "sticky",
+    "height": "1px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "gridColumn": "2"
+   },
+   "band": null,
+   "chevronX": null,
+   "readout": null,
+   "border": "hsl(30 16% 34%)",
+   "proofs": []
+  },
+  "paperMid": {
+   "port": {
+    "scrollTop": 45730,
+    "scrolled": true,
+    "rect": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0,
+     "right": 1440
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -45642,
+    "bottom": 86152,
+    "left": 510,
+    "right": 1278
+   },
+   "rule1440": {
+    "content": "\"\"",
+    "position": "sticky",
+    "height": "1px",
+    "bg": "rgb(101, 87, 73)",
+    "gridColumn": "2"
+   },
+   "band": null,
+   "chevronX": null,
+   "readout": null,
+   "border": "hsl(30 16% 34%)",
+   "proofs": [
+    "\"Proof . \"",
+    "\"Verification of Hermitian inner product axioms . \""
+   ]
+  },
+  "paperLate": {
+   "port": {
+    "scrollTop": 91687,
+    "scrolled": true,
+    "rect": {
+     "top": 80,
+     "bottom": 900,
+     "left": 0,
+     "right": 1440
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -91599,
+    "bottom": 40261,
+    "left": 510,
+    "right": 1278
+   },
+   "rule1440": {
+    "content": "\"\"",
+    "position": "sticky",
+    "height": "1px",
+    "bg": "rgb(101, 87, 73)",
+    "gridColumn": "2"
+   },
+   "band": null,
+   "chevronX": null,
+   "readout": null,
+   "border": "hsl(30 16% 34%)",
+   "proofs": [
+    "\"Proof sketch . \""
+   ]
+  },
+  "proofScroll": "Proof sketch . "
+ },
+ "dark-390": {
+  "paperTop": {
+   "port": {
+    "scrollTop": 0,
+    "scrolled": false,
+    "rect": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0,
+     "right": 390
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": 160,
+    "bottom": 132501,
+    "left": 16,
+    "right": 374
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 76,
+     "bottom": 152,
+     "left": 0,
+     "right": 390
+    },
+    "rule": "rgba(0, 0, 0, 0)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 84,
+     "bottom": 148,
+     "left": 16,
+     "right": 374
+    }
+   },
+   "chevronX": 191.5,
+   "readout": {
+    "text": "pg 4/110",
+    "w": 77.5
+   },
+   "border": "hsl(30 16% 34%)",
+   "proofs": []
+  },
+  "paperMid": {
+   "port": {
+    "scrollTop": 46080,
+    "scrolled": true,
+    "rect": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0,
+     "right": 390
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -45920,
+    "bottom": 88287,
+    "left": 16,
+    "right": 374
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 76,
+     "bottom": 152,
+     "left": 0,
+     "right": 390
+    },
+    "rule": "rgb(101, 87, 73)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 84,
+     "bottom": 148,
+     "left": 16,
+     "right": 374
+    }
+   },
+   "chevronX": 191.5,
+   "readout": {
+    "text": "pg 34/110",
+    "w": 77.5
+   },
+   "border": "hsl(30 16% 34%)",
+   "proofs": [
+    "\"Proof . \"",
+    "\"Proof . \"",
+    "\"Proof . \""
+   ]
+  },
+  "paperLate": {
+   "port": {
+    "scrollTop": 93466,
+    "scrolled": true,
+    "rect": {
+     "top": 76,
+     "bottom": 844,
+     "left": 0,
+     "right": 390
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -93306,
+    "bottom": 41851,
+    "left": 16,
+    "right": 374
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 76,
+     "bottom": 152,
+     "left": 0,
+     "right": 390
+    },
+    "rule": "rgb(101, 87, 73)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 84,
+     "bottom": 148,
+     "left": 16,
+     "right": 374
+    }
+   },
+   "chevronX": 191.5,
+   "readout": {
+    "text": "pg 68/110",
+    "w": 77.5
+   },
+   "border": "hsl(30 16% 34%)",
+   "proofs": [
+    "\"Proof sketch . \""
+   ]
+  },
+  "chevron": [
+   {
+    "f": 0.02,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 5/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.1,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 11/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.3,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 29/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.6,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 57/110",
+     "w": 77.5
+    }
+   },
+   {
+    "f": 0.95,
+    "x": 191.5,
+    "readout": {
+     "text": "pg 101/110",
+     "w": 77.5
+    }
+   }
+  ],
+  "proofScroll": null,
+  "landscape": {
+   "port": {
+    "scrollTop": 46969,
+    "scrolled": true,
+    "rect": {
+     "top": 68,
+     "bottom": 390,
+     "left": 0,
+     "right": 844
+    },
+    "borderTop": "0px"
+   },
+   "article": {
+    "top": -46825,
+    "bottom": 87252,
+    "left": 16,
+    "right": 828
+   },
+   "rule1440": null,
+   "band": {
+    "rect": {
+     "top": 68,
+     "bottom": 136,
+     "left": 0,
+     "right": 844
+    },
+    "rule": "rgb(101, 87, 73)",
+    "ruleBottomOffset": "-1px",
+    "bar": {
+     "top": 72,
+     "bottom": 136,
+     "left": 16,
+     "right": 828
+    }
+   },
+   "chevronX": 639.6,
+   "readout": {
+    "text": "pg 35/110",
+    "w": 83.4
+   },
+   "border": "hsl(30 16% 34%)",
+   "proofs": [
+    "\"Proof . \"",
+    "\"Verification of Hermitian inner product axioms . \""
+   ]
+  }
+ }
+}
