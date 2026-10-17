@@ -2745,3 +2745,58 @@ Re-run at baseline only the gates the owed units turn and that moved since Close
 Groups: `[["X.W12U.g2s2"], ["X.W12U.g2d2"]]`.
 
 ## RESUME 5 — Unit receipts
+
+### X.W12U.g2s2
+
+SERVED MODEL: claude-opus-5-5 · 2026-10-16 · HEAD at open `4e525939b` · authority COHESION §0ft.1–.4, W12U.md ADDENDUM (i), §0fr.1, §0fg item 3 · evidence `W12U-evidence/g2s2/` (`README-commands.txt` names every command).
+
+**Crash recovery.** ⟨`git status --porcelain -- vite.config.ts vite.library.ts src/css/bbnf src/css/grammar scripts/gen-grammar.mjs src/subpaths package.json demo/color-session test/css/color-entry.test.ts test/v4-c1.test.ts CHANGELOG.md W12U-evidence/g2s2 <record>`⟩ → empty. Nothing inherited.
+
+**Acts, in order.**
+1. **Cure (2b) landed from the bank.** ⟨`git apply --check g2s/cure-2b.patch`⟩ → applies clean on `4e525939b` (21 files). Hunks re-read whole against §0ft.1: `colorTop` moves from `value.bbnf` to `color.bbnf` (one rule moved, none copied); `color.bbnf` is compiled as its own root into `src/css/bbnf/generated/color.{js,d.ts}`; `color-parse.ts` holds the one `parseCssColor`, which `bbnf/index.ts` re-exports so `./css` keeps the name; `src/subpaths/color.ts` adds `parseCssColor`/`serializeCssColor` plus 4 types; the 6 importers move to `@mkbabb/value.js/color`; and `test/css/color-entry.test.ts` is added. No hand parser. ⟨`node g2s/gen-pinned-g2s.mjs --check`⟩ → `grammar.js is current (fbcf5c8d…)` · `color.js is current (0872a62d…)`.
+2. **Arm (b), the packaging.** In `vite.library.ts`, `libraryCodeSplitting` holds 12 `codeSplitting` groups, claimed in priority order. The leaf areas go first: result, math, anchors, color, value, easing, quantize, transform. Then `serialize`, then `actions` (`css/bbnf/{math,color,mix}.ts` + `named-colors.ts`, the tables both grammars bind), then `color-grammar` (`generated/color.js`, `color-actions.ts`, `color-parse.ts`), and last `css-grammar` (the rest of `src/css/**`: the stylesheet grammar, its parser instance and every reader that calls it). The `vite.config.ts` production block passes `output: { codeSplitting: libraryCodeSplitting }`. The `.g2s` scratch try failed because recursive dependency capture pulled the colour modules into the grammar group. Here priority ordering cures that: each leaf is claimed before any grammar group can take it as a dependency.
+3. **`sideEffects`, read against the bytes.** The field stays `false`, unchanged. `g2s2/side-effects.mjs`, part 1: with no flag applied, a bare `import` of 15 of the 19 emitted files survives tree-shaking, because the module tops hold calls the bundler cannot prove pure (`Object.freeze`, `new Set`, matrix inverses, `createParser(actions)`). So the flag is REQUIRED. Part 2: running each file alone in a fresh node and diffing globalThis plus the built-in constructors and prototypes gives `GLOBAL-WRITERS 0 of 19`. So `false` is TRUE to the bytes.
+4. **Adjacent edits (§0bt).**
+   - `vite.config.ts:18`: the `libraryCodeSplitting` import line, outside the production block. It is the same concern.
+   - `scripts/ci/verify-packed-surface.mjs:44-45,155-156,162`: the packed-surface oracle's ratchet. It adds the 2 new `./color` names to `expected.color` and two SMOKE cases, which assert that each is the same function object as `./css`'s and that red round-trips. The file's own header requires these "two edits" for any new runtime export.
+   - Carried from the patch (§0bt, as `.g2s` recorded): `scripts/gen-grammar.mjs` gets a second TARGET, and `test/v4-c1.test.ts:473` names the 2 new exports. Both paths are in this unit's writable set.
+5. **CHANGELOG Unreleased.** The provisional "35,830" in the patch is replaced by figures read on the cure: a bundle importing only the two functions goes from 35,838 to 17,728 B gz from either subpath (`g2s/scratch-entry.mjs`); the whole `./css` grows from 42,868 to 49,918 B gz. A `### Changed` packaging line is added.
+6. **Commit (one family, §0ft LOCK).** `1c04f8c68` carries the packaging, (2b), the 6 importers, the tests, the CHANGELOG line and the adjacent edits, 24 files with a pathspec.
+
+**Gates.** All gates were read on COMMITTED bytes `1c04f8c68`, in a detached worktree ⟨`guarded --timeout 25 -- sh g2d/build-tree.sh 1c04f8c68 g2s2`⟩ under `~/.dev-logs/w12u-g2d/g2s2/` (baseline tree `4e525939b`, `g2s2-base`). Both trees were removed afterwards: ⟨`git worktree list | grep -c g2s2`⟩ → 0. Files are under `g2s2/`.
+
+| gate | BEFORE (RESUME 5 Baseline) | AFTER (×2, `cmp`-identical unless noted) | verdict |
+|---|---|---|---|
+| chunk-exp (i), arm `./css` | `index 154217 33098 atKeyframes:true` RED ×2 | ⟨`node chunk-exp/run.mjs <tree> <s> css`⟩ → `index.js 61783 16342 atKeyframes:false` · `lazy.js 129569 23152 atKeyframes:true` · `VERDICT GREEN` | **GREEN ×2** |
+| chunk-exp (i), arm `./color` | `[MISSING_EXPORT] parseCssColor` RED ×2 | ⟨`… color`⟩ → `index.js 61783 16342 atKeyframes:false` · `lazy.js 129569 23152 atKeyframes:true` · `VERDICT GREEN` | **GREEN ×2** |
+| every `dist/subpaths/*.js` a facade; the grammars and action tables each in their own chunk | `css.js` 278,110 B holding the grammar's own statements | ⟨`node facade-check.mjs <tree>`⟩ → 7/7 `FACADE` (color over `color,color-grammar,serialize`; css over `color-grammar,serialize,css-grammar`; the other five over their own area chunk). `valueTop`/`atKeyframes` appear only in `css-grammar`, `colorTop` only in `color-grammar`, parser `entries:` in exactly those two, and there is one `actions` chunk. `VERDICT GREEN` | **GREEN ×2** |
+| `sideEffects` true to the bytes | `false`, unread | ⟨`node side-effects.mjs <tree> <s>`⟩ → `EFFECTFUL 15 of 19` (the flag is required) · `GLOBAL-WRITERS 0 of 19` (`false` is true). The field is unchanged | **GREEN ×2** |
+| exported names per subpath ⊇ baseline (iii) | — | ⟨`node names.mjs <base> <tree>`⟩ (runtime keys and TS-checker declared exports) → `REMOVED 0`; `./color` runtime 28→30 (+`parseCssColor`,`serializeCssColor`), declared 40→46 (+4 types); every other subpath has an equal set; `./css keeps parseCssColor+serializeCssColor true` | **GREEN ×2** |
+| packed-surface export check (§0ft.1 (ii), the repo's attw-style check) | — | `npm pack` in the tree (73,993 B, 26 `dist/` files); ⟨`guarded --light -- node scripts/ci/verify-packed-surface.mjs <tgz>`⟩ → rc=0, runtime/smoke `color 30 · value 1 · css 20 · easing 17 · math 9 · transform 3 · quantize 2` | **GREEN ×2** |
+| eager css share falls | `33221 gz 150993 raw other:subpaths/css.js`; value-lib eager sum 36,600 gz | ⟨`node r1c7/eager-attrib.mjs dist/gh-pages`⟩ → no `css-grammar`/`subpaths/css` row (0 gz). Value-lib eager rows: `color-grammar` 10,202 · `actions` 5,087 · `anchors` 1,965 · `color` 1,897 · `serialize` 466 · `math` 213 · `result` 89, sum **19,919 gz** (−16,681) | **GREEN ×2** |
+| G2 eager JS (informational; `.g2d2` owns it) | `count=11 raw=1087578 gz=329633` | ⟨`node scripts/perf/eager-bytes.mjs`⟩ → `count=11 raw=995039 gz=312992` ×2 (the json differs only in `generatedAt`), −16,641. Still 5,792 above the 307,200 cap | for `.g2d2` |
+| E-6 (stdin gzip, §0fg) | `raw=112913 gz=15644` | ⟨`git show 1c04f8c68:src/css/bbnf/generated/grammar.js \| npx esbuild --minify --loader=js`⟩, `wc -c` and `gzip < f \| wc -c` → `raw=112616 gz=15619` ×2. The colour module, informational: `39446 / 6147` | **GREEN ×2** (≤ 125,646 / ≤ 15,650) |
+| MIRROR | 19 passed, 0 ×2 | ⟨`guarded -- npm run -s test:css-equivalence -- --maxWorkers=2`⟩ → `Tests 19 passed (19)`, `MIRROR-DEFECTS [1-9]` → 0. There are 24 `MIRROR-DEFECTS 0` lines against Close 4's 26: the 2 missing lines are vitest's slow-test echo for the parseCssValue/Values assays, not assay output | **GREEN ×2** |
+| V-C | GREEN ×2 | ⟨`guarded -- npx vite-node bench/wpt-conformance/conformance.ts --misses all`⟩ → `TOTAL 6267 2369 3898 0 0 0 0 0` · `V-C GREEN: 0 unruled misses, 0 stale ruled rows` | **GREEN ×2** |
+| L-G1, trigger | — | ⟨`node bench/records/W8lg1c/entry-diff.mjs <s> 4e525939b 1c04f8c68`⟩ ×2 → `ENTRIES CHANGED 7 of 7` (e.g. `parseCssColor 154582→193596`; see residual R-1) | all 7 re-read |
+| **L-G1 ×2** (§0ev.1; same invocations as `W8lg1c3/run-all.sh`) | `.lg1c3` 7/7 GREEN | ⟨`bash lg1/run-all.sh <tree> lg1/out`⟩ (20:37–22:53; heavy pool; WebKit via `--exclusive webkit`, which waited ~65 min on another session's lock; load 4.9–18.6, recorded per cell). Node reads 1 and 2, then chromium, webkit and firefox, each at reps 2. One cell straddled at n=31: `firefox\|acc-eq\|parseKeyframeSelector` rep1 `0.975 ub 1.010`. Per protocol it was re-read at **n=101** ⟨`browser.mjs g2s2-firefox-n101-kfs firefox 2 acc-eq 101 product parseKeyframeSelector`⟩ → rep0 `0.881 ub 0.883` · rep1 `0.972 ub 0.976` GREEN. ⟨`node bench/paired/bootstrap.mjs --out lg1/out/bootstrap-gate-final.json …`⟩ → **103 of 103 gate cells `→ GREEN`** (node 15 · chromium 29 · webkit 29 · firefox 30) | **GREEN ×2** |
+| typecheck 4 programs + lint | `0 0 0 0` · 0 | in the tree ⟨`guarded --light -- vue-tsc -p tsconfig.{lib,demo,test}.json --noEmit; tsc -p tsconfig.e2e.json; eslint . --max-warnings=0`⟩ → `lib 0 demo 0 test 0 e2e 0 lint 0` ×2. The first read gave demo/test 2 because the worktree had no `api/node_modules` (`mongodb` unresolved); an APFS clone of it fixed the environment, not the bytes | **GREEN ×2** |
+| `npm test` | the standing 7 | ⟨`guarded -- npx vitest run --maxWorkers=2`⟩ → `Tests 7 failed \| 1219 passed (1226)` ×2: `test/ink.test.ts` ×5 · `spectrum-luma` C-5 · `reka-binding-idiom` NG-6, the standing set exactly | **standing 7 ×2, no new failure** |
+
+**Residuals (named, none blocking).**
+- **R-1 (INFO, an instrument shape).** `entry-diff.mjs` bundles each entry from a `git archive` of `src` with esbuild. That archive has no `package.json`, so no `sideEffects` flag applies. A `src`-level bundle of any one parse entry therefore keeps both grammars' module-top `createParser(...)` calls: +39,014 B for each of the 7 entries, since `bbnf/index.ts` now imports `color-parse.ts`. The published path is unaffected: the dist chunks, with `"sideEffects": false`, are read by chunk-exp and eager-attrib above. The timing gate is L-G1, which is GREEN.
+- **R-2 (INFO, accepted by §0ft).** A consumer of the WHOLE `./css` surface carries both parsers: 42,868 → 49,918 B gz (`g2s/scratch-entry.mjs`; the CHANGELOG line states it). keyframes `engine` sees this at its 4.1.x repin.
+- **R-3 (`.g2d2`).** G2 reads 312,992 B gz ×2 against the 307,200 cap. That bar is the `.g2d2` re-sit's (§0fr.1, §0ft.4), and this unit's gate (the css share falls) is GREEN.
+- **R-4 (close).** §0ft.2's producer O-row (glass imports `parseCssColor` and accent-tone-solve's colour functions from `@mkbabb/value.js/color` after the 4.1.x publish, ADOPT-AT-LANDING) is filed by the close seat, per the RESUME 5 plan.
+
+**Escalations:** none.
+
+**Hygiene.**
+- `scripts/dev/dev.sh` was never touched.
+- No X-DS or sibling path was touched.
+- glass-ui was not touched.
+- No package pin changed, and the `sideEffects` field is unchanged.
+- No skip, fixme or weakened assertion.
+- Masking scan ⟨`git show 1c04f8c68 \| grep '^+' \| grep -cE 'test\.skip\|\.fixme\|force: ?true\|allowlist\|eslint-disable\|ts-ignore\|ts-expect-error\|retries'`⟩ → `0`.
+
+**Commits:** `1c04f8c68` (product family, 24 files) · `f2d8b3739` (evidence `W12U-evidence/g2s2/**`, 91 files) · this receipt.
