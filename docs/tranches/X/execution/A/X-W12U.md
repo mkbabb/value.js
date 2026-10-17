@@ -3038,3 +3038,68 @@ SERVED MODEL: claude-opus-5-5. **Status: ESCALATED (ESC-W12U-o5b-1)** — act (i
 - (c) **A glass producer row** for the dock mount's 23–27 ms (`dock.js`, the largest single share; 18.5–18.9 ms self). It cannot close the gap alone (expD still reads 87–103 ms).
 
 No O-n letter was written, because no glass share dominates alone (§0fu.2's trigger names glass *module evaluation*; the dock share is mount). Residual: the 4.4 ms palettes-ramp move is ready for whichever ruling lands.
+
+## Close 6 (RESUME 6 close seat, 2026-10-17)
+
+SERVED MODEL: claude-opus-5-5. Track A close seat, VERIFY-ONLY. HEAD at open was `52263021e` (the `.o5b` LEDGER line), on glass 10.1.0. I read the spec `W12U.md` whole: 137 lines, addenda (a) to (j). Of the record I read the RESUME 6 Open through the Unit plan (:2943-2985), the `.o5b` receipt (:2987-) and Close 5 (:2869-2941).
+
+Crash recovery ⟨`git status --porcelain -- docs/tranches/X/execution docs/tranches/X/waves/W12U*`⟩ found no inherited close work. The dirty `s/results/final/probe-share-dark.txt` and the untracked `q2/logs/v3chk-*` / `q2/results/v3chk-*` belong to other writers, as at Close 5, and were left unstaged.
+
+Every reading is on COMMITTED bytes `52263021e`, from a detached worktree at `~/.dev-logs/w12u-g2d/close6/tree` (`g2d/build-tree.sh`; removed at teardown). Commands are in `W12U-evidence/close6/README-commands.txt`.
+
+**Product byte identity.** ⟨`git diff --stat 441ae4013 HEAD -- src demo e2e scripts vite.config.ts vite.library.ts package.json`⟩ → empty. `.o5b` landed no product byte.
+
+### Commit roster (act 1)
+⟨`git merge-base --is-ancestor <c> HEAD`; `git show --stat <c>`⟩: all 3 `.o5b` commits are on HEAD.
+- `d0de80276`: 7 paths, all under `W12U-evidence/o5b/**`.
+- `75affa961`: the record only.
+- `52263021e`: `LEDGER.md`, one appended line.
+
+Paths outside the unit's writable set → 0. `demo/**`, `scripts/dev/dev.sh` and glass-ui → 0.
+
+### Landed wrong (recorded, not fixed here)
+None.
+
+### Gate table (acts 2–3), re-run by this seat on `52263021e` (load 10.3–11.1)
+| gate (spec) | BEFORE (RESUME 6 Baseline) | AFTER (this seat; `close6/`) | verdict |
+|---|---|---|---|
+| **O-5 real-GPU witness ×2** (ADDENDUM (j); §0fu.2) | RED 0/3 (open6) | ⟨`guarded --timeout 10 -- sh g2d/o5-run.sh <tree> 8197 close6-r{1,2} 3`⟩, renderer `ANGLE Metal Renderer: Apple M5 Max` in 6/6 sittings.<br>r1 (load 11.09): max 133.3 / 133.2 / 133.3 ms (8.0×), boot longtask `[20,134]` `[18,123]` `[19,120]`.<br>r2 (load 10.31): max 133.3 (8.0×) / 116.8 (7.0×) / 116.7 (7.0×), longtask `[21,137]` `[14,122]` `[17,108]`.<br>Median 16.7 ms. `VERDICT RED 0/3 green, 0 fault` ×2 | **RED ×2** (ESC-W12U-o5b-1) |
+| (i) boot-task profile ×2, top contributors named (`.o5b`) | — | `o5b/base-profile-r{1,2}.txt` read. 4 sittings, ANGLE-Metal, longtask 115–137 ms. The named contributors (App `useAtmosphereBoot` 36–41, glass `dock.js` 23–27, runtime-core self 17–22, eval spread ≤ 6 ms/file) appear in both files | **GREEN** (unit act, evidence verified) |
+| (ii) moves named with ms before/after ×2 (`.o5b`) | — | none landed (product diff empty) | **RED** (escalated, ESC-W12U-o5b-1) |
+| **G2 eager JS gz ≤ 294,912 ×2** (§0fu.1) | 293,980 ×2 | ⟨`(tree) node scripts/perf/eager-bytes.mjs`⟩ ×2 → `eager JS modules: 11` · `raw= 922855 gz= 293975` both runs, identical but `generatedAt`. The 5 B drift from 293,980 comes from the build on identical source; raw bytes are equal. The script prints `(bar 286720 B) -> RED`, the committed constant read through §0fu.1 (the named G2-constant row) | **GREEN ×2 at the ruled bar** (margin 937 B) |
+| no feature cut (`g2d/nocut-run.sh`) | GREEN ×2 (Close 5) | ⟨`guarded --timeout 10 -- sh g2d/nocut-run.sh <tree> 8199 close6-r{1,2}`⟩ → `VERDICT GREEN (0 failures)` ×2 | **GREEN ×2** |
+| typecheck 4 programs + lint (§3 `npm run check`) | `0 0 0 0` · `rc=0` | ×2 → `0 0 0 0 lint=0` both runs. The first pair read `0 46 46 0`: 46 `TS2307 'mongodb'` each in demo/test, because the worktree lacked `api/node_modules`. That is an instrument artefact (`q2/export.sh:19-21` names it), cured by cloning `api/node_modules` before the re-read | **GREEN ×2** |
+| `npm test` (§3) | standing 7 (Close 5) | **cited on byte identity**, not re-run (product diff vs `441ae4013` empty) | **RED by relief** (standing 7) |
+| smoke `--workers=1` ×2 except the named rows (ADDENDUM (j)) | Close 5 `cl5{a,b}`: 282 ✓ / 15 (c′), identical | **cited on byte identity**, not re-run (product diff vs `441ae4013` empty, so no oracle or product byte moved) | **GREEN except named rows (cited)** |
+| E-3 | — | ⟨`git log --format=%h 441ae4013..HEAD -- waves/W12U.md audit/AUDIT-2-value.md`⟩ → `091d61447` only (the orchestrator's ADDENDUM (j), an addendum-beside). `close6/` is new | **HELD** |
+| E13 | 0 UNREAD (Open) | ⟨`find <dir> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX 00:27, the RESUME 6 Open commit `461abd5b4`): value `V/` → 0 · `V/coordination/` → 0 · glass `BL/` (⟨`ls -t`⟩ → `BL BK BJ`) → `FORMATION-PROGRESS.md` only (tail: D2–D5 pass banks, no letter to value.js) · `BK/coordination/` → 0 · keyframes `V/coordination/` → 0 · atlas `P/coordination/` absent. ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0 | **GREEN** |
+| masking | — | product diff empty → 0 added lines | **HELD** |
+
+### Residuals (named owners)
+- **O-5 real-GPU witness RED ×2.** 30 of 30 GPU sittings so far: `.g2d`, Close 4, `.g2d2`, Close 5, open6 and this close. The cause is one synchronous boot task of 108–137 ms before `mainVisible`. Its measured floor is 70–80 ms even with the dock and the atmosphere boot cut (`o5b/exp-floor-*`). **Owner: the orchestrator's ruling on ESC-W12U-o5b-1**, which offers (a) a staged mount behind the overture veil, (b) an O-5 boot-leg restatement, or (c) a glass dock-mount row.
+- **The palettes-ramp move**, about 4.4 ms (`.o5b` residual). It is ready for whichever ruling lands. Owner: the successor seat under that ruling.
+- **The committed G2 constant 286,720** (`scripts/perf/eager-bytes.mjs:58`, `eager-payload.spec.ts:83`). It is read through §0fu.1, which makes it the named G2-constant smoke row. Owner: the orchestrator (§0fr.1 / §0fu.1).
+- **Carried unchanged from Close 5, with the same owners:**
+  - O-98 COLOR-ENTRY-IMPORT (glass-ui) · G3/G4 (X-W2 §3a) · the 15 (c′) cells and ATMOS-DRAG-COMPOSITION (X-W10).
+  - The `npm test` standing 7: INK-VEIL-MIDBAND → O-62 (a); C-5 and NG-6 → X-W8 `.i`.
+  - X-13-RUN-PEAK (O-85) · L2-4 / L2-1 / X-3 / X-5 / L3-2 / L3-3 (O-74 family) · A2-VA-L3-6 / X-8 HELD for glass §11 · DOCK-CAP-ELLIPSE (O-83).
+  - `.k3` (1) · `.q2` R-2 / R-3 · ESC-W12Uh-1/-2 · `.vscode/launch.json` (owner).
+
+### Escalations
+- **ESC-W12U-o5b-1** (HIGH): **open, unruled.** ⟨`grep -c 'o5b-1' docs/tranches/X/COHESION.md`⟩ → 0. This seat re-read O-5 RED ×2 on `52263021e`.
+- New at this close: none.
+
+### Teardown
+- ⟨`git worktree remove --force ~/.dev-logs/w12u-g2d/close6/tree`⟩ was run. ⟨`git worktree list | grep -c close6`⟩ → 0, and ⟨`lsof -ti :8197 -ti :8199 | wc -l`⟩ → 0.
+- Every browser and server ran under `guarded`.
+- `scripts/dev/dev.sh`, glass-ui, sibling repos, product code and pins were not touched.
+
+### State
+Four-verb line: **not moved.** It stays at **IMPLEMENTED** from Close 3. RESUME 6 is **BLOCKED-ON the orchestrator's ruling of ESC-W12U-o5b-1** (O-5 real-GPU witness RED ×2; the boot-task floor is over the bar).
+- G2 is GREEN ×2 at 294,912 (293,975).
+- no-cut and floors are GREEN ×2, and E13 is GREEN.
+- Smoke and `npm test` stand on Close 5 by byte identity.
+
+VERIFIED is not this seat's verb (§3: the row flips CLOSED on a CONFORMANT Check).
+
+**Close 6 commits:** `a0c233af9`, the evidence (`close6/**`, 10 files), then this record and LEDGER :39. Pushed to `origin` (no force).
