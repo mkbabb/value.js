@@ -1,0 +1,13 @@
+[no-cut close6-r1] route / main=visible h1="Home"
+[no-cut close6-r1] route /palettes main=visible h1="Palettes"
+[no-cut close6-r1] route /browse main=visible h1="Browse"
+[no-cut close6-r1] route /extract main=visible h1="Extract"
+[no-cut close6-r1] route /mix main=visible h1="Mix"
+[no-cut close6-r1] route /generate main=visible h1="Generate"
+[no-cut close6-r1] route /gradient main=visible h1="Gradient"
+[no-cut close6-r1] route /atmosphere main=visible h1="Atmosphere"
+[no-cut close6-r1] route /blob main=visible h1="Blob"
+[no-cut close6-r1] route /no-such-page main=visible h1="Not Found"
+[no-cut close6-r1] colour-input layer: field visible + filled
+[no-cut close6-r1] lazy chunks fetched: ColorInput=["ColorInput-BOAtYFC9.js"] dialog-barrel=["dialog-fL223ceC.js"] pageErrors=[]
+VERDICT GREEN (0 failures)
