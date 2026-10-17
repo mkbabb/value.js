@@ -1,0 +1,710 @@
+{
+ "equation-computing-light-1440": [
+  {
+   "cls": "progress-rail track-well track-flow eq-state-bar",
+   "variant": "default",
+   "railBg": "oklch(0.887879 0.00293581 83.7186)",
+   "fillClasses": "progress-value-fill",
+   "fillBg": "rgb(28, 25, 23)",
+   "fillShadow": "none",
+   "sweep": "linear-gradient(90deg, oklch(1 0 0 / 0) 0%, oklch(1 0 0 / 0.12) 50%, oklch(1 0 0 / 0) 100%)",
+   "sweepBlend": "plus-lighter",
+   "sweepAnim": "track-flow"
+  }
+ ],
+ "equation-recompute-light-1440": [
+  {
+   "cls": "progress-rail track-well track-flow eq-status-bar",
+   "variant": "default",
+   "railBg": "oklch(0.887879 0.00293581 83.7186)",
+   "fillClasses": "progress-value-fill",
+   "fillBg": "rgb(28, 25, 23)",
+   "fillShadow": "none",
+   "sweep": "linear-gradient(90deg, oklch(1 0 0 / 0) 0%, oklch(1 0 0 / 0.12) 50%, oklch(1 0 0 / 0) 100%)",
+   "sweepBlend": "plus-lighter",
+   "sweepAnim": "track-flow"
+  }
+ ],
+ "visualize-busy-light-1440": [
+  {
+   "cls": "progress-rail track-well track-flow stage-busy-bar",
+   "variant": "default",
+   "railBg": "oklch(0.887879 0.00293581 83.7186)",
+   "fillClasses": "progress-value-fill",
+   "fillBg": "rgb(28, 25, 23)",
+   "fillShadow": "none",
+   "sweep": "linear-gradient(90deg, oklch(1 0 0 / 0) 0%, oklch(1 0 0 / 0.12) 50%, oklch(1 0 0 / 0) 100%)",
+   "sweepBlend": "plus-lighter",
+   "sweepAnim": "track-flow"
+  }
+ ],
+ "morph-light-1440": {
+  "cards": [
+   {
+    "card": {
+     "x": 596,
+     "y": 191.9,
+     "w": 220,
+     "h": 268.2
+    },
+    "durLabel": {
+     "x": 617,
+     "y": 298.5,
+     "w": 60,
+     "h": 20.4
+    },
+    "durField": {
+     "x": 697.7,
+     "y": 290.7,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 617,
+     "y": 370.7,
+     "w": 60,
+     "h": 20.4
+    },
+    "easeSelect": {
+     "x": 617,
+     "y": 399.1,
+     "w": 178,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 828,
+     "y": 191.9,
+     "w": 220,
+     "h": 268.2
+    },
+    "durLabel": {
+     "x": 849,
+     "y": 298.5,
+     "w": 60,
+     "h": 20.4
+    },
+    "durField": {
+     "x": 929.7,
+     "y": 290.7,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 849,
+     "y": 370.7,
+     "w": 60,
+     "h": 20.4
+    },
+    "easeSelect": {
+     "x": 849,
+     "y": 399,
+     "w": 178,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 1060,
+     "y": 191.9,
+     "w": 220,
+     "h": 268.2
+    },
+    "durLabel": {
+     "x": 1081,
+     "y": 298.5,
+     "w": 60,
+     "h": 20.4
+    },
+    "durField": {
+     "x": 1161.7,
+     "y": 290.7,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 1081,
+     "y": 370.7,
+     "w": 60,
+     "h": 20.4
+    },
+    "easeSelect": {
+     "x": 1081,
+     "y": 399,
+     "w": 178,
+     "h": 40
+    }
+   }
+  ],
+  "band": {
+   "position": "static",
+   "rule": "0px none rgb(28, 25, 23)",
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "morph-light-1024": {
+  "cards": [
+   {
+    "card": {
+     "x": 452,
+     "y": 183.6,
+     "w": 556,
+     "h": 188
+    },
+    "durLabel": {
+     "x": 473,
+     "y": 271,
+     "w": 60,
+     "h": 19.1
+    },
+    "durField": {
+     "x": 541.2,
+     "y": 262.5,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 473,
+     "y": 321,
+     "w": 60,
+     "h": 19.1
+    },
+    "easeSelect": {
+     "x": 541,
+     "y": 310.5,
+     "w": 192,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 452,
+     "y": 383.5,
+     "w": 556,
+     "h": 188
+    },
+    "durLabel": {
+     "x": 473,
+     "y": 471,
+     "w": 60,
+     "h": 19.1
+    },
+    "durField": {
+     "x": 541.2,
+     "y": 462.5,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 473,
+     "y": 521,
+     "w": 60,
+     "h": 19.1
+    },
+    "easeSelect": {
+     "x": 541,
+     "y": 510.5,
+     "w": 192,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 452,
+     "y": 583.5,
+     "w": 556,
+     "h": 188
+    },
+    "durLabel": {
+     "x": 473,
+     "y": 671,
+     "w": 60,
+     "h": 19.1
+    },
+    "durField": {
+     "x": 541.2,
+     "y": 662.5,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 473,
+     "y": 721,
+     "w": 60,
+     "h": 19.1
+    },
+    "easeSelect": {
+     "x": 541,
+     "y": 710.5,
+     "w": 192,
+     "h": 40
+    }
+   }
+  ],
+  "band": {
+   "position": "static",
+   "rule": "0px none rgb(28, 25, 23)",
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "morph-light-390": {
+  "cards": [
+   {
+    "card": {
+     "x": 16,
+     "y": 375.9,
+     "w": 358,
+     "h": 258.3
+    },
+    "durLabel": {
+     "x": 29,
+     "y": 455.1,
+     "w": 73.1,
+     "h": 26.1
+    },
+    "durField": {
+     "x": 270.4,
+     "y": 441.2,
+     "w": 72,
+     "h": 54
+    },
+    "easeLabel": {
+     "x": 29,
+     "y": 531.2,
+     "w": 332,
+     "h": 26.1
+    },
+    "easeSelect": {
+     "x": 29,
+     "y": 561.2,
+     "w": 332,
+     "h": 60
+    }
+   },
+   {
+    "card": {
+     "x": 16,
+     "y": 642.2,
+     "w": 358,
+     "h": 258.3
+    },
+    "durLabel": {
+     "x": 29,
+     "y": 721.4,
+     "w": 73.1,
+     "h": 26.1
+    },
+    "durField": {
+     "x": 270.4,
+     "y": 707.5,
+     "w": 72,
+     "h": 54
+    },
+    "easeLabel": {
+     "x": 29,
+     "y": 797.5,
+     "w": 332,
+     "h": 26.1
+    },
+    "easeSelect": {
+     "x": 29,
+     "y": 827.5,
+     "w": 332,
+     "h": 60
+    }
+   },
+   {
+    "card": {
+     "x": 16,
+     "y": 908.5,
+     "w": 358,
+     "h": 258.3
+    },
+    "durLabel": {
+     "x": 29,
+     "y": 987.7,
+     "w": 73.1,
+     "h": 26.1
+    },
+    "durField": {
+     "x": 270.4,
+     "y": 973.8,
+     "w": 72,
+     "h": 54
+    },
+    "easeLabel": {
+     "x": 29,
+     "y": 1063.8,
+     "w": 332,
+     "h": 26.1
+    },
+    "easeSelect": {
+     "x": 29,
+     "y": 1093.8,
+     "w": 332,
+     "h": 60
+    }
+   }
+  ],
+  "band": {
+   "position": "sticky",
+   "rule": "1px solid rgb(198, 180, 159)",
+   "bg": "rgb(251, 250, 248)"
+  }
+ },
+ "equation-computing-dark-1440": [
+  {
+   "cls": "progress-rail track-well track-flow eq-state-bar",
+   "variant": "default",
+   "railBg": "oklch(0.131326 0.00250122 56.7868)",
+   "fillClasses": "progress-value-fill",
+   "fillBg": "oklch(0.739 0.134 318.1)",
+   "fillShadow": "none",
+   "sweep": "linear-gradient(90deg, oklch(1 0 0 / 0) 0%, oklch(1 0 0 / 0.12) 50%, oklch(1 0 0 / 0) 100%)",
+   "sweepBlend": "plus-lighter",
+   "sweepAnim": "track-flow"
+  }
+ ],
+ "equation-recompute-dark-1440": [
+  {
+   "cls": "progress-rail track-well track-flow eq-status-bar",
+   "variant": "default",
+   "railBg": "oklch(0.131326 0.00250122 56.7868)",
+   "fillClasses": "progress-value-fill",
+   "fillBg": "oklch(0.739 0.134 318.1)",
+   "fillShadow": "none",
+   "sweep": "linear-gradient(90deg, oklch(1 0 0 / 0) 0%, oklch(1 0 0 / 0.12) 50%, oklch(1 0 0 / 0) 100%)",
+   "sweepBlend": "plus-lighter",
+   "sweepAnim": "track-flow"
+  }
+ ],
+ "visualize-busy-dark-1440": [
+  {
+   "cls": "progress-rail track-well track-flow stage-busy-bar",
+   "variant": "default",
+   "railBg": "oklch(0.131326 0.00250122 56.7868)",
+   "fillClasses": "progress-value-fill",
+   "fillBg": "oklch(0.739 0.134 318.1)",
+   "fillShadow": "none",
+   "sweep": "linear-gradient(90deg, oklch(1 0 0 / 0) 0%, oklch(1 0 0 / 0.12) 50%, oklch(1 0 0 / 0) 100%)",
+   "sweepBlend": "plus-lighter",
+   "sweepAnim": "track-flow"
+  }
+ ],
+ "morph-dark-1440": {
+  "cards": [
+   {
+    "card": {
+     "x": 596,
+     "y": 191.9,
+     "w": 220,
+     "h": 268.2
+    },
+    "durLabel": {
+     "x": 617,
+     "y": 298.5,
+     "w": 60,
+     "h": 20.4
+    },
+    "durField": {
+     "x": 697.7,
+     "y": 290.7,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 617,
+     "y": 370.7,
+     "w": 60,
+     "h": 20.4
+    },
+    "easeSelect": {
+     "x": 617,
+     "y": 399.1,
+     "w": 178,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 828,
+     "y": 191.9,
+     "w": 220,
+     "h": 268.2
+    },
+    "durLabel": {
+     "x": 849,
+     "y": 298.5,
+     "w": 60,
+     "h": 20.4
+    },
+    "durField": {
+     "x": 929.7,
+     "y": 290.7,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 849,
+     "y": 370.7,
+     "w": 60,
+     "h": 20.4
+    },
+    "easeSelect": {
+     "x": 849,
+     "y": 399,
+     "w": 178,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 1060,
+     "y": 191.9,
+     "w": 220,
+     "h": 268.2
+    },
+    "durLabel": {
+     "x": 1081,
+     "y": 298.5,
+     "w": 60,
+     "h": 20.4
+    },
+    "durField": {
+     "x": 1161.7,
+     "y": 290.7,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 1081,
+     "y": 370.7,
+     "w": 60,
+     "h": 20.4
+    },
+    "easeSelect": {
+     "x": 1081,
+     "y": 399,
+     "w": 178,
+     "h": 40
+    }
+   }
+  ],
+  "band": {
+   "position": "static",
+   "rule": "0px none rgb(233, 230, 226)",
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "morph-dark-1024": {
+  "cards": [
+   {
+    "card": {
+     "x": 452,
+     "y": 183.6,
+     "w": 556,
+     "h": 188
+    },
+    "durLabel": {
+     "x": 473,
+     "y": 271,
+     "w": 60,
+     "h": 19.1
+    },
+    "durField": {
+     "x": 541.2,
+     "y": 262.5,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 473,
+     "y": 321,
+     "w": 60,
+     "h": 19.1
+    },
+    "easeSelect": {
+     "x": 541,
+     "y": 310.5,
+     "w": 192,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 452,
+     "y": 383.5,
+     "w": 556,
+     "h": 188
+    },
+    "durLabel": {
+     "x": 473,
+     "y": 471,
+     "w": 60,
+     "h": 19.1
+    },
+    "durField": {
+     "x": 541.2,
+     "y": 462.5,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 473,
+     "y": 521,
+     "w": 60,
+     "h": 19.1
+    },
+    "easeSelect": {
+     "x": 541,
+     "y": 510.5,
+     "w": 192,
+     "h": 40
+    }
+   },
+   {
+    "card": {
+     "x": 452,
+     "y": 583.5,
+     "w": 556,
+     "h": 188
+    },
+    "durLabel": {
+     "x": 473,
+     "y": 671,
+     "w": 60,
+     "h": 19.1
+    },
+    "durField": {
+     "x": 541.2,
+     "y": 662.5,
+     "w": 72,
+     "h": 36
+    },
+    "easeLabel": {
+     "x": 473,
+     "y": 721,
+     "w": 60,
+     "h": 19.1
+    },
+    "easeSelect": {
+     "x": 541,
+     "y": 710.5,
+     "w": 192,
+     "h": 40
+    }
+   }
+  ],
+  "band": {
+   "position": "static",
+   "rule": "0px none rgb(233, 230, 226)",
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "morph-dark-390": {
+  "cards": [
+   {
+    "card": {
+     "x": 16,
+     "y": 375.9,
+     "w": 358,
+     "h": 258.3
+    },
+    "durLabel": {
+     "x": 29,
+     "y": 455.1,
+     "w": 73.1,
+     "h": 26.1
+    },
+    "durField": {
+     "x": 270.4,
+     "y": 441.2,
+     "w": 72,
+     "h": 54
+    },
+    "easeLabel": {
+     "x": 29,
+     "y": 531.2,
+     "w": 332,
+     "h": 26.1
+    },
+    "easeSelect": {
+     "x": 29,
+     "y": 561.2,
+     "w": 332,
+     "h": 60
+    }
+   },
+   {
+    "card": {
+     "x": 16,
+     "y": 642.2,
+     "w": 358,
+     "h": 258.3
+    },
+    "durLabel": {
+     "x": 29,
+     "y": 721.4,
+     "w": 73.1,
+     "h": 26.1
+    },
+    "durField": {
+     "x": 270.4,
+     "y": 707.5,
+     "w": 72,
+     "h": 54
+    },
+    "easeLabel": {
+     "x": 29,
+     "y": 797.5,
+     "w": 332,
+     "h": 26.1
+    },
+    "easeSelect": {
+     "x": 29,
+     "y": 827.5,
+     "w": 332,
+     "h": 60
+    }
+   },
+   {
+    "card": {
+     "x": 16,
+     "y": 908.5,
+     "w": 358,
+     "h": 258.3
+    },
+    "durLabel": {
+     "x": 29,
+     "y": 987.7,
+     "w": 73.1,
+     "h": 26.1
+    },
+    "durField": {
+     "x": 270.4,
+     "y": 973.8,
+     "w": 72,
+     "h": 54
+    },
+    "easeLabel": {
+     "x": 29,
+     "y": 1063.8,
+     "w": 332,
+     "h": 26.1
+    },
+    "easeSelect": {
+     "x": 29,
+     "y": 1093.8,
+     "w": 332,
+     "h": 60
+    }
+   }
+  ],
+  "band": {
+   "position": "sticky",
+   "rule": "1px solid rgb(101, 87, 73)",
+   "bg": "rgb(11, 10, 9)"
+  }
+ }
+}
