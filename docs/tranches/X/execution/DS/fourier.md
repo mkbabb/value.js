@@ -1768,3 +1768,29 @@ This is the cure seat for critic **F8C** (pass 8, 2026-10-17). The AFTER frames 
 - The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-08/f8c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f8c-probe.mjs`: 4 PNGs of `/gallery`, at 1440 and 390, in light and dark.
+
+### pass 9
+This is the cure seat for critic **F9C** (pass 9, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-09/f9c/`. The other files and folders in `pass-09/` (`critic-f11`, `f9x`, the f11 cure files, the loose frames) belong to other seats and are not part of this receipt.
+- fourier `4f77d94`, on `m/w1-bump-migration`, three paths, committed by pathspec and pushed fast-forward `47c5f71..4f77d94`.
+- value.js `b12409f02` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | cure |
+|---|---|
+| DS-F9C-C1 | **The /404 card's pad now agrees with its title.** The h1 stays on the route rung (display-1, as DS-F4R-C5 ruled), and the card stays glass's `md`. Glass ships no `lg` Card (`CardSize = "sm" \| "md"`), so the card instead takes glass's own `--card-pad` token one step up the space ladder (`--space-family`). That is one custom property on a class on the existing Card. There is no wrapper and no change to the material.<br>**Measured** (`f9c-probe.json`):<br>• At 1440 the header pad goes from 12 to **20 px**. The title's line box starts **15 px** from the card's top and **21 px** from its left (it was 13 and 13). The card is 448×171, and the dead space right of the actions falls from about 110 to **67 px**.<br>• At 390 the compact ladder resolves `--space-family` to 12 px, so the pad is unchanged there, beside a 25.9 px title.<br>• No horizontal scroll and no page errors.<br>Frames: `404-{light,dark}-{1440,390}.png`. |
+| DS-F9C-C2 | **The gallery search ends on the grid's edge.** The 32rem `--search-measure` (FR-GSB-30, DS-F7-C4) was set before the 72rem page measure existed, so it is **deleted**, not countered. The pill fills its root, and at ≥ sm the root is the toolbar row's `flex-1`. Because the auto-fill tracks are `1fr`, the grid's right edge is the measure's edge at every width.<br>**Measured** at 1440, in light and dark: the search runs from 344.9 to **1280**, and the grid's 4th column ends at **1280**. At 390 nothing moves: the search spans 16 to 374, the full row under the tabs.<br>• No horizontal scroll and no page errors.<br>Frames: `gallery-{light,dark}-{1440,390}.png`. |
+| DS-F9C-E1 | **Environment only; no code change.** The shared `:3100` server still has a stale prebundle, for its owner to restart with `--force`. This seat served its own vite on `:3153`, with a private `cacheDir` (`~/.cache/fourier-f9c/vitecache`), and its own API on `:8039`. Both were stopped at the end. |
+
+**Glass-owned rows:** none this pass, so there is no O-87 addendum.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3153`; `f9c/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 8 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f9c/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 22 specs (`e2e-specs.txt`): every spec that reaches `/gallery` or the not-found card, including `visual-checkpoint` and `visual-baseline`. They ran headless with `--project=chromium --project=mobile-chromium` and 1 worker, against the private stack. **Run A passed 297/297, and so did run B.**
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames that the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-09/f9c/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; the 390 width with touch) by `f9c-probe.mjs`: 8 PNGs, of `/404` and `/gallery`, at 1440 and 390, in light and dark.
