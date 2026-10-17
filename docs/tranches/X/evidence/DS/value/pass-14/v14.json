@@ -1,0 +1,179 @@
+{
+  "base": "http://localhost:9011",
+  "featured": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "file": "featured-1440-light.png",
+      "badges": [
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "oklch(0.751 0.147 84.2)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "file": "featured-390-light.png",
+      "badges": [
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "oklch(0.751 0.147 84.2)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "file": "featured-1440-dark.png",
+      "badges": [
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "oklch(0.784 0.143 86)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "file": "featured-390-dark.png",
+      "badges": [
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "oklch(0.784 0.143 86)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ]
+    }
+  ],
+  "admin": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-1440-light.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "oklch(0.751 0.147 84.2)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "menuAdminInk": [],
+      "menuFile": "admin-view-menu-1440-light.png"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "file": "admin-users-390-light.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "oklch(0.751 0.147 84.2)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-1440-dark.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "oklch(0.784 0.143 86)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "menuAdminInk": [],
+      "menuFile": "admin-view-menu-1440-dark.png"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "file": "admin-users-390-dark.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "oklch(0.784 0.143 86)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ]
+    }
+  ]
+}
