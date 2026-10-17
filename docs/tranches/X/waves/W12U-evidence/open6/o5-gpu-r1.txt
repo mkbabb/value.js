@@ -1,0 +1,8 @@
+load 10.08 15.11 18.28
+[o5-gpu open6-r1 s1] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@242 frames=125 median=16.7ms max=2033.3ms (121.8x) gapEnd@2315 dropped=4 (3.2%) canvases=[[121,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[2857,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+    diag: gap=[282,2315] longtasksInGap=[] loafInGap=[[283,2049,0,2044,[]]] allLongtasks=[[19,128]]
+[o5-gpu open6-r1 s2] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@233 frames=249 median=16.7ms max=133.4ms (8.0x) gapEnd@155 dropped=1 (0.4%) canvases=[[114,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1082,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+    diag: gap=[22,155] longtasksInGap=[[17,122]] loafInGap=[[16,141,90,124,["index-K4gSufYD.js:http://127.0.0.1:8197/assets/index-K4gSufYD.js:121","index-K4gSufYD.js:FrameRequestCallback:10","index-K4gSufYD.js:FrameRequestCallback:5"]]] allLongtasks=[[17,122]]
+[o5-gpu open6-r1 s3] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@247 frames=250 median=16.7ms max=133.3ms (8.0x) gapEnd@166 dropped=1 (0.4%) canvases=[[115,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1094,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+    diag: gap=[32,166] longtasksInGap=[[19,128]] loafInGap=[[19,147,96,130,["index-K4gSufYD.js:http://127.0.0.1:8197/assets/index-K4gSufYD.js:127","index-K4gSufYD.js:FrameRequestCallback:10","index-K4gSufYD.js:FrameRequestCallback:5"]]] allLongtasks=[[19,128]]
+VERDICT RED 0/3 green, 0 fault

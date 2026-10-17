@@ -2939,3 +2939,47 @@ Four-verb line: **not moved.** It stays at **IMPLEMENTED** from Close 3. RESUME 
 VERIFIED is not this seat's verb (§3: the row flips CLOSED on a CONFORMANT Check).
 
 **Close 5 commits:** `2a3a46585`, the evidence (57 files: `close5/**`, `q2/{logs,results}/cl5{a,b}-*`), then this record, LEDGER :39, the O-98 letter and the INBOX row and sweep line. Pushed to `origin` (no force).
+
+## RESUME 6 — Open (2026-10-17, seat 0, Track A, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. HEAD at open `cd21d41b5` (the Track A chassis on §0fu); glass 10.1.0. Authority: COHESION §0fu (:4181-4201; R-1 the G2 bar restated 294,912 B gz; ESC-W12U-g2d-2 RULED as unit `.o5b`) + W12U.md ADDENDUM (j) (:131-137, `091d61447`). Spec `W12U.md` read whole (137 lines, addenda (a)–(j)); EXECUTION-RUNBOOK §1.1, §3.4, §5 read. Record read: the RESUME 5 Open → Unit plan (:2697-2747) and Close 5 (:2869-2941), per the context-economy law.
+
+- **Ledger row** ⟨`grep -n "^| X-W12U " LEDGER.md`⟩ → :39 `BLOCKED-ON ESC-W12U-g2d-2 (O-5 real-GPU witness RED ×2; orchestrator ruling) · the G2 bar-constant restatement …`. Not CLOSED; record exists → RESUME mode.
+- **Rulings present at the bytes** ⟨`grep -n '^## §0fu' COHESION.md`⟩ → :4181; ⟨`grep -n 'ADDENDUM 2026-10-17 (j)' waves/W12U.md`⟩ → :131. ESC-W12U-g2d-2 **RULED** (§0fu.2: GRANTED as `.o5b`, grant `demo/**`). R-1 **RULED** (§0fu.1: the bar is 294,912 B gz, W2.md's constant read through the ruling; E-3, the dated W2 text is not rewritten). The committed oracle constants still read 286,720 (⟨`grep -n 286720 scripts/perf/eager-bytes.mjs e2e/smoke/perf/eager-payload.spec.ts`⟩ → `:58`, `:22`, `:83`): §0fu.1 reads them through the ruling, so smoke-perf `eager-payload:313` stays a named row (G2-constant), and the G2 gate is the `eager-bytes.mjs` total against 294,912. Neither line is in `.o5b`'s grant (`demo/**`).
+- **Preconditions** (spec :4 "Opens after X-W12 CLOSED"): LEDGER :38 X-W12 **CLOSED** (Check 4); :37 X-W7L **CLOSED** (Check 1). **MET.**
+- **alreadyDone** (commits on HEAD, LEDGER :39 commit cell + Close 5 roster): `.x .s1 .s2 .s3 .p .b .k .m .t .k2 .m2 .h .q .q2 .k3 .m3 .g2s .g2d .g2s2 .g2d2`. ⟨`git log --oneline --all --grep='o5b'`⟩ → only `091d61447` (ruling) and `cd21d41b5` (chassis): **no `.o5b` commit exists**.
+- **Crash recovery** ⟨`git status --porcelain --untracked-files=all -- demo src e2e vite.config.ts package.json`⟩ → only `demo/app/.vite-critic-9216/deps/**` (untracked, mtime 2026-10-16 21:27): a Vite dependency-optimiser cache left by another writer's critic dev server on :9216, not source and not a W12U partial. Left untouched (never staged; not this seat's path). No inherited `.o5b` work.
+- **Product delta since Close 5** ⟨`git diff --stat 441ae4013 HEAD -- src demo vite.config.ts vite.library.ts package.json scripts e2e`⟩ → empty. Every Close 5 reading stands on byte-identical product bytes.
+- **E13 Step-0 mail sweep** (glass newest tranche ⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`; BK/coordination swept as the runbook's named path; BL has no `coordination/`) ⟨`find <dir> -maxdepth 1 -type f -newer INBOX.md`⟩ (INBOX mtime 00:22, the Close 5 commit): value `V/` → 0 · `V/coordination/` → 0 · glass `BL/` → `FORMATION-PROGRESS.md` only (glass's own progress log, tail read: D2–D5 pass banks, no letter to value.js) · `BK/coordination/` → 0 · keyframes `V/coordination/` → 0 · atlas `P/coordination/` → absent (as Close 5). ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0. **0 unrowed · 0 UNREAD.**
+- Host at open ⟨`uptime`⟩ → load 10.55 / 16.74 / 19.11.
+
+## RESUME 6 — Baseline (2026-10-17, read-only, seat 0, load 8.6–10.6)
+
+Re-run at baseline only the gates `.o5b` turns (O-5 real-GPU, G2); the rest stand on Close 5's ×2 readings on byte-identical product bytes (`git diff --stat 441ae4013 HEAD -- src demo vite.config.ts vite.library.ts package.json scripts e2e` → empty) and are cited. Read on COMMITTED bytes: detached worktree of `cd21d41b5` ⟨`guarded --timeout 25 -- sh W12U-evidence/g2d/build-tree.sh cd21d41b5 open6`⟩ → `built cd21d41b5`, removed at the end (⟨`git worktree list | grep -c open6`⟩ → 0; ⟨`lsof -ti :8197 | wc -l`⟩ → 0). Commands and outputs: `W12U-evidence/open6/` (`README-commands.txt`).
+
+| gate | owner unit | command | reading | state |
+|---|---|---|---|---|
+| **O-5 real-GPU witness** (§0fu.2; §0fr.2) | `.o5b` | ⟨`guarded --timeout 10 -- sh g2d/o5-run.sh <tree> 8197 open6-r1 3`⟩ (load 10.08) | `ANGLE Metal Renderer: Apple M5 Max` 3/3. s1 `mainVisible@242` max 2033.3 ms (121.8×) dropped 3.2 % — one ~2 s LoAF from 283 ms with no script attribution (`loafInGap=[[283,2049,0,2044,[]]]`, `longtasksInGap=[]`); s2 `mainVisible@233` max 133.4 (8.0×) dropped 0.4 %; s3 `mainVisible@247` max 133.3 (8.0×) dropped 0.4 %. Boot longtask `allLongtasks` = `[19,128]` · `[17,122]` · `[19,128]`. `VERDICT RED 0/3 green, 0 fault` | **RED** — born-RED reproduced (Close 5 RED ×2, 92–122 ms; cited for the ×2). New observation for `.o5b`: s1's 2 s post-`mainVisible` frame with an unattributed LoAF (no script) — a first-sitting GPU/compositor stall, read again by the unit before any cure claim |
+| **G2 eager JS gz** (§0fu.1 bar 294,912) | `.o5b` (stay ≤ bar) | ⟨`(tree) node scripts/perf/eager-bytes.mjs`⟩ ×2 | `eager JS modules: 11` · `raw= 922855 gz= 293980` ×2 (identical but `generatedAt`); script prints `(bar 286720 B) -> RED`, the committed constant read through §0fu.1 | **GREEN ×2 at the ruled bar** (margin 932 B); the committed-constant verdict is the named G2-constant row |
+| boot profile top self-time | `.o5b` (act i) | cited `g2d/readings/profile-m2b.txt` (`.g2d`, pre-`.g2s2` bytes) | first longtask `[23,+175]`; top: `@vue/runtime-core` 37.2 · glass `dock.js` 30.5 · glass `color.wgsl-*` 22.1 · `anchors-*` 17.6 · `demo/color-session/useContrastSafeColor.ts` 14.9 · `runtime-dom` 14.7 · glass `scrollReader-*` 14.3 ms | input only; `.o5b` re-profiles on its own bytes |
+| smoke `--workers=1` ×2 | close | cited Close 5 `cl5{a,b}` | 282 ✓ / 15 (c′) identical + perf G2-constant · G3/G4 · O-5-SwiftShader | GREEN except named rows |
+| typecheck 4 programs · lint · `npm test` | floor | cited Close 5 | `0 0 0 0` · `rc=0` ×2 · standing 7 | GREEN / RED by relief |
+| E13 | floor | Open sweep | 0 UNREAD | GREEN |
+
+**R.2 (GREEN before cure):** none — O-5 reads RED. G2 is a stay-GREEN gate at the ruled bar (GREEN as expected, not a cure gate).
+
+## RESUME 6 — Unit plan (2026-10-17)
+
+**alreadyDone (never re-dispatched):** `X.W12U.x` · `X.W12U.s1` · `X.W12U.s2` · `X.W12U.s3` · `X.W12U.p` · `X.W12U.b` · `X.W12U.k` · `X.W12U.m` · `X.W12U.t` · `X.W12U.k2` · `X.W12U.m2` · `X.W12U.h` · `X.W12U.q` · `X.W12U.q2` · `X.W12U.k3` · `X.W12U.m3` · `X.W12U.g2s` · `X.W12U.g2d` · `X.W12U.g2s2` · `X.W12U.g2d2`.
+
+**Order** (ADDENDUM (j); COHESION §0fu.3; strictly serial, 1 concurrent): [`X.W12U.o5b`] → close (verify-only: O-5 real-GPU ×2, G2 ≤ 294,912 ×2, smoke `--workers=1` ×2 except the named (c′)/perf rows, the Close 5 floors) → check. Every seat Opus 5.5 (spec :5).
+
+**Laws binding the seat:** grant `demo/**` only (never another writer's dirty path, §0ev.3; `demo/app/.vite-critic-9216/**` is not this unit's) · no feature cut, no deferral of first-paint state (no wrong colour/theme flash) · each move at its ROOT import/call (KISS, no wrapper, no try/catch, no setTimeout masking a defect) · GREEN only on COMMITTED bytes from a detached worktree build (`g2d/build-tree.sh`, under `~/.dev-logs/`, removed at the end) · every heavy run via `~/.claude/guard/guarded` (browsers in the pool, never `--light`), headless real Chrome only · no test/oracle/bar edit (the G2 constants `scripts/perf/eager-bytes.mjs:58`, `eager-payload.spec.ts:83` are read through §0fu.1, not edited) · glass-ui READ-ONLY (a dominant glass share → O-n producer row ADOPT-AT-LANDING, letter under `V/coordination/` + INBOX row) · never `scripts/dev/dev.sh` · package pins untouched · E-3: prior evidence immutable.
+
+| unit | model | spec sections | writable | gates | locks |
+|---|---|---|---|---|---|
+| `X.W12U.o5b` | opus | W12U.md ADDENDUM (j) :131-137; COHESION §0fu.2 (:4194-4201) + §0fr.2 (O-5); inputs `g2d/boot-profile.mjs`, `g2d/profile-run.sh`, `g2d/readings/profile-m2{,b}.txt`, `g2d/o5-gpu-witness.mjs`, `close5/o5-gpu-r{1,2}.txt`, `open6/` | `demo/**`; `W12U-evidence/o5b/**`; `V/coordination/` O-n letter + INBOX row (only if a glass share dominates); record (own receipt) | (i) CPU profile of the boot task ×2, top self-time contributors named; (ii) every move named with ms before/after ×2; O-5 real-GPU witness (`g2d/o5-run.sh`, ANGLE-Metal asserted) GREEN ×2; G2 `eager-bytes.mjs` total ≤ 294,912 ×2; no-cut (`g2d/nocut-run.sh`) + first-paint colour/theme identity GREEN ×2; smoke `--workers=1` ×2 except named rows; typecheck 4 programs + lint 0 ×2; `npm test` standing 7 | one commit per meaning (one per move); evidence commit separate; never edits a gate or the bar |
+
+Groups: `[["X.W12U.o5b"]]`.
+
+## RESUME 6 — Unit receipts
