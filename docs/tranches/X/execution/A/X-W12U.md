@@ -3281,3 +3281,45 @@ None.
 X-W12U: **BLOCKED-ON ESC-W12U-o5c-1 (b)** (the ruling on the overture reading); not IMPLEMENTED until it is ruled. Every addendum (k) gate is GREEN ×2 on `3a551e1cd`: O-5, boot ≤ 122, G2, smoke except the named rows. The row flips CLOSED only on a CONFORMANT check (§3); this seat stamps no VERIFIED.
 
 Evidence commit `5afcfba0e`. Teardown: worktree `~/.dev-logs/w12u-g2d/close7/tree` removed (`git worktree remove`); ports 8251–8253, 9171/9172: 0 listeners.
+
+## RESUME 8 — Open (2026-10-17, seat 0, Track A, `claude-opus-5-5`)
+
+SERVED MODEL: claude-opus-5-5. HEAD at open `568e7cc58` (the Track A chassis on §0fw); glass 10.1.0. Authority: COHESION §0fw (:4228-4239; ESC-W12U-o5c-1 RULED: (a) boot bar = same-load interleaved A/B vs pre-cure `955efaa03`, ≥ 6 sittings each, load recorded, post mean ≤ pre mean AND post max ≤ pre max, ×2; (b) overture = land unchanged + no pop + constant band + CLS 0, veil 3 frames is the designed settled path, O-4 stays GREEN; `.o5c` DONE; the close re-sits verify-only, then the check) + W12U.md ADDENDUM (l) (:145-148, `ddbfc0038`). Spec `W12U.md` read (148 lines, addenda (a)–(l)). Record read per the context-economy law: RESUME 7 Open → Unit plan (:3107-3150) and Close 7 (:3230-3283).
+
+- **Ledger row** ⟨`sed -n 39p LEDGER.md`⟩ → `BLOCKED-ON ESC-W12U-o5c-1 (b) 2026-10-17 …`. Not CLOSED; record exists → RESUME mode.
+- **Ruling present at the bytes** ⟨`grep -n '^## §0fw' COHESION.md`⟩ → :4228 (last section; file 4239 lines); ⟨`grep -n 'ADDENDUM 2026-10-17 (l)' waves/W12U.md`⟩ → :145. No §0fx+.
+- **Preconditions** (spec :4 "Opens after X-W12 CLOSED"): LEDGER :38 X-W12 **CLOSED**; :37 X-W7L **CLOSED**. **MET.**
+- **alreadyDone** ⟨`git log --oneline --grep='o5c'`⟩ → `9e0212c46` (product) · `a9d3e125c` `4ae794885` (O-99 + R-3) · `e81816a8a` (evidence) · `3a551e1cd` (receipt), all on HEAD; plus every earlier unit per the LEDGER :39 roster. **No unit is owed.**
+- **Crash recovery** ⟨`git status --porcelain -- docs/tranches/X/execution docs/tranches/X/waves/W12U-evidence docs/tranches/V/coordination demo src`⟩ → ` M W12U-evidence/s/results/final/probe-share-dark.txt` · `?? q2/{logs,results}/v3chk-*` · `?? demo/app/.vite-critic-9216/` — other writers' paths (as at Close 5/6/7), untouched and unstaged. No inherited seat-0 work.
+- **Product delta since `.o5c`'s last product bytes** ⟨`git diff --stat 3a551e1cd HEAD -- src demo e2e scripts vite.config.ts vite.library.ts package.json`⟩ → 4 files, all X-DS VC6 `b84fda97d` (`demo/shell/dock/layers/GenericActionBar.vue`, `demo/shell/dock/menus/{MobileMenuDropdown,ProfileSection}.vue`, new `dockMenuOffset.ts`). Not W12U bytes; the close names the bytes it reads on.
+- **E13 Step-0 mail sweep** (INBOX mtime 02:24) ⟨`find <dir> -maxdepth 1 -type f -newer INBOX.md`⟩: value `V/` 0 · `V/coordination/` 0 · glass `BK/coordination/` 0 · glass `BL/` (newest, ⟨`ls -t glass-ui/docs/tranches | head -3`⟩ → `BL BK BJ`; no `coordination/`) → `FORMATION-PROGRESS.md` only (tail = glass's own D3–D5 pass banks; no letter to value.js) · keyframes `V/coordination/` 0 · atlas `P/coordination/` absent. ⟨`grep -cE '^\|.*\| *UNREAD *\|' INBOX.md`⟩ → 0. **0 unrowed · 0 UNREAD**; highest rows I-71 / O-99.
+- Host at open ⟨`uptime`⟩ → load 7.51 / 8.68 / 14.05.
+
+## RESUME 8 — Baseline (2026-10-17, read-only, seat 0)
+
+No unit is owed, so per the RESUME-mode law no gate is re-run at baseline; the close re-sits every gate verify-only. Banked readings cited (committed `3a551e1cd`, Close 7 `close7/` / `.o5c` `o5c/`):
+
+| gate (§0fw.4) | banked reading | source | state for the close |
+|---|---|---|---|
+| O-5 real-GPU from `mainVisible`, ANGLE Metal, ×2 | `VERDICT GREEN 3/3` ×2, max 16.8 ms, dropped 0 | `close7/o5-mv-r{1,2}.txt` | re-read ×2 |
+| boot A/B interleaved vs `955efaa03` (§0fw.1, ≥ 6 sittings each, load recorded, post mean ≤ pre mean AND post max ≤ pre max) ×2 | evidence form only: `o5c/ab-interleave{,-2}.txt` (3 sittings each per arm, base 124–199 / post 90–148 ms) — **under the ruled sitting count**; Close 7 read the absolute form (86–116 ms) | `o5c/`, `close7/` | **owed at the close** in the ruled form (≥ 6 each) ×2 |
+| overture: land unchanged · pop 0 · band constant · CLS 0 (§0fw.2) | 1280×720 light/dark `cls=0 pop=0`, rect `16,8,1248,72`, mainTop 88, `overture-plate-land 0.45s`, `seq=Vh:3` | `close7/reveal-r{1,2}.txt` | re-read ×2; 844×390 `0.00001` chevron = named residual (X-W8 `.i`) |
+| O-4 order-invariance (§0fw.2) | GREEN (standing) | prior closes | re-read |
+| G2 eager gz ≤ 294,912 ×2 | `gz= 294028` ×2 | `close7/g2-r{1,2}.txt` | re-read ×2 |
+| smoke `--workers=1` ×2 except named rows | cl7a 15 named (c′) / cl7b +1 `webgl-blob:13` load flake | `close7/smoke/` | re-read ×2 |
+| floors: `npm run check` / `npm test` | `0 0 0 0 lint=0` ×2 / standing 7 | `close7/floors-*`, `npm-test-*` | re-read |
+| E13 | 0 UNREAD | this Open | GREEN |
+
+**R.2 (GREEN before cure):** none new — no cure is owed in this sitting.
+
+## RESUME 8 — Unit plan (2026-10-17)
+
+**alreadyDone (never re-dispatched):** `X.W12U.x` · `X.W12U.s1` · `X.W12U.s2` · `X.W12U.s3` · `X.W12U.p` · `X.W12U.b` · `X.W12U.k` · `X.W12U.m` · `X.W12U.t` · `X.W12U.k2` · `X.W12U.m2` · `X.W12U.h` · `X.W12U.q` · `X.W12U.q2` · `X.W12U.k3` · `X.W12U.m3` · `X.W12U.g2s` · `X.W12U.g2d` · `X.W12U.g2s2` · `X.W12U.g2d2` · `X.W12U.o5b` · `X.W12U.o5c`.
+
+**Owed units:** none. Groups: `[]`.
+
+**Order** (ADDENDUM (l); COHESION §0fw.4): close (verify-only: O-5 from `mainVisible` real-GPU ×2 · the boot A/B interleaved vs `955efaa03` ≥ 6 sittings each, load recorded, post mean ≤ pre mean and post max ≤ pre max, ×2 · overture land/pop/band/CLS 0 + O-4 · G2 ≤ 294,912 ×2 · smoke `--workers=1` ×2 except the named rows · floors) → check. The close names the product bytes it reads (HEAD carries X-DS VC6 `b84fda97d` over `3a551e1cd`). Every heavy/browser run via `~/.claude/guard/guarded` (never `--light`); every seat Opus 5.5.
+
+## RESUME 8 — Unit receipts
+
+(none owed)
