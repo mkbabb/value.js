@@ -1,0 +1,10 @@
+facade color.js FACADE over=[color,color-grammar,serialize]
+facade css.js FACADE over=[color-grammar,serialize,css-grammar]
+facade easing.js FACADE over=[easing]
+facade math.js FACADE over=[math]
+facade quantize.js FACADE over=[quantize]
+facade transform.js FACADE over=[transform]
+facade value.js FACADE over=[value]
+chunks actions,anchors,color,color-grammar,css-grammar,easing,math,quantize,result,serialize,transform,value
+stylesheet-grammar (atKeyframes|valueTop) in css-grammar | colour root (colorTop) in color-grammar | parser entries in color-grammar,css-grammar | action-table chunk actions
+FACADES ALL | SEPARATE-CHUNKS YES | VERDICT GREEN
