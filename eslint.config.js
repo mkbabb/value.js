@@ -299,6 +299,39 @@ export default [
             ],
         },
     },
+    // G-14 (X.W8.e · CC-082 ⊕ CC-090's measured-cap half) — THE LoC CAP IS A
+    // WIRED RATCHET, NOT A CANON NUMBER.
+    //
+    // One `max-lines` object per band, each pinned at that band's measured
+    // worst file at HEAD 62fdd2b3b (2026-10-17; `wc -l` = eslint's own count,
+    // blank lines and comments included). GREEN at HEAD by construction: the
+    // ratchet forbids growth, it does not claim the cure. A band's number only
+    // ever DESCENDS — when a split lands (demo: X-W5/X-W6 owners; src: X-W9's
+    // CC-090), the lander lowers the pin to the new measured worst; raising a
+    // pin is a canon change, never a lint fix. `docs/tranches/V/ARCHITECTURE.md`
+    // §Colocation idiom states the same pins.
+    {
+        // demo — GradientStopRail.vue
+        files: ["demo/**/*.ts", "demo/**/*.vue"],
+        rules: { "max-lines": ["error", { max: 1013 }] },
+    },
+    {
+        // src (the library's authored `.ts`; the BBNF-generated `.js` under
+        // src/css/bbnf/generated/ is emitted, not authored) — transform/path.ts
+        files: ["src/**/*.ts"],
+        rules: { "max-lines": ["error", { max: 672 }] },
+    },
+    {
+        // api/src product modules — palette/service/crud-list.ts
+        files: ["api/src/**/*.ts"],
+        ignores: ["api/src/**/__tests__/**"],
+        rules: { "max-lines": ["error", { max: 357 }] },
+    },
+    {
+        // api/src tests — palette/__tests__/palette-versions.test.ts
+        files: ["api/src/**/__tests__/**/*.ts"],
+        rules: { "max-lines": ["error", { max: 539 }] },
+    },
     {
         // X-W4 · X.W4.d gate D2 (CC-043) — THE ACTION PATH CARRIES NO UNTYPED HOP.
         //

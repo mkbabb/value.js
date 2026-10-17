@@ -940,9 +940,11 @@ gate doc, never inlined here (they drift each wave).
 Components colocate with their sub-components, composables, skeletons and constants,
 recursively at component grain; only genuinely module/global-level composables and styles live
 in a `composables/` or `styles/` directory; the backend gets the abstracted equivalent (module
-verticals own model + schema + routes + service + repository). **No god modules**: every
-`demo/` file (excluding the vendored `demo/@/components/ui/` shadcn-vue tree) stays ≤ 400 LoC;
-no `api/src` file exceeds 350 LoC. This is the same law §1's physical tree enforces; it is
+verticals own model + schema + routes + service + repository). **No god modules**: file length is
+held by a wired, descend-only `max-lines` ratchet in `eslint.config.js` (X.W8.e, G-14), one pin
+per band at its measured worst file (2026-10-17) — `demo/**/*.{ts,vue}` 1013 · `src/**/*.ts` 672 ·
+`api/src` modules 357 · `api/src/**/__tests__` 539; no file may grow past its band's pin, and a split
+that lowers a band's worst lowers its pin. This is the same law §1's physical tree enforces; it is
 restated once here as the standing convention register — §1 remains the topology authority.
 
 ### API operational guidance (current running substrate — Hono + MongoDB)
