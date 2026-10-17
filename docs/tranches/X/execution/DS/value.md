@@ -1044,3 +1044,39 @@ The critic named three consumer rows, one trivial doc row and the standing glass
 - Pass 14 cured every consumer row. It adopted the week-old V9C orphan set, so HEAD now ships what the frames show.
 - The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01 and VC4-09.
 - The glass rows, now including V14-G1, wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 15 (2026-10-16): critic V15 — the featured badge's gold, the admin count chips, two verb voices, "Audit Log"
+
+The critic named one medium and three low consumer rows, one trivial row, one row homed to X-W10 and the standing glass rows. Every consumer row the seat owns is cured. V15-04 stays with X-W10 by id, and the glass rows stay honest-RED. Evidence is in `pass-15/`.
+
+**Commits.** value.js `c8132a9b1` (the cure, 21 paths) and `38e0878fc` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-15/`) |
+|---|---|---|---|
+| V15-01 (medium) | **CURED.** | A new root token, `--ink-gold`, carries the gold. `useContrastSafeColor` takes `--color-gold` (the scheme's arm of glass's `light-dark()` pair) and certifies it with `certifyAccentInk` against the resting plate, the referent `--ink-primary` uses. The hue is kept and only the lightness walks. `useAtmosphereBoot` stamps the token, and `foundation.css` gives it the raw gold as its pre-boot value. The badge's glyph paints `--ink-gold`, which is a bronze `oklch(0.370 0.076 84.2)` in light and the unchanged gold in dark. The word "Featured" reads in the plate's own ink. The dead `border-gold` class and the `.featured-badge { border-color; color }` rule are deleted, and the comment now says the ring is glass's outline ring. The glyph is certified at the text floor even though its own floor is 3:1: at the graphics floor the frame read 2.64:1, because the modelled plate is lighter than the aurora patch under the card. **Enrolled:** a new o18 row, "the featured badge", checks label ≥ 4.5, glyph ≥ 3, glyph hue within 20° of gold and C > 0.04. It was born-RED in light (1.26:1) and is GREEN ×2. `DESIGN.md`'s gold entry names `--ink-gold` as the candidate for X-W10's O18-1296. | `v15.json`, pixels read off each frame: **glyph 3.45:1 (1440) and 3.58:1 (390) in light**, 5.01:1 and 4.90:1 in dark. Pass 14 read 1.75:1 in light. The badge runs 0 animations. **Residual, stated plainly:** in light the label reads 4.18:1 on the pink patch at rgb(200,78,140), a mid-luminance plate where no ink reaches 5:1. This is the plate ink `--ink-primary`, which the card name "Neon Arcade" also wears; the o18 census, which reads the model ground, measures ≥ 4.5. It is a gap in the house plate-ink referent: the ambient mean versus the local aurora under a card. The next critic should judge it there, not as a badge row. |
+| V15-02 (low) | **CURED.** | AdminPane's title count chip and its `adminCount` computed are deleted. Each count is now said once, where its list speaks: the users toolbar's "N users", and the names tabs' "Pending · N" and "Approved · N". Each user row's count is the specimen's idiom: `text-mono-small tabular-nums text-muted-foreground`, titled "N palette(s)". No wrapper was added. | `v15.json`, all 4 admin cells: 0 title chips, row counts `1`/`2` titled "1 palette"/"2 palettes" in muted ink, toolbar "2 users" (`admin-users-*.png`). |
+| V15-03 (low) | **CURED: the law is held.** | Ruling: DESIGN.md's three-voice law stands ("Never on body/control text"). A labelled glass Button is control text, so it speaks the body sans. The house had ~40 sans verbs and 17 Fraunces ones, so holding the law is the smaller and truer convergence; the critic's count of "4 sans sites" missed most of the sans buttons. `font-display` comes off the 17 Buttons: Regenerate, Mix, Prune empty, Refresh, Delete all palettes, the admin row action at :210, every Retry, Clear search and filters, Load more, and Reload the app. DESIGN.md now states the ruling. `demo/test/shell/button-voice.test.ts` parses every demo SFC that imports glass `Button` and fails on any labelled Button carrying a family utility. It was born-RED with the 17 sites and is GREEN now. | Frames `generate-*`, `mix-*` and `admin-users-*`: the verbs are in Plus Jakarta. e2e `o10d-display-voice-census`, `o10-type-locks` and `o10d-admin-title-voice` pass ×2. |
+| V15-04 (low) | **Not cured here: X-W10's O18-1296, homed by id** (W10-ADDENDUM-2026-10-16-cprime §1, rows 3–4). | The dock's raw-gold admin ink is unchanged. X-W10's candidate is now in the tree as `--ink-gold`, a single resolver, so the app can end up with one gold-ink answer. | `admin-users-1440-light.png`: the "admin" label is still faint gold on the dock. |
+| V15-05 (trivial) | **CURED.** | "Audit log" at `viewSchema.ts:248` and `AdminPane.vue`. The two e2e heading strings that named it (`admin-walk`, `route-guard`) were updated to match; the matcher is unchanged. | `v15.json` admin menu: Users, Names, Audit log, Flagged, Tags, Atmosphere, Blob, Back to app. |
+| V15-G1 (low) | **Glass-owned: honest-RED on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** No local override. | Unchanged rows, re-judged at the glass 10.2.0 repin. | The census glass rows are unchanged (below). |
+
+**Census** (`census-after.json`, `--base :9011 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded; 18 of 18 route cells, no page errors).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls and floater max layers 8 (`overlays.json`, no paint-top failures). These are identical to pass 14.
+- **Consumer:** looping animations 0. The static totals are unchanged: 17 box-shadow declarations and 2 lighting-token definitions.
+
+**Frames.** Headless real Chrome (§0ei), served by `vite --port 9011 --strictPort`. Counts: 36 of 36 route frames, 8 overlay frames, 4 login frames, 4 featured frames, 4 admin frames and 2 admin-menu frames. The demo tree was equal to `c8132a9b1` (`tree-before.txt`, `tree-after.txt`). The server was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- Type-check: 0 ×2.
+- vitest: 1221/1228 ×2, with the same 7 standing failures as passes 13–14.
+- e2e strict ×2 GREEN:
+  - smoke, 22 specs: 107/107 ×2;
+  - smoke-admin, 7 specs: 16/16 ×2.
+- No visual golden was re-baselined.
+
+**Loop state.**
+- Pass 15 cured every consumer row it owns.
+- One residual is stated for the next critic: the plate ink's pixel reading on a mid-luminance aurora patch (4.18:1). It is the house referent's gap, not a badge row.
+- O18-1296 (V15-04) stays with X-W10, with `--ink-gold` as its candidate.
+- The open owner rulings are unchanged: P5C-02, VC6-04 / V12-01, VC5-01 and VC4-09.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
