@@ -45,7 +45,7 @@ const pm = inject(SESSION_PORT_KEY)!;
  * the view accent — or admin gold. Glass's colour-only ring seam is the root ask (O-59).
  */
 const viewRing = computed(() => {
-    const hue = isAdminMode ? "var(--color-gold)" : "var(--accent-view)";
+    const hue = isAdminMode ? "var(--ink-gold)" : "var(--accent-view)";
     // X-DS pass 1 (V1C-10): the width ring alone; the 0 0 8px accent glow
     // halo that rode under it is gone.
     return `0 0 0 var(--focus-ring-width) color-mix(in srgb, ${hue} 30%, transparent)`;
@@ -91,7 +91,7 @@ const viewRing = computed(() => {
                     :is="currentIcon"
                     :key="currentView"
                     class="w-6 h-6 shrink-0"
-                    :class="isAdminMode && 'gold-shimmer-icon'"
+                    :class="isAdminMode && 'gold-ink'"
                     :style="[
                         { '--vj-morph-scale': '0.6', '--vj-morph-y': '0px' },
                         isAdminMode ? {} : { color: 'var(--accent-view)' },
@@ -154,8 +154,8 @@ const viewRing = computed(() => {
                              the ledger's second sanctioned exception.
                              X-DS VC4-03: flat gold ink, no idle sweep. -->
                         <span v-if="!isAdminMode" class="flex items-center gap-2">
-                            <Shield class="w-4 h-4 shrink-0 gold-shimmer-icon" />
-                            <span class="gold-shimmer-icon">Admin</span>
+                            <Shield class="w-4 h-4 shrink-0 gold-ink" />
+                            <span class="gold-ink">Admin</span>
                         </span>
                         <span v-else class="flex items-center gap-2">
                             <ArrowLeft class="w-4 h-4 shrink-0 text-muted-foreground" />
@@ -169,7 +169,7 @@ const viewRing = computed(() => {
 </template>
 
 <style scoped>
-/* `.gold-shimmer-icon` lives in @styles/utils.css (S.W7-7 — the byte-identical
+/* `.gold-ink` lives in @styles/utils.css (S.W7-7 — the byte-identical
  * scoped twin this file carried is retired; ONE global recipe, god-module
  * census §2.1). */
 

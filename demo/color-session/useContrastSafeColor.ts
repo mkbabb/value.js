@@ -418,6 +418,14 @@ export function useContrastSafeColor(
     const goldInkCss = computed(() =>
         certifyAccentInk(goldIdentityCss(isDark.value), restingL.value, TEXT_CONTRAST_FLOOR),
     );
+    // X-DS pass 17 (V17C-01): its floating twin. The view menu's "Admin" row
+    // sits on glass's floating plate (portaled to <body>), so it certifies on
+    // the floating rung, the same way the floating ink pair does; the boot
+    // writer stamps `--ink-gold-floating`, and `shell.css` seats it as
+    // `--ink-gold` on the floating plate.
+    const floatingGoldInkCss = computed(() =>
+        certifyAccentInk(goldIdentityCss(isDark.value), floatingL.value, TEXT_CONTRAST_FLOOR),
+    );
 
     return {
         safeAccentCss,
@@ -430,13 +438,14 @@ export function useContrastSafeColor(
         modalMutedInkCss,
         modalDestructiveInkCss,
         goldInkCss,
+        floatingGoldInkCss,
     };
 }
 
 /** The gold identity hue as the cascade paints it in this scheme
  *  (`--color-gold`, which glass publishes as a `light-dark()` pair; the demo's
  *  `@theme` literal where no cascade is mounted). */
-function goldIdentityCss(dark: boolean): string {
+export function goldIdentityCss(dark: boolean): string {
     return schemeTokenCss("--color-gold", dark, "#D4AF37");
 }
 

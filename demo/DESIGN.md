@@ -716,6 +716,13 @@ Demo accent tokens (`demo/styles/foundation.css`, `@theme`):
 - This rules X-DS's O18-1296 question (the dock's admin-mode ink and the profile slug pill):
   `--ink-gold` is the treatment. The cure sites are `demo/shell/dock/DockViewSelect.vue`,
   `demo/shell/dock/Dock.vue` and `demo/shell/dock/menus/ProfileSection.vue`.
+- **One reader, one token, rebound per ground (X-DS pass 17, V17C-01).** `.gold-ink`
+  (`demo/styles/utils.css`) is the only gold ink recipe, and it reads `--ink-gold`. The token is
+  certified against the ground it sits on and rebound by scope, never per instance: the resting
+  plate at the root (`useAtmosphereBoot`), the dock band on the dock (`Dock.vue`, the band's
+  measured tint), the seal's wax on the collapsed seal (`--seal-ink-gold`, `useViewAccents`, the
+  3:1 glyph floor), and the floating plate on menus (`--ink-gold-floating`, `shell.css`). The
+  `crown-appear` keyframe settles on `--ink-gold` too.
 - Gold stays OUT of the measurement chrome (the overlay, the readout, the thumbs). Those read in
   ink and the live colour.
 - `--color-gold-light: #F5E6A3` is the counterpoint tint, consumed only by the `crown-appear`

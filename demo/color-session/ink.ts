@@ -303,6 +303,30 @@ export function resolveMutedInk(surfaceL: number, dark: boolean): string {
     return serialize(kept ? muted : primary);
 }
 
+/**
+ * Certify an accent against a concrete opaque FILL it sits on (not a plate
+ * rung): the hue is kept and only the lightness walks. Null where the fill is
+ * unparseable or no lightness of the hue clears the floor on it.
+ * X-DS pass 17 (V17C-01): the admin gold glyph on the dock seal's wax.
+ */
+export function certifyInkOnFill(
+    css: string,
+    fillCss: string,
+    floor: number = TEXT_CONTRAST_FLOOR,
+): string | null {
+    const accent = parseOklch(css);
+    const fill = parseOklch(fillCss);
+    if (!accent || !fill || fill.alpha !== 1) return null;
+    // The house headroom first (the wax is a watercolor, its pixels spread
+    // around the solved fill), the floor itself where the headroom is
+    // unreachable.
+    for (const minimumRatio of [floor + CERTIFY_HEADROOM, floor]) {
+        const result = safeAccentColor(accent, fill, { minimumRatio, gamut: "srgb" });
+        if (result.ok) return serialize(result.value);
+    }
+    return null;
+}
+
 /** Choose the WCAG-maximal neutral endpoint for a concrete opaque fill. */
 export function contrastInkFor(fillCss: string): string | null {
     const fill = parseOklch(fillCss);

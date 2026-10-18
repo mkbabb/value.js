@@ -328,6 +328,8 @@
         var(--ink-floating-muted, var(--ink-muted)),
         var(--ink-floating-primary, var(--ink-primary)) 38.2%
     );
+    /* X-DS pass 17 (V17C-01): the admin gold, certified on this plate. */
+    --ink-gold: var(--ink-gold-floating, var(--color-gold));
 }
 
 /* X-DS pass 16 (V16-01): the same certified pair on the MODAL plate. A dialog

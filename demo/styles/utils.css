@@ -147,14 +147,18 @@
     font-family: inherit;
 }
 
-/* The gold ADMIN-identity icon ink (S.W7-1 consume / W7-7 dedup home) — the
- * ONE demo-side gold icon recipe, lifted here because its consumers span
- * components (the Dock.vue wax-seal ink + DockViewSelect's trigger/menu
- * icons; scoped copies were byte-identical twins, god-module census §2.1).
- * The fuller "ONE gold/admin shimmer primitive" consolidation stays the
- * filed glass-ui letter L15 ask. */
-.gold-shimmer-icon {
-    color: var(--color-gold);
+/* The gold ADMIN-identity ink (S.W7-1 consume / W7-7 dedup home) — the ONE
+ * demo-side gold ink recipe, lifted here because its consumers span
+ * components (the Dock.vue seal glyph, DockViewSelect's trigger and menu row,
+ * ProfileSection's admin trigger, ColorInput's crown).
+ * X-DS pass 17 (V17C-01): it paints the CERTIFIED gold (`--ink-gold`, DESIGN
+ * Law C-4), never the raw token: raw gold read 1.09:1 on the light dock. The
+ * token is rebound per ground, never per instance: the resting plate at the
+ * root (useAtmosphereBoot), the dock band on the dock (Dock.vue), the wax on
+ * the seal (Dock.vue), the floating plate on menus (shell.css). The hue is
+ * kept (§0dm); only the lightness walks, to a bronze in light. */
+.gold-ink {
+    color: var(--ink-gold);
 }
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch

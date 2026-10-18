@@ -279,7 +279,10 @@
      * `--color-gold`'s hue with its lightness certified against the same
      * resting plate (at the text floor, so the glyph clears 3:1 on the
      * real plate), stamped live by
-     * `useAtmosphereBoot`. Pre-boot it is the raw gold. */
+     * `useAtmosphereBoot`. Pre-boot it is the raw gold. Pass 17 (V17C-01)
+     * rebinds it per ground: the dock band (Dock.vue), the seal's wax
+     * (`--seal-ink-gold`) and the floating plate (`--ink-gold-floating`,
+     * shell.css); `.gold-ink` (utils.css) is the one reader. */
     --ink-gold: var(--color-gold);
 
     /* ── The modal plate's destructive ink (X-DS pass 16 · V16-01) ──

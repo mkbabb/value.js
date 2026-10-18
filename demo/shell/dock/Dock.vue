@@ -23,6 +23,8 @@ import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 import { usePopupMutex } from "../../shared/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
 import { injectDockCommands } from "../useSceneActions";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import { goldIdentityCss, useChromeAccentFn } from "../../color-session/useContrastSafeColor";
 import type { EditTarget } from "../../color-session/color-model";
 
 const { linkCopied, editTarget } = defineProps<{
@@ -98,6 +100,17 @@ const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
 const anyEditActive = computed(() => !!editTarget);
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
 
+// X-DS pass 17 (V17C-01): the admin gold, certified on the dock BAND it sits
+// on (the band's measured tint over the ambient, the same instrument the
+// profile trigger's live ink uses). It rebinds `--ink-gold` for the dock's
+// subtree, so every `.gold-ink` here (the view trigger, the admin trigger,
+// the crown) reads the band's gold: raw gold read 1.09:1 on the light band.
+const dockHost = useTemplateRef<HTMLElement>("dockHost");
+const dockPlate = computed(() => dockHost.value?.querySelector(".dock-plate") ?? null);
+const { safeCss: bandSafeCss } = useChromeAccentFn(dockPlate);
+const { isDark } = useGlobalDark();
+const bandGold = computed(() => bandSafeCss(goldIdentityCss(isDark.value)));
+
 watch(
     () => dockRef.value?.expanded,
     (expanded) => {
@@ -164,7 +177,12 @@ watch(
          none/auto pair) RETIRED WITH the --dock-total reservation: the band
          is structure the layout owns, so the dock needs no pin, no z, and no
          hit-test punch-through. -->
-    <div :class="dockSettle && 'dock-settle'" @animationend.self="dockSettle = false">
+    <div
+        ref="dockHost"
+        :class="dockSettle && 'dock-settle'"
+        :style="bandGold ? { '--ink-gold': bandGold } : undefined"
+        @animationend.self="dockSettle = false"
+    >
         <GlassDock
             ref="dockRef"
             :collapse="isDesktop ? 'open' : false"
@@ -329,7 +347,7 @@ watch(
                      a stronger continuity read than a 1px rim; the expanded
                      trigger's `--dock-ring` (a geometric ring on a geometric
                      control — sound) arrives WITH the expansion morph. Admin
-                     identity stays on the INK (gold-shimmer-icon). NO text,
+                     identity stays on the INK (gold-ink). NO text,
                      NO chevron. MORPH LAW: the wax exits WITH the seal under
                      the producer's collapse↔expand cross-fade — no element
                      ever animates live→view-hue. -->
@@ -349,7 +367,7 @@ watch(
                             :is="viewManager.currentConfig.value.icon"
                             :key="viewManager.currentView.value"
                             class="dock-seal-ink"
-                            :class="isAdminMode && 'gold-shimmer-icon'"
+                            :class="isAdminMode && 'gold-ink'"
                             aria-hidden="true"
                             style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
                         />
@@ -414,9 +432,13 @@ watch(
        stays dead" declaration, not redundancy. */
     border: none;
     /* UIA-V-6: the ink regime sits on the seal, inherited by its ink (the
-       wax's sibling), so the admin gold-shimmer-icon's direct colour still
+       wax's sibling), so the admin gold-ink's direct colour still
        wins without a specificity fight. */
     color: var(--seal-ink, var(--foreground));
+    /* X-DS pass 17 (V17C-01): the admin glyph's gold sits on the WAX, not
+       the band, so the seal rebinds `--ink-gold` to the wax-certified gold
+       (useViewAccents); where none clears the wax, the seal's own ink. */
+    --ink-gold: var(--seal-ink-gold, var(--seal-ink, var(--foreground)));
 }
 .dock-seal-wax,
 .dock-seal-ink {
@@ -432,7 +454,7 @@ watch(
        library's WCAG contrast-color leaf (the SEEDS.md w7 rider, absorbed at
        W7-4; no CSS lightness literal). Icon-in-slot means the host's
        watercolor filter displaces wax+ink as one object; setting the color
-       on the WAX (inherited by the icon) lets the admin gold-shimmer-icon
+       on the WAX (inherited by the icon) lets the admin gold-ink
        class (direct color) win without a specificity fight. */
     color: var(--seal-ink, var(--foreground));
 }

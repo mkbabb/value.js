@@ -50,9 +50,15 @@ import {
 } from "../../../color-session/palettes-ramp";
 import {
     bumpProbeEpochOnMount,
+    goldIdentityCss,
     resolveSurfaceLightnessLive,
 } from "../../../color-session/useContrastSafeColor";
-import { certifyAccentInk, contrastInkFor } from "../../../color-session/ink";
+import {
+    certifyAccentInk,
+    certifyInkOnFill,
+    contrastInkFor,
+    GRAPHICS_CONTRAST_FLOOR,
+} from "../../../color-session/ink";
 import { resolveViewAccent } from "../../../color-session/view-accent";
 
 export interface UseViewAccentsOptions {
@@ -196,6 +202,21 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
             if (ink) {
                 document.documentElement.style.setProperty("--seal-ink", ink);
             }
+        },
+        { immediate: true },
+    );
+
+    // X-DS pass 17 (V17C-01): the admin seal's gold glyph sits on the same
+    // wax, so its gold is certified on the wax (hue kept, lightness walked; a
+    // glyph, so the 3:1 floor). Where no gold clears the wax, the token is
+    // removed and the seal falls back to `--seal-ink` (Dock.vue).
+    watch(
+        [cssColorOpaque, isDark],
+        ([css, dark]) => {
+            const root = document.documentElement.style;
+            const gold = certifyInkOnFill(goldIdentityCss(dark), css, GRAPHICS_CONTRAST_FLOOR);
+            if (gold) root.setProperty("--seal-ink-gold", gold);
+            else root.removeProperty("--seal-ink-gold");
         },
         { immediate: true },
     );

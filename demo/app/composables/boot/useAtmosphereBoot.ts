@@ -94,6 +94,7 @@ export function useAtmosphereBoot(
         modalMutedInkCss,
         modalDestructiveInkCss,
         goldInkCss,
+        floatingGoldInkCss,
     } = useContrastSafeColor(
         atmosphereColor,
         derivedLightness,
@@ -168,6 +169,14 @@ export function useAtmosphereBoot(
         goldInkCss,
         (css) => {
             document.documentElement.style.setProperty("--ink-gold", css);
+        },
+        { immediate: true },
+    );
+    // X-DS pass 17 (V17C-01): its floating twin (the menu rows' gold).
+    watch(
+        floatingGoldInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-gold-floating", css);
         },
         { immediate: true },
     );

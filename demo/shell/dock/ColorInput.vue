@@ -34,7 +34,7 @@
                             <TooltipTrigger as-child>
                                 <Crown
                                     :key="crownKey"
-                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] text-gold opacity-75 hover:opacity-100 hover:scale-110 transition-[opacity,transform] cursor-help"
+                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] gold-ink hover:scale-110 transition-transform cursor-help"
                                     :stroke-width="1.75"
                                     style="
                                         animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards;
