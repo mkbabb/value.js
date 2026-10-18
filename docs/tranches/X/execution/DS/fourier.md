@@ -2013,3 +2013,30 @@ This is the cure seat for critic **F8C** (the redeploy's pass-8 critic, 2026-10-
 - `morph-{light,dark}-390` and `morph-scrolled-{light,dark}-390` (C3);
 - `paper-late-{light,dark}-390` (T1);
 - `paper-mid-{light,dark}-844x390` (T2).
+
+### pass 9
+This is the cure seat for critic **F9C** of the redeployed loop (pass 9, 2026-10-17; the earlier `### pass 9` above is a different F9C, on /404 and /gallery). The AFTER frames are in `evidence/DS/fourier/pass-09/f9p/`; the BEFORE cells are the critic's (`morph-scrolled-*-390`, `paper-mid-*-844x390`, `paper-proof-*-1440`, the /equation and /visualize 1440 asides). The other folders in `pass-09/` belong to other seats.
+- fourier `c6a80b2` (`m/w1-bump-migration`, five paths by pathspec, pushed fast-forward `5087628..c6a80b2`) holds L1, L2 and T1.
+- value.js `19f1e9298` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F9C-L1 | **Cured.** A route whose sticky band carries the cut owns it: `/morph` declares `meta.ownsCut` (typed in `routes.ts`), App.vue mirrors it as `data-owns-cut` on `<main>`, and `max-lg:data-[owns-cut]:data-[scrolled]:border-transparent` keeps the shell's scrolled `border-t` off there. The band's own foot rule (DS-F8C-C3) is the one cut, as on /paper. At lg the band is static and borderless, so the shell's rule stands. No new component.<br>**Measured** (`f9p-probe.json`), both themes: at 390 scrolled (scrollTop 160) `<main>`'s rule is `rgba(0,0,0,0)` and the band's foot (y 209) is `--border` (rgb(198 180 159) light, rgb(101 87 73) dark); at rest both are transparent. /gallery at 390 scrolled keeps the shell rule (`--border`); /morph at 1440 scrolled keeps it too. |
+| DS-F9C-L2 | **Cured.** The bar was 64 px because glass's coarse `sm` rung (`max(2.25rem × 1.5, floor)`) grew the icon-only search button to 54 px, inside 4 px plate padding. In the short-landscape arm the bar's `padding-block` is 0 and the search and close buttons take glass's own `--control-h-xs` rung, which the coarse floor holds at the 44 px touch target. `--control-floor` is unchanged.<br>**Measured** (844×390, both themes): bar 72..118 (46 px, was 64), title and search both 44, band 68..118 (50 px). The chrome is 118 of 390 px (30%, was 136 / 35%). |
+| DS-F9C-T1 | **Cured.** `.paper-columns` defines `--paper-cut-top`, the article cut's sticky line (`::before { top: var(--paper-cut-top) }`), and the ToC rail's `--sidebar-top-inset` reads the same token (it was a separate 0.5rem).<br>**Measured** (1440, both themes): at rest the aside and the article share 88; scrolled, the aside's top is 80 and the cut sits on the port's top, 80 (they were ~7 px apart). |
+| DS-F9C-T2 | **Left, by the canon** (as DS-F12C-T1): the aside's foot is honest scroll overflow. A fade is a gradient, and a foot rule there would have to track the port's own scroll state for one trivial cell. Frames: `equation-*-1440`, `visualize-*-1440`. |
+
+**Glass-owned rows (DS-F9C-G0).** Re-observed and unchanged, with no local override: the resting casts under cards and buttons, the dark primary-emphasis halo, the light track-well rim, coarse labels outranking values at 390, the text-emphasis link's hue change across themes, the centred hover specular on /v, the transport's orphan `×`, and the aside's 12 px top inset. The `.toggle-group__item.control-surface` "control gradient" hits are flat one-colour tint layers (allowed). They stay honest-RED on **O-87 FLAT-LIGHTING**, the dock and transport also on **O-88 DOCK-COLLAPSE-MOTION**, and are re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3219`; `f9p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 8 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). Still RED, on the glass rows only.
+
+**Gates** (`f9p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** 24 specs (`e2e-specs.txt`): every spec that visits /paper or /morph or reads the shell's scroll state, plus `visual-checkpoint` and `visual-baseline`. They ran headless (chromium and mobile-chromium) with `--workers=1` against a private vite on `:3219` (served from the fourier root, private `cacheDir`), with the config's own preview on `:4190` for `f-w14u-misc`. **Run A passed 245/245, and so did run B.** Both servers were stopped at the end.
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-09/f9p/`). Headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f9p-probe.mjs`: 14 PNGs — `morph-{light,dark}-390`, `morph-scrolled-{light,dark}-{390,1440}` (L1), `paper-mid-{light,dark}-844x390` (L2), `paper-proof-{light,dark}-1440` (T1), `equation-{light,dark}-1440` and `visualize-{light,dark}-1440` (T2).
