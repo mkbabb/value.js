@@ -1,0 +1,41 @@
+(node:16071) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:16293) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (30.3s)
+
+
+  1) [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('heading', { level: 1 })
+    Expected: 1
+    Received: 0
+
+    Call log:
+      - Expect "toHaveCount" with timeout 8000ms
+      - waiting for getByRole('heading', { level: 1 })
+        5 × locator resolved to 0 elements
+          - unexpected value "0"
+
+
+      122 |     async function assertRouteVoice(label: string) {
+      123 |         const h1 = page.getByRole("heading", { level: 1 });
+    > 124 |         await expect(h1).toHaveCount(1);
+          |                          ^
+      125 |         await expect(h1).toBeVisible();
+      126 |         const says = new RegExp(`(^|\\s)${label}$`);
+      127 |         await expect(h1).toHaveText(says);
+        at assertRouteVoice (/Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:124:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:136:15
+
+    Error Context: test-results/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 

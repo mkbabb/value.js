@@ -1,0 +1,11 @@
+== e2e/smoke/oracles/o17-easing-composition.spec.ts e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts e2e/smoke/a11y-gradient-stop-grammar.spec.ts e2e/smoke/oracles/o27-focus-affordance.spec.ts e2e/smoke/oracles/o29-scene-contracts.spec.ts e2e/smoke/page-load.spec.ts e2e/smoke/walk.spec.ts e2e/smoke/oracles/o18-contrast-census.spec.ts
+(node:44552) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:44601) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Error: No tests found.
+Make sure that arguments are regular expressions matching test files.
+You may need to escape symbols like "$" or "*" and quote the arguments.
+
+[1A[2Kexit 1

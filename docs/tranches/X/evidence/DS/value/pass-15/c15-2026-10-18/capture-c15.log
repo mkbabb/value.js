@@ -1,0 +1,40 @@
+{"file":"picker-1440-light.png","ok":true}
+{"file":"palettes-1440-light.png","ok":true}
+{"file":"browse-1440-light.png","ok":true}
+{"file":"extract-1440-light.png","ok":true}
+{"file":"mix-1440-light.png","ok":true}
+{"file":"generate-1440-light.png","ok":true}
+{"file":"gradient-1440-light.png","ok":true,"direction":{"found":true,"readout":"90deg","cssLiteral":null},"strip":{"found":true,"families":8,"lines":4,"familiesInPort":8,"lineStartsAfterFirst":3,"portW":452,"stripW":452,"stripH":377,"portScrollW":452,"portClientW":452,"overflowsX":false,"wrap":"wrap","overflow":"clip","names":27,"eyebrows":["CSS","Sine","Quad","Cubic","Expo","Circ","Back","Steps"]},"railClosed":{"found":true,"bg":"oklab(0.216128 0.00350075 0.00518669 / 0.08)","padding":"4px 8px","h":32,"literal":"cubic-bezier(0, 0, 1, 1)","caption":null,"togglePressed":"false"},"tune":{"found":true,"stageW":452,"contentW":426,"wrapperW":304,"svgW":304,"gutterL":61,"gutterR":61,"handles":[{"dx":0,"dy":0},{"dx":0,"dy":0}],"registered":true},"railOpen":{"found":true,"bg":"rgba(0, 0, 0, 0)","padding":"0px","h":24,"literal":null,"caption":{"text":"Custom curve","px":"14.384px","color":"oklch(0.289468 0.00386159 34.63)","ariaHidden":null,"sameRow":true},"togglePressed":"true"}}
+{"file":"atmosphere-1440-light.png","ok":true}
+{"file":"blob-1440-light.png","ok":true}
+{"file":"notfound-1440-light.png","ok":true}
+{"file":"picker-390-light.png","ok":true}
+{"file":"palettes-390-light.png","ok":true}
+{"file":"browse-390-light.png","ok":true}
+{"file":"extract-390-light.png","ok":true}
+{"file":"mix-390-light.png","ok":true}
+{"file":"generate-390-light.png","ok":true}
+{"file":"gradient-390-light.png","ok":true,"direction":{"found":true,"readout":"90deg","cssLiteral":null},"strip":{"found":true,"families":8,"lines":1,"familiesInPort":1,"lineStartsAfterFirst":0,"portW":314,"stripW":1465,"stripH":84,"portScrollW":1465,"portClientW":314,"overflowsX":true,"wrap":"nowrap","overflow":"visible","names":27,"eyebrows":["CSS","Sine","Quad","Cubic","Expo","Circ","Back","Steps"]},"railClosed":{"found":true,"bg":"oklab(0.216128 0.00350075 0.00518669 / 0.08)","padding":"4px 8px","h":32,"literal":"cubic-bezier(0, 0, 1, 1)","caption":null,"togglePressed":"false"},"tune":{"found":true,"stageW":314,"contentW":288,"wrapperW":288,"svgW":288,"gutterL":0,"gutterR":0,"handles":[{"dx":0,"dy":0},{"dx":0,"dy":0}],"registered":true},"railOpen":{"found":true,"bg":"rgba(0, 0, 0, 0)","padding":"0px","h":24,"literal":null,"caption":{"text":"Custom curve","px":"12.179px","color":"oklch(0.289468 0.00386159 34.63)","ariaHidden":null,"sameRow":true},"togglePressed":"true"}}
+{"file":"atmosphere-390-light.png","ok":true}
+{"file":"blob-390-light.png","ok":true}
+{"file":"notfound-390-light.png","ok":true}
+{"file":"picker-1440-dark.png","ok":true}
+{"file":"palettes-1440-dark.png","ok":true}
+{"file":"browse-1440-dark.png","ok":true}
+{"file":"extract-1440-dark.png","ok":true}
+{"file":"mix-1440-dark.png","ok":true}
+{"file":"generate-1440-dark.png","ok":true}
+{"file":"gradient-1440-dark.png","ok":true,"direction":{"found":true,"readout":"90deg","cssLiteral":null},"strip":{"found":true,"families":8,"lines":4,"familiesInPort":8,"lineStartsAfterFirst":3,"portW":452,"stripW":452,"stripH":377,"portScrollW":452,"portClientW":452,"overflowsX":false,"wrap":"wrap","overflow":"clip","names":27,"eyebrows":["CSS","Sine","Quad","Cubic","Expo","Circ","Back","Steps"]},"railClosed":{"found":true,"bg":"oklab(0.925196 0.00238398 0.00574207 / 0.08)","padding":"4px 8px","h":32,"literal":"cubic-bezier(0, 0, 1, 1)","caption":null,"togglePressed":"false"},"tune":{"found":true,"stageW":452,"contentW":426,"wrapperW":304,"svgW":304,"gutterL":61,"gutterR":61,"handles":[{"dx":0,"dy":0},{"dx":0,"dy":0}],"registered":true},"railOpen":{"found":true,"bg":"rgba(0, 0, 0, 0)","padding":"0px","h":24,"literal":null,"caption":{"text":"Custom curve","px":"14.384px","color":"oklch(0.712763 0.00382185 41.8684)","ariaHidden":null,"sameRow":true},"togglePressed":"true"}}
+{"file":"atmosphere-1440-dark.png","ok":true}
+{"file":"blob-1440-dark.png","ok":true}
+{"file":"notfound-1440-dark.png","ok":true}
+{"file":"picker-390-dark.png","ok":true}
+{"file":"palettes-390-dark.png","ok":true}
+{"file":"browse-390-dark.png","ok":true}
+{"file":"extract-390-dark.png","ok":true}
+{"file":"mix-390-dark.png","ok":true}
+{"file":"generate-390-dark.png","ok":true}
+{"file":"gradient-390-dark.png","ok":true,"direction":{"found":true,"readout":"90deg","cssLiteral":null},"strip":{"found":true,"families":8,"lines":1,"familiesInPort":1,"lineStartsAfterFirst":0,"portW":314,"stripW":1465,"stripH":84,"portScrollW":1465,"portClientW":314,"overflowsX":true,"wrap":"nowrap","overflow":"visible","names":27,"eyebrows":["CSS","Sine","Quad","Cubic","Expo","Circ","Back","Steps"]},"railClosed":{"found":true,"bg":"oklab(0.925196 0.00238398 0.00574207 / 0.08)","padding":"4px 8px","h":32,"literal":"cubic-bezier(0, 0, 1, 1)","caption":null,"togglePressed":"false"},"tune":{"found":true,"stageW":314,"contentW":288,"wrapperW":288,"svgW":288,"gutterL":0,"gutterR":0,"handles":[{"dx":0,"dy":0},{"dx":0,"dy":0}],"registered":true},"railOpen":{"found":true,"bg":"rgba(0, 0, 0, 0)","padding":"0px","h":24,"literal":null,"caption":{"text":"Custom curve","px":"12.179px","color":"oklch(0.712763 0.00382185 41.8684)","ariaHidden":null,"sameRow":true},"togglePressed":"true"}}
+{"file":"atmosphere-390-dark.png","ok":true}
+{"file":"blob-390-dark.png","ok":true}
+{"file":"notfound-390-dark.png","ok":true}
