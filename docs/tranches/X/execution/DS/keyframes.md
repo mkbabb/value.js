@@ -3381,3 +3381,77 @@ Every capture ran in headless real Chrome (§0ei), with one browser per run and 
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 16
+
+**Cure commit:** keyframes.js `75639098` (master, pushed fast-forward from `09ae6fb7`). **Evidence:** value.js `3bd28c56f`, in `evidence/DS/keyframes/pass-16/c16-2026-10-17/`. `pass-16/` already holds the C16 critic's committed frames and probe, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: every route at 1440 and 390 in light and dark, plus the cube pane's Controls, Keyframes and Timeline surfaces (Timeline both empty and after the inline Import) at 1440 and 390 in both schemes. These are the same cells as pass 15.
+- `after/capture.json` records the pass-15 fields plus three new ones for KF-C16-01: `ribbonTop` (the ribbon section's rule), `contentBottom` (the bottom of the block before it) and `bandAbove` (the blank between the two).
+- Also in the directory: `capture.mjs` and `capture.log`, `census.json` and `census.log`, `dev.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture ran in headless real Chrome (§0ei), with one browser per run and a new context for each cell, all closed in `finally`.
+
+**Cured (consumer, at the root)**
+- **KF-C16-01 (medium): the Timeline follows the facets' one rhythm.** The timeline-only `mt-auto` on `RibbonBar.vue`'s root (KF-C14-04) is deleted. Its comment now records why.
+  - The rule follows the last row again (KF-C7-02, KF-C11-04). Any free block that the one-foot frame (KF-C10-10) leaves now sits under the ribbon, as it does on Controls, Spring and Easing.
+  - Served at 1440, both schemes (card foot 750.1):
+
+    | surface | rule (`ribbonTop`) | `bandAbove` | row bottom |
+    |---|---|---|---|
+    | Controls | 530.8 | 0 | 652.2 |
+    | Timeline, empty | **378.2** (was ≈688) | **0** (was ≈327) | 427.2 |
+    | Timeline, imported | **496.8** | **0** (was ≈216) | 545.8 |
+    | Keyframes | 689.1 | 0 | 737.1 |
+
+  - At 390 the frame is not a bounded column, so the cure changes nothing there. The 390 rows are DOM-only below the peek, as in pass 14 (glass SHEET-POSITION).
+  - No filler was added to the band.
+  - **Disclosure:** this reverses the C14 trade (verbs at the card's foot) in favour of C11's and C16's (no blank band above the rule). The Timeline's verbs now sit under its content, mid-card, as Controls' transport does.
+
+**Declined (trivial, optional)**
+- **KF-C16-04: the code well's right inset is not changed.** Moving `.code-well__body`'s `padding-inline-end` from `--space-body` (12 px) to `--configurator-pad-inline` (20 px) narrows Monaco's box by 8 px. The default buffer's line 4 (`animation-timing-function: ease-in-out;`) overhangs the column by only about 4 px, so with the narrower box it would soft-wrap and leave `ease-in-out;` alone on a line. KF-C10x-03 (CSSCodeEditor.vue) cured exactly that orphan wrap. A 4 px overhang of the text is the lesser fault, so the well keeps its inset. The critic marked this cure optional.
+
+**Cited (glass, not overridden)**
+- **KF-C16-02 (medium): the toast.** Glass Toaster draws the corner-hung dismiss disc outside the toast's row, an inner radial bloom on the body, and a wide blurred halo.
+  - Re-observed in `after/cube-timeline-imported-1440-dark.png`: the × disc hangs at the toast's top-left corner.
+  - Cited as an **O-87 FLAT-LIGHTING** rider beside KF-C15-01 (placement, O-87/O-88) and KF-C14-05. The ask for glass: the dismiss trailing inside the row, in the toast's own ink with no disc; no inner bloom; one quiet floating shadow.
+  - keyframes.js `demo/app/App.vue:112` mounts the Toaster with no props or styling, and no local override was added. Re-judge at the 10.2.0 repin.
+- **KF-C16-03 (low): the dock's scene menu.** Glass SelectContent and SelectItem (`ChromeDock.vue:464-488`) draw three things:
+  - the stacked offset-stamp shadow (`--shadow-cartoon-md/-lg`, standing KF-C1-02);
+  - the backdrop bloom that tints the list with the cube's faces (standing KF-C1-11);
+  - a ring and a plate on the highlighted, checked row on open, on top of the indicator dot that `ChromeDock.vue:38-44` makes the one selection channel.
+
+  All three are cited under **O-87**, with the ring and plate as a new rider. No local override was added.
+- **KF-C16-G1 (low):** these glass rows are unchanged at 10.1.0:
+  - the resting-plate blur smearing the ground grid (KF-C6-G1, KF-C1-09);
+  - input fill against select fill, and pill fields (KF-C1-10);
+  - the capsule halo on filled leads (KF-C1-01; visible on Snapshot in `after/cube-timeline-imported-1440-dark.png`);
+  - the collapsed dock tile and the play-bubble halo (KF-C1-12, O-88);
+  - the EasingPicker ghost staircase (KF-R6C4-04);
+  - the parked 390 sheet that does not rise (SHEET-POSITION, KF-C7-01).
+
+  They stay honest-RED against O-87 and O-88 until the 10.2.0 repin.
+
+**Carried (owner rulings, §0dm)**
+- KF-C13-R1 is unchanged: the OD-4/T.D9 hero overlap, and `AnimatedText.vue:165` charLift infinite.
+- KF-C14-03 is still open. It belongs to another seat's uncommitted `ControlsPaneWrapper.vue` hunks, which are still dirty in the tree, and this seat did not touch them.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5216/ --widths 1440,390 --settle 5000`): identical to pass 15 (`pass-15/c15-2026-10-17/census.json`) in every key except `at` and `computed.base`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which also carries another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `RibbonBar.vue` was clean, so the keyframes.js commit used a pathspec. The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5216) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
