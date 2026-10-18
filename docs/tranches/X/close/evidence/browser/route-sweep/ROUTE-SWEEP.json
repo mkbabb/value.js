@@ -1,0 +1,2133 @@
+{
+  "origin": "../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp-sweep @ bare loopback",
+  "browser": "chromium 148.0.7778.96 headless-shell swiftshader",
+  "routerRecords": 15,
+  "viewports": [
+    "desktop 1440x900",
+    "phone 390x844",
+    "short-landscape 720x450"
+  ],
+  "expectedCells": 45,
+  "executed": 45,
+  "passed": 45,
+  "failed": 0,
+  "assertionsReached": 225,
+  "zeroNodeAssertions": [],
+  "cells": [
+    {
+      "route": "/",
+      "visit": "/",
+      "name": "picker",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Home"
+      ],
+      "title": "Color Picker",
+      "hash": "#/",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "picker-desktop.png",
+      "sha256": "64dffd12b88d2d8a9389a7cdd92732f14e8308994f8cc351f2c57c9f85a345e0"
+    },
+    {
+      "route": "/palettes",
+      "visit": "/palettes",
+      "name": "palettes",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "My Palettes"
+      ],
+      "title": "Palettes — Color Picker",
+      "hash": "#/palettes",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "palettes-desktop.png",
+      "sha256": "9fb241c3bce35b4237e00f19bb4c9cd4562a5a163e77428b8abf5386c01eb827"
+    },
+    {
+      "route": "/browse",
+      "visit": "/browse",
+      "name": "browse",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Browse"
+      ],
+      "title": "Browse — Color Picker",
+      "hash": "#/browse",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "browse-desktop.png",
+      "sha256": "eebb8fd755ba3f024c60aad923fb76b83e4593b436726d65e9c0d720b93ecd96"
+    },
+    {
+      "route": "/extract",
+      "visit": "/extract",
+      "name": "extract",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Extract"
+      ],
+      "title": "Extract — Color Picker",
+      "hash": "#/extract",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "extract-desktop.png",
+      "sha256": "3f82ba6baba32fb659f9c5fcb56803d0a6b25f8cc62a06dd9584bf573798f7de"
+    },
+    {
+      "route": "/mix",
+      "visit": "/mix",
+      "name": "mix",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Mix"
+      ],
+      "title": "Mix — Color Picker",
+      "hash": "#/mix",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "mix-desktop.png",
+      "sha256": "0317bb43ee5f1245d0521b1f4bd6a97d4ea9982c66b606af91910486fb4b789f"
+    },
+    {
+      "route": "/generate",
+      "visit": "/generate",
+      "name": "generate",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Generate"
+      ],
+      "title": "Generate — Color Picker",
+      "hash": "#/generate",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "generate-desktop.png",
+      "sha256": "98680a1302b0ab8fd6ef3a1b47a999f815cb38cf6b2cf635536c3c6ec600c334"
+    },
+    {
+      "route": "/gradient",
+      "visit": "/gradient",
+      "name": "gradient",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Gradient"
+      ],
+      "title": "Gradient — Color Picker",
+      "hash": "#/gradient",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "gradient-desktop.png",
+      "sha256": "d13f5d14d23a32c796aa1c8ac15dd93f9d69c274a18c596dcb8a55af2074cc65"
+    },
+    {
+      "route": "/atmosphere",
+      "visit": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Atmosphere"
+      ],
+      "title": "Atmosphere — Color Picker",
+      "hash": "#/atmosphere",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "atmosphere-desktop.png",
+      "sha256": "c075285e8c2ddacdb9b7b3ba43ae7a6b092b116d4ab865b43dd98324d843c8f7"
+    },
+    {
+      "route": "/blob",
+      "visit": "/blob",
+      "name": "blob",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Blob"
+      ],
+      "title": "Blob — Color Picker",
+      "hash": "#/blob",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "blob-desktop.png",
+      "sha256": "86529f87d14ad2794dfd2582aa634307a43f21150ae3cfe9c49e622a228c0d98"
+    },
+    {
+      "route": "/admin/users",
+      "visit": "/admin/users",
+      "name": "admin-users",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/users",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-users-desktop.png",
+      "sha256": "0497498868c65de2c382e634efa4bc690eae271d332997f8cef5b4b09f905a85"
+    },
+    {
+      "route": "/admin/names",
+      "visit": "/admin/names",
+      "name": "admin-names",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/names",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-names-desktop.png",
+      "sha256": "047ab6faf41a24277b049f9ef23c1d809fced5c82ed146210696db399d158dcd"
+    },
+    {
+      "route": "/admin/audit",
+      "visit": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/audit",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-audit-desktop.png",
+      "sha256": "7228c040560b11b9447f1ca778f9ec9978c59257c7b277c7488605c6b94e258c"
+    },
+    {
+      "route": "/admin/flagged",
+      "visit": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/flagged",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-flagged-desktop.png",
+      "sha256": "eb4d69acc3f9ad8cf10b4373c33040b74ff3b63a5af0a72d74259cdff4bff999"
+    },
+    {
+      "route": "/admin/tags",
+      "visit": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/tags",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-tags-desktop.png",
+      "sha256": "961efd15cb8489c22ca75dbd455645ff43ffca717fb611d6281351025a0ab6ba"
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "visit": "/does-not-exist",
+      "name": "not-found",
+      "viewport": "desktop",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/does-not-exist",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "not-found-desktop.png",
+      "sha256": "a05f3ae575a4e69f2dea438b6d27d9426f9176f77585860715792734d8576fe5"
+    },
+    {
+      "route": "/",
+      "visit": "/",
+      "name": "picker",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Home"
+      ],
+      "title": "Color Picker",
+      "hash": "#/",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "picker-phone.png",
+      "sha256": "03b8354ee6c30c08c0960f8594725aa3c3acf00adf5635024e71a6927e99c0b9"
+    },
+    {
+      "route": "/palettes",
+      "visit": "/palettes",
+      "name": "palettes",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "My Palettes"
+      ],
+      "title": "Palettes — Color Picker",
+      "hash": "#/palettes",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "palettes-phone.png",
+      "sha256": "5abfa7557b58fbf7f2f8a314a2929c0f9732196c067b150f147b464e8b981359"
+    },
+    {
+      "route": "/browse",
+      "visit": "/browse",
+      "name": "browse",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Browse"
+      ],
+      "title": "Browse — Color Picker",
+      "hash": "#/browse",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "browse-phone.png",
+      "sha256": "f3ad93a61559736460dc94de792c91e19e9c645ffebb3de5bc5cfdb52f775b12"
+    },
+    {
+      "route": "/extract",
+      "visit": "/extract",
+      "name": "extract",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Extract"
+      ],
+      "title": "Extract — Color Picker",
+      "hash": "#/extract",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "extract-phone.png",
+      "sha256": "8f89a07382c940328cb81d261af81c32f4a95245f8a733dac62377dc804bfc17"
+    },
+    {
+      "route": "/mix",
+      "visit": "/mix",
+      "name": "mix",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Mix"
+      ],
+      "title": "Mix — Color Picker",
+      "hash": "#/mix",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "mix-phone.png",
+      "sha256": "617ca100a9c6a9ac79d8e186a515237308aadb77dc723d9d325fdc0d238776d9"
+    },
+    {
+      "route": "/generate",
+      "visit": "/generate",
+      "name": "generate",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Generate"
+      ],
+      "title": "Generate — Color Picker",
+      "hash": "#/generate",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "generate-phone.png",
+      "sha256": "b291bdd3d33f7d2d2ef94c2f1a77764712c45cefb2b01fea119165c57fc28e1a"
+    },
+    {
+      "route": "/gradient",
+      "visit": "/gradient",
+      "name": "gradient",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Gradient"
+      ],
+      "title": "Gradient — Color Picker",
+      "hash": "#/gradient",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "gradient-phone.png",
+      "sha256": "5847534f663f493d97a7306555c2e5218c8b7a934bb0f8d31755720cee032eee"
+    },
+    {
+      "route": "/atmosphere",
+      "visit": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Atmosphere"
+      ],
+      "title": "Atmosphere — Color Picker",
+      "hash": "#/atmosphere",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "atmosphere-phone.png",
+      "sha256": "23f8694f9220f1552bbbfd4eafcda375ba3e96ca3f61d65309447bcbca3b949f"
+    },
+    {
+      "route": "/blob",
+      "visit": "/blob",
+      "name": "blob",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Blob"
+      ],
+      "title": "Blob — Color Picker",
+      "hash": "#/blob",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "blob-phone.png",
+      "sha256": "da4171ec1ca29b24d080a1167cd5f10cf558bdb372b17c495d5a30203f0dc921"
+    },
+    {
+      "route": "/admin/users",
+      "visit": "/admin/users",
+      "name": "admin-users",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/users",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-users-phone.png",
+      "sha256": "10850fb2dba96a488439e9621486b1f81a8da414b3d20dcb7a60f8fd27ddfd66"
+    },
+    {
+      "route": "/admin/names",
+      "visit": "/admin/names",
+      "name": "admin-names",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/names",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-names-phone.png",
+      "sha256": "dc469441f46843d99486856fdb38cc4688edd96e238393110842a4e031069db5"
+    },
+    {
+      "route": "/admin/audit",
+      "visit": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/audit",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-audit-phone.png",
+      "sha256": "e29465f707da7b458c6fa6f03ba8ad8f174970fb95b0a3bd420817f62f8ba984"
+    },
+    {
+      "route": "/admin/flagged",
+      "visit": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/flagged",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-flagged-phone.png",
+      "sha256": "9594dcb703affa07de6f15688231042738322988381e46cbef4f3b0dc3be44b3"
+    },
+    {
+      "route": "/admin/tags",
+      "visit": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/tags",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-tags-phone.png",
+      "sha256": "a36c6ba6c1786cc91c24e6179838c23211efe501379685cfc1aa692bfba48c8d"
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "visit": "/does-not-exist",
+      "name": "not-found",
+      "viewport": "phone",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/does-not-exist",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "not-found-phone.png",
+      "sha256": "e7d705932e8acb715462d82a9b11f21763169abccfcd478f91e415ae583c9df6"
+    },
+    {
+      "route": "/",
+      "visit": "/",
+      "name": "picker",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Home"
+      ],
+      "title": "Color Picker",
+      "hash": "#/",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "picker-short-landscape.png",
+      "sha256": "032d9aa49ff2becb5de286bc990c2e39795362a476c84a66ab1a8357280c0b13"
+    },
+    {
+      "route": "/palettes",
+      "visit": "/palettes",
+      "name": "palettes",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "My Palettes"
+      ],
+      "title": "Palettes — Color Picker",
+      "hash": "#/palettes",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "palettes-short-landscape.png",
+      "sha256": "306c5a6522feb2c451eba8385965202f5f2adfb845e8e406d06ac730903f99b5"
+    },
+    {
+      "route": "/browse",
+      "visit": "/browse",
+      "name": "browse",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Browse"
+      ],
+      "title": "Browse — Color Picker",
+      "hash": "#/browse",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "browse-short-landscape.png",
+      "sha256": "d8cc39778cbac4607beed15072b42025224ced91da02b459e53dfd4fa85a0b52"
+    },
+    {
+      "route": "/extract",
+      "visit": "/extract",
+      "name": "extract",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Extract"
+      ],
+      "title": "Extract — Color Picker",
+      "hash": "#/extract",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "extract-short-landscape.png",
+      "sha256": "2043500f9d2c4f353860274ebc721e14fa46f7e4f24068eff15fb207e751b0f2"
+    },
+    {
+      "route": "/mix",
+      "visit": "/mix",
+      "name": "mix",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Mix"
+      ],
+      "title": "Mix — Color Picker",
+      "hash": "#/mix",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "mix-short-landscape.png",
+      "sha256": "bb49cc5c5b08cebbd0d52e427e8a95743e800a98699326f54826cdfbee8cafc6"
+    },
+    {
+      "route": "/generate",
+      "visit": "/generate",
+      "name": "generate",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Generate"
+      ],
+      "title": "Generate — Color Picker",
+      "hash": "#/generate",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "generate-short-landscape.png",
+      "sha256": "1b738a8356b3cb87f15fbcd6bd09d2e7566f05c85466321875b447746b847a04"
+    },
+    {
+      "route": "/gradient",
+      "visit": "/gradient",
+      "name": "gradient",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Gradient"
+      ],
+      "title": "Gradient — Color Picker",
+      "hash": "#/gradient",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "gradient-short-landscape.png",
+      "sha256": "1615c9210d36f8dde037aaa327facf0ee26aeb3787be7231da2f6f696177bb56"
+    },
+    {
+      "route": "/atmosphere",
+      "visit": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Atmosphere"
+      ],
+      "title": "Atmosphere — Color Picker",
+      "hash": "#/atmosphere",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "atmosphere-short-landscape.png",
+      "sha256": "7ecd58d04241f8dbbfa3c9966872e6a7cce02d90b1bea79ca44b6cc037fefdce"
+    },
+    {
+      "route": "/blob",
+      "visit": "/blob",
+      "name": "blob",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Blob"
+      ],
+      "title": "Blob — Color Picker",
+      "hash": "#/blob",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 is not Not Found",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "blob-short-landscape.png",
+      "sha256": "ad4f9569e42400304e4e57f16c619b338049b12c93088c2c83d3f00121b0ad7a"
+    },
+    {
+      "route": "/admin/users",
+      "visit": "/admin/users",
+      "name": "admin-users",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/users",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-users-short-landscape.png",
+      "sha256": "d0acb39684dabebbac2c641c47894c0b22b4b97ae9ce18859266a34c9e2eb6c6"
+    },
+    {
+      "route": "/admin/names",
+      "visit": "/admin/names",
+      "name": "admin-names",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/names",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-names-short-landscape.png",
+      "sha256": "e2714f87d415b81f83bfe8d56ec603ad90718f08846e28340cc181fe3cd42d42"
+    },
+    {
+      "route": "/admin/audit",
+      "visit": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/audit",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-audit-short-landscape.png",
+      "sha256": "a399ce1f4b8327606363d58471b383ec70b90886a8fa99817fd277070571e9c5"
+    },
+    {
+      "route": "/admin/flagged",
+      "visit": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/flagged",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-flagged-short-landscape.png",
+      "sha256": "af7a45cb287bd9058089d6c8b9830ca6afe1517fa9f7966a071a3a89ab0bcbf5"
+    },
+    {
+      "route": "/admin/tags",
+      "visit": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/admin/tags",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "admin-tags-short-landscape.png",
+      "sha256": "49dad54aeeaea16852947efedb73fe162758dc0c0b3048caf57d5e94ecb3f429"
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "visit": "/does-not-exist",
+      "name": "not-found",
+      "viewport": "short-landscape",
+      "label": "BROWSER-LIVE",
+      "app": 1,
+      "main": 1,
+      "h1": [
+        "Not Found"
+      ],
+      "title": "Not Found — Color Picker",
+      "hash": "#/does-not-exist",
+      "overflowX": 0,
+      "pageerrors": [],
+      "assertions": [
+        {
+          "name": "#app has element children",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "exactly one <main>",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "main h1 present",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "h1 reads Not Found (guard/wildcard)",
+          "nodesMatched": 1,
+          "pass": true
+        },
+        {
+          "name": "pageerror []",
+          "nodesMatched": 1,
+          "pass": true
+        }
+      ],
+      "assertionsReached": 5,
+      "pass": true,
+      "png": "not-found-short-landscape.png",
+      "sha256": "2f75974c0037895b99062b04dbd7997561d95d381cf9882363b36d54e7b57dec"
+    }
+  ]
+}

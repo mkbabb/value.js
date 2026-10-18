@@ -1,0 +1,32 @@
+(node:36479) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:36544) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:36672) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost
+[1A[2K  1) [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost 
+
+    Error: goo-blob never settled past the emerge pose
+
+    Test timeout of 30000ms exceeded
+
+      78 |             message: "goo-blob never settled past the emerge pose",
+      79 |         })
+    > 80 |         .toBeGreaterThanOrEqual(100);
+         |          ^
+      81 |     const box = await blob.boundingBox();
+      82 |     if (!box) throw new Error("goo-blob canvas has no layout box");
+      83 |     const vp = page.viewportSize();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob.spec.ts:80:10
+
+    Error Context: test-results/webgl-blob-goo-blob-canvas-bf729-ch-without-webglcontextlost-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost 

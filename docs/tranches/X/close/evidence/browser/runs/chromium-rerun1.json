@@ -1,0 +1,1685 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/Programming/value.js/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/oracles/o18-contrast-census.spec.ts",
+      "file": "smoke/oracles/o18-contrast-census.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "O-18 census (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 635,
+          "column": 10,
+          "specs": [
+            {
+              "title": "graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14425,
+                      "error": {
+                        "message": "Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5.75\u001b[39m\nReceived:    \u001b[31m5.74\u001b[39m",
+                        "stack": "Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5.75\u001b[39m\nReceived:    \u001b[31m5.74\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:764:15",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                          "column": 15,
+                          "line": 764
+                        },
+                        "snippet": "  762 |                 nameRow!.ratio,\n  763 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(\" | \")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,\n> 764 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);\n      |               ^\n  765 |         });\n  766 |\n  767 |         test(\"markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)\", async ({"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                            "column": 15,
+                            "line": 764
+                          },
+                          "message": "Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m5.75\u001b[39m\nReceived:    \u001b[31m5.74\u001b[39m\n\n  762 |                 nameRow!.ratio,\n  763 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(\" | \")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,\n> 764 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);\n      |               ^\n  765 |         });\n  766 |\n  767 |         test(\"markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)\", async ({\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:764:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T21:04:28.427Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                        "column": 15,
+                        "line": 764
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-e6afc65a3ce06e341dbc",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 713,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 W6.5 legs (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 990,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7136,
+                      "error": {
+                        "message": "Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m0.037180607112331766\u001b[39m\nReceived:    \u001b[31m0.006968179459289377\u001b[39m",
+                        "stack": "Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m0.037180607112331766\u001b[39m\nReceived:    \u001b[31m0.006968179459289377\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1018:15",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                          "column": 15,
+                          "line": 1018
+                        },
+                        "snippet": "  1016 |                 accent.C,\n  1017 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,\n> 1018 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);\n       |               ^\n  1019 |\n  1020 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the \"Lab\"\n  1021 |             //     space trigger wears `--space-title-ink` = the safe accent at"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                            "column": 15,
+                            "line": 1018
+                          },
+                          "message": "Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m0.037180607112331766\u001b[39m\nReceived:    \u001b[31m0.006968179459289377\u001b[39m\n\n  1016 |                 accent.C,\n  1017 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,\n> 1018 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);\n       |               ^\n  1019 |\n  1020 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the \"Lab\"\n  1021 |             //     space trigger wears `--space-title-ink` = the safe accent at\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1018:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T21:04:43.643Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                        "column": 15,
+                        "line": 1018
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-1ce9d633c89846868cc1",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 993,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · R27 blind rows (light)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1294,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the profile menu ROW LABELS — the unguarded population, over live content (N-3)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8924,
+                      "error": {
+                        "message": "Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Copy slug: not measurable\",\u001b[39m\n\u001b[31m+   \"Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)\",\u001b[39m\n\u001b[31m+   \"Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Copy slug: not measurable\",\u001b[39m\n\u001b[31m+   \"Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)\",\u001b[39m\n\u001b[31m+   \"Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                          "column": 15,
+                          "line": 1362
+                        },
+                        "snippet": "  1360 |                 failures,\n  1361 |                 \"the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\",\n> 1362 |             ).toEqual([]);\n       |               ^\n  1363 |         });\n  1364 |     });\n  1365 | }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                            "column": 15,
+                            "line": 1362
+                          },
+                          "message": "Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Copy slug: not measurable\",\u001b[39m\n\u001b[31m+   \"Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)\",\u001b[39m\n\u001b[31m+   \"Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  1360 |                 failures,\n  1361 |                 \"the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\",\n> 1362 |             ).toEqual([]);\n       |               ^\n  1363 |         });\n  1364 |     });\n  1365 | }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T21:04:51.394Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                        "column": 15,
+                        "line": 1362
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-6d1a76bbe5efd65d5171",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1322,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "O-18 census · R27 blind rows (dark)",
+          "file": "smoke/oracles/o18-contrast-census.spec.ts",
+          "line": 1294,
+          "column": 10,
+          "specs": [
+            {
+              "title": "the profile menu ROW LABELS — the unguarded population, over live content (N-3)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke",
+                  "projectName": "smoke",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8767,
+                      "error": {
+                        "message": "Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Copy slug: not measurable\",\u001b[39m\n\u001b[31m+   \"Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+   \"Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+   \"Regenerate slug: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                        "stack": "Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Copy slug: not measurable\",\u001b[39m\n\u001b[31m+   \"Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+   \"Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+   \"Regenerate slug: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15",
+                        "location": {
+                          "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                          "column": 15,
+                          "line": 1362
+                        },
+                        "snippet": "  1360 |                 failures,\n  1361 |                 \"the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\",\n> 1362 |             ).toEqual([]);\n       |               ^\n  1363 |         });\n  1364 |     });\n  1365 | }"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                            "column": 15,
+                            "line": 1362
+                          },
+                          "message": "Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Copy slug: not measurable\",\u001b[39m\n\u001b[31m+   \"Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+   \"Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+   \"Regenerate slug: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  1360 |                 failures,\n  1361 |                 \"the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them\",\n> 1362 |             ).toEqual([]);\n       |               ^\n  1363 |         });\n  1364 |     });\n  1365 | }\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-18T21:05:00.899Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts",
+                        "column": 15,
+                        "line": 1362
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "dc8c889ac2d9a5da0568-bf0fda661221171c3f63",
+              "file": "smoke/oracles/o18-contrast-census.spec.ts",
+              "line": 1322,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o19-netting-luma.spec.ts",
+      "file": "smoke/oracles/o19-netting-luma.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "netting luma delta ≥59/255 — desktop, light",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 24029,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m59\u001b[39m\nReceived:    \u001b[31m4.647000000000006\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m59\u001b[39m\nReceived:    \u001b[31m4.647000000000006\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                      "column": 18,
+                      "line": 97
+                    },
+                    "snippet": "   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                        "column": 18,
+                        "line": 97
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m59\u001b[39m\nReceived:    \u001b[31m4.647000000000006\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:05:10.289Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                    "column": 18,
+                    "line": 97
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0558acadbfca4a504c2f-f8d45bb6b9d8ef3c215a",
+          "file": "smoke/oracles/o19-netting-luma.spec.ts",
+          "line": 71,
+          "column": 9
+        },
+        {
+          "title": "netting luma delta ≥45/255 — desktop, dark",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 24661,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m45\u001b[39m\nReceived:    \u001b[31m3.2860000000000014\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m45\u001b[39m\nReceived:    \u001b[31m3.2860000000000014\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                      "column": 18,
+                      "line": 97
+                    },
+                    "snippet": "   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                        "column": 18,
+                        "line": 97
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m45\u001b[39m\nReceived:    \u001b[31m3.2860000000000014\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:05:34.958Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                    "column": 18,
+                    "line": 97
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0558acadbfca4a504c2f-ca86acdf4f039f78ffdf",
+          "file": "smoke/oracles/o19-netting-luma.spec.ts",
+          "line": 71,
+          "column": 9
+        },
+        {
+          "title": "netting luma delta ≥59/255 — 390, light",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 22794,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m59\u001b[39m\nReceived:    \u001b[31m15.6588\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m59\u001b[39m\nReceived:    \u001b[31m15.6588\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                      "column": 18,
+                      "line": 97
+                    },
+                    "snippet": "   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                        "column": 18,
+                        "line": 97
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m59\u001b[39m\nReceived:    \u001b[31m15.6588\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:06:00.380Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                    "column": 18,
+                    "line": 97
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0558acadbfca4a504c2f-1651872853ed75504159",
+          "file": "smoke/oracles/o19-netting-luma.spec.ts",
+          "line": 71,
+          "column": 9
+        },
+        {
+          "title": "netting luma delta ≥45/255 — 390, dark",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19629,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m45\u001b[39m\nReceived:    \u001b[31m12.200800000000015\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m45\u001b[39m\nReceived:    \u001b[31m12.200800000000015\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                      "column": 18,
+                      "line": 97
+                    },
+                    "snippet": "   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                        "column": 18,
+                        "line": 97
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m45\u001b[39m\nReceived:    \u001b[31m12.200800000000015\u001b[39m\n\nCall Log:\n- Timeout 10000ms exceeded while waiting on the predicate\n\n   95 |                     { timeout: 10_000 },\n   96 |                 )\n>  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);\n      |                  ^\n   98 |\n   99 |             expect(consoleErrors).toEqual([]);\n  100 |         });\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:06:23.744Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts",
+                    "column": 18,
+                    "line": 97
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0558acadbfca4a504c2f-4b11884de0da6604a412",
+          "file": "smoke/oracles/o19-netting-luma.spec.ts",
+          "line": 71,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o23-specimen-gamut-honesty.spec.ts",
+      "file": "smoke/oracles/o23-specimen-gamut-honesty.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "out-of-gamut rows are marked, and no printed coordinate was projected",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5361,
+                  "error": {
+                    "message": "Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.006482236542402211\u001b[39m\nReceived:    \u001b[31m12.951521561243181\u001b[39m",
+                    "stack": "Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.006482236542402211\u001b[39m\nReceived:    \u001b[31m12.951521561243181\u001b[39m\n    at forEach (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:295:15)\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:288:31",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts",
+                      "column": 15,
+                      "line": 295
+                    },
+                    "snippet": "  293 |                 Math.abs(channel - truth),\n  294 |                 `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,\n> 295 |             ).toBeLessThanOrEqual(policyResolution(truth));\n      |               ^\n  296 |         });\n  297 |\n  298 |         // (ii)(c) the same claim in Lab, against the measured bound"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts",
+                        "column": 15,
+                        "line": 295
+                      },
+                      "message": "Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.006482236542402211\u001b[39m\nReceived:    \u001b[31m12.951521561243181\u001b[39m\n\n  293 |                 Math.abs(channel - truth),\n  294 |                 `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,\n> 295 |             ).toBeLessThanOrEqual(policyResolution(truth));\n      |               ^\n  296 |         });\n  297 |\n  298 |         // (ii)(c) the same claim in Lab, against the measured bound\n    at forEach (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:295:15)\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:288:31"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)\n  rgb           css       MARKED    color(srgb 1.511 0.5623 0.7829 / 82.7%)\n  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)\n  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511\n  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)\n  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)\n  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)\n  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)\n  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)\n  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)\n  kelvin        channels  in-gamut  kelvin · 5309\n  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)\n  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)\n  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)\n  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)\n  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)\n  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739\n  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428\n  hex           css       MARKED    #ff8fc8d3\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:06:44.004Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts",
+                    "column": 15,
+                    "line": 295
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1fe32a932eeb6c4b3f95-98645642f0d73fb5d690",
+          "file": "smoke/oracles/o23-specimen-gamut-honesty.spec.ts",
+          "line": 225,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o26-aurora-perceptibility.spec.ts",
+      "file": "smoke/oracles/o26-aurora-perceptibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-26 aurora perceptibility — the field migrates unmistakably over 10s",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19903,
+                  "error": {
+                    "message": "Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4\u001b[39m\nReceived:    \u001b[31m0.0003850013842746401\u001b[39m",
+                    "stack": "Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4\u001b[39m\nReceived:    \u001b[31m0.0003850013842746401\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:110:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts",
+                      "column": 7,
+                      "line": 110
+                    },
+                    "snippet": "  108 |         migration,\n  109 |         `aurora field does not migrate perceptibly over 10s (${migration.toFixed(3)} < ${MIGRATION_MIN}/255) — the T-25/T-26 still, cured at W2-5`,\n> 110 |     ).toBeGreaterThanOrEqual(MIGRATION_MIN);\n      |       ^\n  111 | });\n  112 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts",
+                        "column": 7,
+                        "line": 110
+                      },
+                      "message": "Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m4\u001b[39m\nReceived:    \u001b[31m0.0003850013842746401\u001b[39m\n\n  108 |         migration,\n  109 |         `aurora field does not migrate perceptibly over 10s (${migration.toFixed(3)} < ${MIGRATION_MIN}/255) — the T-25/T-26 still, cured at W2-5`,\n> 110 |     ).toBeGreaterThanOrEqual(MIGRATION_MIN);\n      |       ^\n  111 | });\n  112 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:110:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[O-26] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) (software-GL — CSS placeholder still; authoritative read is the O-3 headed annex)\n"
+                    },
+                    {
+                      "text": "[O-26] calm 2s glance diff = 0.000/255\n"
+                    },
+                    {
+                      "text": "[O-26] 10s migration diff (max pairwise) = 0.000/255 (need ≥ 4)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:06:49.876Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts",
+                    "column": 7,
+                    "line": 110
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "78881b6627be48bb5b70-da4a8a02bb84d9fda658",
+          "file": "smoke/oracles/o26-aurora-perceptibility.spec.ts",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/oracles/o28-atmosphere-coldload.spec.ts",
+      "file": "smoke/oracles/o28-atmosphere-coldload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "the first painted atmosphere is the seeded pick's, on a cold load",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15429,
+                  "error": {
+                    "message": "Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.02\u001b[39m\nReceived:    \u001b[31m0.15948859187521458\u001b[39m",
+                    "stack": "Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.02\u001b[39m\nReceived:    \u001b[31m0.15948859187521458\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts",
+                      "column": 14,
+                      "line": 148
+                    },
+                    "snippet": "  146 |                 `${seed}: the first painted atmosphere is not the seeded one`,\n  147 |             )\n> 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);\n      |              ^\n  149 |     }\n  150 | });\n  151 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts",
+                        "column": 14,
+                        "line": 148
+                      },
+                      "message": "Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.02\u001b[39m\nReceived:    \u001b[31m0.15948859187521458\u001b[39m\n\n  146 |                 `${seed}: the first painted atmosphere is not the seeded one`,\n  147 |             )\n> 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);\n      |              ^\n  149 |     }\n  150 | });\n  151 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts",
+                        "column": 14,
+                        "line": 148
+                      },
+                      "message": "Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.02\u001b[39m\nReceived:    \u001b[31m0.29330989323473755\u001b[39m\n\n  146 |                 `${seed}: the first painted atmosphere is not the seeded one`,\n  147 |             )\n> 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);\n      |              ^\n  149 |     }\n  150 | });\n  151 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts",
+                        "column": 14,
+                        "line": 148
+                      },
+                      "message": "Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.02\u001b[39m\nReceived:    \u001b[31m0.24326322147615295\u001b[39m\n\n  146 |                 `${seed}: the first painted atmosphere is not the seeded one`,\n  147 |             )\n> 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);\n      |              ^\n  149 |     }\n  150 | });\n  151 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "oklch(0.62 0.2 30): first-paint 48ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.1595; settled vs unseeded max 0.1845\n"
+                    },
+                    {
+                      "text": "oklch(0.62 0.2 150): first-paint 36ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.2933; settled vs unseeded max 0.3699\n"
+                    },
+                    {
+                      "text": "oklch(0.62 0.2 260): first-paint 40ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.2433; settled vs unseeded max 0.2938\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:07:10.494Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts",
+                    "column": 14,
+                    "line": 148
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7e354ab72c8dd5c5d284-605fdd89126d9fd52f64",
+          "file": "smoke/oracles/o28-atmosphere-coldload.spec.ts",
+          "line": 114,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/webgl-blob-idle.spec.ts",
+      "file": "smoke/webgl-blob-idle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hero blob carries current chroma — oklch(0.65 0.3 150)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 14995,
+                  "error": {
+                    "message": "Error: painted dominant chroma 0.13809 vs the gamut-mapped current chroma 0.17901\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.04091602109436174\u001b[39m",
+                    "stack": "Error: painted dominant chroma 0.13809 vs the gamut-mapped current chroma 0.17901\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.04091602109436174\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 11,
+                      "line": 290
+                    },
+                    "snippet": "  288 |             Math.abs(paintedC - targetC),\n  289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,\n> 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);\n      |           ^\n  291 |     });\n  292 | }\n  293 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 11,
+                        "line": 290
+                      },
+                      "message": "Error: painted dominant chroma 0.13809 vs the gamut-mapped current chroma 0.17901\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.04091602109436174\u001b[39m\n\n  288 |             Math.abs(paintedC - targetC),\n  289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,\n> 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);\n      |           ^\n  291 |     });\n  292 | }\n  293 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.6176 C 0.13809 h 140.57 · ΔC -0.04092 (stated ±0.04) · px 2324\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:07:26.531Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 11,
+                    "line": 290
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-9b6db4bae4582941082f",
+          "file": "smoke/webgl-blob-idle.spec.ts",
+          "line": 210,
+          "column": 5
+        },
+        {
+          "title": "hero blob carries current chroma — oklch(0.55 0.37 328)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16823,
+                  "error": {
+                    "message": "Error: painted dominant chroma 0.17812 vs the gamut-mapped current chroma 0.25325\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.07512434518655972\u001b[39m",
+                    "stack": "Error: painted dominant chroma 0.17812 vs the gamut-mapped current chroma 0.25325\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.07512434518655972\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                      "column": 11,
+                      "line": 290
+                    },
+                    "snippet": "  288 |             Math.abs(paintedC - targetC),\n  289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,\n> 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);\n      |           ^\n  291 |     });\n  292 | }\n  293 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                        "column": 11,
+                        "line": 290
+                      },
+                      "message": "Error: painted dominant chroma 0.17812 vs the gamut-mapped current chroma 0.25325\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m0.04\u001b[39m\nReceived:    \u001b[31m0.07512434518655972\u001b[39m\n\n  288 |             Math.abs(paintedC - targetC),\n  289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,\n> 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);\n      |           ^\n  291 |     });\n  292 | }\n  293 |\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.5634 C 0.17812 h 318.90 · ΔC -0.07512 (stated ±0.04) · px 2324\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:07:42.189Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts",
+                    "column": 11,
+                    "line": 290
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3cc28a7e0c277dd5d5a4-3ffc48d243804444f6fd",
+          "file": "smoke/webgl-blob-idle.spec.ts",
+          "line": 210,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "smoke/webgl-blob.spec.ts",
+      "file": "smoke/webgl-blob.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "goo-blob canvas survives view switch without webglcontextlost",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke",
+              "projectName": "smoke",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8716,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob.spec.ts:48:62",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob.spec.ts",
+                      "column": 62,
+                      "line": 48
+                    },
+                    "snippet": "  46 |     await page.goto(\"/\");\n  47 |     // Mounted on the picker (Home) view.\n> 48 |     await expect(page.getByTestId(\"goo-blob-canvas\").last()).toBeAttached();\n     |                                                              ^\n  49 |\n  50 |     // Switch away → switch back. Exercises unmount/remount.\n  51 |     await openView(page, \"Browse\");"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob.spec.ts",
+                        "column": 62,
+                        "line": 48
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n\n\n  46 |     await page.goto(\"/\");\n  47 |     // Mounted on the picker (Home) view.\n> 48 |     await expect(page.getByTestId(\"goo-blob-canvas\").last()).toBeAttached();\n     |                                                              ^\n  49 |\n  50 |     // Switch away → switch back. Exercises unmount/remount.\n  51 |     await openView(page, \"Browse\");\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob.spec.ts:48:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:07:59.826Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/webgl-blob-goo-blob-canvas-bf729-ch-without-webglcontextlost-smoke/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob.spec.ts",
+                    "column": 62,
+                    "line": 48
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b59bd2c09672f75b6b1c-2a505799937ecd5cd800",
+          "file": "smoke/webgl-blob.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/eager-payload.spec.ts",
+      "file": "smoke/perf/eager-payload.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "X-W2 G2 — the eager module set's JS gzip budget, from the built artifact",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 165,
+                  "error": {
+                    "message": "Error: eager JS gzip 311032 B (303.7 KiB) exceeds the 286720 B (280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m286720\u001b[39m\nReceived:    \u001b[31m311032\u001b[39m",
+                    "stack": "Error: eager JS gzip 311032 B (303.7 KiB) exceeds the 286720 B (280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m286720\u001b[39m\nReceived:    \u001b[31m311032\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:374:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                      "column": 7,
+                      "line": 374
+                    },
+                    "snippet": "  372 |             `(280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take ` +\n  373 |             `bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.`,\n> 374 |     ).toBeLessThanOrEqual(EAGER_JS_GZ_MAX);\n      |       ^\n  375 | });\n  376 |\n  377 | test(\"X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs\", async ({"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                        "column": 7,
+                        "line": 374
+                      },
+                      "message": "Error: eager JS gzip 311032 B (303.7 KiB) exceeds the 286720 B (280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m286720\u001b[39m\nReceived:    \u001b[31m311032\u001b[39m\n\n  372 |             `(280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take ` +\n  373 |             `bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.`,\n> 374 |     ).toBeLessThanOrEqual(EAGER_JS_GZ_MAX);\n      |       ^\n  375 | });\n  376 |\n  377 | test(\"X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs\", async ({\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:374:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[X-W2 G2] eager JS modules=22 raw=951685 gz=311032 (303.7 KiB) bar=286720 B → RED\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   entry-module   ./assets/index-D8f7yC-j.js  raw=534709 gz=174024\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/rolldown-runtime-QTnfLwEv.js  raw=694 gz=423\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/vue.runtime.esm-bundler-CZavfU-W.js  raw=109858 gz=41722\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/keyframes-BUfwlxCX.js  raw=17860 gz=6118\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/serialize-6j3RLSkC--yquWdXp.js  raw=72791 gz=19707\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/picker-color-BQ_XhfKf.js  raw=4355 gz=1645\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/color-model-DyHdiHDv.js  raw=302 gz=235\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/dist-DMUUKvXY.js  raw=17137 gz=7153\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/createLucideIcon-D0wQU3OO.js  raw=8116 gz=3449\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/dom-DEPhWXzR.js  raw=14010 gz=5811\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/PopperContent-bnvKlz4x.js  raw=34881 gz=12705\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/fading-scroll-CTeW3KNS-C1YomUkH.js  raw=20213 gz=7332\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/selection-DqIULxRG-CbpwPUhM.js  raw=4169 gz=1804\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/Presence-Ctv1Ebts.js  raw=3359 gz=1582\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/DropdownMenuTrigger-CKRnhDSQ-DBTf1dZJ.js  raw=43734 gz=8716\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/_plugin-vue_export-helper-B3ysoDQm-CkmoDiir.js  raw=435 gz=291\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/keyboard-BOrFgAc-.js  raw=2465 gz=1208\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/PopoverTrigger-U1IvUO0G.js  raw=1726 gz=853\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/popover-DA87hFBx-RbYtnl5y.js  raw=30616 gz=6690\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/status-dot-W4LFiJps-Cu9CUpDP.js  raw=11071 gz=3111\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/slider-5ChjjWSR-B6lhLycn.js  raw=17944 gz=5771\n"
+                    },
+                    {
+                      "text": "[X-W2 G2]   modulepreload  ./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js  raw=1240 gz=682\n"
+                    },
+                    {
+                      "text": "[X-W2 G2] render-block CSS raw=541858 gz=90725 (88.6 KiB) — measured, NOT gated\n"
+                    },
+                    {
+                      "text": "[X-W2 G2] TOTAL eager gz=401757 (392.3 KiB)\n"
+                    }
+                  ],
+                  "stderr": [
+                    {
+                      "text": "dist: dist/gh-pages   (index.html raw=16459 gz=5891)\neager JS modules: 22\n    ./assets/index-D8f7yC-j.js  raw=534709  gz=174024  (entry-module)\n    ./assets/rolldown-runtime-QTnfLwEv.js  raw=694  gz=423  (modulepreload)\n    ./assets/vue.runtime.esm-bundler-CZavfU-W.js  raw=109858  gz=41722  (modulepreload)\n    ./assets/keyframes-BUfwlxCX.js  raw=17860  gz=6118  (modulepreload)\n    ./assets/serialize-6j3RLSkC--yquWdXp.js  raw=72791  gz=19707  (modulepreload)\n    ./assets/picker-color-BQ_XhfKf.js  raw=4355  gz=1645  (modulepreload)\n    ./assets/color-model-DyHdiHDv.js  raw=302  gz=235  (modulepreload)\n    ./assets/dist-DMUUKvXY.js  raw=17137  gz=7153  (modulepreload)\n    ./assets/createLucideIcon-D0wQU3OO.js  raw=8116  gz=3449  (modulepreload)\n    ./assets/dom-DEPhWXzR.js  raw=14010  gz=5811  (modulepreload)\n    ./assets/PopperContent-bnvKlz4x.js  raw=34881  gz=12705  (modulepreload)\n    ./assets/fading-scroll-CTeW3KNS-C1YomUkH.js  raw=20213  gz=7332  (modulepreload)\n    ./assets/selection-DqIULxRG-CbpwPUhM.js  raw=4169  gz=1804  (modulepreload)\n    ./assets/Presence-Ctv1Ebts.js  raw=3359  gz=1582  (modulepreload)\n    ./assets/DropdownMenuTrigger-CKRnhDSQ-DBTf1dZJ.js  raw=43734  gz=8716  (modulepreload)\n    ./assets/_plugin-vue_export-helper-B3ysoDQm-CkmoDiir.js  raw=435  gz=291  (modulepreload)\n    ./assets/keyboard-BOrFgAc-.js  raw=2465  gz=1208  (modulepreload)\n    ./assets/PopoverTrigger-U1IvUO0G.js  raw=1726  gz=853  (modulepreload)\n    ./assets/popover-DA87hFBx-RbYtnl5y.js  raw=30616  gz=6690  (modulepreload)\n    ./assets/status-dot-W4LFiJps-Cu9CUpDP.js  raw=11071  gz=3111  (modulepreload)\n    ./assets/slider-5ChjjWSR-B6lhLycn.js  raw=17944  gz=5771  (modulepreload)\n    ./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js  raw=1240  gz=682  (modulepreload)\neager JS   raw= 951685  gz= 311032 = 303.7 KiB   (bar 286720 B) -> RED\nrender-block CSS raw= 541858  gz= 90725 = 88.6 KiB   (measured, NOT gated)\n    excluded (async): ./assets/glass-fonts-PBJY3762.css  raw=132840  gz=100386  media=print\nTOTAL eager gz= 401757 = 392.3 KiB\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:08:09.165Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/eager-payload-X-W2-G2-—-th-e3033-get-from-the-built-artifact-smoke-perf/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                    "column": 7,
+                    "line": 374
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "788a1a78543e345a9dc6-a0cc65b6baf1466ff8e1",
+          "file": "smoke/perf/eager-payload.spec.ts",
+          "line": 313,
+          "column": 1
+        },
+        {
+          "title": "X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1200000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 170223,
+                  "error": {
+                    "message": "Error: G3 mobile-4x-cpu: p75 TBT 862ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8291]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m862\u001b[39m",
+                    "stack": "Error: G3 mobile-4x-cpu: p75 TBT 862ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8291]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m862\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:533:14",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                      "column": 14,
+                      "line": 533
+                    },
+                    "snippet": "  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                        "column": 14,
+                        "line": 533
+                      },
+                      "message": "Error: G3 mobile-4x-cpu: p75 TBT 862ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8291]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m300\u001b[39m\nReceived:    \u001b[31m862\u001b[39m\n\n  531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,\n  532 |             )\n> 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);\n      |              ^\n  534 |         expect\n  535 |             .soft(\n  536 |                 s.p75Lcp,\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:533:14"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[X-W2 CWV] pin: macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8291\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] renderer(raw): ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] origin=http://localhost:8291 route=#/ N=20 settle=3000ms cold-cache=CDP Network.setCacheDisabled\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV desktop-unthrottled] warmup (DISCARDED from p75): lcp=2868ms tbt=177ms fcp=512ms longTasks=2\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV desktop-unthrottled] N=20 p75 LCP=1220ms p75 TBT=111ms p75 FCP=456ms p75 TBT[FCP,end]=0ms (reported, not gated) p75 CLS=0.0000 median longTasks=1 p75 longest task=154ms max TBT=254ms median transfer(uncompressed, diagnostic)=2313157 B resources=44\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV mobile-4x-cpu] warmup (DISCARDED from p75): lcp=760ms tbt=708ms fcp=760ms longTasks=6\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV mobile-4x-cpu] N=20 p75 LCP=880ms p75 TBT=862ms p75 FCP=880ms p75 TBT[FCP,end]=187ms (reported, not gated) p75 CLS=0.0000 median longTasks=6 p75 longest task=597ms max TBT=1450ms median transfer(uncompressed, diagnostic)=2313157 B resources=44\n"
+                    },
+                    {
+                      "text": "[X-W2 CWV] record\n{\n  \"schema\": \"x-w2.cwv/1\",\n  \"gate\": \"W2.md §6 G3 (p75 TBT ≤ 300 ms) · G4 (p75 LCP ≤ 2500 ms)\",\n  \"generatedAt\": \"2026-10-18T21:11:00.202Z\",\n  \"pin\": \"macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8291\",\n  \"rendererRaw\": \"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)\",\n  \"origin\": \"http://localhost:8291\",\n  \"originKind\": \"BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)\",\n  \"route\": \"#/\",\n  \"n\": 20,\n  \"settleMs\": 3000,\n  \"coldCache\": \"CDP Network.setCacheDisabled + a fresh browser context per load\",\n  \"tbtDefinition\": \"Lighthouse calculateSumOfBlockingTime (every long task ≥ 50 ms, CLIPPED to the window, contributes clippedDuration − 50 ms), evaluated over TWO windows. GATED: [navigationStart, observationEnd]. REPORTED BESIDE IT: Lighthouse's strict [FCP, TTI≈observationEnd], which reads 0 on this product because FCP===LCP — nothing paints until Vue mounts, so the boot's blocking task ends before first paint and the strict window is structurally blind to the cost this wave cuts (L-19). observationEnd (per-sample `windowEndMs`) stands in for TTI, which this harness cannot derive without a trace.\",\n  \"configs\": {\n    \"desktop-unthrottled\": {\n      \"viewport\": {\n        \"width\": 1440,\n        \"height\": 900\n      },\n      \"cpuThrottleRate\": 1,\n      \"n\": 20,\n      \"warmupLoadsDiscarded\": 1,\n      \"warmup\": {\n        \"lcp\": 2868,\n        \"fcp\": 512,\n        \"tbt\": 177,\n        \"tbtLighthouseWindow\": 0,\n        \"cls\": 0,\n        \"longTasks\": 2,\n        \"tasks\": [\n          {\n            \"start\": 21.80000000447035,\n            \"dur\": 213\n          },\n          {\n            \"start\": 367.3999999985099,\n            \"dur\": 64\n          }\n        ],\n        \"windowEndMs\": 3437.7000000029802,\n        \"transferBytes\": 2266533,\n        \"resources\": 46\n      },\n      \"p75Lcp\": 1220,\n      \"p75Tbt\": 111,\n      \"p75Fcp\": 456,\n      \"p75TbtLighthouseWindow\": 0,\n      \"medianLcp\": 932,\n      \"medianTbt\": 91,\n      \"maxTbt\": 254,\n      \"p75LongestTaskMs\": 154,\n      \"p75Cls\": 0,\n      \"medianLongTasks\": 1,\n      \"medianTransferBytesUncompressed\": 2313157,\n      \"medianResources\": 44,\n      \"gates\": {\n        \"G3 p75 TBT ≤ 300 ms\": {\n          \"measured\": 111,\n          \"window\": \"[navigationStart, observationEnd] — the gated window\",\n          \"bar\": 300,\n          \"verdict\": \"GREEN\",\n          \"lighthouseWindowReading\": 0,\n          \"lighthouseWindowNote\": \"[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19).\"\n        },\n        \"G4 p75 LCP ≤ 2500 ms\": {\n          \"measured\": 1220,\n          \"bar\": 2500,\n          \"verdict\": \"GREEN\"\n        }\n      },\n      \"samples\": [\n        {\n          \"lcp\": 1260,\n          \"fcp\": 400,\n          \"tbt\": 254,\n          \"tbtLighthouseWindow\": 128,\n          \"cls\": 0,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 22.399999998509884,\n              \"dur\": 176\n            },\n            {\n              \"start\": 2654.3000000044703,\n              \"dur\": 178\n            }\n          ],\n          \"windowEndMs\": 3336.2000000029802,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1268,\n          \"fcp\": 500,\n          \"tbt\": 111,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 19.799999997019768,\n              \"dur\": 161\n            }\n          ],\n          \"windowEndMs\": 3329.2000000029802,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1220,\n          \"fcp\": 452,\n          \"tbt\": 103,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 20.69999999552965,\n              \"dur\": 153\n            }\n          ],\n          \"windowEndMs\": 3312,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1236,\n          \"fcp\": 456,\n          \"tbt\": 99,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 19.900000005960464,\n              \"dur\": 149\n            }\n          ],\n          \"windowEndMs\": 3307.4000000059605,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1108,\n          \"fcp\": 508,\n          \"tbt\": 103,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 19.899999998509884,\n              \"dur\": 153\n            }\n          ],\n          \"windowEndMs\": 3320.60000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1256,\n          \"fcp\": 456,\n          \"tbt\": 112,\n          \"tbtLighthouseWindow\": 10,\n          \"cls\": 0,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 19.69999999552965,\n              \"dur\": 152\n            },\n            {\n              \"start\": 2474.39999999851,\n              \"dur\": 60\n            }\n          ],\n          \"windowEndMs\": 3311.39999999851,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1036,\n          \"fcp\": 408,\n          \"tbt\": 87,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 18.600000001490116,\n              \"dur\": 137\n            }\n          ],\n          \"windowEndMs\": 3285.2000000029802,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 932,\n          \"fcp\": 452,\n          \"tbt\": 135,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 20.299999997019768,\n              \"dur\": 185\n            }\n          ],\n          \"windowEndMs\": 3345.10000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1076,\n          \"fcp\": 384,\n          \"tbt\": 106,\n          \"tbtLighthouseWindow\": 2,\n          \"cls\": 0,\n          \"longTasks\": 2,\n          \"tasks\": [\n            {\n              \"start\": 19.399999998509884,\n              \"dur\": 154\n            },\n            {\n              \"start\": 2643.5999999940395,\n              \"dur\": 52\n            }\n          ],\n          \"windowEndMs\": 3312.89999999851,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1064,\n          \"fcp\": 460,\n          \"tbt\": 91,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 16.700000002980232,\n              \"dur\": 141\n            }\n          ],\n          \"windowEndMs\": 3299,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 624,\n          \"fcp\": 280,\n          \"tbt\": 78,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 16.700000002980232,\n              \"dur\": 128\n            }\n          ],\n          \"windowEndMs\": 3263.2000000029802,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 728,\n          \"fcp\": 296,\n          \"tbt\": 83,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 18.099999994039536,\n              \"dur\": 133\n            }\n          ],\n          \"windowEndMs\": 3276.7999999970198,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 676,\n          \"fcp\": 288,\n          \"tbt\": 83,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 17.599999994039536,\n              \"dur\": 133\n            }\n          ],\n          \"windowEndMs\": 3271.1999999955297,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 752,\n          \"fcp\": 292,\n          \"tbt\": 81,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 17.799999997019768,\n              \"dur\": 131\n            }\n          ],\n          \"windowEndMs\": 3275.39999999851,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 636,\n          \"fcp\": 288,\n          \"tbt\": 72,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 16.100000001490116,\n              \"dur\": 122\n            }\n          ],\n          \"windowEndMs\": 3264.7000000029802,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 648,\n          \"fcp\": 284,\n          \"tbt\": 75,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 15,\n              \"dur\": 125\n            }\n          ],\n          \"windowEndMs\": 3266.8000000044703,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 744,\n          \"fcp\": 296,\n          \"tbt\": 87,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 19.5,\n              \"dur\": 137\n            }\n          ],\n          \"windowEndMs\": 3281.8000000044703,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 724,\n          \"fcp\": 340,\n          \"tbt\": 123,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 19.80000000447035,\n              \"dur\": 173\n            }\n          ],\n          \"windowEndMs\": 3322.60000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 728,\n          \"fcp\": 292,\n          \"tbt\": 84,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 19.100000001490116,\n              \"dur\": 134\n            }\n          ],\n          \"windowEndMs\": 3281.60000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 748,\n          \"fcp\": 312,\n          \"tbt\": 89,\n          \"tbtLighthouseWindow\": 0,\n          \"cls\": 0,\n          \"longTasks\": 1,\n          \"tasks\": [\n            {\n              \"start\": 18.399999998509884,\n              \"dur\": 139\n            }\n          ],\n          \"windowEndMs\": 3286.10000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        }\n      ]\n    },\n    \"mobile-4x-cpu\": {\n      \"viewport\": {\n        \"width\": 390,\n        \"height\": 844\n      },\n      \"cpuThrottleRate\": 4,\n      \"n\": 20,\n      \"warmupLoadsDiscarded\": 1,\n      \"warmup\": {\n        \"lcp\": 760,\n        \"fcp\": 760,\n        \"tbt\": 708,\n        \"tbtLighthouseWindow\": 150,\n        \"cls\": 0.0042545177470269,\n        \"longTasks\": 6,\n        \"tasks\": [\n          {\n            \"start\": 72,\n            \"dur\": 520\n          },\n          {\n            \"start\": 596.3000000044703,\n            \"dur\": 89\n          },\n          {\n            \"start\": 711,\n            \"dur\": 177\n          },\n          {\n            \"start\": 1026.6000000014901,\n            \"dur\": 108\n          },\n          {\n            \"start\": 1206.2000000029802,\n            \"dur\": 54\n          },\n          {\n            \"start\": 2719.7000000029802,\n            \"dur\": 60\n          }\n        ],\n        \"windowEndMs\": 4010.7000000029802,\n        \"transferBytes\": 2313157,\n        \"resources\": 44\n      },\n      \"p75Lcp\": 880,\n      \"p75Tbt\": 862,\n      \"p75Fcp\": 880,\n      \"p75TbtLighthouseWindow\": 187.39999999850988,\n      \"medianLcp\": 828,\n      \"medianTbt\": 808,\n      \"maxTbt\": 1450,\n      \"p75LongestTaskMs\": 597,\n      \"p75Cls\": 0,\n      \"medianLongTasks\": 6,\n      \"medianTransferBytesUncompressed\": 2313157,\n      \"medianResources\": 44,\n      \"gates\": {\n        \"G3 p75 TBT ≤ 300 ms\": {\n          \"measured\": 862,\n          \"window\": \"[navigationStart, observationEnd] — the gated window\",\n          \"bar\": 300,\n          \"verdict\": \"RED\",\n          \"lighthouseWindowReading\": 187.39999999850988,\n          \"lighthouseWindowNote\": \"[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19).\"\n        },\n        \"G4 p75 LCP ≤ 2500 ms\": {\n          \"measured\": 880,\n          \"bar\": 2500,\n          \"verdict\": \"GREEN\"\n        }\n      },\n      \"samples\": [\n        {\n          \"lcp\": 788,\n          \"fcp\": 788,\n          \"tbt\": 747,\n          \"tbtLighthouseWindow\": 160.79999999701977,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 71.20000000298023,\n              \"dur\": 531\n            },\n            {\n              \"start\": 606.2999999970198,\n              \"dur\": 95\n            },\n            {\n              \"start\": 727.7999999970198,\n              \"dur\": 196\n            },\n            {\n              \"start\": 1078,\n              \"dur\": 114\n            },\n            {\n              \"start\": 1241.2999999970198,\n              \"dur\": 56\n            },\n            {\n              \"start\": 1297.6000000014901,\n              \"dur\": 55\n            }\n          ],\n          \"windowEndMs\": 4076.5,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 788,\n          \"fcp\": 788,\n          \"tbt\": 1381,\n          \"tbtLighthouseWindow\": 798.1999999955297,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 72.79999999701977,\n              \"dur\": 545\n            },\n            {\n              \"start\": 622.1999999955297,\n              \"dur\": 93\n            },\n            {\n              \"start\": 743.1999999955297,\n              \"dur\": 179\n            },\n            {\n              \"start\": 1072.2999999970198,\n              \"dur\": 116\n            },\n            {\n              \"start\": 1260.0999999940395,\n              \"dur\": 58\n            },\n            {\n              \"start\": 2497.89999999851,\n              \"dur\": 51\n            },\n            {\n              \"start\": 2839.6999999955297,\n              \"dur\": 689\n            }\n          ],\n          \"windowEndMs\": 4028,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 808,\n          \"fcp\": 808,\n          \"tbt\": 737,\n          \"tbtLighthouseWindow\": 141.90000000596046,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 82.80000000447035,\n              \"dur\": 551\n            },\n            {\n              \"start\": 638.4000000059605,\n              \"dur\": 85\n            },\n            {\n              \"start\": 748.9000000059605,\n              \"dur\": 174\n            },\n            {\n              \"start\": 1065.4000000059605,\n              \"dur\": 117\n            },\n            {\n              \"start\": 1233.7000000029802,\n              \"dur\": 56\n            },\n            {\n              \"start\": 1290.6000000014901,\n              \"dur\": 51\n            },\n            {\n              \"start\": 2565.3000000044703,\n              \"dur\": 53\n            }\n          ],\n          \"windowEndMs\": 4064.9000000059605,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 824,\n          \"fcp\": 824,\n          \"tbt\": 770,\n          \"tbtLighthouseWindow\": 152.70000000298023,\n          \"cls\": 0,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 74.39999999850988,\n              \"dur\": 558\n            },\n            {\n              \"start\": 636.8000000044703,\n              \"dur\": 94\n            },\n            {\n              \"start\": 758.7000000029802,\n              \"dur\": 194\n            },\n            {\n              \"start\": 1112.2000000029802,\n              \"dur\": 109\n            },\n            {\n              \"start\": 1292.7000000029802,\n              \"dur\": 65\n            }\n          ],\n          \"windowEndMs\": 4063.10000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 784,\n          \"fcp\": 784,\n          \"tbt\": 1450,\n          \"tbtLighthouseWindow\": 867.3999999985099,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 70,\n              \"dur\": 546\n            },\n            {\n              \"start\": 620.2999999970198,\n              \"dur\": 90\n            },\n            {\n              \"start\": 737.3999999985099,\n              \"dur\": 195\n            },\n            {\n              \"start\": 1086.2999999970198,\n              \"dur\": 119\n            },\n            {\n              \"start\": 1280.7999999970198,\n              \"dur\": 62\n            },\n            {\n              \"start\": 2882,\n              \"dur\": 725\n            },\n            {\n              \"start\": 3607.39999999851,\n              \"dur\": 63\n            }\n          ],\n          \"windowEndMs\": 4040.5,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 872,\n          \"fcp\": 872,\n          \"tbt\": 819,\n          \"tbtLighthouseWindow\": 155.70000000298023,\n          \"cls\": 0.0042545177470269,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 75,\n              \"dur\": 572\n            },\n            {\n              \"start\": 651.4000000059605,\n              \"dur\": 98\n            },\n            {\n              \"start\": 778.7000000029802,\n              \"dur\": 191\n            },\n            {\n              \"start\": 1075.7000000029802,\n              \"dur\": 56\n            },\n            {\n              \"start\": 1145.8000000044703,\n              \"dur\": 127\n            },\n            {\n              \"start\": 1326.7000000029802,\n              \"dur\": 64\n            },\n            {\n              \"start\": 1390.7000000029802,\n              \"dur\": 61\n            }\n          ],\n          \"windowEndMs\": 4136.80000000447,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 780,\n          \"fcp\": 780,\n          \"tbt\": 738,\n          \"tbtLighthouseWindow\": 157.30000000447035,\n          \"cls\": 0.0042545177470269,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 68.39999999850988,\n              \"dur\": 537\n            },\n            {\n              \"start\": 609.6000000014901,\n              \"dur\": 95\n            },\n            {\n              \"start\": 731.3000000044703,\n              \"dur\": 183\n            },\n            {\n              \"start\": 1065.3000000044703,\n              \"dur\": 112\n            },\n            {\n              \"start\": 1225.3999999985099,\n              \"dur\": 54\n            },\n            {\n              \"start\": 1279.6000000014901,\n              \"dur\": 57\n            }\n          ],\n          \"windowEndMs\": 4065.7000000029802,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 780,\n          \"fcp\": 780,\n          \"tbt\": 725,\n          \"tbtLighthouseWindow\": 146.70000000298023,\n          \"cls\": 0,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 69.20000000298023,\n              \"dur\": 535\n            },\n            {\n              \"start\": 609.1000000014901,\n              \"dur\": 95\n            },\n            {\n              \"start\": 731.7000000029802,\n              \"dur\": 176\n            },\n            {\n              \"start\": 1051.3000000044703,\n              \"dur\": 111\n            },\n            {\n              \"start\": 1230.5,\n              \"dur\": 58\n            }\n          ],\n          \"windowEndMs\": 4052.5,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 764,\n          \"fcp\": 764,\n          \"tbt\": 671,\n          \"tbtLighthouseWindow\": 107.90000000596046,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 77.10000000149012,\n              \"dur\": 518\n            },\n            {\n              \"start\": 598.7000000029802,\n              \"dur\": 83\n            },\n            {\n              \"start\": 701.9000000059605,\n              \"dur\": 145\n            },\n            {\n              \"start\": 1014.8000000044703,\n              \"dur\": 108\n            },\n            {\n              \"start\": 1171.7000000029802,\n              \"dur\": 59\n            },\n            {\n              \"start\": 1230.9000000059605,\n              \"dur\": 58\n            }\n          ],\n          \"windowEndMs\": 3977,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 932,\n          \"fcp\": 932,\n          \"tbt\": 896,\n          \"tbtLighthouseWindow\": 177.30000000447035,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 78.20000000298023,\n              \"dur\": 637\n            },\n            {\n              \"start\": 721.1000000014901,\n              \"dur\": 110\n            },\n            {\n              \"start\": 860.3000000044703,\n              \"dur\": 207\n            },\n            {\n              \"start\": 1195.5,\n              \"dur\": 124\n            },\n            {\n              \"start\": 1407.5,\n              \"dur\": 60\n            },\n            {\n              \"start\": 1468.2000000029802,\n              \"dur\": 58\n            }\n          ],\n          \"windowEndMs\": 4396.5,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 880,\n          \"fcp\": 880,\n          \"tbt\": 870,\n          \"tbtLighthouseWindow\": 204.10000000149012,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 76.39999999850988,\n              \"dur\": 586\n            },\n            {\n              \"start\": 666.6000000014901,\n              \"dur\": 116\n            },\n            {\n              \"start\": 816.1000000014901,\n              \"dur\": 220\n            },\n            {\n              \"start\": 1193.1000000014901,\n              \"dur\": 121\n            },\n            {\n              \"start\": 1364.3000000044703,\n              \"dur\": 59\n            },\n            {\n              \"start\": 1423.8000000044703,\n              \"dur\": 62\n            },\n            {\n              \"start\": 2830.10000000149,\n              \"dur\": 56\n            }\n          ],\n          \"windowEndMs\": 4193.60000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 1048,\n          \"fcp\": 1048,\n          \"tbt\": 841,\n          \"tbtLighthouseWindow\": 95,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 75,\n              \"dur\": 597\n            },\n            {\n              \"start\": 676.7000000029802,\n              \"dur\": 106\n            },\n            {\n              \"start\": 812,\n              \"dur\": 193\n            },\n            {\n              \"start\": 1106.9000000059605,\n              \"dur\": 52\n            },\n            {\n              \"start\": 1166.2000000029802,\n              \"dur\": 123\n            },\n            {\n              \"start\": 1340.1000000014901,\n              \"dur\": 58\n            },\n            {\n              \"start\": 1480.6000000014901,\n              \"dur\": 62\n            }\n          ],\n          \"windowEndMs\": 4167,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 800,\n          \"fcp\": 800,\n          \"tbt\": 749,\n          \"tbtLighthouseWindow\": 158.80000000447035,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 74.40000000596046,\n              \"dur\": 523\n            },\n            {\n              \"start\": 603,\n              \"dur\": 102\n            },\n            {\n              \"start\": 734.8000000044703,\n              \"dur\": 189\n            },\n            {\n              \"start\": 1028,\n              \"dur\": 120\n            },\n            {\n              \"start\": 1250.3000000044703,\n              \"dur\": 59\n            },\n            {\n              \"start\": 1309.5,\n              \"dur\": 56\n            }\n          ],\n          \"windowEndMs\": 4241.80000000447,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 960,\n          \"fcp\": 960,\n          \"tbt\": 862,\n          \"tbtLighthouseWindow\": 123,\n          \"cls\": 0,\n          \"longTasks\": 7,\n          \"tasks\": [\n            {\n              \"start\": 77.20000000298023,\n              \"dur\": 598\n            },\n            {\n              \"start\": 680.3000000044703,\n              \"dur\": 100\n            },\n            {\n              \"start\": 809.3000000044703,\n              \"dur\": 191\n            },\n            {\n              \"start\": 1164.8000000044703,\n              \"dur\": 119\n            },\n            {\n              \"start\": 1333,\n              \"dur\": 60\n            },\n            {\n              \"start\": 1393.8000000044703,\n              \"dur\": 58\n            },\n            {\n              \"start\": 2909.7000000029802,\n              \"dur\": 86\n            }\n          ],\n          \"windowEndMs\": 4165.89999999851,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 800,\n          \"fcp\": 800,\n          \"tbt\": 808,\n          \"tbtLighthouseWindow\": 216.89999999850988,\n          \"cls\": 0,\n          \"longTasks\": 8,\n          \"tasks\": [\n            {\n              \"start\": 73.39999999850988,\n              \"dur\": 541\n            },\n            {\n              \"start\": 618.6000000014901,\n              \"dur\": 101\n            },\n            {\n              \"start\": 750.8999999985099,\n              \"dur\": 190\n            },\n            {\n              \"start\": 1034.2999999970198,\n              \"dur\": 53\n            },\n            {\n              \"start\": 1095.1000000014901,\n              \"dur\": 121\n            },\n            {\n              \"start\": 1267.7999999970198,\n              \"dur\": 60\n            },\n            {\n              \"start\": 1357.7000000029802,\n              \"dur\": 61\n            },\n            {\n              \"start\": 2808.2999999970198,\n              \"dur\": 81\n            }\n          ],\n          \"windowEndMs\": 4095.10000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 964,\n          \"fcp\": 964,\n          \"tbt\": 769,\n          \"tbtLighthouseWindow\": 75,\n          \"cls\": 0,\n          \"longTasks\": 5,\n          \"tasks\": [\n            {\n              \"start\": 77,\n              \"dur\": 556\n            },\n            {\n              \"start\": 638,\n              \"dur\": 102\n            },\n            {\n              \"start\": 769.2999999970198,\n              \"dur\": 186\n            },\n            {\n              \"start\": 1075.3999999985099,\n              \"dur\": 113\n            },\n            {\n              \"start\": 1303.1999999955297,\n              \"dur\": 62\n            }\n          ],\n          \"windowEndMs\": 4271,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 840,\n          \"fcp\": 840,\n          \"tbt\": 816,\n          \"tbtLighthouseWindow\": 187.39999999850988,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 76.60000000149012,\n              \"dur\": 581\n            },\n            {\n              \"start\": 662.3999999985099,\n              \"dur\": 96\n            },\n            {\n              \"start\": 788.3999999985099,\n              \"dur\": 198\n            },\n            {\n              \"start\": 1145.7000000029802,\n              \"dur\": 120\n            },\n            {\n              \"start\": 1315.7999999970198,\n              \"dur\": 61\n            },\n            {\n              \"start\": 1377.5,\n              \"dur\": 60\n            }\n          ],\n          \"windowEndMs\": 4148.10000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 836,\n          \"fcp\": 836,\n          \"tbt\": 810,\n          \"tbtLighthouseWindow\": 182,\n          \"cls\": 0.0042545177470269,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 76,\n              \"dur\": 568\n            },\n            {\n              \"start\": 648.7999999970198,\n              \"dur\": 103\n            },\n            {\n              \"start\": 779,\n              \"dur\": 195\n            },\n            {\n              \"start\": 1095.3999999985099,\n              \"dur\": 128\n            },\n            {\n              \"start\": 1311.1000000014901,\n              \"dur\": 57\n            },\n            {\n              \"start\": 1486.6000000014901,\n              \"dur\": 59\n            }\n          ],\n          \"windowEndMs\": 4301.79999999702,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 848,\n          \"fcp\": 848,\n          \"tbt\": 790,\n          \"tbtLighthouseWindow\": 153,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 76.59999999403954,\n              \"dur\": 557\n            },\n            {\n              \"start\": 639.5999999940395,\n              \"dur\": 98\n            },\n            {\n              \"start\": 766,\n              \"dur\": 182\n            },\n            {\n              \"start\": 1057.8999999985099,\n              \"dur\": 136\n            },\n            {\n              \"start\": 1293.1999999955297,\n              \"dur\": 59\n            },\n            {\n              \"start\": 1503,\n              \"dur\": 58\n            }\n          ],\n          \"windowEndMs\": 4283.19999999553,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        },\n        {\n          \"lcp\": 828,\n          \"fcp\": 828,\n          \"tbt\": 782,\n          \"tbtLighthouseWindow\": 164.80000000447035,\n          \"cls\": 0,\n          \"longTasks\": 6,\n          \"tasks\": [\n            {\n              \"start\": 76.60000000149012,\n              \"dur\": 562\n            },\n            {\n              \"start\": 643.9000000059605,\n              \"dur\": 100\n            },\n            {\n              \"start\": 772.8000000044703,\n              \"dur\": 190\n            },\n            {\n              \"start\": 1079.2000000029802,\n              \"dur\": 115\n            },\n            {\n              \"start\": 1287.4000000059605,\n              \"dur\": 61\n            },\n            {\n              \"start\": 1358.6000000014901,\n              \"dur\": 54\n            }\n          ],\n          \"windowEndMs\": 4286.60000000149,\n          \"transferBytes\": 2313157,\n          \"resources\": 44\n        }\n      ]\n    }\n  }\n}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:08:09.766Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts",
+                    "column": 14,
+                    "line": 533
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "788a1a78543e345a9dc6-e58474358c63168a557b",
+          "file": "smoke/perf/eager-payload.spec.ts",
+          "line": 377,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/idle-frame-budget.spec.ts",
+      "file": "smoke/perf/idle-frame-budget.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14836,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[frame-budget:idle] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))\n  hero live: draws=60 over frames=60 window=3000ms p50=37.4ms p95=147.1ms\n  §6.2 GATE: idle p50 ≤ 13ms (hero live)  [asserted on real GPU — probe-idle-cost.mjs GPU=1]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:11:00.805Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbec47f78cedff85b733-2a662f52d1156851d3cf",
+          "file": "smoke/perf/idle-frame-budget.spec.ts",
+          "line": 47,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/o24-lcp-identity.spec.ts",
+      "file": "smoke/perf/o24-lcp-identity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-24 LCP identity + reveal-only law — both schemes, built bundle",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10965,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[O-24 light] candidate sequence:\n  1144ms size=20017 <div> glass-resting card paper-grain-overlay relative flex flex-co\n  2184ms size=25516 <h2> card-title pane-header-title font-display\n"
+                    },
+                    {
+                      "text": "[O-24 dark] candidate sequence:\n  1212ms size=20017 <div> glass-resting card paper-grain-overlay relative flex flex-co\n  1736ms size=25516 <h2> card-title pane-header-title font-display\n"
+                    },
+                    {
+                      "text": "[O-24 light] t=2184ms size=25516 <h2> testid= id= cls=\"card-title pane-header-title font-display\" text=\"About the color spaces, Lab\" opacity=1\n"
+                    },
+                    {
+                      "text": "[O-24 dark ] t=1736ms size=25516 <h2> testid= id= cls=\"card-title pane-header-title font-display\" text=\"About the color spaces, Lab\" opacity=1\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:11:15.799Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d3f89ee4509608d01acc-d8ffc0535f64d7eeb62d",
+          "file": "smoke/perf/o24-lcp-identity.spec.ts",
+          "line": 100,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/o5-boot-pacing.spec.ts",
+      "file": "smoke/perf/o5-boot-pacing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "O-5 boot pacing — no jitter spike over the boot window",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4784,
+                  "error": {
+                    "message": "Error: boot jitter spike 549.4ms = 17.1× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m96.29999999999973\u001b[39m\nReceived:    \u001b[31m549.4000000000001\u001b[39m",
+                    "stack": "Error: boot jitter spike 549.4ms = 17.1× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m96.29999999999973\u001b[39m\nReceived:    \u001b[31m549.4000000000001\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts:110:7",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts",
+                      "column": 7,
+                      "line": 110
+                    },
+                    "snippet": "  108 |         maxDelta,\n  109 |         `boot jitter spike ${maxDelta.toFixed(1)}ms = ${(maxDelta / median).toFixed(1)}× median (> ${SPIKE_RATIO}×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload`,\n> 110 |     ).toBeLessThanOrEqual(SPIKE_RATIO * median);\n      |       ^\n  111 |     expect(\n  112 |         dropFraction,\n  113 |         `dropped-frame ratio ${(dropFraction * 100).toFixed(1)}% > ${DROP_FRACTION_MAX * 100}%`,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts",
+                        "column": 7,
+                        "line": 110
+                      },
+                      "message": "Error: boot jitter spike 549.4ms = 17.1× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m96.29999999999973\u001b[39m\nReceived:    \u001b[31m549.4000000000001\u001b[39m\n\n  108 |         maxDelta,\n  109 |         `boot jitter spike ${maxDelta.toFixed(1)}ms = ${(maxDelta / median).toFixed(1)}× median (> ${SPIKE_RATIO}×) — the 44→315ms hole class; re-measured at X-W2 (2026-09-17), cause is presentation-side, not payload`,\n> 110 |     ).toBeLessThanOrEqual(SPIKE_RATIO * median);\n      |       ^\n  111 |     expect(\n  112 |         dropFraction,\n  113 |         `dropped-frame ratio ${(dropFraction * 100).toFixed(1)}% > ${DROP_FRACTION_MAX * 100}%`,\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts:110:7"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[O-5] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) frames=77 median=32.1ms max=549.4ms (17.1× median) dropped=15 (19.5%)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:11:26.786Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/Programming/value.js/test-results/o5-boot-pacing-O-5-boot-pa-aca4a--spike-over-the-boot-window-smoke-perf/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts",
+                    "column": 7,
+                    "line": 110
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "db0812e1daf4f2dada58-ed2689d1cc206f7b6b80",
+          "file": "smoke/perf/o5-boot-pacing.spec.ts",
+          "line": 74,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/perf/view-switch-frame-budget.spec.ts",
+      "file": "smoke/perf/view-switch-frame-budget.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (built-bundle gate)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-perf",
+              "projectName": "smoke-perf",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9108,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[frame-budget:view-switch] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))\n  firstFrame=148.8ms maxTask=145ms\n  §6.2 GATE: first frame ≤ 100ms · long task ≤ 50ms  [first-frame asserted on real GPU — see w3-frame-budget-measure.md]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T21:11:31.997Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1b14bc0cc4a938867a7-56fa5151dc16da1e5faf",
+          "file": "smoke/perf/view-switch-frame-budget.spec.ts",
+          "line": 43,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T21:04:25.624Z",
+    "duration": 435685.629,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 17,
+    "flaky": 0
+  }
+}

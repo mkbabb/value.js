@@ -1,0 +1,1204 @@
+[guarded] waiting for the 'webkit' lock
+admitted 2026-10-18 18:01:08 -0400 HEAD 1fcc2cfe89ff318819b865ab8c14e864d8e12f2d
+(node:19764) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:19814) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 178 tests using 1 worker
+
+[1A[2K(node:19847) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/178] [oracles-safari] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states
+[1A[2K[2/178] [oracles-safari] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states
+[1A[2K[3/178] [oracles-safari] › e2e/smoke/oracles/o1-color-truth-boot.spec.ts:39:1 › O-1 color-truth — the settled boot field is the DERIVED seed's material
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o1-color-truth-boot.spec.ts:39:1 › O-1 color-truth — the settled boot field is the DERIVED seed's material
+[O-1] renderer=Apple GPU (real-GPU) sample rgb=(104,31,23) → OKLCh L=0.354 C=0.105 h=29.5° (seed h≈28°)
+
+[1A[2K[4/178] [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:77:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token
+[1A[2K[5/178] [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:123:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1)
+[1A[2K[6/178] [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:149:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock
+[1A[2K[7/178] [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional
+[1A[2K[8/178] [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px
+[1A[2K[9/178] [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px
+[1A[2K[10/178] [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title)
+[1A[2K[11/178] [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:223:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif
+[1A[2K[12/178] [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:275:1 › O-10d census — the 390 phone band: the card name truncates to ONE line under the serif
+[1A[2K[13/178] [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:305:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles
+[1A[2K[14/178] [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:392:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette)
+[1A[2K[15/178] [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:469:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row
+[1A[2K[16/178] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K[17/178] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K[18/178] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders
+[1A[2K[19/178] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub
+[1A[2K  1) [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+
+    Error: browser.startTracing: Tracing is only available in Chromium
+
+      309 |     });
+      310 |     await scrub();
+    > 311 |     await browser.startTracing(page, {
+          |                   ^
+      312 |         categories: ["devtools.timeline"],
+      313 |     });
+      314 |     await scrub();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:311:19
+
+    Error Context: test-results/o11-header-gates-O-11-gate-31c8e--is-FLAT-under-a-live-scrub-oracles-safari/error-context.md
+
+
+[1A[2K(node:24057) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[20/178] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated
+[1A[2K[2m[WebServer] [22m[2m6:03:31 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · mounted hook) TypeError: Importing a module script failed.
+
+[1A[2K[21/178] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header
+[1A[2K[22/178] [oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc
+[1A[2K[23/178] [oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget
+[o12-idle-cost] renderer=REAL-GPU window=3000ms draws=304 frames=303 p50=10.0ms (gate ≤13ms real-GPU)
+
+[1A[2K[o12-idle-cost] webkit parked floor p50=10.0ms → budget 13.0ms
+
+[1A[2K[24/178] [oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[o12-hover-active] renderer=REAL-GPU frames=316 p50=10.0ms (gate ≤20ms real-GPU)
+
+[1A[2K[25/178] [oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[o12-backing] renderer=REAL-GPU backing 180x180 css 180.2x180.2 dpr 1 → ratio 0.999 (full-res ≈ 1.0; R2 wreck ≈ 0.35; floor 0.6)
+
+[1A[2K[26/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8)
+[1A[2K[27/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column
+[1A[2K[28/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp
+[1A[2K[29/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp
+[1A[2K[30/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip
+[1A[2K[31/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops
+[1A[2K[32/178] [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize
+[1A[2K[2m[WebServer] [22m[2m6:04:28 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[2m[WebServer] [22m[39m > ../../../../../../@vite/client:531:59
+[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22m[2m6:04:28 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (window.error) ResizeObserver loop completed with undelivered notifications.
+
+[1A[2K[33/178] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection
+[1A[2K[34/178] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots
+[1A[2K[35/178] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole
+[1A[2K  2) [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+
+    Error: the Tools trigger paints no focus ring
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"none"[39m
+
+      130 |             }
+      131 |         }
+    > 132 |         expect(ring.style, "the Tools trigger paints no focus ring").not.toBe("none");
+          |                                                                          ^
+      133 |         expect(ring.width, "the focus ring has no width").toBeGreaterThan(0);
+      134 |         // …and the shadow's canvas is unclipped (asserted above: the inner
+      135 |         // computes overflow visible at settled rest).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:132:74
+
+    Error Context: test-results/o15-dock-register-O-15b-·--69d0d-capsule-shadow-render-whole-oracles-safari/error-context.md
+
+
+[1A[2K(node:25704) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[36/178] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model
+[1A[2K[37/178] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:165:5 › O-15b · the Tools clip release + register pass (W6-8) › zero native title on the dock set (the UA-slab retirement)
+[1A[2K[38/178] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:187:5 › O-15b · the Tools clip release + register pass (W6-8) › the separator folds into the slot's arrival — one presence grammar
+[1A[2K[39/178] [oracles-safari] › e2e/smoke/oracles/o16-computed-cascade.spec.ts:30:1 › O-16 computed-cascade — the dist :root 150ms transition-default clobber is not live
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o16-computed-cascade.spec.ts:30:1 › O-16 computed-cascade — the dist :root 150ms transition-default clobber is not live
+[O-16] :root --default-transition-duration = 0.2s
+
+[1A[2K[O-16] card surface=glass dur=0.18s, 0.18s timing=cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)
+
+[1A[2K[O-16] card surface=veil dur=0.18s, 0.18s timing=cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)
+
+[1A[2K[40/178] [oracles-safari] › e2e/smoke/oracles/o16-computed-cascade.spec.ts:126:1 › O-16 W5 census — every owned row's computed duration/curve ≡ its liquid target (both schemes)
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o16-computed-cascade.spec.ts:126:1 › O-16 W5 census — every owned row's computed duration/curve ≡ its liquid target (both schemes)
+[O-16·W5·light] R2 enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.45s","timing":"linear(0 0%, 0.00971 2.041%, 0.03623 4.082%, 0.07594 6.122%, 0.12565 8.163%, 0.18258 10.204%, 0.24431 12.245%, 0.30881 14.286%, 0.37435 16.327%, 0.43949 18.367%, 0.5031 20.408%, 0.56427 22.449%, 0.62228 24.49%, 0.67665 26.531%, 0.72702 28.571%, 0.77319 30.612%, 0.81507 32.653%, 0.85266 34.694%, 0.88606 36.735%, 0.91541 38.776%, 0.94092 40.816%, 0.96281 42.857%, 0.98134 44.898%, 0.99679 46.939%, 1.00944 48.98%, 1.01957 51.02%, 1.02746 53.061%, 1.03337 55.102%, 1.03756 57.143%, 1.04026 59.184%, 1.04171 61.224%, 1.04211 63.265%, 1.04164 65.306%, 1.04048 67.347%, 1.03877 69.388%, 1.03665 71.429%, 1.03423 73.469%, 1.03162 75.51%, 1.0289 77.551%, 1.02614 79.592%, 1.0234 81.633%, 1.02073 83.673%, 1.01816 85.714%, 1.01573 87.755%, 1.01345 89.796%, 1.01134 91.837%, 1.00941 93.878%, 1.00766 95.918%, 1.00609 97.959%, 1 100%)"}}
+
+[1A[2K[O-16·W5·light] R3 leave: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+
+[1A[2K[O-16·W5·light] R3 resolved tokens: {"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}
+
+[1A[2K[O-16·W5·light] R4 cartoon-surface (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+
+[1A[2K[O-16·W5·light] R4 live cards: 0
+
+[1A[2K[O-16·W5·light] R5 btn-interactive (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+
+[1A[2K[O-16·W5·light] R5 rail-item: {"color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"background-color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"transform":{"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+
+[1A[2K[O-16·W5·light] R5 rail-item resolved tokens: {"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+
+[1A[2K[O-16·W5·light] R8 vj-morph enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00629 2.041%, 0.0233 4.082%, 0.0486 6.122%, 0.08016 8.163%, 0.11629 10.204%, 0.15561 12.245%, 0.19697 14.286%, 0.23945 16.327%, 0.28231 18.367%, 0.32495 20.408%, 0.36689 22.449%, 0.40777 24.49%, 0.44732 26.531%, 0.48534 28.571%, 0.52169 30.612%, 0.55626 32.653%, 0.58902 34.694%, 0.61994 36.735%, 0.64904 38.776%, 0.67633 40.816%, 0.70186 42.857%, 0.7257 44.898%, 0.7479 46.939%, 0.76853 48.98%, 0.78768 51.02%, 0.80541 53.061%, 0.82182 55.102%, 0.83696 57.143%, 0.85094 59.184%, 0.86381 61.224%, 0.87565 63.265%, 0.88654 65.306%, 0.89653 67.347%, 0.9057 69.388%, 0.91411 71.429%, 0.92181 73.469%, 0.92885 75.51%, 0.93529 77.551%, 0.94117 79.592%, 0.94655 81.633%, 0.95145 83.673%, 0.95592 85.714%, 0.95999 87.755%, 0.96371 89.796%, 0.96708 91.837%, 0.97016 93.878%, 0.97296 95.918%, 0.9755 97.959%, 1 100%)"},"max-height":{"duration":"0.3s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+
+[1A[2K[O-16·W5·light] R11 pane-shell: {"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+
+[1A[2K[O-16·W5·light] R11 resolved tokens: {"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+
+[1A[2K[O-16·W5·light] R9 gradient-stop handle: "HANDED-ACROSS → W6-2 (T-46); target --spring-present @ --spring-present-duration; census owns the row at merge"
+
+[1A[2K[O-16·W5·light] R10 dialog scrim: "discharged by excision (W0-3 CC-6)"
+
+[1A[2K[O-16·W5·dark] R2 enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.45s","timing":"linear(0 0%, 0.00971 2.041%, 0.03623 4.082%, 0.07594 6.122%, 0.12565 8.163%, 0.18258 10.204%, 0.24431 12.245%, 0.30881 14.286%, 0.37435 16.327%, 0.43949 18.367%, 0.5031 20.408%, 0.56427 22.449%, 0.62228 24.49%, 0.67665 26.531%, 0.72702 28.571%, 0.77319 30.612%, 0.81507 32.653%, 0.85266 34.694%, 0.88606 36.735%, 0.91541 38.776%, 0.94092 40.816%, 0.96281 42.857%, 0.98134 44.898%, 0.99679 46.939%, 1.00944 48.98%, 1.01957 51.02%, 1.02746 53.061%, 1.03337 55.102%, 1.03756 57.143%, 1.04026 59.184%, 1.04171 61.224%, 1.04211 63.265%, 1.04164 65.306%, 1.04048 67.347%, 1.03877 69.388%, 1.03665 71.429%, 1.03423 73.469%, 1.03162 75.51%, 1.0289 77.551%, 1.02614 79.592%, 1.0234 81.633%, 1.02073 83.673%, 1.01816 85.714%, 1.01573 87.755%, 1.01345 89.796%, 1.01134 91.837%, 1.00941 93.878%, 1.00766 95.918%, 1.00609 97.959%, 1 100%)"}}
+
+[1A[2K[O-16·W5·dark] R3 leave: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+
+[1A[2K[O-16·W5·dark] R3 resolved tokens: {"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}
+
+[1A[2K[O-16·W5·dark] R4 cartoon-surface (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+
+[1A[2K[O-16·W5·dark] R4 live cards: 0
+
+[1A[2K[O-16·W5·dark] R5 btn-interactive (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+
+[1A[2K[O-16·W5·dark] R5 send-btn (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+
+[1A[2K[O-16·W5·dark] R5 rail-item: {"color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"background-color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"transform":{"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+
+[1A[2K[O-16·W5·dark] R5 rail-item resolved tokens: {"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+
+[1A[2K[O-16·W5·dark] R8 vj-morph enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00629 2.041%, 0.0233 4.082%, 0.0486 6.122%, 0.08016 8.163%, 0.11629 10.204%, 0.15561 12.245%, 0.19697 14.286%, 0.23945 16.327%, 0.28231 18.367%, 0.32495 20.408%, 0.36689 22.449%, 0.40777 24.49%, 0.44732 26.531%, 0.48534 28.571%, 0.52169 30.612%, 0.55626 32.653%, 0.58902 34.694%, 0.61994 36.735%, 0.64904 38.776%, 0.67633 40.816%, 0.70186 42.857%, 0.7257 44.898%, 0.7479 46.939%, 0.76853 48.98%, 0.78768 51.02%, 0.80541 53.061%, 0.82182 55.102%, 0.83696 57.143%, 0.85094 59.184%, 0.86381 61.224%, 0.87565 63.265%, 0.88654 65.306%, 0.89653 67.347%, 0.9057 69.388%, 0.91411 71.429%, 0.92181 73.469%, 0.92885 75.51%, 0.93529 77.551%, 0.94117 79.592%, 0.94655 81.633%, 0.95145 83.673%, 0.95592 85.714%, 0.95999 87.755%, 0.96371 89.796%, 0.96708 91.837%, 0.97016 93.878%, 0.97296 95.918%, 0.9755 97.959%, 1 100%)"},"max-height":{"duration":"0.3s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+
+[1A[2K[O-16·W5·dark] R11 pane-shell: {"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+
+[1A[2K[O-16·W5·dark] R11 resolved tokens: {"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+
+[1A[2K[O-16·W5·dark] R9 gradient-stop handle: "HANDED-ACROSS → W6-2 (T-46); target --spring-present @ --spring-present-duration; census owns the row at merge"
+
+[1A[2K[O-16·W5·dark] R10 dialog scrim: "discharged by excision (W0-3 CC-6)"
+
+[1A[2K[41/178] [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:126:5 › O-17 zero letterbox across curve regimes — desktop
+[1A[2K[42/178] [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:126:5 › O-17 zero letterbox across curve regimes — 390
+[1A[2K[43/178] [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 1440
+[1A[2K[44/178] [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 390
+[1A[2K[45/178] [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:221:1 › O-17 composition: stamps, dot rest, one-literal, mint law
+[1A[2K[46/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:484:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K[47/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:484:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[1A[2K[48/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:638:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K[49/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  3) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(255 249 247) vs rgb(101 99 97) — raw oklch(0.985253 0.007203 31.584818) α 1 stack [div.glass-resting=color(srgb 0.203993 0.148252 0.08296 / 0.14)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.73[39m
+
+      762 |                 nameRow!.ratio,
+      763 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 764 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      765 |         });
+      766 |
+      767 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:764:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari/error-context.md
+
+
+[1A[2K(node:26485) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[50/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:767:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K[51/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:801:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K[52/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:638:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[1A[2K[53/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[1A[2K  4) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.584818) α 1 stack [div.glass-resting=color(srgb 0.092767 0.050346 0.00879 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.74[39m
+
+      762 |                 nameRow!.ratio,
+      763 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 764 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      765 |         });
+      766 |
+      767 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:764:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-b6a55--fill-derived-ink-together--oracles-safari/error-context.md
+
+
+[1A[2K(node:26599) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[54/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:767:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[1A[2K[55/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:801:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[1A[2K[56/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:895:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K[57/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:913:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K[58/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:939:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K[59/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:895:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[1A[2K[60/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:913:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung)
+[1A[2K[61/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:939:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[1A[2K[62/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K  5) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m0.037180607112331766[39m
+    Received:    [31m0.006968179459289377[39m
+
+      1016 |                 accent.C,
+      1017 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+    > 1018 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+           |               ^
+      1019 |
+      1020 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
+      1021 |             //     space trigger wears `--space-title-ink` = the safe accent at
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1018:15
+
+    Error Context: test-results/o18-contrast-census-O-18-W-90fc7-ck-hue-held-C-≥-0-35×-T-35--oracles-safari/error-context.md
+
+
+[1A[2K(node:26807) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[63/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1047:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K[64/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1091:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K[65/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[1A[2K[66/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1047:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[1A[2K[67/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1091:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[1A[2K[68/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1182:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K[69/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1182:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[1A[2K[70/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K  6) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(255 224 161) vs rgb(109 109 109) — raw oklab(0.917489 0.008732 0.08597), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m4.05[39m
+
+      1317 |                 row!.ratio,
+      1318 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1319 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1320 |         });
+      1321 |
+      1322 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1319:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-3dbdc-bypasses-certification-A-1--oracles-safari/error-context.md
+
+
+[1A[2K(node:27133) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[71/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K  7) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 6[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 2.11:1 (ink rgb(152 150 147) over rgb(98 96 93), α 0.359)",[39m
+    [31m+   "Logout: 2.52:1 (ink rgb(167 164 161) over rgb(98 96 93), α 0.457)",[39m
+    [31m+   "Regenerate slug: 2.91:1 (ink rgb(180 177 174) over rgb(98 96 93), α 0.54)",[39m
+    [31m+ ][39m
+
+      1360 |                 failures,
+      1361 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1362 |             ).toEqual([]);
+           |               ^
+      1363 |         });
+      1364 |     });
+      1365 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-ca642-tion-over-live-content-N-3--oracles-safari/error-context.md
+
+
+[1A[2K(node:27247) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[72/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1)
+[1A[2K  8) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(109 92 49) vs rgb(46 46 46) — raw oklch(0.784 0.143 86), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.09[39m
+
+      1317 |                 row!.ratio,
+      1318 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1319 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1320 |         });
+      1321 |
+      1322 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1319:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-8d783-bypasses-certification-A-1--oracles-safari/error-context.md
+
+
+[1A[2K(node:27327) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[73/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+[1A[2K  9) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 6[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 2.49:1 (ink rgb(101 99 96) over rgb(41 39 36), α 0.315)",[39m
+    [31m+   "Logout: 3.33:1 (ink rgb(122 119 116) over rgb(41 39 36), α 0.42)",[39m
+    [31m+   "Regenerate slug: 4.2:1 (ink rgb(139 136 133) over rgb(41 39 36), α 0.508)",[39m
+    [31m+ ][39m
+
+      1360 |                 failures,
+      1361 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1362 |             ).toEqual([]);
+           |               ^
+      1363 |         });
+      1364 |     });
+      1365 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15
+
+    Error Context: test-results/o18-contrast-census-O-18-c-c830f-tion-over-live-content-N-3--oracles-safari/error-context.md
+
+
+[1A[2K(node:27415) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[74/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1384:9 › O-18 census · V15-01 the featured badge (light) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[1A[2K  10) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1384:9 › O-18 census · V15-01 the featured badge (light) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold 
+
+    Error: the glyph is chromatic, not a grey
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0.04[39m
+    Received:   [31m0.006249[39m
+
+      1429 |             });
+      1430 |             expect(hue, "the glyph ink resolves in OKLCh").not.toBeNull();
+    > 1431 |             expect(hue!.c, "the glyph is chromatic, not a grey").toBeGreaterThan(0.04);
+           |                                                                  ^
+      1432 |             expect(
+      1433 |                 Math.abs(((hue!.h - GOLD_HUE + 540) % 360) - 180),
+      1434 |                 `the glyph's hue ${hue!.h} stays on gold (${GOLD_HUE})`,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1431:66
+
+    Error Context: test-results/o18-contrast-census-O-18-c-f787e-glyph-≥3-1-hue-held-on-gold-oracles-safari/error-context.md
+
+
+[1A[2K(node:27473) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[75/178] [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1384:9 › O-18 census · V15-01 the featured badge (dark) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[1A[2K[76/178] [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light
+[1A[2K  11) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m4.578800000000001[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/o19-netting-luma-netting-luma-delta-≥59-255-—-desktop-light-oracles-safari/error-context.md
+
+
+[1A[2K(node:27881) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[77/178] [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark
+[1A[2K  12) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m3.183799999999991[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/o19-netting-luma-netting-luma-delta-≥45-255-—-desktop-dark-oracles-safari/error-context.md
+
+
+[1A[2K(node:28411) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[78/178] [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light
+[1A[2K  13) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m15.94359999999999[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/o19-netting-luma-netting-luma-delta-≥59-255-—-390-light-oracles-safari/error-context.md
+
+
+[1A[2K(node:28691) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[79/178] [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark
+[1A[2K  14) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m12.03260000000003[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/o19-netting-luma-netting-luma-delta-≥45-255-—-390-dark-oracles-safari/error-context.md
+
+
+[1A[2K(node:29258) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[80/178] [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:104:1 › the recalibrated register's computed tokens hold (the named-knob tripwire)
+[1A[2K[81/178] [oracles-safari] › e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:37:1 › W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→field leap)
+[1A[2K[2m[WebServer] [22m[2m6:06:46 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · async component loader) TypeError: Importing a module script failed.
+
+[1A[2K[2m[WebServer] [22m[2m6:06:46 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · async component loader) TypeError: Importing a module script failed.
+
+[1A[2K[2m[WebServer] [22m[2m6:06:46 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (vue · async component loader) TypeError: Importing a module script failed.
+
+[1A[2K[2m[WebServer] [22m[2m6:06:46 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (pane-chunk · async component loader) @http://localhost:8290/@fs/Users/mkbabb/Programming/value.js/demo/shell/usePaneRouter.ts:176:43
+
+[1A[2K[2m[WebServer] [22m[2m6:06:46 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (vue · async component loader) TypeError: Importing a module script failed.
+
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:37:1 › W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→field leap)
+[W2-2 luma] L series: [0.731, 0.746, 0.750, 0.754, 0.758, 0.762, 0.765, 0.768, 0.770, 0.772]
+
+[1A[2K[82/178] [oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[1A[2K[2m[WebServer] [22m[2m6:06:51 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · mounted hook) TypeError: Importing a module script failed.
+
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+
+[1A[2K[O-2] --saved-bg write trace: [#7c8922]
+
+[1A[2K[83/178] [oracles-safari] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead
+[1A[2K[84/178] [oracles-safari] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields
+[1A[2K[85/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[86/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[87/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[88/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[89/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[90/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[91/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K[92/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K[93/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[94/178] [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K[95/178] [oracles-safari] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+X.W6.f f3 CENSUS — 18 spaces walked on the live About route
+  rgb           created=1931                 guide=authored       A color space based on the additive mixture of red, green, and b…
+  hsl           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hsv           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hwb           created=1978                 guide=authored       A cylindrical representation of the RGB color space, using White…
+  lab           created=1976                 guide=authored       The L*a*b* color space is a three-dimensional color model design…
+  lch           created=1976                 guide=authored       A cylindrical representation of the Lab color space.…
+  oklab         created=2019                 guide=authored       A perceptually uniform color space designed to be more intuitive…
+  oklch         created=2019                 guide=authored       A cylindrical representation of the OKLab color space.…
+  xyz           created=1931                 guide=authored       The CIE 1931 XYZ color space is a device-independent color space…
+  kelvin        created=Beginning of time    guide=authored       The Kelvin color space represents the color of an ideal black-bo…
+  srgb-linear   created=1996                 guide=none-authored  The sRGB primaries and white point with the transfer function re…
+  display-p3    created=2015                 guide=none-authored  A display-referred wide-gamut space: the DCI-P3 primaries carrie…
+  a98-rgb       created=1998                 guide=none-authored  Adobe's 1998 wide-gamut RGB working space, defined to encompass …
+  prophoto-rgb  created=2000                 guide=none-authored  Kodak's very wide RGB working space, whose primaries lie partly …
+  rec2020       created=2012                 guide=none-authored  The ultra-high-definition broadcast space whose red, green and b…
+  ictcp         created=2016                 guide=none-authored  An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS c…
+  jzazbz        created=2017                 guide=none-authored  A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2…
+  hex           created=1996                 guide=authored       A compact hexadecimal notation for sRGB colors, widely used in w…
+X.W6.f — spaces that did NOT survive the model→URL→model round-trip: ictcp→oklch, jzazbz→oklch  [PRE-EXISTING, escalated: see the note at the foot of this file]
+
+[1A[2K[96/178] [oracles-safari] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+X.W6.f f4 CENSUS — 0/18 captions overflow
+  box (narrowest clientWidth): 76px
+  worst scrollWidth: 388px (46 chars, "color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)")
+  per-character advance: 8.435px
+  caption type: font-size 14.048px letter-spacing normal
+  fits  329/329 px  39ch  color(srgb 1.511 0.5623 0.7829 / 82.7%)
+  fits  278/278 px  33ch  hsl(346deg -1295% 103.7% / 82.7%)
+  fits  219/219 px  26ch  hsv · 346 · 0.6279 · 1.511
+  fits  278/278 px  33ch  hwb(346deg 56.23% -51.1% / 82.7%)
+  fits  202/202 px  24ch  lab(92% 88.8 20 / 82.7%)
+  fits  261/261 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  295/295 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  312/312 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  320/320 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  110/110 px  13ch  kelvin · 5309
+  fits  379/379 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  379/379 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  354/354 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  388/388 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  346/346 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  270/270 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  278/278 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   76/76 px   9ch  #ff8fc8d3
+
+[1A[2K[97/178] [oracles-safari] › e2e/smoke/oracles/o22-status-lamp.spec.ts:58:5 › O-22 · the dock status lamp (W6-6 / T-9) › healthy backend → no lamp; the dead banner stays dead
+[1A[2K[98/178] [oracles-safari] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome
+[1A[2K[99/178] [oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)
+  rgb           css       MARKED    color(srgb 1.511 0.5623 0.7829 / 82.7%)
+  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)
+  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511
+  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)
+  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)
+  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)
+  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  kelvin        channels  in-gamut  kelvin · 5309
+  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739
+  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428
+  hex           css       MARKED    #ff8fc8d3
+
+[1A[2K  15) [oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+
+    Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.006482236542402211[39m
+    Received:    [31m12.951521561243181[39m
+
+      293 |                 Math.abs(channel - truth),
+      294 |                 `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,
+    > 295 |             ).toBeLessThanOrEqual(policyResolution(truth));
+          |               ^
+      296 |         });
+      297 |
+      298 |         // (ii)(c) the same claim in Lab, against the measured bound
+        at forEach (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:295:15)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:288:31
+
+    Error Context: test-results/o23-specimen-gamut-honesty-96173-ed-coordinate-was-projected-oracles-safari/error-context.md
+
+
+[1A[2K(node:32157) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[100/178] [oracles-safari] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+X.W6.f f8 CENSUS — distinctVisualSignatures = 18 of 18
+  (url-keyed would report 18 — the recorded false-GREEN trap, excluded)
+  rgb           seed=139 bg=lab(92 88.800003 20 / 0.827) radius=23.421087% 76.578911% 75.355469% 24.644533% / 43.660561% 24.81661% 75.183388% 56.339439%
+  hsl           seed=151 bg=lab(92 88.800003 20 / 0.827) radius=38.619965% 61.380035% 41.886154% 58.113846% / 76.636124% 26.101433% 73.898567% 23.363874%
+  hsv           seed=161 bg=lab(92 88.800003 20 / 0.827) radius=63.355961% 36.644039% 74.315071% 25.684931% / 24.379726% 75.492279% 24.507719% 75.62027%
+  hwb           seed= 17 bg=lab(92 88.800003 20 / 0.827) radius=35.301895% 64.698105% 60.080872% 39.919128% / 50.848663% 28.074945% 71.925056% 49.151337%
+  lab           seed= 63 bg=lab(92 88.800003 20 / 0.827) radius=58.140358% 41.859642% 69.699997% 30.300003% / 23.027267% 35.341152% 64.658844% 76.972733%
+  lch           seed=135 bg=lab(92 88.800003 20 / 0.827) radius=75.995461% 24.004541% 56.128258% 43.871742% / 47.742786% 23.872515% 76.127487% 52.257214%
+  oklab         seed=185 bg=lab(92 88.800003 20 / 0.827) radius=34.592068% 65.407928% 29.545252% 70.45475% / 65.560524% 39.98494% 60.01506% 34.439472%
+  oklch         seed=  1 bg=lab(92 88.800003 20 / 0.827) radius=64.988869% 35.011131% 66.216232% 33.783768% / 34.812599% 63.955574% 36.044426% 65.187401%
+  xyz           seed=123 bg=lab(92 88.800003 20 / 0.827) radius=77.953545% 22.046459% 62.8153% 37.1847% / 76.196434% 22.290833% 77.709167% 23.803566%
+  kelvin        seed=249 bg=lab(92 88.800003 20 / 0.827) radius=32.748604% 67.251396% 73.22361% 26.776388% / 53.250866% 74.779594% 25.220406% 46.749134%
+  srgb-linear   seed=102 bg=lab(92 88.800003 20 / 0.827) radius=24.417616% 75.582382% 34.816704% 65.183296% / 63.018433% 25.604582% 74.395416% 36.981567%
+  display-p3    seed=118 bg=lab(92 88.800003 20 / 0.827) radius=52.205502% 47.794498% 49.944519% 50.055481% / 72.238441% 25.20673% 74.793266% 27.761555%
+  a98-rgb       seed=202 bg=lab(92 88.800003 20 / 0.827) radius=58.047745% 41.952255% 57.11306% 42.88694% / 72.461617% 33.262581% 66.737419% 27.53838%
+  prophoto-rgb  seed=179 bg=lab(92 88.800003 20 / 0.827) radius=30.718517% 69.281487% 22.907724% 77.092278% / 42.242634% 21.240582% 78.759415% 57.757366%
+  rec2020       seed= 14 bg=lab(92 88.800003 20 / 0.827) radius=66.624046% 33.375954% 43.441006% 56.558994% / 58.117153% 57.256359% 42.743641% 41.882847%
+  ictcp         seed=  3 bg=lab(92 88.800003 20 / 0.827) radius=33.266979% 66.733025% 57.002537% 42.997463% / 26.733236% 57.696995% 42.303005% 73.266762%
+  jzazbz        seed=235 bg=lab(92 88.800003 20 / 0.827) radius=42.554218% 57.445782% 37.608715% 62.391285% / 70.689941% 20.553066% 79.44693% 29.310057%
+  hex           seed=213 bg=lab(92 88.800003 20 / 0.827) radius=33.699783% 66.300217% 70.283241% 29.716759% / 65.406174% 70.223961% 29.776037% 34.593822%
+
+[1A[2K[101/178] [oracles-safari] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+h030 · north-west field: ΔE2000 vs unseeded 16.26 · vs h120 51.72
+
+[1A[2Kh030 · west field: ΔE2000 vs unseeded 16.52 · vs h120 51.95
+
+[1A[2Kh030 · east field: ΔE2000 vs unseeded 16.86 · vs h120 52.59
+
+[1A[2Kh030 · south-east field: ΔE2000 vs unseeded 16.87 · vs h120 52.80
+
+[1A[2Kh120 · north-west field: ΔE2000 vs unseeded 61.42 · vs h210 29.83
+
+[1A[2Kh120 · west field: ΔE2000 vs unseeded 61.98 · vs h210 30.10
+
+[1A[2Kh120 · east field: ΔE2000 vs unseeded 62.59 · vs h210 32.01
+
+[1A[2Kh120 · south-east field: ΔE2000 vs unseeded 62.33 · vs h210 32.73
+
+[1A[2Kh210 · north-west field: ΔE2000 vs unseeded 40.37 · vs h300 30.35
+
+[1A[2Kh210 · west field: ΔE2000 vs unseeded 40.40 · vs h300 30.70
+
+[1A[2Kh210 · east field: ΔE2000 vs unseeded 44.93 · vs h300 31.71
+
+[1A[2Kh210 · south-east field: ΔE2000 vs unseeded 47.55 · vs h300 31.83
+
+[1A[2Kh300 · north-west field: ΔE2000 vs unseeded 32.91 · vs h030 34.92
+
+[1A[2Kh300 · west field: ΔE2000 vs unseeded 32.11 · vs h030 34.30
+
+[1A[2Kh300 · east field: ΔE2000 vs unseeded 29.25 · vs h030 33.46
+
+[1A[2Kh300 · south-east field: ΔE2000 vs unseeded 28.91 · vs h030 33.74
+
+[1A[2K[102/178] [oracles-safari] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s
+[O-26] renderer=Apple GPU (real-GPU)
+
+[1A[2K[O-26] calm 2s glance diff = 1.847/255
+
+[1A[2K[O-26] 10s migration diff (max pairwise) = 11.969/255 (need ≥ 4)
+
+[1A[2K[103/178] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill
+[1A[2K  16) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('[data-stop-id]:focus')
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for locator('[data-stop-id]:focus')[22m
+    [2m    20 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+      65 |     }
+      66 |     const focused = page.locator("[data-stop-id]:focus");
+    > 67 |     await expect(focused).toHaveCount(1);
+         |                           ^
+      68 |     return focused;
+      69 | }
+      70 |
+        at tabToHandle (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:67:27)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:83:21
+
+    Error Context: test-results/o27-focus-affordance-BR-1--5966e-ng-layer-over-the-stop-fill-oracles-safari/error-context.md
+
+
+[1A[2K(node:33895) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[104/178] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD
+[1A[2K[105/178] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:139:1 › BR-4 · every channel slider exposes a human-readable aria-valuetext
+[1A[2K[106/178] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:175:5 › BR-3 coarse pointer › effective target ≥ 44px on coarse pointers (producer referent)
+[1A[2K[107/178] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px
+[1A[2K  17) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('[data-stop-id]:focus')
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for locator('[data-stop-id]:focus')[22m
+    [2m    20 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+      65 |     }
+      66 |     const focused = page.locator("[data-stop-id]:focus");
+    > 67 |     await expect(focused).toHaveCount(1);
+         |                           ^
+      68 |     return focused;
+      69 | }
+      70 |
+        at tabToHandle (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:67:27)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:213:21
+
+    Error Context: test-results/o27-focus-affordance-BR-1--2184e-ia-a-computed-outline-≥-2px-oracles-safari/error-context.md
+
+
+[1A[2K(node:34497) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[108/178] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:326:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:326:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle
+[o27 WHCM roster] .channel-rail-item → 3px none oklch(0.492722 0.003862 34.629978) | .readout-fig → 3px none oklch(0.216129 0.006249 56.035564) | .space-trigger → 3px none color(srgb 0.758618 0 0.302633 / 0.86) | .interval-head → 2px solid rgba(128, 188, 254, 0.6) | .rail-btn → 3px none oklch(0.492722 0.003862 34.629978) | .rail-handle → 2px solid rgba(128, 188, 254, 0.6)
+
+[1A[2K[109/178] [oracles-safari] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+[1A[2K  18) [oracles-safari] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    Error: oklch(0.62 0.2 30): no ground write precedes first paint (NaNms)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBeNull[2m()[22m
+
+    Received: [31mnull[39m
+
+      125 |             r.atPaint,
+      126 |             `${seed}: no ground write precedes first paint (${r.firstPaint}ms)`,
+    > 127 |         ).not.toBeNull();
+          |               ^
+      128 |         const moved = Math.max(
+      129 |             ...r.settled.lab.map((l, i) =>
+      130 |                 dE(l as Lab, unseeded.settled.lab[i] as Lab),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:127:15
+
+    Error Context: test-results/o28-atmosphere-coldload-th-de626-eeded-pick-s-on-a-cold-load-oracles-safari/error-context.md
+
+
+[1A[2K(node:34746) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[110/178] [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:114:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+[1A[2K[111/178] [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:250:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+[1A[2K[112/178] [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[1A[2K[113/178] [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[1A[2K[114/178] [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[j4] blob preview@rest=0.000 last="Reset" inViewport=true hit=true rect={"x":607.5625,"y":206.828125,"w":83.4375,"h":36} preview@last=0.840
+
+[1A[2K[115/178] [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[j4] atmosphere preview@rest=0.279 last="Reset" inViewport=true hit=true rect={"x":519.5625,"y":395.4375,"w":83.4375,"h":36} preview@last=0.302
+
+[1A[2K[116/178] [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark)
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark)
+[O-3 dark] real-GPU renderer=Apple GPU → OKLCh L=0.354 C=0.105 h=29.5°
+
+[1A[2K[117/178] [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light)
+[1A[2K[oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light)
+[O-3 light] real-GPU renderer=Apple GPU → OKLCh L=0.686 C=0.156 h=39.1°
+
+[1A[2K[118/178] [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU
+[1A[2K  19) [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU 
+
+    Error: browserContext.newCDPSession: CDP session is only available in Chromium
+
+      43 |     }) => {
+      44 |         test.setTimeout(60_000);
+    > 45 |         const cdp = await page.context().newCDPSession(page);
+         |                                          ^
+      46 |         await cdp.send("Emulation.setCPUThrottlingRate", { rate: throttle });
+      47 |
+      48 |         await page.goto("/");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o4-order-invariance.spec.ts:45:42
+
+    Error Context: test-results/o4-order-invariance-O-4-or-a99bd-old-the-DAG-order-at-1×-CPU-oracles-safari/error-context.md
+
+
+[1A[2K(node:35297) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[119/178] [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU
+[1A[2K  20) [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU 
+
+    Error: browserContext.newCDPSession: CDP session is only available in Chromium
+
+      43 |     }) => {
+      44 |         test.setTimeout(60_000);
+    > 45 |         const cdp = await page.context().newCDPSession(page);
+         |                                          ^
+      46 |         await cdp.send("Emulation.setCPUThrottlingRate", { rate: throttle });
+      47 |
+      48 |         await page.goto("/");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o4-order-invariance.spec.ts:45:42
+
+    Error Context: test-results/o4-order-invariance-O-4-or-b8fb8-old-the-DAG-order-at-6×-CPU-oracles-safari/error-context.md
+
+
+[1A[2K(node:35310) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[120/178] [oracles-safari] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light)
+[1A[2K[121/178] [oracles-safari] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark)
+[1A[2K[122/178] [oracles-safari] › e2e/smoke/oracles/o7-card-census.spec.ts:410:1 › O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached)
+[1A[2K[123/178] [oracles-safari] › e2e/smoke/oracles/o7-card-census.spec.ts:448:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached)
+[1A[2K[124/178] [oracles-safari] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static
+[1A[2K[125/178] [oracles-safari] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:198:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[126/178] [oracles-safari] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:217:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[127/178] [oracles-safari] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:229:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[128/178] [oracles-safari] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:260:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)
+[1A[2K[129/178] [oracles-safari] › e2e/smoke/oracles/p9r-card-detail-row.spec.ts:21:5 › P9R-01 · expanded card at 1440: the detail band sits below the meta row
+[1A[2K[130/178] [oracles-safari] › e2e/smoke/oracles/p9r-card-detail-row.spec.ts:21:5 › P9R-01 · expanded card at 390: the detail band sits below the meta row
+[1A[2K[131/178] [oracles-safari] › e2e/smoke/oracles/readout-seam.spec.ts:100:5 › T-33b — the reserved-line band is designed air, never a dead band › lab @ the reference color: one locked line, no reserved air either side (X.W12.d)
+[1A[2K[132/178] [oracles-safari] › e2e/smoke/oracles/readout-seam.spec.ts:134:5 › T-33b — the reserved-line band is designed air, never a dead band › lab @ its worst-case tuple: still one line — the measure holds the widest value (X.W12.d)
+[1A[2K[133/178] [oracles-safari] › e2e/smoke/oracles/readout-seam.spec.ts:164:5 › T-33b — the reserved-line band is designed air, never a dead band › rgb @ its one-line lock: reserved ≡ painted — the anchor mints no air
+[1A[2K[134/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:78:5 › T-31 · band structure (the retired trio stays dead) › two-band grid, in-flow static nav, zero z-index arms, designed gap
+[1A[2K[135/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:128:5 › T-31 · band structure (the retired trio stays dead) › the retired utilities are gone from the dock root (fixed/z-dock/top-dock-inset)
+[1A[2K[136/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:154:5 › T-31/T-57 · band-height invariance across the collapse↔expand morph › the band height + scene top never change across seal↔pill (T-57 reflow cure)
+[1A[2K[137/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:224:9 › T-31 · occlusion probe @1280 (views × scroll × schemes) › the dock band is never a card — light
+[1A[2K[138/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:224:9 › T-31 · occlusion probe @1280 (views × scroll × schemes) › the dock band is never a card — dark
+[1A[2K[139/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:255:9 › T-31 · occlusion probe @390 (the mobile band) › the dock band is never a card — 390 light
+[1A[2K[140/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:255:9 › T-31 · occlusion probe @390 (the mobile band) › the dock band is never a card — 390 dark
+[1A[2K[141/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:277:5 › T-31 · the pass-B worst case (short viewport) › the flush 0–1px clearance is dead — band and card never touch
+[1A[2K[142/178] [oracles-safari] › e2e/smoke/oracles/t31-dock-band.spec.ts:301:5 › T-31 · the ultra-wide pin (re-confirmed in-band) › the dock keeps its pinned-at-top read — the band IS the top
+[1A[2K[143/178] [oracles-safari] › e2e/smoke/oracles/v7r-overlay-layer.spec.ts:50:5 › V7R-01 · a menu over the stage paints on top › the Browse card's palette menu at 1440
+[1A[2K[144/178] [oracles-safari] › e2e/smoke/oracles/v7r-overlay-layer.spec.ts:60:5 › V7R-01 · a menu over the stage paints on top › the dock's overflow menu at 390, over the picker
+[1A[2K[145/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved)
+[1A[2K  21) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Delete name', exact: true })[22m
+    [2m    - locator resolved to <button disabled type="button" data-size="md" data-v-fa50f434="" data-slot="button" data-press-armed="" data-control-target="" data-tone="destructive" data-emphasis="secondary" class="button tap-squish focus-ring glass-capsule glass-specular-track">…</button>[22m
+    [2m  - attempting dblclick action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m      - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying dblclick action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m  - element was detached from the DOM, retrying[22m
+
+
+      44 |     // N-6: a double activation of the accept button — the second press lands
+      45 |     // while the leaving dialog is still hit-testable (the measured 159–271 ms).
+    > 46 |     await dialog.getByRole("button", { name: accept, exact: true }).dblclick();
+         |                                                                     ^
+      47 |     await expect(dialog).toHaveCount(0);
+      48 |     await page.waitForTimeout(300); // past the widest window: a late second request would land here
+      49 |     expect(ledger, "requests after a double acceptance").toEqual([expected]);
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:46:69)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:82:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-e9c7c-me-delete-Names-→-Approved--oracles-safari/error-context.md
+
+
+[1A[2K(node:38221) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[146/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93)
+[1A[2K  22) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Reject name', exact: true })[22m
+    [2m    - locator resolved to <button disabled type="button" data-size="md" data-v-fa50f434="" data-slot="button" data-press-armed="" data-control-target="" data-tone="destructive" data-emphasis="secondary" class="button tap-squish focus-ring glass-capsule glass-specular-track">…</button>[22m
+    [2m  - attempting dblclick action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m      - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying dblclick action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m  - element was detached from the DOM, retrying[22m
+
+
+      44 |     // N-6: a double activation of the accept button — the second press lands
+      45 |     // while the leaving dialog is still hit-testable (the measured 159–271 ms).
+    > 46 |     await dialog.getByRole("button", { name: accept, exact: true }).dblclick();
+         |                                                                     ^
+      47 |     await expect(dialog).toHaveCount(0);
+      48 |     await page.waitForTimeout(300); // past the widest window: a late second request would land here
+      49 |     expect(ledger, "requests after a double acceptance").toEqual([expected]);
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:46:69)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:88:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-d5ba4-ject-Names-→-Pending-W7-93--oracles-safari/error-context.md
+
+
+[1A[2K(node:39218) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[147/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate
+[1A[2K  23) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('dialog')[22m
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:98:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-e69e3-rest-S-14-b-then-deliberate-oracles-safari/error-context.md
+
+
+[1A[2K(node:39630) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[148/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete
+[1A[2K  24) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Delete palette', exact: true })[22m
+    [2m    - locator resolved to <button disabled type="button" data-size="md" data-slot="button" data-press-armed="" data-control-target="" data-tone="destructive" data-emphasis="secondary" class="button tap-squish focus-ring glass-capsule glass-specular-track">…</button>[22m
+    [2m  - attempting dblclick action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m      - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m  - element was detached from the DOM, retrying[22m
+
+
+      44 |     // N-6: a double activation of the accept button — the second press lands
+      45 |     // while the leaving dialog is still hit-testable (the measured 159–271 ms).
+    > 46 |     await dialog.getByRole("button", { name: accept, exact: true }).dblclick();
+         |                                                                     ^
+      47 |     await expect(dialog).toHaveCount(0);
+      48 |     await page.waitForTimeout(300); // past the widest window: a late second request would land here
+      49 |     expect(ledger, "requests after a double acceptance").toEqual([expected]);
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:46:69)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:104:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-1e3bf-once-flagged-palette-delete-oracles-safari/error-context.md
+
+
+[1A[2K(node:40685) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[149/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate
+[1A[2K  25) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('dialog')[22m
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:112:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-a8a90-ruction-G15-then-deliberate-oracles-safari/error-context.md
+
+
+[1A[2K(node:41035) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[150/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete
+[1A[2K  26) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('dialog').getByRole('button', { name: 'Delete palette', exact: true })[22m
+    [2m    - locator resolved to <button disabled type="button" data-size="md" data-v-16795e8c="" data-slot="button" data-press-armed="" data-control-target="" data-tone="destructive" data-emphasis="secondary" class="button tap-squish focus-ring glass-capsule glass-specular-track">…</button>[22m
+    [2m  - attempting dblclick action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying dblclick action[22m
+    [2m      - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying dblclick action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m  - element was detached from the DOM, retrying[22m
+
+
+      44 |     // N-6: a double activation of the accept button — the second press lands
+      45 |     // while the leaving dialog is still hit-testable (the measured 159–271 ms).
+    > 46 |     await dialog.getByRole("button", { name: accept, exact: true }).dblclick();
+         |                                                                     ^
+      47 |     await expect(dialog).toHaveCount(0);
+      48 |     await page.waitForTimeout(300); // past the widest window: a late second request would land here
+      49 |     expect(ledger, "requests after a double acceptance").toEqual([expected]);
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:46:69)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:126:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-fb68a-r-disclosure-palette-delete-oracles-safari/error-context.md
+
+
+[1A[2K(node:41942) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[151/178] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu)
+[1A[2K[152/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:77:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › rename — a refused PATCH is said on the inspector
+[1A[2K[153/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector
+[1A[2K[154/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:108:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector
+[1A[2K[155/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:114:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector
+[1A[2K[156/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:120:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › vote — a refused vote is said on the inspector
+[1A[2K[157/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:126:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays
+[1A[2K[158/178] [oracles-safari] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:137:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path
+[1A[2K[159/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene
+[1A[2K[160/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced
+[1A[2K[161/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced
+[1A[2K[162/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:59:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced
+[1A[2K[163/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:67:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced
+[1A[2K[164/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:75:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced
+[1A[2K[165/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:84:5 › G13 · admin rows › name approve — the verdict is announced
+[1A[2K[166/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:128:5 › G13 · user rows › report — a success is announced on the card
+[1A[2K[167/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:133:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22)
+[1A[2K[168/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:160:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight)
+[1A[2K[169/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:174:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)
+[1A[2K[170/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › rename — the new name is what the card shows
+[1A[2K[171/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:201:5 › G13 · library rows › delete — the card leaves the library
+[1A[2K[172/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:219:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced
+[1A[2K[173/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:255:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted
+[1A[2K[174/178] [oracles-safari] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:306:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate
+[1A[2K(node:43690) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[175/178] [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:90:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify)
+[1A[2K[smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:90:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify)
+[w6-5 aurora] renderer=Apple GPU gradientFallback=false
+
+[1A[2K[176/178] [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:163:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro)
+[1A[2K[smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:163:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro)
+[w6-5 spazz] wrapper={"x":262,"y":127,"w":112,"h":112} inkSamples=10/10 maxJumpPx=4.2 centroids=[{"x":332,"y":208,"ink":35554},{"x":330,"y":209,"ink":36005},{"x":328,"y":212,"ink":38948},{"x":328,"y":212,"ink":39132},{"x":328,"y":212,"ink":38857},{"x":328,"y":212,"ink":39427},{"x":328,"y":212,"ink":39023},{"x":328,"y":212,"ink":39221},{"x":328,"y":212,"ink":39480},{"x":328,"y":212,"ink":39367}]
+
+[1A[2K[177/178] [smoke-safari] › e2e/smoke/safari/mix-flow.spec.ts:19:1 › mix convergence completes on WebKit with zero console errors
+[1A[2K[178/178] [smoke-safari] › e2e/smoke/safari/sustained-30s.spec.ts:81:1 › iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures
+[1A[2K[smoke-safari] › e2e/smoke/safari/sustained-30s.spec.ts:81:1 › iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures
+[sustained-30s] spectrum-drive: 6930 moves over 10000ms
+
+[1A[2K[sustained-30s] total wall-clock: 34995ms
+
+[1A[2K[sustained-30s] console-failures: 0
+
+[1A[2K  26 failed
+    [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+    [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1384:9 › O-18 census · V15-01 the featured badge (light) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+    [oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px 
+    [oracles-safari] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+    [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU 
+    [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete 
+  152 passed (14.2m)
