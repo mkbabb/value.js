@@ -2367,3 +2367,38 @@ They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and transport also 
 - No golden was re-baselined.
 
 **Frames** (`pass-19/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f19p-probe.mjs`: `nf-rest-{light,dark}-{1440,390}`, with `-before` frames of the uncured tree.
+
+### pass 20
+This is the cure seat for critic **F20C** of the redeployed loop (pass 20, 2026-10-18). The AFTER frames are in `evidence/DS/fourier/pass-20/`.
+- No fourier file changed; fourier stays at `75182fb` (`m/w1-bump-migration`).
+- value.js `bcb8ac7e1` holds the frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F20C-N1 | **Recorded and closed on the measurement; no cure owed.** At 1440 in both themes (`f20p-probe-after.json`), the card's top edge to the title ink is 15. The last action's box to the bottom edge is 23 and its text ink to the bottom edge is 33. This is the display title's half-leading against the bottom pad, with the button boxes as measured, and it is within optical tolerance. At 390 the insets stay balanced: 9.1 at the top against 11 at the bottom, with the wrapped link's tap box bled into the pad as pass 19 set it. The card is 402.5 wide at 1440 and 358 at 390, unchanged from pass 19 (`nf-rest-{light,dark}-{1440,390}.png`). |
+
+**Glass-owned rows (DS-F20C-G0).** These are pass 19's rows, unchanged in the fresh frames, with no local override:
+- the dock plate and its halo;
+- the glass-resting casts on the /visualize and /equation stage, the Configurator aside, /gallery cards, /morph config cards and Export, the /paper article and ToC aside, and the not-found card;
+- the dark primary-emphasis halo under Compute, Choose an image and Upload a new image;
+- the doubled info/copy toolbar plate on /equation and the transport's orphan "1 ×";
+- the dark Select fill on the /morph "Linear" triggers;
+- the light track-well hairline over the slider fill;
+- the coarse type-ramp inversion at 390;
+- the aside's top offset of about 12px against the stage on /equation and /v at 1440.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and transport also on **O-88 DOCK-COLLAPSE-MOTION**) and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3265`; `pass-20/census-after.json`).
+- The static totals and sites, and the computed per-page counts and sums, are identical to pass 19.
+- The sums are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The census is still RED, on the glass rows only.
+
+**Gates** (`pass-20/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice.
+- **e2e:** no file changed, so no spec touches a changed file and none was run. Pass 19's not-found runs (120/120 ×2) stand on the identical tree.
+- No golden was re-baselined.
+
+**Frames** (`pass-20/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f20p-probe.mjs`: the critic's 20 route cells, `{visualize,equation,morph,gallery,paper}-{light,dark}-{1440,390}`, and `nf-rest-{light,dark}-{1440,390}`. These are one reading of the unchanged tree.
