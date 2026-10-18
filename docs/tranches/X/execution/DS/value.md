@@ -1562,3 +1562,48 @@ Critic V14C named one high consumer row (V14C-01), one medium (V14C-02) and two 
   - judge the open stage with the toggle flush above it.
 - The gates owe one strict ×2 e2e pass on a quiet host.
 - The glass rows (V14C-G1, -G2, -G3) wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 15 (2026-10-18): critic V15C — the plot centres in its stage, the open rail names what is open, the strip wraps where the pane holds it, the angle reads "deg"
+
+Critic V15C named two medium consumer rows (V15C-01, -02), one low (V15C-03) and two trivial (V15C-05, -06). It also named two glass rows (V15C-04 low, V15C-G1 medium). All five consumer rows are cured at the root. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-15/c15-2026-10-18/` (`pass-15/` already holds an earlier seat's pass 15).
+
+**Commits.** value.js `b8cf3fb18` (the cure: 4 paths) and `a8c77f79e` (frames, capture, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-15/c15-2026-10-18/`) |
+|---|---|---|---|
+| V15C-01 (medium) | **CURED in `EasingAuthoringStage.vue` Law 3.** | `margin-inline: auto` joins `inline-size: min(100%, 19rem)` on the shared capped box (`[data-slot=easing-picker] > div:has(> [data-slot=easing-curve])`). The plot, the handles and the 0/1 labels share that box, so they move together. One declaration, no wrapper. | `capture-c15.json` `tune`, 4/4 cells: at 1440 the stage content is 426 and the box 304, with gutters **61 / 61**. At 390 the box is 288 of 288, with gutters 0 / 0 (unchanged). Handles sit 0/0 px from the plot's CTM mapping in every cell, and the `o17` handle-registration falsifier is GREEN ×2. `tune-*.png`. |
+| V15C-02 (medium) | **CURED in `GradientEasingEditor.vue`.** | The aria-hidden empty `flex-1` spacer becomes `<span class="rail-caption">Custom curve</span>`, on the strip's voice (`--text-caption`, `--ink-muted`). The pressed toggle now reads as that row's control. The well is not brought back: the producer keeps the one literal. | `capture-c15.json` `railOpen`, 4/4 cells: the label reads "Custom curve" at 14.4px (1440) and 12.2px (390), in the muted ink, centred on the toggle's row (within 2px). The rail is transparent with no padding, and the toggle is `aria-expanded="true"`. `tune-*.png`. |
+| V15C-03 (low) | **CURED in `EasingSpecimenStrip.vue`.** | The FadingScroll port is an `inline-size` container. At `@container (min-width: 24rem)` the `.strip-row` wraps (`flex-wrap: wrap`, `width: auto`). The family hairline moves from a `border-left` to a `::before` centred in the 1.75rem column gap. `overflow: clip` on the wrapped row clips only the hairline of a family that opens a line, because it sits outside the 2px ring headroom. The 390 seat keeps the one scrolling line. Names under the discs (V14C-02) are kept. | `capture-c15.json` `strip`: at 1440 the 8 families sit in **4 lines**, with 8/8 inside the 452px port, no x-overflow and a strip 377px tall. At 390 there is 1 line, 1465px, in a 314px port (the scroll is kept). There are 27 names in every cell. `easing-open-*.png` shows the hairlines between neighbours only. |
+| V15C-04 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING (ornament and hierarchy).** | The EasingPicker's readout is hard-coded `text-micro` in a quiet Button, with no `readout` prop. Ask glass to seat it on the mono-small rung, aligned with the controls, or to expose a `readout` prop so the consumer's rail can stay the one literal. No local override. | Re-judged at the 10.2.0 repin. |
+| V15C-05 (trivial) | **CURED in the doc comment.** | The stale `:readout="false"` sentence is replaced. The comment now says the producer prints the literal while the stage is open, and points to the editor's readout-rail note. | — |
+| V15C-06 (trivial) | **CURED in `GradientVisualizer.vue`.** | The Direction readout prints `{{ direction }}deg`, the CSS well's own spelling. `format-color.ts` is left alone, because its surface does not sit beside a `deg` literal. | `capture-c15.json` `direction`: "90deg" in 4/4 cells. `gradient-*.png`. |
+| V15C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING / O-88 DOCK-COLLAPSE-MOTION.** | The same rows as V14C-G1..G3 and V13C-01: the bead; the dock (rim, halo, 390 bulge, collapsed bead); the card, menu and name-field rims; Mix's disabled primary; thumbless rails; the Chip's pressed gleam; the steps staircase in the bezier regime; and the pointer-pick focus ring. No local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9381 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. This is identical to pass 13. The one-layer, one-inset, one-drop-shadow difference from pass 14 is not this cure's, because no glass surface was touched.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Text-shadow 0; looping animations 0. Computed elements: 5304.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c15.mjs` uses one browser for the run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells in one run, plus `easing-open-*` and `tune-*` (4 each). The guarded dev server on :9381 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`). The host ran at load 21–42 through the e2e runs.
+- **Type-check:** 0 ×2.
+- **vitest:** 1237/1242 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3) in both runs.
+- **e2e** (headless, workers 1, one guarded call per spec, `gates/specs.txt`). **NOT strict-GREEN ×2 on this host.**
+  - `o17` 5/5 ×2. `o21-gradient-rail` 10/10 ×2. `a11y-gradient-stop-grammar` 5/5 ×2. `o27` 6/6 ×2. `o29` 6/6 ×2. `page-load` 2/2 ×2.
+  - `views/gradient.spec`: 11/12 in run 1 (a cold-server `paneSettled` setup timeout on the first test), 12/12 in run 2.
+  - `o18`: 25 passed ×2, with the same five standing class (c′) cells as passes 13 and 14.
+  - `walk` 0/1 ×2, plus 0/1 ×2 on recheck. Each failure is its single 30s budget expiring at a different step: the Extract click, the Mix click, and the first H1 wait before any navigation. None is an assertion, and walk never opens the Easing panel.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the Gradient pane will differ in four places, and needs a named owner-ruling re-baseline (§0ej):
+  - the "90deg" Direction readout;
+  - the wrapped strip;
+  - the centred plot;
+  - the "Custom curve" label.
+
+**Loop state.**
+- Every consumer row from V15C is cured. V14C-R1 (the dark rainbow title's margin) is still carried.
+- For the next critic:
+  - judge the wrapped strip's 377px height at 1440 against the rest of the open interval;
+  - judge the 24rem container threshold at tablet widths;
+  - judge the "Custom curve" label's voice beside the producer's own readout below it.
+- The gates owe a strict ×2 e2e pass on a quiet host, with `walk` in particular.
+- The glass rows (V15C-04, V15C-G1) wait on O-87 / O-88 at the 10.2.0 repin.
