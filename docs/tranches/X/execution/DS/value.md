@@ -1316,3 +1316,40 @@ Critic V7C named three consumer rows (V7C-01 medium, V7C-02 low, V7C-03 trivial)
 - Every consumer row from V7C is cured.
 - P4R-01-R stays open.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15).
+
+### pass 8 (2026-10-17): critic V8C — the route's name is said once, and Not Found's plate takes Fira and sits under its title
+
+Critic V8C named three consumer rows (V8C-01 medium, V8C-02 low, V8C-03 low) and two glass rows (V8C-G1 medium, V8C-G2 low). All three consumer rows are cured at the root. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-08/c8-2026-10-17/`.
+
+**Commits.** value.js `dc94d7745` (the cure: 9 paths) and `b56d22721` (frames, probe and gates). The census and this receipt are committed after them.
+
+| id | verdict | cure / reason | measured (`pass-08/c8-2026-10-17/capture-c8.json`) |
+|---|---|---|---|
+| V8C-01 (medium) | **CURED at the schema and the shell (gate A5's contract kept).** | A scene region whose pane title says the view's label is marked `titled` in `viewSchema.ts`: Browse, Extract, Mix, Generate, Gradient, Atmosphere, Blob and Not Found. On those routes PaneShell renders that title as the route's one visible `<h1 id="route-title" tabindex="-1">`, which still names `<main>`. PaneHeader gains level 1 and a `titleId` prop. App prints no caption. Where no pane title says the label (Home, Palettes and the admin consoles), the caption stays. It is now set `text-align: start` on the row's own inline clamp, which is named once as `--pane-row-max` on `.pane-main` (shell.css) and read by both `.pane-container` and `.route-title`. That seats it on the stage card's leading edge. `ROUTE_TITLE_ID` moves to `useViewManager.ts`. The e2e `MAIN_PANE` relation now matches the H1 anywhere inside `<main>` (it was `> h1`). No new component, wrapper or dir. **The A5 gate owner should confirm this** (the critic's ask). | Every cell (10 routes × 1440/390 × light/dark): exactly 1 visible H1 inside `<main>`, with `tabindex=-1`. **Titled routes**: the H1 is the pane title at 41.9 px (1440) and 32.9 px (390). It was a 14.4 / 12.2 px caption, so the hierarchy is no longer inverted. The label is said once in `<main>`. **Home / Palettes**: the caption's left edge is x=199 at 1440, which equals the stage card's left edge (it used to be centred at x=720, over the gutter), and x=16 at 390. |
+| V8C-02 (low) | **CURED.** | EmptyState's error detail takes `text-mono-small`, the class of Generate's seed line, in place of `text-small`. `plate-ink` and the wrap rules are kept. | `/nope` renders in "Fira Code" at 16.4 px (1440) and 14 px (390), in every cell. |
+| V8C-03 (low) | **CURED on the existing `compact` axis.** | EmptyState's `compact` now also applies to the error plate. Under its pane title the plate drops its top padding and keeps the bottom one, because Not Found's body has no gutter. NotFoundPane passes `compact`. Its one action takes the default size instead of `sm`, still with `emphasis="quiet"`. No new component. | Header bottom to glyph top is **0 px** (the header's own `--pane-header-gap` spaces it). It was about 32 px of dead band. The card is 265 px tall at 1440 (was 293) and 280 px at 390. The action is 16.4 px text in a 40 px box, against the 16.4 px Fira detail line. |
+| V8C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING.** | The light scheme's resting plate mixes the dark `--glass-veil-ink` into `--card`, so the card reads darker than the page it sits on. That needs a light veil ink (or a lower veil alpha) in light, decided in glass. No local override: lowering the consumer's `--glass-level` would strip the material, which §0ek counts as a regression. | Re-judged at the 10.2.0 repin. |
+| V8C-G2 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | These are the standing V7C-G1 rows: the hero bead's specular and double drop, the dock's rim, halo, 390 bulge and collapsed tile, the name-field rim stack, Mix's lit disabled primary and the thumbless scrubber rails. No local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9263 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** Max 6 layers, 368 inset highlights, 8 drop-shadows, 22 gradient fills on controls, floater max layers 8. These are identical to pass 7.
+- **Consumer:** looping animations 0. The static totals are unchanged.
+- The computed element count is 5380, down from 5394: the captions are gone from the titled routes. All 8 overlay cells read with 0 errors (pass 7 had one timeout).
+- **Run note:** the machine's heavy pool was full, and a separately queued census could outlive its server. The server and the census therefore ran in one guarded slot (`serve-census.sh`), which stops the server on exit.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c8.mjs` uses one browser for the run and a new context per cell, closing both in a `finally`. It took 40 of 40 cells: picker, palettes, browse (fixture), extract, mix, generate, gradient, atmosphere, blob and notfound, each at 1440 and 390 in light and dark. Every guarded dev server on :9263 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1234/1239 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3).
+- **e2e** (headless, workers 1, own server :9262, `gates/specs.txt`):
+  - **smoke 51/51 ×2** over 12 specs that touch the changed files, among them page-load and walk (A5's one visible H1 per view), a11y-select-title, o11-header-gates, o10/o10d, o7, views/mix and palette-save;
+  - **smoke-admin 8/8 ×2** (route-guard, admin-walk, admin-populated, o10d-admin-title-voice);
+  - **smoke-mobile page-load-mobile 1/1 ×2.**
+  - Strict GREEN.
+- No visual golden was re-baselined. Note: the `e2e/visual` goldens were not run in this pass, as in earlier passes. Their titled-route frames will differ by the removed caption at the next visual run, which needs a named re-baseline.
+
+**Loop state.**
+- Every consumer row from V8C is cured. V8C-01 asks the A5 gate owner to confirm.
+- P4R-01-R stays open.
+- The glass rows (V8C-G1, the light plate's dark veil ink, is new on O-87) wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15).
