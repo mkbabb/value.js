@@ -1,0 +1,3 @@
+smoke: e2e/smoke/page-load.spec.ts e2e/smoke/walk.spec.ts e2e/smoke/w12u-x-admin-tags.spec.ts e2e/smoke/a11y-select-title.spec.ts e2e/smoke/scene-action-contract.spec.ts e2e/smoke/oracles/o11-header-gates.spec.ts e2e/smoke/oracles/o10d-display-voice-census.spec.ts e2e/smoke/oracles/o10-type-locks.spec.ts e2e/smoke/oracles/o9-shadow-palette.spec.ts e2e/smoke/oracles/o7-card-census.spec.ts e2e/smoke/views/mix.spec.ts e2e/smoke/flows/palette-save.spec.ts
+smoke-admin: e2e/smoke/admin/route-guard.spec.ts e2e/smoke/admin/admin-walk.spec.ts e2e/smoke/admin/admin-populated.spec.ts e2e/smoke/admin/o10d-admin-title-voice.spec.ts
+smoke-mobile: e2e/smoke/mobile/page-load-mobile.spec.ts
