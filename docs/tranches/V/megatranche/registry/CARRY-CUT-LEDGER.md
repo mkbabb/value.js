@@ -359,3 +359,16 @@ by this mint — CC-118's cure is scheduled by whichever X-W6 or successor surfa
 and until then it is carried, not silently dropped (H4: every row leaves with exactly one disposition).
 
 *One file appended (this block). All verification read-only; no product byte.*
+
+## DATED APPEND 2026-10-17 (X-W10 · X.W10.c arbiter seat · `claude-opus-5-5`) — CC-098..CC-102 cite their canon
+
+**The design law for CC-098 (Golden Glass · Breath of Life · Movement of Momentum), CC-099, CC-100,
+CC-101 and CC-102 is `demo/DESIGN.md`** — re-authored whole at X.W10.c from the twice-authored
+apotheosis (`docs/tranches/X/design/APOTHEOSIS.md`; open rulings at
+`docs/tranches/X/waves/W10-ADDENDUM-2026-10-17-open.md`). Its § 1 states the three laws
+(BREATH OF LIFE as law §1; MOVEMENT OF MOMENTUM = glass's *Liquid Weight is Universal*, with the
+OP-2 carve held as the `observer-curve` parameter; GOLDEN GLASS as an OP-3 MARK), § 2 the
+elevation / one-silhouette / one-light law (CC-100), § 3.2 the condense spacing ratio 1/φ (CC-101),
+§ 5.6 the reduced-motion law and the carve (CC-099), § 3 the producer-contract citation (CC-102).
+No row above changes its disposition: each stays **BUILD → X-W10** until its gate reads GREEN at
+X-W10's close. *One file appended (this block); no product byte.*

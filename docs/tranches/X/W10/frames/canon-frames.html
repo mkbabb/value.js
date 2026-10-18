@@ -1,0 +1,197 @@
+<!doctype html>
+<!-- SERVED MODEL: claude-opus-5-5
+     X-W10 design-gate frames (COHESION §0k.2, the DesignSync substitute), unit X.W10.c.
+     A specimen of demo/DESIGN.md's law, keyed to design-gate rows G-1 / G-6 / G-5.
+     Tokens: glass-ui 10.1.0 token files (linked, as shipped) + the demo's own :root values,
+     copied from demo/styles/foundation.css with the source named beside each. Rendered at
+     390 and 1280 by render.mjs in this folder. Evidence of the law, never a second statement. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>X-W10 canon frames</title>
+<link rel="stylesheet" href="../../../../../node_modules/@mkbabb/glass-ui/dist/styles/tokens/color-radius.css" />
+<link rel="stylesheet" href="../../../../../node_modules/@mkbabb/glass-ui/dist/styles/tokens/glass.css" />
+<link rel="stylesheet" href="../../../../../node_modules/@mkbabb/glass-ui/dist/styles/tokens/sizing.css" />
+<link rel="stylesheet" href="../../../../../node_modules/@mkbabb/glass-ui/dist/styles/tokens/dark-arm.css" />
+<style>
+@font-face { font-family: "Fraunces"; src: url("../../../../../demo/app/public/fonts/fraunces-latin-normal.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url("../../../../../node_modules/@mkbabb/glass-ui/dist/fonts/plus-jakarta-sans/plus-jakarta-sans-latin.woff2") format("woff2"); font-weight: 200 800; }
+@font-face { font-family: "Fira Code"; src: url("../../../../../node_modules/@mkbabb/glass-ui/dist/fonts/fira-code/fira-code-latin.woff2") format("woff2"); font-weight: 300 700; }
+
+:root {
+  /* demo/styles/foundation.css :root — the demo's override surface, values as in tree */
+  --shadow-color: var(--foreground);
+  --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent);
+  --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
+  --card-edge: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --phi-0: 0.382rem; --phi-1: 0.618rem; --phi-2: 1rem; --phi-3: 1.618rem; --phi-4: 2.618rem;
+  --color-gold: #D4AF37;
+  /* glass 10.1.0 tokens/shadow.css — the producer's stepped rung, shown only as the anti-pattern */
+  --frame-producer-md: -3px 3px 0 var(--foreground), -5px 5px 0 var(--foreground), -7px 7px 0 var(--foreground);
+  --aurora: radial-gradient(60% 80% at 20% 20%, oklch(0.78 0.14 25 / 0.55), transparent 70%),
+            radial-gradient(60% 80% at 85% 70%, oklch(0.74 0.13 250 / 0.5), transparent 70%),
+            radial-gradient(50% 60% at 60% 10%, oklch(0.86 0.12 95 / 0.5), transparent 70%);
+}
+/* demo/styles/foundation.css .dark — the shadow re-pin: alpha 50%, ink pinned darker */
+.dark {
+  --shadow-color: color(srgb 0.11 0.098 0.09);
+  --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font: 400 15px/1.5 "Plus Jakarta Sans", system-ui, sans-serif;
+  padding: 16px;
+}
+.page { max-width: 1200px; margin: 0 auto; display: grid; gap: var(--phi-3); }
+h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 400; margin: 0; }
+h1 { font-size: 2.058rem; }
+h2 { font-size: 1.618rem; }
+h3 { font-size: 1.15rem; font-weight: 500; }
+.mono { font-family: "Fira Code", ui-monospace, monospace; font-size: 12px; letter-spacing: 0.02em; }
+.muted { color: color-mix(in oklab, var(--foreground) 62%, transparent); }
+.gate { display: inline-block; font-family: "Fira Code", monospace; font-size: 11px; padding: 2px 8px;
+        border-radius: 9999px; border: 1px solid var(--card-edge); background: var(--well-bg); }
+.plate {
+  background: var(--card); border-radius: var(--radius-card, 1rem);
+  box-shadow: var(--shadow-cartoon); padding: var(--phi-3);
+  display: grid; gap: var(--phi-2); border: 1px solid var(--card-edge);
+}
+.grid { display: grid; gap: var(--phi-2); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.well { background: var(--well-bg); border: 1px solid var(--card-edge); border-radius: calc(1rem - 0.5rem + 0.25rem);
+        padding: var(--phi-2); display: grid; gap: var(--phi-1); }
+.label { font-family: "Fira Code", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.verdict-ok::before { content: "LAW · "; font-weight: 600; }
+.verdict-no::before { content: "DEFECT · "; font-weight: 600; color: oklch(0.5 0.17 27); }
+</style>
+</head>
+<body>
+<main class="page">
+<header style="display:grid;gap:var(--phi-1)">
+  <span class="label muted">value.js · demo/DESIGN.md · X-W10 design-gate frames</span>
+  <h1>The canon, as a specimen</h1>
+  <p class="muted" style="margin:0;max-width:60ch">Each plate is keyed to a design-gate row. Values are the tree's own (glass-ui 10.1.0 tokens; the demo's <span class="mono">:root</span>).</p>
+</header>
+
+<section class="plate" aria-labelledby="g1">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap">
+    <h2 id="g1">§ 1 · The three laws</h2><span class="gate">G-1</span>
+  </div>
+  <div class="grid">
+    <article class="well">
+      <span class="label">1.1 · law §1</span>
+      <h3>BREATH OF LIFE</h3>
+      <p style="margin:0">Every acted-on surface shows engagement at each rung.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap" aria-label="the engagement ladder">
+        <span class="gate">rest</span>
+        <span class="gate" style="background:color-mix(in oklab,var(--foreground) 12%,transparent)">hover</span>
+        <span class="gate" style="transform:scale(0.96)">press</span>
+        <span class="gate" style="background:var(--foreground);color:var(--background)">engaged</span>
+        <span class="gate" style="box-shadow:0 0 0 2px var(--card-edge)">modal</span>
+      </div>
+      <span class="mono muted">MARK OP-4 · the hover floor</span>
+    </article>
+    <article class="well">
+      <span class="label">1.2 · glass §L4, renamed</span>
+      <h3>MOVEMENT OF MOMENTUM</h3>
+      <p style="margin:0">Driver motion travels on a spring at its own clock. Weight reads from one scalar.</p>
+      <span class="mono">--motion-weight: 0.618 · reduce → 0</span>
+      <span class="mono muted">MARK OP-2 · observer-curve ∈ { calm, weighted }</span>
+    </article>
+    <article class="well" style="background:color-mix(in srgb,oklch(0.28 0.035 70 / 0.18) 100%,var(--card))">
+      <span class="label">1.3 · MARK OP-3 — not enacted</span>
+      <h3>GOLDEN GLASS</h3>
+      <p style="margin:0">Warm amber ink (hue 70) over cream, at the floating veil 0.18. Frosted, never metallic.</p>
+      <span class="mono muted">never grey · never metallic · never bright · never glows</span>
+    </article>
+  </div>
+</section>
+
+<section class="plate" aria-labelledby="g6">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap">
+    <h2 id="g6">§ 2 · What a shadow claims</h2><span class="gate">G-6</span>
+  </div>
+  <div class="grid">
+    <article class="well">
+      <span class="label">in-chrome</span>
+      <p style="margin:0" class="verdict-ok">A fixture in a plate casts nothing: one hairline, one unblurred tint.</p>
+      <div style="display:flex;gap:8px">
+        <span style="width:44px;height:44px;border-radius:10px;background:oklch(0.7 0.15 30);border:1px solid var(--card-edge)"></span>
+        <span style="width:44px;height:44px;border-radius:10px;background:oklch(0.72 0.12 200);border:1px solid var(--card-edge)"></span>
+        <span style="width:44px;height:44px;border-radius:10px;background:oklch(0.82 0.13 95);border:1px solid var(--card-edge)"></span>
+      </div>
+    </article>
+    <article class="well" style="position:relative;overflow:visible;background:var(--aurora),var(--well-bg)">
+      <span class="label">free-floating</span>
+      <p style="margin:0" class="verdict-ok">Chrome over live content: the tier's one quiet shadow, never a stack.</p>
+      <div style="justify-self:start;padding:8px 14px;border-radius:12px;background:color-mix(in srgb,oklch(0.28 0.035 70 / 0.18) 100%,var(--card));backdrop-filter:blur(12px);border:1px solid var(--card-edge);box-shadow:0 8px 24px color-mix(in srgb,var(--foreground) 12%,transparent)">popover</div>
+    </article>
+    <article class="well">
+      <span class="label">plate stamp = identity</span>
+      <p style="margin:0" class="verdict-ok">One hard 8px offset, zero blur, down-right. One light.</p>
+      <div style="width:120px;height:56px;border-radius:1rem;background:var(--card);border:1px solid var(--card-edge);box-shadow:var(--shadow-cartoon)"></div>
+    </article>
+  </div>
+  <div class="grid">
+    <article class="well">
+      <span class="label">one outer silhouette · M-2</span>
+      <p style="margin:0" class="verdict-ok">One layer (or inset copies of one outer shape): a clean rounded corner.</p>
+      <div style="width:140px;height:72px;border-radius:1rem;background:var(--card);border:1px solid var(--card-edge);box-shadow:var(--shadow-cartoon)"></div>
+    </article>
+    <article class="well">
+      <span class="label">offset copies · OM-2</span>
+      <p style="margin:0" class="verdict-no">Three zero-blur layers at three offsets union into facets at the corner.</p>
+      <div style="width:140px;height:72px;border-radius:1rem;background:var(--card);border:1px solid var(--card-edge);box-shadow:var(--frame-producer-md)"></div>
+    </article>
+    <article class="well">
+      <span class="label">two lights · M-3 / OM-7</span>
+      <p style="margin:0" class="verdict-no">A down-left producer rung beside the down-right stamp adds a second light.</p>
+      <div style="display:flex;gap:18px;padding-left:8px">
+        <div style="width:64px;height:48px;border-radius:12px;background:var(--card);border:1px solid var(--card-edge);box-shadow:var(--shadow-cartoon)"></div>
+        <div style="width:64px;height:48px;border-radius:12px;background:var(--card);border:1px solid var(--card-edge);box-shadow:-4px 4px 0 var(--foreground)"></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="plate" aria-labelledby="g5">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap">
+    <h2 id="g5">§ 3.2 · A condensed header is condensed</h2><span class="gate">G-5 · ratio 1/φ</span>
+  </div>
+  <div class="grid">
+    <article class="well" style="padding:0;overflow:hidden">
+      <div style="padding:var(--phi-2) var(--phi-2) var(--phi-3)">
+        <span class="label muted">rest · scrollTop 0</span>
+        <h2 style="margin-top:0.25rem">Palettes</h2>
+        <p style="margin:0.5rem 0 0" class="muted">Browse, save and remix colour sets.</p>
+      </div>
+      <div style="border-top:1px dashed var(--card-edge);padding:var(--phi-1) var(--phi-2)" class="mono">
+        padding-block-start 1rem (--phi-2) · gap --phi-3 (1.618rem) · caption in layout
+      </div>
+    </article>
+    <article class="well" style="padding:0;overflow:hidden;align-self:start">
+      <div style="padding:var(--phi-1) var(--phi-2) var(--phi-2)">
+        <span class="label muted">condensed · scrollTop ≥ 120</span>
+        <h2 style="margin-top:0.25rem;font-size:1.618rem">Palettes</h2>
+      </div>
+      <div style="border-top:1px dashed var(--card-edge);padding:var(--phi-1) var(--phi-2)" class="mono">
+        padding 0.618rem (--phi-1) · gap --phi-2 (1rem) · caption out of layout · title → --type-heading
+      </div>
+    </article>
+    <article class="well">
+      <span class="label">the anti-pattern · OM-18</span>
+      <p style="margin:0" class="verdict-no">Glyphs shrink while the box keeps its padding and the hidden caption keeps its line box.</p>
+      <div style="border:1px solid var(--card-edge);border-radius:12px;padding:1rem 1rem 1.618rem">
+        <div style="font-family:Fraunces,serif;font-size:1.2rem">Palettes</div>
+        <div style="visibility:hidden">Browse, save and remix colour sets.</div>
+      </div>
+    </article>
+  </div>
+  <p class="mono muted" style="margin:0">Both spacing channels step one φ rung down (× 0.618). Block size: strictly smaller by ≥ the caption box + (1 − 1/φ) of padding and gap.</p>
+</section>
+</main>
+</body>
+</html>
