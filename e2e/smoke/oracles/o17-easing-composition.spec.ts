@@ -149,6 +149,75 @@ for (const viewport of [
     });
 }
 
+// X-DS value pass 14 (V14C-01) — HANDLE REGISTRATION: the bezier handles and
+// the axis labels are drawn in the plot's box. The handle overlay
+// (`[data-slot="easing-handles"]`, absolute inset-0) and the curve svg share
+// the canvas wrapper; a cap on the svg alone drew the handles ~55px off the
+// curve's ends at 1440. Each handle's screen centre must equal the PLOT's own
+// viewBox→screen mapping of that handle's (cx, cy) within 1px; for the seeded
+// linear curve, cubic-bezier(0, 0, 1, 1), those are the plot's two corners.
+for (const viewport of [
+    { name: "1440", width: 1440, height: 900 },
+    { name: "390", width: 390, height: 844 },
+] as const) {
+    test(`O-17 handle registration — each control point sits on the plot it controls — ${viewport.name}`, async ({
+        page,
+    }) => {
+        const consoleErrors = setupEnvNoise(page);
+        await page.setViewportSize({ width: viewport.width, height: viewport.height });
+        const row = await openEasingBench(page);
+        const svg = await discloseAuthoring(row);
+        await expectZeroLetterbox(svg);
+        const handles = row.locator(
+            '#easing-authoring-0 [data-slot="easing-handles"] circle[role="slider"]',
+        );
+        await expect(handles).toHaveCount(2);
+        const plot = await svg.evaluate((el) => {
+            const s = el as unknown as SVGSVGElement;
+            const ctm = s.getScreenCTM();
+            if (!ctm) throw new Error("no screen CTM");
+            const r = s.getBoundingClientRect();
+            const map = (x: number, y: number) => {
+                const p = new DOMPoint(x, y).matrixTransform(ctm);
+                return { x: p.x, y: p.y };
+            };
+            return { m: { a: ctm.a, b: ctm.b, c: ctm.c, d: ctm.d, e: ctm.e, f: ctm.f }, right: r.right, corner00: map(0, 1), corner11: map(1, 0) };
+        });
+        const got = await handles.evaluateAll((els) =>
+            els.map((el) => {
+                const c = el as unknown as SVGCircleElement;
+                const r = c.getBoundingClientRect();
+                return {
+                    cx: c.cx.baseVal.value,
+                    cy: c.cy.baseVal.value,
+                    x: r.left + r.width / 2,
+                    y: r.top + r.height / 2,
+                };
+            }),
+        );
+        const { a, b, c: cc, d, e, f } = plot.m;
+        for (const h of got) {
+            const px = a * h.cx + cc * h.cy + e;
+            const py = b * h.cx + d * h.cy + f;
+            expect(Math.abs(h.x - px), `handle (${h.cx}, ${h.cy}) x vs the plot`).toBeLessThanOrEqual(1);
+            expect(Math.abs(h.y - py), `handle (${h.cx}, ${h.cy}) y vs the plot`).toBeLessThanOrEqual(1);
+        }
+        // The seeded linear: control point 1 on the plot's (0,0) corner, 2 on its (1,1).
+        expect(Math.abs(got[0]!.x - plot.corner00.x)).toBeLessThanOrEqual(1);
+        expect(Math.abs(got[0]!.y - plot.corner00.y)).toBeLessThanOrEqual(1);
+        expect(Math.abs(got[1]!.x - plot.corner11.x)).toBeLessThanOrEqual(1);
+        expect(Math.abs(got[1]!.y - plot.corner11.y)).toBeLessThanOrEqual(1);
+        // The "1" axis label sits at the plot's top-right, inside the plot box.
+        const one = await row
+            .locator('#easing-authoring-0 [data-slot="easing-curve"] > span')
+            .last()
+            .evaluate((el) => el.getBoundingClientRect().toJSON());
+        expect(one.right).toBeLessThanOrEqual(plot.right + 1);
+        expect(plot.right - one.right).toBeLessThanOrEqual(8);
+        expect(consoleErrors).toEqual([]);
+    });
+}
+
 test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page }) => {
     const consoleErrors = setupEnvNoise(page);
     const row = await openEasingBench(page);

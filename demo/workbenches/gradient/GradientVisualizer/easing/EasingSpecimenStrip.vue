@@ -34,6 +34,12 @@ function onTileToggle(tile: SpecimenTile, on: boolean) {
     if (on) emit("select", tile);
 }
 
+// The family heading in sentence case (X-DS value pass 14, V14C-02): "CSS"
+// is an acronym, every other family is a word ("Sine", "Back", "Steps").
+function familyName(family: string): string {
+    return family === "css" ? "CSS" : family.charAt(0).toUpperCase() + family.slice(1);
+}
+
 // The selected specimen stays in view: on selection AND on reveal the
 // pressed tile scrolls to its nearest edge — scoped to THIS strip's own
 // subtree (sibling rows mount hidden twins of every data-specimen id) AND
@@ -96,28 +102,33 @@ watch(
                 :key="fam.family"
                 class="strip-family"
             >
-                <span class="family-eyebrow" aria-hidden="true">{{ fam.family }}</span>
+                <span class="family-eyebrow" aria-hidden="true">{{ familyName(fam.family) }}</span>
                 <div class="family-tiles">
-                    <Chip
+                    <div
                         v-for="tile in fam.tiles"
                         :key="tile.id"
-                        mode="selectable"
-                        shape="icon"
-                        class="specimen-tile"
-                        :model-value="tile.id === selectedId"
-                        :aria-label="tile.id"
-                        :data-specimen="tile.id"
-                        @update:model-value="(on: boolean) => onTileToggle(tile, on)"
+                        class="specimen-cell"
                     >
-                        <svg
-                            class="tile-glyph"
-                            viewBox="0 0 1 1"
-                            aria-hidden="true"
+                        <Chip
+                            mode="selectable"
+                            shape="icon"
+                            class="specimen-tile"
+                            :model-value="tile.id === selectedId"
+                            :aria-label="tile.id"
+                            :title="tile.id"
+                            :data-specimen="tile.id"
+                            @update:model-value="(on: boolean) => onTileToggle(tile, on)"
                         >
-                            <path :d="tile.glyph" vector-effect="non-scaling-stroke" />
-                        </svg>
-                        <span class="tile-label">{{ tile.label }}</span>
-                    </Chip>
+                            <svg
+                                class="tile-glyph"
+                                viewBox="0 0 1 1"
+                                aria-hidden="true"
+                            >
+                                <path :d="tile.glyph" vector-effect="non-scaling-stroke" />
+                            </svg>
+                        </Chip>
+                        <span class="tile-label" aria-hidden="true">{{ tile.label }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,7 +146,7 @@ watch(
     padding: 2px;
 }
 
-/* Each family: a mono family label over its tile trio — the kf family filter's
+/* Each family: a family heading over its tile trio — the kf family filter's
    information architecture folded INTO the strip (compactness: no second
    control row). A hairline rules the family off its neighbor. */
 .strip-family {
@@ -147,13 +158,15 @@ watch(
     border-left: 1px solid var(--card-edge);
     padding-left: 0.875rem;
 }
-.family-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.5625rem;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    color: var(--muted-foreground);
-    opacity: 0.75;
+/* X-DS value pass 14 (V14C-02): the family heading and the tile names sit on
+   the scale's caption rung (the route title's), in the certified de-emphasis
+   ink. The kf gallery's 9px tracked mono eyebrow, dimmed by opacity, is
+   retired: de-emphasis rides `--ink-muted`, never alpha (T.W4-4). */
+.family-eyebrow,
+.tile-label {
+    font-size: var(--text-caption);
+    line-height: 1.2;
+    color: var(--ink-muted, var(--muted-foreground));
 }
 .family-tiles {
     display: flex;
@@ -163,18 +176,23 @@ watch(
     gap: 0.25rem;
 }
 
-/* The tile: a micro cell — portrait over variant label. The producer Chip
+/* The cell: the disc, then its name under it, so the disc holds only the
+   curve (V14C-02). The producer Chip
    (mode="selectable") carries press/hover semantics + the pressed wash; the
    seat sizes it to specimen scale. Its SHAPE is the glass icon circle
    (`shape="icon"`, aspect-square), chosen ONCE for every tile (X-W6 · X.W6.d —
    d1): the `cell` shape resolved to a capsule, so a 45px-wide tile beside a
    44px one read as a stadium beside a circle. */
-.specimen-tile {
+.specimen-cell {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.25rem;
+}
+.specimen-tile {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 0.125rem;
     /* The seat's size for the circle: both axes, so the icon shape's
        aspect-square is honoured at the specimen scale (a 44px target). */
     inline-size: 2.75rem;
@@ -203,12 +221,9 @@ watch(
     stroke-linejoin: round;
 }
 
+/* Variant names read as-cased: they are the CSS keyword fragments
+   (`ease`, `in-out`), the literal's own spelling (kf tile-name rule). */
 .tile-label {
-    font-family: var(--font-mono);
-    font-size: 0.5625rem;
-    line-height: 1.2;
-    text-transform: none; /* variant labels read as-cased (kf tile-name rule) */
-    color: var(--muted-foreground);
     white-space: nowrap;
 }
 
@@ -218,11 +233,11 @@ watch(
     stroke: var(--motion-accent, var(--foreground));
     stroke-width: 1.75;
 }
-.specimen-tile[data-state="on"] .tile-label {
+.specimen-cell:has(> .specimen-tile[data-state="on"]) .tile-label {
     color: var(--motion-accent, var(--foreground));
     font-weight: 600;
 }
-.specimen-tile:hover .tile-label {
+.specimen-cell:has(> .specimen-tile:hover) .tile-label {
     color: var(--foreground);
 }
 </style>

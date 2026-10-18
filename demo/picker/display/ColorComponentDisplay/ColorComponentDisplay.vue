@@ -170,7 +170,7 @@ function figParts(component: string): { int: string; frac: string } {
 }
 
 /* TYPOGRAPHY-1 — the instrument's typographic rhythm: integer heavy,
- * fraction light + demoted, unit as a muted small-cap index.
+ * fraction light + demoted, unit as a muted italic index.
  *
  * T.W4-4 — THE GUARD-THEN-ALPHA CURE (the W3-5 D6 contract handed here,
  * h-dag D-4): the demotions were post-hoc opacity multiplies over an
@@ -186,9 +186,10 @@ function figParts(component: string): { int: string; frac: string } {
     font-weight: 300;
     color: var(--ink-muted, var(--muted-foreground));
 }
+/* X-DS value pass 14 (V14C-04): the unit is a muted italic index in the
+ * console's own lowercase spelling ("9.8 deg"). The small-caps and tracking
+ * are retired (value-canon §2 Type: no small-caps labels). */
 .fig-unit {
-    font-variant: small-caps;
-    letter-spacing: 0.04em;
     color: var(--ink-muted, var(--muted-foreground));
     font-size: 0.55em;
     font-style: italic;

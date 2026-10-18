@@ -129,12 +129,22 @@ useMutationObserver(rootEl, syncVbRatio, {
 
 /* Law 3 — zero letterbox: aspect rides the live viewBox; the producer's
  * inline fixed-clamp carries the specificity, so the seat overrides carry
- * !important (retired at the P7 adopt). */
-.easing-authoring :deep(svg[aria-label]) {
+ * !important (retired at the P7 adopt).
+ *
+ * X-DS value pass 14 (V14C-01): the 19rem cap sizes the box the plot's layers
+ * SHARE, not one layer. The producer's canvas wrapper (the picker root's first
+ * child, `relative`) holds the curve (`[data-slot=easing-curve]`, which also
+ * positions the 0/1 axis labels) and the absolute `easing-handles` overlay
+ * (`inset-0`). Capping only the labelled svg drew one component in two boxes at
+ * 1440: the plot 304px wide, the handles and the "1" laid out on the 426px
+ * wrapper. Capped here, the curve's svg fills the wrapper at `w-full`, and the
+ * handles, the labels and the plot are one box at every width. */
+.easing-authoring :deep([data-slot="easing-picker"] > div:has(> [data-slot="easing-curve"])) {
     inline-size: min(100%, 19rem);
+}
+.easing-authoring :deep(svg[aria-label]) {
     block-size: auto !important;
     aspect-ratio: calc(1 / var(--vb-ratio, 1.2)) !important;
-    margin-inline: 0 !important;
 }
 
 /* The liquid morph (T-48 bar): a regime flip (linear → back → steps)

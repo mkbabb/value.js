@@ -199,7 +199,14 @@ async function copyLiteral(index: number, css: string) {
                      While the authoring stage is disclosed THAT readout is the
                      row's one literal + copy; the rail keeps only the
                      disclosure toggle, so the row never prints it twice. -->
-                <div class="readout-rail flex items-center gap-1.5 rounded-md bg-well px-2 py-1">
+                <!-- X-DS value pass 14 (V14C-03): the well floors the literal's
+                     contrast, so it is drawn only while the rail holds the
+                     literal. With the stage open the rail holds only the toggle,
+                     flush right on the panel above the stage it opened. -->
+                <div
+                    class="readout-rail flex items-center gap-1.5"
+                    :class="!tuneOpen[row.index] && 'rounded-md bg-well px-2 py-1'"
+                >
                     <template v-if="!tuneOpen[row.index]">
                         <code class="font-mono text-mono-small text-muted-foreground truncate flex-1 min-w-0" :title="row.css">{{ row.css }}</code>
                         <button
