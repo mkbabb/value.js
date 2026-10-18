@@ -1,0 +1,413 @@
+{
+  "base": "http://localhost:9471",
+  "results": [
+    {
+      "cell": "view-menu-1440",
+      "theme": "light",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 488,
+        "y": 61,
+        "w": 192,
+        "h": 326
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 584,
+          "y": 224,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 546,
+          "y": 143,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 143,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        },
+        {
+          "x": 546,
+          "y": 322,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 322,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 2
+    },
+    {
+      "cell": "view-menu-1440",
+      "theme": "dark",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 488,
+        "y": 61,
+        "w": 192,
+        "h": 326
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 584,
+          "y": 224,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 546,
+          "y": 143,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 143,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        },
+        {
+          "x": 546,
+          "y": 322,
+          "onFloater": true,
+          "top": "span.flex.items-center.gap-2"
+        },
+        {
+          "x": 622,
+          "y": 322,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 2
+    },
+    {
+      "cell": "card-menu-1440",
+      "theme": "light",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 531,
+        "y": 338,
+        "w": 142,
+        "h": 211
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 602,
+          "y": 444,
+          "onFloater": true,
+          "top": "div.glass-menu-divider.-mx-1.my-1"
+        },
+        {
+          "x": 573,
+          "y": 391,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 630,
+          "y": 391,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 573,
+          "y": 507,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 630,
+          "y": 507,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "card-menu-1440",
+      "theme": "dark",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 531,
+        "y": 338,
+        "w": 142,
+        "h": 211
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 602,
+          "y": 444,
+          "onFloater": true,
+          "top": "div.glass-menu-divider.-mx-1.my-1"
+        },
+        {
+          "x": 573,
+          "y": 391,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 630,
+          "y": 391,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 573,
+          "y": 507,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 630,
+          "y": 507,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "overflow-menu-390",
+      "theme": "light",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 101,
+        "y": 82,
+        "w": 176,
+        "h": 260
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 189,
+          "y": 212,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 154,
+          "y": 147,
+          "onFloater": true,
+          "top": "div.glass-floating.glass-overlay-plate.glass-reveal"
+        },
+        {
+          "x": 224,
+          "y": 147,
+          "onFloater": true,
+          "top": "div.glass-floating.glass-overlay-plate.glass-reveal"
+        },
+        {
+          "x": 154,
+          "y": 290,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 224,
+          "y": 290,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "overflow-menu-390",
+      "theme": "dark",
+      "ok": true,
+      "role": "menu",
+      "slot": "menu-content",
+      "rect": {
+        "x": 101,
+        "y": 82,
+        "w": 176,
+        "h": 260
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 189,
+          "y": 212,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 154,
+          "y": 147,
+          "onFloater": true,
+          "top": "div.glass-floating.glass-overlay-plate.glass-reveal"
+        },
+        {
+          "x": 224,
+          "y": 147,
+          "onFloater": true,
+          "top": "div.glass-floating.glass-overlay-plate.glass-reveal"
+        },
+        {
+          "x": 154,
+          "y": 290,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        },
+        {
+          "x": 224,
+          "y": 290,
+          "onFloater": true,
+          "top": "div.menu__item.interactive-item.glass-menu-row"
+        }
+      ],
+      "floaterMaxShadowLayers": 5,
+      "floaterMaxShadowEl": "div[menu-content]",
+      "floaterGradientFills": 0
+    },
+    {
+      "cell": "mix-select-1440",
+      "theme": "light",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 220,
+        "y": 190,
+        "w": 473,
+        "h": 384
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 456,
+          "y": 382,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 362,
+          "y": 286,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 551,
+          "y": 286,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 362,
+          "y": 497,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 551,
+          "y": 497,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 1
+    },
+    {
+      "cell": "mix-select-1440",
+      "theme": "dark",
+      "ok": true,
+      "role": "listbox",
+      "slot": "select-content",
+      "rect": {
+        "x": 220,
+        "y": 190,
+        "w": 473,
+        "h": 384
+      },
+      "zContent": "130",
+      "zWrapper": "130",
+      "paintTopAll": true,
+      "points": [
+        {
+          "x": 456,
+          "y": 382,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 362,
+          "y": 286,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 551,
+          "y": 286,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 362,
+          "y": 497,
+          "onFloater": true,
+          "top": "span."
+        },
+        {
+          "x": 551,
+          "y": 497,
+          "onFloater": true,
+          "top": "div.interactive-item.glass-menu-row.relative"
+        }
+      ],
+      "floaterMaxShadowLayers": 8,
+      "floaterMaxShadowEl": "div[select-content]",
+      "floaterGradientFills": 1
+    }
+  ]
+}

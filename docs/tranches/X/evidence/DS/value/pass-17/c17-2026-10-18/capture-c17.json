@@ -1,0 +1,891 @@
+{
+ "base": "http://localhost:9471",
+ "results": [
+  {
+   "file": "picker-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01621,
+    "heroMeanDiff": 13.5
+   },
+   "reshot": false
+  },
+  {
+   "file": "palettes-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01634,
+    "heroMeanDiff": 13.53
+   },
+   "reshot": false
+  },
+  {
+   "file": "browse-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02235
+   },
+   "reshot": false
+  },
+  {
+   "file": "extract-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01275
+   },
+   "reshot": false
+  },
+  {
+   "file": "mix-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01633,
+    "heroMeanDiff": 13.52
+   },
+   "reshot": false
+  },
+  {
+   "file": "generate-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02547
+   },
+   "reshot": false
+  },
+  {
+   "file": "gradient-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03059
+   },
+   "reshot": false,
+   "direction": {
+    "found": true,
+    "readout": "90deg",
+    "cssLiteral": null
+   },
+   "glyph": {
+    "found": true,
+    "name": "1 → 2linear",
+    "frame": true,
+    "stroke": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "fill": "none",
+    "strokeWidth": "1px",
+    "cardEdge": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 12%, transparent)"
+   },
+   "strip": {
+    "found": true,
+    "families": 8,
+    "lines": 5,
+    "familiesInPort": 8,
+    "lineStartsAfterFirst": 4,
+    "portW": 452,
+    "stripW": 452,
+    "stripH": 473,
+    "portScrollW": 452,
+    "portClientW": 452,
+    "overflowsX": false,
+    "wrap": "nowrap",
+    "overflow": "clip",
+    "names": 27,
+    "eyebrows": [
+     "CSS",
+     "Sine",
+     "Quad",
+     "Cubic",
+     "Expo",
+     "Circ",
+     "Back",
+     "Steps"
+    ],
+    "display": "grid",
+    "columns": "214px 214px",
+    "heads": [
+     [
+      "CSS",
+      2
+     ],
+     [
+      "Sine",
+      2
+     ],
+     [
+      "Quad",
+      236
+     ],
+     [
+      "Cubic",
+      2
+     ],
+     [
+      "Expo",
+      236
+     ],
+     [
+      "Circ",
+      2
+     ],
+     [
+      "Back",
+      236
+     ],
+     [
+      "Steps",
+      2
+     ]
+    ],
+    "headColumns": [
+     2,
+     236
+    ],
+    "hairlines": [
+     226
+    ]
+   },
+   "tune": {
+    "found": true,
+    "stageW": 452,
+    "contentW": 426,
+    "wrapperW": 304,
+    "svgW": 304,
+    "gutterL": 61,
+    "gutterR": 61,
+    "handles": [
+     {
+      "dx": 0,
+      "dy": 0
+     },
+     {
+      "dx": 0,
+      "dy": 0
+     }
+    ],
+    "registered": true
+   }
+  },
+  {
+   "file": "atmosphere-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02355
+   },
+   "reshot": false
+  },
+  {
+   "file": "blob-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01635,
+    "heroMeanDiff": 13.54
+   },
+   "reshot": false
+  },
+  {
+   "file": "notfound-1440-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.031
+   },
+   "reshot": false
+  },
+  {
+   "file": "picker-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02021,
+    "heroMeanDiff": 15.03
+   },
+   "reshot": false
+  },
+  {
+   "file": "palettes-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01919
+   },
+   "reshot": false
+  },
+  {
+   "file": "browse-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02933
+   },
+   "reshot": false
+  },
+  {
+   "file": "extract-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01593
+   },
+   "reshot": false
+  },
+  {
+   "file": "mix-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0304
+   },
+   "reshot": false
+  },
+  {
+   "file": "generate-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03273
+   },
+   "reshot": false
+  },
+  {
+   "file": "gradient-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02762
+   },
+   "reshot": false,
+   "direction": {
+    "found": true,
+    "readout": "90deg",
+    "cssLiteral": null
+   },
+   "glyph": {
+    "found": true,
+    "name": "1 → 2linear",
+    "frame": true,
+    "stroke": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "fill": "none",
+    "strokeWidth": "1px",
+    "cardEdge": "color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 12%, transparent)"
+   },
+   "strip": {
+    "found": true,
+    "families": 8,
+    "lines": 1,
+    "familiesInPort": 1,
+    "lineStartsAfterFirst": 0,
+    "portW": 314,
+    "stripW": 1465,
+    "stripH": 84,
+    "portScrollW": 1465,
+    "portClientW": 314,
+    "overflowsX": true,
+    "wrap": "nowrap",
+    "overflow": "visible",
+    "names": 27,
+    "eyebrows": [
+     "CSS",
+     "Sine",
+     "Quad",
+     "Cubic",
+     "Expo",
+     "Circ",
+     "Back",
+     "Steps"
+    ],
+    "display": "inline-flex",
+    "columns": "none",
+    "heads": [
+     [
+      "CSS",
+      2
+     ],
+     [
+      "Sine",
+      266
+     ],
+     [
+      "Quad",
+      434
+     ],
+     [
+      "Cubic",
+      602
+     ],
+     [
+      "Expo",
+      819
+     ],
+     [
+      "Circ",
+      987
+     ],
+     [
+      "Back",
+      1155
+     ],
+     [
+      "Steps",
+      1323
+     ]
+    ],
+    "headColumns": [
+     2,
+     266,
+     434,
+     602,
+     819,
+     987,
+     1155,
+     1323
+    ],
+    "hairlines": [
+     252,
+     420,
+     588,
+     804,
+     972,
+     1140,
+     1308
+    ]
+   },
+   "tune": {
+    "found": true,
+    "stageW": 314,
+    "contentW": 288,
+    "wrapperW": 288,
+    "svgW": 288,
+    "gutterL": 0,
+    "gutterR": 0,
+    "handles": [
+     {
+      "dx": 0,
+      "dy": 0
+     },
+     {
+      "dx": 0,
+      "dy": 0
+     }
+    ],
+    "registered": true
+   }
+  },
+  {
+   "file": "atmosphere-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0293
+   },
+   "reshot": false
+  },
+  {
+   "file": "blob-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03045
+   },
+   "reshot": false
+  },
+  {
+   "file": "notfound-390-light.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0369
+   },
+   "reshot": false
+  },
+  {
+   "file": "picker-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01732,
+    "heroMeanDiff": 25.41
+   },
+   "reshot": false
+  },
+  {
+   "file": "palettes-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01731,
+    "heroMeanDiff": 25.19
+   },
+   "reshot": false
+  },
+  {
+   "file": "browse-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02602
+   },
+   "reshot": false
+  },
+  {
+   "file": "extract-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01604
+   },
+   "reshot": false
+  },
+  {
+   "file": "mix-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01731,
+    "heroMeanDiff": 25.17
+   },
+   "reshot": false
+  },
+  {
+   "file": "generate-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03491
+   },
+   "reshot": false
+  },
+  {
+   "file": "gradient-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03481
+   },
+   "reshot": false,
+   "direction": {
+    "found": true,
+    "readout": "90deg",
+    "cssLiteral": null
+   },
+   "glyph": {
+    "found": true,
+    "name": "1 → 2linear",
+    "frame": true,
+    "stroke": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "fill": "none",
+    "strokeWidth": "1px",
+    "cardEdge": "color-mix(in oklab, hsl(30 14% 90%) 12%, transparent)"
+   },
+   "strip": {
+    "found": true,
+    "families": 8,
+    "lines": 5,
+    "familiesInPort": 8,
+    "lineStartsAfterFirst": 4,
+    "portW": 452,
+    "stripW": 452,
+    "stripH": 473,
+    "portScrollW": 452,
+    "portClientW": 452,
+    "overflowsX": false,
+    "wrap": "nowrap",
+    "overflow": "clip",
+    "names": 27,
+    "eyebrows": [
+     "CSS",
+     "Sine",
+     "Quad",
+     "Cubic",
+     "Expo",
+     "Circ",
+     "Back",
+     "Steps"
+    ],
+    "display": "grid",
+    "columns": "214px 214px",
+    "heads": [
+     [
+      "CSS",
+      2
+     ],
+     [
+      "Sine",
+      2
+     ],
+     [
+      "Quad",
+      236
+     ],
+     [
+      "Cubic",
+      2
+     ],
+     [
+      "Expo",
+      236
+     ],
+     [
+      "Circ",
+      2
+     ],
+     [
+      "Back",
+      236
+     ],
+     [
+      "Steps",
+      2
+     ]
+    ],
+    "headColumns": [
+     2,
+     236
+    ],
+    "hairlines": [
+     226
+    ]
+   },
+   "tune": {
+    "found": true,
+    "stageW": 452,
+    "contentW": 426,
+    "wrapperW": 304,
+    "svgW": 304,
+    "gutterL": 61,
+    "gutterR": 61,
+    "handles": [
+     {
+      "dx": 0,
+      "dy": 0
+     },
+     {
+      "dx": 0,
+      "dy": 0
+     }
+    ],
+    "registered": true
+   }
+  },
+  {
+   "file": "atmosphere-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02815
+   },
+   "reshot": false
+  },
+  {
+   "file": "blob-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0173,
+    "heroMeanDiff": 25.2
+   },
+   "reshot": false
+  },
+  {
+   "file": "notfound-1440-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03236
+   },
+   "reshot": false
+  },
+  {
+   "file": "picker-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.02133,
+    "heroMeanDiff": 28.28
+   },
+   "reshot": false
+  },
+  {
+   "file": "palettes-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0214
+   },
+   "reshot": false
+  },
+  {
+   "file": "browse-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0331
+   },
+   "reshot": false
+  },
+  {
+   "file": "extract-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.01979
+   },
+   "reshot": false
+  },
+  {
+   "file": "mix-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03496
+   },
+   "reshot": false
+  },
+  {
+   "file": "generate-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.04355
+   },
+   "reshot": false
+  },
+  {
+   "file": "gradient-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.0323
+   },
+   "reshot": false,
+   "direction": {
+    "found": true,
+    "readout": "90deg",
+    "cssLiteral": null
+   },
+   "glyph": {
+    "found": true,
+    "name": "1 → 2linear",
+    "frame": true,
+    "stroke": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "fill": "none",
+    "strokeWidth": "1px",
+    "cardEdge": "color-mix(in oklab, hsl(30 14% 90%) 12%, transparent)"
+   },
+   "strip": {
+    "found": true,
+    "families": 8,
+    "lines": 1,
+    "familiesInPort": 1,
+    "lineStartsAfterFirst": 0,
+    "portW": 314,
+    "stripW": 1465,
+    "stripH": 84,
+    "portScrollW": 1465,
+    "portClientW": 314,
+    "overflowsX": true,
+    "wrap": "nowrap",
+    "overflow": "visible",
+    "names": 27,
+    "eyebrows": [
+     "CSS",
+     "Sine",
+     "Quad",
+     "Cubic",
+     "Expo",
+     "Circ",
+     "Back",
+     "Steps"
+    ],
+    "display": "inline-flex",
+    "columns": "none",
+    "heads": [
+     [
+      "CSS",
+      2
+     ],
+     [
+      "Sine",
+      266
+     ],
+     [
+      "Quad",
+      434
+     ],
+     [
+      "Cubic",
+      602
+     ],
+     [
+      "Expo",
+      819
+     ],
+     [
+      "Circ",
+      987
+     ],
+     [
+      "Back",
+      1155
+     ],
+     [
+      "Steps",
+      1323
+     ]
+    ],
+    "headColumns": [
+     2,
+     266,
+     434,
+     602,
+     819,
+     987,
+     1155,
+     1323
+    ],
+    "hairlines": [
+     252,
+     420,
+     588,
+     804,
+     972,
+     1140,
+     1308
+    ]
+   },
+   "tune": {
+    "found": true,
+    "stageW": 314,
+    "contentW": 288,
+    "wrapperW": 288,
+    "svgW": 288,
+    "gutterL": 0,
+    "gutterR": 0,
+    "handles": [
+     {
+      "dx": 0,
+      "dy": 0
+     },
+     {
+      "dx": 0,
+      "dy": 0
+     }
+    ],
+    "registered": true
+   }
+  },
+  {
+   "file": "atmosphere-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03584
+   },
+   "reshot": false
+  },
+  {
+   "file": "blob-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03792
+   },
+   "reshot": false
+  },
+  {
+   "file": "notfound-390-dark.png",
+   "ok": true,
+   "attempt": 1,
+   "paint": {
+    "ok": true,
+    "tries": 1,
+    "cardEdgeFrac": 0.03919
+   },
+   "reshot": false
+  }
+ ]
+}

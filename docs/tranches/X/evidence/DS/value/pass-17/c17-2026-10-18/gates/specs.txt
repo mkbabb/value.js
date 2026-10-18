@@ -1,0 +1,2 @@
+smoke: e2e/smoke/oracles/o18-contrast-census.spec.ts e2e/smoke/oracles/o15-dock-register.spec.ts e2e/smoke/w12-dock.spec.ts e2e/smoke/page-load.spec.ts
+smoke-admin: (whole project)

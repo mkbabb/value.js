@@ -1,0 +1,808 @@
+{
+  "base": "http://localhost:9471",
+  "oldRule": ".gold-ink { color: var(--color-gold) !important; }",
+  "cells": [
+    {
+      "cell": "admin-users",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-1440-light.png",
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.310735 0.0637586 84.2)",
+          "inkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+          "ground": "rgb(234,141,132)",
+          "ink": "rgb(63,45,0)",
+          "inkHue": 43,
+          "ratio": 5.45
+        },
+        {
+          "name": "adminTrigger",
+          "found": true,
+          "color": "oklch(0.310735 0.0637586 84.2)",
+          "inkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(63,45,0)",
+          "inkHue": 43,
+          "ratio": 5.45
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(218,165,32)",
+          "inkHue": 43,
+          "ratio": 1.09
+        },
+        {
+          "name": "adminTrigger",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+          "ground": "rgb(234,141,135)",
+          "ink": "rgb(218,165,32)",
+          "inkHue": 43,
+          "ratio": 1.08
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ]
+    },
+    {
+      "cell": "admin-seal",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-seal-1440-light.png",
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockCollapsed": true
+      },
+      "after": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.409504 0.0840245 84.2)",
+          "inkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(95,70,0)",
+          "inkHue": 44,
+          "ratio": 4.24
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(218,164,35)",
+          "inkHue": 42,
+          "ratio": 1.08
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "route": "picker",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-view-menu-1440-light.png",
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.27162 0.0557328 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(135,58,62)",
+          "ink": "rgb(51,36,0)",
+          "inkHue": 42,
+          "ratio": 1.94
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.27162 0.0557328 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(131,56,57)",
+          "ink": "rgb(51,36,0)",
+          "inkHue": 42,
+          "ratio": 1.86
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(217,58,82)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 3.9
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(177,66,76)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 3.13
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(140,60,63)",
+          "ink": "rgb(218,165,31)",
+          "inkHue": 43,
+          "ratio": 3.31
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(146,52,57)",
+          "ink": "rgb(218,165,31)",
+          "inkHue": 43,
+          "ratio": 3.38
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(217,58,82)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 3.9
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(177,66,76)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 3.13
+        }
+      ],
+      "floatingNeutralAtRow": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(135,58,62)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 2.25
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(132,55,57)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 2.15
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "route": "browse",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-view-menu-browse-1440-light.png",
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.27162 0.0557328 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(125,105,50)",
+          "ink": "rgb(51,36,0)",
+          "inkHue": 42,
+          "ratio": 2.83
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.27162 0.0557328 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(116,94,51)",
+          "ink": "rgb(51,36,0)",
+          "inkHue": 42,
+          "ratio": 2.43
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(205,102,119)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 4.8
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(201,92,115)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 4.38
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(125,111,45)",
+          "ink": "rgb(218,165,31)",
+          "inkHue": 43,
+          "ratio": 2.24
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(130,92,62)",
+          "ink": "rgb(218,165,31)",
+          "inkHue": 43,
+          "ratio": 2.64
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(206,101,119)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 4.79
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(202,90,118)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 4.36
+        }
+      ],
+      "floatingNeutralAtRow": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(132,101,57)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 3.25
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "inkGold": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+          "ground": "rgb(117,93,53)",
+          "ink": "rgb(28,25,23)",
+          "inkHue": 24,
+          "ratio": 2.81
+        }
+      ]
+    },
+    {
+      "cell": "admin-users",
+      "theme": "light",
+      "width": 390,
+      "file": "admin-users-390-light.png",
+      "tokens": {
+        "rootInkGold": "oklch(29.11260605976% 0.059735089132 84.2deg)",
+        "inkGoldFloating": "oklch(27.162033979711% 0.055732781758 84.2deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.310735 0.0637586 84.2)",
+          "inkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+          "ground": "rgb(234,141,132)",
+          "ink": "rgb(63,45,0)",
+          "inkHue": 43,
+          "ratio": 5.45
+        },
+        {
+          "name": "adminTrigger",
+          "found": false
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.751 0.147 84.2)",
+          "inkGold": "oklch(31.07349363612% 0.063758562442 84.2deg)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(218,165,32)",
+          "inkHue": 43,
+          "ratio": 1.09
+        },
+        {
+          "name": "adminTrigger",
+          "found": false
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ]
+    },
+    {
+      "cell": "admin-seal",
+      "theme": "light",
+      "width": 390,
+      "error": "the dock did not idle shut within 12 s"
+    },
+    {
+      "cell": "admin-users",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-1440-dark.png",
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.78
+        },
+        {
+          "name": "adminTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.78
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(140,17,19)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.78
+        },
+        {
+          "name": "adminTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(140,17,19)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.78
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ]
+    },
+    {
+      "cell": "admin-seal",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-seal-1440-dark.png",
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockCollapsed": true
+      },
+      "after": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.41002 0.0839327 86)",
+          "inkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(94,70,0)",
+          "inkHue": 45,
+          "ratio": 4.26
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 1.05
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "route": "picker",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-view-menu-1440-dark.png",
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(106,34,42)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 5.62
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(113,24,36)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 5.67
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(179,39,64)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 5.15
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(155,37,56)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 6.22
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(106,34,42)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 5.62
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(113,24,36)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 5.67
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(179,39,64)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 5.15
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(155,37,56)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 6.22
+        }
+      ],
+      "floatingNeutralAtRow": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(106,34,42)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 9
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(113,24,36)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 9.08
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "route": "browse",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-view-menu-browse-1440-dark.png",
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(84,81,18)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.12
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(81,65,25)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.97
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(128,62,59)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 6.32
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(112,40,47)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 8.3
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(83,81,18)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.13
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(75,67,24)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.99
+        },
+        {
+          "name": "menuGenerateLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(128,62,59)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 6.32
+        },
+        {
+          "name": "menuGradientLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(110,42,46)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 8.3
+        }
+      ],
+      "floatingNeutralAtRow": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(83,81,18)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 6.61
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(75,67,24)",
+          "ink": "rgb(233,230,226)",
+          "inkHue": 34,
+          "ratio": 7.98
+        }
+      ]
+    },
+    {
+      "cell": "admin-users",
+      "theme": "dark",
+      "width": 390,
+      "file": "admin-users-390-dark.png",
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockCollapsed": false
+      },
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(140,17,19)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.78
+        },
+        {
+          "name": "adminTrigger",
+          "found": false
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ],
+      "oldRule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "inkGold": "oklch(0.784 0.143 86.0)",
+          "ground": "rgb(140,17,19)",
+          "ink": "rgb(225,177,55)",
+          "inkHue": 43,
+          "ratio": 4.78
+        },
+        {
+          "name": "adminTrigger",
+          "found": false
+        },
+        {
+          "name": "seal",
+          "found": false
+        }
+      ]
+    },
+    {
+      "cell": "admin-seal",
+      "theme": "dark",
+      "width": 390,
+      "error": "the dock did not idle shut within 12 s"
+    }
+  ]
+}
