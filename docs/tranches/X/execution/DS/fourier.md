@@ -2334,3 +2334,36 @@ They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and transport also 
 - No golden was re-baselined.
 
 **Frames** (`pass-18/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f18p-probe.mjs`: `paper-top-{light,dark}-390` and `nf-rest-{light,dark}-{1440,390}`.
+
+### pass 19
+This is the cure seat for critic **F19C** of the redeployed loop (pass 19, 2026-10-18). The BEFORE and AFTER frames are in `evidence/DS/fourier/pass-19/`.
+- fourier `75182fb` (`m/w1-bump-migration`, pushed fast-forward) changes `NotFoundCard.vue`.
+- value.js `3af16fbe1` holds the frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F19C-N1 | **Cured at the root, as layout only.** The critic guessed the cause was the row's gap or a block margin. Measured (`f19p-probe-before.json`), the row had no margins, and both box insets were 13. The weight came from the quiet link's own box: wrapped at 390, glass's coarse `[data-control-target]` floor makes "Browse the gallery" 44px tall around a 20px line, so about 12px of empty box sat on top of the card's 12px bottom pad. Ink to edge read 23 at the bottom against 9 at the top. The link keeps its whole tap box. Its block slack, `(box − 1lh) / 2`, is bled out of layout on both sides, so it stays centred in an unwrapped row, and the row gap takes the same amount back. The box size is read from glass's own sizing (`--control-h-sm`, and `--touch-target` on coarse pointers). After the cure (`f19p-probe-after.json`), at 390 the bottom ink inset is 11 against 9.1 at the top, the spacing from the primary to the link is unchanged, the link's box lies inside the card, and the card is 12px shorter. At 1440 every box is unchanged (`nf-rest-{light,dark}-{1440,390}.png`, with `-before` twins). |
+
+**Glass-owned rows (DS-F19C-G0).** These are pass 18's rows, unchanged, with no local override:
+- the resting casts on the dock, the paper article, the ToC band and aside, the config, gallery and not-found cards, and the /equation stage and aside;
+- the dark primary-emphasis halo under Compute, Upload a new image, Choose an image and Export;
+- the glass stacked-edge recipe;
+- the transport's orphan "1 ×";
+- the coarse type-ramp inversion (the /equation presets, and the /morph metric labels outranking their values at 390);
+- the aside's top offset against the stage on /equation and /v at 1440.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and transport also on **O-88 DOCK-COLLAPSE-MOTION**) and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3263`; `pass-19/census-after.json`).
+- Static and computed per-page counts are identical to pass 18.
+- The sums are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The census is still RED, on the glass rows only.
+
+**Gates** (`pass-19/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice.
+- **e2e** (headless, chromium and mobile-chromium, `--workers=1`): the 7 specs that reach the not-found card (`e2e-specs.txt`) passed 120/120 on both runs. None is tagged `@coarse`, so mobile-chromium selected none of them.
+- No golden was re-baselined.
+
+**Frames** (`pass-19/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f19p-probe.mjs`: `nf-rest-{light,dark}-{1440,390}`, with `-before` frames of the uncured tree.
