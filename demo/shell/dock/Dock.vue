@@ -268,12 +268,7 @@ watch(
                              is REFUSED and was not applied: it disarms the producer's own
                              drag hit-test (keyed on `[aria-pressed="true"]`) and turns nine
                              walk.spec assertions red — an interim that breaks two things to
-                             half-fix one. The deletion is the cure.
-
-                             X-W10's Ad-18 marker (W10.md:117/:354) is SPENT by this
-                             deletion — recorded here and in the wave record as the
-                             survivor's terminal event, so X-W10 does not close over a
-                             marker no one retired. -->
+                             half-fix one. The deletion is the cure. -->
 
                     <!-- Mobile overflow menu -->
                     <MobileMenuDropdown

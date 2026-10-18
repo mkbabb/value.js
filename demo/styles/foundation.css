@@ -684,16 +684,6 @@
     color: var(--foreground);
 }
 
-/* Underline tab variant — active tab gets a colored bottom border.
- * Apply this class to the Tabs root; set --active-tab-color via :style.
- * MARKER (A.W2 / coordination/Q.md §3): this is a demo-side override of a
- * reka-ui attribute selector. It is retired once glass-ui ships a Tabs
- * `underline` variant; until then the override stays. */
-.underline-tabs button[role="tab"][data-state="active"] {
-    border-bottom: 2px solid var(--active-tab-color, var(--primary));
-    border-radius: 0;
-}
-
 /* MARKER (S owner-ruling 2026-07-05, alpha-checker lane): restatement of
  * glass-ui's OWN spectrum-range rule, which its SOURCE declares (Slider.vue —
  * `background: transparent; backdrop-filter: none; -webkit-backdrop-filter:

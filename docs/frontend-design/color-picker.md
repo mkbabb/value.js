@@ -1,5 +1,23 @@
 # Color Picker — frontend-design treatment
 
+> **TOMBSTONE — folded into `demo/DESIGN.md` at X-W10 (unit X.W10.f, 2026-10-18).** This
+> treatment is no longer design law. Nothing below binds a component author; where it disagrees
+> with `demo/DESIGN.md`, the canon governs. Its file anchors (`demo/color-picker/`, `demo/@/…`,
+> `style.css`, `App.vue` line ranges) predate the demo restructure and are history. What moved
+> where (canon section names):
+>
+> - § Aesthetic direction → `demo/DESIGN.md` § 1 The three laws and § 6.3 The product-surface laws.
+> - § Refinements · TYPOGRAPHY → § 6.1 Type — the three-voice law.
+> - § Refinements · COLOR, and § The one unforgettable moment (the gamut truth line) → § 4 Chroma
+>   fidelity (§ 4.3 The accent axis, the gamut pairs, the checker ground: `--gamut-edge` /
+>   `--gamut-hatch` and their paper pair).
+> - § Refinements · MOTION → § 5 Motion.
+> - § Refinements · SPATIAL → § 3 Proportion and derivation.
+> - § Refinements · MICRO-INTERACTIONS → § 1.1 BREATH OF LIFE (the engagement ladder).
+> - § Refinements · BACKGROUND → § 2 Material and elevation (§ Surfaces — THE MATERIAL LADDER).
+> - § Current-state audit, § Design verdict reconciliation, § Implementation plan → history of
+>   Tranche R; no canon section restates them.
+
 > **AMENDED — Tranche R.W0 (2026-07-03).** The pass-2 P1–P10 overlay-amendment packet (`docs/tranches/R/audit/pass2/overlay-amendment.md §5`, incl. the pass-3 P8 `:140` MATHEMATICS-pillar clause) is merged in editorially: the gamut overlay is re-specified from the vacuous "literal sRGB boundary over the square" to the honest **wide-gamut truth line** (display-p3 default lens, ΔE>JND contour), the breathing hues corrected to measurement (red/magenta flood, blue clears), the snap-resist beat re-specced as a **threshold detent** with a target-named `p3 ⊣` label, the render path settled to a 2D canvas consuming the engine-owned `sampleGamutBoundary`, and the ink/paper token pair minted. This merged treatment is the **R.W3 spec of record**.
 
 > Target: the flagship perceptual color picker app (`demo/color-picker/`). The library underneath it is value.js — oklab/oklch, color-mix, 15 color spaces, perceptual ramps. This page is the showroom for that engine, so its design signature must be **perceptual color truth made visible**, not a generic color tool wearing the engine's logo.

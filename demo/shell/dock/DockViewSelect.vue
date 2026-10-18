@@ -71,9 +71,6 @@ const viewRing = computed(() => {
         @update:open="open = $event"
         @update:model-value="(id) => emit('update:modelValue', id as string)"
     >
-        <!-- Ad-18 marker: [&>span]:line-clamp-none cancels glass-ui's internal
-             line-clamp-1 on the trigger label span. Root fix is a `clampLabel`
-             prop on glass-ui DockSelectTrigger (filed coordination/Q.md §3). -->
         <!-- W7-4 (ONE dock voice): the trigger — icon + ring — speaks
              `--accent-view`, the CURRENT view's gamut-guarded token. The ring
              seam (`--dock-ring`) is re-wired off the live accent onto the view
@@ -83,7 +80,7 @@ const viewRing = computed(() => {
         <DockTrigger
             for="select"
             aria-label="Select view"
-            class="view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+            class="view-select-trigger text-small font-display font-normal"
             :style="{ '--dock-ring': viewRing }"
         >
             <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon

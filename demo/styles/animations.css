@@ -61,8 +61,7 @@
  * gate). The family owns the CURVE + TOKEN pairing; a consuming site may
  * parameterise only GEOMETRY through the `--vj-*` custom properties (set on
  * the transitioning element or an ancestor — custom props inherit). The
- * standing inventory + per-site mapping lives at
- * docs/tranches/R/audit/R.W4-visual-runtime/transition-inventory.md.
+ * law is demo/DESIGN.md § 5.3 (The three families — a fourth is a defect).
  *
  *   vj-enter     — a surface ARRIVES or DEPARTS (panes, overlays, drawers,
  *                  toolbars, list items). Spring-smooth entrance, accelerate

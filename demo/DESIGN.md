@@ -1095,7 +1095,7 @@ A reviewer flags each of these on sight.
   home rule).
 - **No new global utility class for one consumer (the global-utility rule).** Colocate it in the
   component's scoped style. A shared survivor in `demo/styles/utils.css` or
-  `demo/styles/foundation.css` (`.slug-pill`, `.search-seated`, `.dashed-well`, `.underline-tabs`,
+  `demo/styles/foundation.css` (`.slug-pill`, `.search-seated`, `.dashed-well`,
   the shell's `.app-layout` / `.pane-container`) is a true cross-feature recipe, and each carries
   a comment justifying its global residence.
 - **No legacy-compat shim.** Migrate the consumer to the new API at the root.
