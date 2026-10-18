@@ -1452,3 +1452,39 @@ Critic V11C named one high consumer row (V11C-01), two low (V11C-02, V11C-03), o
   - judge the block well's height against the card at 390 (5 lines, inside the well's 12rem cap);
   - judge whether a long user-typed stop list should scroll inside the well or let it grow.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 12 (2026-10-18): critic V12C — the CSS well grows with its block, a head keeps its first row, one inline-code register, the About card states each range once
+
+Critic V12C named one medium consumer row (V12C-01), four low (V12C-02 to -05), one trivial (V12C-06) and one glass row (V12C-G1 medium). V12C-01 to -05 are cured at the root. V12C-06 is recorded with no change, as the critic allows. The glass row stays honest-RED on O-87 / O-88. Evidence is in `pass-12/c12-2026-10-18/` (`pass-12/` already holds an earlier seat's pass 12).
+
+**Commits.** value.js `135e63136` (the cure: 14 paths) and `ad5c36e07` (frames, capture, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-12/c12-2026-10-18/`) |
+|---|---|---|---|
+| V12C-01 (medium) | **CURED by deletion.** | `GradientCodeEditor.vue` drops `max-h-[12rem] overflow-y-auto` and the now-idle `scrollbar-thin`, and keeps `min-h-[5rem]`. The well grows with its block-form text, and the pane's own port is the one scroller. | `capture-c12.json`, 4/4 gradient cells, asserted: at 5 stops (Generate's default) and at 8, the well's scrollHeight equals its clientHeight (5 stops: 237/237 at 1440, 206/206 at 390; 8 stops: 317/317, 274/274), overflow-y is `visible`, max-height `none`, no overflowing scroller wraps it, and the closing `)` sits inside the well's padding box. `well5-*.png`, `well8-*.png`. |
+| V12C-02 (low) | **CURED in `snapFold`, one selector.** | The row right after a section head is no longer a fold candidate (`.configurator-row:not(.config-section-title + *)`). The fold therefore lands on the head's top, and the head scrolls in with its rows. No new class. | `capture-c12.json` fold probe: at Blob 1440 (light and dark), the last whole item above the fold is the Eccentricity row (port 389px, footer margin 42px), not a head. `orphanHead` is false in all 8 Blob and Atmosphere cells. At 390, the column does not scroll. `blob-1440-*.png`. |
+| V12C-03 (low) | **CURED: one inline-code rule.** | `Markdown.vue`'s accent-chip selector is `:not(pre) > code` in place of `p > code, li > code`, so a label's chip inside `<strong>` speaks the prose's register. The bold labels keep their backticks. | `capture-c12.json` About probe, lab, LCh and OKLCh at 1440/390 in light and dark: `strong > code` and the prose chips share one padding-inline (4px) and one accent ink (light `oklch(0.305 0.122 9.8)`, dark `oklch(0.958 0.021 9.8)`). `oneRegister` is true in all 12 readings. `about-lch-*.png`. |
+| V12C-04 (low) | **CURED in the content.** | `lch.md` and `oklch.md` Components, and `hsv.md`'s hue note, set their numerals as prose in the list's body voice, for example `0 (black) to 100 (diffuse white)` and `90 = yellowish`. Code stays for the symbols (`L`, `a*b*`). | The About probe counts **0** numeral chips per Components item in lab, LCh and OKLCh, at every cell. |
+| V12C-05 (low) | **CURED by deletion.** | The `### Attributes` list is deleted from all 11 docs. The nutrition label is the summary, and Components is the explanation. | The About probe reads no `Attributes` heading in lab, LCh and OKLCh. The h3 run now opens on Historical Context or Background. |
+| V12C-06 (trivial) | **No change (as the critic allows).** | The 4px `mx-1` on inline math stays. | — |
+| V12C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | The rows are the bead, the dock (rim, halo, 390 bulge, collapsed tile), the card, menu and name-field rim stacks, Mix's disabled primary, the thumbless scrubber rails and the light plate's dark veil ink. There is no local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9331 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. All identical to pass 11.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Looping animations: 0.
+- Computed elements: 5304. The drop comes from the deleted Attributes lists.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c12.mjs` uses one browser for the run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells (10 routes × 1440/390 × light/dark), plus `well5-*`, `well8-*`, `about-lab-*` and `about-lch-*` (4 each). The guarded dev server on :9331 was stopped, and nothing from this seat is left running. The served tree also carried other seats' uncommitted hunks.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1237/1242 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3). The failure lists are identical across runs.
+- **e2e** (headless, workers 1, own server :9342, `gates/specs.txt`): smoke, 12 specs. Pass 11's 7, plus `o10-type-locks`, `o11-header-gates` and `o18-contrast-census` (the About chips), and `x-w7l-detached` and `companion-pane-track-start` (the config folds). **80 passed ×2**, with the same 6 failed ×2. All 6 are the standing class (c′) o18 cells homed by id to X-W10, the same list as `DS/close/value/e2e-smoke-fails-1.txt`. None reads a changed surface.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the Gradient CSS well (now uncapped), the config folds and the About card will differ, and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V12C is cured or ruled no-change.
+- For the next critic:
+  - judge the uncapped well's height for a long user-typed stop list at 390;
+  - judge whether `oklch.md`'s Disadvantages line (`` `0`–`1` ``, `` `0`–`100` ``) should follow V12C-04's prose ranges. It is outside Components and was left as it is.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
