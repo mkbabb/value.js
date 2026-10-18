@@ -1,0 +1,17 @@
+# SERVED MODEL: claude-opus-5-5
+# X.W10.e G-6 DELTA pairs — owner-marked witnesses (BEFORE: the deleted PaletteCard's stepped cast) vs the successor PaletteInspector card (AFTER), shasum -a 256
+2e223c1a91df6a77191e0b925709a7d9cc35cf0ac409c81c8847acb5cf6e3de8  ../../../V/megatranche/audit/visual/owner-marked/OM-2-card-shadow-sharp-corners.png
+d59a2147304d8b5da94fe1adf5298792f61a52eac5ac30258adfb01432d260a8  ../../../V/megatranche/audit/visual/owner-marked/OM-11-palette-card-shadow-artifacts.png
+68ecee948e259002a8c6a371183fa88b30c83cbca607659b4cd294b1741f59f5  ../../../V/megatranche/audit/visual/owner-marked/OM-12-palette-card-shadow-artifact-closeup.png
+7907537bb350d7bf602fb3315aa614f0a8f780e40a5503d81e64d7d69d01e803  g6-run1/card-1440x900-hover.png
+a781cbb85b8295f9d78cca73463319dfe13eb1fbb57f8c207bb502b5694b9922  g6-run1/card-1440x900-rest.png
+23f7fdc4c0ee4c28565eeedb8ce195cb5f071e48067be45115b4ebfb76b44a35  g6-run1/card-390x844-hover.png
+97af819909e7f160509f02c028f24805a68e6e0caae221d285da1b3262423886  g6-run1/card-390x844-rest.png
+7907537bb350d7bf602fb3315aa614f0a8f780e40a5503d81e64d7d69d01e803  g6-run2/card-1440x900-hover.png
+a781cbb85b8295f9d78cca73463319dfe13eb1fbb57f8c207bb502b5694b9922  g6-run2/card-1440x900-rest.png
+23f7fdc4c0ee4c28565eeedb8ce195cb5f071e48067be45115b4ebfb76b44a35  g6-run2/card-390x844-hover.png
+97af819909e7f160509f02c028f24805a68e6e0caae221d285da1b3262423886  g6-run2/card-390x844-rest.png
+09e4e997b151879547476b8e97324f70ef8ffbd55899361efb819451208ae6fc  g6-run1.json
+6053fcdb2980fa457b02b4493dc2a12deb485e0ea39004a3d29a5dbbb7de96e3  g6-run2.json
+42447c59aba9c87412f1065b774fbd791d9f989b2e92d65369c928a809f36c64  g6-diff-run1.txt
+42447c59aba9c87412f1065b774fbd791d9f989b2e92d65369c928a809f36c64  g6-diff-run2.txt

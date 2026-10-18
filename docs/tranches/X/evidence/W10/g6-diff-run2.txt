@@ -1,0 +1,7 @@
+witness OM-2-card-shadow-sharp-corners.png box=(48, 120, 959, 231) ring BL=[483, 960] BR=[236, 960]
+witness OM-11-palette-card-shadow-artifacts.png box=(36, 130, 947, 465) ring BL=[125, 960] BR=[23, 960]
+witness OM-12-palette-card-shadow-artifact-closeup.png box=(16, 92, 927, 203) ring BL=[122, 960] BR=[21, 960]
+live 1440x900 rest box=(48, 48, 972, 303) ring={'TL': [0, 960], 'TR': [0, 960], 'BL': [0, 960], 'BR': [0, 960]} cardShadow=none casters=0 cartoonCast=0
+live 1440x900 hover box=(48, 48, 972, 303) ring={'TL': [0, 960], 'TR': [0, 960], 'BL': [0, 960], 'BR': [0, 960]} cardShadow=none casters=0 cartoonCast=0
+live 390x844 rest box=(48, 48, 696, 296) ring={'TL': [0, 960], 'TR': [0, 960], 'BL': [0, 960], 'BR': [0, 960]} cardShadow=none casters=0 cartoonCast=0
+live 390x844 hover box=(48, 48, 696, 296) ring={'TL': [0, 960], 'TR': [0, 960], 'BL': [0, 960], 'BR': [0, 960]} cardShadow=none casters=0 cartoonCast=0
