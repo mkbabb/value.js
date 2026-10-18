@@ -1,0 +1,42 @@
+{
+ "nf-rest-light-1440": {
+  "cardW": 402.5,
+  "cardH": 170.7,
+  "padT": "0px",
+  "padB": "0px",
+  "topInkInset": 15,
+  "bottomChromeInset": 23,
+  "bottomInkInset": 33,
+  "wrapped": false
+ },
+ "nf-rest-light-390": {
+  "cardW": 358,
+  "cardH": 170.5,
+  "padT": "0px",
+  "padB": "0px",
+  "topInkInset": 9.1,
+  "bottomChromeInset": 1,
+  "bottomInkInset": 11,
+  "wrapped": true
+ },
+ "nf-rest-dark-1440": {
+  "cardW": 402.5,
+  "cardH": 170.7,
+  "padT": "0px",
+  "padB": "0px",
+  "topInkInset": 15,
+  "bottomChromeInset": 23,
+  "bottomInkInset": 33,
+  "wrapped": false
+ },
+ "nf-rest-dark-390": {
+  "cardW": 358,
+  "cardH": 170.5,
+  "padT": "0px",
+  "padB": "0px",
+  "topInkInset": 9.1,
+  "bottomChromeInset": 1,
+  "bottomInkInset": 11,
+  "wrapped": true
+ }
+}
