@@ -31,6 +31,7 @@ import {
     linearInterval,
     formatColorLiteral,
     seedLiteral,
+    interpolationClause,
 } from "./useGradientCSS";
 import { parseGradientCSS } from "./gradientParse";
 import type { GradientParseResult } from "./gradientParse";
@@ -218,6 +219,13 @@ export function useGradientModel() {
         if (model.interpolation) {
             interpolationSpace.value = model.interpolation.space;
             hueMethod.value = model.interpolation.hueMethod;
+        } else if (interpolationClause(interpolationSpace.value, hueMethod.value)) {
+            // CSS that names no space renders in css-images-4's default —
+            // oklab, shorter hue — so the model takes it (V11C-03). Only a
+            // space CSS cannot name (HSV: no clause to print) keeps the
+            // model's own, so its round-trip survives.
+            interpolationSpace.value = "oklab";
+            hueMethod.value = "shorter";
         }
         return result;
     }

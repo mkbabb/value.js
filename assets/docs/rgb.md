@@ -43,13 +43,13 @@ The sRGB gamut forms a cube from (0,0,0) black to (1,1,1) white. It covers a mod
 ### Components
 
 1. **`R` (Red)**:
-   <Katex expression="R" :display-mode="false" />: 0 (no red) to 1 (full red intensity)
+   0 (no red) to 1 (full red intensity)
 
 2. **`G` (Green)**:
-   <Katex expression="G" :display-mode="false" />: 0 (no green) to 1 (full green intensity)
+   0 (no green) to 1 (full green intensity)
 
 3. **`B` (Blue)**:
-   <Katex expression="B" :display-mode="false" />: 0 (no blue) to 1 (full blue intensity)
+   0 (no blue) to 1 (full blue intensity)
 
 ### sRGB and Linear RGB
 

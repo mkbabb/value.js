@@ -21,7 +21,7 @@ The gamut is the same as sRGB. It's a reorganization of the same color cube, not
 ### Components
 
 1. **`H` (Hue)**:
-   <Katex expression="H" :display-mode="false" />: 0° to 360° (often normalized to 0–1)
+   0° to 360° (often normalized to 0–1)
 
    Base color on the wheel:
    - 0°/360° = Red
@@ -32,12 +32,12 @@ The gamut is the same as sRGB. It's a reorganization of the same color cube, not
    - 300° = Magenta
 
 2. **`W` (Whiteness)**:
-   <Katex expression="W" :display-mode="false" />: 0 (no white) to 1 (pure white)
+   0 (no white) to 1 (pure white)
 
    How much white is mixed into the hue. Higher values produce tints.
 
 3. **`B` (Blackness)**:
-   <Katex expression="B" :display-mode="false" />: 0 (no black) to 1 (pure black)
+   0 (no black) to 1 (pure black)
 
    How much black is mixed into the hue. Higher values produce shades.
 

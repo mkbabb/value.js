@@ -382,9 +382,10 @@ test("round-trip: authored CSS applies atomically with literals preserved", asyn
     await expect(editor).toContainText("rebeccapurple");
 
     // On blur the clean text settles to the canonical serialization —
-    // authored literals survive (P2-15).
+    // authored literals survive (P2-15), one top-level argument per line
+    // (V11C-02: a stop is never broken mid-literal).
     await main.getByRole("heading", { name: "Gradient" }).last().click();
-    await expect(editor).toContainText("red 0%, rebeccapurple 80%");
+    await expect(editor).toContainText("red 0%,\n  rebeccapurple 80%\n)");
 
     expect(consoleErrors).toEqual([]);
 });

@@ -8,7 +8,13 @@
 
 import { describe, expect, it } from "vitest";
 import { parseGradientCSS } from "../demo/workbenches/gradient/composables/gradientParse";
-import { serializeGradient } from "../demo/workbenches/gradient/composables/useGradientCSS";
+import {
+    serializeCoalescedGradient,
+    serializeGradient,
+    serializeIntervalRamp,
+    serializeRailRamp,
+} from "../demo/workbenches/gradient/composables/useGradientCSS";
+import { useGradientModel } from "../demo/workbenches/gradient/composables/useGradientModel";
 
 function expectOk(css: string) {
     const res = parseGradientCSS(css);
@@ -194,5 +200,62 @@ describe("parseGradientCSS — explicit rejection (never a partial)", () => {
         expect(expectReject("linear-gradient(90deg, red, blue,)")).toMatch(
             /empty argument/,
         );
+    });
+});
+
+describe("the sampled forms carry the path, never the hue method (V11C-01)", () => {
+    const longer = {
+        ...expectOk("linear-gradient(90deg, oklch(75% 0.15 145deg), oklch(65% 0.18 265deg))"),
+        interpolationSpace: "oklch" as const,
+        hueMethod: "longer" as const,
+    };
+
+    it("the rail, the render tile and the interval ramp print `in oklch` with no hue", () => {
+        for (const css of [
+            serializeRailRamp(longer),
+            serializeCoalescedGradient(longer),
+            serializeIntervalRamp(longer, 0)!,
+        ]) {
+            expect(css).toContain("in oklch, ");
+            expect(css).not.toContain("longer hue");
+        }
+    });
+
+    it("the raw-stop serializer keeps `longer hue`", () => {
+        expect(serializeGradient(longer)).toContain("90deg in oklch longer hue, ");
+    });
+});
+
+describe("the code well's block form (V11C-02)", () => {
+    it("puts each top-level argument on its own indented line and round-trips", () => {
+        const m = expectOk("linear-gradient(45deg, red, rebeccapurple 80%)");
+        const model = { ...m, interpolationSpace: "oklch" as const, hueMethod: "longer" as const };
+        const block = serializeGradient(model, "block");
+        expect(block).toBe(
+            "linear-gradient(\n  45deg in oklch longer hue,\n  red 0%,\n  rebeccapurple 80%\n)",
+        );
+        const again = expectOk(block);
+        expect(again.interpolation).toEqual({ space: "oklch", hueMethod: "longer" });
+        expect(again.stops.map((s) => s.cssColor)).toEqual(["red", "rebeccapurple"]);
+    });
+});
+
+describe("a bare paste takes CSS's default space (V11C-03)", () => {
+    it("from oklch / longer, a clause-less gradient lands in oklab / shorter", () => {
+        const g = useGradientModel();
+        g.interpolationSpace.value = "oklch";
+        g.hueMethod.value = "longer";
+        expect(g.applyCSS("linear-gradient(red, blue)").ok).toBe(true);
+        expect(g.interpolationSpace.value).toBe("oklab");
+        expect(g.hueMethod.value).toBe("shorter");
+    });
+
+    it("from HSV (no CSS name), a clause-less gradient keeps HSV", () => {
+        const g = useGradientModel();
+        g.interpolationSpace.value = "hsv";
+        g.hueMethod.value = "longer";
+        expect(g.applyCSS("linear-gradient(red, blue)").ok).toBe(true);
+        expect(g.interpolationSpace.value).toBe("hsv");
+        expect(g.hueMethod.value).toBe("longer");
     });
 });

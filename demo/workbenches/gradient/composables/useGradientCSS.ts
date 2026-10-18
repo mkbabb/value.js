@@ -147,9 +147,17 @@ export function isPolarCssSpace(name: string): boolean {
 }
 
 /** The gradient's first argument: geometry (angle / `from`) and the space
- *  clause, space-separated in the one argument css-images-4 gives them. */
+ *  clause, space-separated in the one argument css-images-4 gives them.
+ *
+ *  `hue` is the hue method the clause prints. The raw-stop copy prints the
+ *  model's own; a SAMPLED form prints `shorter` (V11C-01): its samples already
+ *  walk the model's hue path (`../model/sample`, ≥ 2 steps per interval, so
+ *  adjacent samples are always under 180° apart), and `shorter` between two
+ *  samples IS the walked direction. `longer` there would take the long arc
+ *  between every adjacent pair — one full hue wheel per sub-interval. */
 function preamble(
-    model: Pick<GradientModelState, "type" | "direction" | "interpolationSpace" | "hueMethod">,
+    model: Pick<GradientModelState, "type" | "direction" | "interpolationSpace">,
+    hue: HueInterpolationMethod,
 ): string | null {
     const geometry: string[] = [];
     if (model.type === "linear" && model.direction !== 180) {
@@ -157,7 +165,7 @@ function preamble(
     } else if (model.type === "conic") {
         geometry.push(`from ${model.direction}deg`);
     }
-    const spaceClause = interpolationClause(model.interpolationSpace, model.hueMethod);
+    const spaceClause = interpolationClause(model.interpolationSpace, hue);
     if (spaceClause) geometry.push(spaceClause);
     return geometry.length ? geometry.join(" ") : null;
 }
@@ -173,26 +181,34 @@ function fmtPos(position: number): string {
  * Serialize a gradient model to a simple CSS gradient string (user-editable).
  * Uses the raw stops only — no coalesced intermediate stops. Stop colors are
  * the model's `cssColor` strings verbatim (authored literals survive), and
- * the first argument carries the model's ` in <space>` clause.
+ * the first argument carries the model's ` in <space> [<hue> hue]` clause —
+ * the ONLY form that prints the hue method, because only its stops are raw.
+ *
+ * `layout: "block"` is the code well's form (V11C-02): each top-level argument
+ * on its own two-space-indented line, so a stop is never broken mid-literal.
  */
-export function serializeGradient(model: GradientModelState): string {
+export function serializeGradient(
+    model: GradientModelState,
+    layout: "line" | "block" = "line",
+): string {
     const typeName = `${model.type}-gradient`;
     const parts: string[] = [];
-    // The same preamble the render tile prints — geometry plus the space
-    // clause — so the copied CSS and the rail are one gradient (V10C-01).
-    const head = preamble(model);
+    const head = preamble(model, model.hueMethod);
     if (head) parts.push(head);
 
     for (const stop of model.stops) {
         parts.push(`${stop.cssColor} ${fmtPos(stop.position)}`);
     }
 
-    return `${typeName}(${parts.join(", ")})`;
+    return layout === "block"
+        ? `${typeName}(\n  ${parts.join(",\n  ")}\n)`
+        : `${typeName}(${parts.join(", ")})`;
 }
 
-/** The 90° strip head every normalized ramp shares, space clause included. */
+/** The 90° strip head every normalized ramp shares: the space alone, with
+ *  `shorter` hue — the samples carry the path (see `preamble`, V11C-01). */
 function stripHead(source: GradientSampleSource): string {
-    const spaceClause = interpolationClause(source.interpolationSpace, source.hueMethod);
+    const spaceClause = interpolationClause(source.interpolationSpace, "shorter");
     return spaceClause ? `linear-gradient(90deg ${spaceClause}, ` : "linear-gradient(90deg, ";
 }
 
@@ -297,7 +313,9 @@ export function serializeRailRamp(model: GradientModelState): string {
 export function serializeCoalescedGradient(model: GradientModelState): string {
     const typeName = `${model.type}-gradient`;
     const parts: string[] = [];
-    const head = preamble(model);
+    // Sampled: the samples carry the hue path, so the clause names the space
+    // with `shorter` hue (V11C-01).
+    const head = preamble(model, "shorter");
     if (head) parts.push(head);
 
     const { stops } = model;
@@ -329,13 +347,14 @@ export interface UseGradientCSSReturn {
 /**
  * Reactive CSS output from a gradient model state.
  * `coalescedCSS` bakes in per-interval easing (the render truth);
- * `simpleCSS` is user-editable; `railRampCSS` is the rail's normalized axis.
+ * `simpleCSS` is the code well's user-editable block form; `railRampCSS` is
+ * the rail's normalized axis.
  */
 export function useGradientCSS(
     modelState: ComputedRef<GradientModelState>,
 ): UseGradientCSSReturn {
     const coalescedCSS = computed(() => serializeCoalescedGradient(modelState.value));
-    const simpleCSS = computed(() => serializeGradient(modelState.value));
+    const simpleCSS = computed(() => serializeGradient(modelState.value, "block"));
     const railRampCSS = computed(() => serializeRailRamp(modelState.value));
 
     return {
