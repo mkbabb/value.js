@@ -2145,3 +2145,47 @@ This is the cure seat for critic **F13C** of the redeployed loop (pass 13, 2026-
   - A production preview run gave 217/227 ×2 (`f13p/preview-runs/`). The 10 failures all hit `/demo/shape-extractor`, a dev-only route that a production bundle does not carry.
 
 **Frames** (`pass-13/f13p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f13p-probe.mjs`: `paper-env-{light,dark}-{1440,390}`.
+
+### pass 14
+This is the cure seat for critic **F14C** of the redeployed loop (pass 14, 2026-10-18). Earlier `### pass 14` headings in this file belong to other passes of the loop. The AFTER frames are in `evidence/DS/fourier/pass-14/f14p/`. The BEFORE reading is the critic's (`pass-14/critic-f14c/`). The other folders in `pass-14/` belong to other seats.
+- fourier `47e0df6` (`m/w1-bump-migration`, two paths by pathspec, pushed fast-forward `0ee8d0d..47e0df6`) holds the bridge for T1 and T2, and L1.
+- latex-paper `ebdf787` (master, local, not pushed; publishing 0.3.0 is the owner's act) holds the root half of T1 and T2 and its 0.3.0 changeset line.
+- value.js `c535032bf` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F14C-T1 | **Cured.** At the root (latex-paper `ebdf787`), `:is(.theorem-block, .paper-proof-block)` is `padding-block: 0.75rem; padding-inline: 1.25rem 0`. The inline-end inset drew nothing: there is no fill and no right border. It only narrowed the measure. The 0.2.1 bridge restates the change with `padding-inline-end: 0` on the existing theorem-block rule and `padding: 0.75rem 0 0.75rem 1.25rem` on the existing proof rule. No new rule was added.<br>**Measured** (`f14p-probe-after.json`, all 4 cells): (2.70), (2.72), (2.73), (2.74) and (2.75) all end at 1237 at 1440, the prose's right edge. At 390, (2.72) to (2.74) end at 357, the measure. Before, the in-block numbers ended at 1217 and 337. |
+| DS-F14C-T2 | **Cured.** At the root, `.math-block` loses `padding-left: 1rem`, which cleared the hover rule DS-F7-C1 deleted. `.theorem-body .math-block` is `margin: 0.75rem 0`, dropping the 0.5rem inline-start margin. The bridge restates both: `padding-left: 0` on the existing `.math-block` rule, and `margin: 0.75rem 0` on the existing theorem-body rule.<br>**Measured:** at 390, the theorem's and the proof's displays both start at x=56, the text edge inside the block, with clientWidth 301 for both. Before, the theorem started at 80 and the proof at 72, with clientWidth 257 against 265. At 1440, prose displays start at 551 on the measure (clientWidth 624), and theorem and proof displays both start at 574 (601). Computed `.math-block` padding-left and margin-left are 0 in every context. |
+| DS-F14C-L1 | **Cured.** `PaperTocDrawer.vue` uses the DS-F7C-C1 idiom. `.sidebar-head::after` is a 1px rule at the head's foot, transparent at rest, and `var(--border)` once the nav carries `data-scrolled`. The nav's own passive `scroll` event sets the attribute, so the follow's programmatic scroll sets it too. There is no shadow, no fade and no new component.<br>**Measured** (1440, both themes): at rest, scrollTop 0, no `data-scrolled`, rule `rgba(0,0,0,0)`. In this run the follow left the rail at rest, so the probe scrolled the list until "2. Lens I: Linear Algebra" was cut under the head (scrollTop 86), as in the critic's frame. The rule then reads rgb(198,180,159) in light and rgb(101,87,73) in dark, which is `--border`, 1px across the head's 290px (`aside-*-1440.png`). |
+
+**Glass-owned rows (DS-F14C-G0).** These are pass 13's DS-F13C-G0 rows, unchanged, with no local override:
+- the 390 floating-toc band's cast below its rule;
+- the dock plate's cast;
+- the aside and article casts at 1440;
+- the ScrollProgressRim's empty track.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock also on **O-88**) and will be re-judged at the glass 10.2.0 repin. "Proof ." (DS-F10C-T2) stays carried on the latex-paper 0.3.0 owner act.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3246`; `f14p/census-after.json`).
+- Static is identical to pass 13.
+- Computed is identical on every cell except `/equation|dark|1440`. There the capture found 162 elements against 397: the route was partly mounted under machine load 27 to 37. This cure touches no /equation style.
+- Sums: 380 shadow elements, 962 layers, 287 multi-layer stacks, 287 inset highlights, 204 backdrop blur, 0 control gradients, 0 looping animations. Pass 13's were 386, 978, 292, 292, 208.
+- The cure is padding, a margin and one transparent-at-rest hairline, not lighting. The census is still RED, on the glass rows only.
+
+**Gates** (`f14p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice.
+- **e2e, headless** (chromium and mobile-chromium, `--workers=1`, plain `vite` on `:3246`). Other workflows held the machine at load 27 to 37, and pass 13's 20-spec set did not complete:
+  - one attempt hit the 40-minute guard at 36/227;
+  - a second reached 41/227 in 30 minutes and was stopped.
+
+  Every failure in those attempts was a 30s timeout on /v, /gallery or /admin. Both logs are kept.
+- The runs that count use the 10 specs that reach `/paper`, `.paper-article` or the ToC rail (82 tests, `e2e-specs-paper.txt`):
+  - Run A: 80 passed, 2 failed (UIA-F-46 on /gallery; the π-capture of /morph at 375).
+  - Run B: 80 passed, 2 failed (UIA-F-159's 15s wait for the paper to load; the π-capture of shape-extractor).
+
+  All four failures were timeouts, and the two runs failed on different tests. Rerun on their own against the cured tree, the same 4 tests passed 4/4, twice. This is **not a clean ×2 on the full set**. It is the paper surface ×2, with load flakes shown to pass in isolation.
+- No golden was re-baselined. The screenshots the runs rewrote were restored to HEAD.
+
+**Frames** (`pass-14/f14p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f14p-probe.mjs`: `paper-env-{light,dark}-{1440,390}` (Hermite Orthogonality, its proof and (2.70) to (2.75)) and `aside-{light,dark}-1440` (the rail with the list scrolled under the head).
