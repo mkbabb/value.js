@@ -1,0 +1,812 @@
+{
+ "controls-1440-light": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Reverse",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 83.2,
+  "glyphLeft": 92.2,
+  "justify": "normal",
+  "rowLeft": 83.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 172.3,
+  "lastName": "Ball preview",
+  "verbs": [
+   {
+    "name": "Reverse",
+    "text": "Reverse",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Ball preview",
+    "text": "Preview",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 652.2,
+  "frameBottom": 750.1,
+  "ribbonTop": 530.8,
+  "contentBottom": 530.8,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null
+ },
+ "keyframes-1440-light": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Apply CSS",
+  "leadBg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+  "plateLeft": 92.2,
+  "glyphLeft": 107.2,
+  "justify": "flex-start",
+  "rowLeft": 92.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 8.8,
+  "lastName": "Copy compiled CSS",
+  "verbs": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "glyph": false,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 737.1,
+  "frameBottom": 750.1,
+  "ribbonTop": 689.1,
+  "contentBottom": 689.1,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null
+ },
+ "timeline-empty-1440-light": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Snapshot",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 83.2,
+  "glyphLeft": 92.2,
+  "justify": "flex-start",
+  "rowLeft": 83.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 427.2,
+  "frameBottom": 750.1,
+  "ribbonTop": 378.2,
+  "contentBottom": 378.2,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null
+ },
+ "timeline-imported-1440-light": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Snapshot",
+  "leadBg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+  "plateLeft": 92.2,
+  "glyphLeft": 107.2,
+  "justify": "flex-start",
+  "rowLeft": 92.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 545.8,
+  "frameBottom": 750.1,
+  "ribbonTop": 496.8,
+  "contentBottom": 496.8,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null,
+  "restoredScroll": []
+ },
+ "controls-390-light": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Reverse",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 24,
+  "glyphLeft": 33,
+  "justify": "normal",
+  "rowLeft": 24,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 148,
+  "lastName": "Ball preview",
+  "verbs": [
+   {
+    "name": "Reverse",
+    "text": "Reverse",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Ball preview",
+    "text": "Preview",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1304.8,
+  "frameBottom": 872.6,
+  "ribbonTop": 1190.4,
+  "contentBottom": 1190.4,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 171,
+   "snap": null
+  }
+ },
+ "keyframes-390-light": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Apply CSS",
+  "leadBg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+  "plateLeft": 33,
+  "glyphLeft": 48,
+  "justify": "flex-start",
+  "rowLeft": 33,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 2.7,
+  "lastName": "Copy compiled CSS",
+  "verbs": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "glyph": false,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1444.4,
+  "frameBottom": 872.6,
+  "ribbonTop": 1396.4,
+  "contentBottom": 1396.4,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 171,
+   "snap": null
+  }
+ },
+ "timeline-empty-390-light": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Snapshot",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 24,
+  "glyphLeft": 33,
+  "justify": "flex-start",
+  "rowLeft": 24,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1081,
+  "frameBottom": 872.6,
+  "ribbonTop": 1032,
+  "contentBottom": 1032,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 171,
+   "snap": null
+  }
+ },
+ "timeline-imported-390-light": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Snapshot",
+  "leadBg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+  "plateLeft": 33,
+  "glyphLeft": 48,
+  "justify": "flex-start",
+  "rowLeft": 33,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1205.4,
+  "frameBottom": 1005.4,
+  "ribbonTop": 1156.4,
+  "contentBottom": 1156.4,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 303.8,
+   "snap": null
+  },
+  "restoredScroll": [
+   {
+    "el": "",
+    "from": 4,
+    "to": 0
+   },
+   {
+    "el": "fading-scroll fading-scroll--y controls-pane group/controls min-w-0 overflow-y-a",
+    "from": 212,
+    "to": 0
+   }
+  ]
+ },
+ "controls-1440-dark": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Reverse",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 83.2,
+  "glyphLeft": 92.2,
+  "justify": "normal",
+  "rowLeft": 83.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 172.3,
+  "lastName": "Ball preview",
+  "verbs": [
+   {
+    "name": "Reverse",
+    "text": "Reverse",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Ball preview",
+    "text": "Preview",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 652.2,
+  "frameBottom": 750.1,
+  "ribbonTop": 530.8,
+  "contentBottom": 530.8,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null
+ },
+ "keyframes-1440-dark": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Apply CSS",
+  "leadBg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+  "plateLeft": 92.2,
+  "glyphLeft": 107.2,
+  "justify": "flex-start",
+  "rowLeft": 92.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 8.8,
+  "lastName": "Copy compiled CSS",
+  "verbs": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "glyph": false,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 737.1,
+  "frameBottom": 750.1,
+  "ribbonTop": 689.1,
+  "contentBottom": 689.1,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null
+ },
+ "timeline-empty-1440-dark": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Snapshot",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 83.2,
+  "glyphLeft": 92.2,
+  "justify": "flex-start",
+  "rowLeft": 83.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 427.2,
+  "frameBottom": 750.1,
+  "ribbonTop": 378.2,
+  "contentBottom": 378.2,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null
+ },
+ "timeline-imported-1440-dark": {
+  "titleText": "Rotations",
+  "title": 93.2,
+  "lead": "Snapshot",
+  "leadBg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+  "plateLeft": 92.2,
+  "glyphLeft": 107.2,
+  "justify": "flex-start",
+  "rowLeft": 92.2,
+  "rowRight": 457.4,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 545.8,
+  "frameBottom": 750.1,
+  "ribbonTop": 496.8,
+  "contentBottom": 496.8,
+  "bandAbove": 0,
+  "inView": true,
+  "sheet": null,
+  "restoredScroll": []
+ },
+ "controls-390-dark": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Reverse",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 24,
+  "glyphLeft": 33,
+  "justify": "normal",
+  "rowLeft": 24,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 148,
+  "lastName": "Ball preview",
+  "verbs": [
+   {
+    "name": "Reverse",
+    "text": "Reverse",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Ball preview",
+    "text": "Preview",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1304.8,
+  "frameBottom": 872.6,
+  "ribbonTop": 1190.4,
+  "contentBottom": 1190.4,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 171,
+   "snap": null
+  }
+ },
+ "keyframes-390-dark": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Apply CSS",
+  "leadBg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+  "plateLeft": 33,
+  "glyphLeft": 48,
+  "justify": "flex-start",
+  "rowLeft": 33,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 2.7,
+  "lastName": "Copy compiled CSS",
+  "verbs": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "glyph": false,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1444.4,
+  "frameBottom": 872.6,
+  "ribbonTop": 1396.4,
+  "contentBottom": 1396.4,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 171,
+   "snap": null
+  }
+ },
+ "timeline-empty-390-dark": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Snapshot",
+  "leadBg": "rgba(0, 0, 0, 0)",
+  "plateLeft": 24,
+  "glyphLeft": 33,
+  "justify": "flex-start",
+  "rowLeft": 24,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1081,
+  "frameBottom": 872.6,
+  "ribbonTop": 1032,
+  "contentBottom": 1032,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 171,
+   "snap": null
+  }
+ },
+ "timeline-imported-390-dark": {
+  "titleText": "Rotations",
+  "title": 34,
+  "lead": "Snapshot",
+  "leadBg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+  "plateLeft": 33,
+  "glyphLeft": 48,
+  "justify": "flex-start",
+  "rowLeft": 33,
+  "rowRight": 357,
+  "gutterStart": 0,
+  "gutterEnd": 0,
+  "lastName": "More timeline actions",
+  "verbs": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "glyph": true,
+    "clipped": false
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "glyph": false,
+    "clipped": false
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "glyph": true,
+    "clipped": false
+   }
+  ],
+  "rowBottom": 1205.4,
+  "frameBottom": 1005.4,
+  "ribbonTop": 1156.4,
+  "contentBottom": 1156.4,
+  "bandAbove": 0,
+  "inView": false,
+  "sheet": {
+   "top": 722.6,
+   "height": 303.8,
+   "snap": null
+  },
+  "restoredScroll": [
+   {
+    "el": "dark",
+    "from": 4,
+    "to": 0
+   },
+   {
+    "el": "fading-scroll fading-scroll--y controls-pane group/controls min-w-0 overflow-y-a",
+    "from": 212,
+    "to": 0
+   }
+  ]
+ }
+}
