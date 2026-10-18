@@ -2189,3 +2189,39 @@ They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock also on **O-88**) a
 - No golden was re-baselined. The screenshots the runs rewrote were restored to HEAD.
 
 **Frames** (`pass-14/f14p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f14p-probe.mjs`: `paper-env-{light,dark}-{1440,390}` (Hermite Orthogonality, its proof and (2.70) to (2.75)) and `aside-{light,dark}-1440` (the rail with the list scrolled under the head).
+
+### pass 15
+This is the cure seat for critic **F15C** of the redeployed loop (pass 15, 2026-10-18). Earlier `### pass 15` headings in this file belong to other passes of the loop. The AFTER frames are in `evidence/DS/fourier/pass-15/f15p/`. The other folders in `pass-15/` belong to other seats.
+- **No consumer source changed.** fourier stays at `47e0df6` and latex-paper at `ebdf787`. No fourier or latex-paper commit was made.
+- value.js `1fd4b0dca` holds the AFTER frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F15C-N1 | **No change: the cure's premise does not hold when measured.** The critic offered an optional cure: give consecutive `.theorem-block` siblings the theorem-to-proof gap, on the premise that this gap is wider. `f15p-probe-after.json` (all four cells, headless real Chrome) measures the gaps between every mounted pair of adjacent environment blocks. Theorem to theorem is 16, and so is theorem to proof. Proof to theorem is 20. Definition 2.6.3.1 to Theorem 2.6.3.1 is 16 in every cell. Both rules come from the root's `margin: 1rem 0` on each block, and the margins collapse. So the critic's cure would change nothing. Any other value would be a new spacing rung that the canon does not ask for. The two rules stay separate because their hues differ (pink, then violet), and `paper-env-*-1440.png` shows this. The finding is trivial, and it is closed with this measurement. |
+| DS-F15C-N2 | **No change.** As the critic rules, the ToC head's 1px cut rule sitting on the ascenders of the row scrolled beneath it is the intended DS-F14C-L1 state. A fade or row-tuned padding would break the canon, as in DS-F12C-T1. |
+
+**Glass-owned rows (DS-F15C-G0).** These are pass 14's DS-F14C-G0 rows, unchanged, with no local override:
+- the casts and inset bevels on resting glass (the dock plate, the /paper article and aside, the 390 floating-toc band, /gallery cards, /morph cards, the stage plate and Export, the /equation stage, and the Configurator aside);
+- the dark cast that reads as a cream halo;
+- the Compute primary fill sitting almost on `--card`;
+- the toolbar plate;
+- the aside's 12px top offset on /equation;
+- the coarse type rung;
+- the ScrollProgressRim.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and the transport also on **O-88**) and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3252`; `f15p/census-after.json`).
+- Static is identical to pass 14.
+- Computed sums are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations. That is identical to pass 13. `/equation|dark|1440` mounts in full (397 elements), so pass 14's lower sums were its partial capture.
+- The census is still RED, on the glass rows only.
+- `census-attempt1-server-down.json` is a void first attempt: the `:3251` vite reached its 90-minute guard, so the census captured the browser's error page (20 elements per cell).
+
+**Gates** (`f15p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice, under `guarded --light`.
+- **e2e:** no file changed, so no spec touches a changed file, and none was run. Pass 14's paper-surface runs stand on the identical tree.
+- No golden was re-baselined.
+
+**Frames** (`pass-15/f15p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f15p-probe.mjs`: `paper-env-{light,dark}-{1440,390}`, with Definition 2.6.3.1 and Theorem 2.6.3.1 seated near the top. `before/` is a first reading of the same tree; its dark cells did not complete under load.
