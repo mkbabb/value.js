@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+# X.W10.d G-5 DELTA pair vs OM-18 (shasum -a 256), 2026-10-17
+f611bf45c4750b2d5e1b860296f2d2df256cc05929d460eb954eeab31d6b59f4  docs/tranches/V/megatranche/audit/visual/owner-marked/OM-18-card-shrunken-state-margins.png
+2bd2041e1d3d89a4beac28988552d2f8e934ca60eb8d55d5591f594af6fdbf42  docs/tranches/X/evidence/W10/g5-before-run1/_-390-condensed.png
+a0b0c5f3e41d85ee100d62f7a822899848bf37dee425a39e1e69a57ebd2adafc  docs/tranches/X/evidence/W10/g5-before-run1/_-390-rest.png
+61db95f58fca90ef450919818eba0cdfcded6eac4a1080cb6a043b1d8e542431  docs/tranches/X/evidence/W10/g5-before-run1/_admin_users-1440-condensed.png
+aef110f4771a75abd2cb8d61ebad2d05b1e7f39d4a1a201c370c92b12381b14f  docs/tranches/X/evidence/W10/g5-before-run1/_admin_users-1440-rest.png
+6475d865e85c242cd21d919d09efd6bef7215a5543fe26a2d399ef1cd5d09833  docs/tranches/X/evidence/W10/g5-before-run1/_admin_users-390-condensed.png
+5068f1cae2bbedbe3dfb5e74a777d642a14caa415b5ded6ebb86e126f41a0e07  docs/tranches/X/evidence/W10/g5-before-run1/_admin_users-390-rest.png
+2b92c1478298360d5286a038c41fb19802aa39b87e572fd1dfb8544eb0903dbb  docs/tranches/X/evidence/W10/g5-after-run1/_-390-condensed.png
+7d21a139916651c5f7777f080b63d244058bdbc4355b1fe1de8ac022dee5b6e8  docs/tranches/X/evidence/W10/g5-after-run1/_-390-rest.png
+d55ef725872bcbd7d512fd419649ee9705e18c5244a6a641d1bd6f1b4ca76f75  docs/tranches/X/evidence/W10/g5-after-run1/_admin_users-1440-condensed.png
+aef110f4771a75abd2cb8d61ebad2d05b1e7f39d4a1a201c370c92b12381b14f  docs/tranches/X/evidence/W10/g5-after-run1/_admin_users-1440-rest.png
+6475d865e85c242cd21d919d09efd6bef7215a5543fe26a2d399ef1cd5d09833  docs/tranches/X/evidence/W10/g5-after-run1/_admin_users-390-condensed.png
+5068f1cae2bbedbe3dfb5e74a777d642a14caa415b5ded6ebb86e126f41a0e07  docs/tranches/X/evidence/W10/g5-after-run1/_admin_users-390-rest.png

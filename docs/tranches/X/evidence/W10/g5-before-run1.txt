@@ -1,0 +1,4 @@
+1440x900 /admin/users pane cond=true range=1595 top=175 doc=0 | block 112.56->87.75 | padTop 16->8 | gap(padBottom) 25.888->25.888 | rowGap 8->8 | desc inflow true->true h=18.7 | title 41.888px->25.888px
+1440x900 /           no header inside a live .card-scroll-host
+390x844 /admin/users pane cond=false range=0 top=0 doc=200 | block 100.25->100.25 | padTop 16->16 | gap(padBottom) 25.888->25.888 | rowGap 8->8 | desc inflow true->true h=15.81 | title 32.928px->32.928px
+390x844 /           picker cond=false range=0 top=0 doc=200 | block 119.09->119.09 | padTop 12->12 | gap(padBottom) 0->0 | rowGap 5.012->5.012 | desc inflow null->null h=null | title 32.928px->32.928px

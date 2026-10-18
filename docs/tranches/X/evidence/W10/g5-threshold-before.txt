@@ -1,0 +1,13 @@
+set   0 first false@0 last false@0 flips-after-settle 0
+set  14 first false@14 last false@14 flips-after-settle 0
+set  19 first false@19 last false@19 flips-after-settle 0
+set  20 first false@0 last false@0 flips-after-settle 0
+set  21 first false@0 last false@0 flips-after-settle 0
+set  25 first false@0 last false@0 flips-after-settle 0
+set  40 first true@15 last true@15 flips-after-settle 0
+set  70 first true@70 last true@70 flips-after-settle 0
+set  25 first true@25 last true@25 flips-after-settle 0
+set  13 first true@13 last true@13 flips-after-settle 0
+set  12 first true@12 last true@12 flips-after-settle 0
+set  11 first true@11 last true@11 flips-after-settle 16
+set   0 first false@0 last false@0 flips-after-settle 0
