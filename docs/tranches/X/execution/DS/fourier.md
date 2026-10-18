@@ -2066,3 +2066,28 @@ This is the cure seat for critic **F10C** of the redeployed loop (pass 10, 2026-
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-10/f10p/`). Headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f10p-probe.mjs`: 12 PNGs — `paper-mid-{light,dark}-{844x390,390x844}` and `morph-scrolled-{light,dark}-{390,1440}` (L1), `paper-proof-{light,dark}-1440` (T1, T2 as served).
+
+### pass 11
+This is the cure seat for critic **F11C** of the redeployed loop (pass 11, 2026-10-18; the earlier `### pass 11` headings above belong to other passes of the loop). The AFTER frames are in `evidence/DS/fourier/pass-11/f11p/`; the BEFORE cells are the critic's (`paper-proof-*-1440`). The other folders in `pass-11/` belong to other seats.
+- fourier `05b408d` (`m/w1-bump-migration`, one path by pathspec, pushed fast-forward `4041480..05b408d`) holds L1.
+- latex-paper `70da236` (master, local, not pushed; publishing 0.3.0 is the owner's act) holds the root half and its 0.3.0 changeset line.
+- value.js `503b7ac04` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F11C-L1 | **Cured.** The 0.2.1 bridge in `web/src/style.css` now restates the root's result for `.paper-proof-block`: `border-left: 3px solid var(--border)`, `border-radius: 0 0.5rem 0.5rem 0` (straight, as the theorem bridge) and `background: none`. The 60% card tint is dropped, because it was a tone step too faint to read. At the root (latex-paper `70da236`) the proof block takes the same straight radius and loses the tint, so the bridge row and the root agree. The row is deleted with the bridge at the 0.3.0 repin.<br>**Measured** (`f11p-probe.json`, the Hermite proof at 2.6.3, both themes): border-left `3px solid rgb(198 180 159)` light and `rgb(101 87 73)` dark (was `0px none`), radius `0 8px 8px 0`, background transparent. Label and body left = paragraph left + 3 + 16 (570 against 551 at 1440; 52 against 33 at 390). |
+
+**Glass-owned rows (DS-F11C-G0).** Re-stated and unchanged, with no local override: the glass-resting stacks (dock and plate, gallery-card, config-card, paper-article, the ToC aside and the floating-toc band), field-control and toggle items, the primary buttons, the in-stage toolbar plates, the /v transport "1 ×", the stage hover disc, the track-well hairline, the dark primary-emphasis fill and halo, the coarse type ramp, the ScrollProgressRim track, and the text-emphasis hue shift. Held honest-RED on **O-87 FLAT-LIGHTING** (dock and transport also **O-88**; type ramp beside O-87), re-judged at the glass 10.2.0 repin. "Proof ." (DS-F10C-T2) stays carried on the latex-paper 0.3.0 owner act.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3231`; `f11p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 10 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). The cure is a border, not a shadow. Still RED, on the glass rows only.
+
+**Gates** (`f11p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** the 20 specs that reach /paper or `.paper-article` (`e2e-specs.txt`) ran headless (chromium and mobile-chromium) with `--workers=1` against a private vite on `:3231`. **Run A passed 227/227, and so did run B.** The server was stopped at the end.
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-11/f11p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f11p-probe.mjs`: `paper-proof-{light,dark}-{1440,390}`.
