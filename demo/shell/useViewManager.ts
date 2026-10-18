@@ -37,6 +37,10 @@ export interface ViewManager {
 
 export const VIEW_MANAGER_KEY: InjectionKey<ViewManager> = Symbol("viewManager");
 
+/** The route's one visible `<h1>` (gate A5), which names `<main>`: App's
+ *  caption, or the pane title of a `titled` region (X-DS value pass 8). */
+export const ROUTE_TITLE_ID = "route-title";
+
 export function useViewManager(): ViewManager {
     const router = useRouter();
     const route = useRoute();

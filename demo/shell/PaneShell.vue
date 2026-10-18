@@ -77,10 +77,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type HTMLAttributes } from "vue";
+import { computed, inject, type HTMLAttributes } from "vue";
 import { Card } from "@mkbabb/glass-ui/card";
 import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
+import { ROUTE_TITLE_ID, VIEW_MANAGER_KEY } from "./useViewManager";
 
 const {
     title,
@@ -114,9 +115,27 @@ const {
     cardClass?: HTMLAttributes["class"];
 }>();
 
+// X-DS value pass 8 (V8C-01): when this pane's title says the route's label
+// and the route marks its region `titled`, the title IS the route's one visible
+// `<h1>` (gate A5, the id `<main>` is labelled by); App prints no caption. A
+// pane outside the shell's provider (a unit mount) keeps its own level.
+const viewManager = inject(VIEW_MANAGER_KEY, null);
+const isRouteTitle = computed(() => {
+    const config = viewManager?.currentConfig.value;
+    return (
+        config !== undefined &&
+        title === config.label &&
+        config.regions.some((r) => r.titled)
+    );
+});
+
 const headerProps = computed(() => ({
     ...(description !== undefined ? { description } : {}),
-    ...(level !== undefined ? { level } : {}),
+    ...(isRouteTitle.value
+        ? { level: 1 as const, titleId: ROUTE_TITLE_ID }
+        : level !== undefined
+          ? { level }
+          : {}),
 }));
 
 /** The one body gutter (the per-pane `pb-4 px-4 sm:px-6` strings retire). */

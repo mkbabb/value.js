@@ -115,6 +115,13 @@ export interface SceneRegion {
     pane: PaneId;
     /** The region's own accessible name — never derived, never nullable. */
     label: string;
+    /**
+     * X-DS value pass 8 (V8C-01): this region's pane title says the view's own
+     * label, so that title IS the route's one visible `<h1>` (gate A5) and the
+     * shell prints no caption above the row. A view whose label no pane title
+     * says ("Home", "Palettes", the admin consoles) keeps the caption.
+     */
+    titled?: true;
 }
 
 /** Per-view scene shape: the ordered regions + the dock icon. */
@@ -168,7 +175,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     browse: {
         label: "Browse",
         regions: [
-            { role: "stage", pane: "browse", label: "Browse" },
+            { role: "stage", pane: "browse", label: "Browse", titled: true },
             { role: "inspector", pane: "palettes", label: "Palettes" },
         ],
         icon: Search,
@@ -177,7 +184,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     extract: {
         label: "Extract",
         regions: [
-            { role: "stage", pane: "extract", label: "Extract" },
+            { role: "stage", pane: "extract", label: "Extract", titled: true },
             { role: "inspector", pane: "palettes", label: "Palettes" },
         ],
         icon: Camera,
@@ -187,7 +194,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         label: "Mix",
         regions: [
             { role: "stage", pane: "color-picker", label: "Picker" },
-            { role: "inspector", pane: "mix", label: "Mix" },
+            { role: "inspector", pane: "mix", label: "Mix", titled: true },
         ],
         icon: Blend,
         accentHueShift: 160,
@@ -195,7 +202,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     generate: {
         label: "Generate",
         regions: [
-            { role: "stage", pane: "generate", label: "Generate" },
+            { role: "stage", pane: "generate", label: "Generate", titled: true },
             { role: "inspector", pane: "palettes", label: "Palettes" },
         ],
         icon: Wand2,
@@ -204,7 +211,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     gradient: {
         label: "Gradient",
         regions: [
-            { role: "stage", pane: "gradient", label: "Gradient" },
+            { role: "stage", pane: "gradient", label: "Gradient", titled: true },
             { role: "inspector", pane: "palettes", label: "Palettes" },
         ],
         icon: Rainbow,
@@ -212,7 +219,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     },
     atmosphere: {
         label: "Atmosphere",
-        regions: [{ role: "stage", pane: "atmosphere", label: "Atmosphere" }],
+        regions: [{ role: "stage", pane: "atmosphere", label: "Atmosphere", titled: true }],
         icon: Sparkles,
         accentHueShift: 280,
     },
@@ -220,7 +227,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         label: "Blob",
         regions: [
             { role: "stage", pane: "color-picker", label: "Picker" },
-            { role: "inspector", pane: "blob", label: "Blob" },
+            { role: "inspector", pane: "blob", label: "Blob", titled: true },
         ],
         icon: Droplets,
         accentHueShift: 320,
@@ -268,7 +275,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     // not a place in the 40°-step dock fan.
     "not-found": {
         label: "Not Found",
-        regions: [{ role: "stage", pane: "not-found", label: "Not Found" }],
+        regions: [{ role: "stage", pane: "not-found", label: "Not Found", titled: true }],
         icon: Compass,
         accentHueShift: 0,
     },

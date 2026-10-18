@@ -1,8 +1,14 @@
 <template>
+    <!-- X-DS value pass 8 (V8C-03): `compact` on the error plate too — seated
+         under its pane's title (Not Found), the header already spaces it, so
+         the plate drops its top padding and keeps the bottom one. -->
     <div
         v-if="variant === 'error'"
         ref="root"
-        class="flex flex-col items-center justify-center gap-2.5 py-8 text-center"
+        :class="[
+            'flex flex-col items-center justify-center gap-2.5 text-center',
+            compact ? 'pb-8' : 'py-8',
+        ]"
         role="alert"
     >
         <CircleAlert class="w-6 h-6 text-destructive/80" aria-hidden="true" />
@@ -12,8 +18,10 @@
         <!-- UIA-V-53: machine truth wraps inside the plate at every width —
              the item is the column's width capped at 44ch (a centred flex item
              otherwise sizes to its 44ch max and overflows both card edges at
-             390), and `wrap-anywhere` lets an unbroken URL break too. -->
-        <p v-if="detail" class="text-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
+             390), and `wrap-anywhere` lets an unbroken URL break too.
+             X-DS value pass 8 (V8C-02): the machine truth speaks Fira, the
+             mono rung Generate's seed line uses (value-canon §2 Type). -->
+        <p v-if="detail" class="text-mono-small plate-ink w-full min-w-0 max-w-[min(44ch,100%)] wrap-anywhere">
             {{ detail }}
         </p>
         <slot name="action" />
@@ -122,7 +130,8 @@
  * that the pane title's `--type-display-1` clamp floors at on phones, so the
  * plate never out-ranks its pane title (it rendered 25.9 px/700 under a
  * 25.9 px/400 title at 390). The secondary line (hint, detail) speaks the
- * body sans at the small rung. Since X-DS pass 9 (V9C-02) the pane title
+ * body sans at the small rung (the error detail speaks Fira's small rung,
+ * X-DS value pass 8 · V8C-02). Since X-DS pass 9 (V9C-02) the pane title
  * floors one rung higher (`--pane-title-size`, PaneHeader), a full step
  * above this statement at 390 (32.9 px against 20.4 px).
  *
@@ -146,7 +155,8 @@ withDefaults(
         detail?: string | undefined;
         /** A true-empty plate under its own label: no plate-scale vertical
          *  padding (X-DS pass 8 · V3C-01), and the statement at the hint rung
-         *  at 400 (X-DS value pass 6 · V6C-01). */
+         *  at 400 (X-DS value pass 6 · V6C-01). An error plate under its pane
+         *  title: no top padding (X-DS value pass 8 · V8C-03). */
         compact?: boolean | undefined;
     }>(),
     { variant: "empty" },

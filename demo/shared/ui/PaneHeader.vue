@@ -38,7 +38,15 @@
              LEVEL, defaulting to the one that sits directly beneath it. The
              prop is the producer seam's own shape (`as`/`level`), so a nested
              pane can state its depth instead of the shell guessing. -->
-        <CardTitle :as="`h${level}`" class="pane-header-title font-display">
+        <!-- X-DS value pass 8 (V8C-01): a pane whose title says the route's
+             label carries the route `<h1>` (PaneShell passes level 1 and the
+             id); it keeps the A5 node's script-only focus (`tabindex="-1"`). -->
+        <CardTitle
+            :id="titleId"
+            :as="`h${level}`"
+            :tabindex="titleId !== undefined ? -1 : undefined"
+            class="pane-header-title font-display"
+        >
             <slot />
         </CardTitle>
         <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
@@ -54,11 +62,13 @@
 <script setup lang="ts">
 import { CardDescription, CardHeader, CardTitle } from "@mkbabb/glass-ui/card";
 
-const { level = 2 } = defineProps<{
+const { level = 2, titleId } = defineProps<{
     description?: string;
     /** Heading level for the pane title — 2 by default: it sits one below the
-     *  route `<h1>` App renders inside `<main>`. */
-    level?: 2 | 3 | 4;
+     *  route `<h1>` inside `<main>`; 1 when this title IS that `<h1>`. */
+    level?: 1 | 2 | 3 | 4;
+    /** The route title's id, when this title is the route `<h1>`. */
+    titleId?: string;
 }>();
 </script>
 

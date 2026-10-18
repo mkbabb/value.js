@@ -138,6 +138,10 @@ export async function paneSettled(page: Page): Promise<void> {
  * main pane through THIS export — never a per-file copy of the query — so the
  * next landmark change is one edit, not sixty-one.
  *
+ * X-DS value pass 8 (V8C-01): that H1 is App's caption only where no pane
+ * title says the label; on a `titled` route it is the pane's own title, inside
+ * the row.
+ *
  * The selector is the relation itself: a `<main>` labelled by `route-title`
  * that CONTAINS that H1. A `<main>` whose label points elsewhere, or whose H1
  * went missing, does not match. `MAIN_PANE` is exported for the in-page
@@ -145,7 +149,7 @@ export async function paneSettled(page: Page): Promise<void> {
  */
 export const ROUTE_TITLE_ID = "route-title";
 
-export const MAIN_PANE = `main[aria-labelledby="${ROUTE_TITLE_ID}"]:has(> h1#${ROUTE_TITLE_ID})`;
+export const MAIN_PANE = `main[aria-labelledby="${ROUTE_TITLE_ID}"]:has(h1#${ROUTE_TITLE_ID})`;
 
 /** The shell's main-pane landmark — the one `<main>` the route H1 names. */
 export function mainPane(page: Page): Locator {

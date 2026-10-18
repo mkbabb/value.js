@@ -79,8 +79,19 @@
                  cure is STRUCK and uncitable: §5.1 requires a visible H1, and
                  the constitution's seven focus origins target this node, which
                  is why it is focusable-by-script (`tabindex="-1"`) and not
-                 focusable by tab. -->
-            <h1 :id="ROUTE_TITLE_ID" class="route-title font-display" tabindex="-1">
+                 focusable by tab.
+                 X-DS value pass 8 (V8C-01): the name is said ONCE. Where a
+                 pane title says the view's label (a `titled` region: Browse,
+                 Extract, Mix, Generate, Gradient, Atmosphere, Blob, Not Found)
+                 that title is this H1 (PaneShell), and no caption prints here.
+                 Where no pane says it ("Home", "Palettes", the admin consoles)
+                 the caption stays, seated on the row's leading edge. -->
+            <h1
+                v-if="!routeTitledByPane"
+                :id="ROUTE_TITLE_ID"
+                class="route-title font-display"
+                tabindex="-1"
+            >
                 {{ currentConfig.label }}
             </h1>
 
@@ -211,7 +222,7 @@ import ErrorBoundary from "./ErrorBoundary.vue";
 import { useCustomColorNames } from "../color-session/useCustomColorNames";
 import { useColorUrl } from "../color-session/useColorUrl";
 
-import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
+import { ROUTE_TITLE_ID, useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
@@ -366,7 +377,7 @@ const { regions, bindPane, commitEdit, cancelEdit } = usePaneRouter(
 // one act, so a silent substitution is unrepresentable. `/#/does-not-exist`
 // resolved to the picker byte-for-byte before this: same render, same title,
 // no announcement.
-const ROUTE_TITLE_ID = "route-title";
+const routeTitledByPane = computed(() => currentConfig.value.regions.some((r) => r.titled));
 const route = useRoute();
 const routeAnnouncement = ref("");
 function readablePath(path: string): string {
@@ -454,11 +465,17 @@ onMounted(() => {
    affordance, so the heading is the DOCUMENT's answer to "what is this scene",
    not a second banner competing with it. It rides the certified de-emphasis
    rung (`--ink-muted`, boot-stamped and floor-clamped), so it adds no new
-   contrast debt; `flex: none` keeps the scene band's centring intact. */
+   contrast debt.
+   X-DS value pass 8 (V8C-01): it prints only where no pane title says the
+   label, and it sits on the row's leading edge, which is the stage card's
+   edge: the row's own inline clamp (`--pane-row-max`, shell.css) and
+   `text-align: start`. Centred, it hung over the gutter between two cards. */
 .route-title {
     flex: none;
-    margin: 0 0 0.5rem;
-    text-align: center;
+    width: 100%;
+    max-width: var(--pane-row-max);
+    margin: 0 auto 0.5rem;
+    text-align: start;
     /* X.W12U.m3 · R-m-2 (COHESION §0fh.5): the H1 sits on the type scale's
      * nearest rung — caption (glass `--type-caption`, 12–16 px; 13.1 px at
      * 844) — in place of the off-scale 0.8125rem; its 1.2 line box (15.8 px at

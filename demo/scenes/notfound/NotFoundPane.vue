@@ -13,13 +13,17 @@
              header paints no rest veil (V4C-05's rule) and the 3-line plate
              loses the tone band that ended in a step. It takes one pane column
              (`--pane-max`), the single-pane measure Atmosphere already uses. -->
+        <!-- X-DS value pass 8 (V8C-03): the plate is `compact` under its
+             title (no top padding), and the one way home takes the default
+             size, so it outranks the address line. -->
         <EmptyState
             variant="error"
+            compact
             message="This address names no view of this app."
             :detail="missedAddress"
         >
             <template #action>
-                <Button size="sm" emphasis="quiet" @click="goHome">
+                <Button emphasis="quiet" @click="goHome">
                     <Home class="w-4 h-4 shrink-0" aria-hidden="true" />
                     Back to the picker
                 </Button>

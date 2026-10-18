@@ -165,6 +165,12 @@
  * row is top-anchored under the route title, where the panes already sit
  * whenever a pane fills the band. */
 .pane-main {
+    /* The row's inline clamp (below), named once so the route caption seats on
+     * the same leading edge as the row (X-DS value pass 8 · V8C-01). */
+    --pane-row-max: min(
+        calc(100vw - var(--app-gutter) * 2),
+        calc(var(--pane-max) * 2 + var(--pane-gap))
+    );
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -212,10 +218,7 @@
      * horizontal padding, both sides) and clamps at two max-size cards plus
      * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
      * clamp). Equal columns always; no shell self-clamps. */
-    max-width: min(
-        calc(100vw - var(--app-gutter) * 2),
-        calc(var(--pane-max) * 2 + var(--pane-gap))
-    );
+    max-width: var(--pane-row-max);
     margin: 0 auto;
     position: relative;
     /* X.W5.b — the block-axis `max-height` that read the shell's cap token is
