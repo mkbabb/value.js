@@ -1,0 +1,260 @@
+[
+ {
+  "r": "extract",
+  "width": 1440,
+  "rows": [
+   {
+    "label": "Colors",
+    "labelBottom": 467,
+    "sliderTop": 473,
+    "sliderH": 24,
+    "trackTop": 480,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Chroma weight",
+    "labelBottom": 530,
+    "sliderTop": 536,
+    "sliderH": 24,
+    "trackTop": 543,
+    "labelToTrack": 13,
+    "parentH": 51
+   }
+  ]
+ },
+ {
+  "r": "generate",
+  "width": 1440,
+  "rows": [
+   {
+    "label": "Colors",
+    "labelBottom": 516,
+    "sliderTop": 521,
+    "sliderH": 24,
+    "trackTop": 528,
+    "labelToTrack": 13,
+    "parentH": 51
+   }
+  ]
+ },
+ {
+  "r": "gradient",
+  "width": 1440,
+  "rows": [
+   {
+    "label": "Direction",
+    "labelBottom": 532,
+    "sliderTop": 538,
+    "sliderH": 24,
+    "trackTop": 545,
+    "labelToTrack": 13,
+    "parentH": 51
+   }
+  ]
+ },
+ {
+  "r": "atmosphere",
+  "width": 1440,
+  "rows": [
+   {
+    "label": "Color energy",
+    "labelBottom": 512,
+    "sliderTop": 519,
+    "sliderH": 24,
+    "trackTop": 526,
+    "labelToTrack": 14,
+    "parentH": 24
+   },
+   {
+    "label": "Noise",
+    "labelBottom": 577,
+    "sliderTop": 584,
+    "sliderH": 24,
+    "trackTop": 591,
+    "labelToTrack": 14,
+    "parentH": 24
+   },
+   {
+    "label": "Zones",
+    "labelBottom": 642,
+    "sliderTop": 649,
+    "sliderH": 24,
+    "trackTop": 656,
+    "labelToTrack": 14,
+    "parentH": 24
+   }
+  ]
+ },
+ {
+  "r": "blob",
+  "width": 1440,
+  "rows": [
+   {
+    "label": "Body radius",
+    "labelBottom": 294,
+    "sliderTop": 301,
+    "sliderH": 24,
+    "trackTop": 308,
+    "labelToTrack": 14,
+    "parentH": 24
+   },
+   {
+    "label": "Satellites",
+    "labelBottom": 359,
+    "sliderTop": 366,
+    "sliderH": 24,
+    "trackTop": 373,
+    "labelToTrack": 14,
+    "parentH": 24
+   },
+   {
+    "label": "Satellite radius",
+    "labelBottom": 424,
+    "sliderTop": 431,
+    "sliderH": 24,
+    "trackTop": 438,
+    "labelToTrack": 14,
+    "parentH": 24
+   },
+   {
+    "label": "Orbit radius",
+    "labelBottom": 489,
+    "sliderTop": 496,
+    "sliderH": 24,
+    "trackTop": 503,
+    "labelToTrack": 14,
+    "parentH": 24
+   }
+  ]
+ },
+ {
+  "r": "extract",
+  "width": 390,
+  "rows": [
+   {
+    "label": "Colors",
+    "labelBottom": 468,
+    "sliderTop": 473,
+    "sliderH": 24,
+    "trackTop": 480,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Chroma weight",
+    "labelBottom": 527,
+    "sliderTop": 532,
+    "sliderH": 24,
+    "trackTop": 540,
+    "labelToTrack": 13,
+    "parentH": 48
+   }
+  ]
+ },
+ {
+  "r": "generate",
+  "width": 390,
+  "rows": [
+   {
+    "label": "Colors",
+    "labelBottom": 484,
+    "sliderTop": 489,
+    "sliderH": 24,
+    "trackTop": 497,
+    "labelToTrack": 13,
+    "parentH": 48
+   }
+  ]
+ },
+ {
+  "r": "gradient",
+  "width": 390,
+  "rows": [
+   {
+    "label": "Direction",
+    "labelBottom": 662,
+    "sliderTop": 667,
+    "sliderH": 24,
+    "trackTop": 674,
+    "labelToTrack": 13,
+    "parentH": 48
+   }
+  ]
+ },
+ {
+  "r": "atmosphere",
+  "width": 390,
+  "rows": [
+   {
+    "label": "Color energy",
+    "labelBottom": 514,
+    "sliderTop": 519,
+    "sliderH": 24,
+    "trackTop": 526,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Noise",
+    "labelBottom": 575,
+    "sliderTop": 581,
+    "sliderH": 24,
+    "trackTop": 588,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Zones",
+    "labelBottom": 637,
+    "sliderTop": 642,
+    "sliderH": 24,
+    "trackTop": 650,
+    "labelToTrack": 13,
+    "parentH": 24
+   }
+  ]
+ },
+ {
+  "r": "blob",
+  "width": 390,
+  "rows": [
+   {
+    "label": "Body radius",
+    "labelBottom": 293,
+    "sliderTop": 298,
+    "sliderH": 24,
+    "trackTop": 306,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Satellites",
+    "labelBottom": 355,
+    "sliderTop": 360,
+    "sliderH": 24,
+    "trackTop": 367,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Satellite radius",
+    "labelBottom": 416,
+    "sliderTop": 421,
+    "sliderH": 24,
+    "trackTop": 429,
+    "labelToTrack": 13,
+    "parentH": 24
+   },
+   {
+    "label": "Orbit radius",
+    "labelBottom": 478,
+    "sliderTop": 483,
+    "sliderH": 24,
+    "trackTop": 490,
+    "labelToTrack": 13,
+    "parentH": 24
+   }
+  ]
+ }
+]
