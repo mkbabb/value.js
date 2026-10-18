@@ -2299,3 +2299,38 @@ They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock also on **O-88**) a
 - No golden was re-baselined.
 
 **Frames** (`pass-17/f17p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f17p-probe.mjs`: `paper-intro-{light,dark}-{1440,390}` (§0.1 with its description list), `paper-toc-{light,dark}-1440` (the aside head) and `gallery-{light,dark}-{1440,390}`. These are one reading of the unchanged tree.
+
+### pass 18
+This is the cure seat for critic **F18C** of the redeployed loop (pass 18, 2026-10-18). The AFTER frames are in `evidence/DS/fourier/pass-18/`.
+- fourier `5d9dc3e` (`m/w1-bump-migration`, pushed fast-forward) changes `PaperTocBar.vue` and `NotFoundCard.vue`.
+- value.js `8f184ecad` holds the AFTER frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F18C-T1 | **Cured at the root.** The chevron sat at the end of the title button because the label (`.floating-toc-section`) took `flex: 1`. The label now takes `flex: 0 1 auto`, so the chevron follows it at every width. Below 40rem the button still fills the bar, so the whole free run stays its tap target. Measured at 390 in both themes (`f18p-probe-after.json`): the label ends at 154.8, the chevron starts at 158.8 (a 4px gap, against about 44 before), and the readout holds 233.5–311 (`paper-top-{light,dark}-390.png`). |
+| DS-F18C-T2 | **Cured.** `NotFoundCard` goes from `w-full max-w-md` to `w-fit max-w-md`. At 1440 the card is 402.5 wide (it was 448), and its right slack is 21, which is the card's 20px pad. At 390 it still fills the gutter (358) (`nf-rest-{light,dark}-{1440,390}.png`). |
+
+**Glass-owned rows (DS-F18C-G0).** These are pass 17's rows, unchanged, with no local override:
+- the casts and halos on resting glass and on emphasis buttons;
+- the doubled toolbar plate and the transport's orphan "1 ×";
+- the dock, its menu lens and the lens's 0px icon-to-label gap;
+- the Select dark fill;
+- the track-well hairline and the ScrollProgressRim track;
+- the coarse type-ramp inversion;
+- the aside's 12px top offset.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and transport also on **O-88 DOCK-COLLAPSE-MOTION**) and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3263`; `pass-18/census-after.json`).
+- Static and computed per-page counts are identical to pass 17.
+- The sums are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The census is still RED, on the glass rows only.
+
+**Gates** (`pass-18/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice.
+- **e2e** (headless, chromium and mobile-chromium, `--workers=1`): the 9 specs that reach `.floating-toc-*` or the not-found card (`e2e-specs.txt`) passed 132/132 on both runs.
+- No golden was re-baselined.
+
+**Frames** (`pass-18/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f18p-probe.mjs`: `paper-top-{light,dark}-390` and `nf-rest-{light,dark}-{1440,390}`.
