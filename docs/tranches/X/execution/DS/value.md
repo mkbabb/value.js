@@ -1419,3 +1419,36 @@ Critic V10C named two consumer rows (V10C-01 low, V10C-02 low), one trivial cons
   - judge the clause in the well at 390, where the string wraps one line longer;
   - judge that a pasted bare gradient keeps the model's space rather than taking CSS's oklab default (deliberate, for HSV's round-trip).
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged.
+
+### pass 11 (2026-10-18): critic V11C — the Longer rail is one sweep, the CSS well sets one stop per line, a bare paste takes CSS's default, the range items stop restating their symbol
+
+Critic V11C named one high consumer row (V11C-01), two low (V11C-02, V11C-03), one trivial (V11C-04) and one glass row (V11C-G1 medium). All four consumer rows are cured at the root. The glass row stays honest-RED on O-87 / O-88. Evidence is in `pass-11/c11-2026-10-18/` (`pass-11/` already holds an earlier seat's pass 11).
+
+**Commits.** value.js `d7a613d9f` (the cure: 10 paths) and `26c24feec` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-11/c11-2026-10-18/`) |
+|---|---|---|---|
+| V11C-01 (high) | **CURED at the root, in `useGradientCSS.ts`.** | The sampled forms print the space with `shorter` hue: `stripHead`, which serves the rail and every interval ramp, and the render tile's `preamble`. `preamble` now takes the hue method from its caller. Their samples already walk the model's hue path (`sampleCoalescedStops`, at least 2 steps per interval), so adjacent samples are always under 180° apart, and `shorter` between them is the walked direction. `longer` there had taken the long arc between every pair, which painted one hue wheel per sub-interval. Only the raw-stop `serializeGradient` prints `<hue> hue`. This corrects pass 10's capture: it counted the rail "reading longer hue" as a pass, but that reading was the defect. Unit: for `longer`, `serializeRailRamp`, `serializeCoalescedGradient` and `serializeIntervalRamp` print `in oklch, ` with no `longer hue`, and `serializeGradient` keeps it. | `capture-c11.json`, 4/4 gradient cells, asserted: with Longer authored, the well carries `longer hue`, the Hue select reads Longer, and the rail's and the tile's computed images both read `linear-gradient(90deg in oklch, …` (33 stops) with no hue method. `gradient-longer-{1440,390}-{light,dark}.png`: one sweep from green through amber and pink to blue, on the rail and the tile alike. |
+| V11C-02 (low) | **CURED in the serializer's block form, not with CSS.** | `serializeGradient(model, "block")` puts each top-level argument on its own two-space-indented line: the preamble, then one stop per line. `simpleCSS`, the well's text and what it settles to on blur, takes this form. The clipboard copy is the coalesced CSS and stays on one line. The parser already treats newlines as whitespace, so the block round-trips (unit). `views/gradient.spec.ts`'s blur assertion now reads the block (`red 0%,\n  rebeccapurple 80%\n)`), with the same literals in the same order. | `probe-v11c02.json`: with Longer authored, the well has 5 text lines and 5 rendered line boxes at 462px (1440) and at 324px (390), in light and dark, so no literal breaks. `gradient-well-*.png`. |
+| V11C-03 (low) | **CURED in `applyCSS`.** | When the CSS names no space, the model takes css-images-4's default, `oklab` with `shorter` hue. The exception is a model space CSS cannot name (HSV, for which `interpolationClause` returns `''`): it keeps its own, so its round-trip survives. Unit: a bare paste from oklch-longer gives oklab/shorter, and a bare paste from HSV stays HSV/longer. | `capture-c11.json`, 4/4, asserted: after the Longer cell, pasting `linear-gradient(red, blue)` settles the well to `linear-gradient(\n  in oklab,\n  red 0%,\n  blue 100%\n)`. |
+| V11C-04 (trivial) | **CURED in the content, at every site.** | The 14 pure-range Components items (hsl, hsv, hwb, rgb ×3; lab, oklab ×1) drop the KaTeX symbol and its colon. Their labels already name the symbol, so each reads as prose: `0 (black) to 100 (diffuse white)`. That is how pass 10 already wrote kelvin. The inequalities (`a^* < 0`, …) keep KaTeX. | `probe-v11c04.json`: on Home (lab), the `L*` item carries 0 KaTeX and no ` :` at 1440 and 390, light and dark. Items 2 and 3 keep 2 KaTeX each. `about-components-*.png`. `katex-corpus` falls from 69 to 55 expressions, all of which still typeset. |
+| V11C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | The rows are the bead, the dock (rim, halo, 390 bulge, collapsed tile), the card, menu and name-field rim stacks, Mix's disabled primary and the thumbless scrubber rails. There is no local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9321 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. All identical to pass 10.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Looping animations: 0.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c11.mjs` uses one browser per run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells and 4 `gradient-longer-*` cells, and asserted the Longer and bare-paste states. `probe-v11c02.mjs` framed the well, 4 cells, and `probe-v11c04.mjs` framed the About list, 4 cells. The guarded dev server on :9321 was stopped, and nothing from this seat is left running. The served tree also carried other seats' uncommitted hunks.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1237/1242 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3). The failure lists are identical across runs. The total moves −9 against pass 10: katex-corpus −14 (one test per shipped expression) and gradient-parse +5.
+- **e2e** (headless, workers 1, own server :9312, `gates/specs.txt`): **smoke 37/37 ×2** over the 7 specs pass 10 ran. Strict GREEN.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the Gradient CSS well (now a block) and the About Components rows will differ, and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V11C is cured.
+- For the next critic:
+  - judge the block well's height against the card at 390 (5 lines, inside the well's 12rem cap);
+  - judge whether a long user-typed stop list should scroll inside the well or let it grow.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
