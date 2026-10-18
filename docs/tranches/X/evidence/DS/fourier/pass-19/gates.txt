@@ -1,0 +1,7 @@
+X-DS fourier pass 19 cure (critic F19C), 2026-10-18. fourier 75182fb (m/w1-bump-migration; NotFoundCard.vue).
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e, headless, --project=chromium --project=mobile-chromium --workers=1, BASE_URL=http://localhost:3263 (plain npx vite), the 7 specs that reach the not-found card (e2e-specs.txt; none is @coarse, so mobile-chromium selects none): run A 120/120 (e2e-runA.txt); run B 120/120 (e2e-runB.txt).
+No golden was re-baselined.
+Probe: f19p-probe.mjs, headless real Chrome (channel chrome, DPR 2, touch below 1024): f19p-probe-before.json (pre-cure tree), f19p-probe-after.json.
+Census: fourier scripts/ds-census.mjs --chrome --base http://localhost:3263 (census-after.json): static and computed perPage identical to pass 18; sums 386/978/292/292/0/0/0/208/0/0. RED on glass rows only.

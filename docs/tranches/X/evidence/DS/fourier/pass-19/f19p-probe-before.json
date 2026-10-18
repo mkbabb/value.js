@@ -1,0 +1,266 @@
+{
+ "light-1440": {
+  "nf": {
+   "cardTop": 404.6,
+   "cardBottom": 575.4,
+   "cardW": 402.5,
+   "padT": "0px",
+   "padB": "0px",
+   "cardGap": "normal",
+   "foot": {
+    "top": 502.4,
+    "bottom": 574.4,
+    "rowGap": "8px",
+    "columnGap": "13px",
+    "pt": "12px",
+    "pb": "20px",
+    "mt": "0px",
+    "mb": "0px"
+   },
+   "titleBox": {
+    "top": 425.6
+   },
+   "titleInk": {
+    "top": 419.6,
+    "bottom": 474.6
+   },
+   "btns": [
+    {
+     "text": "Upload a new image",
+     "top": 514.4,
+     "bottom": 554.4,
+     "h": 40,
+     "x": 539.7,
+     "ink": {
+      "top": 523.3,
+      "bottom": 545.3
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "40px"
+    },
+    {
+     "text": "Browse the gallery",
+     "top": 516.4,
+     "bottom": 552.4,
+     "h": 36,
+     "x": 773.8,
+     "ink": {
+      "top": 524.4,
+      "bottom": 542.4
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "36px"
+    }
+   ],
+   "wrapped": false,
+   "topInset": 21,
+   "bottomInset": 23,
+   "bottomInkInset": 33,
+   "topInkInset": 15
+  }
+ },
+ "light-390": {
+  "nf": {
+   "cardTop": 368.8,
+   "cardBottom": 551.2,
+   "cardW": 358,
+   "padT": "0px",
+   "padB": "0px",
+   "cardGap": "normal",
+   "foot": {
+    "top": 434.2,
+    "bottom": 550.2,
+    "rowGap": "8px",
+    "columnGap": "13px",
+    "pt": "8px",
+    "pb": "12px",
+    "mt": "0px",
+    "mb": "0px"
+   },
+   "titleBox": {
+    "top": 381.8
+   },
+   "titleInk": {
+    "top": 377.8,
+    "bottom": 411.8
+   },
+   "btns": [
+    {
+     "text": "Upload a new image",
+     "top": 442.2,
+     "bottom": 486.2,
+     "h": 44,
+     "x": 29,
+     "ink": {
+      "top": 449.7,
+      "bottom": 477.7
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "44px"
+    },
+    {
+     "text": "Browse the gallery",
+     "top": 494.2,
+     "bottom": 538.2,
+     "h": 44,
+     "x": 24,
+     "ink": {
+      "top": 504.2,
+      "bottom": 528.2
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "44px"
+    }
+   ],
+   "wrapped": true,
+   "topInset": 13,
+   "bottomInset": 13,
+   "bottomInkInset": 23,
+   "topInkInset": 9
+  }
+ },
+ "dark-1440": {
+  "nf": {
+   "cardTop": 404.6,
+   "cardBottom": 575.4,
+   "cardW": 402.5,
+   "padT": "0px",
+   "padB": "0px",
+   "cardGap": "normal",
+   "foot": {
+    "top": 502.4,
+    "bottom": 574.4,
+    "rowGap": "8px",
+    "columnGap": "13px",
+    "pt": "12px",
+    "pb": "20px",
+    "mt": "0px",
+    "mb": "0px"
+   },
+   "titleBox": {
+    "top": 425.6
+   },
+   "titleInk": {
+    "top": 419.6,
+    "bottom": 474.6
+   },
+   "btns": [
+    {
+     "text": "Upload a new image",
+     "top": 514.4,
+     "bottom": 554.4,
+     "h": 40,
+     "x": 539.7,
+     "ink": {
+      "top": 523.3,
+      "bottom": 545.3
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "40px"
+    },
+    {
+     "text": "Browse the gallery",
+     "top": 516.4,
+     "bottom": 552.4,
+     "h": 36,
+     "x": 773.8,
+     "ink": {
+      "top": 524.4,
+      "bottom": 542.4
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "36px"
+    }
+   ],
+   "wrapped": false,
+   "topInset": 21,
+   "bottomInset": 23,
+   "bottomInkInset": 33,
+   "topInkInset": 15
+  }
+ },
+ "dark-390": {
+  "nf": {
+   "cardTop": 368.8,
+   "cardBottom": 551.2,
+   "cardW": 358,
+   "padT": "0px",
+   "padB": "0px",
+   "cardGap": "normal",
+   "foot": {
+    "top": 434.2,
+    "bottom": 550.2,
+    "rowGap": "8px",
+    "columnGap": "13px",
+    "pt": "8px",
+    "pb": "12px",
+    "mt": "0px",
+    "mb": "0px"
+   },
+   "titleBox": {
+    "top": 381.8
+   },
+   "titleInk": {
+    "top": 377.8,
+    "bottom": 411.8
+   },
+   "btns": [
+    {
+     "text": "Upload a new image",
+     "top": 442.2,
+     "bottom": 486.2,
+     "h": 44,
+     "x": 29,
+     "ink": {
+      "top": 449.7,
+      "bottom": 477.7
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "44px"
+    },
+    {
+     "text": "Browse the gallery",
+     "top": 494.2,
+     "bottom": 538.2,
+     "h": 44,
+     "x": 24,
+     "ink": {
+      "top": 504.2,
+      "bottom": 528.2
+     },
+     "mt": "0px",
+     "mb": "0px",
+     "pt": "0px",
+     "pb": "0px",
+     "minH": "44px"
+    }
+   ],
+   "wrapped": true,
+   "topInset": 13,
+   "bottomInset": 13,
+   "bottomInkInset": 23,
+   "topInkInset": 9
+  }
+ }
+}

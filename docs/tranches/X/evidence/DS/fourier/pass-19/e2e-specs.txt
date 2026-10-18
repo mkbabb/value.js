@@ -1,0 +1,7 @@
+e2e/f-w14-residuals.spec.ts
+e2e/f-w14-uia.spec.ts
+e2e/f-w14u-gallery.spec.ts
+e2e/f-w14u-misc.spec.ts
+e2e/f-w14u-vstage.spec.ts
+e2e/f-w14v-au1.spec.ts
+e2e/f-w14v-au6.spec.ts
