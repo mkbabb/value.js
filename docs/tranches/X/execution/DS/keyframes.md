@@ -3192,3 +3192,64 @@ Every capture is headless real Chrome (§0ei), with one browser per run and a co
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 13
+
+**Cure commit:** keyframes.js `b58dc0ea` (master, pushed fast-forward). **Evidence:** value.js `b9636c7e1`, in `evidence/DS/keyframes/pass-13/c13-2026-10-17/`. `pass-13/` already holds an earlier round's committed evidence, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: every route at 1440/390 in light and dark, plus the cube pane's three ribbon surfaces (Controls, Keyframes, and Timeline both empty and after the inline Import) at 1440 and 390 in both schemes.
+- `after/capture.json`: for each surface and cell, the pane title's left edge, the lead's plate and glyph left edges, its fill, the row's `justify-content`, and the start and end gutters.
+- `capture.mjs`, `census.json`, `census.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), with one browser per run and a context per cell, all closed in `finally`.
+
+**Cured (consumer)**
+- **KF-C13-01 (low): the Timeline and Keyframes ribbon rows sit on the pane's content column.** Both rows were centred toolbars (UIA-KF-179 / KF-C16-02) written before KF-C6-01, which re-seated only the transport row.
+  - `justify-start` replaces `justify-center` in `KeyframeTimeline.vue` (the authoring row) and `RibbonBar.vue` (the Keyframes row). The Timeline's overflow ("More timeline actions") pins to the row end with `ms-auto`.
+  - The 28rem/29rem label yields are unchanged. No wrapper was added, and glass's Button is untouched.
+  - Falsifier, met in both schemes: the filled lead's plate edge equals the pane title's left edge within 1px.
+    - At 1440, Apply CSS and the imported state's Snapshot are at x 92.2, against the title ("Rotations") at 93.2. Before the cure they were at 132.5 and 113.7.
+    - At 390, both are at 33, against the title at 34.
+    - The Controls transport still sits at x 92.2 (1440) and 33 (390). Its quiet Reverse hangs its plate into the gutter (`-ms`, KF-C5-10), so the visible glyph is on the column.
+  - Disclosure: in the empty Timeline state, Snapshot is quiet (KF-C7-03: the lead there is the inline Import beside the hint). Its transparent plate is on the column (92.2), and its glyph sits 15px in, at 107.2. The transport's quiet-hang idiom was not extended to it, because that state's row has no lead.
+  - Frames: `after/cube-{controls,keyframes,timeline-empty,timeline-imported}-{1440,390}-*`.
+
+**Cited (glass, not overridden)**
+- **KF-C13-G1 (medium): O-87 FLAT-LIGHTING** (with its proportion and affordance riders) and **O-88 DOCK-COLLAPSE-MOTION**. Every row was re-observed unchanged at glass 10.1.0, and each repeats an earlier cited row (KF-C1-01/-02/-09/-10/-11/-12, KF-R6C4-04, KF-C5p-01..03, KF-C6-G1, KF-C11-01/-02/-05/-06, KF-C12-G1):
+  - the secondary capsule;
+  - Input fills against Select fills;
+  - the carets on closed Selects;
+  - the EasingPicker staircase and its 'Custom' label;
+  - thumbless sliders;
+  - the NumberField discs and the Switch thumb;
+  - the modal slab and its saturate bloom;
+  - the easing popover's backdrop bloom;
+  - the toast;
+  - the resting-plate blur;
+  - the dock-plate and play-bubble halos;
+  - the collapsed dock tile.
+
+  These rows stay honest-RED until the 10.2.0 repin. The consumer adds no override.
+
+**Carried (owner rulings, §0dm)**
+- **KF-C13-R1 (trivial):** the OD-4/T.D9 hero overlap, and `AnimatedText.vue:165` charLift infinite (KF-C3-02, KF-C12-R1). Both are left to the owner.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5198/ --widths 1440,390 --settle 5000`): identical to pass 12 (`pass-12/c12-2026-10-17/census.json`) in every key except `at` and `computed.base`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which also carried another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `KeyframeTimeline.vue` again carried another seat's uncommitted `panel-content` hunk. This seat staged an index blob of HEAD plus its own change (`git hash-object -w` and `git update-index --cacheinfo`), checked `git diff --cached`, and committed without a pathspec. The other seat's hunk stays unstaged. `RibbonBar.vue` was clean. The served frames include the other seat's hunks. The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5198) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm). Apply CSS keeps its rainbow brush.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the probe, the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
