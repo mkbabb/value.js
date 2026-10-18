@@ -1,5 +1,8 @@
 <template>
-    <PaneShell seated follow :gutter="false" description="Save, organize, and share your colors.">
+    <PaneShell seated follow :gutter="false" title="My Palettes" description="Save, organize, and share your colors.">
+        <!-- X-DS value pass 9 (V9C-01): `title` is the plain name the shell
+             matches against the route (on /palettes this title is the route
+             H1); the `#title` slot below still paints it, ramp and count. -->
         <!-- X-DS pass 7 (V7C-04): the companion takes its content height up to the
              row (shell.css row contract), so the card is wrapped as Mix and the
              config pane are: the T-45 blur carrier seats on this wrapper, which the

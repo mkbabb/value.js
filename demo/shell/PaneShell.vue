@@ -119,12 +119,15 @@ const {
 // and the route marks its region `titled`, the title IS the route's one visible
 // `<h1>` (gate A5, the id `<main>` is labelled by); App prints no caption. A
 // pane outside the shell's provider (a unit mount) keeps its own level.
+// X-DS value pass 9 (V9C-01): a title SAYS the label when it is the label or
+// ends on it ("My Palettes" says "Palettes"); one rule, no per-view alias.
 const viewManager = inject(VIEW_MANAGER_KEY, null);
 const isRouteTitle = computed(() => {
     const config = viewManager?.currentConfig.value;
     return (
         config !== undefined &&
-        title === config.label &&
+        title !== undefined &&
+        (title === config.label || title.endsWith(` ${config.label}`)) &&
         config.regions.some((r) => r.titled)
     );
 });

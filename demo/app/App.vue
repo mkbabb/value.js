@@ -82,10 +82,11 @@
                  focusable by tab.
                  X-DS value pass 8 (V8C-01): the name is said ONCE. Where a
                  pane title says the view's label (a `titled` region: Browse,
-                 Extract, Mix, Generate, Gradient, Atmosphere, Blob, Not Found)
+                 Extract, Mix, Generate, Gradient, Atmosphere, Blob, Not Found;
+                 pass 9 · V9C-01: Palettes, whose "My Palettes" ends on it)
                  that title is this H1 (PaneShell), and no caption prints here.
-                 Where no pane says it ("Home", "Palettes", the admin consoles)
-                 the caption stays, seated on the row's leading edge. -->
+                 Where no pane says it ("Home", the admin consoles) the caption
+                 stays, seated on the row's leading edge. -->
             <h1
                 v-if="!routeTitledByPane"
                 :id="ROUTE_TITLE_ID"

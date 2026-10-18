@@ -200,8 +200,12 @@ onBeforeUnmount(() => cancelAnimationFrame(snapFrame));
                             :key="def.key"
                             :label="def.label"
                             :name="fmt(read(def.key), def.step)"
-                            class="gap-1.5 py-1"
+                            class="gap-1 py-1"
                         >
+                            <!-- X-DS value pass 9 (V9C-02): `gap-1`, the Tools
+                                 rows' label-to-band gap, so a console row and a
+                                 workbench row share the scalar row's one rhythm
+                                 (the band itself is the `sm` rung's). -->
                             <!-- X-DS pass 1 (V1-05): glass's `sm` rung — a
                                  track with no colour data is a rail, not a
                                  24px slab. V1C-06: and glass's DEFAULT range

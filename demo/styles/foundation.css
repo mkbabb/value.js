@@ -417,6 +417,20 @@
     border-radius: var(--radius-panel);
 }
 
+/* X-DS value pass 9 (V9C-02): THE SCALAR ROW'S ONE RHYTHM. The scalar
+ * population rides glass's `sm` rung (the config consoles, Extract's K and kC,
+ * Generate's count, Gradient's Direction; no other site takes `sm`). glass seats
+ * that slider in its touch-target band (`--slider-touch-target`, 1.5rem) only
+ * under a coarse pointer; under a fine one the root collapsed to its 9 px track,
+ * so the rail sat 5 px under its label on Generate and Gradient, 7-9 on the
+ * consoles, and 13 on Extract, whose rows carried a hand-made 24 px band. The
+ * band is now the rung's at every pointer, from glass's own token, and the
+ * per-site band retires (Extract's K keeps its box only to seat the developed
+ * rail behind the track). Layout only: no lighting is touched. */
+[data-slot="slider"][data-size="sm"] {
+    min-block-size: var(--slider-touch-target, 1.5rem);
+}
+
 :root {
 
     /* X-DS pass 5 (V5C-09): THE SCALAR RAIL (see utils.css, THE SCALAR RANGE

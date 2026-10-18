@@ -119,7 +119,10 @@ export interface SceneRegion {
      * X-DS value pass 8 (V8C-01): this region's pane title says the view's own
      * label, so that title IS the route's one visible `<h1>` (gate A5) and the
      * shell prints no caption above the row. A view whose label no pane title
-     * says ("Home", "Palettes", the admin consoles) keeps the caption.
+     * says ("Home", the admin consoles) keeps the caption.
+     * X-DS value pass 9 (V9C-01): "says" means the title is the label or ends
+     * on it — Palettes' card is "My Palettes", so it names its view too, and
+     * the caption no longer seats on the picker card beside it.
      */
     titled?: true;
 }
@@ -167,7 +170,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         label: "Palettes",
         regions: [
             { role: "stage", pane: "color-picker", label: "Picker" },
-            { role: "inspector", pane: "palettes", label: "Palettes" },
+            { role: "inspector", pane: "palettes", label: "Palettes", titled: true },
         ],
         icon: Palette,
         accentHueShift: 40,

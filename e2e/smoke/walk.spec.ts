@@ -113,13 +113,19 @@ test("walk all user views sequentially with zero console errors", async ({
      * distinct failures are caught here — zero headings, two, an invisible
      * one, and a label that disagrees with the schema — which is why the
      * assertion is a count plus a text, not a presence check.
+     *
+     * X-DS value pass 9 (V9C-01): on a `titled` route the H1 is the pane title,
+     * which SAYS the label — it is the label, or ends on it ("My Palettes" on
+     * /palettes). The text check is anchored at the end on a word boundary, so
+     * a label that disagrees with the schema still fails.
      */
     async function assertRouteVoice(label: string) {
         const h1 = page.getByRole("heading", { level: 1 });
         await expect(h1).toHaveCount(1);
         await expect(h1).toBeVisible();
-        await expect(h1).toHaveText(label);
-        await expect(page.getByRole("main", { name: label })).toBeVisible();
+        const says = new RegExp(`(^|\\s)${label}$`);
+        await expect(h1).toHaveText(says);
+        await expect(page.getByRole("main", { name: says })).toBeVisible();
     }
 
     await assertRouteVoice("Home");

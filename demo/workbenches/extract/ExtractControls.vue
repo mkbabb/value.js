@@ -68,21 +68,20 @@
                 <Label class="truncate">Chroma weight</Label>
                 <span class="text-mono-small plate-ink tabular-nums">{{ chromaWeight.toFixed(1) }}</span>
             </div>
-            <!-- X-DS VR3-02: the same 24px band as "Colors", so the two
-                 sibling scalar rows share one label-to-track rhythm. -->
-            <div class="w-full h-6 flex items-center">
-                <Slider
-                    aria-label="Chroma weight"
-                    size="sm"
-                    :model-value="chromaWeightModel"
-                    :disabled="standDown"
-                    :min="0"
-                    :max="1.5"
-                    :step="0.1"
-                    class="w-full"
-                    @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
-                />
-            </div>
+            <!-- X-DS VR3-02 → pass 9 (V9C-02): the 24px band is the `sm`
+                 rung's own now (foundation.css, THE SCALAR ROW'S ONE RHYTHM),
+                 so the hand-made band around this rail retires. -->
+            <Slider
+                aria-label="Chroma weight"
+                size="sm"
+                :model-value="chromaWeightModel"
+                :disabled="standDown"
+                :min="0"
+                :max="1.5"
+                :step="0.1"
+                class="w-full"
+                @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
+            />
         </div>
 
     </div>
