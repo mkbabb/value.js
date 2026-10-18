@@ -3598,3 +3598,74 @@ Every capture ran in headless real Chrome (§0ei), with one browser per run and 
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 19
+
+**Cure commit:** none in keyframes.js. HEAD stays `e48b058e`. Every C19 row turned out to be owned by glass once it was measured, so no consumer change was owed. **Evidence:** value.js `77b953fed`, in `evidence/DS/keyframes/pass-19/c19-2026-10-18/`. `pass-19/` already holds frames and probes from another round, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: the same cells as pass 18. That is every route at 1440 and 390 in both schemes; the cube pane's Controls, Keyframes and Timeline surfaces (Timeline empty, and after the inline Import) at 1440 and 390; at 1440 the layer region and the Spring pane; and the 390-dark imported cell at t = 600, 2500 and 6000 ms.
+- `after/capture.json` adds `glyphs-<w>-<scheme>`. On the cube Controls surface it records each trailing glyph's centre and right edge, with the `data-slot` that owns the glyph.
+- Also in the directory: `capture.mjs` (the pass-18 instrument plus `glyphs`), `capture.log`, `census.json`, `census.log`, `dev.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture ran in headless real Chrome (§0ei), with one browser per run and a new context for each cell, all closed in `finally`.
+
+**Measured (`glyphs-*`, the same in both schemes)**
+
+| glyph | owner (`data-slot`) | right edge, 1440 | right edge, 390 |
+|---|---|---|---|
+| pane header chevron | `configurator-layer-trigger` (glass ConfiguratorLayer, `--configurator-pad-inline`) | 456.4 | 356 |
+| field and readout edge | the column edge | 456.4 | 356 |
+| select carets (direction, fill mode, the ribbon's select) | `select-trigger` (glass SelectTrigger `px-3`) | 443.4 | 343 |
+| layer-row chevron | consumer `ChannelOptions.vue` (`pe-3`) | 443.4 | 343 |
+| sheet close × | `dialog-close` (glass Sheet) | n/a | 363 |
+
+**Cited (glass, not overridden)**
+- **KF-C19-01 (trivial): the ragged right edge. Owned by glass.**
+  - The measurement shows two columns, not three:
+    - the column edge, which the header chevron, the fields and the readouts share (456.4);
+    - the glyph column inside a field (443.4).
+  - Both insets are glass's:
+    - ConfiguratorLayer seats its chevron at the layer's `--configurator-pad-inline`;
+    - SelectTrigger insets its caret by its own `px-3`.
+  - The only consumer glyph is the layer-row chevron. It already sits on glass's caret column by an earlier ruling (KF-C22-05, r3 pass 3: "every trailing glyph shares one column"). Moving it to the column edge would only swap which glyph stands apart.
+  - Joining the header chevron to the caret column would mean overriding glass's ConfiguratorLayer locally, which X-DS forbids.
+  - Cited as an **O-87 FLAT-LIGHTING proportion rider:** one trailing-glyph inset token shared by the ConfiguratorLayer chevron and the SelectTrigger caret. Re-judge at the 10.2.0 repin.
+- **KF-C19-02 (trivial): the sheet's two trailing glyphs. Both are glass's.**
+  - The × is glass Sheet's `dialog-close`. The consumer passes no close slot and does not style it.
+  - The ^ is glass ConfiguratorLayer's chevron.
+  - The served gap is 7 px (363 against 356).
+  - The finding itself sends this to O-87 when the × is glass's, so it is cited as the same rider: the Sheet close takes the same trailing inset as the layer chevron. No local override.
+- **KF-C19-G1 (low): the standing glass rows, unchanged at 10.1.0.** Each is re-observed in this pass's `after/`:
+  - the capsule halo and edge stack (KF-C1-01);
+  - input fills against select fills, and pill fields (KF-C1-10);
+  - carets pointing up on closed Configurator selects (KF-C5p-01, KF-C18-04);
+  - thumbless parameter sliders (KF-C11-06);
+  - the disabled z-index stepper (KF-C17-02);
+  - the toast's disc, bloom, halo and placement (KF-C14-05, KF-C16-02, KF-C18-03);
+  - the resting-plate blur (KF-C6-G1, KF-C1-09);
+  - the collapsed dock tile and the play-bubble halo (KF-C1-12, O-88);
+  - the parked 390 sheet (KF-C7-01, KF-C15-01).
+
+  They stay honest-RED against O-87 and O-88. Re-judge them on the same frames at the 10.2.0 repin.
+
+**Carried (owner rulings, §0dm):** KF-C13-R1 is unchanged. No identity hue, type or motion was touched.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5219/ --widths 1440,390 --settle 5000`): identical to pass 18 apart from `at` and `computed.base`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which still carries another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`; this seat touched none of them)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- No keyframes.js commit and no push: the branch is unchanged at `e48b058e`.
+- The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5219) and stopped it at the end.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
