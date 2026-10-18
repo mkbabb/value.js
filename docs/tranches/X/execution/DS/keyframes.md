@@ -3669,3 +3669,49 @@ Every capture ran in headless real Chrome (§0ei), with one browser per run and 
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 20
+
+**Cure commit:** keyframes.js `35e64f63` (pushed fast-forward, `e48b058e..35e64f63`). **Evidence:** value.js `0c0e9483c`, in `evidence/DS/keyframes/pass-20/c20-2026-10-18/`. `pass-20/` already holds frames and probes from another round (including the critic's `c20-probe.mjs`), so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: the pass-19 cells (every route at 1440 and 390 in both schemes; the cube Controls, Keyframes and Timeline surfaces, empty and imported, at 1440 and 390; the layer region and the Spring pane at 1440; the 390-dark imported cell at t = 600, 2500 and 6000 ms), plus `sequence-stagger-1440-<scheme>`.
+- `after/capture.json` adds `lanes-sequence-1440-<scheme>` (each lane row's top, the pitch, the bar height, the track's `flex-grow`, and the free block under the chart) and `subpaneTitle` on the layer region.
+- Also in the directory: `capture.mjs` (the pass-19 instrument plus those fields), `capture.log`, `census.json`, `census.log`, `dev.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-1..2`.
+
+Every capture ran in headless real Chrome (§0ei), with one browser per run and a new context for each cell, all closed in `finally`.
+
+**Cured (consumer, at the root)**
+- **KF-C20-01 (low): the Stagger lanes keep a fixed rung.** The cause was `.lane-track { flex-grow: 1 }` in `SequenceLanes.vue` (the KF-C5-01 spread). It is deleted, not countered.
+  - The pane keeps its foot: `feet-sequence-1440` delta is still 0 (frame and plate both end at 750.1).
+  - The lanes now sit on their own rows. Six rows at tops 242.5 / 282.5 / 318.5 / 354.5 / 390.5 / 426.5, a 36 px pitch (the 2rem lane plus the track's 0.25rem row gap; the clock row 40), with 8 px bars. Before, the pitch was about 81 px.
+  - The remainder, 291.5 px, stands as the pane's free block under the chart, as the Timeline facet's does (KF-C16).
+  - The rail and the phone sheet now follow one rule: the sheet was already content-sized. The stage's own lane distribution (KF-C3-01) is untouched.
+- **KF-C20-02 (trivial): the layer sub-pane is titled "Layer".** `ChannelOptions.vue` `SubPaneHeader title="Layer"`, in the pane-title register (Title Case, as Rotations, Timeline and Stagger). "layer" is not a CSS term, so it does not keep the lower-case echo that "cubic-bézier" and "steps" keep. The row label that opens it stays "layer". The Back control's name follows: "Back from Layer to controls". `test/demo/instrument/channel-options-w13x.test.ts` is updated to those two strings; no assertion was weakened.
+
+**Cited (glass, not overridden)**
+- **KF-C20-G1 (high): the 390 sheet never rises.** At every detent glass SheetContent grows the block-size but leaves the top at 722.6 of 844, so the body sits below the fold, and `aria-valuetext` reports "100%" for a sheet the user cannot see. This is the KF-C7-01 / KF-C15-01 glass half. Cited against O-87 / O-88 SHEET-POSITION, with no consumer shim. It stays honest-RED until the 10.2.0 repin, when the 390 pane bodies are re-captured.
+- **KF-C20-G2 (medium): the open Select listbox.** The cartoon-lg stamp and the amber control-surface gradient sit on the floating material, so it reads in a different register from the easing popover. This is the KF-C1-02 and KF-C1-09 families. Cited against O-87.
+- **KF-C20-G3 (low): the toast.** The corner-hung close disc, the tinted success plate and halo, the blur-vaporize exit, and the top-only phone placement over the dock tile. This is the KF-C14-05, KF-C16-02 and KF-C18-03 families. Cited against O-87, with an O-88 rider for the dock overlap.
+- **KF-C20-G4 (low): the disabled z-index NumberField** keeps its brightest fill and raised stepper plates (KF-C17-02). It is still visible in this pass's `layer-region-1440-dark.png`. Cited against O-87.
+- **KF-C20-G0 (medium): the standing glass rows,** unchanged at 10.1.0: KF-C1-01, KF-C1-02/-09, KF-C6-G1, KF-C1-10, KF-C1-11, KF-C1-12 / O-88, KF-C5p-01, KF-C19-02 and KF-R6C4-04. Re-judge them on the same frames at the 10.2.0 repin.
+
+**Carried (owner rulings, §0dm):** KF-C13-R1 is unchanged. No identity hue, type or motion was touched.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5219/ --widths 1440,390 --settle 5000`): the verdict and totals are identical to pass 19. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops; the cure moved no lighting rows.
+
+**Gates** (run on the live tree, which still carries another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`; this seat touched none of them)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- The keyframes.js commit is pathspec-only: four files (`SequenceLanes.vue`, `SequenceTimeline.vue` (comment), `ChannelOptions.vue`, and the test). The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5219) and stopped it at the end.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
