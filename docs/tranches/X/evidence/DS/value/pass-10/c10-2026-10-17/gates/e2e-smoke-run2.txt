@@ -1,0 +1,117 @@
+(node:31462) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:31506) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 37 tests using 1 worker
+
+[1A[2K(node:31571) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/37] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints
+[W4-C1] caretLeft=252.891 mintedLeft=252.891 inline="calc(var(--rail-inset) + var(--rail-track) * 0.55)"
+
+[1A[2K[W4-C1] pointerEventsDuringKeyboardJourney=0
+
+[1A[2K[2/37] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal
+[W4-C2] [{"role":"slider","min":"0","max":"100","now":"0","text":"Stop 1 of 3, position 0%","name":"Gradient stop 1 of 3"},{"role":"slider","min":"0","max":"100","now":"50","text":"Stop 2 of 3, position 50%","name":"Gradient stop 2 of 3"},{"role":"slider","min":"0","max":"100","now":"100","text":"Stop 3 of 3, position 100%","name":"Gradient stop 3 of 3"}]
+
+[1A[2K[3/37] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left
+[W4-C3] home=12 end=450 unit=4.3800px/% inline="calc(var(--rail-inset) + var(--rail-track) * 1)"
+
+[1A[2K[W4-C3-LEDGER] {"unitPxPerPercent":4.38,"presses":[{"key":"Home","before":231,"after":12,"delta":-219,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowLeft","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"End","before":12,"after":450,"delta":438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"ArrowRight","before":450,"after":450,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"Home","before":450,"after":12,"delta":-438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"PageUp","before":12,"after":55.797,"delta":43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.1)"},{"key":"PageDown","before":55.797,"after":12,"delta":-43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowUp","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowDown","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowLeft","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"ArrowRight","before":20.75,"after":25.125,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.03)"},{"key":"Escape","before":25.125,"after":12,"delta":-13.125,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":" ","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"Escape","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"}]}
+
+[1A[2K[W4-C3] defects=0
+
+
+[1A[2K[4/37] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer)
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer)
+[W4-C4-SETTLE] geometry inFlightAtEntry=[]
+
+[1A[2K[W4-C4-FINE] [{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16},{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16}]
+
+[1A[2K[W4-C4-SETTLE] clip inFlightAtEntry=[]
+
+[1A[2K[W4-C4-RING] {"shadow":"rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px","spread":3,"clippers":[],"focusVisible":true}
+
+[1A[2K[5/37] [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer)
+[1A[2K[smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer)
+[W4-C4-COARSE] [{"w":24,"h":24,"hitW":44,"hitH":44},{"w":24,"h":24,"hitW":44,"hitH":44}]
+
+[1A[2K[6/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[7/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[8/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[9/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[10/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[11/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[12/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K[13/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K[14/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[15/37] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K[16/37] [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+[1A[2K[smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+X.W6.f f3 CENSUS — 18 spaces walked on the live About route
+  rgb           created=1931                 guide=authored       A color space based on the additive mixture of red, green, and b…
+  hsl           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hsv           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hwb           created=1978                 guide=authored       A cylindrical representation of the RGB color space, using White…
+  lab           created=1976                 guide=authored       The L*a*b* color space is a three-dimensional color model design…
+  lch           created=1976                 guide=authored       A cylindrical representation of the Lab color space.…
+  oklab         created=2019                 guide=authored       A perceptually uniform color space designed to be more intuitive…
+  oklch         created=2019                 guide=authored       A cylindrical representation of the OKLab color space.…
+  xyz           created=1931                 guide=authored       The CIE 1931 XYZ color space is a device-independent color space…
+  kelvin        created=Beginning of time    guide=authored       The Kelvin color space represents the color of an ideal black-bo…
+  srgb-linear   created=1996                 guide=none-authored  The sRGB primaries and white point with the transfer function re…
+  display-p3    created=2015                 guide=none-authored  A display-referred wide-gamut space: the DCI-P3 primaries carrie…
+  a98-rgb       created=1998                 guide=none-authored  Adobe's 1998 wide-gamut RGB working space, defined to encompass …
+  prophoto-rgb  created=2000                 guide=none-authored  Kodak's very wide RGB working space, whose primaries lie partly …
+  rec2020       created=2012                 guide=none-authored  The ultra-high-definition broadcast space whose red, green and b…
+  ictcp         created=2016                 guide=none-authored  An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS c…
+  jzazbz        created=2017                 guide=none-authored  A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2…
+  hex           created=1996                 guide=authored       A compact hexadecimal notation for sRGB colors, widely used in w…
+X.W6.f — spaces that did NOT survive the model→URL→model round-trip: ictcp→oklch, jzazbz→oklch  [PRE-EXISTING, escalated: see the note at the foot of this file]
+
+[1A[2K[17/37] [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors
+[1A[2K[18/37] [smoke] › e2e/smoke/page-load.spec.ts:71:1 › an unknown address announces its destination and is distinct from home
+[1A[2K[19/37] [smoke] › e2e/smoke/views/gradient.spec.ts:50:1 › gradient view renders direction slider with zero console errors
+[1A[2K[20/37] [smoke] › e2e/smoke/views/gradient.spec.ts:85:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+[1A[2K[21/37] [smoke] › e2e/smoke/views/gradient.spec.ts:130:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+[1A[2K[22/37] [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+[1A[2K[23/37] [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints
+[1A[2K[24/37] [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[1A[2K[25/37] [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved
+[1A[2K[26/37] [smoke] › e2e/smoke/views/gradient.spec.ts:392:1 › garbage input fails LOUD and leaves the model untouched
+[1A[2K[27/37] [smoke] › e2e/smoke/views/gradient.spec.ts:416:1 › radial geometry is model-or-reject, never a silent drop
+[1A[2K[28/37] [smoke] › e2e/smoke/views/gradient.spec.ts:430:1 › easing row carries its live ramp; steps mode lands in the literal
+[1A[2K[29/37] [smoke] › e2e/smoke/views/gradient.spec.ts:465:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[1A[2K[30/37] [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora
+[1A[2K[31/37] [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1440x900 {"picker":621.265625,"about":621.265625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7451,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[32/37] [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[w12-about-clip] 1440x900 overflow docScroll=900 inner=900 picker=621.265625 about=621.265625
+
+[1A[2K[33/37] [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1280x800 {"picker":617.015625,"about":617.015625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":460,"scrollHeight":7394,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[34/37] [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[w12-about-clip] 1280x800 overflow docScroll=800 inner=800 picker=617.015625 about=617.015625
+
+[1A[2K[35/37] [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 2846x1650-eq {"picker":621.265625,"about":621.265625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7449,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+
+[1A[2K[36/37] [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[w12-about-clip] 2846x1650-eq overflow docScroll=825 inner=825 picker=621.265625 about=621.265625
+
+[1A[2K[37/37] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+[1A[2K  37 passed (3.3m)
