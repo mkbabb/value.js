@@ -99,12 +99,12 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     await page.goto("/#/browse");
     await expect(mainPane(page)).toBeVisible();
 
-    const errorPlate = page.getByText(/Couldn't load palettes/);
+    const errorPlate = page.getByText(/Couldn't reach the palette service\./);
     await expect(errorPlate, "the error plate paints at all").toBeVisible({
         timeout: 15_000,
     });
 
-    const retry = page.getByRole("button", { name: "Retry" });
+    const retry = mainPane(page).getByRole("button", { name: "Retry" });
     await expect(retry).toBeVisible();
     await retry.click();
 

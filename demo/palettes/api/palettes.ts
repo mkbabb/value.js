@@ -14,7 +14,54 @@ import type {
     CursorPaginatedResponse,
 } from "../types";
 
-import { request } from "../../platform/transport/client";
+import { request, type RequestOptions } from "../../platform/transport/client";
+import { ApiProblem, toApiProblem } from "../../platform/transport/api-problem";
+import {
+    clearServiceProblem,
+    reportServiceProblem,
+} from "../../platform/transport/useApiClient";
+
+/**
+ * X.W11.api (COHESION §0eh limb (a)) — every palette request goes through
+ * here, so a failure is never silent. A caught error is classified into the
+ * one typed problem (`toApiProblem`); a SERVICE failure (network/TLS, 5xx, a
+ * malformed body) is reported to the transport seam, which raises the glass
+ * toast, and the typed problem is what the caller receives. A 4xx is the
+ * service answering — its surface owns that verdict, so it is not toasted. An
+ * error that is not a transport failure is rethrown as itself. A success
+ * clears the reported failure: the service is serving again.
+ *
+ * `isShape`, when given, is the body's shape check: a 200 whose body is not
+ * the shape asked for is a malformed answer, never an empty one.
+ */
+async function palettesRequest<T>(
+    path: string,
+    init?: RequestOptions,
+    isShape?: (body: unknown) => body is T,
+): Promise<T> {
+    try {
+        const body = await request<unknown>(path, init);
+        if (isShape && !isShape(body)) {
+            throw ApiProblem.malformed(`${path.split("?")[0]} did not return the palette list.`);
+        }
+        clearServiceProblem();
+        return body as T;
+    } catch (error) {
+        const problem = toApiProblem(error);
+        if (problem === null) throw error;
+        if (problem.isServiceFailure) reportServiceProblem(problem);
+        throw problem;
+    }
+}
+
+/** The `GET /palettes` page shape: a `data` array (cursor fields optional). */
+function isPalettePage(body: unknown): body is CursorPaginatedResponse<Palette> {
+    return (
+        typeof body === "object" &&
+        body !== null &&
+        Array.isArray((body as { data?: unknown }).data)
+    );
+}
 
 export interface ListPalettesOptions {
     limit?: number;
@@ -51,11 +98,11 @@ export function listPalettes(
     if (opts.colorA != null) params.set("colorA", String(opts.colorA));
     if (opts.colorB != null) params.set("colorB", String(opts.colorB));
     if (opts.colorRadius != null) params.set("colorRadius", String(opts.colorRadius));
-    return request(`/palettes?${params}`);
+    return palettesRequest(`/palettes?${params}`, undefined, isPalettePage);
 }
 
 export function getPalette(slug: string): Promise<Palette> {
-    return request(`/palettes/${encodeURIComponent(slug)}`);
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}`);
 }
 
 /**
@@ -72,7 +119,7 @@ export function createAndSavePalette(palette: {
     colors: PaletteColor[];
     tags?: string[];
 }): Promise<Palette> {
-    return request("/palettes", {
+    return palettesRequest("/palettes", {
         method: "POST",
         body: JSON.stringify(palette),
         // K.W2: a fresh idempotency key collapses a double-submit (e.g. a
@@ -93,7 +140,7 @@ export function updatePalette(
     update: { name?: string; colors?: PaletteColor[]; tags?: string[] },
     ifMatch: string,
 ): Promise<Palette> {
-    return request(`/palettes/${encodeURIComponent(slug)}`, {
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}`, {
         method: "PATCH",
         body: JSON.stringify(update),
         ifMatch,
@@ -119,7 +166,7 @@ export function renamePalette(
  * the updated palette envelope.
  */
 export function publishPalette(slug: string, ifMatch: string): Promise<Palette> {
-    return request(`/palettes/${encodeURIComponent(slug)}/publish`, {
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}/publish`, {
         method: "POST",
         ifMatch,
     });
@@ -131,7 +178,7 @@ export function publishPalette(slug: string, ifMatch: string): Promise<Palette> 
  * membership). Owner-gated + If-Match-guarded; see `publishPalette`.
  */
 export function unpublishPalette(slug: string, ifMatch: string): Promise<Palette> {
-    return request(`/palettes/${encodeURIComponent(slug)}/unpublish`, {
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}/unpublish`, {
         method: "POST",
         ifMatch,
     });
@@ -140,14 +187,14 @@ export function unpublishPalette(slug: string, ifMatch: string): Promise<Palette
 export function votePalette(
     slug: string,
 ): Promise<{ voted: boolean; voteCount: number }> {
-    return request(`/palettes/${encodeURIComponent(slug)}/vote`, {
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}/vote`, {
         method: "POST",
         idempotencyKey: crypto.randomUUID(),
     });
 }
 
 export function deletePaletteUser(slug: string): Promise<{ deleted: boolean }> {
-    return request(`/palettes/${encodeURIComponent(slug)}`, { method: "DELETE" });
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}`, { method: "DELETE" });
 }
 
 export function flagPalette(
@@ -155,7 +202,7 @@ export function flagPalette(
     reason: string,
     detail?: string,
 ): Promise<{ flagged: boolean }> {
-    return request(`/palettes/${encodeURIComponent(slug)}/flag`, {
+    return palettesRequest(`/palettes/${encodeURIComponent(slug)}/flag`, {
         method: "POST",
         body: JSON.stringify({ reason, detail }),
         idempotencyKey: crypto.randomUUID(),

@@ -195,6 +195,11 @@
         @respond="paletteManager.migration.onMigrateRespond"
         @dismiss="paletteManager.migration.onMigrateDismiss"
     />
+
+    <!-- X.W11.api (§0eh limb (a)): glass's Toaster, mounted ONCE — the seat
+         the transport seam's palette-service failure toast renders into
+         (`reportServiceProblem`, useApiClient.ts). -->
+    <Toaster />
 </template>
 
 <script setup lang="ts">
@@ -229,6 +234,7 @@ import { usePaneRouter, PANE_CACHE_MAX } from "../shell/usePaneRouter";
 import { useSceneTargets } from "../shell/useSceneTargets";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { useClipboard } from "@mkbabb/glass-ui/dom";
+import { Toaster } from "@mkbabb/glass-ui/toast";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";

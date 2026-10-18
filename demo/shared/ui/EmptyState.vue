@@ -1,7 +1,4 @@
 <template>
-    <!-- X-DS value pass 8 (V8C-03): `compact` on the error plate too — seated
-         under its pane's title (Not Found), the header already spaces it, so
-         the plate drops its top padding and keeps the bottom one. -->
     <div
         v-if="variant === 'error'"
         ref="root"
@@ -26,11 +23,6 @@
         </p>
         <slot name="action" />
     </div>
-    <!-- X.W12U.s3 · UIA-V-635: a FILTERED zero is its own register — the
-         query found nothing, the collection is not empty — so it never wears
-         the true-empty ghost trio (the one voice of TRUE empty, below). A plain
-         statement (body at 400, a weight under the true-empty line), plus the
-         host's way out. -->
     <div
         v-else-if="variant === 'filtered'"
         ref="root"
@@ -38,15 +30,16 @@
         role="status"
         data-empty-register="filtered"
     >
+        <!-- X.W12U.s3 · UIA-V-635: a FILTERED zero is its own register — the
+             query found nothing, the collection is not empty — so it never wears
+             the true-empty ghost trio (the one voice of TRUE empty, below). A plain
+             statement (body at 400, a weight under the true-empty line), plus the
+             host's way out. -->
         <p class="font-display text-body text-foreground max-w-[36ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
         <slot name="action" />
     </div>
-    <!-- X-DS pass 8 (V3C-01): `compact` — a true-empty plate seated under its
-         own section heading (Mix's "Saved palettes") drops the plate-scale
-         vertical padding: the heading already spaces it, and the 64 px of air
-         pushed the hint past the follow row's ceiling at 1440. -->
     <div
         v-else
         ref="root"
@@ -56,6 +49,10 @@
         ]"
         role="status"
     >
+        <!-- X-DS pass 8 (V3C-01): `compact` — a true-empty plate seated under its
+             own section heading (Mix's "Saved palettes") drops the plate-scale
+             vertical padding: the heading already spaces it, and the 64 px of air
+             pushed the hint past the follow row's ceiling at 1440. -->
         <!-- N-3, RE-AIMED (T.W6.5 · Lane S — R12, MANDATE §0.6
              t33-audit-08 "bring that iconset with the dashes back"): the
              clause stays TRUE — never two ghost registers at two scales —
@@ -139,6 +136,17 @@
  * comment, which the dev compiler turns into a sibling root — a multi-root
  * component, whose <Transition mode="out-in"> leave never completes. The
  * template now opens on its element; the note lives here.
+ *
+ * X-DS value pass 8 (V8C-03): `compact` on the error plate too — seated under
+ * its pane's title (Not Found), the header already spaces it, so the plate
+ * drops its top padding and keeps the bottom one.
+ *
+ * X.W11.api (§0eh limb (a)) — that V8C-03 note had re-entered as a leading
+ * <template> comment (dc94d7745), and the same dev-compiler rule moves a comment
+ * standing BETWEEN v-if branches into the following branch, so the `filtered`
+ * and true-empty branches were fragments too. Every note now sits inside its
+ * branch's element or here: each branch renders ONE element, so Browse's
+ * out-in swap off the error plate completes and Retry repopulates the wall.
  */
 import { useTemplateRef } from "vue";
 import { CircleAlert } from "@lucide/vue";

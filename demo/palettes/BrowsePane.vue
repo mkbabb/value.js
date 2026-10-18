@@ -61,11 +61,16 @@
                  the specimen conceit). The raw machine string moves to
                  the Fira detail line; Retry is a real Button, device-
                  neutral, no dock atom mis-planted in a pane body. -->
+            <!-- X.W11.api (§0eh limb (a)): a SERVICE failure (network/TLS,
+                 5xx, malformed body) is named as one — "couldn't reach the
+                 palette service" — never the true-empty "no palettes" and
+                 never a generic load failure; a 4xx refusal keeps the plain
+                 headline. -->
             <EmptyState
                 v-else-if="pm.browseError.value && displayedBrowse.length === 0"
                 key="error"
                 variant="error"
-                message="Couldn't load palettes."
+                :message="errorHeadline"
                 :detail="pm.browseError.value"
             >
                 <template #action>
@@ -213,7 +218,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, nextTick, reactive, ref, shallowRef, computed, onMounted, watch } from "vue";
+import { inject, nextTick, reactive, ref, shallowRef, computed, onMounted, onUnmounted, watch } from "vue";
 import {
     Dialog,
     DialogContent,
@@ -225,6 +230,7 @@ import {
 import { Search, Trash2 } from "@lucide/vue";
 import { Button } from "@mkbabb/glass-ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
+import { useApiClient } from "../platform/transport/useApiClient";
 import { PaletteCardGrid } from "./browser/card";
 import PaletteCardSkeleton from "../shared/ui/PaletteCardSkeleton.vue";
 import PaletteInspector from "./inspector/PaletteInspector.vue";
@@ -239,6 +245,15 @@ import type { Palette, Tag } from "./types";
 import { useDialogBrowseActions } from "./browser/dialog";
 
 const pm = inject(BROWSE_PORT_KEY)!;
+
+// X.W11.api (§0eh limb (a)): the palette-service failure in effect words the
+// error plate, and the failure toast's Retry re-loads this wall while it stands.
+const { serviceProblem, onServiceRetry } = useApiClient();
+const offServiceRetry = onServiceRetry(() => pm.retryRemotePalettes());
+onUnmounted(offServiceRetry);
+const errorHeadline = computed(() =>
+    serviceProblem.value ? "Couldn't reach the palette service." : "Couldn't load palettes.",
+);
 
 // W5-1: the developing-wall shadow count — a handful of plates reads as "the
 // wall is developing" without paying 50 shimmer surfaces of compositor work
