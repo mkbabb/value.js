@@ -1607,3 +1607,41 @@ Critic V15C named two medium consumer rows (V15C-01, -02), one low (V15C-03) and
   - judge the "Custom curve" label's voice beside the producer's own readout below it.
 - The gates owe a strict ×2 e2e pass on a quiet host, with `walk` in particular.
 - The glass rows (V15C-04, V15C-G1) wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 16 (2026-10-18): critic V16C — the frames are gated on paint, the wrapped strip is one table, the head glyph sits in a plot box
+
+Critic V16C named two low consumer rows (V16C-01, -02) and one trivial (V16C-03). It also named one glass row (V16C-G1, medium). All three consumer rows are cured at the root. The glass row stays honest-RED on O-87 / O-88. Evidence is in `pass-16/c16-2026-10-18/` (`pass-16/` already holds an earlier seat's pass 16, critic V16).
+
+**Commits.** value.js `9f29879b4` (the cure: 2 paths) and `79ad4bce4` (frames, capture, falsifier, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-16/c16-2026-10-18/`) |
+|---|---|---|---|
+| V16C-01 (low) | **CURED in the capture harness** (`harness.mjs`, copied from pass 15 and extended; the app was not at fault). **Pass 15's set is corrected to 38/40 valid.** | `paintGate(page, { hero })` runs after `bootRoute` and before every shot. It reads pixels, not the DOM: (1) the first pane card *in view* must hold edges (the fraction of adjacent pixel pairs whose luma differs by more than 24 must be at least 0.004; a smooth ground scores 0); (2) where the bead is seated (the picker at every width; palettes, mix and blob at 1440), hiding the bead's canvas must change its box by a mean of at least 3 RGB levels (an undrawn canvas changes nothing). It re-reads for up to 12 s, then throws. `capture-c16.mjs` then retries the cell in a new context, up to 3 attempts. The decode runs in the page, so no image library is added. | `capture-c16.json`: **40/40** cells, all on the first attempt and the first read. Card edge fraction 0.0128–0.0436; bead hide-delta 13.0–28.3 in all 10 bead cells. Pass 15's `atmosphere-1440-light` and `picker-390-dark` are re-shot under the gate, flagged `reshotFromPass15`, and listed in the manifest's `reshoot` note. Both are valid: pane, dock and bead present. **Falsifier** (`falsify-paint.log`): the gate passes both controls and refuses a page with a ground laid over it (edge 0) and a bead with an undrawn canvas (delta 1.04). |
+| V16C-02 (low) | **CURED in `EasingSpecimenStrip.vue`.** | Under the container query, the strip is one grid with shared tracks, replacing the flex-wrap: `repeat(auto-fill, minmax(12.5rem, 1fr))`. One track holds the widest family below CSS (Cubic, with four tiles); CSS spans two. The family gap is one custom property, `--family-gap`, which the `::before` hairline reads, so the rule stays centred in the gap at both widths. The threshold moves to 26.5rem (two tracks, one gap and the 2px headroom), so the grid never falls to one column. The 390 seat keeps its one scrolling line, and the names stay under the discs. No wrapper. | `capture-c16.json` `strip` at 1440 (4/4 cells): grid with 2 tracks of 214px. Family heads sit at x **2 / 236** on every line, and there is **one** hairline column at x 226. 8/8 families are in the port, with no x-overflow. At 390: 1 line, 8 heads in a 314px port (the scroll is kept); 27 names in every cell. The probe (`probe-strip.mjs`) gives heads at 2/225 at 1024 and three tracks at 768. **Cost:** the strip is 5 lines (473px) at 1440 against pass 15's 4 ragged lines (377px). CSS's five tiles need a line of their own. |
+| V16C-03 (trivial) | **CURED in `GradientEasingEditor.vue`.** | The head glyph gets the unit-square frame: one `<rect>` hairline in `--card-edge`, no fill, non-scaling stroke. A linear curve now reads as a diagonal in a plot box, not a "/". No lighting is added. | `capture-c16.json` `glyph` (4/4): the frame is present, stroke `--card-edge` (12 % ink), fill none, 1px. `gradient-*.png`, `easing-open-*.png`. |
+| V16C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING / O-88 DOCK-COLLAPSE-MOTION.** | The same rows as V15C-G1 and V15C-04: the bead; the dock (rim, halo, 390 bulge, collapsed tile); the card, menu and name-field rims; Mix's disabled primary; thumbless rails; the Chip's glossy pressed disc and under-shadow; the steps staircase in the bezier regime; the producer readout on `text-micro`; and the pointer-pick focus ring. No local override. | Re-judged at the 10.2.0 repin and at the EasingPicker pass. |
+
+**Census** (`census-after.json`, `--base :9391 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. This is identical to pass 15.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Computed elements: 5322.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c16.mjs` uses one browser for the run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells, plus `easing-open-*` and `tune-*` (4 each). A first full run was stopped and discarded, not counted: its gate read the picker's off-screen card at 390 and asked for a bead on 390 routes that do not seat one. The guarded dev server on :9391 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`). The host ran at load 22–28. Other seats committed palettes and platform hunks during the runs.
+- **Type-check:** 0 ×2.
+- **vitest:** run 2 is 1237/1242 with the standing 5 (ink D6 ×2, T-35 ×3).
+  - Run 1 is 1235/1242: the standing 5, plus 2 in `plate-mass` at 390.
+  - Those 2 read "Execution context was destroyed". Another seat's palettes commit hot-reloaded the harness page in the middle of the test. That file is not on the changed surface.
+- **e2e** (headless, workers 1, one guarded call per spec, `gates/specs.txt`): every spec that reads the changed surfaces is **GREEN ×2**.
+  - `o17` 5/5. `views/gradient.spec` 12/12. `o21-gradient-rail` 10/10. `a11y-gradient-stop-grammar` 5/5. `o27` 6/6. `page-load` 2/2.
+  - `o23` is 0/1 ×2. This is the standing HSL row from pass 13, which has an at-HEAD falsifier. It is not on this diff's surface.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the open Easing interval (the two-track strip) and every interval head (the framed glyph) will differ, and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V16C is cured. V14C-R1 (the dark rainbow title's margin) is still carried.
+- For the next critic:
+  - judge the strip's five lines (473px at 1440) against pass 15's four ragged ones, including whether CSS should keep a line of its own;
+  - judge the head-glyph frame's weight at `--card-edge` on the saturated light ground, where it is faint at 1×;
+  - check that every frame's `paint` reading is in `capture-c16.json`.
+- The gates owe `walk` and `o18` on a quiet host. They read no changed surface this pass, and were not run.
+- The glass rows (V16C-G1) wait on O-87 / O-88 at the 10.2.0 repin.
