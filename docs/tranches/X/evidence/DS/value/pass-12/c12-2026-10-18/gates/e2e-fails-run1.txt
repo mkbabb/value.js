@@ -1,0 +1,6 @@
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 

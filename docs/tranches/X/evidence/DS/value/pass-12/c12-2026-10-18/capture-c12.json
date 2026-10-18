@@ -1,0 +1,981 @@
+{
+ "base": "http://localhost:9331",
+ "results": [
+  {
+   "file": "picker-1440-light.png",
+   "ok": true,
+   "about": {
+    "lab": {
+     "found": true,
+     "space": "lab",
+     "h3s": [
+      "Historical Context",
+      "Advantages",
+      "Disadvantages",
+      "White Points",
+      "Components",
+      "Representation",
+      "XYZ to Lab",
+      "Lab to XYZ"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 8,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "lch": {
+     "found": true,
+     "space": "lch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Lab to LCh",
+      "LCh to Lab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 18,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 100 (diffuse white). Identical to Lab’s L*.",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from th",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): The angle in the a*b* plane:0 = reddish (+a* direction)90 = yellowish (+b* direction)180 = greenish (",
+       "codeChips": 2,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "oklch": {
+     "found": true,
+     "space": "oklch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Relationship to OKLab",
+      "OKLCh to OKLab",
+      "OKLab to OKLCh",
+      "OKLab to XYZ",
+      "XYZ to OKLab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 4,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 16,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L*.",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LC",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptual",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "file": "palettes-1440-light.png",
+   "ok": true
+  },
+  {
+   "file": "browse-1440-light.png",
+   "ok": true
+  },
+  {
+   "file": "extract-1440-light.png",
+   "ok": true
+  },
+  {
+   "file": "mix-1440-light.png",
+   "ok": true
+  },
+  {
+   "file": "generate-1440-light.png",
+   "ok": true
+  },
+  {
+   "file": "gradient-1440-light.png",
+   "ok": true,
+   "well": {
+    "5": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 25%,\n  yellow 50%,\n  green 75%,\n  blue 100%\n)",
+     "lines": 8,
+     "scrollHeight": 237,
+     "clientHeight": 237,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1192,
+     "lastTextBottom": 1175,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    },
+    "8": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 14%,\n  yellow 29%,\n  green 43%,\n  blue 57%,\n  indigo 71%,\n  violet 86%,\n  black 100%\n)",
+     "lines": 11,
+     "scrollHeight": 317,
+     "clientHeight": 317,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1434,
+     "lastTextBottom": 1417,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    }
+   }
+  },
+  {
+   "file": "atmosphere-1440-light.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 512,
+    "scrolls": false,
+    "lastWhole": {
+     "head": false,
+     "text": "Zones6",
+     "bottom": 475
+    },
+    "orphanHead": false,
+    "footerMarginTop": "0px"
+   }
+  },
+  {
+   "file": "blob-1440-light.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 389,
+    "scrolls": true,
+    "lastWhole": {
+     "head": false,
+     "text": "Eccentricity0.05",
+     "bottom": 368
+    },
+    "orphanHead": false,
+    "footerMarginTop": "42px"
+   }
+  },
+  {
+   "file": "notfound-1440-light.png",
+   "ok": true
+  },
+  {
+   "file": "picker-390-light.png",
+   "ok": true,
+   "about": {
+    "lab": {
+     "found": true,
+     "space": "lab",
+     "h3s": [
+      "Historical Context",
+      "Advantages",
+      "Disadvantages",
+      "White Points",
+      "Components",
+      "Representation",
+      "XYZ to Lab",
+      "Lab to XYZ"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 8,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "lch": {
+     "found": true,
+     "space": "lch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Lab to LCh",
+      "LCh to Lab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 18,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 100 (diffuse white). Identical to Lab’s L*.",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from th",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): The angle in the a*b* plane:0 = reddish (+a* direction)90 = yellowish (+b* direction)180 = greenish (",
+       "codeChips": 2,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "oklch": {
+     "found": true,
+     "space": "oklch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Relationship to OKLab",
+      "OKLCh to OKLab",
+      "OKLab to OKLCh",
+      "OKLab to XYZ",
+      "XYZ to OKLab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 4,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 16,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.304649 0.121841 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L*.",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LC",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptual",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "file": "palettes-390-light.png",
+   "ok": true
+  },
+  {
+   "file": "browse-390-light.png",
+   "ok": true
+  },
+  {
+   "file": "extract-390-light.png",
+   "ok": true
+  },
+  {
+   "file": "mix-390-light.png",
+   "ok": true
+  },
+  {
+   "file": "generate-390-light.png",
+   "ok": true
+  },
+  {
+   "file": "gradient-390-light.png",
+   "ok": true,
+   "well": {
+    "5": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 25%,\n  yellow 50%,\n  green 75%,\n  blue 100%\n)",
+     "lines": 8,
+     "scrollHeight": 206,
+     "clientHeight": 206,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1290,
+     "lastTextBottom": 1274,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    },
+    "8": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 14%,\n  yellow 29%,\n  green 43%,\n  blue 57%,\n  indigo 71%,\n  violet 86%,\n  black 100%\n)",
+     "lines": 11,
+     "scrollHeight": 274,
+     "clientHeight": 274,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1520,
+     "lastTextBottom": 1504,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    }
+   }
+  },
+  {
+   "file": "atmosphere-390-light.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 502,
+    "scrolls": false,
+    "lastWhole": {
+     "head": false,
+     "text": "Zones6",
+     "bottom": 465
+    },
+    "orphanHead": false,
+    "footerMarginTop": "0px"
+   }
+  },
+  {
+   "file": "blob-390-light.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 2293,
+    "scrolls": false,
+    "lastWhole": {
+     "head": false,
+     "text": "Speed1.00",
+     "bottom": 2256
+    },
+    "orphanHead": false,
+    "footerMarginTop": "0px"
+   }
+  },
+  {
+   "file": "notfound-390-light.png",
+   "ok": true
+  },
+  {
+   "file": "picker-1440-dark.png",
+   "ok": true,
+   "about": {
+    "lab": {
+     "found": true,
+     "space": "lab",
+     "h3s": [
+      "Historical Context",
+      "Advantages",
+      "Disadvantages",
+      "White Points",
+      "Components",
+      "Representation",
+      "XYZ to Lab",
+      "Lab to XYZ"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 8,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "lch": {
+     "found": true,
+     "space": "lch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Lab to LCh",
+      "LCh to Lab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 18,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 100 (diffuse white). Identical to Lab’s L*.",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from th",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): The angle in the a*b* plane:0 = reddish (+a* direction)90 = yellowish (+b* direction)180 = greenish (",
+       "codeChips": 2,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "oklch": {
+     "found": true,
+     "space": "oklch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Relationship to OKLab",
+      "OKLCh to OKLab",
+      "OKLab to OKLCh",
+      "OKLab to XYZ",
+      "XYZ to OKLab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 4,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 16,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L*.",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LC",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptual",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "file": "palettes-1440-dark.png",
+   "ok": true
+  },
+  {
+   "file": "browse-1440-dark.png",
+   "ok": true
+  },
+  {
+   "file": "extract-1440-dark.png",
+   "ok": true
+  },
+  {
+   "file": "mix-1440-dark.png",
+   "ok": true
+  },
+  {
+   "file": "generate-1440-dark.png",
+   "ok": true
+  },
+  {
+   "file": "gradient-1440-dark.png",
+   "ok": true,
+   "well": {
+    "5": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 25%,\n  yellow 50%,\n  green 75%,\n  blue 100%\n)",
+     "lines": 8,
+     "scrollHeight": 237,
+     "clientHeight": 237,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1192,
+     "lastTextBottom": 1175,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    },
+    "8": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 14%,\n  yellow 29%,\n  green 43%,\n  blue 57%,\n  indigo 71%,\n  violet 86%,\n  black 100%\n)",
+     "lines": 11,
+     "scrollHeight": 317,
+     "clientHeight": 317,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1434,
+     "lastTextBottom": 1417,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    }
+   }
+  },
+  {
+   "file": "atmosphere-1440-dark.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 512,
+    "scrolls": false,
+    "lastWhole": {
+     "head": false,
+     "text": "Zones6",
+     "bottom": 475
+    },
+    "orphanHead": false,
+    "footerMarginTop": "0px"
+   }
+  },
+  {
+   "file": "blob-1440-dark.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 389,
+    "scrolls": true,
+    "lastWhole": {
+     "head": false,
+     "text": "Eccentricity0.05",
+     "bottom": 368
+    },
+    "orphanHead": false,
+    "footerMarginTop": "42px"
+   }
+  },
+  {
+   "file": "notfound-1440-dark.png",
+   "ok": true
+  },
+  {
+   "file": "picker-390-dark.png",
+   "ok": true,
+   "about": {
+    "lab": {
+     "found": true,
+     "space": "lab",
+     "h3s": [
+      "Historical Context",
+      "Advantages",
+      "Disadvantages",
+      "White Points",
+      "Components",
+      "Representation",
+      "XYZ to Lab",
+      "Lab to XYZ"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 8,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "lch": {
+     "found": true,
+     "space": "lch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Lab to LCh",
+      "LCh to Lab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 3,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 18,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 100 (diffuse white). Identical to Lab’s L*.",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from th",
+       "codeChips": 2,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): The angle in the a*b* plane:0 = reddish (+a* direction)90 = yellowish (+b* direction)180 = greenish (",
+       "codeChips": 2,
+       "numeralChips": 0
+      }
+     ]
+    },
+    "oklch": {
+     "found": true,
+     "space": "oklch",
+     "h3s": [
+      "Historical Context",
+      "Components",
+      "Relationship to OKLab",
+      "OKLCh to OKLab",
+      "OKLab to OKLCh",
+      "OKLab to XYZ",
+      "XYZ to OKLab"
+     ],
+     "hasAttributes": false,
+     "strong": {
+      "n": 4,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "prose": {
+      "n": 16,
+      "pl": [
+       "4px"
+      ],
+      "color": [
+       "oklch(0.958322 0.0210531 9.83402)"
+      ]
+     },
+     "oneRegister": true,
+     "items": [
+      {
+       "text": "L (Lightness): 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L*.",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "C (Chroma): 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LC",
+       "codeChips": 1,
+       "numeralChips": 0
+      },
+      {
+       "text": "H (Hue): 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptual",
+       "codeChips": 1,
+       "numeralChips": 0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "file": "palettes-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "browse-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "extract-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "mix-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "generate-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "gradient-390-dark.png",
+   "ok": true,
+   "well": {
+    "5": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 25%,\n  yellow 50%,\n  green 75%,\n  blue 100%\n)",
+     "lines": 8,
+     "scrollHeight": 206,
+     "clientHeight": 206,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1290,
+     "lastTextBottom": 1274,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    },
+    "8": {
+     "found": true,
+     "text": "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  orange 14%,\n  yellow 29%,\n  green 43%,\n  blue 57%,\n  indigo 71%,\n  violet 86%,\n  black 100%\n)",
+     "lines": 11,
+     "scrollHeight": 274,
+     "clientHeight": 274,
+     "overflowY": "visible",
+     "maxHeight": "none",
+     "wellBottom": 1520,
+     "lastTextBottom": 1504,
+     "lastLineInside": true,
+     "overflowingScrollersAround": 0,
+     "pass": true
+    }
+   }
+  },
+  {
+   "file": "atmosphere-390-dark.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 502,
+    "scrolls": false,
+    "lastWhole": {
+     "head": false,
+     "text": "Zones6",
+     "bottom": 465
+    },
+    "orphanHead": false,
+    "footerMarginTop": "0px"
+   }
+  },
+  {
+   "file": "blob-390-dark.png",
+   "ok": true,
+   "fold": {
+    "found": true,
+    "portH": 2293,
+    "scrolls": false,
+    "lastWhole": {
+     "head": false,
+     "text": "Speed1.00",
+     "bottom": 2256
+    },
+    "orphanHead": false,
+    "footerMarginTop": "0px"
+   }
+  },
+  {
+   "file": "notfound-390-dark.png",
+   "ok": true
+  }
+ ]
+}

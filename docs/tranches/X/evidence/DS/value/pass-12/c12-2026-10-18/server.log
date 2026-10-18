@@ -1,0 +1,14 @@
+(node:25878) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+error when starting dev server:
+Error: Port 9331 is already in use
+    at httpServerStart (file:///Users/mkbabb/Programming/value.js/node_modules/vite/dist/no12:55:53 AM [vite] (client) ✨ new dependencies optimized: katex
+12:58:16 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+12:58:16 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+12:58:54 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+1:09:19 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+1:09:19 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+1:09:21 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+1:09:35 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+1:09:50 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
+1:09:56 AM [vite] (client) hmr update /@fs/Users/mkbabb/Programming/value.js/demo/styles/foundation.css
