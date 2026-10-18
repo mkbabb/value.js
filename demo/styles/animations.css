@@ -76,7 +76,8 @@
  *                  spring entrance, quick retire. Geometry:
  *                  --vj-celebrate-x/-y/-scale (+ collapse/expanded).
  *
- * The global prefers-reduced-motion guard below neutralises all three.
+ * Under reduced motion glass's layered guard (`a11y-overrides.css`) zeroes
+ * their durations (DESIGN.md §5.6).
  * ----------------------------------------------------------------------- */
 
 /* ── Family 1 · enter/exit ── */
@@ -205,50 +206,19 @@
 }
 
 /* -----------------------------------------------------------------------
- * Global prefers-reduced-motion guard
- * Neutralises CSS keyframe animations and transitions app-wide for users
- * who have requested reduced motion in their OS/browser settings.
- * The goo-blob WebGL RAF loop is handled separately in useMetaballRenderer
- * (single-frame render on reduced-motion).  The aurora RAF is glass-ui-owned
- * and honours the query internally.
+ * Reduced motion — no global kill here (X.W10.d · CC-099 · demo/DESIGN.md
+ * §5.6). glass ships the app-wide guard inside `@layer components`
+ * (`utilities/a11y-overrides.css`); for `!important` a layered declaration
+ * outranks an unlayered one, so the unlayered `*` block that stood here
+ * duplicated that guard and lost the cascade to it (measured: under reduce a
+ * plain element reads glass's `transition-duration: 0s`, not this file's
+ * 0.01ms). New motion follows Law R-1 instead: declared inside
+ * `@media (prefers-reduced-motion: no-preference)`, as the stagger utility
+ * above is. The `@layer base` overlay-fade carve-out went with the guard: an
+ * overlay's state reads instantly under reduce, and the exemption's home is
+ * glass's guard (DESIGN.md §5.6). WebGL RAF loops (the hero blob, the
+ * aurora) fence on the query in their own drivers.
  * ----------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* -----------------------------------------------------------------------
- * Reduced-motion overlay opacity carve-out (B.W1 Lane B)
- * The global guard above is too blunt for reka-ui Dialog/Sheet/Popover
- * overlays, which drive transitions off [data-state].
- * X-W7L (glass 10.0.0 layers every library rule in `@layer components`):
- * important declarations rank EARLIER layers first, so glass's own PRM
- * guard (`utilities/a11y-overrides.css`, `transition-duration: 0s
- * !important` on `*`) now beats any unlayered consumer `!important`. The
- * carve-out therefore sits in `@layer base` — ordered before `components`
- * — which is the one place an important declaration outranks both that
- * layered guard and the unlayered guard above (glass MIGRATION §10.0.0,
- * "`!important` runs the other way").
- * ----------------------------------------------------------------------- */
-@layer base {
-    @media (prefers-reduced-motion: reduce) {
-        /* keep state-change opacity fades on overlay primitives — the fade
-         * communicates state without inducing vestibular stress. */
-        [data-state="open"],
-        [data-state="closed"],
-        [data-state="open"]::before,
-        [data-state="closed"]::after {
-            transition-duration: 150ms !important;
-            transition-property: opacity !important;
-        }
-    }
-}
 
 /* -----------------------------------------------------------------------
  * Pane swap — the App-shell enter/exit family (R.W4 Lane B / B1; moved

@@ -34,15 +34,37 @@
     top: 0;
 }
 
+/* ── Row B′ · THE CONDENSED PADDING (X.W10.d · CC-101 · demo/DESIGN.md §3.2
+ * Law P-2) ──────────────────────────────────────────────────────────────────
+ * The picker's condense rung follows the pane header's register: the
+ * block-start padding steps one φ rung down from its rest `--card-pad`
+ * (0.75rem), ratio 1/φ, on its own token — never glass's flip target
+ * `--card-gap` (the header's row gap). The picker has no caption and no
+ * header→content gap (`pb-0`), so padding is its one spacing channel. */
+.picker-header {
+    --picker-header-pad-condensed: calc(var(--card-pad) * 0.618);
+}
+.picker-header[data-condensed="true"] {
+    padding-block-start: var(--picker-header-pad-condensed);
+}
+/* The host's scroll position is the reader's: scroll anchoring must not answer
+ * the header's own condense by pulling `scrollTop` back under glass's expand
+ * trigger (the flip loop PaneHeader.vue's `.pane-scroll-fade` rule records). */
+.picker-scroll-host {
+    overflow-anchor: none;
+}
+
 /* ── Row B · THE TITLE STEP (§0.8 "title" · BR-11) ───────────────────────
  * On glass's condensed state the title steps ONE real golden rung down —
  * `--type-display-2` (at-rest, BR-4 must-STAY, untouched) → `--type-display-1`.
  * A REAL TOKEN STEP, never a compositor `scale()` of the un-stepped rung;
  * `--type-display-1` floors at 1.618rem, above the BR-11 legibility floor. */
-.picker-header .space-trigger {
-    transition:
-        color var(--duration-fast) var(--ease-standard),
-        font-size var(--duration-normal) var(--ease-standard);
+@media (prefers-reduced-motion: no-preference) {
+    .picker-header .space-trigger {
+        transition:
+            color var(--duration-fast) var(--ease-standard),
+            font-size var(--duration-normal) var(--ease-standard);
+    }
 }
 .picker-header[data-condensed="true"] .space-trigger {
     font-size: var(--type-display-1);
@@ -58,12 +80,4 @@
  * horizontally and the readout sits flush under it. */
 .picker-header[data-condensed="true"] .title-row {
     min-height: 0;
-}
-
-/* Reduced motion: the condense STATE still lands (a designed layout state,
- * not decorative motion); the title step's transition collapses to instant. */
-@media (prefers-reduced-motion: reduce) {
-    .picker-header .space-trigger {
-        transition-duration: 0.01ms;
-    }
 }

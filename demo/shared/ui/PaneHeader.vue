@@ -11,7 +11,8 @@
     <!-- A2-VA-L1-2 (X-W12U .k2): the header IS glass's `<CardHeader shrink>`.
          Inside PaneShell's `.card-scroll-host` it condenses on glass's real-box
          discrete condense (hysteresis threshold + sufficiency gate, the
-         padding flip under `[data-condensed]`, the caption hidden); the
+         padding flip under `[data-condensed]`, the caption hidden; the
+         rungs it lands on are this file's, X.W10.d / DESIGN.md §3.2 P-2); the
          per-frame title-scale / caption scrub this file carried "until P3's
          ScrollCardHeader knobs land" is retired with them landed. The rest
          top padding rides glass's `--card-pad` (1rem, the retired `pt-4`) so
@@ -89,6 +90,13 @@ const { level = 2, titleId } = defineProps<{
 .pane-scroll-fade {
     contain: layout style paint;
     scroll-timeline: --pane-scroll block;
+    /* X.W10.d (CC-101): the condensing header's real box shrinks by more than
+     * glass's hysteresis band (condense at 20, expand at 12). Scroll anchoring
+     * answered that shrink by pulling `scrollTop` back by the same amount, under
+     * the expand trigger, so the header flipped between states every frame
+     * (measured: g5-threshold-*.txt). The pane's scroll position is the
+     * reader's, never re-anchored by its own header. */
+    overflow-anchor: none;
 }
 
 /* X-DS pass 2 (V2C-17): a pane scroll port that runs on glass's FadingScroll
@@ -205,6 +213,26 @@ const { level = 2, titleId } = defineProps<{
     /* The one tunable: the ratified rest floor (Q9 bracket [0.45, 0.65] of
      * the veil; effect bracket 27–39% added card material — see above). */
     --pane-veil-rest: 0.52;
+    /* X.W10.d (CC-101 · OM-18): THE CONDENSED PADDING, its own token — never
+     * `--card-gap`, which glass's flip borrows and which this header pins as
+     * its title-to-caption gap. One φ rung below the rest `--card-pad`
+     * (`--phi-2`): demo/DESIGN.md §3.2, Law P-2. */
+    --pane-header-pad-condensed: var(--phi-1);
+}
+
+/* ── THE CONDENSED REGISTER (X.W10.d · CC-101 · demo/DESIGN.md §3.2 P-2) ──
+ * A condensed header is condensed: each spacing channel steps one φ rung
+ * down (ratio 1/φ) — the block-start padding `--phi-2` → `--phi-1`, the
+ * title→content gap `--phi-3` → `--phi-2` — and the caption, having left the
+ * reading, leaves the layout (glass's `visibility: hidden` keeps its box).
+ * Glass still owns the state machine and the threshold; these are the rungs. */
+.pane-header[data-condensed="true"] {
+    --pane-header-gap: var(--phi-2);
+    padding-block-start: var(--pane-header-pad-condensed);
+}
+
+.pane-header[data-condensed="true"] > .pane-header-desc {
+    display: none;
 }
 
 /* ── THE CONDENSED TITLE (A2-VA-L1-2) ───────────────────────────────────
