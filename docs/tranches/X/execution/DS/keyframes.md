@@ -3455,3 +3455,82 @@ Every capture ran in headless real Chrome (§0ei), with one browser per run and 
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 17
+
+**Cure commit:** keyframes.js `5717fb38` (master, pushed fast-forward from `75639098`). **Evidence:** value.js `d5429c9d4`, in `evidence/DS/keyframes/pass-17/c17-2026-10-17/`. `pass-17/` already holds earlier frames and a probe from another round, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: every route at 1440 and 390 in both schemes; the cube pane's Controls, Keyframes and Timeline surfaces (Timeline empty, and after the inline Import) at 1440 and 390; and, at 1440, the layer region (the critic's cell) and the Spring pane.
+- `after/capture.json` adds `stageBottom` and `footGap` (frame foot less ribbon-row bottom) on every surface, the layer caption's line count and wrap policy, and the Spring row-label rungs.
+- Also in the directory: `capture.mjs`, `capture.log`, `census.json`, `census.log`, `dev.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture ran in headless real Chrome (§0ei), with one browser per run and a new context for each cell, all closed in `finally`.
+
+**Cured (consumer, at the root)**
+- **KF-C17-01 (medium): the pane hugs its surface.** The cure is in `AnimationControlsGroup.css`, which is the root of the stretch.
+  - At lg the rail now hangs from the stage row's top (`align-self: start`) and is capped at it by the wrapper's existing `max-block-size: 100%`. This is the EasingTarget idiom (KF-R6C4-01).
+  - KF-C10-10's stretch is kept only where a `.rail-fill` figure takes the free block: the Keyframes code well and the Stagger lanes (`:has(.rail-fill:not(.inactive .rail-fill))`).
+  - The `flex: 1 1 auto` chain in `ControlsPaneWrapper.css` is unchanged and only takes effect when the rail is stretched. Its comment now says so.
+  - A surface taller than the cap still scrolls in `.controls-surface`.
+  - Served at 1440, both schemes:
+
+    | surface | row bottom | frame foot (was) | `footGap` |
+    |---|---|---|---|
+    | Controls | 652.2 (Reverse row; ball row below) | 737.2 (750.1) | 85 (the ball row) |
+    | Timeline, empty | 427.2 | **440.2** (750.1) | 13 |
+    | Timeline, imported | 545.8 | **558.8** (750.1) | 13 |
+    | Layer region | 570.8 (ribbon) | **571.8** (≈750) | 1 |
+    | Keyframes (`.rail-fill`) | 737.1 | 750.1 (750.1) | 13 |
+
+  - At 390 the frame is not a bounded column (the container query is desktop-only), so nothing changes there.
+  - **The trade:** short panes no longer end on the stage's foot. This is ORIGIN's proportion (cards that hug their controls), as the critic ruled.
+- **KF-C17-03 (trivial): the layer caption.** `SubPaneHeader.vue`'s `[data-subpane-caption]` takes `text-pretty`.
+  - With that alone, served Chrome broke at the compound's hyphen, giving "single-" / "target groups".
+  - So the multi-target caption in `ChannelOptions.vue` now renders "single-target groups" as one `whitespace-nowrap` run.
+  - It now reads "Layer compositing applies to" / "single-target groups". The copy is unchanged, and the unit test that asserts the text still passes.
+- **KF-C17-04 (trivial): Peak overshoot.** The label is now `text-[length:var(--control-label)] leading-(--type-leading-small) font-medium text-foreground`. That is glass `.label`'s rung, the same `--control-label` idiom that `ChannelOptions.vue` already uses.
+  - Served: 14.54 px / 500 / foreground ink, identical to response, damping and time. It was 16.4 px.
+  - The chevron carries the disclosure.
+
+**Cited (glass, not overridden)**
+- **KF-C17-02 (low):** the disabled z-index NumberField keeps its control edge, drop stack and full-strength stepper discs. Re-observed in `after/layer-region-1440-*.png`.
+  - Cited as an **O-87 FLAT-LIGHTING** rider: a disabled control drops its elevation, and its steppers take the disabled ink and fill, like the disabled Select.
+  - The consumer passes `disabled` correctly (`LayerConfigPanel.vue`). No local override was added. Re-judge at the 10.2.0 repin.
+- **KF-C17-G1 (low):** these standing glass rows are unchanged at 10.1.0:
+  - (a) the easing popover's backdrop bloom (KF-C1-11);
+  - (b) closed selects with their caret pointing up (KF-C5p-01; visible in `after/cube-controls-1440-*.png`);
+  - (c) the toast's dismiss disc, bloom and halo (KF-C16-02, KF-C15-01);
+  - (d) the capsule halo on filled leads (KF-C1-01; Import Rotations in `after/cube-timeline-empty-1440-dark.png`);
+  - (e) input fill against select fill, and pill fields (KF-C1-10);
+  - (f) the resting-plate blur over the ground grid (KF-C6-G1, KF-C1-09);
+  - (g) the collapsed dock tile and the play-bubble halo (KF-C1-12, O-88);
+  - (h) the EasingPicker ghost staircase (KF-R6C4-04);
+  - (i) the parked 390 sheet (SHEET-POSITION, KF-C7-01);
+  - (j) the switch thumb shadow (KF-C3-G1).
+
+  They stay honest-RED against O-87 and O-88 until the 10.2.0 repin.
+
+**Carried (owner rulings, §0dm)**
+- KF-C13-R1 is unchanged.
+- KF-C14-03 still belongs to another seat's uncommitted `ControlsPaneWrapper.vue` hunks, which this seat did not touch.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5217/ --widths 1440,390 --settle 5000`): identical to pass 16 except `at`, `computed.base` and two static-hit line numbers in `SpringHeatmap.vue`, which moved +5 because of the KF-C17-04 comment. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which also carries another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `SpringHeatmap.vue` carries another seat's hunks. This seat's hunk was staged alone: the index blob is HEAD plus this change, written with `git hash-object -w` and `git update-index --cacheinfo`. The commit was made without a pathspec after `git diff --cached` was checked. The other seat's hunks are still unstaged in the tree.
+- The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5217) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
