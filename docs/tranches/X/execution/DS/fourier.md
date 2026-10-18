@@ -2263,3 +2263,39 @@ They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and the transport a
 - No golden was re-baselined, and no tracked file was left modified.
 
 **Frames** (`pass-16/f16p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f16p-probe.mjs`: `paper-env-{light,dark}-390`, with display (2.70) seated near the top. `seat-hermite/` holds first readings seated on Hermite Orthogonality, as in passes 14 and 15. The `*attempt*`/`*stall*` logs are probe runs that stalled under load. Their JSON is void.
+
+### pass 17
+This is the cure seat for critic **F17C** of the redeployed loop (pass 17, 2026-10-18). The AFTER frames are in `evidence/DS/fourier/pass-17/f17p/`.
+- **No consumer source changed.** fourier stays at `95eed0c` and latex-paper at `ebdf787`. No fourier or latex-paper commit was made.
+- value.js `1713124d8` holds the AFTER frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F17C-H1 | **Held on the owner act; added to the H1 hold.** `f17p-probe-after.json` confirms it in all four cells: the §0.1 `<dl>` has two `<dt>` with empty text and 0px height (`paper-intro-*.png`). latex-paper 0.2.1's `parseDescriptionEnv` drops the `\item[...]` term before reading it. The root fix is latex-paper `5be04ae` (DS-F9-C2), which is local on master and unpublished (npm is still 0.2.1). A CSS bridge cannot restore text the parser drops, so there is no fourier patch. The cure is the latex-paper **0.3.0** publish and fourier repin (the same owner act H1 already waits on). It is re-judged by re-capturing /paper §0.1, where the `<dt>` must read "Fourier Series" / "Fourier Transform" in the semibold text face. Until then the H1 hold names two visible rows: "Proof ." and the empty description terms. |
+| DS-F17C-N1 | **No change; measured.** At 1440 the header row is 290 wide with 270 of content. The label is 102.5, and the three glass `md` icon-only Buttons are 40 each at x 329/371/413, so they are evenly spaced (a 2px gap each). That leaves 43.5 for the readout, which reserves about 76 (`pg 110/110`). Even glass's `sm` rung would not make room. The readout on its own second line is the deliberate DS-F-C9 layout (`PaperTocDrawer.vue`, "the 17rem row has no room"). The 390 band shares its row because that bar is wider. The finding is trivial and closes on this measurement. |
+| DS-F17C-N2 | **No change; measured.** The chip-to-stats gap is the card's own `--card-gap` at both widths: 8 at 1440 and 4 at 390 (`gallery-*.png`). That is glass Card's `--space-atom`, which glass ramps down at phone width. Every other row gap in the card (media, title, meta, chips) halves with it. Holding 8 only at the foot would break the card's single rhythm and override a glass density token locally. The finding is trivial and closes on this measurement. |
+
+**Glass-owned rows (DS-F17C-G0).** These are pass 16's rows, unchanged, with no local override:
+- the casts and halos on resting glass (gallery, config and morph cards, the paper article and ToC aside);
+- the doubled dock plate;
+- the dark primary-emphasis halo on "Choose an image" and "Compute";
+- the Export cast and the /equation info and copy capsule;
+- the dark Select fills;
+- the coarse type ramp (at 390 the metric labels outrank their values);
+- the /equation aside's 12px offset.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock also on **O-88**) and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3100`; `f17p/census-after.json`).
+- Static and computed per-page counts are identical to pass 16.
+- The sums are 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The census is still RED, on the glass rows only.
+
+**Gates** (`f17p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice, under `guarded --light`.
+- **e2e:** no file changed, so no spec touches a changed file and none was run. Pass 16's paper-surface runs stand on the identical tree.
+- No golden was re-baselined.
+
+**Frames** (`pass-17/f17p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f17p-probe.mjs`: `paper-intro-{light,dark}-{1440,390}` (§0.1 with its description list), `paper-toc-{light,dark}-1440` (the aside head) and `gallery-{light,dark}-{1440,390}`. These are one reading of the unchanged tree.
