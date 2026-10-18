@@ -2091,3 +2091,29 @@ This is the cure seat for critic **F11C** of the redeployed loop (pass 11, 2026-
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-11/f11p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f11p-probe.mjs`: `paper-proof-{light,dark}-{1440,390}`.
+
+### pass 12
+This is the cure seat for critic **F12C** of the redeployed loop (pass 12, 2026-10-18; the earlier `### pass 12` headings above belong to other passes of the loop). The AFTER frames are in `evidence/DS/fourier/pass-12/f12p/`; the BEFORE measurement is the critic's (`pass-12/critic-f12/f12-env.json`). The other folders in `pass-12/` belong to other seats.
+- fourier `d45a96a` (`m/w1-bump-migration`, one path by pathspec, pushed fast-forward `05b408d..d45a96a`) holds T1.
+- latex-paper `8500f8b` (master, local, not pushed; publishing 0.3.0 is the owner's act) holds the root half and its 0.3.0 changeset line.
+- value.js `02b34d0e1` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F12C-T1 | **Cured.** At the root (latex-paper `8500f8b`) the theorem and the proof read one inset rule, `.paper-article :is(.theorem-block, .paper-proof-block) { padding: 0.75rem 1.25rem }`; the proof's own `0.875rem 1rem` and its `border-radius` are deleted (no fill, no right or bottom border: it drew nothing). The 0.2.1 bridge in `web/src/style.css` restates the result for the proof (`padding: 0.75rem 1.25rem`, `border-radius: 0`), and goes with the bridge at the 0.3.0 repin.<br>**Measured** (`f12p-probe.json`, Theorem 2.6.3.1 Hermite Orthogonality and its Proof, both themes): both blocks `12px 20px`, both labels at block+23 and block-top+12 (574 at 1440, 56 at 390; the proof was 570 and 52), label step 0. Proof radius `0px` (was `0 8px 8px 0`); the rule is unchanged (`3px solid` `--border`). |
+| DS-F12C-N1 | **Noted, none owed.** Display math wider than the 390 measure scrolls inside the article, as display math should; this is content, not chrome lighting. |
+
+**Glass-owned rows (DS-F12C-G0).** Re-stated and unchanged, with no local override: the dock plate and cast, the glass-resting cards (/paper article and aside, /gallery cards and their dark halo, /morph config cards and stage, /v and /equation stage and Configurator aside with its 12px top offset), the primary-button warm halo in dark, field and toggle bevel stacks, the /v toolbar's doubled plate, the transport "1 ×", the track-well, the coarse type ramp (/morph 390 label outranking its value) and the text-emphasis hue shift. Held honest-RED on **O-87 FLAT-LIGHTING** (dock and transport also **O-88**), re-judged at the glass 10.2.0 repin. "Proof ." (DS-F10C-T2) stays carried on the latex-paper 0.3.0 owner act.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3241`; `f12p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 11 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). The cure is padding and a radius, not lighting. Still RED, on the glass rows only.
+
+**Gates** (`f12p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice, under `guarded --light`.
+- **e2e:** the 20 specs of pass 11 that reach /paper or `.paper-article` (`e2e-specs.txt`) ran headless (chromium and mobile-chromium) with `--workers=1` against a private vite on `:3241`. **Run A passed 227/227, and so did run B.** The server was stopped at the end.
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/*` frames the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-12/f12p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f12p-probe.mjs`: `paper-env-{light,dark}-{1440,390}`.
