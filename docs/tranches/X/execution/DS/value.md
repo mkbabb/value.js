@@ -1488,3 +1488,35 @@ Critic V12C named one medium consumer row (V12C-01), four low (V12C-02 to -05), 
   - judge the uncapped well's height for a long user-typed stop list at 390;
   - judge whether `oklch.md`'s Disadvantages line (`` `0`–`1` ``, `` `0`–`100` ``) should follow V12C-04's prose ranges. It is outside Components and was left as it is.
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 13 (2026-10-18): critic V13C — the Easing intervals are one divided panel, OKLCh's ranges are prose, and the pointer-pick focus ring is glass's
+
+Critic V13C named one low consumer row (V13C-02), one trivial (V13C-03) and two glass rows (V13C-01 low, V13C-G1 medium). Both consumer rows are cured at the root. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-13/c13-2026-10-18/` (`pass-13/` already holds an earlier seat's pass 13).
+
+**Commits.** value.js `b03948c00` (the cure: 2 paths) and `090a5895e` (frames, capture, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-13/c13-2026-10-18/`) |
+|---|---|---|---|
+| V13C-01 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING.** | reka's Select restores focus to the trigger on close, and Chrome carries `:focus-visible` to it after a pointer pick. The cure belongs in glass's `SelectContent` close-auto-focus (prevent the default, then `trigger.focus({ focusVisible: false })` when closed by pointer), so every consumer inherits it. `ColorSpaceSelector.vue`'s `:focus-visible` rule is correct for the keyboard and stays. No local per-instance handler is added. | Read, not cured: `capture-c13.json` (`v13c01_afterPointerPick`): after a mouse pick of OKLCh in the About card, the trigger is `document.activeElement`, matches `:focus-visible`, and carries the 2px + 8px ring. This is the same in all 4 cells. |
+| V13C-02 (low) | **CURED in `GradientEasingEditor.vue`, by deletion.** | `.easing-panel` carries the one edge: `border-card-edge`, `--radius-card` (the outer rung, now on the panel) and `overflow-hidden`. The rows drop their own border, overflow and radius, and the panel drops its 8px gap. The divider is glass's own `.disclosure-item` block-end hairline, given the card-edge ink, so no new divider rule is minted. The last row drops it (`last:border-b-0`), because the panel's edge closes the list. The square hover plate (VC7-01), the specimen dots, the curve glyph and the expanded body are kept. | `capture-c13.json`, 4/4 gradient cells, asserted at 5 stops and at 8: rows = n−1; the panel is 1px card-edge at 16px with overflow hidden; 0 rows carry a side or top border; n−2 rows carry a 1px block-end in the panel's ink; the last row's is 0; the row gaps are 0. At 8 stops the panel is 317px tall, against seven separate capsules before. `easing5-*.png`, `easing8-*.png`. |
+| V13C-03 (trivial) | **CURED in the content.** | `oklch.md` Disadvantages reads "The 0–1 lightness scale differs from Lab/LCh's 0–100", as V12C-04 ruled. `hwb.md`'s `1` inside the W + B constraint stays. | `capture-c13.json` About probe, OKLCh: 0 numeral-only chips in the whole doc, and 0 `code` in the Disadvantages line, in all 4 cells. `about-oklch-*.png`. |
+| V13C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | The rows are the bead, the dock (rim, halo, 390 bulge, collapsed tile), the card, menu and name-field rim stacks, Mix's disabled primary, the thumbless scrubber rails and the light plate's dark veil ink. There is no local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9351 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. All identical to pass 12.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Looping animations: 0. Computed elements: 5304.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c13.mjs` uses one browser for the run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells (10 routes × 1440/390 × light/dark), plus `easing5-*`, `easing8-*`, `well5-*`, `well8-*`, `about-lab-*`, `about-lch-*` and `about-oklch-*` (4 each). The guarded dev server on :9351 was stopped, and nothing from this seat is left running. The served tree also carried other seats' uncommitted hunks.
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1237/1242 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3). The failure lists are identical across runs.
+- **e2e** (headless, workers 1, own server :9362, `gates/specs.txt`): smoke, 15 specs. Pass 12's 12, plus `o17-easing-composition`, `o27-focus-affordance` and `o29-scene-contracts` (the Easing panel). **96 passed ×2**, with the same 5 failed ×2. All 5 are the standing class (c′) o18 cells homed by id to X-W10, a subset of pass 12's six (the A-1 dark cell passed both runs). None reads a changed surface.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the Gradient Easing panel and the OKLCh About card will differ, and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V13C is cured.
+- For the next critic:
+  - judge the divided Easing panel with one row open: the expanded body sits between two hairlines inside the panel;
+  - judge the panel's hairline weight against the section rules above and below it.
+- The glass rows (V13C-01, V13C-G1) wait on O-87 / O-88 at the 10.2.0 repin.
