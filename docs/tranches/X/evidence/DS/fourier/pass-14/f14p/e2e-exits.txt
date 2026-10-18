@@ -1,0 +1,4 @@
+runA exit 1
+runB exit 1
+rerun1 exit 0
+rerun2 exit 0

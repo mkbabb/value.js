@@ -1,0 +1,190 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 227 tests using 1 worker
+
+[1/227] [chromium] › e2e/contrast-floor.spec.ts:107:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm
+[2/227] [chromium] › e2e/contrast-floor.spec.ts:107:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm
+[3/227] [chromium] › e2e/contrast-floor.spec.ts:168:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression
+[4/227] [chromium] › e2e/f-w13-radius.spec.ts:56:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 1: the CONTENTS disclosure is a circle and collapses the list
+[5/227] [chromium] › e2e/f-w13-radius.spec.ts:83:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 2: the history control is a circle and navigates back
+[6/227] [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius
+[7/227] [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 1440] 15 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[8/227] [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 390] 14 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[9/227] [chromium] › e2e/f-w14-residuals.spec.ts:38:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r1 — scroll-to-top is a glass Button beside the disclosure, and it acts
+[10/227] [chromium] › e2e/f-w14-residuals.spec.ts:63:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r2 — `.sidebar-link` corner is glass's row canon (`--radius-lg`)
+[11/227] [chromium] › e2e/f-w14-residuals.spec.ts:81:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c1 — the sidebar enters on the pick, while the upload is still in flight
+[12/227] [chromium] › e2e/f-w14-residuals.spec.ts:133:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c2 — a failed upload is the leave path: no sidebar, and no empty column after
+  1) [chromium] › e2e/f-w14-residuals.spec.ts:133:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c2 — a failed upload is the leave path: no sidebar, and no empty column after 
+
+    Tearing down "context" exceeded the test timeout of 30000ms.
+
+    Error Context: test-results/f-w14-residuals-F-W14-r-—--7b714-r-and-no-empty-column-after-chromium/error-context.md
+
+
+[13/227] [chromium] › e2e/f-w14-residuals.spec.ts:163:5 › F.W14.r — PRM reaches the page (F.W13 `.c` r4) › G-c4 — `contextOptions.reducedMotion` is in force on the page
+[14/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 4.2.1 (Residue Theorem) scrolls #thm-residue into the viewport
+[15/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 2.10.2 (Parseval's Identity) scrolls #thm-parseval into the viewport
+[16/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "convergence": no raw TeX in any label, KaTeX present, no mark inside the math
+[17/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "pipeline": no raw TeX in any label, KaTeX present, no mark inside the math
+[18/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "Parseval": no raw TeX in any label, KaTeX present, no mark inside the math
+[19/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "energy": no raw TeX in any label, KaTeX present, no mark inside the math
+[20/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:99:5 › UIA-F-46 — Like is a toggle (consumer half; the persisting endpoint routes to the server) › a second press un-likes: the count returns and aria-pressed clears, in the modal and on the card
+[21/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:145:5 › UIA-F-63 / UIA-F-65 — the palette's empty and Clear states › F-63: the open, empty palette does not say 'No results'; a real miss does
+[22/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:154:5 › UIA-F-63 / UIA-F-65 — the palette's empty and Clear states › F-65: Clear empties the field, keeps the palette open and focuses its input
+[23/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:177:5 › UIA-F-59 — the inline results panel shows whole titles on the producer's menu plate, inside the sidebar column › the panel is the sidebar column's width, inside the viewport, at --radius-card, on the menu plate, no title cut
+[24/227] [chromium] › e2e/f-w14-uia-r2.spec.ts:216:5 › UIA-F-62 — the mobile search bar: one clear, one close, no Expand › the floating bar drops Expand; 'Clear search' clears and keeps the search open
+[25/227] [chromium] › e2e/f-w14-uia.spec.ts:26:5 › UIA-F-1 — a featured entry renders the strip, not a crash › the pager lives inside its Carousel; no useCarousel pageerror
+[26/227] [chromium] › e2e/f-w14-uia.spec.ts:62:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-2: a cold deep link sends GET /api/visualizations/<slug> and leaves the upload stage
+[27/227] [chromium] › e2e/f-w14-uia.spec.ts:73:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-3: an in-app push /w/ → /v/ stays on /v/ with no orphaned transition
+[28/227] [chromium] › e2e/f-w14-uia.spec.ts:86:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-50: an unknown path renders a titled, noindexed not-found card
+[29/227] [chromium] › e2e/f-w14-uia.spec.ts:99:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-4: /v/<unknown> names the failed slug instead of the upload prompt
+[30/227] [chromium] › e2e/f-w14-uia.spec.ts:107:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-49: the error card's action is labelled, and nothing covers the diagnosis
+[31/227] [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock
+[32/227] [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels
+[33/227] [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled
+[34/227] [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace
+[35/227] [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save'
+[36/227] [chromium] › e2e/f-w14-uia.spec.ts:321:5 › UIA-F-19 — one drop, one upload › a file dropped over a loaded image sends exactly one POST /api/images
+[37/227] [chromium] › e2e/f-w14-uia.spec.ts:356:5 › UIA-F-20 — the paper restores its scroll position › a reload returns to the saved section instead of the top
+[38/227] [chromium] › e2e/f-w14-uia.spec.ts:377:5 › UIA-F-24 — floating ToC chapter rows navigate; the disclosure toggles › tapping a chapter row scrolls to it; the chevron is its own control
+[39/227] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[40/227] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+  2) [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('tab', { name: 'Users' })
+        - locator resolved to <button role="tab" type="button" tabindex="-1" class="segmented-tab" aria-selected="false">Users</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        9 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <ol tabindex="-1" aria-live="polite" aria-atomic="false" class="fixed top-0 z-toast flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:left-0 sm:top-auto sm:flex-col md:max-w-[420px]">…</ol> from <div role="region" tabindex="-1" aria-label="Notifications (F8)">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+
+
+      405 |     await page.goto(`/gallery?admin=${ADMIN_TOKEN}`);
+      406 |     await expect(page.getByRole("region", { name: "Admin mode banner" })).toBeVisible({ timeout: 60_000 });
+    > 407 |     await page.getByRole("tab", { name: tab }).click();
+          |                                                ^
+      408 | }
+      409 |
+      410 | test.describe("UIA-F-36 — the users batch bar docks below the list without displacing it", () => {
+        at openAdminTab (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:407:48)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14-uia.spec.ts:435:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-37-—-the-m-639de-t-carries-no-literal-height-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-37-—-the-m-639de-t-carries-no-literal-height-chromium/error-context.md
+
+
+[41/227] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[42/227] [chromium] › e2e/f-w14-uia.spec.ts:493:5 › UIA-F-48 — the Drafts card sits inside the column gutter › its right edge stays inside its column and the viewport
+[43/227] [chromium] › e2e/f-w14-uia.spec.ts:518:5 › UIA-F-41 — the gallery column never scrolls sideways at 390 (consumer half) › focusing the last admin tab leaves the column at scrollLeft 0

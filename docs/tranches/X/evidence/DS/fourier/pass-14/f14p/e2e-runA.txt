@@ -1,0 +1,142 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 82 tests using 1 worker
+
+[1/82] [chromium] › e2e/contrast-floor.spec.ts:107:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm
+[2/82] [chromium] › e2e/contrast-floor.spec.ts:107:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm
+[3/82] [chromium] › e2e/contrast-floor.spec.ts:168:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression
+[4/82] [chromium] › e2e/f-w13-radius.spec.ts:56:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 1: the CONTENTS disclosure is a circle and collapses the list
+[5/82] [chromium] › e2e/f-w13-radius.spec.ts:83:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 2: the history control is a circle and navigates back
+[6/82] [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius
+[7/82] [chromium] › e2e/f-w14-residuals.spec.ts:38:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r1 — scroll-to-top is a glass Button beside the disclosure, and it acts
+[8/82] [chromium] › e2e/f-w14-residuals.spec.ts:63:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r2 — `.sidebar-link` corner is glass's row canon (`--radius-lg`)
+[9/82] [chromium] › e2e/f-w14-residuals.spec.ts:81:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c1 — the sidebar enters on the pick, while the upload is still in flight
+[10/82] [chromium] › e2e/f-w14-residuals.spec.ts:133:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c2 — a failed upload is the leave path: no sidebar, and no empty column after
+[11/82] [chromium] › e2e/f-w14-residuals.spec.ts:163:5 › F.W14.r — PRM reaches the page (F.W13 `.c` r4) › G-c4 — `contextOptions.reducedMotion` is in force on the page
+[12/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 4.2.1 (Residue Theorem) scrolls #thm-residue into the viewport
+[13/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 2.10.2 (Parseval's Identity) scrolls #thm-parseval into the viewport
+[14/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "convergence": no raw TeX in any label, KaTeX present, no mark inside the math
+[15/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "pipeline": no raw TeX in any label, KaTeX present, no mark inside the math
+[16/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "Parseval": no raw TeX in any label, KaTeX present, no mark inside the math
+[17/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "energy": no raw TeX in any label, KaTeX present, no mark inside the math
+[18/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:99:5 › UIA-F-46 — Like is a toggle (consumer half; the persisting endpoint routes to the server) › a second press un-likes: the count returns and aria-pressed clears, in the modal and on the card
+  1) [chromium] › e2e/f-w14-uia-r2.spec.ts:99:5 › UIA-F-46 — Like is a toggle (consumer half; the persisting endpoint routes to the server) › a second press un-likes: the count returns and aria-pressed clears, in the modal and on the card 
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-r2-UIA-F-46-—-Li-1df88-n-the-modal-and-on-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-r2-UIA-F-46-—-Li-1df88-n-the-modal-and-on-the-card-chromium/error-context.md
+
+
+[19/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:145:5 › UIA-F-63 / UIA-F-65 — the palette's empty and Clear states › F-63: the open, empty palette does not say 'No results'; a real miss does
+[20/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:154:5 › UIA-F-63 / UIA-F-65 — the palette's empty and Clear states › F-65: Clear empties the field, keeps the palette open and focuses its input
+[21/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:177:5 › UIA-F-59 — the inline results panel shows whole titles on the producer's menu plate, inside the sidebar column › the panel is the sidebar column's width, inside the viewport, at --radius-card, on the menu plate, no title cut
+[22/82] [chromium] › e2e/f-w14-uia-r2.spec.ts:216:5 › UIA-F-62 — the mobile search bar: one clear, one close, no Expand › the floating bar drops Expand; 'Clear search' clears and keeps the search open
+[23/82] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames light › 1440 › frame 1440 light
+[24/82] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames light › 390 › frame 390 light
+[25/82] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames dark › 1440 › frame 1440 dark
+[26/82] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames dark › 390 › frame 390 dark
+[27/82] [chromium] › e2e/f-w14u-paper.spec.ts:86:5 › paper-desktop 1440 › UIA-F-61: the article is glass Card, the rail glass-quiet, one light source, one top line
+[28/82] [chromium] › e2e/f-w14u-paper.spec.ts:114:5 › paper-desktop 1440 › UIA-F-156: a compact disclosure, a wider rail, one active class (no inline style)
+[29/82] [chromium] › e2e/f-w14u-paper.spec.ts:134:5 › paper-desktop 1440 › UIA-F-164 + UIA-F-234: no statistics tooltip on a row; a collapsed CONTENTS reclaims its space
+[30/82] [chromium] › e2e/f-w14u-paper.spec.ts:156:5 › paper-desktop 1440 › X-DS F1-09: the page readout is homed in the ToC drawer, never over the article
+[31/82] [chromium] › e2e/f-w14u-paper.spec.ts:178:5 › paper-desktop 1440 › UIA-F-147 (consumer half): ToC rows ride Button's sm rung; no local radius or padding override
+[32/82] [chromium] › e2e/f-w14u-paper.spec.ts:195:5 › paper-desktop 1440 › UIA-F-157: the reading progress is glass ScrollProgressRim and it tracks the scroll
+[33/82] [chromium] › e2e/f-w14u-paper.spec.ts:213:5 › paper-search 1440 › UIA-F-158: a query with no match says so in the inline panel
+[34/82] [chromium] › e2e/f-w14u-paper.spec.ts:221:5 › paper-search 1440 › UIA-F-159: one inline surface and ⌘K — no Expand; ⌘K from the field carries the query
+[35/82] [chromium] › e2e/f-w14u-paper.spec.ts:235:5 › paper-search 1440 › UIA-F-160: inline options are not tab stops; one cursor; canon Badge
+[36/82] [chromium] › e2e/f-w14u-paper.spec.ts:265:5 › paper-search 1440 › UIA-F-161: word-start matching with contiguous highlights; a scattered subsequence matches nothing
+[37/82] [chromium] › e2e/f-w14u-paper.spec.ts:280:5 › paper-search 1440 › UIA-F-64: the palette is glass Command — input, groups per type, items, empty
+[38/82] [chromium] › e2e/f-w14u-paper.spec.ts:300:5 › paper-search 1440 › UIA-F-235: search fields do not spellcheck
+[39/82] [chromium] › e2e/f-w14u-paper.spec.ts:314:5 › paper-mobile 390 › UIA-F-66: floating ToC rows are start-aligned; Scroll to top is one line
+[40/82] [chromium] › e2e/f-w14u-paper.spec.ts:341:5 › paper-mobile 390 › UIA-F-67: the phone ToC is glass Popover; no inline overflow write; every level reachable
+[41/82] [chromium] › e2e/f-w14u-paper.spec.ts:365:5 › paper-mobile 390 › UIA-F-162: content first — no inline chapter list; a compact bar at the top; one icon radius
+[42/82] [chromium] › e2e/f-w14u-paper.spec.ts:397:5 › paper-mobile 390 › UIA-F-163: no consumer :hover paint outside (hover: hover)
+[43/82] [chromium] › e2e/f-w14u-paper.spec.ts:425:5 › paper-mobile 390 › UIA-F-236: the bar reports chapter and section, is inset from the edges, the chip stays clear
+[44/82] [chromium] › e2e/f-w14u-paper.spec.ts:466:5 › paper-mobile 390 › UIA-F-158 + UIA-F-235: the phone search says 'No results'; its panel is the bar's width with a gap
+[45/82] [chromium] › e2e/f-w14u-t.spec.ts:103:9 › G-t — the desktop ToC is a drawer under the paper (1440, light) › t1+t2 — hide slides it under the paper to an edge tab; show restores it exactly; focus stays
+[46/82] [chromium] › e2e/f-w14u-t.spec.ts:103:9 › G-t — the desktop ToC is a drawer under the paper (1440, dark) › t1+t2 — hide slides it under the paper to an edge tab; show restores it exactly; focus stays
+[47/82] [chromium] › e2e/f-w14u-t.spec.ts:162:5 › G-t — persistence and motion (1440) › t3 — the state persists per viewer across a reload, both ways
+[48/82] [chromium] › e2e/f-w14u-t.spec.ts:177:5 › G-t — persistence and motion (1440) › t4 — storage that throws never breaks the page
+[49/82] [chromium] › e2e/f-w14u-t.spec.ts:206:9 › G-t — persistence and motion (1440) › reduced motion › t5 — prefers-reduced-motion: the hide is instant
+[50/82] [chromium] › e2e/f-w14u-t.spec.ts:223:9 › G-t — the mobile presentation of the one ToC (390, light) › t6 — no desktop drawer below lg; the floating bar opens the ToC
+[51/82] [chromium] › e2e/f-w14u-t.spec.ts:223:9 › G-t — the mobile presentation of the one ToC (390, dark) › t6 — no desktop drawer below lg; the floating bar opens the ToC
+[52/82] [chromium] › e2e/f-w14v-au5.spec.ts:121:5 › A2-FO-L1-1 — one ToC tree › the drawer and the phone bar render one row anatomy per depth, and one reach
+[53/82] [chromium] › e2e/f-w14v-au5.spec.ts:146:5 › A2-FO-L1-19 — one scroll restoration on /paper › the shell writes no <main> offset on /paper; a generic route keeps its restore
+[54/82] [chromium] › e2e/paper-performance.spec.ts:150:5 › Paper performance › initial paper render stays windowed
+[55/82] [chromium] › e2e/paper-performance.spec.ts:158:5 › Paper performance › forward scrolling never regresses the page indicator back to 1
+[56/82] [chromium] › e2e/paper-performance.spec.ts:176:5 › Paper performance › far TOC jumps land on DFT as Matrix Multiplication without over-mounting
+[57/82] [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors
+[58/82] [chromium] › e2e/paper-performance.spec.ts:270:5 › Paper performance › appendix proofs, proof math, code listings, and bibliography render canonically
+[59/82] [chromium] › e2e/paper-search.spec.ts:56:5 › S3 — /paper search (G-F9-4) › the search field is a named combobox with the listbox it controls
+[60/82] [chromium] › e2e/paper-search.spec.ts:78:5 › S3 — /paper search (G-F9-4) › typing a query opens the listbox and populates typed result rows
+[61/82] [chromium] › e2e/paper-search.spec.ts:116:5 › S3 — /paper search (G-F9-4) › selecting a result navigates the paper to that section
+[62/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 375x667
+[63/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 375x667
+[64/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 375x667
+[65/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 375x667
+[66/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 375x667
+  2) [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 375x667 ────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForTimeout: Test timeout of 30000ms exceeded.
+
+      60 |             await page.goto(pg.path, { waitUntil: "networkidle", timeout: 30_000 }).catch(() => {});
+      61 |             // Settle late hydration / fonts / first paint; freeze animations for a stable frame.
+    > 62 |             await page.waitForTimeout(1200);
+         |                        ^
+      63 |             await page.emulateMedia({ reducedMotion: "reduce" }).catch(() => {});
+      64 |
+      65 |             await page.screenshot({
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-baseline.spec.ts:62:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-baseline-π-capture-before-morph-375x667-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-baseline-π-capture-before-morph-375x667-chromium/error-context.md
+
+
+[67/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 375x667
+[68/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 375x667
+[69/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1280x800
+[70/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1280x800
+[71/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1280x800
+[72/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1280x800
+[73/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1280x800
+[74/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1280x800
+[75/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1280x800
+[76/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1440x900
+[77/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1440x900
+[78/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1440x900
+[79/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1440x900
+[80/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1440x900
+[81/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1440x900
+[82/82] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1440x900
+  2 failed
+    [chromium] › e2e/f-w14-uia-r2.spec.ts:99:5 › UIA-F-46 — Like is a toggle (consumer half; the persisting endpoint routes to the server) › a second press un-likes: the count returns and aria-pressed clears, in the modal and on the card 
+    [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 375x667 ─────────────
+  80 passed (32.0m)
