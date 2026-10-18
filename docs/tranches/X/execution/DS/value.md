@@ -1645,3 +1645,45 @@ Critic V16C named two low consumer rows (V16C-01, -02) and one trivial (V16C-03)
   - check that every frame's `paint` reading is in `capture-c16.json`.
 - The gates owe `walk` and `o18` on a quiet host. They read no changed surface this pass, and were not run.
 - The glass rows (V16C-G1) wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 17 (2026-10-18): critic V17C — the admin gold reads the certified ink, rebound to the ground it sits on
+
+Critic V17C named one medium consumer row (V17C-01) and four glass rows (V17C-G1 low, -G2 low, -G3 trivial, -G4 low). The consumer row is cured at the token, with one named partial: the view menu's "Admin" row over live content, which is the glass floater's row. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-17/c17-2026-10-18/`.
+
+**Commits.** value.js `bd72e216e` (the cure: 13 paths) and `e3a41b942` (frames, probe, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-17/c17-2026-10-18/`) |
+|---|---|---|---|
+| V17C-01 (medium) | **CURED at the token on the dock, the seal and the crown. PARTIAL on the view menu's Admin row** (its ground is glass's translucent floater, V17C-G2). | `.gold-shimmer-icon` becomes `.gold-ink` (`utils.css`), the one gold ink recipe, and paints `--ink-gold`, never raw `--color-gold`. The token is certified against the ground it sits on and rebound by scope, never per instance. **Root:** the resting plate (pass 15). **Dock:** `Dock.vue` certifies gold on the band's measured tint (`useChromeAccentFn` on `.dock-plate`) and sets `--ink-gold` on the dock's root. **Seal:** `--seal-ink-gold`, certified on the wax by a new `certifyInkOnFill` (`ink.ts`: the 3:1 glyph floor plus the house headroom), stamped by `useViewAccents`. **Menus:** `--ink-gold-floating` (`useContrastSafeColor`, stamped by `useAtmosphereBoot`), seated as `--ink-gold` on `.glass-floating` (`shell.css`). `ColorInput`'s crown joins the recipe and loses its post-hoc `opacity-75`. The `crown-appear` keyframe settles on `--ink-gold`. The view trigger's focus ring tints on `--ink-gold`. DESIGN.md Law C-4 names the rebinding. The hue is kept (§0dm), and only the lightness walks, to a bronze in light. | `v17.json`, pixel contrast read off the frame (ground = the median pixel of the glyph's box). **Falsifier:** the old rule is injected into the same page and re-read; it is RED. **Light, dock view trigger:** **5.45** (old rule **1.08–1.09**) at 1440 and 390. **Light, admin trigger:** **5.45** (old 1.08). **Seal, 1440:** **4.24** light (old 1.08) and **4.26** dark (old 1.05). **Dark, trigger:** 4.78, unchanged, because gold already clears there. The ink hue holds at 42–45° in every cell. **Menu Admin row, light:** the icon reads 1.94 over the picker's spectrum (old 3.31), and 2.83 over Browse (old 2.24). At that same spot the floater's own neutral ink reads **2.25** and **3.25**. No certified ink clears a ground that live content shows through, so this is V17C-G2's row (an opaque enough floating plate). **Menu, dark:** 5.62 / 4.12, unchanged. At 390 the dock does not idle shut, so the 390 seal is not framed. |
+| V17C-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING** (the de-slop ornament row). | Glass's EasingPicker always strokes both regimes (the steps ghost under the bezier curve) and owns the literal's type rung. Ask glass to draw the ghost only on hover or focus of the opposite toggle segment, or drop it, and to set the literal on the caption or mono-small rung. No local override. | Re-judged at the 10.2.0 repin. `tune-*.png`. |
+| V17C-G2 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING.** | The floating plate's tint, blur and shadow let saturated content bloom behind the menu rows (floater max 8 layers). Pass 17 measures its cost: on the light view menu, the Admin row sits on dark red at the bottom of the floater, where neither the certified gold nor the floater's neutral ink can clear. No local override. | `overlays.json` (floater max 8, card menu 5). `card-menu-*`, `mix-select-*`, `admin-view-menu-*`. |
+| V17C-G3 (trivial) | **Glass-owned: folded into O-87's existing bead row.** | The goo-blob satellite FSM (identity motion) was captured mid-emerge. No local cure. | `picker-1440-dark.png`. |
+| V17C-G4 (low) | **Glass-owned: honest-RED on O-87 FLAT-LIGHTING / O-88 DOCK-COLLAPSE-MOTION** (the standing rows). | Unchanged from pass 16. | Census below. |
+
+**Census** (`census-after.json`, `--base :9471 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. This is identical to pass 16.
+- **Consumer:** 116 single layers, and 0 on every allowance line.
+
+**Frames.** Headless real Chrome (§0ei). There is one browser per script run and a new context per cell, and both are closed in a `finally`.
+- `capture-c17.mjs` is copied from pass 16's paint-gated capture. It took 40 of 40 route cells, plus `easing-open-*` and `tune-*`.
+- `overlays.mjs` took the 8 overlay cells.
+- `v17.mjs` took `admin-users-*` (4 cells), `admin-seal-1440-*` (2), and `admin-view-menu-*` and `admin-view-menu-browse-*` (4).
+- The guarded dev server on :9471 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`). The host ran at load 16–27.
+- **Type-check:** 0 ×2.
+- **vitest:** 1237/1242 ×2, with the standing 5 (ink D6 ×2, T-35 ×3).
+- **e2e** (headless, workers 1, one guarded call per spec):
+  - `smoke-admin` (the whole project) 25/25 ×2. `o15-dock-register` 6/6 ×2. `w12-dock` 6/6 ×2. `page-load` 2/2 ×2.
+  - **`o18`: 25/30 in run 1, 26/30 in run 2.** Four rows are standing and identical to pass 15: F-3 graph nodes (dark), T-35 identity (light), and N-3 profile menu rows (light and dark).
+  - The A-1 admin-pill row was born RED by arithmetic on raw gold. **It is GREEN in run 2.** In run 1 it read the ink through an opacity chain at 0 (ink equal to ground) against the bare ambient. Its stack is empty because the instrument does not see the dock's `.dock-plate` layer. That is a timing-sensitive instrument; the frame reading is this cure's witness.
+- No visual golden was re-baselined. At the next visual run, the light admin-mode dock cells (the trigger, the admin trigger and the seal, now bronze in place of raw gold) need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- V17C-01 is cured on every ground the consumer owns. The menu row is partial, and it waits on V17C-G2.
+- V14C-R1 (the dark rainbow title's margin) is still carried.
+- For the next critic:
+  - On a mid-dark band (the e2e owner brown), the band-certified gold walks to near white (`oklch(0.9995 0.0005 84.2)`), and the gold hue no longer reads. Judge whether the gold should stop at the lightest point that still holds chroma. That would be a floor-without-headroom rung, in the same way as the T-35 identity leg.
+  - The o18 A-1 instrument should composite the band's `.dock-plate` and read the ink after the dock's morph settles.
+  - The 390 seal is unframed, because the mobile dock does not idle shut.
+- The glass rows (V17C-G1..G4) wait on O-87 / O-88 at the 10.2.0 repin.
