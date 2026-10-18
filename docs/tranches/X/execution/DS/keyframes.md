@@ -3331,3 +3331,53 @@ Every capture is headless real Chrome (§0ei), with one browser per run and a co
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 15
+
+**Cure commit:** none in keyframes.js. Neither C15 finding is a consumer product defect: KF-C15-01 is glass-owned and KF-C15-02 is a fault in the instrument. keyframes.js master stays at `09ae6fb7`, so nothing was pushed. **Evidence:** value.js `e5a2bcde5`, in `evidence/DS/keyframes/pass-15/c15-2026-10-17/`. `pass-15/` already holds an earlier round's committed evidence, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: every route at 1440 and 390 in light and dark, plus the cube pane's Controls, Keyframes and Timeline surfaces (Timeline both empty and after the inline Import) at 1440 and 390 in both schemes. These are the same cells as pass 14.
+- `after/capture.json` records the same fields as pass 14. Each `timeline-imported-*` cell also has a `restoredScroll` field.
+- Also in the directory: `capture.mjs` and `capture.log`; `census.json` and `census.log`; and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture ran in headless real Chrome (§0ei), with one browser per run and a new context for each cell, all closed in `finally`.
+
+**Cured (instrument, consumer)**
+- **KF-C15-02 (trivial): the 390 "imported" frames now show the peek a user actually sees.** Before the inline Import click, `capture.mjs` records every scroller's `scrollTop`. After the click it puts back any scroller that Playwright's actionability scroll moved, then waits 500 ms and captures.
+  - Measured at 390 in both schemes, the click had moved two scrollers:
+    - the sheet body (`controls-pane … overflow-y-auto`), from 0 to 212;
+    - the document root, from 0 to 4.
+  - Both are restored to 0. `cube-timeline-imported-390-{light,dark}.png` now show the "Timeline" title row in the peek, the same as every other 390 peek.
+  - At 1440 nothing moved (`restoredScroll: []`).
+  - No product file changed.
+
+**Cited (glass, not overridden)**
+- **KF-C15-01 (low): at phone width the toast covers the dock.** Glass Toaster's placement below `sm` is `top-0`, the dock's own band, and glass applies it whatever `position` the consumer passes. The toast's material blur turns the collapsed dock tile behind it into a smudge.
+  - Re-observed in the AFTER frame `cube-timeline-imported-390-light.png`: the toast spans about 16–98 css px at the top edge, over the dock tile; the close disc hangs at x≈6; the drop halo spreads over the grid.
+  - Cited against **O-87 FLAT-LIGHTING** (the blur and the halo), with an **O-88 DOCK-COLLAPSE-MOTION** note, because the toast covers the collapsed dock, the app's only navigation at 390. The ask for glass: on phones, seat toasts clear of the dock reserve (below the dock's block end, or above the sheet's peek), keep the close control inside the toast's row, and use one quiet drop.
+  - keyframes.js `demo/app/App.vue:112` mounts the Toaster with no styling, and this seat added no local override (canon).
+  - Re-judge on the same frame at the 10.2.0 repin. The close disc and the halo stay as already cited (KF-C2-14, KF-C14-05).
+
+**Carried (owner rulings, §0dm)**
+- KF-C13-R1 is unchanged: the OD-4/T.D9 hero overlap, and `AnimatedText.vue:165` charLift infinite.
+- KF-C14-03 is still open. It belongs to another seat's uncommitted `ControlsPaneWrapper.vue` hunks, which are still dirty in the tree, and this seat did not touch them.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5215/ --widths 1440,390 --settle 5000`): identical to pass 14 (`pass-14/c14-2026-10-17/census.json`) in every key except `at` and `computed.base`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which also carries another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** this seat changed no keyframes.js file. The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5215) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
