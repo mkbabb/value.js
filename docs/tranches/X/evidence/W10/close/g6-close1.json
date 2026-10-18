@@ -1,0 +1,134 @@
+[
+  {
+    "viewport": "1440x900",
+    "state": "rest",
+    "file": "card-1440x900-rest.png",
+    "clip": {
+      "x": 200,
+      "y": 225.5625,
+      "width": 510,
+      "height": 175.5
+    },
+    "box": {
+      "x": 224,
+      "y": 249.5625,
+      "w": 462,
+      "h": 127.5
+    },
+    "radius": "16px",
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "bgClasses": [
+      "bg-well"
+    ],
+    "overflow": "visible",
+    "cardShadow": "none",
+    "casters": [],
+    "ancestorCasters": [
+      {
+        "el": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      }
+    ],
+    "cartoonCast": 0,
+    "cartoonSurface": 0
+  },
+  {
+    "viewport": "1440x900",
+    "state": "hover",
+    "file": "card-1440x900-hover.png",
+    "clip": {
+      "x": 200,
+      "y": 223.5625,
+      "width": 510,
+      "height": 175.5
+    },
+    "box": {
+      "x": 224,
+      "y": 247.5625,
+      "w": 462,
+      "h": 127.5
+    },
+    "radius": "16px",
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "bgClasses": [
+      "bg-well"
+    ],
+    "overflow": "visible",
+    "cardShadow": "none",
+    "casters": [],
+    "ancestorCasters": [
+      {
+        "el": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      }
+    ],
+    "cartoonCast": 0,
+    "cartoonSurface": 0
+  },
+  {
+    "viewport": "390x844",
+    "state": "rest",
+    "file": "card-390x844-rest.png",
+    "clip": {
+      "x": 9,
+      "y": 229.25,
+      "width": 372,
+      "height": 172.125
+    },
+    "box": {
+      "x": 33,
+      "y": 253.25,
+      "w": 324,
+      "h": 124.125
+    },
+    "radius": "16px",
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "bgClasses": [
+      "bg-well"
+    ],
+    "overflow": "visible",
+    "cardShadow": "none",
+    "casters": [],
+    "ancestorCasters": [
+      {
+        "el": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      }
+    ],
+    "cartoonCast": 0,
+    "cartoonSurface": 0
+  },
+  {
+    "viewport": "390x844",
+    "state": "hover",
+    "file": "card-390x844-hover.png",
+    "clip": {
+      "x": 9,
+      "y": 227.25,
+      "width": 372,
+      "height": 172.125
+    },
+    "box": {
+      "x": 33,
+      "y": 251.25,
+      "w": 324,
+      "h": 124.125
+    },
+    "radius": "16px",
+    "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+    "bgClasses": [
+      "bg-well"
+    ],
+    "overflow": "visible",
+    "cardShadow": "none",
+    "casters": [],
+    "ancestorCasters": [
+      {
+        "el": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w",
+        "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      }
+    ],
+    "cartoonCast": 0,
+    "cartoonSurface": 0
+  }
+]
