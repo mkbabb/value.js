@@ -1,0 +1,38 @@
+# api-tls-smoke.yml — the weekly palette-API smoke (X-W11 · W11.md ADDENDUM
+# 2026-10-06 limb (b) · COHESION §0eh).
+#
+# api.color.babb.dev served an EXPIRED certificate from 2026-08-26 to
+# 2026-10-06 (a Let's Encrypt lineage whose renewal failed); every palette
+# fetch from color.babb.dev failed TLS silently for ~6 weeks. deploy-pages.yml
+# runs this probe after every deploy; this schedule runs it weekly so an
+# expiring certificate is caught BETWEEN deploys — the run fails while the
+# certificate still has more than 14 days left (cert renewal runs at 30 d, so a
+# red run here means renewal is already ~2 weeks overdue).
+#
+# Asserts (scripts/ci/api-tls-smoke.mjs): strict-TLS GET
+# https://api.color.babb.dev/palettes?limit=1 → 200 · application/json that
+# parses · the served certificate's notAfter > now + 14 d. Node builtins only:
+# no install step. Strict TLS only — never NODE_TLS_REJECT_UNAUTHORIZED.
+name: api-tls-smoke
+
+on:
+    schedule:
+        # Mondays 13:17 UTC (off the hour, per GitHub's schedule-load guidance).
+        - cron: "17 13 * * 1"
+    workflow_dispatch: {}
+
+permissions:
+    contents: read
+
+jobs:
+    smoke:
+        name: palette API — strict TLS · 200 JSON · cert > 14 d
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+            - name: "§0eh (b) — palette API smoke"
+              run: node scripts/ci/api-tls-smoke.mjs
