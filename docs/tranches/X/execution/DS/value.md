@@ -1386,3 +1386,36 @@ Critic V9C named three consumer rows (V9C-01 medium, V9C-02 low, V9C-03 low) and
 **Loop state.**
 - Every consumer row from V9C is cured. The A5 gate owner should confirm that it reads "says the label" as "is the label or ends on it".
 - The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged.
+
+### pass 10 (2026-10-17): critic V10C — the copied gradient is the rail's gradient, the docs' range prose leaves KaTeX
+
+Critic V10C named two consumer rows (V10C-01 low, V10C-02 low), one trivial consumer row (V10C-03) and one glass row (V10C-G1 medium). V10C-01 and V10C-02 are cured at the root. V10C-03 is recorded with no change, as the critic asks. The glass row stays honest-RED on O-87 / O-88. Evidence is in `pass-10/c10-2026-10-17/` (`pass-10/` already holds an earlier seat's pass 10).
+
+**Commits.** value.js `a96b4ce3e` (the cure: 11 paths) and `d514557bc` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-10/c10-2026-10-17/`) |
+|---|---|---|---|
+| V10C-01 (low) | **CURED at the serializer, with the parser to match.** | `serializeGradient` now prints the same `preamble()` the render tile prints: the geometry plus `interpolationClause(space, hueMethod)`, which is the helper `stripHead` uses for the rail. The copied CSS and the rail are now one gradient. For the copied string to survive its own round-trip, the strict parser (`gradientParse.ts`) lifts the css-color-4 `in <space> [<hue> hue]` clause, before or after the geometry, through the serializer's own space table read backwards (`spaceFromCssName`, `isPolarCssSpace`). So it accepts only what the serializer can print, and it rejects a hue method on a non-polar space or an unnamed space. `applyCSS` sets the model's space and hue method when the CSS names them. When the CSS names no space, the model keeps its own, so HSV, which has no CSS name and prints no clause, survives its round-trip. The helper omits the default `shorter`, so the default reads `90deg in oklch`, exactly as the rail does. Unit (`gradient-parse.test.ts`): serialize then parse round-trips space and hue method across linear (default and angled), conic (`from 45deg in hsl decreasing hue`) and radial (`in srgb`). Further cases: the clause before the geometry, HSV with no clause, and two rejections. The existing literal round-trip now expects `45deg in oklch`. | `capture-c10.json`, all 4 gradient cells: the well reads `linear-gradient(90deg in oklch, oklch(75% 0.15 145deg) 0%, …)` and the rail's computed image reads `linear-gradient(90deg in oklch, …`. After `… 90deg in oklch longer hue …` is authored into the well, the well, the rail and the Hue method select all read Longer (`gradient-longer-*.png`). |
+| V10C-02 (low) | **CURED in the content, at every site.** | Every inline Components range in `assets/docs/*.md` keeps only the symbol as KaTeX. Inequalities (`a^* < 0`) also stay KaTeX, because they are math. The words and numbers are prose in the list's body voice, for example `<Katex expression="L^*"/>: 0 (black) to 100 (diffuse white)`. That covers 19 sites across hsl, hsv, hwb, oklab, lab and rgb (3 each), plus kelvin, which is now prose alone (`1000 K (reddish-orange) to 40000 K (blue)`), because its label already names the symbol. Display equations (cases' `\text{otherwise}`, `M_{\text{sRGB}}`, hex's function names) and the math-set or variable sites (`\{0\text{–}9, A\text{–}F\}`, `T = \text{kelvin}/100`) are content, and stay. | `probe-v10c02.json`: on Home (lab), all 3 Components items at 1440 and at 390, in light and dark, carry **0** KaTeX `\text` runs, and no line ends on a bare `=`. The items' family is Plus Jakarta Sans. `about-components-{1440,390}-{light,dark}.png`: at 390, each range sits on one line under its label (`L* : 0 (black) to 100 (diffuse white)`). |
+| V10C-03 (trivial) | **No change (as the critic rules).** | Home's caption is the only fallback H1. Gate A5 keeps it visible, so it is never made sr-only, and the picker card has no title to promote. Whether the picker card should carry a title is the owner's call. | `capture-c10.json` title probe: Home still has 1 visible H1, App's caption. |
+| V10C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | The rows are the bead's specular and double drop, the dock's rim, halo, 390 bulge and action-bar lens, the collapsed tile with its lone glyph (O-88), the card, menu and name-field rim stacks, Mix's disabled primary and the thumbless scrubber rails. There is no local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9291 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows and 22 control gradients. Max 6 layers on one element; floater max 8. These are identical to pass 9.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Looping animations: 0.
+- Computed elements: 5358. Pass 9 read 5376; the drop comes from the About rows' KaTeX `\text` spans, which are now prose.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c10.mjs` uses one browser for the run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells (10 routes × 1440/390 × light/dark) and 4 `gradient-longer-*` cells. The first run's About clip threw on the two 1440 Home cells after their frames were taken, so `ONLY=picker` re-ran the Home cells (`capture-c10-picker.json`, 4/4). The About list frames are taken by `probe-v10c02.mjs`. The guarded dev server on :9291 was stopped, and nothing from this seat is left running. The served tree also carried other seats' uncommitted hunks (`picker/header.css`, `shared/ui/PaneHeader.vue`, `styles/animations.css`).
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1246/1251 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3; the failure lists are identical across runs).
+- **e2e** (headless, workers 1, own server :9282, `gates/specs.txt`): **smoke 37/37 ×2** over 7 specs: views/gradient (the authored-CSS round-trip and the canonical text on blur), o21-gradient-rail, a11y-gradient-stop-grammar, w12-about-clip, o21-space-catalog-truth, page-load and walk. Strict GREEN.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the Gradient CSS well (the clause) and the About Components rows will differ and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V10C is cured or ruled no-change.
+- Next critic:
+  - judge the clause in the well at 390, where the string wraps one line longer;
+  - judge that a pasted bare gradient keeps the model's space rather than taking CSS's oklab default (deliberate, for HSV's round-trip).
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged.
