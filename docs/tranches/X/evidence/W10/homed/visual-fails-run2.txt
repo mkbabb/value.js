@@ -1,0 +1,221 @@
+SERVED MODEL: claude-opus-5-5
+[visual] › e2e/visual/admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · light 
+[visual] › e2e/visual/admin-populated.visual.spec.ts:34:9 › seeded-admin › admin-names populated · 1024 · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · admin-users · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · palettes · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · admin-names · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · palettes · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · admin-audit · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · palettes · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · admin-flagged · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · palettes · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · admin-tags · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · palettes · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · admin-users · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-users · palettes · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · admin-names · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-names · palettes · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · admin-audit · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-audit · palettes · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · admin-flagged · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-flagged · palettes · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · admin-tags · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 390 › admin-tags · palettes · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-users · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-audit · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-flagged · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-tags · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-users · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-names · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-audit · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-flagged · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 1024 › admin-tags · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-audit · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-flagged · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-tags · both · light 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-users · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-names · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-audit · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-flagged · both · dark 
+[visual] › e2e/visual/admin-routes.visual.spec.ts:39:21 › at-rest-admin · 3440 › admin-tags · both · dark 
+[visual] › e2e/visual/golden-integrity.spec.ts:187:1 › no golden exists that the manifest does not record 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › pick
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › pale
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › brow
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › extr
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › mix 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › gene
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › grad
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › atmo
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › blob
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admi
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admi
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admi
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admi
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › admi
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › zoom-200-desktop · 200% zoom simulated as half-viewport at 2x DPR — WCAG 1.4.4 reflow (states.mjs) › not-
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › p
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › p
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › b
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › e
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › m
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › g
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › g
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › a
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › b
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › a
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › a
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › a
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › a
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › a
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › reduced-motion-desktop · prefers-reduced-motion: reduce — the genuine media feature the product reads › n
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › forced-colors-desktop · EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residu
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › picker 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › palettes 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › browse 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › extract 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › mix 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › generate 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › gradient 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › atmosphere
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › blob 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-user
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-name
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-audi
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-flag
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › admin-tags
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-desktop · dir="rtl" applied POST-load (MT-F022) — witnesses R54/R-21 physical-inset pins › not-found 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › picker 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › palettes 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › browse 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › extract 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › mix 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › generate 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › gradient 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › atmosphere 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › blob 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-users 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-names 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-audit 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-flagged 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › admin-tags 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › rtl-mobile · dir="rtl" at mobile width — the second half of R-21's NO-WAVE-OWNER witness › not-found 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/modality.visual.spec.ts:172:13 › keyboard-focus-desktop · 12 Tab presses, chromium — the engine MT-F022 requires before believing a focus 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · color-picker · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · light ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · palettes · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · browse · light ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · extract · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · mix · light ───────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · generate · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · gradient · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · color-picker · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · light ─────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · color-picker · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · dark ───
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · palettes · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · browse · dark ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · extract · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · mix · dark ────────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · generate · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · gradient · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › atmosphere · atmosphere · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · color-picker · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · dark ──────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › not-found · not-found · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · light ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · light ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · light ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · light ─────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · light ────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › picker · both · dark ───
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › palettes · both · dark ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › browse · both · dark ───
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › extract · both · dark ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › mix · both · dark ──────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · dark ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › gradient · both · dark ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › atmosphere · both · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › blob · both · dark ─────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › not-found · both · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · light ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · light ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · light ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · light ─────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · light ────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · light 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › picker · both · dark ───
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › palettes · both · dark ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › browse · both · dark ───
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › extract · both · dark ──
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › mix · both · dark ──────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › generate · both · dark ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › gradient · both · dark ─
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › atmosphere · both · dark 
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › blob · both · dark ─────
+[visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 3440 › not-found · both · dark 
+[visual] › e2e/visual/states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · light 
+[visual] › e2e/visual/states.visual.spec.ts:92:9 › seeded-storage › palettes populated · 1024 · dark 
+[visual] › e2e/visual/states.visual.spec.ts:119:5 › seeded-storage › palettes populated · 390 · light 
+[visual] › e2e/visual/states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · light 
+[visual] › e2e/visual/states.visual.spec.ts:144:9 › seeded-fixture › browse mid-fetch · 1024 · dark 
+[visual] › e2e/visual/states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · light 
+[visual] › e2e/visual/states.visual.spec.ts:183:9 › overlay › dock view-select open · 1024 · dark 
+[visual] › e2e/visual/states.visual.spec.ts:217:5 › forced-state › api-unavailable latch · 1024 · light 
+[visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › oklch · 1024 · light ──────
+[visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › hsl · 1024 · light ────────
+[visual] › e2e/visual/states.visual.spec.ts:260:9 › param-sweep › rgb · 1024 · light ────────

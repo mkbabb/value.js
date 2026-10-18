@@ -1,0 +1,158 @@
+{
+  "origin": "http://localhost:9041",
+  "cells": [
+    {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "blurred": 4,
+      "visibleBlurred": 4,
+      "nested": 0,
+      "blurredAreaSum": 0.101,
+      "rows": [
+        {
+          "tag": "div",
+          "cls": "dock-plate",
+          "backdrop": "blur(16px) saturate(1.2)",
+          "areaFrac": 0.0211,
+          "nestedIn": null
+        },
+        {
+          "tag": "input",
+          "cls": "field-control glass-control-edge slug-input text-mono-small min-w-0",
+          "backdrop": "blur(14px) saturate(1.5)",
+          "areaFrac": 0.0062,
+          "nestedIn": null
+        },
+        {
+          "tag": "span",
+          "cls": "glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-fo",
+          "backdrop": "blur(20px) saturate(1.5)",
+          "areaFrac": 0.0051,
+          "nestedIn": null
+        },
+        {
+          "tag": "div",
+          "cls": "glass-quiet card sliders-console rounded-panel",
+          "backdrop": "blur(14px) saturate(1.5)",
+          "areaFrac": 0.0689,
+          "nestedIn": null
+        }
+      ],
+      "canvases": [
+        {
+          "cls": "atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none at",
+          "w": 1440,
+          "h": 900
+        },
+        {
+          "cls": "goo-blob-canvas",
+          "w": 180,
+          "h": 180
+        }
+      ]
+    },
+    {
+      "w": 1440,
+      "h": 900,
+      "scheme": "dark",
+      "blurred": 4,
+      "visibleBlurred": 4,
+      "nested": 0,
+      "blurredAreaSum": 0.101,
+      "rows": [
+        {
+          "tag": "div",
+          "cls": "dock-plate",
+          "backdrop": "blur(16px) saturate(1.3) brightness(1.14)",
+          "areaFrac": 0.0211,
+          "nestedIn": null
+        },
+        {
+          "tag": "input",
+          "cls": "field-control glass-control-edge slug-input text-mono-small min-w-0",
+          "backdrop": "blur(14px) saturate(1.5)",
+          "areaFrac": 0.0062,
+          "nestedIn": null
+        },
+        {
+          "tag": "span",
+          "cls": "glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-fo",
+          "backdrop": "blur(20px) saturate(1.5)",
+          "areaFrac": 0.0051,
+          "nestedIn": null
+        },
+        {
+          "tag": "div",
+          "cls": "glass-quiet card sliders-console rounded-panel",
+          "backdrop": "blur(14px) saturate(1.5)",
+          "areaFrac": 0.0689,
+          "nestedIn": null
+        }
+      ],
+      "canvases": [
+        {
+          "cls": "atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none at",
+          "w": 1440,
+          "h": 900
+        },
+        {
+          "cls": "goo-blob-canvas",
+          "w": 139,
+          "h": 139
+        }
+      ]
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "scheme": "light",
+      "blurred": 4,
+      "visibleBlurred": 4,
+      "nested": 0,
+      "blurredAreaSum": 0.243,
+      "rows": [
+        {
+          "tag": "div",
+          "cls": "dock-plate",
+          "backdrop": "blur(16px) saturate(1.2)",
+          "areaFrac": 0.032,
+          "nestedIn": null
+        },
+        {
+          "tag": "input",
+          "cls": "field-control glass-control-edge slug-input text-mono-small min-w-0",
+          "backdrop": "blur(14px) saturate(1.5)",
+          "areaFrac": 0.0069,
+          "nestedIn": null
+        },
+        {
+          "tag": "span",
+          "cls": "glass-chip glass-capsule accent-tone inline-flex items-center justify-center font-sans text-muted-fo",
+          "backdrop": "blur(20px) saturate(1.5)",
+          "areaFrac": 0.0011,
+          "nestedIn": null
+        },
+        {
+          "tag": "div",
+          "cls": "glass-quiet card sliders-console rounded-panel",
+          "backdrop": "blur(14px) saturate(1.5)",
+          "areaFrac": 0.2029,
+          "nestedIn": null
+        }
+      ],
+      "canvases": [
+        {
+          "cls": "atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none at",
+          "w": 390,
+          "h": 844
+        },
+        {
+          "cls": "goo-blob-canvas",
+          "w": 179,
+          "h": 179
+        }
+      ]
+    }
+  ]
+}

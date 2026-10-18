@@ -1,0 +1,363 @@
+SERVED MODEL: claude-opus-5-5
+[guarded] waiting for headroom (load 40 > 36)
+
+
+Running 27 tests using 1 worker
+
+
+[1/27] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[2/27] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[3/27] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders
+[4/27] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub
+  1) [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+
+    Error: browser.startTracing: Tracing is only available in Chromium
+
+      309 |     });
+      310 |     await scrub();
+    > 311 |     await browser.startTracing(page, {
+          |                   ^
+      312 |         categories: ["devtools.timeline"],
+      313 |     });
+      314 |     await scrub();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:311:19
+
+    Error Context: test-results/o11-header-gates-O-11-gate-31c8e--is-FLAT-under-a-live-scrub-oracles-safari/error-context.md
+
+
+
+[5/27] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated
+[6/27] [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header
+[7/27] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection
+[8/27] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots
+[9/27] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole
+  2) [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+
+    Error: the Tools trigger paints no focus ring
+
+    expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not "none"
+
+      130 |             }
+      131 |         }
+    > 132 |         expect(ring.style, "the Tools trigger paints no focus ring").not.toBe("none");
+          |                                                                          ^
+      133 |         expect(ring.width, "the focus ring has no width").toBeGreaterThan(0);
+      134 |         // …and the shadow's canvas is unclipped (asserted above: the inner
+      135 |         // computes overflow visible at settled rest).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:132:74
+
+    Error Context: test-results/o15-dock-register-O-15b-·--69d0d-capsule-shadow-render-whole-oracles-safari/error-context.md
+
+
+
+[10/27] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model
+[11/27] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:165:5 › O-15b · the Tools clip release + register pass (W6-8) › zero native title on the dock set (the UA-slab retirement)
+[12/27] [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:187:5 › O-15b · the Tools clip release + register pass (W6-8) › the separator folds into the slot's arrival — one presence grammar
+[13/27] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill
+  3) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[data-stop-id]:focus')
+    Expected: 1
+    Received: 0
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 8000ms
+      - waiting for locator('[data-stop-id]:focus')
+        20 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      65 |     }
+      66 |     const focused = page.locator("[data-stop-id]:focus");
+    > 67 |     await expect(focused).toHaveCount(1);
+         |                           ^
+      68 |     return focused;
+      69 | }
+      70 |
+        at tabToHandle (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:67:27)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:83:21
+
+    Error Context: test-results/o27-focus-affordance-BR-1--5966e-ng-layer-over-the-stop-fill-oracles-safari/error-context.md
+
+
+
+[14/27] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD
+[15/27] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:139:1 › BR-4 · every channel slider exposes a human-readable aria-valuetext
+[16/27] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:175:5 › BR-3 coarse pointer › effective target ≥ 44px on coarse pointers (producer referent)
+[17/27] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px
+  4) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[data-stop-id]:focus')
+    Expected: 1
+    Received: 0
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 8000ms
+      - waiting for locator('[data-stop-id]:focus')
+        20 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      65 |     }
+      66 |     const focused = page.locator("[data-stop-id]:focus");
+    > 67 |     await expect(focused).toHaveCount(1);
+         |                           ^
+      68 |     return focused;
+      69 | }
+      70 |
+        at tabToHandle (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:67:27)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:213:21
+
+    Error Context: test-results/o27-focus-affordance-BR-1--2184e-ia-a-computed-outline-≥-2px-oracles-safari/error-context.md
+
+
+
+[18/27] [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:326:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle
+[oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:326:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle
+[o27 WHCM roster] .channel-rail-item → 3px none oklch(0.492722 0.003862 34.629978) | .readout-fig → 3px none oklch(0.216129 0.006249 56.035564) | .space-trigger → 3px none color(srgb 0.758618 0 0.302633 / 0.86) | .interval-head → 2px solid rgba(128, 188, 254, 0.6) | .rail-btn → 3px none oklch(0.492722 0.003862 34.629978) | .rail-handle → 2px solid rgba(128, 188, 254, 0.6)
+
+[19/27] [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU
+  5) [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU 
+
+    Error: browserContext.newCDPSession: CDP session is only available in Chromium
+
+      43 |     }) => {
+      44 |         test.setTimeout(60_000);
+    > 45 |         const cdp = await page.context().newCDPSession(page);
+         |                                          ^
+      46 |         await cdp.send("Emulation.setCPUThrottlingRate", { rate: throttle });
+      47 |
+      48 |         await page.goto("/");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o4-order-invariance.spec.ts:45:42
+
+    Error Context: test-results/o4-order-invariance-O-4-or-a99bd-old-the-DAG-order-at-1×-CPU-oracles-safari/error-context.md
+
+
+
+[20/27] [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU
+  6) [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU 
+
+    Error: browserContext.newCDPSession: CDP session is only available in Chromium
+
+      43 |     }) => {
+      44 |         test.setTimeout(60_000);
+    > 45 |         const cdp = await page.context().newCDPSession(page);
+         |                                          ^
+      46 |         await cdp.send("Emulation.setCPUThrottlingRate", { rate: throttle });
+      47 |
+      48 |         await page.goto("/");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o4-order-invariance.spec.ts:45:42
+
+    Error Context: test-results/o4-order-invariance-O-4-or-b8fb8-old-the-DAG-order-at-6×-CPU-oracles-safari/error-context.md
+
+
+
+[21/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved)
+  7) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('dialog')
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:82:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-e9c7c-me-delete-Names-→-Approved--oracles-safari/error-context.md
+
+
+
+[22/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93)
+  8) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('dialog')
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:88:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-d5ba4-ject-Names-→-Pending-W7-93--oracles-safari/error-context.md
+
+
+
+[23/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate
+  9) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('dialog')
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:98:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-e69e3-rest-S-14-b-then-deliberate-oracles-safari/error-context.md
+
+
+
+[24/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete
+  10) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('dialog')
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:104:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-1e3bf-once-flagged-palette-delete-oracles-safari/error-context.md
+
+
+
+[25/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate
+  11) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.dblclick: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('dialog').getByRole('button', { name: 'Delete all palettes', exact: true })
+        - locator resolved to <button disabled type="button" data-size="md" data-v-16795e8c="" data-slot="button" data-press-armed="" data-control-target="" data-tone="destructive" data-emphasis="secondary" class="button tap-squish focus-ring glass-capsule glass-specular-track">…</button>
+      - attempting dblclick action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying dblclick action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying dblclick action
+          - waiting 100ms
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying dblclick action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+      - element was detached from the DOM, retrying
+
+
+      44 |     // N-6: a double activation of the accept button — the second press lands
+      45 |     // while the leaving dialog is still hit-testable (the measured 159–271 ms).
+    > 46 |     await dialog.getByRole("button", { name: accept, exact: true }).dblclick();
+         |                                                                     ^
+      47 |     await expect(dialog).toHaveCount(0);
+      48 |     await page.waitForTimeout(300); // past the widest window: a late second request would land here
+      49 |     expect(ledger, "requests after a double acceptance").toEqual([expected]);
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:46:69)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:112:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-a8a90-ruction-G15-then-deliberate-oracles-safari/error-context.md
+
+
+
+[26/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete
+  12) [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('dialog')
+
+
+      39 |     await seat.dblclick();
+      40 |     const dialog = page.getByRole("dialog");
+    > 41 |     await expect(dialog).toBeVisible();
+         |                          ^
+      42 |     expect(ledger, "requests before acceptance").toEqual([]);
+      43 |
+      44 |     // N-6: a double activation of the accept button — the second press lands
+        at assertDeliberate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:41:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/w7-destructive-seats.spec.ts:126:9
+
+    Error Context: test-results/w7-destructive-seats-G14-·-fb68a-r-disclosure-palette-delete-oracles-safari/error-context.md
+
+
+
+[27/27] [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu)
+  12 failed
+    [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+    [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px 
+    [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU 
+    [oracles-safari] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate 
+    [oracles-safari] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete 
+  15 passed (3.4m)
+EXIT 1

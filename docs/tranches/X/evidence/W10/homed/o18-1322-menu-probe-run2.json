@@ -1,0 +1,68 @@
+{
+ "menus": [
+  {
+   "menu": "div[role=menu] \"test-user Copy slug  Swi\"",
+   "rect": [
+    594,
+    73,
+    187,
+    245
+   ],
+   "opacity": 1,
+   "items": [
+    {
+     "item": "div[role=menuitem] \"Copy slug\"",
+     "opacity": 1,
+     "siblingsTags": "div,div,div,div,div,div"
+    },
+    {
+     "item": "div[role=menuitem] \"Switch account\"",
+     "opacity": 1,
+     "siblingsTags": "div,div,div,div,div,div"
+    },
+    {
+     "item": "div[role=menuitem] \"Logout\"",
+     "opacity": 1,
+     "siblingsTags": "div,div,div,div,div,div"
+    },
+    {
+     "item": "div[role=menuitem] \"Regenerate slug\"",
+     "opacity": 1,
+     "siblingsTags": "div,div,div,div,div,div"
+    }
+   ]
+  }
+ ],
+ "picks": [
+  {
+   "n": 1,
+   "resolves": null,
+   "opacity": null,
+   "inMenu": null
+  },
+  {
+   "n": 2,
+   "resolves": "div[role=menuitem] \"Copy slug\"",
+   "opacity": 1,
+   "inMenu": "div[role=menu] \"test-user Copy slug  Swi\""
+  },
+  {
+   "n": 3,
+   "resolves": "div[role=menuitem] \"Switch account\"",
+   "opacity": 1,
+   "inMenu": "div[role=menu] \"test-user Copy slug  Swi\""
+  },
+  {
+   "n": 4,
+   "resolves": "div[role=menuitem] \"Logout\"",
+   "opacity": 1,
+   "inMenu": "div[role=menu] \"test-user Copy slug  Swi\""
+  },
+  {
+   "n": 5,
+   "resolves": null,
+   "opacity": null,
+   "inMenu": null
+  }
+ ]
+}
