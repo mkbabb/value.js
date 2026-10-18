@@ -245,9 +245,10 @@ onUpdated(() => {
      * the PLATE-certified `--md-color-accent` the headings already speak — one
      * accent family, certified for the surface it actually sits on. The chip
      * fill joins the well recipe (AB-3), the ground the hljs census re-measures
-     * against. */
-    p > code,
-    li > code {
+     * against. X-DS value pass 12 (V12C-03): ONE inline-code rule — every
+     * code outside a <pre>, so a label's chip inside <strong> speaks the same
+     * register as the prose's chips below it. */
+    :not(pre) > code {
         @apply bg-well rounded px-1 py-0.5;
         color: var(--md-color-accent, var(--foreground));
     }

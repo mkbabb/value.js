@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `L*`: Lightness (0 to 100)
--   `a*`: Green-Red axis (negative green, positive red)
--   `b*`: Blue-Yellow axis (negative blue, positive yellow)
-
 ### Historical Context
 
 Standardized by the CIE in 1976, Lab was designed to be **perceptually uniform**—equal distances in the space should correspond to equal perceived color differences. It's device-independent: Lab describes *what* a color looks like, not how a particular device produces it. For decades it's been the workhorse of color management, ICC profiles, and industrial colorimetry.

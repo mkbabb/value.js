@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `L`: Lightness (0 to 1)
--   `a`: Green-Red axis (negative green, positive red)
--   `b`: Blue-Yellow axis (negative blue, positive yellow)
-
 ### Historical Context
 
 Developed by Björn Ottosson in 2020, OKLab addresses the perceptual non-uniformities present in CIE Lab—particularly in the blue-purple region, where Lab's uniformity breaks down. The conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function, and the resulting space is a first-class citizen in CSS Color Level 4.

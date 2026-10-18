@@ -2,10 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `kelvin`: Color temperature (1000K to 40000K)
-
 ### Background
 
 Color temperature is rooted in black-body radiation: heat an ideal radiator and its emitted light traces a curve from deep red through white to blue as temperature rises. The concept dates to Lord Kelvin's 19th-century thermodynamics work and was formalized for colorimetry in the early 20th century.

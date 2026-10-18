@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `H`: Hue (0° to 360°)
--   `S`: Saturation (0 to 1)
--   `L`: Lightness (0 to 1)
-
 ### Historical Context
 
 HSL was developed in the 1970s as part of computer graphics research—an attempt to give humans a more intuitive handle on color than raw RGB triplets. It separates **hue** (the color itself) from **saturation** (intensity) and **lightness** (brightness), mapping neatly onto how people talk about color in practice.

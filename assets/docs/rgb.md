@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `R`: Red component (0 to 1)
--   `G`: Green component (0 to 1)
--   `B`: Blue component (0 to 1)
-
 ### Historical Context
 
 RGB emerged alongside color television in the mid-20th century, grounded in trichromatic color vision theory—three cone cell types in the retina, each sensitive to a different band of wavelengths. It's the native language of display hardware, mapping directly to the red, green, and blue subpixels of a screen.

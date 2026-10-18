@@ -83,6 +83,10 @@ onMounted(() => render(modelValue));
 
 <template>
     <div class="flex flex-col gap-1.5">
+        <!-- X-DS value pass 12 (V12C-01): no height cap. The block form
+             (V11C-02) sets one stop per line, so the old 12rem cap cut a
+             5-stop gradient mid-stop inside a nested scroller; the well grows
+             with its text and the pane's own port is the one scroller. -->
         <div
             ref="editorRef"
             contenteditable="true"
@@ -90,7 +94,7 @@ onMounted(() => render(modelValue));
             role="textbox"
             aria-label="Gradient CSS"
             :aria-invalid="hasError || undefined"
-            class="code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            class="code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             :class="[hasError ? 'border-destructive' : 'border-card-edge']"
             @input="onInput"
             @focus="onFocus"

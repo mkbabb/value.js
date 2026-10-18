@@ -2,13 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `R`: Red channel (`00` to `FF`, i.e. 0 to 255)
--   `G`: Green channel (`00` to `FF`, i.e. 0 to 255)
--   `B`: Blue channel (`00` to `FF`, i.e. 0 to 255)
--   `A`: Alpha channel (`00` to `FF`, optional)
-
 ### Historical Context
 
 Hex color notation arrived with CSS1 in 1996, borrowing the `#` prefix convention from X11 color names. It's a compact, human-readable encoding of sRGB values in base 16—six characters instead of three decimal numbers separated by commas. Two decades later it remains the most widely recognized color format on the web, appearing in CSS, HTML attributes, SVGs, design tools, and brand guidelines alike.

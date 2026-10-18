@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `H`: Hue (0 to 1)
--   `S`: Saturation (0 to 1)
--   `V`: Value/Brightness (0 to 1)
-
 ### Background
 
 HSV (Hue, Saturation, Value) was developed by Alvy Ray Smith in 1978 as a way to select color by perceptual attributes rather than by RGB channel. It's also called **HSB** (Hue, Saturation, Brightness) in some applications—same thing, different name.
@@ -23,7 +17,7 @@ The model is cylindrical: hue is an angle around the wheel, saturation is radial
 1. **`H` (Hue)**:
    0 to 1 (representing 0° to 360°)
 
-   Position on the color wheel. `0` and `1` both map to red.
+   Position on the color wheel. 0 and 1 both map to red.
 
 2. **`S` (Saturation)**:
    0 (grayscale) to 1 (fully saturated color)

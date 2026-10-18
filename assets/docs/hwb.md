@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `H`: Hue (0° to 360°)
--   `W`: Whiteness (0 to 1)
--   `B`: Blackness (0 to 1)
-
 ### Background
 
 HWB (Hue, Whiteness, Blackness) was proposed by Alvy Ray Smith in 1996 to match how painters actually think: pick a hue, then mix in white or black. It's derived from HSV but replaces saturation and value with two more direct controls—how much white and how much black to add. HWB is part of **CSS Color Level 4**, so it's natively available in modern browsers via `hwb()`.

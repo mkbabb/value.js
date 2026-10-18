@@ -121,7 +121,12 @@ function snapFold() {
     if (port.scrollHeight > avail + 0.5) {
         const top = port.getBoundingClientRect().top - port.scrollTop;
         let end = 0;
-        for (const r of el.querySelectorAll(".configurator-row, .config-section-title")) {
+        // V12C-02 (X-DS value pass 12): a head keeps its first row. The row
+        // right after a head is no fold candidate, so the fold lands on the
+        // head's top and the head scrolls in with its rows, never orphaned.
+        for (const r of el.querySelectorAll(
+            ".configurator-row:not(.config-section-title + *), .config-section-title",
+        )) {
             const at = r.getBoundingClientRect().top - top;
             if (at <= avail) end = Math.max(end, at);
         }
