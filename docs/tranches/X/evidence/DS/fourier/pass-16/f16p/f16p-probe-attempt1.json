@@ -1,0 +1,54 @@
+{
+ "light-1440": {
+  "displays": {
+   "(2.70)": {
+    "scrollWidth": 624,
+    "clientWidth": 624,
+    "overflow": 0,
+    "fits": true,
+    "katexFontSize": "19.8px",
+    "edgeEnd": "0px",
+    "animations": 1
+   },
+   "(2.72)": {
+    "scrollWidth": 601,
+    "clientWidth": 601,
+    "overflow": 0,
+    "fits": true,
+    "katexFontSize": "16.5088px",
+    "edgeEnd": "0px",
+    "animations": 1
+   },
+   "(2.73)": {
+    "scrollWidth": 601,
+    "clientWidth": 601,
+    "overflow": 0,
+    "fits": true,
+    "katexFontSize": "16.5088px",
+    "edgeEnd": "0px",
+    "animations": 1
+   },
+   "(2.74)": {
+    "scrollWidth": 601,
+    "clientWidth": 601,
+    "overflow": 0,
+    "fits": true,
+    "katexFontSize": "19.8px",
+    "edgeEnd": "0px",
+    "animations": 1
+   },
+   "(2.75)": {
+    "scrollWidth": 624,
+    "clientWidth": 624,
+    "overflow": 0,
+    "fits": true,
+    "katexFontSize": "19.8px",
+    "edgeEnd": "0px",
+    "animations": 1
+   }
+  }
+ },
+ "light-390": {
+  "err": "page.waitForTimeout: Target page, context or browser has been closed"
+ }
+}

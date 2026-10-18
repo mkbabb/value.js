@@ -1,0 +1,5 @@
+{
+ "dark-1440": {
+  "err": "page.waitForTimeout: Target page, context or browser has been closed"
+ }
+}
