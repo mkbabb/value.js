@@ -1353,3 +1353,36 @@ Critic V8C named three consumer rows (V8C-01 medium, V8C-02 low, V8C-03 low) and
 - Every consumer row from V8C is cured. V8C-01 asks the A5 gate owner to confirm.
 - P4R-01-R stays open.
 - The glass rows (V8C-G1, the light plate's dark veil ink, is new on O-87) wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged (P5C-02, VC6-04 / V12-01, VC5-01, VC4-09, V2C-15).
+
+### pass 9 (2026-10-17): critic V9C — Palettes names its view on its own card, the scalar row keeps one rhythm, the Not Found frames speak Jakarta
+
+Critic V9C named three consumer rows (V9C-01 medium, V9C-02 low, V9C-03 low) and one glass row (V9C-G1 low). All three consumer rows are cured at the root. The glass row stays honest-RED on O-87 / O-88. Evidence is in `pass-09/c9-2026-10-17/` (`pass-09/` already holds an earlier seat's pass 9).
+
+**Commits.** value.js `c6c27afd5` (the cure: 8 paths) and `5ef8d672e` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-09/c9-2026-10-17/`) |
+|---|---|---|---|
+| V9C-01 (medium) | **CURED at the schema and the shell.** | The palettes inspector region is marked `titled` (`viewSchema.ts`, on the palettes view only). PaneShell's rule for a title that "says" the label now accepts a title that is the label or ends on it, with a word boundary before the label, so "My Palettes" says "Palettes". It is one rule, with no per-view alias, and the view's label (the dock entry) is unchanged. PalettesPane passes the plain `title="My Palettes"` for the match, and its `#title` slot still paints the ramp and the count. On /palettes the pane title is the route H1 at both widths, and App prints no caption on the picker card. Home keeps its caption. Gate A5 (`walk.spec.ts`) reads the H1, and the `<main>` name, as the label or ending on it, anchored at the end, so a label that disagrees with the schema still fails. No caption was moved by hand. | `capture-c9.json`: /palettes has 1 visible H1, "My Palettes", in the **inspector** region at 1440 and at 390 (41.9 / 32.9 px). The view label is said 0 times outside the H1 (pass 8: the caption sat on the picker card, x 199, with the name said twice). All 40 cells have exactly 1 H1. |
+| V9C-02 (low) | **CURED at the root (one rule, no wrapper).** | The cause sits under the critic's: glass gives the `sm` slider its `--slider-touch-target` (1.5rem) band only under `pointer: coarse`. Under a fine pointer the root shrank to its 9 px track. Extract wrapped its rails in a hand-made `h-6` band, and the other rows did not. `foundation.css` now gives the `sm` rung, which only the scalar population takes, that band at every pointer, from glass's own token. This is layout, not lighting. The hand-made band around Extract's kC is deleted. K keeps its box only to seat the developed rail behind the track. The config console rows take `gap-1`, the Tools rows' label gap. | `probe-v9c02-before.json` → `-after.json`, label bottom to track top: Extract 13 → 13, Generate 5 → 13, Gradient Direction 5 → 13, Atmosphere and Blob 9 (1440) / 7 (390) → 14 / 13. Every `sm` root is now 24 px. |
+| V9C-03 (low) | **CURED in the harness; frames re-shot.** | `pass-09/c9-2026-10-17/harness.mjs` (copied from `pass-04/redispatch-2026-10-16`) gains `bootRoute(page, url, { allowAlert })`. It runs the full Jakarta load-and-render gate, reloads included, and skips only the refusal of a role=alert plate. `capture-c9.mjs` boots the Not Found cells through it, with no cold `goto`. The product is unchanged. The cold first-visit fallback is glass's `font-display: optional` (VR3-01). | `notfound-{1440,390}-{light,dark}.png`: "Back to the picker" is set in Plus Jakarta Sans 500 (16.4 px at 1440, 14 px at 390), and `rendersJakarta` is true in all four cells. |
+| V9C-G1 (low) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING and O-88 DOCK-COLLAPSE-MOTION.** | The rows are the bead's specular and double drop, the dock's rim, halo and 390 bulge, the rim stacks, the `.control-surface` gradients and the floater's stepped `--shadow-cartoon-sm` ink. This restates V8C-G1/G2. There is no local override. | Re-judged at the 10.2.0 repin. |
+
+**Census** (`census-after.json`, `--base :9271 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 788 layers, 368 inset highlights, 8 drop-shadows and 22 control gradients. Max 6 layers on one element; floater max 8. These are identical to pass 8.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Looping animations: 0.
+- Computed elements: 5376, down from 5380, because the /palettes caption is gone. All 8 overlay cells read with 0 errors.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c9.mjs` uses one browser for the run and a new context per cell, and closes both in a `finally`. It took 40 of 40 cells: 10 routes × 1440/390 × light/dark. The guarded dev server on :9271 was stopped, and nothing from this seat is left running. The served tree also carried other seats' uncommitted hunks (`picker/header.css`, `shared/ui/PaneHeader.vue`, `styles/animations.css`).
+
+**Gates** (`gates/README.txt`).
+- **Type-check:** 0 ×2.
+- **vitest:** 1234/1239 ×2, with the same 5 standing failures (ink D6 ×2, T-35 ×3).
+- **e2e** (headless, workers 1, own server :9272, `gates/specs.txt`):
+  - **smoke 70/70 ×2** over 15 specs: page-load and walk (A5), o7, o9, o10, o10d, o11, x-w7l-detached (the console rows), views/gradient (Direction), companion-pane-track-start, views/mix, a11y-select-title, scene-action-contract, w12u-x-admin-tags and palette-save.
+  - **smoke-mobile page-load-mobile 1/1 ×2.**
+  - Strict GREEN.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, /palettes (caption gone, title as H1) and the scalar rows (24 px band) will differ and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V9C is cured. The A5 gate owner should confirm that it reads "says the label" as "is the label or ends on it".
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin. The open owner rulings are unchanged.
