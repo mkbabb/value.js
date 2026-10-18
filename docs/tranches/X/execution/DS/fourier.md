@@ -2225,3 +2225,41 @@ They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and the transport a
 - No golden was re-baselined.
 
 **Frames** (`pass-15/f15p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f15p-probe.mjs`: `paper-env-{light,dark}-{1440,390}`, with Definition 2.6.3.1 and Theorem 2.6.3.1 seated near the top. `before/` is a first reading of the same tree; its dark cells did not complete under load.
+
+### pass 16
+This is the cure seat for critic **F16C** of the redeployed loop (pass 16, 2026-10-18). The AFTER frames are in `evidence/DS/fourier/pass-16/f16p/`. The other files in `pass-16/` belong to other seats.
+- fourier **`95eed0c`** (`m/w1-bump-migration`, pushed fast-forward) adds one rule to `web/src/style.css`. latex-paper is unchanged.
+- value.js `1497cc02b` holds the AFTER frames, the probe and its JSON, the census, and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F16C-T1 | **Cured at the root, in one rule.** The 1.1em display scale belongs to the desktop measure. Below the 40rem arm, `.katex-display > .katex` now takes `1em`, the text size. `f16p-probe-after-{light,dark}-390.json` measures it headless in real Chrome at 390x844, DPR 2, in both themes. (2.70) now has scrollWidth 324 against clientWidth 324 (it was 344 against 324), and `--math-edge-end` is 0px, so it shows in full with no mask: `paper-env-*-390.png`, top display. (2.74) still overflows, 343 against 301, and keeps its 40px scroll cue unchanged. The fade was not touched. At 1440 the scale stays 1.1em (19.8px; `seat-hermite/`). |
+| DS-F16C-H1 | **No new work.** "Proof ." closes at the latex-paper 0.3.0 publish and fourier repin, which is an owner act. That repin also deletes the style.css 0.2.1 bridge block. |
+
+**Glass-owned rows (DS-F16C-G0).** These are pass 15's rows, unchanged, with no local override:
+- the dock plate and its halo;
+- the /paper 390 floating-toc band's five-layer glass-resting stack;
+- the Configurator aside, gallery cards, /morph cards and Export;
+- the primary casts on /w and /v;
+- the /v transport;
+- the coarse type ramp.
+
+They are held honest-RED on **O-87 FLAT-LIGHTING** (the dock and the transport also on **O-88**) and will be re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3262`; `f16p/census-after.json`).
+- Static is identical to pass 15.
+- The computed sums are identical to pass 15: 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients and 0 looping animations.
+- The cure is a font size, not lighting. The census is still RED, on the glass rows only.
+
+**Gates** (`f16p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 twice, under `guarded --light`.
+- **e2e, headless** (chromium and mobile-chromium, `--workers=1`, plain `vite` on `:3262`). The runs used pass 14's 10 specs that reach `/paper`, `.paper-article` or the ToC rail (82 tests), with other workflows holding the load at 15 to 37:
+  - Run A: 80 passed, 2 failed (f-w14u-t t4; the π-capture of /morph at 1280). Both were context-teardown timeouts.
+  - Run B: 79 passed, 3 failed (UIA-F-26 Parseval; the π-captures of home at 375 and workspace at 1440). All three were 30s timeouts.
+
+  The two runs failed on different tests. Rerun on their own against the cured tree, the same 5 tests passed 5/5, twice. This is the paper surface ×2, with load flakes shown to pass in isolation. It is not a clean ×2 on the full set.
+- No golden was re-baselined, and no tracked file was left modified.
+
+**Frames** (`pass-16/f16p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f16p-probe.mjs`: `paper-env-{light,dark}-390`, with display (2.70) seated near the top. `seat-hermite/` holds first readings seated on Hermite Orthogonality, as in passes 14 and 15. The `*attempt*`/`*stall*` logs are probe runs that stalled under load. Their JSON is void.
