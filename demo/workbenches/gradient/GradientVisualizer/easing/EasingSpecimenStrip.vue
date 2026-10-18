@@ -142,9 +142,12 @@ watch(
     container-type: inline-size;
 }
 .strip-row {
+    /* The one gap between families, read by the hairline below (it is drawn
+       in the middle of this gap). */
+    --family-gap: 1.75rem;
     display: inline-flex;
     align-items: stretch;
-    column-gap: 1.75rem;
+    column-gap: var(--family-gap);
     row-gap: 0.625rem;
     width: max-content;
     /* Headroom so pressed rings + overshoot portraits never clip against
@@ -152,17 +155,27 @@ watch(
     padding: 2px;
 }
 /* X-DS value pass 15 (V15C-03): where the pane can hold more than one family
-   per line, the families wrap, so the whole catalogue shows at once (a single
-   1480px row hid 6 of 8 families behind a cue-less horizontal scroll). The
-   narrow seat keeps the one scrolling line. */
-@container (min-width: 24rem) {
+   per line, the whole catalogue shows at once (a single 1480px row hid 6 of 8
+   families behind a cue-less horizontal scroll). The narrow seat keeps the one
+   scrolling line.
+   X-DS value pass 16 (V16C-02): the wrapped families sit on ONE grid of shared
+   tracks, not a flex-wrap, so every family head and its hairline share a
+   column down the strip. A track holds the widest family below CSS (Cubic's
+   four tiles); CSS's five take two tracks. The threshold is two tracks, one
+   gap and the 2px headroom each side (2 x 12.5rem + 1.25rem + 4px), so the
+   grid never falls to one column. */
+@container (min-width: 26.5rem) {
     .strip-row {
-        display: flex;
-        flex-wrap: wrap;
+        --family-gap: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
         width: auto;
-        /* Clips only the hairline of a family that opens a wrapped line: it
-           sits in the gap, outside the 2px headroom. */
+        /* Clips only the hairline of a family that opens a line: it sits in
+           the gap, outside the 2px headroom. */
         overflow: clip;
+    }
+    .strip-family:first-child {
+        grid-column: span 2;
     }
 }
 
@@ -180,7 +193,7 @@ watch(
     content: "";
     position: absolute;
     inset-block: 0;
-    inset-inline-start: calc(-0.875rem - 0.5px);
+    inset-inline-start: calc(var(--family-gap) / -2 - 0.5px);
     border-inline-start: 1px solid var(--card-edge);
 }
 /* X-DS value pass 14 (V14C-02): the family heading and the tile names sit on

@@ -156,6 +156,10 @@ async function copyLiteral(index: number, css: string) {
                     <span class="specimen-dot" :style="{ '--dot-c': row.c1 }" />
                 </span>
                 <svg class="head-glyph shrink-0" viewBox="0 0 1 1" aria-hidden="true">
+                    <!-- X-DS value pass 16 (V16C-03): the unit-square frame, so
+                         the curve reads as a plot, not a "/" between the dots
+                         and the name (a bare linear diagonal is a slash). -->
+                    <rect class="head-glyph-frame" width="1" height="1" vector-effect="non-scaling-stroke" />
                     <path :d="row.glyph" vector-effect="non-scaling-stroke" />
                 </svg>
                 <!-- text-mono-SMALL: curve identifiers are case-sensitive;
@@ -338,6 +342,12 @@ async function copyLiteral(index: number, css: string) {
     inline-size: 1rem;
     block-size: 1rem;
     overflow: visible;
+}
+/* The frame: one hairline in the card-edge ink, no fill (the tune plot's box). */
+.head-glyph-frame {
+    fill: none;
+    stroke: var(--card-edge);
+    stroke-width: 1;
 }
 .head-glyph path {
     fill: none;
