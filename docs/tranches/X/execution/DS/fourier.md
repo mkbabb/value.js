@@ -1976,3 +1976,40 @@ Both stay honest-RED on **O-87 FLAT-LIGHTING** and are re-judged at the glass 10
 - `paper-mid-{light,dark}-844x390` and `paper-proof-{light,dark}-1440`;
 - `morph-{light,dark}-390` (G1);
 - `equation-foot-dark-{1440,390}`, `visualize-dark-390` and `404-dark-1440` (G2).
+
+### pass 8
+This is the cure seat for critic **F8C** (the redeploy's pass-8 critic, 2026-10-17). The AFTER frames are in `evidence/DS/fourier/pass-08/f8p/`; the BEFORE cells are the critic's (`pass-07/f7p/paper-proof-*-1440`, `paper-late-*-390`, `paper-mid-*-844x390`, `morph-*-390`). The other folders in `pass-08/` belong to other seats.
+- fourier `5087628` (`m/w1-bump-migration`, pushed fast-forward) holds C3, T2 and the 0.2.1 bridge rows for C2 and T1.
+- latex-paper `2468553` (C1, C2, T1 at the root), local on `master`; the 0.3.0 changeset is extended. Not pushed and not published (an owner act, as at passes 5 to 7). The release must now also carry `2468553`.
+- value.js `fac07a425` holds the AFTER frames, the probe and its JSON, the T1 scans, the census and the gate logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F8C-C1 | **Cured at the latex-paper root (`2468553`).** A theorem-like environment's optional title was kept as one raw text node, so `cleanRawLatex` read `\c` as the cedilla and left "ite<key>". The bracket is now parsed by the inline parser, the prose path (`bracketContent` in `grammar/primitives.ts`), so `\cite` renders as `.paper-cite`, and accents, math and nested commands render too. A unit test was added; latex-paper `vitest` passed 129/129. Run through the local root, fourier's three cited titles read `Bernstein Ellipse Theorem [Trefethen, 2013]`, `Circulant Diagonalization [Davis, 1979]` and `Eckart–Young [Eckart et al., 1936]` (`c1-local-latex-paper-titles.txt`). There is no CSS or text patch in fourier.<br>**Served:** still 0.2.1 until the repin, so `paper-proof-*-1440` still reads "Circulant Diagonalization itedavis_circulant" (probe `c1`). **The fourier repin is owed** with the rest of 0.3.0 (with DS-F7C-C2). |
+| DS-F8C-C2 | **Cured at the root and bridged.** latex-paper `2468553` sets `.paper-cite` in the text face on the line (`font: inherit`, with no mono, no 0.8em and no `vertical-align: super`); every citation it renders is author-year. Until the repin, fourier's 0.2.1 bridge restates it (`article.paper-article .section-body .paper-cite`: `font: inherit; vertical-align: baseline; line-height: inherit`). It is in the block marked DELETE AT THE 0.3.0 REPIN.<br>**Measured** (probe `c2`, 1440, both themes): "[Davis, 1979; Bassett, 2018]" computes Computer Modern at 18px, `baseline`, identical to its paragraph. The colour stays `--primary`, which is the ink in light. |
+| DS-F8C-C3 | **Cured.** /morph's `.stage-column` ends on `1px solid transparent`, and `main[data-scrolled] .stage-column` sets it to `--border`. `data-scrolled` is App.vue's existing attribute on the shell scroller. This is /paper's band recipe (DS-F7C-C1), with no fade and no shadow.<br>**Measured** (390, both themes): at scrollTop 0 the rule is `rgba(0,0,0,0)` (`morph-*-390`, with no line across the grid at y≈307). At scrollTop 160 it is rgb(198 180 159) in light and rgb(101 87 73) in dark (`morph-scrolled-*-390`).<br>The first cut wrote `:global(main[data-scrolled]) .stage-column`, which this Vue compiles to `main[data-scrolled] {…}`, dropping the band. The probe caught it, and the plain scoped selector replaced it. |
+| DS-F8C-T1 | **Cured at the latex-paper root and bridged; the cause is corrected.** The overflow was **inline** math, not a `.katex-display`, which already scrolls with its edge cue. latex-paper's theme set `.paper-article .math-inline { white-space: nowrap }` (found by CDP matched styles, `t1-ws.mjs`), and that defeated KaTeX's own breaks between bases. At 390, seven inline formulas ran 3 to 134px past the article's content edge, although no single base was wider than the measure (`t1-scan-before.json`, `t1-bases-before.json`). latex-paper `2468553` deletes the rule, and fourier's bridge restores `white-space: normal` until the repin.<br>**Measured** (probe `t1`, the whole paper at 390, both themes): 0 KaTeX boxes past the edge. The Example 6.1.1 verification breaks after its `=` onto two lines and ends at x=328, against the content edge at 358 (`paper-late-*-390`). |
+| DS-F8C-T2 | **Cured.** At `min-width: 40rem`, `.floating-toc-title-btn` is `flex: 0 1 auto; max-inline-size: 100%`, and the readout takes `margin-inline-start: auto`, so the readout and search keep the bar's end. On the phone the button still fills the bar, so DS-F7C-T1's fixed chevron is unchanged.<br>**Measured** (844×390, both themes): the label spans 45..236 and the chevron 240..254, a gap of 4px (it was ~400px). The readout is at 682..765 (`paper-mid-*-844x390`). |
+
+**Glass-owned rows:** none were named by F8C.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3217`; `f8p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed: 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations. Pass 7 read 394 / 1006 / 300 / 300.
+- The whole delta is data: /gallery serves one card fewer in each of the 4 gallery cells (−7 layers each). Every /paper and /morph cell is identical to pass 7. This pass added no shadow, filter or gradient. Still RED, on the glass rows only.
+
+**Gates** (`f8p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** the 23 specs that visit /paper or /morph ran headless (chromium and mobile-chromium) with `--workers=1` against the private dev server, and 234 passed twice.
+  - The same 5 failed in each run. They are the `f-w14u-misc` storage-blocked tests, which hard-code `:4190` and found no server there.
+  - Those 5 passed twice on a preview built from the tree at `:4190`.
+  - So every touched spec is GREEN twice on a server that carries its route.
+- No golden was re-baselined. The misc spec's rewritten `e2e/screenshots/f-w14` frames were restored to HEAD.
+
+**Frames** (`pass-08/f8p/`). These were taken in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f8p-probe.mjs`: 10 PNGs.
+- `paper-proof-{light,dark}-1440` (C1 as served, C2);
+- `morph-{light,dark}-390` and `morph-scrolled-{light,dark}-390` (C3);
+- `paper-late-{light,dark}-390` (T1);
+- `paper-mid-{light,dark}-844x390` (T2).
