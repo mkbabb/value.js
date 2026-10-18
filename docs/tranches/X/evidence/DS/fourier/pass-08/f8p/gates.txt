@@ -1,0 +1,19 @@
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== e2e (fourier 5087628 tree, headless chromium + mobile-chromium, --workers=1): the 23 specs that visit /paper or /morph (e2e-specs.txt), against the private dev server :3217 (PLAYWRIGHT_PROD=1 so no :4190 webServer is spawned; @mutating greped out, none of which visit these routes).
+   run 1: 234 passed / 5 failed (e2e-run1.txt); run 2: 234 passed / 5 failed (e2e-run2.txt). The same 5 in each run: f-w14u-misc storage-blocked tests (:118 x2, :438 x2, :463), which hard-code http://localhost:4190 and got ERR_CONNECTION_REFUSED (no preview was up).
+   Those 5 on a preview built from the tree at :4190 (playwright webServer): passed x2 (e2e-storage-preview-run1/2.txt; the 4 other failures there are :102, the dev-only /demo/shape-extractor route, which passed in both dev runs).
+   => every touched spec GREEN x2 on the server that carries its route.
+== No golden re-baselined. The f-w14 frame PNGs the misc spec rewrites were restored to HEAD after each run.
+== latex-paper 2468553: vitest 129/129 (was 128; +1 theorem-title unit test). tsc --noEmit shows one pre-existing error in src/grammar/compile.ts (bbnf-lang Nonterminals type), untouched.
+Stack: private vite :3217 (serve.mjs, cacheDir ~/.cache/fourier-f8p/vitecache) proxying the running dev API on :8000 read-only; stopped at the end. Preview :4190 started and stopped by playwright.

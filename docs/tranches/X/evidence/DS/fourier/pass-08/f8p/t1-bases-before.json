@@ -1,0 +1,98 @@
+{
+ "\\cos((n+1)\\theta) + \\cos((n-1)\\theta) = 2\\cos\\theta\\cos(n\\th": {
+  "hostTag": "P.",
+  "hostWidth": 292,
+  "over": 35,
+  "bases": [
+   64,
+   49,
+   64,
+   51,
+   99
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ },
+ "\\mathcal{F}[\\psi_n] = \\mathcal{F}[(a^\\dagger)^n \\psi_0] = (-": {
+  "hostTag": "P.",
+  "hostWidth": 292,
+  "over": 59,
+  "bases": [
+   63,
+   96,
+   135,
+   57
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ },
+ "\\langle x, cy \\rangle = \\overline{\\langle cy, x \\rangle} = \\": {
+  "hostTag": "P.",
+  "hostWidth": 292,
+  "over": 20,
+  "bases": [
+   67,
+   67,
+   67,
+   67,
+   45
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ },
+ "J = \\frac{1}{2}(z + z^{-1}) = \\frac{1}{2}\\bigl((z - z^{-1}) ": {
+  "hostTag": "P.",
+  "hostWidth": 324,
+  "over": 40,
+  "bases": [
+   32,
+   44,
+   52,
+   52,
+   50,
+   59,
+   44,
+   30
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ },
+ "\\|e^{\\pi inx/L}\\|^2 = \\int_{-L}^{L} e^{\\pi inx/L}\\overline{e": {
+  "hostTag": "P.",
+  "hostWidth": 324,
+  "over": 23,
+  "bases": [
+   91,
+   160,
+   76,
+   19
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ },
+ "\\vec{x} = \\frac{1}{4}\\overline{F_4}\\vec{X} = \\frac{1}{4}\\beg": {
+  "hostTag": "P.",
+  "hostWidth": 281,
+  "over": 38,
+  "bases": [
+   29,
+   59,
+   156,
+   75
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ },
+ "C = F_N^{-1}(\\sum_k c_k \\mathrm{diag}(\\omega_N^{0\\cdot k}, \\": {
+  "hostTag": "P.",
+  "hostWidth": 292,
+  "over": 151,
+  "bases": [
+   35,
+   287,
+   122
+  ],
+  "hostWS": "normal",
+  "katexWS": "nowrap"
+ }
+}

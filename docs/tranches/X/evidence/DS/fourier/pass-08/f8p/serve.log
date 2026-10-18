@@ -1,0 +1,5 @@
+7:51:44 PM [vite] (client) Forced re-optimization of dependencies
+up
+7:55:21 PM [vite] (client) hmr update /src/style.css
+7:55:41 PM [vite] (client) hmr update /src/components/paper/PaperTocBar.vue?vue&type=style&index=0&scoped=dc5b8d93&lang.css, /src/style.css
+8:00:55 PM [vite] (client) hmr update /src/components/morph/FourierMorphDemo.vue?vue&type=style&index=0&scoped=84315058&lang.css, /src/style.css

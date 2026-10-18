@@ -1,0 +1,154 @@
+{
+ "light-1440x900": {
+  "c1": {
+   "titles": [
+    "Definition 6.2.1 — Circulant Matrix",
+    "Theorem 6.2.1 — Circulant Diagonalization itedavis_circulant"
+   ]
+  },
+  "c2": [
+   {
+    "text": "[Davis, 1979; Bassett, 2018]",
+    "cite": {
+     "fontFamily": "\"Computer Modern Serif\", \"Latin Modern R",
+     "fontSize": "18px",
+     "verticalAlign": "baseline",
+     "color": "rgb(28, 25, 23)"
+    },
+    "host": {
+     "fontFamily": "\"Computer Modern Serif\", \"Latin Modern R",
+     "fontSize": "18px",
+     "verticalAlign": "baseline",
+     "color": "rgb(28, 25, 23)"
+    }
+   }
+  ]
+ },
+ "light-390x844": {
+  "t1": {
+   "overflowing": {},
+   "count": 0
+  },
+  "t1Example": {
+   "formulaRight": 328,
+   "articleContentRight": 358,
+   "lines": 2
+  },
+  "c3rest": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ruleColor": "rgba(0, 0, 0, 0)",
+   "ruleWidth": "1px",
+   "rect": 307
+  },
+  "c3scrolled": {
+   "scrollTop": 160,
+   "scrolled": true,
+   "ruleColor": "rgb(198, 180, 159)",
+   "ruleWidth": "1px",
+   "rect": 208
+  }
+ },
+ "light-844x390": {
+  "t2": {
+   "bar": [
+    16,
+    828
+   ],
+   "btn": [
+    21,
+    278
+   ],
+   "label": [
+    45,
+    236
+   ],
+   "chevron": [
+    240,
+    254
+   ],
+   "readout": [
+    682,
+    765
+   ],
+   "labelToChevron": 4,
+   "text": "2.6.7.Gaussian Quadrature"
+  }
+ },
+ "dark-1440x900": {
+  "c1": {
+   "titles": [
+    "Definition 6.2.1 — Circulant Matrix",
+    "Theorem 6.2.1 — Circulant Diagonalization itedavis_circulant"
+   ]
+  },
+  "c2": [
+   {
+    "text": "[Davis, 1979; Bassett, 2018]",
+    "cite": {
+     "fontFamily": "\"Computer Modern Serif\", \"Latin Modern R",
+     "fontSize": "18px",
+     "verticalAlign": "baseline",
+     "color": "rgb(233, 230, 226)"
+    },
+    "host": {
+     "fontFamily": "\"Computer Modern Serif\", \"Latin Modern R",
+     "fontSize": "18px",
+     "verticalAlign": "baseline",
+     "color": "rgb(233, 230, 226)"
+    }
+   }
+  ]
+ },
+ "dark-390x844": {
+  "t1": {
+   "overflowing": {},
+   "count": 0
+  },
+  "t1Example": {
+   "formulaRight": 328,
+   "articleContentRight": 358,
+   "lines": 2
+  },
+  "c3rest": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ruleColor": "rgba(0, 0, 0, 0)",
+   "ruleWidth": "1px",
+   "rect": 307
+  },
+  "c3scrolled": {
+   "scrollTop": 160,
+   "scrolled": true,
+   "ruleColor": "rgb(101, 87, 73)",
+   "ruleWidth": "1px",
+   "rect": 208
+  }
+ },
+ "dark-844x390": {
+  "t2": {
+   "bar": [
+    16,
+    828
+   ],
+   "btn": [
+    21,
+    278
+   ],
+   "label": [
+    45,
+    236
+   ],
+   "chevron": [
+    240,
+    254
+   ],
+   "readout": [
+    682,
+    765
+   ],
+   "labelToChevron": 4,
+   "text": "2.6.7.Gaussian Quadrature"
+  }
+ }
+}

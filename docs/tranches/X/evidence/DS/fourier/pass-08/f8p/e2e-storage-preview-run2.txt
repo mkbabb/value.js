@@ -1,0 +1,164 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 9 tests using 1 worker
+
+[1/9] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked
+  1) [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('#extract-status')
+    Expected pattern: /xtracted \d+ sun/
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 15000ms
+      - waiting for locator('#extract-status')
+
+
+      106 |                 await frame(page, `morph-idle-${scheme}`);
+      107 |                 await page.goto("/demo/shape-extractor");
+    > 108 |                 await expect(page.locator("#extract-status")).toContainText(/xtracted \d+ sun/, { timeout: 15_000 });
+          |                                                               ^
+      109 |                 await frame(page, `shape-extractor-${scheme}`);
+      110 |                 await page.goto("/nope");
+      111 |                 await page.waitForTimeout(400);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:108:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-frames-1440-li-afba9-own-route-·-storage-blocked-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-frames-1440-li-afba9-own-route-·-storage-blocked-chromium/error-context.md
+
+
+[2/9] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked
+  2) [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('#extract-status')
+    Expected pattern: /xtracted \d+ sun/
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 15000ms
+      - waiting for locator('#extract-status')
+
+
+      106 |                 await frame(page, `morph-idle-${scheme}`);
+      107 |                 await page.goto("/demo/shape-extractor");
+    > 108 |                 await expect(page.locator("#extract-status")).toContainText(/xtracted \d+ sun/, { timeout: 15_000 });
+          |                                                               ^
+      109 |                 await frame(page, `shape-extractor-${scheme}`);
+      110 |                 await page.goto("/nope");
+      111 |                 await page.waitForTimeout(400);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:108:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-frames-1440-da-3d37d-own-route-·-storage-blocked-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-frames-1440-da-3d37d-own-route-·-storage-blocked-chromium/error-context.md
+
+
+[3/9] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 1440 storage blocked › the root with site data blocked
+[4/9] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked
+  3) [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('#extract-status')
+    Expected pattern: /xtracted \d+ sun/
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 15000ms
+      - waiting for locator('#extract-status')
+
+
+      106 |                 await frame(page, `morph-idle-${scheme}`);
+      107 |                 await page.goto("/demo/shape-extractor");
+    > 108 |                 await expect(page.locator("#extract-status")).toContainText(/xtracted \d+ sun/, { timeout: 15_000 });
+          |                                                               ^
+      109 |                 await frame(page, `shape-extractor-${scheme}`);
+      110 |                 await page.goto("/nope");
+      111 |                 await page.waitForTimeout(400);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:108:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-frames-390-lig-6a4c3-own-route-·-storage-blocked-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-frames-390-lig-6a4c3-own-route-·-storage-blocked-chromium/error-context.md
+
+
+[5/9] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked
+  4) [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('#extract-status')
+    Expected pattern: /xtracted \d+ sun/
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 15000ms
+      - waiting for locator('#extract-status')
+
+
+      106 |                 await frame(page, `morph-idle-${scheme}`);
+      107 |                 await page.goto("/demo/shape-extractor");
+    > 108 |                 await expect(page.locator("#extract-status")).toContainText(/xtracted \d+ sun/, { timeout: 15_000 });
+          |                                                               ^
+      109 |                 await frame(page, `shape-extractor-${scheme}`);
+      110 |                 await page.goto("/nope");
+      111 |                 await page.waitForTimeout(400);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-misc.spec.ts:108:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-misc-frames-390-dar-5c9cc-own-route-·-storage-blocked-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-misc-frames-390-dar-5c9cc-own-route-·-storage-blocked-chromium/error-context.md
+
+
+[6/9] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 390 storage blocked › the root with site data blocked
+[7/9] [chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[8/9] [chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[9/9] [chromium] › e2e/f-w14u-misc.spec.ts:463:5 › r213 UIA-F-213 — a storage write after boot never crashes (auth) › logging in with site data blocked keeps the session in memory
+  4 failed
+    [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked 
+    [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked 
+    [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked 
+    [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked 
+  5 passed (1.3m)

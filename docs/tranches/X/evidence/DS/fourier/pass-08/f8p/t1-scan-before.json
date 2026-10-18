@@ -1,0 +1,65 @@
+[
+ {
+  "inline": true,
+  "text": "\\cos((n+1)\\theta) + \\cos((n-1)\\theta) = 2\\cos\\theta\\cos(n\\theta)",
+  "right": 376,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": false
+ },
+ {
+  "inline": true,
+  "text": "\\mathcal{F}[\\psi_n] = \\mathcal{F}[(a^\\dagger)^n \\psi_0] = (-i)^n (a^\\dagger)^n \\mathcal{F}",
+  "right": 400,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": false
+ },
+ {
+  "inline": true,
+  "text": "\\langle x, cy \\rangle = \\overline{\\langle cy, x \\rangle} = \\overline{\\bar{c}\\langle y, x \\",
+  "right": 361,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": false
+ },
+ {
+  "inline": true,
+  "text": "J = \\frac{1}{2}(z + z^{-1}) = \\frac{1}{2}\\bigl((z - z^{-1}) + 2z^{-1}\\bigr) + \\frac{1}{2}(",
+  "right": 397,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": false
+ },
+ {
+  "inline": true,
+  "text": "\\|e^{\\pi inx/L}\\|^2 = \\int_{-L}^{L} e^{\\pi inx/L}\\overline{e^{\\pi inx/L}}\\deriv{x} = \\int_",
+  "right": 380,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": false
+ },
+ {
+  "inline": true,
+  "text": "\\vec{x} = \\frac{1}{4}\\overline{F_4}\\vec{X} = \\frac{1}{4}\\begin{pmatrix} 0+2+0+2 \\\\ 0+2i+0-",
+  "right": 375,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": true
+ },
+ {
+  "inline": true,
+  "text": "C = F_N^{-1}(\\sum_k c_k \\mathrm{diag}(\\omega_N^{0\\cdot k}, \\ldots, \\omega_N^{(N-1)\\cdot k}",
+  "right": 492,
+  "edge": 358,
+  "dispScrolls": null,
+  "dispRight": null,
+  "inTheorem": false
+ }
+]
