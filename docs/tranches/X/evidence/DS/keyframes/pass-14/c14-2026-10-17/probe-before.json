@@ -1,0 +1,224 @@
+{
+ "readouts-1440": [
+  {
+   "t": "x",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  },
+  {
+   "t": "y",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  }
+ ],
+ "keyframes-1440": {
+  "row": [
+   92.2,
+   457.4
+  ],
+  "btns": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "l": 92.2,
+    "w": 122.5,
+    "pad": "14px",
+    "glyph": 107.2,
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)"
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "l": 222.7,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 237.7,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "l": 276.7,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 291.7,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "l": 330.7,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 345.7,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "keyframes-1440-title": 93.2,
+ "timeline-1440": {
+  "row": [
+   92.2,
+   457.4
+  ],
+  "btns": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "l": 92.2,
+    "w": 116.1,
+    "pad": "14px",
+    "glyph": 107.2,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "l": 216.3,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 231.3,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "l": 270.3,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 285.3,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "l": 324.3,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 339.3,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "l": 421.4,
+    "w": 36,
+    "pad": "0px",
+    "glyph": 431.4,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "timeline-1440-title": 93.2,
+ "readouts-390": [
+  {
+   "t": "x",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  },
+  {
+   "t": "y",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  }
+ ],
+ "keyframes-390": {
+  "row": [
+   33,
+   357
+  ],
+  "btns": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "l": 33,
+    "w": 111.4,
+    "pad": "14px",
+    "glyph": 48,
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)"
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "l": 152.4,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 167.4,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "l": 206.4,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 221.4,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "l": 260.4,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 275.4,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "keyframes-390-title": 34,
+ "timeline-390": {
+  "row": [
+   33,
+   357
+  ],
+  "btns": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "l": 33,
+    "w": 106,
+    "pad": "14px",
+    "glyph": 48,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "l": 147,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 162,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "l": 201,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 216,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "l": 255,
+    "w": 46,
+    "pad": "14px",
+    "glyph": 270,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "l": 321,
+    "w": 36,
+    "pad": "0px",
+    "glyph": 331,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "timeline-390-title": 34
+}

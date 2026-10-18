@@ -1,0 +1,242 @@
+{
+ "readouts-1440": [
+  {
+   "t": "x",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  },
+  {
+   "t": "y",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  }
+ ],
+ "keyframes-1440": {
+  "row": [
+   92.2,
+   457.4
+  ],
+  "btns": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "clip": false,
+    "l": 92.2,
+    "w": 122.5,
+    "pad": "14px",
+    "glyph": 107.2,
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)"
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "clip": false,
+    "l": 222.7,
+    "w": 55.9,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "clip": false,
+    "l": 286.6,
+    "w": 67.5,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "clip": false,
+    "l": 362.1,
+    "w": 86.5,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "keyframes-1440-title": 93.2,
+ "timeline-1440": {
+  "row": [
+   83.2,
+   457.4
+  ],
+  "btns": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "clip": false,
+    "l": 83.2,
+    "w": 104.1,
+    "pad": "8px",
+    "glyph": 92.2,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "clip": false,
+    "l": 195.3,
+    "w": 64.8,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "clip": false,
+    "l": 268.1,
+    "w": 46.6,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "clip": false,
+    "l": 322.7,
+    "w": 63.9,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "clip": false,
+    "l": 421.4,
+    "w": 36,
+    "pad": "0px",
+    "glyph": 431.4,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "timeline-1440-title": 93.2,
+ "readouts-390": [
+  {
+   "t": "x",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  },
+  {
+   "t": "y",
+   "f": "\"Plus Jakarta Sans\"",
+   "parent": "stage-readout"
+  }
+ ],
+ "keyframes-390": {
+  "row": [
+   33,
+   357
+  ],
+  "btns": [
+   {
+    "name": "Apply CSS",
+    "text": "Apply CSS",
+    "clip": false,
+    "l": 33,
+    "w": 111.4,
+    "pad": "14px",
+    "glyph": 48,
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)"
+   },
+   {
+    "name": "Copy keyframes",
+    "text": "Copy",
+    "clip": false,
+    "l": 152.4,
+    "w": 50.1,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Format",
+    "text": "Format",
+    "clip": false,
+    "l": 210.4,
+    "w": 59.9,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Copy compiled CSS",
+    "text": "Compiled",
+    "clip": false,
+    "l": 278.3,
+    "w": 75.9,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "keyframes-390-title": 34,
+ "timeline-390": {
+  "row": [
+   24,
+   357
+  ],
+  "btns": [
+   {
+    "name": "Snapshot",
+    "text": "Snapshot",
+    "clip": false,
+    "l": 24,
+    "w": 94,
+    "pad": "8px",
+    "glyph": 33,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Import CSS, replacing the timeline",
+    "text": "Import",
+    "clip": false,
+    "l": 126,
+    "w": 57.6,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Add CSS, merging into the timeline",
+    "text": "Add",
+    "clip": false,
+    "l": 191.5,
+    "w": 42.2,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "Export CSS",
+    "text": "Export",
+    "clip": false,
+    "l": 241.8,
+    "w": 56.8,
+    "pad": "8px",
+    "glyph": null,
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "name": "More timeline actions",
+    "text": "",
+    "clip": false,
+    "l": 321,
+    "w": 36,
+    "pad": "0px",
+    "glyph": 331,
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ]
+ },
+ "timeline-390-title": 34
+}
