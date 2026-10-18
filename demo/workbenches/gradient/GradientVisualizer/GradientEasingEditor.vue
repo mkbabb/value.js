@@ -202,7 +202,10 @@ async function copyLiteral(index: number, css: string) {
                 <!-- X-DS value pass 14 (V14C-03): the well floors the literal's
                      contrast, so it is drawn only while the rail holds the
                      literal. With the stage open the rail holds only the toggle,
-                     flush right on the panel above the stage it opened. -->
+                     flush right on the panel above the stage it opened.
+                     Pass 15 (V15C-02): that row is labelled with what is open,
+                     in the strip's caption voice, so the pressed toggle reads
+                     as the row's close control, not a stray glyph. -->
                 <div
                     class="readout-rail flex items-center gap-1.5"
                     :class="!tuneOpen[row.index] && 'rounded-md bg-well px-2 py-1'"
@@ -219,7 +222,7 @@ async function copyLiteral(index: number, css: string) {
                             <Copy v-else class="w-3.5 h-3.5" />
                         </button>
                     </template>
-                    <span v-else class="flex-1" aria-hidden="true" />
+                    <span v-else class="rail-caption flex-1 min-w-0 truncate">Custom curve</span>
                     <button
                         type="button"
                         class="rail-btn shrink-0"
@@ -367,6 +370,12 @@ async function copyLiteral(index: number, css: string) {
 }
 .rail-tick {
     color: var(--motion-accent, var(--foreground));
+}
+/* The open rail's label (V15C-02): the specimen strip's caption voice. */
+.rail-caption {
+    font-size: var(--text-caption);
+    line-height: 1.2;
+    color: var(--ink-muted, var(--muted-foreground));
 }
 
 /* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──

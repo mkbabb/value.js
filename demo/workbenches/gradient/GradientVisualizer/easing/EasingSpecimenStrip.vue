@@ -136,27 +136,52 @@ watch(
 </template>
 
 <style scoped>
+/* The port is the query container: the strip's layout follows the pane's
+   width, not the viewport's (V15C-03). */
+.specimen-strip {
+    container-type: inline-size;
+}
 .strip-row {
     display: inline-flex;
     align-items: stretch;
-    gap: 0.875rem;
+    column-gap: 1.75rem;
+    row-gap: 0.625rem;
     width: max-content;
     /* Headroom so pressed rings + overshoot portraits never clip against
        the fade-scroll mask edges (the kf specimen-grid padding rule). */
     padding: 2px;
 }
+/* X-DS value pass 15 (V15C-03): where the pane can hold more than one family
+   per line, the families wrap, so the whole catalogue shows at once (a single
+   1480px row hid 6 of 8 families behind a cue-less horizontal scroll). The
+   narrow seat keeps the one scrolling line. */
+@container (min-width: 24rem) {
+    .strip-row {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        /* Clips only the hairline of a family that opens a wrapped line: it
+           sits in the gap, outside the 2px headroom. */
+        overflow: clip;
+    }
+}
 
 /* Each family: a family heading over its tile trio — the kf family filter's
    information architecture folded INTO the strip (compactness: no second
-   control row). A hairline rules the family off its neighbor. */
+   control row). A hairline, centred in the gap, rules the family off its
+   neighbour on the same line. */
 .strip-family {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
 }
-.strip-family + .strip-family {
-    border-left: 1px solid var(--card-edge);
-    padding-left: 0.875rem;
+.strip-family + .strip-family::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: calc(-0.875rem - 0.5px);
+    border-inline-start: 1px solid var(--card-edge);
 }
 /* X-DS value pass 14 (V14C-02): the family heading and the tile names sit on
    the scale's caption rung (the route title's), in the certified de-emphasis

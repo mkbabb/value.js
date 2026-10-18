@@ -250,8 +250,10 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                          left, value right, track below); the readout sits at plate ink and the
                          range takes the one scalar range ink (utils.css). -->
                     <Label>{{ type === "conic" ? "From" : "Direction" }}</Label>
+                    <!-- X-DS value pass 15 (V15C-06): the unit is spelled as the CSS
+                         well below spells it ("90deg"), one spelling per angle. -->
                     <span class="text-mono-small plate-ink tabular-nums"
-                        >{{ direction }}&deg;</span
+                        >{{ direction }}deg</span
                     >
                 </div>
                 <!-- X-DS pass 5 (V5C-09): the scalar rail rung (utils.css). -->

@@ -22,8 +22,8 @@
  *
  * `:playback="false"` keeps the producer's travel dot (parks ON the
  * endpoint — L7) and the R8-17 `btn-pill`×`glass-btn` blob OFF the
- * surface; `:readout="false"` keeps the row's literal in exactly ONE
- * place (the parent's readout rail — the one-literal law).
+ * surface. The producer prints the row's one literal itself while the stage
+ * is open (see GradientEasingEditor's readout-rail note).
  */
 import { onMounted, ref, useTemplateRef } from "vue";
 import { useMutationObserver } from "@vueuse/core";
@@ -138,9 +138,12 @@ useMutationObserver(rootEl, syncVbRatio, {
  * (`inset-0`). Capping only the labelled svg drew one component in two boxes at
  * 1440: the plot 304px wide, the handles and the "1" laid out on the 426px
  * wrapper. Capped here, the curve's svg fills the wrapper at `w-full`, and the
- * handles, the labels and the plot are one box at every width. */
+ * handles, the labels and the plot are one box at every width.
+ * Pass 15 (V15C-01): the capped box centres in the well, on the axis of the
+ * full-width controls below it (one rule; the layers move together). */
 .easing-authoring :deep([data-slot="easing-picker"] > div:has(> [data-slot="easing-curve"])) {
     inline-size: min(100%, 19rem);
+    margin-inline: auto;
 }
 .easing-authoring :deep(svg[aria-label]) {
     block-size: auto !important;
