@@ -1520,3 +1520,45 @@ Critic V13C named one low consumer row (V13C-02), one trivial (V13C-03) and two 
   - judge the divided Easing panel with one row open: the expanded body sits between two hairlines inside the panel;
   - judge the panel's hairline weight against the section rules above and below it.
 - The glass rows (V13C-01, V13C-G1) wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 14 (2026-10-18): critic V14C — the bezier handles share the plot's box, the specimen strip speaks the caption rung, the open rail drops its plate, the hue unit reads "deg"
+
+Critic V14C named one high consumer row (V14C-01), one medium (V14C-02) and two low (V14C-03, -04). It also named three glass rows (V14C-G1 medium, -G2 low, -G3 medium) and one carried consumer row (V14C-R1 low). The four consumer rows are cured at the root. The glass rows stay honest-RED on O-87 / O-88. V14C-R1 stays as carried. Evidence is in `pass-14/c14-2026-10-18/` (`pass-14/` already holds an earlier seat's pass 14).
+
+**Commits.** value.js `02f571d59` (the cure: 5 paths) and `89d833765` (frames, capture, falsifier proof, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-14/c14-2026-10-18/`) |
+|---|---|---|---|
+| V14C-01 (high) | **CURED: the cap moves to the shared box.** | `EasingAuthoringStage.vue` Law 3: `inline-size: min(100%, 19rem)` now sits on the producer's canvas wrapper, the picker root's first child (`[data-slot=easing-picker] > div:has(> [data-slot=easing-curve])`). That box holds the curve, its 0/1 labels and the absolute `easing-handles` overlay. The svg keeps only the aspect rule, and `margin-inline: 0 !important` is deleted. No new wrapper. | `capture-c14.json` `tune`, 4/4 cells: at 1440 the stage is 452, and the svg, the wrapper and the curve root are all 304. At 390 all three are 288. Both handles sit 0/0 px from the plot's CTM mapping of their (cx, cy): linear's corners (267,527) and (521,273) at 1440. The "1" label sits 4px inside the plot's top-right. `tune-*.png`. **Falsifier**: `o17` adds "handle registration" at 1440 and 390, GREEN. `falsifier-v14c01.txt` proves it fails on the old rule: with the svg-only cap injected, the wrapper is 426 against the plot's 304, both handles are 61px off, and the falsifier is RED. |
+| V14C-02 (medium) | **CURED in `EasingSpecimenStrip.vue`.** | The family heading and tile names are on `--text-caption` in `--ink-muted`. The 9px mono, the 0.08em tracking and the `opacity: 0.75` are deleted. Headings are in sentence case (`CSS`, `Sine`, `Quad`…). Each tile is a plain column cell: the disc (glass Chip, curve only), then its name. `title` and `aria-label` carry the id. Variant names stay as-cased: they are the CSS keyword fragments (`ease`, `in-out`), the literal's own spelling. | `capture-c14.json` `strip`, 4/4 cells: headings and names compute 14.4px at 1440 and 12.2px at 390 (the caption rung), in Plus Jakarta Sans, with letter-spacing `normal` and opacity 1. 27/27 names sit under their discs, and none is inside one. Strip width 1480/1472, inside the FadingScroll port. `easing-open-*.png`. |
+| V14C-03 (low) | **CURED in `GradientEasingEditor.vue`.** | The rail binds `rounded-md bg-well px-2 py-1` only while it holds the literal (`!tuneOpen`). With the stage open, the toggle sits flush right on the panel. No wrapper. | `capture-c14.json` `railClosed` / `railOpen`, 4/4 cells: closed, the rail has a well background, 4px 8px padding, a 6px radius and is 32px tall. Open, it is transparent, with 0 padding, radius 0, and 24px tall. `tune-*.png`. |
+| V14C-04 (low) | **CURED in `ColorComponentDisplay.vue`.** | `.fig-unit` drops `font-variant: small-caps` and `letter-spacing: 0.04em`, and keeps the 0.55em muted italic index. TYPOGRAPHY-1 is a tranche-R treatment (R.W3 D1), not an owner ruling, so value-canon §2 Type governs. | `capture-c14.json` `unit`: the OKLCh hue unit reads `deg` (font-variant-caps `normal`, italic), and the console reads `9.8deg`. `about-oklch-*.png` shows "9.8 deg". |
+| V14C-G1 (medium) | **Glass-owned: honest-RED, cited on O-87 FLAT-LIGHTING.** | The specimen tiles' Chip material: the rim stack, the floating under-shadow, and the pressed radial gleam. No local override. | Re-judged at the 10.2.0 repin. |
+| V14C-G2 (low) | **Glass-owned: honest-RED, cited on O-87 (ornament with no meaning).** | The EasingPicker canvas draws a steps staircase in the bezier regime. No local override. | Re-judged at the EasingPicker pass. |
+| V14C-G3 (medium) | **Glass-owned: honest-RED, cited on O-87 / O-88.** | The bead; the dock (rim, halo, 390 bulge, collapsed tile); the card, menu and name-field rim stacks; Mix's disabled primary; the thumbless scrubber rails; the light plate's dark veil ink; and the pointer-pick focus ring (V13C-01). | Re-judged at the 10.2.0 repin. |
+| V14C-R1 (low) | **Carried, no change (P4R-01-R).** | The dark rainbow title reads 2.65–2.82:1 on real pixels. It needs an ink-model unit (certify against the local field) or an owner call on the margin. No local fudge. | — |
+
+**Census** (`census-after.json`, `--base :9371 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded; the first attempt was killed at the 60-min cap, `census-after-run1-killed.log`).
+- **Verdict RED, on glass rows only (O-87).** byOwner, glass: 783 layers, 367 inset highlights, 7 drop-shadows, 22 control gradients. Max 6 layers on one element; floater max 8. This is 5 layers, 1 inset and 1 drop-shadow fewer than pass 13. No glass surface was touched, so that difference is not this cure's.
+- **Consumer:** 116 single layers, and 0 on every allowance line. Looping animations: 0. Computed elements: 5294.
+
+**Frames.** Headless real Chrome (§0ei). `capture-c14.mjs` uses one browser per run and a new context per cell, and closes both in a `finally`. It took 40 of 40 route cells over three runs: the 60-min guard cut run 1 at 26 cells, and the dev server's 90-min cap cut run 2. `capture-c14.json` merges them. It also took `easing-open-*`, `tune-*` and `about-oklch-*` (4 each).
+
+**Gates** (`gates/README.txt`). The host ran at load 10–33 all day, with 5–16 min stalls of single tests against 30s budgets.
+- **Type-check:** 0 ×2.
+- **vitest:** the same 5 standing failures (ink D6 ×2, T-35 ×3) in both runs. Each run also has one load timeout, in a different file (generate-rail at 907s; byte-exact's beforeAll hook). Re-run alone, the two files are 32/32 ×2.
+- **e2e** (headless, workers 1, one guarded call per spec, pass 13's 15 specs, plus rechecks). **NOT strict-GREEN ×2 on this host.**
+  - Every non-standing failure is a setup, teardown or click timeout, or `ERR_CONNECTION_REFUSED` after a capped server expired. None is an assertion on a changed surface.
+  - Clean full passes: `o17` 5/5 ×2, `gradient.spec` 12/12, `o21-gradient-rail` 10/10, `a11y-gradient-stop-grammar` 5/5 ×2, `o27` 6/6 ×2, `o29` 6/6, `o11` 6/6 ×2, `page-load` and `walk` ×2.
+  - `o18`: 24 passed ×2, with the same five standing class (c′) cells as pass 13.
+  - `o10b` timed out ×3 on an option click. A direct probe shows every option settles and the readout holds its 1-line lock with the new unit, and O-10b asserts only upper bounds.
+- No visual golden was re-baselined. The `e2e/visual` goldens were not run. At the next visual run, the Easing strip, the authoring stage and the picker header unit will differ, and need a named owner-ruling re-baseline (§0ej).
+
+**Loop state.**
+- Every consumer row from V14C is cured. V14C-R1 is carried.
+- For the next critic:
+  - judge the strip's length now that names sit under the discs (1480px of scroll at 1440);
+  - judge whether the in-disc-name drop the critic allowed is better, keeping `aria-label` plus `title`;
+  - judge the open stage with the toggle flush above it.
+- The gates owe one strict ×2 e2e pass on a quiet host.
+- The glass rows (V14C-G1, -G2, -G3) wait on O-87 / O-88 at the 10.2.0 repin.
