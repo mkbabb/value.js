@@ -130,7 +130,12 @@ function figParts(component: string): { int: string; frac: string } {
  *   · no empty interval: every shown space is ONE line by construction, so
  *     `min-height` (the lock) is the painted line and nothing is reserved
  *     that does not ink — the title row, the 7px header rhythm and the
- *     numerals stack with no band between them. */
+ *     numerals stack with no band between them.
+ *
+ * CANON (X.W10.g1): this is `demo/DESIGN.md` §3 "Proportion and derivation",
+ * Law P-1 (vertical rhythm, OM-3) — a min-height remainder is flex slack and a
+ * defect whatever it measures — applied under §6.2's card-lock law: the lock
+ * is the painted line, so the reservation and the rhythm never disagree. */
 .readout {
     font-size: min(
         var(--type-display-1),

@@ -35,6 +35,14 @@ import { mainPane } from "../fixtures/dock";
  * catalog's widest worst-case tuple (lab), so lab locks ONE line and no
  * reserved air paints above or below the numbers. The bottom-anchor survives
  * as a no-op.
+ *
+ * ADDENDUM 2026-10-18 (X.W10.g1, COHESION §0aq ESC-R1-g1): the T.W6.5-P leg
+ * that asserted the reserved-minus-painted delta as designed air ABOVE the
+ * numbers (`lock === 2`, `airAbove ≥ boxHeight − painted`) is RETIRED — it was
+ * re-stated at 82ba99e19 and is superseded by `demo/DESIGN.md` §3 Law P-1
+ * (vertical rhythm, OM-3: a min-height remainder is flex slack, a defect
+ * whatever it measures). Legs (i)/(ii) now assert P-1 directly (no air either
+ * side); no assertion was deleted or weakened in this retirement.
  */
 
 interface SeamRow {
