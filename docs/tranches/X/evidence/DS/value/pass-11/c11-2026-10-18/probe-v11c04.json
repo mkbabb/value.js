@@ -1,0 +1,141 @@
+{
+ "base": "http://localhost:9321",
+ "res": [
+  {
+   "width": 1440,
+   "theme": "light",
+   "ok": true,
+   "items": [
+    {
+     "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+     "katexTextRuns": 0,
+     "katexTokens": 0,
+     "lineBoxes": 2,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    }
+   ]
+  },
+  {
+   "width": 390,
+   "theme": "light",
+   "ok": true,
+   "items": [
+    {
+     "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+     "katexTextRuns": 0,
+     "katexTokens": 0,
+     "lineBoxes": 3,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    }
+   ]
+  },
+  {
+   "width": 1440,
+   "theme": "dark",
+   "ok": true,
+   "items": [
+    {
+     "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+     "katexTextRuns": 0,
+     "katexTokens": 0,
+     "lineBoxes": 2,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    }
+   ]
+  },
+  {
+   "width": 390,
+   "theme": "dark",
+   "ok": true,
+   "items": [
+    {
+     "text": "L* (Lightness): 0 (black) to 100 (diffuse white)",
+     "katexTextRuns": 0,
+     "katexTokens": 0,
+     "lineBoxes": 3,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "a* (Green-Red axis):a∗<0a^* < 0a∗<0 (green) to a∗>0a^* > 0a∗>0 (red)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    },
+    {
+     "text": "b* (Blue-Yellow axis):b∗<0b^* < 0b∗<0 (blue) to b∗>0b^* > 0b∗>0 (yellow)",
+     "katexTextRuns": 0,
+     "katexTokens": 2,
+     "lineBoxes": 5,
+     "lineEndsOnEquals": false,
+     "family": "\"Plus Jakarta Sans\"",
+     "spaceBeforeColon": false
+    }
+   ]
+  }
+ ]
+}
