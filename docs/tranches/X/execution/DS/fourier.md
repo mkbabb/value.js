@@ -2117,3 +2117,31 @@ This is the cure seat for critic **F12C** of the redeployed loop (pass 12, 2026-
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/*` frames the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-12/f12p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f12p-probe.mjs`: `paper-env-{light,dark}-{1440,390}`.
+
+### pass 13
+This is the cure seat for critic **F13C** of the redeployed loop (pass 13, 2026-10-18; the earlier `### pass 13` headings above belong to other passes of the loop). The AFTER frames are in `evidence/DS/fourier/pass-13/f13p/`; the BEFORE reading is `f13p/before/f13p-probe-before.json` (it matches the critic's: 36/48 at 1440, 36/42 at 390). The other folders in `pass-13/` belong to other seats.
+- fourier `0ee8d0d` (`m/w1-bump-migration`, one path by pathspec, pushed fast-forward `d45a96a..0ee8d0d`) holds T1 and N1.
+- latex-paper `94c6b22` (master, local, not pushed; publishing 0.3.0 is the owner's act) holds the root half and its 0.3.0 changeset line.
+- value.js `1772a2318` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F13C-T1 | **Cured, with the critic's cure amended on one measured point.** The critic proposed `padding-block: 0.25rem` on the display, relying on `overflow-clip-margin: 0.75rem` for headroom. Measured: beside `overflow-x: auto`, `overflow-y: clip` computes to `hidden` (Overflow 3 §3), so the clip margin never applies and the display's 0.75rem padding is the only tall-ink headroom. The padding stays; the margin goes. In `web/src/style.css`: `.math-block .katex-display { margin-block: 0 }`; a theorem-body row is `margin-block: 0.75rem; padding-block: 0`, and the last row ends on the block's own inset (`margin-block-end: 0`, which the theme's `> :last-child` rule meant but lost on specificity). Below 40rem the stacked equation number carries `margin-block-end: 0.75rem`, because the display's padding now sits between the formula and the number. The DS-F9-C6 override is deleted. The root is latex-paper `94c6b22`, which the bridge restates until the 0.3.0 repin. The stale `clip` comment in style.css now carries the measured correction.<br>**Measured** (`f13p-probe-after.json`, headless real Chrome, both themes): Theorem 2.6.3.1 is label-to-ink 24 and ink-to-foot 24 at 1440 and at 390 (it was 36/48 and 36/42). Its height at 1440 is 131.8 (was 167.8). Definition 2.6.3.1 is 24/24. The proof's (2.74) and a prose display are 32/32 (they were 48). At 390 the foot is measured from the number, which is the row's last ink and sits 12 below the formula. |
+| DS-F13C-N1 | **Cured.** The bridge's theorem radius is `0` (was `0 0.5rem 0.5rem 0`), and so is the root's (latex-paper `94c6b22`). No visual change. |
+
+**Glass-owned rows (DS-F13C-G0).** These are pass 12's DS-F12C-G0 rows, unchanged and with no local override, held honest-RED on **O-87 FLAT-LIGHTING** (dock and transport also **O-88**) and re-judged at the glass 10.2.0 repin. "Proof ." (DS-F10C-T2) stays carried on the latex-paper 0.3.0 owner act.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3244`; `f13p/census-after.json`).
+- Static and computed sums are identical to pass 12: 386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations.
+- The cure is spacing and a radius, not lighting. The census is still RED, on the glass rows only.
+
+**Gates** (`f13p/gates.txt`).
+- `vue-tsc -b` exited 0 twice. `vitest run --maxWorkers=2` passed 116/116 twice.
+- **e2e:** pass 12's 20 specs ran headless (chromium and mobile-chromium, `--workers=1`) against plain `vite` on `:3244`. **Run A passed 227/227, and so did run B.** No golden was re-baselined, and the screenshots the runs rewrote were restored to HEAD.
+- **Instrument notes:**
+  - Pass 12's private `createServer` recipe served Tailwind without `h-dvh` this session, so `f-w13-radius` frame 2 failed there even with HEAD's sheet. That is why the runs used plain `vite`.
+  - A production preview run gave 217/227 ×2 (`f13p/preview-runs/`). The 10 failures all hit `/demo/shape-extractor`, a dev-only route that a production bundle does not carry.
+
+**Frames** (`pass-13/f13p/`). Captured in headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f13p-probe.mjs`: `paper-env-{light,dark}-{1440,390}`.
