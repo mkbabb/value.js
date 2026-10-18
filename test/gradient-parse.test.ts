@@ -83,12 +83,58 @@ describe("parseGradientCSS — complete-model acceptance", () => {
             interpolationSpace: "oklch",
             hueMethod: "shorter",
         });
-        expect(css).toBe("linear-gradient(45deg, red 0%, rebeccapurple 80%)");
+        expect(css).toBe("linear-gradient(45deg in oklch, red 0%, rebeccapurple 80%)");
         const again = expectOk(css);
         expect(again.stops.map((s) => s.cssColor)).toEqual([
             "red",
             "rebeccapurple",
         ]);
+    });
+});
+
+describe("the space clause — the copied CSS is the rail's gradient (V10C-01)", () => {
+    const base = expectOk("linear-gradient(90deg, red, blue)");
+    const cases = [
+        { type: "linear", direction: 90, space: "oklch", hue: "shorter", head: "90deg in oklch" },
+        { type: "linear", direction: 90, space: "oklch", hue: "longer", head: "90deg in oklch longer hue" },
+        { type: "linear", direction: 180, space: "lch", hue: "increasing", head: "in lch increasing hue" },
+        { type: "conic", direction: 45, space: "hsl", hue: "decreasing", head: "from 45deg in hsl decreasing hue" },
+        { type: "radial", direction: 0, space: "rgb", hue: "shorter", head: "in srgb" },
+        { type: "linear", direction: 30, space: "oklab", hue: "shorter", head: "30deg in oklab" },
+    ] as const;
+
+    for (const c of cases) {
+        it(`serialize → parse round-trips ${c.space} / ${c.hue} (${c.type})`, () => {
+            const css = serializeGradient({
+                ...base,
+                type: c.type,
+                direction: c.direction,
+                interpolationSpace: c.space,
+                hueMethod: c.hue,
+            });
+            expect(css.startsWith(`${c.type}-gradient(${c.head}, `)).toBe(true);
+            const again = expectOk(css);
+            expect(again.type).toBe(c.type);
+            expect(again.direction).toBe(c.direction);
+            expect(again.interpolation).toEqual({ space: c.space, hueMethod: c.hue });
+        });
+    }
+
+    it("accepts the clause before the geometry and an explicit `shorter hue`", () => {
+        const m = expectOk("linear-gradient(in oklch shorter hue 45deg, red, blue)");
+        expect(m.direction).toBe(45);
+        expect(m.interpolation).toEqual({ space: "oklch", hueMethod: "shorter" });
+    });
+
+    it("leaves the space unnamed when the CSS names none (HSV keeps its own)", () => {
+        expect(base.interpolation).toBeUndefined();
+        const css = serializeGradient({ ...base, interpolationSpace: "hsv", hueMethod: "longer" });
+        expect(css).toBe("linear-gradient(90deg, red 0%, blue 100%)");
+    });
+
+    it("rejects a clause the model cannot hold", () => {
+        expect(expectReject("linear-gradient(in hsv, red, blue)")).toMatch(/interpolation space/);
+        expect(expectReject("linear-gradient(in srgb longer hue, red, blue)")).toMatch(/polar/);
     });
 });
 

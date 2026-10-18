@@ -131,6 +131,21 @@ export function interpolationClause(
     return `in ${cssSpace}${hueClause}`;
 }
 
+/** The model's space for a CSS <color-space> name — the one table read
+ *  backwards, so the parser can only accept what the serializer can print. */
+export function spaceFromCssName(name: string): PickerSpace | null {
+    const key = name.toLowerCase();
+    for (const [space, cssName] of Object.entries(CSS_INTERPOLATION_SPACE)) {
+        if (cssName === key) return space as PickerSpace;
+    }
+    return null;
+}
+
+/** Whether a CSS <color-space> name takes a <hue-interpolation-method>. */
+export function isPolarCssSpace(name: string): boolean {
+    return POLAR_CSS_SPACES.has(name.toLowerCase());
+}
+
 /** The gradient's first argument: geometry (angle / `from`) and the space
  *  clause, space-separated in the one argument css-images-4 gives them. */
 function preamble(
@@ -157,17 +172,16 @@ function fmtPos(position: number): string {
 /**
  * Serialize a gradient model to a simple CSS gradient string (user-editable).
  * Uses the raw stops only — no coalesced intermediate stops. Stop colors are
- * the model's `cssColor` strings verbatim (authored literals survive).
+ * the model's `cssColor` strings verbatim (authored literals survive), and
+ * the first argument carries the model's ` in <space>` clause.
  */
 export function serializeGradient(model: GradientModelState): string {
     const typeName = `${model.type}-gradient`;
     const parts: string[] = [];
-
-    if (model.type === "linear" && model.direction !== 180) {
-        parts.push(`${model.direction}deg`);
-    } else if (model.type === "conic") {
-        parts.push(`from ${model.direction}deg`);
-    }
+    // The same preamble the render tile prints — geometry plus the space
+    // clause — so the copied CSS and the rail are one gradient (V10C-01).
+    const head = preamble(model);
+    if (head) parts.push(head);
 
     for (const stop of model.stops) {
         parts.push(`${stop.cssColor} ${fmtPos(stop.position)}`);

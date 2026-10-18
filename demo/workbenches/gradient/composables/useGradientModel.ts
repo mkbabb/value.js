@@ -215,6 +215,10 @@ export function useGradientModel() {
         type.value = model.type;
         direction.value = model.direction;
         stops.value = model.stops;
+        if (model.interpolation) {
+            interpolationSpace.value = model.interpolation.space;
+            hueMethod.value = model.interpolation.hueMethod;
+        }
         return result;
     }
 

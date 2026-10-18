@@ -19,7 +19,7 @@ This is a **single-dimensional** color space—one number, `1000K` to `40000K`, 
 ### Component
 
 1. **`kelvin` (Color Temperature)**:
-   <Katex expression="kelvin = 1000\text{K} \text{ (reddish-orange) to } 40000\text{K} \text{ (blue)}" :display-mode="false" />
+   1000 K (reddish-orange) to 40000 K (blue)
 
    Lower values are warm; higher values are cool. The entire space is a single axis.
 

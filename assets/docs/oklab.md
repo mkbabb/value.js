@@ -45,13 +45,13 @@ OKLab encompasses all perceivable colors, larger than any RGB or CMYK gamut. Out
 ### Components
 
 1. **`L` (Lightness)**:
-   <Katex expression="L = 0 \text{ (black) to } 1 \text{ (white)}" :display-mode="false" />
+   <Katex expression="L" :display-mode="false" />: 0 (black) to 1 (white)
 
 2. **`a` (Green-Red axis)**:
-   <Katex expression="a < 0 \text{ (green) to } a > 0 \text{ (red)}" :display-mode="false" />
+   <Katex expression="a < 0" :display-mode="false" /> (green) to <Katex expression="a > 0" :display-mode="false" /> (red)
 
 3. **`b` (Blue-Yellow axis)**:
-   <Katex expression="b < 0 \text{ (blue) to } b > 0 \text{ (yellow)}" :display-mode="false" />
+   <Katex expression="b < 0" :display-mode="false" /> (blue) to <Katex expression="b > 0" :display-mode="false" /> (yellow)
 
 ### Representation
 
