@@ -1012,3 +1012,84 @@ None for `.i2`. LW-1 (MINOR, `.d`'s unlisted `ColorPicker.vue:63` adjacent edit)
 
 **Verdict: PARTIAL — C10-1 844×390 CLS RED ×2 (ESC-W8c-1); everything else GREEN ×2 or honest-RED by id, the 12 WebKit cells proven pre-existing.**
 Close ended 2026-10-17 ~19:55 EDT.
+
+## RESUME 2026-10-17 (§0fx) — Check 1
+
+Check seat `claude-opus-5-5`, 2026-10-17 ~19:50–20:15 EDT, VERIFY-ONLY (L-20 fresh adversarial pass 1 on the RESUME close), HEAD `dd8ec58c5`. Spec read whole
+once (546 lines, addenda one through seven); record read header → Unit plan, RESUME Open → Close. Crash-recovery ⟨`git status --porcelain --
+docs/tranches/X/execution/`⟩ → empty.
+
+### Axis 1 — claimed GREENs re-run at this seat
+
+| gate | command | reading (×2 unless stated) | |
+|---|---|---|---|
+| G-1 | the four census commands | `0 · 96 · 53 · 0`; local-barrel filter (`-v @mkbabb/glass-ui/`) 0 | GREEN |
+| G-2 / G-4 / G-5 | `find demo/ui` · `ls components.json demo/shared/utils.ts` · `grep -c 'demo/@' eslint.config.js` · clsx/twm in pkg+lock · tw-animate-css · `shared/debounce` importers | 0 · both absent · 0 · 0/0 · 1 · 11 | GREEN |
+| G-2 cl.2 | added files under `demo` since `d17dece5a` | `markdown/types.ts` + 2 tests; `debounce.ts` is a rename; no new `index.ts` | GREEN |
+| G-7 | `guarded --light -- node …/graph-v3.mjs --print-sccs` | exit 0, `[runtime]`/`[load]` 0, sha256/16 `27d38866c7fae674` ×2 (= close) | GREEN |
+| G-8 static | shim grep · `<DockCrossfade` | 0 · 3 | GREEN |
+| G-8 motion · G-13 live | `guarded -- node W8-witness/probe-g8-g13.mjs 9771` (own guarded vite on :9771 — the shared :9000 hung, see INFO-1) | +60 ms both faces `[data-crossfading]` (0.950/0.050 · 0.812/0.188; run 2 0.609/0.391 · 0.448/0.552), moving 13/15/15/14, snap-inside-motion 0; ink host `button "Login"`, light `oklch(0.304649 0.121841 9.83402)`, dark `oklch(0.958322 0.0210531 9.83402)`, `.glass-dock` bg `rgba(0,0,0,0)` | GREEN |
+| G-9 | `variant=`/`surface=` in PaginationBar · UserSortMenu · AdminListSkeleton | 0 · 0 · 0 | GREEN (before-cure) |
+| G-10 / G-11 | `update:` emit · `colorInputRef\|actionToolbarRef` · `clearHover` (non-`clearHoveredPath`) · overlay `type="button"`/dispose/`finally` | 0 · 0 · 0 · 3/2/1 | GREEN |
+| G-12 / G-13 static | `isAdminMode = computed(` · `chrome` in ink.ts | derived · `:13` comment only | GREEN |
+| G-14 | `400 LoC` in ARCHITECTURE · `max-lines` in eslint | 0 · 5 | GREEN |
+| G-W8-i1 | `grep -rEo 'isWide\|isLgViewport' demo/` | 0 | GREEN |
+| typecheck · lint · product eslint | `guarded --light -- npm run typecheck` · `npm run lint` · `npx eslint demo src api e2e test --max-warnings=0` | `0 0 0` ×2 (product eslint 0 output lines) | GREEN |
+| full vitest | `guarded --timeout 30 -- npx vitest run --maxWorkers=2` | `5 failed \| 1234 passed (1239)` ×2 — ink.test D6 ×2 + T-35 ×3 only; spectrum-luma 5/5, reka-binding 3/3, dock-admin-mode 2/2, dock-command-registry 2/2 | = close (honest-RED below) |
+| J4 o29 | `guarded -- npx playwright test …/o29-scene-contracts.spec.ts --project=smoke -g "short landscape" --workers=1` (lane ports 9781/9785) | `2 passed` ×2 | GREEN |
+
+**20 gate families reproduce; 0 fail.** Not re-run here (banked, close witness ×2): A3/C2 (INFO-1), the per-project `test:e2e` passes and the G-15
+null-DELTA pair (probe parsimony; their composition is the close's register, adjudicated under Axis 10), and the C10-1 CLS cell (RED at close; its value
+does not change the adjudication).
+
+### Axes 2–9
+
+2. **Bounds** — ⟨`git show --stat` on the 19 roster commits `17090b54a`…`e829967c9`⟩: every path inside its unit's writable set; `.d`'s
+   `test/ink-real-composite.test.ts` declared adjacent (§0bt); `.d`'s `ColorPicker.vue:63` (G-10's named parent binding) = LW-1, cured at Repair 1.
+   ⟨`git log --oneline d17dece5a..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → 0. Clean.
+3. **Masking** — ⟨`git show <8 product commits> -- demo test e2e eslint.config.js | grep -E '^\+.*(\.skip|test\.fail|\.only|catch|eslint-disable|@ts-ignore|@ts-expect-error|as any)'`⟩
+   → 1 hit, a doc comment ("no `it.skip`, no `it.fails`"). The `catch {}` at `useContrastSafeColor.ts:99` predates the wave (`5e584aadc`, T.W3). The G-13
+   `throw` (`:183`) has no catching caller. Clean.
+4. **Families** — one commit per unit meaning (§Commit Plan 1–5), with each receipt separate; `.dc`'s spec addendum is separate from its code; `.i2` = cure +
+   NG-6 re-author (two meanings) + receipt. Not split.
+5. **E-3** — ⟨`git diff --stat d17dece5a..HEAD -- registry/adjudicated CONFORMANCE-2026-08-03.md waves/{W5,W6,W7,W9,W10,W12U}.md`⟩ → empty;
+   ⟨`git diff d17dece5a..HEAD -- waves/W8.md | grep -c '^-[^-]'`⟩ → 0 (append-only: `0f2d34e61` · `d632f0757` · `f34718e2f`). Held.
+6. **Mail** — ⟨`find <value V/, V/coordination, keyframes V/coordination, glass BK/coordination> -maxdepth 1 -newer INBOX.md`⟩ → `0 0 0 0`; glass BL depth 2
+   → `FORMATION-PROGRESS.md` only (glass's own cursor); UNREAD I-rows 0. Clean.
+7. **Four-verb** — AUDITED/SPECIFIED YES; IMPLEMENTED PARTIAL at close (on C10-1 alone); VERIFIED NO pending this check. Lawful (the close did not self-stamp).
+8. **Goal criterion at the bytes** — the forwarding layer (`demo/ui`), `components.json`, `cn`/`clsx`/`tailwind-merge`, the `demo/@` config residue and the four
+   SCCs are gone (graph 0/0); nothing replaced them (no new forwarding `index.ts`; `demo/shell/dock/index.ts` exports `Dock` only). MET.
+9. **Published figures** — `0/96/53/0`, sha `27d38866c7fae674`, `5 failed | 1234 passed (1239)`, the G-13 tints and `2 passed` (J4) reproduce exactly.
+
+### Axis 10 — honest-RED adjudication (every RED the close left)
+
+| RED | relief, at the bytes | owner named | adjudication |
+|---|---|---|---|
+| full vitest ink.test D6 ×2 + T-35 ×3 (G-5 cl.4 / G-15) | G-15 is PRESERVATION; the five are pre-existing at wave-open (X-W12U Close 8 "INK-VEIL-MIDBAND ×5", the RESUME Baseline's standing set) and the composition is unchanged at this seat ×2 | INK-VEIL-MIDBAND → **O-62 (a)** | HONEST-RED |
+| DOCK-SCROLL-MORPH | W8.md ADDENDUM (third, §0bc): "otherwise the row closes honest-RED by id with O-55 — no consumer copy" | **O-55** (glass) | HONEST-RED (spec's own relief) |
+| `test:e2e` (c′) cells (o18 · o19 · o23:225 · o26 · o28 · webgl-blob-idle:210) | not W8 rows; routed by X-W12U C7-2 / W10.md addenda; pass 2 ⊂ pass 1 | → the (c′) later value wave / **X-W10** | HONEST-RED (successor routing) |
+| `test:e2e` smoke-perf `eager-payload:313/:377` · `o5-boot-pacing:74` | X-W2's rows, same set as X-W12U Check 10 | **X-W2** rows | HONEST-RED |
+| `test:e2e` visual 219 cells | goldens minted `e2347c0e5` (2026-09-18) vs a month of lawful product change; W8's own semantics read by the G-15 null-DELTA pair (GREEN 60/60) | **X-W10** visual canon | HONEST-RED |
+| 12 WebKit-only oracle cells | pre-existing: the same 12 fail on the wave-open tree (Act 2b; the 5 spec files byte-identical) — preservation holds | **none named** ("orchestrator to home") | not a W8 defect; register gap → MINOR C1-2 |
+| C10-1 844×390 CLS `0.00001` | **not a W8 spec gate**: no W8.md byte names a CLS bar; X-W12U Check 10 routed it here as a MINOR, "mitigated, so it does not block" (pre-cure 0.00128), into `.i`, whose grant (ADDENDUM second) does not hold the chevron's file | ESC-W8c-1 (owner re-route pending) | MINOR-with-mitigation → C1-1; does not block |
+
+### Register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| C1-1 | MINOR | C10-1 (844×390 CLS `0.00001`, `svg.lucide<control-surface`) stands RED, routed into `.i` by X-W12U Check 10 although `.i`'s grant excludes the chevron; the close escalated it (ESC-W8c-1) and held the wave PARTIAL. It is a MINOR the originating check classed mitigated, and no W8 gate carries it, so it does not block | close-heavy-arms.txt `:212-222`; X-W12U.md `:3408`; `grep -n 'CLS' waves/W8.md` → 0 | owner rules ESC-W8c-1: re-route C10-1 to the colour-space control's owner (X-W10 at its unit) |
+| C1-2 | MINOR | R4's 12 WebKit-only oracle cells have no named owner | close R4; Act 2b | orchestrator homes them by authoring row (o11 T.W3-4 · o15 T.W6 · o27 U.W-A11Y · o4 T.W0 · w7-destructive-seats X-W7) → X-W10 |
+| C1-3 | INFO | A3/C2 not re-run at this seat: the shared `:9000` dev server (pid 18461, `vite --port 9000`, 5 h 15 m, 100 % CPU, 2.9 GB, not this seat's) hangs (`curl --max-time 60` → 000); the S-1 probe hard-codes `:9000` and must run UNMODIFIED; the close's ×2 GREEN (`close-A3-C2-measured.txt`) and REG ×2 here stand | ⟨`curl -s -w '%{http_code}' --max-time 60 http://localhost:9000/`⟩ → `000` | none for W8; the reaper retires the stale server at 6 h |
+| C1-4 | INFO | G-8's "no frame with both faces at extremes" is read as "no snap inside the motion window" (rest/settled endpoints excluded), as `G-8-G-13-probe.txt:4` states; `framesBothFacesAtExtremesWhileLeaving` counts endpoints (14–17) | g8 probe JSON | none |
+
+0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MEDIUM · 2 MINOR · 2 INFO.
+
+### Successors' "Opens after"
+
+- **X-W10**: "X-W5, X-W6, X-W7, X-W8, X-W9 stable … AND the CC-104 …" — the X-W8 conjunct turns GREEN with this check; X-W5/6/7/9 CLOSED; the CC-104 and
+  X-W0/X-W1 conjuncts are X-W10's own to read at its open.
+- **X-W11**: "X-W0 … X-W10 are IMPLEMENTED" — the X-W8 conjunct is GREEN; X-W11 stays lawfully blocked on X-W10.
+- **X-W9.g** (ARCHITECTURE.md carve after X-W8): X-W9 is CLOSED; nothing is reopened.
+
+**Verdict: CONFORMANT-HONEST-RED.** Honest-RED set: ink D6/T-35 ×5 → O-62 (a) · DOCK-SCROLL-MORPH → O-55 · e2e (c′) cells → X-W10 · perf rows → X-W2 ·
+visual goldens → X-W10; plus the MINOR residuals C10-1 (ESC-W8c-1) and the 12 pre-existing WebKit cells (to home). LEDGER → CLOSED 2026-09-17 (honest-RED).
