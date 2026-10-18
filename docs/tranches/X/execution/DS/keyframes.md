@@ -3534,3 +3534,67 @@ Every capture ran in headless real Chrome (§0ei), with one browser per run and 
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 18
+
+**Cure commit:** keyframes.js `e48b058e` (master, pushed fast-forward from `5717fb38`). **Evidence:** value.js `78c51283a`, in `evidence/DS/keyframes/pass-18/c18-2026-10-17/`. `pass-18/` already holds frames from another round, so this pass writes to a dated subdirectory and leaves those files alone. The critic's C18 probes and frames (`pass-18/critic-c18/`) are committed in the same commit.
+- `after/`: every route at 1440 and 390 in both schemes; the cube pane's Controls, Keyframes and Timeline surfaces (Timeline empty, and after the inline Import) at 1440 and 390; at 1440 the layer region and the Spring pane; and the critic's 390-dark imported cell at t = 600, 2500 and 6000 ms.
+- `after/capture.json` adds `feet-<scene>-1440-<scheme>`, which records the pane frame's foot against the stage plate's foot on every scene, and `importGate`, which records the title's effective opacity, the toast and the scroll positions after the Import.
+- Also in the directory: `capture.mjs`, `capture.log`, `census.json`, `census.log`, `dev.log`, and the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..3`.
+
+Every capture ran in headless real Chrome (§0ei), with one browser per run and a new context for each cell, all closed in `finally`.
+
+**Cured (consumer, at the root)**
+- **KF-C18-01 (medium): the rail keeps one foot with a stage plate.** The cure is in `AnimationControlsGroup.css`, at the rule KF-C17-01 added.
+  - The hang (`align-self: start`) now belongs to the full-bleed stages only. When the stage cell holds a plate (the scene's glass Card, `.stage-cell [data-slot="card"]`, which square, easing, spring and sequence have), the rail stretches again: KF-C10-10's one foot. The selector is `.controls-pane-wrapper:has(~ .stage-cell [data-slot="card"])`, beside the `.rail-fill` arm.
+  - In those scenes the left-over block stands under the ribbon inside the frame (the KF-C7-02 / KF-C16 rhythm).
+  - Cube and amiga have no partner plate, so they keep the hang. The empty Timeline still ends at 440.2, the imported one at 558.8 and the layer region at 571.8.
+  - Served at 1440, both schemes:
+
+    | scene | frame foot (was) | plate foot | delta |
+    |---|---|---|---|
+    | square | **750.1** (737.2) | 750.1 | 0 |
+    | spring | **750.1** (740.5) | 750.1 | 0 |
+    | easing | **750.1** (742.2) | 750.1 | 0 |
+    | sequence | 750.1 (750.1) | 750.1 | 0 |
+    | cube, amiga | 737.2 (hang) | no plate | n/a |
+
+- **KF-C18-02 (low): the 390-dark imported frame.** The defect was in the evidence, so the cure is in the instrument (`capture.mjs`).
+  - The inline Import is now pressed with `element.click()` inside `evaluate`, so Playwright's actionability scroll never runs and the scroll-restore step from pass 15 is deleted.
+  - The shot waits for the `[data-slot=toast]` node, then polls until the Timeline title's effective opacity is 1 and nothing in the pane frame is scrolled.
+  - Served, both schemes at 390: `titleOpacity` 1, toast present, `scrolled` empty and `rootScroll` 0, within 3 to 4 ms. The same holds at t = 600, 2500 and 6000 ms (`after/imported-390-dark-t{600,2500,6000}.png`).
+
+**Cited (glass, not overridden)**
+- **KF-C18-03 (low): the success toast.** The glass Toaster hangs its close disc off the toast's corner, carries the success tone twice (a saturated edge and a tinted fill), and its floating blur smears the stage at 390. Re-observed in `after/cube-timeline-imported-390-dark.png`.
+  - Cited as an **O-87 FLAT-LIGHTING** rider: seat the close control in the toast's row, carry the tone once, and take the 10.2.0 lower blur token. No local override. Re-judge at the repin.
+- **KF-C18-04 (low): every Configurator select points up while closed.** This is the standing KF-C5p-01, widened: glass's `in-data-[state=open]:rotate-180` matches the always-open `.configurator-layer-region[data-state=open]` ancestor.
+  - The O-87 row's text is widened to "every Configurator select" (direction, fill mode, and the Easing pane's select). No local override.
+
+**Declined (judgement call, recorded)**
+- **KF-C18-05 (trivial): the ruler's endpoints.** Not changed. The ruler drops a graduation's label where a stop's caret already states it (UIA-KF-178, `TimelineTrack.vue` `stopAtTick`). Keeping a muted 0 % and 100 % above the track would label the same offset twice, which UIA-KF-178 cured. The critic offered "leave it" as an option. The change of frame happens because content arrived, and each state reads clearly.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5218/ --widths 1440,390 --settle 5000`): identical to pass 17 apart from `at` and `computed.base`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which also carries another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`:
+  - run 1: 941/941;
+  - run 2: 940/941. The failure was in `test/demo/app/r4dock-share-fallback.test.ts` (2): the selection read `[145, 145]` where `[0, 145]` was expected. It is a jsdom test of the share surface, and the changed CSS does not reach jsdom. The file then passed 3 of 3 times on its own;
+  - run 3: 941/941.
+  - That gives two GREEN full runs (1 and 3), with run 2's failure disclosed as a flake unrelated to this change.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- `AnimationControlsGroup.css` held no other seat's hunks, so the keyframes commit is pathspec-only. The other seat's hunks in the three files listed above are untouched and still unstaged.
+- The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5218) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm).
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 60`;
+  - the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
