@@ -27,7 +27,7 @@ OKLCh is the polar form of [OKLab](https://bottosson.github.io/posts/oklab/), pu
 -   Newer; less support in legacy tools and older design software
 -   Conversion chain is longer than RGB or HSL (OKLCh → OKLab → XYZ → linear RGB → sRGB)
 -   Not directly displayable—still needs gamut mapping to a device space
--   The `0`–`1` lightness scale differs from Lab/LCh's `0`–`100`, which can cause confusion
+-   The 0–1 lightness scale differs from Lab/LCh's 0–100, which can cause confusion
 
 ---
 

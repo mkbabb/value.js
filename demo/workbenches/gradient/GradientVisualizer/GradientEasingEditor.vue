@@ -127,16 +127,20 @@ async function copyLiteral(index: number, css: string) {
         v-model="openValue"
         type="single"
         collapsible
-        class="easing-panel flex flex-col gap-2"
+        class="easing-panel flex flex-col border border-card-edge overflow-hidden"
     >
-        <!-- Z2 in-plate specimen rows: flat on the plate, --card-edge
-             hairline, no shadow (DESIGN.md § Depth); each row strokes the
-             interval's OWN ink through the producer's --motion-accent door. -->
+        <!-- Z2 in-plate specimen rows: ONE surface, divided by --card-edge
+             hairlines (X-DS pass 13, V13C-02: no framed capsule per row, no
+             gap, no shadow; DESIGN.md § Depth). The divider is glass's own
+             item rule (`.disclosure-item`'s block-end hairline) in the
+             card-edge ink; the last row drops it, since the panel's edge
+             closes the list. Each row strokes the interval's OWN ink through
+             the producer's --motion-accent door. -->
         <AccordionItem
             v-for="row in specimenRows"
             :key="row.index"
             :value="String(row.index)"
-            class="easing-row border border-card-edge overflow-hidden"
+            class="easing-row border-card-edge last:border-b-0"
             :style="row.ink ? { '--motion-accent': row.ink } : undefined"
         >
             <!-- X-DS pass 7 (VC7-01): the inset rides the CLASS, which glass's
@@ -249,7 +253,7 @@ async function copyLiteral(index: number, css: string) {
    beside true circles. The register is now DERIVED — two rungs and one inset,
    related by the concentric law:
 
-     outer = the card radius                   (each interval row)
+     outer = the card radius                   (the one divided panel)
      inner = the readout rail's radius         (every surface nested one inset
                                                 inside a row: the ramp strip,
                                                 the readout rail, the authoring
@@ -270,7 +274,9 @@ async function copyLiteral(index: number, css: string) {
     --easing-radius-inner: var(--radius-md);
     --easing-inset: calc(var(--easing-radius-outer) - var(--easing-radius-inner));
 }
-.easing-row {
+/* The one edge is the panel's (V13C-02): its corner is the outer rung and its
+   overflow clips the first and last rows' square hover plates to it. */
+.easing-panel {
     border-radius: var(--easing-radius-outer);
 }
 .easing-row-body {
@@ -283,8 +289,9 @@ async function copyLiteral(index: number, css: string) {
 
 /* The specimen-row head: a whisper hover on the ROW's radius (X-DS pass 7,
  * VC7-01). The head is glass's trigger <button>, which this file's scoped
- * attribute never reaches, so the rule pierces from the row. It is square: the
- * row's `overflow-hidden` clips it to the row's outer radius, instead of
+ * attribute never reaches, so the rule pierces from the row. It is square: a
+ * divided list's plate, which the panel's `overflow-hidden` clips at the
+ * panel's outer radius for the first and last rows, instead of
  * glass's pill `--radius-control` plate floating inside a 16px card. The focus
  * register is glass's own (`.disclosure-trigger:focus-visible`, the house
  * ring); this file's copy of it was dead and is gone. */
