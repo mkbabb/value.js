@@ -2040,3 +2040,29 @@ This is the cure seat for critic **F9C** of the redeployed loop (pass 9, 2026-10
 - No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames the runs rewrote were restored to HEAD after each run.
 
 **Frames** (`pass-09/f9p/`). Headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f9p-probe.mjs`: 14 PNGs — `morph-{light,dark}-390`, `morph-scrolled-{light,dark}-{390,1440}` (L1), `paper-mid-{light,dark}-844x390` (L2), `paper-proof-{light,dark}-1440` (T1), `equation-{light,dark}-1440` and `visualize-{light,dark}-1440` (T2).
+
+### pass 10
+This is the cure seat for critic **F10C** of the redeployed loop (pass 10, 2026-10-17; the earlier `### pass 10` headings above belong to other passes of the loop). The AFTER frames are in `evidence/DS/fourier/pass-10/f10p/`; the BEFORE cells are the critic's (`paper-mid-*-844x390`, `morph-scrolled-*`, `paper-proof-*-1440`). The other folders in `pass-10/` belong to other seats.
+- fourier `4041480` (`m/w1-bump-migration`, five paths by pathspec, pushed fast-forward `c6a80b2..4041480`) holds L1 and T1.
+- value.js `7312665db` holds the AFTER frames, the probe and its JSON, the census, and the gate and e2e logs.
+
+**Consumer findings.**
+
+| id | outcome |
+|---|---|
+| DS-F10C-L1 | **Cured.** One rule width per route, the column's measure. /paper: `.floating-toc::after` is inset by `--page-gutter`, the token the band already pads the bar with. /morph below lg: the band's `border-block-end` (on the full-bleed band) is replaced by an `::after` inset by the gutter and hung under the band's foot, /paper's recipe. /morph at lg: `meta.ownsCut` now holds at every width (the `max-lg:` gate in App.vue is gone), and the cut is a 1px sticky `.demo-page::before` in the page's content box, pulled up through the top padding and giving the pixel back, so nothing moves. No new element, no shadow or fade.<br>**Measured** (`f10p-probe.json`, scrolled, both themes): /paper 844×390 rule 16..828 = bar 16..828 = article 16..828 (it was 0..844); /paper 390 rule 16..374 = bar = article; /morph 390 rule 16..374 = cards 16..374 (shell rule `rgba(0,0,0,0)`); /morph 1440 rule 160..1280 = the title's and the column's edge (shell rule off). Colour `--border` (rgb(198 180 159) light, rgb(101 87 73) dark). |
+| DS-F10C-T1 | **Cured.** The root ToC list computes each depth's widest ordinal in characters (`--toc-ord-<depth>`; "0.1." among the chapters, "2.10." at depth 1), and each ordinal takes `min-inline-size: calc(var(--toc-ord) * 1ch)` in its own Fira Code figures. The label is a baseline flex row (the gap is the old 0.22rem), so the title column starts at the ordinal's measure and wrapped lines keep it, replacing the fixed-rem `text-indent` hang that "0.1." outran. Unnumbered rows keep the empty measure.<br>**Measured** (1440, both themes): one title edge per depth: depth 0 at 219.2 (was 219.2 / 215.6), depth 1 at 239, depth 2 at 247 (was 247 / 202 for the unnumbered rows). Frame `paper-proof-*-1440`. |
+| DS-F10C-T2 | **Carried, not a new defect.** "Proof ." still renders as served (probe `proofText`). It is cured at the latex-paper root (`04c3992`, DS-F7C-C2); the 0.3.0 publish and the fourier repin, which also drop the 0.2.1 bridge rules (DS-F8C-C1/C2/T1), are owner acts. |
+
+**Glass-owned rows (DS-F10C-G0).** Re-stated and unchanged, with no local override: the five-layer glass-resting stack on `.floating-toc-bar` (inset bevel, two ink rims, cast, `--shadow-lg`), the glass-floating configurator stack, the dark emphasis halo, the stage capsules, the track-well, the transport's `1 ×`, the dock menu, the text-emphasis hue swap, and the aside's 12px top offset. Fourier's own CSS still has no glow, text-shadow, drop-shadow or infinite chrome animation. Held honest-RED on **O-87 FLAT-LIGHTING** (dock and transport also **O-88**), re-judged at the glass 10.2.0 repin.
+
+**Census** (fourier `scripts/ds-census.mjs --chrome` on `:3221`; `f10p/census-after.json`).
+- Static: unchanged (7 box-shadow declarations, 11 layers, 1 inset, 7 gradients, 3 keyframes, 0 infinite animations, 0 text-shadow).
+- Computed sums: identical to pass 9 (386 shadow elements, 978 layers, 292 multi-layer stacks, 292 inset highlights, 208 backdrop blur, 0 control gradients, 0 looping animations). The rules are 1px backgrounds, not shadows. Still RED, on the glass rows only.
+
+**Gates** (`f10p/gates.txt`).
+- `vue-tsc -b` exited 0 twice, and `vitest run --maxWorkers=2` passed 116/116 (20 files) twice, under `guarded --light`.
+- **e2e:** the 24 specs of pass 9 (`e2e-specs.txt`; they include every spec that reads `.floating-toc`, the ToC tree, `.stage-column` or the shell's scroll state) ran headless (chromium and mobile-chromium) with `--workers=1` against a private vite on `:3221`, with the config's own preview on `:4190` for `f-w14u-misc`. **Run A passed 245/245, and so did run B.** Both servers were stopped at the end.
+- No golden was re-baselined. The `web/e2e/screenshots/f-w14/after-*` frames the runs rewrote were restored to HEAD after each run.
+
+**Frames** (`pass-10/f10p/`). Headless real Chrome (channel `chrome`, DPR 2, §0ei; touch below 1024) by `f10p-probe.mjs`: 12 PNGs — `paper-mid-{light,dark}-{844x390,390x844}` and `morph-scrolled-{light,dark}-{390,1440}` (L1), `paper-proof-{light,dark}-1440` (T1, T2 as served).
