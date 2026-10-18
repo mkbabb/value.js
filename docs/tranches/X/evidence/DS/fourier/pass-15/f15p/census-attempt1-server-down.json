@@ -1,0 +1,806 @@
+{
+  "tool": "ds-census",
+  "at": "2026-10-18T11:58:31.817Z",
+  "static": {
+    "totals": {
+      "boxShadowDecls": 7,
+      "boxShadowLayers": 11,
+      "insetLayers": 1,
+      "textShadow": 0,
+      "filterDropShadow": 0,
+      "filterBlur": 0,
+      "backdropBlur": 0,
+      "gradients": 7,
+      "infiniteAnimations": 0,
+      "keyframes": 3,
+      "twShadow": 0,
+      "twDropShadow": 0,
+      "twBackdropBlur": 0,
+      "twGradient": 0,
+      "twLoopAnimate": 0
+    },
+    "sites": [
+      {
+        "file": "web/src/components/admin/AdminUserTable.vue",
+        "line": 176,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/gallery/GalleryCard.vue",
+        "line": 257,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/gallery/GalleryDraftsSection.vue",
+        "line": 131,
+        "kind": "gradient",
+        "text": "background-image: linear-gradient("
+      },
+      {
+        "file": "web/src/components/morph/HarmonicLevelGrid.vue",
+        "line": 327,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 1px var(--accent-red);"
+      },
+      {
+        "file": "web/src/components/ui/SliderControl.vue",
+        "line": 319,
+        "kind": "gradient",
+        "text": "--glass-slider-track-background: linear-gradient("
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 445,
+        "kind": "gradient",
+        "text": "linear-gradient(color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),"
+      },
+      {
+        "file": "web/src/components/visualization/ContourEditorCanvas.vue",
+        "line": 446,
+        "kind": "gradient",
+        "text": "linear-gradient(90deg, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),"
+      },
+      {
+        "file": "web/src/components/visualization/ImageUpload.vue",
+        "line": 172,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 0 0 2px var(--focus-ring-color);"
+      },
+      {
+        "file": "web/src/components/visualization/VisualizationView.vue",
+        "line": 1139,
+        "kind": "box-shadow(inset)",
+        "text": "box-shadow: inset 0 0 0 2px var(--focus-ring-color);"
+      },
+      {
+        "file": "web/node_modules/@mkbabb/latex-paper/src/vue/theme.css",
+        "line": 74,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);"
+      },
+      {
+        "file": "web/node_modules/@mkbabb/latex-paper/src/vue/theme.css",
+        "line": 79,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);"
+      },
+      {
+        "file": "web/node_modules/@mkbabb/latex-paper/src/vue/theme.css",
+        "line": 84,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);"
+      },
+      {
+        "file": "web/node_modules/@mkbabb/latex-paper/src/vue/theme.css",
+        "line": 88,
+        "kind": "box-shadow",
+        "text": "box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);"
+      },
+      {
+        "file": "web/node_modules/@mkbabb/latex-paper/src/vue/theme.css",
+        "line": 509,
+        "kind": "gradient",
+        "text": "background: linear-gradient("
+      }
+    ]
+  },
+  "computed": {
+    "base": "http://localhost:3251",
+    "routes": [
+      "/paper",
+      "/gallery",
+      "/equation",
+      "/morph",
+      "/w/",
+      "/no-such-route"
+    ],
+    "sum": {
+      "boxShadowEls": 12,
+      "boxShadowLayers": 12,
+      "multiLayerShadowEls": 0,
+      "insetHighlightLayers": 0,
+      "textShadowEls": 0,
+      "filterDropShadowEls": 0,
+      "filterBlurEls": 0,
+      "backdropBlurEls": 0,
+      "controlGradientEls": 0,
+      "loopingAnimations": 0
+    },
+    "perPage": {
+      "/paper|light|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|light|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|light|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|light|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|light|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|light|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|light|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(255, 255, 255) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|light|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(255, 255, 255) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|light|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(255, 255, 255) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|light|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(255, 255, 255) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|light|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(255, 255, 255) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|light|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(255, 255, 255) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|dark|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|dark|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|dark|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|dark|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|dark|1440": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 0,
+          "boxShadowLayers": 0,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/paper|dark|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(32, 33, 36) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/gallery|dark|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(32, 33, 36) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/equation|dark|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(32, 33, 36) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/morph|dark|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(32, 33, 36) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/w/|dark|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(32, 33, 36) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      },
+      "/no-such-route|dark|390": {
+        "totals": {
+          "elements": 20,
+          "boxShadowEls": 1,
+          "boxShadowLayers": 1,
+          "multiLayerShadowEls": 0,
+          "insetHighlightLayers": 0,
+          "textShadowEls": 0,
+          "filterDropShadowEls": 0,
+          "filterBlurEls": 0,
+          "backdropBlurEls": 0,
+          "controlGradientEls": 0,
+          "loopingAnimations": 0
+        },
+        "top": {
+          "boxShadow": [
+            {
+              "el": "div#buttons.nav-wrapper.suggested-right",
+              "n": 1,
+              "v": "rgb(32, 33, 36) 0px -12px 24px 0px"
+            }
+          ],
+          "inset": [],
+          "textShadow": [],
+          "dropShadow": [],
+          "blur": [],
+          "backdrop": [],
+          "gradient": [],
+          "loop": []
+        }
+      }
+    }
+  }
+}
