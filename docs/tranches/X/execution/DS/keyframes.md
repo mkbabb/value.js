@@ -3253,3 +3253,81 @@ Every capture is headless real Chrome (§0ei), with one browser per run and a co
   - check and lint: `--light`;
   - vitest: `--rss-gb 8`.
 - Nothing this seat started was left running.
+
+### pass 14
+
+**Cure commit:** keyframes.js `09ae6fb7` (master, pushed fast-forward from `b58dc0ea`). **Evidence:** value.js `f8d2694f5`, in `evidence/DS/keyframes/pass-14/c14-2026-10-17/`. `pass-14/` already holds an earlier round's committed evidence and the C14 critic's `c14-critic/`, so this pass writes to a dated subdirectory and leaves those files alone.
+- `after/`: every route at 1440/390 in light and dark, plus the cube pane's ribbon surfaces (Controls, Keyframes, and Timeline both empty and after the inline Import) at 1440 and 390 in both schemes.
+- `after/capture.json`: for each surface and cell, the pane title's left edge, the lead's plate and glyph edges and fill, every verb's visible word, glyph and clipping, the ribbon row's bottom against the card's, and (at 390) the sheet's served box.
+- `probe.mjs` with `probe-before.json` and `probe-after.json`; `capture.mjs`; `census.json` and `census.log`; the gate logs `check-1..2`, `lint-1..2` and `test-demo-1..2`.
+
+Every capture is headless real Chrome (§0ei), with one browser per run and a context per cell, all closed in `finally`.
+
+**Cured (consumer, at the root)**
+- **KF-C14-01 (medium): one edge rule in all three ribbon rows.** The rule is the transport's (KF-C6-01): a quiet lead takes the slim `px-2` and hangs that padding plus its 1px edge into the gutter, so its glyph sits on the column; a filled lead keeps its plate on the column.
+  - The Timeline row binds the hang (`-ms-[calc(0.5rem_+_1px)]`) and Snapshot's `px-2` to `importLeads`, the condition that makes Snapshot quiet.
+  - Keyframes always leads with the filled Apply CSS, so its row is unchanged.
+  - Served at 1440, both schemes, against the title at 93.2:
+
+    | state | lead | plate | glyph |
+    |---|---|---|---|
+    | Controls | Reverse, quiet | 83.2 | **92.2** |
+    | Timeline, empty | Snapshot, quiet | 83.2 | **92.2** (was 107.2) |
+    | Timeline, imported | Snapshot, filled | **92.2** | 107.2 |
+    | Keyframes | Apply CSS, filled | **92.2** | 107.2 |
+
+    At 390, against the title at 34: quiet leads have their glyph at 33, and filled leads have their plate at 33. These 390 values are DOM-only (see KF-C14-06).
+  - Switching between Controls and the empty Timeline no longer moves the leading glyph.
+- **KF-C14-02 (medium): the quiet verbs keep their words.** Import, Add and Export, and Copy, Format and Compiled, drop their glyphs and show their words at every width.
+  - The `@max-[28rem]` and `@max-[29rem]` yields were the rows' one-line widths, which the rail never reaches, and they are deleted along with their `@container` and the unused lucide imports. The quiet verbs take the transport's slim `px-2`.
+  - Measured: at 1440 the Timeline row ends Export at 386.6 and the overflow at 457.4, inside a 365 px row; Keyframes ends Compiled at 448.6 of 457.4. At 390 (324 px rows), Export ends at 298.6 and Compiled at 354.2 of 357. No verb is clipped (`scrollWidth ≤ clientWidth`).
+  - The overflow `…` keeps its glyph; it is icon-only and named.
+  - `ribbon-keyframes-hierarchy.test.ts` pinned the retired yield rule (an `sr-only` class on every label). It now pins the cured contract: every quiet verb has a word, no glyph and no `sr-only`. This is a restatement of the rule, not a weakening.
+- **KF-C14-04 (low): the Timeline's verbs close the card.** On the Timeline surface the ribbon section takes the free block above itself (`mt-auto` on `RibbonBar`'s root, a flex child of the frame's column).
+  - Served at 1440: the Timeline row's bottom is 737.1, the same as the Keyframes row's, in a card whose foot is at 750.1. Before, it was at about 408 (empty) and 528 (imported).
+  - At 390 the frame is not a bounded column, so nothing moves.
+  - **Disclosure:** this puts back the blank band between the Timeline's last row and the ribbon's rule that KF-C11-04 removed. C11 judged that band worse; C14 judges the mid-card verbs worse. This pass follows C14, so all three facets share one anatomy (content, then verbs at the foot). The next critic should judge that trade, not this seat.
+
+**Instrument (KF-C14-06, consumer: capture only)**
+- `capture.mjs` now sets `isControlsPanelOpen: true` in the same `setSurface` patch at 390.
+- The sheet still serves at the peek: top 722.6, height 171, the same as with the fact unset. The visible rise is glass's SHEET-POSITION (O-87/O-88).
+- So the 390 ribbon rows sit below the viewport (`inView: false`, row bottoms 989 to 1444), and **every 390 ribbon measurement in this receipt is DOM-only, not framed.** The 390 frames show the peek.
+
+**Refused / deferred**
+- **KF-C14-03 (medium): not cured by this seat.** The defect lives in `onSheetFocusIn`, `onSheetFocusOut` and `restPort` in `ControlsPaneWrapper.vue`. That code exists only as another workflow's uncommitted hunks (marked "X-DS r8 pass 11 (KF-C11-01)", dirty since 16:30 and never committed).
+  - Curing it means editing and committing that seat's code, and nothing in `HEAD` holds the port ref or the rest logic to build a separate cure on.
+  - The row stays open for the owner of those hunks, or for the next seat once they land. The cure as the critic states it: rest the port by the detent the sheet actually serves (activeSnap at the peek rung), not by `isControlsPanelOpen`. The visible-rise half stays cited against O-87/O-88.
+- **KF-C14-07 (trivial): no change; measured as not a defect.** At 1440 and 390, Square's `x` and `y` labels compute `font-family: "Plus Jakarta Sans"`, the same as Spring's and Sequence's labels (`probe-before.json`, `readouts-*`), through `.stage-readout > :first-child` (`design-idioms.css`). No square-scoped rule overrides it. The single-letter glyphs only look like mono.
+
+**Cited (glass, not overridden)**
+- **KF-C14-05 (low): the toast** is glass Toaster's anatomy and material: the corner-hung close disc, the floating-tier halo, the translucent blurred status fill that smears the dock tile at 390, and 86 px of plate for one line.
+  - Cited against **O-87 FLAT-LIGHTING**. The consumer adds no toast styling and adds no override.
+  - The other glass rows of KF-C13-G1 (O-87 and O-88) were re-observed unchanged at glass 10.1.0. They stay honest-RED until the 10.2.0 repin.
+
+**Carried (owner rulings, §0dm)**
+- **KF-C13-R1** is unchanged: the OD-4/T.D9 hero overlap, and `AnimatedText.vue:165` charLift infinite.
+
+**Census** (`scripts/ds-census.mjs --base http://localhost:5214/ --widths 1440,390 --settle 5000`): identical to pass 13 (`pass-13/c13-2026-10-17/census.json`) in every key except `at` and `computed.base`. The verdict stays **RED**, held by the glass-owned rows and the owner-ruled loops.
+
+**Gates** (run on the live tree, which also carried another seat's uncommitted hunks in `ControlsPaneWrapper.vue`, `KeyframeTimeline.vue` and `SpringHeatmap.vue`)
+- `npm run check`: exit 0, ×2.
+- `npm run lint`: exit 0, ×2.
+- `vitest run --project demo --maxWorkers=2`: 941/941 (155 files), ×2.
+  - The first attempt failed 1/941 on the retired yield assertion (KF-C14-02, above). It was restated, and both counted runs are after that.
+- keyframes.js has no e2e suite and no visual golden, so nothing was re-baselined.
+
+**Disclosures**
+- **Concurrency:** `KeyframeTimeline.vue` again carried the other seat's uncommitted `panel-content` hunk. This seat staged an index blob of HEAD plus its own change (`git hash-object -w` and `git update-index --cacheinfo`), checked `git diff --cached`, and committed without a pathspec. Only the other seat's one-line hunk remains unstaged.
+  - `RibbonBar.vue` and the test file were clean.
+  - `ControlsPaneWrapper.vue` was not touched.
+  - The value.js commits are pathspec-only.
+- **Dev server:** this seat served its own port (:5214) and stopped it at the end.
+- **Identity:** no identity hue, type or motion was changed (§0dm). Apply CSS keeps its rainbow brush and label.
+
+**Host (guard law)**
+- Every run went through `~/.claude/guard/guarded`, one at a time:
+  - the dev server: `--light --timeout 90`;
+  - the probe, the capture and the census: `--rss-gb 6`;
+  - check and lint: `--light`;
+  - vitest: `--rss-gb 8`.
+- Nothing this seat started was left running.
