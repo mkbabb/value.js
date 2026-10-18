@@ -1,0 +1,4 @@
+A exit 0
+B exit 0
+after each run: web/e2e/screenshots/* rewritten by the run restored to HEAD
+DONE

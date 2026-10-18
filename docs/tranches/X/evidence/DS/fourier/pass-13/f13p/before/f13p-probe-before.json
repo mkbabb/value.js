@@ -1,0 +1,278 @@
+{
+ "light-1440": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 167.8,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 36,
+   "footGap": 48,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 1.2.1 — Kronecker DeltaThe Kronecker de",
+   "displays": 1,
+   "height": 287,
+   "inkHeight": 49.5,
+   "aboveFrom": "prose",
+   "headGap": 36,
+   "footGap": 126.8,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 353.3,
+   "inkHeight": 100.4,
+   "aboveFrom": "prose",
+   "headGap": 48,
+   "footGap": 123,
+   "airShare": 0.7,
+   "display": {
+    "margin": "16px 0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 48,
+   "inkToText": 48
+  }
+ },
+ "light-390": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 158.5,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 36,
+   "footGap": 42.4,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px 0px",
+    "padding": "12px 0px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 1.2.1 — Kronecker DeltaThe Kronecker de",
+   "displays": 1,
+   "height": 382.8,
+   "inkHeight": 49.5,
+   "aboveFrom": "prose",
+   "headGap": 36,
+   "footGap": 226.3,
+   "airShare": 0.9,
+   "display": {
+    "margin": "16px 0px 0px",
+    "padding": "12px 0px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 378.4,
+   "inkHeight": 89.2,
+   "aboveFrom": "prose",
+   "headGap": 48,
+   "footGap": 138.4,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px 0px",
+    "padding": "12px 0px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 48,
+   "inkToText": 43
+  }
+ },
+ "dark-1440": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 167.8,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 36,
+   "footGap": 48,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 1.2.1 — Kronecker DeltaThe Kronecker de",
+   "displays": 1,
+   "height": 287,
+   "inkHeight": 49.5,
+   "aboveFrom": "prose",
+   "headGap": 36,
+   "footGap": 126.8,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 353.3,
+   "inkHeight": 100.4,
+   "aboveFrom": "prose",
+   "headGap": 48,
+   "footGap": 123,
+   "airShare": 0.7,
+   "display": {
+    "margin": "16px 0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 48,
+   "inkToText": 48
+  }
+ },
+ "dark-390": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 158.5,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 36,
+   "footGap": 42.4,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px 0px",
+    "padding": "12px 0px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 1.2.1 — Kronecker DeltaThe Kronecker de",
+   "displays": 1,
+   "height": 382.8,
+   "inkHeight": 49.5,
+   "aboveFrom": "prose",
+   "headGap": 36,
+   "footGap": 226.3,
+   "airShare": 0.9,
+   "display": {
+    "margin": "16px 0px 0px",
+    "padding": "12px 0px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "4px 0px 4px 8px",
+    "padding": "4px 0px 4px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 378.4,
+   "inkHeight": 89.2,
+   "aboveFrom": "prose",
+   "headGap": 48,
+   "footGap": 138.4,
+   "airShare": 0.8,
+   "display": {
+    "margin": "16px 0px 0px",
+    "padding": "12px 0px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 48,
+   "inkToText": 43
+  }
+ }
+}
