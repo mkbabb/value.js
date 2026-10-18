@@ -1,0 +1,125 @@
+{
+ "base": "http://localhost:9371",
+ "results": [
+  {
+   "file": "mix-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "generate-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "gradient-390-dark.png",
+   "ok": true,
+   "strip": {
+    "found": true,
+    "eyebrowText": [
+     "CSS",
+     "Sine",
+     "Quad",
+     "Cubic",
+     "Expo",
+     "Circ",
+     "Back",
+     "Steps"
+    ],
+    "eyebrowStyle": [
+     {
+      "px": "12.179px",
+      "ff": "\"Plus Jakarta Sans\"",
+      "ls": "normal",
+      "op": "1",
+      "color": "oklch(0.712763 0.00382185 41.8684)",
+      "tt": "none"
+     }
+    ],
+    "labelStyle": [
+     {
+      "px": "12.179px",
+      "ff": "\"Plus Jakarta Sans\"",
+      "ls": "normal",
+      "op": "1",
+      "tt": "none"
+     }
+    ],
+    "cells": 27,
+    "labelsUnderDisc": 27,
+    "titles": 27,
+    "stripWidth": 1472
+   },
+   "railClosed": {
+    "found": true,
+    "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+    "padding": "4px 8px",
+    "radius": "6px",
+    "h": 32,
+    "classes": "readout-rail flex items-center gap-1.5 rounded-md bg-well px-2 py-1"
+   },
+   "tune": {
+    "found": true,
+    "stageW": 314,
+    "svgW": 288,
+    "wrapperW": 288,
+    "curveRootW": 288,
+    "svgH": 288,
+    "wrapperH": 288,
+    "corner00": {
+     "x": 75,
+     "y": 492
+    },
+    "corner11": {
+     "x": 315,
+     "y": 252
+    },
+    "handles": [
+     {
+      "label": "Bezier control point 1",
+      "cx": 0,
+      "cy": 1,
+      "x": 75,
+      "y": 491.7,
+      "dx": 0,
+      "dy": 0
+     },
+     {
+      "label": "Bezier control point 2",
+      "cx": 1,
+      "cy": 0,
+      "x": 315,
+      "y": 251.7,
+      "dx": 0,
+      "dy": 0
+     }
+    ],
+    "oneLabel": {
+     "right": 335,
+     "top": 232,
+     "plotRight": 339,
+     "offPlot": -4
+    },
+    "registered": true
+   },
+   "railOpen": {
+    "found": true,
+    "bg": "rgba(0, 0, 0, 0)",
+    "padding": "0px",
+    "radius": "0px",
+    "h": 24,
+    "classes": "readout-rail flex items-center gap-1.5"
+   }
+  },
+  {
+   "file": "atmosphere-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "blob-390-dark.png",
+   "ok": true
+  },
+  {
+   "file": "notfound-390-dark.png",
+   "ok": true
+  }
+ ]
+}

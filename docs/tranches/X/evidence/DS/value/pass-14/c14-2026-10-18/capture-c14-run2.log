@@ -1,0 +1,15 @@
+{"file":"picker-1440-light.png","ok":true,"unit":{"lab":{"found":true,"text":"%","caps":"normal","ls":"-1.0472px","style":"italic","color":"oklch(0.289468 0.00386159 34.63)","px":"23.0384px"},"oklch":{"found":true,"text":"deg","caps":"normal","ls":"-1.0472px","style":"italic","color":"oklch(0.289468 0.00386159 34.63)","px":"23.0384px"}},"consoleHue":["9.8deg"]}
+{"file":"palettes-390-light.png","ok":true}
+{"file":"atmosphere-1440-dark.png","ok":true}
+{"file":"blob-1440-dark.png","ok":true}
+{"file":"notfound-1440-dark.png","ok":true}
+{"file":"picker-390-dark.png","ok":true,"unit":{"lab":{"found":true,"text":"%","caps":"normal","ls":"-0.6472px","style":"italic","color":"oklch(0.712763 0.00382185 41.8684)","px":"14.2384px"},"oklch":{"found":true,"text":"deg","caps":"normal","ls":"-0.6472px","style":"italic","color":"oklch(0.712763 0.00382185 41.8684)","px":"14.2384px"}},"consoleHue":["9.8deg"]}
+{"file":"palettes-390-dark.png","ok":true}
+{"file":"browse-390-dark.png","ok":true}
+{"file":"extract-390-dark.png","ok":true}
+{"file":"mix-390-dark.png","ok":false,"e":"Error: page.reload: net::ERR_CONNECTION_REFUSED\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n"}
+{"file":"generate-390-dark.png","ok":false,"e":"Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9371/#/generate\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9371/#/generate\", waiting until \"load\"\u001b[22m\n"}
+{"file":"gradient-390-dark.png","ok":false,"e":"Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9371/#/gradient\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9371/#/gradient\", waiting until \"load\"\u001b[22m\n"}
+{"file":"atmosphere-390-dark.png","ok":false,"e":"Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9371/#/atmosphere\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9371/#/atmosphere\", waiting until \"load\"\u001b[22m\n"}
+{"file":"blob-390-dark.png","ok":false,"e":"Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9371/#/blob\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9371/#/blob\", waiting until \"load\"\u001b[22m\n"}
+{"file":"notfound-390-dark.png","ok":false,"e":"Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9371/#/nope\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9371/#/nope\", waiting until \"load\"\u001b[22m\n"}
