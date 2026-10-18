@@ -55,7 +55,7 @@ const TRACK = {
         "X-W8",
         "X-W9"
       ],
-      "note": "phase 1 = two blind design authors Fable ∥ Opus, then a fresh agglomeration seat (M-23 §3)"
+      "note": "RESUME 2026-10-18 on COHESION §0fy + W10-ADDENDUM-2026-10-18-g5.md (binding): every landed unit is alreadyDone and the close is banked (82d4fca33), never re-dispatched. ESC-W10d-1 RULED arm (a): G-5 at 390x844 reads the one-track invariant (no [data-condensed=true] with the document scrolled >=120; header block and gap equal scrollTop-0; the register carries no width query) — GREEN if so, measured by the unmodified g5-measure.mjs x2. C1-M1/C2-M1 DISCHARGED: the glass letter is minted as O-100 (V/coordination/valuejs-outbound-2026-10-18-w10-residuals.md + BK mirror). G-4 engine arm re-runs once under guarded --exclusive webkit; a lock wait banks the diff-identical prior readings, never a RED. Run the fresh check (verify-only) directly. ORIGINAL NOTE: phase 1 = two blind design authors Fable ∥ Opus, then a fresh agglomeration seat (M-23 §3)"
     },
     "X-W4": {
       "spec": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W4.md",

@@ -4254,3 +4254,14 @@ X-W12U is CLOSED. Its honest-REDs are the standing 7, the 15 (c′) cells → X-
    - Track A resumes after the reboot with `.i2`, then the close, which reads every heavy arm ×2.
    - No heavy arm is substituted by a `--light` reading.
 4. W8.md ADDENDUM (sixth) carries this ruling.
+
+## §0fy — 2026-10-18: X-W8 CLOSED (honest-RED, every row owned); X-W10's ESC-W10d-1 RULED arm (a); the W10 glass residual letter minted as O-100
+The Mac rebooted at 2026-10-17 12:08 (zone 13.63M → 1,882), so §0fx.3 discharged. Track A resumed: `.i2` landed and X-W8 CLOSED with every heavy arm read ×2. X-W10 then closed PARTIAL and its checks went NOT-CONFORMANT ×3 on one item, plus one unsent letter.
+1. **ESC-W10d-1 (G-5 at 390×844) is RULED arm (a): the one-track invariant, measured.**
+   - At phone width the document is the one scrolling column (X.W5.b); no host is bounded, so no condensed state exists. OM-18 marks the condensed state's spacing, so a width without that state has nothing to correct.
+   - A phone condense (a bounded phone host, or glass reading the document scroll) would reverse X.W5.b. It is a new design, not OM-18's cure, and is not minted.
+   - **The 390 cell reads:** no header carries `[data-condensed="true"]` with the document scrolled ≥ 120; the header box and gap equal their scrollTop-0 values; the register carries no width query. A phone condense without a ruling, or a width-scoped register, is RED. Forcing `data-condensed`, faking a host and substituting a measurement stay prohibited.
+   - `W10-ADDENDUM-2026-10-18-g5.md` carries this ruling.
+2. **C1-M1 / C2-M1 (the glass residual letter) is minted by the orchestrator as O-100** from Repair 1's draft: R-1 the reduce overlay fade (RS-6/R-d2), R-2 `overflow-anchor` on `.card-scroll-host` (R-d3), R-3 the under-shadow key direction (R-e1). It is filed at `V/coordination/valuejs-outbound-2026-10-18-w10-residuals.md` and mirrored to glass BK/coordination. It is informational and ADOPT-AT-LANDING, and gates nothing.
+3. **G-4's engine arm** re-runs once in the next check under `guarded --exclusive webkit`. A wait on a sibling's lock is not a RED; a seat that cannot get the lock within its timeout banks the wait and the diff-identical prior readings.
+4. **Order:** `check (verify-only, reading G-5 at 390 per (1), G-4 engine arm per (3))`, then X-W11.
