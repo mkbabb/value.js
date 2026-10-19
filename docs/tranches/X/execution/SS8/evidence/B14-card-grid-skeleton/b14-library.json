@@ -1,0 +1,105 @@
+{
+ "handleCount": 3,
+ "before": {
+  "heights": [
+   100.5,
+   100.5,
+   100.5
+  ],
+  "order": [
+   "C",
+   "T",
+   "T",
+   "T",
+   "C",
+   "E:Library 0",
+   "T",
+   "T",
+   "C",
+   "E:Library 1",
+   "T",
+   "T",
+   "C",
+   "E:Library 2",
+   "T",
+   "T",
+   "T",
+   "C",
+   "C"
+  ],
+  "store": [
+   "Library 0",
+   "Library 1",
+   "Library 2"
+  ]
+ },
+ "after": {
+  "heights": [
+   95.7,
+   100.5,
+   100.5
+  ],
+  "order": [
+   "C",
+   "T",
+   "T",
+   "T",
+   "C",
+   "E:Library 1",
+   "T",
+   "T",
+   "C",
+   "E:Library 2",
+   "T",
+   "T",
+   "C",
+   "E:Library 0",
+   "T",
+   "T",
+   "T",
+   "C",
+   "C"
+  ],
+  "store": [
+   "Library 1",
+   "Library 2",
+   "Library 0"
+  ]
+ },
+ "after2": {
+  "heights": [
+   130.5,
+   100.5,
+   100.5
+  ],
+  "order": [
+   "C",
+   "T",
+   "T",
+   "T",
+   "C",
+   "E:Library 1",
+   "T",
+   "T",
+   "C",
+   "E:Library 2",
+   "T",
+   "T",
+   "C",
+   "E:Library 0",
+   "T",
+   "T",
+   "T",
+   "C",
+   "C"
+  ],
+  "store": [
+   "Library 1",
+   "Library 2",
+   "Library 0"
+  ]
+ },
+ "consoleErrors": [
+  "warning: No available adapters."
+ ]
+}

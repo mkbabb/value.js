@@ -1,0 +1,17 @@
+{
+ "forced": true,
+ "plateBg": "rgba(255, 255, 255, 0)",
+ "plateBorder": "rgb(0, 0, 0)",
+ "plateFCA": "auto",
+ "cellSeams": [
+  "rgb(0, 0, 0)/0px",
+  "rgb(0, 0, 0)/1px",
+  "rgb(0, 0, 0)/1px",
+  "rgb(0, 0, 0)/1px",
+  "rgb(0, 0, 0)/1px"
+ ],
+ "cellBgs": [
+  "rgba(255, 255, 255, 0)"
+ ],
+ "swatches": []
+}

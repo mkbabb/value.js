@@ -1,0 +1,136 @@
+{
+ "light": {
+  "roots": 4,
+  "rootBg": [
+   "oklab(0.216128 0.00350075 0.00518669 / 0.08)"
+  ],
+  "rootHeights": [
+   127.5
+  ],
+  "blockCount": 36,
+  "blockBgs": [
+   "oklab(0.216129 0.00349092 0.00518243 / 0.08)",
+   "rgba(0, 0, 0, 0)"
+  ],
+  "blockBgImgs": [
+   "none"
+  ],
+  "elementAnimationNames": [
+   "skeleton-breathe-0d5ebb1f",
+   "none"
+  ],
+  "elementAnimDelays": [
+   "0s"
+  ],
+  "afterAnimationNames": [
+   "none"
+  ],
+  "afterAnimDelays": [
+   "0s"
+  ],
+  "afterBgs": [
+   "rgba(0, 0, 0, 0)"
+  ],
+  "shimmerDelayVars": [
+   "0s",
+   "0.12s",
+   "0.24s",
+   "0.36s",
+   "0.48s",
+   "0.7s",
+   "0.82s",
+   "",
+   "0.94s"
+  ],
+  "runningAnimations": 32,
+  "willChangeTransformElements": 0,
+  "paintedWell": [
+   198,
+   106,
+   141
+  ],
+  "paintedBlock": [
+   192,
+   85,
+   145
+  ],
+  "paintedContrast": 1.181,
+  "samplePoints": [
+   [
+    646,
+    365
+   ],
+   [
+    455,
+    271
+   ]
+  ]
+ },
+ "dark": {
+  "roots": 4,
+  "rootBg": [
+   "oklab(0.925196 0.00238398 0.00574207 / 0.08)"
+  ],
+  "rootHeights": [
+   127.5
+  ],
+  "blockCount": 36,
+  "blockBgs": [
+   "oklab(0.925202 0.00234182 0.00572368 / 0.08)",
+   "rgba(0, 0, 0, 0)"
+  ],
+  "blockBgImgs": [
+   "none"
+  ],
+  "elementAnimationNames": [
+   "skeleton-breathe-0d5ebb1f",
+   "none"
+  ],
+  "elementAnimDelays": [
+   "0s"
+  ],
+  "afterAnimationNames": [
+   "none"
+  ],
+  "afterAnimDelays": [
+   "0s"
+  ],
+  "afterBgs": [
+   "rgba(0, 0, 0, 0)"
+  ],
+  "shimmerDelayVars": [
+   "0s",
+   "0.12s",
+   "0.24s",
+   "0.36s",
+   "0.48s",
+   "0.7s",
+   "0.82s",
+   "",
+   "0.94s"
+  ],
+  "runningAnimations": 32,
+  "willChangeTransformElements": 0,
+  "paintedWell": [
+   118,
+   38,
+   57
+  ],
+  "paintedBlock": [
+   112,
+   48,
+   73
+  ],
+  "paintedContrast": 1.048,
+  "samplePoints": [
+   [
+    646,
+    365
+   ],
+   [
+    455,
+    271
+   ]
+  ]
+ }
+}

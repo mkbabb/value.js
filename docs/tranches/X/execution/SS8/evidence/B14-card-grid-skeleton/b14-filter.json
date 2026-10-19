@@ -1,0 +1,23 @@
+{
+ "zero": {
+  "ms": 31,
+  "gridH": 245.515625,
+  "arts": 0,
+  "artH": []
+ },
+ "muts": [
+  {
+   "t": 10777.299999999814,
+   "statusInsertedWithText": "No palettes match.Nothing on the wall matches your search an",
+   "sameNode": true
+  }
+ ],
+ "one": {
+  "ms": 36,
+  "gridH": 127.5,
+  "arts": 1,
+  "artH": [
+   127.5
+  ]
+ }
+}

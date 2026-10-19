@@ -1,0 +1,69 @@
+{
+ "k5": {
+  "plateH": 42,
+  "plateW": 462,
+  "cells": 5,
+  "cellW": 91.1875,
+  "metaRows": 1,
+  "ariaHidden": "true",
+  "role": null,
+  "paneH": 556.375,
+  "animations": 0,
+  "radius": "0.625rem",
+  "radiusSet": [
+   "--radius-sm=4px",
+   "--radius-md=6px",
+   "--radius-lg=0.625rem",
+   "--radius-xl=12px",
+   "--radius-card=1rem",
+   "--radius-full="
+  ],
+  "shadowSegToken": ""
+ },
+ "sliderDisabled": null,
+ "k16": {
+  "plateH": 42,
+  "plateW": 462,
+  "cells": 16,
+  "cellW": 27.8125,
+  "metaRows": 1,
+  "ariaHidden": "true",
+  "role": null,
+  "paneH": 556.375,
+  "animations": 0,
+  "radius": "0.625rem",
+  "radiusSet": [
+   "--radius-sm=4px",
+   "--radius-md=6px",
+   "--radius-lg=0.625rem",
+   "--radius-xl=12px",
+   "--radius-card=1rem",
+   "--radius-full="
+  ],
+  "shadowSegToken": ""
+ },
+ "seat_throttle1": [
+  {
+   "t": 86,
+   "state": "instrument"
+  },
+  {
+   "t": 335,
+   "state": "card"
+  }
+ ],
+ "seat_throttle6": [
+  {
+   "t": 401,
+   "state": "instrument"
+  },
+  {
+   "t": 728,
+   "state": "skeleton"
+  },
+  {
+   "t": 1507,
+   "state": "card"
+  }
+ ]
+}
