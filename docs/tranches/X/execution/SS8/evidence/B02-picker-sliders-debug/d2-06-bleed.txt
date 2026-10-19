@@ -1,0 +1,2 @@
+d2-06-dot size (92, 364) diff bbox (dpr2 px) (17, 35, 75, 87) css px w/h 29.0 26.0 css x0,x1 rel clip 8.5 37.5
+d2-06-dot-nofilter size (92, 364) diff bbox (dpr2 px) (17, 35, 75, 87) css px w/h 29.0 26.0 css x0,x1 rel clip 8.5 37.5

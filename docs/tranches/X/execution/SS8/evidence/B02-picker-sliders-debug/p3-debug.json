@@ -1,0 +1,195 @@
+{
+ "base": "http://localhost:9000/",
+ "at": "2026-10-19T18:17:55.715Z",
+ "cells": {
+  "discharged_reach": {
+   "zIndex": "9999",
+   "zDebugVar": "",
+   "zMaxVar": "9999",
+   "rect": [
+    8,
+    864,
+    72,
+    28
+   ],
+   "topAtCenterInOverlay": true
+  },
+  "del_r1_whcm_forced": {
+   "forced": true,
+   "rows": [
+    {
+     "cls": "debug-event-freeze",
+     "bg": "rgba(255, 255, 255, 0.2)",
+     "etypeColor": "rgb(0, 0, 0)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-force",
+     "bg": "rgba(255, 255, 255, 0.15)",
+     "etypeColor": "rgb(0, 0, 0)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-lost",
+     "bg": "rgba(255, 255, 255, 0.1)",
+     "etypeColor": "rgb(0, 0, 0)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-cancel",
+     "bg": "rgba(255, 255, 255, 0.12)",
+     "etypeColor": "rgb(0, 0, 0)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-up",
+     "bg": "rgba(255, 255, 255, 0.08)",
+     "etypeColor": "rgb(0, 0, 0)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-down",
+     "bg": "rgba(255, 255, 255, 0.08)",
+     "etypeColor": "rgb(0, 0, 0)",
+     "fca": "auto"
+    }
+   ]
+  },
+  "del_r1_whcm_unforced": {
+   "forced": false,
+   "rows": [
+    {
+     "cls": "debug-event-freeze",
+     "bg": "rgba(255, 40, 40, 0.2)",
+     "etypeColor": "rgb(139, 196, 255)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-force",
+     "bg": "rgba(255, 180, 0, 0.15)",
+     "etypeColor": "rgb(139, 196, 255)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-lost",
+     "bg": "rgba(255, 150, 0, 0.1)",
+     "etypeColor": "rgb(139, 196, 255)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-cancel",
+     "bg": "rgba(255, 60, 60, 0.12)",
+     "etypeColor": "rgb(139, 196, 255)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-up",
+     "bg": "rgba(60, 255, 60, 0.08)",
+     "etypeColor": "rgb(139, 196, 255)",
+     "fca": "auto"
+    },
+    {
+     "cls": "debug-event-down",
+     "bg": "rgba(60, 180, 255, 0.08)",
+     "etypeColor": "rgb(139, 196, 255)",
+     "fca": "auto"
+    }
+   ]
+  },
+  "del_r2_wrap_390": {
+   "overlay": [
+    280,
+    295.4
+   ],
+   "scroll": [
+    218.4,
+    2733
+   ],
+   "rowHeights": [
+    33
+   ],
+   "rows": 80,
+   "visibleAny": 4,
+   "visibleFull": 3,
+   "logTop": 89.2,
+   "etypeW": 148.4,
+   "rowW": 258
+  },
+  "u1_u2_keyboard_measure": {
+   "m": {
+    "header": [
+     278,
+     26
+    ],
+    "btn": [
+     83.3,
+     36
+    ],
+    "scrollH": 1594,
+    "clientH": 238,
+    "scrollPE": "auto",
+    "scrollTabindex": null,
+    "liveRegions": 0,
+    "overlayBg": "rgba(0, 0, 0, 0.92)",
+    "payloadBytes": 9896,
+    "tabOrdinalsOfOverlay": [
+     28,
+     29,
+     30,
+     31
+    ],
+    "tabTotal": 31
+   },
+   "tabPath": [
+    {
+     "cls": "debug-scroll",
+     "inOverlay": true,
+     "isScroll": true
+    }
+   ],
+   "reachedScrollByTab": true,
+   "scrollTop": {
+    "beforeKey": 0,
+    "afterPageDown": 208,
+    "afterWheel": 408
+   }
+  },
+  "u3_flag_drop": [
+   {
+    "tag": "boot",
+    "hash": "#/?debug=1",
+    "overlay": true
+   },
+   {
+    "tag": "hash->gradient",
+    "hash": "#/gradient",
+    "overlay": true
+   },
+   {
+    "tag": "hash->picker",
+    "hash": "#/",
+    "overlay": true
+   },
+   {
+    "tag": "reload",
+    "hash": "#/",
+    "overlay": false
+   },
+   {
+    "tag": "query-rewrite",
+    "hash": "#/?debug=1&space=lab&color=lab(66.387762887339%+60.461020605484+3.340544394252)",
+    "overlay": false
+   },
+   {
+    "tag": "after-slider-commit",
+    "hash": "#/?debug=1&space=lab&color=lab(39.8%+60.461020605484+3.340544394252)",
+    "overlay": false
+   },
+   {
+    "tag": "reload-after-commit",
+    "hash": "#/?debug=1&space=lab&color=lab(39.8%+60.461020605484+3.340544394252)",
+    "overlay": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,2 @@
+light size (192, 60) ground (172, 68, 68) ink(extreme) (0, 0, 0) CR 3.66 ink(p1) (0, 0, 0) CR 3.66
+dark size (192, 60) ground (60, 0, 8) ink(extreme) (163, 160, 159) CR 6.76 ink(p1) (163, 160, 159) CR 6.76
