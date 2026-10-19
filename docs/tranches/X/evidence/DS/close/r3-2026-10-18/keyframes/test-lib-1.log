@@ -1,0 +1,10 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js/.worktrees/ds-close-r3
+
+
+ Test Files  124 passed | 5 skipped (129)
+      Tests  1295 passed | 2 expected fail | 14 skipped (1311)
+   Start at  00:10:21
+   Duration  50.56s (transform 2.10s, setup 0ms, import 10.13s, tests 7.78s, environment 61.79s)
+
+exit 0
