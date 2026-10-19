@@ -1,0 +1,134 @@
+{
+  "reqs": [
+    "GET http://localhost:3000/palettes?limit=50&sort=newest"
+  ],
+  "cards": [
+    {
+      "label": "Palette: Probe Five",
+      "r": {
+        "x": 224,
+        "y": 249.5625,
+        "width": 462,
+        "height": 127.5,
+        "top": 249.5625,
+        "right": 686,
+        "bottom": 377.0625,
+        "left": 224
+      }
+    },
+    {
+      "label": "Palette: Probe Twentyfour",
+      "r": {
+        "x": 224,
+        "y": 389.0625,
+        "width": 462,
+        "height": 127.5,
+        "top": 389.0625,
+        "right": 686,
+        "bottom": 516.5625,
+        "left": 224
+      }
+    },
+    {
+      "label": "Palette: Probe Two",
+      "r": {
+        "x": 224,
+        "y": 528.5625,
+        "width": 462,
+        "height": 127.5,
+        "top": 528.5625,
+        "right": 686,
+        "bottom": 656.0625,
+        "left": 224
+      }
+    },
+    {
+      "label": "Palette: Probe Twelve",
+      "r": {
+        "x": 224,
+        "y": 668.0625,
+        "width": 462,
+        "height": 127.5,
+        "top": 668.0625,
+        "right": 686,
+        "bottom": 795.5625,
+        "left": 224
+      }
+    },
+    {
+      "label": "Palette: Probe Six",
+      "r": {
+        "x": 224,
+        "y": 807.5625,
+        "width": 462,
+        "height": 127.5,
+        "top": 807.5625,
+        "right": 686,
+        "bottom": 935.0625,
+        "left": 224
+      }
+    },
+    {
+      "label": "Palette: Probe Three",
+      "r": {
+        "x": 224,
+        "y": 947.0625,
+        "width": 462,
+        "height": 127.5,
+        "top": 947.0625,
+        "right": 686,
+        "bottom": 1074.5625,
+        "left": 224
+      }
+    }
+  ],
+  "sw0": 0,
+  "sw1": [
+    {
+      "r": {
+        "x": 225,
+        "y": 334.0625,
+        "width": 460,
+        "height": 113.96875,
+        "top": 334.0625,
+        "right": 685,
+        "bottom": 448.03125,
+        "left": 225
+      },
+      "btns": [
+        [
+          "Copy slug gallery",
+          36,
+          36
+        ],
+        [
+          "Color swatch #e11d48",
+          40,
+          40
+        ],
+        [
+          "Color swatch #2563eb",
+          40,
+          40
+        ],
+        [
+          "Color swatch #16a34a",
+          40,
+          40
+        ],
+        [
+          "Color swatch #f59e0b",
+          40,
+          40
+        ],
+        [
+          "Color swatch #7c3aed",
+          40,
+          40
+        ]
+      ]
+    }
+  ],
+  "hash": "#/browse",
+  "pageErrors": []
+}

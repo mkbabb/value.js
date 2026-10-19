@@ -1,0 +1,540 @@
+{
+  "light": {
+    "scheme": "light",
+    "v2": {
+      "Probe Zero": {
+        "before": 127.5,
+        "h": 156.5,
+        "panel": {
+          "w": 460,
+          "h": 69,
+          "children": 2,
+          "nodes": 8,
+          "filters": 0,
+          "swatches": 0
+        },
+        "selected": true,
+        "delta": 29
+      },
+      "Probe Five": {
+        "before": 127.5,
+        "h": 201.46875,
+        "panel": {
+          "w": 460,
+          "h": 113.96875,
+          "children": 2,
+          "nodes": 48,
+          "filters": 5,
+          "swatches": 5
+        },
+        "selected": true,
+        "delta": 73.97
+      },
+      "Probe Twentyfour": {
+        "before": 127.5,
+        "h": 307.40625,
+        "panel": {
+          "w": 460,
+          "h": 219.90625,
+          "children": 2,
+          "nodes": 200,
+          "filters": 24,
+          "swatches": 24
+        },
+        "selected": true,
+        "delta": 179.91
+      }
+    },
+    "strips": {
+      "equal6": [
+        16.6644,
+        16.6678,
+        16.6644,
+        16.6678,
+        16.6678,
+        16.6678
+      ],
+      "weighted": [
+        68.0027,
+        7.9993,
+        7.9993,
+        7.9993,
+        7.9993
+      ],
+      "invalid": [
+        "rgb(225, 29, 72)",
+        "rgba(0, 0, 0, 0)",
+        "rgb(22, 163, 74)"
+      ],
+      "rtl": {
+        "ltr": [
+          225,
+          378,
+          532
+        ],
+        "rtl": [
+          532,
+          378,
+          225
+        ],
+        "htmlDir": "ltr",
+        "bodyDir": "ltr"
+      },
+      "shareCollapsed": {
+        "strip": 40,
+        "host": 127.5,
+        "pct": 31.4
+      }
+    },
+    "roster": {
+      "forced-colors": [],
+      "print": [
+        "*"
+      ]
+    },
+    "shareExpanded": {
+      "strip": 0,
+      "host": 201.46875,
+      "pct": 0
+    },
+    "v3": {
+      "cardFill": [
+        167,
+        62,
+        175,
+        1
+      ],
+      "name": {
+        "size": "20.352px",
+        "weight": "500",
+        "family": "Fraunces, \"Fraunces Fallback\", serif",
+        "color": "oklch(0.216129 0.00624853 56.0356)",
+        "cr": 3.29
+      },
+      "slug": {
+        "size": "16.4px",
+        "weight": "400",
+        "color": "oklch(0.289468 0.00386159 34.63)",
+        "cr": 2.65
+      },
+      "seam": {
+        "css": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+        "width": "1px",
+        "cr": 1.11
+      }
+    },
+    "v8": [
+      "button|1 votes, click to vote|40x27|ariaHiddenAnc=false",
+      "button|Colors of Probe Five|36x36|ariaHiddenAnc=false",
+      "button|Palette menu|36x36|ariaHiddenAnc=false",
+      "button|Copy slug gallery|36x36|ariaHiddenAnc=false",
+      "button|Color swatch #e11d48|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #2563eb|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #16a34a|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #f59e0b|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #7c3aed|40x40|ariaHiddenAnc=false",
+      "div|Palette: Probe Twentyfour|462x128|ariaHiddenAnc=false",
+      "button|1 votes, click to vote|40x27|ariaHiddenAnc=false",
+      "button|Colors of Probe Twentyfour|36x36|ariaHiddenAnc=false",
+      "button|Palette menu|36x36|ariaHiddenAnc=false",
+      "div|Palette: Probe Two|462x128|ariaHiddenAnc=false"
+    ],
+    "ring": {
+      "label": "1 votes, click to vote",
+      "outline": "none 1px rgb(28, 25, 23) off 0px",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.216129 0.00624853 56.0356) 0px 0px 0px 2px, rgba(0",
+      "rect": [
+        237,
+        436,
+        40,
+        27
+      ]
+    },
+    "sh14": [
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          44.96875
+        ],
+        "wrapperDisplay": "block",
+        "lineHeight": "22.96px"
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          44.96875
+        ],
+        "wrapperDisplay": "block",
+        "lineHeight": "22.96px"
+      }
+    ],
+    "hover": {
+      "open": true,
+      "rect": [
+        288,
+        46,
+        130,
+        50
+      ],
+      "position": "fixed",
+      "inlineTop": "0px",
+      "padding": "6px",
+      "buttons": [
+        [
+          "Add #16a34a to current palette",
+          36,
+          36
+        ],
+        [
+          "Edit color #16a34a",
+          36,
+          36
+        ],
+        [
+          "Copy color #16a34a",
+          36,
+          36
+        ]
+      ],
+      "ariaHidden": false,
+      "scrollH": [
+        1604,
+        1604
+      ],
+      "viewport": [
+        1440,
+        900
+      ],
+      "mutatedHosts": [
+        2
+      ]
+    },
+    "v7": {
+      "frames": 225,
+      "p50": 8.3,
+      "p95": 8.9,
+      "max": 9.3,
+      "over33": 0,
+      "mutationsPerHost": {}
+    },
+    "v4": {
+      "samples": 41,
+      "first": [
+        12,
+        "",
+        307.41,
+        "none"
+      ],
+      "peakT": 0,
+      "heights": [
+        307.41,
+        307.41
+      ],
+      "transforms": [
+        "none"
+      ],
+      "styleAttr": "--press-t: 0.0000; --flex-vel: 0.0000;"
+    },
+    "popoverAfterPress": true,
+    "v11": {
+      "content": "none",
+      "position": "static",
+      "inset": "auto",
+      "pointerEvents": "auto",
+      "minW": "0px",
+      "width": "auto",
+      "height": "auto",
+      "hitAt6pxOutside": false,
+      "ruleFound": false
+    },
+    "a11y": {
+      "swatchButtons": 24,
+      "snapshot": [
+        "- text: by gallery",
+        "- button \"Copy slug gallery\"",
+        "- 'button \"Color swatch #e11d48\"'",
+        "- 'button \"Color swatch #2563eb\"'",
+        "- 'button \"Color swatch #16a34a\"'",
+        "- 'button \"Color swatch #f59e0b\"'"
+      ]
+    },
+    "pageErrors": []
+  },
+  "dark": {
+    "scheme": "dark",
+    "v2": {
+      "Probe Zero": {
+        "before": 127.5,
+        "h": 156.5,
+        "panel": {
+          "w": 460,
+          "h": 69,
+          "children": 2,
+          "nodes": 8,
+          "filters": 0,
+          "swatches": 0
+        },
+        "selected": true,
+        "delta": 29
+      },
+      "Probe Five": {
+        "before": 127.5,
+        "h": 201.46875,
+        "panel": {
+          "w": 460,
+          "h": 113.96875,
+          "children": 2,
+          "nodes": 48,
+          "filters": 5,
+          "swatches": 5
+        },
+        "selected": true,
+        "delta": 73.97
+      },
+      "Probe Twentyfour": {
+        "before": 127.5,
+        "h": 307.40625,
+        "panel": {
+          "w": 460,
+          "h": 219.90625,
+          "children": 2,
+          "nodes": 200,
+          "filters": 24,
+          "swatches": 24
+        },
+        "selected": true,
+        "delta": 179.91
+      }
+    },
+    "strips": {
+      "equal6": [
+        16.6644,
+        16.6678,
+        16.6644,
+        16.6678,
+        16.6678,
+        16.6678
+      ],
+      "weighted": [
+        68.0027,
+        7.9993,
+        7.9993,
+        7.9993,
+        7.9993
+      ],
+      "invalid": [
+        "rgb(225, 29, 72)",
+        "rgba(0, 0, 0, 0)",
+        "rgb(22, 163, 74)"
+      ],
+      "rtl": {
+        "ltr": [
+          225,
+          378,
+          532
+        ],
+        "rtl": [
+          532,
+          378,
+          225
+        ],
+        "htmlDir": "ltr",
+        "bodyDir": "ltr"
+      },
+      "shareCollapsed": {
+        "strip": 40,
+        "host": 127.5,
+        "pct": 31.4
+      }
+    },
+    "roster": {
+      "forced-colors": [],
+      "print": [
+        "*"
+      ]
+    },
+    "shareExpanded": {
+      "strip": 0,
+      "host": 201.46875,
+      "pct": 0
+    },
+    "v3": {
+      "cardFill": [
+        50,
+        20,
+        38,
+        1
+      ],
+      "name": {
+        "size": "20.352px",
+        "weight": "500",
+        "family": "Fraunces, \"Fraunces Fallback\", serif",
+        "color": "oklch(0.925202 0.00618423 67.7483)",
+        "cr": 13.36
+      },
+      "slug": {
+        "size": "16.4px",
+        "weight": "400",
+        "color": "oklch(0.712763 0.00382185 41.8684)",
+        "cr": 6.53
+      },
+      "seam": {
+        "css": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+        "width": "1px",
+        "cr": 1.21
+      }
+    },
+    "v8": [
+      "button|1 votes, click to vote|40x27|ariaHiddenAnc=false",
+      "button|Colors of Probe Five|36x36|ariaHiddenAnc=false",
+      "button|Palette menu|36x36|ariaHiddenAnc=false",
+      "button|Copy slug gallery|36x36|ariaHiddenAnc=false",
+      "button|Color swatch #e11d48|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #2563eb|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #16a34a|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #f59e0b|40x40|ariaHiddenAnc=false",
+      "button|Color swatch #7c3aed|40x40|ariaHiddenAnc=false",
+      "div|Palette: Probe Twentyfour|462x128|ariaHiddenAnc=false",
+      "button|1 votes, click to vote|40x27|ariaHiddenAnc=false",
+      "button|Colors of Probe Twentyfour|36x36|ariaHiddenAnc=false",
+      "button|Palette menu|36x36|ariaHiddenAnc=false",
+      "div|Palette: Probe Two|462x128|ariaHiddenAnc=false"
+    ],
+    "ring": {
+      "label": "1 votes, click to vote",
+      "outline": "none 1px rgb(233, 230, 226) off 0px",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklch(0.925202 0.00618423 67.7483) 0px 0px 0px 2px, rgba(0",
+      "rect": [
+        237,
+        436,
+        40,
+        27
+      ]
+    },
+    "sh14": [
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          44.96875
+        ],
+        "wrapperDisplay": "block",
+        "lineHeight": "22.96px"
+      },
+      {
+        "swatch": [
+          40,
+          40
+        ],
+        "wrapper": [
+          40,
+          44.96875
+        ],
+        "wrapperDisplay": "block",
+        "lineHeight": "22.96px"
+      }
+    ],
+    "hover": {
+      "open": true,
+      "rect": [
+        288,
+        46,
+        130,
+        50
+      ],
+      "position": "fixed",
+      "inlineTop": "0px",
+      "padding": "6px",
+      "buttons": [
+        [
+          "Add #16a34a to current palette",
+          36,
+          36
+        ],
+        [
+          "Edit color #16a34a",
+          36,
+          36
+        ],
+        [
+          "Copy color #16a34a",
+          36,
+          36
+        ]
+      ],
+      "ariaHidden": false,
+      "scrollH": [
+        1604,
+        1604
+      ],
+      "viewport": [
+        1440,
+        900
+      ],
+      "mutatedHosts": [
+        2
+      ]
+    },
+    "v7": {
+      "frames": 221,
+      "p50": 8.3,
+      "p95": 8.9,
+      "max": 9.2,
+      "over33": 0,
+      "mutationsPerHost": {}
+    },
+    "v4": {
+      "samples": 43,
+      "first": [
+        10,
+        "",
+        307.41,
+        "none"
+      ],
+      "peakT": 0,
+      "heights": [
+        307.41,
+        307.41
+      ],
+      "transforms": [
+        "none"
+      ],
+      "styleAttr": "--press-t: 0.0000; --flex-vel: 0.0000;"
+    },
+    "popoverAfterPress": true,
+    "v11": {
+      "content": "none",
+      "position": "static",
+      "inset": "auto",
+      "pointerEvents": "auto",
+      "minW": "0px",
+      "width": "auto",
+      "height": "auto",
+      "hitAt6pxOutside": false,
+      "ruleFound": false
+    },
+    "a11y": {
+      "swatchButtons": 24,
+      "snapshot": [
+        "- text: by gallery",
+        "- button \"Copy slug gallery\"",
+        "- 'button \"Color swatch #e11d48\"'",
+        "- 'button \"Color swatch #2563eb\"'",
+        "- 'button \"Color swatch #16a34a\"'",
+        "- 'button \"Color swatch #f59e0b\"'"
+      ]
+    },
+    "pageErrors": []
+  }
+}
