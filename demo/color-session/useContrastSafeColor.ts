@@ -8,7 +8,7 @@ import {
     type Ref,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import type { Color } from "@mkbabb/value.js/color";
+import { convertColor, parseCssColor, type Color } from "@mkbabb/value.js/color";
 import { parseColorIn } from "./color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
@@ -48,7 +48,7 @@ import {
 // The referent is the tier's ACTUAL painted recipe, read live: a hidden probe
 // in the document's own cascade resolves the rung's background token
 // (color-mix, tint knob and all) to a concrete color+alpha. In non-browser
-// contexts (jsdom — no canvas) the resolver yields null and the static
+// contexts (jsdom — no resolved cascade) the resolver yields null and the static
 // producer MODEL in `./ink` serves; the O-18 census enforces the live path in
 // the real browser. The dock band has NO model (X.W8.d · G-13): it is probed
 // off the element that actually paints it (`useChromeAccentFn`, below), and an
@@ -90,51 +90,49 @@ export function bumpProbeEpochOnMount(): void {
     if (getCurrentInstance()) onMounted(() => probeEpoch.value++);
 }
 
-let probeCtx: CanvasRenderingContext2D | null | undefined;
-function canvasCtx(): CanvasRenderingContext2D | null {
-    if (probeCtx === undefined) {
-        try {
-            const cv = document.createElement("canvas");
-            cv.width = cv.height = 1;
-            probeCtx = cv.getContext("2d", { willReadFrequently: true });
-        } catch {
-            probeCtx = null;
-        }
-    }
-    return probeCtx ?? null;
-}
-
-/** Resolve ANY computed CSS color to sRGB + alpha via dual-ground draws. */
+/**
+ * Resolve a computed CSS colour to sRGB (0–255) + alpha, EXACTLY: the
+ * library parses the string the cascade computed (`color(srgb … / α)`,
+ * `rgb()`, `oklch()` …) — the plate recipe as the browser composites it.
+ *
+ * X.W11.h1 (O18-712 · C-3): the former instrument re-read the colour off a
+ * 1×1 canvas (dual-ground draws). Every channel came back as a byte and was
+ * divided by the alpha, so a low-alpha plate was mis-read by up to 0.5/α
+ * bytes per channel: glass 10's dark resting plate (α 0.18,
+ * `color(srgb 0.0928 0.0504 0.0088)`) read `rgb(22.2 11.1 0)` at α 0.1804,
+ * a ground darker than the one painted, and the walk certified the raw
+ * ink at 5.751:1 against a plate it actually reads 5.727:1 on (the census
+ * measured 5.74 under the 5.75 target). Reading the computed value removes
+ * the quantization, so the walk measures the ground it paints on.
+ *
+ * Null when nothing is measurable: an empty or unparsable computed value
+ * (jsdom resolves no `var()` cascade), where the static producer model in
+ * `./ink` serves (the dock band has no model and fails loudly instead).
+ */
 function resolveCssColorAlpha(
     css: string,
 ): { r: number; g: number; b: number; alpha: number } | null {
-    const ctx = canvasCtx();
-    if (!ctx || !css) return null;
-    const draw = (ground: string) => {
-        ctx.fillStyle = ground;
-        ctx.fillRect(0, 0, 1, 1);
-        ctx.fillStyle = "#000";
-        ctx.fillStyle = css;
-        ctx.fillRect(0, 0, 1, 1);
-        return ctx.getImageData(0, 0, 1, 1).data;
-    };
-    const onBlack = draw("#000");
-    const onWhite = draw("#fff");
-    const alpha = 1 - ((onWhite[0] ?? 0) - (onBlack[0] ?? 0)) / 255;
-    if (alpha <= 0.001) return { r: 0, g: 0, b: 0, alpha: 0 };
-    return {
-        r: (onBlack[0] ?? 0) / alpha,
-        g: (onBlack[1] ?? 0) / alpha,
-        b: (onBlack[2] ?? 0) / alpha,
-        alpha,
-    };
+    if (!css) return null;
+    const parsed = parseCssColor(css);
+    if (!parsed.ok) return null;
+    const srgb = convertColor(parsed.value, "rgb");
+    if (!srgb.ok) return null;
+    const [r, g, b] = srgb.value.channels;
+    const alpha = srgb.value.alpha;
+    if (typeof r !== "number" || typeof g !== "number" || typeof b !== "number" || typeof alpha !== "number") {
+        return null;
+    }
+    if (alpha <= 0) return { r: 0, g: 0, b: 0, alpha: 0 };
+    return { r, g, b, alpha };
 }
 
 /** The opaque OKLCh colour of an sRGB triple, memoized (library-resolved,
- *  never local math) — a live layer's colour for the sRGB composite. */
+ *  never local math) — a live layer's colour for the sRGB composite. The
+ *  key is the exact triple: rounding it to bytes would re-introduce the
+ *  quantization the resolver above removes. */
 const tintColorCache = new Map<string, Color<"oklch">>();
 function srgbColor(r: number, g: number, b: number): Color<"oklch"> {
-    const key = `${Math.round(r)},${Math.round(g)},${Math.round(b)}`;
+    const key = `${r} ${g} ${b}`;
     const hit = tintColorCache.get(key);
     if (hit !== undefined) return hit;
     const color = parseColorIn(`rgb(${key})`, "oklch");
