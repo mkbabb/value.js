@@ -1,0 +1,67 @@
+{
+ "PP-U10-insecure-save": {
+  "http://lan.test:9411": {
+   "pre": {
+    "secure": false,
+    "uuid": "undefined",
+    "swatches": 5
+   },
+   "post": {
+    "appHtmlLen": 95799,
+    "panesOnScreen": 0,
+    "swatches": 0,
+    "storedDraft": 0,
+    "savedNames": []
+   },
+   "errs": [
+    "CONSOLE Access to fetch at 'http://localhost:3000/colors/approved?limit=500' from origin 'http://lan.test:9411' has been blocked by CORS policy: Response to preflight r",
+    "CONSOLE Failed to load resource: net::ERR_FAILED",
+    "CONSOLE [value.js] unhandled failure (boundary · component event handler) TypeError: crypto.randomUUID is not a function\n    at Object.createPalette (http://lan.test:94"
+   ]
+  },
+  "http://localhost:9000": {
+   "pre": {
+    "secure": true,
+    "uuid": "function",
+    "swatches": 5
+   },
+   "post": {
+    "appHtmlLen": 149780,
+    "panesOnScreen": 1,
+    "swatches": 0,
+    "storedDraft": 0,
+    "savedNames": [
+     "LAN save"
+    ]
+   },
+   "errs": []
+  }
+ },
+ "PSB-U1-built-css": {
+  "cssFiles": [
+   "http://built.test/index-DCR9CSMC.css"
+  ],
+  "both": {
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "size": "16px",
+   "weight": "400"
+  },
+  "textSmallOnly": {
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "size": "16px",
+   "weight": "400"
+  },
+  "fontDisplayOnly": {
+   "family": "Fraunces, \"Fraunces Fallback\", serif",
+   "size": "18.176px",
+   "weight": "400"
+  },
+  "textSmallInsideFontDisplayParent": {
+   "family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "size": "16px",
+   "weight": "400"
+  },
+  "verdict": "font-display WINS (same element)",
+  "distMtime": "2026-10-19T18:43:37.514Z"
+ }
+}

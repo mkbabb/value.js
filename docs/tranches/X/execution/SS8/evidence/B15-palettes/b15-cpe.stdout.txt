@@ -1,0 +1,158 @@
+{
+ "U1-zoom200": {
+  "wellH": 225,
+  "vh": 450,
+  "share": 50,
+  "swatches": 12,
+  "docOverflowX": 0
+ },
+ "U2-forced-edit": {
+  "forced": true,
+  "display": "flex",
+  "bg": "rgb(255, 255, 255)",
+  "border": "solid 1px rgb(0, 0, 0)",
+  "outline": "none 3px",
+  "boxShadow": "rgba(255, 255, 255, 0) 0px 1px 0px 0px inset, color(srgb 0 0 0 / 0) 0px -1px 0px",
+  "backdrop": "blur(0px) saturate(1.5)",
+  "rect": {
+   "x": 819,
+   "y": 306.46875,
+   "width": 141.109375,
+   "height": 106,
+   "top": 306.46875,
+   "right": 960.109375,
+   "bottom": 412.46875,
+   "left": 819
+  },
+  "under": [
+   "DIV.flex items-center gap-2",
+   "DIV.edit-overlay glass-floating hidden lg:fl",
+   "DIV.relative",
+   "DIV.swatch-row flex items-center gap-2.5 fle"
+  ]
+ },
+ "U3-light": {
+  "ERROR": "Error: locator.evaluate: TypeError: Failed to execute 'getComputedStyle' on 'Window': parameter 1 is not of type 'Element'.\n    at eval (eval at evaluate (:302:30), <anonymous>:6:130)\n    at UtilityScript.evaluate (<anonymous>:304:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+ },
+ "U3-dark": {
+  "ERROR": "Error: locator.evaluate: TypeError: Failed to execute 'getComputedStyle' on 'Window': parameter 1 is not of type 'Element'.\n    at eval (eval at evaluate (:302:30), <anonymous>:6:130)\n    at UtilityScript.evaluate (<anonymous>:304:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+ },
+ "U4-fifty-one": {
+  "swatches": 1,
+  "wellH": 164,
+  "count": "Current palette 1"
+ },
+ "U5U7U8-hover-latch": {
+  "U5": {
+   "swatchToPanel": true,
+   "panelToSwatch": true
+  },
+  "U8": {
+   "swatchCx": 791,
+   "panelCx": 791,
+   "dx": 0,
+   "panelAbove": false,
+   "gapPx": 0
+  },
+  "U7": {
+   "savedColorsBefore": 5,
+   "banner1": true,
+   "afterRemove": {
+    "swatches": 0,
+    "label": "Start a new palette"
+   },
+   "bannerAfterRemove": true,
+   "savedColorsAfterUpdate": 0
+  },
+  "errors": []
+ },
+ "U6-churn": {
+  "styleMutations": 150,
+  "seedMutations": 50,
+  "distinctRadii": 91,
+  "distinctSeeds": 33,
+  "hasTurb": true,
+  "dot": "<span data-v-cbb8acdf=\"\" data-v-0ce6f2b0=\"\" aria-hidden=\"true\" class=\"w-full h-full watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"ghost\" styl"
+ },
+ "U10-apply-drop": {
+  "seeded": 12,
+  "renderedAfterRestore": 12,
+  "stored0": [
+   "rgb(225 29 72)",
+   "rgb(37 99 235)",
+   "hsl(142deg 71% 45%)",
+   "hwb(40deg 10% 5%)",
+   "lab(60% 40 -30)",
+   "lch(55% 60 250deg)",
+   "oklab(70% 0.1 0.05)",
+   "oklch(60% 0.15 200deg)",
+   "color(display-p3 0.2 0.7 0.4)",
+   "color(xyz 0.3 0.4 0.2)",
+   "rgb(102 51 153)",
+   "oklch(98% 0.4 120deg)"
+  ],
+  "afterOneRemove": 11,
+  "stored1": [
+   "rgb(37 99 235)",
+   "hsl(142deg 71% 45%)",
+   "hwb(40deg 10% 5%)",
+   "lab(60% 40 -30)",
+   "lch(55% 60 250deg)",
+   "oklab(70% 0.1 0.05)",
+   "oklch(60% 0.15 200deg)",
+   "color(display-p3 0.2 0.7 0.4)",
+   "color(xyz 0.3 0.4 0.2)",
+   "rgb(102 51 153)",
+   "oklch(98% 0.4 120deg)"
+  ],
+  "extraLoss": 0
+ },
+ "U11-mobile-edit": {
+  "saveEditSeats": [
+   {
+    "inDock": true,
+    "w": 44,
+    "h": 44,
+    "x": 201,
+    "y": 29,
+    "vis": true
+   },
+   {
+    "inDock": false,
+    "w": 0,
+    "h": 0,
+    "x": 0,
+    "y": 0,
+    "vis": false
+   }
+  ],
+  "desktopOverlayDisplay": "none"
+ },
+ "PSB-U4-login-surface": {
+  "slug-login": {
+   "hash": "#/palettes",
+   "rejections": [],
+   "errs": [
+    "warning No available adapters.",
+    "warning No available adapters."
+   ],
+   "ls": [
+    "brave-quiet-amber-fox",
+    null
+   ],
+   "alert": null
+  },
+  "admin-login": {
+   "hash": "#/palettes",
+   "rejections": [],
+   "errs": [
+    "warning No available adapters."
+   ],
+   "ls": [
+    null,
+    "x9Kq-admin-token-7f3a"
+   ],
+   "alert": null
+  }
+ }
+}

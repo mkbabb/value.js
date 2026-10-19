@@ -1,0 +1,327 @@
+{
+ "U1U2-light": {
+  "paneClass": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden",
+  "paneBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+  "paneBackdrop": "none",
+  "cardBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "wellBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "searchBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "pts": {
+   "paneBare": {
+    "x": 1235,
+    "y": 228
+   },
+   "well": {
+    "x": 1192,
+    "y": 415.375
+   },
+   "search": {
+    "x": 1119.046875,
+    "y": 219.5625
+   },
+   "cardBody": {
+    "x": 1146,
+    "y": 529.90625
+   }
+  },
+  "card": {
+   "w": 462,
+   "h": 100.53125,
+   "stripW": 460,
+   "stripH": 40,
+   "headH": 50.53125
+  },
+  "px": {
+   "paneBare": [
+    205,
+    138,
+    202
+   ],
+   "well": [
+    188,
+    125,
+    178
+   ],
+   "search": [
+    184,
+    133,
+    193
+   ],
+   "cardBody": [
+    201,
+    138,
+    191
+   ]
+  },
+  "L": {
+   "paneBare": 0.7218,
+   "well": 0.6717,
+   "search": 0.6873,
+   "cardBody": 0.7132
+  },
+  "slipMinusHostL": -0.0086,
+  "errors": []
+ },
+ "U1U2-dark": {
+  "paneClass": "glass-resting card pane-shell__card paper-grain-overlay relative flex flex-col w-full min-w-0 h-full overflow-hidden",
+  "paneBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "paneBackdrop": "none",
+  "cardBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "wellBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "searchBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "pts": {
+   "paneBare": {
+    "x": 1235,
+    "y": 228
+   },
+   "well": {
+    "x": 1192,
+    "y": 415.375
+   },
+   "search": {
+    "x": 1119.046875,
+    "y": 219.5625
+   },
+   "cardBody": {
+    "x": 1146,
+    "y": 529.90625
+   }
+  },
+  "card": {
+   "w": 462,
+   "h": 100.53125,
+   "stripW": 460,
+   "stripH": 40,
+   "headH": 50.53125
+  },
+  "px": {
+   "paneBare": [
+    98,
+    22,
+    122
+   ],
+   "well": [
+    111,
+    41,
+    125
+   ],
+   "search": [
+    105,
+    43,
+    137
+   ],
+   "cardBody": [
+    121,
+    43,
+    131
+   ]
+  },
+  "L": {
+   "paneBare": 0.3791,
+   "well": 0.4198,
+   "search": 0.422,
+   "cardBody": 0.4404
+  },
+  "slipMinusHostL": 0.0613,
+  "errors": []
+ },
+ "U2U4-forced": {
+  "forced": true,
+  "well": "rgba(255, 255, 255, 0.08)",
+  "search": "rgba(255, 255, 255, 0.08)",
+  "card": "rgba(255, 255, 255, 0.08)",
+  "seg0Bg": "rgb(255, 255, 255)",
+  "seg0Adjust": "auto",
+  "stripAdjust": "auto",
+  "currentSwatchAdjust": "none"
+ },
+ "U4-print": {
+  "print": true,
+  "seg0Bg": "oklch(0.72 0.16 0)",
+  "seg0PrintAdjust": "exact",
+  "swatchRowPrintAdjust": "exact",
+  "articleVisible": 100.53125
+ },
+ "U3-light": {
+  "focusVisible": true,
+  "boxShadow": "none",
+  "outline": "solid 2px oklab(0.216129 0.00349092 0.00518243 / 0.48)",
+  "r": {
+   "x": 754,
+   "y": 437.375,
+   "width": 462,
+   "height": 100.53125,
+   "top": 437.375,
+   "right": 1216,
+   "bottom": 537.90625,
+   "left": 754
+  },
+  "px": {
+   "ring1": [
+    185,
+    135,
+    202
+   ],
+   "ring2": [
+    186,
+    137,
+    202
+   ],
+   "ring3": [
+    191,
+    142,
+    208
+   ],
+   "plate": [
+    182,
+    135,
+    201
+   ]
+  },
+  "ratios": {
+   "ring1": 1.01,
+   "ring2": 1.03,
+   "ring3": 1.1
+  }
+ },
+ "U3-dark": {
+  "focusVisible": true,
+  "boxShadow": "none",
+  "outline": "solid 2px oklab(0.925202 0.00234182 0.00572368 / 0.48)",
+  "r": {
+   "x": 754,
+   "y": 437.375,
+   "width": 462,
+   "height": 100.53125,
+   "top": 437.375,
+   "right": 1216,
+   "bottom": 537.90625,
+   "left": 754
+  },
+  "px": {
+   "ring1": [
+    85,
+    22,
+    123
+   ],
+   "ring2": [
+    86,
+    23,
+    125
+   ],
+   "ring3": [
+    89,
+    27,
+    128
+   ],
+   "plate": [
+    83,
+    21,
+    123
+   ]
+  },
+  "ratios": {
+   "ring1": 1.01,
+   "ring2": 1.03,
+   "ring3": 1.08
+  }
+ },
+ "U6-tabwalk": {
+  "stops": [
+   "Delete all saved palettes",
+   "Color swatch oklch(72% 0.16 10deg)",
+   "Color swatch oklch(72% 0.16 82deg)",
+   "Color swatch oklch(72% 0.16 154deg)",
+   "Color swatch oklch(72% 0.16 226deg)",
+   "Color swatch oklch(72% 0.16 298deg)",
+   "Add current color oklch(72% 0.16 298deg) to palett",
+   "New palette name",
+   "Save palette",
+   "Palette: Sunset Ridge ·card",
+   "Colors of Sunset Ridge ·card",
+   "Palette menu ·card",
+   "Palette: Saved 1 ·card",
+   "Colors of Saved 1 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 2 ·card",
+   "Colors of Saved 2 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 3 ·card",
+   "Colors of Saved 3 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 4 ·card",
+   "Colors of Saved 4 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 5 ·card",
+   "Colors of Saved 5 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 6 ·card",
+   "Colors of Saved 6 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 7 ·card",
+   "Colors of Saved 7 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 8 ·card",
+   "Colors of Saved 8 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 9 ·card",
+   "Colors of Saved 9 ·card",
+   "Palette menu ·card",
+   "Palette: Saved 10 ·card"
+  ],
+  "identicalPaletteMenuStops": 15,
+  "distinctStopNames": 50
+ },
+ "U7-crop": {
+  "scrollerClass": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidd",
+  "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+  "overflowY": "auto",
+  "scrollH": 1590,
+  "clientH": 507,
+  "scrollbarWidth": 0,
+  "croppedCards": [
+   {
+    "i": 2,
+    "visiblePx": 46,
+    "ofPx": 101
+   }
+  ]
+ },
+ "U11-rtl": {
+  "ltr": {
+   "stripX": 755,
+   "stripRight": 1215,
+   "seg0X": 755,
+   "seg0Bg": "oklch(0.72 0.16 0)",
+   "flexDir": "row"
+  },
+  "rtl": {
+   "stripX": 225,
+   "stripRight": 685,
+   "seg0X": 593,
+   "seg0Bg": "oklch(0.72 0.16 0)",
+   "flexDir": "row"
+  },
+  "seg0Moved": true
+ },
+ "U12-zero-match": {
+  "buttons": [
+   "Search your palettes",
+   "Delete all saved palettes",
+   "Color swatch oklch(72% 0.16 10deg)",
+   "Color swatch oklch(72% 0.16 82deg)",
+   "Color swatch oklch(72% 0.16 154deg)",
+   "Color swatch oklch(72% 0.16 226deg)",
+   "Color swatch oklch(72% 0.16 298deg)",
+   "Add current color oklch(72% 0.16 298deg)",
+   "New palette name",
+   "Save palette",
+   "Clear search"
+  ],
+  "emptyText": "No saved palette matches “zzqx-no-such-palette”."
+ },
+ "CPE-U9-matrix-seed": {
+  "label": "Start a new palette",
+  "swatches": 1
+ }
+}

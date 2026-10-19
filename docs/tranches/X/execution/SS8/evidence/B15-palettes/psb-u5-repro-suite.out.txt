@@ -1,0 +1,132 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/a11y.test.ts [ docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/a11y.test.ts ]
+Error: Failed to resolve import "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue" from "docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/a11y.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/a11y.test.ts:4:27
+  2  |  import { mount } from "@vue/test-utils";
+  3  |  import { nextTick } from "vue";
+  4  |  import PaletteSlugBar from "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue";
+     |                              ^
+  5  |  describe("a11y · logged-in default mode", () => {
+  6  |    it("dumps the slug-pill trigger + the three-dot trigger", async () => {
+ ❯ TransformPluginContext._formatLog node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/c5-new.test.ts [ docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/c5-new.test.ts ]
+Error: Failed to resolve import "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue" from "docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/c5-new.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/c5-new.test.ts:4:27
+  2  |  import { mount } from "@vue/test-utils";
+  3  |  import { nextTick } from "vue";
+  4  |  import PaletteSlugBar from "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue";
+     |                              ^
+  5  |  import { useAdminAuth } from "../../../../../../../../demo/platform/auth/useAdminAuth";
+  6  |  const PROPS = { userSlug: null, cssColorOpaque: "#369", hasSavedPalettes: false };
+ ❯ TransformPluginContext._formatLog node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/escape.test.ts [ docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/escape.test.ts ]
+Error: Failed to resolve import "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue" from "docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/escape.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/escape.test.ts:4:27
+  2  |  import { mount } from "@vue/test-utils";
+  3  |  import { nextTick } from "vue";
+  4  |  import PaletteSlugBar from "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue";
+     |                              ^
+  5  |  describe("escape · does @keydown.escape.stop on <SearchBar> actually close edit mode?", () => {
+  6  |    it("dispatches a real Escape keydown from the input", async () => {
+ ❯ TransformPluginContext._formatLog node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/probe.test.ts [ docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/probe.test.ts ]
+Error: Failed to resolve import "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue" from "docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/probe.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/probe.test.ts:4:27
+  2  |  import { mount } from "@vue/test-utils";
+  3  |  import { nextTick } from "vue";
+  4  |  import PaletteSlugBar from "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue";
+     |                              ^
+  5  |  const PROPS = { userSlug: null, cssColorOpaque: "#369", hasSavedPalettes: false };
+  6  |  describe("probe A · does the out-in leave engage at all?", () => {
+ ❯ TransformPluginContext._formatLog node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/slugbar.test.ts [ docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/slugbar.test.ts ]
+Error: Failed to resolve import "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue" from "docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/slugbar.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/slugbar.test.ts:4:27
+  2  |  import { mount } from "@vue/test-utils";
+  3  |  import { nextTick } from "vue";
+  4  |  import PaletteSlugBar from "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue";
+     |                              ^
+  5  |  const PROPS = {
+  6  |    userSlug: null,
+ ❯ TransformPluginContext._formatLog node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/submit.test.ts [ docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/submit.test.ts ]
+Error: Failed to resolve import "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue" from "docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/submit.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteSlugBar/repro/submit.test.ts:4:27
+  2  |  import { mount } from "@vue/test-utils";
+  3  |  import { nextTick } from "vue";
+  4  |  import PaletteSlugBar from "../../../../../../../../demo/palettes/browser/slug/PaletteSlugBar.vue";
+     |                              ^
+  5  |  describe("submit · does the real form submit reach onSlugSwitch?", () => {
+  6  |    it("clicking the submit Button emits switchSlug", async () => {
+ ❯ TransformPluginContext._formatLog node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform node_modules/vitest/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  6 failed (6)
+      Tests  no tests
+   Start at  14:57:57
+   Duration  1.44s (transform 11ms, setup 0ms, collect 0ms, tests 0ms, environment 1.55s, prepare 249ms)
+
