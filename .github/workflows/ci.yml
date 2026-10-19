@@ -164,9 +164,22 @@ jobs:
     # ── G-2 · the WebKit arm, HARD ───────────────────────────────────────────
     # The iOS-Safari engine class (the ValueUnit-nesting frame-294 stack
     # overflow, WebGL-on-WebKit shader divergence) is unreachable from Chromium.
+    #
+    # `macos-15` is LOAD-BEARING here too (X-W11 §0gc, measured). On Linux,
+    # Playwright's WebKit is the WPE/GTK port over Mesa, not Safari's
+    # graphics stack, and the demo's main thread WEDGES ~3 s after load once its
+    # WebGL surfaces start: `page.evaluate` never returns (10 s probes x4),
+    # identically on the dev and the built origin and under reduced motion,
+    # while the same page with WebGL withheld answers in 1-2 ms. Every cell
+    # then times out or "Target page ... closed" — 175 failed / 3 passed in
+    # mcr.microsoft.com/playwright:v1.60.0-noble, and run 39117135689 burned the
+    # 6 h job ceiling the same way. The same suite on darwin WebKit runs in
+    # 13 min with the hang gone (153 passed / 25 failed, the 25 being the ruled
+    # ESC-W10-h-1 rows). This job exists for the Safari engine; macOS is the
+    # only runner that has it.
     e2e-safari:
         name: e2e-safari
-        runs-on: ubuntu-latest
+        runs-on: macos-15
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
