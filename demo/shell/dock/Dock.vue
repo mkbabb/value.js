@@ -16,7 +16,7 @@ import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
 import ApiStatusChip from "../../shared/ui/api-status/ApiStatusChip.vue";
-import { useMediaQuery } from "@vueuse/core";
+import { useMediaQuery, useMutationObserver } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../useViewManager";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
@@ -168,19 +168,35 @@ const activeLayer = ref("main");
 
 // ── The view-select moment (R.W4 Lane B / B3) — within the CURRENT dock
 //    surface only (the dock-morph gate rides the U6 BOOK, not this wave):
-//    a one-shot morph-family settle (vj-settle keyframe, snappy spring) on
-//    the dock body confirms every view switch. The rAF re-arm lets rapid
-//    switches restart the beat; @animationend clears it. ──
+//    a one-shot morph-family settle (vj-settle keyframe, snappy spring)
+//    confirms every view switch. OD19-V2: the beat is seated on the view
+//    glyph's carrier (the expanded trigger, the collapsed seal), never the
+//    dock host, and it is ARMED only once `.glass-dock` has left glass's
+//    `[data-morphing]` width morph, so the two never compound on one plate.
+//    Glass's morph is only read (its attribute), never copied. The rAF
+//    re-arm lets rapid switches restart the beat; @animationend clears it. ──
 const dockSettle = ref(false);
+let settlePending = false;
+function armSettle() {
+    if (!settlePending) return;
+    if ((dockRef.value?.$el as HTMLElement | undefined)?.hasAttribute("data-morphing")) return;
+    settlePending = false;
+    dockSettle.value = true;
+}
 watch(
     () => viewManager.currentView.value,
     () => {
         dockSettle.value = false;
-        requestAnimationFrame(() => {
-            dockSettle.value = true;
-        });
+        settlePending = true;
+        requestAnimationFrame(armSettle);
     },
 );
+useMutationObserver(() => dockRef.value?.$el as HTMLElement | undefined, armSettle, {
+    attributeFilter: ["data-morphing"],
+});
+function onSettleEnd(e: AnimationEvent) {
+    if (e.animationName === "vj-settle") dockSettle.value = false;
+}
 watch(
     [mobileEditActive, slugEditMode, actionBarLayerActive],
     () => {
@@ -205,7 +221,7 @@ watch(
         ref="dockHost"
         :class="dockSettle && 'dock-settle'"
         :style="bandGoldStyle"
-        @animationend.self="dockSettle = false"
+        @animationend="onSettleEnd"
     >
         <GlassDock
             ref="dockRef"
@@ -416,8 +432,12 @@ watch(
 @reference "../../styles/foundation.css";
 
 /* The B3 settle beat — the vj-settle keyframe lives in animations.css
-   (keyframes are global); the class is dock-local. */
-.dock-settle {
+   (keyframes are global); the class is dock-local. OD19-V2: the host only
+   carries the state; the beat plays on the view glyph's carrier (the trigger
+   expanded, the seal collapsed), so it never scales the plate glass morphs.
+   `transform` here composes with the trigger's own press `scale`. */
+.dock-settle :deep(.view-select-trigger),
+.dock-settle .dock-seal {
     animation: vj-settle var(--spring-dock-duration) var(--spring-dock);
 }
 

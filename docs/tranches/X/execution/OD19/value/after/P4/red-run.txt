@@ -1,0 +1,111 @@
+(node:29513) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:29664) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 2 tests using 1 worker
+
+[1A[2K(node:29749) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/2] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440)
+{"width":1440,"frames":13,"morphingFrames":0,"hostTransformFrames":2,"compounded":0,"settles":[{"t":313,"morphing":false,"onHost":true,"seat":null}],"drift":0}
+
+[1A[2K  1) [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440) 
+
+    Error: the settle never scales the dock host
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -  1[39m
+    [31m+ Received  + 16[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "cx": 719.9921875,[39m
+    [31m+     "hostScale": "none",[39m
+    [31m+     "hostTransform": "matrix(1, 0, 0, 1, 0, 0)",[39m
+    [31m+     "morphing": false,[39m
+    [31m+     "t": 261,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "cx": 719.9921875,[39m
+    [31m+     "hostScale": "none",[39m
+    [31m+     "hostTransform": "matrix(1.02757, 0, 0, 1.02757, 0, 0)",[39m
+    [31m+     "morphing": false,[39m
+    [31m+     "t": 314,[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      113 |             );
+      114 |             expect(compounded, "no host transform while .glass-dock[data-morphing]").toEqual([]);
+    > 115 |             expect(frames.filter((f) => f.hostTransform !== "none"), "the settle never scales the dock host").toEqual([]);
+          |                                                                                                               ^
+      116 |             expect(settles.length, "the vj-settle beat is kept").toBeGreaterThanOrEqual(1);
+      117 |             for (const s of settles) {
+      118 |                 expect(s.onHost, "vj-settle is not seated on the dock host").toBe(false);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v2-dock-settle.spec.ts:115:111
+
+    Error Context: test-results/od19-v2-dock-settle-OD19-V-ab4d0-s-s-morph-on-the-host-1440--smoke/error-context.md
+
+
+[1A[2K(node:31850) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/2] [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+[1A[2K[smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390)
+{"width":390,"frames":111,"morphingFrames":0,"hostTransformFrames":3,"compounded":0,"settles":[{"t":419,"morphing":false,"onHost":true,"seat":null}],"drift":0.0000152587890625}
+
+[1A[2K  2) [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390) 
+
+    Error: the settle never scales the dock host
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  -  1[39m
+    [31m+ Received  + 23[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   Object {[39m
+    [31m+     "cx": 195,[39m
+    [31m+     "hostScale": "none",[39m
+    [31m+     "hostTransform": "matrix(1, 0, 0, 1, 0, 0)",[39m
+    [31m+     "morphing": false,[39m
+    [31m+     "t": 398,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "cx": 195.00000762939453,[39m
+    [31m+     "hostScale": "none",[39m
+    [31m+     "hostTransform": "matrix(1.00824, 0, 0, 1.00824, 0, 0)",[39m
+    [31m+     "morphing": false,[39m
+    [31m+     "t": 419,[39m
+    [31m+   },[39m
+    [31m+   Object {[39m
+    [31m+     "cx": 194.99999237060547,[39m
+    [31m+     "hostScale": "none",[39m
+    [31m+     "hostTransform": "matrix(1.02293, 0, 0, 1.02293, 0, 0)",[39m
+    [31m+     "morphing": false,[39m
+    [31m+     "t": 445,[39m
+    [31m+   },[39m
+    [31m+ ][39m
+
+      113 |             );
+      114 |             expect(compounded, "no host transform while .glass-dock[data-morphing]").toEqual([]);
+    > 115 |             expect(frames.filter((f) => f.hostTransform !== "none"), "the settle never scales the dock host").toEqual([]);
+          |                                                                                                               ^
+      116 |             expect(settles.length, "the vj-settle beat is kept").toBeGreaterThanOrEqual(1);
+      117 |             for (const s of settles) {
+      118 |                 expect(s.onHost, "vj-settle is not seated on the dock host").toBe(false);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/od19-v2-dock-settle.spec.ts:115:111
+
+    Error Context: test-results/od19-v2-dock-settle-OD19-V-64f9b-ss-s-morph-on-the-host-390--smoke/error-context.md
+
+
+[1A[2K  2 failed
+    [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (1440) 
+    [smoke] › e2e/smoke/od19-v2-dock-settle.spec.ts:87:5 › OD19-V2: the view-switch settle never rides glass's morph on the host (390) 
+EXIT 1
