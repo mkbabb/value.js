@@ -84,7 +84,7 @@ test("an unknown address announces its destination and is distinct from home", a
     const h1 = page.getByRole("heading", { level: 1 });
     await expect(h1).toHaveCount(1);
     await expect(h1).toBeVisible();
-    await expect(h1).toHaveText("Not Found");
+    await expect(h1).toHaveText("Not found");
     expect(await h1.textContent()).not.toBe(homeHeading);
     expect(await page.title()).not.toBe(homeTitle);
 

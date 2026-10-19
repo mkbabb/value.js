@@ -113,13 +113,26 @@ const dockPlate = computed(() => dockHost.value?.querySelector(".dock-plate") ??
 // gold clears it; the glyphs (the view icon, the admin shield, the crown) at
 // the 3:1 graphics floor, as the seal already does. At the text floor plus
 // the headroom, a mid-dark band drained the gold to white.
-const { identityCss: bandIdentityCss } = useChromeAccentFn(dockPlate);
+const { identityCss: bandIdentityCss, plateCss: bandPlateCss } = useChromeAccentFn(dockPlate);
 const { isDark } = useGlobalDark();
 const bandGoldStyle = computed(() => {
     const gold = goldIdentityCss(isDark.value);
     const word = bandIdentityCss(gold, TEXT_CONTRAST_FLOOR);
     const glyph = bandIdentityCss(gold, GRAPHICS_CONTRAST_FLOOR);
     return word && glyph ? { "--ink-gold": word, "--ink-gold-glyph": glyph } : undefined;
+});
+// X-DS pass 19 (V19C-02): the dock's PLAIN words read the band's plate ink,
+// the same instrument and scope as the gold above. glass seats its dock ink on
+// `.glass-dock` itself (`--dock-fg-on-aurora` and `--muted-foreground` from
+// `--foreground`, or `contrast-color(var(--card))`, a ground the band is not),
+// so the rebinding rides GlassDock's root, through glass's own token seam: the
+// words follow the band they sit on (the owner brown flips them to the light
+// pole) and no glass rule is overridden.
+const bandInkStyle = computed(() => {
+    const ink = bandPlateCss();
+    return ink
+        ? { "--foreground": ink, "--dock-fg-on-aurora": ink, "--muted-foreground": ink }
+        : undefined;
 });
 
 watch(
@@ -196,6 +209,7 @@ watch(
     >
         <GlassDock
             ref="dockRef"
+            :style="bandInkStyle"
             :collapse="isDesktop ? 'open' : false"
             :fit-content="true"
         >

@@ -4,9 +4,11 @@
              readable list. Under the signed-out or error plate every control
              in it was dead or a second Retry, so the row held nothing live. -->
         <div v-if="!tagsApi.access.value && !tagsApi.loadError.value" class="flex items-center gap-2">
-            <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger. -->
+            <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger.
+                 X-DS pass 19 (V19C-04): nor over an empty plate, which
+                 already says there is nothing (Audit's UIA-V-638 guard). -->
             <span
-                v-if="!tagsApi.loading.value"
+                v-if="!tagsApi.loading.value && tagsApi.tags.value.length > 0"
                 class="text-mono-small text-muted-foreground"
             >
                 {{ tagsApi.tags.value.length }} tag{{ tagsApi.tags.value.length === 1 ? "" : "s" }}
@@ -56,29 +58,33 @@
             aria-label="New tag"
             @submit.prevent="canCreate && tagsApi.createTag()"
         >
-            <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
-                 sized honestly (name vs category was ~5×; the category well
-                 no longer clips its own placeholder). -->
-            <Input
-                v-model="tagsApi.newName.value"
-                type="text"
-                size="sm"
-                placeholder="Tag name..."
-                aria-label="New tag name"
-                :disabled="tagsApi.loading.value"
-                :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
-                aria-describedby="admin-tag-name-problem"
-                class="basis-full sm:basis-auto flex-1 min-w-0 font-mono"
-            />
-            <Input
-                v-model="tagsApi.newCategory.value"
-                type="text"
-                size="sm"
-                placeholder="Category..."
-                aria-label="New tag category"
-                :disabled="tagsApi.loading.value"
-                class="flex-1 min-w-0 sm:flex-none sm:w-36 font-mono"
-            />
+            <!-- S.W5-3 (S-17/F-7): the pair sized honestly (name vs category
+                 was ~5×; the category well no longer clips its own
+                 placeholder). X-DS pass 19 (V19C-03): both wear the ONE seated
+                 register (DESIGN.md, THE REGISTER LAW: utils.css
+                 `.search-seated`), in the body voice. -->
+            <div class="input-bar search-seated basis-full sm:basis-auto flex-1 min-w-0">
+                <input
+                    v-model="tagsApi.newName.value"
+                    type="text"
+                    placeholder="Tag name..."
+                    aria-label="New tag name"
+                    :disabled="tagsApi.loading.value"
+                    :aria-invalid="tagsApi.newNameProblem.value ? true : undefined"
+                    aria-describedby="admin-tag-name-problem"
+                    class="input-bar-field"
+                />
+            </div>
+            <div class="input-bar search-seated flex-1 min-w-0 sm:flex-none sm:w-36">
+                <input
+                    v-model="tagsApi.newCategory.value"
+                    type="text"
+                    placeholder="Category..."
+                    aria-label="New tag category"
+                    :disabled="tagsApi.loading.value"
+                    class="input-bar-field"
+                />
+            </div>
             <Button
                 type="submit"
                 size="sm"
@@ -207,7 +213,6 @@ import {
     DialogFooter,
 } from "@mkbabb/glass-ui/dialog";
 import { Button } from "@mkbabb/glass-ui/button";
-import { Input } from "@mkbabb/glass-ui/input";
 import { Label } from "@mkbabb/glass-ui/label";
 import { Skeleton } from "@mkbabb/glass-ui";
 import { Plus, RefreshCw, Trash2, X } from "@lucide/vue";

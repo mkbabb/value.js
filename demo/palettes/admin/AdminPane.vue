@@ -3,8 +3,12 @@
          rides the `title` prop (the #title slot existed for the count chip,
          which V15-02 deleted), so PaneShell seats it as the route's one <h1>
          and App prints no caption above it. Each pane's count is said once,
-         where the list speaks. -->
-    <PaneShell :title="headerTitle" :description="headerDescription" :gap="3">
+         where the list speaks. X-DS pass 19 (V19C-01): `seated`, the About /
+         My Palettes contract (V3C-01/V4C-05): the header sits above the
+         FadingScroll port, so it paints no veil and a long roster scrolls
+         inside the port, under no header. `bounded` keeps the console's
+         desktop ceiling (A2-VA-X-14). -->
+    <PaneShell seated bounded :title="headerTitle" :description="headerDescription" :gap="3">
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->

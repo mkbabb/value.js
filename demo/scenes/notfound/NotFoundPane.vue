@@ -1,6 +1,6 @@
 <!-- SERVED MODEL: claude-opus-5[1m] -->
 <template>
-    <PaneShell title="Not Found" seated :gutter="false" class="max-w-(--pane-max)">
+    <PaneShell title="Not found" seated :gutter="false" class="max-w-(--pane-max)">
         <!-- A2-VA-L1-1: the one pane shell.
              X.W12.u3 — the dead end speaks the app's EmptyState register
              (UIA-V-447): one statement, the address that missed as the

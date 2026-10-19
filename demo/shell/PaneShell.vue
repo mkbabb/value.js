@@ -4,7 +4,7 @@
         :class="[
             'pane-shell relative w-full mx-auto h-full min-w-0',
             follow && 'pane-row-follow',
-            !seated && 'pane-shell--overlying',
+            (!seated || bounded) && 'pane-shell--bounded',
         ]"
     >
         <!-- A2-VA-L1-1 — THE ONE PANE SHELL. The wrapper → `Card tier=resting` →
@@ -22,7 +22,7 @@
                  nothing scrolls under the title and the header keeps its rest
                  form; an optional flex-none `#footer` sits below the port.
              X.W12U.k3 · A2-VA-X-14 (§0fh.6): at desktop the overlying owner is
-             BOUNDED like the seated ports (`pane-shell--overlying`, the style
+             BOUNDED like the seated ports (`pane-shell--bounded`, the style
              block below), so its host scrolls and the header condenses on it.
              Both owners carry `.pane-scroll-fade` (PaneHeader.vue): the named
              `--pane-scroll` timeline the header veil reads.
@@ -88,6 +88,7 @@ const {
     description,
     level,
     seated = false,
+    bounded = false,
     follow = false,
     gutter = true,
     gap = 4,
@@ -105,6 +106,11 @@ const {
      *  V7C-01: Not Found, whose short plate has nothing to scroll under it).
      *  Only a pane whose body really scrolls UNDER its title overlies. */
     seated?: boolean;
+    /** X-DS pass 19 (V19C-01): a one-region scene whose body can outgrow the
+     *  band (the admin consoles) takes the band as its ceiling at desktop and
+     *  scrolls in its own port (A2-VA-X-14, the style block below). An
+     *  overlying owner is always bounded. */
+    bounded?: boolean;
     /** The companion row contract: follow the picker's row (shell.css). */
     follow?: boolean;
     /** The body gutter; false when the body brings its own (About's CardContent). */
@@ -152,7 +158,12 @@ const bodyClass = computed(() => [
 /* X.W12U.k3 · A2-VA-X-14 (§0fh.6, OVERLYING-HOST-UNBOUNDED-1440): THE OVERLYING
  * OWNER IS BOUNDED AT DESKTOP, AS THE SEATED PORTS ARE.
  *
- * The overlying owner (AdminPane) is a one-region scene: no stage
+ * X-DS pass 19 (V19C-01): AdminPane is now SEATED (its header paints no
+ * veil); the bound is keyed on `pane-shell--bounded`, which a seated
+ * one-region owner opts into (`bounded`) and an overlying owner always wears.
+ * Its seated port is the scroll owner then, as the overlying host was.
+ *
+ * The admin console is a one-region scene: no stage
  * sets its row, so its region grew to its content (the 47-user roster read
  * host 3177 = 3177 at 1440×900) and the DOCUMENT scrolled (3299 over 900).
  * Glass's `<CardHeader shrink>` condense reads the `.card-scroll-host`, so on
@@ -178,20 +189,20 @@ const bodyClass = computed(() => [
  * (`.pane-container`, `.pane-wrapper`) around this component's root; it is
  * colocated with the owner it bounds, as PaneHeader colocates
  * `.pane-scroll-fade`. */
-.pane-container:has(> .pane-wrapper > .pane-shell--overlying) {
+.pane-container:has(> .pane-wrapper > .pane-shell--bounded) {
     flex: 1 1 auto;
 }
-.pane-wrapper:has(> .pane-shell--overlying) {
+.pane-wrapper:has(> .pane-shell--bounded) {
     display: flex;
     flex-direction: column;
 }
-.pane-wrapper:has(> .pane-shell--overlying) > .pane-shell--overlying {
+.pane-wrapper:has(> .pane-shell--bounded) > .pane-shell--bounded {
     block-size: auto;
     flex: 0 1 auto;
     min-block-size: 0;
 }
 @container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
-    .pane-wrapper:has(> .pane-shell--overlying) {
+    .pane-wrapper:has(> .pane-shell--bounded) {
         contain: size layout;
     }
 }

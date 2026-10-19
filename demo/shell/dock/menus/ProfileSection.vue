@@ -186,10 +186,13 @@ function openRepository(): void {
                  section caption — text-mono-small is the non-transforming
                  mono rung. Lowercase is the mark. X.W12.e (OA-22): it sits on
                  glass's dock dropdown trigger (the dock control's plate and
-                 stadium), never a generic Button's squared plate. -->
+                 stadium), never a generic Button's squared plate.
+                 X-DS pass 19 (V19C-02): it reads the band's certified plate
+                 ink at full strength (Dock.vue); the mono rung and its weight
+                 carry its secondary rank, not an opacity cut. -->
             <DockTrigger
                 for="dropdown"
-                class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
+                class="text-mono-small text-foreground hover:underline underline-offset-4 whitespace-nowrap"
             >
                 @mbabb
             </DockTrigger>

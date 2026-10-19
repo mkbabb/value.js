@@ -27,15 +27,18 @@
                 Prune empty
             </Button>
             <!-- UIA-V-49: while the error plate offers Retry, the header's
-                 duplicate Refresh stands down; both are the recovery probe. -->
+                 duplicate Refresh stands down; both are the recovery probe.
+                 X-DS pass 19 (V19C-04): one Refresh grammar across the four
+                 consoles, the named icon button Audit, Flagged and Tags use. -->
             <Button
+                emphasis="secondary"
                 size="xs"
-                class="px-2.5 cursor-pointer text-caption gap-1.5"
+                icon-only
+                aria-label="Refresh users"
                 :disabled="loading"
                 @click="pm.retryAdminUsers()"
             >
-                <RefreshCw class="w-3 h-3" :class="loading && 'animate-spin'" />
-                Refresh
+                <RefreshCw class="h-3 w-3" :class="loading && 'animate-spin'" aria-hidden="true" />
             </Button>
         </div>
 

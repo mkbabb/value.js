@@ -591,7 +591,19 @@ export function useChromeAccentFn(host: Readonly<Ref<Element | null>>) {
         );
     }
 
-    return { safeCss, identityCss };
+    /** X-DS pass 19 (V19C-02): the band's own plate ink (the one polarity
+     *  decision, `resolvePlateInk`), certified on the same measured ground:
+     *  the dock's plain words read it, as the gold's last rung already does. */
+    function plateCss(): string | undefined {
+        const el = host.value;
+        if (!el) return undefined;
+        return resolvePlateInk(
+            resolvePaintedLightness(ambient.value, bandTint(el, isDark.value)),
+            isDark.value,
+        );
+    }
+
+    return { safeCss, identityCss, plateCss };
 }
 
 /**

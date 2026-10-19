@@ -9,24 +9,28 @@
              readable list. Signed out, every control in it was disabled; beside
              the error plate the filters stay live and Refresh stands down. -->
         <div v-if="!audit.access.value" class="flex items-center gap-2 flex-wrap">
-            <!-- S.W5-3 (S-17/F-7): the glass-ui Input pill, sm rung — the
-                 hand-rolled square chrome under the SearchBar pills is dead. -->
-            <Input
-                v-model="audit.actionFilter.value"
-                type="text"
-                size="sm"
-                placeholder="Action..."
-                aria-label="Filter by action"
-                class="w-32 font-mono"
-            />
-            <Input
-                v-model="audit.targetFilter.value"
-                type="text"
-                size="sm"
-                placeholder="Target..."
-                aria-label="Filter by target"
-                class="flex-1 min-w-[6rem] font-mono"
-            />
+            <!-- X-DS pass 19 (V19C-03): a field in a pane body wears the ONE
+                 seated register (DESIGN.md, THE REGISTER LAW: utils.css
+                 `.search-seated`), in the body voice, as the Users and Names
+                 searches do. -->
+            <div class="input-bar search-seated w-32">
+                <input
+                    v-model="audit.actionFilter.value"
+                    type="text"
+                    placeholder="Action..."
+                    aria-label="Filter by action"
+                    class="input-bar-field"
+                />
+            </div>
+            <div class="input-bar search-seated flex-1 min-w-[6rem]">
+                <input
+                    v-model="audit.targetFilter.value"
+                    type="text"
+                    placeholder="Target..."
+                    aria-label="Filter by target"
+                    class="input-bar-field"
+                />
+            </div>
             <!-- X-DS pass 16 (V16-05): the count and its Refresh are ONE
                  non-wrapping cluster at the row's end (the Flagged and Tags
                  header shape), so at 390 they drop to their own line
@@ -158,7 +162,6 @@
 <script setup lang="ts">
 import { computed, inject, onMounted, onScopeDispose, watch } from "vue";
 import { Button } from "@mkbabb/glass-ui/button";
-import { Input } from "@mkbabb/glass-ui/input";
 import { Badge } from "@mkbabb/glass-ui/badge";
 import { RefreshCw } from "@lucide/vue";
 import EmptyState from "../../../shared/ui/EmptyState.vue";

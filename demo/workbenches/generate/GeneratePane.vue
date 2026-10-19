@@ -17,7 +17,7 @@ function onSave(colors: string[], name: string) {
         css,
         position: i,
     }));
-    pm.createPalette(name.trim() || "Generated Palette", paletteColors);
+    pm.createPalette(name.trim() || "Generated palette", paletteColors);
 }
 
 defineExpose({

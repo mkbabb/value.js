@@ -59,7 +59,7 @@ const emit = defineEmits<{
     save: [colors: string[], name: string];
 }>();
 
-const paletteName = ref("Generated Palette");
+const paletteName = ref("Generated palette");
 
 /** The bench-note seed — fixed-width hex, a specimen label's provenance. */
 const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));

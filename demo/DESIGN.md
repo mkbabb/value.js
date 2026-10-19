@@ -305,7 +305,8 @@ ONE opt-in `.search-seated` (`demo/styles/utils.css`):
 - the `--card-edge` ink hairline and the chip-scale cartoon stamp;
 - the column measure (the dock cap dies) and the plate's text voice.
 
-Its consumers are the Palettes, Browse and Admin pane search bars. A search in the dock or an
+Its consumers are the Palettes, Browse and Admin pane search bars, and the Admin consoles' filter
+and create fields (X-DS V19C-03). A search in the dock or an
 overlay keeps the floating pill. This is an INTERIM demo seat, booked onto the producer's P3
 seated field-chrome rung (ASK-D, with the ASK-B font and ASK-C cap seams).
 

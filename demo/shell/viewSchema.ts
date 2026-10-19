@@ -279,8 +279,8 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
     // deep-link to. One region: a dead end shows one thing. No hue turn — it is
     // not a place in the 40°-step dock fan.
     "not-found": {
-        label: "Not Found",
-        regions: [{ role: "stage", pane: "not-found", label: "Not Found", titled: true }],
+        label: "Not found",
+        regions: [{ role: "stage", pane: "not-found", label: "Not found", titled: true }],
         icon: Compass,
         accentHueShift: 0,
     },

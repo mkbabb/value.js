@@ -173,6 +173,11 @@ export function formatSpecimen(color: PickerColor, space: DisplayColorSpace): Sp
     const resolved = resolveColorSpace(space);
     const converted = convertPickerColor(color, resolved);
     const budgeted = budgetDigits(converted);
+    // The one alpha clause every row family states (X-DS pass 19 · V19C-07:
+    // the channels form joined its channels and dropped it).
+    const alpha = budgeted.alpha === 1
+        ? ""
+        : ` / ${budgeted.alpha === "none" ? "none" : `${budgetDigitsOf(budgeted.alpha * 100)}%`}`;
 
     // An sRGB colour outside rgb()'s 0..255 range is spelled `color(srgb …)` on
     // the 0..1 scale, so the policy is applied THERE, in the serialized domain:
@@ -184,9 +189,6 @@ export function formatSpecimen(color: PickerColor, space: DisplayColorSpace): Sp
     )) {
         const channels = converted.channels.map((channel) =>
             typeof channel === "number" ? String(budgetDigitsOf(channel / 255)) : channel);
-        const alpha = budgeted.alpha === 1
-            ? ""
-            : ` / ${budgeted.alpha === "none" ? "none" : `${budgetDigitsOf(budgeted.alpha * 100)}%`}`;
         return { text: `color(srgb ${channels.join(" ")}${alpha})`, form: "css", outOfGamut };
     }
 
@@ -195,5 +197,5 @@ export function formatSpecimen(color: PickerColor, space: DisplayColorSpace): Sp
     }
 
     const channels = budgeted.channels.map((channel) => String(channel)).join(" · ");
-    return { text: `${resolved} · ${channels}`, form: "channels", outOfGamut };
+    return { text: `${resolved} · ${channels}${alpha}`, form: "channels", outOfGamut };
 }

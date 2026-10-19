@@ -20,7 +20,7 @@ import { expect, test as base, type Page } from "@playwright/test";
 import { adminPopulatedTest } from "./admin/fixtures/admin-populated";
 import { mainPane } from "./fixtures/dock";
 
-const NOT_FOUND = "Not Found";
+const NOT_FOUND = "Not found";
 
 async function read(page: Page, heading: string) {
     await expect(page.getByRole("heading", { name: heading }).first()).toBeVisible();
@@ -35,7 +35,7 @@ for (const colorScheme of ["light", "dark"] as const) {
             await page.goto("/#/admin/tags");
             await read(page, NOT_FOUND);
             await expect(page.getByRole("heading", { name: "Tags", exact: true })).toHaveCount(0);
-            await expect(page).toHaveTitle(/^Not Found/);
+            await expect(page).toHaveTitle(/^Not found/);
         });
 
         base("token-less in-app hash navigation fail-closes the same way", async ({ page }) => {

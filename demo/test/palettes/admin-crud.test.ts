@@ -245,7 +245,9 @@ describe("G13 · one owner, one visible verdict (DAG §2.3 rows 1 · 3 · 6)", (
         expect(wrapper.find('[data-admin-palette="audit-aurora"]').exists()).toBe(true);
 
         served = PALETTES.slice(1); // deleted elsewhere
-        const refresh = wrapper.findAll("button").find((b) => b.text().includes("Refresh"))!;
+        // X-DS pass 19 (V19C-04): Refresh is the named icon button the four
+        // consoles share, so it is found by its accessible name, not a word.
+        const refresh = wrapper.find('button[aria-label="Refresh users"]');
         await refresh.trigger("click");
         await flushPromises();
         expect(wrapper.find('[data-admin-palette="audit-aurora"]').exists()).toBe(false);

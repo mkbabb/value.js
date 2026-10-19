@@ -64,11 +64,14 @@ export function stepsLiteral(n: number, term: JumpTerm): string {
  * steps staircase reads with near-vertical risers at specimen scale.
  */
 export function glyphPath(fn: EasingFunction, samples = 48): string {
-    let d = "";
+    // X-DS pass 19 (V19C-05): a curve that jumps at t = 0 (steps jump-start)
+    // opens at the origin baseline, so its riser is drawn as the end riser is;
+    // a path begun at (0, 1 − fn(0)) left a bare overline.
+    let d = fn(0) !== 0 ? "M 0.000 1.000" : "";
     for (let i = 0; i <= samples; i++) {
         const t = i / samples;
         const y = 1 - fn(t);
-        d += `${i === 0 ? "M" : " L"} ${t.toFixed(3)} ${y.toFixed(3)}`;
+        d += `${d === "" ? "M" : " L"} ${t.toFixed(3)} ${y.toFixed(3)}`;
     }
     return d;
 }

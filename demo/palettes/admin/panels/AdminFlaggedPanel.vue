@@ -7,8 +7,10 @@
              readable list. Under the signed-out or error plate every control
              in it was dead or a second Retry, so the row held nothing live. -->
         <div v-if="!flagged.access.value && !flagged.loadError.value" class="flex items-center gap-2">
+            <!-- X-DS pass 19 (V19C-04): nor over an empty plate, which
+                 already says there is nothing (Audit's UIA-V-638 guard). -->
             <span
-                v-if="!firstLoad"
+                v-if="!firstLoad && flagged.pager.total > 0"
                 class="text-mono-small text-muted-foreground"
             >
                 {{ flagged.pager.total }} flagged
