@@ -12,7 +12,8 @@
  * cannot see this by construction").
  */
 
-import { describe, expect, it } from "vitest";
+import { afterAll, chai, describe, expect, it } from "vitest";
+import { getCurrentSuite } from "vitest/suite";
 
 import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
@@ -28,6 +29,53 @@ import {
     resolvePlateInk,
     resolveSurfaceLightness,
 } from "../demo/color-session/ink";
+
+import producerHeld from "./producer-held.json";
+
+/**
+ * §0gb.2 — the producer-held cases (`test/producer-held.json`, the one
+ * manifest). A held case runs its UNCHANGED body and passes only if the body
+ * throws an `AssertionError` (the producer-owned defect still stands). Any
+ * other error fails it; a body that passes fails it (glass landed: adopt it
+ * and delete the row); a call site with no row, or a row that matches no
+ * registered test, fails the file. Nothing is skipped and nothing loosened.
+ */
+const HELD_ROWS = new Map(producerHeld.rows.map((row) => [row.test, row]));
+const heldRegistered = new Set<string>();
+
+function itProducerHeld(name: string, body: () => void): void {
+    const path = [name];
+    for (
+        let suite = getCurrentSuite().suite;
+        suite && suite !== suite.file;
+        suite = suite.suite
+    )
+        path.unshift(suite.name);
+    const fullName = path.join(" > ");
+    const row = HELD_ROWS.get(fullName);
+    if (!row) throw new Error(`producer-held: no manifest row for "${fullName}"`);
+    heldRegistered.add(fullName);
+    it(name, async ({ annotate }) => {
+        try {
+            body();
+        } catch (error) {
+            if (!(error instanceof chai.AssertionError)) throw error;
+            await annotate(`HELD-PASSING ${row.o} — ${row.expiry}: ${error.message}`);
+            return;
+        }
+        throw new Error(
+            `producer-held body PASSED (${row.o}): glass landed — adopt it and delete the row "${fullName}" from test/producer-held.json`,
+        );
+    });
+}
+
+afterAll(() => {
+    const unmatched = [...HELD_ROWS.keys()].filter((name) => !heldRegistered.has(name));
+    if (unmatched.length > 0)
+        throw new Error(
+            `producer-held: manifest rows match no test: ${JSON.stringify(unmatched)}`,
+        );
+});
 
 function requiredOklch(source: string): Color<"oklch"> {
     const parsed = parseCssColor(source);
@@ -221,7 +269,7 @@ describe("D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4)", ()
             }
         });
 
-        it(`stays QUIETER than the raw foreground — a designed step, not a repaint (${dark ? "dark" : "light"})`, () => {
+        itProducerHeld(`stays QUIETER than the raw foreground — a designed step, not a repaint (${dark ? "dark" : "light"})`, () => {
             const plateL = resolveSurfaceLightness("resting", 0.63, dark);
             const muted = parseOklch(resolveMutedInk(plateL, dark));
             // The muted rung sits strictly BETWEEN the foreground extreme and
@@ -287,7 +335,7 @@ describe("T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1)"
     const IDENTITY_C_FLOOR = 0.35;
 
     for (const dark of [false, true]) {
-        it(`the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ ${IDENTITY_C_FLOOR}× the pick (${dark ? "dark" : "light"})`, () => {
+        itProducerHeld(`the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ ${IDENTITY_C_FLOOR}× the pick (${dark ? "dark" : "light"})`, () => {
             const plateL = resolveSurfaceLightness("resting", OWNER_AMBIENT, dark);
             const ink = certifyAccentInk(OWNER_BRICK, plateL);
             expect(
@@ -303,7 +351,7 @@ describe("T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1)"
         });
     }
 
-    it("the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)", () => {
+    itProducerHeld("the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)", () => {
         // A vivid pick on the light plate: the walk lands deep enough to
         // clear, and the landing C is the pick's own where the slice permits.
         const plateL = resolveSurfaceLightness("resting", OWNER_AMBIENT, false);
