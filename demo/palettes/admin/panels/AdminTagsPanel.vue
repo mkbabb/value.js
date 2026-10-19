@@ -3,21 +3,19 @@
         <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
              readable list. Under the signed-out or error plate every control
              in it was dead or a second Retry, so the row held nothing live. -->
-        <div v-if="!tagsApi.access.value && !tagsApi.loadError.value" class="flex items-center gap-2">
+        <!-- X-DS pass 20 (V20C-01): the count's row stands only while it has a
+             count to say; Refresh lives at the end of the create row (Audit's
+             one action row), never a lone glyph in a blank band. -->
+        <div
+            v-if="!tagsApi.access.value && !tagsApi.loadError.value && !tagsApi.loading.value && tagsApi.tags.value.length > 0"
+            class="flex items-center gap-2"
+        >
             <!-- W7.61 (ATP-12): the count speaks only over a loaded ledger.
                  X-DS pass 19 (V19C-04): nor over an empty plate, which
                  already says there is nothing (Audit's UIA-V-638 guard). -->
-            <span
-                v-if="!tagsApi.loading.value && tagsApi.tags.value.length > 0"
-                class="text-mono-small text-muted-foreground"
-            >
+            <span class="text-mono-small text-muted-foreground">
                 {{ tagsApi.tags.value.length }} tag{{ tagsApi.tags.value.length === 1 ? "" : "s" }}
             </span>
-            <div class="flex-1" />
-            <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button emphasis="secondary" size="xs" icon-only aria-label="Refresh tags" @click="tagsApi.loadTags()">
-                <RefreshCw class="h-3 w-3" aria-hidden="true" />
-            </Button>
         </div>
 
         <!-- X.W7.d (S-13): the tag write's one visible result. -->
@@ -93,6 +91,18 @@
             >
                 <Plus class="h-3.5 w-3.5" aria-hidden="true" />
                 Add tag
+            </Button>
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <Button
+                type="button"
+                emphasis="secondary"
+                size="xs"
+                icon-only
+                class="shrink-0"
+                aria-label="Refresh tags"
+                @click="tagsApi.loadTags()"
+            >
+                <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </form>
         <!-- W7.80 (ATP-10): the contract problem is shown before any request. -->

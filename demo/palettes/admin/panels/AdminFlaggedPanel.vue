@@ -6,13 +6,17 @@
         <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
              readable list. Under the signed-out or error plate every control
              in it was dead or a second Retry, so the row held nothing live. -->
-        <div v-if="!flagged.access.value && !flagged.loadError.value" class="flex items-center gap-2">
+        <!-- X-DS pass 20 (V20C-01): the row stands only while there is a
+             list to count. Over the empty plate it held a lone Refresh glyph
+             in a blank band; there the plate's own action seat carries it
+             (the Users empty-plate pattern), so every glyph has a home. -->
+        <div
+            v-if="!flagged.access.value && !flagged.loadError.value && !firstLoad && flagged.pager.total > 0"
+            class="flex items-center gap-2"
+        >
             <!-- X-DS pass 19 (V19C-04): nor over an empty plate, which
                  already says there is nothing (Audit's UIA-V-638 guard). -->
-            <span
-                v-if="!firstLoad && flagged.pager.total > 0"
-                class="text-mono-small text-muted-foreground"
-            >
+            <span class="text-mono-small text-muted-foreground">
                 {{ flagged.pager.total }} flagged
             </span>
             <div class="flex-1" />
@@ -80,7 +84,20 @@
         <EmptyState
             v-else-if="flagged.items.value.length === 0"
             message="No flagged palettes."
-        />
+        >
+            <template #action>
+                <Button
+                    emphasis="secondary"
+                    size="xs"
+                    icon-only
+                    aria-label="Refresh flagged palettes"
+                    :disabled="flagged.loading.value"
+                    @click="flagged.loadFlagged()"
+                >
+                    <RefreshCw class="h-3 w-3" :class="flagged.loading.value && 'animate-spin'" aria-hidden="true" />
+                </Button>
+            </template>
+        </EmptyState>
 
         <!-- Flagged items. X.W7.d (W7.81 · AF-4): rows and pager belong to the
              state chain — the error plate never paints beside stale rows. -->
