@@ -8,12 +8,22 @@ on:
         # bytes, and a receipt-only push must not cancel a 2.5 h browser run
         # (cancel-in-progress below stays). Census at landing: producer, api,
         # oracle-slate, boot-smoke and lhci read nothing under docs/; e2e-smoke,
-        # e2e-safari and visual read five docs fixtures (a16 receipt, the W6
-        # gradient ask + its census addendum, the o25 atmosphere frames, the w1
-        # visual MANIFEST) — those are measured on every push that carries a
-        # non-docs path and on every pull_request, which stays unfiltered.
-        paths-ignore:
-            - "docs/**"
+        # e2e-safari and visual read five docs fixtures, so a push touching any
+        # of them still runs CI (X.W11.ci1b, §0gd). `paths` (not `paths-ignore`)
+        # because only `paths` honours `!`; the last matching pattern wins, so
+        # the re-includes follow the exclude. pull_request stays unfiltered.
+        paths:
+            - "**"
+            - "!docs/**"
+            # e2e-smoke · a11y-select-title.spec.ts B3
+            - "docs/tranches/X/waves/evidence/W4/a16-retest-receipt.md"
+            # e2e-smoke · views/gradient.spec.ts L3 (the dated ask + its census addendum)
+            - "docs/tranches/X/waves/W6-glass-ask-gradient-aurora.md"
+            - "docs/tranches/X/waves/W12U-evidence/q2/census/gradient-aurora-census-2026-10-16.md"
+            # e2e-smoke + e2e-safari · oracles/o25-atmosphere-response.spec.ts (atmo1-ref + four seeds)
+            - "docs/tranches/X/waves/W6-evidence/atmosphere/atmo1-*.png"
+            # visual · golden-integrity.spec.ts
+            - "docs/tranches/X/evidence/w1/visual/MANIFEST.json"
     pull_request:
 
 permissions:
