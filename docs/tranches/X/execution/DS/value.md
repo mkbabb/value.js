@@ -1687,3 +1687,52 @@ Critic V17C named one medium consumer row (V17C-01) and four glass rows (V17C-G1
   - The o18 A-1 instrument should composite the band's `.dock-plate` and read the ink after the dock's morph settles.
   - The 390 seal is unframed, because the mobile dock does not idle shut.
 - The glass rows (V17C-G1..G4) wait on O-87 / O-88 at the 10.2.0 repin.
+
+### pass 18 (2026-10-18): critic V18C — the admin gold holds its hue, the error plate's red is certified, the admin consoles say their name once, the head glyph drops its frame
+
+Critic V18C named four consumer rows (V18C-01 medium, -02 low, -03 low, -04 trivial) and two glass rows (V18C-G1 low, -G2 low). All four consumer rows are cured at the root. V18C-01 has one named deviation from the asked cure: the dock band keeps the house headroom, because the frame refuted the premise that it needs none. The glass rows stay honest-RED on O-87 / O-88. Evidence is in `pass-18/c18-2026-10-18/`.
+
+**Commits.** value.js `22782b1cb` (the cure: 17 paths) and `4980c6fa9` (frames, probes, census and gates). This receipt is committed after them.
+
+| id | verdict | cure / reason | measured (`pass-18/c18-2026-10-18/`) |
+|---|---|---|---|
+| V18C-01 (medium) | **CURED at the token. One named deviation: the headroom stays on the band.** | **One rule in `ink.ts`, `certifyIdentityInk`**, inherited by every gold twin (root, floating, dock band). The ladder: (1) the house certify, kept only while it holds `IDENTITY_CHROMA_HOLD` = 0.4 of the source chroma (gold: C ≥ 0.059); (2) else the most chromatic ink on the far side of the ground that clears the same target; (3) else the ground's own plate ink, so a word speaks the plate's voice. **Glyphs read a glyph rung**, `--ink-gold-glyph`. The `.gold-ink` recipe paints it on `svg.gold-ink` / `.gold-ink svg`, and so do the crown keyframe and the featured badge. On the band it certifies at the 3:1 graphics floor (`Dock.vue`), on the seal it is the wax gold, and on the modelled plates it is the word's rung where that holds, else the graphics floor (`useContrastSafeColor`, stamped by `useAtmosphereBoot`, seated on `.glass-floating` in `shell.css`). **Deviation:** the critic asked for no headroom on the MEASURED band. Only the band's tint is measured; the ambient under it is modelled achromatic. With no headroom, the frame read the light band's glyph at **2.84** and its word at **4.23**, both under their floors (`v18-noheadroom.log`). A rung that trades headroom for chroma read the brown band's word at **4.31** (`v18-hold-bisect.log`). Both were refused. DESIGN.md Law C-4 names the rule. | `v18.json`, the painted ink's oklch per site and the frame ratio. **Owner brown (lab(38% 32 24)), light:** view trigger and shield **C 0.001 → 0.106**, h 84.2, **3.79:1**. The word falls back to the plate ink (5.13:1). The pass-17 band gold (`oklch(0.9995 0.0005 84.2)`), re-injected in the same page, reads RED on every site. **Default light:** glyphs **C 0.064 → 0.080** (L 0.31 → 0.39) at **4.02:1**. The word stays bronze, C 0.064 at 5.45:1 (≥ 0.06 per the witness), the gold that clears text on that ground. The seal is 4.24, C 0.084. **Dark:** unchanged, gold C 0.143, 4.78 to 5.05. **Featured badge (Browse, light):** 3.48:1, C 0.0597, which is pass 17's bronze, unchanged (by 0.0003 under the critic's 0.06; within the code's hold). **View menu, light:** the Admin word falls back to the floating plate ink (the named fallback); the shield keeps the gold (C 0.073) but reads 1.44:1 over live content. That is V18C-G2's floater, where the floater's own neutral ink reads 2.25. The 390 trigger reads 4.02. The 390 admin trigger is desktop-only, and the 390 seal does not idle shut. |
+| V18C-02 (low) | **CURED at the token.** | `--ink-destructive`: glass's `--destructive` certified on the resting plate (`useContrastSafeColor`, the modal twin's sibling), stamped by `useAtmosphereBoot` and seated as `--destructive` on `.pane-wrapper` (`shell.css`). `EmptyState`'s alert glyph reads it at full strength; the `/80` is dropped. The plate's error lines inherit the same token (ExtractWorkbench, BrowsePane, GradientCodeEditor, SearchFilterBar, AdminTagsPanel). It certifies at the text floor because it carries text; the glyph clears 3:1 a fortiori. | **Not Found:** **1.74 → 5.11** (1440 light), **1.71 → 5.05** (390 light), **2.87 → 3.99** (1440 dark), **2.89 → 4.02** (390 dark). **Admin tags error plate:** 1.76 → 5.23 light, 2.80 → 3.83 dark. The old rule (raw red at 80 %) re-injected reads RED in every cell. |
+| V18C-03 (low) | **CURED.** | The five admin regions are `titled: true` (`viewSchema.ts`). `AdminPane` passes `:title`, and its `#title` slot is deleted (it existed for the count chip that V15-02 removed). The pane title is now the route's one `<h1 id=route-title>`, and App prints no caption. No new component. | One visible H1 inside `<main>`, `route-title`, text equal to the view label, no caption, on all 5 consoles at 1440 and 390 (`v18.json` `admin[]`, 12 rows GREEN). |
+| V18C-04 (trivial) | **CURED (deleted).** | The `head-glyph-frame` rect and its style are gone. The glyph sits in a labelled row. | `gradient-*`: capture manifest `glyph.frame: false`. |
+| V18C-G1 (low) | **Glass-owned: honest-RED on O-87 FLAT-LIGHTING**, folded into V1C-G4 (Chip `data-state=on` lit, not toned). | No local override. Re-judge at the 10.2.0 repin. | `easing-open-*`. |
+| V18C-G2 (low) | **Glass-owned: honest-RED on O-87 / O-88** (the standing rows: the SegmentedTabs indicator overhang, the floater bloom, the EasingPicker ghost, the bead, the dock, the census rows). | No local override. | Census below. |
+
+**Census** (`census-after.json`, `--base :9481 --widths 1440 --themes light,dark --settle 15000 --gpu`, guarded).
+- **Verdict RED, on glass rows only (O-87).** It is identical to pass 17: glass 788 layers, 368 inset highlights, 8 drop-shadows, 22 control gradients, max 6 layers on one element, floater max 8.
+- **Consumer:** 116 single layers, and 0 on every allowance line.
+
+**Frames.** Headless real Chrome (§0ei). There is one browser per script run and a new context per cell, and both are closed in a `finally`.
+- `capture-c18.mjs` took 40 of 40 route cells on the first attempt, plus `easing-open-*` and `tune-*`.
+- `overlays.mjs` took the 8 overlay cells.
+- `v18.mjs` took the witness cells.
+- `nav.mjs` probed the admin hash walk (see Gates).
+- The guarded dev server on :9481 was stopped, and nothing from this seat is left running.
+
+**Gates** (`gates/README.txt`). The host ran at load 32–41.
+- **Type-check:** 0 ×2.
+- **vitest:** 1242/1247 ×2. The standing 5 are unchanged; the 5 new `certifyIdentityInk` cases pass.
+- **e2e** (headless, workers 1, one guarded call per spec):
+  - **GREEN ×2:** o15 6/6, w12-dock 6/6, page-load 2/2, w12u-x-admin-tags 6/6.
+  - **o17:** 4/5 in run 1, a click timeout under load; 5/5 in run 2.
+  - **o18:** the four standing rows only. The A-1 admin pill is GREEN in both schemes in run 1. In run 2 it is RED in dark with ink equal to ground at stack []. This is pass 17's instrument fault, and the dark gold is unchanged.
+  - **views/gradient:** cold-route timeouts in openView/paneSettled (9–11 of 12). An A/B run on the HEAD demo fails 4 of 12 the same way (`gates/ab-head/`). It is not this cure.
+  - **smoke-admin:** 23/25 ×2. admin-populated read the Users title at level 2. V18C-03 makes it the level-1 H1 by design, so the leg is re-read at level 1 (a named spec re-baseline in `22782b1cb`); it is GREEN after.
+  - **admin-walk is RED:** after hash navigation from users to names, the Names region renders EMPTY. A/B: with every pass-18 demo path restored to HEAD, it fails the same way, at the Names control step (`gates/ab-head/admin-walk-HEAD-demo-error-context.md`). **This was pre-existing at HEAD during this run, not this cure. Carried.**
+- No visual golden was re-baselined. At the next visual run, two sets of cells need a named owner-ruling re-baseline (§0ej):
+  - the light admin dock glyphs (the bronze moves from L 0.31 to L 0.39 / C 0.080);
+  - the five admin console heads (the caption is gone and the title is the H1).
+
+**Loop state.**
+- V18C-01..04 are cured.
+- For the next critic:
+  - (a) The admin-walk empty Names pane after users → names hash navigation is pre-existing at HEAD. It has no owner in this pass, and a router or KeepAlive seat should take it.
+  - (b) On a mid-L plate (the owner brown), `--ink-destructive` walks to near white (C 0.007). It is legible, but the red no longer reads. Judge whether the destructive twin should join `certifyIdentityInk`.
+  - (c) The o18 A-1 instrument should composite the band's `.dock-plate` (carried from pass 17).
+  - (d) The light view menu's Admin row waits on V18C-G2.
+- The glass rows wait on O-87 / O-88 at the 10.2.0 repin.
