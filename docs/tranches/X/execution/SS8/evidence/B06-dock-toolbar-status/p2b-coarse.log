@@ -1,0 +1,66 @@
+{
+ "probe": "p2b-coarse",
+ "at": "2026-10-19T19:03:32.256Z",
+ "cells": {
+  "coarse-1366-hold": {
+   "error": "TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  "phone-390-picker-seats": {
+   "open": "tapped",
+   "seats": [
+    [
+     "Back",
+     44,
+     44,
+     44
+    ],
+    [
+     "Copy color",
+     113,
+     44,
+     44
+    ],
+    [
+     "Random color",
+     157,
+     44,
+     44
+    ],
+    [
+     "Palettes",
+     201,
+     44,
+     44
+    ],
+    [
+     "More actions",
+     245,
+     44,
+     44
+    ],
+    [
+     "Apply color",
+     221,
+     44,
+     44
+    ],
+    [
+     "Open color input",
+     302,
+     44,
+     44
+    ]
+   ]
+  },
+  "phone-390-gradient-reset": {
+   "start": "90deg",
+   "sliderValueStart": "90",
+   "set": "337deg",
+   "sliderValueSet": "337",
+   "open": "tapped",
+   "resetState": "ready",
+   "after250": "90deg",
+   "sliderValueAfter250": "90"
+  }
+ }
+}

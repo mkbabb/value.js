@@ -1,0 +1,276 @@
+{
+ "probe": "p4-deeplink",
+ "at": "2026-10-19T18:57:06.105Z",
+ "loads": [
+  {
+   "auth": "anon",
+   "route": "#/blob",
+   "i": 0,
+   "bootMs": 2408,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/blob",
+   "i": 1,
+   "bootMs": 1241,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/blob",
+   "i": 2,
+   "bootMs": 2151,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/blob",
+   "i": 3,
+   "bootMs": 518,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/blob",
+   "i": 4,
+   "bootMs": 2436,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/blob",
+   "i": 5,
+   "bootMs": 4781,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/atmosphere",
+   "i": 0,
+   "bootMs": 13181,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/atmosphere",
+   "i": 1,
+   "bootMs": 3419,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/atmosphere",
+   "i": 2,
+   "bootMs": 5104,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/atmosphere",
+   "i": 3,
+   "bootMs": 5102,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/atmosphere",
+   "i": 4,
+   "bootMs": 417,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "anon",
+   "route": "#/atmosphere",
+   "i": 5,
+   "bootMs": 884,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/blob",
+   "i": 0,
+   "bootMs": 30002,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/blob",
+   "i": 1,
+   "bootMs": 506,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/blob",
+   "i": 2,
+   "bootMs": 4086,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/blob",
+   "i": 3,
+   "bootMs": 947,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/blob",
+   "i": 4,
+   "bootMs": 453,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/blob",
+   "i": 5,
+   "bootMs": 897,
+   "final": "#/blob",
+   "kept": true,
+   "trail": [
+    "#/blob"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/atmosphere",
+   "i": 0,
+   "bootMs": 916,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/atmosphere",
+   "i": 1,
+   "bootMs": 934,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/atmosphere",
+   "i": 2,
+   "bootMs": 393,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/atmosphere",
+   "i": 3,
+   "bootMs": 434,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/atmosphere",
+   "i": 4,
+   "bootMs": 419,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  },
+  {
+   "auth": "admin",
+   "route": "#/atmosphere",
+   "i": 5,
+   "bootMs": 401,
+   "final": "#/atmosphere",
+   "kept": true,
+   "trail": [
+    "#/atmosphere"
+   ]
+  }
+ ],
+ "summary": {
+  "anon #/blob": "0/6 lost -> #/blob",
+  "anon #/atmosphere": "0/6 lost -> #/atmosphere",
+  "admin #/blob": "0/6 lost -> #/blob",
+  "admin #/atmosphere": "0/6 lost -> #/atmosphere"
+ }
+}
