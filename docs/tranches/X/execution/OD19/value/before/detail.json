@@ -1,0 +1,226 @@
+{
+ "dark-1440": {
+  "rest": {
+   "sw": 463,
+   "cw": 463,
+   "w": 463,
+   "pad": "0px",
+   "gap": "8px",
+   "width": "463.312px",
+   "radius": "9999px",
+   "kids": [
+    "div.dock-layer-group.horizontal.switcher-start [0..463] ml=0px",
+    "div.dock-crossfade [0..463] ml=0px"
+   ]
+  },
+  "tools": {
+   "sw": 322,
+   "cw": 318,
+   "w": 318,
+   "pad": "0px",
+   "gap": "8px",
+   "width": "318px",
+   "radius": "50%",
+   "kids": [
+    "div.dock-layer-group.horizontal.switcher-start [0..318] ml=0px",
+    "div.dock-crossfade [0..318] ml=0px"
+   ]
+  },
+  "swap_mix": {
+   "loafN": 2,
+   "loafMs": 105,
+   "blockingMs": 0,
+   "renderMs": 1,
+   "worst": [
+    {
+     "d": 53,
+     "render": 1,
+     "scripts": []
+    },
+    {
+     "d": 52,
+     "render": 0,
+     "scripts": []
+    }
+   ],
+   "topScripts": [],
+   "wall": 3563
+  },
+  "swap_gradient": {
+   "loafN": 9,
+   "loafMs": 569,
+   "blockingMs": 11,
+   "renderMs": 27,
+   "worst": [
+    {
+     "d": 100,
+     "render": 6,
+     "scripts": [
+      {
+       "d": 54,
+       "inv": "TimerHandler:setTimeout",
+       "src": "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b",
+       "fn": "",
+       "fsl": 14
+      },
+      {
+       "d": 12,
+       "inv": "TimerHandler:setTimeout",
+       "src": "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b",
+       "fn": "",
+       "fsl": 5
+      }
+     ]
+    },
+    {
+     "d": 66,
+     "render": 2,
+     "scripts": []
+    },
+    {
+     "d": 64,
+     "render": 1,
+     "scripts": []
+    }
+   ],
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b::TimerHandler:setTimeout",
+     66
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/shell/PaneSlot.vue?t=1792435775197::FrameRequestCallback",
+     12
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/GradientPane.vu::http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workb",
+     5
+    ]
+   ],
+   "wall": 3539
+  },
+  "swap_home": {
+   "loafN": 10,
+   "loafMs": 642,
+   "blockingMs": 0,
+   "renderMs": 18,
+   "worst": [
+    {
+     "d": 72,
+     "render": 8,
+     "scripts": [
+      {
+       "d": 15,
+       "inv": "TimerHandler:setTimeout",
+       "src": "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b",
+       "fn": "",
+       "fsl": 10
+      }
+     ]
+    },
+    {
+     "d": 72,
+     "render": 1,
+     "scripts": []
+    },
+    {
+     "d": 71,
+     "render": 1,
+     "scripts": []
+    }
+   ],
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b::TimerHandler:setTimeout",
+     15
+    ]
+   ],
+   "wall": 3538
+  }
+ },
+ "dark-390": {
+  "rest": {
+   "sw": 318,
+   "cw": 164,
+   "w": 164,
+   "pad": "0px",
+   "gap": "8px",
+   "width": "164px",
+   "radius": "50%",
+   "kids": [
+    "div.dock-layer-group.horizontal.switcher-start [0..164] ml=0px",
+    "div.dock-crossfade [0..164] ml=0px"
+   ]
+  },
+  "tools": {
+   "sw": 318,
+   "cw": 318,
+   "w": 318,
+   "pad": "0px",
+   "gap": "8px",
+   "width": "318px",
+   "radius": "9999px",
+   "kids": [
+    "div.dock-layer-group.horizontal.switcher-start [0..318] ml=0px",
+    "div.dock-crossfade [0..318] ml=0px"
+   ]
+  },
+  "swap_mix": {
+   "loafN": 0,
+   "loafMs": 0,
+   "blockingMs": 0,
+   "renderMs": 0,
+   "worst": [],
+   "topScripts": [],
+   "wall": 3544
+  },
+  "swap_gradient": {
+   "loafN": 1,
+   "loafMs": 68,
+   "blockingMs": 17,
+   "renderMs": 9,
+   "worst": [
+    {
+     "d": 68,
+     "render": 9,
+     "scripts": [
+      {
+       "d": 58,
+       "inv": "TimerHandler:setTimeout",
+       "src": "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b",
+       "fn": "",
+       "fsl": 14
+      },
+      {
+       "d": 6,
+       "inv": "ResizeObserverCallback",
+       "src": "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/createCanvasLifec",
+       "fn": "",
+       "fsl": 0
+      }
+     ]
+    }
+   ],
+   "topScripts": [
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/vue.runtime.esm-b::TimerHandler:setTimeout",
+     58
+    ],
+    [
+     "/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite/deps/createCanvasLifec::ResizeObserverCallback",
+     6
+    ]
+   ],
+   "wall": 3537
+  },
+  "swap_home": {
+   "loafN": 0,
+   "loafMs": 0,
+   "blockingMs": 0,
+   "renderMs": 0,
+   "worst": [],
+   "topScripts": [],
+   "wall": 3539
+  }
+ }
+}
