@@ -1,0 +1,353 @@
+vite v8.0.16 building client environment for gh-pages...
+(node:6442) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2Ktransforming...
+./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+Found 16 warnings while optimizing generated CSS:
+
+Issue #1:
+[2m│   }[22m
+[2m│   .z-\[var\(\)\] {[22m
+[2m│[22m     z-index: var();
+[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .z-\[var\(--z-\*\)\] {[22m
+
+Issue #2:
+[2m│   }[22m
+[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m│[22m     z-index: var(--z-*);
+[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .z-\[var\(--z-background\)\] {[22m
+
+Issue #3:
+[2m│   }[22m
+[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m│[22m     width: var(--icon-*);
+[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│     height: var(--icon-*);[22m
+[2m│   }[22m
+
+Issue #4:
+[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m│     width: var(--icon-*);[22m
+[2m│[22m     height: var(--icon-*);
+[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+
+Issue #5:
+[2m│   }[22m
+[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m│[22m     max-height: var(...);
+[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .max-h-0 {[22m
+
+Issue #6:
+[2m│   }[22m
+[2m│   .rounded-\[var\(\)\] {[22m
+[2m│[22m     border-radius: var();
+[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+
+Issue #7:
+[2m│   }[22m
+[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+
+Issue #8:
+[2m│   }[22m
+[2m│   .text-\[var\(…\)\] {[22m
+[2m│[22m     color: var(…);
+[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .text-\[…\] {[22m
+
+Issue #9:
+[2m│   }[22m
+[2m│   .duration-\[var\(\)\] {[22m
+[2m│[22m     --tw-duration: var();
+[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│     transition-duration: var();[22m
+[2m│   }[22m
+
+Issue #10:
+[2m│   .duration-\[var\(\)\] {[22m
+[2m│     --tw-duration: var();[22m
+[2m│[22m     transition-duration: var();
+[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+
+Issue #11:
+[2m│   }[22m
+[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m│[22m     --tw-duration: var(...);
+[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│     transition-duration: var(...);[22m
+[2m│   }[22m
+
+Issue #12:
+[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m│     --tw-duration: var(...);[22m
+[2m│[22m     transition-duration: var(...);
+[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .duration-\[…\] {[22m
+
+Issue #13:
+[2m│   }[22m
+[2m│   .ease-\[var\(\)\] {[22m
+[2m│[22m     --tw-ease: var();
+[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│     transition-timing-function: var();[22m
+[2m│   }[22m
+
+Issue #14:
+[2m│   .ease-\[var\(\)\] {[22m
+[2m│     --tw-ease: var();[22m
+[2m│[22m     transition-timing-function: var();
+[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+
+Issue #15:
+[2m│   }[22m
+[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m│[22m     --tw-ease: var(...);
+[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│     transition-timing-function: var(...);[22m
+[2m│   }[22m
+
+Issue #16:
+[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m│     --tw-ease: var(...);[22m
+[2m│[22m     transition-timing-function: var(...);
+[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .ease-accelerate {[22m
+
+✓ 2891 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/favicon-BpOvZXpk.svg                              1.12 kB │ gzip:   0.61 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size3-Regular-CTq5MqoE.woff                 4.42 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2                4.92 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2                5.20 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2                5.46 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size4-Regular-BF-4gkZK.woff                 5.98 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size2-Regular-oD1tc_U0.woff                 6.18 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size1-Regular-C195tn64.woff                 6.49 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2          6.90 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2             6.91 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf                  7.58 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff           7.65 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff              7.71 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Script-Regular-D3wIWfF6.woff2               9.64 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2           10.34 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size4-Regular-DWFBv043.ttf                 10.36 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Script-Regular-D5yQViql.woff               10.58 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2             11.31 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2                11.34 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf                 11.50 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2            12.02 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/quantize-worker-C0vkpSff.js                      12.05 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2              12.21 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf                 12.22 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff            12.31 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf           12.34 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf              12.36 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff              13.20 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff                 13.29 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2          13.56 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff             14.11 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff               14.40 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff           16.02 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2             16.40 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Math-Italic-t53AETM-.woff2                 16.44 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/index.html                                              16.45 kB │ gzip:   5.88 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Script-Regular-C5JkGWo-.ttf                16.64 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2             16.78 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2                 16.98 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff              18.66 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Math-Italic-DA0__PXp.woff                  18.74 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff              19.41 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf             19.43 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Fraktur-Regular-CB_wures.ttf               19.57 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf                  19.58 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Italic-BMLOBm91.woff                  19.67 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf              22.36 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf                24.50 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Bold-Cx986IdX.woff2                   25.32 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Regular-B22Nviop.woff2                26.27 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf            27.55 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2                 28.07 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Bold-Jm3AIy58.woff                    29.91 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Regular-Dr94JaBh.woff                 30.77 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf               31.19 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Math-Italic-flOr_0UB.ttf                   31.30 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf               32.96 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_AMS-Regular-DMm9YOAa.woff                  33.51 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Italic-3WenGoN9.ttf                   33.58 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Bold-waoOVXN0.ttf                     51.33 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_Main-Regular-ypZvNtVU.ttf                  53.58 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/KaTeX_AMS-Regular-DRggAlZN.ttf                   63.63 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteCardGrid-BNsU8Ydj.css                      0.05 kB │ gzip:   0.07 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/GeneratePane-BtwgyDiw.css                         0.06 kB │ gzip:   0.08 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ActionFeedback-wWnDS7s-.css                       0.11 kB │ gzip:   0.10 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/InterpolationFields-CXJmm-H1.css                  0.21 kB │ gzip:   0.18 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/AuroraPane-C_IFw_4v.css                           0.23 kB │ gzip:   0.19 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/BrowsePane-BL0qeiL-.css                           0.46 kB │ gzip:   0.29 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PreviewStrip-DYDbdjGZ.css                         0.48 kB │ gzip:   0.28 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteCardSkeleton-YOfOy44a.css                  0.50 kB │ gzip:   0.27 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PalettesPane-Ds_PRZcj.css                         0.65 kB │ gzip:   0.36 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/AdminPane-BRAgKynH.css                            0.92 kB │ gzip:   0.40 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ConfigSliderPane-DcDHFiua.css                     1.11 kB │ gzip:   0.51 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteSpecimen-BK_T7UeJ.css                      1.21 kB │ gzip:   0.44 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ExtractPane-DCdkKPZI.css                          1.33 kB │ gzip:   0.53 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/MixPane-DngVIRU1.css                              1.98 kB │ gzip:   0.64 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ColorInput-CNLISAp1.css                           2.52 kB │ gzip:   0.81 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteInspector-Dd7QU1vM.css                     3.36 kB │ gzip:   0.90 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PointerDebugOverlay-DDIMw9sR.css                  4.11 kB │ gzip:   1.26 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/GradientPane-D5CO1qVO.css                         8.76 kB │ gzip:   2.25 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/AboutPane-BnGMG6fL.css                           13.28 kB │ gzip:   2.14 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/vendor-katex-BorAY7qD.css                        28.48 kB │ gzip:   7.92 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/glass-fonts-PBJY3762.css                        132.84 kB │ gzip:  99.89 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/index-Dfkp99BB.css                              543.94 kB │ gzip:  91.23 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/dateFormat-C3Z6m8-_.js                            0.22 kB │ gzip:   0.14 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/usePanePopups-fO-3SFLj.js                         0.22 kB │ gzip:   0.18 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/color-model-B-QJx-eY.js                           0.30 kB │ gzip:   0.23 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/_plugin-vue_export-helper-B3ysoDQm-CkmoDiir.js    0.43 kB │ gzip:   0.28 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/accent-tone-solve-5H6FY2QO-D26E5eJB.js            0.46 kB │ gzip:   0.31 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/Katex-PdJgJR1F.js                                 0.50 kB │ gzip:   0.35 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/sample-lwFmatZG.js                                0.67 kB │ gzip:   0.44 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/rolldown-runtime-QTnfLwEv.js                      0.69 kB │ gzip:   0.42 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PreviewStrip-DCRyqeXW.js                          0.73 kB │ gzip:   0.47 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteCardGrid-Dcwzyd9O.js                       0.78 kB │ gzip:   0.49 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/SwatchButton-BZ5KhBnC.js                          1.12 kB │ gzip:   0.70 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js         1.24 kB │ gzip:   0.68 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteColorStrip-UiaVbOhh.js                     1.44 kB │ gzip:   0.79 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/label-CE03H1KL-CfocQW4u.js                        1.45 kB │ gzip:   0.75 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ActionFeedback-Dvi8PYD0.js                        1.68 kB │ gzip:   0.96 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PopoverTrigger-U1IvUO0G.js                        1.72 kB │ gzip:   0.84 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/badge-BO6BC4G5-aX03Q28U.js                        1.81 kB │ gzip:   0.87 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteCardSkeleton-CJpFiuHq.js                   1.85 kB │ gzip:   0.86 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/labeled-field-DVELDhOX.js                         1.85 kB │ gzip:   0.88 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteNameInput-VtgL_GV3.js                      1.92 kB │ gzip:   0.98 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/BlobPane-Bnqmz2ZK.js                              2.20 kB │ gzip:   0.95 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/configurator-CPxIo3q2-DXawtiFh.js                 2.41 kB │ gzip:   1.24 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/keyboard-BOrFgAc-.js                              2.46 kB │ gzip:   1.21 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/separator-D4EZM10u-XQXpmg73.js                    2.51 kB │ gzip:   1.00 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteSpecimen-CLs4LJZ_.js                       2.80 kB │ gzip:   1.16 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ConfigSliderPane-CioJsEVM.js                      3.17 kB │ gzip:   1.61 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/switch-BYUZ6g9G-BzyLv3WU.js                       3.25 kB │ gzip:   1.32 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/Presence-Ctv1Ebts.js                              3.35 kB │ gzip:   1.58 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/hwb-D0J1_AuF.js                                   3.83 kB │ gzip:   1.85 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/hsv-DI4zmvTM.js                                   3.84 kB │ gzip:   1.84 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/hsl-CRe_pS6s.js                                   3.89 kB │ gzip:   1.90 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/kelvin-CtNjy88U.js                                3.90 kB │ gzip:   1.88 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/lch-GNH1fGNn.js                                   4.01 kB │ gzip:   1.93 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PointerDebugOverlay-r16TuV_d.js                   4.10 kB │ gzip:   1.84 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/selection-DqIULxRG-CbpwPUhM.js                    4.16 kB │ gzip:   1.80 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/rgb-U-gwVdHH.js                                   4.29 kB │ gzip:   2.00 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/picker-color-DpJgCkYw.js                          4.35 kB │ gzip:   1.65 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/AuroraPane-BRrliS60.js                            4.37 kB │ gzip:   1.53 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/oklab-D9irWwbc.js                                 4.82 kB │ gzip:   2.05 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/oklch-C71ITQS2.js                                 5.07 kB │ gzip:   2.34 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/lab-EbVE_XFo.js                                   5.14 kB │ gzip:   2.29 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/xyz-Cdn4qzCP.js                                   5.37 kB │ gzip:   2.40 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/hex-zzGLXTkp.js                                   5.62 kB │ gzip:   2.53 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/collapsible-DFzK29Oh-Cr0jVE9Y.js                  5.72 kB │ gzip:   1.96 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/GeneratePane--EuSyI0L.js                          6.02 kB │ gzip:   2.40 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/tabs-rdRXKXxd-CpoO-89G.js                         6.16 kB │ gzip:   2.78 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ColorInput-CUC8VjdI.js                            6.39 kB │ gzip:   2.97 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/InterpolationFields-B0ucHNVf.js                   7.51 kB │ gzip:   3.08 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/createLucideIcon-D0wQU3OO.js                      8.11 kB │ gzip:   3.47 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/AboutPane-BZ69Osfb.js                             8.58 kB │ gzip:   3.44 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/status-dot-W4LFiJps-Cu9CUpDP.js                  11.07 kB │ gzip:   3.11 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/dialog-D4eyDsk-.js                               11.32 kB │ gzip:   4.22 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/dialog-BZoFG0j8-BJ8xCbMl.js                      13.60 kB │ gzip:   4.17 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/dom-DEPhWXzR.js                                  14.01 kB │ gzip:   5.80 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/dist-DMUUKvXY.js                                 17.13 kB │ gzip:   7.16 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/keyframes-BUfwlxCX.js                            17.86 kB │ gzip:   6.13 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/slider-5ChjjWSR-B6lhLycn.js                      17.94 kB │ gzip:   5.78 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/MixPane-DARkTfHX.js                              18.75 kB │ gzip:   7.30 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/fading-scroll-CTeW3KNS-C1YomUkH.js               20.21 kB │ gzip:   7.34 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/BrowsePane-RFDjbbvQ.js                           21.86 kB │ gzip:   8.07 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PaletteInspector-gnTqko6h.js                     26.09 kB │ gzip:   9.46 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/ExtractPane-CDjTnA1i.js                          26.35 kB │ gzip:  10.22 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/popover-DA87hFBx-RbYtnl5y.js                     30.61 kB │ gzip:   6.69 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/vendor-highlight-D9VP3A7h.js                     32.06 kB │ gzip:  12.07 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PopperContent-bnvKlz4x.js                        34.88 kB │ gzip:  12.77 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/AdminPane-cznTRkPJ.js                            39.39 kB │ gzip:  10.07 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/DropdownMenuTrigger-CKRnhDSQ-DBTf1dZJ.js         43.73 kB │ gzip:   8.73 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/glass-ui-bcaJCSwv.js                             49.01 kB │ gzip:  15.32 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/PalettesPane-4feT2wa9.js                         52.54 kB │ gzip:  18.41 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/serialize-pk6Y9Kpv-BPw5jFVg.js                   73.07 kB │ gzip:  20.19 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/HeroBlob-CGEjixJB.js                             94.86 kB │ gzip:  34.89 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/vue.runtime.esm-bundler-CZavfU-W.js             109.85 kB │ gzip:  42.18 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/GradientPane-DOYDixBC.js                        181.91 kB │ gzip:  41.84 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/vendor-katex-DJ58vqXJ.js                        258.87 kB │ gzip:  77.46 kB
+../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ghp/assets/index-ewva9CsM.js                               536.10 kB │ gzip: 176.18 kB
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m3362 │[0m /* #__PURE__ */
+ [38;5;240m     │[0m ───────┬───────  
+ [38;5;240m     │[0m        ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+ [38;5;240m     │[0m                       ───────┬───────  
+ [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+  - source-export (64%)
+  - unplugin-vue-markdown (16%)
+  - value-defer-glass-fonts (9%)
+  - vite:css (8%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 14.09s

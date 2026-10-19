@@ -1,0 +1,56 @@
+{
+ "engine": "webkit",
+ "Tab": {
+  "reached": false,
+  "presses": 25,
+  "walk": [
+   "BUTTON:Newest",
+   "INPUT:Search by CSS co",
+   "SPAN:",
+   "BODY:Browse view\n\nBro",
+   "SPAN:",
+   "DIV:Expand dock",
+   "DIV:stub palette 0\nF",
+   "INPUT:",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Palette: stub pa",
+   "DIV:Start a new pale",
+   "INPUT:Search your pale",
+   "BODY:Browse view\n\nBro",
+   "DIV:Expand dock",
+   "DIV:stub palette 0\nF"
+  ],
+  "baseline": {
+   "boxShadow": "none",
+   "outline": "none 3px"
+  },
+  "settled": null
+ },
+ "Alt+Tab": {
+  "reached": true,
+  "presses": 2,
+  "walk": [
+   "BUTTON:Newest",
+   "BUTTON:Featured"
+  ],
+  "baseline": {
+   "boxShadow": "none",
+   "outline": "none 3px"
+  },
+  "settled": {
+   "focusVisible": true,
+   "boxShadow": "none",
+   "outline": "solid 2px oklab(0.959549 0.003491 0.005182 / 0.48)"
+  }
+ }
+}

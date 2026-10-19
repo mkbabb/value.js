@@ -1,0 +1,57 @@
+{
+ "engine": "chromium",
+ "r1": {
+  "tabPresses": 12,
+  "reached": true,
+  "baseline": {
+   "boxShadow": "none",
+   "outline": "none 3px",
+   "transition": "all",
+   "classes": "block h-7 w-7 rounded-full border-2 border-border cursor-pointer shrink-0 focus-ring"
+  },
+  "settled": {
+   "focusVisible": true,
+   "focused": true,
+   "boxShadow": "none",
+   "outline": "solid 2px oklab(0.95994 0.00349092 0.00518243 / 0.48)"
+  }
+ },
+ "r2": {
+  "1280x800": {
+   "popover": {
+    "l": 258,
+    "t": 239,
+    "r": 594,
+    "b": 599.828125,
+    "w": 336,
+    "h": 360.828125,
+    "sh": 359,
+    "ch": 359,
+    "oy": "hidden",
+    "maxH": "none"
+   },
+   "viewportOccludedPct": 11.8,
+   "visibleWallOccludedPct": 46.4
+  },
+  "390x844": {
+   "popover": {
+    "l": 8,
+    "t": 245,
+    "r": 344,
+    "b": 556.328125,
+    "w": 336,
+    "h": 311.328125,
+    "sh": 309,
+    "ch": 309,
+    "oy": "hidden",
+    "maxH": "none"
+   },
+   "viewportOccludedPct": 31.8,
+   "visibleWallOccludedPct": 49.2
+  }
+ },
+ "r4_error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"domcontentloaded\"\u001b[22m\n",
+ "geo_error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"domcontentloaded\"\u001b[22m\n",
+ "r8_error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"domcontentloaded\"\u001b[22m\n",
+ "r10_error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/browse\", waiting until \"domcontentloaded\"\u001b[22m\n"
+}

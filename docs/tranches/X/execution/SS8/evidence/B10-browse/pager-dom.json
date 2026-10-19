@@ -1,0 +1,71 @@
+{
+ "dom": {
+  "buttons": [
+   {
+    "attrs": [
+     "data-slot=button",
+     "data-emphasis=secondary",
+     "data-tone=neutral",
+     "data-size=sm",
+     "data-control-target=",
+     "data-press-armed=",
+     "type=button",
+     "disabled=",
+     "class",
+     "aria-label=Previous page",
+     "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+    ],
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track"
+   },
+   {
+    "attrs": [
+     "data-slot=button",
+     "data-emphasis=secondary",
+     "data-tone=neutral",
+     "data-size=sm",
+     "data-control-target=",
+     "data-press-armed=",
+     "type=button",
+     "class",
+     "aria-label=Next page",
+     "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+    ],
+    "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover"
+   }
+  ],
+  "variantAttrCount": 0,
+  "caption": {
+   "color": "oklch(0.292283 0.00386159 34.63)",
+   "inkRGB": [
+    46,
+    43,
+    43
+   ],
+   "rect": [
+    594.296875,
+    839.984375,
+    91.40625,
+    18.25
+   ],
+   "darkestInkPx": [
+    45,
+    41,
+    40
+   ],
+   "groundPx": [
+    219,
+    151,
+    146
+   ],
+   "resolvedInkVsGround": 5.916,
+   "renderedInkVsGround": 6.067,
+   "text": "Page 1 of 3"
+  },
+  "barRect": [
+   145,
+   819.109375,
+   990,
+   60
+  ]
+ }
+}

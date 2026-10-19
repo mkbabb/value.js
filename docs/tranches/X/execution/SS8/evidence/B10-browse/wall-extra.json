@@ -1,0 +1,399 @@
+{
+ "extra_light": {
+  "u3": [
+   {
+    "name": "hey v2 (remix)",
+    "n": 1,
+    "ground": [
+     199,
+     80,
+     166
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 3.972,
+     "dE": 0.4083
+    }
+   },
+   {
+    "name": "hey v2 (remix)",
+    "n": 1,
+    "ground": [
+     200,
+     87,
+     158
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 4.116,
+     "dE": 0.4082
+    }
+   },
+   {
+    "name": "hey v2",
+    "n": 1,
+    "ground": [
+     201,
+     96,
+     151
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 4.341,
+     "dE": 0.4117
+    }
+   },
+   {
+    "name": "hey",
+    "n": 1,
+    "ground": [
+     199,
+     101,
+     145
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 4.415,
+     "dE": 0.4097
+    }
+   },
+   {
+    "name": "Audit Test Palette",
+    "n": 3,
+    "ground": [
+     199,
+     110,
+     141
+    ],
+    "minAdjWcag": 2.378,
+    "minAdjDE": 0.2475,
+    "firstVsGround": {
+     "wcag": 4.682,
+     "dE": 0.4169
+    }
+   },
+   {
+    "name": "Lavender Dreams",
+    "n": 4,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.103,
+    "minAdjDE": 0.042,
+    "firstVsGround": {
+     "wcag": 10.745,
+     "dE": 0.8011
+    }
+   },
+   {
+    "name": "Forest Canopy",
+    "n": 7,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.536,
+    "minAdjDE": 0.1118,
+    "firstVsGround": {
+     "wcag": 2.539,
+     "dE": 0.4269
+    }
+   },
+   {
+    "name": "Neon Cyberpunk",
+    "n": 5,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.52,
+    "minAdjDE": 0.278,
+    "firstVsGround": {
+     "wcag": 7.17,
+     "dE": 0.7776
+    }
+   },
+   {
+    "name": "Ocean Depths",
+    "n": 6,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.028,
+    "minAdjDE": 0.0382,
+    "firstVsGround": {
+     "wcag": 3.49,
+     "dE": 0.5021
+    }
+   },
+   {
+    "name": "Sunset Blaze",
+    "n": 5,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.294,
+    "minAdjDE": 0.0924,
+    "firstVsGround": {
+     "wcag": 5.677,
+     "dE": 0.6714
+    }
+   }
+  ],
+  "u11": {
+   "self": {
+    "boxShadow": "none",
+    "filter": "none",
+    "content": "normal"
+   },
+   "before": {
+    "boxShadow": "none",
+    "filter": "none",
+    "content": "none"
+   },
+   "after": {
+    "boxShadow": "none",
+    "filter": "none",
+    "content": "none"
+   },
+   "shadowedDescendants": [],
+   "clipAncestors": [
+    {
+     "cls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[12",
+     "contain": "content",
+     "overflow": "visible"
+    },
+    {
+     "cls": "fading-scroll fading-scroll--y pane-scroll-fade fl",
+     "contain": "content",
+     "overflow": "hidden auto"
+    },
+    {
+     "cls": "glass-resting card pane-shell__card paper-grain-ov",
+     "contain": "paint",
+     "overflow": "hidden"
+    }
+   ]
+  },
+  "u12": {
+   "textMicro": "11px",
+   "rowAlign": "center",
+   "rowDisplay": "flex"
+  },
+  "r9": {
+   "badge": true,
+   "label": "Filters, 1 active",
+   "badgeOutsideTriggerBoxPct": 34,
+   "chain": [
+    {
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring relative",
+     "contain": "none",
+     "overflow": "visible",
+     "clipPath": "none"
+    },
+    {
+     "tag": "DIV",
+     "cls": "flex items-center gap-1.5",
+     "contain": "none",
+     "overflow": "visible",
+     "clipPath": "none"
+    },
+    {
+     "tag": "DIV",
+     "cls": "input-bar search-seated",
+     "contain": "none",
+     "overflow": "visible",
+     "clipPath": "none"
+    },
+    {
+     "tag": "DIV",
+     "cls": "pane-body flex flex-col min-h-0 min-w-0 ",
+     "contain": "none",
+     "overflow": "visible",
+     "clipPath": "none"
+    }
+   ],
+   "badgeRect": [
+    581,
+    195.796875,
+    16,
+    16
+   ],
+   "trigRect": [
+    558,
+    198.796875,
+    36,
+    36
+   ],
+   "outsidePx": 87,
+   "outsidePaintedPx": 30
+  }
+ },
+ "extra_dark": {
+  "u3": [
+   {
+    "name": "hey v2 (remix)",
+    "n": 1,
+    "ground": [
+     96,
+     40,
+     68
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 1.46,
+     "dE": 0.1454
+    }
+   },
+   {
+    "name": "hey v2 (remix)",
+    "n": 1,
+    "ground": [
+     103,
+     40,
+     68
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 1.521,
+     "dE": 0.1589
+    }
+   },
+   {
+    "name": "hey v2",
+    "n": 1,
+    "ground": [
+     112,
+     43,
+     71
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 1.647,
+     "dE": 0.1791
+    }
+   },
+   {
+    "name": "hey",
+    "n": 1,
+    "ground": [
+     115,
+     39,
+     61
+    ],
+    "minAdjWcag": null,
+    "minAdjDE": null,
+    "firstVsGround": {
+     "wcag": 1.616,
+     "dE": 0.179
+    }
+   },
+   {
+    "name": "Audit Test Palette",
+    "n": 3,
+    "ground": [
+     122,
+     39,
+     57
+    ],
+    "minAdjWcag": 2.378,
+    "minAdjDE": 0.2475,
+    "firstVsGround": {
+     "wcag": 1.686,
+     "dE": 0.192
+    }
+   },
+   {
+    "name": "Lavender Dreams",
+    "n": 4,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.103,
+    "minAdjDE": 0.042,
+    "firstVsGround": {
+     "wcag": 10.745,
+     "dE": 0.8011
+    }
+   },
+   {
+    "name": "Forest Canopy",
+    "n": 7,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.536,
+    "minAdjDE": 0.1118,
+    "firstVsGround": {
+     "wcag": 2.539,
+     "dE": 0.4269
+    }
+   },
+   {
+    "name": "Neon Cyberpunk",
+    "n": 5,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.52,
+    "minAdjDE": 0.278,
+    "firstVsGround": {
+     "wcag": 7.17,
+     "dE": 0.7776
+    }
+   },
+   {
+    "name": "Ocean Depths",
+    "n": 6,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.028,
+    "minAdjDE": 0.0382,
+    "firstVsGround": {
+     "wcag": 3.49,
+     "dE": 0.5021
+    }
+   },
+   {
+    "name": "Sunset Blaze",
+    "n": 5,
+    "ground": [
+     0,
+     0,
+     0
+    ],
+    "minAdjWcag": 1.294,
+    "minAdjDE": 0.0924,
+    "firstVsGround": {
+     "wcag": 5.677,
+     "dE": 0.6714
+    }
+   }
+  ]
+ }
+}

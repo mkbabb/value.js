@@ -1,0 +1,340 @@
+{
+ "engine": "chromium",
+ "r4": {
+  "popover": {
+   "l": 250,
+   "t": 222,
+   "r": 586,
+   "b": 537.578125,
+   "w": 336,
+   "h": 315.578125,
+   "sh": 314,
+   "ch": 314,
+   "oy": "hidden",
+   "maxH": "none"
+  },
+  "popoverVisibleHeightPct": 56.4,
+  "controls": 17,
+  "reachedByTab": 15,
+  "visibleWhenFocused": 9,
+  "sample": [
+   {
+    "lab": "Newest",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "Featured",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "warm",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "cool",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "pastel",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "earthy",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "neon",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "monochrome",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "vintage",
+    "inDialog": true,
+    "visible": true
+   },
+   {
+    "lab": "ocean-inspired palettes",
+    "inDialog": true,
+    "visible": false
+   },
+   {
+    "lab": "autumn",
+    "inDialog": true,
+    "visible": false
+   },
+   {
+    "lab": "brand",
+    "inDialog": true,
+    "visible": false
+   },
+   {
+    "lab": "Open color picker, curre",
+    "inDialog": true,
+    "visible": false
+   },
+   {
+    "lab": "Search by CSS color",
+    "inDialog": true,
+    "visible": false
+   },
+   {
+    "lab": "Search",
+    "inDialog": true,
+    "visible": false
+   }
+  ]
+ },
+ "geo": {
+  "popover": {
+   "w": 336,
+   "h": 360.828125
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "h": 61.86,
+    "areaPct": 15.8
+   },
+   {
+    "label": "Show",
+    "h": 183.11,
+    "areaPct": 46.8
+   },
+   {
+    "label": "Find by color",
+    "h": 61.86,
+    "areaPct": 15.8
+   }
+  ],
+  "toggles": [
+   {
+    "t": "Newest",
+    "x": 271,
+    "y": 277.86,
+    "w": 67.16,
+    "h": 36
+   },
+   {
+    "t": "Popular",
+    "x": 346.16,
+    "y": 277.86,
+    "w": 68.81,
+    "h": 36
+   },
+   {
+    "t": "Most forked",
+    "x": 422.97,
+    "y": 277.86,
+    "w": 95.02,
+    "h": 36
+   },
+   {
+    "t": "warm",
+    "x": 271,
+    "y": 387.97,
+    "w": 56.03,
+    "h": 26.25
+   },
+   {
+    "t": "cool",
+    "x": 333.03,
+    "y": 387.97,
+    "w": 47.05,
+    "h": 26.25
+   },
+   {
+    "t": "pastel",
+    "x": 386.08,
+    "y": 387.97,
+    "w": 59.34,
+    "h": 26.25
+   },
+   {
+    "t": "earthy",
+    "x": 451.42,
+    "y": 387.97,
+    "w": 60.97,
+    "h": 26.25
+   },
+   {
+    "t": "neon",
+    "x": 518.39,
+    "y": 387.97,
+    "w": 52.8,
+    "h": 26.25
+   },
+   {
+    "t": "monochrome",
+    "x": 271,
+    "y": 420.22,
+    "w": 106.03,
+    "h": 26.25
+   },
+   {
+    "t": "vintage",
+    "x": 383.03,
+    "y": 420.22,
+    "w": 67.53,
+    "h": 26.25
+   },
+   {
+    "t": "ocean-inspired palettes",
+    "x": 271,
+    "y": 452.47,
+    "w": 172.42,
+    "h": 26.25
+   },
+   {
+    "t": "autumn",
+    "x": 449.42,
+    "y": 452.47,
+    "w": 69.17,
+    "h": 26.25
+   },
+   {
+    "t": "brand",
+    "x": 271,
+    "y": 484.72,
+    "w": 57.7,
+    "h": 26.25
+   }
+  ],
+  "chips": [
+   {
+    "t": "Featured",
+    "x": 271,
+    "y": 353.7,
+    "w": 97,
+    "h": 26.3
+   },
+   {
+    "t": "warm",
+    "x": 271,
+    "y": 388,
+    "w": 56,
+    "h": 26.3
+   },
+   {
+    "t": "cool",
+    "x": 333,
+    "y": 388,
+    "w": 47,
+    "h": 26.3
+   },
+   {
+    "t": "pastel",
+    "x": 386.1,
+    "y": 388,
+    "w": 59.3,
+    "h": 26.3
+   },
+   {
+    "t": "earthy",
+    "x": 451.4,
+    "y": 388,
+    "w": 61,
+    "h": 26.3
+   },
+   {
+    "t": "neon",
+    "x": 518.4,
+    "y": 388,
+    "w": 52.8,
+    "h": 26.3
+   },
+   {
+    "t": "monochrome",
+    "x": 271,
+    "y": 420.2,
+    "w": 106,
+    "h": 26.3
+   },
+   {
+    "t": "vintage",
+    "x": 383,
+    "y": 420.2,
+    "w": 67.5,
+    "h": 26.3
+   },
+   {
+    "t": "ocean-inspired palettes",
+    "x": 271,
+    "y": 452.5,
+    "w": 172.4,
+    "h": 26.3
+   },
+   {
+    "t": "autumn",
+    "x": 449.4,
+    "y": 452.5,
+    "w": 69.2,
+    "h": 26.3
+   },
+   {
+    "t": "brand",
+    "x": 271,
+    "y": 484.7,
+    "w": 57.7,
+    "h": 26.3
+   }
+  ],
+  "scrollers": [],
+  "radios": 3,
+  "checkboxes": 0,
+  "labels": [
+   {
+    "t": "Sort",
+    "w": 310
+   },
+   {
+    "t": "Show",
+    "w": 310
+   },
+   {
+    "t": "Find by color",
+    "w": 310
+   }
+  ]
+ },
+ "r8": {
+  "focusInsideOnOpen": "BUTTON",
+  "afterClickOutside": "BODY",
+  "dialogsAfterClickOutside": 0,
+  "afterEscape": "BUTTON[Filters]"
+ },
+ "r10": {
+  "seq": [
+   "BUTTON:Newest",
+   "BUTTON:Featured",
+   "BUTTON:warm",
+   "BUTTON:cool",
+   "BUTTON:pastel",
+   "BUTTON:earthy",
+   "BUTTON:neon",
+   "BUTTON:monochrome",
+   "BUTTON:vintage",
+   "BUTTON:ocean-inspired pal",
+   "BUTTON:autumn",
+   "BUTTON:brand",
+   "BUTTON:Open color picker,",
+   "INPUT:Search by CSS colo",
+   "BUTTON:Search",
+   "BUTTON:Newest",
+   "BUTTON:Featured",
+   "BUTTON:warm",
+   "BUTTON:cool",
+   "BUTTON:pastel"
+  ]
+ }
+}

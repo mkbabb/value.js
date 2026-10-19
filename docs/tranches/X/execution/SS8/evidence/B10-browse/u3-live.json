@@ -1,0 +1,304 @@
+{
+ "dark": [
+  {
+   "name": "D23 specimen",
+   "htmlDark": true,
+   "stripGap": "normal",
+   "stripBorder": "solid",
+   "bandBorders": [
+    "0px",
+    "0px",
+    "0px",
+    "0px"
+   ],
+   "cellPx": [
+    [
+     48,
+     40,
+     34
+    ],
+    [
+     66,
+     59,
+     51
+    ],
+    [
+     228,
+     48,
+     85
+    ],
+    [
+     59,
+     113,
+     237
+    ]
+   ],
+   "stagePxBelow": [
+    89,
+    37,
+    70
+   ],
+   "stagePxLeft": [
+    80,
+    24,
+    60
+   ],
+   "adjacent": [
+    {
+     "pair": "1-2",
+     "dE": 0.0733,
+     "wcag": 1.312
+    },
+    {
+     "pair": "2-3",
+     "dE": 0.3208,
+     "wcag": 2.547
+    },
+    {
+     "pair": "3-4",
+     "dE": 0.34,
+     "wcag": 1.017
+    }
+   ],
+   "cell1VsStage": {
+    "dE": 0.0964,
+    "wcag": 1.058
+   },
+   "cell2VsStage": {
+    "dE": 0.0893,
+    "wcag": 1.072
+   }
+  },
+  {
+   "name": "neutral ramp",
+   "htmlDark": true,
+   "stripGap": "normal",
+   "stripBorder": "solid",
+   "bandBorders": [
+    "0px",
+    "0px",
+    "0px",
+    "0px",
+    "0px"
+   ],
+   "cellPx": [
+    [
+     66,
+     64,
+     61
+    ],
+    [
+     102,
+     100,
+     98
+    ],
+    [
+     140,
+     139,
+     137
+    ],
+    [
+     181,
+     180,
+     179
+    ],
+    [
+     225,
+     224,
+     224
+    ]
+   ],
+   "stagePxBelow": [
+    101,
+    41,
+    74
+   ],
+   "stagePxLeft": [
+    88,
+    25,
+    61
+   ],
+   "adjacent": [
+    {
+     "pair": "1-2",
+     "dE": 0.132,
+     "wcag": 1.754
+    },
+    {
+     "pair": "2-3",
+     "dE": 0.1326,
+     "wcag": 1.731
+    },
+    {
+     "pair": "3-4",
+     "dE": 0.1335,
+     "wcag": 1.644
+    },
+    {
+     "pair": "4-5",
+     "dE": 0.137,
+     "wcag": 1.571
+    }
+   ],
+   "cell1VsStage": {
+    "dE": 0.111,
+    "wcag": 1.253
+   },
+   "cell2VsStage": {
+    "dE": 0.1589,
+    "wcag": 1.81
+   }
+  }
+ ],
+ "light": [
+  {
+   "name": "D23 specimen",
+   "htmlDark": false,
+   "stripGap": "normal",
+   "stripBorder": "solid",
+   "bandBorders": [
+    "0px",
+    "0px",
+    "0px",
+    "0px"
+   ],
+   "cellPx": [
+    [
+     25,
+     20,
+     16
+    ],
+    [
+     44,
+     39,
+     33
+    ],
+    [
+     213,
+     27,
+     66
+    ],
+    [
+     35,
+     93,
+     217
+    ]
+   ],
+   "stagePxBelow": [
+    196,
+    87,
+    166
+   ],
+   "stagePxLeft": [
+    213,
+    98,
+    180
+   ],
+   "adjacent": [
+    {
+     "pair": "1-2",
+     "dE": 0.0803,
+     "wcag": 1.235
+    },
+    {
+     "pair": "2-3",
+     "dE": 0.3521,
+     "wcag": 2.864
+    },
+    {
+     "pair": "3-4",
+     "dE": 0.3517,
+     "wcag": 1.117
+    }
+   ],
+   "cell1VsStage": {
+    "dE": 0.4968,
+    "wcag": 5.427
+   },
+   "cell2VsStage": {
+    "dE": 0.3818,
+    "wcag": 3.707
+   }
+  },
+  {
+   "name": "neutral ramp",
+   "htmlDark": false,
+   "stripGap": "normal",
+   "stripBorder": "solid",
+   "bandBorders": [
+    "0px",
+    "0px",
+    "0px",
+    "0px",
+    "0px"
+   ],
+   "cellPx": [
+    [
+     44,
+     44,
+     43
+    ],
+    [
+     81,
+     80,
+     78
+    ],
+    [
+     121,
+     119,
+     117
+    ],
+    [
+     163,
+     160,
+     157
+    ],
+    [
+     210,
+     206,
+     203
+    ]
+   ],
+   "stagePxBelow": [
+    200,
+    93,
+    166
+   ],
+   "stagePxLeft": [
+    212,
+    97,
+    177
+   ],
+   "adjacent": [
+    {
+     "pair": "1-2",
+     "dE": 0.1388,
+     "wcag": 1.736
+    },
+    {
+     "pair": "2-3",
+     "dE": 0.1388,
+     "wcag": 1.806
+    },
+    {
+     "pair": "3-4",
+     "dE": 0.137,
+     "wcag": 1.714
+    },
+    {
+     "pair": "4-5",
+     "dE": 0.1464,
+     "wcag": 1.664
+    }
+   ],
+   "cell1VsStage": {
+    "dE": 0.4042,
+    "wcag": 4.09
+   },
+   "cell2VsStage": {
+    "dE": 0.2576,
+    "wcag": 2.137
+   }
+  }
+ ]
+}
