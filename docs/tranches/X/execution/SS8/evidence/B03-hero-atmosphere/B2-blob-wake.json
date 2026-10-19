@@ -1,0 +1,356 @@
+{
+ "wakeIdle": {
+  "prm": false,
+  "idleDrawsPerS": [
+   54,
+   51,
+   51
+  ],
+  "leaves": [
+   {
+    "leaf": "membrane.smoothK",
+    "valBefore": "0.05",
+    "valAfter": "0.45",
+    "drawsQuiet800ms": 41,
+    "drawsIn1500msAfterWrite": 81,
+    "frameDelta": {
+     "mean": 26.988,
+     "max": 172
+    },
+    "identical": false
+   },
+   {
+    "leaf": "membrane.warpAmp",
+    "valBefore": "0.35",
+    "valAfter": "1",
+    "drawsQuiet800ms": 43,
+    "drawsIn1500msAfterWrite": 82,
+    "frameDelta": {
+     "mean": 0.18,
+     "max": 4
+    },
+    "identical": false
+   },
+   {
+    "leaf": "membrane.noiseAmp",
+    "valBefore": "0.038",
+    "valAfter": "0.1",
+    "drawsQuiet800ms": 42,
+    "drawsIn1500msAfterWrite": 79,
+    "frameDelta": {
+     "mean": 0.193,
+     "max": 6
+    },
+    "identical": false
+   },
+   {
+    "leaf": "color.hueRange",
+    "valBefore": "5",
+    "valAfter": "60",
+    "drawsQuiet800ms": 40,
+    "drawsIn1500msAfterWrite": 84,
+    "frameDelta": {
+     "mean": 0.894,
+     "max": 16
+    },
+    "identical": false
+   },
+   {
+    "leaf": "geometry.satelliteCount 3→0",
+    "valBefore": "3",
+    "valAfter": "0",
+    "drawsQuiet800ms": 50,
+    "drawsIn1500msAfterWrite": 86,
+    "frameDelta": {
+     "mean": 30.217,
+     "max": 191
+    },
+    "identical": false
+   },
+   {
+    "leaf": "geometry.bodyRadius",
+    "valBefore": "0.22",
+    "valAfter": "0.45",
+    "drawsQuiet800ms": 44,
+    "drawsIn1500msAfterWrite": 82,
+    "frameDelta": {
+     "mean": 25.658,
+     "max": 168
+    },
+    "identical": false
+   }
+  ]
+ },
+ "wakePRM": {
+  "prm": true,
+  "idleDrawsPerS": [
+   0,
+   0,
+   0
+  ],
+  "leaves": [
+   {
+    "leaf": "membrane.smoothK",
+    "valBefore": "0.05",
+    "valAfter": "0.45",
+    "drawsQuiet800ms": 0,
+    "drawsIn1500msAfterWrite": 0,
+    "frameDelta": {
+     "mean": 0.001,
+     "max": 7
+    },
+    "identical": false
+   },
+   {
+    "leaf": "membrane.warpAmp",
+    "valBefore": "0.35",
+    "valAfter": "1",
+    "drawsQuiet800ms": 0,
+    "drawsIn1500msAfterWrite": 0,
+    "frameDelta": {
+     "mean": 0,
+     "max": 0
+    },
+    "identical": true
+   },
+   {
+    "leaf": "membrane.noiseAmp",
+    "valBefore": "0.038",
+    "valAfter": "0.1",
+    "drawsQuiet800ms": 0,
+    "drawsIn1500msAfterWrite": 0,
+    "frameDelta": {
+     "mean": 0,
+     "max": 0
+    },
+    "identical": true
+   },
+   {
+    "leaf": "color.hueRange",
+    "valBefore": "5",
+    "valAfter": "60",
+    "drawsQuiet800ms": 0,
+    "drawsIn1500msAfterWrite": 0,
+    "frameDelta": {
+     "mean": 0,
+     "max": 0
+    },
+    "identical": true
+   },
+   {
+    "leaf": "geometry.satelliteCount 3→0",
+    "valBefore": "3",
+    "valAfter": "0",
+    "drawsQuiet800ms": 0,
+    "drawsIn1500msAfterWrite": 0,
+    "frameDelta": {
+     "mean": 0,
+     "max": 0
+    },
+    "identical": true
+   },
+   {
+    "leaf": "geometry.bodyRadius",
+    "valBefore": "0.22",
+    "valAfter": "0.45",
+    "drawsQuiet800ms": 0,
+    "drawsIn1500msAfterWrite": 0,
+    "frameDelta": {
+     "mean": 0,
+     "max": 0
+    },
+    "identical": true
+   }
+  ]
+ },
+ "focusLight": {
+  "scheme": "light",
+  "style": {
+   "boxShadow": "color(srgb 0.362727 0.0000282761 0.167897 / 0.3) 0px 0px 0px 2px, color(srgb 0.362727 0.0000282761 0.167897 / 0.15) 0px 0px 8px 0px",
+   "thumbFV": true,
+   "ring": "0 0 0 2px color-mix(in srgb,oklch(30.776197486324% 0.124262102015 2deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(30.776197486324% 0.124262102015 2deg) 1"
+  },
+  "changedPx": 2030,
+  "min": 1.18,
+  "median": 1.699,
+  "p90": 1.759,
+  "max": 1.807,
+  "ge3": 0
+ },
+ "focusDark": {
+  "scheme": "dark",
+  "style": {
+   "boxShadow": "color(srgb 0.999939 0.450098 0.628776 / 0.3) 0px 0px 0px 2px, color(srgb 0.999939 0.450098 0.628776 / 0.15) 0px 0px 8px 0px",
+   "thumbFV": true,
+   "ring": "0 0 0 2px color-mix(in srgb,oklch(73.424004822737% 0.175656790768 2deg) 30%,transparent),0 0 8px color-mix(in srgb,oklch(73.424004822737% 0.175656790768 2deg) 1"
+  },
+  "changedPx": 1765,
+  "min": 1.161,
+  "median": 1.625,
+  "p90": 1.664,
+  "max": 1.699,
+  "ge3": 0
+ },
+ "routes": [
+  {
+   "vp": "1440x900",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 199,
+     "y": 88,
+     "w": 512,
+     "inView": true
+    },
+    {
+     "name": "Blob",
+     "x": 729,
+     "y": 88,
+     "w": 512,
+     "inView": true
+    }
+   ],
+   "atCentre": null
+  },
+  {
+   "vp": "1280x800",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 120,
+     "y": 88,
+     "w": 512,
+     "inView": true
+    },
+    {
+     "name": "Blob",
+     "x": 648,
+     "y": 88,
+     "w": 512,
+     "inView": true
+    }
+   ],
+   "atCentre": null
+  },
+  {
+   "vp": "1024x768",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 16,
+     "y": 88,
+     "w": 490,
+     "inView": true
+    },
+    {
+     "name": "Blob",
+     "x": 518,
+     "y": 88,
+     "w": 490,
+     "inView": true
+    }
+   ],
+   "atCentre": null
+  },
+  {
+   "vp": "1023x768",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 16,
+     "y": 104,
+     "w": 489,
+     "inView": true
+    },
+    {
+     "name": "Blob",
+     "x": 518,
+     "y": 104,
+     "w": 489,
+     "inView": true
+    }
+   ],
+   "atCentre": null
+  },
+  {
+   "vp": "960x900",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 16,
+     "y": 104,
+     "w": 458,
+     "inView": true
+    },
+    {
+     "name": "Blob",
+     "x": 486,
+     "y": 104,
+     "w": 458,
+     "inView": true
+    }
+   ],
+   "atCentre": null
+  },
+  {
+   "vp": "800x900",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 16,
+     "y": 2608,
+     "w": 768,
+     "inView": false
+    },
+    {
+     "name": "Blob",
+     "x": 16,
+     "y": 104,
+     "w": 768,
+     "inView": true
+    }
+   ],
+   "atCentre": "Blob"
+  },
+  {
+   "vp": "720x450",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 16,
+     "y": 2575,
+     "w": 688,
+     "inView": false
+    },
+    {
+     "name": "Blob",
+     "x": 16,
+     "y": 80,
+     "w": 688,
+     "inView": true
+    }
+   ],
+   "atCentre": "Blob"
+  },
+  {
+   "vp": "390x844",
+   "panes": [
+    {
+     "name": "Picker",
+     "x": 16,
+     "y": 2588,
+     "w": 358,
+     "inView": false
+    },
+    {
+     "name": "Blob",
+     "x": 16,
+     "y": 104,
+     "w": 358,
+     "inView": true
+    }
+   ],
+   "atCentre": "Blob"
+  }
+ ]
+}
