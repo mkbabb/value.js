@@ -1,0 +1,45 @@
+{
+ "at": "2026-10-19T19:09:35.726Z",
+ "edge-1440": {
+  "editorRectBefore": [
+   224,
+   738.4,
+   462,
+   159.3
+  ],
+  "verdict": "\"linxear-gradient\" isn't a gradient function",
+  "rect": [
+   224,
+   881,
+   462,
+   23
+  ],
+  "vh": 900,
+  "scrollY": 75,
+  "visibleFrac": 0.83,
+  "role": "status",
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "edge-390": {
+  "editorRectBefore": [
+   33,
+   701.9,
+   324,
+   139.8
+  ],
+  "verdict": "\"linxear-gradient\" isn't a gradient function",
+  "rect": [
+   33,
+   423.6,
+   324,
+   39.2
+  ],
+  "vh": 844,
+  "scrollY": 642,
+  "visibleFrac": 1,
+  "role": "status",
+  "pageErrors": [],
+  "consoleErrors": []
+ }
+}

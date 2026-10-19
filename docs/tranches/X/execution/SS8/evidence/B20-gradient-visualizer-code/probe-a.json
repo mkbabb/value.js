@@ -1,0 +1,759 @@
+{
+ "at": "2026-10-19T18:28:50.912Z",
+ "ed-1440-light": {
+  "base": {
+   "ink": {
+    "base": "rgb(28, 25, 23)",
+    "bg": "oklch(0.913 0.03 2)",
+    "classes": [
+     [
+      "hljs-comment",
+      "rgb(106, 87, 68)"
+     ],
+     [
+      "hljs-keyword",
+      "oklch(0.51 0.19 27)"
+     ],
+     [
+      "hljs-title",
+      "oklch(0.47 0.14 262)"
+     ],
+     [
+      "hljs-string",
+      "oklch(0.47 0.13 145)"
+     ],
+     [
+      "hljs-number",
+      "oklch(0.49 0.12 78)"
+     ],
+     [
+      "hljs-attr",
+      "rgb(28, 25, 23)"
+     ]
+    ]
+   },
+   "editorFont": "16.4px",
+   "editorClass": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40 border-card-edge",
+   "dark": false
+  },
+  "contrast": {
+   "ground": [
+    245,
+    218,
+    225,
+    1
+   ],
+   "groundAlpha": 1,
+   "base": 13.32,
+   "hljs-comment": 5.23,
+   "hljs-keyword": 4.84,
+   "hljs-title": 5.33,
+   "hljs-string": 4.9,
+   "hljs-number": 4.85,
+   "hljs-attr": 13.32
+  },
+  "wraps": {
+   "wordBreak": "normal",
+   "overflowWrap": "break-word",
+   "width": 460,
+   "font": "16.4px",
+   "lines": [
+    16,
+    17,
+    28,
+    29,
+    1
+   ],
+   "wraps": []
+  },
+  "verdict": {
+   "text": "unparseable color \"nope\"",
+   "font": "16.4px",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+   "editorFont": "16.4px",
+   "editorSpanFont": null,
+   "rect": [
+    224,
+    876.7,
+    462,
+    23
+   ],
+   "vh": 900,
+   "docScrollY": 0,
+   "inViewport": true,
+   "visibleFrac": 1,
+   "clip": {
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-co",
+    "rect": [
+     200,
+     202,
+     510,
+     714
+    ],
+    "scrollTop": 0,
+    "sh": 714,
+    "ch": 714
+   },
+   "hitIsVerdict": true,
+   "editorRect": [
+    224,
+    791,
+    462,
+    80
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "ed-1440-dark": {
+  "base": {
+   "ink": {
+    "base": "rgb(233, 230, 226)",
+    "bg": "oklch(0.345 0.05 2)",
+    "classes": [
+     [
+      "hljs-comment",
+      "rgb(180, 170, 156)"
+     ],
+     [
+      "hljs-keyword",
+      "oklch(0.75 0.15 27)"
+     ],
+     [
+      "hljs-title",
+      "oklch(0.76 0.11 262)"
+     ],
+     [
+      "hljs-string",
+      "oklch(0.77 0.11 148)"
+     ],
+     [
+      "hljs-number",
+      "oklch(0.8 0.11 85)"
+     ],
+     [
+      "hljs-attr",
+      "rgb(233, 230, 226)"
+     ]
+    ]
+   },
+   "editorFont": "16.4px",
+   "editorClass": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40 border-card-edge",
+   "dark": true
+  },
+  "contrast": {
+   "ground": [
+    79,
+    46,
+    55,
+    1
+   ],
+   "groundAlpha": 1,
+   "base": 9.49,
+   "hljs-comment": 5.16,
+   "hljs-keyword": 4.99,
+   "hljs-title": 5.47,
+   "hljs-string": 5.95,
+   "hljs-number": 6.27,
+   "hljs-attr": 9.49
+  },
+  "wraps": {
+   "wordBreak": "normal",
+   "overflowWrap": "break-word",
+   "width": 460,
+   "font": "16.4px",
+   "lines": [
+    16,
+    17,
+    28,
+    29,
+    1
+   ],
+   "wraps": []
+  },
+  "verdict": {
+   "text": "unparseable color \"nope\"",
+   "font": "16.4px",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+   "editorFont": "16.4px",
+   "editorSpanFont": null,
+   "rect": [
+    224,
+    876.7,
+    462,
+    23
+   ],
+   "vh": 900,
+   "docScrollY": 0,
+   "inViewport": true,
+   "visibleFrac": 1,
+   "clip": {
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-co",
+    "rect": [
+     200,
+     202,
+     510,
+     714
+    ],
+    "scrollTop": 0,
+    "sh": 714,
+    "ch": 714
+   },
+   "hitIsVerdict": true,
+   "editorRect": [
+    224,
+    791,
+    462,
+    80
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "ed-390-light": {
+  "base": {
+   "ink": {
+    "base": "rgb(28, 25, 23)",
+    "bg": "oklch(0.913 0.03 2)",
+    "classes": [
+     [
+      "hljs-comment",
+      "rgb(106, 87, 68)"
+     ],
+     [
+      "hljs-keyword",
+      "oklch(0.51 0.19 27)"
+     ],
+     [
+      "hljs-title",
+      "oklch(0.47 0.14 262)"
+     ],
+     [
+      "hljs-string",
+      "oklch(0.47 0.13 145)"
+     ],
+     [
+      "hljs-number",
+      "oklch(0.49 0.12 78)"
+     ],
+     [
+      "hljs-attr",
+      "rgb(28, 25, 23)"
+     ]
+    ]
+   },
+   "editorFont": "14px",
+   "editorClass": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40 border-card-edge",
+   "dark": false
+  },
+  "contrast": {
+   "ground": [
+    245,
+    218,
+    225,
+    1
+   ],
+   "groundAlpha": 1,
+   "base": 13.32,
+   "hljs-comment": 5.23,
+   "hljs-keyword": 4.84,
+   "hljs-title": 5.33,
+   "hljs-string": 4.9,
+   "hljs-number": 4.85,
+   "hljs-attr": 13.32
+  },
+  "wraps": {
+   "wordBreak": "normal",
+   "overflowWrap": "break-word",
+   "width": 322,
+   "font": "14px",
+   "lines": [
+    16,
+    17,
+    28,
+    29,
+    1
+   ],
+   "wraps": []
+  },
+  "verdict": {
+   "text": "unparseable color \"nope\"",
+   "font": "14px",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+   "editorFont": "14px",
+   "editorSpanFont": null,
+   "rect": [
+    33,
+    437.9,
+    324,
+    19.6
+   ],
+   "vh": 844,
+   "docScrollY": 568,
+   "inViewport": true,
+   "visibleFrac": 1,
+   "clip": {
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-co",
+    "rect": [
+     17,
+     -363,
+     356,
+     836
+    ],
+    "scrollTop": 0,
+    "sh": 836,
+    "ch": 836
+   },
+   "hitIsVerdict": true,
+   "editorRect": [
+    33,
+    352,
+    324,
+    80
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "ed-390-dark": {
+  "base": {
+   "ink": {
+    "base": "rgb(233, 230, 226)",
+    "bg": "oklch(0.345 0.05 2)",
+    "classes": [
+     [
+      "hljs-comment",
+      "rgb(180, 170, 156)"
+     ],
+     [
+      "hljs-keyword",
+      "oklch(0.75 0.15 27)"
+     ],
+     [
+      "hljs-title",
+      "oklch(0.76 0.11 262)"
+     ],
+     [
+      "hljs-string",
+      "oklch(0.77 0.11 148)"
+     ],
+     [
+      "hljs-number",
+      "oklch(0.8 0.11 85)"
+     ],
+     [
+      "hljs-attr",
+      "rgb(233, 230, 226)"
+     ]
+    ]
+   },
+   "editorFont": "14px",
+   "editorClass": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40 border-card-edge",
+   "dark": true
+  },
+  "contrast": {
+   "ground": [
+    79,
+    46,
+    55,
+    1
+   ],
+   "groundAlpha": 1,
+   "base": 9.49,
+   "hljs-comment": 5.16,
+   "hljs-keyword": 4.99,
+   "hljs-title": 5.47,
+   "hljs-string": 5.95,
+   "hljs-number": 6.27,
+   "hljs-attr": 9.49
+  },
+  "wraps": {
+   "wordBreak": "normal",
+   "overflowWrap": "break-word",
+   "width": 322,
+   "font": "14px",
+   "lines": [
+    16,
+    17,
+    28,
+    29,
+    1
+   ],
+   "wraps": []
+  },
+  "verdict": {
+   "text": "unparseable color \"nope\"",
+   "font": "14px",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+   "editorFont": "14px",
+   "editorSpanFont": null,
+   "rect": [
+    33,
+    437.9,
+    324,
+    19.6
+   ],
+   "vh": 844,
+   "docScrollY": 568,
+   "inViewport": true,
+   "visibleFrac": 1,
+   "clip": {
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-co",
+    "rect": [
+     17,
+     -363,
+     356,
+     836
+    ],
+    "scrollTop": 0,
+    "sh": 836,
+    "ch": 836
+   },
+   "hitIsVerdict": true,
+   "editorRect": [
+    33,
+    352,
+    324,
+    80
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "ed-320-light": {
+  "base": {
+   "ink": {
+    "base": "rgb(28, 25, 23)",
+    "bg": "oklch(0.913 0.03 2)",
+    "classes": [
+     [
+      "hljs-comment",
+      "rgb(106, 87, 68)"
+     ],
+     [
+      "hljs-keyword",
+      "oklch(0.51 0.19 27)"
+     ],
+     [
+      "hljs-title",
+      "oklch(0.47 0.14 262)"
+     ],
+     [
+      "hljs-string",
+      "oklch(0.47 0.13 145)"
+     ],
+     [
+      "hljs-number",
+      "oklch(0.49 0.12 78)"
+     ],
+     [
+      "hljs-attr",
+      "rgb(28, 25, 23)"
+     ]
+    ]
+   },
+   "editorFont": "14px",
+   "editorClass": "code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40 border-card-edge",
+   "dark": false
+  },
+  "contrast": {
+   "ground": [
+    245,
+    218,
+    225,
+    1
+   ],
+   "groundAlpha": 1,
+   "base": 13.32,
+   "hljs-comment": 5.23,
+   "hljs-keyword": 4.84,
+   "hljs-title": 5.33,
+   "hljs-string": 4.9,
+   "hljs-number": 4.85,
+   "hljs-attr": 13.32
+  },
+  "wraps": {
+   "wordBreak": "normal",
+   "overflowWrap": "break-word",
+   "width": 252,
+   "font": "14px",
+   "lines": [
+    16,
+    17,
+    28,
+    29,
+    1
+   ],
+   "wraps": [
+    {
+     "col": 25,
+     "prev": " ",
+     "next": "0",
+     "midWord": false
+    },
+    {
+     "col": 25,
+     "prev": " ",
+     "next": "1",
+     "midWord": false
+    }
+   ]
+  },
+  "verdict": {
+   "text": "unparseable color \"nope\"",
+   "font": "14px",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+   "editorFont": "14px",
+   "editorSpanFont": null,
+   "rect": [
+    33,
+    415.8,
+    254,
+    19.6
+   ],
+   "vh": 844,
+   "docScrollY": 621,
+   "inViewport": true,
+   "visibleFrac": 1,
+   "clip": {
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-co",
+    "rect": [
+     17,
+     -400,
+     286,
+     852
+    ],
+    "scrollTop": 0,
+    "sh": 852,
+    "ch": 852
+   },
+   "hitIsVerdict": true,
+   "editorRect": [
+    33,
+    330,
+    254,
+    80
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "aria": {
+  "res": {
+   "linear-gradient(100turn, red, blue)": {
+    "valuenow": "36000",
+    "min": "0",
+    "max": "360",
+    "valuetext": null,
+    "verdict": null,
+    "editor": "linear-gradient(\n  36000deg in oklab,\n  red 0%,\n  blue 100%\n",
+    "readout": "36000deg"
+   },
+   "linear-gradient(720deg, red, blue)": {
+    "valuenow": "720",
+    "min": "0",
+    "max": "360",
+    "valuetext": null,
+    "verdict": null,
+    "editor": "linear-gradient(\n  720deg in oklab,\n  red 0%,\n  blue 100%\n)",
+    "readout": "720deg"
+   },
+   "linear-gradient(-90deg, red, blue)": {
+    "valuenow": "-90",
+    "min": "0",
+    "max": "360",
+    "valuetext": null,
+    "verdict": null,
+    "editor": "linear-gradient(\n  -90deg in oklab,\n  red 0%,\n  blue 100%\n)",
+    "readout": "-90deg"
+   }
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "ring-light": {
+  "steps": [
+   {
+    "role": "textbox",
+    "label": "Gradient CSS"
+   }
+  ],
+  "st": {
+   "isEditor": true,
+   "focusVisible": true,
+   "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "outline": "none 1px rgb(0, 95, 204)",
+   "color": "rgb(28, 25, 23)",
+   "colorRing": "",
+   "twRingColor": ""
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "ring-dark": {
+  "steps": [
+   {
+    "role": "textbox",
+    "label": "Gradient CSS"
+   }
+  ],
+  "st": {
+   "isEditor": true,
+   "focusVisible": true,
+   "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+   "outline": "none 1px rgb(153, 200, 255)",
+   "color": "rgb(233, 230, 226)",
+   "colorRing": "",
+   "twRingColor": ""
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "rt-light": {
+  "normal": {
+   "bg": "oklch(0.913 0.03 2)",
+   "mq": false,
+   "rgba": [
+    245,
+    218,
+    225,
+    1
+   ]
+  },
+  "reduced": {
+   "bg": "oklch(0.913 0.03 2)",
+   "mq": true,
+   "rgba": [
+    245,
+    218,
+    225,
+    1
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "rt-dark": {
+  "normal": {
+   "bg": "oklch(0.345 0.05 2)",
+   "mq": false,
+   "rgba": [
+    79,
+    46,
+    55,
+    1
+   ]
+  },
+  "reduced": {
+   "bg": "oklch(0.345 0.05 2)",
+   "mq": true,
+   "rgba": [
+    79,
+    46,
+    55,
+    1
+   ]
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "undo": {
+  "log": [
+   [
+    "t0-canonical",
+    "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)"
+   ],
+   [
+    "t1-typed-x(focused)",
+    "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145dexg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)"
+   ],
+   [
+    "t2-undo-control(focused, no re-render)",
+    "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)"
+   ],
+   [
+    "t3-authored-valid(focused)",
+    "linear-gradient(90deg, red, blue)"
+   ],
+   [
+    "t4-after-blur(re-render)",
+    "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  blue 100%\n)"
+   ],
+   [
+    "t5-undo-after-rerender",
+    "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  blue 100%\n)linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)"
+   ],
+   [
+    "t6-undo-again",
+    "linear-gradient(\n  90deg in oklab,\n  red 0%,\n  blue 100%\n)linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)"
+   ]
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "forced": {
+  "resting": {
+   "border": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "color": "rgb(0, 0, 0)",
+   "fca": "auto"
+  },
+  "error": {
+   "border": "rgb(255, 255, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "color": "rgb(0, 0, 0)",
+   "fca": "auto"
+  },
+  "same": false,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "crash-oklch": {
+  "bodyBefore": 501,
+  "bodyAfter": 449,
+  "boundary": false,
+  "tryAgain": false,
+  "verdict": "unparseable color \"oklch()\"",
+  "editorAlive": true,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "crash-calc": {
+  "bodyBefore": 501,
+  "bodyAfter": 447,
+  "boundary": false,
+  "tryAgain": false,
+  "verdict": "unparseable color \"calc()\"",
+  "editorAlive": true,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "crash-foo": {
+  "bodyBefore": 501,
+  "bodyAfter": 445,
+  "boundary": false,
+  "tryAgain": false,
+  "verdict": "unparseable color \"foo()\"",
+  "editorAlive": true,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "crash-midthought": {
+  "bodyBefore": 501,
+  "bodyAfter": 440,
+  "boundary": false,
+  "tryAgain": false,
+  "verdict": "not a <type>-gradient(…) function",
+  "editorAlive": true,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "xroute": {
+  "hash": "#/mix",
+  "boundary": false,
+  "boundaryText": null,
+  "tryAgain": false,
+  "pageErrors": [],
+  "consoleErrors": []
+ }
+}

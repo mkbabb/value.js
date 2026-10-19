@@ -1,0 +1,1852 @@
+{
+ "at": "2026-10-19T18:59:34.217Z",
+ "r1-1440-light": {
+  "res": [
+   {
+    "i": 0,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Stops",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     204,
+     55,
+     25
+    ],
+    "pts": [
+     [
+      295,
+      216
+     ],
+     [
+      319,
+      216
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      217,
+      100,
+      183
+     ],
+     [
+      218,
+      101,
+      183
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.38,
+     5.43
+    ],
+    "minCR": 5.38
+   },
+   {
+    "i": 1,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Interpolation",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     378,
+     131,
+     25
+    ],
+    "pts": [
+     [
+      371,
+      390
+     ],
+     [
+      395,
+      390
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      212,
+      97,
+      173
+     ],
+     [
+      213,
+      99,
+      173
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.09,
+     5.18
+    ],
+    "minCR": 5.09
+   },
+   {
+    "i": 2,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Easing",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     530,
+     66,
+     25
+    ],
+    "pts": [
+     [
+      306,
+      542
+     ],
+     [
+      330,
+      542
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      214,
+      103,
+      171
+     ],
+     [
+      215,
+      105,
+      171
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.32,
+     5.41
+    ],
+    "minCR": 5.32
+   },
+   {
+    "i": 4,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "CSS",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     667,
+     39,
+     25
+    ],
+    "pts": [
+     [
+      279,
+      680
+     ],
+     [
+      303,
+      680
+     ]
+    ],
+    "hit": [
+     "DIV.flex items-center justify-betw",
+     "DIV.flex items-center justify-betw"
+    ],
+    "ground": [
+     [
+      215,
+      110,
+      167
+     ],
+     [
+      217,
+      112,
+      167
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.56,
+     5.68
+    ],
+    "minCR": 5.56
+   }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r1-1440-dark": {
+  "res": [
+   {
+    "i": 0,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Stops",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     203,
+     55,
+     25
+    ],
+    "pts": [
+     [
+      295,
+      216
+     ],
+     [
+      319,
+      216
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      84,
+      26,
+      63
+     ],
+     [
+      86,
+      27,
+      64
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     10.57,
+     10.38
+    ],
+    "minCR": 10.38
+   },
+   {
+    "i": 1,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Interpolation",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     377,
+     131,
+     25
+    ],
+    "pts": [
+     [
+      371,
+      390
+     ],
+     [
+      395,
+      390
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      93,
+      22,
+      59
+     ],
+     [
+      95,
+      22,
+      60
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     10.27,
+     10.13
+    ],
+    "minCR": 10.13
+   },
+   {
+    "i": 2,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Easing",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     529,
+     66,
+     25
+    ],
+    "pts": [
+     [
+      306,
+      542
+     ],
+     [
+      330,
+      542
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      99,
+      23,
+      58
+     ],
+     [
+      101,
+      23,
+      59
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     9.85,
+     9.71
+    ],
+    "minCR": 9.71
+   },
+   {
+    "i": 4,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "CSS",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     224,
+     667,
+     39,
+     25
+    ],
+    "pts": [
+     [
+      279,
+      679
+     ],
+     [
+      303,
+      679
+     ]
+    ],
+    "hit": [
+     "DIV.flex items-center justify-betw",
+     "DIV.flex items-center justify-betw"
+    ],
+    "ground": [
+     [
+      106,
+      25,
+      57
+     ],
+     [
+      108,
+      25,
+      56
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     9.32,
+     9.21
+    ],
+    "minCR": 9.21
+   }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r1-390-light": {
+  "res": [
+   {
+    "i": 0,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Stops",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     207,
+     55,
+     25
+    ],
+    "pts": [
+     [
+      104,
+      220
+     ],
+     [
+      128,
+      220
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      211,
+      96,
+      175
+     ],
+     [
+      212,
+      95,
+      174
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.05,
+     5.04
+    ],
+    "minCR": 5.04
+   },
+   {
+    "i": 1,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Interpolation",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     379,
+     131,
+     25
+    ],
+    "pts": [
+     [
+      180,
+      391
+     ],
+     [
+      204,
+      391
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      217,
+      119,
+      164
+     ],
+     [
+      215,
+      120,
+      159
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.93,
+     5.89
+    ],
+    "minCR": 5.89
+   },
+   {
+    "i": 2,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Easing",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     409,
+     66,
+     25
+    ],
+    "pts": [
+     [
+      115,
+      421
+     ],
+     [
+      139,
+      421
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      217,
+      115,
+      166
+     ],
+     [
+      217,
+      117,
+      164
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.79,
+     5.86
+    ],
+    "minCR": 5.79
+   },
+   {
+    "i": 4,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "CSS",
+    "color": "oklch(0.216129 0.00624853 56.0356)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     408,
+     39,
+     25
+    ],
+    "pts": [
+     [
+      88,
+      421
+     ],
+     [
+      112,
+      421
+     ]
+    ],
+    "hit": [
+     "DIV.flex items-center justify-betw",
+     "DIV.flex items-center justify-betw"
+    ],
+    "ground": [
+     [
+      216,
+      112,
+      167
+     ],
+     [
+      217,
+      115,
+      166
+     ]
+    ],
+    "ink": [
+     28,
+     25,
+     23,
+     1
+    ],
+    "cr": [
+     5.66,
+     5.79
+    ],
+    "minCR": 5.66
+   }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r1-390-dark": {
+  "res": [
+   {
+    "i": 0,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Stops",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     207,
+     55,
+     25
+    ],
+    "pts": [
+     [
+      104,
+      220
+     ],
+     [
+      128,
+      220
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      85,
+      21,
+      58
+     ],
+     [
+      88,
+      20,
+      59
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     10.86,
+     10.7
+    ],
+    "minCR": 10.7
+   },
+   {
+    "i": 1,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Interpolation",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     379,
+     131,
+     25
+    ],
+    "pts": [
+     [
+      180,
+      391
+     ],
+     [
+      204,
+      391
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      114,
+      27,
+      55
+     ],
+     [
+      114,
+      24,
+      51
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     8.76,
+     8.91
+    ],
+    "minCR": 8.76
+   },
+   {
+    "i": 2,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "Easing",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     409,
+     66,
+     25
+    ],
+    "pts": [
+     [
+      115,
+      421
+     ],
+     [
+      139,
+      421
+     ]
+    ],
+    "hit": [
+     "H3.font-display text-subheading",
+     "H3.font-display text-subheading"
+    ],
+    "ground": [
+     [
+      110,
+      27,
+      56
+     ],
+     [
+      113,
+      26,
+      55
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     8.99,
+     8.86
+    ],
+    "minCR": 8.86
+   },
+   {
+    "i": 4,
+    "tag": "H3",
+    "cls": "font-display text-subheading",
+    "text": "CSS",
+    "color": "oklch(0.925202 0.00618423 67.7483)",
+    "font": "20.352px",
+    "paperField": true,
+    "run": [
+     33,
+     408,
+     39,
+     25
+    ],
+    "pts": [
+     [
+      88,
+      421
+     ],
+     [
+      112,
+      421
+     ]
+    ],
+    "hit": [
+     "DIV.flex items-center justify-betw",
+     "DIV.flex items-center justify-betw"
+    ],
+    "ground": [
+     [
+      107,
+      26,
+      58
+     ],
+     [
+      109,
+      26,
+      56
+     ]
+    ],
+    "ink": [
+     233,
+     230,
+     226,
+     1
+    ],
+    "cr": [
+     9.2,
+     9.1
+    ],
+    "minCR": 9.1
+   }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r2": {
+  "vw": 1440,
+  "docW": 1440,
+  "main": [
+   16,
+   88,
+   1408,
+   879
+  ],
+  "tree": [
+   {
+    "tag": "DIV",
+    "cls": "pane-container",
+    "aria": null,
+    "rect": [
+     199,
+     88,
+     1042,
+     879
+    ],
+    "kids": [
+     {
+      "tag": "DIV",
+      "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+      "aria": "Gradient",
+      "rect": [
+       199,
+       88,
+       512,
+       879
+      ],
+      "kids": [
+       {
+        "tag": "DIV",
+        "cls": "pane-shell relative w-full mx-auto h-full min-w-0",
+        "aria": null,
+        "rect": [
+         199,
+         88,
+         512,
+         879
+        ],
+        "kids": [
+         {
+          "tag": "DIV",
+          "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex ",
+          "aria": null,
+          "rect": [
+           199,
+           88,
+           512,
+           879
+          ],
+          "kids": [
+           {
+            "tag": "DIV",
+            "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-(--pane-he",
+            "aria": null,
+            "rect": [
+             200,
+             89,
+             510,
+             112.6
+            ],
+            "kids": []
+           },
+           {
+            "tag": "DIV",
+            "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 m",
+            "aria": null,
+            "rect": [
+             200,
+             201.6,
+             510,
+             764.4
+            ],
+            "kids": []
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "tag": "DIV",
+      "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--inspector",
+      "aria": "Palettes",
+      "rect": [
+       729,
+       88,
+       512,
+       879
+      ],
+      "kids": [
+       {
+        "tag": "DIV",
+        "cls": "pane-shell relative w-full mx-auto h-full min-w-0 pane-row-follow",
+        "aria": null,
+        "rect": [
+         729,
+         88,
+         512,
+         398.5
+        ],
+        "kids": [
+         {
+          "tag": "DIV",
+          "cls": "glass-resting card pane-shell__card paper-grain-overlay relative flex ",
+          "aria": null,
+          "rect": [
+           729,
+           88,
+           512,
+           398.5
+          ],
+          "kids": [
+           {
+            "tag": "DIV",
+            "cls": "card-header card-header--shrink pane-header px-4 sm:px-6 pb-(--pane-he",
+            "aria": null,
+            "rect": [
+             730,
+             89,
+             510,
+             112.6
+            ],
+            "kids": []
+           },
+           {
+            "tag": "DIV",
+            "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 m",
+            "aria": null,
+            "rect": [
+             730,
+             201.6,
+             510,
+             283.9
+            ],
+            "kids": []
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r3-ltr": {
+  "htmlDir": "ltr",
+  "before": {
+   "bar": [
+    224,
+    240.1,
+    462,
+    40
+   ],
+   "handles": [
+    {
+     "id": "stop-1-mvfmcqjg",
+     "now": 0,
+     "cx": 236,
+     "frac": 0.026
+    },
+    {
+     "id": "stop-2-mvfmcqjh",
+     "now": 100,
+     "cx": 674,
+     "frac": 0.974
+    }
+   ],
+   "dir": "ltr"
+  },
+  "clickX": 339.5,
+  "minted": {
+   "id": "stop-3-mvfmcrs4",
+   "now": 23.6,
+   "cx": 339.4,
+   "frac": 0.25
+  },
+  "mintedOffsetPx": -0.1,
+  "key": {
+   "nowAfterArrowRight": 24.6,
+   "cxAfter": 343.7
+  },
+  "rampEnds": [
+   [
+    101,
+    184,
+    102
+   ],
+   [
+    84,
+    127,
+    231
+   ]
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r3-rtl": {
+  "htmlDir": "ltr",
+  "before": {
+   "bar": [
+    224,
+    240.1,
+    462,
+    40
+   ],
+   "handles": [
+    {
+     "id": "stop-1-mvfmctnp",
+     "now": 0,
+     "cx": 236,
+     "frac": 0.026
+    },
+    {
+     "id": "stop-2-mvfmctnp",
+     "now": 100,
+     "cx": 674,
+     "frac": 0.974
+    }
+   ],
+   "dir": "ltr"
+  },
+  "clickX": 339.5,
+  "minted": {
+   "id": "stop-3-mvfmcuz6",
+   "now": 23.6,
+   "cx": 339.4,
+   "frac": 0.25
+  },
+  "mintedOffsetPx": -0.1,
+  "key": {
+   "nowAfterArrowRight": 24.6,
+   "cxAfter": 343.7
+  },
+  "rampEnds": [
+   [
+    101,
+    184,
+    102
+   ],
+   [
+    84,
+    127,
+    231
+   ]
+  ],
+  "pageErrors": [
+   "TypeError: Cannot set properties of null (setting 'dir')"
+  ],
+  "consoleErrors": []
+ },
+ "r4": {
+  "at2": {
+   "layout": {
+    "body": 748.4,
+    "easingPx": 137.5,
+    "easingShare": 18.4,
+    "codeWell": [
+     462,
+     159.3
+    ],
+    "stops": 2
+   },
+   "census": {
+    "totalNodes": 347,
+    "strips": 0,
+    "stripsVisible": 0,
+    "toggles": 0,
+    "svgPaths": 0,
+    "intervalRows": 1
+   }
+  },
+  "at12": {
+   "layout": {
+    "body": 1516.3,
+    "easingPx": 587.5,
+    "easingShare": 38.7,
+    "codeWell": [
+     462,
+     425.8
+    ],
+    "stops": 12
+   },
+   "census": {
+    "totalNodes": 549,
+    "strips": 0,
+    "stripsVisible": 0,
+    "toggles": 0,
+    "svgPaths": 0,
+    "intervalRows": 11
+   }
+  },
+  "opened": {
+   "layout": {
+    "body": 2076.9,
+    "easingPx": 1148.1,
+    "easingShare": 55.3,
+    "codeWell": [
+     462,
+     425.8
+    ],
+    "stops": 12
+   },
+   "census": {
+    "totalNodes": 772,
+    "strips": 1,
+    "stripsVisible": 1,
+    "toggles": 27,
+    "svgPaths": 27,
+    "intervalRows": 11
+   }
+  },
+  "timing": {
+   "openRowMs": 70.9,
+   "forcedRelayoutMs": 0.2
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r6-390": {
+  "0": {
+   "text": "Linear",
+   "rect": [
+    33,
+    448.5,
+    324,
+    36
+   ],
+   "valScroll": 41,
+   "valClient": 41,
+   "clipPct": 0,
+   "overlapTile": false,
+   "offRight": false
+  },
+  "1": {
+   "text": "OKLCh",
+   "rect": [
+    33,
+    517.8,
+    324,
+    36
+   ],
+   "valScroll": 48,
+   "valClient": 48,
+   "clipPct": 0,
+   "overlapTile": false,
+   "offRight": false
+  },
+  "2": {
+   "text": "Shorter",
+   "rect": [
+    33,
+    587.2,
+    324,
+    36
+   ],
+   "valScroll": 48,
+   "valClient": 48,
+   "clipPct": 0,
+   "overlapTile": false,
+   "offRight": false
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r6-320": {
+  "0": {
+   "text": "Linear",
+   "rect": [
+    33,
+    479.4,
+    254,
+    36
+   ],
+   "valScroll": 41,
+   "valClient": 41,
+   "clipPct": 0,
+   "overlapTile": false,
+   "offRight": false
+  },
+  "1": {
+   "text": "OKLCh",
+   "rect": [
+    33,
+    548.8,
+    254,
+    36
+   ],
+   "valScroll": 48,
+   "valClient": 48,
+   "clipPct": 0,
+   "overlapTile": false,
+   "offRight": false
+  },
+  "2": {
+   "text": "Shorter",
+   "rect": [
+    33,
+    618.1,
+    254,
+    36
+   ],
+   "valScroll": 48,
+   "valClient": 48,
+   "clipPct": 0,
+   "overlapTile": false,
+   "offRight": false
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r13": {
+  "count": 32,
+  "stripStops": 28,
+  "stops": [
+   {
+    "tag": "DIV",
+    "role": null,
+    "label": "CSSlineareaseinoutin-out",
+    "pressed": null,
+    "tabindex": "0",
+    "inStrip": true,
+    "cls": "fading-scroll fading-scroll--x specimen-"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "linear",
+    "pressed": "true",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-sine",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out-sine",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out-sine",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-quad",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out-quad",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out-quad",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "smooth-step-3",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-cubic",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out-cubic",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out-cubic",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-expo",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out-expo",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out-expo",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-circ",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out-circ",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out-circ",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-back",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-out-back",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "ease-in-out-back",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "steps",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "step-start",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "step-end",
+    "pressed": "false",
+    "tabindex": null,
+    "inStrip": true,
+    "cls": "glass-chip glass-capsule accent-tone inl"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "Copy cubic-bezier(0, 0, ",
+    "pressed": null,
+    "tabindex": null,
+    "inStrip": false,
+    "cls": "rail-btn shrink-0"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "Author a custom curve",
+    "pressed": null,
+    "tabindex": null,
+    "inStrip": false,
+    "cls": "rail-btn shrink-0"
+   },
+   {
+    "tag": "BUTTON",
+    "role": null,
+    "label": "",
+    "pressed": null,
+    "tabindex": null,
+    "inStrip": false,
+    "cls": "dock-icon-button glass-specular-track gl"
+   },
+   {
+    "tag": "DIV",
+    "role": "textbox",
+    "label": "Gradient CSS",
+    "pressed": null,
+    "tabindex": null,
+    "inStrip": false,
+    "cls": "code-editor hljs text-mono-small leading"
+   }
+  ],
+  "strip": {
+   "toggles": 27,
+   "tabindexes": [
+    null
+   ],
+   "groupRole": "group"
+  },
+  "arrow": {
+   "before": "",
+   "afterArrowRight": "",
+   "moved": false
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r15-1440": {
+  "w": 96,
+  "h": 135.3,
+  "aspect": 0.709,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r15-390": {
+  "w": 48,
+  "h": 47.6,
+  "aspect": 1.009,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r15-320": {
+  "w": 48,
+  "h": 47.6,
+  "aspect": 1.009,
+  "pageErrors": [],
+  "consoleErrors": []
+ },
+ "r12": {
+  "error": "Error: page.evaluate: TypeError: Failed to resolve module specifier 'undefined'\n    at eval (eval at evaluate (:302:30), <anonymous>:3:36)\n    at UtilityScript.evaluate (<anonymous>:304:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+ },
+ "r11-evalthrow-light": {
+  "hash": "#/gradient",
+  "boundary": false,
+  "boundaryRect": null,
+  "alerts": [
+   {
+    "cls": "flex flex-col items-center justify-center gap-2.5 ",
+    "text": "This scene could not be loaded. Reload to continue.\n\nReload the app"
+   }
+  ],
+  "parts": null,
+  "editor": false,
+  "paneErrorPlate": false,
+  "bodyText": "→\n\n3 of 3 actions are unavailable (Reset, Copy CSS, Seed from palette) — the Gradient pane is not registered in this layout.\n\nGradient\nTools\nLogin\n@mbabb\n\nGradient view\n\nThis scene could not be loaded. Reload to continue.\n\nReload the app\nMy Palettes\n\nSave, organize, and share your colors.\n\nStart a n",
+  "pageErrors": [],
+  "consoleErrors": [
+   "[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: The requested module '/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts?t=1792433736186' does not"
+  ]
+ },
+ "r11-evalthrow-dark": {
+  "hash": "#/gradient",
+  "boundary": false,
+  "boundaryRect": null,
+  "alerts": [
+   {
+    "cls": "flex flex-col items-center justify-center gap-2.5 ",
+    "text": "This scene could not be loaded. Reload to continue.\n\nReload the app"
+   }
+  ],
+  "parts": null,
+  "editor": false,
+  "paneErrorPlate": false,
+  "bodyText": "→\n\n3 of 3 actions are unavailable (Reset, Copy CSS, Seed from palette) — the Gradient pane is not registered in this layout.\n\nGradient\nTools\nLogin\n@mbabb\n\nGradient view\n\nThis scene could not be loaded. Reload to continue.\n\nReload the app\nMy Palettes\n\nSave, organize, and share your colors.\n\nStart a n",
+  "pageErrors": [],
+  "consoleErrors": [
+   "[value.js] unhandled failure (pane-chunk · async component loader) PaneChunkError: The requested module '/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts?t=1792433736186' does not"
+  ]
+ },
+ "a14c-setupthrow-light": {
+  "hash": "#/gradient",
+  "boundary": true,
+  "boundaryRect": [
+   224,
+   89,
+   462,
+   232
+  ],
+  "alerts": [
+   {
+    "cls": "flex flex-col items-center justify-center gap-2.5 ",
+    "text": "This panel hit an unexpected error.\n\nSS8 probe: deliberate setup throw (GradientCodeEditor)\n\nTry again"
+   }
+  ],
+  "parts": {
+   "icon": {
+    "rect": [
+     443,
+     121,
+     24,
+     24
+    ],
+    "hits": [
+     {
+      "owner": true,
+      "hit": "line.[object SVGAnimatedString]"
+     },
+     {
+      "owner": true,
+      "hit": "circle.[object SVGAnimatedString]"
+     }
+    ]
+   },
+   "texts": [
+    {
+     "text": "This panel hit an unexpected error.",
+     "rect": [
+      285,
+      155,
+      341,
+      28
+     ],
+     "hits": [
+      {
+       "owner": true,
+       "hit": "P.font-display text-subheading text-foregr"
+      },
+      {
+       "owner": true,
+       "hit": "P.font-display text-subheading text-foregr"
+      }
+     ]
+    },
+    {
+     "text": "SS8 probe: deliberate setup throw (GradientCodeEditor)",
+     "rect": [
+      239,
+      193,
+      433,
+      46
+     ],
+     "hits": [
+      {
+       "owner": true,
+       "hit": "P.text-mono-small plate-ink w-full min-w-0"
+      },
+      {
+       "owner": true,
+       "hit": "P.text-mono-small plate-ink w-full min-w-0"
+      }
+     ]
+    }
+   ],
+   "button": {
+    "rect": [
+     397,
+     253,
+     116,
+     36
+    ],
+    "hits": [
+     {
+      "owner": true,
+      "hit": "BUTTON.button tap-squish focus-ring glass-capsu"
+     },
+     {
+      "owner": true,
+      "hit": "BUTTON.button tap-squish focus-ring glass-capsu"
+     }
+    ]
+   },
+   "focusedInside": true
+  },
+  "editor": false,
+  "paneErrorPlate": false,
+  "bodyText": "→\n\n3 of 3 actions are unavailable (Reset, Copy CSS, Seed from palette) — the Gradient pane is not registered in this layout.\n\nGradient\nTools\nLogin\n@mbabb\n\nGradient view\n\nThis panel hit an unexpected error.\n\nSS8 probe: deliberate setup throw (GradientCodeEditor)\n\nTry again\nMy Palettes\n\nSave, organize",
+  "pageErrors": [],
+  "consoleErrors": [
+   "[value.js] unhandled failure (boundary · setup function) Error: SS8 probe: deliberate setup throw (GradientCodeEditor)\n    at setup (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/GradientVisualizer/Gr"
+  ]
+ },
+ "a14c-setupthrow-dark": {
+  "hash": "#/gradient",
+  "boundary": true,
+  "boundaryRect": [
+   224,
+   89,
+   462,
+   232
+  ],
+  "alerts": [
+   {
+    "cls": "flex flex-col items-center justify-center gap-2.5 ",
+    "text": "This panel hit an unexpected error.\n\nSS8 probe: deliberate setup throw (GradientCodeEditor)\n\nTry again"
+   }
+  ],
+  "parts": {
+   "icon": {
+    "rect": [
+     443,
+     121,
+     24,
+     24
+    ],
+    "hits": [
+     {
+      "owner": true,
+      "hit": "line.[object SVGAnimatedString]"
+     },
+     {
+      "owner": true,
+      "hit": "circle.[object SVGAnimatedString]"
+     }
+    ]
+   },
+   "texts": [
+    {
+     "text": "This panel hit an unexpected error.",
+     "rect": [
+      285,
+      155,
+      341,
+      28
+     ],
+     "hits": [
+      {
+       "owner": true,
+       "hit": "P.font-display text-subheading text-foregr"
+      },
+      {
+       "owner": true,
+       "hit": "P.font-display text-subheading text-foregr"
+      }
+     ]
+    },
+    {
+     "text": "SS8 probe: deliberate setup throw (GradientCodeEditor)",
+     "rect": [
+      239,
+      193,
+      433,
+      46
+     ],
+     "hits": [
+      {
+       "owner": true,
+       "hit": "P.text-mono-small plate-ink w-full min-w-0"
+      },
+      {
+       "owner": true,
+       "hit": "P.text-mono-small plate-ink w-full min-w-0"
+      }
+     ]
+    }
+   ],
+   "button": {
+    "rect": [
+     397,
+     253,
+     116,
+     36
+    ],
+    "hits": [
+     {
+      "owner": true,
+      "hit": "BUTTON.button tap-squish focus-ring glass-capsu"
+     },
+     {
+      "owner": true,
+      "hit": "BUTTON.button tap-squish focus-ring glass-capsu"
+     }
+    ]
+   },
+   "focusedInside": true
+  },
+  "editor": false,
+  "paneErrorPlate": false,
+  "bodyText": "→\n\n3 of 3 actions are unavailable (Reset, Copy CSS, Seed from palette) — the Gradient pane is not registered in this layout.\n\nGradient\nTools\nLogin\n@mbabb\n\nGradient view\n\nThis panel hit an unexpected error.\n\nSS8 probe: deliberate setup throw (GradientCodeEditor)\n\nTry again\nMy Palettes\n\nSave, organize",
+  "pageErrors": [],
+  "consoleErrors": [
+   "[value.js] unhandled failure (boundary · setup function) Error: SS8 probe: deliberate setup throw (GradientCodeEditor)\n    at setup (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/workbenches/gradient/GradientVisualizer/Gr"
+  ]
+ }
+}

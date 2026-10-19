@@ -1,0 +1,242 @@
+{
+ "recon": {
+  "vw": 1440,
+  "html": 1033857,
+  "editorText": "linear-gradient(\n  90deg in oklch,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+  "editorRect": [
+   224,
+   791,
+   462,
+   159
+  ],
+  "editorStyle": {
+   "bg": "oklch(0.913 0.03 2)",
+   "font": "16.4px",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "wb": "normal",
+   "ow": "break-word",
+   "ac": null,
+   "autocorrect": null,
+   "inputmode": null,
+   "dir": null
+  },
+  "spans": [
+   [
+    "hljs-number",
+    "90deg",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "75%",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "0.15",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "145deg",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "0%",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "65%",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "0.18",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "265deg",
+    "oklch(0.49 0.12 78)"
+   ],
+   [
+    "hljs-number",
+    "100%",
+    "oklch(0.49 0.12 78)"
+   ]
+  ],
+  "scrollers": [
+   {
+    "tag": "DIV",
+    "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden",
+    "rect": [
+     200,
+     202,
+     510,
+     764
+    ],
+    "sh": 764,
+    "ch": 764
+   }
+  ],
+  "h3": [
+   [
+    "Stops",
+    [
+     224,
+     202,
+     462,
+     31
+    ],
+    "oklch(0.216129 0.00624853 56.0356)"
+   ],
+   [
+    "Interpolation",
+    [
+     224,
+     376,
+     462,
+     31
+    ],
+    "oklch(0.216129 0.00624853 56.0356)"
+   ],
+   [
+    "Easing",
+    [
+     224,
+     603,
+     462,
+     31
+    ],
+    "oklch(0.216129 0.00624853 56.0356)"
+   ],
+   [
+    "1 → 2linear",
+    [
+     225,
+     654,
+     460,
+     44
+    ],
+    "oklch(0.216129 0.00624853 56.0356)"
+   ],
+   [
+    "CSS",
+    [
+     224,
+     740,
+     39,
+     31
+    ],
+    "oklch(0.216129 0.00624853 56.0356)"
+   ]
+  ],
+  "tile": [
+   590,
+   426,
+   96,
+   135
+  ],
+  "sliders": [
+   [
+    "Gradient stop 1 of 2",
+    "0",
+    "100",
+    [
+     224,
+     284,
+     24,
+     24
+    ]
+   ],
+   [
+    "Gradient stop 2 of 2",
+    "100",
+    "100",
+    [
+     662,
+     284,
+     24,
+     24
+    ]
+   ],
+   [
+    "Gradient direction",
+    "90",
+    "360",
+    [
+     313,
+     545,
+     0,
+     9
+    ]
+   ]
+  ],
+  "combos": [
+   [
+    "Gradient",
+    [
+     478,
+     25,
+     128,
+     32
+    ]
+   ],
+   [
+    "Linear",
+    [
+     224,
+     455,
+     110,
+     36
+    ]
+   ],
+   [
+    "OKLCh",
+    [
+     346,
+     455,
+     110,
+     36
+    ]
+   ],
+   [
+    "Shorter",
+    [
+     468,
+     455,
+     110,
+     36
+    ]
+   ]
+  ],
+  "accordion": 1,
+  "toggles": 1,
+  "main": [
+   [
+    "MAIN",
+    "pane-main",
+    [
+     16,
+     88,
+     1408,
+     879
+    ]
+   ],
+   [
+    "SECTION",
+    "flex flex-col gap-2",
+    [
+     224,
+     202,
+     462,
+     133
+    ]
+   ]
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+ }
+}
