@@ -1,0 +1,284 @@
+dark-390 {
+ "inv": [
+  {
+   "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+   "box": [
+    16,
+    8,
+    358,
+    56
+   ],
+   "plate": {
+    "x": 16,
+    "y": 8,
+    "w": 358,
+    "h": 56,
+    "r": "9999px",
+    "r2": "9999px",
+    "clip": "inset(0px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "ovf": "visible"
+   },
+   "persistent": null,
+   "summary": {
+    "x": 16,
+    "y": 8,
+    "w": 0,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "full": {
+    "x": 28,
+    "y": 12,
+    "w": 334,
+    "h": 48,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "auto hidden"
+   },
+   "run": [
+    334,
+    334,
+    0
+   ],
+   "kids": []
+  },
+  {
+   "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+   "box": [
+    269,
+    137,
+    96,
+    56
+   ],
+   "plate": {
+    "x": 269,
+    "y": 137,
+    "w": 96,
+    "h": 56,
+    "r": "50%",
+    "r2": "50%",
+    "clip": "inset(0px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "ovf": "visible"
+   },
+   "persistent": {
+    "x": 317,
+    "y": 145,
+    "w": 40,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "summary": {
+    "x": 277,
+    "y": 145,
+    "w": 40,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "full": {
+    "x": 269,
+    "y": 133,
+    "w": 96,
+    "h": 64,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "auto hidden"
+   },
+   "run": [
+    274,
+    96,
+    0
+   ],
+   "kids": [
+    "summary-glyph-wrap:287,155 20x20 \"\"",
+    "dock-icon-button glass-specula:317,145 40x40 \"\""
+   ]
+  },
+  {
+   "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+   "box": [
+    144,
+    771,
+    102,
+    56
+   ],
+   "plate": {
+    "x": 144,
+    "y": 771,
+    "w": 102,
+    "h": 56,
+    "r": "9999px",
+    "r2": "9999px",
+    "clip": "inset(0px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "ovf": "visible"
+   },
+   "persistent": {
+    "x": 152,
+    "y": 779,
+    "w": 40,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "summary": {
+    "x": 198,
+    "y": 779,
+    "w": 40,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "full": {
+    "x": 144,
+    "y": 767,
+    "w": 102,
+    "h": 64,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "auto hidden"
+   },
+   "run": [
+    102,
+    102,
+    0
+   ],
+   "kids": [
+    "dock-icon-button glass-specula:152,779 40x40 \"\"",
+    "mini-progress:191,797 48x4 \"\"",
+    "metric:245,792 0x14 \"1×\""
+   ]
+  }
+ ],
+ "toggle": [
+  "About Fourier anal 40x40",
+  "Navigate — current 127x40",
+  "Log in 40x40",
+  "Dark mode 40x40"
+ ],
+ "F1_expand": {
+  "dock": "n=166 x 25..144 centreX 195..195 w 102..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+  "plate": "n=166 x 25..144 centreX 195..195 w 102..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+  "play": "n=166 x 33..152 centreX 53..172 w 40..40 h 40..40 jumps=1 r0=0px rEnd=0px",
+  "summary": "n=166 x 25..198 centreX 45..218 w 40..40 h 40..40 jumps=2 r0=0px rEnd=0px",
+  "full": "n=166 x 79..144 centreX 195..219 w 102..278 h 48..64 jumps=1 r0=0px rEnd=0px"
+ },
+ "inv_expanded": {
+  "cls": "animation-dock glass-dock horizontal shape-pill expanded",
+  "box": [
+   25,
+   771,
+   340,
+   56
+  ],
+  "plate": {
+   "x": 25,
+   "y": 771,
+   "w": 340,
+   "h": 56,
+   "r": "9999px",
+   "r2": "9999px",
+   "clip": "inset(0px)",
+   "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+   "ovf": "visible"
+  },
+  "persistent": {
+   "x": 37,
+   "y": 779,
+   "w": 40,
+   "h": 40,
+   "r": "0px",
+   "r2": "0px",
+   "clip": "none",
+   "anim": "none",
+   "ovf": "visible"
+  },
+  "summary": {
+   "x": 25,
+   "y": 771,
+   "w": 40,
+   "h": 40,
+   "r": "0px",
+   "r2": "0px",
+   "clip": "none",
+   "anim": "none",
+   "ovf": "visible"
+  },
+  "full": {
+   "x": 83,
+   "y": 775,
+   "w": 270,
+   "h": 48,
+   "r": "0px",
+   "r2": "0px",
+   "clip": "none",
+   "anim": "none",
+   "ovf": "auto hidden"
+  },
+  "run": [
+   270,
+   270,
+   0
+  ],
+  "kids": [
+   "dock-icon-button glass-specula:37,779 40x40 \"\"",
+   "mini-progress:18,789 48x4 \"\"",
+   "metric:72,784 0x14 \"1×\""
+  ]
+ },
+ "F1_collapse": {
+  "dock": "n=181 x 25..165 centreX 195..196 w 61..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+  "plate": "n=181 x 25..165 centreX 195..196 w 61..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+  "play": "n=181 x 37..152 centreX 57..172 w 40..40 h 40..40 jumps=0 r0=0px rEnd=0px",
+  "summary": "n=181 x 25..198 centreX 45..218 w 40..40 h 40..40 jumps=2 r0=0px rEnd=0px",
+  "full": "n=181 x 60..144 centreX 195..218 w 102..278 h 48..64 jumps=1 r0=0px rEnd=0px"
+ },
+ "F2_small_expand": {
+  "dock": "n=168 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+  "plate": "n=168 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=50% rEnd=9999px",
+  "full": "n=168 x 39..281 centreX 176..317 w 32..274 h 48..64 jumps=2 r0=0px rEnd=0px",
+  "summary": "n=168 x 27..281 centreX 47..301 w 40..40 h 40..40 jumps=1 r0=0px rEnd=0px"
+ },
+ "F2_small_collapse": {
+  "dock": "n=180 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+  "plate": "n=180 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=9999px rEnd=50%",
+  "full": "n=180 x 39..269 centreX 176..317 w 96..282 h 48..64 jumps=1 r0=0px rEnd=0px",
+  "summary": "n=180 x 27..277 centreX 47..297 w 40..40 h 40..40 jumps=1 r0=0px rEnd=0px"
+ },
+ "F3_menu": {
+  "box": [
+   186,
+   192,
+   168,
+   588
+  ],
+  "labels": 13,
+  "text": "Speed 0.25× 0.5× 1× 2× 4× Easing 0 1 Linear 0 1 Sine 0 1 Quadratic 0 1 Cubic 0 1 Circular 0 1 Exponential"
+ },
+ "F4_after_leave": {
+  "dock": "animation-dock glass-dock 

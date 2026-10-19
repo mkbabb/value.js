@@ -1,0 +1,415 @@
+{
+ "light-390": {
+  "inv": [
+   {
+    "cls": "app-dock glass-dock horizontal shape-pill expanded pinned always-expanded",
+    "box": [
+     16,
+     8,
+     358,
+     56
+    ],
+    "plate": {
+     "x": 16,
+     "y": 8,
+     "w": 358,
+     "h": 56,
+     "r": "9999px",
+     "r2": "9999px",
+     "clip": "inset(0px)",
+     "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+     "ovf": "visible"
+    },
+    "persistent": null,
+    "summary": {
+     "x": 16,
+     "y": 8,
+     "w": 0,
+     "h": 40,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "visible"
+    },
+    "full": {
+     "x": 28,
+     "y": 12,
+     "w": 334,
+     "h": 48,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "auto hidden"
+    },
+    "run": [
+     334,
+     334,
+     0
+    ],
+    "kids": []
+   },
+   {
+    "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+    "box": [
+     269,
+     137,
+     96,
+     56
+    ],
+    "plate": {
+     "x": 269,
+     "y": 137,
+     "w": 96,
+     "h": 56,
+     "r": "50%",
+     "r2": "50%",
+     "clip": "inset(0px)",
+     "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+     "ovf": "visible"
+    },
+    "persistent": {
+     "x": 317,
+     "y": 145,
+     "w": 40,
+     "h": 40,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "visible"
+    },
+    "summary": {
+     "x": 277,
+     "y": 145,
+     "w": 40,
+     "h": 40,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "visible"
+    },
+    "full": {
+     "x": 269,
+     "y": 133,
+     "w": 96,
+     "h": 64,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "auto hidden"
+    },
+    "run": [
+     274,
+     96,
+     0
+    ],
+    "kids": [
+     "summary-glyph-wrap:287,155 20x20 \"\"",
+     "dock-icon-button glass-specula:317,145 40x40 \"\""
+    ]
+   },
+   {
+    "cls": "animation-dock glass-dock horizontal shape-pill collapsed",
+    "box": [
+     144,
+     771,
+     102,
+     56
+    ],
+    "plate": {
+     "x": 144,
+     "y": 771,
+     "w": 102,
+     "h": 56,
+     "r": "9999px",
+     "r2": "9999px",
+     "clip": "inset(0px)",
+     "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+     "ovf": "visible"
+    },
+    "persistent": {
+     "x": 152,
+     "y": 779,
+     "w": 40,
+     "h": 40,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "visible"
+    },
+    "summary": {
+     "x": 198,
+     "y": 779,
+     "w": 40,
+     "h": 40,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "visible"
+    },
+    "full": {
+     "x": 144,
+     "y": 767,
+     "w": 102,
+     "h": 64,
+     "r": "0px",
+     "r2": "0px",
+     "clip": "none",
+     "anim": "none",
+     "ovf": "auto hidden"
+    },
+    "run": [
+     102,
+     102,
+     0
+    ],
+    "kids": [
+     "dock-icon-button glass-specula:152,779 40x40 \"\"",
+     "mini-progress:191,797 48x4 \"\"",
+     "metric:245,792 0x14 \"1×\""
+    ]
+   }
+  ],
+  "toggle": [
+   "About Fourier anal 40x40",
+   "Navigate — current 127x40",
+   "Log in 40x40",
+   "Dark mode 40x40"
+  ],
+  "F1_expand": {
+   "dock": "n=166 x 25..144 centreX 195..195 w 102..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+   "plate": "n=166 x 25..144 centreX 195..195 w 102..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+   "play": "n=166 x 33..152 centreX 53..172 w 40..40 h 40..40 jumps=1 r0=0px rEnd=0px",
+   "summary": "n=166 x 25..198 centreX 45..218 w 40..40 h 40..40 jumps=2 r0=0px rEnd=0px",
+   "full": "n=166 x 79..144 centreX 195..219 w 102..278 h 48..64 jumps=1 r0=0px rEnd=0px"
+  },
+  "inv_expanded": {
+   "cls": "animation-dock glass-dock horizontal shape-pill expanded",
+   "box": [
+    25,
+    771,
+    340,
+    56
+   ],
+   "plate": {
+    "x": 25,
+    "y": 771,
+    "w": 340,
+    "h": 56,
+    "r": "9999px",
+    "r2": "9999px",
+    "clip": "inset(0px)",
+    "anim": "gl-dock-cap-inline-start, gl-dock-cap-inline-end",
+    "ovf": "visible"
+   },
+   "persistent": {
+    "x": 37,
+    "y": 779,
+    "w": 40,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "summary": {
+    "x": 25,
+    "y": 771,
+    "w": 40,
+    "h": 40,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "visible"
+   },
+   "full": {
+    "x": 83,
+    "y": 775,
+    "w": 270,
+    "h": 48,
+    "r": "0px",
+    "r2": "0px",
+    "clip": "none",
+    "anim": "none",
+    "ovf": "auto hidden"
+   },
+   "run": [
+    270,
+    270,
+    0
+   ],
+   "kids": [
+    "dock-icon-button glass-specula:37,779 40x40 \"\"",
+    "mini-progress:18,789 48x4 \"\"",
+    "metric:72,784 0x14 \"1×\""
+   ]
+  },
+  "F1_collapse": {
+   "dock": "n=181 x 25..165 centreX 195..196 w 61..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+   "plate": "n=181 x 25..165 centreX 195..196 w 61..340 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+   "play": "n=181 x 37..152 centreX 57..172 w 40..40 h 40..40 jumps=0 r0=0px rEnd=0px",
+   "summary": "n=181 x 25..198 centreX 45..218 w 40..40 h 40..40 jumps=2 r0=0px rEnd=0px",
+   "full": "n=181 x 60..144 centreX 195..218 w 102..278 h 48..64 jumps=1 r0=0px rEnd=0px"
+  },
+  "F2_small_expand": {
+   "dock": "n=167 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+   "plate": "n=167 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=50% rEnd=9999px",
+   "full": "n=167 x 39..281 centreX 176..317 w 32..274 h 48..64 jumps=2 r0=0px rEnd=0px",
+   "summary": "n=167 x 27..281 centreX 47..301 w 40..40 h 40..40 jumps=1 r0=0px rEnd=0px"
+  },
+  "F2_small_collapse": {
+   "dock": "n=180 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=9999px rEnd=9999px",
+   "plate": "n=180 x 27..269 centreX 196..317 w 96..338 h 56..56 jumps=1 r0=9999px rEnd=50%",
+   "full": "n=180 x 39..269 centreX 176..317 w 96..282 h 48..64 jumps=1 r0=0px rEnd=0px",
+   "summary": "n=180 x 27..277 centreX 47..297 w 40..40 h 40..40 jumps=1 r0=0px rEnd=0px"
+  },
+  "F3_menu": {
+   "box": [
+    186,
+    192,
+    168,
+    588
+   ],
+   "labels": 13,
+   "text": "Speed 0.25× 0.5× 1× 2× 4× Easing 0 1 Linear 0 1 Sine 0 1 Quadratic 0 1 Cubic 0 1 Circular 0 1 Exponential"
+  },
+  "F4_after_leave": {
+   "dock": "animation-dock glass-dock horizontal shape-pill collapsed",
+   "menuOpen": true,
+   "trigInert": true
+  },
+  "F8": {
+   "caret": [
+    160,
+    754,
+    81,
+    27
+   ],
+   "opacity": "1",
+   "clippers": [
+    "dock-layer dock-layer--full dock-run is-active ovf=auto hidden clip=none contain=none box=775..823",
+    "viz-panel-right canvas-stage ovf=hidden clip=none contain=none box=129..839",
+    "configurator-stage relative min-h-0 min-w-0 glass- ovf=hidden clip=none contain=none box=128..840",
+    "relative flex-1 min-h-0 flex flex-col overflow-y-a ovf=auto clip=none contain=none box=71..844",
+    "app-shell h-dvh flex flex-col bg-background text-f ovf=hidden clip=none contain=none box=0..844"
+   ]
+  },
+  "F5": [
+   "BUTTON.configurator-layer-trigger group w-full py-2 tap-squish tran 354x47 border=0px solid rgb(28, 25, 23) outline=none shadow=none r=0px bg=rgba(0, 0, 0, 0) ovf=visible",
+   "DIV.configurator-layer-header 354x47 border=0px solid rgb(28, 25, 23) outline=none shadow=none r=0px bg=rgba(0, 0, 0, 0) ovf=visible",
+   "DIV.configurator-layer 356x144 border=1px solid color(srgb 0.778 0.7052 0.622 / 0.7) outline=none shadow=none r=4px bg=rgba(0, 0, 0, 0) ovf=visible",
+   "DIV.viz-panel-left 356x613 border=0px solid rgb(28, 25, 23) outline=none shadow=none r=0px bg=rgba(0, 0, 0, 0) ovf=visible",
+   "DIV.viz-panel-left-wrap 356x613 border=0px solid rgb(28, 25, 23) outline=none shadow=none r=0px bg=rgba(0, 0, 0, 0) ovf=visible",
+   "DIV.flex flex-col 356x613 border=0px solid rgb(28, 25, 23) outline=none shadow=none r=0px bg=rgba(0, 0, 0, 0) ovf=visible",
+   "DIV.fading-scroll fading-scroll--y configurator-controls flex-1  356x613 border=0px solid rgb(28, 25, 23) outline=none shadow=none r=0px bg=rgba(0, 0, 0, 0) ovf=auto"
+  ],
+  "F7": [
+   [
+    "SPAN.slider-thumb glass-specular-track 0x0 bw=0px/none shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "SPAN.glass-slider timeline-slider 0x0 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.timeline-row convergence-timeline 0x0 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.timeline-track-wrap 0x0 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.timeline-dock 0x0 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-c 0x0 bw=1px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)"
+   ],
+   [
+    "SPAN.slider-thumb glass-specular-track 12x24 bw=2px/solid shadow=color(srgb 0.11 0.098 0.09 / 0.06) 0px 2 out=none bg=oklch(0.579 0.201 30.4)",
+    "SPAN.glass-slider control-row-track 314x24 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.control-row 314x82 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.space-y-body py-1 314x245 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.configurator-layer-body py-2 space-y-2 354x261 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.min-h-0 overflow-hidden 354x261 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)"
+   ],
+   [
+    "SPAN.slider-thumb glass-specular-track 12x24 bw=2px/solid shadow=color(srgb 0.11 0.098 0.09 / 0.06) 0px 2 out=none bg=oklch(0.579 0.201 30.4)",
+    "SPAN.glass-slider control-row-track 314x24 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.control-row 314x82 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.space-y-body py-1 314x245 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.configurator-layer-body py-2 space-y-2 354x261 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)",
+    "DIV.min-h-0 overflow-hidden 354x261 bw=0px/solid shadow=none out=none bg=rgba(0, 0, 0, 0)"
+   ]
+  ],
+  "routeTx": {
+   "/gallery": "newChildAt=29ms opacity 1..1 y 72..72 busyFrames=0 loadingTextFrames=2 frames=193",
+   "/paper": "newChildAt=71ms opacity 1..1 y 72..72 busyFrames=0 loadingTextFrames=0 frames=192",
+   "/v/hazy-etching-cream-elk": "newChildAt=24ms opacity 1..1 y 72..72 busyFrames=0 loadingTextFrames=3 frames=190",
+   "/equation": "newChildAt=25ms opacity 1..1 y 72..72 busyFrames=0 loadingTextFrames=0 frames=189"
+  },
+  "cold": {
+   "/paper": {
+    "dcl": 95,
+    "load": 95,
+    "ready": 258,
+    "lcp": 0,
+    "fcp": -1,
+    "nRes": 177,
+    "kb": 11400,
+    "loadingText": false,
+    "lcpLate": 268
+   },
+   "/visualize": {
+    "dcl": 100,
+    "load": 101,
+    "ready": 220,
+    "lcp": 0,
+    "fcp": -1,
+    "nRes": 234,
+    "kb": 9022,
+    "loadingText": false,
+    "lcpLate": 236
+   },
+   "/v/hazy-etching-cream-elk": {
+    "dcl": 82,
+    "load": 82,
+    "ready": 285,
+    "lcp": 192,
+    "fcp": 192,
+    "nRes": 239,
+    "kb": 9135,
+    "loadingText": false,
+    "lcpLate": 192
+   },
+   "/gallery": {
+    "dcl": 126,
+    "load": 127,
+    "ready": 267,
+    "lcp": 0,
+    "fcp": -1,
+    "nRes": 175,
+    "kb": 7751,
+    "loadingText": false,
+    "lcpLate": 244
+   },
+   "/equation": {
+    "dcl": 92,
+    "load": 93,
+    "ready": 1719,
+    "lcp": 232,
+    "fcp": 232,
+    "nRes": 199,
+    "kb": 8435,
+    "loadingText": false,
+    "lcpLate": 232
+   },
+   "/morph": {
+    "dcl": 94,
+    "load": 94,
+    "ready": 230,
+    "lcp": 0,
+    "fcp": -1,
+    "nRes": 155,
+    "kb": 7529,
+    "loadingText": false,
+    "lcpLate": 244
+   }
+  }
+ }
+}
