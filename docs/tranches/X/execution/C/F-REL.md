@@ -2927,3 +2927,32 @@ Groups: `[[F-REL.m1], [F-REL.d]]`.
 | F-REL.d | §Units `.d` (F-REL.md:32-38); ADDENDUM (f) (F-REL.md:78-83); §0fs; §0ge.4; orchestrator ruling ESC-FREL-d-4 ("then `.d` re-sits") | fourier `scripts/**` (prod-verify only); value.js `docs/tranches/X/fourier/evidence/F-REL/d/` + this record | off-host health poller started before the deploy, no non-200 through the switch; host deploy via its hook reaches OK (deploy-alert #1 closed by it); prod-verify 21/21 ×2; PD-1 prod curl ×2 (gzip GET → strong ETag → If-Match PATCH 200, stale 412); pages-smoke PASS ×2; cert > 14 d; openapi; health 200; prod `ENV` read recorded | after `.m1` only; host changed only through its deploy path and config; ESC-FREL-d-5 (host `:1022` unreachable, host hook copy REFUSEs before fetch) is resolved lawfully or re-ESCALATED by name with readings — never a hand edit of the running container; ESC-FREL-r4-1 not acted on |
 
 ## RESUME 2026-10-19 (h) — Unit receipts
+
+### F-REL.m1
+
+Seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19. Spec: orchestrator ruling ESC-FREL-d-4 (RESUME (h) Open); F-REL.md §Units `.h`, §Gates; RESUME (g) Close §Escalations. **Status: ESCALATED (ESC-FREL-m1-1). No fourier write; no commit, push or merge in fourier.**
+
+**Crash recovery.** fourier ⟨`git status --porcelain`⟩ → `?? .worktrees/` only; value.js `evidence/F-REL/m1/` absent. No inherited work.
+
+**Acts in order:**
+1. Anchors at true bytes (after `git fetch`): ⟨`sed -n '55p;298p' .github/workflows/ci.yml; sed -n 38p docker-compose.yml`⟩ → `image: mongo:8.0` ×3; `docker-compose.prod.yml` has no mongo `image:` (only `:184 nginx:alpine`) — prod inherits `docker-compose.yml:38` through `deploy-hook.sh:71`'s overlay. Anchors hold.
+2. Runner + refusal read: ⟨`gh run view 39292117114 --log`⟩ compose-boot job (runner `20261018.339.1`) → `OS: Linux 7.0.0-1017-azure`; mongod `"id":12257600 … MongoDB cannot start: Linux kernel versions 6.19 and newer …`. Floating `mongo:8.0` = 8.0.34 by digest (`tags/8.0` = `tags/8.0.34` = `sha256:4a4ab5d48342…`).
+3. JIRA read (REST, quoted in evidence): SERVER-121912 Closed "Gone away", fixVersions `[]`, *"This will be fixed in SERVER-125742"*; SERVER-125742 fixVersions `8.0.30, 8.3.9, 9.0.0-rc1` — but its exemption parses `uname -r`, so Ubuntu/azure `7.0.0-NNNN` kernels (upstream 7.0.14) are still refused (SERVER-136848 Open; a 2026-10-14 comment names exactly `7.0.0-1017-azure`); the Ubuntu-aware fix SERVER-131779 has fixVersions **`8.0.35, 8.3.14, 9.0.4`**.
+4. Docker Hub read: 8.0 newest `8.0.34` (`name=8.0.35` → `[]`); 8.3 newest `8.3.13`; 9.0 has **`9.0.4`** (2026-10-17). 8.0 release notes newest = 8.0.34 (Oct 13). **First official image tag shipping a fix that applies to this runner kernel: `mongo:9.0.4`** — a new major.
+5. Data/FCV read: 9.0 upgrade doc *"you must be running a 8.3 or 8.0 release"* (8.0 volume is a lawful 9.0 start; FCV stays `8.0` absent `setFeatureCompatibilityVersion`); an 8.0.35 pin would be a patch bump, data + FCV `8.0` unchanged.
+6. Stopped before any pin edit: the ruling's lock admits the same major/minor, or a newer **minor** only; 9.0.4 is a major jump on the production database binary. Per METHOD ("if the specified cure is impossible at the bytes, do NOT substitute"), ESCALATED.
+
+**Gates (BEFORE → AFTER):**
+
+| Gate | BEFORE | AFTER |
+|---|---|---|
+| JIRA/release notes name the first official tag with the fix | not read | **GREEN (read)**: `mongo:9.0.4` (SERVER-131779; 8.0 fix = 8.0.35, unpublished). URLs + quotes in `evidence/F-REL/m1/README.md` |
+| exact patch tag at all three sites | `mongo:8.0` ×3 | **RED / not landed** (lock: no 8.0.x tag carries the applicable fix) |
+| prod-volume data + FCV stated | — | **GREEN (stated)**: 8.0.35 patch = unchanged; 9.0.4 = lawful from 8.0, FCV stays 8.0 (doc quoted) |
+| CI on kernel ≥ 6.19: uname + mongod healthy | RED (8.0.34 refuses on `7.0.0-1017-azure`) | RED (unchanged) |
+| m/w1 CI GREEN | — | not run (no commit) |
+| master CI GREEN ×2 | RED (`39292091987`, `39292117114`) | RED (unchanged); also carries the non-mongo visual-checkpoint RED (items 1·6·7 / 2 / 8, X-DS) |
+
+**ESC-FREL-m1-1 (orchestrator ruling).** No official `mongo` 8.0.x (or any 8.x) image yet ships the fix that applies to GitHub's `7.0.0-1017-azure` runners; the 8.0 fix is SERVER-131779 in **8.0.35**, unpublished as of 2026-10-19 (8.0.34 out 10-13/10-17). Arms: **(a)** wait for `mongo:8.0.35`, then pin it exactly at `ci.yml:55,298` + `docker-compose.yml:38` (patch; data + FCV 8.0 unchanged) and run the gates — the conforming arm; **(b)** widen the lock to a major: pin `mongo:9.0.4` (lawful upgrade from 8.0 data; FCV left 8.0 so a binary rollback to 8.0 stays possible; prod mongod becomes 9.0 on the next deploy); **(c)** rejected here: 8.2.x boots only because it lacks the guard (crash risk on 6.19–7.0.13 kernels), and any setParameter/GLIBC_TUNABLES/runner pin is a locked bypass. Independently, master e2e is RED on non-mongo visual-checkpoint items 1·6·7 / 2 / 8 (baseline `39292117114`: `3 failed · 8 flaky · 519 passed`), owned by X-DS web/ — not re-baselined here.
+
+**Adjacent edits:** none. **Evidence:** `docs/tranches/X/fourier/evidence/F-REL/m1/` — `README.md`, `ci-39292117114-refusal.txt`.
