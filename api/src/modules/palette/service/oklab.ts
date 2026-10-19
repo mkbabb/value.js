@@ -1,98 +1,49 @@
 /**
- * Internal OKLab conversion helper (D.W2 Lane A — extracted from
- * `routes/palettes.ts` L48-104; Lane D W4 — fail-explicit refactor).
+ * Server-side OKLab index for the colour-distance search filter.
  *
- * Server-side OKLab computation for the color-distance search filter.
- * `oklabColors` is denormalized onto each palette doc; Mongo can't run a
- * JS-level color parser, so this server-side helper pre-computes the triples
- * written to the palettes collection.
+ * `oklabColors` is denormalized onto each palette doc (Mongo can't run a
+ * JS-level colour parser), so every write computes one OKLab triple per stop.
  *
- * Scope: hex (#rrggbb, #rgb) and rgb()/rgba(). Anything else (hsl, oklch,
- * color(), named colors) is REJECTED at the validation boundary via a
- * thrown `ValidationError` — the previous behavior silently dropped
- * unrecognised formats from the index, leaving the at-rest data inconsistent
- * with the displayed palette (D-HARDEN-3 §3 W4).
- *
- * The library publishes a full CSS color parser at `@mkbabb/value.js`'s
- * `parseCSSColor` surface; the api intentionally does NOT import it here
- * (api/ is a standalone package, not a workspace member). When the api
- * is migrated to consume value.js the inline implementation below should
- * be replaced wholesale with a `parseCSSColor → convert(oklab)` pipeline.
+ * VALIDATION LIVES IN ONE PLACE — value.js's own colour parser. A stop is
+ * accepted iff `parseCssColor` (`@mkbabb/value.js/css`) parses it: hex, named
+ * colours, rgb()/hsl()/hwb(), lab()/lch(), oklab()/oklch() and every
+ * `color(<space> …)` the library reads (display-p3, rec2020, …). Anything it
+ * refuses is REJECTED at the validation boundary with a `ValidationError`
+ * (D-HARDEN-3 §3 W4: never silently drop a stop from the index). The stored
+ * `css` is untouched — it stays the author's text; the triple here is derived
+ * from it, never a rewrite of it. (Owner 2026-10-19: the prior hex/rgb()-only
+ * regex refused the P3 Daraksha `oklch(73% 0.185 2)` at publish.)
  */
 
+import { convertColor } from "@mkbabb/value.js/color";
+import { parseCssColor } from "@mkbabb/value.js/css";
 import { ValidationError } from "../../../platform/http/errors/index.js";
 import type { PaletteColor, OklabTriple } from "../model.js";
 
-const linearize = (c: number): number =>
-    c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+/** CSS Color 4 §4.4: a `none` component converts as zero. */
+const channel = (c: number | "none"): number => (c === "none" ? 0 : c);
 
 /**
- * Convert a CSS color string to OKLab. Throws `ValidationError` on
- * unrecognised / malformed input.
+ * Convert a CSS colour string to OKLab. Throws `ValidationError` on any
+ * input value.js's parser refuses.
  */
 export function cssToOklab(css: string): OklabTriple {
-    let r = 0;
-    let g = 0;
-    let b = 0;
-    const s = css.trim().toLowerCase();
-
-    const hexMatch = s.match(/^#([0-9a-f]{3,8})$/);
-    if (hexMatch) {
-        // The outer regex guarantees the body capture group is present and
-        // non-empty; the destructure is defensive — under
-        // `noUncheckedIndexedAccess` TS can't prove regex semantics, so we
-        // narrow explicitly.
-        const [, h] = hexMatch;
-        if (h === undefined) {
-            throw new ValidationError(`Unsupported hex color: ${css}`);
-        }
-        if (h.length === 3) {
-            const [c0, c1, c2] = h;
-            if (c0 === undefined || c1 === undefined || c2 === undefined) {
-                throw new ValidationError(`Unsupported hex color: ${css}`);
-            }
-            r = parseInt(c0 + c0, 16) / 255;
-            g = parseInt(c1 + c1, 16) / 255;
-            b = parseInt(c2 + c2, 16) / 255;
-        } else if (h.length === 6 || h.length === 8) {
-            r = parseInt(h.slice(0, 2), 16) / 255;
-            g = parseInt(h.slice(2, 4), 16) / 255;
-            b = parseInt(h.slice(4, 6), 16) / 255;
-        } else {
-            throw new ValidationError(
-                `Unsupported hex color: ${css} (must be #rgb, #rrggbb, or #rrggbbaa)`,
-            );
-        }
-    } else {
-        const rgbMatch = s.match(/^rgba?\(\s*(\d+)\s*,?\s*(\d+)\s*,?\s*(\d+)/);
-        if (rgbMatch) {
-            const [, rs, gs, bs] = rgbMatch;
-            if (rs === undefined || gs === undefined || bs === undefined) {
-                throw new ValidationError(`Unsupported color format: ${css}`);
-            }
-            r = parseInt(rs) / 255;
-            g = parseInt(gs) / 255;
-            b = parseInt(bs) / 255;
-        } else {
-            throw new ValidationError(
-                `Unsupported color format: ${css} (the API accepts hex (#rgb/#rrggbb) and rgb()/rgba() only)`,
-            );
-        }
+    const parsed = parseCssColor(css.trim());
+    if (!parsed.ok) {
+        const [issue] = parsed.diagnostics;
+        throw new ValidationError(
+            `Unsupported color: ${css} (${issue.code}; the API accepts any CSS <color> value.js parses)`,
+        );
     }
-
-    const lr = linearize(r);
-    const lg = linearize(g);
-    const lb = linearize(b);
-
-    const l_ = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
-    const m_ = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
-    const s_ = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb);
-
-    return {
-        L: 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_,
-        a: 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_,
-        b: 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_,
-    };
+    const converted = convertColor(parsed.value, "oklab");
+    if (!converted.ok) {
+        throw new ValidationError(`Unsupported color: ${css} (not convertible to OKLab)`);
+    }
+    const [L, a, b] = converted.value.channels.map(channel) as [number, number, number];
+    if (![L, a, b].every(Number.isFinite)) {
+        throw new ValidationError(`Unsupported color: ${css} (non-finite OKLab coordinates)`);
+    }
+    return { L, a, b };
 }
 
 export function computeOklabColors(colors: PaletteColor[]): OklabTriple[] {
