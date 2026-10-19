@@ -1,0 +1,39 @@
+(node:25477) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:25616) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:25696) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (21.0s)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')[22m
+
+
+      70 |         // authenticated before any pane mounts.
+      71 |         await page.goto(path);
+    > 72 |         await expect(main).toBeVisible();
+         |                            ^
+      73 |         // PaneHeader renders twice (mobile + desktop slots); `.first()` picks the
+      74 |         // visible one — the retired per-view specs' proven convention.
+      75 |         await expect(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/admin-walk.spec.ts:72:28
+
+    Error Context: test-results/admin-walk-walk-all-5-admi-f45ec-ly-with-zero-console-errors-smoke-admin/error-context.md
+
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors 

@@ -1,0 +1,78 @@
+(node:18324) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:18406) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 25 tests using 1 worker
+
+(node:18445) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size (16.8s)
+  ✓   2 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Names populated admin passes accessible-name + target-size (2.2s)
+  ✓   3 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Flagged populated admin passes accessible-name + target-size (600ms)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:79:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands) (900ms)
+[2m[WebServer] [22m[2m10:02:10 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · render function) TypeError: Cannot read properties of null (reading 'slice')
+[2m[WebServer] [22m    at Proxy.slugHead (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/panels/AdminUsersPanel.vue:51:16)
+[2m[WebServer] [22m    at http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/panels/AdminUsersPanel.vue:483:34
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:3901:52)
+[2m[WebServer] [22m    at http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/collapsible-DFzK29Oh-DfvikRkR.js?v=55dbff19:101:28
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:3901:52)
+[2m[WebServer] [22m    at http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/dist-vzlhttbQ.js?v=55dbff19:4150:29
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at normalizeChildren (http://localhost:9492/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9492/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:6542:29)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:123:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary (546ms)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (1.0s)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (2.2s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (564ms)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:61:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (2.9s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:102:1 › admin-flagged renders a seeded flagged palette + moderation actions (575ms)
+  ✘  11 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (8.5s)
+(node:19692) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  12 [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve (1.6s)
+  ✓  13 [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject (7.5s)
+  ✓  14 [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature (2.3s)
+  ✓  15 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (949ms)
+  ✓  16 [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> (2.1s)
+  ✓  17 [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug> (1.6s)
+  ✓  18 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (984ms)
+  ✓  19 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground (5.0s)
+  ✓  20 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground (11.4s)
+  ✓  21 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (dark) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground (6.2s)
+  ✓  22 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (dark) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground (12.3s)
+  ✓  23 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (552ms)
+  ✓  24 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (430ms)
+  ✓  25 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (500ms)
+
+
+  1) [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(h1#route-title)')
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(h1#route-title)')[22m
+
+
+      70 |         // authenticated before any pane mounts.
+      71 |         await page.goto(path);
+    > 72 |         await expect(main).toBeVisible();
+         |                            ^
+      73 |         // PaneHeader renders twice (mobile + desktop slots); `.first()` picks the
+      74 |         // visible one — the retired per-view specs' proven convention.
+      75 |         await expect(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/admin-walk.spec.ts:72:28
+
+    Error Context: test-results/admin-walk-walk-all-5-admi-f45ec-ly-with-zero-console-errors-smoke-admin/error-context.md
+
+  1 failed
+    [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors 
+  24 passed (1.6m)
+exit 1
