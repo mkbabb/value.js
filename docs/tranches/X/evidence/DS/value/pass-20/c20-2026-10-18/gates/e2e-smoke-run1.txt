@@ -1,0 +1,275 @@
+== e2e/smoke/w12u-x-admin-tags.spec.ts
+(node:89787) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:89841) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:89947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22mFound 16 warnings while optimizing generated CSS:
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #1:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var();
+[2m[WebServer] [22m[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #2:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var(--z-*);
+[2m[WebServer] [22m[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-background\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #3:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     width: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     height: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #4:
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│     width: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│[22m     height: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #5:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     max-height: var(...);
+[2m[WebServer] [22m[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .max-h-0 {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #6:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #7:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #8:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[var\(…\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     color: var(…);
+[2m[WebServer] [22m[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #9:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #10:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var();
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #11:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #12:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #13:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var();
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #14:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var();
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #15:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var(...);
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #16:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var(...);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-accelerate {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[plugin builtin:vite-reporter] [33m[1m
+[2m[WebServer] [22m(!) Some chunks are larger than 500 kB after minification. Consider:
+[2m[WebServer] [22m- Using dynamic import() to code-split the application
+[2m[WebServer] [22m- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+[2m[WebServer] [22m- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[0m[33m[39m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+[2m[WebServer] [22m  - source-export (42%)
+[2m[WebServer] [22m  - unplugin-vue-markdown (38%)
+[2m[WebServer] [22m  - vite:css (9%)
+[2m[WebServer] [22m  - value-defer-glass-fonts (7%)
+[2m[WebServer] [22mSee https://rolldown.rs/options/checks#plugintimings for more details.
+[2m[WebServer] [22m[39m
+
+Running 6 tests using 1 worker
+
+(node:90383) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 light › token-less deep link fail-closes to Not Found at the typed address (12.2s)
+  ✓  2 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 light › token-less in-app hash navigation fail-closes the same way (3.2s)
+  ✓  3 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 light › admin token mounts the Tags pane with its rows, never the catch-all (791ms)
+  ✓  4 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 dark › token-less deep link fail-closes to Not Found at the typed address (766ms)
+  ✓  5 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 dark › token-less in-app hash navigation fail-closes the same way (1.4s)
+  ✓  6 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 dark › admin token mounts the Tags pane with its rows, never the catch-all (505ms)
+
+  6 passed (32.4s)
+exit 0
+== e2e/smoke/oracles/w7-mutation-visibility.spec.ts
+(node:91195) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:91243) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:91321) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene (18.4s)
+  ✓   2 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced (3.6s)
+  ✓   3 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced (1.7s)
+  ✓   4 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:59:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced (1.5s)
+  ✓   5 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:67:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced (1.4s)
+  ✓   6 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:75:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced (2.4s)
+  ✓   7 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:84:5 › G13 · admin rows › name approve — the verdict is announced (890ms)
+  ✓   8 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:128:5 › G13 · user rows › report — a success is announced on the card (3.3s)
+  ✓   9 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:133:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22) (9.0s)
+  ✓  10 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:160:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight) (4.0s)
+  ✓  11 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:174:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST) (3.3s)
+  ✓  12 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › rename — the new name is what the card shows (1.1s)
+  ✓  13 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:201:5 › G13 · library rows › delete — the card leaves the library (1.7s)
+  ✓  14 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:219:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced (1.5s)
+  ✓  15 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:255:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted (2.9s)
+  ✓  16 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:306:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate (2.1s)
+
+  16 passed (1.0m)
+exit 0
+== e2e/smoke/oracles/w7-destructive-seats.spec.ts
+(node:93640) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:93771) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:93890) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) (13.3s)
+  ✓  2 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) (2.5s)
+  ✓  3 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate (3.3s)
+  ✓  4 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete (2.8s)
+  ✓  5 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate (2.3s)
+  ✓  6 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete (3.4s)
+  ✓  7 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu) (3.5s)
+
+  7 passed (33.9s)
+exit 0
+== e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+(node:95005) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:95041) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:95077) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) (33.5s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:223:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (2.7s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:275:1 › O-10d census — the 390 phone band: the card name truncates to ONE line under the serif (2.9s)
+  ✓  4 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:305:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles (11.2s)
+  ✓  5 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:392:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (6.6s)
+  ✓  6 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:469:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row (1ms)
+
+  6 passed (59.8s)
+exit 0

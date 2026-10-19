@@ -1,0 +1,87 @@
+== e2e/smoke/w12u-x-admin-tags.spec.ts
+(node:1409) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:1452) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:1492) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 light › token-less deep link fail-closes to Not Found at the typed address (14.4s)
+  ✓  2 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 light › token-less in-app hash navigation fail-closes the same way (2.6s)
+  ✓  3 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 light › admin token mounts the Tags pane with its rows, never the catch-all (549ms)
+  ✓  4 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 dark › token-less deep link fail-closes to Not Found at the typed address (440ms)
+  ✓  5 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 dark › token-less in-app hash navigation fail-closes the same way (1.2s)
+  ✓  6 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 dark › admin token mounts the Tags pane with its rows, never the catch-all (544ms)
+
+  6 passed (22.6s)
+exit 0
+== e2e/smoke/oracles/w7-mutation-visibility.spec.ts
+(node:2506) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:2600) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:2643) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene (18.3s)
+  ✓   2 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced (3.2s)
+  ✓   3 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced (1.8s)
+  ✓   4 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:59:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced (1.5s)
+  ✓   5 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:67:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced (1.4s)
+  ✓   6 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:75:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced (2.2s)
+  ✓   7 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:84:5 › G13 · admin rows › name approve — the verdict is announced (914ms)
+  ✓   8 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:128:5 › G13 · user rows › report — a success is announced on the card (3.2s)
+  ✓   9 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:133:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22) (2.6s)
+  ✓  10 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:160:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight) (3.4s)
+  ✓  11 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:174:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST) (3.2s)
+  ✓  12 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › rename — the new name is what the card shows (1.2s)
+  ✓  13 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:201:5 › G13 · library rows › delete — the card leaves the library (2.4s)
+  ✓  14 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:219:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced (1.9s)
+  ✓  15 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:255:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted (3.0s)
+  ✓  16 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:306:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate (1.8s)
+
+  16 passed (55.1s)
+exit 0
+== e2e/smoke/oracles/w7-destructive-seats.spec.ts
+(node:5913) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:5966) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:5986) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) (15.8s)
+  ✓  2 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) (2.1s)
+  ✓  3 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate (2.7s)
+  ✓  4 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete (2.9s)
+  ✓  5 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate (2.3s)
+  ✓  6 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete (3.4s)
+  ✓  7 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu) (3.4s)
+
+  7 passed (35.5s)
+exit 0
+== e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+(node:7072) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:7107) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:7249) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) (31.7s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:223:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (3.8s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:275:1 › O-10d census — the 390 phone band: the card name truncates to ONE line under the serif (3.0s)
+  ✓  4 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:305:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles (11.7s)
+  ✓  5 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:392:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (4.4s)
+  ✓  6 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:469:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row (1ms)
+
+  6 passed (57.1s)
+exit 0
