@@ -3,7 +3,9 @@ import type { Page, TestInfo } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 
 /**
- * X.W6.f · X:CSS-1 gate **f8** — EIGHTEEN DOTS, EIGHTEEN SILHOUETTES.
+ * O-32 · X.W6.f · X:CSS-1 gate **f8** — EIGHTEEN DOTS, EIGHTEEN SILHOUETTES.
+ * (Renumbered from `o24` on 2026-10-19 — R47 / NG-14, COHESION §0gc.4; alias table
+ * `docs/tranches/X/waves/W6-ADDENDUM-2026-10-19-ordinals.md`.)
  *
  * Born RED (`W6.md:261`, adjudicated): `distinctVisualSignatures` = 1. Every row
  * mounted a WatercolorDot with no `seed`, so all eighteen shared one seeded

@@ -3,7 +3,9 @@ import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 
 /**
- * X.W6.f · X:CSS-1 gate **f4** — EVERY SPECIMEN CAPTION FITS ITS BOX.
+ * O-31 · X.W6.f · X:CSS-1 gate **f4** — EVERY SPECIMEN CAPTION FITS ITS BOX.
+ * (Renumbered from `o22` on 2026-10-19 — R47 / NG-14, COHESION §0gc.4; alias table
+ * `docs/tranches/X/waves/W6-ADDENDUM-2026-10-19-ordinals.md`.)
  *
  * Born RED (`W6.md:257`, adjudicated `registry/adjudicated/ColorSpaceSelector.md`
  * L-2 / G4): **16 of 18 captions overflow, worst 758px in a 234px box**; the

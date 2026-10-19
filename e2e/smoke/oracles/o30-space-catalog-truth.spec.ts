@@ -3,7 +3,9 @@ import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
 
 /**
- * X.W6.f · X:CSS-1 gate **f3** — ABOUT STATES TRUE FACTS, NEVER A BARE HEADING.
+ * O-30 · X.W6.f · X:CSS-1 gate **f3** — ABOUT STATES TRUE FACTS, NEVER A BARE HEADING.
+ * (Renumbered from `o21` on 2026-10-19 — R47 / NG-14, COHESION §0gc.4; alias table
+ * `docs/tranches/X/waves/W6-ADDENDUM-2026-10-19-ordinals.md`.)
  *
  * Born RED (`W6.md:256`, adjudicated `registry/adjudicated/ColorSpaceSelector.md`
  * L-1): the product OFFERED 18 spaces, DOCUMENTED 13 and GUIDED 11, and it
