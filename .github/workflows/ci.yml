@@ -4,6 +4,16 @@ on:
     push:
         branches:
             - "**"
+        # X-W11 · COHESION §0gc.3 (ESC-W11-CI-CADENCE): docs carry no product
+        # bytes, and a receipt-only push must not cancel a 2.5 h browser run
+        # (cancel-in-progress below stays). Census at landing: producer, api,
+        # oracle-slate, boot-smoke and lhci read nothing under docs/; e2e-smoke,
+        # e2e-safari and visual read five docs fixtures (a16 receipt, the W6
+        # gradient ask + its census addendum, the o25 atmosphere frames, the w1
+        # visual MANIFEST) — those are measured on every push that carries a
+        # non-docs path and on every pull_request, which stays unfiltered.
+        paths-ignore:
+            - "docs/**"
     pull_request:
 
 permissions:
