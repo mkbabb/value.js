@@ -31,3 +31,8 @@ Owner verbatim (2026-10-19):
 | OD19-K7 | frame-12.55.09.png | keyframes | Better syntax colour coding in the code editor; replace "✓ Parsed" with a bigger status dot only. |
 | OD19-K8 | frame-12.56.09.png | keyframes | Dock's left side is not rounded. |
 | OD19-ALL | (general) | value, keyframes, fourier | Loading times improved on every page of every app; route transitions smooth and subtle. |
+
+## glass answers (glass-ui-fa session, 2026-10-19; INBOUND O-102 at glass 58182f94d)
+- Skeleton EXISTS (`@mkbabb/glass-ui` export, glass src/index.ts:310): a reserved-shape mark; put `aria-busy` and the loading name on the owning region. The shimmer variant was declined on glass's record. The owner asked for "skeleton shimmer" verbatim, so the orchestrator relays that ask to glass as an owner ruling (§0ge delegation). Consumers adopt the glass Skeleton now; the shimmer arrives from glass, never as a local animation.
+- Integrated-thumb slider = glass `Slider variant="scrubber"` (glass src/components/slider/types.ts:5-10): the segment's leading edge is the handle. Adopt it for OD19-F7, and wherever a consumer slider shows a double border.
+- Placements: the ellipse layer and the unrounded left side → glass D2 C1-C7. In-place morph → D2 R1-R8. The clipped popover and dropdowns staying open on collapse → atlas O-99 G-3. The orchestrator rules that 10.1.1 is cut for G-3, the dropdown-close and the popover clip.
