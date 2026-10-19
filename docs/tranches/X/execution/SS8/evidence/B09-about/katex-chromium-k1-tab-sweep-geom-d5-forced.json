@@ -1,0 +1,569 @@
+{
+ "engine": "chromium",
+ "version": "148.0.7778.96",
+ "k1": {
+  "annotationDisplay": "none",
+  "annotationH": 0,
+  "mathDisplay": "block math",
+  "mathmlClip": "auto",
+  "mathmlPos": "absolute",
+  "aria": "- math: \"f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise\"",
+  "ariaHasRawTeX": false,
+  "errors": []
+ },
+ "tab": [
+  {
+   "vp": 1440,
+   "target": null,
+   "tabHitAt": -1,
+   "arrow": null,
+   "errors": []
+  },
+  {
+   "vp": 390,
+   "target": null,
+   "tabHitAt": -1,
+   "arrow": null,
+   "errors": []
+  }
+ ],
+ "sweep": [
+  {
+   "vp": 1440,
+   "markdownBodyW": 462,
+   "displayFormulas": 37,
+   "overflowing": 8,
+   "maxHidden": 222,
+   "top": [
+    {
+     "sp": "lab",
+     "sw": 684,
+     "cw": 462,
+     "hidden": 222,
+     "expr": "L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\q"
+    },
+    {
+     "sp": "xyz",
+     "sw": 684,
+     "cw": 462,
+     "hidden": 222,
+     "expr": "L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\q"
+    },
+    {
+     "sp": "hex",
+     "sw": 670,
+     "cw": 462,
+     "hidden": 208,
+     "expr": "R = \\frac{\\text{parseInt}(h_1 h_2, 16)}{255}, \\qua"
+    },
+    {
+     "sp": "hsl",
+     "sw": 644,
+     "cw": 462,
+     "hidden": 182,
+     "expr": "C = (1 - |2L - 1|) \\cdot S, \\quad X = C(1 - |(H \\c"
+    },
+    {
+     "sp": "hsv",
+     "sw": 521,
+     "cw": 462,
+     "hidden": 59,
+     "expr": "V = L + S \\cdot \\min(L,\\; 1 - L), \\quad S_V = \\beg"
+    },
+    {
+     "sp": "lab",
+     "sw": 505,
+     "cw": 462,
+     "hidden": 43,
+     "expr": "X = X_n \\cdot f^{-1}(f_x), \\quad Y = Y_n \\cdot f^{"
+    },
+    {
+     "sp": "hsl",
+     "sw": 490,
+     "cw": 462,
+     "hidden": 28,
+     "expr": "L = \\frac{\\max + \\min}{2}, \\quad C = \\max - \\min, "
+    },
+    {
+     "sp": "hsv",
+     "sw": 471,
+     "cw": 462,
+     "hidden": 9,
+     "expr": "L = V - \\frac{V \\cdot S}{2}, \\quad S_L = \\begin{ca"
+    }
+   ],
+   "divInP": 8,
+   "divInPdisplay": 0,
+   "divInLooseLi": 0
+  },
+  {
+   "vp": 1024,
+   "markdownBodyW": 440,
+   "displayFormulas": 37,
+   "overflowing": 9,
+   "maxHidden": 244,
+   "top": [
+    {
+     "sp": "lab",
+     "sw": 684,
+     "cw": 440,
+     "hidden": 244,
+     "expr": "L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\q"
+    },
+    {
+     "sp": "xyz",
+     "sw": 684,
+     "cw": 440,
+     "hidden": 244,
+     "expr": "L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\q"
+    },
+    {
+     "sp": "hex",
+     "sw": 670,
+     "cw": 440,
+     "hidden": 230,
+     "expr": "R = \\frac{\\text{parseInt}(h_1 h_2, 16)}{255}, \\qua"
+    },
+    {
+     "sp": "hsl",
+     "sw": 644,
+     "cw": 440,
+     "hidden": 204,
+     "expr": "C = (1 - |2L - 1|) \\cdot S, \\quad X = C(1 - |(H \\c"
+    },
+    {
+     "sp": "hsv",
+     "sw": 521,
+     "cw": 440,
+     "hidden": 81,
+     "expr": "V = L + S \\cdot \\min(L,\\; 1 - L), \\quad S_V = \\beg"
+    },
+    {
+     "sp": "lab",
+     "sw": 505,
+     "cw": 440,
+     "hidden": 65,
+     "expr": "X = X_n \\cdot f^{-1}(f_x), \\quad Y = Y_n \\cdot f^{"
+    },
+    {
+     "sp": "hsl",
+     "sw": 490,
+     "cw": 440,
+     "hidden": 50,
+     "expr": "L = \\frac{\\max + \\min}{2}, \\quad C = \\max - \\min, "
+    },
+    {
+     "sp": "hsv",
+     "sw": 471,
+     "cw": 440,
+     "hidden": 31,
+     "expr": "L = V - \\frac{V \\cdot S}{2}, \\quad S_L = \\begin{ca"
+    }
+   ],
+   "divInP": 8,
+   "divInPdisplay": 0,
+   "divInLooseLi": 0
+  },
+  {
+   "vp": 390,
+   "markdownBodyW": 332,
+   "displayFormulas": 37,
+   "overflowing": 26,
+   "maxHidden": 352,
+   "top": [
+    {
+     "sp": "lab",
+     "sw": 684,
+     "cw": 332,
+     "hidden": 352,
+     "expr": "L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\q"
+    },
+    {
+     "sp": "xyz",
+     "sw": 684,
+     "cw": 332,
+     "hidden": 352,
+     "expr": "L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\q"
+    },
+    {
+     "sp": "hex",
+     "sw": 670,
+     "cw": 332,
+     "hidden": 338,
+     "expr": "R = \\frac{\\text{parseInt}(h_1 h_2, 16)}{255}, \\qua"
+    },
+    {
+     "sp": "hsl",
+     "sw": 644,
+     "cw": 332,
+     "hidden": 312,
+     "expr": "C = (1 - |2L - 1|) \\cdot S, \\quad X = C(1 - |(H \\c"
+    },
+    {
+     "sp": "hsv",
+     "sw": 521,
+     "cw": 332,
+     "hidden": 189,
+     "expr": "V = L + S \\cdot \\min(L,\\; 1 - L), \\quad S_V = \\beg"
+    },
+    {
+     "sp": "lab",
+     "sw": 505,
+     "cw": 332,
+     "hidden": 173,
+     "expr": "X = X_n \\cdot f^{-1}(f_x), \\quad Y = Y_n \\cdot f^{"
+    },
+    {
+     "sp": "hsl",
+     "sw": 490,
+     "cw": 332,
+     "hidden": 158,
+     "expr": "L = \\frac{\\max + \\min}{2}, \\quad C = \\max - \\min, "
+    },
+    {
+     "sp": "hsv",
+     "sw": 471,
+     "cw": 332,
+     "hidden": 139,
+     "expr": "L = V - \\frac{V \\cdot S}{2}, \\quad S_L = \\begin{ca"
+    }
+   ],
+   "divInP": 8,
+   "divInPdisplay": 0,
+   "divInLooseLi": 0
+  }
+ ],
+ "geom": [
+  {
+   "arm": "desktop1440",
+   "mbW": 462,
+   "inline": [
+    {
+     "expr": "\\epsilon = \\tfrac{216}{24389}",
+     "h": 22,
+     "wrapH": 28,
+     "pLH": "28px"
+    },
+    {
+     "expr": "\\kappa = \\tfrac{24389}{27}",
+     "h": 22,
+     "wrapH": 28,
+     "pLH": "28px"
+    }
+   ],
+   "gaps": [
+    {
+     "kind": "P→formula",
+     "gap": 45.88
+    },
+    {
+     "kind": "formula→formula",
+     "gap": 60.44
+    },
+    {
+     "kind": "P→formula",
+     "gap": 40.31
+    },
+    {
+     "kind": "formula→formula",
+     "gap": 53.61
+    }
+   ],
+   "axis": [
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": false,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": true,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": false,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": true,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    }
+   ],
+   "heights": [
+    {
+     "h": 109.83,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 98.2,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 91.58,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 75.97,
+     "cv": "auto",
+     "cis": "auto 200px"
+    }
+   ],
+   "errors": []
+  },
+  {
+   "arm": "zoom200",
+   "mbW": 638,
+   "inline": [
+    {
+     "expr": "\\epsilon = \\tfrac{216}{24389}",
+     "h": 22,
+     "wrapH": 28,
+     "pLH": "28px"
+    },
+    {
+     "expr": "\\kappa = \\tfrac{24389}{27}",
+     "h": 22,
+     "wrapH": 28,
+     "pLH": "28px"
+    }
+   ],
+   "gaps": [
+    {
+     "kind": "P→formula",
+     "gap": 45.88
+    },
+    {
+     "kind": "formula→formula",
+     "gap": 60.44
+    },
+    {
+     "kind": "P→formula",
+     "gap": 40.31
+    },
+    {
+     "kind": "formula→formula",
+     "gap": 53.61
+    }
+   ],
+   "axis": [
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": false,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": true,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": false,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": false,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    }
+   ],
+   "heights": [
+    {
+     "h": 109.83,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 98.2,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 91.58,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 75.97,
+     "cv": "auto",
+     "cis": "auto 200px"
+    }
+   ],
+   "errors": []
+  },
+  {
+   "arm": "mobile390",
+   "mbW": 332,
+   "inline": [
+    {
+     "expr": "\\epsilon = \\tfrac{216}{24389}",
+     "h": 22,
+     "wrapH": 28,
+     "pLH": "28px"
+    },
+    {
+     "expr": "\\kappa = \\tfrac{24389}{27}",
+     "h": 22,
+     "wrapH": 28,
+     "pLH": "28px"
+    }
+   ],
+   "gaps": [
+    {
+     "kind": "P→formula",
+     "gap": 45.88
+    },
+    {
+     "kind": "formula→formula",
+     "gap": 60.44
+    },
+    {
+     "kind": "P→formula",
+     "gap": 40.31
+    },
+    {
+     "kind": "formula→formula",
+     "gap": 53.61
+    }
+   ],
+   "axis": [
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": false,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": true,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": true,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    },
+    {
+     "pl": 25.888,
+     "pr": 0,
+     "displacement": 12.94,
+     "overflow": true,
+     "inkLeft": 25.9,
+     "textAlign": "center"
+    }
+   ],
+   "heights": [
+    {
+     "h": 109.83,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 98.2,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 91.58,
+     "cv": "auto",
+     "cis": "auto 200px"
+    },
+    {
+     "h": 75.97,
+     "cv": "auto",
+     "cis": "auto 200px"
+    }
+   ],
+   "errors": []
+  },
+  {
+   "arm": "cv-scrollLeft",
+   "set": 0,
+   "offscreenWhileAway": false,
+   "after": 0,
+   "cvOnTarget": "auto",
+   "cvOnParentChain": "visible"
+  }
+ ],
+ "d5": [
+  {
+   "scheme": "light",
+   "errColor": "rgb(204, 0, 0)",
+   "pixel": {
+    "bg": [
+     194,
+     0,
+     0
+    ],
+    "ink": [
+     220,
+     137,
+     156
+    ],
+    "ratio": 2.46
+   },
+   "nominalRatio": 1.083,
+   "errors": []
+  },
+  {
+   "scheme": "dark",
+   "errColor": "rgb(204, 0, 0)",
+   "pixel": {
+    "bg": [
+     209,
+     21,
+     17
+    ],
+    "ink": [
+     114,
+     19,
+     45
+    ],
+    "ratio": 2.072
+   },
+   "nominalRatio": 1.073,
+   "errors": []
+  }
+ ],
+ "forced": {
+  "matches": true,
+  "errors": []
+ }
+}

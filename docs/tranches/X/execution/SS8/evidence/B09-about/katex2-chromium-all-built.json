@@ -1,0 +1,304 @@
+{
+ "engine": "chromium",
+ "version": "148.0.7778.96",
+ "tab2": [
+  {
+   "vp": 1440,
+   "rows": 4,
+   "target": {
+    "idx": 1,
+    "tabIndex": -1,
+    "tabAttr": null,
+    "role": null,
+    "aria": null,
+    "sw": 684,
+    "cw": 462,
+    "overflowX": "auto",
+    "cv": "auto"
+   },
+   "tabHitAt": 33,
+   "presses": 33,
+   "trail": [
+    "BODY.relative",
+    "BUTTON.dock-trigger dock-select-trigg",
+    "BUTTON.dock-icon-button glass-specula",
+    "BUTTON.dock-tab-button glass-specular",
+    "BUTTON.menu__trigger dock-trigger doc",
+    "BUTTON.control-surface glass-control-",
+    "SPAN.readout-fig",
+    "SPAN.readout-fig",
+    "SPAN.readout-fig",
+    "BUTTON.channel-rail-item font-display",
+    "SPAN.slider-thumb glass-specular-tr",
+    "SPAN.slider-thumb glass-specular-tr",
+    "DIV.inline-block"
+   ],
+   "arrow": {
+    "before": 0,
+    "after": 120
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "vp": 390,
+   "rows": 4,
+   "target": {
+    "idx": 1,
+    "tabIndex": -1,
+    "tabAttr": null,
+    "role": null,
+    "aria": null,
+    "sw": 684,
+    "cw": 332,
+    "overflowX": "auto",
+    "cv": "auto"
+   },
+   "tabHitAt": 16,
+   "presses": 16,
+   "trail": [
+    "BODY.relative",
+    "BUTTON.dock-trigger dock-select-trigg",
+    "BUTTON.dock-icon-button glass-specula",
+    "BUTTON.menu__trigger dock-trigger doc",
+    "BUTTON.control-surface glass-control-",
+    "SPAN.readout-fig",
+    "SPAN.readout-fig",
+    "SPAN.readout-fig",
+    "BUTTON.channel-rail-item font-display",
+    "SPAN.slider-thumb glass-specular-tr",
+    "SPAN.slider-thumb glass-specular-tr",
+    "SPAN.slider-thumb glass-specular-tr",
+    "DIV.inline-block"
+   ],
+   "arrow": {
+    "before": 0,
+    "after": 120
+   },
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  }
+ ],
+ "cv2": {
+  "target": {
+   "idx": 1,
+   "tabIndex": -1,
+   "tabAttr": null,
+   "role": null,
+   "aria": null,
+   "sw": 684,
+   "cw": 332,
+   "overflowX": "auto",
+   "cv": "auto"
+  },
+  "set": 0,
+  "offscreen": false,
+  "distancePx": -1210,
+  "whileAway": {
+   "sw": 332,
+   "cw": 332,
+   "scrollLeft": 0
+  },
+  "after": 0,
+  "cv": "auto",
+  "errors": [
+   "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+  ]
+ },
+ "d9all": [
+  {
+   "sp": "rgb",
+   "inlineCount": 0,
+   "top": [],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "hsl",
+   "inlineCount": 2,
+   "top": [
+    {
+     "expr": "(r_1, g_1, b_1)",
+     "h": 22,
+     "lh": "28px",
+     "host": "P"
+    },
+    {
+     "expr": "(C, X, 0)",
+     "h": 22,
+     "lh": "28px",
+     "host": "P"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "hsv",
+   "inlineCount": 0,
+   "top": [],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "hwb",
+   "inlineCount": 2,
+   "top": [
+    {
+     "expr": "W + B \\geq 1",
+     "h": 22,
+     "lh": "28px",
+     "host": "P"
+    },
+    {
+     "expr": "V = W/(W+B),\\; S_V = 0",
+     "h": 22,
+     "lh": "28px",
+     "host": "P"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "lab",
+   "inlineCount": 6,
+   "top": [
+    {
+     "expr": "a^* < 0",
+     "h": 22,
+     "lh": "28px",
+     "host": "LI"
+    },
+    {
+     "expr": "a^* > 0",
+     "h": 22,
+     "lh": "28px",
+     "host": "LI"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "lch",
+   "inlineCount": 0,
+   "top": [],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "oklab",
+   "inlineCount": 4,
+   "top": [
+    {
+     "expr": "a < 0",
+     "h": 22,
+     "lh": "28px",
+     "host": "LI"
+    },
+    {
+     "expr": "a > 0",
+     "h": 22,
+     "lh": "28px",
+     "host": "LI"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "oklch",
+   "inlineCount": 0,
+   "top": [],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "xyz",
+   "inlineCount": 0,
+   "top": [],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "kelvin",
+   "inlineCount": 1,
+   "top": [
+    {
+     "expr": "T = \\text{kelvin} / 100",
+     "h": 22,
+     "lh": "28px",
+     "host": "P"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "sp": "hex",
+   "inlineCount": 1,
+   "top": [
+    {
+     "expr": "\\{0\\text{–}9, A\\text{–}F\\}",
+     "h": 22,
+     "lh": "28px",
+     "host": "P"
+    }
+   ],
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  }
+ ],
+ "d5m": [
+  {
+   "scheme": "light",
+   "ink": [
+    198,
+    0,
+    0
+   ],
+   "under": [
+    219,
+    136,
+    155
+   ],
+   "rendered": 2.354,
+   "nominal": 2.244,
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  },
+  {
+   "scheme": "dark",
+   "ink": [
+    209,
+    20,
+    17
+   ],
+   "under": [
+    115,
+    22,
+    48
+   ],
+   "rendered": 2.025,
+   "nominal": 1.891,
+   "errors": [
+    "console: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:4399 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be bloc"
+   ]
+  }
+ ]
+}
