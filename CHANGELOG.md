@@ -4,6 +4,7 @@
 
 ### Added
 
+- `./color`: `NAMED_COLORS`, the CSS named-colour table the colour parser reads (css-color-4 §6.1; lowercase keyword → `#rrggbb`, prototype-free and frozen). A consumer that resolves a colour back to its name reads the library's own table instead of keeping a copy (the demo picker's named snap, owner 2026-10-19).
 - `./css`: `collectAnimationOptions` keeps the author's time unit: each `CSSAnimationOptions` row gains `durationUnit` / `delayUnit` (`CssTimeUnit`, `"s" | "ms"`, lowercased; css-values-4 §7.3) beside a `duration` / `delay` read from a number, so a consumer can write `250ms` and `0.25s` back as authored (X.KF.W13X `.r3res2f`, UIA-KF-177). `duration` and `delay` are unchanged, still in seconds.
 - `./color`: `parseCssColor` and `serializeCssColor` (with the types they name: `CssColor`, `CssColorSpace`, `ParseResult`, `ParseIssue`) are published here too (X-W12U `.g2s2`). `parseCssColor` now runs on a `<color>`-rooted parser: the same BBNF grammar, `src/css/grammar/color.bbnf` compiled as a root of its own (entry `colorTop`, `src/css/bbnf/generated/color.js`). They are the same functions `./css` exports, which keeps both names. A bundle that imports only these two drops from 35,838 B gz (the whole `./css` grammar) to 17,728 B gz, from either subpath; a bundle of the whole `./css` grows from 42,868 to 49,918 B gz, because it now carries the colour parser beside the stylesheet parser.
 

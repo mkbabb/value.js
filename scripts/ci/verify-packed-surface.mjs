@@ -38,7 +38,7 @@ const expected = {
     // and did not pay this file's two-edit ratchet, so the shipped tarball
     // failed its own check at the runtime export-list assertion (G20).
     color: [
-        "a98Rgb", "convertColor", "displayP3", "hsl", "hsv", "hwb",
+        "NAMED_COLORS", "a98Rgb", "convertColor", "displayP3", "hsl", "hsv", "hwb",
         "ictcp", "interpolateHue", "isAnyColor", "jzazbz", "kelvin", "lab", "lch",
         "linearSrgb", "mapColorToGamut", "mixColors", "mixColorsInto", "oklab", "oklch",
         "parseCssColor", "prophotoRgb", "rec2020", "rgb", "safeAccentColor", "sampleColorRamp",
@@ -127,6 +127,8 @@ const PATH = "M 0 0 L 10 0";
 
 export const SMOKE = {
     color: {
+        // The named-colour table the parser reads (the picker's named snap reads it back).
+        NAMED_COLORS: () => expect(Object.isFrozen(color.NAMED_COLORS) && color.NAMED_COLORS.hotpink === "#ff69b4" && color.NAMED_COLORS.constructor === undefined && unwrap(color.parseCssColor(color.NAMED_COLORS.rebeccapurple)).alpha === 1, "./color NAMED_COLORS is not the frozen prototype-free table"),
         a98Rgb: () => unwrap(color.a98Rgb(0.1, 0.2, 0.3)).channels,
         convertColor: () => unwrap(color.convertColor(RGB, "oklch")).channels,
         displayP3: () => unwrap(color.displayP3(0.1, 0.2, 0.3)).channels,

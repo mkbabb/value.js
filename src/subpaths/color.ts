@@ -21,3 +21,10 @@ export * from "../color/index";
 export { parseCssColor } from "../css/bbnf/color-parse";
 export { serializeCssColor } from "../css/serialize";
 export type { CssColor, CssColorSpace, ParseIssue, ParseResult } from "../css/types";
+/**
+ * The CSS named-colour table (css-color-4 §6.1), the one the colour parser
+ * reads: lowercase keyword → `#rrggbb`, prototype-free and frozen. Published so
+ * a consumer that resolves a colour BACK to its name (the picker's named snap)
+ * reads the library's own table rather than keeping a copy that can drift.
+ */
+export { NAMED_COLORS } from "../css/named-colors";
