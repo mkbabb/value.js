@@ -75,4 +75,4 @@
 - **No owner** (both readings wrong; nothing to cure): R-1.
 
 ## Addendum — U14 seat-2 build
-Pending at write time: the build waited at the guard because machine load was 84–119. If it lands, its log is `E/build/vite-build-seat2.log`.
+Seat 2's re-build (`guarded --timeout 10 -- npx vite build --mode gh-pages --outDir node_modules/.cache/ss8-b10-build`) waited at the guard for more than 40 min (`waiting for headroom (load 119 > 36)`, with 1-minute load 84–119). It was withdrawn unrun, so nothing was left queued. U14's verdict therefore rests on this batch's seat-1 build artifact (`build/vite-build.log` + `build/u14-emptystate-render.txt`), which was observed on HEAD's SFC. That SFC has no leading comment, so it is single-root under both compilers.
