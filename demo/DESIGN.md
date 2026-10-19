@@ -315,6 +315,17 @@ host. Heavier-than-host glass is reserved for surfaces that float. Over a full-c
 alpha spread IS a hue spread. With rungs 1–2 in place, every in-view surface is at least ~0.7
 effective alpha of ONE neutral family, so the hue fork dies by construction.
 
+**The sanctioned in-plate veil fixture (RC-2's one exemption; dated 2026-10-19, X·W11.h10 —
+DISPOSITION §8 E10, COHESION §0gd.1)**: the picker's sliders console
+(`demo/picker/controls/ComponentSliders/ComponentSliders.vue`, `<Card surface="veil" tier="quiet">`)
+is the ONE interior fixture that may wear heavier glass than its host, the quiet backdrop-blur
+that IS the veil's definition, seated inside the unblurred resting picker plate. Provenance:
+T.W6.5-P (T-34 · t33-audit-02), owner verbatim _"use a glass-ui veil card, too"_
+(`docs/tranches/T/MANDATE-2026-07-06.md:191`), which re-seated it from the rung-2 WELL onto the
+veil; `e2e/smoke/oracles/o7-card-census.spec.ts` asserts the row positively. The composition is
+accepted as shipped (no atmosphere pause, no unblurred console). No other interior fixture
+inherits this exemption; re-opening it is an owner mark on T.W6.5-P, never a cure.
+
 **Interim mints, booked swaps (T.W3 §BOOKS)**: `--well-bg` is demo-owned until the producer ships
 its `.glass-well` / `--glass-bg-well` rung (packet P3, sized by the D1 bracket). The header veil's
 rest-floor and feather knobs are P3 rows.
