@@ -1,0 +1,4 @@
+Mon Oct 19 17:29:50 EDT 2026
+$ curl -s -w " [%{http_code}] %{content_type}
+" http://localhost:3000/colors/tags
+[] [200] application/json

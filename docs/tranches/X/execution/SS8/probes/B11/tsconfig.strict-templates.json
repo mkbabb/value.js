@@ -1,0 +1,4 @@
+{
+    "extends": "../../../../../../../tsconfig.demo.json",
+    "vueCompilerOptions": { "strictTemplates": true }
+}

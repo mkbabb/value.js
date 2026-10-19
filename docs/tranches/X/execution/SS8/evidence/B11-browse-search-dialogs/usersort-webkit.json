@@ -1,0 +1,43 @@
+{
+ "light-fine": {
+  "error": "page.goto: Timeout 120000ms exceeded."
+ },
+ "dark-fine": {
+  "cs": {
+   "cls": "button tap-squish focus-ring menu__trigger shrink-0",
+   "attrs": [
+    "data-slot",
+    "data-emphasis",
+    "data-tone",
+    "data-size",
+    "data-icon-only",
+    "data-control-target",
+    "data-press-armed",
+    "data-state"
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgImage": "none",
+   "border": "solid 1px rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "backdrop": "none",
+   "rect": [
+    1093.5,
+    202.765625,
+    28,
+    28
+   ]
+  },
+  "capsulePixel": [
+   117,
+   52,
+   58
+  ],
+  "fieldPixel": [
+   121,
+   56,
+   62
+  ],
+  "capsuleVsField": 1.06,
+  "maxChannelDelta": 4
+ }
+}

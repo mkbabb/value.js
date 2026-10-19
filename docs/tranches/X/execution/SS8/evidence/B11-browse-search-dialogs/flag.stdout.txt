@@ -1,0 +1,332 @@
+{
+ "submit-ok": {
+  "focusOnOpen": "button[role=radio]\"Inappropriate content\"",
+  "radiosOnOpen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ],
+  "pending": {
+   "disabled": false,
+   "ariaBusy": "true",
+   "ariaDisabled": null
+  },
+  "trace": [
+   "0ms:button\"Report\":dialog=1",
+   "100ms:button\"Report\":dialog=1",
+   "300ms:button\"Report\":dialog=1",
+   "700ms:BODY:dialog=0",
+   "1200ms:BODY:dialog=0"
+  ],
+  "radiosOnReopen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ]
+ },
+ "submit-fail": {
+  "focusOnOpen": "button[role=radio]\"Inappropriate content\"",
+  "radiosOnOpen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ],
+  "pending": {
+   "disabled": false,
+   "ariaBusy": "true",
+   "ariaDisabled": null
+  },
+  "trace": [
+   "0ms:button\"Report\":dialog=1",
+   "100ms:button\"Report\":dialog=1",
+   "300ms:button\"Report\":dialog=1",
+   "700ms:button\"Report\":dialog=1",
+   "1200ms:button\"Report\":dialog=1"
+  ],
+  "alert": [
+   "Notification Couldn't reach the palette serviceThe service answered 500 Probe failure.Retry the palette service",
+   "Report failed: Probe failure"
+  ],
+  "radiosAfterFail": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:true/checked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ]
+ },
+ "cancel": {
+  "focusOnOpen": "button[role=radio]\"Inappropriate content\"",
+  "radiosOnOpen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ],
+  "trace": [
+   "0ms:BODY:dialog=0",
+   "100ms:BODY:dialog=0",
+   "300ms:BODY:dialog=0",
+   "700ms:BODY:dialog=0",
+   "1200ms:BODY:dialog=0"
+  ],
+  "radiosOnReopen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ]
+ },
+ "escape": {
+  "focusOnOpen": "button[role=radio]\"Inappropriate content\"",
+  "radiosOnOpen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ],
+  "trace": [
+   "0ms:BODY:dialog=0",
+   "100ms:BODY:dialog=0",
+   "300ms:BODY:dialog=0",
+   "700ms:BODY:dialog=0",
+   "1200ms:BODY:dialog=0"
+  ],
+  "radiosOnReopen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ]
+ },
+ "kbd-submit-ok": {
+  "focusOnOpen": "button[role=radio]\"Inappropriate content\"",
+  "radiosOnOpen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ],
+  "pending": {
+   "disabled": false,
+   "ariaBusy": "true",
+   "ariaDisabled": null
+  },
+  "trace": [
+   "0ms:button\"Report\":dialog=1",
+   "100ms:button\"Report\":dialog=1",
+   "300ms:button\"Report\":dialog=1",
+   "700ms:BODY:dialog=0",
+   "1200ms:BODY:dialog=0"
+  ],
+  "radiosOnReopen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ]
+ },
+ "kbd-cancel": {
+  "focusOnOpen": "button[role=radio]\"Inappropriate content\"",
+  "radiosOnOpen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ],
+  "trace": [
+   "0ms:BODY:dialog=0",
+   "100ms:BODY:dialog=0",
+   "300ms:BODY:dialog=0",
+   "700ms:BODY:dialog=0",
+   "1200ms:BODY:dialog=0"
+  ],
+  "radiosOnReopen": [
+   "reason-inappropriate:false/unchecked",
+   "reason-spam:false/unchecked",
+   "reason-copyright:false/unchecked",
+   "reason-other:false/unchecked"
+  ]
+ },
+ "dark-1280": {
+  "taClass": "field-control glass-control-edge",
+  "taBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+  "taColor": "oklch(0.925202 0.00618423 67.7483)",
+  "taBorder": "oklab(0.925202 0.00234182 0.00572368 / 0.48) 1px",
+  "dlgBg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+  "dlgBackdrop": "blur(20px) saturate(1.5)",
+  "taH": 97.9984130859375,
+  "dlgH": 501.9293212890625,
+  "pct": 19.5,
+  "taRect": [
+   405.0038146972656,
+   521.9675903320312,
+   469.9923400878906,
+   97.9984130859375
+  ],
+  "lineH": "24px",
+  "font": "16px",
+  "pad": "12px/12px",
+  "rows": 3,
+  "fieldSizing": "content",
+  "resize": "vertical",
+  "minH": "98px",
+  "maxH": "288px",
+  "taPixel": [
+   59,
+   34,
+   30
+  ],
+  "surfacePixel": [
+   42,
+   26,
+   41
+  ],
+  "dL": -0.038,
+  "dLcomputed": 0.204,
+  "overflow": {
+   "scrollH": 168,
+   "clientH": 168,
+   "hiddenPx": 0,
+   "visibleLines": 6,
+   "lh": 24
+  }
+ },
+ "light-1280": {
+  "taClass": "field-control glass-control-edge",
+  "taBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "taColor": "oklch(0.95994 0.00624853 56.0356)",
+  "taBorder": "oklab(0.95994 0.00349092 0.00518243 / 0.48) 1px",
+  "dlgBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+  "dlgBackdrop": "blur(20px) saturate(1.5)",
+  "taH": 97.9952392578125,
+  "dlgH": 501.9134521484375,
+  "pct": 19.5,
+  "taRect": [
+   405.0112609863281,
+   521.96533203125,
+   469.9775085449219,
+   97.9952392578125
+  ],
+  "lineH": "24px",
+  "font": "16px",
+  "pad": "12px/12px",
+  "rows": 3,
+  "fieldSizing": "content",
+  "resize": "vertical",
+  "minH": "98px",
+  "maxH": "288px",
+  "taPixel": [
+   69,
+   45,
+   38
+  ],
+  "surfacePixel": [
+   62,
+   42,
+   57
+  ],
+  "dL": -0.009,
+  "dLcomputed": 0.289,
+  "overflow": {
+   "scrollH": 168,
+   "clientH": 168,
+   "hiddenPx": 0,
+   "visibleLines": 6,
+   "lh": 24
+  }
+ },
+ "light-390": {
+  "taClass": "field-control glass-control-edge",
+  "taBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+  "taColor": "oklch(0.95994 0.00624853 56.0356)",
+  "taBorder": "oklab(0.95994 0.00349092 0.00518243 / 0.48) 1px",
+  "dlgBg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+  "dlgBackdrop": "blur(20px) saturate(1.5)",
+  "taH": 89,
+  "dlgH": 457.53125,
+  "pct": 19.5,
+  "taRect": [
+   33,
+   492.765625,
+   324,
+   89
+  ],
+  "lineH": "21px",
+  "font": "14px",
+  "pad": "12px/12px",
+  "rows": 3,
+  "fieldSizing": "content",
+  "resize": "vertical",
+  "minH": "89px",
+  "maxH": "252px",
+  "taPixel": [
+   63,
+   42,
+   37
+  ],
+  "surfacePixel": [
+   73,
+   40,
+   43
+  ],
+  "dL": 0.012,
+  "dLcomputed": 0.295,
+  "overflow": {
+   "scrollH": 150,
+   "clientH": 150,
+   "hiddenPx": 0,
+   "visibleLines": 6,
+   "lh": 21
+  }
+ },
+ "forced-colors": {
+  "rest": {
+   "fca": "auto",
+   "bg": "rgba(255, 255, 255, 0.08)",
+   "color": "rgb(0, 0, 0)",
+   "border": "solid 1px rgb(0, 0, 0)",
+   "outline": "none 3px rgb(0, 0, 0)",
+   "shadow": "none"
+  },
+  "focused": {
+   "isFocus": true,
+   "fv": true,
+   "outline": "solid 2px rgba(5, 0, 73, 0.8)",
+   "border": "solid 1px rgba(5, 0, 73, 0.8)",
+   "shadow": "none"
+  },
+  "dlgCs": {
+   "bg": "rgb(255, 255, 255)",
+   "border": "solid 1px rgb(0, 0, 0)"
+  }
+ },
+ "zoom200": {
+  "font": "14.4px",
+  "lh": 21.6,
+  "taH": 110,
+  "visibleLines": 3.981,
+  "hiddenPx": 0,
+  "dlg": [
+   16,
+   434,
+   450
+  ],
+  "dlgScrollable": true
+ },
+ "text200": {
+  "font": "28.8px",
+  "lh": 43.2,
+  "taH": 221,
+  "visibleLines": 4.005,
+  "hiddenPx": 0,
+  "dlg": [
+   32.010498046875,
+   867.989501953125,
+   900
+  ],
+  "dlgScrollable": true
+ }
+}

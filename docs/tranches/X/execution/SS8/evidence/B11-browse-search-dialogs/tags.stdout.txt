@@ -1,0 +1,28 @@
+{
+ "focus-preloaded-mouse": {
+  "error": "page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://localhost:9000/#/browse"
+ },
+ "focus-preloaded-keyboard": {
+  "error": "page.goto: Timeout 90000ms exceeded."
+ },
+ "focus-delayed-mouse": {
+  "error": "page.goto: Timeout 90000ms exceeded."
+ },
+ "focus-delayed-keyboard": {
+  "error": "browserContext.close: Target page, context or browser has been closed"
+ },
+ "paint-1280": {
+  "error": "browser.newContext: Target page, context or browser has been closed"
+ },
+ "paint-390": {
+  "error": "browser.newContext: Target page, context or browser has been closed"
+ },
+ "tep6": {
+  "error": "browser.newContext: Target page, context or browser has been closed"
+ },
+ "c5live": {
+  "error": "browser.newContext: Target page, context or browser has been closed"
+ }
+}
+[guarded] KILLED: timeout after 25 min
+tags exit 124
