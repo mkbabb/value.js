@@ -234,6 +234,98 @@ export const SMOKE = {
         quantizePixels: () => expect(unwrap(quantize.quantizePixels(PIXELS, 4, 4, { maxColors: 4 })).length > 0, "quantizePixels returned no colors"),
     },
 };
+
+/**
+ * X-W11-FOLD W11.7 / X-W9-FOLD W9.22: the achromatic / white / none-hue input rows. Each row
+ * records its input beside its verdict, so no verdict is published without the input it read.
+ * A row PASSes only when its own check holds; any non-PASS row fails the run.
+ */
+const TARGETS = ["rgb", "hsl", "hsv", "hwb", "lab", "lch", "oklab", "oklch", "xyz", "srgb-linear",
+    "display-p3", "a98-rgb", "prophoto-rgb", "rec2020", "ictcp", "jzazbz", "kelvin"];
+const SRGB_FAMILY = ["rgb", "hsl", "hsv", "hwb"];
+const HUE_AT = { hsl: 0, hsv: 0, hwb: 0, lch: 2, oklch: 2 };
+const finite = (channels) => channels.every((c) => c === "none" || Number.isFinite(c));
+const inUnit = (c) => typeof c === "number" && c >= 0 && c <= 1;
+const ACHROMATIC_SOURCES = {
+    "rgb(255,255,255)": () => color.rgb(255, 255, 255),
+    "rgb(0,0,0)": () => color.rgb(0, 0, 0),
+    "rgb(128,128,128)": () => color.rgb(128, 128, 128),
+    "hsl(none,0,1)": () => color.hsl("none", 0, 1),
+    "hwb(none,1,0)": () => color.hwb("none", 1, 0),
+    "lch(100,0,none)": () => color.lch(100, 0, "none"),
+    "oklch(1,0,none)": () => color.oklch(1, 0, "none"),
+};
+const show = (result) => result.ok
+    ? { ok: true, space: result.value.space, channels: Array.from(result.value.channels) }
+    : { ok: false, issue: result.error ?? result.issue ?? result };
+
+export function achromaticRows() {
+    const rows = [];
+    const row = (exportName, input, check) => {
+        let result, verdict;
+        try {
+            const outcome = check();
+            result = outcome.result;
+            verdict = outcome.pass ? "PASS" : "FAIL";
+        } catch (error) {
+            result = { threw: String(error?.message ?? error) };
+            verdict = "THREW";
+        }
+        rows.push({ export: exportName, input, verdict, result });
+    };
+    for (const [label, make] of Object.entries(ACHROMATIC_SOURCES)) {
+        row(label.slice(0, label.indexOf("(")), label, () => {
+            const made = make();
+            return { result: show(made), pass: made.ok };
+        });
+        const source = make();
+        if (!source.ok) continue;
+        const encoded = SRGB_FAMILY.includes(source.value.space);
+        for (const target of TARGETS) {
+            row("convertColor", label + " -> " + target, () => {
+                const converted = color.convertColor(source.value, target);
+                if (!converted.ok || !finite(converted.value.channels)) return { result: show(converted), pass: false };
+                // Within the sRGB-encoded family the hue of an achromatic input is powerless and
+                // HSL / HSV saturation is exactly 0 (CSS Color 4 §7).
+                const hue = HUE_AT[target];
+                const channels = converted.value.channels;
+                const encodedLaw = !encoded || !SRGB_FAMILY.includes(target) || target === "rgb"
+                    || (channels[hue] === "none" && (target === "hwb" || channels[1] === 0));
+                return { result: show(converted), pass: encodedLaw };
+            });
+        }
+    }
+    row("convertColor", "rgb(v,v,v) -> hsl, v = 0..255", () => {
+        const failed = [];
+        for (let v = 0; v < 256; v++) {
+            const converted = color.convertColor(unwrap(color.rgb(v, v, v)), "hsl");
+            if (!converted.ok || converted.value.channels[0] !== "none" || converted.value.channels[1] !== 0) failed.push(v);
+        }
+        return { result: { greys: 256, failed }, pass: failed.length === 0 };
+    });
+    row("convertColor", "rgb(255,255,254) -> hsl", () => {
+        const converted = color.convertColor(unwrap(color.rgb(255, 255, 254)), "hsl");
+        return { result: show(converted), pass: converted.ok && inUnit(converted.value.channels[1]) && inUnit(converted.value.channels[2]) };
+    });
+    row("toRgba8", "rgb(255,255,255)", () => {
+        const bytes = unwrap(color.toRgba8(WHITE, { gamut: "clip" }));
+        return { result: Array.from(bytes), pass: bytes.join() === "255,255,255,255" };
+    });
+    row("toHex", "hsl(none,0,1)", () => {
+        const hex = unwrap(color.toHex(unwrap(color.hsl("none", 0, 1)), { gamut: "clip" }));
+        return { result: hex, pass: hex === "#ffffff" };
+    });
+    row("mapColorToGamut", "oklch(1,0,none) -> srgb", () => {
+        const mapped = color.mapColorToGamut(unwrap(color.oklch(1, 0, "none")), "srgb");
+        return { result: show(mapped), pass: mapped.ok && finite(mapped.value.channels) };
+    });
+    row("parseCssColor", "hsl(none 0% 100%)", () => {
+        const parsed = color.parseCssColor("hsl(none 0% 100%)");
+        const back = parsed.ok ? color.serializeCssColor(parsed.value) : parsed;
+        return { result: { parsed: show(parsed), serialized: back.ok ? back.value : back }, pass: parsed.ok && back.ok };
+    });
+    return rows;
+}
 `;
 
 const run = (command, args) => {
@@ -303,7 +395,7 @@ try {
 
     await writeFile(join(workspace, "smoke.mjs"), SMOKE_SOURCE);
     await writeFile(join(workspace, "runtime.mjs"), `
-import { MODULES, SMOKE } from "./smoke.mjs";
+import { MODULES, SMOKE, achromaticRows } from "./smoke.mjs";
 
 const entries = ${JSON.stringify(expected)};
 const runtime = {};
@@ -353,15 +445,22 @@ for (const forbidden of [
         }
     }
 }
-process.stdout.write(JSON.stringify({ runtime, smoke }) + "\\n");
+const achromatic = achromaticRows();
+const achromaticFailures = achromatic.filter((row) => row.verdict !== "PASS");
+if (achromaticFailures.length > 0) {
+    throw new Error(\`achromatic rows failed: \${JSON.stringify(achromaticFailures)}\`);
+}
+process.stdout.write(JSON.stringify({ runtime, smoke, achromatic }) + "\\n");
 `);
-    const { runtime, smoke } = JSON.parse(run(process.execPath, [join(workspace, "runtime.mjs")]));
+    const { runtime, smoke, achromatic } = JSON.parse(run(process.execPath, [join(workspace, "runtime.mjs")]));
     const total = (counts) => Object.values(counts).reduce((sum, count) => sum + count, 0);
     process.stdout.write(`${JSON.stringify({
         runtime,
         smoke,
         runtimeExports: total(runtime),
         smokeInvocations: total(smoke),
+        achromaticRows: achromatic.length,
+        achromatic,
     })}\n`);
 } finally {
     await rm(workspace, { recursive: true, force: true });

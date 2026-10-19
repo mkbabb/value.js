@@ -1,6 +1,6 @@
 import type { Result } from "../foundation/result";
 import { err, ok } from "../foundation/result";
-import { CONVERSION_ANCHORS, HUE_INDEX, isPowerless } from "./anchors";
+import { CONVERSION_ANCHORS, HUE_INDEX, isPowerless, SRGB_ENCODED_ANCHORS } from "./anchors";
 import {
     type AnyColor,
     type Channel,
@@ -41,6 +41,18 @@ function finishChannels<S extends SpaceId>(space: S, channels: readonly number[]
     return result as unknown as ChannelsBySpace[S];
 }
 
+type EncodedSrgbSpace = keyof typeof SRGB_ENCODED_ANCHORS;
+
+function viaEncodedSrgb(from: EncodedSrgbSpace, to: EncodedSrgbSpace, channels: readonly number[]): readonly number[] | undefined {
+    const encoded = SRGB_ENCODED_ANCHORS[from].toEncoded(channels);
+    return encoded.every(Number.isFinite) ? SRGB_ENCODED_ANCHORS[to].fromEncoded(encoded) : undefined;
+}
+
+function viaXyz(from: SpaceId, to: SpaceId, channels: readonly number[]): readonly number[] | undefined {
+    const xyz = CONVERSION_ANCHORS[from].toXYZ(channels as never);
+    return xyz.every(Number.isFinite) ? CONVERSION_ANCHORS[to].fromXYZ(xyz) : undefined;
+}
+
 export function convertColor<S extends SpaceId>(color: AnyColor, space: S): Result<Color<S>, ColorIssue> {
     if (!isAnyColor(color) || !(space in CONVERSION_ANCHORS)) return err({ code: "color_invalid_input" });
     if (color.space === space) {
@@ -48,10 +60,10 @@ export function convertColor<S extends SpaceId>(color: AnyColor, space: S): Resu
     }
     const source = numericSource(color);
     if (!source.ok) return source;
-    const xyz = CONVERSION_ANCHORS[color.space].toXYZ(source.value as never);
-    if (!xyz.every(Number.isFinite)) return err({ code: "color_non_finite" });
-    const channels = CONVERSION_ANCHORS[space].fromXYZ(xyz);
-    if (!channels.every(Number.isFinite)) return err({ code: "color_non_finite" });
+    const channels = color.space in SRGB_ENCODED_ANCHORS && space in SRGB_ENCODED_ANCHORS
+        ? viaEncodedSrgb(color.space as EncodedSrgbSpace, space as EncodedSrgbSpace, source.value)
+        : viaXyz(color.space, space, source.value);
+    if (!channels?.every(Number.isFinite)) return err({ code: "color_non_finite" });
     return makeColor(space, finishChannels(space, channels), color.alpha);
 }
 
