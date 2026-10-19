@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b release battery (r2, re-sit from the top per COHESION §0fz.4, 2026-10-18) — command 3 of 7
+cmd: npx vue-tsc -p tsconfig.demo.json --noEmit
+tree: 9e88fcce65eb753c92f47c4d65a081b6e61ec9c6 (tranche-u HEAD, clean detached worktree: committed bytes only; npm ci from the committed lockfile)
+worktree status: 0 dirty paths
+started: 2026-10-18T20:19:40-0400
+guard: ~/.claude/guard/guarded light
+----- output -----
+[guarded] waiting for headroom (load 73 > 72)
+----- end output -----
+finished: 2026-10-18T20:20:23-0400
+exit 0
+note: re-run after 4-build-r2.txt (dist/ present), CI's own order (ci.yml:66 build, :73 typecheck); the pre-build run is 3-tsc-demo-r2-prebuild.txt (exit 2, 13 TS2305 against the transitive registry 4.0.0).

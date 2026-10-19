@@ -1,0 +1,140 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b (r2, 2026-10-18) — S2 (X-W11-FOLD W11.9): the G2 denominator beside its coverage census
+tree: 9e88fcce65eb753c92f47c4d65a081b6e61ec9c6 (tranche-u HEAD; clean detached worktree — committed bytes only)
+denominator: see 5-test-r2.txt
+cmd: zsh w11b-s2.zsh (source below) — run x2, outputs cmp-identical
+
+METHOD (unchanged from 5-test-s2-coverage.txt, the prior .b sitting):
+  rebuilt set = git diff --name-only --diff-filter=AMR 014d62c80 HEAD -- 'demo/**/*.vue' (existing, excl. demo/test/)
+  corpus = git ls-files test e2e demo/test + demo/**/*.test.ts|*.spec.ts (.ts/.mjs/.js)
+  reference = grep -lw <ComponentBasename> over the corpus; 0 files = UNCOVERED
+  [last landing] = git log -1 --format='%h %s' -- <file> (the commit that last landed the bytes; NOT a named gate)
+  LIMIT: a name-grep cannot see route/selector-level e2e coverage; UNCOVERED over-reports for route panes.
+
+----- output -----
+rebuilt 91 of 93 tracked SFCs · corpus 241 files
+COVERED: 66 · UNCOVERED: 25
+
+UNCOVERED (0 referencing files):
+  demo/palettes/admin/UserSortMenu.vue  [last landing: 4ac3da33f fix(X-DS · value pass 7 · critic V7R): an open menu paints above the stage; the census opens the flo]
+  demo/palettes/admin/panels/AdminAuditPanel.vue  [last landing: 62bc3fbde refactor(demo/ui): delete the 19 shadcn barrels; consumers import their real glass-ui owner]
+  demo/palettes/admin/panels/AdminListItem.vue  [last landing: 785e522c5 refactor(X-W12U .k2 · A2-VA-L1-17): re-home by owner — admin panels and composables under palettes/a]
+  demo/palettes/admin/panels/AdminListSkeleton.vue  [last landing: 785e522c5 refactor(X-W12U .k2 · A2-VA-L1-17): re-home by owner — admin panels and composables under palettes/a]
+  demo/palettes/admin/panels/PaginationBar.vue  [last landing: 785e522c5 refactor(X-W12U .k2 · A2-VA-L1-17): re-home by owner — admin panels and composables under palettes/a]
+  demo/picker/debug/DebugEventLog.vue  [last landing: d368584cb refactor(X.W12U.k): A2-VA-L1-24 — the pointer-debug instrument lives in picker/debug; its overlay is]
+  demo/picker/debug/PointerDebugOverlay.vue  [last landing: 15932a93a refactor(demo/dock,picker): retire the layer-transition shim and the dead surface/state/ink]
+  demo/scenes/about/markdown/Markdown.vue  [last landing: 135e63136 fix(X-DS value pass 12 · critic V12C): the CSS well grows with its block form, a section head keeps ]
+  demo/scenes/atmosphere/AuroraPane.vue  [last landing: fbc2affa9 fix(X-DS · value · pass 3 re-dispatch): VR3-01..07 cured at the root — the true body face in dev, on]
+  demo/scenes/blob/BlobPane.vue  [last landing: a85477894 fix(X-DS · value pass 7): critic V7C cured at the roots — the render tile follows its controls, one ]
+  demo/shared/ui/PaletteNameInput.vue  [last landing: 1991cf594 chore(X-W12U .k2): provenance — SERVED MODEL line 1 on the eight demo files this unit minted (PaneSh]
+  demo/shared/ui/color-chips/PreviewStrip.vue  [last landing: 785e522c5 refactor(X-W12U .k2 · A2-VA-L1-17): re-home by owner — admin panels and composables under palettes/a]
+  demo/shell/PaneErrorPlate.vue  [last landing: c8132a9b1 fix(X-DS value pass 15 · V15): certified gold glyph on the featured badge, one count idiom in admin,]
+  demo/shell/PaneLoadingPlate.vue  [last landing: 56e2abb58 perf(X-W12U .g2d2): PaneLoadingPlate's decorative Skeleton bars lazy at their root import; the glass]
+  demo/shell/dock/ActionBarToggle.vue  [last landing: 6e36259db fix(demo/dock · X-W12U .q2 class b): the Tools seat states its true-button box on --dock-icon-paddin]
+  demo/shell/dock/DockViewSelect.vue  [last landing: bd72e216e fix(X-DS value pass 17 · critic V17C-01): the admin gold reads the certified ink, rebound per ground]
+  demo/shell/dock/layers/GenericActionBar.vue  [last landing: b84fda97d fix(X-DS value pass 6 · VC6-01): dock menus hang below the dock plate]
+  demo/shell/dock/layers/SlugEditLayer.vue  [last landing: 3fd1ba884 perf(X-W12U .g2d · G2): the eager graph takes useClipboard/writeClipboard/useTouchGate from glass /d]
+  demo/shell/dock/menus/MobileMenuDropdown.vue  [last landing: b84fda97d fix(X-DS value pass 6 · VC6-01): dock menus hang below the dock plate]
+  demo/workbenches/generate/GeneratePane.vue  [last landing: 5f3275ac9 fix(X-DS · value pass 8 · critic V3C): cure at the roots — the Mix verb in the shell's footer seat, ]
+  demo/workbenches/gradient/GradientPane.vue  [last landing: 5f3275ac9 fix(X-DS · value pass 8 · critic V3C): cure at the roots — the Mix verb in the shell's footer seat, ]
+  demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue  [last landing: 135e63136 fix(X-DS value pass 12 · critic V12C): the CSS well grows with its block form, a section head keeps ]
+  demo/workbenches/gradient/GradientVisualizer/GradientStopInspector.vue  [last landing: 1991cf594 chore(X-W12U .k2): provenance — SERVED MODEL line 1 on the eight demo files this unit minted (PaneSh]
+  demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue  [last landing: 9f29879b4 fix(X-DS value pass 16 · critic V16C): the wrapped specimen strip is one grid; the head glyph sits i]
+  demo/workbenches/mix/MixPane.vue  [last landing: 62bc3fbde refactor(demo/ui): delete the 19 shadcn barrels; consumers import their real glass-ui owner]
+
+COVERED (referencing-file count · component):
+   13  demo/app/App.vue
+    4  demo/app/ErrorBoundary.vue
+    5  demo/palettes/BrowsePane.vue
+    4  demo/palettes/PalettesPane.vue
+    5  demo/palettes/admin/AdminPane.vue
+    3  demo/palettes/admin/panels/AdminFlaggedPanel.vue
+    5  demo/palettes/admin/panels/AdminNamesPanel.vue
+    1  demo/palettes/admin/panels/AdminTagsPanel.vue
+    4  demo/palettes/admin/panels/AdminUsersPanel.vue
+    2  demo/palettes/browser/card/CurrentPaletteEditor.vue
+    4  demo/palettes/browser/card/PaletteCardGrid.vue
+    2  demo/palettes/browser/card/SwatchHoverMenu.vue
+    3  demo/palettes/browser/dialog/FlagReportDialog.vue
+    3  demo/palettes/browser/dialog/MigratePalettesDialog.vue
+    2  demo/palettes/browser/dialog/VersionHistoryDrawer.vue
+    1  demo/palettes/browser/search/MiniColorPicker.vue
+    2  demo/palettes/browser/search/SearchFilterBar.vue
+    1  demo/palettes/browser/search/TagChipSet.vue
+    1  demo/palettes/browser/search/TagEditPopover.vue
+    1  demo/palettes/inspector/PaletteCardMenu.vue
+    3  demo/palettes/inspector/PaletteCardMeta.vue
+    2  demo/palettes/inspector/PaletteCardSwatches.vue
+    6  demo/palettes/inspector/PaletteInspector.vue
+    7  demo/picker/ColorPicker.vue
+    3  demo/picker/controls/ComponentSliders/ComponentSliders.vue
+    1  demo/picker/controls/ComponentSliders/ConsoleRail.vue
+    1  demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue
+    3  demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue
+    8  demo/picker/visual/HeroBlob.vue
+    3  demo/scenes/ConfigSliderPane.vue
+    1  demo/scenes/about/AboutPane.vue
+    4  demo/scenes/about/ColorNutritionLabel.vue
+    1  demo/scenes/notfound/NotFoundPane.vue
+    3  demo/shared/ui/ActionFeedback.vue
+    7  demo/shared/ui/ColorSpaceSelector.vue
+    3  demo/shared/ui/EmptyState.vue
+    1  demo/shared/ui/InterpolationFields.vue
+    3  demo/shared/ui/PaletteCardSkeleton.vue
+    2  demo/shared/ui/PaletteColorStrip.vue
+    5  demo/shared/ui/PaletteSpecimen.vue
+    6  demo/shared/ui/PaneHeader.vue
+    1  demo/shared/ui/SwatchButton.vue
+    1  demo/shared/ui/api-status/ApiStatusChip.vue
+    2  demo/shared/ui/color-chips/PreviewRamp.vue
+   11  demo/shared/ui/watercolor-dot/WatercolorDot.vue
+    3  demo/shell/PaneShell.vue
+    4  demo/shell/PaneSlot.vue
+    2  demo/shell/dock/ActionButton.vue
+    4  demo/shell/dock/ColorInput.vue
+    4  demo/shell/dock/Dock.vue
+    1  demo/shell/dock/ParseEchoReadout.vue
+    2  demo/shell/dock/layers/ActionBarLayer.vue
+    1  demo/shell/dock/menus/ProfileSection.vue
+    3  demo/workbenches/extract/ExtractControls.vue
+    1  demo/workbenches/extract/ExtractPane.vue
+    4  demo/workbenches/extract/ExtractWorkbench.vue
+    2  demo/workbenches/extract/ImageDropZone.vue
+    4  demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue
+    5  demo/workbenches/generate/GenerateControls.vue
+    2  demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
+    2  demo/workbenches/gradient/GradientVisualizer/GradientStopRail.vue
+    4  demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue
+    1  demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue
+    2  demo/workbenches/mix/MixConfigBar.vue
+    1  demo/workbenches/mix/MixResultDisplay.vue
+    3  demo/workbenches/mix/MixSourceSelector.vue
+
+named witnesses:
+  PCS-4 ⟨grep -lE 'ColorStrip|WEIGHT_FLOOR|segmentPct' <corpus>⟩ → demo/test/palettes/n-fixtures/n-fixtures.test.ts demo/test/palettes/palette-specimen.test.ts
+  CNL-5 ⟨grep -l ColorNutritionLabel <corpus>⟩ → e2e/smoke/crash-battery.spec.ts e2e/smoke/oracles/o10d-display-voice-census.spec.ts e2e/smoke/oracles/o18-contrast-census.spec.ts test/contrast-floor.test.ts
+----- end output -----
+
+verdict: S2 RED — UNCOVERED 25 (same 25 as the prior sitting; .w9r touched no demo/**); no entry names its owning wave's own gate, so the fold's
+  green condition (UNCOVERED empty, or each entry names its owning gate) is not met. The list is the input to W11.1's stamp map (.e).
+
+----- census source -----
+#!/bin/zsh
+# S2 (X-W11-FOLD W11.9) coverage census, same method as the prior .b receipt, over committed bytes.
+cd /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w11b-wt || exit 9
+rebuilt=(${(f)"$(git diff --name-only --diff-filter=AMR 014d62c80 HEAD -- 'demo/**/*.vue' | grep -v '^demo/test/' | while read f; do [[ -f $f ]] && print $f; done)"})
+tracked=$(git ls-files 'demo/**/*.vue' | grep -v '^demo/test/' | wc -l | tr -d ' ')
+corpus=(${(f)"$( { git ls-files test e2e demo/test; git ls-files 'demo/**/*.test.ts' 'demo/**/*.spec.ts'; } | grep -E '\.(ts|mjs|js)$' | sort -u)"})
+print "rebuilt ${#rebuilt} of $tracked tracked SFCs · corpus ${#corpus} files"
+cov=0; unc=0; C=(); U=()
+for f in $rebuilt; do
+  b=${f:t:r}
+  k=$(grep -lw -- "$b" $corpus 2>/dev/null | wc -l | tr -d ' ')
+  if (( k == 0 )); then unc=$((unc+1)); last=$(git log -1 --format='%h %s' -- $f | cut -c1-110); U+=("  $f  [last landing: $last]"); else cov=$((cov+1)); C+=("$(printf '%5d  %s' $k $f)"); fi
+done
+print "COVERED: $cov · UNCOVERED: $unc"
+print "\nUNCOVERED (0 referencing files):"; print -l $U
+print "\nCOVERED (referencing-file count · component):"; print -l $C
+print "\nnamed witnesses:"
+print "  PCS-4 ⟨grep -lE 'ColorStrip|WEIGHT_FLOOR|segmentPct' <corpus>⟩ → $(grep -lE 'ColorStrip|WEIGHT_FLOOR|segmentPct' $corpus | tr '\n' ' ')"
+print "  CNL-5 ⟨grep -l ColorNutritionLabel <corpus>⟩ → $(grep -l ColorNutritionLabel $corpus | tr '\n' ' ')"

@@ -1,0 +1,25 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b release battery (r2, re-sit from the top per COHESION §0fz.4, 2026-10-18) — command 3 of 7
+cmd: npx vue-tsc -p tsconfig.demo.json --noEmit
+tree: 9e88fcce65eb753c92f47c4d65a081b6e61ec9c6 (tranche-u HEAD, clean detached worktree: committed bytes only; npm ci from the committed lockfile)
+worktree status: 0 dirty paths
+started: 2026-10-18T20:17:34-0400
+guard: ~/.claude/guard/guarded light
+----- output -----
+demo/color-session/format-color.ts(34,10): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'parseCssColor'.
+demo/color-session/generate-color.ts(33,34): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'serializeCssColor'.
+demo/color-session/ink.ts(5,5): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'parseCssColor'.
+demo/color-session/ink.ts(7,5): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'serializeCssColor'.
+demo/color-session/palettes-ramp.ts(65,31): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'parseCssColor'.
+demo/color-session/palettes-ramp.ts(65,46): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'serializeCssColor'.
+demo/color-session/picker-color.ts(17,5): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'parseCssColor'.
+demo/color-session/picker-color.ts(21,5): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'serializeCssColor'.
+demo/color-session/picker-color.ts(27,10): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'CssColor'.
+demo/color-session/picker-color.ts(28,10): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'CssColorSpace'.
+demo/color-session/picker-color.ts(29,10): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'ParseIssue'.
+demo/color-session/view-accent.ts(4,5): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'parseCssColor'.
+demo/color-session/view-accent.ts(6,5): error TS2305: Module '"@mkbabb/value.js/color"' has no exported member 'serializeCssColor'.
+----- end output -----
+finished: 2026-10-18T20:17:49-0400
+exit 2
+note: run in the spec's listed order (before 4-build) in a fresh worktree with no dist/: '@mkbabb/value.js/color' self-name resolution misses dist/subpaths/*.d.ts and falls through to node_modules/@mkbabb/value.js (registry 4.0.0, a transitive install via glass-ui/keyframes.js), which lacks parseCssColor/serializeCssColor — 13 TS2305. Order artefact, not a defect of the committed bytes: CI (.github/workflows/ci.yml:66,73) runs build before typecheck. The reading of record is 3-tsc-demo-r2.txt (re-run after 4-build, exit 0). Residual hazard named in the X.W11.b receipt.
