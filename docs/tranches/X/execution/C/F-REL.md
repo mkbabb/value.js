@@ -2668,3 +2668,61 @@ Close seat `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-16 ~21:40Z
 **Teardown.** The harness traps stopped mongod :27118/:27119, the API :8191 and the `frel-pd-*` containers. ⟨`lsof … | wc -l`⟩ → `0`; ⟨`docker ps -a | grep -c frel-pd`⟩ → `0`; heavy.lock was released. No browser was started.
 
 **Close verdict: BLOCKED (BLOCKED-ON-OWNER R-h1).** `.pd` and `.g2` are DONE and every non-deploy gate reads GREEN ×2. The deploy gates (prod PD-1, prod-verify 21/21, the no-outage poll) are owed on R-h1. ESC-FREL-pd-1 is open with the orchestrator.
+
+## RESUME 2026-10-19 (g) (§0ge + §0fs) — Open
+
+Seat 0, `claude-opus-5-5` (SERVED MODEL: claude-opus-5-5), 2026-10-19 ~12:40 local. LEDGER read first: F.REL = **BLOCKED-ON-OWNER (R-h1)** (not CLOSED), and this record exists, so this is RESUME MODE. The block is lifted by COHESION §0ge (L4403-4445; ⟨`wc -l COHESION.md`⟩ → `4445`, §0ge is the last addendum): §0ge.4 rules R-h1 (no owner secret owed; the alert sink becomes a `deploy-alert` GitHub issue through the deploy workflow's `GITHUB_TOKEN`; `FOURIER_DEPLOY_ALERT_WEBHOOK` becomes an optional second sink; unit `F.REL.h1`); §0ge.8 rules R-4 (export then hard-delete the five production drafts; unit `F.REL.r4`); §0ge.6 accepts F.CT as terminal at fourier `bf16b1e` (record only). §0fs (ESC-FREL-pd-1 RULED arm (a)) stands. The spec `fourier/waves/F-REL.md` (83 L, read whole) has no addendum (g); §0ge is this resume's spec text. Orchestrator chassis commits `cd5df3696` `1afa4da2a`.
+
+### Preconditions (bytes and ledger)
+- F.W14V CLOSED and F.CT phase 2 CLOSED honest-RED (§0eu): banked at the 2026-10-08 Open, unchanged; F.CT now ACCEPTED terminal (§0ge.6; LEDGER row F.CT CLOSED 2026-10-16).
+- `.pd` and `.g2` landed (RESUME (f) close): ⟨`git rev-parse --short origin/master`⟩ → `67e503b` (parents `79f1a43 01253e3`); master CI 38964281712 + 38964317279 GREEN ×2.
+- fourier: ⟨`git fetch`; `git branch --show-current`⟩ → `m/w1-bump-migration`; ⟨`git rev-list --left-right --count origin/master...origin/m/w1-bump-migration`⟩ → `3 26` (master's 3 = the merges `67e503b` `79f1a43` + hotfix `ad62881`; m/w1's 26 = X-DS `web/` passes through `75182fb`). ⟨`git grep -n 'deploy-alert\|issues: write' HEAD -- .github scripts | wc -l`⟩ → `0`: no `.h1` commit. ⟨`gh label list | grep -c deploy-alert`⟩ → `0`.
+
+### Crash recovery
+- value.js: ⟨`git status --porcelain -- docs/tranches/V/coordination/INBOX.md docs/tranches/X/execution/`⟩ → only `?? execution/SS8/{evidence,probes}/` (SS-8's, not this seat's; never touched). Record and LEDGER clean.
+- fourier: ⟨`git status --porcelain`⟩ → `?? .worktrees/` only. Nothing inherited in `.github/workflows/**`, `scripts/**`, `ops/**`.
+
+### E13 mail sweep
+- Paths: value `V/` + `V/coordination` · glass `BK/coordination` + `BL` (depth 3) + `BL/coordination` (⟨`ls glass-ui/docs/tranches | grep -E '^B[K-Z]'`⟩ → `BK` `BL`; BL newest) · keyframes `V/coordination` · atlas `P/coordination` + newest `U` (⟨`ls -dt atlas/docs/tranches/*/`⟩ → `U` `T`).
+- ⟨`find <p> -maxdepth 1..3 -type f -newer INBOX.md`⟩ → nothing.
+- ⟨`grep -E '^\| I-' INBOX.md | grep -c '| UNREAD'`⟩ → `0`; highest I-row `I-72`, O-row `O-101`.
+- **0 unrowed · 0 UNREAD.** INBOX not touched.
+
+## RESUME 2026-10-19 (g) — Baseline (BEFORE, read-only)
+
+⟨`uptime`⟩ → `up 29 mins … load averages: 32.08 28.99 31.65` (host just rebooted). Static, network and banked reads; no heavy gate run at this open.
+
+| Gate (§0ge.4 · §0ge.8 · §Gates) | BEFORE (this open) | State |
+|---|---|---|
+| h1: a failed deploy opens/updates a `deploy-alert` issue via `GITHUB_TOKEN` (`issues: write` declared) | ⟨`git grep -n 'deploy-alert\|issues: write' HEAD -- .github scripts \| wc -l`⟩ → `0`; ⟨`grep -n permissions .github/workflows/*.yml`⟩ → only `deploy-pages.yml:44`; workflows = `ci.yml` `deploy-pages.yml` (the API deploy is the host webhook `scripts/deploy-hook.sh`, no workflow) | RED (absent) |
+| h1: webhook is an optional second sink, not a REFUSE | ⟨`git show origin/master:scripts/deploy-hook.sh \| grep -n require_alert_channel`⟩ → def `200`, call `754` (in main, before `git fetch` at `660`'s function) → REFUSE inv-31 when unset | RED |
+| h1 falsifier: dry-run alert on a forced-failure fixture RED→GREEN ×2 | absent | RED (absent) |
+| h1: actionlint | ⟨`actionlint .github/workflows/*.yml; echo $?`⟩ → rc `1`, one finding: `ci.yml:381:9 SC2016:info` (pre-existing, outside h1's new bytes) | baseline banked |
+| h1: `deploy-alert` label · issues | ⟨`gh label list \| grep -c deploy-alert`⟩ → `0`; ⟨`gh issue list --label deploy-alert --state all`⟩ → empty | RED (absent) |
+| r4: five drafts exported to `ops/backups/2026-10-19-r4/` | ⟨`ls ops`⟩ → `No such file or directory` | RED (absent) |
+| r4: five drafts hard-deleted | public ⟨`curl …/api/visualizations/<slug>`⟩ ×5 (`mighty-drawing-umber-zebra` `rich-pouring-mango-salmon` `ember-pouring-ebony-raccoon` `zen-etching-onyx-jackal` `frozen-skating-copper-crow`) → `404` ×5 (private; existence readable only with the admin token) | RED (banked present, R-d-1) |
+| r4: admin token readable | local ⟨`grep -c '^ADMIN_TOKEN=.' .env`⟩ → `0`; `.env.example:34` `ADMIN_TOKEN=dev`; host ⟨`ssh -p 1022 mbabb@34.197.214.67 …`⟩ → `connect … port 1022: Operation timed out` (this open) | UNREAD (seat re-tries; else ESCALATED with where it looked) |
+| `.d` master contains `.h1` · master CI GREEN ×2 | `origin/master` `67e503b`, no `.h1` | RED |
+| `.d` deploy · no outage polled · prod-verify 21/21 ×2 · PD-1 prod curl ×2 | ⟨`curl -D - -H 'Accept-Encoding: gzip' …/api/gallery/cursor?limit=2`⟩ → `Content-Encoding: gzip` (prod edge still `79f1a43`); prod-verify banked 15/21 ×2 | RED |
+| health | ⟨`curl …/api/health`⟩ → `200` | GREEN (non-regression) |
+| pages-smoke · cert · openapi · PATCH preflight | banked PASS ×2 on `index-Cze8HIRf.js`; Dec 22 2026 / Jan 4 2027; `42 0.2.0 [diff, publish, remix, unpublish]`; `200` (RESUME (f) close) | GREEN (banked) |
+
+**Green before cure (R.2):** none.
+
+**Bootstrap finding (named for `.h1` and `.d`; R-h2 class).** The webhook executes the HOST tree's own copy of `scripts/deploy-hook.sh` (record L177, R-h2). The host copy is `79f1a43`'s, whose `main` calls `require_alert_channel` (L754) before any fetch, so it REFUSEs every deploy while `FOURIER_DEPLOY_ALERT_WEBHOOK` is unset, including the deploy that would carry `.h1`'s relaxed hook. `.h1` designs and `.d` executes a lawful path through the deploy path and its config (§Law: never hand-editing the running container); if none exists inside the grants, `.d` returns ESCALATED naming it.
+
+## RESUME 2026-10-19 (g) — Unit plan
+
+- **alreadyDone** (their commits exist; never re-dispatched): `F-REL.m`, `F-REL.c`, `F-REL.h`, `F-REL.mem`, `F-REL.mem2`, `F-REL.mem3`, `F-REL.w`, `F-REL.vb`, `F-REL.w2`, `F-REL.vb2`, `F-REL.x5`, `F-REL.g`, `F-REL.pd`, `F-REL.g2`. F.CT is ACCEPTED terminal at `bf16b1e` (§0ge.6): recorded here, no unit.
+- **Owed,** one unit at a time (the orchestrator's `.h1 ∥ .r4` is serialized by the 1-concurrent cap; they share no path but this record), every seat Opus 5.5: `.h1 → .r4 → .d`, then close, then check.
+- **Binding on every unit:** `git fetch` + `git pull --ff-only` before every commit and push (X-DS commits `web/` on m/w1); never force; pathspec commits only. Headless only (§0ei). Nothing durable in /tmp (§0eo): logs `~/.dev-logs/frel/`, work `~/.fourier-frel/`. Heavy runs via `~/.claude/guard/guarded` and `.worktrees/heavy.lock`; API `COMPUTE_CONCURRENCY=1`. glass READ-ONLY. `.worktrees/f-ct3` never touched. No token, secret or user data is ever printed into a committed file.
+
+Groups: `[[F-REL.h1], [F-REL.r4], [F-REL.d]]`.
+
+| Unit | Spec section | Writable | Gates | Locks |
+|---|---|---|---|---|
+| F-REL.h1 | COHESION §0ge.4 (L4430-4431); §Units `.h` (F-REL.md:25-30, health-gated deploy, inv-31 observability) | fourier `.github/workflows/**` (a deploy-alert workflow/job, `permissions: issues: write`); `scripts/deploy-hook.sh` (alert sink + `require_alert_channel` only); a new `scripts/deploy-alert*.sh` and its forced-failure fixture under `scripts/`; value.js `docs/tranches/X/fourier/evidence/F-REL/h1/` + this record | dry-run alert on a forced-failure fixture RED (at `67e503b` bytes) → GREEN ×2 (opens, then updates the same `deploy-alert` issue; dry-run prints the `gh` call, never posts); `actionlint` no new finding over the banked `ci.yml:381` info; `bash -n` + shellcheck on touched scripts; webhook unset ≠ REFUSE, set = second sink | lands on `m/w1-bump-migration`; the host has no `GITHUB_TOKEN`, so the issue is opened by a GitHub workflow that observes the host's outcome (e.g. CI-success-on-master → poll the deployed outcome → issue on failure/timeout); the bootstrap finding (Baseline) is designed for; never a secret in a file |
+| F-REL.r4 | COHESION §0ge.8 (L4439-4440); RESUME (e) `.d` R-d-1 (L2367) | fourier `ops/backups/2026-10-19-r4/` (+ `.gitignore` entry, the dir holds user data); value.js `docs/tranches/X/fourier/evidence/F-REL/r4/` (status lines + response codes only) + this record | each of the five slugs: admin GET → JSON export written and sha-recorded, THEN admin `DELETE /api/admin/visualizations/<slug>?hard=true` → `204`, then admin GET → `404`; receipt cites export + delete responses | export strictly before delete, per slug; the admin token is read from the repo/host env only, never printed; if it is not readable, record exactly where it looked and return ESCALATED; nothing else on prod is touched |
+| F-REL.d | §0ge.4 ("`.d` re-sits on this"); §0fs (L4152-4156 order); §Units `.d` (F-REL.md:32-38) | the merge `m/w1-bump-migration → master` (no force; merge commit as `67e503b`); fourier `scripts/**` (prod-verify only); value.js `docs/tranches/X/fourier/evidence/F-REL/d/` + this record | master contains `.h1`; master CI GREEN ×2; off-host health poller started before the push, no non-200 through the switch; prod-verify 21/21 ×2; PD-1 prod curl ×2 (gzip GET → strong ETag → If-Match 200, stale 412); pages-smoke PASS ×2; cert > 14 d; openapi; on a failed deploy the `deploy-alert` issue opens | after `.h1` only; host changed only through its deploy path and config; the bootstrap (host copy of the hook REFUSEs before fetch) is resolved lawfully or ESCALATED by name; never a hand edit of the running container |
+
+## RESUME 2026-10-19 (g) — Unit receipts
