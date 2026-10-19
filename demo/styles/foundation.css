@@ -222,7 +222,7 @@
     inherits: true;
     /* The same pre-hydration literal as `--accent-live` below — @property
      * initial values must be computationally independent (no var()). */
-    initial-value: oklch(0.632 0.214 13.5);
+    initial-value: oklch(0.632 0.214 2);
 }
 
 :root {
@@ -250,13 +250,14 @@
      * App.vue from the library `safeAccentColor` path (the same SAFE_ACCENT_KEY
      * computation the dock consumes — ONE color-resolution path, inv-N-3).
      * The value below is only the pre-hydration fallback: chromatically true to
-     * the default picked color (lab(92% 88.8 20)), guarded to the light-scheme
+     * the default picked color ("Daraksha", oklch(73% 0.185 2) — owner
+     * 2026-10-19; formerly lab(92% 88.8 20) at hue 13.5), guarded to the light-scheme
      * lightness so first paint is never ink. `--primary` re-points onto it —
      * the interactive layer speaks the picked color, not `--foreground` — and
      * the glass frost carries the live temperature at low strength through the
      * EXISTING `--glass-tint-source`/`--glass-tint-strength` knob (no new
      * surface, no demo-local glass recipe). */
-    --accent-live: oklch(0.632 0.214 13.5);
+    --accent-live: oklch(0.632 0.214 2);
 
     /* ── The de-emphasis rung (X.W7.z2 · R-15 ≡ C-11) ──
      * `--ink-muted` is the certified plate-caption ink: `useAtmosphereBoot`

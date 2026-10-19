@@ -154,6 +154,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     });
 
     const {
+        currentColorName,
         formattedCurrentColor,
         savedColorLabel,
         currentColorMeta,
@@ -293,6 +294,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         currentColorSpace,
         colorComponents,
         // Name resolution
+        currentColorName,
         formattedCurrentColor,
         savedColorLabel,
         currentColorMeta,

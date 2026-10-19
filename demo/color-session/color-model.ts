@@ -37,7 +37,16 @@ export type ColorModel = {
     savedColors: PickerColor[];
 };
 
-const DEFAULT_INPUT_COLOR = "lab(92% 88.8 20 / 82.70%)";
+/**
+ * "Daraksha" — the default pick (owner 2026-10-19). The tweaked default pink:
+ * the bubblegum rose the former default painted (`lab(92% 88.8 20 / 82.7%)`,
+ * oklch(95.8% 0.272 9.8) — outside sRGB and P3, translucent, so the screen
+ * showed a clipped ≈ oklch(79% 0.149 350)), made opaque and pulled into
+ * display-p3 as a slightly richer, warmer rose that still reads as the same
+ * pink. In P3, outside sRGB (sRGB-mapped fallback #ff709f). It is also an
+ * approved custom name, so the main pane names it.
+ */
+const DEFAULT_INPUT_COLOR = "oklch(73% 0.185 2)";
 const DEFAULT_COLOR_SPACE: PickerSpace = "oklch";
 
 export function createDefaultColorModel(): ColorModel {
