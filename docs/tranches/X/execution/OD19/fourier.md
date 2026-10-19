@@ -46,3 +46,30 @@ Brief: (1) Route changes run under glass `routeTransition({nav:"route"})` at the
 - **G-F4** collapse does not close or hold child overlays (G-3, 10.1.1).
 - **G-F8** run scroll-port clips in-dock popovers (G-3, 10.1.1).
 - **G-V1** `run.css:466-469`: `--dock-cap-rest: 50%` produces an ellipse on any non-square plate whenever the run's scroll timeline is active (D2 C1-C7).
+
+### P2-fourier-sliders-caret
+
+Rows **OD19-F7**, **OD19-F8**. fourier `m/w1-bump-migration` **`976a704`** (pushed, fast-forward over `563814d`).
+
+- **OD19-F7 (consumer): cured at the root.** `SliderControl.vue` now uses glass `Slider variant="scrubber"` (`md`), and the row hue reaches glass's own `--slider-range-bg` (`color || undefined`, so D-14's empty colour keeps glass's capsule). Three things are deleted: the local `--glass-slider-track-background` gradient recipe, the `fillFraction`/`--row-fill` computation, and the `:deep(.slider-thumb)` paint. **The owner reverses BL-FW14H-1's visible-thumb demand under OD19-F7**, and the docblock records this. AFTER, in all 4 cells: `.slider-track` has `background-image: none`; `.slider-thumb` is `0×20`, opacity 0, border 0; `.slider-range` is glass's liquid fill tinted with the row hue. The well's edge is now the row's one edge (`*-F7-control-row.png`, `probe.json`).
+- **OD19-F8 (both): the consumer half is cured.** `FourierTimeline.vue`'s caret is now glass `Tooltip` + `TooltipContent`, which is portaled (glass's plate, placement and reveal):
+  - `reference` is the slider thumb (`role="slider"`).
+  - `update-position-strategy="always"`, because the 0-wide thumb moves without resizing, so no observer sees it.
+  - `hide-when-detached`.
+  - `aria-hidden` (AX-1 two-attribute law kept).
+  - It opens on hover, focus or scrub.
+
+  Deleted: the absolute caret, its `--caret-t` inset, its opacity arms and its local fade. No local top layer and no anchor CSS were added. AFTER, in all 4 cells: the caret is outside `.animation-dock`, `elementFromPoint` at its centre returns the caret, and it is centred on the thumb (1440: caret 220..299 at y=808, thumb x=259; 390: 68..135 at y=763, thumb x=101). The only overflow ancestor is glass's own plate, which wraps it whole (`*-F8-caret.png`). The glass half stays G-F8 (O-102). **Retired:** the touch at-rest arm (M-3), because a portaled plate open at rest would float over sheets that cover the dock. A touch reader opens it by scrubbing.
+- **Same-concern adjacent lines:**
+  - `web/e2e/f-w14-control-row.spec.ts` reads glass's integrated handle as visible: the fill's leading edge sits at the thumb centre, and a painted thumb still counts. A scrubber's liquid fill counts as the fill at the minimum (Max Contours "All"). This follows from the OD19-F7 reversal; no assertion was removed.
+  - `web/e2e/f-w14v-u4.spec.ts` u239 hovers the rail and reads the portaled plate (`.timeline-caret`). Its glass-floating and radius assertions are unchanged.
+- **Falsifier:** `web/e2e/od19-p2-sliders-caret.spec.ts` covers light/dark × 1440/390, F7 on /equation and F8 on /v. /equation's timeline carries no caret label.
+  - RED before the cure: 6/6 cells run failed (`falsifier-RED.txt`; the run was cut by the guard's queue at test 6).
+  - GREEN 8/8: `falsifier-GREEN-1.txt`, plus the falsifier inside both touched-spec runs.
+- **Gates:**
+  - `vue-tsc -b` clean.
+  - vitest 116/116.
+  - Touched specs (od19-p2 + f-w14-control-row + f-w14v-pd + f-w14v-u4): 27/27 ×2 (`touched-specs-run-{1,2}.txt`).
+  - slider-scrub-contrast (MPC-10) + equation-interaction: 3/3 ×2 (`adjacent-specs-run-{1,2}.txt`).
+  - No golden re-baselined.
+- **Evidence:** `fourier/after/P2-fourier-sliders-caret/` (probe.mjs, probe.json, 8 PNGs, run logs).

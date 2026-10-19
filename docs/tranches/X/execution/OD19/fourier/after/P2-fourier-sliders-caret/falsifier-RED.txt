@@ -1,0 +1,62 @@
+[1/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+  1) [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge 
+    Error: glass Slider variant=scrubber
+    expect(received).toBe(expected) // Object.is equality
+    Expected: "scrubber"
+    Received: "spectrum"
+    > 68 |             expect(m.variant, "glass Slider variant=scrubber").toBe("scrubber");
+      69 |             expect(m.trackBg, "no local background-image on the track").toBe("none");
+      70 |             expect(m.rootBg, "no local background-image on the control").toBe("none");
+      71 |             expect(m.thumbBorder, "no 2 px thumb border").toBe(0);
+    test-results/od19-p2-sliders-caret-OD19-96e6d-ted-thumb-scrubber-one-edge-chromium/test-failed-1.png
+[2/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 1440 › OD19-F8 · the hovered timeline caret is whole and on top
+  2) [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 1440 › OD19-F8 · the hovered timeline caret is whole and on top 
+    Error: expect(locator).toBeVisible() failed
+    Expected: visible
+    Received: hidden
+      - Expect "toBeVisible" with timeout 5000ms
+    > 90 |             await expect(caret).toBeVisible({ timeout: 5_000 });
+    test-results/od19-p2-sliders-caret-OD19-8c9cb-e-caret-is-whole-and-on-top-chromium/test-failed-1.png
+[3/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+  3) [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — dark 1440 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge 
+    Error: glass Slider variant=scrubber
+    expect(received).toBe(expected) // Object.is equality
+    Expected: "scrubber"
+    Received: "spectrum"
+    > 68 |             expect(m.variant, "glass Slider variant=scrubber").toBe("scrubber");
+      69 |             expect(m.trackBg, "no local background-image on the track").toBe("none");
+      70 |             expect(m.rootBg, "no local background-image on the control").toBe("none");
+      71 |             expect(m.thumbBorder, "no 2 px thumb border").toBe(0);
+    test-results/od19-p2-sliders-caret-OD19-0c705-ted-thumb-scrubber-one-edge-chromium/test-failed-1.png
+[4/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 1440 › OD19-F8 · the hovered timeline caret is whole and on top
+  4) [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — dark 1440 › OD19-F8 · the hovered timeline caret is whole and on top 
+    Error: the caret leaves the dock's scroll port
+    expect(received).toBe(expected) // Object.is equality
+    Expected: false
+    Received: true
+    > 113 |             expect(m.inDock, "the caret leaves the dock's scroll port").toBe(false);
+      114 |             expect(m.hitIsCaret, "elementFromPoint at the caret centre is the caret").toBe(true);
+      116 |             expect(m.above, "the caret sits above the thumb").toBe(true);
+    test-results/od19-p2-sliders-caret-OD19-2faac-e-caret-is-whole-and-on-top-chromium/test-failed-1.png
+[5/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge
+  5) [chromium] › e2e/od19-p2-sliders-caret.spec.ts:65:9 › OD19 P2 — light 390 › OD19-F7 · the control row is glass's integrated-thumb scrubber, one edge 
+    Error: glass Slider variant=scrubber
+    expect(received).toBe(expected) // Object.is equality
+    Expected: "scrubber"
+    Received: "spectrum"
+    > 68 |             expect(m.variant, "glass Slider variant=scrubber").toBe("scrubber");
+      69 |             expect(m.trackBg, "no local background-image on the track").toBe("none");
+      70 |             expect(m.rootBg, "no local background-image on the control").toBe("none");
+      71 |             expect(m.thumbBorder, "no 2 px thumb border").toBe(0);
+    test-results/od19-p2-sliders-caret-OD19-3d4b1-ted-thumb-scrubber-one-edge-chromium/test-failed-1.png
+[6/8] [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 390 › OD19-F8 · the hovered timeline caret is whole and on top
+  6) [chromium] › e2e/od19-p2-sliders-caret.spec.ts:78:9 › OD19 P2 — light 390 › OD19-F8 · the hovered timeline caret is whole and on top 
+    Error: the caret leaves the dock's scroll port
+    expect(received).toBe(expected) // Object.is equality
+    Expected: false
+    Received: true
+    > 113 |             expect(m.inDock, "the caret leaves the dock's scroll port").toBe(false);
+      114 |             expect(m.hitIsCaret, "elementFromPoint at the caret centre is the caret").toBe(true);
+      116 |             expect(m.above, "the caret sits above the thumb").toBe(true);
+
+[exited with code 0]
