@@ -1338,14 +1338,55 @@ for (const scheme of ["light", "dark"] as const) {
                 "the profile menu publishes rows — the census enrolls the population, not a sample",
             ).toBeGreaterThan(0);
 
-            const failures: string[] = [];
+            // Bind EACH row by its own item. A positional `:nth-of-type`
+            // counts the menu's label div as a sibling, so it read the row
+            // before the one it named and never read the last (X.W10.h,
+            // o18-1322-menu-probe: off by one).
+            const names: string[] = [];
             for (let i = 0; i < count; i++) {
-                const name = (await items.nth(i).textContent())?.trim() ?? `row ${i}`;
-                const row = await censusElement(
-                    page,
-                    `[role="menu"] [role="menuitem"]:nth-of-type(${i + 1})`,
+                const item = items.nth(i);
+                names.push((await item.textContent())?.trim() ?? `row ${i}`);
+                await item.evaluate(
+                    (el, v) => el.setAttribute("data-o18-census", v),
                     `profile-row-${i}`,
                 );
+            }
+            const readRow = (i: number) =>
+                censusElement(
+                    page,
+                    `[data-o18-census="profile-row-${i}"]`,
+                    `profile-row-${i}`,
+                );
+
+            // Settle past the menu's entrance with the file's deadline idiom.
+            // The entrance is the MENU's — one ancestor opacity chain over
+            // every row; mid-fade it drives the ink to the ground (α 0),
+            // which is the entrance, not the row. Poll that chain (a cheap
+            // read; the census evaluate is heavy) until two consecutive reads
+            // agree and are non-zero; if it never settles, the census below
+            // reports what it reads.
+            const opacityChain = () =>
+                items.nth(0).evaluate((el) => {
+                    let o = 1;
+                    for (let n: Element | null = el; n; n = n.parentElement) {
+                        o *= Number(getComputedStyle(n).opacity);
+                    }
+                    return o;
+                });
+            const deadline = Date.now() + 8000;
+            let prev = -1;
+            for (;;) {
+                const o = await opacityChain();
+                if (o > 0 && o === prev) break;
+                if (Date.now() > deadline) break;
+                prev = o;
+                await page.waitForTimeout(250);
+            }
+
+            const failures: string[] = [];
+            for (let i = 0; i < count; i++) {
+                const name = names[i];
+                const row = await readRow(i);
                 if (!row) {
                     failures.push(`${name}: not measurable`);
                     continue;
