@@ -4460,3 +4460,8 @@ The owner reviewed all three running apps and filed `docs/tranches/X/waves/owner
    - value's boot path is Track A's X.W11.p2 and is not duplicated here: the X-OD19 value lane takes route-level loading, and p2 takes boot.
 5. **Collision law.** Track A (X-W11) is editing the value dock seat (ci4), the boot path (p2) and the design tokens (d1–d3). Track C is editing the fourier deploy. X-OD19 never touches a path dirty with another seat's hunks (stage only your own hunks). It sequences behind a sibling's unit on the same file, and never reverts a sibling's work.
 6. **X-DS tail** (`wf_3f36a4ef-2d8`) is stopped and subsumed. X-OD19 ends with one fresh adversarial critic per app over the whole docket and the X-DS canon, which discharges the tail's stopping rule. The value PaneShell seated-prop retirement is carried into the value lane.
+
+## §0gg — 2026-10-19: erratum to §0ge.9 / O-103 — the glass 10.1.1 cut is the owner's confirmed ask
+§0ge.9 and the O-103 letter (`0122db2e0`) both called 10.1.1 "glass's call". That is superseded. The orchestrator relayed the cut live as O-102a (10.1.1 for atlas O-99 G-3, the dropdown-close on dock collapse and the clipped dock popover, plus a shimmer variant on Skeleton), and the owner confirmed it verbatim in the value.js session: *"Agree."* The confirmation was relayed to the glass session. The live relay O-102a stands.
+
+**keyframes semver.** The public `.d.ts` diff since v6.0.0 measures **7.0.0**: `TimingFunctionNames` drops `"steps"`, and `InputAnimationOptions.timingFunction` narrows to `CssEasingLiteral`. The bump waits until the X-OD19 keyframes lane's hero work lands.
