@@ -1,0 +1,12 @@
+{
+ "sels": 1,
+ "visible": true,
+ "options": [
+  "Spin",
+  "Bouncing X",
+  "Bouncing Y"
+ ],
+ "shown_Bouncing X": "Bouncing X",
+ "shown_Bouncing Y": "Bouncing Y",
+ "shown_Spin": "Spin"
+}

@@ -1,0 +1,78 @@
+{
+ "chain": [
+  {
+   "tag": "DIV",
+   "cls": "animation-dock glass-dock horizontal shape-pill layout-linear dock-scr",
+   "x": 669,
+   "w": 102,
+   "pos": "relative",
+   "ov": "visible",
+   "txt": "t = 0.911×1×"
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric summary-speed",
+   "x": 770,
+   "w": 0,
+   "pos": "static",
+   "ov": "visible",
+   "txt": "1×"
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-layer dock-layer--summary is-active",
+   "x": 723,
+   "w": 40,
+   "pos": "relative",
+   "ov": "visible",
+   "txt": "1×"
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-layers",
+   "x": 723,
+   "w": 40,
+   "pos": "static",
+   "ov": "visible",
+   "txt": "t = 0.911×1×"
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-controls",
+   "x": 0,
+   "w": 0,
+   "pos": "static",
+   "ov": "visible",
+   "txt": "t = 0.911×1×"
+  }
+ ],
+ "metricKids": [
+  {
+   "tag": "SPAN",
+   "cls": "metric__reading",
+   "x": 770,
+   "w": 0,
+   "pos": "static",
+   "ov": "visible",
+   "txt": "1×"
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric__value",
+   "x": 770,
+   "w": 30,
+   "pos": "static",
+   "ov": "visible",
+   "txt": "1"
+  },
+  {
+   "tag": "SPAN",
+   "cls": "metric__unit",
+   "x": 804,
+   "w": 9,
+   "pos": "static",
+   "ov": "visible",
+   "txt": "×"
+  }
+ ]
+}

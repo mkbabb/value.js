@@ -1,0 +1,12 @@
+X-DS fourier pass 13 cure (critic F13C), 2026-10-18 — gates on the cured tree (web/src/style.css, DS-F13C-T1 + N1)
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e: 20 specs (e2e-specs.txt, pass 12's set), headless, --project=chromium --project=mobile-chromium --workers=1, BASE_URL=http://localhost:3244 (plain `npx vite --port 3244`)
+  run A: 227 passed (12.0m), exit 0 (e2e-runA.txt)
+  run B: 227 passed (10.9m), exit 0 (e2e-runB.txt)
+  web/e2e/screenshots/* rewritten by each run restored to HEAD (e2e-exits.txt)
+Instrument notes (not gate results):
+  - the private createServer (serve.mjs, :3242; pass 12's recipe) served Tailwind without `h-dvh` this session, so the document scrolled instead of `.paper-scroll`; f-w13-radius frame 2 failed there at HEAD's style.css too. Replaced by plain vite on :3244.
+  - preview-runs/: the same 20 specs against a production preview of the cured build (:3243) gave 217/227 x2; all 10 failures are the dev-only /demo/shape-extractor route (routes.ts gates it on import.meta.env.DEV), absent from a production bundle by design.
+No golden re-baselined.
+Census: scripts/ds-census.mjs --chrome on :3244 (census-after.json): static and computed sums identical to pass 12.

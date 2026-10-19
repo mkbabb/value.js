@@ -1,0 +1,36 @@
+s1 before-r1 start 17:52:21 load=24.09
+s1 before-r1 0/3
+s1 before-r1 end load=24.63
+t1 before-r1 start 17:52:47 load=24.63
+t1 before-r1 0/6
+t1 before-r1 end load=21.37
+s1 after-dev-r1 start 17:53:27 load=21.37
+s1 after-dev-r1 3/3
+s1 after-dev-r1 end load=21.83
+t1 after-dev-r1 start 17:53:53 load=21.83
+t1 after-dev-r1 6/6
+t1 after-dev-r1 end load=20.95
+s1 before-r2 start 17:54:34 load=20.95
+s1 before-r2 0/3
+s1 before-r2 end load=18.57
+t1 before-r2 start 17:55:00 load=18.57
+t1 before-r2 0/6
+t1 before-r2 end load=18.57
+s1 after-dev-r2 start 17:55:41 load=18.57
+s1 after-dev-r2 3/3
+s1 after-dev-r2 end load=18.46
+t1 after-dev-r2 start 17:56:09 load=18.46
+t1 after-dev-r2 6/6
+t1 after-dev-r2 end load=31.38
+unit before r1 EXIT=1
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  6 failed (6)
+unit after r1 EXIT=0
+      Tests  6 passed (6)
+unit before r2 EXIT=1
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+      Tests  6 failed (6)
+unit after r2 EXIT=0
+      Tests  6 passed (6)
+check r1 EXIT=0
+lint r1 EXIT=0

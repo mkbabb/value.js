@@ -1,0 +1,66 @@
+SERVED MODEL: claude-fable-5-1 · X.P.W3.f boundary project transcript (post-cure, run 1 of 2; run 2 identical in counts) · 2026-09-18 · ⟨cmd⟩ cd <p2>/typescript && npx vitest run --config test/css-recovery/boundary/vitest.config.ts
+
+ RUN  v3.2.7 /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript
+
+ ✓ test/css-recovery/boundary/depth.test.ts (15 tests) 8ms
+ ❯ test/css-recovery/boundary/latch.test.ts (7 tests | 2 failed) 128ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > exactly ONE `memoize(` / `mergeMemos(` site under src/css: the declared instrument 4ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > the PUBLIC ENTRY module names no part of the arming surface, so no entry can reach it 0ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > parsing does not arm the instrument's latch — read before anything in this file arms it 119ms
+   ✓ the arm-state, within one process > L-1 READABLE — the arm-state can be observed, and reads false before anything arms it 0ms
+   ✓ the arm-state, within one process > L-2 ARMS — constructing a memoizer sets it, so the reader is not stuck on one value 0ms
+   × the arm-state, within one process > L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store 3ms
+     → BORN-RED (O-15 PT-03, reproduced at typescript/src/parse/packrat.ts:273/297): resetPackrat() clears MEMO/HEADS/GROWING and returns early while PACKRAT_ARMED stays true — the latch is one-way. The cure is a write in typescript/src/parse/packrat.ts, which is in no row of W3.md §4 and which X.P.W3.0's dated §4 addendum §A-3 declines to admit; a write there is a §3a File-bound expansion, and the library's own comment at :147-152 makes the naive one-line disarm a cross-input/re-entrancy soundness regression. Returned as ESC-c1, not worked around.: expected true to be false // Object.is equality
+   × the arm-state, within one process > the whole reading, published as one record 0ms
+     → expected false to be true // Object.is equality
+ ✓ test/css-recovery/boundary/boundary.test.ts (77 tests) 32ms
+ ✓ test/css-recovery/boundary/no-throw.test.ts (19 tests) 594ms
+ ✓ test/css-recovery/boundary/capacity.test.ts (50 tests) 952ms
+   ✓ G-5 boundary band — G-5's canonical() (fixed key order, no array sorted), reported BESIDE the sealed 79,674 / 0 > every one of the 37 witness rows × 2 lowerings is byte-identical across the two targets in six-tuple, full diagnostics and value, and no target throws  413ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css-recovery/boundary/latch.test.ts > the arm-state, within one process > L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store
+AssertionError: BORN-RED (O-15 PT-03, reproduced at typescript/src/parse/packrat.ts:273/297): resetPackrat() clears MEMO/HEADS/GROWING and returns early while PACKRAT_ARMED stays true — the latch is one-way. The cure is a write in typescript/src/parse/packrat.ts, which is in no row of W3.md §4 and which X.P.W3.0's dated §4 addendum §A-3 declines to admit; a write there is a §3a File-bound expansion, and the library's own comment at :147-152 makes the naive one-line disarm a cross-input/re-entrancy soundness regression. Returned as ESC-c1, not worked around.: expected true to be false // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- false[39m
+[31m+ true[39m
+
+ ❯ test/css-recovery/boundary/latch.test.ts:147:11
+    145|                 "File-bound expansion, and the library's own comment a…
+    146|                 "disarm a cross-input/re-entrancy soundness regression…
+    147|         ).toBe(false);
+       |           ^
+    148|     });
+    149| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  test/css-recovery/boundary/latch.test.ts > the arm-state, within one process > the whole reading, published as one record
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css-recovery/boundary/latch.test.ts:157:35
+    155|         // `symmetric` is the gate's own conjunct. It is asserted, and…
+    156|         // recorded twice on purpose: once as the leg, once as the rec…
+    157|         expect(reading.symmetric).toBe(true);
+       |                                   ^
+    158|     });
+    159| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  2 failed | 166 passed (168)
+   Start at  18:01:18
+   Duration  1.85s (transform 119ms, setup 0ms, collect 1.25s, tests 1.71s, environment 0ms, prepare 179ms)
+

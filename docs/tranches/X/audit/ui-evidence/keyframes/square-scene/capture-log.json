@@ -1,0 +1,6895 @@
+{
+ "sha": "60477b06",
+ "dirty": 7,
+ "when": "2026-09-23T17:30:15.010Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "vp": "1440",
+   "sha": "60477b06",
+   "dirty": 7,
+   "frames": [
+    {
+     "frame": "00-idle-box-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-hover-box-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-drag-mid-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      957,
+      230,
+      223,
+      225
+     ],
+     "boxTf": "matrix(1.0909, -0.0216701, -0.0710067, 1.1491, 110.767, -107.84)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.01 y −0.98",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y -0.98"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-drag-far-corner-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      957,
+      381,
+      221,
+      219
+     ],
+     "boxTf": "matrix(1.0982, 0, 0.0553839, 1.1418, 110, 40.1164)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.36",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02c-release-overshoot-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      960,
+      386,
+      216,
+      215
+     ],
+     "boxTf": "matrix(1.1183, 0, -0.00420915, 1.1217, 110, 43.6452)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.40",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "03-settled-tumble-hint-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      960,
+      386,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 43.2)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.39",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-tumble-mid-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      917,
+      342,
+      302,
+      302
+     ],
+     "boxTf": "matrix(0.884167, -0.687494, 0.687494, 0.884167, 110, 43.2)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.790004 -0.133567 0.0222813)",
+     "boxInk": "oklab(0.197501 -0.0333917 0.00557032)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.39",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-tumble-settled-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      960,
+      386,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 43.2)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.39",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-kbd-focus-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-kbd-nudge-right-mid-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      878,
+      343,
+      207,
+      213
+     ],
+     "boxTf": "matrix(1.0784, 0.137572, 0, 0.974, 24.0096, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "drag",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.22 y +0.00",
+     "tether": "0.865769",
+     "sliders": [
+      "x 0.25",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-kbd-nudged-settled-tour-hint-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      883,
+      293,
+      205,
+      205
+     ],
+     "boxTf": "matrix(1.0671, 0, 0, 1.0671, 27.5, -55)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.25 y −0.50",
+     "tether": "0",
+     "sliders": [
+      "x 0.25",
+      "y -0.50"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-kbd-end-far-corner-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      960,
+      452,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 110)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y +1.00",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 1.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05e-kbd-c-envelope-tour-mid-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      960,
+      232,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.1196, 0, 0.00105595, 1.1204, 110, -110.062)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "drag",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y −1.00",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y -1.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05f-kbd-home-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-playback-tour-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      444,
+      192,
+      192
+     ],
+     "boxTf": "matrix(-1, 1.18805e-07, -1.18805e-07, -1, 6.80705e-06, 90)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.837319 -0.135655 -0.0358584)",
+     "boxInk": "oklab(0.20933 -0.0339139 -0.00896459)",
+     "mode": "playback",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.82",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-playback-tour-later-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      911,
+      250,
+      247,
+      247
+     ],
+     "boxTf": "matrix(0.245387, 1.03963, -1.03963, 0.245387, 76.7194, -76.7194)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.640602 -0.0112671 -0.150987)",
+     "boxInk": "oklab(0.16015 -0.00281677 -0.0377467)",
+     "mode": "playback",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.70 y −0.70",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-drag-takeover-from-playback-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      889,
+      257,
+      226,
+      260
+     ],
+     "boxTf": "matrix(0.205084, 1.18961, -0.973352, 0.164113, 44.7761, -62.5531)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633491 -0.0475984 -0.153935)",
+     "boxInk": "oklab(0.158373 -0.0118996 -0.0384838)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.41 y −0.57",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-after-takeover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      883,
+      293,
+      207,
+      207
+     ],
+     "boxTf": "matrix(0.0145405, 1.0661, -1.0661, 0.0145405, 29.2186, -53.2186)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633491 -0.0475984 -0.153935)",
+     "boxInk": "oklab(0.158373 -0.0118996 -0.0384838)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.27 y −0.48",
+     "tether": "0",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-controls-tab-open-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      883,
+      293,
+      207,
+      207
+     ],
+     "boxTf": "matrix(0.0145405, 1.0661, -1.0661, 0.0145405, 29.2186, -53.2186)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633491 -0.0475984 -0.153935)",
+     "boxInk": "oklab(0.158373 -0.0118996 -0.0384838)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.27 y −0.48",
+     "tether": "0",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-tab-controls-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-tab-keyframes-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      454
+     ],
+     "panelText": "12345678910111213141516.keyframes-style-square-Transform { animation-name: keyframes-style-square-Transform; animation-d",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Keyframes"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-tab-timeline-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      179,
+      129,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48",
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Timeline"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "transportFound": true,
+    "tabOptions": [
+     "Controls",
+     "Keyframes",
+     "Timeline"
+    ]
+   },
+   "errors": [
+    "error Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  },
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-idle-box-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-hover-box-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BODY monaco-enable-motion underline-links",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-drag-mid-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      956,
+      228,
+      225,
+      228
+     ],
+     "boxTf": "matrix(1.0823, -0.0296832, -0.0919872, 1.1577, 111.609, -107.765)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.01 y −0.98",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y -0.98"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-drag-far-corner-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      957,
+      380,
+      221,
+      219
+     ],
+     "boxTf": "matrix(1.0992, 0, 0.0528609, 1.1408, 110, 39.8936)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.36",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02c-release-overshoot-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      960,
+      386,
+      216,
+      215
+     ],
+     "boxTf": "matrix(1.1183, 0, -0.00420915, 1.1217, 110, 43.5762)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.40",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "03-settled-tumble-hint-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      960,
+      386,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 43.2)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.39",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-tumble-mid-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      917,
+      342,
+      302,
+      302
+     ],
+     "boxTf": "matrix(0.881306, 0.691158, -0.691158, 0.881306, 110, 43.2)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.831821 -0.155866 0.0692783)",
+     "boxInk": "oklab(0.207955 -0.0389664 0.0173196)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.39",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-tumble-settled-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      960,
+      386,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 43.2)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.39",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.39"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-kbd-focus-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-kbd-nudge-right-mid-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      878,
+      343,
+      207,
+      214
+     ],
+     "boxTf": "matrix(1.0789, 0.139397, 0, 0.9732, 23.8808, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "drag",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      712,
+      346,
+      44
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.22 y +0.00",
+     "tether": "0.862263",
+     "sliders": [
+      "x 0.25",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-kbd-nudged-settled-tour-hint-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      883,
+      293,
+      205,
+      205
+     ],
+     "boxTf": "matrix(1.0671, 0, 0, 1.0671, 27.5, -55)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.25 y −0.50",
+     "tether": "0",
+     "sliders": [
+      "x 0.25",
+      "y -0.50"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-kbd-end-far-corner-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      960,
+      452,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 110)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y +1.00",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 1.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05e-kbd-c-envelope-tour-mid-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      960,
+      232,
+      215,
+      215
+     ],
+     "boxTf": "matrix(1.1196, 0, 0.000958179, 1.1204, 110, -110.043)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "drag",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y −1.00",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y -1.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05f-kbd-home-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-playback-tour-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      861,
+      443,
+      193,
+      193
+     ],
+     "boxTf": "matrix(-1.00019, 0.00369405, -0.00369405, -1.00019, 0.211611, 89.5768)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.836839 -0.135454 -0.0361364)",
+     "boxInk": "oklab(0.20921 -0.0338634 -0.0090341)",
+     "mode": "playback",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.81",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-playback-tour-later-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      895,
+      249,
+      263,
+      263
+     ],
+     "boxTf": "matrix(0.375991, 0.992787, -0.992787, 0.375991, 69.2572, -69.2572)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.644847 0.0104234 -0.149227)",
+     "boxInk": "oklab(0.161212 0.00260585 -0.0373066)",
+     "mode": "playback",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.63 y −0.63",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-drag-takeover-from-playback-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      889,
+      258,
+      226,
+      260
+     ],
+     "boxTf": "matrix(0.20523, 1.18928, -0.973133, 0.163736, 44.5288, -62.4009)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633497 -0.0475707 -0.153933)",
+     "boxInk": "oklab(0.158374 -0.0118927 -0.0384832)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.40 y −0.57",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-after-takeover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      883,
+      293,
+      208,
+      208
+     ],
+     "boxTf": "matrix(0.0147176, 1.0661, -1.0661, 0.0147176, 29.2091, -53.2091)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633497 -0.0475707 -0.153933)",
+     "boxInk": "oklab(0.158374 -0.0118927 -0.0384832)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.27 y −0.48",
+     "tether": "0",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-controls-tab-open-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      883,
+      293,
+      208,
+      208
+     ],
+     "boxTf": "matrix(0.0147176, 1.0661, -1.0661, 0.0147176, 29.2091, -53.2091)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633497 -0.0475707 -0.153933)",
+     "boxInk": "oklab(0.158374 -0.0118927 -0.0384832)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.27 y −0.48",
+     "tether": "0",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-tab-controls-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      392
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-tab-keyframes-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      862,
+      354,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      454
+     ],
+     "panelText": "12345678910111213141516.keyframes-style-square-Transform { animation-name: keyframes-style-square-Transform; animation-d",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Keyframes"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-tab-timeline-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      179,
+      129,
+      192,
+      192
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "41.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      518,
+      127,
+      878,
+      646
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       539,
+       217,
+       150,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      539,
+      144,
+      150,
+      87
+     ],
+     "legend": [
+      1030,
+      689,
+      346,
+      67
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.27",
+      "y -0.48",
+      "x 0.27",
+      "y -0.48"
+     ],
+     "panel": [
+      71,
+      62,
+      407,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Timeline"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "transportFound": true,
+    "tabOptions": [
+     "Controls",
+     "Keyframes",
+     "Timeline"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-light",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-idle-box-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV glass-drawer-handle",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-hover-box-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV glass-drawer-handle",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-drag-mid-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      207,
+      283,
+      143,
+      135
+     ],
+     "boxTf": "matrix(1.159, 0.0764728, -0.0611186, 1.081, 83.6008, -71.6579)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.76 y −0.65",
+     "tether": "1",
+     "sliders": [
+      "x 0.76",
+      "y -0.65"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-drag-far-corner-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      238,
+      382,
+      134,
+      133
+     ],
+     "boxTf": "matrix(1.1057, -0.00393683, 0.0359837, 1.1343, 110.046, 26.928)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.24",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02c-release-overshoot-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      239,
+      385,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.1188, 0.000351481, -0.00303315, 1.1212, 109.995, 28.9689)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "03-settled-tumble-hint-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      239,
+      385,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 28.8)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-tumble-mid-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      213,
+      359,
+      183,
+      183
+     ],
+     "boxTf": "matrix(0.900143, 0.66644, -0.66644, 0.900143, 110, 28.8)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.831821 -0.155866 0.0692783)",
+     "boxInk": "oklab(0.207955 -0.0389664 0.0173196)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-tumble-settled-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      239,
+      385,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 28.8)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-kbd-focus-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-kbd-nudge-right-mid-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      159,
+      358,
+      125,
+      128
+     ],
+     "boxTf": "matrix(1.0682, 0.103082, 0, 0.9889, 26.1727, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "drag",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.24 y +0.00",
+     "tether": "0.919479",
+     "sliders": [
+      "x 0.25",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-kbd-nudged-settled-tour-hint-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      160,
+      305,
+      125,
+      125
+     ],
+     "boxTf": "matrix(1.0671, 0, 0, 1.0671, 27.5, -55)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.25 y −0.50",
+     "tether": "0",
+     "sliders": [
+      "x 0.25",
+      "y -0.50"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-kbd-end-far-corner-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      239,
+      466,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 110)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y +1.00",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 1.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05e-kbd-c-envelope-tour-mid-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      239,
+      246,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.1196, 0, 0.000938624, 1.1204, 110, -110.042)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "drag",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y −1.00",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y -1.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05f-kbd-home-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-playback-tour-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      130,
+      444,
+      124,
+      124
+     ],
+     "boxTf": "matrix(-1.00132, -0.054429, 0.054429, -1.00132, -3.11138, 83.7773)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.835069 -0.137556 -0.0299651)",
+     "boxInk": "oklab(0.208767 -0.034389 -0.00749128)",
+     "mode": "playback",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x −0.03 y +0.76",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-playback-tour-later-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      222,
+      269,
+      126,
+      126
+     ],
+     "boxTf": "matrix(4.61813e-06, 1.08, -1.08, 4.61813e-06, 89.9998, -89.9998)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.633047 -0.049869 -0.154119)",
+     "boxInk": "oklab(0.158262 -0.0124672 -0.0385298)",
+     "mode": "playback",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.82 y −0.82",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-drag-takeover-from-playback-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      174,
+      302,
+      118,
+      142
+     ],
+     "boxTf": "matrix(0.0370486, 1.18816, -0.971485, 0.0254391, 37.9484, -48.6694)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.64942 -0.0567459 -0.14464)",
+     "boxInk": "oklab(0.162355 -0.0141865 -0.03616)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.34 y −0.44",
+     "tether": "1",
+     "sliders": [
+      "x 0.21",
+      "y -0.36"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-after-takeover-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      149,
+      314,
+      137,
+      137
+     ],
+     "boxTf": "matrix(-0.131829, 1.04149, -1.04149, -0.131829, 22.786, -39.572)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.64942 -0.0567459 -0.14464)",
+     "boxInk": "oklab(0.162355 -0.0141865 -0.03616)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.21 y −0.36",
+     "tether": "0",
+     "sliders": [
+      "x 0.21",
+      "y -0.36"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-controls-tab-open-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      149,
+      314,
+      137,
+      137
+     ],
+     "boxTf": "matrix(-0.131829, 1.04149, -1.04149, -0.131829, 22.786, -39.572)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.64942 -0.0567459 -0.14464)",
+     "boxInk": "oklab(0.162355 -0.0141865 -0.03616)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.14)",
+      "color": "color(srgb 0.301849 0.224696 0.444495)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.21 y −0.36",
+     "tether": "0",
+     "sliders": [
+      "x 0.21",
+      "y -0.36"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-tab-controls-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.21",
+      "y -0.36"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-tab-keyframes-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.21",
+      "y -0.36"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      454
+     ],
+     "panelText": "12345678910.keyframes-style-square-Transform { animation-name: keyframes-style-square-Tr ansform; animation-duration: 20",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Keyframes"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-tab-timeline-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+     "stageBorder": "oklab(0.216128 0.00350075 0.00518669 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.963 0.953467 0.937 / 0.6)",
+      "color": "rgb(112, 89, 66)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.21",
+      "y -0.36",
+      "x 0.21",
+      "y -0.36"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Timeline"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "transportFound": true,
+    "tabOptions": [
+     "Controls",
+     "Keyframes",
+     "Timeline"
+    ]
+   },
+   "errors": [
+    "warning Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+    "warning Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+   ]
+  },
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-idle-box-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV glass-drawer-handle",
+     "hscroll": false
+    },
+    {
+     "frame": "01-idle-hover-box-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV glass-drawer-handle",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-drag-mid-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      207,
+      283,
+      143,
+      136
+     ],
+     "boxTf": "matrix(1.1598, 0.0781521, -0.0623596, 1.0802, 83.5302, -71.5973)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.76 y −0.65",
+     "tether": "1",
+     "sliders": [
+      "x 0.76",
+      "y -0.65"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-drag-far-corner-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      238,
+      382,
+      133,
+      133
+     ],
+     "boxTf": "matrix(1.1059, -0.00654332, 0.0349273, 1.1341, 110.091, 26.5692)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.24",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "02c-release-overshoot-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      239,
+      386,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.1194, 0.00109408, -0.00115393, 1.1206, 109.942, 29.1313)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "03-settled-tumble-hint-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      239,
+      385,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 28.8)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-tumble-mid-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      213,
+      359,
+      184,
+      184
+     ],
+     "boxTf": "matrix(0.881717, 0.690633, -0.690633, 0.881717, 110, 28.8)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.831821 -0.155866 0.0692783)",
+     "boxInk": "oklab(0.207955 -0.0389664 0.0173196)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-tumble-settled-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      239,
+      385,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 28.8)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "double-tap to tumble"
+     ],
+     "readout": "x +1.00 y +0.26",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 0.26"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-kbd-focus-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "rgb(82, 232, 152)",
+     "boxInk": "oklab(0.207954 -0.0389561 0.0173222)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-kbd-nudge-right-mid-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      156,
+      357,
+      126,
+      130
+     ],
+     "boxTf": "matrix(1.0795, 0.141486, 0, 0.9723, 23.734, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "drag",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      687,
+      293,
+      38
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]"
+     ],
+     "readout": "x +0.22 y +0.00",
+     "tether": "0.858744",
+     "sliders": [
+      "x 0.25",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-kbd-nudged-settled-tour-hint-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      160,
+      305,
+      125,
+      125
+     ],
+     "boxTf": "matrix(1.0671, 0, 0, 1.0671, 27.5, -55)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684087 0.210928 -0.132955)",
+     "boxInk": "oklab(0.171022 0.0527319 -0.0332388)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.25 y −0.50",
+     "tether": "0",
+     "sliders": [
+      "x 0.25",
+      "y -0.50"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-kbd-end-far-corner-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      239,
+      466,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.12, 0, 0, 1.12, 110, 110)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y +1.00",
+     "tether": "0",
+     "sliders": [
+      "x 1.00",
+      "y 1.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05e-kbd-c-envelope-tour-mid-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      239,
+      246,
+      131,
+      131
+     ],
+     "boxTf": "matrix(1.1196, 0, 0.000938624, 1.1204, 110, -110.042)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "drag",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +1.00 y −1.00",
+     "tether": "1",
+     "sliders": [
+      "x 1.00",
+      "y -1.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05f-kbd-home-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "0",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-playback-tour-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      126,
+      438,
+      127,
+      127
+     ],
+     "boxTf": "matrix(-1.00055, -0.0890332, 0.0890332, -1.00055, -5.08504, 79.8299)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.833642 -0.138761 -0.0262268)",
+     "boxInk": "oklab(0.208411 -0.0346903 -0.0065567)",
+     "mode": "playback",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x −0.05 y +0.73",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-playback-tour-later-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      218,
+      269,
+      130,
+      130
+     ],
+     "boxTf": "matrix(0.0346409, 1.07784, -1.07784, 0.0346409, 88.1592, -88.1592)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.634094 -0.044519 -0.153685)",
+     "boxInk": "oklab(0.158523 -0.0111298 -0.0384213)",
+     "mode": "playback",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.80 y −0.80",
+     "tether": "1",
+     "sliders": [
+      "x 0.00",
+      "y 0.00"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON button tap-squish focus-ring scale-on-ho",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-drag-takeover-from-playback-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      173,
+      290,
+      128,
+      151
+     ],
+     "boxTf": "matrix(0.121425, 1.1932, -0.976003, 0.0951071, 41.9438, -56.7012)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.640285 -0.0529097 -0.149929)",
+     "boxInk": "oklab(0.160071 -0.0132274 -0.0374821)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.38 y −0.52",
+     "tether": "1",
+     "sliders": [
+      "x 0.24",
+      "y -0.43"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring demo",
+     "hscroll": false
+    },
+    {
+     "frame": "06d-after-takeover-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      156,
+      309,
+      131,
+      131
+     ],
+     "boxTf": "matrix(-0.058952, 1.05796, -1.05796, -0.058952, 26.8106, -47.6213)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.640285 -0.0529097 -0.149929)",
+     "boxInk": "oklab(0.160071 -0.0132274 -0.0374821)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.24 y −0.43",
+     "tether": "0",
+     "sliders": [
+      "x 0.24",
+      "y -0.43"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "DIV demo-box text-display kf-focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-controls-tab-open-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      156,
+      309,
+      131,
+      131
+     ],
+     "boxTf": "matrix(-0.058952, 1.05796, -1.05796, -0.058952, 26.8106, -47.6213)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.640285 -0.0529097 -0.149929)",
+     "boxInk": "oklab(0.160071 -0.0132274 -0.0374821)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "settled",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.14)",
+      "color": "color(srgb 0.829344 0.741806 0.906613)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.24 y −0.43",
+     "tether": "0",
+     "sliders": [
+      "x 0.24",
+      "y -0.43"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-tab-controls-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.24",
+      "y -0.43"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      389
+     ],
+     "panelText": "durationdelayiterationsdirectionalternatefill modeforwardseasingease-in-outadvancedadvancedblendreplacez-indexenabled",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Controls",
+      "sel:alternate",
+      "sel:forwards",
+      "sel:ease-in-out",
+      "sel:replace"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-tab-keyframes-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.24",
+      "y -0.43"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      454
+     ],
+     "panelText": "12345678910.keyframes-style-square-Transform { animation-name: keyframes-style-square-Tr ansform; animation-duration: 20",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Keyframes"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-tab-timeline-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "box": [
+      137,
+      364,
+      117,
+      117
+     ],
+     "boxTf": "matrix(1, 0, 0, 1, 0, 0)",
+     "boxRadius": "8px",
+     "boxFont": "25.888px \"Instrument Serif\"",
+     "boxBg": "oklab(0.684245 0.211733 -0.13289)",
+     "boxInk": "oklab(0.171061 0.0529332 -0.0332225)",
+     "mode": "idle",
+     "stage": [
+      0,
+      102,
+      390,
+      641
+     ],
+     "stageRadius": "16px",
+     "stageBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+     "stageBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.04) 1px",
+     "badge": {
+      "text": "tracking",
+      "rect": [
+       21,
+       172,
+       125,
+       14
+      ],
+      "radius": "1.67772e+07px",
+      "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.6)",
+      "color": "rgb(195, 185, 172)"
+     },
+     "telemetry": [
+      21,
+      119,
+      125,
+      67
+     ],
+     "legend": [
+      76,
+      668,
+      293,
+      58
+     ],
+     "legendText": [
+      "spring-chased · drag the box, or press Play to tour it",
+      "x · y ∈ [-1, 1]",
+      "press C to trace the field"
+     ],
+     "readout": "x +0.00 y +0.00",
+     "tether": "1",
+     "sliders": [
+      "x 0.24",
+      "y -0.43",
+      "x 0.24",
+      "y -0.43"
+     ],
+     "panel": [
+      29,
+      732,
+      320,
+      0
+     ],
+     "panelText": "",
+     "tabs": [
+      "Scene:Square",
+      "Controls tab:Timeline"
+     ],
+     "active": "BUTTON dock-trigger dock-select-trigger dock-la",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "transportFound": true,
+    "tabOptions": [
+     "Controls",
+     "Keyframes",
+     "Timeline"
+    ]
+   },
+   "errors": [
+    "warning Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+    "warning Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+import { readFileSync, readdirSync } from "node:fs";
+const dir = process.argv[2]; const f = readdirSync(dir).find((x) => x.endsWith(".cpuprofile"));
+const p = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
+const byId = new Map(p.nodes.map((n) => [n.id, n])); const self = new Map();
+const dt = p.timeDeltas; let total = 0;
+p.samples.forEach((id, i) => { const n = byId.get(id); const cf = n.callFrame; const url = (cf.url || "").split("/").slice(-1)[0];
+  const k = `${cf.functionName || "(anon)"} ${url}:${cf.lineNumber + 1}`; self.set(k, (self.get(k) ?? 0) + (dt[i] ?? 0)); total += dt[i] ?? 0; });
+const top = [...self.entries()].sort((a, b) => b[1] - a[1]).slice(0, Number(process.argv[3] ?? 30));
+console.log("total ms", (total / 1000).toFixed(0));
+for (const [k, v] of top) console.log((100 * v / total).toFixed(1).padStart(5) + "%", k);

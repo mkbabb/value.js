@@ -1,17 +1,23 @@
 <script setup lang="ts">
-import { computed, inject } from "vue";
+import { computed, defineAsyncComponent, inject } from "vue";
 import {
-    Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical, Moon, Sun,
+    Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
 } from "@lucide/vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
-    DropdownMenu, DropdownMenuContent, DropdownMenuItem,
+    DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
-} from "../../../ui/dropdown-menu";
+} from "@mkbabb/glass-ui/menu";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
-import { Avatar, AvatarImage } from "../../../ui/avatar";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
+import { DOCK_MENU_SIDE_OFFSET } from "./dockMenuOffset";
+
+// X.W12U.g2d2: the avatar renders only inside the opened menu body, so it loads with
+// the menu, at its root import (glass exports Avatar from its root barrel only;
+// an eager root import pins the whole barrel into the boot graph).
+const Avatar = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.Avatar));
+const AvatarImage = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.AvatarImage));
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
@@ -32,6 +38,11 @@ const emit = defineEmits<{
 const open = defineModel<boolean>("open", { default: false });
 const pm = inject(SESSION_PORT_KEY)!;
 const { isDark, toggleDark } = useGlobalDark();
+
+/** The GitHub row's action: the repository in a new, unlinked tab. */
+function openRepository(): void {
+    window.open("https://github.com/mkbabb/value.js", "_blank", "noopener,noreferrer");
+}
 </script>
 
 <template>
@@ -40,7 +51,7 @@ const { isDark, toggleDark } = useGlobalDark();
             <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockTrigger>
-            <DropdownMenuContent align="end" class="min-w-menu font-display">
+            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
                     <DropdownMenuLabel class="px-2 py-1.5">
@@ -58,14 +69,40 @@ const { isDark, toggleDark } = useGlobalDark();
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.userLogout()">
                         <LogOut class="w-3.5 h-3.5" /> Logout
                     </DropdownMenuItem>
-                    <DropdownMenuItem class="text-small gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
-                        <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
+                    <DropdownMenuItem
+                        class="text-small gap-2 cursor-pointer text-muted-foreground"
+                        :disabled="pm.identity.value?.kind === 'pending'"
+                        @select.prevent
+                        @click="pm.onRegenerateSlug()"
+                    >
+                        <RefreshCw class="w-3.5 h-3.5" :class="pm.identity.value?.kind === 'pending' && 'animate-spin'" aria-hidden="true" />
+                        {{ pm.identity.value?.kind === 'pending' ? 'Regenerating…' : 'Regenerate slug' }}
                     </DropdownMenuItem>
+                    <!-- X.W7.d · MMD-2 (the CARRY LOCK): the identity act's verdict
+                         is rendered in the menu it was taken from — the menu stays
+                         open across the act (`@select.prevent`). One cure in
+                         `useSlugMigration`, applied identically at both twins. -->
+                    <div
+                        v-if="pm.identity.value && pm.identity.value.kind !== 'pending'"
+                        :role="pm.identity.value.kind === 'failed' ? 'alert' : 'status'"
+                        data-identity-verdict
+                        :class="[
+                            'px-2 py-1.5 text-small max-w-[16rem]',
+                            pm.identity.value.kind === 'failed' ? 'text-destructive' : 'text-muted-foreground',
+                        ]"
+                    >{{ pm.identity.value.message }}</div>
                 </template>
                 <template v-else-if="pm.isAdminAuthenticated.value">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span class="slug-pill cursor-default text-muted-foreground whitespace-nowrap" style="border-color: var(--muted-foreground); color: var(--muted-foreground)">admin</span>
                     </DropdownMenuLabel>
+                    <!-- UIA-V-21: the desktop twin's exits, applied here too. -->
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
+                        <LogIn class="w-3.5 h-3.5" /> Switch account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.adminLogout()">
+                        <LogOut class="w-3.5 h-3.5" /> Sign out of admin
+                    </DropdownMenuItem>
                 </template>
                 <template v-else>
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
@@ -80,35 +117,38 @@ const { isDark, toggleDark } = useGlobalDark();
                     <Avatar decorative class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
-                    <div>
-                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
-                        <p class="text-micro italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
-                    </div>
+                    <!-- X-DS pass 5 (VP5-04): the header is the avatar and the
+                         handle. The micro italic strapline under it (the app's
+                         smallest text, decorative copy with no action) is gone. -->
+                    <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
                 </div>
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
                     <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
                     {{ linkCopied ? 'Copied!' : 'Share color' }}
                 </DropdownMenuItem>
-                <DropdownMenuItem class="text-small gap-2 cursor-pointer" as-child>
-                    <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.87-1.54-3.87-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39.99 0 1.98.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.13 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
-                        </svg>
-                        GitHub
-                    </a>
+                <!-- UIA-V-18/22/71: glass 7.0.0 DropdownMenuItem drops `as-child`, so the
+                     row was a DIV menuitem around an inline <a> — the icon stacked over the
+                     label and Enter/taps on the pad went nowhere. The item is the row; its
+                     select opens the repository (the link row is glass's, O-71 (4)). -->
+                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select="openRepository">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.87-1.54-3.87-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39.99 0 1.98.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.13 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+                    </svg>
+                    GitHub
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                    <!-- W6-8: native `title` retired (the row's own "Dark mode"
-                         text is the accessible name; the glyph is decorative).
-                         V-W44: Glass 7's DarkModeToggle is a native interactive
-                         theme command (no `passive` mode) — nesting it inside
-                         this already-clickable row would double-toggle, so the
-                         decorative state glyph is a plain theme-reflecting icon. -->
-                    <Moon v-if="isDark" class="aspect-square w-4" aria-hidden="true" />
-                    <Sun v-else class="aspect-square w-4" aria-hidden="true" />
+                <!-- UIA-V-254 · V-268: the theme row is a CHECKBOX item — its state is
+                     announced (menuitemcheckbox, aria-checked) and drawn by the
+                     producer's indicator, not a static "Dark mode" label whose
+                     only state was a sun/moon glyph pushing the label off its column. -->
+                <DropdownMenuCheckboxItem
+                    class="text-small cursor-pointer"
+                    :model-value="isDark"
+                    @update:model-value="toggleDark()"
+                    @select.prevent
+                >
                     Dark mode
-                </DropdownMenuItem>
+                </DropdownMenuCheckboxItem>
             </DropdownMenuContent>
         </DropdownMenu>
     </div>

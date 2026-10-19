@@ -1,0 +1,8 @@
+# 20:27:59 load: { 15.41 15.59 17.33 } base=http://localhost:5398/ kf=c761d639
+F1 spring 1440x900 seen=true fallbackMin=0 after[0..9]=[0,0.019,0.467,0.544,0.614,0.677,0.733,0.781,0.823,0.859] sub1Frames=15 settled=1 -> GREEN
+F1 amiga 1440x900 seen=true fallbackMin=0 after[0..9]=[0,0.019,0.386,0.544,0.614,0.677,0.733,0.781,0.823,0.859] sub1Frames=16 settled=1 -> GREEN
+F2 spring 1440x900 seen=true fallbackMin=1 after[0..9]=[1,1,1,1,1,1,1,1,1,1] sub1Frames=0 settled=1 -> GREEN
+F2 amiga 1440x900 seen=true fallbackMin=1 after[0..9]=[1,1,1,1,1,1,1,1,1,1] sub1Frames=0 settled=1 -> GREEN
+TOTAL 4/4 GREEN
+EXIT=0
+# end 20:28:20 load: { 15.94 15.74 17.34 }

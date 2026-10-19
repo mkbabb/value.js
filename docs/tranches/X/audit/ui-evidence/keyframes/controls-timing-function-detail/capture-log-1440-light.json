@@ -1,0 +1,1456 @@
+{
+  "kf": {
+    "sha": "60477b06",
+    "dirty": 2
+  },
+  "glass": {
+    "sha": "fe5df357",
+    "dirty": 2
+  },
+  "when": "2026-09-23T17:06:51.450Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": [
+        {
+          "frame": "01-controls-rest-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": null,
+          "pane": [
+            43,
+            54,
+            475,
+            632
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium text-muted-foreground",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": false,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "BODY:CubeControls@mbabbdu fv=false outline=none/none",
+          "easingSelect": "ease-in-out",
+          "crop": "01-controls-rest-1440-light-crop.png"
+        },
+        {
+          "frame": "02-pencil-hover-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": null,
+          "pane": [
+            43,
+            54,
+            475,
+            632
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium text-muted-foreground",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": false,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "BODY:CubeControls@mbabbdu fv=false outline=none/none",
+          "easingSelect": "ease-in-out",
+          "crop": "02-pencil-hover-1440-light-crop.png"
+        },
+        {
+          "frame": "03-detail-converted-from-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": {
+            "cls": "panel-row panel-row--detail panel-row--active",
+            "box": [
+              89,
+              76,
+              371,
+              313
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "pane": [
+            43,
+            54,
+            475,
+            581
+          ],
+          "title": {
+            "t": "cubic-bézier",
+            "box": [
+              89,
+              76,
+              189,
+              79
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "32.928px/700 \"Plus Jakarta Sans\"",
+            "lh": "39.5136px"
+          },
+          "note": {
+            "t": "from ease-in-out",
+            "box": [
+              286,
+              93,
+              128,
+              46
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "back": {
+            "box": [
+              422,
+              96,
+              38,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "picker": {
+            "tag": "svg",
+            "cls": "block w-full touch-none select-none",
+            "box": [
+              102,
+              176,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "svgs": [
+            {
+              "vb": "0 -0.1 1 1.2000000000000002",
+              "box": [
+                102,
+                176,
+                41,
+                200
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px",
+              "parent": {
+                "box": [
+                  89,
+                  163,
+                  67,
+                  226
+                ],
+                "radius": "16px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "18.608px/400 \"Plus Jakarta Sans\"",
+                "lh": "27.912px"
+              }
+            }
+          ],
+          "tabs": [],
+          "combos": [
+            {
+              "t": "ease-in-out",
+              "box": [
+                172,
+                193,
+                288,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "lh": "24.6px"
+            }
+          ],
+          "buttons": [
+            {
+              "t": "back to controls",
+              "box": [
+                422,
+                96,
+                38,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "lh": "18.04px"
+            },
+            {
+              "t": "Copy curve literal",
+              "box": [
+                419,
+                258,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px"
+            }
+          ],
+          "inputs": [],
+          "texts": [
+            {
+              "tag": "CODE",
+              "t": "cubic-bezier(0.42, 0, 0.58, 1)",
+              "box": [
+                185,
+                264,
+                226,
+                16
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "lh": "16px"
+            }
+          ],
+          "handles": 5,
+          "overflow": [
+            373,
+            371,
+            315,
+            313
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium gold-shimmer",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgba(0, 0, 0, 0)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": true,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "back to controls: fv=false outline=none/none",
+          "easingSelect": "cubic-bezier",
+          "crop": "03-detail-converted-from-1440-light-crop.png"
+        },
+        {
+          "frame": "04-handle-dragging-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": {
+            "cls": "panel-row panel-row--detail panel-row--active",
+            "box": [
+              89,
+              76,
+              371,
+              313
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "pane": [
+            43,
+            54,
+            475,
+            581
+          ],
+          "title": {
+            "t": "cubic-bézier",
+            "box": [
+              89,
+              76,
+              189,
+              79
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "32.928px/700 \"Plus Jakarta Sans\"",
+            "lh": "39.5136px"
+          },
+          "note": {
+            "t": "from ease-in-out",
+            "box": [
+              286,
+              93,
+              128,
+              46
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "back": {
+            "box": [
+              422,
+              96,
+              38,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "picker": {
+            "tag": "svg",
+            "cls": "block w-full touch-none select-none",
+            "box": [
+              102,
+              176,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "svgs": [
+            {
+              "vb": "0 -0.7 1 1.8",
+              "box": [
+                102,
+                176,
+                41,
+                200
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px",
+              "parent": {
+                "box": [
+                  89,
+                  163,
+                  67,
+                  226
+                ],
+                "radius": "16px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "18.608px/400 \"Plus Jakarta Sans\"",
+                "lh": "27.912px"
+              }
+            }
+          ],
+          "tabs": [],
+          "combos": [
+            {
+              "t": "Pick a curve",
+              "box": [
+                172,
+                193,
+                288,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "lh": "24.6px"
+            }
+          ],
+          "buttons": [
+            {
+              "t": "back to controls",
+              "box": [
+                422,
+                96,
+                38,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "lh": "18.04px"
+            },
+            {
+              "t": "Copy curve literal",
+              "box": [
+                419,
+                260,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px"
+            }
+          ],
+          "inputs": [],
+          "texts": [
+            {
+              "tag": "CODE",
+              "t": "cubic-bezier(0.42, 0, 0.216, 1.6)",
+              "box": [
+                185,
+                258,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "lh": "16px"
+            }
+          ],
+          "handles": 5,
+          "overflow": [
+            373,
+            371,
+            315,
+            313
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium gold-shimmer",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgba(0, 0, 0, 0)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": true,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "back to controls: fv=false outline=none/none",
+          "easingSelect": "cubic-bezier",
+          "crop": "04-handle-dragging-1440-light-crop.png"
+        },
+        {
+          "frame": "05-after-drag-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": {
+            "cls": "panel-row panel-row--detail panel-row--active",
+            "box": [
+              89,
+              76,
+              371,
+              313
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "pane": [
+            43,
+            54,
+            475,
+            581
+          ],
+          "title": {
+            "t": "cubic-bézier",
+            "box": [
+              89,
+              76,
+              189,
+              79
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "32.928px/700 \"Plus Jakarta Sans\"",
+            "lh": "39.5136px"
+          },
+          "note": {
+            "t": "from ease-in-out",
+            "box": [
+              286,
+              93,
+              128,
+              46
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "back": {
+            "box": [
+              422,
+              96,
+              38,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "picker": {
+            "tag": "svg",
+            "cls": "block w-full touch-none select-none",
+            "box": [
+              102,
+              176,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "svgs": [
+            {
+              "vb": "0 -0.7 1 1.8",
+              "box": [
+                102,
+                176,
+                41,
+                200
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px",
+              "parent": {
+                "box": [
+                  89,
+                  163,
+                  67,
+                  226
+                ],
+                "radius": "16px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "18.608px/400 \"Plus Jakarta Sans\"",
+                "lh": "27.912px"
+              }
+            }
+          ],
+          "tabs": [],
+          "combos": [
+            {
+              "t": "Pick a curve",
+              "box": [
+                172,
+                193,
+                288,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "lh": "24.6px"
+            }
+          ],
+          "buttons": [
+            {
+              "t": "back to controls",
+              "box": [
+                422,
+                96,
+                38,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "lh": "18.04px"
+            },
+            {
+              "t": "Copy curve literal",
+              "box": [
+                419,
+                260,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px"
+            }
+          ],
+          "inputs": [],
+          "texts": [
+            {
+              "tag": "CODE",
+              "t": "cubic-bezier(0.42, 0, 0.216, 1.6)",
+              "box": [
+                185,
+                258,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "lh": "16px"
+            }
+          ],
+          "handles": 5,
+          "overflow": [
+            373,
+            371,
+            315,
+            313
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium gold-shimmer",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgba(0, 0, 0, 0)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": true,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "back to controls: fv=false outline=none/none",
+          "easingSelect": "cubic-bezier",
+          "crop": "05-after-drag-1440-light-crop.png"
+        },
+        {
+          "frame": "07-back-focus-visible-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": {
+            "cls": "panel-row panel-row--detail panel-row--active",
+            "box": [
+              89,
+              76,
+              371,
+              313
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "pane": [
+            43,
+            54,
+            475,
+            581
+          ],
+          "title": {
+            "t": "cubic-bézier",
+            "box": [
+              89,
+              76,
+              189,
+              79
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "32.928px/700 \"Plus Jakarta Sans\"",
+            "lh": "39.5136px"
+          },
+          "note": {
+            "t": "from ease-in-out",
+            "box": [
+              286,
+              93,
+              128,
+              46
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "back": {
+            "box": [
+              422,
+              96,
+              38,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "picker": {
+            "tag": "svg",
+            "cls": "block w-full touch-none select-none",
+            "box": [
+              102,
+              176,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "svgs": [
+            {
+              "vb": "0 -0.7 1 1.8",
+              "box": [
+                102,
+                176,
+                41,
+                200
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px",
+              "parent": {
+                "box": [
+                  89,
+                  163,
+                  67,
+                  226
+                ],
+                "radius": "16px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "18.608px/400 \"Plus Jakarta Sans\"",
+                "lh": "27.912px"
+              }
+            }
+          ],
+          "tabs": [],
+          "combos": [
+            {
+              "t": "Pick a curve",
+              "box": [
+                172,
+                193,
+                288,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "lh": "24.6px"
+            }
+          ],
+          "buttons": [
+            {
+              "t": "back to controls",
+              "box": [
+                422,
+                96,
+                38,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "lh": "18.04px"
+            },
+            {
+              "t": "Copy curve literal",
+              "box": [
+                419,
+                260,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px"
+            }
+          ],
+          "inputs": [],
+          "texts": [
+            {
+              "tag": "CODE",
+              "t": "cubic-bezier(0.42, 0, 0.216, 1.6)",
+              "box": [
+                185,
+                258,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "lh": "16px"
+            }
+          ],
+          "handles": 5,
+          "overflow": [
+            373,
+            371,
+            315,
+            313
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium gold-shimmer",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgba(0, 0, 0, 0)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": true,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "back to controls: fv=true outline=none/none",
+          "easingSelect": "cubic-bezier",
+          "crop": "07-back-focus-visible-1440-light-crop.png"
+        },
+        {
+          "frame": "08-returned-to-controls-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": null,
+          "pane": [
+            43,
+            54,
+            475,
+            632
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium gold-shimmer",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgba(0, 0, 0, 0)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": false,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "Edit easing curve: fv=true outline=none/none",
+          "easingSelect": "cubic-bezier",
+          "crop": "08-returned-to-controls-1440-light-crop.png"
+        },
+        {
+          "frame": "09-reopen-literal-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": {
+            "cls": "panel-row panel-row--detail panel-row--active",
+            "box": [
+              89,
+              76,
+              371,
+              274
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "pane": [
+            43,
+            54,
+            475,
+            542
+          ],
+          "title": {
+            "t": "cubic-bézier",
+            "box": [
+              89,
+              76,
+              199,
+              40
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "32.928px/700 \"Plus Jakarta Sans\"",
+            "lh": "39.5136px"
+          },
+          "note": null,
+          "back": {
+            "box": [
+              420,
+              76,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "picker": {
+            "tag": "svg",
+            "cls": "block w-full touch-none select-none",
+            "box": [
+              102,
+              137,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "svgs": [
+            {
+              "vb": "0 -0.7 1 1.8",
+              "box": [
+                102,
+                137,
+                41,
+                200
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px",
+              "parent": {
+                "box": [
+                  89,
+                  124,
+                  67,
+                  226
+                ],
+                "radius": "16px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "18.608px/400 \"Plus Jakarta Sans\"",
+                "lh": "27.912px"
+              }
+            }
+          ],
+          "tabs": [],
+          "combos": [
+            {
+              "t": "Pick a curve",
+              "box": [
+                172,
+                154,
+                288,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "lh": "24.6px"
+            }
+          ],
+          "buttons": [
+            {
+              "t": "back to controls",
+              "box": [
+                420,
+                76,
+                40,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "lh": "18.04px"
+            },
+            {
+              "t": "Copy curve literal",
+              "box": [
+                419,
+                221,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px"
+            }
+          ],
+          "inputs": [],
+          "texts": [
+            {
+              "tag": "CODE",
+              "t": "cubic-bezier(0.42, 0, 0.216, 1.6)",
+              "box": [
+                185,
+                219,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "lh": "16px"
+            }
+          ],
+          "handles": 5,
+          "overflow": [
+            373,
+            371,
+            276,
+            274
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium gold-shimmer",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgba(0, 0, 0, 0)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": true,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "back to controls: fv=true outline=none/none",
+          "easingSelect": "cubic-bezier",
+          "crop": "09-reopen-literal-1440-light-crop.png"
+        },
+        {
+          "frame": "10-departure-engine-native-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 2
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "row": {
+            "cls": "panel-row panel-row--detail panel-row--active",
+            "box": [
+              89,
+              76,
+              371,
+              313
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "pane": [
+            43,
+            54,
+            475,
+            581
+          ],
+          "title": {
+            "t": "cubic-bézier",
+            "box": [
+              89,
+              76,
+              105,
+              79
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "32.928px/700 \"Plus Jakarta Sans\"",
+            "lh": "39.5136px"
+          },
+          "note": {
+            "t": "departing from ease-in-bounce — engine-native, no cubic-bezier reproduces it",
+            "box": [
+              202,
+              81,
+              230,
+              69
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/400 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "back": {
+            "box": [
+              440,
+              96,
+              20,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "picker": {
+            "tag": "svg",
+            "cls": "block w-full touch-none select-none",
+            "box": [
+              102,
+              176,
+              41,
+              200
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\"",
+            "lh": "27.912px"
+          },
+          "svgs": [
+            {
+              "vb": "0 -0.7 1 1.8",
+              "box": [
+                102,
+                176,
+                41,
+                200
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px",
+              "parent": {
+                "box": [
+                  89,
+                  163,
+                  67,
+                  226
+                ],
+                "radius": "16px",
+                "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+                "color": "rgb(28, 25, 23)",
+                "font": "18.608px/400 \"Plus Jakarta Sans\"",
+                "lh": "27.912px"
+              }
+            }
+          ],
+          "tabs": [],
+          "combos": [
+            {
+              "t": "Pick a curve",
+              "box": [
+                172,
+                193,
+                288,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/400 \"Plus Jakarta Sans\"",
+              "lh": "24.6px"
+            }
+          ],
+          "buttons": [
+            {
+              "t": "back to controls",
+              "box": [
+                440,
+                96,
+                20,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500 \"Plus Jakarta Sans\"",
+              "lh": "18.04px"
+            },
+            {
+              "t": "Copy curve literal",
+              "box": [
+                419,
+                260,
+                28,
+                28
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(112, 89, 66)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\"",
+              "lh": "27.912px"
+            }
+          ],
+          "inputs": [],
+          "texts": [
+            {
+              "tag": "CODE",
+              "t": "cubic-bezier(0.42, 0, 0.216, 1.6)",
+              "box": [
+                185,
+                258,
+                226,
+                32
+              ],
+              "radius": "0px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(28, 25, 23)",
+              "font": "12px/400 \"Fira Code\"",
+              "lh": "16px"
+            }
+          ],
+          "handles": 5,
+          "overflow": [
+            373,
+            371,
+            315,
+            313
+          ],
+          "easingLabel": {
+            "cls": "text-small font-medium text-muted-foreground",
+            "box": [
+              89,
+              305,
+              52,
+              23
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "22.96px"
+          },
+          "pencil": {
+            "inert": true,
+            "box": [
+              147,
+              296,
+              40,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(112, 89, 66)",
+            "font": "16.4px/500 \"Plus Jakarta Sans\"",
+            "lh": "18.04px"
+          },
+          "focus": "back to controls: fv=false outline=none/none",
+          "easingSelect": "ease-in-bounce",
+          "crop": "10-departure-engine-native-1440-light-crop.png"
+        }
+      ],
+      "notes": {
+        "handleCount": 4,
+        "steps": "no visible steps tab/radio in the picker",
+        "departName": "ease-in-bouncebouncing ramp up"
+      },
+      "errs": [
+        "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  ]
+}

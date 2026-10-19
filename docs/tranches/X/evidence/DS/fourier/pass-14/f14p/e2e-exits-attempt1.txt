@@ -1,0 +1,16 @@
+runA exit 124
+ M e2e/screenshots/f-w14/after-page-equation-390.png
+ M e2e/screenshots/f-w14/after-page-gallery-1440.png
+ M e2e/screenshots/f-w14/after-page-gallery-390.png
+ M e2e/screenshots/f-w14/after-page-home-1440.png
+ M e2e/screenshots/f-w14/after-page-home-390.png
+ M e2e/screenshots/f-w14/after-page-image-390.png
+ M e2e/screenshots/f-w14/after-page-morph-390.png
+ M e2e/screenshots/f-w14/after-page-paper-1440.png
+ M e2e/screenshots/f-w14/after-page-paper-390.png
+runB exit 143
+ M e2e/screenshots/f-w14/after-page-equation-1440.png
+ M e2e/screenshots/f-w14/after-page-gallery-1440.png
+ M e2e/screenshots/f-w14/after-page-home-1440.png
+ M e2e/screenshots/f-w14/after-page-morph-1440.png
+ M e2e/screenshots/f-w14/after-page-paper-1440.png

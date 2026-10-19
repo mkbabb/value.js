@@ -1,0 +1,37 @@
+{
+ "note": "G-large sheets, frozen by bench/paired/sheets.mjs",
+ "sheets": [
+  {
+   "file": "value-js-index.css",
+   "bytes": 523625,
+   "sha256": "a8d3a05e60ac837c260a0ebf5337a1ef2ce9ec8b9a9be7ea48e0d0d400724a82",
+   "source": "value.js/dist/gh-pages/assets/index-CZXbJctU.css",
+   "repo": "value.js",
+   "at": "0b64d20cbca1d110f82675196ebd81863af95afa"
+  },
+  {
+   "file": "keyframes-js-index.css",
+   "bytes": 573524,
+   "sha256": "1c927be96f3642ed79889191a85a35c20551264995e8bfe074f9831caba74cb9",
+   "source": "keyframes.js/dist/gh-pages/assets/index-BhLkXLbq.css",
+   "repo": "keyframes.js",
+   "at": "e11db5a12052865fec7ca38f334392057372241d"
+  },
+  {
+   "file": "keyframes-js-vendor-monaco.css",
+   "bytes": 74442,
+   "sha256": "762e688ae7beb5581acf0da7f3947c5ce0e98ff6868629ff0ed18d891a36a2c9",
+   "source": "keyframes.js/dist/gh-pages/assets/vendor-monaco-C5uazxST.css",
+   "repo": "keyframes.js",
+   "at": "e11db5a12052865fec7ca38f334392057372241d"
+  },
+  {
+   "file": "wpt-bulma-0.7.5.css",
+   "bytes": 225289,
+   "sha256": "ba313f65407a08c666c894a04235c6085e2c4519de3a2990a650552eef0e539c",
+   "source": "https://raw.githubusercontent.com/web-platform-tests/wpt/84daed4ae966d9624bed22f43587c79283ad1fea/tools/wave/www/css/bulma-0.7.5/bulma.css",
+   "repo": "web-platform-tests/wpt",
+   "at": "84daed4ae966d9624bed22f43587c79283ad1fea"
+  }
+ ]
+}

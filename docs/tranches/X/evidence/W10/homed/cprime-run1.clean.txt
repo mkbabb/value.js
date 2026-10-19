@@ -1,0 +1,520 @@
+SERVED MODEL: claude-opus-5-5
+(node:94369) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:94420) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 44 tests using 1 worker
+
+(node:94456) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:484:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:484:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[U-F12 BOOKED] dock icon 1.17:1 on live dock chrome rgb(186 186 186) (light) — mid-tint muddiness, not the accent re-guard's floor
+
+[2/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:484:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)
+[3/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:638:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[4/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+[5/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:767:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[6/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:801:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[7/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:638:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2)
+[8/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)
+  1) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 5.75
+    Received:    5.74
+
+      762 |                 nameRow!.ratio,
+      763 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 764 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      765 |         });
+      766 |
+      767 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:764:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md
+
+
+(node:95971) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[9/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:767:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)
+[10/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:801:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof)
+[11/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:895:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[12/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:913:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung)
+[13/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:939:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[14/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:895:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1
+[15/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:913:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung)
+[16/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:939:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1
+[17/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+  2) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.037180607112331766
+    Received:    0.006968179459289377
+
+      1016 |                 accent.C,
+      1017 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+    > 1018 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+           |               ^
+      1019 |
+      1020 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
+      1021 |             //     space trigger wears `--space-title-ink` = the safe accent at
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1018:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md
+
+
+(node:96622) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[18/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1047:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[19/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1091:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[20/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35)
+[21/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1047:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)
+[22/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1091:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11)
+[23/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1182:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[24/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1182:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)
+[25/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1)
+  3) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(109 109 109) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.2), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 4.5
+    Received:    1
+
+      1317 |                 row!.ratio,
+      1318 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1319 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1320 |         });
+      1321 |
+      1322 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1319:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/error-context.md
+
+
+(node:97422) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[26/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+  4) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   "Copy slug: not measurable",
+    +   "Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",
+    +   "Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",
+    +   "Regenerate slug: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",
+    + ]
+
+      1360 |                 failures,
+      1361 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1362 |             ).toEqual([]);
+           |               ^
+      1363 |         });
+      1364 |     });
+      1365 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/error-context.md
+
+
+(node:97732) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[27/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1)
+[28/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3)
+  5) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   "Copy slug: not measurable",
+    +   "Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",
+    +   "Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",
+    +   "Regenerate slug: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",
+    + ]
+
+      1360 |                 failures,
+      1361 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1362 |             ).toEqual([]);
+           |               ^
+      1363 |         });
+      1364 |     });
+      1365 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1362:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/error-context.md
+
+
+(node:98163) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[29/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1384:9 › O-18 census · V15-01 the featured badge (light) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[30/44] [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1384:9 › O-18 census · V15-01 the featured badge (dark) › the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold
+[31/44] [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light
+  6) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 59
+    Received:    4.647000000000006
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/error-context.md
+
+
+(node:98952) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[32/44] [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark
+  7) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 45
+    Received:    3.2860000000000014
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/error-context.md
+
+
+(node:99710) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[33/44] [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light
+  8) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 59
+    Received:    15.6588
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/error-context.md
+
+
+(node:1191) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[34/44] [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark
+  9) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 45
+    Received:    12.200800000000015
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/error-context.md
+
+
+(node:2670) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[35/44] [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:104:1 › the recalibrated register's computed tokens hold (the named-knob tripwire)
+[36/44] [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+[smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+X.W6.f f4 CENSUS — 0/18 captions overflow
+  box (narrowest clientWidth): 76px
+  worst scrollWidth: 388px (46 chars, "color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)")
+  per-character advance: 8.435px
+  caption type: font-size 14.048px letter-spacing normal
+  fits  329/329 px  39ch  color(srgb 1.511 0.5623 0.7829 / 82.7%)
+  fits  278/278 px  33ch  hsl(346deg -1295% 103.7% / 82.7%)
+  fits  219/219 px  26ch  hsv · 346 · 0.6279 · 1.511
+  fits  278/278 px  33ch  hwb(346deg 56.23% -51.1% / 82.7%)
+  fits  202/202 px  24ch  lab(92% 88.8 20 / 82.7%)
+  fits  261/261 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  295/295 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  312/312 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  320/320 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  110/110 px  13ch  kelvin · 5309
+  fits  379/379 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  379/379 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  354/354 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  388/388 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  345/345 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  270/270 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  278/278 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   76/76 px   9ch  #ff8fc8d3
+
+[37/44] [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+[smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)
+  rgb           css       MARKED    color(srgb 1.511 0.5623 0.7829 / 82.7%)
+  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)
+  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511
+  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)
+  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)
+  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)
+  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  kelvin        channels  in-gamut  kelvin · 5309
+  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739
+  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428
+  hex           css       MARKED    #ff8fc8d3
+
+  10) [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+
+    Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.006482236542402211
+    Received:    12.951521561243181
+
+      293 |                 Math.abs(channel - truth),
+      294 |                 `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,
+    > 295 |             ).toBeLessThanOrEqual(policyResolution(truth));
+          |               ^
+      296 |         });
+      297 |
+      298 |         // (ii)(c) the same claim in Lab, against the measured bound
+        at forEach (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:295:15)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:288:31
+
+    Error Context: test-results/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/error-context.md
+
+
+(node:3377) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[38/44] [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s
+[smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s
+[O-26] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) (software-GL — CSS placeholder still; authoritative read is the O-3 headed annex)
+
+[O-26] calm 2s glance diff = 0.000/255
+
+[O-26] 10s migration diff (max pairwise) = 0.000/255 (need ≥ 4)
+
+  11) [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s 
+
+    Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 4
+    Received:    0.00033741694352159467
+
+      108 |         migration,
+      109 |         `aurora field does not migrate perceptibly over 10s (${migration.toFixed(3)} < ${MIGRATION_MIN}/255) — the T-25/T-26 still, cured at W2-5`,
+    > 110 |     ).toBeGreaterThanOrEqual(MIGRATION_MIN);
+          |       ^
+      111 | });
+      112 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:110:7
+
+    Error Context: test-results/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/error-context.md
+
+
+(node:4190) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[39/44] [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+[smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+oklch(0.62 0.2 30): first-paint 608ms, ground at paint [#a73581 #e54562 #ff7929 #ffb431] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.0000; settled vs unseeded max 0.1845
+
+oklch(0.62 0.2 150): first-paint 48ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.2933; settled vs unseeded max 0.3699
+
+oklch(0.62 0.2 260): first-paint 44ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.2433; settled vs unseeded max 0.2938
+
+  12) [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.02
+    Received:    0.29330989323473755
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.02
+    Received:    0.24326322147615295
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error Context: test-results/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/error-context.md
+
+
+(node:4863) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[40/44] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:83:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:83:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)
+[blob-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=102 frames=102 p50=31.8ms
+
+[41/44] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:121:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:121:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[blob-idle-cost] PRM window=3000ms draws=0 frames=365
+
+[42/44] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 356.26 · ΔC -0.02105 (stated ±0.04) · px 2324
+
+[43/44] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.6175 C 0.13773 h 140.41 · ΔC -0.04128 (stated ±0.04) · px 2324
+
+  13) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.13773 vs the gamut-mapped current chroma 0.17901
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.04
+    Received:    0.04128188382449824
+
+      288 |             Math.abs(paintedC - targetC),
+      289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      291 |     });
+      292 | }
+      293 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+
+(node:7002) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[44/44] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.5633 C 0.17680 h 318.67 · ΔC -0.07644 (stated ±0.04) · px 2324
+
+  14) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.17680 vs the gamut-mapped current chroma 0.25325
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.04
+    Received:    0.07644404197596325
+
+      288 |             Math.abs(paintedC - targetC),
+      289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      291 |     });
+      292 | }
+      293 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:290:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+
+  14 failed
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+    [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+    [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s 
+    [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+  30 passed (4.5m)
+EXIT 1

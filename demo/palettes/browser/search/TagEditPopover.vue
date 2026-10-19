@@ -1,15 +1,33 @@
 <template>
     <Popover :open="open" @update:open="$emit('update:open', $event)">
-        <PopoverTrigger as-child>
+        <!-- UIA-V-28 · A2-VA-X-4: a host that opens the editor from elsewhere
+             (a card menu, the inspector, a dock seat) passes the element it
+             belongs to; the content places against it. A PopoverContent with
+             neither a trigger nor an anchor resolved against a null reference
+             and painted at the viewport's corner, or above it. -->
+        <PopoverAnchor v-if="anchor" :reference="anchor" />
+        <PopoverTrigger v-else as-child>
             <slot name="trigger" />
         </PopoverTrigger>
-        <PopoverContent align="start" class="w-52 p-0">
-            <div class="px-3 py-2">
-                <div class="section-label mb-2">Tags</div>
+        <!-- UIA-V-565: the glass overlay pad and width, not a p-0/w-52 override.
+             UIA-V-566: the editor is named for its palette. -->
+        <PopoverContent align="start" :aria-label="`Tags of ${paletteName}`">
+            <div>
+                <Label class="block mb-2 truncate">Tags · {{ paletteName }}</Label>
 
                 <!-- Loading -->
                 <div v-if="tagEdit.loading.value" class="flex items-center justify-center py-4">
                     <Loader2 class="h-4 w-4 animate-spin text-muted-foreground" />
+                </div>
+
+                <!-- X.W12U.s2 · UIA-V-124: an unreachable catalog is not an empty
+                     one — the failure is said, with a Retry, and the save-error
+                     line below is left to save failures. -->
+                <div v-else-if="catalogFailed" class="flex flex-col items-start gap-2 py-1">
+                    <p role="alert" class="text-caption text-destructive">
+                        {{ tagEdit.error.value }}
+                    </p>
+                    <Button size="xs" @click="tagEdit.loadAllTags(true)">Retry</Button>
                 </div>
 
                 <!-- Empty -->
@@ -17,39 +35,46 @@
                     No tags available.
                 </div>
 
-                <!-- Tag checkboxes -->
-                <div v-else class="flex flex-col gap-0.5 max-h-40 overflow-y-auto scrollbar-thin">
-                    <label
-                        v-for="tag in tagEdit.allTags.value"
-                        :key="tag.name"
-                        class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors"
-                    >
-                        <Checkbox
-                            :checked="currentTags.includes(tag.name)"
-                            @update:checked="(checked: boolean) => onToggle(tag.name, checked)"
-                            class="shrink-0"
-                        />
-                        <span class="truncate">{{ tag.name }}</span>
-                        <span class="text-mono-caption text-muted-foreground ml-auto shrink-0">{{ tag.category }}</span>
-                    </label>
-                </div>
+                <!-- The one tag chooser (UIA-V-125), grouped by category; every
+                     chip is inert while a save is in flight (UIA-V-318). -->
+                <TagChipSet
+                    v-else
+                    :label="`Tags of ${paletteName}`"
+                    :tags="tagEdit.allTags.value"
+                    :selected="currentTags"
+                    :disabled="saving"
+                    @toggle="onToggle"
+                />
+
+                <p
+                    v-if="tagEdit.error.value && !catalogFailed"
+                    role="alert"
+                    class="mt-2 text-caption text-destructive"
+                >
+                    {{ tagEdit.error.value }}
+                </p>
             </div>
         </PopoverContent>
     </Popover>
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, watch } from "vue";
-import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
-import { Checkbox } from "../../../ui/checkbox";
+import { computed, inject, onDeactivated, onMounted, ref, watch } from "vue";
+import { Popover, PopoverContent, PopoverTrigger } from "@mkbabb/glass-ui/popover";
+import { PopoverAnchor } from "reka-ui";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Label } from "@mkbabb/glass-ui/label";
+import TagChipSet from "./TagChipSet.vue";
 import { Loader2 } from "@lucide/vue";
 import { paletteETag } from "../../api";
 import { BROWSE_PORT_KEY } from "../../usePalettePorts";
 
-const { open, paletteSlug, currentTags } = defineProps<{
+const { open, paletteSlug, currentTags, anchor = null } = defineProps<{
     open: boolean;
     paletteSlug: string;
     currentTags: string[];
+    /** The element the editor belongs to, when it has no trigger slot. */
+    anchor?: HTMLElement | null;
 }>();
 
 const emit = defineEmits<{
@@ -57,11 +82,30 @@ const emit = defineEmits<{
     "update:tags": [tags: string[]];
 }>();
 
+// A2-VA-L2-11 — a popup never outlives its pane (shell/usePanePopups.ts): close on deactivate.
+onDeactivated(() => {
+    if (open) emit("update:open", false);
+});
+
 // D.W3 Lane B: route through pm.tagEdit sub-object (was: direct getTags/updatePalette)
 const pm = inject(BROWSE_PORT_KEY)!;
 const tagEdit = pm.tagEdit;
 
+/** The catalog never arrived: the error is the load's, not a save's. */
+const catalogFailed = computed(
+    () => !tagEdit.loaded.value && tagEdit.error.value !== null,
+);
+
+/** The palette being tagged, named in the editor (UIA-V-566). */
+const paletteName = computed(
+    () => pm.remotePalettes.value.find((p) => p.slug === paletteSlug)?.name ?? paletteSlug,
+);
+
+/** One save at a time (UIA-V-318): the chips hold still until the server answers. */
+const saving = ref(false);
+
 async function onToggle(name: string, checked: boolean) {
+    if (saving.value) return;
     const updated = checked
         ? [...currentTags, name]
         : currentTags.filter((t) => t !== name);
@@ -73,8 +117,15 @@ async function onToggle(name: string, checked: boolean) {
     const source = pm.remotePalettes.value.find((p) => p.slug === paletteSlug);
     const ifMatch = source ? paletteETag(source) : undefined;
 
-    emit("update:tags", updated);
-    await tagEdit.saveTags(paletteSlug, updated, ifMatch);
+    // X.W12.u1 (UIA-V-35): the card's tags change only after the server keeps
+    // them — a refused or failed save leaves the card and the checkbox as they
+    // were, and says why beside the list.
+    // `saveTags` settles a verdict (the palette, or `undefined` with the reason
+    // on `tagEdit.error`); it does not throw.
+    saving.value = true;
+    const saved = await tagEdit.saveTags(paletteSlug, updated, ifMatch);
+    saving.value = false;
+    if (saved) emit("update:tags", saved.tags ?? updated);
 }
 
 watch(() => open, (isOpen) => {

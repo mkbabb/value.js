@@ -1,0 +1,392 @@
+SERVED MODEL: claude-opus-5-5
+==   span=33.6s actions=123 pendingAtEnd=0
+  +17.4s Test.expect  dur=0.0s ERR Error: sub-24×24 interactive targets (fine pointer)
+==   span=21.3s actions=41 pendingAtEnd=0
+  +10.4s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +10.4s Frame.expect internal:role=combobox[name="Select view"i] dur=8.0s ERR Expect failed
+==   span=33.8s actions=30 pendingAtEnd=0
+  +2.6s Test.pw:api v => Array.from(document.querySelectorAl dur=30.0s ERR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+  +2.6s Frame.waitForFunction v => Array.from(document.querySelectorAl dur=30.0s ERR Timeout 30000ms exceeded.
+==   span=36.9s actions=32 pendingAtEnd=0
+  +3.2s Test.pw:api v => Array.from(document.querySelectorAl dur=30.0s ERR TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+  +3.2s Frame.waitForFunction v => Array.from(document.querySelectorAl dur=30.0s ERR Timeout 30000ms exceeded.
+==   span=23.5s actions=45 pendingAtEnd=0
+  +14.9s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +14.9s Frame.expect internal:role=combobox[name="Select view"i] dur=8.0s ERR Expect failed
+==   span=56.5s actions=53 pendingAtEnd=0
+  +18.3s Test.expect  dur=0.0s ERR Error: the propose submission never reached the network
+  +18.4s Test.expect  dur=0.0s ERR Error: the propose submission never reached the network
+  +18.6s Test.expect  dur=0.0s ERR Error: the propose submission never reached the network
+  +19.1s Test.expect  dur=0.0s ERR Error: the propose submission never reached the network
+==   span=34.6s actions=730 pendingAtEnd=1
+  +22.2s Test.pw:api main[aria-labelledby="route-title"]:has(> h1#route-title) >> .add-slot dur=10.5s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +22.2s PENDING Frame.click main[aria-labelledby="route-title"]:has(> h1#route-title) >> .add-slot
+==   span=40.7s actions=30 pendingAtEnd=1
+  +11.3s Test.pw:api internal:role=navigation[name="Application navigation"i] >> internal:r dur=18.8s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +11.3s PENDING Frame.click internal:role=navigation[name="Application navigation"i] >> internal:r
+==   span=182.6s actions=196 pendingAtEnd=1
+  +176.9s PENDING Frame.click [role="option"] >> nth=16
+==   span=5.1s actions=25 pendingAtEnd=0
+  +3.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.7s Frame.expect .pane-shell .space-trigger dur=0.0s ERR Expect failed
+==   span=6.5s actions=766 pendingAtEnd=0
+  +5.8s Test.expect  dur=0.0s ERR Error: sm:line-clamp-1 not active at desktop
+==   span=21.0s actions=757 pendingAtEnd=0
+  +19.2s Test.expect  dur=0.0s ERR Error: line-clamp-2 not active <sm
+==   span=11.2s actions=38 pendingAtEnd=0
+  +10.4s Test.expect  dur=0.0s ERR Error: layout track not flat under scroll scrub (6 Layout events)
+==   span=35.5s actions=36 pendingAtEnd=1
+  +25.6s Test.expect  dur=7.6s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +25.6s PENDING Frame.expect .add-slot-ghost >> nth=0
+==   span=33.2s actions=36 pendingAtEnd=1
+  +21.8s Test.pw:api internal:role=combobox[name="Color space"s] dur=9.2s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +21.8s PENDING Frame.click internal:role=combobox[name="Color space"s]
+==   span=32.4s actions=52 pendingAtEnd=1
+  +6.6s Test.pw:api internal:role=combobox[name="Select view"i] dur=24.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +6.6s PENDING Frame.click internal:role=combobox[name="Select view"i]
+==   span=34.1s actions=36 pendingAtEnd=1
+  +26.9s Test.expect  dur=4.7s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +26.9s PENDING Frame.expect .add-slot-ghost >> nth=0
+==   span=15.3s actions=44 pendingAtEnd=0
+  +13.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Obje
+==   span=12.8s actions=32 pendingAtEnd=0
+  +11.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=29.1s actions=35 pendingAtEnd=0
+  +17.9s Test.expect  dur=8.9s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +17.9s Frame.expect .add-slot-ghost >> nth=0 dur=8.0s ERR Expect failed
+==   span=33.0s actions=35 pendingAtEnd=0
+  +19.8s Test.expect  dur=10.3s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +19.8s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> button.in dur=8.0s ERR Expect failed
+==   span=26.4s actions=49 pendingAtEnd=0
+  +23.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +23.9s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+==   span=37.8s actions=37 pendingAtEnd=0
+  +22.2s Test.expect  dur=10.2s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+==   span=14.6s actions=676 pendingAtEnd=0
+  +13.9s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+==   span=3.9s actions=654 pendingAtEnd=0
+  +3.2s Test.expect  dur=0.0s ERR Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.2), stack []. --color-gol
+==   span=12.5s actions=672 pendingAtEnd=0
+  +8.9s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+==   span=3.5s actions=652 pendingAtEnd=0
+  +2.6s Test.expect  dur=0.0s ERR Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.
+==   span=8.3s actions=662 pendingAtEnd=0
+  +7.8s Test.expect  dur=0.0s ERR Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [
+==   span=31.0s actions=80 pendingAtEnd=0
+  +14.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +14.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +15.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +15.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=31.8s actions=60 pendingAtEnd=0
+  +23.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +23.4s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +23.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +25.4s Test.expect  dur=4.9s ERR Error: Test timeout of 30000ms exceeded
+==   span=30.1s actions=100 pendingAtEnd=0
+  +16.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +17.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +17.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +17.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=31.3s actions=88 pendingAtEnd=0
+  +17.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +17.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +18.1s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +18.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=30.3s actions=36 pendingAtEnd=1
+  +3.5s Test.pw:api internal:role=combobox[name="Generation preset"i] dur=26.6s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +3.5s PENDING Frame.click internal:role=combobox[name="Generation preset"i]
+==   span=21.4s actions=37 pendingAtEnd=0
+  +2.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=10.9s actions=27 pendingAtEnd=0
+  +0.7s Test.expect  dur=10.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +0.7s Frame.expect .dock-status-lamp dur=10.0s ERR Expect failed
+  err: Failed to load resource: net::ERR_CONNECTION_REFUSED
+==   span=7.5s actions=53 pendingAtEnd=0
+  +6.0s Test.expect  dur=0.0s ERR Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+==   span=20.7s actions=57 pendingAtEnd=0
+  +20.1s Test.expect  dur=0.0s ERR Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5
+==   span=4.4s actions=56 pendingAtEnd=0
+  +2.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +2.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +2.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +3.1s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=9.9s actions=35 pendingAtEnd=0
+  +1.3s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +1.3s Frame.expect internal:role=option[name="Picker"s] dur=8.0s ERR Expect failed
+==   span=21.7s actions=70 pendingAtEnd=0
+  +11.0s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one
+  +15.8s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+  +20.7s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+==   span=5.7s actions=49 pendingAtEnd=0
+  +0.8s Test.expect  dur=0.0s ERR Error: the region never settled
+  +0.9s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=7.0s actions=43 pendingAtEnd=0
+  +3.9s Test.expect  dur=0.0s ERR Error: the region never settled
+  +4.0s Test.expect  dur=0.0s ERR Error: the region never settled
+  +4.2s Test.expect  dur=0.0s ERR Error: the region never settled
+  +4.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=29.5s actions=259 pendingAtEnd=0
+  +3.4s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +3.4s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+  +3.4s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +3.4s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+==   span=54.9s actions=256 pendingAtEnd=0
+  +2.9s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +2.9s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+  +2.9s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +2.9s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+==   span=1.5s actions=30 pendingAtEnd=0
+  +1.1s Test.expect  dur=0.0s ERR Error: 390 (light): a card off rung-1
+==   span=30.4s actions=720 pendingAtEnd=1
+  +4.7s Test.pw:api internal:role=dialog >> internal:role=checkbox >> nth=0 dur=25.5s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +4.7s PENDING Frame.click internal:role=dialog >> internal:role=checkbox >> nth=0
+==   span=16.6s actions=759 pendingAtEnd=0
+  +7.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +7.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +7.4s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +8.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=31.6s actions=66 pendingAtEnd=1
+  +2.7s Test.pw:api internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains dur=27.6s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.7s PENDING Frame.click internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains
+==   span=19.8s actions=52 pendingAtEnd=0
+  +17.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=29.7s actions=52 pendingAtEnd=0
+  +28.4s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=14.1s actions=50 pendingAtEnd=0
+  +12.1s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=5.7s actions=72 pendingAtEnd=0
+  +1.5s Test.expect  dur=0.0s ERR Error: the page never finished arriving
+  +1.6s Test.expect  dur=0.0s ERR Error: the page never finished arriving
+  +1.9s Test.expect  dur=0.0s ERR Error: the page never finished arriving
+  +5.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+==   span=3.2s actions=57 pendingAtEnd=0
+  +1.5s Test.expect  dur=0.0s ERR Error: the region never settled
+  +1.7s Test.expect  dur=0.0s ERR Error: the region never settled
+  +1.9s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.1s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=3.7s actions=60 pendingAtEnd=0
+  +1.7s Test.expect  dur=0.0s ERR Error: the region never settled
+  +1.8s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.1s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.2s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=3.1s actions=57 pendingAtEnd=0
+  +1.4s Test.expect  dur=0.0s ERR Error: the region never settled
+  +1.5s Test.expect  dur=0.0s ERR Error: the region never settled
+  +1.8s Test.expect  dur=0.0s ERR Error: the region never settled
+  +1.9s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=7.7s actions=62 pendingAtEnd=0
+  +7.5s Test.expect  dur=0.0s ERR Error: the focus-visible frame is a keyboard focus
+==   span=36.2s actions=172 pendingAtEnd=0
+  +31.7s Test.expect  dur=0.0s ERR Error: surface: collector dead
+==   span=22.3s actions=272 pendingAtEnd=0
+  +21.2s Test.expect  dur=0.0s ERR Error: surface: collector dead
+==   span=25.1s actions=903 pendingAtEnd=0
+  +16.7s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +16.7s Frame.expect internal:role=main >> internal:role=combobox[name="Generation preset"i dur=8.0s ERR Expect failed
+==   span=10.9s actions=29 pendingAtEnd=0
+  +2.0s Test.expect  dur=8.1s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+  +2.0s Frame.expect internal:testid=[data-testid="goo-blob-canvas"s] >> nth=-1 dur=8.0s ERR Expect failed
+==   span=16.4s actions=37 pendingAtEnd=0
+  +16.0s Test.expect  dur=0.0s ERR Error: painted dominant chroma 0.17850 vs the gamut-mapped current chroma 0.25325
+==   span=11.7s actions=35 pendingAtEnd=0
+  +11.1s Test.expect  dur=0.0s ERR Error: painted dominant chroma 0.13874 vs the gamut-mapped current chroma 0.17901
+==   span=32.3s actions=26 pendingAtEnd=0
+  +0.8s Test.expect  dur=31.3s ERR Error: the loading plate shows on a slow chunk
+  +0.8s Frame.expect .pane-plate >> nth=0 dur=30.0s ERR Expect failed
+  err: WebGL: context lost.
+==   span=1.7s actions=23 pendingAtEnd=0
+  +1.3s Test.expect  dur=0.3s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +1.3s Frame.expect .pane-shell .space-trigger dur=0.3s ERR Expect failed
+==   span=30.7s actions=28 pendingAtEnd=1
+  +1.9s Test.pw:api internal:role=navigation[name="Application navigation"i] >> internal:r dur=28.8s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +1.9s PENDING Frame.click internal:role=navigation[name="Application navigation"i] >> internal:r
+==   span=3.9s actions=751 pendingAtEnd=0
+  +3.7s Test.expect  dur=0.0s ERR Error: line-clamp-2 not active <sm
+==   span=3.1s actions=760 pendingAtEnd=0
+  +2.9s Test.expect  dur=0.0s ERR Error: sm:line-clamp-1 not active at desktop
+==   span=2.3s actions=31 pendingAtEnd=0
+  +2.1s Test.pw:api  dur=0.0s ERR Error: browser.startTracing: Tracing is only available in Chromium
+==   span=3.2s actions=38 pendingAtEnd=0
+  +3.0s Test.expect  dur=0.0s ERR Error: PRM rest veil diverges from normal rest
+==   span=31.3s actions=52 pendingAtEnd=1
+  +3.2s Test.pw:api internal:role=combobox[name="Select view"i] dur=28.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +3.2s PENDING Frame.click internal:role=combobox[name="Select view"i]
+==   span=30.8s actions=50 pendingAtEnd=1
+  +2.2s Test.pw:api internal:role=combobox[name="Select view"i] dur=28.6s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.2s PENDING Frame.click internal:role=combobox[name="Select view"i]
+==   span=30.6s actions=64 pendingAtEnd=1
+  +2.4s Test.pw:api internal:role=combobox[name="Select view"i] dur=28.1s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.4s PENDING Frame.click internal:role=combobox[name="Select view"i]
+==   span=3.8s actions=110 pendingAtEnd=0
+  +3.4s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Obje
+==   span=2.8s actions=30 pendingAtEnd=0
+  +2.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=3.9s actions=47 pendingAtEnd=0
+  +3.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.6s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+==   span=4.9s actions=49 pendingAtEnd=0
+  +4.4s Test.expect  dur=0.1s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +4.4s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+==   span=4.4s actions=49 pendingAtEnd=0
+  +4.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +4.0s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+==   span=30.7s actions=614 pendingAtEnd=1
+  +17.3s Test.expect  dur=8.0s ERR Error: Timeout 8000ms exceeded while waiting on the predicate
+  +17.3s Test.pw:api t => getComputedStyle(document.documentE dur=13.4s ERR Error: page.evaluate: Test ended.
+  +17.3s PENDING Frame.evaluateExpression 
+  err: WebGL: context lost.
+==   span=2.2s actions=648 pendingAtEnd=0
+  +2.0s Test.expect  dur=0.0s ERR Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.
+==   span=3.2s actions=660 pendingAtEnd=0
+  +2.8s Test.expect  dur=0.0s ERR Error: component-name ink rgb(255 249 247) vs rgb(101 99 97) — raw oklch(0.985253 0.007203 31.584818) α 1 stac
+==   span=2.0s actions=650 pendingAtEnd=0
+  +1.7s Test.expect  dur=0.0s ERR Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.199997), stack []. --colo
+==   span=32.8s actions=607 pendingAtEnd=1
+  +32.7s Test.pw:api t => getComputedStyle(document.documentE dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +32.7s Test.expect  dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +17.7s PENDING Route.continue 
+  err: WebGL: context lost.
+==   span=32.8s actions=606 pendingAtEnd=2
+  +32.8s Test.pw:api t => getComputedStyle(document.documentE dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +32.8s Test.expect  dur=0.0s ERR Error: page.evaluate: Test timeout of 30000ms exceeded.
+  +2.7s PENDING Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title)
+  +17.7s PENDING Route.continue 
+==   span=2.9s actions=660 pendingAtEnd=0
+  +2.7s Test.expect  dur=0.0s ERR Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.584818) α 1 stack
+==   span=2.9s actions=672 pendingAtEnd=0
+  +2.7s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+==   span=3.8s actions=674 pendingAtEnd=0
+  +3.5s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+==   span=32.2s actions=28 pendingAtEnd=1
+  +32.0s Test.pw:api internal:role=combobox[name="Select view"i] dur=0.1s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +16.8s PENDING Frame.expect internal:role=combobox[name="Select view"i]
+  err: WebGL: context lost.
+==   span=32.6s actions=26 pendingAtEnd=1
+  +32.5s Test.expect  dur=0.1s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +2.4s PENDING Frame.queryCount .glass-dock.collapsed
+  err: WebGL: context lost.
+==   span=32.1s actions=29 pendingAtEnd=1
+  +17.0s Test.pw:api internal:role=combobox[name="Select view"i] dur=15.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +17.0s PENDING Frame.click internal:role=combobox[name="Select view"i]
+  err: WebGL: context lost.
+==   span=14.5s actions=71 pendingAtEnd=0
+  +3.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +3.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +6.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[2
+  +8.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[2
+==   span=31.4s actions=34 pendingAtEnd=1
+  +3.2s Test.pw:api internal:role=combobox[name="Generation preset"i] dur=28.2s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +3.2s PENDING Frame.click internal:role=combobox[name="Generation preset"i]
+==   span=2.5s actions=35 pendingAtEnd=0
+  +2.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=10.6s actions=31 pendingAtEnd=0
+  +0.5s Test.expect  dur=10.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +0.5s Frame.expect .dock-status-lamp dur=10.0s ERR Expect failed
+==   span=2.4s actions=51 pendingAtEnd=0
+  +2.2s Test.expect  dur=0.0s ERR Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+==   span=15.2s actions=365 pendingAtEnd=0
+  +6.5s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+  +6.5s Frame.expect [data-stop-id]:focus dur=8.0s ERR Expect failed
+==   span=16.7s actions=365 pendingAtEnd=0
+  +7.7s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+  +7.7s Frame.expect [data-stop-id]:focus dur=8.0s ERR Expect failed
+==   span=10.9s actions=35 pendingAtEnd=0
+  +2.6s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +2.6s Frame.expect internal:role=option[name="Picker"s] dur=8.0s ERR Expect failed
+==   span=3.9s actions=44 pendingAtEnd=0
+  +3.5s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+==   span=32.4s actions=30 pendingAtEnd=0
+  +32.3s Test.pw:api main[aria-labelledby="route-title"]:has(> h1#route-title) >> internal: dur=0.0s ERR Error: locator.count: Test timeout of 30000ms exceeded.
+  err: WebGL: context lost.
+==   span=48.5s actions=36 pendingAtEnd=0
+  +48.5s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 30): no ground write precedes first paint (NaNms)
+  err: WebGL: context lost.
+==   span=3.1s actions=41 pendingAtEnd=0
+  +1.9s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.1s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.3s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=2.8s actions=41 pendingAtEnd=0
+==   span=0.4s actions=19 pendingAtEnd=0
+  +0.3s Test.pw:api  dur=0.0s ERR Error: browserContext.newCDPSession: CDP session is only available in Chromium
+  +0.3s BrowserContext.newCDPSession  dur=0.0s ERR CDP session is only available in Chromium
+==   span=0.9s actions=21 pendingAtEnd=0
+  +0.8s Test.pw:api  dur=0.0s ERR Error: browserContext.newCDPSession: CDP session is only available in Chromium
+  +0.8s BrowserContext.newCDPSession  dur=0.0s ERR CDP session is only available in Chromium
+==   span=8.9s actions=269 pendingAtEnd=0
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +2.4s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+==   span=8.2s actions=261 pendingAtEnd=0
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +1.9s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+==   span=1.9s actions=28 pendingAtEnd=0
+  +1.7s Test.expect  dur=0.0s ERR Error: 390 (light): a card off rung-1
+==   span=2.4s actions=76 pendingAtEnd=0
+  +2.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=30.7s actions=73 pendingAtEnd=1
+  +2.9s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete palette"s] dur=27.7s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +2.9s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete palette"s]
+==   span=31.8s actions=75 pendingAtEnd=1
+  +3.1s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete all palettes dur=28.6s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +3.1s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete all palettes
+==   span=31.0s actions=75 pendingAtEnd=1
+  +3.1s Test.pw:api internal:role=dialog >> internal:role=button[name="Reject name"s] dur=27.9s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +3.1s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Reject name"s]
+==   span=31.1s actions=79 pendingAtEnd=1
+  +3.2s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete tag"s] dur=27.9s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +3.2s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete tag"s]
+==   span=11.4s actions=75 pendingAtEnd=0
+  +3.0s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.0s Frame.expect internal:role=dialog dur=8.0s ERR Expect failed
+==   span=31.9s actions=79 pendingAtEnd=1
+  +4.5s Test.pw:api internal:role=dialog >> internal:role=button[name="Delete palette"s] dur=26.9s ERR Error: locator.dblclick: Test timeout of 30000ms exceeded.
+  +4.5s PENDING Frame.dblclick internal:role=dialog >> internal:role=button[name="Delete palette"s]
+==   span=30.9s actions=716 pendingAtEnd=1
+  +2.9s Test.pw:api internal:role=dialog >> internal:role=checkbox >> nth=0 dur=28.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.9s PENDING Frame.click internal:role=dialog >> internal:role=checkbox >> nth=0
+==   span=11.2s actions=752 pendingAtEnd=0
+  +3.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +3.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +4.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +4.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=31.1s actions=64 pendingAtEnd=1
+  +1.0s Test.pw:api internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains dur=30.0s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +1.0s PENDING Frame.click internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains
+==   span=34.9s actions=46 pendingAtEnd=1
+  +29.2s Test.pw:api  dur=3.4s ERR Error: mouse.move: Test timeout of 30000ms exceeded.
+  +29.2s PENDING Page.mouseMove 
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+==   span=0.6s actions=15 pendingAtEnd=0
+  +0.6s Test.expect  dur=0.0s ERR Error: eager JS gzip 329338 B (321.6 KiB) exceeds the 286720 B (280 KiB) bar. The bar is FIXED at wave-open (W
+==   span=120.8s actions=307 pendingAtEnd=0
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+==   span=63.8s actions=31 pendingAtEnd=0
+  +7.5s Test.expect  dur=45.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+  +7.5s Frame.expect internal:testid=[data-testid="goo-blob-canvas"s] >> nth=-1 dur=45.0s ERR Expect failed
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+==   span=19.1s actions=35 pendingAtEnd=0
+  +5.4s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +5.4s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) dur=8.0s ERR Expect failed
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+==   span=37.8s actions=27 pendingAtEnd=0
+  +3.7s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.7s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) dur=8.0s ERR Expect failed
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+==   span=34.7s actions=29 pendingAtEnd=0
+  +5.3s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +5.3s Frame.expect internal:role=main dur=8.0s ERR Expect failed
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+  err: Failed to load resource: the server responded with a status of 404 (Not Found)
+==   span=32.3s actions=48 pendingAtEnd=1
+  +29.9s Test.pw:api  dur=1.2s ERR Error: mouse.move: Test timeout of 30000ms exceeded.
+  +29.9s PENDING Page.mouseMove 

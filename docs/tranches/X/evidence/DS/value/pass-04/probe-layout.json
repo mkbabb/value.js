@@ -1,0 +1,211 @@
+{
+ "blob": {
+  "bar": {
+   "top": 675,
+   "bottom": 732
+  },
+  "card": {
+   "top": 112,
+   "bottom": 733
+  },
+  "port": {
+   "top": 238,
+   "bottom": 675,
+   "scrollH": 2137,
+   "clientH": 437
+  },
+  "stage": {
+   "top": 112,
+   "bottom": 733,
+   "left": 199,
+   "right": 711,
+   "h": 621
+  },
+  "docH": 900,
+  "winH": 900,
+  "seatedVeil": "none"
+ },
+ "gap": {
+  "/": [
+   {
+    "title": "About the color spaces, ",
+    "captionBottom": 242,
+    "headerBottom": 268,
+    "first": {
+     "tag": "H2",
+     "text": "Definition",
+     "top": 268
+    },
+    "gap": 26
+   }
+  ],
+  "/gradient": [
+   {
+    "title": "Gradient",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "H3",
+     "text": "Stops",
+     "top": 220
+    },
+    "gap": 26
+   },
+   {
+    "title": "My Palettes",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "circle",
+     "text": "",
+     "top": 232
+    },
+    "gap": 38
+   }
+  ],
+  "/extract": [
+   {
+    "title": "Extract",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "path",
+     "text": "",
+     "top": 284
+    },
+    "gap": 90
+   },
+   {
+    "title": "My Palettes",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "circle",
+     "text": "",
+     "top": 232
+    },
+    "gap": 38
+   }
+  ],
+  "/mix": [
+   {
+    "title": "Mix",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "DIV",
+     "text": "",
+     "top": 225
+    },
+    "gap": 31
+   }
+  ],
+  "/generate": [
+   {
+    "title": "Generate",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "INPUT",
+     "text": "Palette name",
+     "top": 235
+    },
+    "gap": 41
+   },
+   {
+    "title": "My Palettes",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "circle",
+     "text": "",
+     "top": 232
+    },
+    "gap": 38
+   }
+  ],
+  "/atmosphere": [
+   {
+    "title": "Atmosphere",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "LABEL",
+     "text": "Harmony",
+     "top": 229
+    },
+    "gap": 35
+   }
+  ],
+  "/palettes": [
+   {
+    "title": "My Palettes",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "circle",
+     "text": "",
+     "top": 232
+    },
+    "gap": 38
+   }
+  ],
+  "/browse": [
+   {
+    "title": "Browse",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "circle",
+     "text": "",
+     "top": 232
+    },
+    "gap": 38
+   },
+   {
+    "title": "My Palettes",
+    "captionBottom": 194,
+    "headerBottom": 220,
+    "first": {
+     "tag": "circle",
+     "text": "",
+     "top": 232
+    },
+    "gap": 38
+   }
+  ]
+ },
+ "mix": {
+  "tabsLeft": 754,
+  "titleLeft": 754
+ },
+ "aurora": {
+  "triggerRights": [
+   951,
+   951,
+   951,
+   951
+  ],
+  "wellRight": 951
+ },
+ "generate390": {
+  "name": {
+   "top": 232,
+   "bottom": 262,
+   "left": 46,
+   "right": 198
+  },
+  "regenerate": {
+   "top": 227,
+   "bottom": 267,
+   "left": 206,
+   "right": 256
+  },
+  "copy": {
+   "top": 229,
+   "bottom": 265,
+   "left": 308,
+   "right": 344
+  }
+ }
+}

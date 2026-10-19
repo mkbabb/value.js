@@ -1,0 +1,53 @@
+20:17  up 6 days,  1:20, 2 users, load averages: 19.73 17.88 18.80
+webkit r0a0 parseCssColor          acc      n=6460 k=2 S=1 product x0.704 (31/31<1) spread 1.24
+webkit r0a0 parseCssScalar         acc      n=7460 k=2 S=1 product x0.636 (31/31<1) spread 1.656 SET-ASIDE
+webkit r0a0 parseCssValue          acc      n=13023 k=1 S=1 product x0.371 (31/31<1) spread 1.181
+webkit r0a0 parseCssValues         acc      n=13023 k=1 S=1 product x0.363 (31/31<1) spread 1.275
+webkit r0a0 parseKeyframeSelector  acc      n=56 k=2048 S=1 product x0.724 (31/31<1) spread 1.286
+webkit r0a0 parseTimingFunction    acc      n=509 k=16 S=1 product x0.45 (31/31<1) spread 1.588
+webkit r0a0 parseStylesheet        acc      n=2503 k=1 S=1 product x0.514 (31/31<1) spread 1.344
+webkit r0a0 parseCssColor          rej      n=23484 k=1 S=1 product x0.821 (31/31<1) spread 1.333
+webkit r0a0 parseCssScalar         rej      n=22484 k=1 S=1 product x0.568 (31/31<1) spread 1.25
+webkit r0a0 parseCssValue          rej      n=16921 k=1 S=1 product x0.632 (31/31<1) spread 1.297
+webkit r0a0 parseCssValues         rej      n=16921 k=1 S=1 product x0.627 (31/31<1) spread 1.211
+webkit r0a0 parseKeyframeSelector  rej      n=29888 k=2 S=1 product x0.879 (31/31<1) spread 1.4
+webkit r0a0 parseTimingFunction    rej      n=29435 k=1 S=1 product x0.762 (31/31<1) spread 1.3
+webkit r0a0 parseStylesheet        rej      n=27441 k=1 S=1 product x0.654 (31/31<1) spread 1.176
+webkit r0a0 parseStylesheet        large-eq n=4 k=4 S=1 product x0.4 (31/31<1) spread 1.192
+webkit r1a0 parseCssScalar         acc      n=7460 k=1 S=1 product x0.632 (31/31<1) spread 1.235
+webkit r1a0 parseCssValue          acc      n=13023 k=1 S=1 product x0.365 (31/31<1) spread 1.096
+webkit r1a0 parseCssValues         acc      n=13023 k=1 S=1 product x0.364 (31/31<1) spread 1.242
+webkit r1a0 parseKeyframeSelector  acc      n=56 k=2048 S=1 product x0.786 (31/31<1) spread 1.333
+webkit r1a0 parseTimingFunction    acc      n=509 k=32 S=1 product x0.457 (31/31<1) spread 1.382
+webkit r1a0 parseStylesheet        acc      n=2503 k=1 S=1 product x0.541 (31/31<1) spread 1.314
+webkit r1a0 parseCssColor          acc      n=6460 k=2 S=1 product x0.731 (31/31<1) spread 1.2
+webkit r1a0 parseCssScalar         rej      n=22484 k=1 S=1 product x0.568 (31/31<1) spread 1.163
+webkit r1a0 parseCssValue          rej      n=16921 k=1 S=1 product x0.628 (31/31<1) spread 1.146
+webkit r1a0 parseCssValues         rej      n=16921 k=1 S=1 product x0.62 (31/31<1) spread 1.108
+webkit r1a0 parseKeyframeSelector  rej      n=29888 k=1 S=1 product x0.889 (28/31<1) spread 1.176
+webkit r1a0 parseTimingFunction    rej      n=29435 k=1 S=1 product x0.762 (31/31<1) spread 1.2
+webkit r1a0 parseStylesheet        rej      n=27441 k=1 S=1 product x0.654 (31/31<1) spread 1.412
+webkit r1a0 parseCssColor          rej      n=23484 k=1 S=1 product x0.812 (30/31<1) spread 1.355
+webkit r1a0 parseStylesheet        large-eq n=4 k=4 S=1 product x0.4 (31/31<1) spread 1.429
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product webkit|acc|parseCssColor                 <1 x0.704 x0.731
+product webkit|acc|parseCssScalar                <1 x0.636(SA) x0.632
+product webkit|acc|parseCssValue                 <1 x0.371 x0.365
+product webkit|acc|parseCssValues                <1 x0.363 x0.364
+product webkit|acc|parseKeyframeSelector         <1 x0.724 x0.786
+product webkit|acc|parseTimingFunction           <1 x0.45 x0.457
+product webkit|acc|parseStylesheet               <1 x0.514 x0.541
+product webkit|rej|parseCssColor                 <1 x0.821 x0.812
+product webkit|rej|parseCssScalar                <1 x0.568 x0.568
+product webkit|rej|parseCssValue                 <1 x0.632 x0.628
+product webkit|rej|parseCssValues                <1 x0.627 x0.62
+product webkit|rej|parseKeyframeSelector         <1 x0.879 x0.889
+product webkit|rej|parseTimingFunction           <1 x0.762 x0.762
+product webkit|rej|parseStylesheet               <1 x0.654 x0.654
+product webkit|large-eq|parseStylesheet          <1 x0.4 x0.4
+20:17  up 6 days,  1:20, 2 users, load averages: 19.73 17.88 18.80 
+ 20:19  up 6 days,  1:22, 2 users, load averages: 24.12 20.38 19.69 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c3-webkit-n31-main.json
+DONE w8lg1c3-webkit-n31-main
+guarded exit 0
+20:19  up 6 days,  1:22, 2 users, load averages: 22.91 20.19 19.63

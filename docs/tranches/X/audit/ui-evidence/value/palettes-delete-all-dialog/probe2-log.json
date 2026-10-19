@@ -1,0 +1,132 @@
+[
+  {
+    "theme": "light",
+    "dockBefore": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "dockOpen": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "fonts": {
+      "dialogTitle": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "desc": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "btn": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "headings": [
+        {
+          "t": "Palettes",
+          "ff": "Fraunces, \"Fraunces Fallback\", serif"
+        },
+        {
+          "t": "92.0%,88.8,20.0",
+          "ff": "Fraunces, \"Fraunces Fallback\", serif"
+        },
+        {
+          "t": "My Palettes1 (1 saved)",
+          "ff": "Fraunces, \"Fraunces Fallback\", serif"
+        },
+        {
+          "t": "Delete all saved palettes?",
+          "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+        }
+      ]
+    },
+    "focusDelete": {
+      "t": "Delete all",
+      "fv": true,
+      "outline": "rgb(251, 250, 248) none 3px",
+      "oo": "0px",
+      "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+    },
+    "focusCancel": {
+      "t": "Cancel",
+      "fv": true,
+      "outline": "oklch(0.471189 0.124865 49.834) none 3px",
+      "bs": "none",
+      "td": "none"
+    },
+    "dockAfterCancel500": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "dockAfterCancel2000": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "dockAfterCancel5000": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    }
+  },
+  {
+    "theme": "dark",
+    "dockBefore": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "dockOpen": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "fonts": {
+      "dialogTitle": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "desc": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "btn": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "headings": [
+        {
+          "t": "Palettes",
+          "ff": "Fraunces, \"Fraunces Fallback\", serif"
+        },
+        {
+          "t": "92.0%,88.8,20.0",
+          "ff": "Fraunces, \"Fraunces Fallback\", serif"
+        },
+        {
+          "t": "My Palettes1 (1 saved)",
+          "ff": "Fraunces, \"Fraunces Fallback\", serif"
+        },
+        {
+          "t": "Delete all saved palettes?",
+          "ff": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui"
+        }
+      ]
+    },
+    "focusDelete": {
+      "t": "Delete all",
+      "fv": true,
+      "outline": "rgb(232, 231, 227) none 3px",
+      "oo": "0px",
+      "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+    },
+    "focusCancel": {
+      "t": "Cancel",
+      "fv": true,
+      "outline": "oklch(0.958322 0.0231202 49.834) none 3px",
+      "bs": "none",
+      "td": "none"
+    },
+    "dockAfterCancel500": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "dockAfterCancel2000": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    },
+    "dockAfterCancel5000": {
+      "cls": "dock-band overture-dock-land",
+      "w": 1408,
+      "h": 72
+    }
+  }
+]

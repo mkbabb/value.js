@@ -1,0 +1,3 @@
+⟨node docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-structure.mjs⟩
+GATE G4 (structure) — GREEN
+EXIT=0

@@ -1,0 +1,328 @@
+{
+  "square-1440-light": {
+    "box": 184,
+    "cell": 91.8,
+    "boxCells": 2
+  },
+  "controls-light": {
+    "iterations": "infinite",
+    "reverse": [
+      121,
+      "quiet"
+    ],
+    "preview": [
+      120,
+      "quiet"
+    ],
+    "pane": 407
+  },
+  "ribbon-1440-light": {
+    "row": 379,
+    "overflow": 0,
+    "buttons": [
+      [
+        "Apply CSS",
+        123,
+        36,
+        575,
+        "nowrap"
+      ],
+      [
+        "Copy keyframes",
+        88,
+        36,
+        575,
+        "nowrap"
+      ],
+      [
+        "Format",
+        99,
+        36,
+        575,
+        "nowrap"
+      ],
+      [
+        "Copy compiled CSS",
+        46,
+        36,
+        575,
+        "nowrap"
+      ]
+    ]
+  },
+  "timeline-docked-light": {
+    "stage": [
+      371,
+      96
+    ],
+    "subject": [
+      152,
+      15,
+      66,
+      66
+    ],
+    "subjectCentred": true,
+    "badgeOnMarker": false,
+    "caret": {
+      "text": "0%×2",
+      "name": "Keyframe at 0%, 2 keyframes — edit the position",
+      "ink": "oklch(0.56 0.17 295)"
+    },
+    "tickInk": "rgb(112, 89, 66)",
+    "primary": "oklch(0.56 0.17 295)"
+  },
+  "timeline-expanded-light": {
+    "stage": [
+      371,
+      96
+    ],
+    "subject": [
+      152,
+      15,
+      66,
+      66
+    ],
+    "subjectCentred": true,
+    "badgeOnMarker": false,
+    "caret": {
+      "text": "0%×2",
+      "name": "Keyframe at 0%, 2 keyframes — edit the position",
+      "ink": "oklch(0.56 0.17 295)"
+    },
+    "tickInk": "rgb(112, 89, 66)",
+    "primary": "oklch(0.56 0.17 295)"
+  },
+  "spring-light": "Tap or drag the rail to move the target (the dashed ring) — the ball on the curve below springs to it. Tune response and damping in the Physics pane.",
+  "sequence-1440-light": {
+    "plate": [
+      550,
+      127,
+      814,
+      623
+    ],
+    "track": [
+      615,
+      1332
+    ],
+    "railEnd": 1240,
+    "room": [
+      "624.969px",
+      "dashed"
+    ]
+  },
+  "shortcuts-light": {
+    "width": 672,
+    "wrapped": []
+  },
+  "errors-light": [],
+  "square-1440-dark": {
+    "box": 184,
+    "cell": 91.8,
+    "boxCells": 2
+  },
+  "controls-dark": {
+    "iterations": "infinite",
+    "reverse": [
+      121,
+      "quiet"
+    ],
+    "preview": [
+      120,
+      "quiet"
+    ],
+    "pane": 407
+  },
+  "ribbon-1440-dark": {
+    "row": 379,
+    "overflow": 0,
+    "buttons": [
+      [
+        "Apply CSS",
+        123,
+        36,
+        575,
+        "nowrap"
+      ],
+      [
+        "Copy keyframes",
+        88,
+        36,
+        575,
+        "nowrap"
+      ],
+      [
+        "Format",
+        99,
+        36,
+        575,
+        "nowrap"
+      ],
+      [
+        "Copy compiled CSS",
+        46,
+        36,
+        575,
+        "nowrap"
+      ]
+    ]
+  },
+  "timeline-docked-dark": {
+    "stage": [
+      371,
+      96
+    ],
+    "subject": [
+      152,
+      15,
+      66,
+      66
+    ],
+    "subjectCentred": true,
+    "badgeOnMarker": false,
+    "caret": {
+      "text": "0%×2",
+      "name": "Keyframe at 0%, 2 keyframes — edit the position",
+      "ink": "oklch(0.74 0.13 305)"
+    },
+    "tickInk": "rgb(195, 185, 172)",
+    "primary": "oklch(0.74 0.13 305)"
+  },
+  "timeline-expanded-dark": {
+    "stage": [
+      371,
+      96
+    ],
+    "subject": [
+      152,
+      15,
+      66,
+      66
+    ],
+    "subjectCentred": true,
+    "badgeOnMarker": false,
+    "caret": {
+      "text": "0%×2",
+      "name": "Keyframe at 0%, 2 keyframes — edit the position",
+      "ink": "oklch(0.74 0.13 305)"
+    },
+    "tickInk": "rgb(195, 185, 172)",
+    "primary": "oklch(0.74 0.13 305)"
+  },
+  "spring-dark": "Tap or drag the rail to move the target (the dashed ring) — the ball on the curve below springs to it. Tune response and damping in the Physics pane.",
+  "sequence-1440-dark": {
+    "plate": [
+      550,
+      127,
+      814,
+      623
+    ],
+    "track": [
+      615,
+      1332
+    ],
+    "railEnd": 1240,
+    "room": [
+      "624.969px",
+      "dashed"
+    ]
+  },
+  "shortcuts-dark": {
+    "width": 672,
+    "wrapped": []
+  },
+  "errors-dark": [],
+  "square-390-light": {
+    "plate": [
+      334,
+      445
+    ],
+    "field": [
+      132,
+      182
+    ],
+    "box": 91,
+    "cell": 45.5,
+    "boxCells": 2
+  },
+  "ribbon-390-light": {
+    "row": 340,
+    "overflow": 0,
+    "buttons": [
+      [
+        "Apply CSS",
+        111,
+        36,
+        1298,
+        "nowrap"
+      ],
+      [
+        "Copy keyframes",
+        82,
+        36,
+        1298,
+        "nowrap"
+      ],
+      [
+        "Format",
+        46,
+        36,
+        1298,
+        "nowrap"
+      ],
+      [
+        "Copy compiled CSS",
+        46,
+        36,
+        1298,
+        "nowrap"
+      ]
+    ]
+  },
+  "square-390-dark": {
+    "plate": [
+      334,
+      445
+    ],
+    "field": [
+      132,
+      182
+    ],
+    "box": 91,
+    "cell": 45.5,
+    "boxCells": 2
+  },
+  "ribbon-390-dark": {
+    "row": 340,
+    "overflow": 0,
+    "buttons": [
+      [
+        "Apply CSS",
+        111,
+        36,
+        1298,
+        "nowrap"
+      ],
+      [
+        "Copy keyframes",
+        82,
+        36,
+        1298,
+        "nowrap"
+      ],
+      [
+        "Format",
+        46,
+        36,
+        1298,
+        "nowrap"
+      ],
+      [
+        "Copy compiled CSS",
+        46,
+        36,
+        1298,
+        "nowrap"
+      ]
+    ]
+  }
+}

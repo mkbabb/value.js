@@ -1,0 +1,57 @@
+SERVED MODEL: claude-opus-5[1m]
+X.F.W3.e — section-7 CADENCE, run after every landing and again at close.
+Worktree f3e, branch x/f3e, base 74084fa.
+
+== npx vue-tsc -b --noEmit ==
+src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared but its value is never read.
+  -> ONE error, PRE-EXISTING at base 74084fa and in no bounds row of this unit
+     (ContourEditorCanvas.vue(42,9) TS6133). .d recorded the same single error.
+     Verified inherited:
+⟨cmd⟩ git stash list  (none) ; the file is untouched by this unit:
+0
+  0 — this unit never opened it
+
+== npx vite build ==
+dist/assets/PaperView-CXyPYs1L.js                                478.86 kB │ gzip: 122.66 kB
+dist/assets/index-DT6c_0Ma.js                                    487.13 kB │ gzip: 227.10 kB
+✓ built in 2.99s
+  -> BUILT. The section-7 disclosed standing RED (FR-NP-32's CssSyntaxError from
+     style.css:3's @import) does NOT reproduce at the adopted 8.0.0 pin, so the
+     per-batch build was an honest batch signal for this unit throughout.
+
+== unit floor (vitest) ==
+The three unit files this unit landed are src/lib/time.test.ts, src/lib/basis.test.ts,
+src/lib/equation/notation.test.ts. The repo runner's include is e2e/unit/**/*.vitest.ts
++ scripts/**/*.vitest.ts, so it does NOT reach src/**. vitest.config.ts is in NO bounds
+row of this unit; the one-line wiring is ESCALATED, not taken. Verified green under an
+out-of-tree config in the session scratchpad:
+ ✓ src/lib/time.test.ts (7 tests) 10ms
+
+ Test Files  3 passed (3)
+      Tests  19 passed (19)
+   Start at  06:33:10
+   Duration  150ms (transform 52%, import 31%, tests 12%, worker 5%)
+
+
+== npx playwright test (section-0x note (i): RUN as written) ==
+RUN, and RED for a reason that is not this unit's bytes:
+⟨cmd⟩ curl -s -o /dev/null -w "%{http_code}" --max-time 4 http://localhost:3000/
+000
+⟨cmd⟩ grep -c webServer playwright.config.ts
+0
+  The suite needs the full uvicorn + Mongo + vite stack via scripts/e2e.sh and the config
+  declares no webServer, so every navigating spec fails with
+  'Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/...'.
+  Standing that stack up is neither in this unit's bounds nor within section-5.2's probe
+  parsimony; .d recorded the identical shortfall as E-d2. RECORDED AS A SHORTFALL,
+  NEVER AS A GREEN, and never worked around (no test.skip, no allowlist).
+
+== git diff --check ==
+  clean
+== worktree porcelain ==
+         0
+  NOTE: the playwright attempt OVERWROTE 21 tracked baseline PNGs under
+  docs/tranches/J/audit/screenshots/before/ — paths outside this unit's writable set,
+  dirtied by the ordered cadence rather than by an authored edit. They were restored
+  by exact pathspec (git checkout -- docs/tranches/J/audit/screenshots/before/) in this
+  worktree, which no sibling seat shares. Nothing else was restored; no stash was used.

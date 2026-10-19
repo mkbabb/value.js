@@ -18,7 +18,8 @@
     >
         <div
             :key="animationKey"
-            class="rail-letters h-full flex flex-col items-center justify-around stagger-children"
+            class="rail-letters h-full flex flex-col items-center justify-around"
+            :class="cascade && 'stagger-children'"
         >
             <TooltipProvider :delay-duration="300">
                 <Tooltip v-for="component in components" :key="component">
@@ -55,7 +56,6 @@
                                 aria-hidden="true"
                             >
                                 <WatercolorDot
-                                    tag="div"
                                     :color="cssColorOpaque"
                                     class="rail-dot"
                                 />
@@ -66,13 +66,18 @@
                             >{{ componentGlyph(component) }}</span>
                         </button>
                     </TooltipTrigger>
-                    <!-- The anatomy popover re-seats at touch bands (t-mobile
-                         F-5: side=left has no seat at 390); it is also the
-                         static range's retirement home #1 (W4-3 — the About
-                         card is #2). -->
-                    <TooltipContent :side="isLgViewport ? 'left' : 'bottom'" class="max-w-56">
+                    <!-- The anatomy popover declares ONE side (X.W8.i, the C3
+                         layout fork deleted): where `left` has no seat (t-mobile
+                         F-5, 390) the producer's floater flips it by collision
+                         (glass Tooltip `avoidCollisions`), so no viewport rung
+                         re-seats it. It is also the static range's retirement
+                         home #1 (W4-3 — the About card is #2). -->
+                    <TooltipContent side="left" class="max-w-56">
                         <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
-                        <p class="fira-code text-mono-caption opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
+                        <!-- X-DS pass 16 (V16-08): the range is a readout, in the readout rung
+                             with no case transform, in the floater's certified
+                             muted ink (shell.css seats it on the tooltip plate). -->
+                        <p class="text-mono-small text-muted-foreground mt-0.5">{{ currentColorRanges[component] }}</p>
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>
@@ -87,10 +92,9 @@ import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../../../ui/tooltip";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+} from "@mkbabb/glass-ui/tooltip";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { contrastInkFor, resolveMutedInk } from "../../../color-session/ink";
 import {
     bumpProbeEpochOnMount,
@@ -100,22 +104,21 @@ import { colorSpaceInfo } from "../../../color-session/colorSpaceInfo";
 import type { DisplayColorSpace } from "../../../color-session/color-model";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../../color-session/keys";
 
-const { components, active, animationKey } = defineProps<{
+const { components, active, animationKey, cascade } = defineProps<{
     /** The current space's shown channels (rail order = row order). */
     components: string[];
     /** The active channel (the WatercolorDot seat). */
     active: string | null;
     /** The rows' re-key counter — letters re-key WITH the rows (N-2). */
     animationKey: number;
+    /** X.W12.b — the letters cascade WITH the rows: fresh sets only, never a KeepAlive return. */
+    cascade: boolean;
 }>();
 
 const emit = defineEmits<{ select: [component: string] }>();
 
 const { currentColorSpace, currentColorRanges, cssColorOpaque } =
     inject(COLOR_MODEL_KEY)!;
-
-// The tooltip's honest seat flips at the touch band (t-mobile F-5).
-const { matches: isLgViewport } = useBreakpoint("(min-width: 1024px)");
 
 // --- THE INK SYSTEM (D5/D6 — the channel-color conceit is DEAD) -----------
 // The letters SPEAK INK. Rest letters wear the certified de-emphasis rung
@@ -171,13 +174,7 @@ function componentGlyph(component: string): string {
 // Component description from colorSpaceInfo for the tooltip.
 function componentDescription(component: string): string {
     const space = currentColorSpace.value as DisplayColorSpace;
-    const info = (colorSpaceInfo as any)[space];
-    if (!info?.components) return component;
-    const upper = component.charAt(0).toUpperCase();
-    const match = info.components.find((c: string) =>
-        c.startsWith(upper) || c.startsWith(component),
-    );
-    return match ?? component;
+    return colorSpaceInfo[space].components[component] ?? component;
 }
 
 // --- Roving tabindex (WAI-ARIA tablist; verbatim from the pre-lift rail) ---
@@ -230,7 +227,10 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
  * law binds any future ring to the dot's own silhouette). Unscoped block
  * (the pre-lift convention — selectors are rail-unique). */
 .channel-rail {
-    border: 1px solid color-mix(in oklab, var(--accent-view) 60%, transparent);
+    /* X-DS pass 1 (V1-21): the 1px accent ring is gone — four letters need no
+     * cage. It was the dock seal's die-rim recipe, which the owner abrogated
+     * on the seal itself (Q12 / T-28). Radius and padding stay: the active
+     * letter's dot still seats in the same column. */
     border-radius: var(--radius-pill);
     padding: 2px;
 }
@@ -248,6 +248,23 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
     position: relative;
     line-height: 1;
     padding: 0.125rem 0.375rem;
+    /* X-W4 · A1 (CC-040) — THE FINE-POINTER FLOOR. Measured born-RED at this
+     * unit's re-baseline (smoke, 1280×720): the narrow glyphs `a` and `b` gave
+     * 23.9×24.6 boxes — under the 24 CSS-px floor on the INLINE axis — while `l`
+     * (24.1) and `alpha` (24.8) cleared it. The letterforms are NOT touched: the
+     * hit cell takes a floor and the glyph keeps its own metrics, the same
+     * "hit areas grow, glyphs do NOT" law the touch rung below already states.
+     * `min-*` never shrinks the seats that already clear it.
+     *
+     * Stated in the PHYSICAL pair the touch rung below already uses, not the
+     * logical one: the rung raises the same floor to `--dock-touch-target`, and
+     * two rules declaring the SAME property resolve by plain cascade order.
+     * Writing this half logically would leave the coarse rung winning only by
+     * the logical↔physical resolution rule — true in `horizontal-tb`, but a
+     * subtlety a later reorder could silently invert. Same used value, no
+     * cross-form resolution to reason about. */
+    min-width: 1.5rem;
+    min-height: 1.5rem;
     border-radius: var(--radius-pill);
     cursor: pointer;
     color: var(--console-rest-ink, var(--muted-foreground));
@@ -319,8 +336,16 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
 }
 
 /* THE TOUCH RUNG (t-mobile F-5) — ≥44px hits <lg via the producer's own
- * --dock-touch-target; hit areas grow, glyphs do NOT. */
-@media (max-width: 1023px) {
+ * --dock-touch-target; hit areas grow, glyphs do NOT.
+ *
+ * X-W4 · A2 (CC-040) — the rung now also rides the POINTER axis. F-5 keyed it to
+ * viewport width alone, so a coarse pointer at ≥1024px (a tablet in landscape, a
+ * touch laptop) fell through to the fine geometry: the letters cleared 24px but
+ * never reached the producer's coarse floor, which is what W4.md §3 Scope 1 asks
+ * for "under `pointer: coarse`". The DECLARATIONS are byte-unchanged — F-5's
+ * deliberate 0.72 inline ratio (a narrow letter column, a full-height hit) is
+ * preserved exactly; only the condition widens. */
+@media (max-width: 1023px), (pointer: coarse) {
     .channel-rail-item {
         min-height: var(--dock-touch-target, 2.75rem);
         min-width: calc(var(--dock-touch-target, 2.75rem) * 0.72);

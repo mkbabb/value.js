@@ -1,0 +1,353 @@
+{
+ "sha": "6d5b4288",
+ "dirty": 5,
+ "at": "2026-09-23T18:22:15.442Z",
+ "load": {
+  "attrs": [
+   "tabindex",
+   "dir",
+   "role",
+   "aria-label",
+   "data-slot",
+   "data-type",
+   "data-variant",
+   "data-size",
+   "class",
+   "style"
+  ],
+  "display": "inline-flex",
+  "wrap": "nowrap",
+  "radius": "10003px",
+  "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+  "scrollW": 3988,
+  "clientW": 828,
+  "parentScrollW": 3988,
+  "parentClientW": 828,
+  "tiles": [
+   {
+    "n": "linear",
+    "w": 78,
+    "stage": 60,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease",
+    "w": 58,
+    "stage": 40,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in",
+    "w": 88,
+    "stage": 70,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out",
+    "w": 99,
+    "stage": 81,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out",
+    "w": 129,
+    "stage": 111,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-sine",
+    "w": 139,
+    "stage": 121,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out-sine",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out-sine",
+    "w": 179,
+    "stage": 161,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-quad",
+    "w": 139,
+    "stage": 121,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out-quad",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out-quad",
+    "w": 179,
+    "stage": 161,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-cubic",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out-cubic",
+    "w": 159,
+    "stage": 141,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out-cubic",
+    "w": 189,
+    "stage": 171,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "smooth-step-3",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-expo",
+    "w": 139,
+    "stage": 121,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out-expo",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out-expo",
+    "w": 179,
+    "stage": 161,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-circ",
+    "w": 139,
+    "stage": 121,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out-circ",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out-circ",
+    "w": 179,
+    "stage": 161,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-back",
+    "w": 139,
+    "stage": 121,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-out-back",
+    "w": 149,
+    "stage": 131,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-out-back",
+    "w": 179,
+    "stage": 161,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "ease-in-bounce",
+    "w": 159,
+    "stage": 141,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "steps",
+    "w": 68,
+    "stage": 50,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "step-start",
+    "w": 119,
+    "stage": 101,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "step-end",
+    "w": 99,
+    "stage": 81,
+    "ballTx": "",
+    "radius": "9999px",
+    "ws": "nowrap"
+   }
+  ]
+ },
+ "filter-Bounce": {
+  "attrs": [
+   "tabindex",
+   "dir",
+   "role",
+   "aria-label",
+   "data-slot",
+   "data-type",
+   "data-variant",
+   "data-size",
+   "class",
+   "style"
+  ],
+  "display": "inline-flex",
+  "wrap": "nowrap",
+  "radius": "10003px",
+  "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+  "scrollW": 167,
+  "clientW": 167,
+  "parentScrollW": 828,
+  "parentClientW": 828,
+  "tiles": [
+   {
+    "n": "ease-in-bounce",
+    "w": 159,
+    "stage": 141,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   }
+  ]
+ },
+ "filter-Steps": {
+  "attrs": [
+   "tabindex",
+   "dir",
+   "role",
+   "aria-label",
+   "data-slot",
+   "data-type",
+   "data-variant",
+   "data-size",
+   "class",
+   "style"
+  ],
+  "display": "inline-flex",
+  "wrap": "nowrap",
+  "radius": "10003px",
+  "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+  "scrollW": 302,
+  "clientW": 302,
+  "parentScrollW": 828,
+  "parentClientW": 828,
+  "tiles": [
+   {
+    "n": "steps",
+    "w": 68,
+    "stage": 50,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "step-start",
+    "w": 119,
+    "stage": 101,
+    "ballTx": "translateX(67px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   },
+   {
+    "n": "step-end",
+    "w": 99,
+    "stage": 81,
+    "ballTx": "translateX(0px)",
+    "radius": "9999px",
+    "ws": "nowrap"
+   }
+  ]
+ },
+ "m390": {
+  "btn": [
+   299,
+   952,
+   36,
+   36
+  ],
+  "label": "Hide ball preview",
+  "chain": [
+   {
+    "cls": "controls-pane group/controls min-w-0 overflow-y-au",
+    "oy": "auto",
+    "sh": 727,
+    "ch": 727,
+    "top": 338
+   }
+  ],
+  "innerH": 844,
+  "afterWheel": 952
+ }
+}

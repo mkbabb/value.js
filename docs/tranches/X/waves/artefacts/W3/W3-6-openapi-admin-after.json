@@ -1,0 +1,29 @@
+{
+  "totalPathRows": 45,
+  "totalOperations": 51,
+  "adminPathRows": 21,
+  "adminOperations": 23,
+  "adminPaths": [
+    "/admin/audit",
+    "/admin/batch/palettes",
+    "/admin/batch/users",
+    "/admin/colors/approved",
+    "/admin/colors/{id}",
+    "/admin/colors/{id}/approve",
+    "/admin/colors/{id}/reject",
+    "/admin/flagged",
+    "/admin/flags/{paletteSlug}",
+    "/admin/impersonate",
+    "/admin/palettes/{slug}",
+    "/admin/palettes/{slug}/feature",
+    "/admin/queue",
+    "/admin/tags",
+    "/admin/tags/{name}",
+    "/admin/users",
+    "/admin/users/prune-empty",
+    "/admin/users/{slug}",
+    "/admin/users/{slug}/import",
+    "/admin/users/{slug}/palettes",
+    "/admin/users/{slug}/status"
+  ]
+}

@@ -1,0 +1,282 @@
+[
+ {
+  "check": "M1",
+  "scene": "cube",
+  "w": 1440,
+  "h": 900,
+  "hosts": {
+   "total": 1,
+   "visible": 1
+  },
+  "opened": true,
+  "swapped": true,
+  "survived": true,
+  "ok": true
+ },
+ {
+  "check": "M1",
+  "scene": "amiga",
+  "w": 1440,
+  "h": 900,
+  "hosts": {
+   "total": 1,
+   "visible": 1
+  },
+  "opened": true,
+  "swapped": true,
+  "survived": true,
+  "ok": true
+ },
+ {
+  "check": "M1",
+  "scene": "cube",
+  "w": 390,
+  "h": 844,
+  "hosts": {
+   "total": 1,
+   "visible": 1
+  },
+  "opened": true,
+  "swapped": true,
+  "survived": true,
+  "ok": true
+ },
+ {
+  "check": "M1",
+  "scene": "amiga",
+  "w": 390,
+  "h": 844,
+  "hosts": {
+   "total": 1,
+   "visible": 1
+  },
+  "opened": true,
+  "swapped": true,
+  "survived": true,
+  "ok": true
+ },
+ {
+  "check": "S1",
+  "scene": "spring",
+  "w": 1440,
+  "h": 900,
+  "seen": true,
+  "fallback": {
+   "skel": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "host": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "cell": [
+    518.4,
+    54,
+    878.4,
+    792
+   ],
+   "rail": 0
+  },
+  "resolved": {
+   "host": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "slot": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "cell": [
+    518.4,
+    54,
+    878.4,
+    792
+   ],
+   "rail": 1
+  },
+  "delta": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "ok": true
+ },
+ {
+  "check": "S1",
+  "scene": "sequence",
+  "w": 1440,
+  "h": 900,
+  "seen": true,
+  "fallback": {
+   "skel": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "host": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "cell": [
+    518.4,
+    54,
+    878.4,
+    792
+   ],
+   "rail": 0
+  },
+  "resolved": {
+   "host": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "slot": [
+    531.6,
+    136.3,
+    852.1,
+    604.4
+   ],
+   "cell": [
+    518.4,
+    54,
+    878.4,
+    792
+   ],
+   "rail": 1
+  },
+  "delta": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "ok": true
+ },
+ {
+  "check": "S1",
+  "scene": "spring",
+  "w": 390,
+  "h": 844,
+  "seen": true,
+  "fallback": {
+   "skel": [
+    33,
+    110.7,
+    324,
+    594.7
+   ],
+   "host": [
+    5.8,
+    110.7,
+    378.3,
+    594.7
+   ],
+   "cell": [
+    0,
+    0,
+    390,
+    844
+   ],
+   "rail": 0
+  },
+  "resolved": {
+   "host": [
+    5.8,
+    110.7,
+    378.3,
+    594.7
+   ],
+   "slot": [
+    33,
+    110.7,
+    324,
+    594.7
+   ],
+   "cell": [
+    0,
+    0,
+    390,
+    844
+   ],
+   "rail": 0
+  },
+  "delta": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "ok": true
+ },
+ {
+  "check": "S1",
+  "scene": "sequence",
+  "w": 390,
+  "h": 844,
+  "seen": true,
+  "fallback": {
+   "skel": [
+    33,
+    110.7,
+    324,
+    594.7
+   ],
+   "host": [
+    5.8,
+    110.7,
+    378.3,
+    594.7
+   ],
+   "cell": [
+    0,
+    0,
+    390,
+    844
+   ],
+   "rail": 0
+  },
+  "resolved": {
+   "host": [
+    5.8,
+    110.7,
+    378.3,
+    594.7
+   ],
+   "slot": [
+    33,
+    110.7,
+    324,
+    594.7
+   ],
+   "cell": [
+    0,
+    0,
+    390,
+    844
+   ],
+   "rail": 0
+  },
+  "delta": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "ok": true
+ }
+]

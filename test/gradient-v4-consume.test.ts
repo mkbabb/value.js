@@ -1,39 +1,64 @@
 import { describe, expect, it } from "vitest";
 import { parseCssColor } from "@src/subpaths/css";
 import {
-    easingFnOf,
     linearInterval,
-    sampleCoalescedStops,
     serializeCoalescedGradient,
 } from "../demo/workbenches/gradient/composables/useGradientCSS";
-import { interpolateStopColors } from "../demo/workbenches/gradient/composables/useGradientInterpolation";
-import type { GradientModelState } from "../demo/workbenches/gradient/composables/useGradientModel";
+import {
+    easingFnOf,
+    intervalSampler,
+    sampleCoalescedStops,
+} from "../demo/workbenches/gradient/model/sample";
+import { formatColorLiteral } from "../demo/workbenches/gradient/composables/useGradientCSS";
+import type { GradientModelState } from "../demo/workbenches/gradient/model/types";
 import { SPECIMEN_TILES } from "../demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue";
 
 const model: GradientModelState = {
     type: "linear",
     direction: 90,
+    // X-W6 `.a` deleted `GradientModelState.intervals`: the interval now hangs
+    // on the stop that OPENS it (`GradientStop.easing`), which is what makes a
+    // re-sort safe. Migration applied verbatim from `.a`'s receipt.
     stops: [
-        { id: "left", cssColor: "oklch(0.7 0.18 30)", position: 0 },
-        { id: "right", cssColor: "color(display-p3 0.1 0.7 1)", position: 100 },
+        {
+            id: "left",
+            cssColor: "oklch(0.7 0.18 30)",
+            position: 0,
+            easing: linearInterval(),
+        },
+        {
+            id: "right",
+            cssColor: "color(display-p3 0.1 0.7 1)",
+            position: 100,
+            easing: linearInterval(),
+        },
     ],
-    intervals: [linearInterval()],
     interpolationSpace: "oklch",
     hueMethod: "shorter",
 };
 
 describe("Gradient Value 4 capability consume", () => {
     it("mixes final color objects and emits parseable CSS", () => {
-        const css = interpolateStopColors("red", "blue", 0.5, "oklch", "shorter");
-        expect(parseCssColor(css).ok).toBe(true);
-        expect(
-            parseCssColor(interpolateStopColors("red", "blue", 0.5, "hsv", "shorter")).ok,
-        ).toBe(true);
+        // X-W6 · X.W6.c: the interval colour is the ONE sampling law
+        // (`intervalSampler`), printed in the one literal dialect.
+        const [left, right] = model.stops;
+        const mid = (space: "oklch" | "hsv") =>
+            formatColorLiteral(
+                intervalSampler(left!, right!, {
+                    interpolationSpace: space,
+                    hueMethod: "shorter",
+                })(0.5),
+            );
+        expect(parseCssColor(mid("oklch")).ok).toBe(true);
+        expect(parseCssColor(mid("hsv")).ok).toBe(true);
 
         const samples = sampleCoalescedStops(model);
         expect(samples.length).toBeGreaterThan(2);
         expect(samples.every(({ color }) => color.space === "oklch")).toBe(true);
-        expect(serializeCoalescedGradient(model)).toMatch(/^linear-gradient\(90deg, oklch\(/);
+        // X-W6 · X.W6.c: the render CSS carries the model's space clause.
+        expect(serializeCoalescedGradient(model)).toMatch(
+            /^linear-gradient\(90deg in oklch, oklch\(/,
+        );
     });
 
     it("evaluates each CSS timing AST through the Result-based easing API", () => {

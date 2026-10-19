@@ -1,0 +1,449 @@
+{
+ "rounds": 11,
+ "uptimeBefore": "19:44  up 1 day,  2:33, 4 users, load averages: 37.70 70.59 115.25",
+ "uptimeAfter": "19:44  up 1 day,  2:33, 4 users, load averages: 35.67 69.09 114.20",
+ "summary": {
+  "retired": {
+   "importMs": {
+    "median": 1.7,
+    "min": 1.31
+   },
+   "firstParseMs": {
+    "median": 0.85,
+    "min": 0.68
+   },
+   "secondParseMs": {
+    "median": 0.22,
+    "min": 0.17
+   },
+   "firstSheetMs": {
+    "median": 1.48,
+    "min": 1.32
+   },
+   "importPlusFirst": 2.6,
+   "ratioImportPlusFirstToRetired": 1
+  },
+  "stock": {
+   "importMs": {
+    "median": 5.14,
+    "min": 4.02
+   },
+   "firstParseMs": {
+    "median": 15.21,
+    "min": 12.18
+   },
+   "secondParseMs": {
+    "median": 0.33,
+    "min": 0.23
+   },
+   "firstSheetMs": {
+    "median": 2.54,
+    "min": 1.94
+   },
+   "importPlusFirst": 20.21,
+   "ratioImportPlusFirstToRetired": 7.77
+  },
+  "tsc-emit-pos": {
+   "importMs": {
+    "median": 4.51,
+    "min": 3.95
+   },
+   "firstParseMs": {
+    "median": 20.33,
+    "min": 16.83
+   },
+   "secondParseMs": {
+    "median": 0.33,
+    "min": 0.23
+   },
+   "firstSheetMs": {
+    "median": 3.14,
+    "min": 2.11
+   },
+   "importPlusFirst": 25.14,
+   "ratioImportPlusFirstToRetired": 9.67
+  },
+  "jx-aot-pos": {
+   "importMs": {
+    "median": 6.03,
+    "min": 5.13
+   },
+   "firstParseMs": {
+    "median": 4.01,
+    "min": 3.24
+   },
+   "secondParseMs": {
+    "median": 0.32,
+    "min": 0.25
+   },
+   "firstSheetMs": {
+    "median": 3.1,
+    "min": 2.02
+   },
+   "importPlusFirst": 10.06,
+   "ratioImportPlusFirstToRetired": 3.87
+  },
+  "aot-text": {
+   "importMs": {
+    "median": 6.1,
+    "min": 5.28
+   },
+   "firstParseMs": {
+    "median": 2.35,
+    "min": 1.88
+   },
+   "secondParseMs": {
+    "median": 0.32,
+    "min": 0.25
+   },
+   "firstSheetMs": {
+    "median": 3.24,
+    "min": 2.25
+   },
+   "importPlusFirst": 8.5,
+   "ratioImportPlusFirstToRetired": 3.27
+  }
+ },
+ "rows": {
+  "retired": [
+   {
+    "importMs": 1.6982920000000092,
+    "firstParseMs": 0.9015419999999921,
+    "secondParseMs": 0.2729580000000027,
+    "firstSheetMs": 1.9625419999999991
+   },
+   {
+    "importMs": 1.6314580000000092,
+    "firstParseMs": 0.9319579999999945,
+    "secondParseMs": 0.20112500000000466,
+    "firstSheetMs": 1.6066670000000016
+   },
+   {
+    "importMs": 1.6942499999999967,
+    "firstParseMs": 0.8179170000000084,
+    "secondParseMs": 0.22108299999999304,
+    "firstSheetMs": 1.4783330000000063
+   },
+   {
+    "importMs": 2.0718330000000122,
+    "firstParseMs": 2.0241669999999914,
+    "secondParseMs": 0.19412499999999966,
+    "firstSheetMs": 2.733041
+   },
+   {
+    "importMs": 2.3102499999999964,
+    "firstParseMs": 0.7962500000000006,
+    "secondParseMs": 0.19512500000000443,
+    "firstSheetMs": 1.372374999999991
+   },
+   {
+    "importMs": 2.0694579999999974,
+    "firstParseMs": 0.8776670000000024,
+    "secondParseMs": 0.226791999999989,
+    "firstSheetMs": 1.4662080000000088
+   },
+   {
+    "importMs": 2.196832999999998,
+    "firstParseMs": 0.8006249999999966,
+    "secondParseMs": 0.18966700000000003,
+    "firstSheetMs": 2.100500000000011
+   },
+   {
+    "importMs": 1.43670800000001,
+    "firstParseMs": 0.804791999999992,
+    "secondParseMs": 0.2277910000000105,
+    "firstSheetMs": 1.4849589999999893
+   },
+   {
+    "importMs": 1.9303330000000045,
+    "firstParseMs": 1.0010419999999982,
+    "secondParseMs": 0.21699999999999875,
+    "firstSheetMs": 1.317417000000006
+   },
+   {
+    "importMs": 1.4702500000000072,
+    "firstParseMs": 0.8532079999999951,
+    "secondParseMs": 0.24229199999999196,
+    "firstSheetMs": 1.5015830000000108
+   },
+   {
+    "importMs": 1.30954100000001,
+    "firstParseMs": 0.6836669999999998,
+    "secondParseMs": 0.17233299999999474,
+    "firstSheetMs": 1.4319169999999986
+   }
+  ],
+  "stock": [
+   {
+    "importMs": 5.135791999999995,
+    "firstParseMs": 14.404958000000008,
+    "secondParseMs": 0.23145900000000097,
+    "firstSheetMs": 2.5577909999999946
+   },
+   {
+    "importMs": 4.999124999999992,
+    "firstParseMs": 15.21495800000001,
+    "secondParseMs": 0.33549999999999613,
+    "firstSheetMs": 2.4859170000000006
+   },
+   {
+    "importMs": 5.6172909999999945,
+    "firstParseMs": 15.312083999999999,
+    "secondParseMs": 0.2832910000000055,
+    "firstSheetMs": 2.733916999999991
+   },
+   {
+    "importMs": 6.344834000000006,
+    "firstParseMs": 15.890500000000003,
+    "secondParseMs": 0.5292910000000006,
+    "firstSheetMs": 3.3036249999999967
+   },
+   {
+    "importMs": 5.454999999999998,
+    "firstParseMs": 19.221083000000007,
+    "secondParseMs": 0.4072919999999982,
+    "firstSheetMs": 2.806416999999996
+   },
+   {
+    "importMs": 5.328708999999989,
+    "firstParseMs": 18.396083000000004,
+    "secondParseMs": 1.2934170000000051,
+    "firstSheetMs": 2.535083
+   },
+   {
+    "importMs": 5.1555000000000035,
+    "firstParseMs": 15.771167000000005,
+    "secondParseMs": 0.3293329999999912,
+    "firstSheetMs": 2.260000000000005
+   },
+   {
+    "importMs": 4.624667000000002,
+    "firstParseMs": 13.239457999999999,
+    "secondParseMs": 0.22937500000000455,
+    "firstSheetMs": 1.9414589999999947
+   },
+   {
+    "importMs": 4.828083000000007,
+    "firstParseMs": 12.346582999999995,
+    "secondParseMs": 0.2773339999999962,
+    "firstSheetMs": 2.8971250000000026
+   },
+   {
+    "importMs": 4.571416999999997,
+    "firstParseMs": 12.58241600000001,
+    "secondParseMs": 0.2250839999999954,
+    "firstSheetMs": 2.0128330000000005
+   },
+   {
+    "importMs": 4.0150409999999965,
+    "firstParseMs": 12.175667000000004,
+    "secondParseMs": 0.35308299999999804,
+    "firstSheetMs": 2.0425419999999974
+   }
+  ],
+  "tsc-emit-pos": [
+   {
+    "importMs": 4.332499999999996,
+    "firstParseMs": 17.494375000000005,
+    "secondParseMs": 0.23125000000000284,
+    "firstSheetMs": 3.344291999999996
+   },
+   {
+    "importMs": 4.506874999999994,
+    "firstParseMs": 17.6935,
+    "secondParseMs": 0.4758330000000086,
+    "firstSheetMs": 2.3812919999999878
+   },
+   {
+    "importMs": 4.903500000000008,
+    "firstParseMs": 29.005540999999994,
+    "secondParseMs": 0.45495900000000233,
+    "firstSheetMs": 3.785624999999996
+   },
+   {
+    "importMs": 5.380499999999998,
+    "firstParseMs": 22.812540999999996,
+    "secondParseMs": 0.910624999999996,
+    "firstSheetMs": 2.9375420000000076
+   },
+   {
+    "importMs": 5.527582999999993,
+    "firstParseMs": 23.164375000000007,
+    "secondParseMs": 0.3611669999999947,
+    "firstSheetMs": 3.2670829999999995
+   },
+   {
+    "importMs": 4.908375000000007,
+    "firstParseMs": 22.619749999999996,
+    "secondParseMs": 0.46875,
+    "firstSheetMs": 3.382542000000001
+   },
+   {
+    "importMs": 4.443124999999995,
+    "firstParseMs": 22.642041000000006,
+    "secondParseMs": 0.33133399999999824,
+    "firstSheetMs": 3.2631250000000023
+   },
+   {
+    "importMs": 4.813665999999998,
+    "firstParseMs": 20.328958999999998,
+    "secondParseMs": 0.3007080000000002,
+    "firstSheetMs": 3.141458
+   },
+   {
+    "importMs": 3.9495000000000005,
+    "firstParseMs": 17.898791000000003,
+    "secondParseMs": 0.2507919999999899,
+    "firstSheetMs": 2.111457999999999
+   },
+   {
+    "importMs": 4.510792000000009,
+    "firstParseMs": 19.120582999999996,
+    "secondParseMs": 0.3042090000000002,
+    "firstSheetMs": 3.137457999999995
+   },
+   {
+    "importMs": 4.041082999999993,
+    "firstParseMs": 16.82783400000001,
+    "secondParseMs": 0.24133299999999736,
+    "firstSheetMs": 2.4586670000000055
+   }
+  ],
+  "jx-aot-pos": [
+   {
+    "importMs": 6.030167000000006,
+    "firstParseMs": 3.5476659999999924,
+    "secondParseMs": 0.5854170000000067,
+    "firstSheetMs": 3.0533749999999884
+   },
+   {
+    "importMs": 6.087209000000001,
+    "firstParseMs": 3.970583000000005,
+    "secondParseMs": 0.3550829999999934,
+    "firstSheetMs": 3.303959000000006
+   },
+   {
+    "importMs": 6.013709000000006,
+    "firstParseMs": 4.207166000000001,
+    "secondParseMs": 0.27483399999999847,
+    "firstSheetMs": 3.305374999999998
+   },
+   {
+    "importMs": 6.116749999999996,
+    "firstParseMs": 4.5993330000000014,
+    "secondParseMs": 0.31645799999999724,
+    "firstSheetMs": 3.681042000000005
+   },
+   {
+    "importMs": 6.819999999999993,
+    "firstParseMs": 4.404334000000006,
+    "secondParseMs": 0.5580000000000069,
+    "firstSheetMs": 3.534582999999998
+   },
+   {
+    "importMs": 6.029250000000005,
+    "firstParseMs": 4.131917000000001,
+    "secondParseMs": 0.32279099999999517,
+    "firstSheetMs": 2.6143750000000097
+   },
+   {
+    "importMs": 9.290416000000008,
+    "firstParseMs": 4.050416999999996,
+    "secondParseMs": 0.45054199999999867,
+    "firstSheetMs": 3.5543329999999997
+   },
+   {
+    "importMs": 5.259250000000009,
+    "firstParseMs": 4.006541999999996,
+    "secondParseMs": 0.40604199999999935,
+    "firstSheetMs": 3.1020829999999933
+   },
+   {
+    "importMs": 5.277124999999998,
+    "firstParseMs": 3.447500000000005,
+    "secondParseMs": 0.28829199999999844,
+    "firstSheetMs": 2.6268749999999983
+   },
+   {
+    "importMs": 5.130207999999996,
+    "firstParseMs": 3.244624999999999,
+    "secondParseMs": 0.25029200000000174,
+    "firstSheetMs": 2.0197919999999954
+   },
+   {
+    "importMs": 5.412708999999992,
+    "firstParseMs": 3.3680829999999986,
+    "secondParseMs": 0.29683300000000656,
+    "firstSheetMs": 2.4196249999999964
+   }
+  ],
+  "aot-text": [
+   {
+    "importMs": 5.472915999999998,
+    "firstParseMs": 1.8795000000000073,
+    "secondParseMs": 0.31683400000000006,
+    "firstSheetMs": 3.6515409999999946
+   },
+   {
+    "importMs": 5.948083000000011,
+    "firstParseMs": 2.3962079999999872,
+    "secondParseMs": 0.5058750000000032,
+    "firstSheetMs": 3.351084
+   },
+   {
+    "importMs": 6.173291999999989,
+    "firstParseMs": 2.3269580000000047,
+    "secondParseMs": 0.35599999999999454,
+    "firstSheetMs": 2.8549170000000004
+   },
+   {
+    "importMs": 6.194749999999999,
+    "firstParseMs": 2.739999999999995,
+    "secondParseMs": 0.31695799999999963,
+    "firstSheetMs": 2.9517919999999975
+   },
+   {
+    "importMs": 7.324708000000001,
+    "firstParseMs": 2.6467919999999907,
+    "secondParseMs": 0.2848330000000061,
+    "firstSheetMs": 3.7704999999999984
+   },
+   {
+    "importMs": 6.097999999999999,
+    "firstParseMs": 2.751125000000002,
+    "secondParseMs": 0.3572500000000076,
+    "firstSheetMs": 3.5578749999999957
+   },
+   {
+    "importMs": 7.501499999999993,
+    "firstParseMs": 2.8020000000000067,
+    "secondParseMs": 0.38520799999999156,
+    "firstSheetMs": 3.4962500000000034
+   },
+   {
+    "importMs": 6.208292,
+    "firstParseMs": 2.345416,
+    "secondParseMs": 0.3242090000000104,
+    "firstSheetMs": 3.0181659999999937
+   },
+   {
+    "importMs": 5.938708000000005,
+    "firstParseMs": 2.126041999999998,
+    "secondParseMs": 0.27233300000000327,
+    "firstSheetMs": 2.2502920000000017
+   },
+   {
+    "importMs": 5.796416999999991,
+    "firstParseMs": 2.320625000000007,
+    "secondParseMs": 0.27170800000000384,
+    "firstSheetMs": 3.2402079999999955
+   },
+   {
+    "importMs": 5.275083000000009,
+    "firstParseMs": 1.9181250000000034,
+    "secondParseMs": 0.25483399999998824,
+    "firstSheetMs": 2.8801250000000067
+   }
+  ]
+ }
+}

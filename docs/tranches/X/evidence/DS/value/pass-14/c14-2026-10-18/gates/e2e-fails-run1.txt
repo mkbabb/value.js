@@ -1,0 +1,18 @@
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:638:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:393:1 › garbage input fails LOUD and leaves the model untouched 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the inspector are each their own surface over the page ground 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the inspector are each their own surface over the page ground 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the inspector are each their own surface over the page ground 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it 

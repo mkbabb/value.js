@@ -1,0 +1,5 @@
+10-13 17:43:52
+17:43  up 3 days, 22:46, 3 users, load averages: 195.89 143.10 188.27
+total = 79872.00M  used = 78470.94M  free = 1401.06M  (encrypted)
+System-wide memory free percentage: 38%
+processes:     1611

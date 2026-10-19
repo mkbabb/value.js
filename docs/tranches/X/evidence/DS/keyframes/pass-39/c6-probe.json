@@ -1,0 +1,321 @@
+{
+ "cells": {
+  "ghost-1440-light": [
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 108,
+    "cy": 236,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.216128 0.00350075 0.00518669 / 0.4)"
+   },
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 441,
+    "cy": 236,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.216128 0.00350075 0.00518669 / 0.4)"
+   }
+  ],
+  "square-1440-light": {
+   "field": {
+    "l": 802,
+    "r": 1114
+   },
+   "caption": {
+    "l": 785,
+    "r": 1131,
+    "lines": 1
+   },
+   "mini": {
+    "squareStroke": "6",
+    "spring": null
+   },
+   "centreDelta": 0
+  },
+  "spring-1440-light": {
+   "rowR": 1230,
+   "plotRights": [
+    1230,
+    1230
+   ],
+   "railR": 1342,
+   "railL": 574,
+   "labelR": 1230,
+   "glyphL": 1155,
+   "btnR": 1245,
+   "mini": {
+    "squareStroke": null,
+    "spring": {
+     "rail": {
+      "l": 939.6,
+      "t": 70.3,
+      "w": 8.8,
+      "h": 2,
+      "opacity": "1"
+     },
+     "ball": {
+      "l": 937.8,
+      "t": 68.5,
+      "w": 5.5,
+      "h": 5.5
+     },
+     "ring": {
+      "l": 948.3,
+      "t": 67,
+      "w": 8.5,
+      "h": 8.5,
+      "border": "1px"
+     }
+    }
+   }
+  },
+  "ghost-390-light": [
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 49,
+    "cy": 895,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.216128 0.00350075 0.00518669 / 0.4)"
+   },
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 341,
+    "cy": 895,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.216128 0.00350075 0.00518669 / 0.4)"
+   }
+  ],
+  "square-390-light": {
+   "field": {
+    "l": 104,
+    "r": 286
+   },
+   "caption": {
+    "l": 120,
+    "r": 270,
+    "lines": 2
+   },
+   "mini": {
+    "squareStroke": "6",
+    "spring": null
+   },
+   "centreDelta": 0
+  },
+  "spring-390-light": {
+   "rowR": 341,
+   "plotRights": [
+    299,
+    299
+   ],
+   "railR": 341,
+   "railL": 49,
+   "labelR": 116,
+   "glyphL": 49,
+   "btnR": 131,
+   "mini": {
+    "squareStroke": null,
+    "spring": {
+     "rail": {
+      "l": 177,
+      "t": 56.5,
+      "w": 8.8,
+      "h": 2,
+      "opacity": "1"
+     },
+     "ball": {
+      "l": 175.3,
+      "t": 54.8,
+      "w": 5.5,
+      "h": 5.5
+     },
+     "ring": {
+      "l": 185.8,
+      "t": 53.3,
+      "w": 8.5,
+      "h": 8.5,
+      "border": "1px"
+     }
+    }
+   }
+  },
+  "amiga-390-light": {
+   "canvas": [
+    102,
+    715
+   ],
+   "canvasCentre": 408,
+   "dockBottom": 92
+  },
+  "ghost-1440-dark": [
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 108,
+    "cy": 236,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.925196 0.00238398 0.00574207 / 0.4)"
+   },
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 441,
+    "cy": 236,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.925196 0.00238398 0.00574207 / 0.4)"
+   }
+  ],
+  "square-1440-dark": {
+   "field": {
+    "l": 802,
+    "r": 1114
+   },
+   "caption": {
+    "l": 785,
+    "r": 1131,
+    "lines": 1
+   },
+   "mini": {
+    "squareStroke": "6",
+    "spring": null
+   },
+   "centreDelta": 0
+  },
+  "spring-1440-dark": {
+   "rowR": 1230,
+   "plotRights": [
+    1230,
+    1230
+   ],
+   "railR": 1342,
+   "railL": 574,
+   "labelR": 1230,
+   "glyphL": 1155,
+   "btnR": 1245,
+   "mini": {
+    "squareStroke": null,
+    "spring": {
+     "rail": {
+      "l": 939.6,
+      "t": 70.3,
+      "w": 8.8,
+      "h": 2,
+      "opacity": "1"
+     },
+     "ball": {
+      "l": 937.8,
+      "t": 68.5,
+      "w": 5.5,
+      "h": 5.5
+     },
+     "ring": {
+      "l": 948.3,
+      "t": 67,
+      "w": 8.5,
+      "h": 8.5,
+      "border": "1px"
+     }
+    }
+   }
+  },
+  "ghost-390-dark": [
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 49,
+    "cy": 895,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.925196 0.00238398 0.00574207 / 0.4)"
+   },
+   {
+    "tag": "svg",
+    "w": 24,
+    "h": 24,
+    "cx": 341,
+    "cy": 895,
+    "pathLength": "16",
+    "dash": "1px, 1px",
+    "stroke": "oklab(0.925196 0.00238398 0.00574207 / 0.4)"
+   }
+  ],
+  "square-390-dark": {
+   "field": {
+    "l": 104,
+    "r": 286
+   },
+   "caption": {
+    "l": 120,
+    "r": 270,
+    "lines": 2
+   },
+   "mini": {
+    "squareStroke": "6",
+    "spring": null
+   },
+   "centreDelta": 0
+  },
+  "spring-390-dark": {
+   "rowR": 341,
+   "plotRights": [
+    299,
+    299
+   ],
+   "railR": 341,
+   "railL": 49,
+   "labelR": 116,
+   "glyphL": 49,
+   "btnR": 131,
+   "mini": {
+    "squareStroke": null,
+    "spring": {
+     "rail": {
+      "l": 177,
+      "t": 56.5,
+      "w": 8.8,
+      "h": 2,
+      "opacity": "1"
+     },
+     "ball": {
+      "l": 175.3,
+      "t": 54.8,
+      "w": 5.5,
+      "h": 5.5
+     },
+     "ring": {
+      "l": 185.8,
+      "t": 53.3,
+      "w": 8.5,
+      "h": 8.5,
+      "border": "1px"
+     }
+    }
+   }
+  },
+  "amiga-390-dark": {
+   "canvas": [
+    102,
+    715
+   ],
+   "canvasCentre": 408,
+   "dockBottom": 92
+  }
+ },
+ "fails": []
+}

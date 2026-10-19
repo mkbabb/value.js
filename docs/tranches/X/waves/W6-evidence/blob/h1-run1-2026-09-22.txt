@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5[1m]
+# ⟨cmd⟩ npx playwright test e2e/smoke/webgl-blob-idle.spec.ts --project=smoke --reporter=line   (whole file: the pre-existing idle arm + the three h1 arms) · 2026-09-22 · run 1
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 0.8505 C 0.04672 h 4.52 · ΔC 0.02567 (stated ±0.04) · px 2324
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.7340 C 0.18488 h 141.80 · ΔC 0.00588 (stated ±0.04) · px 2324
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.6448 C 0.23149 h 321.40 · ΔC -0.02176 (stated ±0.04) · px 2324
+  1 failed
+  3 passed (1.3m)

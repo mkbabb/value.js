@@ -1,0 +1,30 @@
+17:02  up 5 days, 22:05, 2 users, load averages: 101.19 98.11 70.85
+[guarded] waiting for headroom (load 101 > 72)
+firefox r0a0 parseCssColor          acc      n=6460 k=16 S=15 product x0.84 (30/31<1) spread 18.224 SET-ASIDE
+firefox r0a0 parseCssScalar         acc      n=7460 k=2 S=15 product x0.698 (31/31<1) spread 10.176 SET-ASIDE
+firefox r0a0 parseCssValue          acc      n=13023 k=2 S=15 product x0.463 (31/31<1) spread 12.584 SET-ASIDE
+firefox r0a0 parseCssValues         acc      n=13023 k=1 S=15 product x0.467 (31/31<1) spread 8.854 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=16384 S=13 product x0.887 (31/31<1) spread 4.571 SET-ASIDE
+firefox r0a0 parseTimingFunction    acc      n=509 k=128 S=15 product x0.652 (31/31<1) spread 1.281
+firefox r0a0 parseStylesheet        acc      n=2503 k=4 S=15 product x0.767 (31/31<1) spread 1.329
+firefox r1a0 parseCssScalar         acc      n=7460 k=8 S=15 product x0.701 (31/31<1) spread 1.107
+firefox r1a0 parseCssValue          acc      n=13023 k=2 S=15 product x0.474 (31/31<1) spread 1.087
+firefox r1a0 parseCssValues         acc      n=13023 k=2 S=15 product x0.483 (31/31<1) spread 1.087
+firefox r1a0 parseKeyframeSelector  acc      n=56 k=8192 S=13 product x0.897 (31/31<1) spread 1.086
+firefox r1a0 parseTimingFunction    acc      n=509 k=128 S=15 product x0.678 (31/31<1) spread 1.146
+firefox r1a0 parseStylesheet        acc      n=2503 k=4 S=15 product x0.773 (31/31<1) spread 1.061
+firefox r1a0 parseCssColor          acc      n=6460 k=16 S=15 product x0.837 (31/31<1) spread 1.149
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssColor                <1 x0.84(SA) x0.837
+product firefox|acc|parseCssScalar               <1 x0.698(SA) x0.701
+product firefox|acc|parseCssValue                <1 x0.463(SA) x0.474
+product firefox|acc|parseCssValues               <1 x0.467(SA) x0.483
+product firefox|acc|parseKeyframeSelector        <1 x0.887(SA) x0.897
+product firefox|acc|parseTimingFunction          <1 x0.652 x0.678
+product firefox|acc|parseStylesheet              <1 x0.767 x0.773
+17:36  up 5 days, 22:39, 2 users, load averages: 69.08 88.47 72.86 
+ 18:56  up 5 days, 23:58, 2 users, load averages: 58.15 55.97 64.53 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c2-firefox-n31-acc.json
+DONE w8lg1c2-firefox-n31-acc
+guarded exit 0
+18:56  up 5 days, 23:58, 2 users, load averages: 58.05 55.99 64.49

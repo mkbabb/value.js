@@ -1,0 +1,28 @@
+{
+ "kf": {
+  "head": "28e97ec3",
+  "dirty": "8"
+ },
+ "raw": {
+  "typeofOnDocument": "function"
+ },
+ "res": {
+  "calls": [
+   {
+    "t": 4965,
+    "thisIsDocument": true,
+    "argKind": "object",
+    "stack": "    at Document.startViewTransition (<anonymous>:6:108) |     at http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/orchestration/view-transition/view-transition.ts?t=1790226452596:86:37 |     at withReducedMotion (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/internal/reduced-motion.ts:125:38) |     at viewTransition (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/orchestration/view-transition/view-transition.ts?t=1790226452596:73:9)",
+    "native": true
+   }
+  ],
+  "hash": "#/amiga"
+ },
+ "control": {
+  "vtPseudoAnimsWhenBound": 10
+ },
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}
+// unhooked unbound native call: TypeError: Illegal invocation

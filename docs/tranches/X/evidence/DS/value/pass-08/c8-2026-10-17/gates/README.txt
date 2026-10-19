@@ -1,0 +1,6 @@
+X-DS value pass 8 cure (critic V8C, 2026-10-17): gates, read on tranche-u with the cure dc94d7745 (App.vue, PaneShell.vue, PaneHeader.vue, useViewManager.ts, viewSchema.ts, shell.css, EmptyState.vue, NotFoundPane.vue, e2e/smoke/fixtures/dock.ts).
+typecheck (npm run typecheck, guarded --light): exit 0 x2 (typecheck-run1/2.txt).
+vitest (npx vitest run --maxWorkers=2, guarded): 1234/1239 x2, the same 5 standing failures as pass 7 (vitest-fails-run1/2.txt): ink D6 x2, ink T-35 x3.
+e2e (headless, workers 1, Playwright's own server VJS_E2E_PORT=9262; specs.txt): project smoke, 12 specs touching the changed files (page-load, walk = gate A5's one-visible-H1-per-view; w12u-x-admin-tags = Not Found; a11y-select-title = .pane-header-title scope; scene-action-contract; o11-header-gates = PaneHeader veil; o10d / o10 type locks = the display voice; o9, o7 card census; views/mix; flows/palette-save = mainPane): 51/51 x2. smoke-admin (route-guard, admin-walk, admin-populated, o10d-admin-title-voice): 8/8 x2. smoke-mobile page-load-mobile ("Home" H1): 1/1 x2. Strict GREEN.
+No visual golden re-baselined.
+Frames and census served by a guarded `vite --port 9263 --strictPort` (VITE_API_URL=http://localhost:9263, VJS_VITE_CACHE_DIR=node_modules/.vite-ds-9263); stopped after.

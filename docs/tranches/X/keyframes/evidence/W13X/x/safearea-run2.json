@@ -1,0 +1,1007 @@
+[
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "home",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 844,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   84,
+   676,
+   306,
+   736
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "cube",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   62,
+   676,
+   328,
+   736
+  ],
+  "inBand": [
+   {
+    "n": "",
+    "box": [
+     174,
+     812,
+     339,
+     872
+    ]
+   }
+  ],
+  "inBandCount": 1
+ },
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "amiga",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   81,
+   676,
+   309,
+   736
+  ],
+  "inBand": [
+   {
+    "n": "",
+    "box": [
+     174,
+     812,
+     339,
+     872
+    ]
+   }
+  ],
+  "inBandCount": 1
+ },
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "square",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   127,
+   676,
+   264,
+   736
+  ],
+  "inBand": [
+   {
+    "n": "",
+    "box": [
+     174,
+     812,
+     339,
+     872
+    ]
+   }
+  ],
+  "inBandCount": 1
+ },
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "easing",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   127,
+   676,
+   264,
+   736
+  ],
+  "inBand": [
+   {
+    "n": "ease-in-outslow start & ",
+    "box": [
+     47,
+     801,
+     343,
+     899
+    ]
+   }
+  ],
+  "inBandCount": 1
+ },
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "spring",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   71,
+   676,
+   319,
+   736
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390",
+  "insets": {
+   "top": 47,
+   "bottom": 34,
+   "left": 0,
+   "right": 0
+  },
+  "route": "sequence",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "47px",
+   "r": "0px",
+   "b": "34px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   49,
+   225,
+   109
+  ],
+  "bottomDock": [
+   127,
+   676,
+   264,
+   736
+  ],
+  "inBand": [
+   {
+    "n": "Scrub the sequence maste",
+    "box": [
+     123,
+     818,
+     343,
+     854
+    ]
+   }
+  ],
+  "inBandCount": 1
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "home",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 844,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   84,
+   723,
+   306,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "cube",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   62,
+   723,
+   328,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "amiga",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   81,
+   723,
+   309,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "square",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   127,
+   723,
+   264,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "easing",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   127,
+   723,
+   264,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "spring",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   71,
+   723,
+   319,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "p390-noinset",
+  "insets": {
+   "top": 0,
+   "bottom": 0,
+   "left": 0,
+   "right": 0
+  },
+  "route": "sequence",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "0px",
+   "b": "0px",
+   "l": "0px"
+  },
+  "vw": 390,
+  "vh": 844,
+  "docSH": 1015,
+  "topDock": [
+   165,
+   31,
+   225,
+   91
+  ],
+  "bottomDock": [
+   127,
+   723,
+   264,
+   783
+  ],
+  "inBand": [],
+  "inBandCount": 0
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "home",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 390,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   311,
+   241,
+   533,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Pause the title animatio",
+    "box": [
+     395,
+     357,
+     449,
+     411
+    ]
+   }
+  ],
+  "inBandCount": 1
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "cube",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 594,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   286,
+   241,
+   558,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Close",
+    "box": [
+     779,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Sheet position",
+    "box": [
+     21,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "",
+    "box": [
+     190,
+     322,
+     785,
+     382
+    ]
+   },
+   {
+    "n": "",
+    "box": [
+     190,
+     386,
+     785,
+     446
+    ]
+   }
+  ],
+  "inBandCount": 4
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "amiga",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 594,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   307,
+   241,
+   537,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Close",
+    "box": [
+     779,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Sheet position",
+    "box": [
+     21,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "",
+    "box": [
+     190,
+     322,
+     785,
+     382
+    ]
+   },
+   {
+    "n": "",
+    "box": [
+     190,
+     386,
+     785,
+     446
+    ]
+   }
+  ],
+  "inBandCount": 4
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "square",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 594,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   354,
+   241,
+   491,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Close",
+    "box": [
+     779,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Sheet position",
+    "box": [
+     21,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "",
+    "box": [
+     190,
+     322,
+     785,
+     382
+    ]
+   },
+   {
+    "n": "",
+    "box": [
+     190,
+     386,
+     785,
+     446
+    ]
+   }
+  ],
+  "inBandCount": 4
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "easing",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 594,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   354,
+   241,
+   491,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Bounce",
+    "box": [
+     777,
+     224,
+     867,
+     256
+    ]
+   },
+   {
+    "n": "linearconstant velocity",
+    "box": [
+     55,
+     327,
+     233,
+     453
+    ]
+   },
+   {
+    "n": "easegentle start & end",
+    "box": [
+     241,
+     327,
+     418,
+     453
+    ]
+   },
+   {
+    "n": "ease-inslow start, fast ",
+    "box": [
+     426,
+     327,
+     604,
+     453
+    ]
+   },
+   {
+    "n": "ease-outfast start, slow",
+    "box": [
+     612,
+     327,
+     789,
+     453
+    ]
+   },
+   {
+    "n": "Close",
+    "box": [
+     779,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Sheet position",
+    "box": [
+     21,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Bezier control point 2",
+    "box": [
+     251,
+     370,
+     298,
+     417
+    ]
+   }
+  ],
+  "inBandCount": 8
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "spring",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 594,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   297,
+   241,
+   547,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Close",
+    "box": [
+     779,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Sheet position",
+    "box": [
+     21,
+     256,
+     823,
+     300
+    ]
+   }
+  ],
+  "inBandCount": 2
+ },
+ {
+  "config": "l844",
+  "insets": {
+   "top": 0,
+   "bottom": 21,
+   "left": 47,
+   "right": 47
+  },
+  "route": "sequence",
+  "meta": "width=device-width, initial-scale=1.0",
+  "env": {
+   "t": "0px",
+   "r": "47px",
+   "b": "21px",
+   "l": "47px"
+  },
+  "vw": 844,
+  "vh": 390,
+  "docSH": 594,
+  "topDock": [
+   392,
+   38,
+   452,
+   98
+  ],
+  "bottomDock": [
+   354,
+   241,
+   491,
+   301
+  ],
+  "inBand": [
+   {
+    "n": "Close",
+    "box": [
+     779,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Sheet position",
+    "box": [
+     21,
+     256,
+     823,
+     300
+    ]
+   },
+   {
+    "n": "Reset the sequence items",
+    "box": [
+     735,
+     326,
+     789,
+     380
+    ]
+   }
+  ],
+  "inBandCount": 3
+ }
+]

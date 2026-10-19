@@ -1,0 +1,5700 @@
+{
+  "schema": "x-p-w3-d/equivalence-full-surface@1",
+  "note": "X.P.W3.d — the P-1 differential harness GRADUATED from the 403-string pilot to the full 52-export surface, against the vendored sha-pinned published 4.0.0 tarball (never dist/). The MIRROR-DEFECT taxonomy is the authority's own, re-read and asserted byte-for-byte before any cell was classified.",
+  "generatedBy": "typescript/test/css-equivalence/run-full-surface.mjs",
+  "pin": {
+    "commit": "6aca86020b6b2605e7d0f04fccb6601746e387f7",
+    "index": {
+      "path": "6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/index.ts",
+      "bytes": 1310,
+      "sha256": "c09d076ed779fedee1840c59900e0f34e5cba36c32c126ced864a849a3acf90c"
+    },
+    "types": {
+      "path": "6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/types.ts",
+      "bytes": 5879,
+      "sha256": "109327ce94fdcc37d57677e23e3c0bd0c8dfde399ace2998a87e2442d9338fe2"
+    }
+  },
+  "oracle": {
+    "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/vendor/value.js-4.0.0.tgz",
+    "bytes": 37290,
+    "sha256": "7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae",
+    "npmIntegrity": "sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==",
+    "entrySha256": "8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42",
+    "declarationSha256": "c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f0ba40e78a439743d0",
+    "exports": 19
+  },
+  "oracleCrossCheckAgainstUnpackedTree": {
+    "dir": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0",
+    "rows": [
+      {
+        "file": "dist/subpaths/css.js",
+        "present": true,
+        "tarballSha256": "8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42",
+        "unpackedSha256": "8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42",
+        "agree": true
+      },
+      {
+        "file": "dist/subpaths/css.d.ts",
+        "present": true,
+        "tarballSha256": "c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f0ba40e78a439743d0",
+        "unpackedSha256": "c81d095213d112c6bdbddf1ddb65da2a1286d6e2ff37f5f0ba40e78a439743d0",
+        "agree": true
+      }
+    ],
+    "agree": true
+  },
+  "taxonomy": {
+    "ok": true,
+    "authorityPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/parser-proof/equivalence.md",
+    "extractedSha256": "554c2993cebd3ed386e023e043ded9538bd99fd488de0598ada40b845dd963a7",
+    "classes": [
+      "A DIVERGENT_VALUE",
+      "B MIS_ACCEPT",
+      "C FALSE_REJECT_IN_SHAPE"
+    ],
+    "declaredNonDefects": [
+      "COVERAGE_NARROWING",
+      "LIVE_STRICTER"
+    ]
+  },
+  "specReadingConvention": "Where the taxonomy's spec half is missing and no parser-band adjudication covers the input, the cell is counted AGAINST the candidate (MIS_ACCEPT / FALSE_REJECT_IN_SHAPE) and flagged specUndecided. The opposite convention would drive the count toward zero on an argument nobody measured.",
+  "shape": {
+    "source": "MEASURED ON THE ORACLE (F-z2): the pinned value.js 4.0.0 surface over the sha-asserted corpus — a head is declared when the INCUMBENT accepts at least one input naming it",
+    "declaredHeads": {
+      "color": [
+        "color",
+        "hsl",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "rgb"
+      ],
+      "timing": [
+        "cubic-bezier",
+        "linear",
+        "steps"
+      ]
+    },
+    "candidateHeads": {
+      "color": [
+        "color",
+        "hsl",
+        "hsla",
+        "hwb",
+        "lab",
+        "lch",
+        "oklab",
+        "oklch",
+        "rgb",
+        "rgba",
+        "var"
+      ],
+      "timing": [
+        "cubic-bezier",
+        "linear",
+        "steps"
+      ]
+    },
+    "declaredLiteralForms": [
+      "context",
+      "hex3",
+      "hex4",
+      "hex6",
+      "hex8",
+      "named-color",
+      "transparent"
+    ],
+    "rule": "an input naming a function head the ORACLE accepts nowhere in the corpus is OUTSIDE the declared shape (COVERAGE_NARROWING); everything else is INSIDE, whether or not the candidate's R_disp carries a row for it",
+    "families": [
+      "color",
+      "timing"
+    ]
+  },
+  "corpus": {
+    "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-totality/corpus.json",
+    "rows": 26604,
+    "distinct": 26551,
+    "run": 26551,
+    "unwrappedForFc3": 172,
+    "rowsSha256": "559e84bfb632b1402d37d5832dbb9c45477b8f1ab82db7a2caae8468e5863152",
+    "rowsSha256Agrees": true,
+    "bands": {
+      "ground-a": 210,
+      "p1": 403,
+      "fuzz-f": 1769,
+      "fuzz-o": 23942,
+      "named": 148,
+      "r1": 172
+    }
+  },
+  "universe": {
+    "runtime": 19,
+    "types": 33,
+    "total": 52
+  },
+  "ledger": {
+    "rows": 38,
+    "byFamily": {
+      "ADJUDICATED": 16,
+      "DISSENT": 4,
+      "FIXTURE": 5,
+      "LABEL": 1,
+      "NARROWING": 3,
+      "CAPACITY": 9
+    },
+    "emptyConsumerDirections": [],
+    "fixtureAnchorsPresent": [
+      {
+        "id": "R1",
+        "anchor": "`parseCssColor(\"oklch()\")`",
+        "present": true
+      },
+      {
+        "id": "R2",
+        "anchor": "R2: 10 valid qualified rules",
+        "present": true
+      },
+      {
+        "id": "R3",
+        "anchor": "R3 dangling-alpha leniency",
+        "present": true
+      },
+      {
+        "id": "R4",
+        "anchor": "R4 selector",
+        "present": true
+      },
+      {
+        "id": "R5",
+        "anchor": "R5 comment-trivia",
+        "present": true
+      }
+    ]
+  },
+  "tally": {
+    "rows": 52,
+    "compared": 24,
+    "noPeer": 28,
+    "mirrorDefects": 134,
+    "specUndecided": 121
+  },
+  "redTriggers": [
+    "DIVERGENT_VALUE",
+    "MIS_ACCEPT",
+    "FALSE_REJECT_IN_SHAPE",
+    "CANDIDATE_THREW",
+    "CANDIDATE_SHAPE",
+    "ADJUDICATION_UNHONOURED"
+  ],
+  "rows": [
+    {
+      "name": "parseCssColor",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23868,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 2462,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 211
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23868,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 2462,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 211
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        }
+      },
+      "misses": {
+        "js": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ],
+        "wasm": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ]
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 10,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseCssScalar",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23868,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 2462,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 211
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23868,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 2462,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 211
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        }
+      },
+      "misses": {
+        "js": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ],
+        "wasm": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ]
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 10,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseCssValue",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23172,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 3249,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 120
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23172,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 3249,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 120
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        }
+      },
+      "misses": {
+        "js": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ],
+        "wasm": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ]
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 10,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseCssValues",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23172,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 3249,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 120
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 23172,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 10,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 3249,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 120
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb()",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  )",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/)",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "oklch(,0% 0.15 50deg)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "hsl(120, 500, 50%)",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "color(display-p3 1 ,.5 0)",
+                "why": "PB-08 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 095)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255-0 153 / 0.5)",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(255 0 153 / 5.5)",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "rgb(none, 6e167, 27%, 6e316)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, -0, -0, 5e357)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.205, 65%, 8e354, 9e445)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(-0, 37.734, 42%, 9e347)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(91%, 99.248, 1e48, 7e380)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(none, 0, -0, 3e448)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 10,
+          "specUndecided": 10
+        }
+      },
+      "misses": {
+        "js": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ],
+        "wasm": [
+          {
+            "input": "rgb(none, 6e167, 27%, 6e316)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, -0, -0, 5e357)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.205, 65%, 8e354, 9e445)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(-0, 37.734, 42%, 9e347)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(91%, 99.248, 1e48, 7e380)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(none, 0, -0, 3e448)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(.843, -0, +54, 5e498)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(9e-443, 93%, 9%, 2e493)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(80%, .55, -17, 2e371)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "rgb(55%, -199, -67.34886833000928, 8e352)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ]
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 10,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseKeyframeSelector",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26551,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26551,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseTimingFunction",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "timing",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26381,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 23,
+            "FALSE_REJECT_IN_SHAPE": 1,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 146,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "steps(7., jump-start)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(.605, +95, 2e285 55.303%, -0 8.%)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "steps(5., jump-end)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(8e213, 2., 180.12373589444906)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "steps(1., jump-start)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "steps(7.)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "linear(174.89818022586405 7e422%, 0e356 1e-315%)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(.95, +99, 5e325)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(17.833 .896%, 8e440, -0)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(+84 8e328%, 3.880178038962185)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "FALSE_REJECT_IN_SHAPE": [
+              {
+                "input": "steps(1e43,, start)",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 24,
+          "specUndecided": 24
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26381,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 23,
+            "FALSE_REJECT_IN_SHAPE": 1,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 146,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "steps(7., jump-start)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(.605, +95, 2e285 55.303%, -0 8.%)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "steps(5., jump-end)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(8e213, 2., 180.12373589444906)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "steps(1., jump-start)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "steps(7.)",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": "linear(174.89818022586405 7e422%, 0e356 1e-315%)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(.95, +99, 5e325)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(17.833 .896%, 8e440, -0)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "linear(+84 8e328%, 3.880178038962185)",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "FALSE_REJECT_IN_SHAPE": [
+              {
+                "input": "steps(1e43,, start)",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 24,
+          "specUndecided": 24
+        }
+      },
+      "misses": {
+        "js": [
+          {
+            "input": "linear(174.89818022586405 7e422%, 0e356 1e-315%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(.95, +99, 5e325)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(17.833 .896%, 8e440, -0)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "steps(1e43,, start)",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(+84 8e328%, 3.880178038962185)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(46.108, +98 33.651%, 9e313, +52 +26%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(5e425, -0, 77.123,.272)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(-0, 8e458, .893, +31)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(7e324 102.8985577110201%, .27, 29 190.33129245508462%, 147 40.640%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(.135, 9e337,.744, 4e424)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(5e499, -0 -0%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-0, 8e472, .147 130%, -0)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(3e399 64.899%, +92, .700 64%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(.557, 6e345, .590, -0)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(.855 -0%, -0 9e390%, -26.280247420072556)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-7.41244088858366 5e492%, 164.92977514863014)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(5e312, 41.272, 91)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(8e478 +73%, +79 28.644%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(.235, 7e424)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(8e317, 78.70270570274442)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-102, 4e429 3e283%, -277)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(94.750 79.25%, 9e441, 15.846)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ],
+        "wasm": [
+          {
+            "input": "linear(174.89818022586405 7e422%, 0e356 1e-315%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(.95, +99, 5e325)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(17.833 .896%, 8e440, -0)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(.319, 1e389, .334, 28.136)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-361 4e495%, 166.1066859262064, -223 -17.386972857639194%, -0 9.254%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "steps(1e43,, start)",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(+84 8e328%, 3.880178038962185)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(46.108, +98 33.651%, 9e313, +52 +26%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(5e425, -0, 77.123,.272)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(-0, 8e458, .893, +31)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(7e324 102.8985577110201%, .27, 29 190.33129245508462%, 147 40.640%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(.135, 9e337,.744, 4e424)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(5e499, -0 -0%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-0, 8e472, .147 130%, -0)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(3e399 64.899%, +92, .700 64%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "cubic-bezier(.557, 6e345, .590, -0)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(.855 -0%, -0 9e390%, -26.280247420072556)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-7.41244088858366 5e492%, 164.92977514863014)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(5e312, 41.272, 91)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(8e478 +73%, +79 28.644%)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(.235, 7e424)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(8e317, 78.70270570274442)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(-102, 4e429 3e283%, -277)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "linear(94.750 79.25%, 9e441, 15.846)",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          }
+        ]
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 24,
+      "lowerAgree": true
+    },
+    {
+      "name": "serializeCssColor",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "coerceToSyntax",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "coercer",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26238,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 193,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 120
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb() @ <angle>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( ) @ <color>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  ) @ <custom-ident>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t) @ <flex>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n) @ <integer>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/) @ <length>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "hsl(120, 500, 50%) @ <color>",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "oklch(60%30.15 50deg) @ <color>",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(-0 3. 270%) @ <color>",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "hsl(2e261turn -13 181.2522914726287 / 296) @ <color>",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.480 7. -0 / -0) @ <color>",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "oklch(none -0 0.rad) @ <color>",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26238,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 193,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 120
+          },
+          "samples": {
+            "FIXTURE_R1": [
+              {
+                "input": "rgb() @ <angle>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb( ) @ <color>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(  ) @ <custom-ident>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\t) @ <flex>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(\n) @ <integer>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              },
+              {
+                "input": "rgb(/) @ <length>",
+                "why": "incumbent throws TypeError; candidate returns ok:false",
+                "bands": [
+                  "ground-a"
+                ]
+              }
+            ],
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": "hsl(120, 500, 50%) @ <color>",
+                "why": "SP-1 honoured (reject)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "oklch(60%30.15 50deg) @ <color>",
+                "why": "ADJ-2 honoured (accept)",
+                "bands": [
+                  "fuzz-f"
+                ]
+              },
+              {
+                "input": "rgb(-0 3. 270%) @ <color>",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "hsl(2e261turn -13 181.2522914726287 / 296) @ <color>",
+                "why": "PB-04/05 honoured (accept)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "rgb(.480 7. -0 / -0) @ <color>",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "oklch(none -0 0.rad) @ <color>",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseAnimationRange",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26551,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26551,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseAnimationTimeline",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26551,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 26551,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "serializeTimelineOptions",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 200,
+          "tally": {
+            "AGREE": 200,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 200,
+          "tally": {
+            "AGREE": 200,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 400,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectAnimationOptions",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectCustomFunctions",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectDeclarations",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectKeyframes",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectPropertyDescriptors",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectStyleRules",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "collectTimelineOptions",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "color",
+      "convention": "structured",
+      "lowerings": {
+        "js": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        },
+        "wasm": {
+          "cellsRun": 400,
+          "tally": {
+            "AGREE": 400,
+            "DIVERGENT_VALUE": 0,
+            "MIS_ACCEPT": 0,
+            "FALSE_REJECT_IN_SHAPE": 0,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 0,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {},
+          "mirrorDefects": 0,
+          "specUndecided": 0
+        }
+      },
+      "misses": {
+        "js": [],
+        "wasm": []
+      },
+      "cellsRun": 800,
+      "mirrorDefects": 0,
+      "lowerAgree": true
+    },
+    {
+      "name": "parseStylesheet",
+      "kind": "runtime",
+      "status": "COMPARED",
+      "family": "stylesheet",
+      "convention": "parser",
+      "lowerings": {
+        "js": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 25747,
+            "DIVERGENT_VALUE": 13,
+            "MIS_ACCEPT": 36,
+            "FALSE_REJECT_IN_SHAPE": 21,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 734,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": ".c { color: var(--a) } a { background-color: oklch(6. none 380turn / 89%) } a { background-color: hsl(4e-74grad -88.9382746303454 +88 / -0) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { color: rgb(0. 0. +50 ) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { border-color: hsl(6e161rad 2e163 8. / 83%) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d { background-color: rgb(-0, .437, +30) } a, b { color: rgb(0e138, 27.797, -0, 99) }",
+                "why": "PB-04/05+PB-01/02 honoured (accept)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d { background-color: oklch(5. 62.24 90.00796838663518grad) } #d { border-color: rgb(none, 8e-460, 367) !important } #d { color: rgb(.355 -0 -0) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d { background-color: rgb(11.653, 7., 1e-8%) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": ".c ){ color: #28cA }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b ({ border-color: #928618E2 }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "FALSE_REJECT_IN_SHAPE": [
+              {
+                "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": " { border-color: rgb(none, 139.561433554627, none) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { col!r: rgb(9. none -76 / 0.) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d {{border-color: var(--a) } } ; a, b { color: blue }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "DIVERGENT_VALUE": [
+              {
+                "input": "a { border-color: oklch(-0 8.300 46.388rad) } #d { color: #8EdA !important } a,  { color: currentcolor }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\":",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { color: oklch(+62 -0 8e175) } a,  { color: var(--brand) }",
+                "why": "PB-04/05 is not a value-differing row, yet the values differ",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ",c { background-color: transparent }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a,    { background-color: oklch(5e188 -0 .427grad) !important }",
+                "why": "PB-04/05 is not a value-differing row, yet the values differ",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ", b { border-color: var(--z, currentcolor) }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kin",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ", b { color: #9dF }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"scalar vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sca",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 70,
+          "specUndecided": 57
+        },
+        "wasm": {
+          "cellsRun": 26551,
+          "tally": {
+            "AGREE": 25747,
+            "DIVERGENT_VALUE": 13,
+            "MIS_ACCEPT": 36,
+            "FALSE_REJECT_IN_SHAPE": 21,
+            "CANDIDATE_THREW": 0,
+            "CANDIDATE_SHAPE": 0,
+            "COVERAGE_NARROWING": 0,
+            "DECLARED_DIVERGENCE": 734,
+            "ADJUDICATION_UNHONOURED": 0,
+            "FIXTURE_R1": 0
+          },
+          "samples": {
+            "DECLARED_DIVERGENCE": [
+              {
+                "input": ".c { color: var(--a) } a { background-color: oklch(6. none 380turn / 89%) } a { background-color: hsl(4e-74grad -88.9382746303454 +88 / -0) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { color: rgb(0. 0. +50 ) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { border-color: hsl(6e161rad 2e163 8. / 83%) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d { background-color: rgb(-0, .437, +30) } a, b { color: rgb(0e138, 27.797, -0, 99) }",
+                "why": "PB-04/05+PB-01/02 honoured (accept)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d { background-color: oklch(5. 62.24 90.00796838663518grad) } #d { border-color: rgb(none, 8e-460, 367) !important } #d { color: rgb(.355 -0 -0) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d { background-color: rgb(11.653, 7., 1e-8%) }",
+                "why": "PB-12 honoured (reject)",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "MIS_ACCEPT": [
+              {
+                "input": ".c ){ color: #28cA }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b ({ border-color: #928618E2 }",
+                "why": "incumbent rejects with css_syntax; candidate accepts",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "FALSE_REJECT_IN_SHAPE": [
+              {
+                "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": " { border-color: rgb(none, 139.561433554627, none) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { col!r: rgb(9. none -76 / 0.) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "#d {{border-color: var(--a) } } ; a, b { color: blue }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
+                "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ],
+            "DIVERGENT_VALUE": [
+              {
+                "input": "a { border-color: oklch(-0 8.300 46.388rad) } #d { color: #8EdA !important } a,  { color: currentcolor }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\":",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "b { color: oklch(+62 -0 8e175) } a,  { color: var(--brand) }",
+                "why": "PB-04/05 is not a value-differing row, yet the values differ",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ",c { background-color: transparent }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": "a,    { background-color: oklch(5e188 -0 .427grad) !important }",
+                "why": "PB-04/05 is not a value-differing row, yet the values differ",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ", b { border-color: var(--z, currentcolor) }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kin",
+                "bands": [
+                  "fuzz-o"
+                ]
+              },
+              {
+                "input": ", b { color: #9dF }",
+                "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"scalar vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sca",
+                "bands": [
+                  "fuzz-o"
+                ]
+              }
+            ]
+          },
+          "mirrorDefects": 70,
+          "specUndecided": 57
+        }
+      },
+      "misses": {
+        "js": [
+          {
+            "input": ".c ){ color: #28cA }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": " { border-color: rgb(none, 139.561433554627, none) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a { border-color: oklch(-0 8.300 46.388rad) } #d { color: #8EdA !important } a,  { color: currentcolor }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\":",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { col!r: rgb(9. none -76 / 0.) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { color: oklch(+62 -0 8e175) } a,  { color: var(--brand) }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "PB-04/05 is not a value-differing row, yet the values differ",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b ({ border-color: #928618E2 }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ",c { background-color: transparent }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c({ color: #DdDB }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c }{ border-color: rgb(-0 -0 -0) } b { color: rgb(.468, none, 33, 0e-306) !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a,    { background-color: oklch(5e188 -0 .427grad) !important }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "PB-04/05 is not a value-differing row, yet the values differ",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ", b { border-color: var(--z, currentcolor) }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kin",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d {{border-color: var(--a) } } ; a, b { color: blue }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c( { border-color: var(--x-y) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": " { border-color: #4b7F4C !important }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ", b { color: #9dF }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"scalar vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sca",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { background-color: var(--z) } a,  { border-color: rgb(-58.59277290292084, 25.782, 97.200) }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "PB-04/05 is not a value-differing row, yet the values differ",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "  { color: var(--brand) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { color: hsl(85.89643812738359turn 23.763 .396) } b ) color: #0e8 } a, b { border-color: var(--z) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "\t { color: transparent !important }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a,    { color: blue }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"scalar vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\",\"\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sca",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "( { border-color: #26FA }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d { border-color: rgb(.875, -0, 12%,-3e469) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: oklch(.369 3e53 7e202turn / -137) } a { backgr!ound-color: rgb(42.187 none -0 / -116) } #d { color: #Ef9 }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { background-color: aliceblue } b { background-color: rebeccapurple } a,  { background-color: #8814 }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\".c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"k vs candidate [{\"kind\":\"style\",\"selectors\":[\".c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"k",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-color: hsl(-249rad -0 100% / 15%) !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: var(--brand) -!important }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ",d { background-color: #cE2E6A71 }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"d\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"d\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: blue !important } a, b { color: rgb(24.745, 171.2787213968113, 41%) } a ({ background-color: chocolate !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d ){ background-color: var(--a, rebeccapurple) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".a {\n  animation-timing-function: cubic-bezier(2, 0, .5, 1);\n}",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".a { animation-timing-function: cubic-bezier(2, 0, .5, 1); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".pane-container--dual { /* Equal columns always (the kept 1fr↔1fr invariant), with the floor\n         * explicit: no card ever renders below `--pane-min` on the dual\n         * grid. */\n        grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr)); }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\".pane-container--dual\"],\"declarations\":[{\"name\":\"grid-templ vs candidate [{\"kind\":\"style\",\"selectors\":[\".pane-container--dual\"],\"declarations\":[{\"name\":\"/* equal c",
+            "specUndecided": false,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".pane-shell > :first-child { /* backwards per the one-shot release law above: the card's natural\n         * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the\n         * release at animationend is seamless. */\n        animation: plate-land var(--overture-plate-land, 440ms)\n            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > * { animation: stagger-child-in var(--duration-normal) var(--ease-standard) both; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(1) { animation-delay: calc(var(--stagger-base, 0ms) + 0ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(2) { animation-delay: calc(var(--stagger-base, 0ms) + 40ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(3) { animation-delay: calc(var(--stagger-base, 0ms) + 80ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(4) { animation-delay: calc(var(--stagger-base, 0ms) + 120ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(5) { animation-delay: calc(var(--stagger-base, 0ms) + 160ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(6) { animation-delay: calc(var(--stagger-base, 0ms) + 200ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(n + 7) { animation-delay: calc(var(--stagger-base, 0ms) + 240ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@function --f(--x <length>: ) { result: var(--x); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@function --f(--x <length>: 0px) { result: calc(var(--x) + 10px); }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"function\",\"name\":\"--f\",\"descriptor\":{\"parameters\":[{\"name\":\"--x\",\"syntax\":\"<leng vs candidate [{\"kind\":\"style\",\"selectors\":[\"@function --f(--x <length>: 0px)\"],\"declarations\":[{\"name\":",
+            "specUndecided": false,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@function f(--x) { result: var(--x); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@keyframes pulse { from { opacity: 0; } to { opacity: 1; } }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@keyframes x { from { opacity: 0; } to { opacity: 1; } }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@media (width > 30rem) {\n                @scope (.bench, .lab) to (.limit) {\n                    .sample {\n                        color: red;\n                        &:hover { opacity: .5 }\n                    }\n                }\n            }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@media screen { color: red; }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"unknown\",\"atName\":\"media\",\"prelude\":\"screen\",\"body\":\" color: red; \"}] vs candidate [{\"kind\":\"style\",\"selectors\":[\"@media screen\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"k",
+            "specUndecided": false,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --t { syntax: \"<color>\"; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone {\n                syntax: \"<color>\";\n                inherits: false;\n                initial-value: oklch(60% 0.1 30);\n            }\n            @function --double(--x <number>: 1) {\n                result: calc(var(--x) * 2);\n            }\n            @media (width > 30rem) {\n                .sample { color: var(--tone); }\n                @keyframes pulse {\n                    from { opacity: 0; }\n                    to { opacity: 1; }\n                }\n            }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<banana>\"; inherits: false; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with syntax_descriptor_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<color>\"; inherits: false; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<color>\"; inherits: maybe; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<number>\"; inherits: false; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with syntax_mismatch; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property tone { syntax: \"<color>\"; inherits: false; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@scope { @keyframes fade { entry 50% { opacity: 0; } } }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "{ ok: false, reason }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          }
+        ],
+        "wasm": [
+          {
+            "input": ".c ){ color: #28cA }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { background-color: rgb(15.229 .635 -0) !important } .c { background-color: rgb(+12, none, 40.121382917277515, 46.14) } a, b { background!color: var(--a) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": " { border-color: rgb(none, 139.561433554627, none) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { border-color: rgb(126.97154495399445, 0e423, 0e255, 4e416) } a, b { border-color: aliceblue } .c { background-color: rgb(none, -6.371314148418605, -0) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a { border-color: oklch(-0 8.300 46.388rad) } #d { color: #8EdA !important } a,  { color: currentcolor }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\":",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { col!r: rgb(9. none -76 / 0.) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a{ color: rgb(-232, 52.305, 67, 1e327) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "(c { color: rgb(9e219 97% 1e-174 / .704) !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { color: oklch(+62 -0 8e175) } a,  { color: var(--brand) }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "PB-04/05 is not a value-differing row, yet the values differ",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b ({ border-color: #928618E2 }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ",c { background-color: transparent }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c({ color: #DdDB }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c }{ border-color: rgb(-0 -0 -0) } b { color: rgb(.468, none, 33, 0e-306) !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a,    { background-color: oklch(5e188 -0 .427grad) !important }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "PB-04/05 is not a value-differing row, yet the values differ",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ", b { border-color: var(--z, currentcolor) }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kind\": vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"border-color\",\"value\":{\"kin",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d {{border-color: var(--a) } } ; a, b { color: blue }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c( { border-color: var(--x-y) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { color: rgb(98.741 .536 .74 / 16%) } .c { color: rgb(7e456, 157.19748854171485, 67.109, 9e480) } a { nonebackground-color: oklch(none -41.30891829263419 -0deg / 3e-396) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": " { border-color: #4b7F4C !important }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ", b { color: #9dF }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"scalar vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"b\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sca",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { color: #f65 } #d { background-color: hsl(.336turn 7. .413) }  { border-color: currentcolor }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { background-color: var(--z) } a,  { border-color: rgb(-58.59277290292084, 25.782, 97.200) }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "PB-04/05 is not a value-differing row, yet the values differ",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "  { color: var(--brand) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a, b { color: hsl(85.89643812738359turn 23.763 .396) } b ) color: #0e8 } a, b { border-color: var(--z) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "\t { color: transparent !important }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { backgr!und-color: oklch(3e-440 7e-206 4.deg) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a,    { color: blue }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"a\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"scalar vs candidate [{\"kind\":\"style\",\"selectors\":[\"a\",\"\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"kind\":\"sca",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "( { border-color: #26FA }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d { border-color: rgb(.875, -0, 12%,-3e469) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: hsl(141.1656975513324turn 2. 53.62424335908145) !important } a, b { border-!olor: rgb(+16 -0 395) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: oklch(.369 3e53 7e202turn / -137) } a { backgr!ound-color: rgb(42.187 none -0 / -116) } #d { color: #Ef9 }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { background-color: aliceblue } b { background-color: rebeccapurple } a,  { background-color: #8814 }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\".c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"k vs candidate [{\"kind\":\"style\",\"selectors\":[\".c\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"k",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "a { border-color: oklch}-0 139 -160deg) !important } a { border-color: #Fdd5dF } b { border-color: hsl(-249rad -0 100% / 15%) !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: var(--brand) -!important }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ",d { background-color: #cE2E6A71 }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\"d\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{\"ki vs candidate [{\"kind\":\"style\",\"selectors\":[\"\",\"d\"],\"declarations\":[{\"name\":\"background-color\",\"value\":{",
+            "specUndecided": false,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "b { background-color: blue !important } a, b { color: rgb(24.745, 171.2787213968113, 41%) } a ({ background-color: chocolate !important }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": "#d ){ background-color: var(--a, rebeccapurple) }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "fuzz-o"
+            ]
+          },
+          {
+            "input": ".a {\n  animation-timing-function: cubic-bezier(2, 0, .5, 1);\n}",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".a { animation-timing-function: cubic-bezier(2, 0, .5, 1); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".pane-container--dual { /* Equal columns always (the kept 1fr↔1fr invariant), with the floor\n         * explicit: no card ever renders below `--pane-min` on the dual\n         * grid. */\n        grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr)); }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"style\",\"selectors\":[\".pane-container--dual\"],\"declarations\":[{\"name\":\"grid-templ vs candidate [{\"kind\":\"style\",\"selectors\":[\".pane-container--dual\"],\"declarations\":[{\"name\":\"/* equal c",
+            "specUndecided": false,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".pane-shell > :first-child { /* backwards per the one-shot release law above: the card's natural\n         * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the\n         * release at animationend is seamless. */\n        animation: plate-land var(--overture-plate-land, 440ms)\n            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > * { animation: stagger-child-in var(--duration-normal) var(--ease-standard) both; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(1) { animation-delay: calc(var(--stagger-base, 0ms) + 0ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(2) { animation-delay: calc(var(--stagger-base, 0ms) + 40ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(3) { animation-delay: calc(var(--stagger-base, 0ms) + 80ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(4) { animation-delay: calc(var(--stagger-base, 0ms) + 120ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(5) { animation-delay: calc(var(--stagger-base, 0ms) + 160ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(6) { animation-delay: calc(var(--stagger-base, 0ms) + 200ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": ".stagger-children > *:nth-child(n + 7) { animation-delay: calc(var(--stagger-base, 0ms) + 240ms); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with animation_option_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@function --f(--x <length>: ) { result: var(--x); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@function --f(--x <length>: 0px) { result: calc(var(--x) + 10px); }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"function\",\"name\":\"--f\",\"descriptor\":{\"parameters\":[{\"name\":\"--x\",\"syntax\":\"<leng vs candidate [{\"kind\":\"style\",\"selectors\":[\"@function --f(--x <length>: 0px)\"],\"declarations\":[{\"name\":",
+            "specUndecided": false,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@function f(--x) { result: var(--x); }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@keyframes pulse { from { opacity: 0; } to { opacity: 1; } }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@keyframes x { from { opacity: 0; } to { opacity: 1; } }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@media (width > 30rem) {\n                @scope (.bench, .lab) to (.limit) {\n                    .sample {\n                        color: red;\n                        &:hover { opacity: .5 }\n                    }\n                }\n            }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@media screen { color: red; }",
+            "verdict": "DIVERGENT_VALUE",
+            "why": "incumbent [{\"kind\":\"unknown\",\"atName\":\"media\",\"prelude\":\"screen\",\"body\":\" color: red; \"}] vs candidate [{\"kind\":\"style\",\"selectors\":[\"@media screen\"],\"declarations\":[{\"name\":\"color\",\"value\":{\"k",
+            "specUndecided": false,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --t { syntax: \"<color>\"; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone {\n                syntax: \"<color>\";\n                inherits: false;\n                initial-value: oklch(60% 0.1 30);\n            }\n            @function --double(--x <number>: 1) {\n                result: calc(var(--x) * 2);\n            }\n            @media (width > 30rem) {\n                .sample { color: var(--tone); }\n                @keyframes pulse {\n                    from { opacity: 0; }\n                    to { opacity: 1; }\n                }\n            }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<banana>\"; inherits: false; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with syntax_descriptor_invalid; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<color>\"; inherits: false; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<color>\"; inherits: maybe; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property --tone { syntax: \"<number>\"; inherits: false; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with syntax_mismatch; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@property tone { syntax: \"<color>\"; inherits: false; initial-value: red; }",
+            "verdict": "MIS_ACCEPT",
+            "why": "incumbent rejects with css_syntax; candidate accepts",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "@scope { @keyframes fade { entry 50% { opacity: 0; } } }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          },
+          {
+            "input": "{ ok: false, reason }",
+            "verdict": "FALSE_REJECT_IN_SHAPE",
+            "why": "incumbent accepts; candidate rejects with css_syntax inside the declared shape",
+            "specUndecided": true,
+            "bands": [
+              "p1"
+            ]
+          }
+        ]
+      },
+      "cellsRun": 53102,
+      "mirrorDefects": 70,
+      "lowerAgree": true
+    },
+    {
+      "name": "AnimationRangeValue",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "AnimationTimelineValue",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "AnimationTriggerValue",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CSSAnimationOptions",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CSSPropertyDescriptor",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CSSTimelineOptions",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CollectedRule",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CssColor",
+      "kind": "type",
+      "status": "COMPARED",
+      "cellsRun": 1,
+      "mirrorDefects": 0,
+      "members": 0,
+      "literals": 0,
+      "note": "re-exported from the vendored sha-pinned 4.0.0 declaration — identical by construction, and the identity is what is asserted"
+    },
+    {
+      "name": "CssColorSpace",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CssLinearStop",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CssTimingFunction",
+      "kind": "type",
+      "status": "COMPARED",
+      "cellsRun": 1,
+      "mirrorDefects": 0,
+      "members": 9,
+      "literals": 9,
+      "note": "re-exported from the vendored sha-pinned 4.0.0 declaration — identical by construction, and the identity is what is asserted"
+    },
+    {
+      "name": "CustomFunctionDescriptor",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CustomFunctionParameter",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "CustomFunctionRule",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "Declaration",
+      "kind": "type",
+      "status": "COMPARED",
+      "cellsRun": 1,
+      "mirrorDefects": 0,
+      "members": 3,
+      "literals": 0,
+      "note": "re-exported from the vendored sha-pinned 4.0.0 declaration — identical by construction, and the identity is what is asserted"
+    },
+    {
+      "name": "KeyframeRule",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "KeyframeSelector",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "KeyframesBlock",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "ParseIssue",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "ParseResult",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "PropertyRule",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "RangeBoundary",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "RangePhase",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "ScrollTimelineDescriptor",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "ScrollerKeyword",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "StyleRule",
+      "kind": "type",
+      "status": "COMPARED",
+      "cellsRun": 1,
+      "mirrorDefects": 0,
+      "members": 4,
+      "literals": 1,
+      "note": "re-exported from the vendored sha-pinned 4.0.0 declaration — identical by construction, and the identity is what is asserted"
+    },
+    {
+      "name": "Stylesheet",
+      "kind": "type",
+      "status": "COMPARED",
+      "cellsRun": 1,
+      "mirrorDefects": 0,
+      "members": 0,
+      "literals": 0,
+      "note": "re-exported from the vendored sha-pinned 4.0.0 declaration — identical by construction, and the identity is what is asserted"
+    },
+    {
+      "name": "StylesheetItem",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "TimelineAxis",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "TimelineScopeValue",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "TriggerType",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "ViewInset",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    },
+    {
+      "name": "ViewTimelineDescriptor",
+      "kind": "type",
+      "status": "NO-PEER",
+      "narrowingRow": "CN-3",
+      "cellsRun": 0,
+      "mirrorDefects": 0,
+      "note": "not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)"
+    }
+  ]
+}

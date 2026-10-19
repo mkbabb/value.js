@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+drag-probe.mjs round r2 (blank arm's collector inlined); D=bcbc1c887 built dist (worktree) on :8193; SwiftShader headless; 1440x900 dark #/?space=lab
+load={ 11.00 12.38 15.41 }
+[drag-probe r2] as-is       surface: moves=6 frames=5 p50=569.7 p95=764.9 | slider L: moves=13 frames=12 p50=146.7 p95=403.6
+[drag-probe r2] no-webgl    surface: moves=21 frames=20 p50=118.3 p95=127.8 | slider L: moves=18 frames=17 p50=121.5 p95=134.2
+[drag-probe r2] no-backdrop surface: moves=20 frames=19 p50=119.6 p95=138.9 | slider L: moves=19 frames=18 p50=119.3 p95=138.0
+[drag-probe r2] neither     surface: moves=18 frames=17 p50=118.5 p95=463.5 | slider L: moves=19 frames=19 p50=123.7 p95=154.7
+[drag-probe r2] blank       fill: moves=263 frames=262 p50=7.8 p95=9.7
+load={ 12.28 12.46 15.29 }

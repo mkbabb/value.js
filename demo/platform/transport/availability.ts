@@ -9,8 +9,9 @@
  *   - while latched, transport calls short-circuit with a typed
  *     `ApiUnavailableError` instead of issuing repeated doomed requests
  *     (and re-polluting the console with CORS/network noise);
- *   - after `RETRY_COOLDOWN_MS` the next call is allowed through as the
- *     recovery probe — success flips the latch back to `available`;
+ *   - after `RETRY_COOLDOWN_MS` the next call — exactly one, the admission
+ *     re-arms the window (X.W3.7 · AP-17) — is allowed through as the recovery
+ *     probe; success flips the latch back to `available`;
  *   - `apiAvailability` is a reactive cell the save/publish surfaces read
  *     for the "backend offline — saved locally" affordance (a designed
  *     state in the instrument's register, never an apologetic toast).
@@ -53,6 +54,33 @@ export class ApiUnavailableError extends Error {
     constructor() {
         super("Backend unreachable — working locally.");
     }
+}
+
+/**
+ * THE trip condition for "the backend is not answering" — one owner, so no
+ * surface hand-writes a second one (X.W3.7 · AP-12, transport limb).
+ *
+ * The defect this retires is a *disagreement*, not a missing message: the latch
+ * trips on a NETWORK-level rejection only, while the surfaces that spell the
+ * sentence trip on any thrown error — so a plate can say "unreachable" over a
+ * backend that answered, and did (`browse.png`, adjudicated). The two
+ * conditions become one by the surfaces reading this instead of a bare `catch`.
+ *
+ * True for `ApiUnavailableError` alone: the latch's own error, thrown both when
+ * a `fetch` REJECTED (`client.ts`) and when the latch short-circuited a call
+ * inside its cooldown. Deliberately FALSE for
+ *   - `ApiProblem` — the backend ANSWERED; an HTTP status is not an outage;
+ *   - `DevMisconfigError` — a designed dev-config state whose own message
+ *     forbids the conflation in so many words (*'NOT "backend offline"'*).
+ * A caller that needs those two apart reads `apiAvailability` — the state is
+ * the state; this predicate classifies a caught error against it.
+ *
+ * The seven hand-written "… is unreachable." sentences that re-derive this from
+ * a bare `catch` are **X-W7's** surface-vocabulary rider (AP-12 SPLITS); they
+ * consume this predicate, and are not rewritten here.
+ */
+export function isBackendUnreachable(error: unknown): boolean {
+    return error instanceof ApiUnavailableError;
 }
 
 /** Cooldown before the latch admits a single recovery probe. */
@@ -142,14 +170,28 @@ export class DevMisconfigError extends Error {
     }
 }
 
+/** Set once the environment has actually been resolved in a DOM context. */
+let environmentResolved = false;
+
 /**
  * Resolve the dev-config truth once, at client init, BEFORE any fetch can trip
  * the latch. If the silent prod-target precondition holds, enter the designed
  * `misconfigured` state and warn LOUD. Idempotent + browser-guarded (a no-op in
- * SSR / non-DOM unit contexts). `baseUrl` is owned by the client (client.ts:35).
+ * SSR / non-DOM unit contexts). `baseUrl` is owned by the client
+ * (`client.ts`'s `BASE_URL`, :36 — the citation read `:35` and was re-measured
+ * here rather than carried); the caller is `provideApiClient()` (AP-24).
+ *
+ * X.W3.7 · AP-33 — "Idempotent" was PROSE: nothing stopped a second call from
+ * re-latching and re-shouting. Benign while the sole caller was a module's own
+ * eval, load-bearing the moment AP-24 moved that call to an explicit seat a
+ * caller can reach twice. The guard therefore lands BEFORE the move, not with
+ * it. The browser guard stays first: a non-DOM call resolves nothing, so it
+ * must not consume the one resolution.
  */
 export function initApiEnvironment(baseUrl: string): void {
     if (typeof window === "undefined") return; // SSR / non-DOM test context
+    if (environmentResolved) return; // idempotent in fact (AP-33)
+    environmentResolved = true;
     const inputs: DevMisconfigInputs = {
         viteApiUrlSet: Boolean(import.meta.env.VITE_API_URL),
         baseUrl,
@@ -171,8 +213,19 @@ export function markApiUnreachable(): void {
     apiAvailability.value = "unavailable";
 }
 
-/** Release the latch: a request reached the backend (any HTTP status). */
+/**
+ * Release the latch: a request reached the backend (any HTTP status).
+ *
+ * X.W3.7 · AP-31 — the `misconfigured` invariant is defended on BOTH sides.
+ * `markApiUnreachable` already refuses to relabel a designed misconfig as an
+ * offline backend; this side refused nothing, so any reached-backend mark would
+ * have silently cleared it — and a cleared misconfig is a dev-config error the
+ * instrument has stopped naming. It is not reachable through the transport
+ * today (the gate throws `DevMisconfigError` before a request is issued), which
+ * is exactly why it is cured now rather than after a caller finds it.
+ */
 export function markApiReachable(): void {
+    if (apiAvailability.value === "misconfigured") return;
     if (apiAvailability.value !== "available") {
         apiAvailability.value = "available";
     }
@@ -184,12 +237,49 @@ export function markApiReachable(): void {
  * degrades to the misleading `unavailable`). Otherwise: inside the cooldown
  * window of a tripped latch, throw `ApiUnavailableError`; past the window, let
  * ONE probe through.
+ *
+ * ── X.W3.7 · AP-17 (CONFIRMED MAJOR) ─────────────────────────────────────────
+ * "ONE probe" is now true in fact, not only in prose. Admitting the probe
+ * RE-ARMS the window in the same breath, so the callers queued behind it wait a
+ * full `RETRY_COOLDOWN_MS` instead of streaming through: against a slow-failing
+ * backend the allow branch previously admitted EVERY caller between window-open
+ * and the first failure's resolution (N doomed requests + N console errors per
+ * cycle — precisely the burst the latch exists to prevent), because re-arming
+ * happened only on failure in `markApiUnreachable`. The window still OPENS on
+ * schedule: one probe per cooldown, every cooldown, until one of them resolves.
  */
 export function assertApiAttemptAllowed(): void {
     if (apiAvailability.value === "misconfigured") {
         throw new DevMisconfigError();
     }
     if (apiAvailability.value !== "unavailable") return;
-    if (Date.now() - unavailableSince >= RETRY_COOLDOWN_MS) return;
+    if (Date.now() - unavailableSince >= RETRY_COOLDOWN_MS) {
+        // The probe is admitted AND the window re-arms: this caller is the one
+        // probe, and the next is a cooldown away. A failure re-arms again
+        // (`markApiUnreachable`); a success releases the latch outright
+        // (`markApiReachable`). No in-flight flag is held — a flag that a
+        // never-settling request leaves set would wedge the latch shut, which
+        // is the failure mode this cure must not trade for.
+        unavailableSince = Date.now();
+        return;
+    }
     throw new ApiUnavailableError();
+}
+
+/**
+ * X.W7.z1 (COHESION §0bt.1 · ESC-W7g2-R14-RECOVERY) — a user's explicit Retry
+ * IS the recovery probe. The cooldown exists to stop the app's OWN callers from
+ * bursting doomed requests at a dead backend; it must not refuse the person who
+ * asked for exactly one. Before this, a Retry pressed within `RETRY_COOLDOWN_MS`
+ * of the trip was short-circuited without a request, so the Browse wall held its
+ * error plate for up to 30 s after the backend had come back.
+ *
+ * Opening the window admits the NEXT attempt only, through the same
+ * `assertApiAttemptAllowed` branch as a scheduled probe — which re-arms the
+ * window as it admits, so the one-probe law (AP-17) holds: a failure re-trips
+ * the latch, a success releases it. A no-op unless the latch is tripped.
+ */
+export function admitRecoveryProbe(): void {
+    if (apiAvailability.value !== "unavailable") return;
+    unavailableSince = Date.now() - RETRY_COOLDOWN_MS;
 }

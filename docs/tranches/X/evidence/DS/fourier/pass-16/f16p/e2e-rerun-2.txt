@@ -1,0 +1,10 @@
+
+Running 5 tests using 1 worker
+
+[1/5] [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 2.10.2 (Parseval's Identity) scrolls #thm-parseval into the viewport
+[2/5] [chromium] › e2e/f-w14u-t.spec.ts:177:5 › G-t — persistence and motion (1440) › t4 — storage that throws never breaks the page
+[3/5] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 375x667
+[4/5] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1280x800
+[5/5] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1440x900
+  5 passed (9.0s)
+exit 0

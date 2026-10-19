@@ -1,0 +1,30 @@
+SERVED MODEL: claude-opus-5-5
+# round r1 2026-10-16 10:29:30 HEAD ff7ea01b3 load { 24.63 19.52 20.77 }
+## typecheck (close2/tc.sh)
+lib 0
+demo 0
+test 0
+e2e 0
+load { 26.08 20.17 20.97 }
+## lint
+rc=0
+## k2 static
+GREEN 30/30
+## A2-VA-X-14 r4/diag-admin-room.mjs 1440 900 light
+1440x900 light A2-VA-X-14 overlying-with-room /admin/users RED {"hostSH":600,"hostCH":600,"docSH":900,"before":"false","after":"false","back":"false"}
+1440x900 light A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+RED 1 (of 2)
+## A2-VA-X-14 r4/diag-admin-room.mjs 1440 900 dark
+1440x900 dark A2-VA-X-14 overlying-with-room /admin/users RED {"hostSH":600,"hostCH":600,"docSH":900,"before":"false","after":"false","back":"false"}
+1440x900 dark A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+RED 1 (of 2)
+## served pair (k3/served.sh r1-close3)
+# load { 23.76 23.70 22.54 }
+390x844 light L1-9 degraded RED {"chips":[{"seat":"dock","variant":"misconfigured","glass":true,"dot":true,"role":"alert","text":"dev misconfigured — run `npm run dev`"}],"legacy":0}
+RED 1 (of 38)
+390x844 light / maxSW=390 F1=true(bleed carrier 26.5 vs t33 0.9) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /palettes maxSW=390 F1=true(bleed carrier 27.9 vs t33 1) F2=true F3=true F4=true F5=true → GREEN
+390x844 light /admin/users maxSW=390 F1=true(bleed carrier 26.6 vs t33 1.1) F2=true F3=true F4=true F5=true → GREEN
+GREEN 3/3
+# load { 24.57 24.10 22.84 }
+# end 10:36:21 load { 24.04 24.00 22.81 }

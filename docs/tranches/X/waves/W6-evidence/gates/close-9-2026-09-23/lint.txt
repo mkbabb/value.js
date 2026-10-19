@@ -1,0 +1,9 @@
+⟨npx eslint demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue⟩
+EXIT=0
+⟨npx prettier --check <the 4 touched unit paths>⟩
+Checking formatting...
+[warn] e2e/smoke/views/gradient.spec.ts
+[warn] e2e/smoke/oracles/o29-scene-contracts.spec.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+EXIT=1
+⟨prettier deviation lines @13f55b73 → @HEAD⟩ gradient.spec.ts 50 → 46 · o29-scene-contracts.spec.ts 0 → 3

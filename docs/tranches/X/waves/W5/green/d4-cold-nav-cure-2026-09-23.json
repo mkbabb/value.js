@@ -1,0 +1,47 @@
+{
+  "servedModel": "claude-opus-5-5[1m]",
+  "unit": "X.W5.d4",
+  "ruling": "COHESION §0az ESC-W5d3-1 RULED (a)",
+  "date": "2026-09-23",
+  "cureCommit": "f55e59b7",
+  "witnessCommit": "5a7d3113",
+  "literalShapeMeasured": {
+    "shape": "SAME async wrapper keyed on (pane, resolved) — uncommitted experiment, reverted with git checkout of own paths",
+    "probe": "scratch mountprobe (fresh contexts, pane chunks held 800 ms, MutationObserver insert counts) on vite :8893",
+    "result": "#/gradient held x2: both regions latched to ErrorBoundary — 'Failed to execute insertBefore on Node: The node before which the new node is to be inserted is not a child of this node.'; gradient-stop-bar inserted 1, present 0",
+    "reading": "the pending-key wrapper instance resolves into the pane inside its own leave; the pending occupant must be a plate phase that never resolves to the pane"
+  },
+  "curedShapeProbe": {
+    "cases": "#/gradient held 800 x2 · #/ held 800 x2 · #/gradient unheld · #/mix held 800",
+    "stuck": [0, 0, 0, 0, 0, 0],
+    "gradientStopBarInsertions": [1, 1, 0, 0, 1, 0],
+    "plateInsertions": [2, 2, 1, 1, 0, 1],
+    "boundaryErrors": 0
+  },
+  "diagInstrument": {
+    "command": "d3-enter-guard-diag.mjs (read-only; scratch copy differing only in port 8893->9401)",
+    "cases": "#/ at chunk hold 0 x4, 300 x2, 100 x2",
+    "enterDropped": 0,
+    "stuck": [0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  "witness": {
+    "command": "VJS_E2E_PORT=8894|8895 npx playwright test e2e/smoke/oracles/cold-nav-scene-enter.spec.ts --project=smoke",
+    "run1": "2 passed (39.1s) EXIT 0",
+    "run2": "2 passed (38.3s) EXIT 0",
+    "before": "RED x2 (/#/gradient Received 2, /#/ Received 1) — R7.3"
+  },
+  "d1Headed": {
+    "command": "PROBE_HEADED=1 PROBE_BASE=http://localhost:8173 node docs/tranches/V/megatranche/workflows/gates/scene-swap-budget.mjs (scratch vite build --mode gh-pages at the cure bytes)",
+    "run1": "pass:true — gradient 1/84 · extract 0/88 · mix 0/88 · generate 0/88, median 10 ms",
+    "run2": "pass:true — gradient 1/84 · extract 0/87 · mix 0/88 · generate 0/88, median 10 ms",
+    "ofRecord": "GREEN 14/14 — gradient 1/83 · extract 0/88 · mix 0/88 · generate 0/88, median 10 ms"
+  },
+  "w6CrossGates": {
+    "a5_a11": "gate-a-gesture-paint.mjs GRADIENT_URL=:9401 x2 — EXIT 0 x2, GATE X.W6.a GREEN, outside-of-viewport 0 x2",
+    "a12": "WBGSE-D-probe2.mjs scratch copy (only :6 port 9000->9401), x2 — afterOverhangPx 0 x2",
+    "e1_suite": "gradient.spec.ts + o21-gradient-rail.spec.ts --project=smoke x4 — 20/22 (o21:60, o21:254) · 22/22 · 20/22 (gradient:401 W5-10, gradient:451 e1) · 21/22 (o21:254)",
+    "g2": "companion-pane-track-start.spec.ts -g 'companion panes share one track start' x6 — RED, pass, RED, RED, pass, RED (Received 6.50144 each RED)",
+    "load": "12-14 through the e1/g2 runs",
+    "mechanism": "rAF probe on #/ (fresh browser, swiftshader): context 0 has a 2760 ms frame gap (333->3093 ms) and About's enter-to lands at 3109 ms; contexts 1-4 have no gap and enter-to at ~270 ms, done at ~715 ms. The About pane holds its enter-from pose (rotate 2deg, translateX 563.2px, offset -6.5px) with NO running Animation while frames are starved; g2's settle arm reads only running Animations and publishes the pre-start pose. Not stuck: the pose clears once frames resume."
+  }
+}

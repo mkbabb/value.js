@@ -1,0 +1,166 @@
+[
+ {
+  "tag": "selected__390__light",
+  "sha": "df7687de",
+  "dirty": "3275",
+  "url": "http://localhost:9000/#/palettes",
+  "loadMs": 117,
+  "note": "clicked Forest Floor",
+  "errs": [],
+  "m": [
+   {
+    "sel": ".palette-card",
+    "w": 324,
+    "h": 98,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".palette-card",
+    "w": 324,
+    "h": 173,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".palette-card",
+    "w": 324,
+    "h": 98,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "palette-card group rounded-card shadow-cartoon-md border-card-edge bg-well cursor-pointer"
+   },
+   {
+    "sel": ".dashed-well",
+    "w": 324,
+    "h": 170,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "dashed-well"
+   },
+   {
+    "sel": "input.input-bar-field",
+    "w": 268,
+    "h": 32,
+    "radius": "0px",
+    "font": "21px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "input-bar-field"
+   },
+   {
+    "sel": ".search-seated",
+    "w": 324,
+    "h": 54,
+    "radius": "16px",
+    "font": "16px",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cls": "input-bar search-seated"
+   },
+   {
+    "sel": ".dashed-well input",
+    "w": 245,
+    "h": 54,
+    "radius": "9999px",
+    "font": "18.2685px",
+    "bg": "rgb(243, 236, 226)",
+    "cls": "field-control glass-defined flex-1"
+   },
+   {
+    "sel": ".dashed-well button.rounded-full",
+    "w": 44,
+    "h": 44,
+    "radius": "1.67772e+07px",
+    "font": "21px",
+    "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-bor"
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 33,
+    "h": 31,
+    "radius": "9999px",
+    "font": "21px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 33,
+    "h": 31,
+    "radius": "9999px",
+    "font": "21px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[data-slot=badge], .badge",
+    "w": 33,
+    "h": 31,
+    "radius": "9999px",
+    "font": "21px",
+    "bg": "rgb(237, 230, 222)",
+    "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-("
+   },
+   {
+    "sel": "[role=list].palette-card-grid",
+    "w": 324,
+    "h": 503,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": ".palette-card__grip",
+    "w": 16,
+    "h": 16,
+    "radius": "0px",
+    "font": "16px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "lucide lucide-grip-vertical-icon lucide-grip-vertical palette-card__grip drag-handle w-4 h-4 text-muted-foreground shrin"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 358,
+    "h": 16,
+    "radius": "0px",
+    "font": "13px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "route-title font-display"
+   },
+   {
+    "sel": "h1, h2",
+    "w": 324,
+    "h": 32,
+    "radius": "0px",
+    "font": "25.888px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "cls": "pane-header-title font-display"
+   }
+  ]
+ }
+]

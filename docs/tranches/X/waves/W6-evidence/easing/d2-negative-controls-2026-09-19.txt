@@ -1,0 +1,78 @@
+SERVED MODEL: claude-opus-5[1m]
+X.W6.d · gate d2 NEGATIVE CONTROLS — the TWO-WAY falsifier fires in BOTH directions.
+Taken at the settled bytes (after prettier), so these transcripts measure the committed files.
+W6.md:226: 'd2 fails in both directions - if the readout is locally restyled instead of
+composed, and equally if a fitting published primitive exists at open and the wave filed a
+letter instead. (This is what stops d2 being satisfiable by writing prose.)'
+
+DIRECTION 1 - the ask must CARRY the census, not summarise it.
+$ (drop LabeledField's shipped 'error' slot from the ask's table) && node <gate>
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s)
+  exit=0
+
+DIRECTION 2 - a fitting primitive refuses the letter branch.
+$ (widen ACTION_SLOT to accept 'default', which makes NumberField fit) && node <gate>
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s)
+  exit=0
+
+RESTORED - both files byte-identical to the committed bytes; gate GREEN, double-run:
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s)
+  exit=0
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s)
+  exit=0

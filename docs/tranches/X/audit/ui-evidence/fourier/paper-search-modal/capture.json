@@ -1,0 +1,1790 @@
+{
+ "sha": "216ffbd",
+ "dirty": "22",
+ "at": "2026-09-23T17:50:08.033Z",
+ "url": "http://localhost:3100/paper",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "isDark": false,
+   "errs": [],
+   "openEmpty": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 192
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "results": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 630
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "fourier",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 30,
+    "row0": {
+     "rect": {
+      "x": 439,
+      "y": 164,
+      "w": 562,
+      "h": 40
+     },
+     "radius": "6px",
+     "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+     "pad": "8px 10px",
+     "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+     "minH": "40px",
+     "text": "Def2.7.1.1Fourier Series"
+    },
+    "rowsSelected": [
+     0
+    ],
+    "rowLabelsTruncated": 0,
+    "badge": {
+     "fs": "10.4px",
+     "radius": "4px",
+     "color": "oklch(0.484 0.163 265.5)",
+     "bg": "color(srgb 0.193352 0.336152 0.726914 / 0.12)",
+     "text": "Def"
+    },
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": null,
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterArrow": {
+    "sel": [
+     2
+    ]
+   },
+   "afterHover": {
+    "sel": [
+     4
+    ]
+   },
+   "tab1": "<button data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"sm\" data-control-target=\"\" data-press-arm",
+   "tab2": "<button data-v-44cc40e9=\"\" data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"md\" data-control-targe",
+   "noResults": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 192
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "zzqxjvw",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterEsc": {
+    "open": false,
+    "active": "<body style=\"\">\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background te"
+   },
+   "reopenAfterEsc": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 192
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "hasX": 1,
+   "xErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] button[aria-label*=\"lose\" i], [role=\"dialog\"] [data-slot*=\"close\"]').first()\u001b[22m\n\u001b[2m    ",
+   "openBeforeEnter": false,
+   "openBeforeEnter2": true,
+   "enterTarget": {
+    "rect": {
+     "x": 439,
+     "y": 164,
+     "w": 562,
+     "h": 40
+    },
+    "radius": "6px",
+    "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "pad": "8px 10px",
+    "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+    "minH": "40px",
+    "text": "Thm2.10.2Parseval's Identity"
+   },
+   "debugWrite": true,
+   "afterEnter": {
+    "open": false,
+    "before": {
+     "y": 0,
+     "h": ""
+    },
+    "after": {
+     "y": 0,
+     "h": "",
+     "sc": 0
+    }
+   }
+  },
+  {
+   "tag": "1440-dark",
+   "isDark": true,
+   "errs": [],
+   "openEmpty": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 192
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "results": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 630
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "fourier",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 30,
+    "row0": {
+     "rect": {
+      "x": 439,
+      "y": 164,
+      "w": 562,
+      "h": 40
+     },
+     "radius": "6px",
+     "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+     "pad": "8px 10px",
+     "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+     "minH": "40px",
+     "text": "Def2.7.1.1Fourier Series"
+    },
+    "rowsSelected": [
+     0
+    ],
+    "rowLabelsTruncated": 0,
+    "badge": {
+     "fs": "10.4px",
+     "radius": "4px",
+     "color": "oklch(0.718 0.107 268.4)",
+     "bg": "color(srgb 0.531971 0.632082 0.907862 / 0.12)",
+     "text": "Def"
+    },
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": null,
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterArrow": {
+    "sel": [
+     2
+    ]
+   },
+   "afterHover": {
+    "sel": [
+     4
+    ]
+   },
+   "tab1": "<button data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"sm\" data-control-target=\"\" data-press-arm",
+   "tab2": "<button data-v-44cc40e9=\"\" data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"md\" data-control-targe",
+   "noResults": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 192
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "zzqxjvw",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterEsc": {
+    "open": false,
+    "active": "<body style=\"\">\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background te"
+   },
+   "reopenAfterEsc": {
+    "open": true,
+    "rect": {
+     "x": 432,
+     "y": 96,
+     "w": 576,
+     "h": 192
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 471,
+      "y": 115,
+      "w": 462,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 943,
+       "y": 117,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 941,
+       "y": 109,
+       "w": 52,
+       "h": 36
+      },
+      "radius": "18px",
+      "h": "36px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "hasX": 1,
+   "xErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] button[aria-label*=\"lose\" i], [role=\"dialog\"] [data-slot*=\"close\"]').first()\u001b[22m\n\u001b[2m    ",
+   "openBeforeEnter": false,
+   "openBeforeEnter2": true,
+   "enterTarget": {
+    "rect": {
+     "x": 439,
+     "y": 164,
+     "w": 562,
+     "h": 40
+    },
+    "radius": "6px",
+    "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+    "pad": "8px 10px",
+    "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+    "minH": "40px",
+    "text": "Thm2.10.2Parseval's Identity"
+   },
+   "debugWrite": true,
+   "afterEnter": {
+    "open": false,
+    "before": {
+     "y": 0,
+     "h": ""
+    },
+    "after": {
+     "y": 0,
+     "h": "",
+     "sc": 0
+    }
+   }
+  },
+  {
+   "tag": "390-light",
+   "isDark": false,
+   "errs": [],
+   "openEmpty": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 200
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "results": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 591
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "fourier",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 30,
+    "row0": {
+     "rect": {
+      "x": 23,
+      "y": 172,
+      "w": 344,
+      "h": 44
+     },
+     "radius": "6px",
+     "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+     "pad": "8px 10px",
+     "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+     "minH": "44px",
+     "text": "Def2.7.1.1Fourier Series"
+    },
+    "rowsSelected": [
+     0
+    ],
+    "rowLabelsTruncated": 0,
+    "badge": {
+     "fs": "10.4px",
+     "radius": "4px",
+     "color": "oklch(0.484 0.163 265.5)",
+     "bg": "color(srgb 0.193352 0.336152 0.726914 / 0.12)",
+     "text": "Def"
+    },
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": null,
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterArrow": {
+    "sel": [
+     2
+    ]
+   },
+   "tab1": "<button data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"sm\" data-control-target=\"\" data-press-arm",
+   "tab2": "<button data-v-44cc40e9=\"\" data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"md\" data-control-targe",
+   "noResults": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 200
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "zzqxjvw",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterEsc": {
+    "open": false,
+    "active": "<body style=\"\">\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background te"
+   },
+   "reopenAfterEsc": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 200
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1p",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "hasX": 1,
+   "xErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] button[aria-label*=\"lose\" i], [role=\"dialog\"] [data-slot*=\"close\"]').first()\u001b[22m\n\u001b[2m    ",
+   "openBeforeEnter": false,
+   "openBeforeEnter2": true,
+   "enterTarget": {
+    "rect": {
+     "x": 23,
+     "y": 172,
+     "w": 344,
+     "h": 44
+    },
+    "radius": "6px",
+    "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+    "pad": "8px 10px",
+    "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+    "minH": "44px",
+    "text": "Thm2.10.2Parseval's Identity"
+   },
+   "debugWrite": true,
+   "afterEnter": {
+    "open": false,
+    "before": {
+     "y": 0,
+     "h": ""
+    },
+    "after": {
+     "y": 0,
+     "h": "",
+     "sc": 0
+    }
+   }
+  },
+  {
+   "tag": "390-dark",
+   "isDark": true,
+   "errs": [],
+   "openEmpty": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 200
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "results": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 591
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "fourier",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 30,
+    "row0": {
+     "rect": {
+      "x": 23,
+      "y": 172,
+      "w": 344,
+      "h": 44
+     },
+     "radius": "6px",
+     "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+     "pad": "8px 10px",
+     "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+     "minH": "44px",
+     "text": "Def2.7.1.1Fourier Series"
+    },
+    "rowsSelected": [
+     0
+    ],
+    "rowLabelsTruncated": 0,
+    "badge": {
+     "fs": "10.4px",
+     "radius": "4px",
+     "color": "oklch(0.718 0.107 268.4)",
+     "bg": "color(srgb 0.531971 0.632082 0.907862 / 0.12)",
+     "text": "Def"
+    },
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": null,
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterArrow": {
+    "sel": [
+     2
+    ]
+   },
+   "tab1": "<button data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"sm\" data-control-target=\"\" data-press-arm",
+   "tab2": "<button data-v-44cc40e9=\"\" data-v-d7364c13=\"\" data-slot=\"button\" data-emphasis=\"quiet\" data-tone=\"neutral\" data-size=\"md\" data-control-targe",
+   "noResults": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 200
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "zzqxjvw",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "afterEsc": {
+    "open": false,
+    "active": "<body style=\"\">\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background te"
+   },
+   "reopenAfterEsc": {
+    "open": true,
+    "rect": {
+     "x": 16,
+     "y": 96,
+     "w": 358,
+     "h": 200
+    },
+    "radius": "24px",
+    "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+    "bf": "blur(20px) saturate(1.5)",
+    "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1",
+    "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+    "dismiss": "free",
+    "input": {
+     "rect": {
+      "x": 55,
+      "y": 119,
+      "w": 243,
+      "h": 24
+     },
+     "value": "",
+     "fs": "16px",
+     "focused": true,
+     "ph": "Search paper..."
+    },
+    "btns": [
+     {
+      "text": "Close",
+      "aria": null,
+      "rect": {
+       "x": 317,
+       "y": 109,
+       "w": 44,
+       "h": 44
+      },
+      "radius": "9999px",
+      "h": "44px"
+     },
+     {
+      "text": "Clear",
+      "aria": null,
+      "rect": {
+       "x": 306,
+       "y": 109,
+       "w": 53,
+       "h": 44
+      },
+      "radius": "27px",
+      "h": "44px"
+     }
+    ],
+    "rows": 0,
+    "rowsSelected": [],
+    "rowLabelsTruncated": 0,
+    "badge": null,
+    "kbd": {
+     "fs": "11px",
+     "radius": "4px",
+     "h": "24px"
+    },
+    "empty": {
+     "text": "No results",
+     "fs": "16px"
+    },
+    "overlay": [
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible-content",
+      "cls": "disclosure-content",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": "collapsible",
+      "cls": "disclosure",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none"
+     },
+     {
+      "slot": null,
+      "cls": "fixed inset-0 z-overlay bg-overlay-scrim",
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "bf": "none"
+     }
+    ],
+    "active": "<input data-v-d7364c13=\"\" type=\"text\" class=\"search-modal-input\" placeholder=\"Search paper...\" aria-label=\"Search the paper\" role=\"combobox\"",
+    "bodyOverflow": "hidden"
+   },
+   "hasX": 1,
+   "xErr": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] button[aria-label*=\"lose\" i], [role=\"dialog\"] [data-slot*=\"close\"]').first()\u001b[22m\n\u001b[2m    ",
+   "openBeforeEnter": false,
+   "openBeforeEnter2": true,
+   "enterTarget": {
+    "rect": {
+     "x": 23,
+     "y": 172,
+     "w": 344,
+     "h": 44
+    },
+    "radius": "6px",
+    "bg": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+    "pad": "8px 10px",
+    "cls": "button tap-squish focus-ring paper-search-result is-selected paper-search-result--roomy",
+    "minH": "44px",
+    "text": "Thm2.10.2Parseval's Identity"
+   },
+   "debugWrite": true,
+   "afterEnter": {
+    "open": false,
+    "before": {
+     "y": 0,
+     "h": ""
+    },
+    "after": {
+     "y": 0,
+     "h": "",
+     "sc": 0
+    }
+   }
+  }
+ ],
+ "mobileRoute": {
+  "cands": [],
+  "found": 0
+ }
+}

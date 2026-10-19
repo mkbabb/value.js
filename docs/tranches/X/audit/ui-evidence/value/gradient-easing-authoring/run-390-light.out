@@ -1,0 +1,9 @@
+[
+ {
+  "tag": "390-light",
+  "shots": 10,
+  "errs": [
+   "SCRIPT Error: page.waitForTimeout: Target page, context or browser has been closed"
+  ]
+ }
+]

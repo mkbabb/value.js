@@ -1,0 +1,78 @@
+(node:44885) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:44990) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/5] [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+  1) [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  getByRole('listbox')
+    Expected: hidden
+    Received: visible
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 8000ms
+      - waiting for getByRole('listbox')
+        19 × locator resolved to <div dir="ltr" tabindex="-1" role="listbox" bodylock="true" position="popper" data-reveal="menu" data-side="bottom" data-align="start" data-state="closed" data-surface="glass" data-material="overlay" data-dismissable-layer="" data-slot="select-content" id="reka-select-content-v-0-0" disableoutsidepointerevents="true" class="relative z-popover min-w-(--overlay-min-width) overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin) data-[si…>…</div>
+           - unexpected value "visible"
+
+
+      148 |     for (const { label } of spaces) {
+      149 |         const listbox = await pick(label);
+    > 150 |         await expect(listbox).toBeHidden();
+          |                               ^
+      151 |         await expect
+      152 |             .poll(() => card.evaluate((root) => (root.textContent ?? "").length), {
+      153 |                 timeout: 15_000,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:150:31
+
+    Error Context: test-results/oracles-o21-space-catalog--5282a-ide-is-never-a-bare-heading-smoke/error-context.md
+
+
+(node:48052) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2/5] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+  2) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    Error: the Picker pane never settled
+
+      79 |         await page.waitForTimeout(250);
+      80 |     }
+    > 81 |     throw new Error(`the ${label} pane never settled`);
+         |           ^
+      82 | }
+      83 |
+      84 | async function readRowOnce(page: Page, label: string): Promise<TrackRow> {
+        at readRow (/Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:81:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:116:24
+
+    Error Context: test-results/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+
+(node:49860) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[3/5] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 0.8565 C 0.04624 h 4.90 · ΔC 0.02518 (stated ±0.04) · px 2324
+
+[4/5] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.7402 C 0.18464 h 142.15 · ΔC 0.00563 (stated ±0.04) · px 2324
+
+[5/5] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.6501 C 0.23225 h 321.79 · ΔC -0.02100 (stated ±0.04) · px 2324
+
+  2 failed
+    [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+  3 passed (5.5m)
+EXIT 1

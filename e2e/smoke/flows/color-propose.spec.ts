@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { expandDock } from "../fixtures/dock";
+import { expandDock, mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #8 — color-propose (propose-mode cycle smoke).
@@ -35,7 +35,7 @@ test("propose cycle reaches 'Propose color name' state for an unnamed color", as
     page,
 }) => {
     await page.goto("/?color=%23abcdef");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // Ensure the dock is expanded (desktop boots expanded post-N.W5 Defect-B;
     // `expandDock` is a no-op then, and clicks the pill on any collapsed viewport).
     await expandDock(page);
@@ -74,7 +74,7 @@ test("propose cycle reaches 'Propose color name' state for an unnamed color", as
  * actually maintains — and the one nothing measured — is a THREE-part law
  * (`ActionBarLayer.vue:87-93`):
  *
- *   1. exactly one `.dock-layer` carries `is-active`, in every cycle state;
+ *   1. exactly one `.dock-face` (glass DockCrossfade, X.W12.e) carries `is-active`, in every cycle state;
  *   2. the other carries `inert` (so it is unreachable to pointer, keyboard
  *      and AT while it is crossfading out);
  *   3. a SUCCESSFUL propose returns the toolbar to `actions`.
@@ -90,7 +90,7 @@ test("the sub-layer cycle keeps exactly one active layer, the other inert", asyn
     page,
 }) => {
     await page.goto("/?color=%23abcdef");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
     await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
@@ -98,17 +98,17 @@ test("the sub-layer cycle keeps exactly one active layer, the other inert", asyn
     });
 
     const grid = page.locator(".dock-layer-grid").first();
-    const layers = grid.locator("> .dock-layer");
+    const layers = grid.locator("> .dock-face");
     await expect(layers, "the grid hosts both sub-layers at once").toHaveCount(2);
 
     /** The invariant, asserted at whatever cycle state the toolbar is in. */
     const expectOneActiveOneInert = async (where: string) => {
         await expect(
-            grid.locator("> .dock-layer.is-active"),
+            grid.locator("> .dock-face.is-active"),
             `${where}: exactly one sub-layer is active`,
         ).toHaveCount(1);
         await expect(
-            grid.locator("> .dock-layer:not(.is-active)"),
+            grid.locator("> .dock-face:not(.is-active)"),
             `${where}: the inactive sub-layer is inert — a crossfading layer must not be reachable by pointer, keyboard or AT`,
         ).toHaveAttribute("inert", /.*/);
     };
@@ -129,6 +129,21 @@ test("a successful propose returns the toolbar to its actions state", async ({
     page,
 }) => {
     let proposed = false;
+    // The propose path mints the anonymous session FIRST (`ColorInput.vue`
+    // `submitProposedName` → `session.ensureSession()` → POST /sessions, since
+    // `50633f195`). This harness serves no backend, so that POST 404'd and the
+    // propose never left the page (r1 trace: "[ColorInput] Failed to propose
+    // name: Not Found"). The session leg is stubbed as login-register's is —
+    // re-baselined X-W12U .q2.
+    await page.route("**/sessions", (route) =>
+        route.request().method() === "POST"
+            ? route.fulfill({
+                  status: 200,
+                  contentType: "application/json",
+                  body: JSON.stringify({ token: "propose-token", userSlug: "propose-slug" }),
+              })
+            : route.fulfill({ status: 204, body: "" }),
+    );
     await page.route("**/colors/propose", (route) => {
         proposed = true;
         return route.fulfill({
@@ -139,7 +154,7 @@ test("a successful propose returns the toolbar to its actions state", async ({
     });
 
     await page.goto("/?color=%23abcdef");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expandDock(page);
     await page.getByRole("button", { name: "Toggle action bar" }).click();
     await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {

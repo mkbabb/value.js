@@ -1,0 +1,22 @@
+SERVED MODEL: claude-fable-5-1
+# KF.W13.a · G-KFW13-0 — the LITERAL gate command under the repo's own vitest.config.ts (READ-ONLY), double-run, kf HEAD 2736b5e5, 2026-09-20T04:20:19Z
+
+## run 1 — ⟨cmd⟩ npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+ ❯ |demo| test/demo/app/dock-context-slot-resolution.test.ts (0 test)
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/app/dock-context-slot-resolution.test.ts [ test/demo/app/dock-context-slot-resolution.test.ts ]
+Error: Cannot find package '@mkbabb/keyframes.js' imported from /Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+ Test Files  1 failed (1)
+      Tests  no tests
+
+## run 2 — ⟨cmd⟩ npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+ ❯ |demo| test/demo/app/dock-context-slot-resolution.test.ts (0 test)
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  |demo| test/demo/app/dock-context-slot-resolution.test.ts [ test/demo/app/dock-context-slot-resolution.test.ts ]
+Error: Cannot find package '@mkbabb/keyframes.js' imported from /Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/useSpring-9u2_shxV.js
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+ Test Files  1 failed (1)
+      Tests  no tests

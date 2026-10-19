@@ -1,0 +1,15 @@
+== run 1 vue-tsc -b: exit 0
+== run 1 vitest exit 0:  Test Files 20 passed (20)  Tests 116 passed (116) 
+== run 2 vue-tsc -b: exit 0
+== run 2 vitest exit 0:  Test Files 20 passed (20)  Tests 116 passed (116) 
+== e2e (final tree, headless chromium + mobile-chromium, --workers=1): the 20 specs that name /paper, the ToC bar, the page readout, the paper scroll port or its columns (e2e-specs.txt).
+   preview :4190 built from the tree (19 specs, e2e-specs-preview.txt): run 1 196 passed / 2 failed; run 2 196 passed / 2 failed (e2e-run1.txt, e2e-run2.txt).
+   The 2 failures in each run are the same two tests, and both visit /demo/shape-extractor, a dev-only route that the production preview does not carry (router: import.meta.env.DEV):
+     f-w14v-au1.spec.ts:324 (390) "the content edge holds across route switches"; visualization-ux.spec.ts:300 "keystone: /demo/shape-extractor is a11y-clean".
+   Re-run on the private dev server :3213 (where the route exists): 3 passed x2 (e2e-devroute-dev-run1/2.txt).
+   f-w14u-misc.spec.ts (dev-route frames) on :3213: 29 passed x2 (e2e-misc-dev-run1/2.txt).
+   => every touched spec GREEN x2 on the server that carries its route.
+   e2e-run0-first-cut.txt: the first cut put a 1px border and a foot pad on the band, and au1 L2-16 (844x390) caught the band growing past one title rung (23 > 14). Cured: the rule is an ::after hung at -1px (adds no height) and the landscape arm zeroes the foot pad; probe landscape cell band 68..136 = bar 72..136 + 4.
+   e2e-run0-seed404.txt: wrong base (the default :3000 is another app); not a test result.
+== No golden re-baselined. The f-w14 frame PNGs the misc spec rewrites were restored to HEAD in fourier.
+Stack: private vite :3213 (serve.mjs, cacheDir ~/.cache/fourier-f7p/vitecache) proxying the running dev API on :8000 read-only, for the probe, census and dev-route specs. Stopped at the end.

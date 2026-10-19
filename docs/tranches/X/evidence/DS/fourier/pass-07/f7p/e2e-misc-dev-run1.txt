@@ -1,0 +1,59 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 29 tests using 1 worker
+
+[1/29] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked
+[2/29] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked
+[3/29] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 1440 storage blocked › the root with site data blocked
+[4/29] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked
+[5/29] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked
+[6/29] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 390 storage blocked › the root with site data blocked
+[7/29] [chromium] › e2e/f-w14u-misc.spec.ts:130:5 › m115 UIA-F-115 — the morph stage is the page's dominant content (1440) › a large stage beside the controls
+[8/29] [chromium] › e2e/f-w14u-misc.spec.ts:143:5 › m115 UIA-F-115 — the stage stays in view while tuning (390) › scrolled to the level strip, the stage is still on screen
+[9/29] [chromium] › e2e/f-w14u-misc.spec.ts:156:5 › m117 UIA-F-117 — the readouts never move the controls (390) › the first control keeps its place through a whole morph
+[10/29] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[11/29] [chromium] › e2e/f-w14u-misc.spec.ts:190:5 › m209 UIA-F-209 — the number fields keep a field's measure at 390 › no field renders as a circle
+[12/29] [chromium] › e2e/f-w14u-misc.spec.ts:202:5 › m210 UIA-F-210 — a preview tile previews; it never rewrites the range › Low and High hold, and the chosen tile is in view
+[13/29] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (1440) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[14/29] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (1024) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[15/29] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (390) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[16/29] [chromium] › e2e/f-w14u-misc.spec.ts:264:5 › m254 UIA-F-254 — /morph's micro-issues › no nested scroller · Export is secondary by the stage · bound tiles not in a basis hue
+[17/29] [chromium] › e2e/f-w14u-misc.spec.ts:293:5 › m57 UIA-F-57 (.shell R-1, the morph remainder) — the tile label sits on a named rung › the n= label is on the caption rung, not the dead text-sm
+[18/29] [chromium] › e2e/f-w14u-misc.spec.ts:316:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (1440) › multi-line, on a surface at the field radius, with a Copy control
+[19/29] [chromium] › e2e/f-w14u-misc.spec.ts:316:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (390) › multi-line, on a surface at the field radius, with a Copy control
+[20/29] [chromium] › e2e/f-w14u-misc.spec.ts:345:5 › x211 UIA-F-211 — the extractor has a heading hierarchy, glass frames and a centred column (1440) › title rung above body, subjects on Cards, the column centred and bounded
+[21/29] [chromium] › e2e/f-w14u-misc.spec.ts:367:5 › x255 UIA-F-255 — the extractor's micro-issues › titled and noindexed · the extract action reports each run
+[22/29] [chromium] › e2e/f-w14u-misc.spec.ts:402:5 › r119 UIA-F-119 — the dock's section comes from the route's meta › trailing slash and /v/ mark Visualize; tools and unknown paths mark none
+[23/29] [chromium] › e2e/f-w14u-misc.spec.ts:422:5 › r212 UIA-F-212 — one remembered-tab writer, from the route's meta › a saved visualization and a trailing-slash path are remembered as Visualize
+[24/29] [chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[25/29] [chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[26/29] [chromium] › e2e/f-w14u-misc.spec.ts:463:5 › r213 UIA-F-213 — a storage write after boot never crashes (auth) › logging in with site data blocked keeps the session in memory
+[27/29] [chromium] › e2e/f-w14u-misc.spec.ts:484:5 › v246 UIA-F-246 — /s/ resolves to the entity it names › a saved visualization's slug opens /v/; an image slug opens /w/
+[28/29] [chromium] › e2e/f-w14u-misc.spec.ts:517:5 › v246 UIA-F-246 ⊕ g96 UIA-F-96 (.gallery R-1) — one view transition per navigation › gallery → saved visualization morphs once
+[29/29] [chromium] › e2e/f-w14u-misc.spec.ts:535:5 › a256 UIA-F-256 (.shell R-2) — a failed logout is reported, not toasted as done › the server refuses the delete: an error, and the account stays
+  29 passed (34.5s)

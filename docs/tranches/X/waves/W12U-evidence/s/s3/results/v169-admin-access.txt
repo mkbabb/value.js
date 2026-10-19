@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+[1440x900 light] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+[390x844 light] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+[1440x900 dark] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+[390x844 dark] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}

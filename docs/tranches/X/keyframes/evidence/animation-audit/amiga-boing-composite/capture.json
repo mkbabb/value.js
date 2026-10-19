@@ -1,0 +1,883 @@
+{
+ "khead0": "d78bed01",
+ "kdirty0": "3",
+ "phases": {
+  "live": {
+   "tPlayWall": 1790174916.543,
+   "tPlayPerf": 10245.10000000149,
+   "frames": 595,
+   "firstTs": 1790174916.55021,
+   "lastTs": 1790174933.639391
+  }
+ },
+ "gl": {
+  "dpr": 1,
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)"
+ },
+ "canvasBox": {
+  "x": 518.3984375,
+  "y": 127,
+  "width": 878.3984375,
+  "height": 646
+ },
+ "layers": {
+  "chain": [
+   {
+    "tag": "CANVAS",
+    "cls": "amiga-canvas kf-focus-ring h-full w-full rounded-card",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "static",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "DIV",
+    "cls": "scene-root relative h-full w-full",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "relative",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "DIV",
+    "cls": "scene-host h-full w-full",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "static",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "DIV",
+    "cls": "stage-cell justify-self-stretch self-center min-h-0 h-full overflow-visible over",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "static",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "DIV",
+    "cls": "controls-layout justify-items-stretch items-start relative controls-layout--open",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "relative",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "MAIN",
+    "cls": "grid place-items-center place-self-stretch",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "static",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "DIV",
+    "cls": "editor-shell relative grid h-dvh max-h-dvh w-dvw overflow-hidden place-items-cen",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "relative",
+    "bg": "rgb(251, 250, 248)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "DIV",
+    "cls": "",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "static",
+    "bg": "rgba(0, 0, 0, 0)",
+    "bgImg": "none"
+   },
+   {
+    "tag": "BODY",
+    "cls": "monaco-enable-motion underline-links",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "willChange": "auto",
+    "pos": "static",
+    "bg": "rgb(251, 250, 248)",
+    "bgImg": "none"
+   }
+  ],
+  "canvasAttr": {
+   "w": 878,
+   "h": 646,
+   "cw": 878,
+   "ch": 646
+  }
+ },
+ "restPose": {
+  "px": 0,
+  "py": 0,
+  "spin": 0,
+  "ox": 0,
+  "oy": 0,
+  "playing": false
+ },
+ "animsAtRest": [],
+ "groupChannels": [
+  "Spin",
+  "Bouncing X",
+  "Bouncing Y"
+ ],
+ "groupStateAtRest": {
+  "started": false,
+  "playing": false
+ },
+ "transport": [
+  {
+   "l": "Scrub animation timeline",
+   "vis": true,
+   "x": 85,
+   "y": 492,
+   "disabled": null,
+   "ariaDisabled": "false"
+  },
+  {
+   "l": "Scrub animation timeline",
+   "vis": true,
+   "x": 85,
+   "y": 492,
+   "disabled": null,
+   "ariaDisabled": null
+  },
+  {
+   "l": "Play animation",
+   "vis": true,
+   "x": 617,
+   "y": 773,
+   "disabled": false,
+   "ariaDisabled": null
+  },
+  {
+   "l": "Select animation",
+   "vis": true,
+   "x": 682,
+   "y": 773,
+   "disabled": false,
+   "ariaDisabled": null
+  },
+  {
+   "l": "Reset animation",
+   "vis": true,
+   "x": 783,
+   "y": 773,
+   "disabled": false,
+   "ariaDisabled": null
+  },
+  {
+   "l": "Play animation",
+   "vis": true,
+   "x": 585,
+   "y": 765,
+   "disabled": false,
+   "ariaDisabled": null
+  }
+ ],
+ "animsWhilePlaying": [],
+ "transportWhilePlaying": [
+  {
+   "l": "Scrub animation timeline",
+   "vis": true,
+   "dis": "false",
+   "cls": "glass-slider p-2"
+  },
+  {
+   "l": "Scrub animation timeline",
+   "vis": true,
+   "dis": null,
+   "cls": "slider-thumb glass-specular-track"
+  },
+  {
+   "l": "Pause animation",
+   "vis": true,
+   "dis": false,
+   "cls": "button tap-squish focus-ring scale-on-hover icon-lg text-white rounded-full p-0 w-10 h-10 shrink-0 r"
+  },
+  {
+   "l": "Pause animation",
+   "vis": true,
+   "dis": false,
+   "cls": "button tap-squish focus-ring scale-on-hover text-white rounded-full p-0 w-8 h-8 shrink-0 rainbow-viv"
+  }
+ ],
+ "childTimesWhilePlaying": [
+  {
+   "n": "Spin",
+   "t": 1066.5999999999985,
+   "dur": 8000
+  },
+  {
+   "n": "Bouncing X",
+   "t": 1066.5999999999985,
+   "dur": 8000
+  },
+  {
+   "n": "Bouncing Y",
+   "t": 883.5,
+   "dur": 1600
+  }
+ ],
+ "afterPause": {
+  "pose": {
+   "px": 3.6614071301027025,
+   "py": -3.2282027942009344,
+   "spin": 2.3005299483463877,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "g": {
+   "started": true,
+   "playing": false
+  },
+  "children": [
+   {
+    "n": "Spin",
+    "t": 1283.2999999999993
+   },
+   {
+    "n": "Bouncing X",
+    "t": 1283.2999999999993
+   },
+   {
+    "n": "Bouncing Y",
+    "t": 1100.2000000000007
+   }
+  ]
+ },
+ "transportPaused": [
+  {
+   "l": "Scrub animation timeline",
+   "vis": true,
+   "x": 85,
+   "y": 492,
+   "w": 379,
+   "dis": "false",
+   "val": null
+  },
+  {
+   "l": "Scrub animation timeline",
+   "vis": true,
+   "x": 144,
+   "y": 492,
+   "w": 12,
+   "dis": null,
+   "val": "1283.2999999999993"
+  },
+  {
+   "l": "Play animation",
+   "vis": true,
+   "x": 616,
+   "y": 771,
+   "w": 43,
+   "dis": false,
+   "val": null
+  },
+  {
+   "l": "Select animation",
+   "vis": true,
+   "x": 682,
+   "y": 773,
+   "w": 75,
+   "dis": false,
+   "val": null
+  },
+  {
+   "l": "Play animation",
+   "vis": true,
+   "x": 585,
+   "y": 765,
+   "w": 32,
+   "dis": false,
+   "val": null
+  }
+ ],
+ "scrub": {
+  "present": true,
+  "before": {
+   "px": 1.0445189361142215,
+   "py": -0.12394721404398457,
+   "spin": 0.656290603246373,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "afterKeys": {
+   "px": 1.0445189361142215,
+   "py": -0.12394721404398457,
+   "spin": -0.04286231564509034,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "afterClick30": {
+   "px": 1.0445189361142215,
+   "py": -0.12394721404398457,
+   "spin": 2.885050671800316,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  "children": [
+   {
+    "n": "Spin",
+    "t": 2400
+   },
+   {
+    "n": "Bouncing X",
+    "t": 3366.899999999998
+   },
+   {
+    "n": "Bouncing Y",
+    "t": 1550.0999999999985
+   }
+  ]
+ },
+ "step": [
+  {
+   "k": 0,
+   "T": 0,
+   "px": 0,
+   "py": 0,
+   "spin": 0,
+   "ox": 0,
+   "oy": 0,
+   "playing": false,
+   "settled": {
+    "px": 0,
+    "py": 0,
+    "spin": 0,
+    "ox": 0,
+    "oy": 0,
+    "playing": false
+   }
+  },
+  {
+   "k": 1,
+   "T": 166.66666666666666,
+   "px": 0.06802382194668923,
+   "py": -1.4353059318884152,
+   "spin": 0.0427406278593638,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 2,
+   "T": 333.3333333333333,
+   "px": 0.2806539333448705,
+   "py": -3.775476853324103,
+   "spin": 0.17634006703946492,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 3,
+   "T": 500,
+   "px": 0.6458100264617207,
+   "py": -3.2250279682459353,
+   "spin": 0.40577440694935435,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 4,
+   "T": 666.6666666666666,
+   "px": 1.1588741016277782,
+   "py": 0.6093510780466662,
+   "spin": 0.7281420728218598,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 5,
+   "T": 833.3333333333334,
+   "px": 1.794132414860519,
+   "py": 1.9183714136639727,
+   "spin": 1.1272866428186243,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 6,
+   "T": 1000,
+   "px": 2.5,
+   "py": -1,
+   "spin": 1.5707963267948966,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 7,
+   "T": 1166.6666666666667,
+   "px": 3.2058675851394813,
+   "py": -3.9183714136639733,
+   "spin": 2.014306010771169,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 8,
+   "T": 1333.3333333333333,
+   "px": 3.841125898372222,
+   "py": -3.0729007186977784,
+   "spin": 2.4134505807679334,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 9,
+   "T": 1500,
+   "px": 4.354189973538279,
+   "py": -0.5166480211693765,
+   "spin": 2.735818246640439,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 10,
+   "T": 1666.6666666666667,
+   "px": 4.71934606665513,
+   "py": -0.22452314667589687,
+   "spin": 2.9652525865503288,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 11,
+   "T": 1833.3333333333333,
+   "px": 4.9319761780533105,
+   "py": -2.5646940681115833,
+   "spin": 3.0988520257304293,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 12,
+   "T": 2000,
+   "px": 5,
+   "py": -4,
+   "spin": 3.141592653589793,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 13,
+   "T": 2166.6666666666665,
+   "px": 4.931976178053311,
+   "py": -1.8470411021673803,
+   "spin": 3.0988520257304297,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 14,
+   "T": 2333.3333333333335,
+   "px": 4.719346066655129,
+   "py": 1.6632152799861561,
+   "spin": 2.965252586550328,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 15,
+   "T": 2500,
+   "px": 4.354189973538279,
+   "py": 1.2250279682459353,
+   "spin": 2.735818246640439,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 16,
+   "T": 2666.6666666666665,
+   "px": 3.8411258983722223,
+   "py": -2.6093510780466636,
+   "spin": 2.413450580767934,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 17,
+   "T": 2833.3333333333335,
+   "px": 3.2058675851394804,
+   "py": -3.945580942442648,
+   "spin": 2.0143060107711683,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 18,
+   "T": 3000,
+   "px": 2.5,
+   "py": -2,
+   "spin": 1.5707963267948966,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 19,
+   "T": 3166.6666666666665,
+   "px": 1.7941324148605198,
+   "py": -0.05441905755735199,
+   "spin": 1.1272866428186248,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 20,
+   "T": 3333.3333333333335,
+   "px": 1.1588741016277777,
+   "py": -0.9270992813022243,
+   "spin": 0.7281420728218595,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 21,
+   "T": 3500,
+   "px": 0.6458100264617206,
+   "py": -3.4833519788306235,
+   "spin": 0.40577440694935424,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 22,
+   "T": 3666.6666666666665,
+   "px": 0.280653933344871,
+   "py": -3.6632152799861566,
+   "spin": 0.17634006703946523,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 23,
+   "T": 3833.3333333333335,
+   "px": 0.06802382194668943,
+   "py": -0.1529588978326204,
+   "spin": 0.04274062785936393,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 24,
+   "T": 4000,
+   "px": 0,
+   "py": 2,
+   "spin": 0,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 25,
+   "T": 4166.666666666667,
+   "px": -0.06802382194668946,
+   "py": -0.15295889783262973,
+   "spin": -0.04274062785936395,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 26,
+   "T": 4333.333333333333,
+   "px": -0.2806539333448701,
+   "py": -3.6632152799861535,
+   "spin": -0.1763400670394647,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 27,
+   "T": 4500,
+   "px": -0.6458100264617207,
+   "py": -3.4833519788306235,
+   "spin": -0.40577440694935435,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 28,
+   "T": 4666.666666666667,
+   "px": -1.1588741016277793,
+   "py": -0.9270992813022194,
+   "spin": -0.7281420728218605,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 29,
+   "T": 4833.333333333333,
+   "px": -1.7941324148605184,
+   "py": -0.054419057557350436,
+   "spin": -1.127286642818624,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 30,
+   "T": 5000,
+   "px": -2.5,
+   "py": -2,
+   "spin": -1.5707963267948966,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 31,
+   "T": 5166.666666666667,
+   "px": -3.205867585139482,
+   "py": -3.9455809424426493,
+   "spin": -2.014306010771169,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 32,
+   "T": 5333.333333333333,
+   "px": -3.841125898372221,
+   "py": -2.609351078046671,
+   "spin": -2.4134505807679325,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 33,
+   "T": 5500,
+   "px": -4.354189973538279,
+   "py": 1.2250279682459353,
+   "spin": -2.735818246640439,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 34,
+   "T": 5666.666666666667,
+   "px": -4.71934606665513,
+   "py": 1.6632152799861522,
+   "spin": -2.9652525865503288,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 35,
+   "T": 5833.333333333333,
+   "px": -4.9319761780533105,
+   "py": -1.8470411021673703,
+   "spin": -3.0988520257304293,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 36,
+   "T": 6000,
+   "px": -5,
+   "py": -4,
+   "spin": -3.141592653589793,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 37,
+   "T": 6166.666666666667,
+   "px": -4.9319761780533105,
+   "py": -2.56469406811158,
+   "spin": -3.0988520257304293,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 38,
+   "T": 6333.333333333333,
+   "px": -4.71934606665513,
+   "py": -0.22452314667589768,
+   "spin": -2.9652525865503288,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 39,
+   "T": 6500,
+   "px": -4.354189973538279,
+   "py": -0.5166480211693766,
+   "spin": -2.735818246640439,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 40,
+   "T": 6666.666666666667,
+   "px": -3.841125898372221,
+   "py": -3.0729007186977806,
+   "spin": -2.4134505807679325,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 41,
+   "T": 6833.333333333333,
+   "px": -3.2058675851394813,
+   "py": -3.9183714136639747,
+   "spin": -2.014306010771169,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 42,
+   "T": 7000,
+   "px": -2.5,
+   "py": -1,
+   "spin": -1.5707963267948966,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 43,
+   "T": 7166.666666666667,
+   "px": -1.7941324148605182,
+   "py": 1.918371413663974,
+   "spin": -1.1272866428186237,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 44,
+   "T": 7333.333333333333,
+   "px": -1.1588741016277793,
+   "py": 0.609351078046671,
+   "spin": -0.7281420728218605,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 45,
+   "T": 7500,
+   "px": -0.6458100264617206,
+   "py": -3.2250279682459353,
+   "spin": -0.40577440694935424,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 46,
+   "T": 7666.666666666667,
+   "px": -0.2806539333448699,
+   "py": -3.7754768533241014,
+   "spin": -0.17634006703946453,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  },
+  {
+   "k": 47,
+   "T": 7833.333333333333,
+   "px": -0.06802382194668943,
+   "py": -1.4353059318884198,
+   "spin": -0.04274062785936393,
+   "ox": 0,
+   "oy": 0,
+   "playing": false
+  }
+ ],
+ "select": [],
+ "console": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "khead1": "d78bed01",
+ "kdirty1": "3"
+}

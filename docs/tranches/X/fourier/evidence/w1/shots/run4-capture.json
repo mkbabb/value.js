@@ -1,0 +1,619 @@
+{
+ "servedModel": "claude-fable-5-1",
+ "run": "run4",
+ "base": "http://localhost:3000",
+ "started": "2026-09-18T18:43:04.278Z",
+ "steps": {
+  "G10:equation/Function": {
+   "h0": 300.875,
+   "framesAfterFlip": 158,
+   "closeCompletedMsAfterFlip": 189,
+   "completes": true,
+   "distinctIntermediateHeights": 22,
+   "sampleIntermediate": [
+    275,
+    255,
+    228,
+    200,
+    177,
+    153,
+    134,
+    113
+   ],
+   "animNamesSeen": [
+    "disclosure-close"
+   ],
+   "last": {
+    "ms": 1404.1,
+    "h": 0,
+    "state": "closed",
+    "anim": "disclosure-close",
+    "hidden": true,
+    "disp": "none"
+   },
+   "animates": true,
+   "reopenedAriaExpanded": "true"
+  },
+  "G10:equation/Controls": {
+   "h0": 186.96875,
+   "framesAfterFlip": 160,
+   "closeCompletedMsAfterFlip": 202.6,
+   "completes": true,
+   "distinctIntermediateHeights": 23,
+   "sampleIntermediate": [
+    181,
+    170,
+    155,
+    139,
+    123,
+    109,
+    92,
+    80
+   ],
+   "animNamesSeen": [
+    "disclosure-close"
+   ],
+   "last": {
+    "ms": 1405.4,
+    "h": 0,
+    "state": "closed",
+    "anim": "disclosure-close",
+    "hidden": true,
+    "disp": "none"
+   },
+   "animates": true,
+   "reopenedAriaExpanded": "true"
+  },
+  "G10:equation/Coefficients": {
+   "h0": 338.96875,
+   "framesAfterFlip": 159,
+   "closeCompletedMsAfterFlip": 201.5,
+   "completes": true,
+   "distinctIntermediateHeights": 23,
+   "sampleIntermediate": [
+    331,
+    311,
+    286,
+    256,
+    226,
+    200,
+    171,
+    149
+   ],
+   "animNamesSeen": [
+    "disclosure-close"
+   ],
+   "last": {
+    "ms": 1405.1,
+    "h": 0,
+    "state": "closed",
+    "anim": "disclosure-close",
+    "hidden": true,
+    "disp": "none"
+   },
+   "animates": true,
+   "reopenedAriaExpanded": "true"
+  },
+  "edge9:cartoon": {
+   "shadowCartoonToken": "-3px 3px 0px 0px color-mix(in oklab,oklch(from light-dark(hs",
+   "cartoonCount": 5,
+   "firstCardBoxShadowHead": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / ",
+   "firstCardTransition": "all",
+   "disclosureBody": {
+    "count": 3,
+    "color": "rgb(95, 75, 58)",
+    "fontSize": "16.4px",
+    "lineHeight": "22.96px",
+    "padding": "0px",
+    "role": "region",
+    "ariaLabelledby": true
+   }
+  },
+  "edge9:cartoon-hover": {
+   "rest": {
+    "transform": "none",
+    "translate": "none",
+    "boxShadowHead": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, okl"
+   },
+   "hover": {
+    "transform": "none",
+    "translate": "none",
+    "boxShadowHead": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, okl"
+   },
+   "hoverLiftPresent": false
+  },
+  "shot:02-equation": "run4-02-equation.jpg",
+  "G12:run1": {
+   "before": {
+    "phase": "idle",
+    "dark": false
+   },
+   "phases": [
+    {
+     "p": "idle",
+     "ms": 2
+    },
+    {
+     "p": "settle-out",
+     "ms": 105
+    },
+    {
+     "p": "morph",
+     "ms": 261
+    },
+    {
+     "p": "settle-in",
+     "ms": 319
+    },
+    {
+     "p": "idle",
+     "ms": 477
+    }
+   ],
+   "finalPhase": "idle",
+   "finalProgress": 1,
+   "elapsedMs": 477,
+   "timedOut": false,
+   "darkAfter": true,
+   "newPageErrors": [],
+   "pass": true
+  },
+  "G12:run2": {
+   "before": {
+    "phase": "idle",
+    "dark": true
+   },
+   "phases": [
+    {
+     "p": "idle",
+     "ms": 6
+    },
+    {
+     "p": "settle-out",
+     "ms": 96
+    },
+    {
+     "p": "morph",
+     "ms": 232
+    },
+    {
+     "p": "settle-in",
+     "ms": 298
+    },
+    {
+     "p": "idle",
+     "ms": 464
+    }
+   ],
+   "finalPhase": "idle",
+   "finalProgress": 1,
+   "elapsedMs": 464,
+   "timedOut": false,
+   "darkAfter": false,
+   "newPageErrors": [],
+   "pass": true
+  },
+  "workspace:url": "http://localhost:3000/w/fierce-mending-cerise-snail",
+  "FR-CP-5:chevron": {
+   "triggerStateBefore": "closed|false",
+   "triggerStateAfter": "open|true",
+   "flipAtMs": 1520,
+   "chevronClass": "lucide lucide-chevron-down h-4 w-4 shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-disclosure",
+   "transitionProperty": "rotate",
+   "transitionDuration": "0.2s",
+   "openDistinctRotateValues": 10,
+   "openSeries": [
+    {
+     "ms": 0,
+     "rotate": "0deg"
+    },
+    {
+     "ms": 147,
+     "rotate": "164.7deg"
+    },
+    {
+     "ms": 329,
+     "rotate": "180deg"
+    },
+    {
+     "ms": 473,
+     "rotate": "180deg"
+    },
+    {
+     "ms": 578,
+     "rotate": "180deg"
+    },
+    {
+     "ms": 695,
+     "rotate": "180deg"
+    },
+    {
+     "ms": 814,
+     "rotate": "180deg"
+    },
+    {
+     "ms": 955,
+     "rotate": "180deg"
+    }
+   ],
+   "rotatesNotSnaps": true
+  },
+  "G10:workspace/ContourSettings.advanced": {
+   "h0": 110,
+   "framesAfterFlip": 64,
+   "closeCompletedMsAfterFlip": 227.9,
+   "completes": true,
+   "distinctIntermediateHeights": 10,
+   "sampleIntermediate": [
+    108,
+    102,
+    83,
+    41,
+    29,
+    25,
+    12,
+    7
+   ],
+   "animNamesSeen": [
+    "disclosure-close"
+   ],
+   "last": {
+    "ms": 1432.8,
+    "h": 0,
+    "state": "closed",
+    "anim": "disclosure-close",
+    "hidden": true,
+    "disp": "none"
+   },
+   "animates": true,
+   "reopenedAriaExpanded": "true"
+  },
+  "ESC-3:workspace(ContourSettings+SpeedSelect)": [
+   {
+    "ariaLabel": "Playback speed",
+    "text": "1×",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "0px none rgb(0, 0, 0)",
+    "borderRadius": "9999px",
+    "size": [
+     56,
+     28
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   },
+   {
+    "ariaLabel": "Contour extraction strategy",
+    "text": "Auto",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "2px solid oklab(0.216128 0.00350075 0.00518669 / 0.15)",
+    "borderRadius": "10px",
+    "size": [
+     341,
+     40
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   }
+  ],
+  "edge9:FR-CP-13": {
+   "gap": "normal",
+   "rowGap": "normal",
+   "childCount": 4,
+   "interChildGapsPx": [
+    12,
+    0,
+    0
+   ],
+   "firstChildClass": "cartoon-card px-3 py-2 relative",
+   "firstChildRadius": "0px"
+  },
+  "shot:06-viz-panel-left": "run4-06-viz-panel-left.jpg",
+  "G18:drag": {
+   "trackBox": {
+    "x": 112,
+    "y": 837,
+    "width": 768,
+    "height": 20
+   },
+   "stBefore": {
+    "scrubbing": false,
+    "t": 0.25,
+    "playing": true
+   },
+   "midSeries": [
+    {
+     "scrubbing": true,
+     "t": 0.18,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.23,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.28,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.33,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.38,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.43,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.48,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.53,
+     "playing": true
+    }
+   ],
+   "after": {
+    "scrubbing": false,
+    "t": 0.543,
+    "playing": true
+   },
+   "callOrderHead": [
+    {
+     "name": "seek",
+     "at": 9746.3,
+     "scrubbingAfter": false
+    },
+    {
+     "name": "startScrub",
+     "at": 9746.4,
+     "scrubbingAfter": true
+    },
+    {
+     "name": "seek",
+     "at": 9835.8,
+     "scrubbingAfter": true
+    },
+    {
+     "name": "seek",
+     "at": 9886.4,
+     "scrubbingAfter": true
+    }
+   ],
+   "callNames": [
+    "seek",
+    "startScrub",
+    "endScrub"
+   ],
+   "totalCalls": 26,
+   "startScrubFired": true,
+   "endScrubFired": true,
+   "scrubbingTrueMidDrag": true,
+   "scrubbingFalseAfter": true,
+   "startScrubPrecedesFirstScrubbingSeek": true
+  },
+  "shot:04-animation-dock-expanded": "run4-04-animation-dock-expanded.jpg",
+  "edge9:tooltip": {
+   "classes": "glass-floating glass-overlay-plate glass-reveal z-tooltip",
+   "text": "Pause animationPause animation",
+   "fontSize": "14.384px",
+   "padding": "8px",
+   "borderRadius": "12px",
+   "size": [
+    130,
+    40
+   ]
+  },
+  "shot:05-tooltip": "run4-05-tooltip.jpg",
+  "edge9:badge-metric": [
+   {
+    "tag": "SPAN",
+    "cls": "metric summary-speed",
+    "boxShadowHead": "none",
+    "outline": "none",
+    "color": "color(srgb 0.11 0.098 0.09 / 0.35)"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "metric__reading",
+    "boxShadowHead": "none",
+    "outline": "none",
+    "color": "color(srgb 0.11 0.098 0.09 / 0.35)"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "metric__value",
+    "boxShadowHead": "none",
+    "outline": "none",
+    "color": "color(srgb 0.11 0.098 0.09 / 0.35)"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "metric__unit",
+    "boxShadowHead": "none",
+    "outline": "none",
+    "color": "rgb(0, 0, 0)"
+   }
+  ],
+  "workspace:editMode": {
+   "pencilVisible": true,
+   "previewTriggerVisible": true
+  },
+  "G10:workspace/ContourPreview.Preview": {
+   "h0": 180,
+   "framesAfterFlip": 120,
+   "closeCompletedMsAfterFlip": 205.7,
+   "completes": true,
+   "distinctIntermediateHeights": 10,
+   "sampleIntermediate": [
+    176,
+    151,
+    122,
+    92,
+    56,
+    40,
+    23,
+    16
+   ],
+   "animNamesSeen": [
+    "disclosure-close"
+   ],
+   "last": {
+    "ms": 1402.4,
+    "h": 0,
+    "state": "closed",
+    "anim": "disclosure-close",
+    "hidden": true,
+    "disp": "none"
+   },
+   "animates": true,
+   "reopenedAriaExpanded": "true"
+  },
+  "shot:03-editor-panel": "run4-03-editor-panel.jpg",
+  "shot:07-workspace-full": "run4-07-workspace-full.jpg",
+  "gallery:cards": {
+   "cardCount": 0,
+   "firstCardBoxShadowHead": null
+  },
+  "ESC-3:gallery-drawer(GallerySearchBar×2)": [
+   {
+    "ariaLabel": null,
+    "text": "All tiers",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "borderRadius": "10px",
+    "size": [
+     239,
+     32
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   },
+   {
+    "ariaLabel": null,
+    "text": "Newest",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "borderRadius": "10px",
+    "size": [
+     239,
+     32
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   }
+  ],
+  "shot:09-gallery-filter-drawer": "run4-09-gallery-filter-drawer.jpg",
+  "ESC-3:gallery-admin(AdminUserList)": {
+   "adminMode": true,
+   "triggers": [
+    {
+     "ariaLabel": "Sort users",
+     "text": "Newest",
+     "hasEdgeClass": true,
+     "hasCapsuleHover": true,
+     "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "borderRadius": "9999px",
+     "size": [
+      160,
+      32
+     ],
+     "visible": true,
+     "variantAttr": null,
+     "dataVariant": null
+    }
+   ],
+   "adminLabelReadings": [
+    {
+     "cls": "admin-badge",
+     "fontSize": "18.608px",
+     "fontVariantNumeric": "normal"
+    }
+   ]
+  },
+  "shot:10-gallery-admin-users": "run4-10-gallery-admin-users.jpg",
+  "ESC-3:morph(MorphPhaseConfig)": [
+   {
+    "ariaLabel": null,
+    "text": "Linear",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+    "borderRadius": "9999px",
+    "size": [
+     244,
+     40
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   },
+   {
+    "ariaLabel": null,
+    "text": "Linear",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+    "borderRadius": "9999px",
+    "size": [
+     244,
+     40
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   },
+   {
+    "ariaLabel": null,
+    "text": "Linear",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04",
+    "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+    "borderRadius": "9999px",
+    "size": [
+     244,
+     40
+    ],
+    "visible": true,
+    "variantAttr": null,
+    "dataVariant": null
+   }
+  ],
+  "shot:11-morph": "run4-11-morph.jpg"
+ },
+ "stepErrors": {},
+ "console": [],
+ "pageErrors": [
+  {
+   "step": "FR-CP-5:chevron",
+   "msg": "Transition was aborted because of timeout in DOM update"
+  }
+ ],
+ "finished": "2026-09-18T18:43:39.533Z"
+}

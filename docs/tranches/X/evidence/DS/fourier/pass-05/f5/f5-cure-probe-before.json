@@ -1,0 +1,316 @@
+{
+ "gallery-light-1440": {
+  "cols": "343px 343px 343px 343px 0px",
+  "cardW": [
+   343
+  ],
+  "n": 4
+ },
+ "gallery-hover-light-1440": {
+  "rest": "color(srgb 0.994 0.96 0.926) | none",
+  "hover": "color(srgb 0.994 0.96 0.926) | linear-gradient(oklch(0.216128 0.00625756 55.9827 / 0.05), oklch(0.216128 0.00625756 55.9827 / 0.05))"
+ },
+ "gallery-search-light-1440": {
+  "term": "seed",
+  "n": 4,
+  "cardW": [
+   343
+  ]
+ },
+ "morph-light-1440": {
+  "stage": [
+   192,
+   520
+  ],
+  "position": "sticky",
+  "actionsInStage": true,
+  "actions": [
+   676,
+   36
+  ],
+  "cells": [
+   {
+    "w": 98,
+    "h": 93,
+    "labelToBottom": 1,
+    "radius": "20px"
+   },
+   {
+    "w": 98,
+    "h": 93,
+    "labelToBottom": 1,
+    "radius": "20px"
+   },
+   {
+    "w": 98,
+    "h": 93,
+    "labelToBottom": 1,
+    "radius": "20px"
+   }
+  ]
+ },
+ "morph-scroll-light-1440": {
+  "stageTop": 192,
+  "stageBottom": 712,
+  "pctOfViewport": 57.7
+ },
+ "paper-light-1440": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-light-1440": {
+  "titleGlyph": 509,
+  "buttons": [
+   {
+    "t": "Upload a new image",
+    "emph": "primary",
+    "top": 510,
+    "plateLeft": 509,
+    "glyphLeft": 550
+   },
+   {
+    "t": "Browse the gallery",
+    "emph": "text",
+    "top": 512,
+    "plateLeft": 743.1,
+    "glyphLeft": 748.1
+   }
+  ]
+ },
+ "gallery-light-390": {
+  "cols": "173px 173px",
+  "cardW": [
+   173
+  ],
+  "n": 4
+ },
+ "morph-light-390": {
+  "stage": [
+   175,
+   243
+  ],
+  "position": "sticky",
+  "actionsInStage": true,
+  "actions": [
+   369,
+   44
+  ],
+  "cells": [
+   {
+    "w": 102,
+    "h": 70,
+    "labelToBottom": 1,
+    "radius": "30px"
+   },
+   {
+    "w": 102,
+    "h": 70,
+    "labelToBottom": 1,
+    "radius": "30px"
+   },
+   {
+    "w": 102,
+    "h": 70,
+    "labelToBottom": 1,
+    "radius": "30px"
+   }
+  ]
+ },
+ "morph-scroll-light-390": {
+  "stageTop": 76,
+  "stageBottom": 319,
+  "pctOfViewport": 28.8
+ },
+ "paper-light-390": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-light-390": {
+  "titleGlyph": 25,
+  "buttons": [
+   {
+    "t": "Upload a new image",
+    "emph": "primary",
+    "top": 444,
+    "plateLeft": 25,
+    "glyphLeft": 80
+   },
+   {
+    "t": "Browse the gallery",
+    "emph": "text",
+    "top": 496,
+    "plateLeft": 25,
+    "glyphLeft": 30
+   }
+  ]
+ },
+ "gallery-dark-1440": {
+  "cols": "343px 343px 343px 343px 0px",
+  "cardW": [
+   343
+  ],
+  "n": 4
+ },
+ "gallery-hover-dark-1440": {
+  "rest": "color(srgb 0.2074 0.165013 0.1326) | none",
+  "hover": "color(srgb 0.2074 0.165013 0.1326) | linear-gradient(oklch(0.925196 0.00621729 67.4529 / 0.05), oklch(0.925196 0.00621729 67.4529 / 0.05))"
+ },
+ "gallery-search-dark-1440": {
+  "term": "seed",
+  "n": 4,
+  "cardW": [
+   343
+  ]
+ },
+ "morph-dark-1440": {
+  "stage": [
+   192,
+   520
+  ],
+  "position": "sticky",
+  "actionsInStage": true,
+  "actions": [
+   676,
+   36
+  ],
+  "cells": [
+   {
+    "w": 98,
+    "h": 93,
+    "labelToBottom": 1,
+    "radius": "20px"
+   },
+   {
+    "w": 98,
+    "h": 93,
+    "labelToBottom": 1,
+    "radius": "20px"
+   },
+   {
+    "w": 98,
+    "h": 93,
+    "labelToBottom": 1,
+    "radius": "20px"
+   }
+  ]
+ },
+ "morph-scroll-dark-1440": {
+  "stageTop": 192,
+  "stageBottom": 712,
+  "pctOfViewport": 57.7
+ },
+ "paper-dark-1440": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-dark-1440": {
+  "titleGlyph": 509,
+  "buttons": [
+   {
+    "t": "Upload a new image",
+    "emph": "primary",
+    "top": 510,
+    "plateLeft": 509,
+    "glyphLeft": 550
+   },
+   {
+    "t": "Browse the gallery",
+    "emph": "text",
+    "top": 512,
+    "plateLeft": 743.1,
+    "glyphLeft": 748.1
+   }
+  ]
+ },
+ "gallery-dark-390": {
+  "cols": "173px 173px",
+  "cardW": [
+   173
+  ],
+  "n": 4
+ },
+ "morph-dark-390": {
+  "stage": [
+   175,
+   243
+  ],
+  "position": "sticky",
+  "actionsInStage": true,
+  "actions": [
+   369,
+   44
+  ],
+  "cells": [
+   {
+    "w": 102,
+    "h": 70,
+    "labelToBottom": 1,
+    "radius": "30px"
+   },
+   {
+    "w": 102,
+    "h": 70,
+    "labelToBottom": 1,
+    "radius": "30px"
+   },
+   {
+    "w": 102,
+    "h": 70,
+    "labelToBottom": 1,
+    "radius": "30px"
+   }
+  ]
+ },
+ "morph-scroll-dark-390": {
+  "stageTop": 76,
+  "stageBottom": 319,
+  "pctOfViewport": 28.8
+ },
+ "paper-dark-390": [
+  {
+   "text": "",
+   "weight": "700"
+  },
+  {
+   "text": "",
+   "weight": "700"
+  }
+ ],
+ "notfound-dark-390": {
+  "titleGlyph": 25,
+  "buttons": [
+   {
+    "t": "Upload a new image",
+    "emph": "primary",
+    "top": 444,
+    "plateLeft": 25,
+    "glyphLeft": 80
+   },
+   {
+    "t": "Browse the gallery",
+    "emph": "text",
+    "top": 496,
+    "plateLeft": 25,
+    "glyphLeft": 30
+   }
+  ]
+ }
+}

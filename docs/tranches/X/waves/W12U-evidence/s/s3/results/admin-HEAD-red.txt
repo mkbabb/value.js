@@ -1,0 +1,22 @@
+SERVED MODEL: claude-opus-5-5
+[1440x900 light]
+RED  641 {"status":0,"busy":false,"labels":[]}
+RED  424 {"n":0,"first":null}
+RED  425 {"rest":"rgba(0, 0, 0, 0)","hover":"oklab(0.871135 0.0072692 0.0236415 / 0.5)"}
+RED  428-busy {"disabledWhileReading":false}
+RED  638 {"clear":false,"count":true}
+RED  428-error {"refreshBesideRetry":1}
+RED  646 {"distinctLeftEdges":[285,249,317,333,301]}
+RED  649-dismiss {"style":"normal","family":"Fraunces"}
+PASS 649-pager {"style":"normal","family":"\"Plus Jakarta Sans\""}
+RED  644 Dismissed the reports on flag-0
+RED  645-busy {"disabledWhileReading":false}
+RED  645-error {"refreshBesideRetry":1}
+[1440x900 light]
+RED  628 "Couldn't load users. Backend unreachable — working locally. Retry"
+RED  413 ["parrow","ss-owl","-1-fox","inslug"]
+RED  625 gap=24
+RED  622-bulk "Delete all palettes? This will permanently delete all palettes for user-1-fox and all associated data. This cannot be undone. Cancel Delete all palettes"
+RED  629 cancel="oklch(0.304649 0.121841 9.83402)" chroma=0.122
+RED  622-prune "lucide lucide-trash2-icon lucide-trash-2 w-3.5 h-3.5"
+RED  622-palette "Delete palette? This will permanently delete the palette u-1 and all associated data. This cannot be undone. Cancel Delete palette"

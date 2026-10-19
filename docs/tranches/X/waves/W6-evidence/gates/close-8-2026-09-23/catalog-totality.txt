@@ -1,0 +1,4 @@
+GATE f1 (catalog totality) — GREEN
+  offered=18  catalogued=18  info=18  docs=11 authored + 7 decided-none = 18 decided
+  failing input "display-p3": created=2015 (RGB's is 1931)
+EXIT=0

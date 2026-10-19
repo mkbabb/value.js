@@ -1,0 +1,15 @@
+
+Running 11 tests using 3 workers
+
+[1/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-light › frames the unread views d1440-light
+[2/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light
+[3/11] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[4/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-light › frames the unread views t768-light
+[5/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light
+[6/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark
+[7/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark
+[8/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-dark › frames the unread views t768-dark
+[9/11] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark
+[10/11] [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m360-light-loggedin › frames the logged-in shell m360-light-loggedin
+[11/11] [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m430-light-loggedin › frames the logged-in shell m430-light-loggedin
+  11 passed (1.7m)

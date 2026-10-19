@@ -1,0 +1,2 @@
+SERVED MODEL: claude-opus-5-5
+{"runtime":{"color":30,"value":1,"css":20,"easing":17,"math":9,"transform":3,"quantize":2},"smoke":{"color":30,"value":1,"css":20,"easing":17,"math":9,"transform":3,"quantize":2},"runtimeExports":82,"smokeInvocations":82}

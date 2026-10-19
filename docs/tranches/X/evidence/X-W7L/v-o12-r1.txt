@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5 — X.W7L.v o12 headed run 1, load 29.98 35.39 46.70
+[1/4] [o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:81:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc
+[2/4] [o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms
+[o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms
+[o12-hover] mean abs frame diff over the bead box: 2.71/255
+  1) [o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms 
+    Error: hover response 2.71/255 < the 6/255 floor — the approach beat is sub-JND (D4 family)
+    Expected: >= 6
+    Received:    2.712157748542474
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:158:7
+    Error Context: ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/o12-out/o12-blob-seat-O-12-·-3-—-h-e071b-nswers-a-hover-within-400ms-o12-gpu-headed/error-context.md
+[3/4] [o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:161:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:161:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[o12-hover-active] renderer=REAL-GPU frames=404 p50=8.3ms (gate ≤20ms real-GPU)
+[4/4] [o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:205:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:205:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[o12-backing] renderer=REAL-GPU backing 180x180 css 180.2x180.2 dpr 1 → ratio 0.999 (full-res ≈ 1.0; R2 wreck ≈ 0.35; floor 0.6)
+  1 failed
+    [o12-gpu-headed] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms 
+  3 passed (37.6s)

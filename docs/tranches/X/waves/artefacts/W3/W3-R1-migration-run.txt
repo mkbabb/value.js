@@ -1,0 +1,34 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 Repair 1 — §8 artefact 5: migration-run, the X.W3.5 arm the close recorded as absent
+clock: 2026-09-18 19:42:14 EDT
+
+⟨cmd⟩ npx vitest run -t "the migration" src/modules/palette/__tests__/palette-versions.test.ts
+
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash
+[x-w3-migration] palettes scanned:        1
+[x-w3-migration] version rows scanned:    2
+[x-w3-migration] payloadHash written:     2
+[x-w3-migration] revisionNo written:      2
+[x-w3-migration] currentHash re-stamped:  1
+[x-w3-migration] unlisted -> private:     0
+[x-w3-migration] moderation clocked:      1
+
+stdout | src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-15: the migration maps at-rest `unlisted` to `private` and clocks moderation
+[x-w3-migration] palettes scanned:        0
+[x-w3-migration] version rows scanned:    0
+[x-w3-migration] payloadHash written:     0
+[x-w3-migration] revisionNo written:      0
+[x-w3-migration] currentHash re-stamped:  0
+[x-w3-migration] unlisted -> private:     1
+[x-w3-migration] moderation clocked:      2
+
+ ✓ src/modules/palette/__tests__/palette-versions.test.ts (12 tests | 10 skipped) 127ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 10 skipped (12)
+   Start at  19:42:14
+   Duration  1.19s (transform 79ms, setup 0ms, collect 153ms, tests 127ms, environment 0ms, prepare 20ms)
+

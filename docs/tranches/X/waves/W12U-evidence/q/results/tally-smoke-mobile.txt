@@ -1,0 +1,2 @@
+STEADYx3 · smoke/mobile/blob-presence-mobile.spec.ts:71 · hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live withi · failed@?:142/28s · failed@940:142/41s · failed@803:142/29s · Error: wrapper top inside card
+COUNT smoke-mobile [r1,r2,r3] total=7 PASS=6 FLAKE=0 STEADY=1 SKIPPED=0 notRunInFirstTag=0

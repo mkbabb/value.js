@@ -1,0 +1,110 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": "2",
+ "at": "2026-09-23T14:58:00.446Z",
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "stageRect": {
+  "x": 385,
+  "y": 299.578125,
+  "w": 670,
+  "h": 261.875
+ },
+ "A": {
+  "frames": 209,
+  "navT": 4068.60000000149,
+  "nav2T": 8367.60000000149
+ },
+ "B": {
+  "info": {
+   "stretched": 1,
+   "paused": [
+    "seq-ruler-wipe-b88c8fa3",
+    "seq-playhead-rise-b88c8fa3",
+    "seq-lane-drop-b88c8fa3",
+    "seq-lane-drop-b88c8fa3",
+    "seq-lane-drop-b88c8fa3",
+    "seq-lane-drop-b88c8fa3",
+    "seq-lane-drop-b88c8fa3"
+   ],
+   "anims": [
+    {
+     "n": "seq-ruler-wipe-b88c8fa3",
+     "el": "seq-axis",
+     "delay": 0,
+     "dur": 420,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    },
+    {
+     "n": "seq-playhead-rise-b88c8fa3",
+     "el": "seq-playhead-track",
+     "delay": 480,
+     "dur": 260,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    },
+    {
+     "n": "seq-lane-drop-b88c8fa3",
+     "el": "seq-row",
+     "delay": 120,
+     "dur": 420,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    },
+    {
+     "n": "seq-lane-drop-b88c8fa3",
+     "el": "seq-row",
+     "delay": 180,
+     "dur": 420,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    },
+    {
+     "n": "seq-lane-drop-b88c8fa3",
+     "el": "seq-row",
+     "delay": 240,
+     "dur": 420,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    },
+    {
+     "n": "seq-lane-drop-b88c8fa3",
+     "el": "seq-row",
+     "delay": 300,
+     "dur": 420,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    },
+    {
+     "n": "seq-lane-drop-b88c8fa3",
+     "el": "seq-row",
+     "delay": 360,
+     "dur": 420,
+     "fill": "both",
+     "easing": "linear",
+     "ct": 0,
+     "ps": "paused"
+    }
+   ],
+   "cls": "seq-stage cascade-chase is-powering-on"
+  },
+  "clip": {
+   "x": 377,
+   "y": 291,
+   "width": 686,
+   "height": 278
+  }
+ }
+}

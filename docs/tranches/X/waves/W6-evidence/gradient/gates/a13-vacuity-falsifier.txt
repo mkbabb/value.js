@@ -1,0 +1,21 @@
+=== MUTATION 1: delete the .sort() from setStopPosition ===
+1
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  5 failed | 8 passed (13)
+restored: sort sites = 2
+
+=== MUTATION 2: the axis map becomes a plain percent ===
+139:    return `${Number(position.toFixed(1))}%`;
+161:    return `${typeName}(${parts.join(", ")})`;
+223:    return `linear-gradient(90deg, ${parts.join(", ")})`;
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+restored
+=== MUTATION 2: the axis map becomes a plain percent (the HANDLE_HALF-class mutation) ===
+245-    return `${Number((fraction * 100).toFixed(4))}%`;
+253-    return `linear-gradient(90deg, ${parts.join(", ")})`;
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+restored: rail-inset sites = 3

@@ -1,0 +1,787 @@
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/kf-head
+
+(node:27243) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/instrument/r4ribbon-mount-once.test.ts (6 tests | 6 failed) 1010ms
+     × (1) A2-KE-L1-23 step 2 — neither DOM-id portal stands: no Teleport to either id, and neither id exists 9ms
+     × (2) A2-KE-L1-24 — PlaybackRibbon has ONE mount site in the demo: RibbonBar 221ms
+     × (3) the ribbon state left ChannelOptions; the channel host publishes it into the seat 1ms
+     × (4) the scenes' ribbon render-fns are folded: no `ribbon-content` slot is left, and the scene member is a typed binding source 17ms
+     × (5) the expanded timeline cell renders from AnimationControlsGroup, off the seat the channel host publishes into 1ms
+     × (6) Controls shows the channel's binding, a facet surface the scene's, Keyframes and Timeline none; one ribbon at most 760ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/instrument/r4ribbon-mount-once.test.ts > X.KF.W13X.r4ribbon — structure > (1) A2-KE-L1-23 step 2 — neither DOM-id portal stands: no Teleport to either id, and neither id exists
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    "demo/components/instrument/pane/channel-controls/ChannelControls.vue",
+-   false,
++   true,
+  ]
+
+ ❯ test/demo/instrument/r4ribbon-mount-once.test.ts:54:85
+     52|             const src = code(readFileSync(p, "utf8"));
+     53|             expect([relative(ROOT, p), /to="#controls-ribbon-target"/.…
+     54|             expect([relative(ROOT, p), /to="#timeline-expanded-target"…
+       |                                                                                     ^
+     55|         }
+     56|         expect(sitesOf(/controls-ribbon-target/)).toEqual([]);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  |demo| test/demo/instrument/r4ribbon-mount-once.test.ts > X.KF.W13X.r4ribbon — structure > (2) A2-KE-L1-24 — PlaybackRibbon has ONE mount site in the demo: RibbonBar
+AssertionError: expected [ …(3) ] to deeply equal [ Array(1) ]
+
+- Expected
++ Received
+
+  [
+-   "demo/components/instrument/pane/RibbonBar.vue",
++   "demo/components/instrument/pane/channel-controls/ChannelOptions.vue",
++   "demo/scenes/easing/EasingScene.vue",
++   "demo/scenes/spring/SpringScene.vue",
+  ]
+
+ ❯ test/demo/instrument/r4ribbon-mount-once.test.ts:63:69
+     61|
+     62|     it("(2) A2-KE-L1-24 — PlaybackRibbon has ONE mount site in the dem…
+     63|         expect(sitesOf(/h\(\s*PlaybackRibbon\b|<PlaybackRibbon\b/)).to…
+       |                                                                     ^
+     64|         expect(code(read(RIBBON_BAR)).match(/<PlaybackRibbon\b/g) ?? […
+     65|         expect(sitesOf(/import PlaybackRibbon from/)).toEqual([RIBBON_…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  |demo| test/demo/instrument/r4ribbon-mount-once.test.ts > X.KF.W13X.r4ribbon — structure > (3) the ribbon state left ChannelOptions; the channel host publishes it into the seat
+AssertionError: expected '<template>\n    \n    <div>\n        …' not to match /useAnimationSync/
+
+- Expected:
+/useAnimationSync/
+
++ Received:
+"<template>
+    
+    <div>
+        
+        <div class=\"w-full\">
+            
+            <div class=\"flex flex-col px-(--configurator-pad-inline) py-3\">
+                
+                <div>
+                    <div
+                        :class=\"['panel-row', stack.isOpen('main') ? 'panel-row--active' : 'panel-row--inactive']\"
+                        :inert=\"!stack.isOpen('main')\"
+                    >
+                        <div class=\"panel-content flex flex-col gap-2\">
+                            <ChannelOptionsForm
+                                v-model:open-select=\"openSelect\"
+                                :animation=\"animation\"
+                                @duration-committed=\"(ms) => (railDuration = ms)\"
+                            >
+                                <EasingField
+                                    ref=\"easingFieldEl\"
+                                    :selected-curve-key=\"selectedCurveKey\"
+                                    :curve-glyphs=\"curveGlyphs\"
+                                    :curve-fn-for=\"curveFnFor\"
+                                    :open=\"openSelect === 'easing'\"
+                                    @update:open=\"(v) => (openSelect = v ? 'easing' : null)\"
+                                    @pick=\"(name) => onEasingPick(name)\"
+                                    @edit=\"openDetail\"
+                                />
+                            </ChannelOptionsForm>
+
+                            
+                            <Separator />
+
+                            
+                            <Button
+                                ref=\"layerEntryEl\"
+                                emphasis=\"quiet\"
+                                class=\"w-full justify-between gap-2 ps-0 pe-3 text-[length:var(--control-label)] [--button-quiet-ink:var(--foreground)]\"
+                                :aria-expanded=\"stack.isOpen('layer')\"
+                                :aria-controls=\"layerPaneId\"
+                                @click=\"openLayer\"
+                            >
+                                <span>layer</span>
+                                
+                                <span class=\"ms-auto min-w-0 truncate font-normal text-muted-foreground\">{{
+                                    blendAvailable ? (layerConfig?.op ?? \"replace\") : \"single-target only\"
+                                }}</span>
+                                <ChevronRight class=\"icon-sm\" />
+                            </Button>
+                        </div>
+                    </div>
+
+                    
+                    <div
+                        ref=\"detailRowEl\"
+                        :class=\"['panel-row panel-row--detail', stack.isOpen('detail') ? 'panel-row--active' : 'panel-row--inactive']\"
+                        :inert=\"!stack.isOpen('detail')\"
+                        @transitionend=\"(e) => stack.onRowTransitionEnd('detail', e)\"
+                    >
+                        <div class=\"panel-content\">
+                            <SubPaneHeader
+                                ref=\"detailHeaderEl\"
+                                :title=\"detailTitle\"
+                                @back=\"closePane\"
+                            >
+                                <template #caption>{{ caption }}</template>
+                            </SubPaneHeader>
+                            
+                            <div data-subpane-body class=\"subpane-body\">
+                                <TimingFunctionPanel
+                                    v-if=\"stack.isMounted('detail')\"
+                                    :stored-animation-options=\"storedAnimationOptions\"
+                                    :peek-quad=\"peekQuad\"
+                                    @authored=\"onEasingAuthored\"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div
+                        :id=\"layerPaneId\"
+                        ref=\"layerRowEl\"
+                        @transitionend=\"(e) => stack.onRowTransitionEnd('layer', e)\"
+                        :class=\"['panel-row', stack.isOpen('layer') ? 'panel-row--active' : 'panel-row--inactive']\"
+                        :inert=\"!stack.isOpen('layer')\"
+                    >
+                        <div class=\"panel-content flex flex-col gap-2\">
+                            
+                            <SubPaneHeader ref=\"layerHeaderEl\" title=\"layer\" @back=\"closePane\">
+                                <template #caption>{{
+                                    blendAvailable
+                                        ? \"How this channel blends with the others\"
+                                        : \"Layer compositing applies to single-target groups\"
+                                }}</template>
+                            </SubPaneHeader>
+                            
+                            <div v-if=\"layerConfig\" class=\"labeled-field-grid\">
+                                <LayerConfigPanel
+                                    :layer-config=\"layerConfig\"
+                                    :blend-available=\"blendAvailable\"
+                                    :open=\"openSelect === 'blend'\"
+                                    @update:open=\"(v) => (openSelect = v ? 'blend' : null)\"
+                                    @update=\"(v) => emit('layerConfigUpdate', v)\"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <Teleport v-if=\"active\" to=\"#controls-ribbon-target\" defer>
+            <PlaybackRibbon
+                :animation=\"animation\"
+                :duration=\"railDuration\"
+                :current-t=\"currentT\"
+                :is-anim-playing=\"isAnimPlaying\"
+                :user-reversed=\"userReversed\"
+                :preview=\"sceneControls.ballPreview ?? 'shown'\"
+                @update:preview=\"(next) => (sceneControls.ballPreview = next)\"
+                @scrub-start=\"
+                    () => {
+                        wake();
+                        emit('scrubStart');
+                    }
+                \"
+                @scrub-end=\"emit('scrubEnd')\"
+                @scrubbed=\"wake\"
+                @slider-update=\"
+                    (v) => {
+                        wake();
+                        emit('sliderUpdate', v);
+                    }
+                \"
+                @toggle-reverse=\"toggleReverse\"
+            />
+        </Teleport>
+    </div>
+</template>
+
+<script setup lang=\"ts\">
+import type { KeyframesAnimation } from \"@mkbabb/keyframes.js\";
+import type { AnimationLayerConfig } from \"@mkbabb/keyframes.js\";
+import type { EasingPickerValue } from \"@mkbabb/glass-ui/easing\";
+
+import { Button, Separator } from \"@mkbabb/glass-ui\";
+import { ChevronRight } from \"@lucide/vue\";
+import PlaybackRibbon from \"@components/playback/PlaybackRibbon.vue\";
+import { EASING_GROUPS } from \"@utils/reference-data/easingGroups\";
+import { timingFunctionKind } from \"@utils/reference-data/animationDescriptions\";
+import {
+    getChannelControlsState,
+    getStoredAnimationGroupControlOptions,
+    getStoredAnimationOptions,
+} from \"@state\";
+
+import { computed, ref, toRef, useId, useTemplateRef, watch } from \"vue\";
+
+import ChannelOptionsForm from \"./ChannelOptionsForm.vue\";
+import EasingField from \"./EasingField.vue\";
+import LayerConfigPanel from \"./LayerConfigPanel.vue\";
+import SubPaneHeader from \"./SubPaneHeader.vue\";
+import TimingFunctionPanel from \"./TimingFunctionPanel.vue\";
+import { useAnimationSync } from \"./composables/useAnimationSync\";
+import { usePaneStack } from \"./composables/usePaneStack\";
+import { usePlaybackToggle } from \"./composables/usePlaybackToggle\";
+import { useTimingFunctionEditor } from \"./composables/useTimingFunctionEditor\";
+
+const props = defineProps<{
+    animation: KeyframesAnimation<any>;
+    isPlaying?: boolean;
+
+    layerConfig?: AnimationLayerConfig | undefined;
+    blendAvailable: boolean;
+    active?: boolean;
+}>();
+
+const emit = defineEmits<{
+    (e: \"sliderUpdate\", val: { t: number; animation: KeyframesAnimation<any> }): void;
+    (e: \"layerConfigUpdate\", val: Partial<AnimationLayerConfig>): void;
+    (e: \"scrubStart\"): void;
+    (e: \"scrubEnd\"): void;
+}>();
+
+const storedAnimationOptions = getStoredAnimationOptions(props.animation);
+
+
+const sceneControls = getStoredAnimationGroupControlOptions(props.animation);
+
+
+
+
+
+const railDuration = ref(props.animation.options.duration);
+watch(
+    () => props.animation,
+    (a) => {
+        railDuration.value = a.options.duration;
+    },
+);
+
+const {
+    caption,
+    peekQuad,
+    selectedCurveKey,
+    onCurvePicked,
+    beginEdit,
+    markAuthored,
+    endEdit,
+    updateTimingFunctionFromName,
+    curveGlyphPath,
+    curveFnFor,
+} = useTimingFunctionEditor(() => props.animation, storedAnimationOptions);
+
+
+
+
+const onEasingAuthored = (v: EasingPickerValue): void => {
+    markAuthored();
+    if (v.mode === \"steps\") {
+        storedAnimationOptions.stepOptions.steps = v.steps;
+        storedAnimationOptions.stepOptions.jumpTerm = v.term;
+        updateTimingFunctionFromName(\"steps\");
+        return;
+    }
+    storedAnimationOptions.cubicBezierOptions.controlPoints = [...v.points];
+    updateTimingFunctionFromName(\"cubic-bezier\");
+};
+
+
+
+const curveGlyphs = computed(
+    () =>
+        new Map<string, string>(
+            EASING_GROUPS.flatMap((g) =>
+                g.items.map((i) => [i.name, curveGlyphPath(i.name)] as const),
+            ),
+        ),
+);
+
+
+const detailTitle = computed(() =>
+    timingFunctionKind(storedAnimationOptions.animationOptions.timingFunction) === \"steps\"
+        ? \"steps\"
+        : \"cubic-bézier\",
+);
+
+const detailRowEl = useTemplateRef<HTMLElement>(\"detailRowEl\");
+const layerRowEl = useTemplateRef<HTMLElement>(\"layerRowEl\");
+
+
+
+
+
+
+
+const stack = usePaneStack(
+    (p) => (p === \"detail\" ? detailRowEl.value : p === \"layer\" ? layerRowEl.value : null),
+    (p) => (p === \"detail\" ? detailHeaderEl.value : layerHeaderEl.value)?.reveal(),
+    toRef(getChannelControlsState(props.animation), \"pane\"),
+);
+const layerPaneId = useId();
+const detailHeaderEl =
+    useTemplateRef<InstanceType<typeof SubPaneHeader>>(\"detailHeaderEl\");
+const layerHeaderEl =
+    useTemplateRef<InstanceType<typeof SubPaneHeader>>(\"layerHeaderEl\");
+const easingFieldEl =
+    useTemplateRef<InstanceType<typeof EasingField>>(\"easingFieldEl\");
+const layerEntryEl = useTemplateRef<InstanceType<typeof Button>>(\"layerEntryEl\");
+
+
+const openSelect = ref<string | null>(null);
+
+
+
+
+const drillIn = (to: \"detail\" | \"layer\", opener: HTMLElement | null): void => {
+    sceneControls.isControlsPanelOpen = true;
+    const header = () => (to === \"detail\" ? detailHeaderEl : layerHeaderEl).value;
+    void stack.push(to, opener, () => header()?.backControl());
+};
+const openDetail = (opener: HTMLElement | null): void => {
+    const stored = storedAnimationOptions.animationOptions.timingFunction;
+    if (typeof stored !== \"string\" || !beginEdit(stored)) return;
+    drillIn(\"detail\", opener);
+};
+const openLayer = (): void => {
+    drillIn(\"layer\", (layerEntryEl.value?.$el as HTMLElement | undefined) ?? null);
+};
+const closePane = (): void => {
+    if (stack.isOpen(\"detail\")) endEdit();
+    void stack.back();
+};
+
+
+const onEasingPick = (name: string): void => {
+    const opensEditor = onCurvePicked(name);
+    openSelect.value = null;
+    if (!opensEditor) return;
+    drillIn(\"detail\", easingFieldEl.value?.triggerControl() ?? null);
+};
+
+
+
+const isPlayingRef = toRef(() => props.isPlaying ?? false);
+const {
+    currentT,
+    isPlaying: isAnimPlaying,
+    wake,
+} = useAnimationSync(() => props.animation, isPlayingRef);
+
+const { userReversed, toggleReverse } = usePlaybackToggle(() => props.animation);
+
+
+
+</script>
+
+<style scoped>
+
+.panel-row {
+    display: grid;
+    transition: grid-template-rows var(--duration-normal) var(--ease-standard);
+}
+.panel-row--active {
+    grid-template-rows: 1fr;
+}
+.panel-row--inactive {
+    grid-template-rows: 0fr;
+}
+.panel-content {
+    overflow: hidden;
+    min-height: 0;
+    
+    --panel-ring-reach: calc(2 * var(--focus-ring-width, 2px));
+    padding: var(--panel-ring-reach);
+    margin: calc(-1 * var(--panel-ring-reach));
+}
+
+.panel-row--inactive > .panel-content {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity calc(var(--duration-normal) * 0.4) var(--ease-standard);
+}
+.panel-row--active > .panel-content {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity calc(var(--duration-normal) * 0.6) var(--ease-standard)
+        calc(var(--duration-normal) * 0.4);
+}
+
+.subpane-body {
+    max-height: min(50dvh, 480px);
+    overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    .subpane-body {
+        --picker-cap: max(15rem, calc(var(--rail-block, 100dvh) - 25.5rem));
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .panel-row,
+    .panel-row > .panel-content {
+        transition-duration: 0s;
+        transition-delay: 0s;
+    }
+}
+</style>
+"
+
+ ❯ test/demo/instrument/r4ribbon-mount-once.test.ts:71:33
+     69|         const options = code(read(OPTIONS));
+     70|         for (const gone of [/useAnimationSync/, /usePlaybackToggle/, /…
+     71|             expect(options).not.toMatch(gone);
+       |                                 ^
+     72|         }
+     73|         const channel = code(read(CHANNEL));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  |demo| test/demo/instrument/r4ribbon-mount-once.test.ts > X.KF.W13X.r4ribbon — structure > (4) the scenes' ribbon render-fns are folded: no `ribbon-content` slot is left, and the scene member is a typed binding source
+AssertionError: expected [ 'demo/app/App.vue', …(4) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "demo/app/App.vue",
++   "demo/components/instrument/pane/ControlsPaneWrapper.vue",
++   "demo/components/instrument/pane/RibbonBar.vue",
++   "demo/components/instrument/shell/EditorShell.vue",
++   "demo/components/instrument/transport/AnimationControlsGroup.vue",
++ ]
+
+ ❯ test/demo/instrument/r4ribbon-mount-once.test.ts:82:43
+     80|
+     81|     it("(4) the scenes' ribbon render-fns are folded: no `ribbon-conte…
+     82|         expect(sitesOf(/ribbon-content/)).toEqual([]);
+       |                                           ^
+     83|         expect(code(read("demo/app/scene/sceneExposedApi.ts"))).toMatc…
+     84|         expect(code(read("demo/app/App.vue"))).toMatch(/provide\(\s*RI…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  |demo| test/demo/instrument/r4ribbon-mount-once.test.ts > X.KF.W13X.r4ribbon — structure > (5) the expanded timeline cell renders from AnimationControlsGroup, off the seat the channel host publishes into
+AssertionError: expected '<template>\n    \n    <div\n        :…' to match /provide\(EXPANDED_TIMELINE_KEY/
+
+- Expected:
+/provide\(EXPANDED_TIMELINE_KEY/
+
++ Received:
+"<template>
+    
+    <div
+        :class=\"[
+            'controls-layout justify-items-stretch items-start relative',
+            storedControls.isControlsPanelOpen ? 'controls-layout--open' : 'controls-layout--closed',
+            hasControlSurfaces || scenePending ? '' : 'controls-layout--railless',
+        ]\"
+        v-bind=\"$attrs\"
+    >
+        
+        <ControlsPaneWrapper
+            v-if=\"hasControlSurfaces\"
+            :animation-group=\"animationGroup\"
+            :blend-available=\"animationGroup.singleTarget\"
+            :channels=\"channels\"
+            :stored-controls=\"storedControls\"
+            :hide-controls=\"hideControls\"
+            :stage-mode=\"stageMode\"
+            :is-playing=\"isPlaying\"
+            @slider-update=\"sliderUpdate\"
+            @keyframes-update=\"keyframesUpdate\"
+            @layer-config-update=\"(name, v) => updateLayerConfig(name, v)\"
+            @scrub-start=\"onScrubStart\"
+            @scrub-end=\"onScrubEnd\"
+            @set-controls-panel-open=\"(open) => { storedControls.isControlsPanelOpen = open; }\"
+        >
+            <template #tabs-content=\"slotProps\">
+                <slot name=\"tabs-content\" v-bind=\"slotProps\"></slot>
+            </template>
+            <template #ribbon-content=\"slotProps\">
+                <slot name=\"ribbon-content\" v-bind=\"slotProps\"></slot>
+            </template>
+        </ControlsPaneWrapper>
+
+        
+        <div
+            class=\"stage-cell justify-self-stretch self-center min-h-0 h-full overflow-visible overscroll-contain\"
+        >
+            <slot name=\"animation-content\"></slot>
+        </div>
+
+        
+        <div
+            id=\"timeline-expanded-target\"
+            :class=\"[
+                'timeline-expanded-cell z-dock overflow-hidden',
+                'transition-[max-height,opacity] duration-slow ease-standard',
+                storedControls.isTimelineExpanded
+                    ? 'max-h-[var(--panel-max-h)] lg:pt-(--work-band-start) lg:pb-2'
+                    : 'max-h-0',
+            ]\"
+        ></div>
+
+        
+        
+        <TransportDock
+            v-if=\"transportNames.length > 0 || scenePending\"
+            ref=\"transportDockRef\"
+            :inert=\"scenePending\"
+            :stored-controls=\"storedControls\"
+            :is-playing=\"isPlaying\"
+            :animation-names=\"transportNames\"
+            :start-screen=\"hideControls\"
+            @toggle-play=\"toggleAnimationGroup\"
+            @reset=\"(all: boolean) => all ? clear() : reset()\"
+            @select-animation=\"onSelectAnimation\"
+        />
+    </div>
+</template>
+
+<script setup lang=\"ts\">
+import { computed, onMounted, provide, useTemplateRef, watchEffect } from \"vue\";
+import { CHANNEL_COMMANDS_KEY, createChannelCommandSeat } from \"./injectionKeys\";
+
+import { clamp } from \"@mkbabb/value.js/math\";
+
+import ControlsPaneWrapper from \"../pane/ControlsPaneWrapper.vue\";
+import TransportDock from \"./TransportDock.vue\";
+
+import { getStoredAnimationGroupControlOptions } from \"@state\";
+import type { AnimationGroup, KeyframesAnimation } from \"@mkbabb/keyframes.js\";
+import { GROUP_PAINTS_KEY, type TransportChannel } from \"./transportSource\";
+import { useAnimationGroupActions } from \"./composables/useAnimationGroupActions\";
+import { useControlsKeyboardShortcuts } from \"./composables/useControlsKeyboardShortcuts\";
+import { useAnimationGroupPlayback } from \"./composables/useAnimationGroupPlayback\";
+
+const { superKey, animationGroup, channels, autoPlay, hideControls, stageMode, hasControlSurfaces = true } = defineProps<{
+    animationGroup: AnimationGroup<any>;
+
+
+
+
+
+
+
+
+
+    channels?: TransportChannel[] | undefined;
+    superKey?: string | undefined;
+    autoPlay?: boolean;
+
+
+
+
+    hideControls?: boolean;
+
+
+
+
+    stageMode?: \"subject\" | \"editor\" | \"storyboard\";
+
+
+
+
+
+
+
+
+    hasControlSurfaces?: boolean;
+}>();
+
+const storedControls = getStoredAnimationGroupControlOptions(superKey);
+
+
+
+
+
+
+
+
+
+const scenePending = computed(() => !hideControls && channels === undefined);
+
+
+
+const transportNames = computed(
+    () => channels?.map((c) => c.name) ?? Object.keys(animationGroup.animations),
+);
+
+
+const selectedChannel = computed(() =>
+    channels?.find((c) => c.name === storedControls.selectedAnimation),
+);
+
+
+
+
+
+
+
+const commandSeat = createChannelCommandSeat();
+provide(CHANNEL_COMMANDS_KEY, commandSeat);
+
+
+
+provide(GROUP_PAINTS_KEY, (listener) => animationGroup.onRender(listener));
+
+
+
+
+
+watchEffect(() => {
+    const validNames =
+        channels?.map((c) => c.name) ?? Object.keys(animationGroup.animations);
+    if (
+        validNames.length > 0 &&
+        storedControls.selectedAnimation &&
+        !validNames.includes(storedControls.selectedAnimation)
+    ) {
+        storedControls.selectedAnimation = null;
+    }
+});
+
+const emit = defineEmits<{
+    (e: \"playStateChange\", playing: boolean): void;
+    (e: \"startStateChange\", started: boolean): void;
+}>();
+
+const {
+    isPlaying,
+    syncPlayState,
+    findAnimationGroupObject,
+    onSelectAnimation,
+    toggleAnimationGroup,
+    onScrubStart,
+    onScrubEnd,
+    sliderUpdate: groupSliderUpdate,
+    getActiveT: groupGetActiveT,
+    scrubActive: groupScrubActive,
+    cycleAnimation,
+} = useAnimationGroupPlayback(() => animationGroup, storedControls, emit);
+
+
+
+
+const sliderUpdate = (val: { t: number; animation: KeyframesAnimation<any> }) => {
+    const ch = channels?.find(
+        (c) => c.animation && c.animation.id === val.animation.id,
+    );
+    if (ch) {
+        const dur = val.animation.options.duration ?? 1000;
+        ch.setProgress(dur > 0 ? val.t / dur : 0);
+        return;
+    }
+    groupSliderUpdate(val);
+};
+
+
+const getActiveT = (): number => {
+    const ch = selectedChannel.value;
+    if (ch) return clamp(ch.progress(), 0, 1);
+    return groupGetActiveT();
+};
+
+
+const scrubActive = (fraction: number) => {
+    const ch = selectedChannel.value;
+    if (ch) {
+        ch.setProgress(clamp(fraction, 0, 1));
+        return;
+    }
+    groupScrubActive(fraction);
+};
+
+
+
+
+
+
+
+onMounted(() => {
+    if (
+        autoPlay &&
+        !isPlaying.value &&
+        Object.keys(animationGroup.animations).length > 0
+    ) {
+        syncPlayState(true);
+    }
+});
+
+const transportDockRef = useTemplateRef<InstanceType<typeof TransportDock>>(\"transportDockRef\");
+
+
+
+const { updateLayerConfig, keyframesUpdate, reset, clear } = useAnimationGroupActions({
+    getGroup: () => animationGroup,
+    storedControls,
+    findAnimationGroupObject,
+    syncPlayState,
+});
+
+
+
+
+
+
+function switchTab(tab: string) {
+    commandSeat.current.value?.selectSurface(tab);
+}
+
+useControlsKeyboardShortcuts({
+    toggleAnimationGroup,
+    reset,
+    resetIconSpin: () => transportDockRef.value?.resetIconSpin(),
+    getActiveT,
+    scrubActive,
+    cycleAnimation,
+    switchTab,
+    commands: commandSeat.current,
+});
+
+</script>
+
+<style scoped src=\"./AnimationControlsGroup.css\"></style>
+"
+
+ ❯ test/demo/instrument/r4ribbon-mount-once.test.ts:89:23
+     87|     it("(5) the expanded timeline cell renders from AnimationControlsG…
+     88|         const group = code(read(GROUP));
+     89|         expect(group).toMatch(/provide\(EXPANDED_TIMELINE_KEY/);
+       |                       ^
+     90|         const cell = group.slice(group.indexOf("timeline-expanded-cell…
+     91|         expect(cell).toMatch(/<component\s+:is="expandedTimeline\.curr…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  |demo| test/demo/instrument/r4ribbon-mount-once.test.ts > X.KF.W13X.r4ribbon — the one mount, off the seat > (6) Controls shows the channel's binding, a facet surface the scene's, Keyframes and Timeline none; one ribbon at most
+TypeError: createRibbonSeat is not a function
+ ❯ test/demo/instrument/r4ribbon-mount-once.test.ts:147:22
+    145|             }) as unknown as Binding;
+    146|
+    147|         const seat = createRibbonSeat(
+       |                      ^
+    148|             () => (surface) => (surface.selectedControl === "easing" ?…
+    149|         );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  6 failed | 5 passed (11)
+   Start at  11:15:28
+   Duration  6.96s (transform 4.28s, setup 55ms, import 4.65s, tests 1.11s, environment 3.71s)
+

@@ -1,0 +1,9 @@
+### smoke-mobile (r2, re-run of r1: 1 ids) start 10-13 16:10:43 load1=497.24
+(node:65483) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:65655) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+### smoke-mobile end 10-13 16:10:55 load1=498.52 exit=0

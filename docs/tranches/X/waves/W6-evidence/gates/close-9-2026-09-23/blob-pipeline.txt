@@ -1,0 +1,10 @@
+⟨node docs/tranches/X/gates/gate-blob-pipeline.mjs⟩
+GATE h2 (blob pipeline census) — GREEN
+  seed lab(92% 88.8 20) → oklch L 0.9583 C 0.27245 h 9.83
+  sRGB ceiling at the seed's own (L,h) = 0.02105 — the seed is 12.9× outside the gamut it must be painted in
+  stage 1  1×1-canvas / defaultBlobColorResolver clip → C 0.14949 (L 0.9583→0.7862), 100.0% of ceiling
+  stage 2  deriveBlobPalette → C 0.08795…0.00971, 100.0% of ceiling; chromaCeiling lever inert = true
+  stage 3  oklchStopToHex → |ΔC| ≤ 4.09e-4
+  control  hue+lightness-preserving gamutMapStop → C 0.02105
+  census   13 published figures, 12 re-derived here
+EXIT=0

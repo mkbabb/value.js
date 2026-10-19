@@ -82,9 +82,19 @@ test.describe("O-22 · the dock status lamp (W6-6 / T-9)", () => {
     }) => {
         // A REAL network-level failure on the api paths (never an HTTP
         // status): the boot color-names read rejects and trips the latch.
-        await page.route(/\/(colors|sessions|palettes|users)\//, (route) =>
-            route.abort("connectionrefused"),
-        );
+        // Re-baselined X-W12U .q2: the pattern also matches the dev server's
+        // OWN module scripts since the feature trees were homed under
+        // `demo/palettes/**` (v-w43b3 `a61094e31`; served as
+        // `/@fs/…/demo/palettes/…`), so aborting every match killed the boot
+        // itself (34 script requests, `W12U-evidence/q2/probes/probe-lamp.mjs`)
+        // and no dock ever painted. The transport the latch watches is the
+        // api's fetch/XHR — exactly those are refused.
+        await page.route(/\/(colors|sessions|palettes|users)\//, (route) => {
+            const type = route.request().resourceType();
+            return type === "fetch" || type === "xhr"
+                ? route.abort("connectionrefused")
+                : route.continue();
+        });
         await page.goto("/");
 
         // NO dock interaction: the lamp must arrive as band chrome the

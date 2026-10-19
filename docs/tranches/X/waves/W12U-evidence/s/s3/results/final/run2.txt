@@ -1,0 +1,186 @@
+SERVED MODEL: claude-opus-5-5
+## probe-admin-ledgers.mjs
+[1440x900 light]
+PASS 641 {"status":1,"busy":true,"labels":["Loading audit log"]}
+PASS 424 {"n":20,"first":"by admin-fox-3"}
+PASS 425 {"rest":"rgba(0, 0, 0, 0)","hover":"rgba(0, 0, 0, 0)"}
+PASS 428-busy {"disabledWhileReading":true}
+PASS 638 {"clear":true,"count":false}
+PASS 428-error {"refreshBesideRetry":0}
+PASS 646 {"distinctLeftEdges":[333]}
+PASS 649-dismiss {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 649-pager {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 644 Dismissed the reports on “Flagged 0”
+PASS 645-busy {"disabledWhileReading":true}
+PASS 645-error {"refreshBesideRetry":0}
+[390x844 light]
+PASS 641 {"status":1,"busy":true,"labels":["Loading audit log"]}
+PASS 424 {"n":20,"first":"by admin-fox-3"}
+PASS 425 {"rest":"rgba(0, 0, 0, 0)","hover":"rgba(0, 0, 0, 0)"}
+PASS 428-busy {"disabledWhileReading":true}
+PASS 638 {"clear":true,"count":false}
+PASS 428-error {"refreshBesideRetry":0}
+PASS 646 {"distinctLeftEdges":[142]}
+PASS 649-dismiss {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 649-pager {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 644 Dismissed the reports on “Flagged 0”
+PASS 645-busy {"disabledWhileReading":true}
+PASS 645-error {"refreshBesideRetry":0}
+[1440x900 dark]
+PASS 641 {"status":1,"busy":true,"labels":["Loading audit log"]}
+PASS 424 {"n":20,"first":"by admin-fox-3"}
+PASS 425 {"rest":"rgba(0, 0, 0, 0)","hover":"rgba(0, 0, 0, 0)"}
+PASS 428-busy {"disabledWhileReading":true}
+PASS 638 {"clear":true,"count":false}
+PASS 428-error {"refreshBesideRetry":0}
+PASS 646 {"distinctLeftEdges":[333]}
+PASS 649-dismiss {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 649-pager {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 644 Dismissed the reports on “Flagged 0”
+PASS 645-busy {"disabledWhileReading":true}
+PASS 645-error {"refreshBesideRetry":0}
+[390x844 dark]
+PASS 641 {"status":1,"busy":true,"labels":["Loading audit log"]}
+PASS 424 {"n":20,"first":"by admin-fox-3"}
+PASS 425 {"rest":"rgba(0, 0, 0, 0)","hover":"rgba(0, 0, 0, 0)"}
+PASS 428-busy {"disabledWhileReading":true}
+PASS 638 {"clear":true,"count":false}
+PASS 428-error {"refreshBesideRetry":0}
+PASS 646 {"distinctLeftEdges":[142]}
+PASS 649-dismiss {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 649-pager {"style":"normal","family":"\"Plus Jakarta Sans\""}
+PASS 644 Dismissed the reports on “Flagged 0”
+PASS 645-busy {"disabledWhileReading":true}
+PASS 645-error {"refreshBesideRetry":0}
+## probe-admin-users.mjs
+[1440x900 light]
+PASS 628 "Couldn't load users. The palette service is not answering. Retry"
+PASS 413 ["-sparrow","-moss-owl","-1-fox",""]
+PASS 625 gap=12
+PASS 622-bulk "Delete all palettes? This permanently deletes the 1 palette of user-1-fox. The user stays. This cannot be undone. Cancel Delete all palettes"
+HELD 629 cancel="oklch(0.304649 0.121841 9.83402)" chroma=0.122 (→ A2-VA-L1-6 .k)
+PASS 622-prune "lucide lucide-eraser-icon lucide-eraser w-3.5 h-3.5"
+PASS 622-palette "Delete palette? This permanently deletes “User One”. This cannot be undone. Cancel Delete palette"
+[390x844 light]
+PASS 628 "Couldn't load users. The palette service is not answering. Retry"
+PASS 413 ["-sparrow","-moss-owl","-1-fox",""]
+PASS 625 gap=12
+PASS 622-bulk "Delete all palettes? This permanently deletes the 1 palette of user-1-fox. The user stays. This cannot be undone. Cancel Delete all palettes"
+HELD 629 cancel="oklch(0.304649 0.121841 9.83402)" chroma=0.122 (→ A2-VA-L1-6 .k)
+PASS 622-prune "lucide lucide-eraser-icon lucide-eraser w-3.5 h-3.5"
+PASS 622-palette "Delete palette? This permanently deletes “User One”. This cannot be undone. Cancel Delete palette"
+[1440x900 dark]
+PASS 628 "Couldn't load users. The palette service is not answering. Retry"
+PASS 413 ["-sparrow","-moss-owl","-1-fox",""]
+PASS 625 gap=12
+PASS 622-bulk "Delete all palettes? This permanently deletes the 1 palette of user-1-fox. The user stays. This cannot be undone. Cancel Delete all palettes"
+PASS 629 cancel="oklch(0.958322 0.0210531 9.83402)" chroma=0.021 (→ A2-VA-L1-6 .k)
+PASS 622-prune "lucide lucide-eraser-icon lucide-eraser w-3.5 h-3.5"
+PASS 622-palette "Delete palette? This permanently deletes “User One”. This cannot be undone. Cancel Delete palette"
+[390x844 dark]
+PASS 628 "Couldn't load users. The palette service is not answering. Retry"
+PASS 413 ["-sparrow","-moss-owl","-1-fox",""]
+PASS 625 gap=12
+PASS 622-bulk "Delete all palettes? This permanently deletes the 1 palette of user-1-fox. The user stays. This cannot be undone. Cancel Delete all palettes"
+PASS 629 cancel="oklch(0.958322 0.0210531 9.83402)" chroma=0.021 (→ A2-VA-L1-6 .k)
+PASS 622-prune "lucide lucide-eraser-icon lucide-eraser w-3.5 h-3.5"
+PASS 622-palette "Delete palette? This permanently deletes “User One”. This cannot be undone. Cancel Delete palette"
+## probe-admin-access.mjs
+[1440x900 light] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+[390x844 light] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+[1440x900 dark] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+[390x844 dark] PASS {"plate":null,"plateButtons":[],"search":false,"prune":false,"refresh":false,"url":"#/","gold":false,"token":null}
+## probe-admin-names.mjs
+[1440x900 light]
+PASS 420 {"tablist":true,"tabs":2,"panels":1}
+PASS 418 {"disabled":true,"ariaBusy":"true","dataLoading":"true"}
+PASS 634 {"subjectFont":"\"Plus Jakarta Sans\""}
+PASS 419 {"tag":"BUTTON","label":"Approve color name Name 6"}
+PASS 635 {"trio":false,"clear":true}
+[390x844 light]
+PASS 420 {"tablist":true,"tabs":2,"panels":1}
+PASS 418 {"disabled":true,"ariaBusy":"true","dataLoading":"true"}
+PASS 634 {"subjectFont":"\"Plus Jakarta Sans\""}
+PASS 419 {"tag":"BUTTON","label":"Approve color name Name 6"}
+PASS 635 {"trio":false,"clear":true}
+[1440x900 dark]
+PASS 420 {"tablist":true,"tabs":2,"panels":1}
+PASS 418 {"disabled":true,"ariaBusy":"true","dataLoading":"true"}
+PASS 634 {"subjectFont":"\"Plus Jakarta Sans\""}
+PASS 419 {"tag":"BUTTON","label":"Approve color name Name 6"}
+PASS 635 {"trio":false,"clear":true}
+[390x844 dark]
+PASS 420 {"tablist":true,"tabs":2,"panels":1}
+PASS 418 {"disabled":true,"ariaBusy":"true","dataLoading":"true"}
+PASS 634 {"subjectFont":"\"Plus Jakarta Sans\""}
+PASS 419 {"tag":"BUTTON","label":"Approve color name Name 6"}
+PASS 635 {"trio":false,"clear":true}
+## probe-extract.mjs
+[1440x900 light]
+PASS H2 {"prompt":"Click to sample","want":"Click to sample"}
+PASS 588 {"firstAddPops":true,"repeatAddPops":true}
+[390x844 light]
+PASS H2 {"prompt":"Tap to sample","want":"Tap to sample"}
+PASS 588 {"firstAddPops":true,"repeatAddPops":true}
+[1440x900 dark]
+PASS H2 {"prompt":"Click to sample","want":"Click to sample"}
+PASS 588 {"firstAddPops":true,"repeatAddPops":true}
+[390x844 dark]
+PASS H2 {"prompt":"Tap to sample","want":"Tap to sample"}
+PASS 588 {"firstAddPops":true,"repeatAddPops":true}
+## probe-gradient.mjs
+[1440x900 light]
+PASS 605 {"heads":1,"open":0,"ramps":0}
+[390x844 light]
+PASS 605 {"heads":1,"open":0,"ramps":0}
+[1440x900 dark]
+PASS 605 {"heads":1,"open":0,"ramps":0}
+[390x844 dark]
+PASS 605 {"heads":1,"open":0,"ramps":0}
+## probe-batch3.mjs
+[1440x900 light]
+PASS 657 /café/menu could not be opened.
+PASS 355 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 597 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 439 {"posted":{"name":"s3-tag","category":"s3-cat"},"labelled":true}
+[390x844 light]
+PASS 657 /café/menu could not be opened.
+PASS 355 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 597 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 439 {"posted":{"name":"s3-tag","category":"s3-cat"},"labelled":true}
+[1440x900 dark]
+PASS 657 /café/menu could not be opened.
+PASS 355 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 597 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 439 {"posted":{"name":"s3-tag","category":"s3-cat"},"labelled":true}
+[390x844 dark]
+PASS 657 /café/menu could not be opened.
+PASS 355 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 597 {"tab":true,"selected":"true","panel":"tabpanel","chips":1,"removeEnabled":true}
+PASS 439 {"posted":{"name":"s3-tag","category":"s3-cat"},"labelled":true}
+## probe-at-head.mjs
+[1440x900 light]
+PASS 153 {"chipRules":17}
+PASS 65 {"loaded":["normal"],"widths":{"w400":174.953125,"w700":189.0546875}}
+[390x844 light]
+PASS 153 {"chipRules":17}
+PASS 65 {"loaded":["normal"],"widths":{"w400":174.953125,"w700":189.0546875}}
+[1440x900 dark]
+PASS 153 {"chipRules":17}
+PASS 65 {"loaded":["normal"],"widths":{"w400":174.953125,"w700":189.0546875}}
+[390x844 dark]
+PASS 153 {"chipRules":17}
+PASS 65 {"loaded":["normal"],"widths":{"w400":174.953125,"w700":189.0546875}}
+## probe-pane-timeout.mjs
+[1440x900 light]
+PASS 606 /gradient {"loading":false,"errorPlate":true}
+PASS 616 /atmosphere {"loading":false,"errorPlate":true}
+[390x844 light]
+PASS 606 /gradient {"loading":false,"errorPlate":true}
+PASS 616 /atmosphere {"loading":false,"errorPlate":true}
+[1440x900 dark]
+PASS 606 /gradient {"loading":false,"errorPlate":true}
+PASS 616 /atmosphere {"loading":false,"errorPlate":true}
+[390x844 dark]
+PASS 606 /gradient {"loading":false,"errorPlate":true}
+PASS 616 /atmosphere {"loading":false,"errorPlate":true}

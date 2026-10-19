@@ -1,0 +1,1 @@
+e2e/smoke/views/mix.spec.ts e2e/smoke/oracles/o9-shadow-palette.spec.ts e2e/smoke/oracles/o10d-display-voice-census.spec.ts e2e/smoke/oracles/w7-mutation-visibility.spec.ts e2e/smoke/oracles/o7-card-census.spec.ts e2e/smoke/oracles/o11-header-gates.spec.ts e2e/smoke/views/companion-pane-track-start.spec.ts e2e/smoke/scene-action-contract.spec.ts

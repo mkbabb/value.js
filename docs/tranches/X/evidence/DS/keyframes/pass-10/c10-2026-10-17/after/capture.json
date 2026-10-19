@@ -1,0 +1,208 @@
+{
+ "transport-cube-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-amiga-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-square-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-easing-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-spring-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "snapshot-glyph-light": {
+  "buttonLeft": 92,
+  "glyphLeft": 94
+ },
+ "inline-lead-light": {
+  "leadText": "Import Rotations",
+  "before": {
+   "hintShown": true,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0,
+   "stopValues": [],
+   "carets": 0
+  },
+  "after": {
+   "hintShown": false,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 2,
+   "stopValues": [
+    "0%",
+    "100%"
+   ],
+   "carets": 2
+  }
+ },
+ "dialog-light": {
+  "title": "Import CSS @keyframes",
+  "confirm": "Import",
+  "glyphFirst": true,
+  "glyphLeft": 856,
+  "buttonLeft": 839
+ },
+ "transport-cube-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-amiga-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-square-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-easing-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-spring-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "snapshot-glyph-dark": {
+  "buttonLeft": 92,
+  "glyphLeft": 94
+ },
+ "inline-lead-dark": {
+  "leadText": "Import Rotations",
+  "before": {
+   "hintShown": true,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0,
+   "stopValues": [],
+   "carets": 0
+  },
+  "after": {
+   "hintShown": false,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 2,
+   "stopValues": [
+    "0%",
+    "100%"
+   ],
+   "carets": 2
+  }
+ },
+ "dialog-dark": {
+  "title": "Import CSS @keyframes",
+  "confirm": "Import",
+  "glyphFirst": true,
+  "glyphLeft": 856,
+  "buttonLeft": 839
+ }
+}

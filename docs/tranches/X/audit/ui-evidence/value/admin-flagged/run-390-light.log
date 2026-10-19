@@ -1,0 +1,9 @@
+up 13:11:42
+ERR 390-light TimeoutError: locator.waitFor: Timeout 120000ms exceeded.
+Call log:
+[2m  - waiting for locator('text=No flagged palettes.').first() to be visible[22m
+
+ERR 390-light TimeoutError: locator.waitFor: Timeout 120000ms exceeded.
+Call log:
+[2m  - waiting for locator('text=No flagged palettes.').first() to be visible[22m
+

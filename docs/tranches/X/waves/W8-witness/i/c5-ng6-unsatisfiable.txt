@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5
+# X.W8.i — C-5 / NG-6 measured unsatisfiable inside the unit's writable set
+## C-5: test/spectrum-luma.test.ts strokeContrast(h,1,1) picks the stroke by spectrumFieldIsLight(1,1) — no hue argument;
+## the M-12 pin in the SAME file asserts spectrumFieldIsLight(1,1) === false (white stroke). Contrast of each constant stroke at s=v=1:
+hue  white  black
+  0   4.00   5.25
+ 45   1.65  12.73
+ 60   1.07  19.56
+120   1.37  15.30
+180   1.25  16.75
+240   8.59   2.44
+300   3.14   6.70
+330   3.78   5.56
+white <3:1 at [45, 60, 120, 180] | black <3:1 at [240]
+=> no single stroke at (s=1,v=1) clears 3:1 at every hue; a 2-arg (s,v) predicate returns one stroke per (s,v),
+   so C-5 cannot go GREEN without the oracle passing hue (a test/assertion edit outside the writable set; M-12 pin restated).
+## NG-6: demo/test/shell/reka-binding-idiom.test.ts:63-77 mounts glass-ui's Checkbox with {checked:true} and expects data-state 'checked'.
+   That reads the PRODUCER's prop surface (no `checked` prop, measured 'unchecked'), not any demo binding;
+   `grep -rn ':checked|update:checked|v-model:checked' demo --include=*.vue` -> 0 (the SearchFilterBar subject site is already gone: X.W12U.s2 TagChipSet chips).
+=> no demo/ edit can change its outcome; only glass-ui (READ-ONLY) or an assertion change (forbidden) can.

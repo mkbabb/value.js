@@ -1,0 +1,4111 @@
+{
+  "kf": {
+    "sha": "60477b06",
+    "dirty": 7
+  },
+  "glass": {
+    "sha": "6433284a",
+    "dirty": 1
+  },
+  "when": "2026-09-23T17:20:33.244Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": [
+        {
+          "frame": "01-empty-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              555
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [],
+          "carets": [],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                495,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                495,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                495,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                539,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [
+            "No keyframes yet — Snapshot the target's current pose, or Import CSS @keyframes."
+          ],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "Controls tab fv=true",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "01-empty-1440-light-crop.png"
+        },
+        {
+          "frame": "02-ribbon-hover-snapshot-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              555
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [],
+          "carets": [],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                106,
+                495,
+                123,
+                37
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                495,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                495,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                539,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [
+            "No keyframes yet — Snapshot the target's current pose, or Import CSS @keyframes."
+          ],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "Controls tab fv=true",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "02-ribbon-hover-snapshot-1440-light-crop.png"
+        },
+        {
+          "frame": "03-export-empty-toast-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              555
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [],
+          "carets": [],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                495,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                495,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                343,
+                495,
+                100,
+                37
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                539,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [
+            "No keyframes yet — Snapshot the target's current pose, or Import CSS @keyframes."
+          ],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [
+            {
+              "t": "Need at least 2 keyframes to export",
+              "type": "error"
+            }
+          ],
+          "focus": "BUTTON fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "03-export-empty-toast-1440-light-crop.png"
+        },
+        {
+          "frame": "04-single-keyframe-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              553
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                493,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                493,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                493,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                537,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [
+            "One keyframe — one more builds the animation."
+          ],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [
+            {
+              "t": "Keyframe captured at 0%",
+              "type": "success"
+            }
+          ],
+          "focus": "BUTTON fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "04-single-keyframe-1440-light-crop.png"
+        },
+        {
+          "frame": "05-import-dialog-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              553
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                493,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                493,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                493,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                537,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [
+            "One keyframe — one more builds the animation."
+          ],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": {
+            "box": [
+              384,
+              214,
+              672,
+              472
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(",
+            "t": "Import CSS @keyframesPaste CSS @keyframes to load into the timelineImportClose"
+          },
+          "toasts": [
+            {
+              "t": "Keyframe captured at 0%",
+              "type": "success"
+            }
+          ],
+          "focus": "Import CSS @keyframes fv=true",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "06-populated-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              470
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 35% — drag or arrow to move",
+              "box": [
+                208,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                410,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                410,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                410,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                454,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [
+            {
+              "t": "Imported 4 keyframes",
+              "type": "success"
+            }
+          ],
+          "focus": "BUTTON fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "06-populated-1440-light-crop.png"
+        },
+        {
+          "frame": "07-populated-track-in-view-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              470
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              187,
+              133,
+              176,
+              216
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix3d(0.316871, -0.0807144, 0.945028, 0, 0.465257, 0.8814"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 35% — drag or arrow to move",
+              "box": [
+                208,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                410,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                410,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                410,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                454,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "BUTTON fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "07-populated-track-in-view-1440-light-crop.png"
+        },
+        {
+          "frame": "08-hover-preview-early-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              470
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.503871)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              140,
+              106,
+              270,
+              270
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix(0, 1.2, -1.2, 0, 0, 0)"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 35% — drag or arrow to move",
+              "box": [
+                208,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                410,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                410,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                410,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                454,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "BUTTON fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "09-hover-preview-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              470
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.7)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              162,
+              129,
+              225,
+              225
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix(1, 0, 0, 1, 0, 0)"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 35% — drag or arrow to move",
+              "box": [
+                207,
+                301,
+                24,
+                24
+              ]
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                410,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                410,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                410,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                454,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": null,
+          "emptyText": [],
+          "errors": [
+            "",
+            "Preview unavailable — Attempting to parse an unsupported color function \"color\""
+          ],
+          "editor": null,
+          "editorWell": null,
+          "editorText": null,
+          "tooltip": {
+            "box": [
+              107,
+              14,
+              1,
+              1
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "font": "14.384px/400",
+            "cls": "",
+            "t": "Keyframe at 35%. Preview unavailable: Attempting to parse an unsupported color function \"color\". transform rotate(90deg) scale(1.2); background-color rgb(245 158 11).",
+            "img": false
+          },
+          "dialog": null,
+          "toasts": [],
+          "focus": "BUTTON fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "10-selected-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              801
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              162,
+              129,
+              225,
+              225
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix(1, 0, 0, 1, 0, 0)"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 35% — drag or arrow to move",
+              "box": [
+                205,
+                299,
+                28,
+                28
+              ],
+              "sel": "selected"
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Remove keyframe": {
+              "box": [
+                424,
+                381,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                741,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                741,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                741,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                785,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": {
+            "box": [
+              127,
+              379,
+              128,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400",
+            "cls": "field-control glass-defined w-32"
+          },
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": {
+            "box": [
+              91,
+              433,
+              367,
+              250
+            ],
+            "radius": "0px",
+            "bg": "rgb(248, 248, 255)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(0, 0, 0)",
+            "font": "18.608px/400",
+            "cls": "monaco-editor no-user-select mac  showUnused showDeprecated vs"
+          },
+          "editorWell": {
+            "box": [
+              89,
+              431,
+              371,
+              254
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+            "border": "2px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden cartoon-surface relative w-full overflow-hidden"
+          },
+          "editorText": "transform: rotate(90deg) scale(1. | 2); | background-color: rgb(245 158  | 11);",
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "Keyframe at 35% — drag or arrow to move fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "10-selected-1440-light-crop.png"
+        },
+        {
+          "frame": "11-selected-label-focus-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              801
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              162,
+              129,
+              225,
+              225
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix(1, 0, 0, 1, 0, 0)"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Quarter turn — Keyframe at 35% — drag or arrow to move",
+              "box": [
+                205,
+                299,
+                28,
+                28
+              ],
+              "sel": "selected"
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Remove keyframe": {
+              "box": [
+                424,
+                381,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                741,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                741,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                741,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                785,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": {
+            "box": [
+              127,
+              379,
+              128,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400",
+            "cls": "field-control glass-defined w-32"
+          },
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": {
+            "box": [
+              91,
+              433,
+              367,
+              250
+            ],
+            "radius": "0px",
+            "bg": "rgb(248, 248, 255)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(0, 0, 0)",
+            "font": "18.608px/400",
+            "cls": "monaco-editor no-user-select mac  showUnused showDeprecated vs"
+          },
+          "editorWell": {
+            "box": [
+              89,
+              431,
+              371,
+              254
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+            "border": "2px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden cartoon-surface relative w-full overflow-hidden"
+          },
+          "editorText": "transform: rotate(90deg) scale(1. | 2); | background-color: rgb(245 158  | 11);",
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "Keyframe label fv=true",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "11-selected-label-focus-1440-light-crop.png"
+        },
+        {
+          "frame": "12-selected-css-editor-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              801
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              162,
+              129,
+              225,
+              225
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix(1, 0, 0, 1, 0, 0)"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Quarter turn — Keyframe at 35% — drag or arrow to move",
+              "box": [
+                205,
+                299,
+                28,
+                28
+              ],
+              "sel": "selected"
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Remove keyframe": {
+              "box": [
+                424,
+                381,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                741,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                741,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                741,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                785,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": {
+            "box": [
+              127,
+              379,
+              128,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400",
+            "cls": "field-control glass-defined w-32"
+          },
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": {
+            "box": [
+              91,
+              433,
+              367,
+              250
+            ],
+            "radius": "0px",
+            "bg": "rgb(248, 248, 255)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(0, 0, 0)",
+            "font": "18.608px/400",
+            "cls": "monaco-editor no-user-select mac  showUnused showDeprecated vs"
+          },
+          "editorWell": {
+            "box": [
+              89,
+              431,
+              371,
+              254
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+            "border": "2px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden cartoon-surface relative w-full overflow-hidden"
+          },
+          "editorText": "transform: rotate(90deg) scale(1. | 2); | background-color: rgb(245 158  | 11);",
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "Keyframe label fv=true",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "12-selected-css-editor-1440-light-crop.png"
+        },
+        {
+          "frame": "13-css-editor-error-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "pane": {
+            "box": [
+              43,
+              54,
+              475,
+              801
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "controls-pane group/controls min-w-0 overflow-y-auto"
+          },
+          "track": {
+            "box": [
+              89,
+              290,
+              371,
+              48
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+            "border": "1px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "kf-focus-ring timeline-track relative rounded-lg border border-muted-foreground bg-muted/50 hover:bg-muted/70 transition"
+          },
+          "stage": {
+            "box": [
+              89,
+              128,
+              371,
+              96
+            ],
+            "radius": "8px",
+            "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.3)",
+            "border": "1px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-preview-stage grid place-items-center overflow-clip rounded-lg border border-border bg-muted/30 h-24"
+          },
+          "stageChild": {
+            "box": [
+              162,
+              129,
+              225,
+              225
+            ],
+            "bg": "rgba(0, 0, 0, 0)",
+            "tf": "matrix(1, 0, 0, 1, 0, 0)"
+          },
+          "markers": [
+            {
+              "l": "Keyframe at 0% — drag or arrow to move",
+              "box": [
+                87,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Quarter turn — Keyframe at 35% — drag or arrow to move",
+              "box": [
+                205,
+                299,
+                28,
+                28
+              ],
+              "sel": "selected"
+            },
+            {
+              "l": "Keyframe at 70% — drag or arrow to move",
+              "box": [
+                337,
+                302,
+                23,
+                23
+              ]
+            },
+            {
+              "l": "Keyframe at 100% — drag or arrow to move",
+              "box": [
+                440,
+                302,
+                23,
+                23
+              ]
+            }
+          ],
+          "carets": [
+            {
+              "t": "0%",
+              "box": [
+                90,
+                330,
+                20,
+                14
+              ]
+            },
+            {
+              "t": "35%",
+              "box": [
+                204,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "70%",
+              "box": [
+                334,
+                330,
+                30,
+                14
+              ]
+            },
+            {
+              "t": "100%",
+              "box": [
+                419,
+                330,
+                40,
+                14
+              ]
+            }
+          ],
+          "ticks": [
+            "0%",
+            "25%",
+            "50%",
+            "75%",
+            "100%"
+          ],
+          "panRow": {
+            "box": [
+              89,
+              236,
+              371,
+              22
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "timeline-pan-row flex items-center gap-2 transition-opacity duration-fast opacity-0"
+          },
+          "buttons": {
+            "Undo": {
+              "box": [
+                304,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Redo": {
+              "box": [
+                344,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": true,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Clear all keyframes": {
+              "box": [
+                384,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Expand timeline": {
+              "box": [
+                424,
+                80,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(112, 89, 66)",
+              "color": "rgb(112, 89, 66)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "quiet"
+            },
+            "Remove keyframe": {
+              "box": [
+                424,
+                381,
+                36,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "1px rgba(0, 0, 0, 0)",
+              "color": "rgb(219, 36, 36)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring",
+              "disabled": false,
+              "tone": "destructive",
+              "emph": "quiet"
+            },
+            "Snapshot": {
+              "box": [
+                107,
+                741,
+                121,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Import": {
+              "box": [
+                237,
+                741,
+                99,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Export": {
+              "box": [
+                344,
+                741,
+                98,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            },
+            "Add CSS": {
+              "box": [
+                217,
+                785,
+                115,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+              "border": "0px rgb(28, 25, 23)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16.4px/500",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+              "disabled": false,
+              "tone": "neutral",
+              "emph": "secondary"
+            }
+          },
+          "label": {
+            "box": [
+              127,
+              379,
+              128,
+              40
+            ],
+            "radius": "9999px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px color(srgb 0.11 0.098 0.09 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400",
+            "cls": "field-control glass-defined w-32"
+          },
+          "emptyText": [],
+          "errors": [
+            ""
+          ],
+          "editor": {
+            "box": [
+              91,
+              433,
+              367,
+              250
+            ],
+            "radius": "0px",
+            "bg": "rgb(248, 248, 255)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(0, 0, 0)",
+            "font": "18.608px/400",
+            "cls": "monaco-editor no-user-select mac  showUnused showDeprecated vs"
+          },
+          "editorWell": {
+            "box": [
+              89,
+              431,
+              371,
+              254
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+            "border": "2px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400",
+            "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden cartoon-surface relative w-full overflow-hidden"
+          },
+          "editorText": "transform: rotate(90deg) scale(1. | 2); | background-color: rgb(245 158  | 11);",
+          "tooltip": null,
+          "dialog": null,
+          "toasts": [],
+          "focus": "BODY fv=false",
+          "paneOverflowX": [
+            475,
+            475
+          ],
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "13-css-editor-error-1440-light-crop.png"
+        }
+      ],
+      "notes": {
+        "options": [
+          "Controls",
+          "Keyframes",
+          "Timeline"
+        ],
+        "fail:build-error": "TimeoutError: locator.boundingBox: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.card-content:has(.timeline-preview-stage) .monaco-editor .view-lines').filter({ visible: true }).fi",
+        "fail:remove-undo-redo": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Remove keyframe', exact: true }).filter({ visible: true }).first()\u001b[2",
+        "fail:zoom": "TimeoutError: locator.focus: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.timeline-track').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:expand": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Expand timeline', exact: true }).filter({ visible: true }).first()\u001b[22m\n",
+        "fail:export": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Export', exact: true }).filter({ visible: true }).first()\u001b[22m\n",
+        "fail:addcss": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Add CSS', exact: true }).filter({ visible: true }).first()\u001b[22m\n",
+        "fail:clear": "TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Clear all keyframes', exact: true }).filter({ visible: true }).first("
+      },
+      "errs": [
+        "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  ]
+}

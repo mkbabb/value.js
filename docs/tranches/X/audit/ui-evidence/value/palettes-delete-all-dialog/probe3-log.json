@@ -1,0 +1,20 @@
+{
+  "trigger": {
+    "t": "Delete all saved palettes",
+    "fv": true,
+    "bs": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+    "token": "0 0 0 2px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 15%, transparent)"
+  },
+  "initialFocus": {
+    "t": "Cancel",
+    "fv": true
+  },
+  "dialogBtn": {
+    "t": "Delete all",
+    "fv": true,
+    "bs": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "token": "0 0 0 2px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 15%, transparent)",
+    "attrs": "data-slot=button data-emphasis=secondary data-tone=destructive data-size=md data-press-armed= type=button class=button tap-squish focus-ring style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+  },
+  "openAfterOutsideClick": 0
+}

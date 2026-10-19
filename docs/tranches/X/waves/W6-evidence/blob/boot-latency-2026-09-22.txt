@@ -1,0 +1,11 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.h fifth sitting 2026-09-22 — COHESION §0ax: goo-blob-canvas mount latency (navigation commit → attached → visible), seed lab(92% 88.8 20), 1440x900, chromium.
+cmd: node W6-evidence/blob/boot-latency.mjs <fresh vite origin> <label> <navs>; load = 36 'while :; do :; done' loops on 18 cores, timeout 100 s.
+[boot] cold-server/quiet (load 11.62) nav 1: attached 2271 ms · visible 2278 ms · FCP 392 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] cold-server/quiet (load 11.62) nav 2: attached 2066 ms · visible 2068 ms · FCP 272 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] cold-server/quiet (load 11.62) nav 3: attached 1983 ms · visible 1984 ms · FCP 228 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] warm-server/under load (36 busy loops on 18 cores, load 29.59) nav 1: attached 2531 ms · visible 2532 ms · FCP 252 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] warm-server/under load (36 busy loops on 18 cores, load 29.59) nav 2: attached 2440 ms · visible 2442 ms · FCP 264 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] warm-server/under load (36 busy loops on 18 cores, load 29.59) nav 3: attached 2406 ms · visible 2412 ms · FCP 260 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] cold-server/under load (36 busy loops, load 60.16) nav 1: attached 18264 ms · visible 18267 ms · FCP 15792 ms · canvases 1 · inside .hero-blob-anchor true
+[boot] cold-server/under load (36 busy loops, load 60.16) nav 2: attached 3079 ms · visible 3082 ms · FCP 340 ms · canvases 1 · inside .hero-blob-anchor true

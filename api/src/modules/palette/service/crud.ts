@@ -22,6 +22,7 @@ import type { Palette } from "../model.js";
 import { ConflictError, GoneError, NotFoundError } from "../../../platform/http/errors/index.js";
 import { computeContentHash } from "../hash.js";
 import { formatPalette, type FormattedPalette } from "../format.js";
+import { assertFenceHeld } from "../etag.js";
 import type {
     createPaletteBody,
     updatePaletteBody,
@@ -29,6 +30,7 @@ import type {
 import type { z } from "zod";
 import { computeOklabColors } from "./oklab.js";
 import { createVersionRecord } from "./versions.js";
+import { assertPaletteReadable } from "./visibility.js";
 
 type CreateBody = z.infer<typeof createPaletteBody>;
 type UpdateBody = z.infer<typeof updatePaletteBody>;
@@ -46,13 +48,18 @@ export async function getPaletteBySlug(
     slug: string,
     currentUserSlug: string | undefined,
 ): Promise<FormattedPalette> {
-    const doc = await services.repositories.palettes.findBySlug(slug);
-    if (!doc) throw new NotFoundError("Palette not found");
+    // X-W3 · G-1: the object-read predicate decides BEFORE a single byte of
+    // the document is disclosed. `currentUserSlug` was previously read only
+    // for the vote lookup below — the detail read answered every caller.
+    const doc = await assertPaletteReadable(services, slug, currentUserSlug);
 
-    // I.W2: soft-deleted palettes within grace window return 410 Gone with
-    // an explicit `gone` code so consumers can distinguish from 404. After
-    // grace expires, the reaper hard-deletes the doc and findBySlug returns
-    // null → 404 NotFound (the natural state-transition).
+    // X-W3 · G-2: the Gone arm sits BEHIND the predicate. I.W2's contract is
+    // unchanged for the party it was written for — a soft-deleted palette
+    // within the grace window answers its OWNER 410 with an explicit `gone`
+    // code, distinguishable from 404, and after the reaper hard-deletes the
+    // doc `findBySlug` returns null → 404 (the natural state-transition). A
+    // stranger no longer reaches this line at all: `assertReadable` refused
+    // them above, so the 410 can no longer serve as an existence oracle.
     if (doc.deletedAt !== null && doc.deletedAt !== undefined) {
         throw new GoneError("Palette has been deleted");
     }
@@ -63,7 +70,15 @@ export async function getPaletteBySlug(
         voted = vote !== null;
     }
 
-    const result = formatPalette(doc);
+    // X-W3 · G-14: the detail envelope's `forkCount` is THIS caller's count —
+    // the same filtered join `GET /:slug/forks` pages over — so the number and
+    // the list it summarises can never disagree about which children exist.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        slug,
+        currentUserSlug,
+    );
+
+    const result = formatPalette(doc, { forkCount });
     result.voted = voted;
     return result;
 }
@@ -95,6 +110,9 @@ export async function createPalette(
         voteCount: 0,
         userSlug,
         visibility: "public",
+        // X-W3 · G-15: the moderation clock is written explicitly at birth, so
+        // no palette-domain row depends on the absent-reads-`clear` reading.
+        moderation: "clear",
         tier: "standard",
         deletedAt: null,
         createdAt: now,
@@ -139,7 +157,14 @@ export async function createPalette(
 
     const saved = await services.repositories.palettes.findBySlug(body.slug);
     if (!saved) throw new NotFoundError("Palette missing after insert");
-    return formatPalette(saved);
+    // X-W3 · G-14 — counted, not assumed `0`: a slug freed by the reaper can be
+    // re-created while children that named it survive, and the envelope must
+    // report what the fork list would actually show its author.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        body.slug,
+        userSlug,
+    );
+    return formatPalette(saved, { forkCount });
 }
 
 // ---------------------------------------------------------------
@@ -215,12 +240,33 @@ export async function patchPalette(
                 session,
             );
         }
-        await services.repositories.palettes.update(slug, { $set }, session);
+        // X-W3 · G-8 — the write is FENCED on the state the route validated
+        // `If-Match` against (`routes/crud.ts:120-123` read this same doc).
+        // `assertIfMatch` compares at the route; between that comparison and
+        // this line any other writer may land, and the result used to be
+        // discarded, so a lost race committed silently. `matchedCount === 0`
+        // now means someone else wrote first and becomes the same `412` a stale
+        // `If-Match` produces. The throw is INSIDE `withTransaction`, so the
+        // version row appended above rolls back with it.
+        assertFenceHeld(
+            await services.repositories.palettes.update(
+                slug,
+                { $set },
+                session,
+                palette,
+            ),
+        );
     });
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette missing after update");
-    return formatPalette(updated);
+    // X-W3 · G-14. PATCH is owner-gated (`requireOwnership`), so the envelope
+    // is the owner's reading of their own row.
+    const forkCount = await services.repositories.palettes.countForksOf(
+        slug,
+        userSlug ?? updated.userSlug,
+    );
+    return formatPalette(updated, { forkCount });
 }
 
 // ---------------------------------------------------------------

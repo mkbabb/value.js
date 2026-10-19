@@ -1,0 +1,340 @@
+{
+ "transport-cube-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-amiga-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-square-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-easing-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-spring-light": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "band-empty-light": {
+  "lastContentBottom": 361,
+  "ribbonTop": 391,
+  "band": 30,
+  "frameBottom": 750
+ },
+ "snapshot-glyph-light": {
+  "buttonLeft": 114,
+  "glyphLeft": 129
+ },
+ "inline-lead-light": {
+  "leadText": "Import Rotations",
+  "before": {
+   "hintShown": true,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0,
+   "stopValues": [],
+   "carets": 0
+  },
+  "after": {
+   "hintShown": false,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 2,
+   "stopValues": [
+    "0%",
+    "100%"
+   ],
+   "carets": 2
+  }
+ },
+ "band-imported-light": {
+  "lastContentBottom": 473,
+  "ribbonTop": 510,
+  "band": 37,
+  "frameBottom": 750
+ },
+ "lead-imported-light": {
+  "emphasisLead": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+  "rowWidth": 365.1875,
+  "padL": "14px",
+  "padR": "14px",
+  "glyphToEdge": 15,
+  "wordToEdge": 15,
+  "contentBox": 86.14,
+  "contentWidth": 86.14,
+  "quietLabelsShown": [
+   [
+    "Import",
+    false
+   ],
+   [
+    "Add",
+    false
+   ],
+   [
+    "Export",
+    false
+   ]
+  ]
+ },
+ "well-imported-light": {
+  "frames": 361,
+  "paddingBox": {
+   "top": 192.828125,
+   "bottom": 286.828125,
+   "left": 94.203125,
+   "right": 455.390625
+  },
+  "painted": {
+   "top": 193.3414306640625,
+   "bottom": 286.3148193359375,
+   "left": 227.9359893798828,
+   "right": 321.6577453613281
+  },
+  "inside": true,
+  "frameTransform": "translate(-50%, -50%) scale(0.201003)"
+ },
+ "dialog-light": {
+  "titleType": {
+   "size": "25.888px",
+   "weight": "600"
+  },
+  "descriptionType": {
+   "size": "18.608px",
+   "weight": "400"
+  },
+  "paneTitle": {
+   "text": "Rotations",
+   "size": "25.888px",
+   "weight": "600"
+  },
+  "title": "Import CSS @keyframes",
+  "confirm": "Import",
+  "glyphFirst": true,
+  "glyphLeft": 856,
+  "buttonLeft": 839
+ },
+ "transport-cube-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-amiga-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-square-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-easing-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "transport-spring-dark": {
+  "Reverse": {
+   "glyphFirst": true,
+   "buttonLeft": 83,
+   "glyphLeft": 92,
+   "wordLeft": 116
+  },
+  "Preview": {
+   "glyphFirst": true,
+   "buttonLeft": 188,
+   "glyphLeft": 197,
+   "wordLeft": 221
+  }
+ },
+ "band-empty-dark": {
+  "lastContentBottom": 361,
+  "ribbonTop": 391,
+  "band": 30,
+  "frameBottom": 750
+ },
+ "snapshot-glyph-dark": {
+  "buttonLeft": 114,
+  "glyphLeft": 129
+ },
+ "inline-lead-dark": {
+  "leadText": "Import Rotations",
+  "before": {
+   "hintShown": true,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0,
+   "stopValues": [],
+   "carets": 0
+  },
+  "after": {
+   "hintShown": false,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 2,
+   "stopValues": [
+    "0%",
+    "100%"
+   ],
+   "carets": 2
+  }
+ },
+ "band-imported-dark": {
+  "lastContentBottom": 473,
+  "ribbonTop": 510,
+  "band": 37,
+  "frameBottom": 750
+ },
+ "lead-imported-dark": {
+  "emphasisLead": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+  "rowWidth": 365.1875,
+  "padL": "14px",
+  "padR": "14px",
+  "glyphToEdge": 15,
+  "wordToEdge": 15,
+  "contentBox": 86.14,
+  "contentWidth": 86.14,
+  "quietLabelsShown": [
+   [
+    "Import",
+    false
+   ],
+   [
+    "Add",
+    false
+   ],
+   [
+    "Export",
+    false
+   ]
+  ]
+ },
+ "well-imported-dark": {
+  "frames": 361,
+  "paddingBox": {
+   "top": 192.828125,
+   "bottom": 286.828125,
+   "left": 94.203125,
+   "right": 455.390625
+  },
+  "painted": {
+   "top": 193.34141540527344,
+   "bottom": 286.3148193359375,
+   "left": 227.9359893798828,
+   "right": 321.6577453613281
+  },
+  "inside": true,
+  "frameTransform": "translate(-50%, -50%) scale(0.201003)"
+ },
+ "dialog-dark": {
+  "titleType": {
+   "size": "25.888px",
+   "weight": "600"
+  },
+  "descriptionType": {
+   "size": "18.608px",
+   "weight": "400"
+  },
+  "paneTitle": {
+   "text": "Rotations",
+   "size": "25.888px",
+   "weight": "600"
+  },
+  "title": "Import CSS @keyframes",
+  "confirm": "Import",
+  "glyphFirst": true,
+  "glyphLeft": 856,
+  "buttonLeft": 839
+ }
+}

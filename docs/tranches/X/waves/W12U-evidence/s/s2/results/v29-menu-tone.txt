@@ -1,0 +1,8 @@
+[1440x900 light]
+PASS Delete: rgb(219, 36, 36) vs Rename rgb(28, 25, 23) (destructive rgb(219, 36, 36))
+PASS Report: rgb(112, 89, 66) vs Remix rgb(28, 25, 23) (destructive rgb(219, 36, 36))
+PASS Delete (admin): rgb(219, 36, 36) vs Remix rgb(28, 25, 23) (destructive rgb(219, 36, 36))
+[1440x900 dark]
+PASS Delete: oklch(0.702 0.184 27.5) vs Rename rgb(233, 230, 226) (destructive oklch(0.702 0.184 27.5))
+PASS Report: rgb(195, 185, 172) vs Remix rgb(233, 230, 226) (destructive oklch(0.702 0.184 27.5))
+PASS Delete (admin): oklch(0.702 0.184 27.5) vs Remix rgb(233, 230, 226) (destructive oklch(0.702 0.184 27.5))

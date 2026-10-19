@@ -1,0 +1,35 @@
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+   Start at  16:15:26
+   Duration  2.74s (transform 42%, import 39%, tests 16%, worker 3%)
+
+    Isolate  20 workers spawned · ~149ms startup each (spawn + environment, per file)
+             at least ~1.34s faster with isolate: false — reuses workers across files instead of one per file
+
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+   Start at  16:15:45
+   Duration  2.85s (transform 45%, import 35%, tests 17%, worker 3%)
+
+    Isolate  20 workers spawned · ~143ms startup each (spawn + environment, per file)
+             at least ~1.28s faster with isolate: false — reuses workers across files instead of one per file
+
+== run 1 vitest (counts)
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vitest (counts)
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== FINAL TREE (after the T2 grid revision; e2e runs A/B were on the flex-wrap T2 form, C/D on this tree)
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)

@@ -1,0 +1,16 @@
+15:09  up 3 days, 20:11, 3 users, load averages: 176.57 142.32 101.34
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/node.js:30599:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/node.js:27842:18
+ ❯ node_modules/vite/dist/node/chunks/node.js:27905:30
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/node.js:27873:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/node.js:30387:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/node.js:24646:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  15:09:23
+   Duration  2.93s (transform 15ms, setup 21ms, import 0ms, tests 0ms, environment 2.42s)
+

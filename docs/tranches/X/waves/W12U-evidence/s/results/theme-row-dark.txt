@@ -1,0 +1,3 @@
+[dark]
+PASS 390 Menu checkbox=1 aria-checked true→false dark true→false
+PASS 1440 @mbabb checkbox=1 aria-checked true→false dark true→false

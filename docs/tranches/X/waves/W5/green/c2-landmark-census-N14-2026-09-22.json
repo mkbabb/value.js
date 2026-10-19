@@ -1,0 +1,35 @@
+{
+  "SERVED MODEL": "claude-opus-5-5[1m]",
+  "seat": "X.W5.c2 (RESUME 5; COHESION §0ax ESC-R1-1/2/3 + §0aq grants held)",
+  "date": "2026-09-22",
+  "commits": {
+    "landmark": "ab5270b6",
+    "census_not_found": "ad93c771",
+    "router_route_names": "fdf3e9e0"
+  },
+  "gates": {
+    "landmark_grep_files": { "before": 61, "after": 0, "cmd": "grep -rl 'Color tool panes' e2e | wc -l" },
+    "landmark_grep_occurrences": { "before": 102, "after": 0 },
+    "fixture_exports": { "before": 0, "after": 2, "names": ["MAIN_PANE", "mainPane"], "migrated_files_importing": "61/61" },
+    "census_not_found_row": { "before": 0, "after": 1 },
+    "N14_router_bite": "name admin-tags -> admin-tag => vue-tsc TS2820 at router/index.ts:47; restored",
+    "D4": { "Mix": 1, "Admin": 1, "state": "held (fc9c2be4 untouched)" },
+    "N15": "held: AdminNamesPanel SegmentedTabs :14 before slot query :25; AdminPane unchanged since fc9c2be4",
+    "census_parity_visual": ["5 passed", "5 passed", "5 passed", "5 passed"],
+    "o12_o16_smoke": {
+      "run1": "4 passed / 2 failed",
+      "run2": "4 passed / 2 failed",
+      "landmark_failures": 0,
+      "failures": [
+        "o12 O-12·3 hover-mood frame-diff 0.06/255 and 0.14/255 < 6/255 (X-W2 cl-F4, pre-existing, software GL, load 11-12)",
+        "o16 W5 census R2 enter transform duration expected literal 0.4s, received 0.44s (glass-ui 7.0.0 --spring-snappy-settle: 0.44s; literal authored 27f54cc3 2026-07-11, before glass 7 adoption)"
+      ]
+    },
+    "s7": {
+      "vue_tsc_demo": "EXIT 0 x2",
+      "eslint_changed_files": "EXIT 0 (64 files); full eslint 0 errors / 32 warnings, 0 in this seat's files",
+      "tsc_e2e": "5 errors, all o23-specimen-gamut-honesty.spec.ts (not this seat's)",
+      "vitest": "639/641; 2 FAIL = C-5 spectrum-luma BORN-RED + NG-6 reka-binding-idiom (other tracks)"
+    }
+  }
+}

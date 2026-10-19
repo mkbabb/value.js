@@ -1,0 +1,101 @@
+### mobile+perf-drag cure read 2 start 17:01:09 load1=775.94
+(node:87026) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:87207) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) (3.0m)
+(node:1569) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[blob-390] PRM window=3000ms draws=0 frames=373
+  ✓  2 [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:209:1 › hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws) (44.4s)
+
+
+  1) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 90000ms.[39m
+
+    Error: browserContext.close: Test timeout of 90000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-xco6cd --remote-debugging-pipe --no-startup-window
+    <launched> pid=87342
+    [pid=87342][err] [87356:11703055:1013/170145.835022:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x11c08f4e400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=87342][err] [87356:11703055:1013/170145.910250:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x11c08f4e400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=87342] <gracefully close start>
+    [pid=87342] <kill>
+    [pid=87342] <will force kill>
+
+    Error: page.evaluate: Test timeout of 90000ms exceeded.
+
+       at smoke/perf/frame-budget.ts:83
+
+      81 | /** WebGL2 renderer string — distinguishes real GPU from ANGLE-SwiftShader. */
+      82 | export async function detectRenderer(page: Page): Promise<string> {
+    > 83 |     return page.evaluate(() => {
+         |                 ^
+      84 |         const canvas = document.createElement("canvas");
+      85 |         const gl =
+      86 |             (canvas.getContext("webgl2") as WebGL2RenderingContext | null) ??
+        at detectRenderer (/Users/mkbabb/Programming/value.js/e2e/smoke/perf/frame-budget.ts:83:17)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:83:28
+
+    Error Context: ../../.dev-logs/w12u-q/cure-mobile-r2/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-mobile-r2/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-mobile-r2/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+  1 passed (5.1m)
+(node:7569) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:7781) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) (30.7s)
+
+
+  1) [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.boundingBox: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('slider', { name: 'L channel' }).first()[22m
+    [2m    - locator resolved to visible <span tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.92" aria-label="L channel" data-reka-collection-item="" data-orientation="horizontal" aria-orientation="horizontal" aria-valuetext="Lightness 92.0%" class="slider-thumb glass-specular-track"></span>[22m
+
+
+      44 |     const slider = page.getByRole("slider", { name: "L channel" }).first();
+      45 |     await expect(slider).toBeVisible();
+    > 46 |     const box = await slider.boundingBox();
+         |                              ^
+      47 |     if (!box) throw new Error("L channel slider not laid out");
+      48 |
+      49 |     const y = box.y + box.height / 2;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/drag-frame-budget.spec.ts:46:30
+
+    Error Context: ../../.dev-logs/w12u-q/cure-perfdrag-r2/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/cure-perfdrag-r2/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/cure-perfdrag-r2/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) 
+### end 17:07:15 load1=962.34

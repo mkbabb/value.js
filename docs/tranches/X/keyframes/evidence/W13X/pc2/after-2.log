@@ -1,0 +1,43 @@
+load-start { 990.44 816.18 538.08 } 16:41:56 kf=ca0b1a0b file=8f872ec7dd glass=10.1.0
+GREEN spring 1024x768 light [opened by press] section=50..338 plot=50..338 field=99.5..338 y=245.3..373.3 xAxis=99.5..338 worstCutR=0 hits=true,true,true gtc(section)="288px" gtc(plot)="13.5156px 24px 238.484px"
+    clip disclosure-content ox=hidden 50..338 cutR=0 scrollLeft=0
+    clip min-h-0 overflow-hidden ox=hidden 30..358 cutR=-20 scrollLeft=0
+    clip flex-1 min-h-0 overflow-y-auto flex flex-col ox=auto 29..359 cutR=-21 scrollLeft=0
+    clip flex flex-col h-full w-full overflow-hidden z- ox=hidden 29..359 cutR=-21 scrollLeft=0
+    clip fading-scroll fading-scroll--y controls-surfac ox=auto 29..359 cutR=-21 scrollLeft=0
+    clip controls-pane group/controls min-w-0 overflow- ox=auto 0..400 cutR=-62 scrollLeft=0
+    clip controls-pane-wrapper col-start-1 row-start-1  ox=hidden 0..400 cutR=-62 scrollLeft=0
+    clip editor-shell relative grid h-dvh max-h-dvh w-d ox=hidden 0..1024 cutR=-686 scrollLeft=0
+    clip monaco-enable-motion underline-links ox=hidden 0..1024 cutR=-686 scrollLeft=0
+GREEN spring 1024x768 dark [opened by press] section=50..338 plot=50..338 field=99.5..338 y=245.3..373.3 xAxis=99.5..338 worstCutR=0 hits=true,true,true gtc(section)="288px" gtc(plot)="13.5156px 24px 238.484px"
+    clip disclosure-content ox=hidden 50..338 cutR=0 scrollLeft=0
+    clip min-h-0 overflow-hidden ox=hidden 30..358 cutR=-20 scrollLeft=0
+    clip flex-1 min-h-0 overflow-y-auto flex flex-col ox=auto 29..359 cutR=-21 scrollLeft=0
+    clip flex flex-col h-full w-full overflow-hidden z- ox=hidden 29..359 cutR=-21 scrollLeft=0
+    clip fading-scroll fading-scroll--y controls-surfac ox=auto 29..359 cutR=-21 scrollLeft=0
+    clip controls-pane group/controls min-w-0 overflow- ox=auto 0..400 cutR=-62 scrollLeft=0
+    clip controls-pane-wrapper col-start-1 row-start-1  ox=hidden 0..400 cutR=-62 scrollLeft=0
+    clip editor-shell relative grid h-dvh max-h-dvh w-d ox=hidden 0..1024 cutR=-686 scrollLeft=0
+    clip monaco-enable-motion underline-links ox=hidden 0..1024 cutR=-686 scrollLeft=0
+GREEN spring 1440x900 light [opened by press] section=93.2..456.4 plot=93.2..456.4 field=143.6..456.4 y=369..497 xAxis=143.6..456.4 worstCutR=0.2 hits=true,true,true gtc(section)="363.188px" gtc(plot)="14.3906px 24px 312.797px"
+    clip disclosure-content ox=hidden 93.2..456.2 cutR=0.2 scrollLeft=0
+    clip min-h-0 overflow-hidden ox=hidden 73.2..476.2 cutR=-19.8 scrollLeft=0
+    clip flex-1 min-h-0 overflow-y-auto flex flex-col ox=auto 72.2..477.2 cutR=-20.8 scrollLeft=0
+    clip flex flex-col h-full w-full overflow-hidden z- ox=hidden 72.2..477.2 cutR=-20.8 scrollLeft=0
+    clip fading-scroll fading-scroll--y controls-surfac ox=auto 72.2..477.2 cutR=-20.8 scrollLeft=0
+    clip controls-pane group/controls min-w-0 overflow- ox=auto 43.2..518.2 cutR=-61.8 scrollLeft=0
+    clip controls-pane-wrapper col-start-1 row-start-1  ox=hidden 43.2..518.2 cutR=-61.8 scrollLeft=0
+    clip editor-shell relative grid h-dvh max-h-dvh w-d ox=hidden 0..1440 cutR=-983.6 scrollLeft=0
+    clip monaco-enable-motion underline-links ox=hidden 0..1440 cutR=-983.6 scrollLeft=0
+GREEN spring 1440x900 dark [opened by press] section=93.2..456.4 plot=93.2..456.4 field=143.6..456.4 y=369..497 xAxis=143.6..456.4 worstCutR=0.2 hits=true,true,true gtc(section)="363.188px" gtc(plot)="14.3906px 24px 312.797px"
+    clip disclosure-content ox=hidden 93.2..456.2 cutR=0.2 scrollLeft=0
+    clip min-h-0 overflow-hidden ox=hidden 73.2..476.2 cutR=-19.8 scrollLeft=0
+    clip flex-1 min-h-0 overflow-y-auto flex flex-col ox=auto 72.2..477.2 cutR=-20.8 scrollLeft=0
+    clip flex flex-col h-full w-full overflow-hidden z- ox=hidden 72.2..477.2 cutR=-20.8 scrollLeft=0
+    clip fading-scroll fading-scroll--y controls-surfac ox=auto 72.2..477.2 cutR=-20.8 scrollLeft=0
+    clip controls-pane group/controls min-w-0 overflow- ox=auto 43.2..518.2 cutR=-61.8 scrollLeft=0
+    clip controls-pane-wrapper col-start-1 row-start-1  ox=hidden 43.2..518.2 cutR=-61.8 scrollLeft=0
+    clip editor-shell relative grid h-dvh max-h-dvh w-d ox=hidden 0..1440 cutR=-983.6 scrollLeft=0
+    clip monaco-enable-motion underline-links ox=hidden 0..1440 cutR=-983.6 scrollLeft=0
+cells RED: 0 of 4
+load-end { 927.46 821.72 552.88 } 16:42:37

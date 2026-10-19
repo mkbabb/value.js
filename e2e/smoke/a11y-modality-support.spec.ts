@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { expandDock, mainPane } from "./fixtures/dock";
 import { mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -41,7 +42,7 @@ function ensurePiDir() {
 
 async function ready(page: Page) {
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
+    await expect(mainPane(page)).toBeVisible({
         timeout: 20000,
     });
     // let the pane cards mount (the glass surfaces the gates probe)
@@ -121,6 +122,12 @@ test("BR-5 · forced-colors:active — color surfaces preserved + chrome operabl
 
     // DELTA (operable-control visibility): the chrome stays visible + operable
     // under WHCM (adopts system colors, tier 2), never clipped to nothing.
+    // Re-baselined X-W12U .q2 (X-W7L C-DOCK-IDLE, glass 9.0.0+ at X.W7L.m
+    // `c8a4959dd`): the unhovered desktop dock idles shut 3600 ms after its
+    // last release, and a collapsed dock renders its summary layer, not the
+    // view-select (r3: "Select view … element(s) not found"). The chrome is
+    // read where a user operates it: the dock opened first.
+    await expandDock(page);
     await expect(
         page.getByRole("navigation", { name: "Application navigation" }),
     ).toBeVisible();
@@ -277,7 +284,7 @@ test("U-F57 · screen-reader landmark structure + live region (role/landmark bat
     await expect(
         page.getByRole("navigation", { name: "Application navigation" }),
     ).toBeVisible();
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // The picker exposes a live region for the color-change announcement (an
     // aria-live surface exists in the controls subtree). This is the SR

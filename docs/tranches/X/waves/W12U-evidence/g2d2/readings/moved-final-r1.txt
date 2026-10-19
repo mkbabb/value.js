@@ -1,0 +1,5 @@
+[moved final-r1] ProfileSection@mbabb 1440x900 menu=open avatarBefore=0 avatar=rendered
+[moved final-r1] MobileMenuDropdown 390x844 menu=open avatarBefore=0 avatar=rendered
+[moved final-r1] plate #/extract held=2500ms plate=shown bars=2 barsBeforePane=true pane=visible plateGoneAfter=false
+[moved final-r1] pageErrors=[]
+[moved final-r1] VERDICT GREEN

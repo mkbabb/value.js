@@ -1,0 +1,23 @@
+[
+ {
+  "el": "BUTTON button tap-squish focus-ring g",
+  "fv": true,
+  "outline": "oklch(0.985 0.005 296) none 3px",
+  "outlineOffset": "0px",
+  "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px"
+ },
+ {
+  "el": "BUTTON Copy the @starting-style artifact",
+  "fv": true,
+  "outline": "rgb(112, 89, 66) none 3px",
+  "outlineOffset": "0px",
+  "boxShadow": "none"
+ },
+ {
+  "el": "CODE artifact text-mono-small tabul",
+  "fv": true,
+  "outline": "rgb(112, 89, 66) none 3px",
+  "outlineOffset": "2px",
+  "boxShadow": "none"
+ }
+]

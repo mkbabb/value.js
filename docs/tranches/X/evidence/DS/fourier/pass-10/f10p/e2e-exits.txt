@@ -1,0 +1,4 @@
+A exit 0
+run A: web/e2e/screenshots/f-w14/after-* restored to HEAD
+B exit 0
+run B: web/e2e/screenshots/f-w14/after-* restored to HEAD

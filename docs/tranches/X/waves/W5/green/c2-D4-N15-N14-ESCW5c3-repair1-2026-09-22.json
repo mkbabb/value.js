@@ -1,0 +1,67 @@
+{
+  "SERVED MODEL": "claude-opus-5-5[1m]",
+  "seat": "X-W5 REPAIR 1 (executes the X.W5.c2 grants, COHESION \u00a70aq)",
+  "date": "2026-09-22",
+  "commits": {
+    "product": "fc9c2be4",
+    "e2e": "2eeb59ee"
+  },
+  "static_gates_double_run": {
+    "identical": true,
+    "lines": [
+      "D4-Mix 1",
+      "D4-Admin 1",
+      "D4-consumers demo/workbenches/mix/MixSourceSelector.vue demo/palettes/browser/admin/AdminNamesPanel.vue ",
+      "N15-order-in-AdminPane: names SearchBar line 64 inside #query slot at 60; slot after tabs: tabs 14 < slot 25",
+      "N15-no-visual-reorder demo/palettes/admin/AdminPane.vue:1 demo/palettes/browser/admin/AdminNamesPanel.vue:1 ",
+      "N14-AdminPane-literal-union 0 derived 1",
+      "ESC-W5c-3 pane-wrapper--left in e2e e2e/smoke/oracles/o12-blob-seat.spec.ts:0 e2e/smoke/oracles/o16-computed-cascade.spec.ts:0  RightPane-union-reads 0",
+      "D3 0",
+      "B4 0 3 0"
+    ],
+    "note": "N15-no-visual-reorder hits are 2 comment lines (AdminPane.vue:59, AdminNamesPanel.vue:170); 0 order/column-reverse declarations"
+  },
+  "browser_probe_390_admin_names": {
+    "script": "scratchpad/c2probe.mjs (dev server :8190, admin token seeded as e2e/smoke/admin/fixtures/admin-auth.ts)",
+    "runs": [
+      {
+        "reduce": false,
+        "order": "selector-before-query",
+        "userSearch": false,
+        "swap": {
+          "classes": [
+            "vj-morph-leave-active",
+            "vj-morph-leave-to",
+            "vj-morph-enter-from",
+            "vj-morph-enter-active",
+            "vj-morph-enter-to"
+          ],
+          "dir": "forward",
+          "dur": "0.2s, 0.44s, 0.3s"
+        }
+      },
+      {
+        "reduce": true,
+        "order": "selector-before-query",
+        "userSearch": false,
+        "swap": {
+          "classes": [
+            "vj-morph-leave-active",
+            "vj-morph-leave-to",
+            "vj-morph-enter-from",
+            "vj-morph-enter-active",
+            "vj-morph-enter-to"
+          ],
+          "dir": "forward",
+          "dur": "0.1s"
+        }
+      }
+    ]
+  },
+  "mix_prm_parity": "MixSourceSelector swap under reducedMotion=reduce reads the same '0.1s | opacity\u2026' crossfade; this repair adds only --vj-morph-x/-y custom-property values, no transition declaration",
+  "census_parity_visual": {
+    "pane_reachability_test": "PASS (inspector-region re-point)",
+    "id_parity_tests": "2 FAIL: census.ts lacks not-found (outside grant; escalated)"
+  },
+  "oracles_o12_o16_smoke": "6/6 FAIL at getByRole('main',{name:'Color tool panes'}) (o12:63, o16:46/117) \u2014 main is now aria-labelledby the route H1 (X.W5.a); outside the one-token grant; escalated. Stage re-point probed: 1 .pane-wrapper--stage on / at 1440, width 512, has child; 0 .pane-wrapper--left"
+}

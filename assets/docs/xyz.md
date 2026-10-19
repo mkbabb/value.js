@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `X`: Response curve to red
--   `Y`: Luminance
--   `Z`: Response curve to blue
-
 ### Historical Context
 
 CIE XYZ (1931) was the first mathematically defined color space. The [Commission Internationale de l'Eclairage](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) derived it from experiments mapping how a standard observer responds to wavelengths of visible light. It's device-independent by design—colors are specified as points in an abstract tristimulus space, not as instructions for a particular display or printer.

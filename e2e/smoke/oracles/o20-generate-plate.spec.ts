@@ -68,7 +68,9 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         await expect(plate).toBeVisible();
 
         // Open the Preset menu; every row carries a stamped preview strip.
-        await page.getByRole("combobox", { name: "Generation preset" }).click();
+        // The field's title is "Preset" since CC-047 (`583715162`, LabeledField)
+        // — re-baselined X-W12U .q2.
+        await page.getByRole("combobox", { name: "Preset" }).click();
         const listbox = page.getByRole("listbox");
         await expect(listbox).toBeVisible();
         const chips = listbox.locator("[data-stops]");
@@ -96,8 +98,13 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         // PreviewRamp R-2 lock: pass BOTH sides through the app's own encoder —
         // here the page's CSSOM, the same engine that produced the live value —
         // so what is compared is COLOUR and not notation.
+        // Re-baselined X-W12U .q2 to .k2's one SwatchButton (A2-VA-L1-15,
+        // `d860c136a`): the swatch is a glass Button whose FACE is the
+        // WatercolorDot, so the painted colour is the face's
+        // (`[data-testid="watercolor-swatch"]`), never the button's own
+        // background (r2: five `rgba(0, 0, 0, 0)`; probe-swatch-paint.mjs).
         const live = await plate
-            .locator(".generate-swatch")
+            .locator('.generate-swatch [data-testid="watercolor-swatch"]')
             .evaluateAll((els) =>
                 els.map((el) => getComputedStyle(el as HTMLElement).backgroundColor),
             );

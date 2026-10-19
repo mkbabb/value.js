@@ -1,0 +1,3744 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 2,
+ "when": "2026-09-23T17:31:44.241Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(0px)",
+      "translateX(0px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BODY EasingCurve@mbabbScene r",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "00c-card-crop-1440-light.png",
+     "crop": ".easing-target"
+    },
+    {
+     "frame": "00d-sidebar-crop-1440-light.png",
+     "crop": ".panel-content"
+    },
+    {
+     "frame": "01-playing-midsweep-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(21.0833px)",
+      "translateX(34.8518px)",
+      "translateX(12.5017px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "01b-playing-later-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(40.25px)",
+      "translateX(45.5846px)",
+      "translateX(36.8653px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "02-drawer-scrolled-end-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 6,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2617,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3160,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(34.1167px)",
+      "translateX(44.0453px)",
+      "translateX(28.0829px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Play animation",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0300-filter-standard-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 5,
+     "tilesFullyVisible": 5,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      476,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(34.1167px)",
+      "translateX(44.0453px)",
+      "translateX(28.0829px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Standard",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0301-filter-sine-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(92.501px)",
+      "translateX(138.064px)",
+      "translateX(124.094px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Sine",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0302-filter-quad-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(85.9071px)",
+      "translateX(137.07px)",
+      "translateX(127.38px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Quad",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0303-filter-cubic-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 4,
+     "tilesFullyVisible": 4,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      666,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(50.5455px)",
+      "translateX(114.983px)",
+      "translateX(108.932px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Cubic",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0304-filter-expo-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(17.761px)",
+      "translateX(146.14px)",
+      "translateX(144.422px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Expo",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0305-filter-circ-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(42.5274px)",
+      "translateX(145.861px)",
+      "translateX(136.43px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Circ",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0306-filter-back-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(32.7531px)",
+      "translateX(158.364px)",
+      "translateX(159.814px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Back",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0307-filter-bounce-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 1,
+     "tilesFullyVisible": 1,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      167,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(148.347px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Bounce",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0308-filter-steps-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      302,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(33.5px)",
+      "translateX(67px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Steps",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0309-filter-all-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      134
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3951,
+      828
+     ],
+     "balls": [
+      "translateX(49.6917px)",
+      "translateX(64.1529px)",
+      "translateX(40.9033px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON All",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "04-tile-hover-crop-1440-light.png",
+     "crop": ".specimen-drawer"
+    },
+    {
+     "frame": "05-tile-kbd-focus-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      134
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3951,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "05b-tile-kbd-select-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease-out",
+     "literal": "cubic-bezier(0.00, 0.00, 0.58, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease-out",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      134
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3951,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "06-select-ease-in-bounce-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease-in-bounce",
+     "literal": "ease-in-bounce",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "ease-in-bounce",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": "ease-in-bounce is engine-native — no cubic-bezier reproduces it, so editing here",
+     "previewBall": true,
+     "active": "BUTTON ease-in-bounce",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "06-select-steps-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON steps",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "07-copy-literal-copied-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Copied to clipboard",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    },
+    {
+     "frame": "07c-copy-literal-crop-1440-light.png",
+     "crop": ".gallery-header"
+    },
+    {
+     "frame": "07d-copy-literal-reverted-crop-1440-light.png",
+     "crop": ".gallery-header"
+    },
+    {
+     "frame": "09-preview-hidden-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": false,
+     "active": "BUTTON Hide ball preview",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    },
+    {
+     "frame": "09b-preview-shown-again-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Hide ball preview",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    },
+    {
+     "frame": "10-kbd-tab6-1440-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 6,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2617,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3160,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(51.0317px)",
+      "translateX(64.6136px)",
+      "translateX(42.7392px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BODY EasingCurve@mbabbScene r",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    }
+   ],
+   "notes": {
+    "drawerScrollMax": [
+     3160,
+     0
+    ],
+    "clipboard": "steps(4, jump-end)",
+    "hiddenPressed": "true",
+    "shownPressed": "false"
+   },
+   "errors": [
+    "404 http://localhost:5173/assets/icons/favicon.svg",
+    "Failed to load resource: the server responded with a status of 404 (Not Found) @http://localhost:5173/assets/icons/favicon.svg"
+   ]
+  },
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(0px)",
+      "translateX(0px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BODY EasingCurve@mbabbScene r",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "00c-card-crop-1440-dark.png",
+     "crop": ".easing-target"
+    },
+    {
+     "frame": "00d-sidebar-crop-1440-dark.png",
+     "crop": ".panel-content"
+    },
+    {
+     "frame": "01-playing-midsweep-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(14.3612px)",
+      "translateX(24.6988px)",
+      "translateX(6.39783px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "01b-playing-later-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(44.5157px)",
+      "translateX(45.9739px)",
+      "translateX(43.5332px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "02-drawer-scrolled-end-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 6,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2617,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3160,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(42.3721px)",
+      "translateX(45.8396px)",
+      "translateX(40.1185px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Play animation",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0300-filter-standard-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 5,
+     "tilesFullyVisible": 5,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      476,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(42.3721px)",
+      "translateX(45.8396px)",
+      "translateX(40.1185px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Standard",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0301-filter-sine-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(132.38px)",
+      "translateX(146.273px)",
+      "translateX(144.755px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Sine",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0302-filter-quad-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(129.256px)",
+      "translateX(145.252px)",
+      "translateX(145.171px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Quad",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0303-filter-cubic-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 4,
+     "tilesFullyVisible": 4,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      666,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(94.5185px)",
+      "translateX(116.943px)",
+      "translateX(116.77px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Cubic",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0304-filter-expo-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(87.6908px)",
+      "translateX(146.752px)",
+      "translateX(146.786px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Expo",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0305-filter-circ-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(84.1624px)",
+      "translateX(146.914px)",
+      "translateX(146.08px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Circ",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0306-filter-back-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      483,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(106.332px)",
+      "translateX(151.373px)",
+      "translateX(154.567px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Back",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0307-filter-bounce-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 1,
+     "tilesFullyVisible": 1,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      167,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(135.96px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Bounce",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0308-filter-steps-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      302,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      828,
+      828
+     ],
+     "balls": [
+      "translateX(50.25px)",
+      "translateX(67px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Steps",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "0309-filter-all-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      134
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3951,
+      828
+     ],
+     "balls": [
+      "translateX(61.7159px)",
+      "translateX(66.7664px)",
+      "translateX(58.4335px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON All",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "04-tile-hover-crop-1440-dark.png",
+     "crop": ".specimen-drawer"
+    },
+    {
+     "frame": "05-tile-kbd-focus-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      134
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3951,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "05b-tile-kbd-select-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease-out",
+     "literal": "cubic-bezier(0.00, 0.00, 0.58, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 7,
+     "onTile": "ease-out",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      543,
+      261,
+      828,
+      134
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      0,
+      3951,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "06-select-ease-in-bounce-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease-in-bounce",
+     "literal": "ease-in-bounce",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "ease-in-bounce",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": "ease-in-bounce is engine-native — no cubic-bezier reproduces it, so editing here",
+     "previewBall": true,
+     "active": "BUTTON ease-in-bounce",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "06-select-steps-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON steps",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copy easing literal"
+     ]
+    },
+    {
+     "frame": "07-copy-literal-copied-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Copied to clipboard",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    },
+    {
+     "frame": "07c-copy-literal-crop-1440-dark.png",
+     "crop": ".gallery-header"
+    },
+    {
+     "frame": "07d-copy-literal-reverted-crop-1440-dark.png",
+     "crop": ".gallery-header"
+    },
+    {
+     "frame": "09-preview-hidden-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": false,
+     "active": "BUTTON Hide ball preview",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    },
+    {
+     "frame": "09b-preview-shown-again-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 5,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2580,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3123,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Hide ball preview",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    },
+    {
+     "frame": "10-kbd-tab6-1440-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 6,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2617,
+      261,
+      828,
+      109
+     ],
+     "drawer": [
+      543,
+      261,
+      828,
+      495
+     ],
+     "drawerScroll": [
+      3160,
+      3988,
+      828
+     ],
+     "balls": [
+      "translateX(63.0559px)",
+      "translateX(66.8715px)",
+      "translateX(60.5429px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BODY EasingCurve@mbabbScene r",
+     "sheet": null,
+     "hscroll": false,
+     "copyLabel": [
+      "Copy curve literal",
+      "Copied to clipboard"
+     ]
+    }
+   ],
+   "notes": {
+    "drawerScrollMax": [
+     3160,
+     0
+    ],
+    "clipboard": "steps(4, jump-end)",
+    "hiddenPressed": "true",
+    "shownPressed": "false"
+   },
+   "errors": []
+  },
+  {
+   "tag": "390-light",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3351,
+      356
+     ],
+     "balls": [
+      "translateX(0px)",
+      "translateX(0px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "DIV Drawer position",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "00c-card-crop-390-light.png",
+     "crop": ".easing-target"
+    },
+    {
+     "frame": "01-playing-midsweep-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3351,
+      356
+     ],
+     "balls": [
+      "translateX(11.8178px)",
+      "translateX(20.3676px)",
+      "translateX(5.3582px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "01b-playing-later-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3351,
+      356
+     ],
+     "balls": [
+      "translateX(35.2511px)",
+      "translateX(36.9546px)",
+      "translateX(34.1191px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "02-drawer-scrolled-end-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 3,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2946,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      2963.5,
+      3320,
+      356
+     ],
+     "balls": [
+      "translateX(34.2447px)",
+      "translateX(36.8853px)",
+      "translateX(32.5239px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Play animation",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0300-filter-standard-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 5,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      417,
+      356
+     ],
+     "balls": [
+      "translateX(34.2447px)",
+      "translateX(36.8853px)",
+      "translateX(32.5239px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Standard",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0301-filter-sine-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(110.606px)",
+      "translateX(121.464px)",
+      "translateX(120.338px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Sine",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0302-filter-quad-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(108.125px)",
+      "translateX(120.653px)",
+      "translateX(120.647px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Quad",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0303-filter-cubic-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 4,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      574,
+      356
+     ],
+     "balls": [
+      "translateX(79.3738px)",
+      "translateX(96.9599px)",
+      "translateX(96.8398px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Cubic",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0304-filter-expo-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(75.6369px)",
+      "translateX(121.8px)",
+      "translateX(121.833px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Expo",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0305-filter-circ-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(71.2599px)",
+      "translateX(121.937px)",
+      "translateX(121.32px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Circ",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0306-filter-back-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(90.0644px)",
+      "translateX(125.442px)",
+      "translateX(127.983px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Back",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0307-filter-bounce-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 1,
+     "tilesFullyVisible": 1,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      145,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      356,
+      356
+     ],
+     "balls": [
+      "translateX(112.041px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Bounce",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0308-filter-steps-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      266,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      356,
+      356
+     ],
+     "balls": [
+      "translateX(40.5px)",
+      "translateX(54px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Steps",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0309-filter-all-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3235,
+      356
+     ],
+     "balls": [
+      "translateX(49.9788px)",
+      "translateX(53.8326px)",
+      "translateX(47.4673px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON All",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "04-tile-hover-crop-390-light.png",
+     "crop": ".specimen-drawer"
+    },
+    {
+     "frame": "05-tile-kbd-focus-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3235,
+      356
+     ],
+     "balls": [
+      "translateX(51.0588px)",
+      "translateX(53.9116px)",
+      "translateX(49.1737px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "05b-tile-kbd-select-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease-out",
+     "literal": "cubic-bezier(0.00, 0.00, 0.58, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease-out",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3235,
+      356
+     ],
+     "balls": [
+      "translateX(51.0588px)",
+      "translateX(53.9116px)",
+      "translateX(49.1737px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "06-select-ease-in-bounce-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "ease-in-bounce",
+     "literal": "ease-in-bounce",
+     "tiles": 28,
+     "tilesFullyVisible": 2,
+     "onTile": "ease-in-bounce",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2716,
+      223,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      223,
+      356,
+      503
+     ],
+     "drawerScroll": [
+      2733.5,
+      3325,
+      356
+     ],
+     "balls": [
+      "translateX(51.0588px)",
+      "translateX(53.9116px)",
+      "translateX(49.1737px)"
+     ],
+     "gapCaption": "ease-in-bounce is engine-native — no cubic-bezier reproduces it, so editing here",
+     "previewBall": true,
+     "active": "BUTTON ease-in-bounce",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "06-select-steps-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 2,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2754,
+      223,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      223,
+      356,
+      503
+     ],
+     "drawerScroll": [
+      2771.5,
+      3325,
+      356
+     ],
+     "balls": [
+      "translateX(51.0588px)",
+      "translateX(53.9116px)",
+      "translateX(49.1737px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON steps",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "07-copy-literal-copied-390-light.png",
+     "theme": "",
+     "bodyBg": "rgb(251, 250, 248)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 2,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2754,
+      223,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      223,
+      356,
+      503
+     ],
+     "drawerScroll": [
+      2771.5,
+      3325,
+      356
+     ],
+     "balls": [
+      "translateX(51.0588px)",
+      "translateX(53.9116px)",
+      "translateX(49.1737px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Copied to clipboard",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copied to clipboard",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "07c-copy-literal-crop-390-light.png",
+     "crop": ".gallery-header"
+    },
+    {
+     "frame": "07d-copy-literal-reverted-crop-390-light.png",
+     "crop": ".gallery-header"
+    }
+   ],
+   "notes": {
+    "drawerScrollMax": [
+     2994.5,
+     0
+    ],
+    "clipboard": "steps(4, jump-end)"
+   },
+   "fatal": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Controls panel' }).first()\u001b[22m\n"
+  },
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 2,
+   "frames": [
+    {
+     "frame": "00-load-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3351,
+      356
+     ],
+     "balls": [
+      "translateX(0px)",
+      "translateX(0px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "DIV Drawer position",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "00c-card-crop-390-dark.png",
+     "crop": ".easing-target"
+    },
+    {
+     "frame": "01-playing-midsweep-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3351,
+      356
+     ],
+     "balls": [
+      "translateX(11.9288px)",
+      "translateX(20.5733px)",
+      "translateX(5.44756px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "01b-playing-later-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3351,
+      356
+     ],
+     "balls": [
+      "translateX(36.5831px)",
+      "translateX(36.9975px)",
+      "translateX(36.296px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Pause animation",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "02-drawer-scrolled-end-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 3,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2946,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      2963.5,
+      3320,
+      356
+     ],
+     "balls": [
+      "translateX(32.0667px)",
+      "translateX(36.6176px)",
+      "translateX(29.1897px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Play animation",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0300-filter-standard-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 5,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      417,
+      356
+     ],
+     "balls": [
+      "translateX(32.0667px)",
+      "translateX(36.6176px)",
+      "translateX(29.1897px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Standard",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0301-filter-sine-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(100.28px)",
+      "translateX(120.203px)",
+      "translateX(116.726px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Sine",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0302-filter-quad-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(96.5208px)",
+      "translateX(119.042px)",
+      "translateX(117.662px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Quad",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0303-filter-cubic-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 4,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      574,
+      356
+     ],
+     "balls": [
+      "translateX(66.198px)",
+      "translateX(96.7701px)",
+      "translateX(96.0803px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Cubic",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0304-filter-expo-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(41.9157px)",
+      "translateX(121.7px)",
+      "translateX(121.622px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Expo",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0305-filter-circ-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(55.7171px)",
+      "translateX(121.784px)",
+      "translateX(119.791px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Circ",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0306-filter-back-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 2,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      415,
+      356
+     ],
+     "balls": [
+      "translateX(66.7627px)",
+      "translateX(127.794px)",
+      "translateX(131.346px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Back",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0307-filter-bounce-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 1,
+     "tilesFullyVisible": 1,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      145,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      356,
+      356
+     ],
+     "balls": [
+      "translateX(116.499px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Bounce",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0308-filter-steps-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 3,
+     "tilesFullyVisible": 3,
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      266,
+      106
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      356,
+      356
+     ],
+     "balls": [
+      "translateX(40.5px)",
+      "translateX(54px)",
+      "translateX(0px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Steps",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "0309-filter-all-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3235,
+      356
+     ],
+     "balls": [
+      "translateX(46.8px)",
+      "translateX(53.442px)",
+      "translateX(42.6012px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON All",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "04-tile-hover-crop-390-dark.png",
+     "crop": ".specimen-drawer"
+    },
+    {
+     "frame": "05-tile-kbd-focus-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease",
+     "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3235,
+      356
+     ],
+     "balls": [
+      "translateX(47.88px)",
+      "translateX(53.6023px)",
+      "translateX(44.2296px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "05b-tile-kbd-select-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease-out",
+     "literal": "cubic-bezier(0.00, 0.00, 0.58, 1.00)",
+     "tiles": 28,
+     "tilesFullyVisible": 4,
+     "onTile": "ease-out",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      17,
+      254,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      254,
+      356,
+      472
+     ],
+     "drawerScroll": [
+      0,
+      3235,
+      356
+     ],
+     "balls": [
+      "translateX(47.88px)",
+      "translateX(53.6023px)",
+      "translateX(44.2296px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON ease-out",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "06-select-ease-in-bounce-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "ease-in-bounce",
+     "literal": "ease-in-bounce",
+     "tiles": 28,
+     "tilesFullyVisible": 2,
+     "onTile": "ease-in-bounce",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2716,
+      223,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      223,
+      356,
+      503
+     ],
+     "drawerScroll": [
+      2733.5,
+      3325,
+      356
+     ],
+     "balls": [
+      "translateX(47.88px)",
+      "translateX(53.6023px)",
+      "translateX(44.2296px)"
+     ],
+     "gapCaption": "ease-in-bounce is engine-native — no cubic-bezier reproduces it, so editing here",
+     "previewBall": true,
+     "active": "BUTTON ease-in-bounce",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "06-select-steps-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 2,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2754,
+      223,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      223,
+      356,
+      503
+     ],
+     "drawerScroll": [
+      2771.5,
+      3325,
+      356
+     ],
+     "balls": [
+      "translateX(47.88px)",
+      "translateX(53.6023px)",
+      "translateX(44.2296px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON steps",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copy easing literal",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "07-copy-literal-copied-390-dark.png",
+     "theme": "dark",
+     "bodyBg": "rgb(11, 10, 9)",
+     "name": "steps",
+     "literal": "steps(4, jump-end)",
+     "tiles": 28,
+     "tilesFullyVisible": 2,
+     "onTile": "steps",
+     "gridDisplay": "inline-flex",
+     "grid": [
+      -2754,
+      223,
+      356,
+      134
+     ],
+     "drawer": [
+      17,
+      223,
+      356,
+      503
+     ],
+     "drawerScroll": [
+      2771.5,
+      3325,
+      356
+     ],
+     "balls": [
+      "translateX(47.88px)",
+      "translateX(53.6023px)",
+      "translateX(44.2296px)"
+     ],
+     "gapCaption": null,
+     "previewBall": true,
+     "active": "BUTTON Copied to clipboard",
+     "sheet": [
+      0,
+      679,
+      390,
+      772
+     ],
+     "hscroll": false,
+     "copyLabel": [
+      "Copied to clipboard",
+      "Copy curve literal"
+     ]
+    },
+    {
+     "frame": "07c-copy-literal-crop-390-dark.png",
+     "crop": ".gallery-header"
+    },
+    {
+     "frame": "07d-copy-literal-reverted-crop-390-dark.png",
+     "crop": ".gallery-header"
+    }
+   ],
+   "notes": {
+    "drawerScrollMax": [
+     2994.5,
+     0
+    ],
+    "clipboard": "steps(4, jump-end)"
+   },
+   "fatal": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Controls panel' }).first()\u001b[22m\n"
+  }
+ ]
+}

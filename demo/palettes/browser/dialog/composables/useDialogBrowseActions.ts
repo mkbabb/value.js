@@ -37,12 +37,12 @@ export interface DialogBrowseActionsDeps {
     /** Dialog-only; the pane host omits it (keeps its own version-drawer revert). */
     modalStack?: { onRevert: (hash: string, deps: { updateRemote: (slug: string, updated: Palette) => void }) => Promise<void> };
     /**
-     * F2: host-supplied surface for a failed fork. `BrowsePane` routes this onto
-     * the palette card's `showFeedback` (the same surface `onSave`/`onDeleteOwned`
-     * use). When absent (the dialog host today), a fork failure logs — never a
-     * silent swallow on the pane path.
+     * F2 · X.W7.d2 (W7-failure-dispositions row 47): the host's surface for a
+     * failed fork — `BrowsePane` renders it on the palette inspector's rail.
+     * REQUIRED: a fork is a user-initiated mutation, so there is no host for
+     * which its failure may go unrendered (the retired `console.warn` arm).
      */
-    onForkError?: (palette: Palette, message: string) => void;
+    onForkError: (palette: Palette, message: string) => void;
 }
 
 export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
@@ -52,8 +52,14 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
         try {
             await pm.ensureUser();
             await pm.ensureSession();
-            const forked = await pm.versions.fork(palette.slug);
-            if (!forked) return;
+            const result = await pm.versions.fork(palette.slug);
+            if (!result.ok) {
+                // `useVersionHistory.fork` settles a transport failure as a
+                // typed verdict; its reason is this act's failure, rendered here.
+                deps.onForkError(palette, `Remix failed: ${result.message}`);
+                return;
+            }
+            const forked = result.palette;
             pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
             // F1: bump the source palette's fork-count badge (ported from the
             // BrowsePane copy so both hosts observe the same state).
@@ -67,9 +73,8 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
             }
         } catch (e) {
             // F2: a user-triggered remote mutation must surface its failure.
-            const message = e instanceof Error ? e.message : "Failed to remix palette.";
-            if (deps.onForkError) deps.onForkError(palette, message);
-            else console.warn("Failed to remix palette:", e);
+            const reason = e instanceof Error && e.message ? e.message : "backend unreachable";
+            deps.onForkError(palette, `Remix failed: ${reason}`);
         }
     }
 

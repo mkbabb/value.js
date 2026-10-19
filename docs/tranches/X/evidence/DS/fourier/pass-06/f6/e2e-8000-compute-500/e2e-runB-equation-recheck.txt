@@ -1,0 +1,405 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 37 tests using 3 workers
+
+[1/37] [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests
+[2/37] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (landscape 844) › the document never scrolls by the inset
+[3/37] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (portrait 390) › the document never scrolls by the inset
+  1) [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+
+    Error: the default expression must compute — a 422 here is `B-2`'s cold-start shape
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+       97 |             first.status(),
+       98 |             "the default expression must compute — a 422 here is `B-2`'s cold-start shape",
+    >  99 |         ).toBe(200);
+          |           ^
+      100 |
+      101 |         const series = renderedSeries(page);
+      102 |         await expect(series).toBeVisible({ timeout: 60_000 });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/equation-interaction.spec.ts:99:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/error-context.md
+
+
+[4/37] [chromium] › e2e/f-w14v-au1.spec.ts:133:5 › au1 L2-2 consumer half (390 portrait) › the animation dock ends above the inset, in the stage and in fullscreen
+[5/37] [chromium] › e2e/f-w14v-au1.spec.ts:158:5 › au1 L2-3 (844×390, insets L/R 47) › interactive content keeps clear of the notch sides on every route
+[6/37] [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row
+[7/37] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (360) › the Controls/Canvas strip is centred on the column, inside its gutter
+[8/37] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (390) › the Controls/Canvas strip is centred on the column, inside its gutter
+[9/37] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (430) › the Controls/Canvas strip is centred on the column, inside its gutter
+[10/37] [chromium] › e2e/f-w14v-au1.spec.ts:270:5 › au1 L2-16 (844×390 /paper) › the floating bar is one title rung and its ToC plate ends above the inset
+[11/37] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (1440) › the content edge holds across route switches
+[12/37] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (390) › the content edge holds across route switches
+[13/37] [chromium] › e2e/f-w14v-au1.spec.ts:344:5 › au1 L2-17 (390 touch) › the modal Like, the /equation layer triggers and the About links are ≥ 44 px
+[14/37] [chromium] › e2e/f-w14v-au1.spec.ts:379:5 › au1 X-1 (1024×768) › the stage is either beside the controls or a full tab, never a stacked strip
+  2) [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row 
+
+    Error: expect(locator).toBeAttached() failed
+
+    Locator: locator('.eq-plot-card')
+    Expected: attached
+    Timeout: 30000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeAttached" with timeout 30000ms
+      - waiting for locator('.eq-plot-card')
+
+
+      229 |         await page.goto("/equation");
+      230 |         await expect(page.locator(".eq-configurator")).toBeVisible({ timeout: 30_000 });
+    > 231 |         await expect(page.locator(".eq-plot-card")).toBeAttached({ timeout: 30_000 });
+          |                                                     ^
+      232 |         await settle(page, 900);
+      233 |         f = await form(page, ".eq-configurator");
+      234 |         expect.soft(f.tabs, "/equation: no Controls/Canvas tab row").toBeNull();
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au1.spec.ts:231:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au1-au1-L2-4-844×39-4bd0f-e-the-stage-with-no-tab-row-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au1-au1-L2-4-844×39-4bd0f-e-the-stage-with-no-tab-row-chromium/error-context.md
+
+
+[15/37] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (390 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[16/37] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (360 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[17/37] [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult
+[18/37] [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation
+[19/37] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /morph, and the class paints nothing
+[20/37] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing
+[21/37] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing
+[22/37] [chromium] › e2e/f-w14v-au3.spec.ts:156:5 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · the morph control is a glass Surface, the cards glass Cards
+[23/37] [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside
+  3) [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      52 | async function openEquation(page: Page): Promise<void> {
+      53 |     await page.goto("/equation");
+    > 54 |     await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                           ^
+      55 |     await settle(page);
+      56 | }
+      57 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:54:59)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:112:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--a978d-l-on-visualize-and-equation-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--a978d-l-on-visualize-and-equation-chromium/error-context.md
+
+
+  4) [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      52 | async function openEquation(page: Page): Promise<void> {
+      53 |     await page.goto("/equation");
+    > 54 |     await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                           ^
+      55 |     await settle(page);
+      56 | }
+      57 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:54:59)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:148:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--62fde-nd-the-class-paints-nothing-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--62fde-nd-the-class-paints-nothing-chromium/error-context.md
+
+
+  5) [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      29 |     await expect(page.locator(".configurator-layer").first()).toBeVisible({ timeout: LOAD });
+      30 |     if (page.viewportSize()!.width >= 1024) {
+    > 31 |         await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                               ^
+      32 |     }
+      33 |     await page.mouse.move(2, 2);
+      34 |     await page.waitForTimeout(600);
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:31:63)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:40:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—--d1df8-ions-as-layers-in-the-aside-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—--d1df8-ions-as-layers-in-the-aside-chromium/error-context.md
+
+
+[24/37] [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage
+[25/37] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light
+[26/37] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light
+  6) [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('[data-slot="configurator"][data-layout="detached"]').locator(':scope > .configurator-stage').locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('[data-slot="configurator"][data-layout="detached"]').locator(':scope > .configurator-stage').locator('.eq-card .katex').first()
+
+
+      75 |
+      76 |         await page.getByRole("tab", { name: "Canvas" }).click();
+    > 77 |         await expect(stage.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                                ^
+      78 |         const ab = await aside.boundingBox();
+      79 |         expect(ab === null || ab.height === 0, "the aside is hidden on the Canvas tab").toBe(true);
+      80 |         const vw = page.viewportSize()!.width;
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:77:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—--becd7--Canvas-tab-shows-the-stage-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—--becd7--Canvas-tab-shows-the-stage-chromium/error-context.md
+
+
+  7) [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      93 |                 if (w < 1024) {
+      94 |                     await page.getByRole("tab", { name: "Canvas" }).click();
+    > 95 |                     await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                                           ^
+      96 |                     await page.waitForTimeout(600);
+      97 |                     await page.screenshot({ path: `${FRAMES}/${PHASE}-${w}-${scheme}-canvas.png` });
+      98 |                 }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:95:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—-frames-390-light-frames-390-light-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—-frames-390-light-frames-390-light-chromium/error-context.md
+
+
+  8) [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      29 |     await expect(page.locator(".configurator-layer").first()).toBeVisible({ timeout: LOAD });
+      30 |     if (page.viewportSize()!.width >= 1024) {
+    > 31 |         await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                               ^
+      32 |     }
+      33 |     await page.mouse.move(2, 2);
+      34 |     await page.waitForTimeout(600);
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:31:63)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:91:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—--e54a8-440-light-frames-1440-light-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—--e54a8-440-light-frames-1440-light-chromium/error-context.md
+
+
+[27/37] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark
+[28/37] [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark
+[29/37] [chromium] › e2e/visualization-ux.spec.ts:115:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: workspace default has no serious/critical a11y violations
+[30/37] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[31/37] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+  9) [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      29 |     await expect(page.locator(".configurator-layer").first()).toBeVisible({ timeout: LOAD });
+      30 |     if (page.viewportSize()!.width >= 1024) {
+    > 31 |         await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                               ^
+      32 |     }
+      33 |     await page.mouse.move(2, 2);
+      34 |     await page.waitForTimeout(600);
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:31:63)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:91:17
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—-frames-1440-dark-frames-1440-dark-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—-frames-1440-dark-frames-1440-dark-chromium/error-context.md
+
+
+[32/37] [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean
+  10) [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+      230 |         );
+      231 |         await page.goto("/equation");
+    > 232 |         expect((await compute).status()).toBe(200);
+          |                                          ^
+      233 |
+      234 |         // Settle on the mount condition this keystone exists for — the rendered
+      235 |         // `SliderControl` subtitle — not a blind timeout. The "Controls"
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visualization-ux.spec.ts:232:42
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visualization-ux-B-W2-—-vi-d3416-tone-equation-is-a11y-clean-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visualization-ux-B-W2-—-vi-d3416-tone-equation-is-a11y-clean-chromium/error-context.md
+
+
+  11) [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark ─
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      93 |                 if (w < 1024) {
+      94 |                     await page.getByRole("tab", { name: "Canvas" }).click();
+    > 95 |                     await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                                           ^
+      96 |                     await page.waitForTimeout(600);
+      97 |                     await page.screenshot({ path: `${FRAMES}/${PHASE}-${w}-${scheme}-canvas.png` });
+      98 |                 }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-eq2.spec.ts:95:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-eq2-X-F-W14V-eq2-—-frames-390-dark-frames-390-dark-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-eq2-X-F-W14V-eq2-—-frames-390-dark-frames-390-dark-chromium/error-context.md
+
+
+[33/37] [chromium] › e2e/visualization-ux.spec.ts:181:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: AnimationControls dropdown-open is a11y-clean
+[34/37] [chromium] › e2e/visualization-ux.spec.ts:284:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /morph is a11y-clean
+[35/37] [chromium] › e2e/visualization-ux.spec.ts:272:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /paper is a11y-clean
+[36/37] [chromium] › e2e/visualization-ux.spec.ts:300:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /demo/shape-extractor is a11y-clean
+[37/37] [chromium] › e2e/visualization-ux.spec.ts:332:5 › B.W2 — visualization UX coherence (a11y keystones) › save_contour_then_recompute: the saved contour is recomputed in one pass, the canvas keeps its render
+  11 failed
+    [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+    [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row 
+    [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation 
+    [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light ─
+    [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark ─
+    [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark ───
+    [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean 
+  26 passed (5.0m)
+exit 1

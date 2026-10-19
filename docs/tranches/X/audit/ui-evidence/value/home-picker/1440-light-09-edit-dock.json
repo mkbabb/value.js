@@ -1,0 +1,26 @@
+{
+ "active": "a component value",
+ "layer": [],
+ "btns": [
+  {
+   "l": "Save edit",
+   "vis": false,
+   "box": [
+    766,
+    21,
+    40,
+    40
+   ]
+  },
+  {
+   "l": "Cancel edit",
+   "vis": false,
+   "box": [
+    812,
+    21,
+    40,
+    40
+   ]
+  }
+ ]
+}

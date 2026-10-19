@@ -1,0 +1,48 @@
+(node:68015) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:68054) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 25 tests using 1 worker
+
+(node:68113) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size (11.1s)
+  ✓   2 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Names populated admin passes accessible-name + target-size (516ms)
+  ✓   3 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Flagged populated admin passes accessible-name + target-size (2.1s)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:79:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands) (816ms)
+[2m[WebServer] [22m[2m5:33:11 PM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · render function) TypeError: Cannot read properties of null (reading 'slice')
+[2m[WebServer] [22m    at Proxy.slugHead (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/panels/AdminUsersPanel.vue:51:16)
+[2m[WebServer] [22m    at http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/panels/AdminUsersPanel.vue:482:34
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:3901:52)
+[2m[WebServer] [22m    at http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/collapsible-DFzK29Oh-DfvikRkR.js?v=55dbff19:101:28
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:3901:52)
+[2m[WebServer] [22m    at http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/dist-vzlhttbQ.js?v=55dbff19:4150:29
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:2260:10)
+[2m[WebServer] [22m    at normalizeChildren (http://localhost:9472/@fs/Users/mkbabb/Programming/value.js/node_modules/.vite-e2e-9472/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=55dbff19:6542:29)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:123:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary (988ms)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (1.2s)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (2.2s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (508ms)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:58:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (1.3s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:99:1 › admin-flagged renders a seeded flagged palette + moderation actions (643ms)
+  ✓  11 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (3.2s)
+  ✓  12 [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve (634ms)
+  ✓  13 [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject (2.0s)
+  ✓  14 [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature (2.3s)
+  ✓  15 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (1.4s)
+  ✓  16 [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> (1.4s)
+  ✓  17 [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug> (1.5s)
+  ✓  18 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (700ms)
+  ✓  19 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground (3.2s)
+  ✓  20 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground (8.1s)
+  ✓  21 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (dark) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground (3.2s)
+  ✓  22 [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (dark) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground (7.8s)
+  ✓  23 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (445ms)
+  ✓  24 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (404ms)
+  ✓  25 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (361ms)
+
+  25 passed (1.0m)
+exit 0

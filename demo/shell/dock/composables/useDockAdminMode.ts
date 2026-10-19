@@ -1,6 +1,6 @@
 // useDockAdminMode — owns isAdminMode, userViews/adminViews, viewEntries,
-// toggleAdminMode, and the two admin-sync watchers.
-import { ref, computed, watch } from "vue";
+// toggleAdminMode; admin mode is derived from the view and the admin session.
+import { computed } from "vue";
 import type { Ref, ComputedRef } from "vue";
 import type { ViewId, ViewManager } from "../../useViewManager";
 
@@ -12,7 +12,7 @@ export interface ViewEntry {
 }
 
 export interface UseDockAdminModeReturn {
-    isAdminMode: Ref<boolean>;
+    isAdminMode: ComputedRef<boolean>;
     viewEntries: ComputedRef<ViewEntry[]>;
     toggleAdminMode: () => void;
     onViewChange: (id: string | number | boolean | Record<string, string> | null) => void;
@@ -29,7 +29,13 @@ const adminViews: ViewId[] = ["admin-users", "admin-names", "admin-audit", "admi
 export function useDockAdminMode(options: UseDockAdminModeOptions): UseDockAdminModeReturn {
     const { viewManager, isAdminAuthenticated } = options;
 
-    const isAdminMode = ref(viewManager.currentView.value.startsWith("admin-"));
+    // UIA-V-59: admin mode is DERIVED — an authenticated admin on an admin-class
+    // view — never a latch. The retired one-way watch set it true on /atmosphere
+    // or /blob and nothing ever set it back, so every later view (logged out
+    // included) wore admin gold and the nine per-view hues disappeared.
+    const isAdminMode = computed(
+        () => isAdminAuthenticated.value && adminViews.includes(viewManager.currentView.value),
+    );
 
     const viewEntries = computed<ViewEntry[]>(() => {
         if (isAdminMode.value && isAdminAuthenticated.value) {
@@ -39,29 +45,8 @@ export function useDockAdminMode(options: UseDockAdminModeOptions): UseDockAdmin
     });
 
     function toggleAdminMode() {
-        isAdminMode.value = !isAdminMode.value;
-        if (isAdminMode.value) {
-            viewManager.switchView("admin-users");
-        } else {
-            viewManager.switchView("picker");
-        }
+        viewManager.switchView(isAdminMode.value ? "picker" : "admin-users");
     }
-
-    // Sync admin mode with current view. S.W5-12 (F-12): the watch is
-    // SYMMETRIC over adminViews — landing on EITHER tuning pane
-    // (atmosphere/blob) flips admin mode, matching their membership in the
-    // admin view list (the old atmosphere-only check made two same-class
-    // views behave differently).
-    watch(() => viewManager.currentView.value, (view) => {
-        if (adminViews.includes(view)) {
-            isAdminMode.value = true;
-        }
-    });
-
-    // Exit admin mode on logout
-    watch(isAdminAuthenticated, (auth) => {
-        if (!auth) isAdminMode.value = false;
-    });
 
     function onViewChange(id: string | number | boolean | Record<string, string> | null) {
         if (typeof id === "string") {

@@ -1,0 +1,9 @@
+captured 390-dark-01-switch-open.png
+captured 390-dark-02-switch-settled.png
+FAILED 390 dark A page.waitForTimeout: Target page, context or browser has been closed
+FAILED 390 dark B browser.newContext: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /Users/mkbabb/Library/Cac
+FAILED 390 dark C browser.newContext: Target page, context or browser has been closed
+done 5 frames {"head":"f82daf4a","dirty":4}

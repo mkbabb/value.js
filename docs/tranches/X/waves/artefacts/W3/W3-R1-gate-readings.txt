@@ -1,0 +1,37 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 Repair 1 — the §6 gate re-readings at the settled bytes (DOUBLE-RUN, diff empty)
+clock: 2026-09-18 19:42:14 EDT  ·  HEAD: 9caed304 docs(X ledger): F.W4 row — .c PARTIAL, the inversion lock inverted at 8.0.0, three escalations named
+
+--- G-4: provenance authorizes its target and threads the viewer ---
+grep -c "getProvenance(c.var.services, slug, c.var.userSlug)" api/src/modules/palette/routes/forks.ts -> 1
+grep -c "assertPaletteReadable" api/src/modules/palette/service/forks.ts -> 6
+grep -c "isActivePublic" api/src/modules/palette/service/forks.ts -> 1
+--- G-8: the three product writes assert the fence ---
+grep -rn "assertFenceHeld(" api/src --include=*.ts | grep -v __tests__ | grep -v "export function" -> 
+api/src/modules/palette/service/crud.ts:251:        assertFenceHeld(
+api/src/modules/palette/service/versions.ts:223:        assertFenceHeld(
+api/src/modules/palette/service/visibility.ts:233:    assertFenceHeld(
+--- G-12: the plural route, the private child, both-boundary auth ---
+grep -c "forksRouter.post(\"/:slug/fork\")" (singular, exact) -> 0
+grep -c "forksRouter.post(\"/:slug/forks\"" -> 1
+grep -c "visibility: \"public\"" api/src/modules/palette/service/forks.ts -> 0
+grep -c "visibility: \"private\"" api/src/modules/palette/service/forks.ts -> 1
+grep -c "assertReadable(sourceInTxn, userSlug)" -> 1
+--- G-13: the fork reads take a viewer ---
+grep -A6 "findForksOf(" api/src/modules/palette/repository/palette.ts | grep -c viewer -> 1
+grep -c "paletteReadableFilter" api/src/modules/palette/repository/palette.ts -> 5
+--- G-14: forkCount computed at format time ---
+grep -c "forkCount: rest.forkCount" api/src/modules/palette/format.ts -> 0
+grep -c "countForksOfMany\|countForksOf(" across services+routes -> api/src/modules/palette/service/crud.ts:3 api/src/modules/palette/service/crud-list.ts:2 api/src/modules/palette/service/visibility.ts:1 api/src/modules/palette/routes/forks.ts:2 api/src/modules/palette/routes/versions.ts:1 
+--- G-15: the two-state enum and the moderation clock ---
+grep -n PALETTE_VISIBILITIES api/src/modules/palette/model.ts -> 33:export const PALETTE_VISIBILITIES = ["public", "private"] as const;
+grep -c moderation api/src/modules/palette/model.ts -> 4
+grep -c unlisted api/src/platform/migrations/check.ts -> 2
+grep -rn unlisted api/src --include=*.ts | wc -l ->       27
+--- G-16: the terminal disposition in W3.md ---
+grep -c "RETIRED-BY-RECORD" docs/tranches/X/waves/W3.md -> 2
+grep -c diff api/src/modules/palette/routes/index.ts -> 0
+--- G-22: typecheck + suite ---
+grep -rn "test.skip|test.fail|it.skip|describe.skip|.only(" api/src ->        0
+
+=== double-run: `diff run1 run2` prints nothing ===

@@ -1,0 +1,96 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4.a — G-1's CHECKER, NINE NEGATIVE CONTROLS
+================================================================================
+
+WHY.  A gate that cannot go RED is not a gate. Each control mutates ONE cell of a
+      scratch COPY of the settled SEAM-CONTRACT.md — the repo file is never edited —
+      and asserts (a) the mutant differs from the source, (b) EXIT=1, and (c) the
+      INTENDED check code fires. A control whose mutation does not apply is printed
+      VOID rather than counted.
+SUBJECT.  value.js tranche-u 046bc176; SEAM-CONTRACT.md at its settled, Prettier-formatted bytes.
+COMMAND.  node docs/tranches/X/parse-that/scripts/seam-contract-check.mjs <mutant> \
+               docs/tranches/X/parse-that/evidence/W3/universe-52.json \
+               docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+
+--------------------------------------------------------------------------------
+NC-1  parseCssColor published `identical` while the ledger binds 20 rows to it
+  EXPECTED check [E] · EXIT=1 · check fired: yes
+  VERDICT: RED — 2 check(s) failed.
+  
+    [E] a row whose disposition contradicts DIVERGENCE-LEDGER.md — 1
+          parseCssColor: disposition "identical" vs DIVERGENCE-LEDGER rows PB-01, PB-02, PB-03, PB-04, PB-05, PB-06, PB-07, PB-08, PB-09, PB-10, PB-11, PB-12, PB-13, ADJ-1, ADJ-2, ADJ-3, CAP-9, SP-1, ID-5, PB-11 (F-l3)
+  
+    [G] COHESION §0v rider — a carried cell not published as PENDING-ADJUDICATION — 1
+          parseCssColor: carries GROUND-C×1 but publishes "identical"
+
+--------------------------------------------------------------------------------
+NC-2  the `parseStylesheet` row deleted
+  EXPECTED check [B] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [B] universe-52 ∖ contract (a frozen export with no row) — 1
+          parseStylesheet
+
+--------------------------------------------------------------------------------
+NC-3  a 53rd row with no index.ts origin
+  EXPECTED check [A] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [A] contract ∖ universe-52 (a 53rd row with no index.ts origin) — 1
+          parseCssGradient
+
+--------------------------------------------------------------------------------
+NC-4  `parseTimingFunction`'s consumer-direction blanked (the G-1 falsifier)
+  EXPECTED check [H] · EXIT=1 · check fired: yes
+  VERDICT: RED — 2 check(s) failed.
+  
+    [C] a row with an empty required field — 1
+          parseTimingFunction: empty consumer direction
+  
+    [H] an empty consumer-direction field on a non-identical row (G-1 falsifier) — 1
+          parseTimingFunction
+
+--------------------------------------------------------------------------------
+NC-5  a carried cell published as declared-divergence, not PENDING-ADJUDICATION (§0v)
+  EXPECTED check [G] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [G] COHESION §0v rider — a carried cell not published as PENDING-ADJUDICATION — 1
+          parseCssScalar: carries GROUND-C×1 but publishes "declared-divergence"
+
+--------------------------------------------------------------------------------
+NC-6  `color-mix()` struck from the Non-goals section
+  EXPECTED check [K] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [K] the Non-goals section does not name these explicitly — 1
+          color-mix()
+
+--------------------------------------------------------------------------------
+NC-7  surface-wide ledger row `R3` dropped from §7
+  EXPECTED check [J] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [J] a ledger row naming no export is not declared surface-wide — 1
+          R3
+
+--------------------------------------------------------------------------------
+NC-8  ledger row `CAP-9` dropped from parseCssColor's disposition
+  EXPECTED check [I] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [I] a ledger row bound to an export that the contract's row does not name — 1
+          parseCssColor: ledger row CAP-9 is not named in its disposition
+
+--------------------------------------------------------------------------------
+NC-9  an id that is neither a ledger row nor a §0w ruled class
+  EXPECTED check [F] · EXIT=1 · check fired: yes
+  VERDICT: RED — 1 check(s) failed.
+  
+    [F] a disposition naming an id that is neither a ledger row nor a ruled class — 1
+          parseStylesheet: unknown id `NOT-A-ROW`
+
+================================================================================
+READING  9 of 9 controls fired their intended check at EXIT=1.
+         The unmutated contract reads GREEN, EXIT=0, double-run byte-identical.

@@ -1,0 +1,102 @@
+{
+ "tag": "l3-large-1",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "large",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "product",
+  "ruleList",
+  "declarations",
+  "declaration",
+  "values"
+ ],
+ "valuejsHead": "f7b087a45c8a6341bf94f34b266f7511f28e6ac2",
+ "uptimeStart": "10:16  up 1 day,  8:19, 4 users, load averages: 15.41 17.74 18.96",
+ "versions": {
+  "node": "v26.0.0",
+  "firefox": "150.0.2",
+  "chromium": "148.0.7778.96"
+ },
+ "results": {
+  "node": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910,
+    "fault": 1,
+    "blocks": 3
+   },
+   "ms": {
+    "retired": 6.1,
+    "product": 5.94,
+    "ruleList": 2.14,
+    "declarations": 1.95,
+    "declaration": 2.58,
+    "values": 10.56
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.925,
+    "ruleList": 0.35,
+    "declarations": 0.36,
+    "declaration": 0.465,
+    "values": 1.728
+   }
+  },
+  "firefox": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910,
+    "fault": 1,
+    "blocks": 3
+   },
+   "ms": {
+    "retired": 6.5,
+    "product": 6,
+    "ruleList": 2.5,
+    "declarations": 2,
+    "declaration": 2.5,
+    "values": 14.5
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.923,
+    "ruleList": 0.357,
+    "declarations": 0.308,
+    "declaration": 0.385,
+    "values": 2.077
+   }
+  },
+  "chromium": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910,
+    "fault": 1,
+    "blocks": 3
+   },
+   "ms": {
+    "retired": 11.65,
+    "product": 3.8,
+    "ruleList": 1.95,
+    "declarations": 1.6,
+    "declaration": 2,
+    "values": 7.35
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.322,
+    "ruleList": 0.167,
+    "declarations": 0.137,
+    "declaration": 0.174,
+    "values": 0.628
+   }
+  }
+ },
+ "uptimeEnd": "10:16  up 1 day,  8:19, 4 users, load averages: 18.18 18.28 19.14"
+}

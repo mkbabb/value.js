@@ -1,0 +1,23 @@
+{
+ "start": "2026-09-23T15:02:26.891Z",
+ "khead0": "3c8199c5 dirty=3",
+ "khead1": "3c8199c5 dirty=4",
+ "end": "2026-09-23T15:03:06.522Z",
+ "afterHome": {
+  "t": 10022.30000000447,
+  "thumbCx": 91.203125,
+  "thumbL": 85.203125,
+  "thumbW": 12,
+  "valNow": 0,
+  "valMax": 8000,
+  "valP": 0,
+  "ballTx": 0,
+  "ballP": 0,
+  "ballCx": 117.203125,
+  "btn": "Play",
+  "styleTf": "translateX(0px)"
+ },
+ "logs": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

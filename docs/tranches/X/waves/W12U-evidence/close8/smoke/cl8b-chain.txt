@@ -1,0 +1,5 @@
+10-17 04:59:11 cl8b smoke-admin exit=0 load1=18.39
+10-17 05:00:09 cl8b smoke-mobile exit=0 load1=13.85
+10-17 05:00:34 cl8b smoke-reactivity exit=0 load1=14.80
+10-17 05:04:36 cl8b smoke-perf exit=1 load1=12.67
+10-17 05:26:39 cl8b smoke exit=1 load1=12.85

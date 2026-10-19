@@ -1,0 +1,30 @@
+SERVED MODEL: claude-opus-5-5
+# X.W7L.m trap 2 — vue-tsc -p tsconfig.demo.json with vueCompilerOptions.checkUnknownProps+checkUnknownEvents (scratch config extending tsconfig.demo.json), after the SelectTrigger migration
+total TS2353 errors: 269 (r1, pre-commit tree) · 269 (r2, at c8a4959d)
+errors whose property is NOT a native attr/event/data-*/aria-* (i.e. a stale COMPONENT prop): 0 (r1) · 0 (r2)
+## by property (top):
+ 111 and 'onClick'
+  49 and ''aria-label''
+  13 and 'title'
+  12 and ''aria-labelledby''
+   8 and ''data-testid''
+   5 and 'dataAdminAccess'
+   5 and ''data-slot''
+   4 and ''data-o18''
+   4 and ''data-fact''
+   4 and ''data-admin-notice''
+   3 and ''data-count''
+   3 and ''aria-hidden''
+   2 and 'onKeydown'
+   2 and 'key'
+   2 and ''data-stops''
+   2 and ''data-mix-source''
+   2 and ''data-identity-verdict''
+   1 and 'role'
+   1 and 'onFocus'
+   1 and 'onAnimationend'
+   1 and 'dataZoneAffordance'
+   1 and 'dataTestid'
+   1 and 'dataSpace'
+   1 and 'dataO18'
+   1 and 'dataGuideSection'

@@ -1,0 +1,82 @@
+{
+ "light-1440": {
+  "c1": [
+   {
+    "t": "",
+    "fw": "700"
+   },
+   {
+    "t": "",
+    "fw": "700"
+   }
+  ],
+  "c2": {
+   "title": {
+    "t": "Epicycles",
+    "font": "bold 16px \"Computer Modern Serif\", \"Latin Modern Roman\", \"CMU Serif\", Georgia, serif"
+   },
+   "count": {
+    "t": "113 of 401 circles",
+    "font": "13px \"Fira Code\", monospace"
+   },
+   "chipFace": "\"Computer Modern Serif\", \"Latin Modern Roman\", \"CMU Serif\", Georgia, serif"
+  }
+ },
+ "light-390": {
+  "c1": [
+   {
+    "t": "",
+    "fw": "700"
+   },
+   {
+    "t": "",
+    "fw": "700"
+   }
+  ],
+  "c2": {
+   "title": null,
+   "count": null,
+   "chipFace": "\"Computer Modern Serif\", \"Latin Modern Roman\", \"CMU Serif\", Georgia, serif"
+  }
+ },
+ "dark-1440": {
+  "c1": [
+   {
+    "t": "",
+    "fw": "700"
+   },
+   {
+    "t": "",
+    "fw": "700"
+   }
+  ],
+  "c2": {
+   "title": {
+    "t": "Epicycles",
+    "font": "bold 16px \"Computer Modern Serif\", \"Latin Modern Roman\", \"CMU Serif\", Georgia, serif"
+   },
+   "count": {
+    "t": "131 of 401 circles",
+    "font": "13px \"Fira Code\", monospace"
+   },
+   "chipFace": "\"Computer Modern Serif\", \"Latin Modern Roman\", \"CMU Serif\", Georgia, serif"
+  }
+ },
+ "dark-390": {
+  "c1": [
+   {
+    "t": "",
+    "fw": "700"
+   },
+   {
+    "t": "",
+    "fw": "700"
+   }
+  ],
+  "c2": {
+   "title": null,
+   "count": null,
+   "chipFace": "\"Computer Modern Serif\", \"Latin Modern Roman\", \"CMU Serif\", Georgia, serif"
+  }
+ }
+}

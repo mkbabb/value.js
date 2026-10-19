@@ -104,7 +104,7 @@ jobs:
             # ×5 incl. useAtmosphere.ts — the sites have since moved and split):
             #   ./blob        demo/picker/visual/HeroBlob.vue:34,:35
             #   ./blob-config demo/scenes/blob/BlobPane.vue:12,:13 ·
-            #                 demo/color-picker/composables/boot/useAtmosphere.ts:36
+            #                 demo/app/composables/boot/useAtmosphere.ts:36
             #   ./chip        demo/workbenches/gradient/.../EasingSpecimenStrip.vue:14
             # A build resolved through that branch tree dies at the first of them.
             # This step reds the deploy BEFORE the build if a producer bump ever
@@ -195,3 +195,15 @@ jobs:
                     echo "::error title=O-25 STALE-PROD::no CF Pages deployment references the built commit ${SHORT} — the deploy did not land as Production (the --branch footgun class). color.babb.dev is stale."
                     exit 1
                   fi
+            # ── §0eh (b) · PALETTE API SMOKE (X-W11; W11.md ADDENDUM 2026-10-06).
+            #    api.color.babb.dev served an EXPIRED certificate 2026-08-26 →
+            #    2026-10-06 and every palette fetch failed TLS silently while
+            #    every deploy here went green. The SPA this job just shipped is
+            #    useless without that origin, so the deploy FAILS unless a
+            #    strict-TLS GET of /palettes?limit=1 answers 200 JSON and the
+            #    served certificate's notAfter is more than 14 days out. The
+            #    same probe runs weekly (api-tls-smoke.yml) to catch an
+            #    expiring certificate between deploys. Strict TLS only: never
+            #    NODE_TLS_REJECT_UNAUTHORIZED / -k (the script refuses to run).
+            - name: "§0eh (b) — palette API smoke (strict TLS · 200 JSON · cert > 14 d)"
+              run: node scripts/ci/api-tls-smoke.mjs

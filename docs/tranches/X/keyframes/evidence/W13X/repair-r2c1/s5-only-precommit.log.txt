@@ -1,0 +1,25 @@
+# 00:12:21 load { 20.69 17.64 24.52 }
+run-demo-roster — 1 observation(s) · one shared chromium + one served dist snapshot
+
+──── live-session ────
+live-session observation — ONE interaction-driven session over the BUILT dist: PLAY + SWITCH + DRAG with a single accumulated ERROR BUDGET = 0 + the product-facing DOM
+  · B2 dev-server leg skipped (KF_DEV_SERVER unset); the built-dist visibility transition passed above.
+  ✓ ERROR BUDGET = 0 across the WHOLE battery (PLAY + SWITCH + DRAG, both modes): ZERO HARD charges (pageerror / unhandledrejection / console.error / "......" parse fingerprint / _gen) AND ZERO PROMOTED charges (amiga WebGL ReadPixels/GPU-stall · non-Monaco content-visibility). The budget is the COMPLEMENT of the named-benign EXCLUDED set (no narrowed-regex escape hatch) — S2a.
+  ✓ B1 COLD hero play STARTS the engine (aria flips Play→Pause + slider advances from "0"; idle bob excluded) — PASS · {"aria":"Play→Pause","slider":"null→8.300000000000011","ariaIsPause":true,"sliderAdvanced":true,"wrapperDistinctGated":1,"pass":true}
+  ✓ B2 synthetic visibilitychange on a playing scene raises NO _gen throw — PASS · {"genThrows":0,"switchNote":"dock-Select clicked \"Cube\" (of 7 options, trusted)","pass":true,"replayClean":true}
+  ✓ B4 switch-into-easing mounts the EasingPicker + a handle-drag mutates — PASS · {"present":true,"mountedActive":true,"handleCount":2,"dMutated":true,"pass":true}
+  ✓ B3 amiga centre-drag moves the SUBJECT not the room — PASS · {"mad":{"centreMAD":33.72353260132845,"peripheryMAD":0},"pass":true}
+  ✓ B6 /square drag selects NO text + the transform PERSISTS — PASS · {"selectedChars":0,"bodyDragging":true,"userSelectSuppressed":true,"persisted":true,"pass":true}
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":62,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s(op=0.16)","spring
+  ✓ B9 every scene glyph PAINTS — PASS · {"scenesGlyphPainted":7,"total":7,"glyphFailures":[],"pass":true}
+  ✓ font register — the body font IS Plus Jakarta Sans (T.D3/OD-6) — PASS · {"body":"\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback","jakarta":true,"pass":true}
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails":[],"pass":true}
+  ✓ S2 the engine's respectReducedMotion path SNAPS live under PRM (dots rest · sheet one-emit) — PASS · {"prmMatches":true,"controlChurn":[4,4,4],"prmChurn":[1,1,1],"sheetTrail":null,"sheetLeg":"Glass-owned Drawer spring; trail recorded only","pass":true}
+  ✓ S4 keyboard operability — Tab reaches play · focus-visible ring · Enter + global Space actuate — PASS · {"reachedAt":17,"sawTransport":true,"focusRing":{"matchesFV":true,"ringPainted":true},"enterToggled":true,"enterLive":199,"spaceToggled":true,"pass":true}
+
+live-session observation — FAIL (2): the human battery (PLAY + SWITCH + DRAG) blew the ERROR BUDGET (S2a) or a product-facing DOM assertion failed.
+
+════ run-demo-roster — REPORT ════
+  passed: 0/1
+  ✗ failed: live-session
+EXIT=1

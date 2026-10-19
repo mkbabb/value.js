@@ -1,0 +1,9 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: TypeError: null is not an object (evaluating 'document.querySelector('[data-testid="gradient-stop-bar"]').getBoundingClientRect')
+    at barOf (/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/p3.mjs:19:24)
+    at /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/p3.mjs:24:21
+
+Node.js v26.0.0

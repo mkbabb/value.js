@@ -1,0 +1,79 @@
+{
+ "label": "dev-before-r1",
+ "base": "http://localhost:5193",
+ "N": 10,
+ "runsWithThrow": 0,
+ "load1": "25.04",
+ "runs": [
+  {
+   "i": 0,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 7170,
+   "errs": []
+  },
+  {
+   "i": 1,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 3716,
+   "errs": []
+  },
+  {
+   "i": 2,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 4094,
+   "errs": []
+  },
+  {
+   "i": 3,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 4264,
+   "errs": []
+  },
+  {
+   "i": 4,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 5902,
+   "errs": []
+  },
+  {
+   "i": 5,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 3920,
+   "errs": []
+  },
+  {
+   "i": 6,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 3746,
+   "errs": []
+  },
+  {
+   "i": 7,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 3804,
+   "errs": []
+  },
+  {
+   "i": 8,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 3819,
+   "errs": []
+  },
+  {
+   "i": 9,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 3736,
+   "errs": []
+  }
+ ]
+}

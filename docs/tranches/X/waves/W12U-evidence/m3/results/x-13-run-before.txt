@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+# X.W12U.m3 BEFORE (seat open, 2026-10-16 09:20, load 16.6, HEAD 6bab513d3 bytes):
+# ⟨guarded --light --timeout 5 -- node m2/probe-dock-layers-m2.mjs 360 780 light⟩ (tail, cut 900)
+360x780 light toggled ["Back:44x44@28-72","Reset color:44x44@97-141","Copy color:44x44@141-185","Random color:48x48@183-231","Palettes:44x44@229-273","Extract palette:44x44@273-317","Open color input:44x44@330-374"]
+360x780 light toggled GEO {"docSW":360,"plate":"16-344","run":"dock-layer.dock-layer--full 28-332 sw/cw 346/304 auto","out":["Open color input"],"hidden":["Open color input"],"apply":null,"coarse":true} RED
+360x780 light colour-input ["Back:44x44@28-72","Apply color:44x44@193-237","Propose color name:44x44@330-374"]
+360x780 light colour-input GEO {"docSW":360,"plate":"16-344","run":"dock-layer.dock-layer--full 28-332 sw/cw 346/304 auto","out":["Propose color name"],"hidden":["Propose color name"],"apply":"44x44","coarse":true} RED
+360x780 light slug-edit GEO {"docSW":360,"plate":"26-335","run":"dock-layer.dock-layer--full 38-323 sw/cw 346/285 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+RED 2/3

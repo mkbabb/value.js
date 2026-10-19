@@ -1,0 +1,34 @@
+trigger 1 false
+expanded true controls reka-select-content-v-23
+root listbox items=31
+div.interactive-item.glass-menu-row[option] "Custom" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "linear" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "smooth-step-3" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-sine" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-sine" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-sine" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-quad" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-quad" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-quad" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-cubic" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-cubic" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-cubic" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-quart" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-quart" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-quart" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-quint" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-quint" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-quint" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-expo" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-expo" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-expo" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-circ" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-circ" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-circ" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-back" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-out-back" h=44 w=182 r=12
+div.interactive-item.glass-menu-row[option] "ease-in-out-back" h=44 w=182 r=12

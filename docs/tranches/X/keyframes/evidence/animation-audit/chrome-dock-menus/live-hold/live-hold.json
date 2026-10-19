@@ -1,0 +1,350 @@
+{
+ "share-popover": {
+  "k": {
+   "head": "cd2cd88f",
+   "dirty": "3",
+   "at": "2026-09-23T15:11:48.461Z"
+  },
+  "frames": 281,
+  "samples": [
+   {
+    "ms": 9,
+    "dock": "E",
+    "held": null,
+    "cx": 499.9,
+    "cy": 89,
+    "st": "open",
+    "focus": "Share URL or hash to loa",
+    "focusInDock": false
+   },
+   {
+    "ms": 117,
+    "dock": "E",
+    "held": null,
+    "cx": 501.6,
+    "cy": 91.6,
+    "st": "open",
+    "focus": "Share URL or hash to loa",
+    "focusInDock": false
+   },
+   {
+    "ms": 223,
+    "dock": "E",
+    "held": null,
+    "cx": 503.8,
+    "cy": 95.2,
+    "st": "open",
+    "focus": "Share URL or hash to loa",
+    "focusInDock": false
+   },
+   {
+    "ms": 326,
+    "dock": "E",
+    "held": null,
+    "cx": 504.8,
+    "cy": 96.6,
+    "st": "open",
+    "focus": "Share URL or hash to loa",
+    "focusInDock": false
+   },
+   {
+    "ms": 428,
+    "dock": "E",
+    "held": null,
+    "cx": 505,
+    "cy": 97,
+    "st": "open",
+    "focus": "Share URL or hash to loa",
+    "focusInDock": false
+   }
+  ],
+  "final": {
+   "ms": 4461,
+   "dock": "E",
+   "held": null,
+   "cx": 505,
+   "cy": 97,
+   "st": "open",
+   "focus": "Share URL or hash to loa",
+   "focusInDock": false
+  }
+ },
+ "shortcuts-modal": {
+  "k": {
+   "head": "cd2cd88f",
+   "dirty": "3",
+   "at": "2026-09-23T15:11:58.402Z"
+  },
+  "frames": 282,
+  "samples": [
+   {
+    "ms": 4,
+    "dock": "E",
+    "held": null,
+    "cx": 496.8,
+    "cy": 143,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   },
+   {
+    "ms": 108,
+    "dock": "E",
+    "held": null,
+    "cx": 496.5,
+    "cy": 126.1,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   },
+   {
+    "ms": 225,
+    "dock": "E",
+    "held": null,
+    "cx": 496.1,
+    "cy": 109.3,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   },
+   {
+    "ms": 328,
+    "dock": "E",
+    "held": null,
+    "cx": 496,
+    "cy": 103.3,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   },
+   {
+    "ms": 432,
+    "dock": "E",
+    "held": null,
+    "cx": 496,
+    "cy": 103.4,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   },
+   {
+    "ms": 540,
+    "dock": "E",
+    "held": null,
+    "cx": 496,
+    "cy": 104.3,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   },
+   {
+    "ms": 2513,
+    "dock": "C",
+    "held": null,
+    "cx": 496,
+    "cy": 104.3,
+    "st": "open",
+    "focus": "Keyboard shortcuts",
+    "focusInDock": false
+   }
+  ],
+  "final": {
+   "ms": 4500,
+   "dock": "C",
+   "held": null,
+   "cx": 496,
+   "cy": 104.3,
+   "st": "open",
+   "focus": "Keyboard shortcuts",
+   "focusInDock": false
+  }
+ },
+ "mbabb-menu": {
+  "k": {
+   "head": "cd2cd88f",
+   "dirty": "3",
+   "at": "2026-09-23T15:12:08.227Z"
+  },
+  "samples": [
+   {
+    "ms": 2,
+    "dock": "E",
+    "held": null,
+    "cx": 473.2,
+    "cy": 87,
+    "st": "open",
+    "focus": "DIV",
+    "focusInDock": false
+   },
+   {
+    "ms": 105,
+    "dock": "E",
+    "held": null,
+    "cx": 475.1,
+    "cy": 90.2,
+    "st": "open",
+    "focus": "DIV",
+    "focusInDock": false
+   },
+   {
+    "ms": 208,
+    "dock": "E",
+    "held": null,
+    "cx": 476.9,
+    "cy": 93.2,
+    "st": "open",
+    "focus": "DIV",
+    "focusInDock": false
+   },
+   {
+    "ms": 315,
+    "dock": "E",
+    "held": null,
+    "cx": 477.8,
+    "cy": 94.6,
+    "st": "open",
+    "focus": "DIV",
+    "focusInDock": false
+   },
+   {
+    "ms": 417,
+    "dock": "E",
+    "held": null,
+    "cx": 478,
+    "cy": 95,
+    "st": "open",
+    "focus": "DIV",
+    "focusInDock": false
+   }
+  ],
+  "final": {
+   "ms": 4490,
+   "dock": "E",
+   "held": null,
+   "cx": 478,
+   "cy": 95,
+   "st": "open",
+   "focus": "DIV",
+   "focusInDock": false
+  }
+ },
+ "scene-select": {
+  "k": {
+   "head": "cd2cd88f",
+   "dirty": "3",
+   "at": "2026-09-23T15:12:17.933Z"
+  },
+  "samples": [
+   {
+    "ms": 1,
+    "dock": "E",
+    "held": null,
+    "cx": 555,
+    "cy": 95,
+    "st": "open",
+    "focus": "Scene",
+    "focusInDock": true
+   }
+  ],
+  "final": {
+   "ms": 4489,
+   "dock": "E",
+   "held": null,
+   "cx": 555,
+   "cy": 95,
+   "st": "open",
+   "focus": "Scene",
+   "focusInDock": true
+  }
+ },
+ "clear-all-dialog": {
+  "k": {
+   "head": "cd2cd88f",
+   "dirty": "3",
+   "at": "2026-09-23T15:12:27.376Z"
+  },
+  "frames": 321,
+  "samples": [
+   {
+    "ms": 2,
+    "dock": "E",
+    "held": null,
+    "cx": 464.9,
+    "cy": 356.2,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   },
+   {
+    "ms": 103,
+    "dock": "E",
+    "held": null,
+    "cx": 464.6,
+    "cy": 352.1,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   },
+   {
+    "ms": 204,
+    "dock": "E",
+    "held": null,
+    "cx": 464.2,
+    "cy": 346.5,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   },
+   {
+    "ms": 305,
+    "dock": "E",
+    "held": null,
+    "cx": 464,
+    "cy": 344.3,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   },
+   {
+    "ms": 407,
+    "dock": "E",
+    "held": null,
+    "cx": 464,
+    "cy": 344,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   },
+   {
+    "ms": 508,
+    "dock": "E",
+    "held": null,
+    "cx": 464,
+    "cy": 344.4,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   },
+   {
+    "ms": 3367,
+    "dock": "C",
+    "held": null,
+    "cx": 464,
+    "cy": 344.4,
+    "st": "open",
+    "focus": "BUTTON",
+    "focusInDock": false
+   }
+  ],
+  "final": {
+   "ms": 4487,
+   "dock": "C",
+   "held": null,
+   "cx": 464,
+   "cy": 344.4,
+   "st": "open",
+   "focus": "BUTTON",
+   "focusInDock": false
+  }
+ }
+}

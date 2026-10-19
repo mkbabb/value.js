@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+{"el":"div.dock-plate","text":"","chain":["div.glass-dock.horizontal.shape-pill","nav.dock-band.overture-dock-land","div.app-layout","body.relative"]}
+{"el":"input.field-control.glass-control-edge.slug-input","text":"","chain":["form.slug-form.flex.items-center","div.dock-face-content","div.dock-face.justify-center","div.dock-crossfade","div.dock-layer-group.horizontal.switcher-start","div.dock-layer.dock-layer--full.dock-run","div.dock-layers","div.dock-controls"]}
+{"el":"span.glass-chip.glass-capsule.accent-tone","text":"dev misconfigured — run `npm r","chain":["nav.dock-band.overture-dock-land","div.app-layout","body.relative"]}
+{"el":"div.glass-quiet.card.sliders-console","text":"Labα92.0%88.820.082.7%","chain":["div.picker-body.flex.flex-col","div.card-content.z-1.flex","div.card-scroll-host.picker-scroll-host.flex","div.glass-resting.card.paper-grain-overlay","div.pane-shell.flex.flex-col","div.pane-wrapper.w-full.min-w-0","div.pane-container","main.pane-main"]}

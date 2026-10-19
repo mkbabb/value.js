@@ -1,0 +1,23 @@
+GOTO-WARN TimeoutError: page.goto: Timeout 300000ms exceeded.
+LOAD-FAIL TimeoutError: locator.waitFor: Timeout 300000ms exceeded.
+--- 390 light exit 1
+FAIL swatchhover__390__dark TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.
+OK menucolor__390__dark delete=rgb(233, 230, 226) rename=rgb(233, 230, 226) text-destructive=rgb(235, 71, 71)
+OK cardhover__390__dark hover
+OK focus__390__dark tab order: input[] > button[] > button[Delete all saved palettes] > button[Palette menu] > button[Palette menu] > button[Palette menu] > button[Palette menu] > body[→oklch(65% 0.2 3] > button[Select view] > button[Toggle action bar]
+OK dragmid__390__dark order after drop=["Sunset Coast","Quiet Greys","Forest Floor","Neon Arcade"]
+OK dock__390__dark collapsedAfterSelect=0 dockControls=["Save edit","Cancel edit","Switch to slug","Generate new slug","Cancel","Back","Rename palette","Publish palette","Export JSON","Delete palette","Select view","Toggle action bar","Menu"]
+OK dupe__390__dark save duplicate name
+OK scrolled__390__dark scrollY=624.5
+--- 390 dark exit 0
+FAIL swatchhover__1440__dark TimeoutError: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.
+OK menucolor__1440__dark delete=rgb(233, 230, 226) rename=rgb(233, 230, 226) text-destructive=rgb(235, 71, 71)
+OK cardhover__1440__dark hover
+OK focus__1440__dark tab order: input[] > button[] > button[Delete all saved palettes] > button[Palette menu] > button[Palette menu] > button[Palette menu] > button[Palette menu] > body[→oklch(65% 0.2 3] > button[Select color space] > span[l component value]
+OK dragmid__1440__dark order after drop=["Sunset Coast","Quiet Greys","Forest Floor","Neon Arcade"]
+OK dock__1440__dark collapsedAfterSelect=1 dockControls=["Save edit","Cancel edit","Switch to slug","Generate new slug","Cancel","Back","Rename palette","Publish palette","Export JSON","Delete palette","Select view","Toggle action bar","Login","@mbabb"]
+OK dupe__1440__dark save duplicate name
+--- 1440 dark exit 0
+OK offline__390__light__offline chips=1
+--- 390 offline exit 0
+END

@@ -1,0 +1,113 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 83 tests using 1 worker
+
+[1/83] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked
+[2/83] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked
+[3/83] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 1440 storage blocked › the root with site data blocked
+[4/83] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked
+[5/83] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked
+[6/83] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 390 storage blocked › the root with site data blocked
+[7/83] [chromium] › e2e/f-w14u-misc.spec.ts:130:5 › m115 UIA-F-115 — the morph stage is the page's dominant content (1440) › a large stage beside the controls
+[8/83] [chromium] › e2e/f-w14u-misc.spec.ts:143:5 › m115 UIA-F-115 — the stage stays in view while tuning (390) › scrolled to the level strip, the stage is still on screen
+[9/83] [chromium] › e2e/f-w14u-misc.spec.ts:156:5 › m117 UIA-F-117 — the readouts never move the controls (390) › the first control keeps its place through a whole morph
+[10/83] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[11/83] [chromium] › e2e/f-w14u-misc.spec.ts:190:5 › m209 UIA-F-209 — the number fields keep a field's measure at 390 › no field renders as a circle
+[12/83] [chromium] › e2e/f-w14u-misc.spec.ts:202:5 › m210 UIA-F-210 — a preview tile previews; it never rewrites the range › Low and High hold, and the chosen tile is in view
+[13/83] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (1440) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[14/83] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (1024) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[15/83] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (390) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[16/83] [chromium] › e2e/f-w14u-misc.spec.ts:264:5 › m254 UIA-F-254 — /morph's micro-issues › no nested scroller · Export is secondary by the stage · bound tiles not in a basis hue
+[17/83] [chromium] › e2e/f-w14u-misc.spec.ts:292:5 › m57 UIA-F-57 (.shell R-1, the morph remainder) — the tile label sits on a named rung › the n= label is on the caption rung, not the dead text-sm
+[18/83] [chromium] › e2e/f-w14u-misc.spec.ts:315:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (1440) › multi-line, on a surface at the field radius, with a Copy control
+[19/83] [chromium] › e2e/f-w14u-misc.spec.ts:315:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (390) › multi-line, on a surface at the field radius, with a Copy control
+[20/83] [chromium] › e2e/f-w14u-misc.spec.ts:344:5 › x211 UIA-F-211 — the extractor has a heading hierarchy, glass frames and a centred column (1440) › title rung above body, subjects on Cards, the column centred and bounded
+[21/83] [chromium] › e2e/f-w14u-misc.spec.ts:366:5 › x255 UIA-F-255 — the extractor's micro-issues › titled and noindexed · the extract action reports each run
+[22/83] [chromium] › e2e/f-w14u-misc.spec.ts:401:5 › r119 UIA-F-119 — the dock's section comes from the route's meta › trailing slash and /v/ mark Visualize; tools and unknown paths mark none
+[23/83] [chromium] › e2e/f-w14u-misc.spec.ts:421:5 › r212 UIA-F-212 — one remembered-tab writer, from the route's meta › a saved visualization and a trailing-slash path are remembered as Visualize
+[24/83] [chromium] › e2e/f-w14u-misc.spec.ts:437:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:437:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[25/83] [chromium] › e2e/f-w14u-misc.spec.ts:437:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:437:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[26/83] [chromium] › e2e/f-w14u-misc.spec.ts:462:5 › r213 UIA-F-213 — a storage write after boot never crashes (auth) › logging in with site data blocked keeps the session in memory
+[27/83] [chromium] › e2e/f-w14u-misc.spec.ts:483:5 › v246 UIA-F-246 — /s/ resolves to the entity it names › a saved visualization's slug opens /v/; an image slug opens /w/
+[28/83] [chromium] › e2e/f-w14u-misc.spec.ts:516:5 › v246 UIA-F-246 ⊕ g96 UIA-F-96 (.gallery R-1) — one view transition per navigation › gallery → saved visualization morphs once
+[29/83] [chromium] › e2e/f-w14u-misc.spec.ts:534:5 › a256 UIA-F-256 (.shell R-2) — a failed logout is reported, not toasted as done › the server refuses the delete: an error, and the account stays
+[30/83] [chromium] › e2e/f-w14u-shell.spec.ts:58:9 › s52 UIA-F-52 — the login surface moves focus in, returns it, dismisses (1440) › open focuses the field; Escape and an outside press close and return focus
+[31/83] [chromium] › e2e/f-w14u-shell.spec.ts:73:9 › s55 UIA-F-55 ⊕ s53 UIA-F-53 — the dock row never morphs for the form (1440) › opening the form and a slug error leave the dock box unchanged
+[32/83] [chromium] › e2e/f-w14u-shell.spec.ts:58:9 › s52 UIA-F-52 — the login surface moves focus in, returns it, dismisses (390) › open focuses the field; Escape and an outside press close and return focus
+[33/83] [chromium] › e2e/f-w14u-shell.spec.ts:73:9 › s55 UIA-F-55 ⊕ s53 UIA-F-53 — the dock row never morphs for the form (390) › opening the form and a slug error leave the dock box unchanged
+[34/83] [chromium] › e2e/f-w14u-shell.spec.ts:90:5 › s54 UIA-F-54 ⊕ s153 UIA-F-153 — one face per control, no plate inside the dock › logged in: the account is one trigger; every dock control is a dock face; no bordered plate
+[35/83] [chromium] › e2e/f-w14u-shell.spec.ts:118:5 › s155 UIA-F-155 — the field says what is wrong, on one channel › a malformed slug is named on blur, before any Enter
+[36/83] [chromium] › e2e/f-w14u-shell.spec.ts:126:5 › s155 UIA-F-155 — the field says what is wrong, on one channel › a server failure is reported in the field only (no toast), Generate too
+[37/83] [chromium] › e2e/f-w14u-shell.spec.ts:150:5 › s232 UIA-F-232 — the login micro-issues › a readable identity, a quiet placeholder, glass emphasis, and copy is announced
+[38/83] [chromium] › e2e/f-w14u-shell.spec.ts:177:5 › s121 UIA-F-121 — no raw HTTP status as the message › an unknown slug and a refused admin token say what happened, not 'Not Found' / 'Forbidden'
+[39/83] [chromium] › e2e/f-w14u-shell.spec.ts:200:5 › s121 UIA-F-121 — no raw HTTP status as the message › the gallery route's duplicate problemMessage is gone (one reader, lib/api-problem)
+[40/83] [chromium] › e2e/f-w14u-shell.spec.ts:207:5 › s214 UIA-F-214 — toast policy › no tone-echo title; an error stays until dismissed
+[41/83] [chromium] › e2e/f-w14u-shell.spec.ts:228:5 › s214 UIA-F-214 — toast policy › a failed morph Export copy reports itself
+[42/83] [chromium] › e2e/f-w14u-shell.spec.ts:280:5 › s256 UIA-F-256 ⊕ UIA-F-248 (View) — the publish toast names the piece and offers it › no parenthesised slug; a View action opens the piece
+[43/83] [chromium] › e2e/f-w14u-shell.spec.ts:309:5 › s57 UIA-F-57 ⊕ s154 UIA-F-154 ⊕ s233 UIA-F-233 (About) ⊕ s219 UIA-F-219 — the About card › a type ramp under the body size; glass Separator; the house ring; content that earns its place; no offset literal
+[44/83] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (1440) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[45/83] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (1024) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[46/83] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (768) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[47/83] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (390) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[48/83] [chromium] › e2e/f-w14u-shell.spec.ts:387:5 › s128 UIA-F-128 ⊕ s233 (nav) ⊕ s231 UIA-F-231 — the phone nav menu › no local current-row tint or plate literals; a visible label; one press reaches About
+[49/83] [chromium] › e2e/f-w14u-shell.spec.ts:409:5 › s128 UIA-F-128 ⊕ s233 (nav) ⊕ s231 UIA-F-231 — the phone nav menu › an unknown route does not claim a section
+[50/83] [chromium] › e2e/f-w14u-shell.spec.ts:419:5 › s152 UIA-F-152 ⊕ s130 UIA-F-130 — the dock's gutter and one face for the theme control › the header clears content by its gutter; the theme control is a dock face in the dock cell
+[51/83] [chromium] › e2e/f-w14u-shell.spec.ts:440:5 › s150 UIA-F-150 ⊕ s144 UIA-F-144 (consumer) — one admin state, one Log out › no admin disc in the dock; the account menu carries the admin state; one Log out
+[52/83] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames light 1440 › dock, login, error, About, nav, account
+[53/83] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames light 390 › dock, login, error, About, nav, account
+[54/83] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames dark 1440 › dock, login, error, About, nav, account
+[55/83] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames dark 390 › dock, login, error, About, nav, account
+[56/83] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (portrait 390) › the document never scrolls by the inset
+[57/83] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (landscape 844) › the document never scrolls by the inset
+[58/83] [chromium] › e2e/f-w14v-au1.spec.ts:133:5 › au1 L2-2 consumer half (390 portrait) › the animation dock ends above the inset, in the stage and in fullscreen
+[59/83] [chromium] › e2e/f-w14v-au1.spec.ts:158:5 › au1 L2-3 (844×390, insets L/R 47) › interactive content keeps clear of the notch sides on every route
+[60/83] [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row
+[61/83] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (360) › the Controls/Canvas strip is centred on the column, inside its gutter
+[62/83] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (390) › the Controls/Canvas strip is centred on the column, inside its gutter
+[63/83] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (430) › the Controls/Canvas strip is centred on the column, inside its gutter
+[64/83] [chromium] › e2e/f-w14v-au1.spec.ts:270:5 › au1 L2-16 (844×390 /paper) › the floating bar is one title rung and its ToC plate ends above the inset
+[65/83] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (1440) › the content edge holds across route switches
+[66/83] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (390) › the content edge holds across route switches
+[67/83] [chromium] › e2e/f-w14v-au1.spec.ts:344:5 › au1 L2-17 (390 touch) › the modal Like, the /equation layer triggers and the About links are ≥ 44 px
+[68/83] [chromium] › e2e/f-w14v-au1.spec.ts:379:5 › au1 X-1 (1024×768) › the stage is either beside the controls or a full tab, never a stacked strip
+[69/83] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (360 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[70/83] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (390 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[71/83] [chromium] › e2e/f-w14v-nav.spec.ts:18:5 › nav falsifier (1440): one section trigger, no inline section links › the dock's sections are one dropdown trigger
+[72/83] [chromium] › e2e/f-w14v-nav.spec.ts:48:9 › dm falsifier (1440): the dark-mode glyph is the dock's glyph box › morph glyph bbox equals the section and account glyph bboxes
+[73/83] [chromium] › e2e/f-w14v-nav.spec.ts:48:9 › dm falsifier (390): the dark-mode glyph is the dock's glyph box › morph glyph bbox equals the section and account glyph bboxes
+[74/83] [chromium] › e2e/shell-header.spec.ts:48:5 › Shell header (G-F9-12) › the logo trigger is named and opens its attribution card
+[75/83] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1440)
+[76/83] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1440)
+[77/83] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1024)
+[78/83] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1024)
+[79/83] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (768)
+[80/83] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (768)
+[81/83] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (390)
+[82/83] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (390)
+[83/83] [chromium] › e2e/shell-header.spec.ts:112:5 › Shell header (G-F9-12) › the dark-mode toggle announces its state through aria-pressed
+  83 passed (3.6m)

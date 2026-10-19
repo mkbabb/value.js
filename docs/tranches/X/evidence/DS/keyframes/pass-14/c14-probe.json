@@ -1,0 +1,1126 @@
+{
+ "light": {
+  "spring1440": {
+   "field": 128,
+   "xAxisBottom": 729,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "section": [
+    528,
+    729
+   ],
+   "sectionWholeOrBelowFold": true,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      640
+     ],
+     "label": [
+      268,
+      636,
+      321,
+      650
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      660
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      680
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      626
+     ],
+     "label": null
+    }
+   ]
+  },
+  "spring1440Scrolled": {
+   "field": 128,
+   "xAxisBottom": 518,
+   "fold": 527,
+   "fadeEnd": 0,
+   "fadeStart": 527,
+   "axisAboveFade": true,
+   "section": [
+    317,
+    518
+   ],
+   "sectionWholeOrBelowFold": true,
+   "presets": [
+    67,
+    206
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      429
+     ],
+     "label": [
+      268,
+      425,
+      321,
+      439
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      449
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      469
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      415
+     ],
+     "label": null
+    }
+   ]
+  },
+  "entrySpring1440": {
+   "field": 128,
+   "xAxisBottom": 729,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "section": [
+    528,
+    729
+   ],
+   "sectionWholeOrBelowFold": true,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      640
+     ],
+     "label": [
+      268,
+      636,
+      321,
+      650
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      660
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      680
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      626
+     ],
+     "label": null
+    }
+   ]
+  },
+  "sequence1440": [
+   {
+    "rail": [
+     223,
+     188,
+     217
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.23,
+    "tail": [
+     223,
+     189,
+     218
+    ],
+    "tailRatio": 1.24
+   },
+   {
+    "rail": [
+     184,
+     202,
+     218
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.22,
+    "tail": [
+     184,
+     203,
+     219
+    ],
+    "tailRatio": 1.22
+   },
+   {
+    "rail": [
+     179,
+     221,
+     217
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.07,
+    "tail": [
+     179,
+     222,
+     218
+    ],
+    "tailRatio": 1.07
+   },
+   {
+    "rail": [
+     178,
+     220,
+     200
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.09,
+    "tail": [
+     178,
+     221,
+     201
+    ],
+    "tailRatio": 1.09
+   },
+   {
+    "rail": [
+     182,
+     219,
+     183
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.1,
+    "tail": [
+     181,
+     220,
+     183
+    ],
+    "tailRatio": 1.11
+   }
+  ],
+  "sequence390": [
+   {
+    "rail": [
+     223,
+     188,
+     217
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.23,
+    "tail": [
+     222,
+     187,
+     216
+    ],
+    "tailRatio": 1.23
+   },
+   {
+    "rail": [
+     184,
+     202,
+     218
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.22,
+    "tail": [
+     183,
+     201,
+     217
+    ],
+    "tailRatio": 1.22
+   },
+   {
+    "rail": [
+     179,
+     221,
+     217
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.07,
+    "tail": [
+     178,
+     220,
+     216
+    ],
+    "tailRatio": 1.07
+   },
+   {
+    "rail": [
+     178,
+     220,
+     200
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.09,
+    "tail": [
+     177,
+     219,
+     199
+    ],
+    "tailRatio": 1.09
+   },
+   {
+    "rail": [
+     181,
+     219,
+     182
+    ],
+    "card": [
+     222,
+     219,
+     214
+    ],
+    "railRatio": 1.1,
+    "tail": [
+     180,
+     218,
+     181
+    ],
+    "tailRatio": 1.1
+   }
+  ]
+ },
+ "dark": {
+  "spring1440": {
+   "field": 128,
+   "xAxisBottom": 729,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "section": [
+    528,
+    729
+   ],
+   "sectionWholeOrBelowFold": true,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      640
+     ],
+     "label": [
+      268,
+      636,
+      321,
+      650
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      660
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      680
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      626
+     ],
+     "label": null
+    }
+   ]
+  },
+  "spring1440Scrolled": {
+   "field": 128,
+   "xAxisBottom": 518,
+   "fold": 527,
+   "fadeEnd": 0,
+   "fadeStart": 527,
+   "axisAboveFade": true,
+   "section": [
+    317,
+    518
+   ],
+   "sectionWholeOrBelowFold": true,
+   "presets": [
+    67,
+    206
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      429
+     ],
+     "label": [
+      268,
+      425,
+      321,
+      439
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      449
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      469
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      415
+     ],
+     "label": null
+    }
+   ]
+  },
+  "entrySpring1440": {
+   "field": 128,
+   "xAxisBottom": 729,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "section": [
+    528,
+    729
+   ],
+   "sectionWholeOrBelowFold": true,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      640
+     ],
+     "label": [
+      268,
+      636,
+      321,
+      650
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      660
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      680
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      626
+     ],
+     "label": null
+    }
+   ]
+  },
+  "sequence1440": [
+   {
+    "rail": [
+     87,
+     33,
+     82
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 1.63,
+    "tail": [
+     87,
+     32,
+     82
+    ],
+    "tailRatio": 1.63
+   },
+   {
+    "rail": [
+     26,
+     55,
+     84
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 1.61,
+    "tail": [
+     25,
+     54,
+     83
+    ],
+    "tailRatio": 1.59
+   },
+   {
+    "rail": [
+     19,
+     85,
+     83
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 2.29,
+    "tail": [
+     18,
+     84,
+     82
+    ],
+    "tailRatio": 2.27
+   },
+   {
+    "rail": [
+     18,
+     83,
+     56
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 2.17,
+    "tail": [
+     17,
+     82,
+     56
+    ],
+    "tailRatio": 2.15
+   },
+   {
+    "rail": [
+     23,
+     80,
+     28
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 2.06,
+    "tail": [
+     22,
+     80,
+     27
+    ],
+    "tailRatio": 2.07
+   }
+  ],
+  "sequence390": [
+   {
+    "rail": [
+     87,
+     33,
+     82
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 1.63,
+    "tail": [
+     88,
+     33,
+     83
+    ],
+    "tailRatio": 1.63
+   },
+   {
+    "rail": [
+     25,
+     55,
+     84
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 1.6,
+    "tail": [
+     26,
+     55,
+     84
+    ],
+    "tailRatio": 1.6
+   },
+   {
+    "rail": [
+     18,
+     85,
+     83
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 2.29,
+    "tail": [
+     19,
+     85,
+     83
+    ],
+    "tailRatio": 2.28
+   },
+   {
+    "rail": [
+     17,
+     83,
+     57
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 2.17,
+    "tail": [
+     18,
+     83,
+     57
+    ],
+    "tailRatio": 2.16
+   },
+   {
+    "rail": [
+     22,
+     81,
+     28
+    ],
+    "card": [
+     14,
+     11,
+     7
+    ],
+    "railRatio": 2.08,
+    "tail": [
+     23,
+     81,
+     28
+    ],
+    "tailRatio": 2.07
+   }
+  ]
+ },
+ "spring1440x900": {
+  "field": 128,
+  "xAxisBottom": 729,
+  "fold": 527,
+  "fadeEnd": 40,
+  "fadeStart": 487,
+  "axisAboveFade": false,
+  "section": [
+   528,
+   729
+  ],
+  "sectionWholeOrBelowFold": true,
+  "presets": [
+   278,
+   417
+  ],
+  "presetsAboveFade": true,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     255,
+     640
+    ],
+    "label": [
+     268,
+     636,
+     321,
+     650
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     213,
+     660
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     255,
+     680
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     311,
+     626
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1280x760": {
+  "field": 128,
+  "xAxisBottom": 673,
+  "fold": 417,
+  "fadeEnd": 40,
+  "fadeStart": 377,
+  "axisAboveFade": false,
+  "section": [
+   474,
+   673
+  ],
+  "sectionWholeOrBelowFold": true,
+  "presets": [
+   251,
+   433
+  ],
+  "presetsAboveFade": false,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     241,
+     584
+    ],
+    "label": [
+     254,
+     581,
+     306,
+     595
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     202,
+     605
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     241,
+     624
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     293,
+     571
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1280x800": {
+  "field": 128,
+  "xAxisBottom": 693,
+  "fold": 432,
+  "fadeEnd": 40,
+  "fadeStart": 392,
+  "axisAboveFade": false,
+  "section": [
+   494,
+   693
+  ],
+  "sectionWholeOrBelowFold": true,
+  "presets": [
+   271,
+   453
+  ],
+  "presetsAboveFade": false,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     241,
+     604
+    ],
+    "label": [
+     254,
+     601,
+     306,
+     615
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     202,
+     625
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     241,
+     644
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     293,
+     591
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1024x700": {
+  "field": 128,
+  "xAxisBottom": 636,
+  "fold": 392,
+  "fadeEnd": 40,
+  "fadeStart": 352,
+  "axisAboveFade": false,
+  "section": [
+   439,
+   636
+  ],
+  "sectionWholeOrBelowFold": true,
+  "presets": [
+   221,
+   398
+  ],
+  "presetsAboveFade": false,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     198,
+     548
+    ],
+    "label": [
+     212,
+     544,
+     261,
+     558
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     161,
+     568
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     198,
+     588
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     248,
+     534
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1440x1080": {
+  "field": 128,
+  "xAxisBottom": 670,
+  "fold": 679,
+  "fadeEnd": 0,
+  "fadeStart": 679,
+  "axisAboveFade": true,
+  "section": [
+   469,
+   670
+  ],
+  "sectionWholeOrBelowFold": true,
+  "presets": [
+   288,
+   428
+  ],
+  "presetsAboveFade": true,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     255,
+     581
+    ],
+    "label": [
+     268,
+     577,
+     321,
+     591
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     213,
+     601
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     255,
+     620
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     311,
+     567
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1280x1080": {
+  "field": 128,
+  "xAxisBottom": 710,
+  "fold": 707,
+  "fadeEnd": 40,
+  "fadeStart": 667,
+  "axisAboveFade": false,
+  "section": [
+   511,
+   710
+  ],
+  "sectionWholeOrBelowFold": false,
+  "presets": [
+   287,
+   470
+  ],
+  "presetsAboveFade": true,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     241,
+     621
+    ],
+    "label": [
+     254,
+     617,
+     306,
+     631
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     202,
+     642
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     241,
+     661
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     293,
+     608
+    ],
+    "label": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,13 @@
+# SERVED MODEL: claude-opus-5-5 — X.W12.u3 ⟨python3 build-disposition-u3.py⟩ output (settled-byte count)
+rows 679 numbered 676 held 3
+NONE/UNDISPOSITIONED/UNRELAYED 0
+ 407  supplement
+  97  sha
+  82  O-row+supplement
+  64  O-row
+   9  O-row+sha
+   8  O-row+honest-RED/verdict
+   6  sha+supplement
+   5  honest-RED/verdict
+   1  O-row+honest-RED/verdict+sha
+by source {'receipt': 41, 'default': 276, 'u3': 50, 'u1': 190, 'u2': 122}

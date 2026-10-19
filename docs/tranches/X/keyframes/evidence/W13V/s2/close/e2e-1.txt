@@ -1,0 +1,115 @@
+run-demo-roster — 6 observation(s) · one shared chromium + one served dist snapshot
+
+──── smoke ────
+  ✓ entry chunk assets/index-BXwprNK5.js is substantial (332088 B > 50000 B floor)
+  ✓ entry's static import graph excludes vendor-monaco / vendor-three
+  ✓ CSS asset emitted (assets/index-CluQshBF.css)
+  ✓ critical-CSS <style data-critical> block inlined
+  ✓ main stylesheet deferred (media=print onload swap)
+  ✓ no loading-splash residue
+demo-smoke — inv γ (the demo cannot ship blank)
+  ✓ #app mounts with non-trivial children
+  ✓ home hero text renders
+  ✓ no vendor-monaco / vendor-three / worker request at first paint
+  ✓ zero console errors during mount
+  ✓ zero uncaught pageerror during mount
+  ✓ no literal '[object Object]' text node
+
+demo-smoke — PASS: the built demo paints (inv γ holds).
+
+──── occlusion ────
+occlusion observation — inv δ (no page occludes on any viewport) [controls: closed]
+  ○ controls-open axis skipped — set KF_CAPTURE_OPEN_PANEL=1 to run it (the open state is where docks genuinely occlude).
+  ✓ home/mobile/closed       subject 311×116 in-bounds, no overflow, no content occlusion
+  ✓ home/laptop/closed       subject 1203×373 in-bounds, no overflow, no content occlusion
+  ✓ home/desktop/closed      subject 1354×186 in-bounds, no overflow, no content occlusion
+  ✓ cube/mobile/closed       subject 188×188 in-bounds, no overflow, no content occlusion
+  ✓ cube/laptop/closed       subject 200×200 in-bounds, no overflow, no content occlusion
+  ✓ cube/desktop/closed      subject 225×225 in-bounds, no overflow, no content occlusion
+  ✓ amiga/mobile/closed      subject 375×464 in-bounds, no overflow, no content occlusion
+  ✓ amiga/laptop/closed      subject 781×558 in-bounds, no overflow, no content occlusion
+  ✓ amiga/desktop/closed     subject 878×646 in-bounds, no overflow, no content occlusion
+  ✓ square/mobile/closed     subject 113×113 in-bounds, no overflow, no content occlusion
+  ✓ square/laptop/closed     subject 192×192 in-bounds, no overflow, no content occlusion
+  ✓ square/desktop/closed    subject 192×192 in-bounds, no overflow, no content occlusion
+  ✓ easing/mobile/closed     subject 14×14 in-bounds, no overflow, no content occlusion
+  ✓ easing/laptop/closed     subject 48×48 in-bounds, no overflow, no content occlusion
+  ✓ easing/desktop/closed    subject 48×48 in-bounds, no overflow, no content occlusion
+  ✓ spring/mobile/closed     subject 277×48 in-bounds, no overflow, no content occlusion
+  ✓ spring/laptop/closed     subject 651×48 in-bounds, no overflow, no content occlusion
+  ✓ spring/desktop/closed    subject 748×48 in-bounds, no overflow, no content occlusion
+  ✓ sequence/mobile/closed   subject 327×349 in-bounds, no overflow, no content occlusion
+  ✓ sequence/laptop/closed   subject 704×355 in-bounds, no overflow, no content occlusion
+  ✓ sequence/desktop/closed  subject 704×361 in-bounds, no overflow, no content occlusion
+
+occlusion observation — PASS: every observed scene × viewport × controls-state is occlusion-free (controls: closed).
+
+──── usability ────
+usability observation — G.W11 live behavior + T.D10 per-char hero contract
+  ✓ route-reachability: all 7 scene id(s) resolve a declared non-redirecting route (amiga, cube, easing, home, sequence, spring, square)
+  ✓ (2d static) zero live `depth-text` references in editor-shell/ — the hero ink costume is dead (T.D10)
+  ✓ (2a) hero inter-word gap > 0 (min 44.3px across 1 same-line adjacent word pair(s) of 3 word wrappers — the LCP reads with spaces)
+  ✓ (2b) hero sr-only mirror spells the DECLARED title ("Select an animation", read from EditorStartScreen.vue)
+  ✓ (2b) hero sr-only a11y mirror spells the title with spaces ("Select an animation")
+  ✓ (2b) hero text-wrap: balance substrate intact (words own wrapping)
+  ✓ (2c) per-char split — 17 .wave-char spans == the 17 non-whitespace glyphs of the DECLARED title (VERDICT #3: each individual char uplifts)
+  ✓ (2c) per-char delays strictly monotone in global char order (first: 0, 0.08, 0.16, 0.24, 0.32s — one wave crossing the whole line)
+  ✓ (2c) every char span resolves a live animation-name (17/17)
+  ✓ (2d light) hero ink honest — weight 400, char color == resolved --foreground
+  ✓ (2d dark) hero ink honest — weight 400, char color == resolved --foreground
+  ✓ unique aria-label: no two simultaneously-rendered controls share an aria-label (editor scene)
+  ✓ no uncaught pageerror across the home + editor drive (PB-2)
+
+usability observation — PASS: the live behaviors hold (G.W11) and the hero rides the T.D10 per-char two-tier contract (X-5 gap + sr-mirror kept, monotone global-index wave, honest ink).
+
+──── subject-animates ────
+subject-animates observation — the subject-write seam
+  ✓ [raf] subject WRITES on the play click — 36 distinct computed values, settles at 200px (the rAF standalone path (_renderFrame → interpFrames(apply=true)))
+  ✓ [waapi] subject WRITES on the play click — 37 distinct computed values, settles at 200px (the WAAPI default path (compositor write + shadow loop))
+  ✓ [group] subject WRITES on the play click — 37 distinct computed values, settles at 200px (the AnimationGroup single-target composite (the demo cube/easing/spring shape))
+  ✓ [real-cube] the demo cube's REAL subject RECEIVES the engine write — from an established rest (autoplay paused; playhead held 34, nodes {"bob":1,"pose":1,"spin":1}) Play advanced the playhead 34 → 51.099999999998545 → 1325.7999999999993, aria flipped to "Pause animation", and the engine-written nodes traversed {"bob":40,"pose":1,"spin":40} distinct transforms. F4 closed: the gate drives the demo's nested transform owners, not only the synthetic <div>.
+
+subject-animates observation — PASS: every play path (rAF / WAAPI / group composite) WRITES the interpolated frame to its subject — the subject's computed style traverses the animation, not just the playhead — AND the REAL demo cube on the built dist/gh-pages/ receives the engine write (the group composite's interpFrames(apply=true) playhead advances on the real subject, not only the synthetic <div> — K.W0 S6 clause d, F4 closed). The seam the J.W6 S1 sync conversion refactored is guarded, end to end.
+
+──── live-session ────
+live-session observation — ONE interaction-driven session over the BUILT dist: PLAY + SWITCH + DRAG with a single accumulated ERROR BUDGET = 0 + the product-facing DOM
+  · B2 dev-server leg skipped (KF_DEV_SERVER unset); the built-dist visibility transition passed above.
+  ✓ ERROR BUDGET = 0 across the WHOLE battery (PLAY + SWITCH + DRAG, both modes): ZERO HARD charges (pageerror / unhandledrejection / console.error / "......" parse fingerprint / _gen) AND ZERO PROMOTED charges (amiga WebGL ReadPixels/GPU-stall · non-Monaco content-visibility). The budget is the COMPLEMENT of the named-benign EXCLUDED set (no narrowed-regex escape hatch) — S2a.
+  ✓ B1 COLD hero play STARTS the engine (aria flips Play→Pause + slider advances from "0"; idle bob excluded) — PASS · {"aria":"Play→Pause","slider":"null→7.7999999999999545","ariaIsPause":true,"sliderAdvanced":true,"wrapperDistinctGated":1,"pass":true}
+  ✓ B2 synthetic visibilitychange on a playing scene raises NO _gen throw — PASS · {"genThrows":0,"switchNote":"dock-Select clicked \"Cube\" (of 7 options, trusted)","pass":true,"replayClean":true}
+  ✓ B4 switch-into-easing mounts the EasingPicker + a handle-drag mutates — PASS · {"present":true,"mountedActive":true,"handleCount":2,"dMutated":true,"pass":true}
+  ✓ B3 amiga centre-drag moves the SUBJECT not the room — PASS · {"mad":{"centreMAD":9.734445843828716,"peripheryMAD":0.4730640978140052},"pass":true}
+  ✓ B6 /square drag selects NO text + the transform PERSISTS — PASS · {"selectedChars":0,"bodyDragging":true,"userSelectSuppressed":true,"persisted":true,"pass":true}
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":100,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s(op=0.16)","sprin
+  ✓ B9 every scene glyph PAINTS — PASS · {"scenesGlyphPainted":7,"total":7,"glyphFailures":[],"pass":true}
+  ✓ font register — the body font IS Plus Jakarta Sans (T.D3/OD-6) — PASS · {"body":"\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback","jakarta":true,"pass":true}
+  ✓ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — PASS · {"roster":7,"visited":8,"sceneFails":[],"pass":true}
+  ✓ S2 the engine's respectReducedMotion path SNAPS live under PRM (dots rest · sheet one-emit) — PASS · {"prmMatches":true,"controlChurn":[33,32,31],"prmChurn":[1,1,1],"sheetTrail":null,"sheetLeg":"Glass-owned Drawer spring; trail recorded only","pass":true}
+  ✓ S4 keyboard operability — Tab reaches play · focus-visible ring · Enter + global Space actuate — PASS · {"reachedAt":15,"sawTransport":true,"focusRing":{"matchesFV":true,"ringPainted":true},"enterToggled":true,"enterLive":154,"spaceToggled":true,"pass":true}
+
+live-session observation — FAIL (2): the human battery (PLAY + SWITCH + DRAG) blew the ERROR BUDGET (S2a) or a product-facing DOM assertion failed.
+
+──── live-session-mobile ────
+live-session-mobile observation — a REAL 390×844 + hasTouch context: sheet open/scroll/close/RE-OPEN + dock switch + touch-drag + play, every gesture a TOUCH gesture, ERROR BUDGET = 0 + an honest Glass Drawer/menubar overlap measurement
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  · UPSTREAM GLASS 5 OVERLAP (sheet OPEN): sheet.bottom 887 > menubar.top 716; the Drawer covers the menubar by 171px. This measured defect is queued to Glass 6; no clearance claim is made.
+  ✗ M1 sheet SCROLL: the touch swipe moved NOTHING (scrollTop=0; 706px content in a 61px body) — below-fold controls are touch-unreachable
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.12)
+  · UPSTREAM GLASS 5 OVERLAP (sheet CLOSED (peek)): sheet.bottom 887 > menubar.top 716; the Drawer covers the menubar by 171px. This measured defect is queued to Glass 6; no clearance claim is made.
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.12, overflow-y=hidden) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "Curve" PROJECTS — the T.B2-derived triad's tell, the #25 asymmetry cure)
+  ✓ M3 touch-drag: the /square touch drag COMPLETED — transform persists (matrix(1.0938, 0, 0, 1.0938, -70, 50)…) and getSelection() is empty (no touch-drag text selection)
+  · M4 play: the group-play button is behind the ADOPTED Drawer (bottom:0, z-modal 140) on 390×844 — UPSTREAM GLASS 5 OVERLAP queued to Glass 6; no touch-reachability claim is made here.
+  ✓ ERROR BUDGET = 0 across the mobile battery (sheet + dock + drag + play, all touch): zero HARD + zero PROMOTED charges (the lib-sourced live-session allowlist, by reference)
+  · Keyframes-owned mobile interaction observations completed; the Glass 5 Drawer/menubar overlap was reported separately above. Appearance observations run next.
+  ✓ A1 appearance — 390×844 hero/subject print-over contract holds: hero h1 (y 150–267) vs cube (y 312–524), overlap=0px² (disjoint)
+  ✓ A2 appearance — DARK --ball-tone/accent legible: the .dark token surface is LIVE (html.dark, backdrop rgb(11, 10, 9)), --ball-tone resolves the OD-6 accent (oklch(74% .13 305)); the violet tile ball (oklch(0.74 0.13 305)) contrasts 8.19 and the selected tile's accent name (oklch(0.74 0.13 305)) contrasts 8.19 — both ≥ the 3 legibility floor
+  ✓ A3 appearance — ghost rail ABSENT on the home sweep: home (railless, wrapper null×null) + sequence (paned, wrapper null×null, the full-width bottom sheet) carry NO hollow rail-width side column (XH-1)
+
+live-session-mobile observation — FAIL (3): the 390×844 + hasTouch session found a Keyframes-owned touch, interaction, error-budget, or appearance defect.
+
+════ run-demo-roster — REPORT ════
+  passed: 4/6
+  ✗ failed: live-session, live-session-mobile
+EXIT 1

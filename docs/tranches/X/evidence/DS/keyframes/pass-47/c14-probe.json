@@ -1,0 +1,325 @@
+{
+  "cells": {
+    "easing-1440-light": [
+      {
+        "family": "Standard",
+        "n": 5,
+        "cols": 3,
+        "rows": [
+          3,
+          2
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Sine",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Quad",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Cubic",
+        "n": 4,
+        "cols": 3,
+        "rows": [
+          3,
+          1
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Expo",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Circ",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Back",
+        "n": 4,
+        "cols": 3,
+        "rows": [
+          3,
+          1
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Steps",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      }
+    ],
+    "easing-390-light": [
+      {
+        "family": "Standard",
+        "n": 5,
+        "cols": 2,
+        "rows": [
+          2,
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Sine",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Quad",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Cubic",
+        "n": 4,
+        "cols": 2,
+        "rows": [
+          2,
+          2
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Expo",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Circ",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Back",
+        "n": 4,
+        "cols": 2,
+        "rows": [
+          2,
+          2
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Steps",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      }
+    ],
+    "easing-1440-dark": [
+      {
+        "family": "Standard",
+        "n": 5,
+        "cols": 3,
+        "rows": [
+          3,
+          2
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Sine",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Quad",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Cubic",
+        "n": 4,
+        "cols": 3,
+        "rows": [
+          3,
+          1
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Expo",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Circ",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Back",
+        "n": 4,
+        "cols": 3,
+        "rows": [
+          3,
+          1
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      },
+      {
+        "family": "Steps",
+        "n": 3,
+        "cols": 3,
+        "rows": [
+          3
+        ],
+        "track": "250.797px 250.797px 250.797px"
+      }
+    ],
+    "easing-390-dark": [
+      {
+        "family": "Standard",
+        "n": 5,
+        "cols": 2,
+        "rows": [
+          2,
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Sine",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Quad",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Cubic",
+        "n": 4,
+        "cols": 2,
+        "rows": [
+          2,
+          2
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Expo",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Circ",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Back",
+        "n": 4,
+        "cols": 2,
+        "rows": [
+          2,
+          2
+        ],
+        "track": "140px 140px"
+      },
+      {
+        "family": "Steps",
+        "n": 3,
+        "cols": 2,
+        "rows": [
+          2,
+          1
+        ],
+        "track": "140px 140px"
+      }
+    ]
+  },
+  "fails": []
+}

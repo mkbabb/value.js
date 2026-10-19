@@ -1,0 +1,42 @@
+[guarded] waiting for headroom (load 46 > 36)
+(node:10307) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:10414) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (30.2s)
+
+
+  1) [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('option', { name: 'Mix', exact: true })
+        - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-251" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+
+
+       at smoke/fixtures/dock.ts:94
+
+      92 |     const option = page.getByRole("option", { name, exact: true });
+      93 |     await expect(option).toBeVisible();
+    > 94 |     await option.click();
+         |                  ^
+      95 | }
+      96 |
+      97 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:94:18)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:134:9
+
+    Error Context: test-results/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 

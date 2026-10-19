@@ -1,0 +1,777 @@
+{
+  "kf": {
+    "sha": "60477b06",
+    "dirty": 2
+  },
+  "glass": {
+    "sha": "fe5df357",
+    "dirty": 2
+  },
+  "when": "2026-09-23T17:11:55.292Z",
+  "runs": [
+    {
+      "tag": "390-light",
+      "steps": [
+        {
+          "frame": "11-peek-occlusion-390-light.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              },
+              {
+                "i": 13,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              },
+              {
+                "i": 14,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              },
+              {
+                "i": 15,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 1066,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 1066,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "12-drawer-drag-to-top-390-light.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              },
+              {
+                "i": 13,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+              },
+              {
+                "i": 14,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "DIV.dock-plate []"
+              },
+              {
+                "i": 15,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 881,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 881,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "13-drawer-keys-full-390-light.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              },
+              {
+                "i": 13,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+              },
+              {
+                "i": 14,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "DIV.dock-plate []"
+              },
+              {
+                "i": 15,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 881,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 881,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "14-ribbon-scrolled-390-light.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              },
+              {
+                "i": 13,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+              },
+              {
+                "i": 14,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "DIV.dock-plate []"
+              },
+              {
+                "i": 15,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 881,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 881,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "16-ribbon-focus-visible-390-light.png"
+        }
+      ],
+      "peek": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          },
+          {
+            "i": 13,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          },
+          {
+            "i": 14,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          },
+          {
+            "i": 15,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 1066,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 1066,
+            "visible": false
+          }
+        ]
+      },
+      "afterDrag": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          },
+          {
+            "i": 13,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+          },
+          {
+            "i": 14,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "DIV.dock-plate []"
+          },
+          {
+            "i": 15,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 881,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 881,
+            "visible": false
+          }
+        ]
+      },
+      "afterKeys": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          },
+          {
+            "i": 13,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+          },
+          {
+            "i": 14,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "DIV.dock-plate []"
+          },
+          {
+            "i": 15,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 881,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 881,
+            "visible": false
+          }
+        ]
+      },
+      "afterScroll": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          },
+          {
+            "i": 13,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+          },
+          {
+            "i": 14,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "DIV.dock-plate []"
+          },
+          {
+            "i": 15,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 881,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 881,
+            "visible": false
+          }
+        ]
+      },
+      "toggleErr": "TimeoutError: locator.click: Timeout 5000ms exceeded.",
+      "errs": []
+    },
+    {
+      "tag": "390-dark",
+      "steps": [
+        {
+          "frame": "11-peek-occlusion-390-dark.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              },
+              {
+                "i": 13,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              },
+              {
+                "i": 14,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              },
+              {
+                "i": 15,
+                "y": 954,
+                "inView": false,
+                "hitIsInput": false,
+                "hit": null
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 1066,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 1066,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "12-drawer-drag-to-top-390-dark.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              },
+              {
+                "i": 13,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+              },
+              {
+                "i": 14,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "DIV.dock-plate []"
+              },
+              {
+                "i": 15,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 881,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 881,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "13-drawer-keys-full-390-dark.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              },
+              {
+                "i": 13,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+              },
+              {
+                "i": 14,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "DIV.dock-plate []"
+              },
+              {
+                "i": 15,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 881,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 881,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "14-ribbon-scrolled-390-dark.png",
+          "hit": {
+            "vh": 844,
+            "cells": [
+              {
+                "i": 12,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              },
+              {
+                "i": 13,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+              },
+              {
+                "i": 14,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": false,
+                "hit": "DIV.dock-plate []"
+              },
+              {
+                "i": 15,
+                "y": 769,
+                "inView": true,
+                "hitIsInput": true,
+                "hit": "INPUT.field-control glass-defined text-small absolute to []"
+              }
+            ],
+            "ribbon": [
+              {
+                "t": "Reset",
+                "y": 881,
+                "visible": false
+              },
+              {
+                "t": "Free",
+                "y": 881,
+                "visible": false
+              }
+            ]
+          }
+        },
+        {
+          "frame": "16-ribbon-focus-visible-390-dark.png"
+        }
+      ],
+      "peek": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          },
+          {
+            "i": 13,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          },
+          {
+            "i": 14,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          },
+          {
+            "i": 15,
+            "y": 954,
+            "inView": false,
+            "hitIsInput": false,
+            "hit": null
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 1066,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 1066,
+            "visible": false
+          }
+        ]
+      },
+      "afterDrag": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          },
+          {
+            "i": 13,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+          },
+          {
+            "i": 14,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "DIV.dock-plate []"
+          },
+          {
+            "i": 15,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 881,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 881,
+            "visible": false
+          }
+        ]
+      },
+      "afterKeys": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          },
+          {
+            "i": 13,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+          },
+          {
+            "i": 14,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "DIV.dock-plate []"
+          },
+          {
+            "i": 15,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 881,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 881,
+            "visible": false
+          }
+        ]
+      },
+      "afterScroll": {
+        "vh": 844,
+        "cells": [
+          {
+            "i": 12,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          },
+          {
+            "i": 13,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "BUTTON.button tap-squish focus-ring scale-on-hover text-w [Pause animation]"
+          },
+          {
+            "i": 14,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": false,
+            "hit": "DIV.dock-plate []"
+          },
+          {
+            "i": 15,
+            "y": 769,
+            "inView": true,
+            "hitIsInput": true,
+            "hit": "INPUT.field-control glass-defined text-small absolute to []"
+          }
+        ],
+        "ribbon": [
+          {
+            "t": "Reset",
+            "y": 881,
+            "visible": false
+          },
+          {
+            "t": "Free",
+            "y": 881,
+            "visible": false
+          }
+        ]
+      },
+      "toggleErr": "TimeoutError: locator.click: Timeout 5000ms exceeded.",
+      "errs": []
+    }
+  ]
+}

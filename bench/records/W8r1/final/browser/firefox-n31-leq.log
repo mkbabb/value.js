@@ -1,0 +1,8 @@
+firefox r0a0 parseStylesheet        large-eq n=4 k=4 S=2 product x0.209 (29/31<1) spread 10.156 SET-ASIDE
+firefox r1a0 parseStylesheet        large-eq n=4 k=4 S=2 product x0.33 (27/31<1) spread 29.076 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|large-eq|parseStylesheet         RED x0.209(SA) x0.33(SA)
+16:32  up 3 days, 21:35, 3 users, load averages: 148.03 189.56 242.12 
+ 16:36  up 3 days, 21:38, 3 users, load averages: 583.53 329.79 286.89 → bench/records/2026-09-24-x-p-w7-browser-w8r1f-firefox-n31-leq.json
+DONE w8r1f-firefox-n31-leq

@@ -1,0 +1,1075 @@
+{
+ "meta": {
+  "khead": "d78bed01",
+  "kdirty": 3,
+  "startedAt": "2026-09-23T14:48:18.839Z",
+  "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "url": "http://localhost:5173/#/"
+ },
+ "logs": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "rest": {
+  "chain": [
+   {
+    "cls": "cube preserve-3d animation relative flex items-center justify-center justify-items-center",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "cube-pose preserve-3d",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "cube-bob preserve-3d",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "idle-hover preserve-3d",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "preserve-3d relative flex items-center justify-center justify-items-center select-none",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "graph preserve-3d grid items-center justify-center justify-items-center",
+    "transform": "matrix3d(0.933013, -0.0669873, -0.353553, 0, -0.0669873, 0.933013, -0.353553, 0, 0.353553, 0.353553, 0.866025, 0, 0, 0, 0, 1)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "1200px",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "relative grid h-full w-full max-w-full items-center justify-center justify-items-center ov",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     608,
+     127,
+     225,
+     646
+    ]
+   },
+   {
+    "cls": "grid h-full w-full max-w-full items-center justify-center justify-items-center overflow-vi",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     43,
+     127,
+     1354,
+     646
+    ]
+   },
+   {
+    "cls": "scene-host h-full w-full",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     43,
+     127,
+     1354,
+     646
+    ]
+   },
+   {
+    "cls": "stage-cell justify-self-stretch self-center min-h-0 h-full overflow-visible overscroll-con",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     43,
+     54,
+     1354,
+     792
+    ]
+   },
+   {
+    "cls": "controls-layout justify-items-stretch items-start relative controls-layout--open controls-",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     43,
+     54,
+     1354,
+     792
+    ]
+   },
+   {
+    "cls": "grid place-items-center place-self-stretch",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     0,
+     0,
+     1440,
+     900
+    ]
+   },
+   {
+    "cls": "editor-shell relative grid h-dvh max-h-dvh w-dvw overflow-hidden place-items-center bg-bac",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "hidden",
+    "anim": "none",
+    "rect": [
+     0,
+     0,
+     1440,
+     900
+    ]
+   },
+   {
+    "cls": "",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     0,
+     0,
+     1440,
+     900
+    ]
+   }
+  ],
+  "faces": [
+   {
+    "cls": "cube-side front rounded-lg transition-[background-color,opacity] duration-panel ease-in-ou",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 112.5, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     640,
+     370,
+     248,
+     248
+    ]
+   },
+   {
+    "cls": "cube-side right rounded-lg transition-[background-color,opacity] duration-panel ease-in-ou",
+    "transform": "matrix3d(0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 112.5, 0, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     773,
+     311,
+     115,
+     291
+    ]
+   },
+   {
+    "cls": "cube-side back rounded-lg transition-[background-color,opacity] duration-panel ease-in-out",
+    "transform": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, -112.5, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     581,
+     311,
+     206,
+     206
+    ]
+   },
+   {
+    "cls": "cube-side left rounded-lg transition-[background-color,opacity] duration-panel ease-in-out",
+    "transform": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -112.5, 0, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     581,
+     325,
+     76,
+     293
+    ]
+   },
+   {
+    "cls": "cube-side top rounded-lg transition-[background-color,opacity] duration-panel ease-in-out ",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, -112.5, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     595,
+     311,
+     293,
+     76
+    ]
+   },
+   {
+    "cls": "cube-side bottom rounded-lg transition-[background-color,opacity] duration-panel ease-in-o",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 112.5, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     581,
+     503,
+     291,
+     115
+    ]
+   }
+  ],
+  "anims": [
+   {
+    "id": "",
+    "name": "CSSTransition",
+    "target": "aurora-canvas-layer h-full min-h-0 w-full aurora-canvas-laye",
+    "state": "running",
+    "ct": 0
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "charLift-654d03de",
+    "target": "wave-char",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "Animation",
+    "target": "typing-dot",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "Animation",
+    "target": "typing-dot",
+    "state": "running",
+    "ct": 6949.966999995661
+   },
+   {
+    "id": "",
+    "name": "Animation",
+    "target": "typing-dot",
+    "state": "running",
+    "ct": 6949.966999995661
+   }
+  ],
+  "hash": "#/",
+  "transportLabel": [
+   {
+    "label": "Play animation",
+    "disabled": false,
+    "vis": true
+   },
+   {
+    "label": "Play animation",
+    "disabled": false,
+    "vis": true
+   }
+  ],
+  "hero": [
+   {
+    "text": "Select an animationSelectananimation...",
+    "z": "auto",
+    "rect": [
+     43,
+     398,
+     1354,
+     186
+    ]
+   }
+  ]
+ },
+ "restRaf": {
+  "n": 178,
+  "dropped": 2,
+  "max": "50.0",
+  "mean": "16.86"
+ },
+ "playVisible": true,
+ "pauseVisible": true,
+ "play2Visible": true,
+ "playing": {
+  "chain": [
+   {
+    "cls": "cube preserve-3d animation relative flex items-center justify-center justify-items-center",
+    "transform": "matrix3d(0.0790017, -0.528609, 0.845181, 0, 0.269741, -0.804868, -0.528609, 0, 0.959687, 0.269741, 0.0790017, 0, 0, 0, 0, 1)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     900,
+     320,
+     119,
+     260
+    ]
+   },
+   {
+    "cls": "cube-pose preserve-3d",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     845,
+     342,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "cube-bob preserve-3d",
+    "transform": "matrix(1, 0, 0, 1, 0, 4.37186)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     845,
+     342,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "idle-hover preserve-3d",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     845,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "preserve-3d relative flex items-center justify-center justify-items-center select-none",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     845,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "graph preserve-3d grid items-center justify-center justify-items-center",
+    "transform": "matrix3d(0.933013, -0.0669873, -0.353553, 0, -0.0669873, 0.933013, -0.353553, 0, 0.353553, 0.353553, 0.866025, 0, 0, 0, 0, 1)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "preserve-3d",
+    "persp": "1200px",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     845,
+     338,
+     225,
+     225
+    ]
+   },
+   {
+    "cls": "relative grid h-full w-full max-w-full items-center justify-center justify-items-center ov",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     845,
+     127,
+     225,
+     646
+    ]
+   },
+   {
+    "cls": "grid h-full w-full max-w-full items-center justify-center justify-items-center overflow-vi",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     518,
+     127,
+     878,
+     646
+    ]
+   },
+   {
+    "cls": "scene-host h-full w-full",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     518,
+     127,
+     878,
+     646
+    ]
+   },
+   {
+    "cls": "stage-cell justify-self-stretch self-center min-h-0 h-full overflow-visible overscroll-con",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     518,
+     54,
+     878,
+     792
+    ]
+   },
+   {
+    "cls": "controls-layout justify-items-stretch items-start relative controls-layout--open",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     43,
+     54,
+     1354,
+     792
+    ]
+   },
+   {
+    "cls": "grid place-items-center place-self-stretch",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     0,
+     0,
+     1440,
+     900
+    ]
+   },
+   {
+    "cls": "editor-shell relative grid h-dvh max-h-dvh w-dvw overflow-hidden place-items-center bg-bac",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "relative",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "hidden",
+    "anim": "none",
+    "rect": [
+     0,
+     0,
+     1440,
+     900
+    ]
+   },
+   {
+    "cls": "",
+    "transform": "none",
+    "opacity": "1",
+    "z": "auto",
+    "pos": "static",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     0,
+     0,
+     1440,
+     900
+    ]
+   }
+  ],
+  "faces": [
+   {
+    "cls": "cube-side front rounded-lg transition-[background-color,opacity] duration-panel ease-in-ou",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 112.5, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     999,
+     344,
+     126,
+     260
+    ]
+   },
+   {
+    "cls": "cube-side right rounded-lg transition-[background-color,opacity] duration-panel ease-in-ou",
+    "transform": "matrix3d(0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 112.5, 0, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     878,
+     296,
+     246,
+     285
+    ]
+   },
+   {
+    "cls": "cube-side back rounded-lg transition-[background-color,opacity] duration-panel ease-in-out",
+    "transform": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, -112.5, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     802,
+     296,
+     112,
+     259
+    ]
+   },
+   {
+    "cls": "cube-side left rounded-lg transition-[background-color,opacity] duration-panel ease-in-out",
+    "transform": "matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -112.5, 0, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     802,
+     357,
+     217,
+     247
+    ]
+   },
+   {
+    "cls": "cube-side top rounded-lg transition-[background-color,opacity] duration-panel ease-in-out ",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, -112.5, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     802,
+     524,
+     311,
+     81
+    ]
+   },
+   {
+    "cls": "cube-side bottom rounded-lg transition-[background-color,opacity] duration-panel ease-in-o",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 112.5, 0, 1)",
+    "opacity": "1",
+    "z": "10",
+    "pos": "absolute",
+    "blend": "normal",
+    "filter": "none",
+    "backdrop": "none",
+    "tstyle": "flat",
+    "persp": "none",
+    "willChange": "auto",
+    "overflow": "visible",
+    "anim": "none",
+    "rect": [
+     839,
+     296,
+     286,
+     103
+    ]
+   }
+  ],
+  "anims": [],
+  "hash": "#/cube",
+  "transportLabel": [
+   {
+    "label": "Pause animation",
+    "disabled": false,
+    "vis": true
+   },
+   {
+    "label": "Pause animation",
+    "disabled": false,
+    "vis": true
+   }
+  ],
+  "hero": []
+ },
+ "playRaf": {
+  "n": 181,
+  "dropped": 0,
+  "max": "17.7",
+  "mean": "16.59"
+ },
+ "timeline": {
+  "sliders": 1,
+  "caret": false
+ },
+ "nFrames": 394,
+ "khead_end": "d78bed01",
+ "kdirty_end": 3
+}

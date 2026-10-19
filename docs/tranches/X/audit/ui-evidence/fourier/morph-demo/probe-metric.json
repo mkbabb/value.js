@@ -1,0 +1,94 @@
+{
+ "d": [
+  [
+   [
+    "metric__label",
+    "n",
+    "14.5411px",
+    "550",
+    "\"Computer Modern",
+    "normal",
+    "uppercase",
+    "0.363528px"
+   ],
+   [
+    "metric__value",
+    "50",
+    "16.4px",
+    "650",
+    "\"Fira Code\", \"Fi",
+    "normal",
+    "none",
+    "-0.41px"
+   ]
+  ],
+  [
+   [
+    "metric__label",
+    "shape",
+    "14.5411px",
+    "550",
+    "\"Computer Modern",
+    "normal",
+    "uppercase",
+    "0.363528px"
+   ],
+   [
+    "metric__value",
+    "Sun",
+    "16.4px",
+    "650",
+    "\"Fira Code\", \"Fi",
+    "normal",
+    "none",
+    "-0.41px"
+   ]
+  ]
+ ],
+ "m": [
+  [
+   [
+    "metric__label",
+    "n",
+    "18.6197px",
+    "550",
+    "\"Computer Modern",
+    "normal",
+    "uppercase",
+    "0.465493px"
+   ],
+   [
+    "metric__value",
+    "50",
+    "14px",
+    "650",
+    "\"Fira Code\", \"Fi",
+    "normal",
+    "none",
+    "-0.35px"
+   ]
+  ],
+  [
+   [
+    "metric__label",
+    "shape",
+    "18.6197px",
+    "550",
+    "\"Computer Modern",
+    "normal",
+    "uppercase",
+    "0.465493px"
+   ],
+   [
+    "metric__value",
+    "Sun",
+    "14px",
+    "650",
+    "\"Fira Code\", \"Fi",
+    "normal",
+    "none",
+    "-0.35px"
+   ]
+  ]
+ ]
+}

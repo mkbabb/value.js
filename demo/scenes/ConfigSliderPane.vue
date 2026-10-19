@@ -6,21 +6,21 @@
 // HARDEN-4 §5.1: glass-ui already ships `./configurator` with ConfiguratorRow
 // + useConfiguratorState. This component uses ConfiguratorRow for each labeled
 // row so the demo composes the existing glass-ui surface rather than rebuilding
-// the row primitive. The section-group wrapper and the floating copy/reset dock
+// the row primitive. The section-group wrapper and the copy/reset footer row
 // remain demo-local (they are thin structural shells, not the row primitive).
 //
 // Both AuroraPane and BlobPane pass their full SECTIONS arrays. AuroraPane
 // (rebuilt at N.W5.B) additionally drives the default slot with its enum-atom
 // Select rows (harmony / arrangement / medium / motion) above the sliders.
 
-import { Button } from "../ui/button";
-import { Card } from "../ui/card";
-import { Slider } from "../ui/slider";
-import { Copy, RotateCcw } from "@lucide/vue";
-import { GlassDock } from "@mkbabb/glass-ui/dock";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Slider } from "@mkbabb/glass-ui/slider";
+import { Check, Copy, RotateCcw } from "@lucide/vue";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
-import PaneHeader from "../shared/ui/PaneHeader.vue";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import PaneShell from "../shell/PaneShell.vue";
+import { useClipboard } from "@mkbabb/glass-ui/dom";
+import { onBeforeUnmount, ref, useTemplateRef } from "vue";
+import { useResizeObserver } from "@vueuse/core";
 
 /** A single slider definition inside a section. `key` may be a dot-path
  *  (e.g. `geometry.bodyRadius`) addressing a nested config atom. */
@@ -81,34 +81,91 @@ function update(key: string, value: number) {
     writePath(config, key, value);
 }
 
-function fmt(v: number): string {
-    return Number.isInteger(v) ? String(v) : v.toFixed(3);
+/** X.W12.u2 (UIA-V-158, the readout half): a knob reads at its own step's
+ *  fixed precision — integers for integer steps (Zones), never a format that
+ *  flips between "0.760" and "1" as the value crosses an integer. */
+function fmt(v: number, step: number): string {
+    const decimals = Number.isInteger(step) ? 0 : (String(step).split(".")[1]?.length ?? 0);
+    return v.toFixed(decimals);
 }
 
+// X.W12.u2 (UIA-V-391, the copy half): the copy confirms itself on glass's
+// scope-owned clipboard status — the label swaps to "Copied" for a beat.
+const { status: jsonCopyStatus, copy } = useClipboard({ resetMs: 1400 });
 async function copyAsJson() {
-    await writeClipboard(JSON.stringify(config, null, 2));
+    await copy(JSON.stringify(config, null, 2));
 }
 
 function resetDefaults() {
     Object.assign(config, structuredClone(defaults));
 }
+
+/* X-DS pass 5 (VP5-01): THE FOLD LANDS ON A ROW BOUNDARY. The port follows
+ * the picker's row (V4C-04), so its height has no tie to this population's
+ * row rhythm: at rest it ended 19px into "Warp", whose label and value sat as
+ * a half-height ghost on the footer seam while the well's hairlines ran on
+ * into the footer rule. The footer takes the remainder as its top margin, so
+ * the port ends exactly where the first row (or section head) that does not
+ * fit begins: no glyph of it shows, glass's feather dims only the last whole
+ * row, and the well dissolves above a quiet band of plate before the rule.
+ * When everything fits (Atmosphere, a phone's one-track column) the trim is
+ * 0. The trim is read back into `avail`, so it settles in one pass. */
+const body = useTemplateRef<HTMLElement>("body");
+const foldTrim = ref(0);
+function snapFold() {
+    const el = body.value;
+    const port = el?.parentElement;
+    if (!el || !port) return;
+    const avail = port.clientHeight + foldTrim.value;
+    let trim = 0;
+    if (port.scrollHeight > avail + 0.5) {
+        const top = port.getBoundingClientRect().top - port.scrollTop;
+        let end = 0;
+        // V12C-02 (X-DS value pass 12): a head keeps its first row. The row
+        // right after a head is no fold candidate, so the fold lands on the
+        // head's top and the head scrolls in with its rows, never orphaned.
+        for (const r of el.querySelectorAll(
+            ".configurator-row:not(.config-section-title + *), .config-section-title",
+        )) {
+            const at = r.getBoundingClientRect().top - top;
+            if (at <= avail) end = Math.max(end, at);
+        }
+        if (end > 0) trim = Math.floor(avail - end);
+    }
+    if (trim !== foldTrim.value) foldTrim.value = trim;
+}
+// The write lands on the next frame: resizing the observed port inside its
+// own observer callback is a ResizeObserver loop (a window error).
+let snapFrame = 0;
+useResizeObserver(
+    () => [body.value, body.value?.parentElement],
+    () => {
+        cancelAnimationFrame(snapFrame);
+        snapFrame = requestAnimationFrame(snapFold);
+    },
+);
+onBeforeUnmount(() => cancelAnimationFrame(snapFrame));
 </script>
 
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
-        <Card
-            tier="resting"
-            class="w-full min-w-0 h-full relative flex flex-col overflow-hidden"
-        >
-            <!-- The scroll region owns the fade mask + overflow; the action bar
-                 below sits OUTSIDE it (flex-none footer) so it can never occlude
-                 a slider or readout (W6-6). -->
-            <div class="pane-scroll-fade scrollbar-thin flex-1 min-w-0 overflow-y-auto overflow-x-hidden">
-                <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
-
-                <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
-                <slot />
-
+    <PaneShell
+        seated
+        follow
+        :gutter="false"
+        :title="title"
+        v-bind="description !== undefined ? { description } : {}"
+    >
+            <!-- X-DS pass 4 (V4C-04): About's contract. The pane follows the row
+                 (`pane-row-follow`, the shell's companion contract), its header
+                 is SEATED above the scroll port, the sections scroll inside
+                 glass's FadingScroll port, and the action bar is a flex-none
+                 footer below the port. Blob's 34 scalars stretched the card to
+                 2311 px with its footer 1460 px below the fold; now the card
+                 ends with the row and the footer stays on screen. The action
+                 bar still sits OUTSIDE the scroll region so it can never
+                 occlude a slider or readout (W6-6). -->
+            <!-- A2-VA-L1-1: the one pane shell, seated, following the row,
+                 with the action bar in its footer seat. -->
                 <!-- T.W4-4 THE POPULATION CLAUSE (M-34): the console grammar
                      extends to the app's SECOND slider population — the
                      sections seat in the SAME rung-2 well (.console-well,
@@ -116,18 +173,27 @@ function resetDefaults() {
                      certified ink, rows carry the touch rung <lg. O-18's
                      config-slider rows judge this surface. -->
                 <div
-                    v-if="sections.length > 0"
-                    class="px-4 sm:px-6 pt-2 pb-6"
+                    v-if="sections.length > 0 || $slots.default"
+                    ref="body"
+                    class="px-4 sm:px-6 pb-6"
                 >
                     <div class="config-console console-well flex flex-col gap-5">
+                    <!-- Default slot for extra controls (e.g. AuroraPane's select
+                         rows). X-DS pass 6 (V6C-09): they seat INSIDE the one
+                         console well, ahead of the sections, so a pane is one
+                         plate with the section heads as its in-well sub-heads
+                         (Blob's grammar) — never two stacked wells, one headless. -->
+                    <slot />
                     <div
                         v-for="section in sections"
                         :key="section.title"
                         class="flex flex-col gap-1.5"
                     >
-                        <div class="config-section-header">
-                            <span class="config-section-title">{{ section.title }}</span>
-                        </div>
+                        <!-- X-DS pass 5 (V5C-08): a section is a head followed
+                             by its rows (Gradient's grammar). The well groups
+                             the rows (M-34); the under-head rule that grouped
+                             them a second time is gone. -->
+                        <h3 class="config-section-title font-display text-subheading">{{ section.title }}</h3>
 
                         <!-- ONE label per row (ConfiguratorRow's `label`), with the
                              live readout paired to it via the row's `name` slot — the
@@ -138,12 +204,23 @@ function resetDefaults() {
                             v-for="def in section.defs"
                             :key="def.key"
                             :label="def.label"
-                            :name="fmt(read(def.key))"
-                            class="gap-1.5 py-1"
+                            :name="fmt(read(def.key), def.step)"
+                            class="gap-1 py-1"
                         >
+                            <!-- X-DS value pass 9 (V9C-02): `gap-1`, the Tools
+                                 rows' label-to-band gap, so a console row and a
+                                 workbench row share the scalar row's one rhythm
+                                 (the band itself is the `sm` rung's). -->
+                            <!-- X-DS pass 1 (V1-05): glass's `sm` rung — a
+                                 track with no colour data is a rail, not a
+                                 24px slab. V1C-06: and glass's DEFAULT range
+                                 variant, not `spectrum` (the colour-track
+                                 variant has no fill): the filled length IS the
+                                 value, in the certified ink; the unfilled
+                                 track stays glass's quiet tone. -->
                             <Slider
                                 :aria-label="def.label"
-                                variant="spectrum"
+                                size="sm"
                                 :model-value="[read(def.key)]"
                                 :min="def.min"
                                 :max="def.max"
@@ -154,26 +231,31 @@ function resetDefaults() {
                     </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Action bar — a flex-none footer docked below the scroll region.
-                 Keeps the glass-pill affordance but out of the scroll-overlap
-                 path, so it no longer floats over the last rows (W6-6). Only
-                 shown when there are sliders. -->
-            <div v-if="sections.length > 0" class="config-action-bar">
-                <GlassDock :always-expanded="true" :fit-content="true">
-                    <Button variant="ghost" size="sm" @click="copyAsJson">
-                        <Copy class="w-3.5 h-3.5" />
-                        Copy JSON
-                    </Button>
-                    <Button variant="ghost" size="sm" @click="resetDefaults">
-                        <RotateCcw class="w-3.5 h-3.5" />
-                        Reset
-                    </Button>
-                </GlassDock>
+            <template #footer>
+            <!-- Action bar — a flex-none footer below the scroll region, so it
+                 can never occlude a slider (W6-6). X-DS pass 1 (V1-04): two
+                 plain commands seated behind the hairline, right-aligned. The
+                 floating GlassDock that used to wrap them is gone — a dock is
+                 floating chrome, and a pill of pills inside a card was three
+                 nested capsules for two commands. Only shown with sliders. -->
+            <div
+                v-if="sections.length > 0"
+                class="config-action-bar"
+                :style="foldTrim ? { marginBlockStart: `${foldTrim}px` } : undefined"
+            >
+                <Button size="sm" emphasis="quiet" @click="copyAsJson">
+                    <Check v-if="jsonCopyStatus === 'success'" class="w-3.5 h-3.5" />
+                    <Copy v-else class="w-3.5 h-3.5" />
+                    {{ jsonCopyStatus === "success" ? "Copied" : "Copy JSON" }}
+                </Button>
+                <Button size="sm" emphasis="quiet" @click="resetDefaults">
+                    <RotateCcw class="w-3.5 h-3.5" />
+                    Reset
+                </Button>
             </div>
-        </Card>
-    </div>
+            </template>
+    </PaneShell>
 </template>
 
 <style scoped>
@@ -187,21 +269,27 @@ function resetDefaults() {
  * (≥44px slider rows — the producer's own --dock-touch-target). */
 .config-console {
     padding: 0.75rem 0.875rem;
-    /* T.W8 boot-A (defect · A-class · the named O-18 blind spot on the SECOND
-     * slider population): the config sliders' spectrum TRACK computed
-     * `var(--secondary)` — ~1.09:1 light / 1.26:1 dark on the well, an
-     * invisible control extent (WCAG 1.4.11 wants ≥3:1), and the spectrum
-     * `.slider-range` is transparent by recipe so no filled/unfilled split
-     * reads either. The W6.5 GRAPHICS cure (T-44a) covered the EXTRACT tracks
-     * only. Here the config population re-inks its track via the SAME cure
-     * class (the eb7bb2c-era `--slider-track-bg` feed, no `ui/slider` edit):
-     * the certified de-emphasis rung `--ink-muted` (the D6 contract's stamped
-     * token — the exact material ExtractControls falls to when no live pick
-     * threads) is ≥3:1 on the well by construction. o18-contrast-census's new
-     * config GRAPHICS leg is this row's born-RED gate. */
-    --slider-track-bg: var(--ink-muted, var(--muted-foreground));
+    /* The certified graphics ink (O-18's config leg · WCAG 1.4.11): the RANGE
+     * — the value's extent — carries the ink. X-DS pass 1 (V1C-06): it was the
+     * whole TRACK inked on the spectrum variant (no fill). X-DS pass 2
+     * (V2C-06 / V2C-09): the range ink is now the app's ONE scalar range ink,
+     * set on glass's `--slider-range-bg` token in utils.css (THE SCALAR RANGE
+     * INK), so this pane sets nothing of its own. The unfilled track takes
+     * glass's own quiet default (`--muted-medium`) through no override. */
+}
+/* X-DS pass 2 (V2C-02) — THE ONE SCALAR ROW: the name left, the value right
+ * in mono tabular figures, the track below (Gradient's Direction row is the
+ * pattern; Extract and Generate take it too). glass's ConfiguratorRow sets
+ * the value beside the name, so on the console its name group takes the row
+ * and the value pushes to the end, at the same mono rung as the other rows. */
+.config-console :deep(.configurator-row > div:first-child > div:first-child) {
+    flex: 1 1 auto;
 }
 .config-console :deep(.configurator-row .font-mono) {
+    margin-inline-start: auto;
+    font-size: var(--type-small);
+    line-height: var(--type-leading-small);
+    font-variant-numeric: tabular-nums;
     color: var(--ink-muted, var(--muted-foreground));
 }
 
@@ -229,24 +317,23 @@ function resetDefaults() {
     }
 }
 
-.config-section-header {
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
-    padding-bottom: 0.375rem;
-}
-
-.config-section-title {
-    font-family: var(--font-mono);
-    font-size: var(--type-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-caps);
-    color: var(--muted-foreground);
+/* X-DS pass 1 (V1C-04): a config section is a section in the same sense as
+ * the gradient's "Stops" — it speaks the app's ONE section-head voice
+ * (Fraunces, sentence case, `font-display text-subheading` on the h3), never the
+ * mono uppercase tracked caps of an instrument panel (value-canon §2 Type). */
+/* X-DS pass 7 (V7C-03): a slotted section (Atmosphere's "Character") wears
+ * the same head. */
+.config-section-title,
+:slotted(.config-section-title) {
+    color: var(--foreground);
 }
 
 .config-action-bar {
     flex: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
     padding: 0.625rem 0.75rem;
-    border-top: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
+    border-top: 1px solid var(--color-seam);
 }
 </style>

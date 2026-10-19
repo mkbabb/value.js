@@ -1,0 +1,8 @@
+SERVED MODEL: claude-opus-5-5
+# mutant A (admin-tags record deleted; catch-all claims /admin/tags) — expect admin arms RED
+  1) [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 light › admin token mounts the Tags pane with its rows, never the catch-all 
+    Error: expect(locator).toBeVisible() failed
+  2) [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 dark › admin token mounts the Tags pane with its rows, never the catch-all 
+    Error: expect(locator).toBeVisible() failed
+  2 failed
+  4 passed (25.9s)

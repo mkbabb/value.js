@@ -1,9 +1,9 @@
 import { ref, computed, type Ref } from "vue";
 
-import { writeClipboard } from "@mkbabb/glass-ui";
 import { useSession } from "../platform/auth/useSession";
 import { useUserAuth } from "../platform/auth/useUserAuth";
 import { createAndSavePalette } from "./api";
+import { preflightColors } from "./api/preflight";
 import { CURRENT_PALETTE_ID } from "./constants";
 import type { Palette, PaletteColor } from "./types";
 
@@ -38,6 +38,10 @@ export function usePaletteActions(deps: {
     }
 
     async function onPublish(palette: Palette): Promise<{ success: boolean; message: string }> {
+        // X.W7.d (G10 · N_colors = 51 · N-14): the server's bounds are refused
+        // here, in words, before any request — never a relayed zod string.
+        const preflight = preflightColors(palette.colors);
+        if (!preflight.ok) return { success: false, message: preflight.message };
         try {
             await ensureUser();
             await session.ensureSession();
@@ -130,10 +134,6 @@ export function usePaletteActions(deps: {
         showDeleteAllConfirm.value = false;
     }
 
-    function onDotClick(cssColorOpaque: string) {
-        void writeClipboard(cssColorOpaque);
-    }
-
     return {
         expandedId,
         showDeleteAllConfirm,
@@ -147,6 +147,5 @@ export function usePaletteActions(deps: {
         onEditColor,
         commitColorEdit,
         onDeleteAllSaved,
-        onDotClick,
     };
 }

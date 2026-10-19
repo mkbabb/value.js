@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `L`: Lightness (0 to 100)
--   `C`: Chroma (0 upward)
--   `H`: Hue (0° to 360°)
-
 ### Historical Context
 
 CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) defined it as a cylindrical reparameterization of L\*a\*b\*: same `L` axis, but the Cartesian `a*`/`b*` plane is expressed as chroma (`C = sqrt(a^2 + b^2)`) and hue (`H = atan2(b, a)`). The result keeps Lab's perceptual uniformity while giving you direct handles on saturation and hue—two things designers actually want to tweak.
@@ -41,15 +35,15 @@ CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/Inte
 
 ### Components
 
-1. **`L` (Lightness)**: `0` (black) to `100` (diffuse white). Identical to Lab's `L*`.
+1. **`L` (Lightness)**: 0 (black) to 100 (diffuse white). Identical to Lab's `L*`.
 
-2. **`C` (Chroma)**: `0` (achromatic) upward; highly saturated colors can exceed `100`. This is the radial distance from the neutral axis in the `a*b*` plane.
+2. **`C` (Chroma)**: 0 (achromatic) upward; highly saturated colors can exceed 100. This is the radial distance from the neutral axis in the `a*b*` plane.
 
 3. **`H` (Hue)**: The angle in the `a*b*` plane:
-   - `0` = reddish (+a\* direction)
-   - `90` = yellowish (+b\* direction)
-   - `180` = greenish (-a\* direction)
-   - `270` = bluish (-b\* direction)
+   - 0 = reddish (+a\* direction)
+   - 90 = yellowish (+b\* direction)
+   - 180 = greenish (-a\* direction)
+   - 270 = bluish (-b\* direction)
 
 The space forms a cylinder: `L` runs vertically, `C` extends radially, and `H` sweeps around the axis. It's the same color solid as Lab, just easier to navigate.
 

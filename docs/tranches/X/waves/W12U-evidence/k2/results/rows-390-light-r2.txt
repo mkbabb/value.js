@@ -1,0 +1,39 @@
+load 117.69 177.22 228.25
+390x844 light L1-1 / GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers / GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /palettes GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /palettes GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /browse GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1},{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /browse GREEN [{"shrink":true,"condensed":"false"},{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /extract GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1},{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /extract GREEN [{"shrink":true,"condensed":"false"},{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /mix GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /mix GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /generate GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1},{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /generate GREEN [{"shrink":true,"condensed":"false"},{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /gradient GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1},{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /gradient GREEN [{"shrink":true,"condensed":"false"},{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /atmosphere GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /atmosphere GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /blob GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /blob GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /admin/users GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /admin/users GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-1 /nope/xyz GREEN {"panes":[{"shell":true,"shellCard":true,"owners":1}],"cardScrollers":0}
+390x844 light L1-2 headers /nope/xyz GREEN [{"shrink":true,"condensed":"false"}]
+390x844 light L1-2 picker GREEN {"shrink":true,"host":true,"display":"flex","room":0,"sentinel":false,"before":"false","after":null,"back":"false"}
+390x844 light L1-2 pane /admin/users GREEN {"host":true,"room":0,"gate":65.5390625,"after":"false","titlePx":25.888,"back":"false","restTitlePx":25.888}
+390x844 light L1-3 /mix GREEN {"combos":["","Color space","Hue method"]}
+390x844 light L1-3 /gradient GREEN {"combos":["Type","Color space","Hue method"]}
+390x844 light L1-4/L1-5 /mix GREEN {"lists":1,"rows":6,"specimens":6,"fromPalettes":false}
+390x844 light L1-9 GREEN {"chips":[],"legacy":0}
+390x844 light L1-11 /gradient GREEN {"seat":true,"names":["demo/workbenches/gradient/GradientVisualizer/GradientStopRail.vue","demo/workbenches/gradient/GradientVisualizer/GradientStopInspector.vue"]}
+390x844 light L1-12 easing /gradient GREEN {"heads":1,"legacy":0}
+390x844 light L1-12 admin /admin/users GREEN {"triggers":41,"divButtons":0}
+390x844 light L1-12 inspector /palettes GREEN {"trigger":true,"was":"false","now":"true","region":true,"swatches":5}
+390x844 light L1-15 /palettes GREEN {"swatches":5}
+390x844 light L1-14 /generate GREEN {"nameField":true,"bareInputs":0,"swatches":5}
+390x844 light L1-15 /generate GREEN {"nameField":true,"bareInputs":0,"swatches":5}
+390x844 light L1-16 seats present GREEN {"seats":5}
+390x844 light L1-9 degraded GREEN {"chips":[{"seat":"dock","variant":"unavailable","glass":true,"dot":true,"role":"status","text":"backend offline — saved locally"}],"legacy":0}
+GREEN 37/37

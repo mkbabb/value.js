@@ -22,8 +22,8 @@
             v-if="empty"
             class="col-span-full"
             :message="emptyText"
-            :eyebrow="emptyEyebrow"
             :hint="emptyHint"
+            :compact="emptyCompact"
         >
             <template v-if="$slots.emptyAction" #action>
                 <slot name="emptyAction" />
@@ -38,8 +38,9 @@ import EmptyState from "../../../shared/ui/EmptyState.vue";
 defineProps<{
     empty?: boolean;
     emptyText?: string;
-    emptyEyebrow?: string;
     emptyHint?: string;
+    /** The empty plate sits under its host's own label (EmptyState `compact`). */
+    emptyCompact?: boolean;
     gridClass?: string;
 }>();
 </script>

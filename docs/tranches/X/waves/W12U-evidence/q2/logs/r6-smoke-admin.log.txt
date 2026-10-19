@@ -1,0 +1,45 @@
+### smoke-admin (r6) start 10-16 04:36:02 load1=10.38 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3
+(node:40951) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:41002) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 21 tests using 1 worker
+
+(node:41207) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Users populated admin passes accessible-name + target-size (9.5s)
+  ✓   2 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Names populated admin passes accessible-name + target-size (2.1s)
+  ✓   3 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:38:5 › battery: Flagged populated admin passes accessible-name + target-size (837ms)
+  ✓   4 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:79:1 › BR-9: the admin user-row expander is keyboard-operable (role + focusable + Enter expands) (831ms)
+[2m[WebServer] [22m[2m4:36:22 AM[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[value.js] unhandled failure (boundary · render function) TypeError: Cannot read properties of null (reading 'slice')
+[2m[WebServer] [22m    at Proxy.slugHead (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/demo/palettes/admin/panels/AdminUsersPanel.vue:52:16)
+[2m[WebServer] [22m    at http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/demo/palettes/admin/panels/AdminUsersPanel.vue:482:34
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=7a9adc58:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=7a9adc58:3901:52)
+[2m[WebServer] [22m    at http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/collapsible-DFzK29Oh-DfvikRkR.js?v=7a9adc58:101:28
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=7a9adc58:2260:10)
+[2m[WebServer] [22m    at renderSlot (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=7a9adc58:3901:52)
+[2m[WebServer] [22m    at http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/dist-vzlhttbQ.js?v=7a9adc58:4150:29
+[2m[WebServer] [22m    at renderFnWithContext (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=7a9adc58:2260:10)
+[2m[WebServer] [22m    at normalizeChildren (http://localhost:9161/@fs/Users/mkbabb/.dev-logs/w12u-q2/tree-3c0f663a3/node_modules/.vite-e2e-9161/deps/vue.runtime.esm-bundler-DQai_KuN.js?v=7a9adc58:6542:29)
+  ✓   5 [smoke-admin] › e2e/smoke/admin/a11y-authed-admin.spec.ts:123:1 › U-F58: an induced admin render error surfaces a focus-managed role=alert boundary (1.8s)
+  ✓   6 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (1.2s)
+  ✓   7 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (2.4s)
+  ✓   8 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (1.4s)
+  ✓   9 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:58:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (1.5s)
+  ✓  10 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:99:1 › admin-flagged renders a seeded flagged palette + moderation actions (592ms)
+  ✓  11 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (3.6s)
+  ✓  12 [smoke-admin] › e2e/smoke/admin/flows/color-approve.spec.ts:13:1 › admin approve color name POSTs /admin/colors/<id>/approve (786ms)
+  ✓  13 [smoke-admin] › e2e/smoke/admin/flows/color-reject.spec.ts:9:1 › admin reject color name POSTs /admin/colors/<id>/reject (1.8s)
+  ✓  14 [smoke-admin] › e2e/smoke/admin/flows/palette-feature.spec.ts:13:1 › admin feature palette POSTs /admin/palettes/<slug>/feature (1.4s)
+  ✓  15 [smoke-admin] › e2e/smoke/admin/flows/tag-create.spec.ts:9:1 › admin tag create POSTs /admin/tags with name+category (1.4s)
+  ✓  16 [smoke-admin] › e2e/smoke/admin/flows/tag-delete.spec.ts:9:1 › admin tag delete DELETEs /admin/tags/<name> (1.5s)
+  ✓  17 [smoke-admin] › e2e/smoke/admin/flows/user-status.spec.ts:15:1 › admin delete user DELETEs /admin/users/<slug> (1.5s)
+  ✓  18 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (825ms)
+  ✓  19 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (903ms)
+  ✓  20 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (629ms)
+  ✓  21 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (637ms)
+
+  21 passed (40.9s)
+### smoke-admin end 10-16 04:36:44 load1=14.17 exit=0

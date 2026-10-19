@@ -1,0 +1,5 @@
+# 2026-10-16 05:07:28 load: 27.99 26.18 24.58 main tree head: 4ed8637a dirty:  M demo/components/instrument/pane/RibbonBar.vue  M demo/components/instrument/timeline/KeyframeTimeline.vue  M test/demo/instrument/ribbon-keyframes-hierarchy.test.ts  (guarded --light: heavy queue 6+ deep)
+ Test Files  155 passed (155)
+      Tests  941 passed (941)
+EXIT=0
+# end 05:09:08 load: 30.55 27.78 25.39

@@ -1,0 +1,416 @@
+{
+ "timeline": {
+  "timeline-cube-controls-1440-light": {
+   "cellShown": false,
+   "cellCard": null,
+   "frame": {
+    "top": 127,
+    "bottom": 735
+   },
+   "overlapPx": 0,
+   "trackHost": null,
+   "trackShown": false,
+   "trackBg": null,
+   "cartoon": 0,
+   "panes": 1
+  },
+  "timeline-cube-timeline-1440-light": {
+   "cellShown": false,
+   "cellCard": null,
+   "frame": {
+    "top": 127,
+    "bottom": 523
+   },
+   "overlapPx": 0,
+   "trackHost": "pane-frame",
+   "trackShown": true,
+   "trackBg": "rgb(246, 243, 239)",
+   "cartoon": 0,
+   "panes": 1
+  },
+  "timeline-cube-controls-1440-dark": {
+   "cellShown": false,
+   "cellCard": null,
+   "frame": {
+    "top": 127,
+    "bottom": 735
+   },
+   "overlapPx": 0,
+   "trackHost": null,
+   "trackShown": false,
+   "trackBg": null,
+   "cartoon": 0,
+   "panes": 1
+  },
+  "timeline-cube-timeline-1440-dark": {
+   "cellShown": false,
+   "cellCard": null,
+   "frame": {
+    "top": 127,
+    "bottom": 523
+   },
+   "overlapPx": 0,
+   "trackHost": "pane-frame",
+   "trackShown": true,
+   "trackBg": "rgb(31, 28, 25)",
+   "cartoon": 0,
+   "panes": 1
+  },
+  "timeline-cube-controls-390-light": {
+   "cellShown": true,
+   "cellCard": {
+    "top": 328,
+    "bottom": 723,
+    "cls": "glass-floating card w-full overflow-visible"
+   },
+   "frame": {
+    "top": 788,
+    "bottom": 873
+   },
+   "overlapPx": 0,
+   "trackHost": "expanded-cell",
+   "trackShown": true,
+   "trackBg": "rgb(246, 243, 239)",
+   "cartoon": 0,
+   "panes": 1
+  },
+  "timeline-cube-timeline-390-light": {
+   "cellShown": true,
+   "cellCard": {
+    "top": 328,
+    "bottom": 723,
+    "cls": "glass-floating card w-full overflow-visible"
+   },
+   "frame": null,
+   "overlapPx": 0,
+   "trackHost": "expanded-cell",
+   "trackShown": true,
+   "trackBg": "rgb(246, 243, 239)",
+   "cartoon": 0,
+   "panes": 1,
+   "trackAlpha": 1
+  },
+  "timeline-cube-controls-390-dark": {
+   "cellShown": true,
+   "cellCard": {
+    "top": 328,
+    "bottom": 723,
+    "cls": "glass-floating card w-full overflow-visible"
+   },
+   "frame": {
+    "top": 788,
+    "bottom": 873
+   },
+   "overlapPx": 0,
+   "trackHost": "expanded-cell",
+   "trackShown": true,
+   "trackBg": "rgb(31, 28, 25)",
+   "cartoon": 0,
+   "panes": 1
+  },
+  "timeline-cube-timeline-390-dark": {
+   "cellShown": true,
+   "cellCard": {
+    "top": 328,
+    "bottom": 723,
+    "cls": "glass-floating card w-full overflow-visible"
+   },
+   "frame": null,
+   "overlapPx": 0,
+   "trackHost": "expanded-cell",
+   "trackShown": true,
+   "trackBg": "rgb(31, 28, 25)",
+   "cartoon": 0,
+   "panes": 1,
+   "trackAlpha": 1
+  }
+ },
+ "easing": {
+  "easing-1440-light": {
+   "boot": {
+    "name": "ease",
+    "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+    "copy": {
+     "x": 1006,
+     "y": 175
+    },
+    "literalLastLine": {
+     "right": 999,
+     "top": 164,
+     "bottom": 185
+    },
+    "titleRow": {
+     "top": 144,
+     "bottom": 188
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust"
+   },
+   "ease-in": {
+    "name": "ease-in",
+    "literal": "cubic-bezier(0.42, 0.00, 1.00, 1.00)",
+    "copy": {
+     "x": 1053,
+     "y": 175
+    },
+    "literalLastLine": {
+     "right": 1046,
+     "top": 164,
+     "bottom": 185
+    },
+    "titleRow": {
+     "top": 144,
+     "bottom": 188
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust",
+    "copyGap": 7,
+    "copyOnLiteralLine": true
+   },
+   "steps": {
+    "name": "steps",
+    "literal": "steps(4, jump-end)",
+    "copy": {
+     "x": 840,
+     "y": 175
+    },
+    "literalLastLine": {
+     "right": 833,
+     "top": 164,
+     "bottom": 185
+    },
+    "titleRow": {
+     "top": 144,
+     "bottom": 188
+    },
+    "presetLabel": null,
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierStepsjump-"
+   }
+  },
+  "easing-1440-dark": {
+   "boot": {
+    "name": "ease",
+    "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+    "copy": {
+     "x": 1006,
+     "y": 175
+    },
+    "literalLastLine": {
+     "right": 999,
+     "top": 164,
+     "bottom": 185
+    },
+    "titleRow": {
+     "top": 144,
+     "bottom": 188
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust"
+   },
+   "ease-in": {
+    "name": "ease-in",
+    "literal": "cubic-bezier(0.42, 0.00, 1.00, 1.00)",
+    "copy": {
+     "x": 1053,
+     "y": 175
+    },
+    "literalLastLine": {
+     "right": 1046,
+     "top": 164,
+     "bottom": 185
+    },
+    "titleRow": {
+     "top": 144,
+     "bottom": 188
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust",
+    "copyGap": 7,
+    "copyOnLiteralLine": true
+   },
+   "steps": {
+    "name": "steps",
+    "literal": "steps(4, jump-end)",
+    "copy": {
+     "x": 840,
+     "y": 175
+    },
+    "literalLastLine": {
+     "right": 833,
+     "top": 164,
+     "bottom": 185
+    },
+    "titleRow": {
+     "top": 144,
+     "bottom": 188
+    },
+    "presetLabel": null,
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierStepsjump-"
+   }
+  },
+  "easing-390-light": {
+   "boot": {
+    "name": "ease",
+    "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+    "copy": {
+     "x": 167,
+     "y": 195
+    },
+    "literalLastLine": {
+     "right": 160,
+     "top": 186,
+     "bottom": 203
+    },
+    "titleRow": {
+     "top": 119,
+     "bottom": 153
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust"
+   },
+   "ease-in": {
+    "name": "ease-in",
+    "literal": "cubic-bezier(0.42, 0.00, 1.00, 1.00)",
+    "copy": {
+     "x": 167,
+     "y": 195
+    },
+    "literalLastLine": {
+     "right": 160,
+     "top": 186,
+     "bottom": 203
+    },
+    "titleRow": {
+     "top": 119,
+     "bottom": 153
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust",
+    "copyGap": 7,
+    "copyOnLiteralLine": true
+   },
+   "steps": {
+    "name": "steps",
+    "literal": "steps(4, jump-end)",
+    "copy": {
+     "x": 269,
+     "y": 142
+    },
+    "literalLastLine": {
+     "right": 261,
+     "top": 134,
+     "bottom": 151
+    },
+    "titleRow": {
+     "top": 119,
+     "bottom": 153
+    },
+    "presetLabel": null,
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierStepsjump-"
+   }
+  },
+  "easing-390-dark": {
+   "boot": {
+    "name": "ease",
+    "literal": "cubic-bezier(0.25, 0.10, 0.25, 1.00)",
+    "copy": {
+     "x": 167,
+     "y": 195
+    },
+    "literalLastLine": {
+     "right": 160,
+     "top": 186,
+     "bottom": 203
+    },
+    "titleRow": {
+     "top": 119,
+     "bottom": 153
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust"
+   },
+   "ease-in": {
+    "name": "ease-in",
+    "literal": "cubic-bezier(0.42, 0.00, 1.00, 1.00)",
+    "copy": {
+     "x": 167,
+     "y": 195
+    },
+    "literalLastLine": {
+     "right": 160,
+     "top": 186,
+     "bottom": 203
+    },
+    "titleRow": {
+     "top": 119,
+     "bottom": 153
+    },
+    "presetLabel": "Custom",
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierSteps Cust",
+    "copyGap": 7,
+    "copyOnLiteralLine": true
+   },
+   "steps": {
+    "name": "steps",
+    "literal": "steps(4, jump-end)",
+    "copy": {
+     "x": 269,
+     "y": 142
+    },
+    "literalLastLine": {
+     "right": 261,
+     "top": 134,
+     "bottom": 151
+    },
+    "titleRow": {
+     "top": 119,
+     "bottom": 153
+    },
+    "presetLabel": null,
+    "dataPreset": "custom",
+    "fallThrough": [],
+    "pickerText": "01 Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps; Page Up and Page Down step further. BezierStepsjump-"
+   }
+  }
+ },
+ "frames": [
+  "timeline-cube-controls-1440-light",
+  "timeline-cube-timeline-1440-light",
+  "easing-1440-light",
+  "spring-1440-light",
+  "square-1440-light",
+  "sequence-1440-light",
+  "timeline-cube-controls-1440-dark",
+  "timeline-cube-timeline-1440-dark",
+  "easing-1440-dark",
+  "timeline-cube-controls-390-light",
+  "timeline-cube-timeline-390-light",
+  "easing-390-light",
+  "timeline-cube-controls-390-dark",
+  "timeline-cube-timeline-390-dark",
+  "easing-390-dark"
+ ],
+ "fails": []
+}

@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { expandDock, mainPane } from "./fixtures/dock";
 import { mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -26,9 +27,7 @@ const PI_DIR = resolve(process.cwd(), "docs/tranches/U/audit/w-a11y/pi");
 
 async function ready(page: Page) {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible({ timeout: 20000 });
+    await expect(mainPane(page)).toBeVisible({ timeout: 20000 });
 }
 
 test("BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)", async ({
@@ -71,10 +70,16 @@ test("BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow)"
 
     // Integrity 2 — the operable controls stay laid out (visible + non-zero box)
     // under RTL: the dock nav, the view select, the main pane.
+    // Re-baselined X-W12U .q2 (X-W7L C-DOCK-IDLE, glass 9.0.0+ at X.W7L.m
+    // `c8a4959dd`): the unhovered desktop dock idles shut 3600 ms after its
+    // last release, and a collapsed dock renders its summary layer, not the
+    // view-select (r3: "Select view … element(s) not found"). The chrome is
+    // read where a user operates it: the dock opened first.
+    await expandDock(page);
     for (const loc of [
         page.getByRole("navigation", { name: "Application navigation" }),
         page.getByRole("combobox", { name: "Select view" }),
-        page.getByRole("main", { name: "Color tool panes" }),
+        mainPane(page),
     ]) {
         await expect(loc).toBeVisible();
         const box = await loc.boundingBox();

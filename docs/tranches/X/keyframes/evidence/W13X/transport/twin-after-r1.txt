@@ -1,0 +1,3 @@
+easing {"boot":{"dock":"Play animation","ribbon":"Reverse"},"afterDock":{"dock":"Pause animation","ribbon":"Reverse"},"afterRibbon":null}
+spring {"boot":{"dock":"Play animation","ribbon":"Reverse"},"afterDock":{"dock":"Pause animation","ribbon":"Reverse"},"afterRibbon":null}
+cube {"boot":{"dock":"Pause animation","ribbon":"Reverse"},"afterDock":{"dock":"Play animation","ribbon":"Reverse"},"afterRibbon":null}

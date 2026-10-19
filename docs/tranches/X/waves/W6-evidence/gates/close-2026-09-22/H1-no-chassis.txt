@@ -1,0 +1,31 @@
+POSITIVE CONTROL — detector fires on a synthetic chassis: dead-name ✓  stage+inspector+action ✓
+
+WAVE DIFF — 17 demo/ files over 19 commits
+  M  demo/color-picker/composables/boot/atmosphere-calibration.ts
+  M  demo/color-picker/composables/boot/useAtmosphere.ts   limbs: [stage]
+  M  demo/color-session/ColorSpaceSelector.vue
+  M  demo/color-session/color-model.ts
+  A  demo/color-session/space-catalog.ts
+  A  demo/color-session/specimen-format.ts
+  M  demo/picker/ColorPicker.vue
+  M  demo/scenes/about/AboutPane.vue
+  M  demo/scenes/about/ColorNutritionLabel.vue
+  M  demo/test/glass/aurora-bracket.test.ts
+  M  demo/workbenches/gradient/GradientPane.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
+  M  demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue
+  M  demo/workbenches/gradient/composables/gradientParse.ts
+  M  demo/workbenches/gradient/composables/useGradientCSS.ts
+  M  demo/workbenches/gradient/composables/useGradientModel.ts
+
+NEW MODULES — 2
+  demo/color-session/space-catalog.ts
+      importers 3, instrument roots 2 (color-session, scenes/about)
+  demo/color-session/specimen-format.ts
+      importers 1, instrument roots 1 (color-session)
+
+GATE H1 (no copied chassis) — GREEN
+  no added construct parameterises stage + inspector + action;
+  no added module is both housing-shaped and shared across instrument roots;
+  the dead name is not revived.

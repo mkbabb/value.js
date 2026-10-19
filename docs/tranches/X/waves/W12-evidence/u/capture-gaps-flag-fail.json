@@ -1,0 +1,28 @@
+[
+ {
+  "frame": "flag-fail-pending__1440__light.png",
+  "head": "2753482a",
+  "leg": "flag-fail",
+  "during": {
+   "open": true,
+   "checked": "",
+   "detail": "u1 typed detail",
+   "loading": "true",
+   "disabled": true,
+   "alert": null
+  }
+ },
+ {
+  "frame": "flag-fail-after__1440__light.png",
+  "head": "2753482a",
+  "leg": "flag-fail",
+  "after": {
+   "open": true,
+   "checked": "",
+   "detail": "u1 typed detail",
+   "loading": null,
+   "disabled": false,
+   "alert": "Report failed: Bad Request"
+  }
+ }
+]

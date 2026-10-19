@@ -1,0 +1,42 @@
+light / native-title 0 []
+light / bottom-band glass-tooltip 3/3 missing []
+light / glass-tooltip on-hover 0/3 missing ["Scene","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+light /cube native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\""]
+light /cube bottom-band glass-tooltip 3/3 missing []
+light /cube glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+light /amiga native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\""]
+light /amiga bottom-band glass-tooltip 3/3 missing []
+light /amiga glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+light /square native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\""]
+light /square bottom-band glass-tooltip 2/2 missing []
+light /square glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+light /easing native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Curve]=\"Curve\""]
+light /easing bottom-band glass-tooltip 2/2 missing []
+light /easing glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Curve","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+light /spring native-title 9 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Physics]=\"Physics\"","span=\"Peak overshoot varies with damping ζ only; response sets the tempo, not the peak\"","button=\"iOS default — settles without ringing\"","button=\"quick with a touch of overshoot\"","button=\"pronounced overshoot, playful ring\""]
+light /spring bottom-band glass-tooltip 3/3 missing []
+light /spring glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Physics","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+light /sequence native-title 6 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\"","button[Reset the sequence items to the default stagger]=\"Reset the sequence items\"","button[Play the reel — a cascading wave replay]=\"Play the reel\""]
+light /sequence bottom-band glass-tooltip 2/2 missing []
+light /sequence glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark / native-title 0 []
+dark / bottom-band glass-tooltip 3/3 missing []
+dark / glass-tooltip on-hover 0/3 missing ["Scene","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark /cube native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\""]
+dark /cube bottom-band glass-tooltip 3/3 missing []
+dark /cube glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark /amiga native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\""]
+dark /amiga bottom-band glass-tooltip 3/3 missing []
+dark /amiga glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark /square native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\""]
+dark /square bottom-band glass-tooltip 2/2 missing []
+dark /square glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark /easing native-title 4 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Curve]=\"Curve\""]
+dark /easing bottom-band glass-tooltip 2/2 missing []
+dark /easing glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Curve","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark /spring native-title 9 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Physics]=\"Physics\"","span=\"Peak overshoot varies with damping ζ only; response sets the tempo, not the peak\"","button=\"iOS default — settles without ringing\"","button=\"quick with a touch of overshoot\"","button=\"pronounced overshoot, playful ring\""]
+dark /spring bottom-band glass-tooltip 3/3 missing []
+dark /spring glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Physics","@mbabb menu"] out-of-viewport [] stuck-after-leave 0
+dark /sequence native-title 6 ["button[Controls]=\"Controls\"","button[Keyframes]=\"Keyframes\"","button[Timeline]=\"Timeline\"","button[Scene facet]=\"Scene facet\"","button[Reset the sequence items to the default stagger]=\"Reset the sequence items\"","button[Play the reel — a cascading wave replay]=\"Play the reel\""]
+dark /sequence bottom-band glass-tooltip 2/2 missing []
+dark /sequence glass-tooltip on-hover 0/6 missing ["Scene","Controls","Keyframes","Timeline","Scene facet","@mbabb menu"] out-of-viewport [] stuck-after-leave 0

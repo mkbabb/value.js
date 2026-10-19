@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5[1m]
+f2: 0
+f7a: 0
+f7b: 0
+f8 tag=: 0
+f9a: 2
+f9b: 0
+f10: 0
+j1 Stub: 14
+o29: 0
+armRuntime: 0
+H2: docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md
+glass: 7.0.0

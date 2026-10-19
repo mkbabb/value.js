@@ -1,0 +1,12 @@
+15:13  up 3 days, 20:16, 3 users, load averages: 167.29 146.89 113.91
+ ❯ |demo| test/demo/scenes/r4shared-rows.test.ts (5 tests | 3 failed) 94ms
+     × rules a closing line on the inline end, beside its quarter lines 6ms
+     × the Square no longer shuts its own copy with a border 1ms
+     × the anchor fills the row's height and holds a 44 px inline slot 2ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+   already have three live consumers (SequenceAxis, SpringTarget ×2). The square
+   `2 × travel` px square centred on the stage, so one user unit is one CSS px
+   the field (`.square-field`: the [-1,1]² envelope, 2 × --square-travel,
+       2 × travel plus the box's own size (the box at x = ±1 overhangs the
+ Test Files  1 failed (1)
+      Tests  3 failed | 2 passed (5)

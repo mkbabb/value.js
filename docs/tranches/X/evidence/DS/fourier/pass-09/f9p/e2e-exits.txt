@@ -1,0 +1,9 @@
+run A exit 0
+ M e2e/screenshots/f-w14/after-page-equation-1440.png
+ M e2e/screenshots/f-w14/after-page-equation-390.png
+ M e2e/screenshots/f-w14/after-page-gallery-1440.png
+run B exit 0
+ M e2e/screenshots/f-w14/after-page-equation-1440.png
+ M e2e/screenshots/f-w14/after-page-equation-390.png
+ M e2e/screenshots/f-w14/after-page-gallery-1440.png
+done

@@ -1,0 +1,185 @@
+{
+  "base": "http://localhost:9000",
+  "katex": {
+    "light": {
+      "rows": 4,
+      "overflowing": 2,
+      "detail": [
+        {
+          "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+        },
+        {
+          "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+        },
+        {
+          "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L",
+          "scrollWidth": 431,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+        },
+        {
+          "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\c",
+          "scrollWidth": 505,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+        }
+      ]
+    },
+    "dark": {
+      "rows": 4,
+      "overflowing": 2,
+      "detail": [
+        {
+          "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+        },
+        {
+          "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=",
+          "scrollWidth": 332,
+          "clientWidth": 332,
+          "overflows": false,
+          "edgeAtRest": "0px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0))"
+        },
+        {
+          "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L",
+          "scrollWidth": 431,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+        },
+        {
+          "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\c",
+          "scrollWidth": 505,
+          "clientWidth": 332,
+          "overflows": true,
+          "edgeAtRest": "24px",
+          "edgeAtEnd": "0px",
+          "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0))"
+        }
+      ]
+    }
+  },
+  "tooltips": {
+    "light": {
+      "Reset color": {
+        "text": "Reset to the default color.",
+        "descLines": 1,
+        "descBox": {
+          "x": 490.9894714355469,
+          "y": 110.77342224121094,
+          "width": 310.0210266113281,
+          "height": 23.017059326171875,
+          "top": 110.77342224121094,
+          "right": 801.010498046875,
+          "bottom": 133.7904815673828,
+          "left": 490.9894714355469
+        },
+        "cardText": "Reset colorReset to the default color."
+      },
+      "Copy color": {
+        "text": "Copy the current color.",
+        "descLines": 1,
+        "descBox": {
+          "x": 531,
+          "y": 110.53125,
+          "width": 310,
+          "height": 22.96875,
+          "top": 110.53125,
+          "right": 841,
+          "bottom": 133.5,
+          "left": 531
+        },
+        "cardText": "Copy colorCopy the current color."
+      },
+      "Random color": {
+        "text": "Pick a random color.",
+        "descLines": 1,
+        "descBox": {
+          "x": 571,
+          "y": 110.53125,
+          "width": 310,
+          "height": 22.96875,
+          "top": 110.53125,
+          "right": 881,
+          "bottom": 133.5,
+          "left": 571
+        },
+        "cardText": "Random colorPick a random color."
+      }
+    },
+    "dark": {
+      "Reset color": {
+        "text": "Reset to the default color.",
+        "descLines": 1,
+        "descBox": {
+          "x": 490.9919128417969,
+          "y": 110.71734619140625,
+          "width": 310.0161437988281,
+          "height": 23.005874633789062,
+          "top": 110.71734619140625,
+          "right": 801.008056640625,
+          "bottom": 133.7232208251953,
+          "left": 490.9919128417969
+        },
+        "cardText": "Reset colorReset to the default color."
+      },
+      "Copy color": {
+        "text": "Copy the current color.",
+        "descLines": 1,
+        "descBox": {
+          "x": 531,
+          "y": 110.53125,
+          "width": 310,
+          "height": 22.96875,
+          "top": 110.53125,
+          "right": 841,
+          "bottom": 133.5,
+          "left": 531
+        },
+        "cardText": "Copy colorCopy the current color."
+      },
+      "Random color": {
+        "text": "Pick a random color.",
+        "descLines": 1,
+        "descBox": {
+          "x": 571,
+          "y": 110.53125,
+          "width": 310,
+          "height": 22.96875,
+          "top": 110.53125,
+          "right": 881,
+          "bottom": 133.5,
+          "left": 571
+        },
+        "cardText": "Random colorPick a random color."
+      }
+    }
+  }
+}

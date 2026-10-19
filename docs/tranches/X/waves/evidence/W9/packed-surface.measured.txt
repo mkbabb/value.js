@@ -1,0 +1,99 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W9.e · G20 — the packed-surface check goes behavioural. Measured either side.
+Worktree /Users/mkbabb/Programming/value.js-x-w9-e @ fdebfef5 · node v26.0.0 · darwin arm64
+Tarball mkbabb-value.js-4.0.0.tgz  sha256 66d5cea1c1d502e2e97e6daa9ed2e80fe8261725fbd4295db23d6507b0e2dc02
+The ORACLE IS THE PACKED TARBALL, never the worktree dist/ (W9.md §Format And Lint Cadence, PT-08).
+
+==================================================================
+BEFORE (1) — the presence-only script at fdebfef5, quoted at :137
+==================================================================
+⟨cmd⟩ git show fdebfef5:scripts/ci/verify-packed-surface.mjs | sed -n "137p"
+    process.stdout.write(`${JSON.stringify({ runtime, strictTypes: 62 })}\n`);
+
+⟨cmd⟩ git show fdebfef5:scripts/ci/verify-packed-surface.mjs | sed -n "38,42p"   (the stale transform list)
+    transform: [
+        "PathGeometry", "decomposeMatrix2D", "decomposeMatrix3D",
+        "getPointAtLength", "getTotalLength", "interpolateDecomposed",
+        "recomposeMatrix2D", "recomposeMatrix3D", "slerp",
+    ],
+
+==================================================================
+BEFORE (2) — that script RUN against the current tarball: it dies
+before any surface check, at the TYPES half, on a stale fixture
+==================================================================
+⟨cmd⟩ node <the fdebfef5 script> mkbabb-value.js-4.0.0.tgz   → exit 1
+file:///Users/mkbabb/Programming/value.js-x-w9-e/scripts/ci/_before-probe.mjs:56
+        throw new Error([
+              ^
+
+Error: /opt/homebrew/Cellar/node/26.0.0/bin/node /Users/mkbabb/Programming/value.js-x-w9-e/node_modules/typescript/bin/tsc -p /var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/tsconfig.json failed
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/consumer.ts(63,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'DecomposedMatrix2D'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/consumer.ts(64,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'DecomposedMatrix3D'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/consumer.ts(65,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'Mat4'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/consumer.ts(68,5): error TS2305: Module '"@mkbabb/value.js/transform"' has no exported member 'Vec4'.
+../../../../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/consumer.ts(218,22): error TS2339: Property 'decomposeMatrix2D' does not exist on type 'typeof import("/private/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/value-v4-consumer-7DaPGx/node_modules/@mkbabb/value.js/dist/subpaths/transform", { with: { "resolution-mode": "import" } })'.
+
+The blocker is fixtures/public-types/value-v4.ts, which still names the
+ten symbols X-W9.b retired (CC-094 · G27). That file is in NO unit's
+writable set and is ABSENT from W9.md §File Bounds → ESC-W9e-FIXTURE-V4TYPES.
+⟨cmd⟩ grep -n "DecomposedMatrix2D|DecomposedMatrix3D|Mat4|Vec4|decomposeMatrix2D|decomposeMatrix3D|interpolateDecomposed|recomposeMatrix2D|recomposeMatrix3D|slerp" fixtures/public-types/value-v4.ts
+63:    DecomposedMatrix2D,
+64:    DecomposedMatrix3D,
+65:    Mat4,
+68:    Vec4,
+137:    DecomposedMatrix2D,
+138:    DecomposedMatrix3D,
+139:    Mat4,
+142:    Vec4,
+218:    transformRuntime.decomposeMatrix2D,
+219:    transformRuntime.decomposeMatrix3D,
+222:    transformRuntime.interpolateDecomposed,
+223:    transformRuntime.recomposeMatrix2D,
+224:    transformRuntime.recomposeMatrix3D,
+225:    transformRuntime.slerp,
+
+==================================================================
+AFTER — the behavioural half, DOUBLE-RUN
+(taken through a scratch overlay whose ONLY difference from this
+ repository is those 14 stale fixture lines removed; the script's
+ bytes and the tarball are unchanged — see packed-surface.after.json)
+==================================================================
+⟨cmd⟩ node scripts/ci/verify-packed-surface.mjs mkbabb-value.js-4.0.0.tgz   [run 1] → exit 0
+{"runtime":{"color":23,"value":1,"css":19,"easing":16,"math":9,"transform":3,"quantize":2},"smoke":{"color":23,"value":1,"css":19,"easing":16,"math":9,"transform":3,"quantize":2},"runtimeExports":73,"smokeInvocations":73}
+⟨cmd⟩ …   [run 2] → exit 0
+{"runtime":{"color":23,"value":1,"css":19,"easing":16,"math":9,"transform":3,"quantize":2},"smoke":{"color":23,"value":1,"css":19,"easing":16,"math":9,"transform":3,"quantize":2},"runtimeExports":73,"smokeInvocations":73}
+⟨cmd⟩ diff -q run1 run2 → silent
+
+73 runtime exports · 73 smoke invocations. No hardcoded number is printed:
+strictTypes: 62 is DELETED and both counts are summed from checks that ran.
+
+==================================================================
+FALSIFIER — G20's own, executed verbatim:
+  "Add a runtime export that imports but throws on invocation;
+   a presence-only check stays green, the behavioural half reddens."
+==================================================================
+A doctored tarball was built from the real one by appending, to
+package/dist/subpaths/math.{js,d.ts}, an export that imports fine:
+
+    export function throwsOnCall() {
+        throw new Error("this export imports fine and throws on invocation");
+    }
+
+A · the PRESENCE-ONLY script (fdebfef5), with the new name admitted to its
+    expected list and the six retired transform names removed:
+⟨cmd⟩ node <presence-only> doctored.tgz
+{"runtime":{"color":23,"value":1,"css":19,"easing":16,"math":10,"transform":3,"quantize":2},"strictTypes":62}
+    → exit 0.  GREEN over a surface that contains a throwing export,
+      and it prints the hardcoded strictTypes: 62 while doing it.
+
+B · THIS script, same doctored tarball, name admitted AND given a smoke case:
+⟨cmd⟩ node <behavioural> doctored.tgz   → exit 1
+Error: /math throwsOnCall threw on a valid invocation: this export imports fine and throws on invocation
+
+C · THIS script, name admitted but NO smoke case written — the other
+    direction of the ratchet, so an export cannot arrive unexercised:
+⟨cmd⟩ node <behavioural> doctored.tgz   → exit 1
+Error: /math has no smoke case for: throwsOnCall
+
+The falsifier fires in both directions and the pre-cure script does not.

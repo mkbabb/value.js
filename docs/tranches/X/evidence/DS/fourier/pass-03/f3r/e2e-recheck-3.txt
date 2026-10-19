@@ -1,0 +1,40 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+TimeoutError: apiRequestContext.post: Timeout 30000ms exceeded.
+Call log:
+  - → POST http://localhost:3100/api/sessions
+    - user-agent: Playwright/1.61.0 (arm64; macOS 26.4) node/26.0
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+
+   at global-seed.ts:98
+
+   96 |
+   97 | async function mint(api: APIRequestContext): Promise<SeedRecord> {
+>  98 |     const session = await api.post("/api/sessions");
+      |                               ^
+   99 |     await ok(session, "POST /api/sessions");
+  100 |     const { token } = (await session.json()) as { token: string };
+  101 |     const headers = { "X-Session-Token": token };
+    at mint (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:98:31)
+    at globalSeed (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:164:23)
+

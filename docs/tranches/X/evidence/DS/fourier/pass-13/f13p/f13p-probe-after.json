@@ -1,0 +1,306 @@
+{
+ "light-1440": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 131.8,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 24,
+   "rowFootGap": 24,
+   "numberBelowInk": null,
+   "airShare": 0.7,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 2.6.3.1 — Hermite Polynomials — Rodrigu",
+   "displays": 1,
+   "height": 126.3,
+   "inkHeight": 34,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 24,
+   "rowFootGap": 24,
+   "numberBelowInk": null,
+   "airShare": 0.7,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 321.3,
+   "inkHeight": 100.4,
+   "aboveFrom": "prose",
+   "headGap": 32,
+   "footGap": 107,
+   "rowFootGap": 32,
+   "numberBelowInk": null,
+   "airShare": 0.7,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 32,
+   "inkToText": 32
+  },
+  "frameTop": 180
+ },
+ "light-390": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 191.3,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 58.4,
+   "rowFootGap": 24,
+   "numberBelowInk": 12,
+   "airShare": 0.8,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 2.6.3.1 — Hermite Polynomials — Rodrigu",
+   "displays": 1,
+   "height": 185.9,
+   "inkHeight": 34,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 58.4,
+   "rowFootGap": 24,
+   "numberBelowInk": 12,
+   "airShare": 0.8,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 414.4,
+   "inkHeight": 89.2,
+   "aboveFrom": "prose",
+   "headGap": 32,
+   "footGap": 190.4,
+   "rowFootGap": 32,
+   "numberBelowInk": 12,
+   "airShare": 0.8,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 32,
+   "inkToText": 67
+  },
+  "frameTop": 168
+ },
+ "dark-1440": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 131.8,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 24,
+   "rowFootGap": 24,
+   "numberBelowInk": null,
+   "airShare": 0.7,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 2.6.3.1 — Hermite Polynomials — Rodrigu",
+   "displays": 1,
+   "height": 126.3,
+   "inkHeight": 34,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 24,
+   "rowFootGap": 24,
+   "numberBelowInk": null,
+   "airShare": 0.7,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 321.3,
+   "inkHeight": 100.4,
+   "aboveFrom": "prose",
+   "headGap": 32,
+   "footGap": 107,
+   "rowFootGap": 32,
+   "numberBelowInk": null,
+   "airShare": 0.7,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 32,
+   "inkToText": 32
+  },
+  "frameTop": 180
+ },
+ "dark-390": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)Hm",
+   "displays": 1,
+   "height": 191.3,
+   "inkHeight": 39.4,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 58.4,
+   "rowFootGap": 24,
+   "numberBelowInk": 12,
+   "airShare": 0.8,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "definition": {
+   "text": "Definition 2.6.3.1 — Hermite Polynomials — Rodrigu",
+   "displays": 1,
+   "height": 185.9,
+   "inkHeight": 34,
+   "aboveFrom": "label",
+   "headGap": 24,
+   "footGap": 58.4,
+   "rowFootGap": 24,
+   "numberBelowInk": 12,
+   "airShare": 0.8,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px 0px 8px",
+    "padding": "0px 0px 0px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating b",
+   "displays": 1,
+   "height": 414.4,
+   "inkHeight": 89.2,
+   "aboveFrom": "prose",
+   "headGap": 32,
+   "footGap": 190.4,
+   "rowFootGap": 32,
+   "numberBelowInk": 12,
+   "airShare": 0.8,
+   "display": {
+    "margin": "0px",
+    "padding": "12px 0px",
+    "clipMargin": "12px",
+    "overflowY": "hidden"
+   },
+   "mathBlock": {
+    "margin": "12px 0px",
+    "padding": "8px 0px 8px 16px",
+    "overflowY": "hidden"
+   }
+  },
+  "proseDisplay": {
+   "textToInk": 32,
+   "inkToText": 67
+  },
+  "frameTop": 168
+ }
+}

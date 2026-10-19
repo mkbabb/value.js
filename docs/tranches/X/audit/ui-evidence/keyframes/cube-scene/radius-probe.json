@@ -1,0 +1,60 @@
+{
+ "sha": "60477b06",
+ "dirty": 7,
+ "controls": {
+  "cards": [
+   "DIV.glass-quiet.card.rounded-card slot=card 71,62 407x392 rad=16px font=18.608px/400 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=durationdelayitera",
+   "DIV.card-content.flex.flex-col slot=card-content 73,64 403x388 rad=0px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=durationdelayitera",
+   "DIV.glass-resting.card.rounded-card slot=card 71,454 407x454 rad=16px font=18.608px/400 bg=oklab(0.928268 0.00554796 0.0132111 / 0.664) txt=123456789101112131",
+   "DIV.glass-quiet.card.rounded-card slot=card 71,478 407x188 rad=16px font=18.608px/400 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Drag, or use the a",
+   "DIV.card-content.p-3 slot=card-content 73,480 403x184 rad=0px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=Drag, or use the a"
+  ],
+  "buttons": [
+   "BUTTON.control-surface.glass-control-edge.glass-capsule-hover slot=select-trigger 197,208 259x40 rad=9999px font=16.4px/400 bg=rgba(0, 0, 0, 0) txt=alternate",
+   "BUTTON.control-surface.glass-control-edge.glass-capsule-hover slot=select-trigger 197,252 259x40 rad=9999px font=16.4px/400 bg=rgba(0, 0, 0, 0) txt=forwards",
+   "BUTTON.button.tap-squish.focus-ring slot=button 147,296 40x40 rad=9999px font=16.4px/500 bg=rgba(0, 0, 0, 0) txt=",
+   "BUTTON.control-surface.glass-control-edge.glass-capsule-hover slot=select-trigger 89,340 367x40 rad=9999px font=16.4px/400 bg=rgba(0, 0, 0, 0) txt=ease-in-out",
+   "BUTTON.kf-focus-ring.hover:text-foreground.text-muted-foreground slot=null 89,405 367x35 rad=0px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=advanced",
+   "BUTTON.button.tap-squish.focus-ring slot=button 89,446 40x40 rad=9999px font=16.4px/500 bg=rgba(0, 0, 0, 0) txt=",
+   "BUTTON.control-surface.glass-control-edge.glass-capsule-hover slot=select-trigger 162,500 294x40 rad=9999px font=16.4px/400 bg=rgba(0, 0, 0, 0) txt=replace",
+   "BUTTON.button.tap-squish.focus-ring slot=decrement 162,544 44x44 rad=9999px font=16.4px/500 bg=rgba(0, 0, 0, 0) txt=",
+   "BUTTON.button.tap-squish.focus-ring slot=increment 412,544 44x44 rad=9999px font=16.4px/500 bg=rgba(0, 0, 0, 0) txt=",
+   "BUTTON.switch.tap-squish slot=switch 162,592 44x44 rad=9999px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=",
+   "BUTTON.button.tap-squish.focus-ring slot=button 85,540 186x40 rad=9999px font=16.4px/500 bg=oklch(0.56 0.17 295) txt=Pause",
+   "BUTTON.button.tap-squish.focus-ring slot=button 279,540 186x40 rad=9999px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Reverse"
+  ],
+  "rail": [
+   "SPAN.slider-thumb.glass-specular-track slot=null 423,492 12x40 rad=6.4px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt= aria=Scrub animation timeline",
+   "DIV.progress-rail slot=null 117,619 315x2 rad=9999px font=18.608px/400 bg=color(srgb 0.493698 0.351392 0.798991 / 0.08) txt= aria=null",
+   "DIV.progress-ball.visualizer-ball.z-bar slot=null 383,596 48x48 rad=9999px font=18.608px/400 bg=oklch(0.56 0.17 295) txt= aria=null"
+  ]
+ },
+ "matrix": {
+  "cards": [
+   "DIV.glass-resting.card.rounded-card slot=card 71,62 407x454 rad=16px font=18.608px/400 bg=oklab(0.928268 0.00554796 0.0132111 / 0.664) txt=",
+   "DIV.glass-quiet.card.rounded-card slot=card 71,62 407x296 rad=16px font=18.608px/400 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=SxyzPwxSyzPwxySzPw",
+   "DIV.card-content.grid.items-center slot=card-content 73,64 403x292 rad=0px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=SxyzPwxSyzPwxySzPw",
+   "DIV.glass-quiet.card.rounded-card slot=card 71,382 407x64 rad=16px font=18.608px/400 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Reset Free",
+   "DIV.card-content.p-3 slot=card-content 73,384 403x60 rad=0px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=Reset Free"
+  ],
+  "buttons": [
+   "BUTTON.button.tap-squish.focus-ring slot=button 187,396 89x36 rad=8px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Reset",
+   "BUTTON.button.tap-squish.focus-ring slot=button 284,396 79x36 rad=8px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Free"
+  ],
+  "rail": []
+ },
+ "keyframes": {
+  "cards": [
+   "DIV.glass-resting.card.rounded-card slot=card 71,62 407x454 rad=16px font=18.608px/400 bg=oklab(0.928268 0.00554796 0.0132111 / 0.664) txt=123456789101112131",
+   "DIV.glass-quiet.card.rounded-card slot=card 71,540 407x108 rad=16px font=18.608px/400 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Copy  Format  Expo",
+   "DIV.card-content.p-3 slot=card-content 73,542 403x104 rad=0px font=18.608px/400 bg=rgba(0, 0, 0, 0) txt=Copy  Format  Expo"
+  ],
+  "buttons": [
+   "BUTTON.button.tap-squish.focus-ring slot=button 103,554 89x36 rad=9999px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Copy",
+   "BUTTON.button.tap-squish.focus-ring slot=button 201,554 102x36 rad=9999px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Format",
+   "BUTTON.button.tap-squish.focus-ring slot=button 311,554 135x36 rad=9999px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Export CSS",
+   "BUTTON.button.tap-squish.focus-ring slot=button 210,598 129x36 rad=9999px font=16.4px/500 bg=oklab(0.915626 0.00551148 0.0130686 / 0.52) txt=Apply CSS"
+  ],
+  "rail": []
+ }
+}

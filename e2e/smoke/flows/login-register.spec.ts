@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #2 — login-register (anonymous auto-register flow).
@@ -54,7 +55,7 @@ test("cold-boot vote auto-registers via POST /sessions and persists token", asyn
     );
 
     await page.goto("/#/browse");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await page.getByRole("button", { name: /0 votes, click to vote/ }).first().click();
     await expect.poll(() => registerCalled).toBe(true);
 });

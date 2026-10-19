@@ -1,0 +1,216 @@
+{
+  "gradient-390-light": {
+    "tile": {
+      "x": 309,
+      "y": 663,
+      "w": 48,
+      "h": 40
+    },
+    "tileOrder": "9999",
+    "directionRow": {
+      "x": 33,
+      "y": 663,
+      "w": 264,
+      "h": 40
+    },
+    "interpolationHead": {
+      "x": 33,
+      "y": 397,
+      "w": 324,
+      "h": 31
+    }
+  },
+  "gradient-390-dark": {
+    "tile": {
+      "x": 309,
+      "y": 663,
+      "w": 48,
+      "h": 40
+    },
+    "tileOrder": "9999",
+    "directionRow": {
+      "x": 33,
+      "y": 663,
+      "w": 264,
+      "h": 40
+    },
+    "interpolationHead": {
+      "x": 33,
+      "y": 397,
+      "w": 324,
+      "h": 31
+    }
+  },
+  "gradient-1440-light": {
+    "tile": {
+      "x": 590,
+      "y": 450,
+      "w": 96,
+      "h": 120
+    },
+    "tileOrder": "0",
+    "directionRow": {
+      "x": 224,
+      "y": 535,
+      "w": 354,
+      "h": 36
+    },
+    "interpolationHead": {
+      "x": 224,
+      "y": 400,
+      "w": 462,
+      "h": 31
+    }
+  },
+  "/#/atmosphere": {
+    "heads": [
+      {
+        "text": "Character",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Field",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      }
+    ],
+    "labels": [
+      "Color energy",
+      "Noise",
+      "Zones"
+    ]
+  },
+  "/#/blob": {
+    "heads": [
+      {
+        "text": "Geometry",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Membrane",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Color",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Lit glass",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Pointer",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Satellites",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      },
+      {
+        "text": "Tempo",
+        "font": "Fraunces",
+        "size": "20.352px",
+        "color": "oklch(0.216129 0.00624853 56.0356)"
+      }
+    ],
+    "labels": [
+      "Body radius",
+      "Satellites",
+      "Satellite radius",
+      "Orbit radius",
+      "Eccentricity",
+      "Smoothness",
+      "Warp",
+      "Noise amplitude",
+      "Noise frequency",
+      "Noise speed",
+      "Pulse frequency",
+      "Pulse amplitude",
+      "Hue range",
+      "Saturation",
+      "Brightness",
+      "Noise frequency",
+      "Noise speed",
+      "Specular",
+      "Shininess",
+      "Rim",
+      "Rim power",
+      "Iridescence",
+      "Sub-surface",
+      "Core glow",
+      "Attraction",
+      "Strength",
+      "Stretch",
+      "Click impulse",
+      "Merge (ms)",
+      "Emerge (ms)",
+      "Speed"
+    ]
+  },
+  "companion /#/mix": {
+    "pane": "mix",
+    "wrapper": 621,
+    "stage": 621,
+    "stageCard": 621,
+    "card": 598,
+    "cardTop": 112,
+    "deadUnderContent": 1,
+    "scrolls": false
+  },
+  "companion /#/generate": {
+    "pane": "palettes",
+    "wrapper": 480,
+    "stage": 459,
+    "stageCard": 459,
+    "card": 425,
+    "cardTop": 112,
+    "deadUnderContent": 1,
+    "scrolls": false
+  },
+  "companion /#/browse": {
+    "pane": "palettes",
+    "wrapper": 480,
+    "stage": 370,
+    "stageCard": 370,
+    "card": 425,
+    "cardTop": 112,
+    "deadUnderContent": 1,
+    "scrolls": false
+  },
+  "companion /#/palettes": {
+    "pane": "palettes",
+    "wrapper": 621,
+    "stage": 621,
+    "stageCard": 621,
+    "card": 425,
+    "cardTop": 112,
+    "deadUnderContent": 1,
+    "scrolls": false
+  },
+  "companion /#/about": null,
+  "companion /#/blob": {
+    "pane": "blob",
+    "wrapper": 621,
+    "stage": 621,
+    "stageCard": 621,
+    "card": 621,
+    "cardTop": 112,
+    "deadUnderContent": 0,
+    "scrolls": true
+  }
+}

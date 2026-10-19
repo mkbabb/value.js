@@ -1,0 +1,8 @@
+# pre-.semi product 2f590daa8^ (src archive)
+"if(supports(color: red): red; else: blue)" ACCEPTED
+"if(supports(color: lch(0 0 0)): red; else: blue)" ACCEPTED
+"if(style(--x: 1): red; else: blue)" ACCEPTED
+# HEAD product (src = 7516f0d8c)
+"if(supports(color: red): red; else: blue)" refused {"ok":false,"diagnostics":[{"code":"css_syntax","start":28,"end":29,"expected":["scalar"],"actual":";"}]}
+"if(supports(color: lch(0 0 0)): red; else: blue)" refused {"ok":false,"diagnostics":[{"code":"css_syntax","start":35,"end":36,"expected":["scalar"],"actual":";"}]}
+"if(style(--x: 1): red; else: blue)" refused {"ok":false,"diagnostics":[{"code":"css_syntax","start":21,"end":22,"expected":["scalar"],"actual":";"}]}

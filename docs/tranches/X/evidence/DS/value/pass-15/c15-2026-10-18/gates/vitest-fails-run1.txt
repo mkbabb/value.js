@@ -1,0 +1,10 @@
+   × D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark) 5ms
+   × D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light) 6ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp) 1ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark) 1ms
+   × T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light) 1ms
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)

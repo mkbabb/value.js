@@ -1,0 +1,239 @@
+{
+ "parseCssColor": [
+  [
+   "number/v",
+   {
+    "calls": 11819,
+    "repeats": 1633
+   }
+  ],
+  [
+   "percentage/v",
+   {
+    "calls": 10363,
+    "repeats": 1750
+   }
+  ],
+  [
+   "angle/v",
+   {
+    "calls": 2477,
+    "repeats": 1052
+   }
+  ],
+  [
+   "varFn/v",
+   {
+    "calls": 10,
+    "repeats": 4
+   }
+  ],
+  [
+   "close/r",
+   {
+    "calls": 3575,
+    "repeats": 476
+   }
+  ],
+  [
+   "dashedIdent/v",
+   {
+    "calls": 6,
+    "repeats": 0
+   }
+  ]
+ ],
+ "parseCssScalar": [
+  [
+   "number/v",
+   {
+    "calls": 11819,
+    "repeats": 1633
+   }
+  ],
+  [
+   "percentage/v",
+   {
+    "calls": 10363,
+    "repeats": 1750
+   }
+  ],
+  [
+   "angle/v",
+   {
+    "calls": 2477,
+    "repeats": 1052
+   }
+  ],
+  [
+   "varFn/v",
+   {
+    "calls": 10,
+    "repeats": 4
+   }
+  ],
+  [
+   "close/r",
+   {
+    "calls": 3575,
+    "repeats": 476
+   }
+  ],
+  [
+   "dashedIdent/v",
+   {
+    "calls": 6,
+    "repeats": 0
+   }
+  ]
+ ],
+ "parseCssValue": [
+  [
+   "number/v",
+   {
+    "calls": 11819,
+    "repeats": 1633
+   }
+  ],
+  [
+   "percentage/v",
+   {
+    "calls": 10363,
+    "repeats": 1750
+   }
+  ],
+  [
+   "angle/v",
+   {
+    "calls": 2477,
+    "repeats": 1052
+   }
+  ],
+  [
+   "numeric/v",
+   {
+    "calls": 2451,
+    "repeats": 218
+   }
+  ],
+  [
+   "operator/v",
+   {
+    "calls": 1183,
+    "repeats": 165
+   }
+  ],
+  [
+   "commaList/v",
+   {
+    "calls": 10283,
+    "repeats": 1803
+   }
+  ]
+ ],
+ "parseCssValues": [
+  [
+   "number/v",
+   {
+    "calls": 11819,
+    "repeats": 1633
+   }
+  ],
+  [
+   "percentage/v",
+   {
+    "calls": 10363,
+    "repeats": 1750
+   }
+  ],
+  [
+   "angle/v",
+   {
+    "calls": 2477,
+    "repeats": 1052
+   }
+  ],
+  [
+   "numeric/v",
+   {
+    "calls": 2451,
+    "repeats": 218
+   }
+  ],
+  [
+   "operator/v",
+   {
+    "calls": 1183,
+    "repeats": 165
+   }
+  ],
+  [
+   "commaList/v",
+   {
+    "calls": 10283,
+    "repeats": 1803
+   }
+  ]
+ ],
+ "parseKeyframeSelector": [],
+ "parseTimingFunction": [
+  [
+   "ws1/r",
+   {
+    "calls": 7,
+    "repeats": 2
+   }
+  ],
+  [
+   "percentage/v",
+   {
+    "calls": 10363,
+    "repeats": 1750
+   }
+  ]
+ ],
+ "parseStylesheet": [
+  [
+   "preludeRun/v",
+   {
+    "calls": 71716,
+    "repeats": 25188
+   }
+  ],
+  [
+   "textBody/r",
+   {
+    "calls": 51502,
+    "repeats": 17434
+   }
+  ],
+  [
+   "textGroup/r",
+   {
+    "calls": 51440,
+    "repeats": 17432
+   }
+  ],
+  [
+   "valueTop/v",
+   {
+    "calls": 9142,
+    "repeats": 1836
+   }
+  ],
+  [
+   "commaList/v",
+   {
+    "calls": 10283,
+    "repeats": 1803
+   }
+  ],
+  [
+   "slashList/v",
+   {
+    "calls": 10736,
+    "repeats": 1792
+   }
+  ]
+ ]
+}

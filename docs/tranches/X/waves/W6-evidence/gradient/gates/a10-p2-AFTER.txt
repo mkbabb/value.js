@@ -1,0 +1,103 @@
+BAR {"x":224,"y":200.65625,"w":462,"h":40}
+T1 before {"n":2,"labels":["Gradient stop 1 of 2","Gradient stop 2 of 2"],"centers":[236,674],"css":""}
+T1 after click at bar.x+3 {"n":2,"labels":["Gradient stop 1 of 2","Gradient stop 2 of 2"],"centers":[236,674],"css":""}
+T1 errs ["con:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"]
+T2 after mid add {"n":3,"labels":["Gradient stop 1 of 3","Gradient stop 2 of 3","Gradient stop 3 of 3"],"centers":[236,455,674],"css":""}
+T2 chip {
+ "chip": {
+  "x": 443,
+  "y": 256.7,
+  "w": 24,
+  "h": 24,
+  "top": 256.7,
+  "bottom": 280.7
+ },
+ "chipZ": "20",
+ "editorRoot": {
+  "x": 224,
+  "y": 200.7,
+  "w": 462,
+  "h": 80,
+  "top": 200.7,
+  "bottom": 280.7
+ },
+ "bar": {
+  "x": 224,
+  "y": 200.7,
+  "w": 462,
+  "h": 40,
+  "top": 200.7,
+  "bottom": 240.7
+ },
+ "hr": {
+  "x": 224,
+  "y": 300.7,
+  "w": 462,
+  "h": 1,
+  "top": 300.7,
+  "bottom": 301.7
+ },
+ "h3": {
+  "x": 224,
+  "y": 321.7,
+  "w": 462,
+  "h": 30.5,
+  "top": 321.7,
+  "bottom": 352.2
+ },
+ "chipHit": [
+  -12,
+  11,
+  24
+ ],
+ "hrIsUnder": "BUTTON.rail-remove-chip absolut"
+}
+T2 errs ["con:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"]
+T3 3 stops {"n":3,"labels":["Gradient stop 1 of 3","Gradient stop 2 of 3","Gradient stop 3 of 3"],"centers":[236,384.9,674],"css":""}
+T3 after cross-drag {"n":3,"labels":["Gradient stop 1 of 3","Gradient stop 2 of 3","Gradient stop 3 of 3"],"centers":[236,671.8,674],"css":""}
+T3 easing interval labels ["1 → 2linearcsslineareaseinoutin-outsinei","1 → 2linearcsslineareaseinoutin-outsinei","1 → 2","2 → 3linearcsslineareaseinoutin-outsinei"]
+T3 errs ["con:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"]
+T4 [
+ [
+  "Home",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "End",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "ArrowUp",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "ArrowDown",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "ArrowRight",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "Shift+ArrowRight",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "PageUp",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "Space",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "Escape",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ],
+ [
+  "Delete",
+  "Gradient stop 1 of 2|Gradient stop 2 of 2 focus=Gradient stop 1 of 2"
+ ]
+]
+T4 focus style (programmatic focus, not :focus-visible) {"outline":"none 3px","boxShadow":"rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px"}
+T4 errs ["con:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"]

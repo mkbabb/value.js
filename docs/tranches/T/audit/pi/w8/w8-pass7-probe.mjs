@@ -53,7 +53,7 @@ const log = (s) => {
     report.push(s);
 };
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 
 const ENV_NOISE =
     /Failed to load resource|\b(429|503|504)\b|Too Many Requests|blocked by CORS policy/;

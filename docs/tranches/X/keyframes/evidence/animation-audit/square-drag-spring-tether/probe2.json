@@ -1,0 +1,70 @@
+{
+ "khead": "d78bed01",
+ "kdirty": "4",
+ "small40": {
+  "len": 40.8,
+  "visibleSamples": 0,
+  "of": 61,
+  "tetherOpacity": "1",
+  "d": "M 110 110 Q 130.00 117.20 150.00 110.00",
+  "tf": "translate(40px, 0px) rotate(0deg) skew(0deg, 0deg) scale(1.0436, 1.0436)"
+ },
+ "diag106": {
+  "len": 152,
+  "visibleSamples": 1,
+  "of": 61,
+  "tetherOpacity": "1",
+  "d": "M 110 110 Q 147.44 178.56 216.00 216.00",
+  "tf": "translate(106px, 106px) rotate(0deg) skew(0deg, 0deg) scale(1.12, 1.12)"
+ },
+ "horiz110": {
+  "len": 112.3,
+  "visibleSamples": 2,
+  "of": 61,
+  "tetherOpacity": "1",
+  "d": "M 110 110 Q 165.00 129.80 220.00 110.00",
+  "tf": "translate(110px, 0px) rotate(0deg) skew(0deg, 0deg) scale(1.12, 1.12)"
+ },
+ "horiz160clamp": {
+  "len": 112.3,
+  "visibleSamples": 2,
+  "of": 61,
+  "tetherOpacity": "1",
+  "d": "M 110 110 Q 165.00 129.80 220.00 110.00",
+  "tf": "translate(110px, 0px) rotate(0deg) skew(0deg, 0deg) scale(1.12, 1.12)"
+ },
+ "horizFling": "translate(88.7643px, 0px) rotate(0deg) skew(0deg, 9deg) scale(1.2065, 0.9872)",
+ "scrubBefore": {
+  "now": "0",
+  "disabled": null,
+  "op": "1"
+ },
+ "playLabel": "Play",
+ "afterPanelPlay": {
+  "tf": "translate(16.7973px, 56.4055px) rotate(163.203deg) skew(0deg, 0deg) scale(1.0149, 1.0149)",
+  "mode": "playback",
+  "read": "Transform x +0.15 y +0.51 TRACKING"
+ },
+ "scrubPlaying": {
+  "now": "850.2999999999993",
+  "disabled": null,
+  "op": "1"
+ },
+ "takeover": {
+  "pre": "translate(13.2196px, 63.5608px) rotate(166.78deg) skew(0deg, 0deg) scale(1.0118, 1.0118)",
+  "post": {
+   "tf": "translate(10.0425px, 69.9149px) rotate(169.957deg) skew(0deg, 0deg) scale(1.0771, 1.0771)",
+   "mode": "idle"
+  }
+ },
+ "afterTakeover": {
+  "tf": "translate(-49.9575px, 109.915px) rotate(169.957deg) skew(0deg, 0deg) scale(1.12, 1.12)",
+  "mode": "idle"
+ },
+ "scrubAfter": {
+  "now": "883.5999999999985",
+  "disabled": null,
+  "op": "1"
+ },
+ "playLabelAfter": "Play"
+}

@@ -1,0 +1,53 @@
+14:27  up 5 days, 19:30, 2 users, load averages: 15.19 17.07 14.94
+chromium r0a0 parseCssColor          acc      n=6460 k=4 S=1 product x0.509 (31/31<1) spread 1.125
+chromium r0a0 parseCssScalar         acc      n=7460 k=4 S=1 product x0.469 (31/31<1) spread 1.164
+chromium r0a0 parseCssValue          acc      n=13023 k=1 S=1 product x0.304 (31/31<1) spread 1.148
+chromium r0a0 parseCssValues         acc      n=13023 k=1 S=1 product x0.299 (31/31<1) spread 1.088
+chromium r0a0 parseKeyframeSelector  acc      n=56 k=4096 S=1 product x0.72 (31/31<1) spread 1.142
+chromium r0a0 parseTimingFunction    acc      n=509 k=64 S=1 product x0.539 (31/31<1) spread 1.109
+chromium r0a0 parseStylesheet        acc      n=2503 k=2 S=1 product x0.512 (31/31<1) spread 1.136
+chromium r0a0 parseCssColor          rej      n=23484 k=2 S=1 product x0.555 (31/31<1) spread 1.19
+chromium r0a0 parseCssScalar         rej      n=22484 k=2 S=1 product x0.472 (31/31<1) spread 1.13
+chromium r0a0 parseCssValue          rej      n=16921 k=1 S=1 product x0.442 (31/31<1) spread 1.138
+chromium r0a0 parseCssValues         rej      n=16921 k=1 S=1 product x0.45 (31/31<1) spread 1.134
+chromium r0a0 parseKeyframeSelector  rej      n=29888 k=8 S=1 product x0.69 (31/31<1) spread 1.169
+chromium r0a0 parseTimingFunction    rej      n=29435 k=8 S=1 product x0.641 (31/31<1) spread 1.086
+chromium r0a0 parseStylesheet        rej      n=27441 k=1 S=1 product x0.478 (31/31<1) spread 1.158
+chromium r0a0 parseStylesheet        large-eq n=4 k=16 S=1 product x0.543 (31/31<1) spread 1.155
+chromium r1a0 parseCssScalar         acc      n=7460 k=4 S=1 product x0.475 (31/31<1) spread 1.159
+chromium r1a0 parseCssValue          acc      n=13023 k=1 S=1 product x0.299 (31/31<1) spread 1.151
+chromium r1a0 parseCssValues         acc      n=13023 k=1 S=1 product x0.299 (31/31<1) spread 1.118
+chromium r1a0 parseKeyframeSelector  acc      n=56 k=4096 S=1 product x0.716 (31/31<1) spread 1.107
+chromium r1a0 parseTimingFunction    acc      n=509 k=64 S=1 product x0.542 (31/31<1) spread 1.095
+chromium r1a0 parseStylesheet        acc      n=2503 k=2 S=1 product x0.504 (31/31<1) spread 1.167
+chromium r1a0 parseCssColor          acc      n=6460 k=4 S=1 product x0.5 (31/31<1) spread 1.138
+chromium r1a0 parseCssScalar         rej      n=22484 k=2 S=1 product x0.465 (31/31<1) spread 1.13
+chromium r1a0 parseCssValue          rej      n=16921 k=1 S=1 product x0.445 (31/31<1) spread 1.152
+chromium r1a0 parseCssValues         rej      n=16921 k=1 S=1 product x0.451 (31/31<1) spread 1.173
+chromium r1a0 parseKeyframeSelector  rej      n=29888 k=8 S=1 product x0.693 (31/31<1) spread 1.131
+chromium r1a0 parseTimingFunction    rej      n=29435 k=8 S=1 product x0.633 (31/31<1) spread 1.122
+chromium r1a0 parseStylesheet        rej      n=27441 k=1 S=1 product x0.452 (31/31<1) spread 1.138
+chromium r1a0 parseCssColor          rej      n=23484 k=2 S=1 product x0.548 (31/31<1) spread 1.218
+chromium r1a0 parseStylesheet        large-eq n=4 k=16 S=1 product x0.533 (31/31<1) spread 1.116
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product chromium|acc|parseCssColor               <1 x0.509 x0.5
+product chromium|acc|parseCssScalar              <1 x0.469 x0.475
+product chromium|acc|parseCssValue               <1 x0.304 x0.299
+product chromium|acc|parseCssValues              <1 x0.299 x0.299
+product chromium|acc|parseKeyframeSelector       <1 x0.72 x0.716
+product chromium|acc|parseTimingFunction         <1 x0.539 x0.542
+product chromium|acc|parseStylesheet             <1 x0.512 x0.504
+product chromium|rej|parseCssColor               <1 x0.555 x0.548
+product chromium|rej|parseCssScalar              <1 x0.472 x0.465
+product chromium|rej|parseCssValue               <1 x0.442 x0.445
+product chromium|rej|parseCssValues              <1 x0.45 x0.451
+product chromium|rej|parseKeyframeSelector       <1 x0.69 x0.693
+product chromium|rej|parseTimingFunction         <1 x0.641 x0.633
+product chromium|rej|parseStylesheet             <1 x0.478 x0.452
+product chromium|large-eq|parseStylesheet        <1 x0.543 x0.533
+14:27  up 5 days, 19:30, 2 users, load averages: 14.37 16.87 14.88 
+ 14:29  up 5 days, 19:31, 2 users, load averages: 10.06 15.17 14.37 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c2-chromium-n31-main.json
+DONE w8lg1c2-chromium-n31-main
+guarded exit 0
+14:29  up 5 days, 19:31, 2 users, load averages: 10.30 15.13 14.36

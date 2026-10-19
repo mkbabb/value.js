@@ -1,0 +1,40 @@
+# 2026-10-16 07:03:11 load: 14.24 16.55 19.89 dir: /Users/mkbabb/Programming/keyframes-wt-W13X-open4 head: 389e31d2 dirty: 
+
+> @mkbabb/keyframes.js@6.0.0 build
+> npm run build:lib
+
+
+> @mkbabb/keyframes.js@6.0.0 build:lib
+> vite build --mode production
+
+vite v8.0.16 building client environment for production...
+(node:14841) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2Ktransforming...✓ 153 modules transformed.
+rendering chunks...
+
+[unplugin:dts] Start generate declaration files...
+[unplugin:dts] Start bundling declaration files...
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+[unplugin:dts] Declaration files built in 3027ms.
+
+computing gzip size...
+dist/registry-b8j0rgh2.js    0.11 kB │ gzip:  0.11 kB
+dist/registry-BXq38yqN.js    6.71 kB │ gzip:  2.35 kB
+dist/keyframes.js           22.61 kB │ gzip:  7.35 kB
+dist/sequence-CQRFVpPy.js   24.19 kB │ gzip:  6.95 kB
+dist/engine/index.js       142.04 kB │ gzip: 39.47 kB
+
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+  - unplugin-dts (68%)
+  - svg-loader (32%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 3.09s
+Analysis will use the bundled TypeScript version 5.9.3
+*** The target project appears to use TypeScript 6.0.3 which is newer than the bundled compiler engine; consider upgrading API Extractor.
+EXIT=0
+# end 07:03:20 load: 13.79 16.38 19.79

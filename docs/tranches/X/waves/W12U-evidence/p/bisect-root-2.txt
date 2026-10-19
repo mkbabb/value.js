@@ -1,0 +1,46 @@
+SERVED MODEL: claude-opus-5-5
+Running 1 test using 1 worker
+[1/1] [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame
+[smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame
+[w12u-p REAL-GPU] surface: moves=39 frames=136 p50=18.6 p95=22.0 longTasks=0 maxTask=0 dockRoving=0/0f dockText=38
+    dock: 
+    main: UpdateLayoutTree=346ms · Layout=261ms · PrePaint=36ms · Paint=100ms · Layerize=41ms · Commit=31ms · FunctionCall=92ms · RunTask=1929ms
+    self: s@class-names-FlXcvRRT-DiIf_etZ.js:145=88ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=33ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=31ms · assignSlots@vue.runtime.esm-bundler-DQai_KuN.js:5163=29ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=22ms · getBoundingClientRect@:0=21ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=21ms
+    demo: certify@ink.ts:85=60ms · attempt@ink.ts:87=60ms · certifyAccentInk@ink.ts:170=53ms · safeCss@useContrastSafeColor.ts:281=24ms · (anon)@useMarkdownColors.ts:24=14ms · (anon)@ColorNutritionLabel.vue:34=13ms
+[w12u-p REAL-GPU] slider L: moves=35 frames=129 p50=10.7 p95=31.8 longTasks=0 maxTask=0 dockRoving=0/0f dockText=35
+    dock: 
+    main: UpdateLayoutTree=340ms · Layout=268ms · PrePaint=37ms · Paint=74ms · Layerize=40ms · Commit=29ms · FunctionCall=88ms · RunTask=1758ms
+    self: s@class-names-FlXcvRRT-DiIf_etZ.js:145=58ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=24ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=23ms · set@vue.runtime.esm-bundler-DQai_KuN.js:1028=23ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=22ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=18ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=12ms
+    demo: certifyAccentInk@ink.ts:170=14ms · certify@ink.ts:85=11ms · attempt@ink.ts:87=11ms · _sfc_render@Markdown.vue:82=10ms · (anon)@useMarkdownColors.ts:24=10ms · _sfc_render@WatercolorDot.vue:113=8ms
+[w12u-p REAL-GPU] slider a: moves=37 frames=123 p50=10.9 p95=30.9 longTasks=0 maxTask=0 dockRoving=0/0f dockText=37
+    dock: 
+    main: UpdateLayoutTree=312ms · Layout=263ms · PrePaint=35ms · Paint=70ms · Layerize=38ms · Commit=28ms · FunctionCall=78ms · RunTask=1655ms
+    self: s@class-names-FlXcvRRT-DiIf_etZ.js:145=69ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=26ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=25ms · createVNodeWithArgsTransform@vue.runtime.esm-bundler-DQai_KuN.js:6384=22ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=20ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=19ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=-0ms
+    demo: _sfc_render@WatercolorDot.vue:113=10ms · _sfc_render@ColorNutritionLabel.vue:119=6ms · (anon)@ColorNutritionLabel.vue:228=6ms · (anon)@ColorSpaceSelector.vue:199=6ms · safeCss@useContrastSafeColor.ts:281=6ms · surfaceLightnessNow@useContrastSafeColor.ts:213=6ms
+[w12u-p REAL-GPU] slider b: moves=36 frames=122 p50=11.0 p95=40.0 longTasks=0 maxTask=0 dockRoving=0/0f dockText=36
+    dock: 
+    main: UpdateLayoutTree=365ms · Layout=283ms · PrePaint=37ms · Paint=68ms · Layerize=38ms · Commit=27ms · FunctionCall=98ms · RunTask=1772ms
+    self: s@class-names-FlXcvRRT-DiIf_etZ.js:145=73ms · createVNodeWithArgsTransform@vue.runtime.esm-bundler-DQai_KuN.js:6384=26ms · c@class-names-FlXcvRRT-DiIf_etZ.js:149=24ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=24ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=23ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=21ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=20ms
+    demo: _sfc_render@WatercolorDot.vue:113=12ms · certifyAccentInk@ink.ts:170=9ms · safeCss@useContrastSafeColor.ts:281=8ms · (anon)@AboutPane.vue:78=7ms · debounced@utils.ts:22=7ms · watch.immediate@useColorNameResolution.ts:15=6ms
+[w12u-p REAL-GPU] slider alpha: moves=60 frames=163 p50=10.3 p95=21.5 longTasks=0 maxTask=0 dockRoving=0/0f dockText=53
+    dock: 
+    main: UpdateLayoutTree=191ms · Layout=227ms · PrePaint=26ms · Paint=24ms · Layerize=40ms · Commit=33ms · FunctionCall=97ms · RunTask=1420ms
+    self: s@class-names-FlXcvRRT-DiIf_etZ.js:145=65ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=28ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=24ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=21ms · renderComponentRoot@vue.runtime.esm-bundler-DQai_KuN.js:4695=17ms · toRaw@vue.runtime.esm-bundler-DQai_KuN.js:1311=16ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=16ms
+    demo: (anon)@ColorSpaceSelector.vue:199=13ms · _sfc_render@WatercolorDot.vue:113=9ms · (anon)@useWatercolorBlob.ts:54=5ms · convertPickerColor@picker-color.ts:187=3ms · _sfc_render@Markdown.vue:82=2ms · (anon)@useMarkdownColors.ts:24=2ms
+[w12u-p] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev bisect=root
+  1) [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+    Error: surface: drag frame p95 over 16.7 ms
+    expect(received).toBeLessThanOrEqual(expected)
+    Expected: <= 16.7
+    Received:    22
+    > 274 |             expect(r.p95, `${r.name}: drag frame p95 over ${P95_BUDGET_MS} ms`).toBeLessThanOrEqual(P95_BUDGET_MS);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12u-p-drag.spec.ts:274:81
+    Error Context: test-results/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/error-context.md
+  1 failed
+    [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+EXIT 1

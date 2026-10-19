@@ -1,0 +1,11 @@
+RED   KFA-25 390x844-dark dock pick cube->amiga (chunk held 2000 ms): skeleton frames 112/223 · VT calls 1
+GREEN KFA-75 390x844-dark controls pane absent 223/223 frames across the swap (open before and after: false)
+RED   KFA-76 390x844-dark max rAF interval wholly inside the visible VT cross-fade 22 ms (22 frames) · stalls >100 ms on a visible (non-held) frame [287] · update phase (old paint held, mount runs) 52 ms · whole window 287 ms · a stall on a visible blank/skeleton: true
+RED   KFA-26 390x844-dark listbox/menu visible at the VT capture: 1 · named groups ["scene-subject"]
+RED   KFA-201 390x844-dark Select rows visible after the new scene painted: 0 frames (resolved t=10072) · at capture 1
+GREEN KFA-77 390x844-dark dock label sequence ["Cube","Amiga"] · chrome in its own VT group: false · label changes inside the capture: false
+RED   KFA-24 390x844-dark hash amiga->easing: VT calls 0, skeleton 0, pane gone 219 · back easing->amiga: VT calls 0, skeleton 0
+RED   KFA-79 390x844-dark cold load: the skeleton's first painted frame opacity 1 (an un-delayed fallback flashes on a sub-threshold load)
+GREEN KFA-137 390x844-dark sheen background oklab(0.925196 0.00238398 0.00574207 / 0.08) (alpha 0.08)
+GREEN KFA-80 390x844-dark stage box under the skeleton [0,74,390,696] -> settled scene undefined · stage widths after resolve []
+GREEN KFA-184 390x844-dark controls pane widths across the resolve [] (a growing track clips the rail content)

@@ -1,0 +1,122 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 19,
+ "steps": [
+  {
+   "label": "initial",
+   "cards": [
+    "0% :: transform: translateX(0%);",
+    "25% :: transform: translateX(100.5%);",
+    "50% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);"
+   ],
+   "thumbs": [
+    "0@0w",
+    "25@0w",
+    "50@0w",
+    "75@0w",
+    "100@0w"
+   ],
+   "active": "BODY"
+  },
+  {
+   "label": "thumb2 ArrowRight x1",
+   "cards": [
+    "0% :: transform: translateX(0%);",
+    "25.1% :: transform: translateX(100.5%);",
+    "50% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);"
+   ],
+   "thumbs": [
+    "0@0w",
+    "25@0w",
+    "50@0w",
+    "75@0w",
+    "100@0w"
+   ],
+   "active": "Value 2 of 5"
+  },
+  {
+   "label": "ArrowRight x2 (focus retained?)",
+   "cards": [
+    "0% :: transform: translateX(0%);",
+    "25.1% :: transform: translateX(100.5%);",
+    "50% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);"
+   ],
+   "thumbs": [
+    "0@0w",
+    "25@0w",
+    "50@0w",
+    "75@0w",
+    "100@0w"
+   ],
+   "active": "Value 2 of 5"
+  },
+  {
+   "label": "re-sample",
+   "cards": [
+    "0% :: transform: translateX(0%);",
+    "25.1% :: transform: translateX(100.5%);",
+    "50% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);"
+   ],
+   "thumbs": [
+    "0@0w",
+    "25@0w",
+    "50@0w",
+    "75@0w",
+    "100@0w"
+   ],
+   "active": "BUTTON"
+  },
+  {
+   "label": "remove 50%",
+   "cards": [
+    "0% :: transform: translateX(0%);",
+    "0% :: transform: translateX(0%);",
+    "25.1% :: transform: translateX(100.5%);",
+    "50% :: transform: translateX(100%);",
+    "50% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);"
+   ],
+   "thumbs": [
+    "0@0w",
+    "25@0w",
+    "50@0w",
+    "75@0w",
+    "100@0w"
+   ],
+   "active": "Remove the keyframe at 50%"
+  },
+  {
+   "label": "re-sample after remove",
+   "cards": [
+    "0% :: transform: translateX(0%);",
+    "25.1% :: transform: translateX(100.5%);",
+    "50% :: transform: translateX(100%);",
+    "75% :: transform: translateX(100%);",
+    "100% :: transform: translateX(100%);"
+   ],
+   "thumbs": [
+    "0@0w",
+    "25@0w",
+    "50@0w",
+    "75@0w",
+    "100@0w"
+   ],
+   "active": "Remove the keyframe at 50%"
+  }
+ ],
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "BrowserScalarResolutionError: Could not resolve \"translateX(0%) rotate(0deg)\" for \"transform\" to a numeric CSS scalar (computed: \"matrix(1, 0, 0, 1, 0, 0)\")."
+ ]
+}

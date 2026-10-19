@@ -1,0 +1,41 @@
+SERVED MODEL: claude-opus-5-5
+# X.W7L.a census, 2026-09-25, glass 10.1.0 installed, HEAD a8449bee
+
+## ⟨grep -rn "Configurator" demo | grep -v ^demo/test⟩
+demo/scenes/ConfigSliderPane.vue:6:// HARDEN-4 §5.1: glass-ui already ships `./configurator` with ConfiguratorRow
+demo/scenes/ConfigSliderPane.vue:7:// + useConfiguratorState. This component uses ConfiguratorRow for each labeled
+demo/scenes/ConfigSliderPane.vue:21:import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
+demo/scenes/ConfigSliderPane.vue:139:                        <!-- ONE label per row (ConfiguratorRow's `label`), with the
+demo/scenes/ConfigSliderPane.vue:141:                             glass-ui ConfiguratorRow label API (L14), no demo fork.
+demo/scenes/ConfigSliderPane.vue:144:                        <ConfiguratorRow
+demo/scenes/ConfigSliderPane.vue:160:                        </ConfiguratorRow>
+demo/scenes/ConfigSliderPane.vue:191: * certified-ink cure for the row's live value (the producer ConfiguratorRow
+
+## ⟨grep -rn "ConfiguratorLayer\|layout=\"detached\"\|<Configurator[ >]" demo⟩ (count)
+       0
+
+## lone-row refresh/reset action sites (⟨grep -rln "RotateCcw\|RefreshCw\|RefreshCcw" demo | grep -v ^demo/test⟩)
+demo/workbenches/mix/MixResultDisplay.vue
+demo/workbenches/generate/GenerateControls.vue
+demo/workbenches/extract/ExtractControls.vue
+demo/scenes/ConfigSliderPane.vue
+demo/shell/dock/ActionToolbar.vue
+demo/shell/dock/menus/ProfileSection.vue
+demo/shell/dock/menus/MobileMenuDropdown.vue
+demo/shell/usePaneRouter.ts
+demo/shell/PaneErrorPlate.vue
+demo/shell/dock/layers/SlugEditLayer.vue
+demo/color-picker/ErrorBoundary.vue
+demo/palettes/browser/slug/PaletteSlugBar.vue
+demo/palettes/browser/admin/AdminTagsPanel.vue
+demo/palettes/browser/admin/AdminAuditPanel.vue
+demo/palettes/browser/admin/AdminFlaggedPanel.vue
+demo/palettes/browser/admin/AdminUsersPanel.vue
+demo/palettes/browser/dialog/VersionHistoryDrawer.vue
+
+## the stage+inspector scene grid (value.js own, no glass Configurator shell)
+58: * `.pane-container` below and is the invariant this wave must not move;
+170: * `.pane-container--dual` to `repeat(2, minmax(var(--pane-min), 1fr))`. The
+193:.pane-container {
+242:.pane-wrapper--stage {
+265: * `auto-fit` condition of `.pane-container` above: its inline size is at

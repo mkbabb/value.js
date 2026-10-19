@@ -1,0 +1,430 @@
+{
+ "base": "http://localhost:5199/",
+ "reduce": false,
+ "scenes": {
+  "cube": {
+   "rest": {
+    "box0": {
+     "x": 710,
+     "y": 61.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 232,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "bob",
+     "pose",
+     "cube"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 512.75,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 233,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "bob",
+     "pose",
+     "cube"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "amiga": {
+   "rest": {
+    "box0": {
+     "x": 498.8125,
+     "y": 53.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 8.1796875,
+    "diffInside": 438,
+    "diffOutside": 648,
+    "outsideAt": [
+     [
+      -6.81,
+      -6.25
+     ],
+     [
+      -5.81,
+      -6.25
+     ],
+     [
+      -4.81,
+      -6.25
+     ],
+     [
+      -3.81,
+      -6.25
+     ],
+     [
+      -2.81,
+      -6.25
+     ],
+     [
+      -1.81,
+      -6.25
+     ],
+     [
+      -0.81,
+      -6.25
+     ],
+     [
+      0.19,
+      -6.25
+     ]
+    ],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "grid",
+     "shadow",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 508.8125,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 139,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "grid",
+     "shadow",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "square": {
+   "rest": {
+    "box0": {
+     "x": 494.8671875,
+     "y": 53.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 8.125,
+    "diffInside": 441,
+    "diffOutside": 648,
+    "outsideAt": [
+     [
+      -6.87,
+      -6.25
+     ],
+     [
+      -5.87,
+      -6.25
+     ],
+     [
+      -4.87,
+      -6.25
+     ],
+     [
+      -3.87,
+      -6.25
+     ],
+     [
+      -2.87,
+      -6.25
+     ],
+     [
+      -1.87,
+      -6.25
+     ],
+     [
+      -0.87,
+      -6.25
+     ],
+     [
+      0.13,
+      -6.25
+     ]
+    ],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "field",
+     "box"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 504.8671875,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 121,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "field",
+     "box"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "easing": {
+   "rest": {
+    "box0": {
+     "x": 510.71875,
+     "y": 53.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 8,
+    "diffInside": 441,
+    "diffOutside": 643,
+    "outsideAt": [
+     [
+      -6.72,
+      -6.25
+     ],
+     [
+      -5.72,
+      -6.25
+     ],
+     [
+      -4.72,
+      -6.25
+     ],
+     [
+      -3.72,
+      -6.25
+     ],
+     [
+      -2.72,
+      -6.25
+     ],
+     [
+      -1.72,
+      -6.25
+     ],
+     [
+      -0.72,
+      -6.25
+     ],
+     [
+      0.28,
+      -6.25
+     ]
+    ],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "curve",
+     "rail",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 520.71875,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 36,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "curve",
+     "rail",
+     "ball"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "spring": {
+   "rest": {
+    "box0": {
+     "x": 503.265625,
+     "y": 53.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 8.2265625,
+    "diffInside": 441,
+    "diffOutside": 647,
+    "outsideAt": [
+     [
+      -6.27,
+      -6.25
+     ],
+     [
+      -5.27,
+      -6.25
+     ],
+     [
+      -4.27,
+      -6.25
+     ],
+     [
+      -3.27,
+      -6.25
+     ],
+     [
+      -2.27,
+      -6.25
+     ],
+     [
+      -1.27,
+      -6.25
+     ],
+     [
+      -0.27,
+      -6.25
+     ],
+     [
+      0.73,
+      -6.25
+     ]
+    ],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "lanes",
+     "balls"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 513.265625,
+     "y": 61.2421875,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 52,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "lanes",
+     "balls"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  },
+  "sequence": {
+   "rest": {
+    "box0": {
+     "x": 588.078125,
+     "y": 53.25,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 8,
+    "diffInside": 441,
+    "diffOutside": 648,
+    "outsideAt": [
+     [
+      -6.08,
+      -6.25
+     ],
+     [
+      -5.08,
+      -6.25
+     ],
+     [
+      -4.08,
+      -6.25
+     ],
+     [
+      -3.08,
+      -6.25
+     ],
+     [
+      -2.08,
+      -6.25
+     ],
+     [
+      -1.08,
+      -6.25
+     ],
+     [
+      -0.08,
+      -6.25
+     ],
+     [
+      0.92,
+      -6.25
+     ]
+    ],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "rails",
+     "travellers"
+    ],
+    "anims": 0,
+    "live": ""
+   },
+   "open": {
+    "box0": {
+     "x": 598.078125,
+     "y": 60.5078125,
+     "width": 20,
+     "height": 20
+    },
+    "bboxDelta": 0,
+    "diffInside": 29,
+    "diffOutside": 0,
+    "outsideAt": [],
+    "tag": "span",
+    "visible": true,
+    "layers": [
+     "rails",
+     "travellers"
+    ],
+    "anims": 0,
+    "live": ""
+   }
+  }
+ },
+ "pageerrors": []
+}

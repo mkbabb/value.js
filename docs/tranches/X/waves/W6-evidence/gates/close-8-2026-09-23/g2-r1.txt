@@ -1,0 +1,32 @@
+### 04:01:35 VJS_E2E_PORT=8812 npx playwright test e2e/smoke/views/companion-pane-track-start.spec.ts -g companion panes share one track start
+(node:67868) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:67896) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:67901) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[1A[2K  1) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    Error: locator.evaluate: Error: Mix region renders no pane
+        at eval (eval at evaluate (:302:30), <anonymous>:6:22)
+        at UtilityScript.evaluate (<anonymous>:304:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at eval (eval at evaluate (:302:30), <anonymous>:6:22)
+        at UtilityScript.evaluate (<anonymous>:304:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at readRowOnce (/Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:93:19)
+        at readRow (/Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:70:21)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:151:21
+
+    Error Context: test-results/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+EXIT=1

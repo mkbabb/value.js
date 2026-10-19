@@ -1,0 +1,28 @@
+{
+ "khead": "3c8199c5",
+ "drags": [
+  {
+   "lt": [],
+   "over20": [],
+   "n": 136
+  },
+  {
+   "lt": [],
+   "over20": [],
+   "n": 137
+  },
+  {
+   "lt": [],
+   "over20": [],
+   "n": 139
+  }
+ ],
+ "isolatedWriteToNextFrameMs": [
+  12,
+  15.6,
+  16.6,
+  15.6,
+  15.6
+ ],
+ "facetMounts": 2
+}

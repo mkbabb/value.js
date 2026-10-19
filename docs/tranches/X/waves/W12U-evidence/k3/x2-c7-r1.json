@@ -1,0 +1,79 @@
+[
+ {
+  "W": 390,
+  "H": 844,
+  "THEME": "light",
+  "route": "/",
+  "undo": false,
+  "fixedInHost": 0,
+  "maxSW": 390,
+  "sw": 390,
+  "iw": 390,
+  "f1": true,
+  "f2": true,
+  "f3": true,
+  "f4": true,
+  "f5": true,
+  "rimServed": 26.5,
+  "rimT33": 1,
+  "carriers": [
+   "pane-shell[layout] before -16.0..406.0 card 16.0..374.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid",
+   "pane-shell[layout] before -16.0..406.0 card 16.0..374.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid"
+  ],
+  "orn": [
+   "div 262.0..374.0 clip=null",
+   "canvas 228.4..407.6 clip=null"
+  ],
+  "stageClip": false
+ },
+ {
+  "W": 390,
+  "H": 844,
+  "THEME": "light",
+  "route": "/palettes",
+  "undo": false,
+  "fixedInHost": 0,
+  "maxSW": 390,
+  "sw": 390,
+  "iw": 390,
+  "f1": true,
+  "f2": true,
+  "f3": true,
+  "f4": true,
+  "f5": true,
+  "rimServed": 27.9,
+  "rimT33": 1,
+  "carriers": [
+   "pane-shell[layout] before -16.0..406.0 card 16.0..374.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid",
+   "pane-shell[layout] before -16.0..406.0 card 16.0..374.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid"
+  ],
+  "orn": [
+   "div 262.0..374.0 clip=null",
+   "canvas 228.4..407.6 clip=null"
+  ],
+  "stageClip": false
+ },
+ {
+  "W": 390,
+  "H": 844,
+  "THEME": "light",
+  "route": "/admin/users",
+  "undo": false,
+  "fixedInHost": 0,
+  "maxSW": 390,
+  "sw": 390,
+  "iw": 390,
+  "f1": true,
+  "f2": true,
+  "f3": true,
+  "f4": true,
+  "f5": true,
+  "rimServed": 27.7,
+  "rimT33": 1,
+  "carriers": [
+   "pane-shell[layout] before -16.0..406.0 card 16.0..374.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid"
+  ],
+  "orn": [],
+  "stageClip": false
+ }
+]

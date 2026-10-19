@@ -1,0 +1,28 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.W3.6 — G-19 STRUCTURAL FALSIFIER (L-19). The gate fails for exactly one reason.
+
+G-19 as §6 writes it ("an unknown pane name resolves to the not-found pane, never
+`ColorPicker`") has NO reachable runtime input — fold S-8 measured why: both call sites
+pass `currentConfig.value.left/right`, already typed `LeftPane`/`RightPane`, and
+`useViewManager.ts:43-45` clamps the route name through `isViewId`. The `:94`
+`return ColorPicker;` tail was provably unreachable. The gate therefore executes
+STRUCTURALLY: the signature narrows to the typed unions, the tail is deleted, and
+`vue-tsc` proves the map is total.
+
+The falsifier: delete ONE entry from the table and the compiler must red, naming it.
+
+⟨cmd⟩ perl -0pi -e 's/\n    "not-found": NotFoundPane,//' demo/shell/usePaneRouter.ts
+⟨cmd⟩ npx vue-tsc -p tsconfig.demo.json --noEmit
+
+  demo/shell/usePaneRouter.ts(99,7): error TS2741: Property '"not-found"' is missing in
+  type '{ "color-picker": …; browse: …; extract: …; generate: …; gradient: …;
+  atmosphere: …; about: …; palettes: …; mix: …; blob: …; "admin-users": …;
+  "admin-names": …; "admin-audit": …; "admin-flagged": …; "admin-tags": … }' but required
+  in type 'Record<"palettes" | "blob" | "mix" | LeftPane | "about", Component>'.
+
+⟨cmd⟩ (entry restored) npx vue-tsc -p tsconfig.demo.json --noEmit  →  EXIT 0
+
+READING. The compiler names the missing pane by its own key. A pane added to
+`viewSchema.ts` without a component here can no longer render the picker instead —
+it cannot compile. That is the whole of G-19, and it is checkable.

@@ -1,0 +1,302 @@
+{
+  "base": "http://localhost:9000",
+  "tag": "before",
+  "cells": {
+    "1440-light": [
+      {
+        "name": "Palette: Harbor at Dusk",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 93,
+        "metaScrollW": 93,
+        "clips": false,
+        "chips": [],
+        "more": "+3",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Terracotta Garden",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 83,
+        "metaScrollW": 83,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Neon Arcade",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 103,
+        "metaScrollW": 103,
+        "clips": false,
+        "chips": [],
+        "more": "+4",
+        "moreW": 26,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Quiet Linen",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 71,
+        "metaScrollW": 71,
+        "clips": false,
+        "chips": [],
+        "more": "+1",
+        "moreW": 23,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Moss and Slate",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 93,
+        "metaScrollW": 93,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Citrus Pop",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 40,
+        "metaScrollW": 40,
+        "clips": false,
+        "chips": [],
+        "more": null,
+        "moreW": 0,
+        "nameClipped": null
+      }
+    ],
+    "390-light": [
+      {
+        "name": "Palette: Harbor at Dusk",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 89,
+        "metaScrollW": 89,
+        "clips": false,
+        "chips": [],
+        "more": "+3",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Terracotta Garden",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 80,
+        "metaScrollW": 80,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Neon Arcade",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 97,
+        "metaScrollW": 97,
+        "clips": false,
+        "chips": [],
+        "more": "+4",
+        "moreW": 26,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Quiet Linen",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 69,
+        "metaScrollW": 69,
+        "clips": false,
+        "chips": [],
+        "more": "+1",
+        "moreW": 23,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Moss and Slate",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 88,
+        "metaScrollW": 88,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Citrus Pop",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 38,
+        "metaScrollW": 38,
+        "clips": false,
+        "chips": [],
+        "more": null,
+        "moreW": 0,
+        "nameClipped": null
+      }
+    ],
+    "1440-dark": [
+      {
+        "name": "Palette: Harbor at Dusk",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 93,
+        "metaScrollW": 93,
+        "clips": false,
+        "chips": [],
+        "more": "+3",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Terracotta Garden",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 83,
+        "metaScrollW": 83,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Neon Arcade",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 103,
+        "metaScrollW": 103,
+        "clips": false,
+        "chips": [],
+        "more": "+4",
+        "moreW": 26,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Quiet Linen",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 71,
+        "metaScrollW": 71,
+        "clips": false,
+        "chips": [],
+        "more": "+1",
+        "moreW": 23,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Moss and Slate",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 93,
+        "metaScrollW": 93,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Citrus Pop",
+        "cardW": 462,
+        "cardRem": 28.88,
+        "metaW": 40,
+        "metaScrollW": 40,
+        "clips": false,
+        "chips": [],
+        "more": null,
+        "moreW": 0,
+        "nameClipped": null
+      }
+    ],
+    "390-dark": [
+      {
+        "name": "Palette: Harbor at Dusk",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 89,
+        "metaScrollW": 89,
+        "clips": false,
+        "chips": [],
+        "more": "+3",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Terracotta Garden",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 80,
+        "metaScrollW": 80,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Neon Arcade",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 97,
+        "metaScrollW": 97,
+        "clips": false,
+        "chips": [],
+        "more": "+4",
+        "moreW": 26,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Quiet Linen",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 69,
+        "metaScrollW": 69,
+        "clips": false,
+        "chips": [],
+        "more": "+1",
+        "moreW": 23,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Moss and Slate",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 88,
+        "metaScrollW": 88,
+        "clips": false,
+        "chips": [],
+        "more": "+2",
+        "moreW": 25,
+        "nameClipped": null
+      },
+      {
+        "name": "Palette: Citrus Pop",
+        "cardW": 324,
+        "cardRem": 20.25,
+        "metaW": 38,
+        "metaScrollW": 38,
+        "clips": false,
+        "chips": [],
+        "more": null,
+        "moreW": 0,
+        "nameClipped": null
+      }
+    ]
+  }
+}

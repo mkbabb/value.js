@@ -1,0 +1,19 @@
+
+RC-P(4.0.0) — the release condition, six conjuncts, evaluated at 2026-09-20T03:39:11.815Z
+package @mkbabb/value.js · value repo /Users/mkbabb/Programming/value.js · <p2> /Users/mkbabb/Programming/parse-that-css-totality-p2 · universe pin 6aca8602
+────────────────────────────────────────────────────────────────────────────────────────────────────
+#  conjunct          MEASURED  VALUE   reading
+────────────────────────────────────────────────────────────────────────────────────────────────────
+1  PUBLISHED(V)      yes       FALSE   verify-packed-surface.mjs exited 1 against V's registry tarball — the packed surface does not resolve
+2  TOTALITY(V)       yes       TRUE    TRUE
+3  EQUIVALENCE(V)    yes       FALSE   arm V read 20962 mirror-defects over V's installed /css (full corpus, no limit)
+4  ADMITTED(V)       NO        FALSE   V's installed bytes contain zero .wasm artifacts, so the admission has no subject — FALSE, not vacuously true
+5  BAR-DISCHARGED    yes       TRUE    TRUE
+6  ROUTED(V)         yes       TRUE    TRUE
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+RC-P(4.0.0) = FALSE — 3 of 6 conjuncts are FALSE: 1 PUBLISHED(V) · 3 EQUIVALENCE(V) · 4 ADMITTED(V)
+KF.W3 does NOT open. The X·V adoption wave's re-trigger does NOT fire.
+
+wrote /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/f2/rcp-run1.json
+EXIT=1

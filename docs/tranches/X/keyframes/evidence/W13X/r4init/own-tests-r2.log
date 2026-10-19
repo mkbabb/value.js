@@ -1,0 +1,10 @@
+kf b0ba5ba2 · 16 files · 14:15  up 5 days, 19:17, 2 users, load averages: 11.86 10.37 11.07
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/r4init-after
+
+
+ Test Files  16 passed (16)
+      Tests  95 passed (95)
+   Start at  14:15:04
+   Duration  15.32s (transform 7.49s, setup 104ms, import 13.08s, tests 6.69s, environment 8.01s)
+

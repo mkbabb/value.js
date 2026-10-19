@@ -1,0 +1,98 @@
+{
+ "modal-light": {
+  "title": [
+   "e2e-seed:f-w14",
+   "23.6694px",
+   "400",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "desc": [
+   "plush-evening-olive-squid·12d ",
+   "18.608px",
+   "400",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "views": null,
+  "like": [
+   "0likes",
+   "14px",
+   "500",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "h3": [
+   "Decomposition",
+   "16.4px",
+   "600",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "harm": null,
+  "bs": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px -"
+ },
+ "url-light": "http://localhost:3100/v/plush-evening-olive-squid",
+ "canvas-light": {
+  "x": 17,
+  "y": 89,
+  "width": 970,
+  "height": 798
+ },
+ "chrome-light": [
+  [
+   "configurator-stage relative min-h-0 min-w-0 glass-floating r",
+   "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "blur(20px) saturate(1.5)"
+  ],
+  [
+   "configurator-aside flex min-h-0 min-w-0 flex-col glass-float",
+   "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "blur(20px) saturate(1.5)"
+  ]
+ ],
+ "modal-dark": {
+  "title": [
+   "e2e-seed:f-w14",
+   "23.6694px",
+   "400",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "desc": [
+   "plush-evening-olive-squid·12d ",
+   "18.608px",
+   "400",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "views": null,
+  "like": [
+   "0likes",
+   "14px",
+   "500",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "h3": [
+   "Decomposition",
+   "16.4px",
+   "600",
+   "\"Computer Modern Serif\", \"Lati"
+  ],
+  "harm": null,
+  "bs": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) -3px 8px 32px "
+ },
+ "url-dark": "http://localhost:3100/v/plush-evening-olive-squid",
+ "canvas-dark": {
+  "x": 17,
+  "y": 89,
+  "width": 970,
+  "height": 798
+ },
+ "chrome-dark": [
+  [
+   "configurator-stage relative min-h-0 min-w-0 glass-floating r",
+   "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "blur(20px) saturate(1.5)"
+  ],
+  [
+   "configurator-aside flex min-h-0 min-w-0 flex-col glass-float",
+   "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "blur(20px) saturate(1.5)"
+  ]
+ ]
+}

@@ -1,0 +1,6 @@
+load start 90.31 78.83 55.19
+TESTDEMO_EXIT=0
+ Test Files  142 passed (142)
+      Tests  872 passed (872)
+   Duration  70.40s (transform 186.15s, setup 9.94s, import 384.25s, tests 182.85s, environment 448.52s)
+load end 101.88 85.37 59.69

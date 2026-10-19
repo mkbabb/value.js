@@ -1,0 +1,72 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": "2",
+ "autoplayRead": {
+  "orbital": {
+   "inline": "",
+   "computed": "none"
+  },
+  "rollEl": {
+   "inline": "",
+   "computed": "none"
+  },
+  "pose": {
+   "inline": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "computed": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "cube": {
+   "inline": "rotateX(186.322deg) rotateY(0.517562turn) rotateZ(186.322deg)",
+   "computed": "matrix3d(0.987873, 0.0973993, 0.120914, 0, -0.109452, 0.989209, 0.0973993, 0, -0.110122, -0.109452, 0.987873, 0, 0, 0, 0, 1)"
+  },
+  "bob": {
+   "inline": "translateY(4.99604px)",
+   "computed": "matrix(1, 0, 0, 1, 0, 4.99604)"
+  }
+ },
+ "atRestAfterDrag": {
+  "orbital": {
+   "inline": "",
+   "computed": "none"
+  },
+  "rollEl": {
+   "inline": "",
+   "computed": "none"
+  },
+  "pose": {
+   "inline": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "computed": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "cube": {
+   "inline": "matrix3d(0.307824, -0.346473, 0.886116, 0, -0.345506, 0.827054, 0.443404, 0, -0.886493, -0.442649, 0.134878, 0, 0, 0, 0, 1)",
+   "computed": "matrix3d(0.307824, -0.346473, 0.886116, 0, -0.345506, 0.827054, 0.443404, 0, -0.886493, -0.442649, 0.134878, 0, 0, 0, 0, 1)"
+  },
+  "bob": {
+   "inline": "translateY(0px)",
+   "computed": "matrix(1, 0, 0, 1, 0, 0)"
+  }
+ },
+ "clicks": 2,
+ "pausedAfterMs": 4715,
+ "pausedNearLegEnd": {
+  "orbital": {
+   "inline": "translate3d(0px, 0px, 0px) rotate3d(-0.447112, 0.894478, 0.000487976, 277.752deg) scale3d(1, 1, 1)",
+   "computed": "matrix3d(0.307824, -0.346473, 0.886116, 0, -0.345506, 0.827054, 0.443404, 0, -0.886493, -0.442649, 0.134878, 0, 0, 0, 0, 1)"
+  },
+  "rollEl": {
+   "inline": "",
+   "computed": "none"
+  },
+  "pose": {
+   "inline": "matrix3d(0.307884, -0.346443, 0.886038, 0, -0.345476, 0.827069, 0.443365, 0, -0.886416, -0.44261, 0.134954, 0, 0, 0, 0, 1)",
+   "computed": "matrix3d(0.307884, -0.346443, 0.886038, 0, -0.345476, 0.827069, 0.443365, 0, -0.886416, -0.44261, 0.134954, 0, 0, 0, 0, 1)"
+  },
+  "cube": {
+   "inline": "rotateX(359.969deg) rotateY(0.999913turn) rotateZ(359.969deg)",
+   "computed": "matrix3d(1, -0.000547148, 0.000547747, 0, 0.000547448, 1, -0.000547148, 0, -0.000547448, 0.000547448, 1, 0, 0, 0, 0, 1)"
+  },
+  "bob": {
+   "inline": "translateY(0.0017479px)",
+   "computed": "matrix(1, 0, 0, 1, 0, 0.0017479)"
+  }
+ }
+}

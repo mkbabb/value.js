@@ -1,0 +1,59 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W3 · X.W3.3 — SUITE AND CADENCE AT THE SETTLED BYTES
+======================================================
+HEAD 21dff6ce (after commits 7bdce2b7 · cbf178ce · 47ea1029 · 21dff6ce), 2026-09-18.
+
+--- ⟨cmd⟩ cd api && npm test — RUN TWICE, byte-identical ---
+  RUN 1:  Test Files  3 failed | 37 passed (40)   ·   Tests  3 failed | 241 passed (244)
+  RUN 2:  Test Files  3 failed | 37 passed (40)   ·   Tests  3 failed | 241 passed (244)
+
+  BEFORE this unit (same command, HEAD 3a7aa908):
+          Test Files  2 failed | 37 passed (39)   ·   Tests  2 failed | 227 passed (229)
+
+  Delta: +1 file / +15 tests = this unit's own spec, 15/15 GREEN.
+         +1 red = `palette-versions.test.ts` G-6 wire row (428 before the join it measures —
+         ESC-W3.3-PRECONDITION-TESTS §3.1). The `palettes-forks.test.ts` revert row was ALREADY
+         red at open (X.W3.2's ESC-W3.2-PAYLOAD-ADDRESSED-TESTS) and stays red with a new
+         reason (428 rather than 404) — same row, not a new one.
+
+  The three reds, named:
+ FAIL      palette-forks.test.ts > service.palette.forks > forkPalette copies the source colors and records the provenance edge
+ FAIL      palette-versions.test.ts > service.palette.versions > G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged
+ FAIL      palettes-forks.test.ts > routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/revert → 200 FormattedPalette (owner reverts to a prior version)
+    1 inherited (X.W3.2) · 2 out of THIS unit's writable set, both banked with exact hunks in
+    W3-3-ESC-DEMO-AND-TESTS.md §3. Neither file was touched, not even in the working tree.
+
+--- ⟨cmd⟩ npx vitest run …/palette-write-contract.test.ts (this unit's gate spec) ---
+ ✓   G-8: update() returns the driver's UpdateResult instead of discarding it 39ms
+ ✓   G-8: a fenced update whose ETag predicate still holds writes exactly one row 28ms
+ ✓   G-8: a fenced update whose ETag predicate went stale matches NOTHING and maps to 412 25ms
+ ✓   G-8: the fence follows the ETag — a hashless palette is fenced on updatedAt 23ms
+ ✓   G-8: assertFenceHeld passes a held fence through and refuses a lost one 16ms
+ ✓   G-9: revert without If-Match → 428 14ms
+ ✓   G-9: revert with a stale If-Match → 412, and the palette is byte-unchanged 23ms
+ ✓   G-9: revert with the current If-Match proceeds 26ms
+ ✓   G-10: revert without Idempotency-Key → 400 16ms
+ ✓   G-10: fork create without Idempotency-Key → 400 11ms
+ ✓   G-10: fork create with an Idempotency-Key → 201 17ms
+ ✓   G-10: a replayed key returns the stored response and does not re-run the handler 18ms
+ ✓   G-10: the requirement is scoped — PATCH without a key is still served 21ms
+ ✓   G-11: revert → 201 and the body carries the APPENDED revision, not a bare palette 24ms
+ ✓   G-11: the appended revision the 201 carries is exactly what /versions then lists first 22ms
+      Tests  15 passed (15)
+
+--- §7 cadence ---
+  ⟨cmd⟩ cd api && npm run lint          → the script DOES NOT EXIST in api/package.json
+                                          (X.W3.1 · X.W3.2 · X.W3.6 measured the same). Root
+                                          eslint over the touched paths stands in:
+  ⟨cmd⟩ npx eslint <5 touched paths> --max-warnings=0            → exit 0
+  ⟨cmd⟩ cd api && npx tsc --noEmit -p tsconfig.json              → exit 0
+  ⟨cmd⟩ npm run typecheck (lib · demo · test · e2e)              → exit 0
+  ⟨cmd⟩ npx prettier --check <the 4 files this unit reflowed>    → "All matched files use
+                                          Prettier code style!"
+  ⟨cmd⟩ npx prettier --check api/src/modules/palette/repository/palette.ts → WARN, and the
+        delta is PRE-EXISTING: ⟨cmd⟩ `npx prettier … | diff -u` → 3 hunks, at :44 (findManyForCursor),
+        :93-107 (findPastGrace + insert) and :240 (setForkCount) — NONE inside this unit's
+        `update()` (`:109-146`). Left alone rather than burying a cure in a whole-file reflow —
+        the same condition X.W3.1 and X.W3.2 recorded.
+  ⟨cmd⟩ git diff --check                                          → clean

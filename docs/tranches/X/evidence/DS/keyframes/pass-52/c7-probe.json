@@ -1,0 +1,281 @@
+{
+ "fails": [],
+ "cells": {
+  "spring-1440x900-light-600ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "329px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-light-2500ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "329px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "325px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "325px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-600ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "484px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-2500ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "484px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-600ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "329px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-2500ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "329px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "325px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "325px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-600ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "484px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-2500ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "titleInPort": false,
+   "startCut": [],
+   "maxBlockSize": "484px",
+   "initiallyOpen": false
+  }
+ }
+}

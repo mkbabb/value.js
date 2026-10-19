@@ -1,0 +1,21 @@
+import { createRequire } from "node:module";
+const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
+const [W,H,scheme,route] = [Number(process.argv[2]||1440), Number(process.argv[3]||900), process.argv[4]||"light", process.argv[5]||"easing"];
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const ctx = await b.newContext({ viewport: { width: W, height: H }, colorScheme: scheme });
+const p = await ctx.newPage();
+await p.goto(`http://localhost:5173/#/${route}`); await p.evaluate(()=>localStorage.clear()); await p.reload(); await p.waitForTimeout(5000);
+const r = await p.evaluate(() => {
+  const R = (e) => { if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.y), Math.round(b.width), Math.round(b.height)]; };
+  const s = document.querySelector(".controls-surface");
+  const svg = [...document.querySelectorAll(".controls-surface svg")].sort((a,b)=>b.getBoundingClientRect().width-a.getBoundingClientRect().width)[0];
+  const pr = document.querySelector(".controls-surface .param-row");
+  const ranges = [...document.querySelectorAll(".slider-range")].map(e=>({ bg: getComputedStyle(e).backgroundColor, img: getComputedStyle(e).backgroundImage.slice(0,120), tint: getComputedStyle(e).getPropertyValue("--liquid-fill-tint"), box: R(e)}));
+  const sel = [...document.querySelectorAll('[role="combobox"]')].map(c=>({box:R(c), st:c.dataset.state, rot: [...c.querySelectorAll("svg")].map(s=>getComputedStyle(s).rotate)}));
+  const filt = document.querySelector(".catalogue-filter-row");
+  const fs = filt && [...filt.querySelectorAll("*")].find(e=>e.scrollWidth>e.clientWidth+2);
+  return { surf: s && [s.scrollHeight, s.clientHeight], surfBox: R(s), plot: R(svg), paramRow: R(pr), ranges, sel, filt: R(filt), filtScroll: fs && [fs.className.slice(0,60), fs.scrollWidth, fs.clientWidth], picker: R(document.querySelector(".controls-surface .param-row")?.parentElement) };
+});
+console.log(JSON.stringify(r, null, 1));
+if (process.argv[6]) await p.screenshot({ path: process.argv[6] });
+await b.close();

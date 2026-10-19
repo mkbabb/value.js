@@ -1,0 +1,11 @@
+{
+  "seat": "mix-view",
+  "reach": "/#/mix on the :9000 dev server (never started/stopped by this seat)",
+  "trees": {"value.js": "captures span HEAD 40a65e85 (dirty 19) -> f82daf4a (dirty 6/8); per-frame sha+dirty in capture-log*.json", "glass-ui": "1c1f1f67 dirty 1 (source read only); the demo SERVES node_modules/@mkbabb/glass-ui 7.0.0 dist"},
+  "instrument": "headed Chromium (playwright, --enable-gpu), 1440x900 + 390x844, light + dark via vueuse-color-scheme seed + colorScheme",
+  "scripts": ["capture.mjs (flows: colors, palettes, palettes-empty, dock)", "probe-inert.mjs (add-slot / swatch interactivity)"],
+  "coverage_gaps": {
+    "colors-chosen, 05 chip hover, 06/07 select-open PreviewRamp, 08/09 colors-mode mix animation": "UNREACHABLE BY CONSTRUCTION: every Colors-mode add path is an inert aria-hidden span (probe-inert.json) so no operand can be added",
+    "390-dark-palettes, 1440-dark/390-light/390-dark palettes-empty, all dock frames": "dev server :9000 starved (load avg 200-390) -> ERR_CONNECTION_TIMED_OUT / 240s waitFor timeouts between 12:15 and 13:01 EDT 2026-09-23; reported, not restarted"
+  }
+}

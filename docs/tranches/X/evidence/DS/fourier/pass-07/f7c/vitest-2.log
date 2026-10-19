@@ -1,0 +1,32 @@
+
+ RUN  v5.0.1 /Users/mkbabb/Programming/fourier-analysis/web
+
+ ✓ src/lib/time.test.ts (7 tests) 15ms
+ ✓ scripts/derive-loops.vitest.ts (8 tests) 6ms
+ ✓ e2e/unit/animation-clock.vitest.ts (7 tests) 7ms
+ ✓ scripts/contrast.vitest.ts (8 tests) 5ms
+ ✓ e2e/unit/f-w14v-au6.vitest.ts (12 tests) 241ms
+ ✓ src/lib/equation/harmonics.test.ts (2 tests) 6ms
+ ✓ src/components/equation/composables/useSimplifiedSeries.test.ts (5 tests) 6ms
+ ✓ src/composables/useDestructiveConfirm.test.ts (5 tests) 5ms
+ ✓ e2e/unit/figure-set-equality.vitest.ts (4 tests) 5ms
+ ✓ e2e/unit/curve-transition.vitest.ts (5 tests) 4ms
+ ✓ e2e/unit/paper-search.vitest.ts (8 tests) 5ms
+ ✓ src/lib/basis.test.ts (6 tests) 4ms
+ ✓ e2e/unit/paper-search-scoring.vitest.ts (9 tests) 4ms
+ ✓ e2e/unit/paper-figure.vitest.ts (5 tests) 4ms
+ ✓ src/lib/equation/notation.test.ts (8 tests) 4ms
+ ✓ e2e/unit/contour-bounds.vitest.ts (7 tests) 5ms
+ ✓ e2e/unit/unit-floor-population.vitest.ts (4 tests) 4ms
+ ✓ src/lib/niceStep.test.ts (2 tests) 4ms
+ ✓ e2e/unit/paper-search-owner.vitest.ts (2 tests) 2ms
+ ✓ src/lib/equation/render.test.ts (2 tests) 3ms
+
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+   Start at  02:21:49
+   Duration  2.26s (import 39%, transform 39%, tests 19%, worker 4%)
+
+    Isolate  20 workers spawned · ~129ms startup each (spawn + environment, per file)
+             at least ~1.16s faster with isolate: false — reuses workers across files instead of one per file
+

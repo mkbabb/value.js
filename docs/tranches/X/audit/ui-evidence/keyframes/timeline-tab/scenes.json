@@ -1,0 +1,130 @@
+{
+  "kf": "531aa3f1+27",
+  "cube": {
+    "hasTab": true,
+    "opts": [
+      "Controls",
+      "Keyframes",
+      "Timeline"
+    ],
+    "stages": 1,
+    "tracks": 1,
+    "monaco": [
+      [
+        73,
+        64,
+        403,
+        450,
+        "pane"
+      ]
+    ],
+    "ribbon": [
+      "Snapshot",
+      "Import",
+      "Export",
+      "Add CSS"
+    ]
+  },
+  "amiga": {
+    "hasTab": true,
+    "opts": [
+      "Controls",
+      "Keyframes",
+      "Timeline"
+    ],
+    "stages": 1,
+    "tracks": 1,
+    "monaco": [
+      [
+        73,
+        64,
+        403,
+        450,
+        "pane"
+      ]
+    ],
+    "ribbon": [
+      "Snapshot",
+      "Import",
+      "Export",
+      "Add CSS"
+    ]
+  },
+  "square": {
+    "hasTab": true,
+    "opts": [
+      "Controls",
+      "Keyframes",
+      "Timeline"
+    ],
+    "stages": 1,
+    "tracks": 1,
+    "monaco": [
+      [
+        73,
+        64,
+        403,
+        450,
+        "pane"
+      ]
+    ],
+    "ribbon": [
+      "Snapshot",
+      "Import",
+      "Export",
+      "Add CSS"
+    ]
+  },
+  "easing": {
+    "hasTab": true,
+    "opts": [
+      "Controls",
+      "Keyframes",
+      "Timeline",
+      "Curve"
+    ],
+    "stages": 1,
+    "tracks": 1,
+    "monaco": [
+      [
+        73,
+        64,
+        403,
+        450,
+        "pane"
+      ]
+    ],
+    "ribbon": [
+      "Snapshot",
+      "Import",
+      "Export",
+      "Add CSS"
+    ]
+  },
+  "spring": {
+    "hasTab": true,
+    "opts": [
+      "Controls",
+      "Keyframes",
+      "Timeline",
+      "Physics"
+    ],
+    "stages": 1,
+    "tracks": 1,
+    "monaco": [
+      [
+        73,
+        64,
+        403,
+        450,
+        "pane"
+      ]
+    ],
+    "ribbon": [
+      "Snapshot",
+      "Import",
+      "Export",
+      "Add CSS"
+    ]
+  }
+}

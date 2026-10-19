@@ -1,0 +1,10 @@
+SERVED MODEL: claude-opus-5-5
+o5-probe.mjs round r2; D=bcbc1c887 built dist (worktree) on :8193, A=6a5fea762 built dist on :8194; SwiftShader headless, 1280x720
+== D load={ 9.64 13.10 16.15 }
+[o5-probe D-r2 s1] mainVisible@423 frames=11 median=58.6 max=2774.4 (47.3x) gap=[384,3159] longtasks=[[35,319]] longtasksInGap=0 loafInGap=[{"start":409,"dur":2765,"block":0,"renderAt":2754,"styleAt":2764,"scripts":[["index-BtRFCvj2.js","import.then",8]]}] hero=[] canvas=328,atmosphere-canvas fixed inset-x-0 top-0 
+[o5-probe D-r2 s2] mainVisible@187 frames=157 median=20.9 max=334.4 (16.0x) gap=[2711,3045] longtasks=[[15,110]] longtasksInGap=0 loafInGap=[{"start":2712,"dur":337,"block":0,"renderAt":337,"styleAt":337,"scripts":[]}] hero=[["HeroBlob-CKr4ZxyM.js",2091]] canvas=100,atmosphere-canvas fixed inset-x-0 top-0 ,2112,goo-blob-canvas
+[o5-probe D-r2 s3] mainVisible@172 frames=157 median=21.1 max=318.6 (15.1x) gap=[2732,3051] longtasks=[[11,101],[1994,155]] longtasksInGap=0 loafInGap=[{"start":2733,"dur":320,"block":0,"renderAt":319,"styleAt":319,"scripts":[]}] hero=[["HeroBlob-CKr4ZxyM.js",1991]] canvas=90,atmosphere-canvas fixed inset-x-0 top-0 ,2150,goo-blob-canvas
+== A load={ 10.10 13.03 16.08 }
+[o5-probe A-r2 s1] mainVisible@198 frames=9 median=28.3 max=3177.1 (112.3x) gap=[150,3327] longtasks=[[34,98]] longtasksInGap=0 loafInGap=[] hero=[] canvas=99,atmosphere-canvas absolute inset-0 w-ful
+[o5-probe A-r2 s2] mainVisible@183 frames=100 median=29.7 max=340.7 (11.5x) gap=[2725,3066] longtasks=[[12,103]] longtasksInGap=0 loafInGap=[{"start":2731,"dur":336,"block":0,"renderAt":335,"styleAt":336,"scripts":[]}] hero=[["HeroBlob-CYC7uHwn.js",2525]] canvas=80,atmosphere-canvas absolute inset-0 w-ful,2557,goo-blob-canvas
+[o5-probe A-r2 s3] mainVisible@178 frames=124 median=29.3 max=142.7 (4.9x) gap=[875,1018] longtasks=[[13,93]] longtasksInGap=0 loafInGap=[{"start":821,"dur":58,"block":0,"renderAt":57,"styleAt":57,"scripts":[]},{"start":879,"dur":145,"block":0,"renderAt":142,"styleAt":145,"scripts":[]}] hero=[["HeroBlob-CYC7uHwn.js",2460]] canvas=74,atmosphere-canvas absolute inset-0 w-ful,2492,goo-blob-canvas

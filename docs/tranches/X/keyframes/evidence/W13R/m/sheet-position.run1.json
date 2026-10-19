@@ -1,0 +1,31 @@
+{
+ "peek": {
+  "cls": "border-t glass-floating controls-drawer-content",
+  "rules": [
+   " components | .glass-wash, .glass-quiet, .glass-resting, .glass-floating, .glass-overlay, .glass-card, .glass-specular-track, .dock-ic => relative",
+   " components | .glass-floating => relative",
+   " components | :where([data-slot=\"sheet-content\"]) => fixed"
+  ],
+  "rect": [
+   768,
+   939,
+   171
+  ],
+  "bottom": "76px",
+  "top": "-76px",
+  "height": "171px",
+  "blockSize": "171px",
+  "position": "relative",
+  "translate": "none",
+  "transform": "none",
+  "inlineStyle": "bottom: var(--dock-band-reserve-stable); --glass-veil-tier: calc(var(--glass-veil-crown) + (var(--glass-veil-sheet) - var(--glass-veil-crown)) * clamp(0, var(--detent-t), 1)); --radius-ctx: var(--radius-3xl); --radius-inset: var(--space-family); --detent-t: 0.12;",
+  "detentT": "0.12",
+  "band": "max(\n        calc(\n            2.75rem + 0.5rem +\n                0px\n        ),\n        76px\n    )",
+  "region": {
+   "h": 101,
+   "sh": 101,
+   "oy": "auto"
+  },
+  "vh": 844
+ }
+}

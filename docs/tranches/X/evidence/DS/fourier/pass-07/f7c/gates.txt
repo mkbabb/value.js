@@ -1,0 +1,17 @@
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+exit 0
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== e2e (14 specs in e2e-specs.txt: every spec reaching the Image layer row, plus visual-checkpoint/baseline, visualization-ux, workspace-flow; chromium + mobile-chromium, workers=1, headless; own API :8019 COMPUTE_CONCURRENCY=1 fresh BLOB_DIR, vite :3139 with a private cacheDir)
+run A: 106 passed, 3 skipped, 0 failed
+run B: 104 passed, 3 skipped, 2 failed — both f-w14u-d d2 @1440 (the canvas dock never reaches .collapsed after the View-options menu closes); an earlier run B (e2e-runB-first.txt) failed the same two
+d2 reproduces with HEAD 43fb488's ImageUpload.vue swapped in (e2e-head-f-w14u-d.txt: 1 failed, 1440 dark) and is intermittent on the cure tree (e2e-f-w14u-d-repeat-cure.txt, repeat-each 2: 10 passed, 2 failed, both 1440 light) => pre-existing dock-collapse flake (O-88 DOCK-COLLAPSE-MOTION territory), not this change
+every other test GREEN x2; no visual golden re-baselined; web/e2e/screenshots/f-w14/after-veil-* restored to HEAD after each run

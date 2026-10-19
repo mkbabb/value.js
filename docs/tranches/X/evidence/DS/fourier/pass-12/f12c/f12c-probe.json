@@ -1,0 +1,254 @@
+{
+ "v-light-1440": {
+  "form": "split",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "y": 470,
+     "w": 245.3,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 256.1
+   },
+   {
+    "t": "Polynomial",
+    "y": 340.4
+   }
+  ],
+  "scrollW": 1440
+ },
+ "v-light-1440-pageErrors": [],
+ "v-dark-1440": {
+  "form": "split",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "y": 470,
+     "w": 245.3,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 256.1
+   },
+   {
+    "t": "Polynomial",
+    "y": 340.4
+   }
+  ],
+  "scrollW": 1440
+ },
+ "v-dark-1440-pageErrors": [],
+ "v-light-1024": {
+  "form": "rail",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "y": 404,
+     "w": 231.6,
+     "h": 36
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 243.1
+   },
+   {
+    "t": "Polynomial",
+    "y": 326.1
+   }
+  ],
+  "scrollW": 1024
+ },
+ "v-light-1024-pageErrors": [],
+ "v-light-390-controls": {
+  "form": "sheet",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": false,
+    "box": {
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "msg": "Server busy, not computed yet"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "y": 339.1,
+     "w": 314,
+     "h": 44
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 399.1
+   },
+   {
+    "t": "Polynomial",
+    "y": 495.1
+   }
+  ],
+  "scrollW": 390
+ },
+ "v-light-390-canvas": {
+  "form": "sheet",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": true,
+    "box": {
+     "y": 463.8,
+     "w": 221.5,
+     "h": 44
+    },
+    "msg": "Server busy, not computed yet"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": false,
+    "box": {
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 0
+   },
+   {
+    "t": "Polynomial",
+    "y": 0
+   }
+  ],
+  "scrollW": 390
+ },
+ "v-light-390-pageErrors": [],
+ "v-dark-390-controls": {
+  "form": "sheet",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": false,
+    "box": {
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "msg": "Server busy, not computed yet"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": true,
+    "box": {
+     "y": 339.1,
+     "w": 314,
+     "h": 44
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 399.1
+   },
+   {
+    "t": "Polynomial",
+    "y": 495.1
+   }
+  ],
+  "scrollW": 390
+ },
+ "v-dark-390-canvas": {
+  "form": "sheet",
+  "visibleCount": 1,
+  "statusRoles": 1,
+  "lines": [
+   {
+    "where": "v-stage",
+    "role": null,
+    "visible": true,
+    "box": {
+     "y": 463.8,
+     "w": 221.5,
+     "h": 44
+    },
+    "msg": "Server busy, not computed yet"
+   },
+   {
+    "where": "aside",
+    "role": "status",
+    "visible": false,
+    "box": {
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "msg": "Server busy, not computed yet"
+   }
+  ],
+  "basisGroups": [
+   {
+    "t": "Fourier",
+    "y": 0
+   },
+   {
+    "t": "Polynomial",
+    "y": 0
+   }
+  ],
+  "scrollW": 390
+ },
+ "v-dark-390-pageErrors": []
+}

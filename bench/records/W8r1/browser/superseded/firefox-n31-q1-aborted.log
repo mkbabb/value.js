@@ -1,0 +1,23 @@
+firefox r0a0 parseCssColor          acc      n=6460 k=8 S=16 product x0.872 (31/31<1) spread 1.669 SET-ASIDE
+firefox r0a0 parseCssScalar         acc      n=7460 k=8 S=16 product x0.72 (31/31<1) spread 1.557
+firefox r0a0 parseCssValue          acc      n=13023 k=2 S=16 product x0.443 (31/31<1) spread 1.859 SET-ASIDE
+firefox r0a0 parseCssValues         acc      n=13023 k=1 S=16 product x0.485 (31/31<1) spread 1.263
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=4096 S=16 product x0.894 (29/31<1) spread 1.479
+firefox r0a0 parseTimingFunction    acc      n=509 k=256 S=16 product x0.632 (31/31<1) spread 1.704 SET-ASIDE
+firefox r0a0 parseStylesheet        acc      n=2503 k=4 S=16 product x0.776 (31/31<1) spread 1.426
+firefox r0a0 parseCssColor          rej      n=23484 k=4 S=16 product x0.915 (24/31<1) spread 1.886 SET-ASIDE
+firefox r0a0 parseCssScalar         rej      n=22484 k=2 S=16 product x0.684 (29/31<1) spread 1.433
+firefox r0a0 parseCssValue          rej      n=16921 k=2 S=16 product x0.866 (30/31<1) spread 2.21 SET-ASIDE
+firefox r0a0 parseCssValues         rej      n=16921 k=2 S=16 product x0.878 (29/31<1) spread 1.752 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  rej      n=29888 k=8 S=16 product x0.88 (29/31<1) spread 1.261
+firefox r0a0 parseTimingFunction    rej      n=29435 k=8 S=16 product x0.816 (31/31<1) spread 1.231
+firefox r0a0 parseStylesheet        rej      n=27441 k=8 S=16 product x0.89 (24/31<1) spread 3.076 SET-ASIDE
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Target page, context or browser has been closed
+    at /Users/mkbabb/Programming/value.js/bench/paired/browser.mjs:59:38
+
+Node.js v26.0.0
+FAILED w8r1-firefox-n31-q1

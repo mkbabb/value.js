@@ -1,0 +1,36 @@
+ok   MTS-01  parseCssColor("constructor") returned
+ok   MTS-01  parseCssColor("__proto__") returned
+ok   MTS-01  parseCssScalar("constructor") returned
+ok   MTS-01  parseCssScalar("__proto__") returned
+ok   MTS-01  parseCssValue("constructor") returned
+ok   MTS-01  parseCssValue("__proto__") returned
+ok   MTS-01  parseCssValues("constructor") returned
+ok   MTS-01  parseCssValues("__proto__") returned
+ok   MTS-01  coerceToSyntax("constructor") returned
+ok   MTS-01  coerceToSyntax("__proto__") returned
+ok   MTS-01  parseStylesheet("a{color:constructor}") returned
+ok   MTS-01  parseStylesheet("a{color:__proto__}") returned
+ok   MTS-01  parseStylesheet("@keyframes k{from{color:constructor}}") returned
+ok   MTS-01  parseStylesheet("a{background:linear-gradient(constructor,red)}") returned
+ok   MTS-01  parseStylesheet("a{animation:x 1s steps(2,constructor)}") returned
+ok   MTS-02  steps(2, constructor) -> failure
+ok   MTS-02  steps(2, __proto__) -> failure
+RED  MTS-03  getTotalLength("M 0 0 L 10") -> NaN
+RED  MTS-03  getTotalLength("M 0 0 C 1 1 2 2 3") -> NaN
+RED  MTS-03  getTotalLength("M 0 0 Q 1 1 2") -> NaN
+RED  MTS-03  getTotalLength("M 0 0 L 3 4 L 5") -> NaN
+RED  MTS-04  compact arc flags mis-tokenized: expanded=31.403311569547547 compact=0 (true circumference 31.41592653589793)
+RED  MTS-05  decomposeMatrix3D(singular) -> {
+  translate: [ 0, 0, 0 ],
+  scale: [ 0, NaN, NaN ],
+  skew: [ NaN, NaN, NaN ],
+  quaternion: [ NaN, NaN, NaN, NaN ],
+  perspective: [ 0, 0, 0, 1 ]
+} (expected null)
+RED  MTS-06  deCasteljau(0.5, []) -> undefined, typed number
+RED  MTS-06  interpBezier(0.5, []) -> [ undefined, undefined ], typed [number, number]
+RED  MTS-06  lerpArray(len3, len2, .5, out3) -> [ 2.5, 3.5, NaN ] (silent NaN; docstring states the length contract, nothing enforces it)
+RED  MTS-08  ./css exports serializeCssColor + serializeTimelineOptions but NOT serializeCssValue; keyframes.js re-implements it at src/animation/compile/emit/css-text.ts:41 and the copies have diverged
+RED  MTS-09  css.d.ts carries 18 unexported declares referenced by the public signatures: Alpha, Alpha_2, AnyColor, Channel, Channel_2, ChannelsBySpace, ChannelsBySpace_2, Color, Color_2, ColorIssue, CssCall, CssList, CssScalar, CssValue, JumpPosition, Result, SpaceId, SpaceId_2
+
+RED — 11 failing assertions

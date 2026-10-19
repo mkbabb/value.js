@@ -1,0 +1,6 @@
+{
+ "before": "Copy rendered CSS (easing baked in)",
+ "after": 1,
+ "clip": "linear-gradient(90deg in oklch, oklch(75% 0.15 145deg) 0.00%, oklch(74.69% 0.150",
+ "reset": 1
+}

@@ -1,0 +1,65 @@
+{
+ "total": 0,
+ "functionKind": 0,
+ "imports": []
+}
+{
+    "servedModel": "claude-opus-5[1m]",
+    "gate": "G-4",
+    "wave": "X.P.W4",
+    "unit": "X.P.W4.b",
+    "generatedAt": "2026-09-20T03:39:08.039Z",
+    "node": "v26.0.0",
+    "command": "node scripts/wasm-admission.mjs <artifact>.wasm [...]",
+    "artifacts": [
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.wasm",
+                "bytes": 662339,
+                "sha256": "f0d063d6241812de8118444ed41c53b2558fcedf2204156b2de564e7eafe10c9"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 7,
+                "byKind": {
+                    "function": 6,
+                    "memory": 1
+                },
+                "memoryExported": true,
+                "names": [
+                    "function:run",
+                    "function:setTheta",
+                    "function:highWater",
+                    "function:cHighWater",
+                    "function:pHighWater",
+                    "function:reset",
+                    "memory:memory"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        }
+    ],
+    "tally": {
+        "artifacts": 1,
+        "admitted": 1,
+        "functionKindImportsTotal": 0,
+        "unaccountedImportsTotal": 0
+    },
+    "verdict": "GREEN"
+}
+EXIT=0

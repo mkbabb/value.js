@@ -1,0 +1,5193 @@
+{
+  "sha": "60477b06",
+  "dirty": 2,
+  "when": "2026-09-23T16:47:34.166Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": [
+        {
+          "frame": "01-collapsed-home-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 690,
+            "y": 43,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 662,
+              "y": 43,
+              "w": 115,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 682,
+              "y": 86,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 53,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "02-expanded-home-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 612,
+            "y": 43,
+            "w": 216,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 622,
+              "y": 52,
+              "w": 115,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 743,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 133,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "03-scene-select-open-home-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 612,
+            "y": 43,
+            "w": 216,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 622,
+              "y": 52,
+              "w": 115,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 743,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 133,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 622,
+              "y": 95,
+              "w": 192,
+              "h": 328,
+              "radius": "12px",
+              "items": [
+                "Home",
+                "Cube",
+                "Amiga",
+                "Square",
+                "Easing",
+                "Spring",
+                "Sequence"
+              ]
+            }
+          ],
+          "focus": "Scene",
+          "theme": ""
+        },
+        {
+          "frame": "04-collapsed-cube-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 690,
+            "y": 43,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 665,
+              "y": 43,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 650,
+              "y": 86,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 700,
+              "y": 128,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 682,
+              "y": 172,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 53,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "05-expanded-cube-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "06-controls-tab-open-cube-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 645,
+              "y": 95,
+              "w": 192,
+              "h": 152,
+              "radius": "12px",
+              "items": [
+                "Controls",
+                "Keyframes",
+                "Timeline"
+              ]
+            }
+          ],
+          "focus": "Controls tab",
+          "theme": ""
+        },
+        {
+          "frame": "07-panel-closed-cube-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Controls panel",
+          "theme": ""
+        },
+        {
+          "frame": "08-mbabb-menu-open-cube-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "menu",
+              "x": 638,
+              "y": 95,
+              "w": 273,
+              "h": 351,
+              "radius": "12px",
+              "items": [
+                "ShareCopy link or load shared state",
+                "Dark modeLight or dark theme",
+                "Keyboard shortcutsEvery key the editor a",
+                "Clear all & reloadReset every saved anim"
+              ]
+            }
+          ],
+          "focus": "DIV",
+          "theme": ""
+        },
+        {
+          "frame": "09-hover-scene-trigger-cube-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "@mbabb menu",
+          "theme": ""
+        },
+        {
+          "frame": "10-kbd-tab1-amiga-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 515,
+            "y": 43,
+            "w": 410,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 525,
+              "y": 52,
+              "w": 118,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 648,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 794,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 840,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 230,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Scene",
+          "theme": ""
+        },
+        {
+          "frame": "11-kbd-tab2-amiga-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 515,
+            "y": 43,
+            "w": 410,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 525,
+              "y": 52,
+              "w": 118,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 648,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 794,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 840,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 230,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Controls tab",
+          "theme": ""
+        },
+        {
+          "frame": "12-expanded-easing-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 527,
+            "y": 43,
+            "w": 387,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Easing",
+              "x": 537,
+              "y": 52,
+              "w": 120,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Curve",
+              "x": 663,
+              "y": 52,
+              "w": 113,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 782,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 828,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 219,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "12-expanded-sequence-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 592,
+            "y": 43,
+            "w": 257,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Sequence",
+              "x": 602,
+              "y": 52,
+              "w": 156,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 763,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 154,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "13-expanded-spring-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 401,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 529,
+              "y": 52,
+              "w": 119,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 655,
+              "y": 52,
+              "w": 129,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "14-recollapsed-spring-1440-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 690,
+            "y": 43,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 660,
+              "y": 43,
+              "w": 119,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 655,
+              "y": 86,
+              "w": 129,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 700,
+              "y": 128,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 682,
+              "y": 172,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 53,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        }
+      ],
+      "homeErrs": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "cubeErrs": []
+    },
+    {
+      "tag": "1440-dark",
+      "frames": [
+        {
+          "frame": "01-collapsed-home-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 690,
+            "y": 43,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 662,
+              "y": 43,
+              "w": 115,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 682,
+              "y": 86,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 53,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "02-expanded-home-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 612,
+            "y": 43,
+            "w": 216,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 622,
+              "y": 52,
+              "w": 115,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 743,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 133,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "03-scene-select-open-home-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 612,
+            "y": 43,
+            "w": 216,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 622,
+              "y": 52,
+              "w": 115,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 743,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 133,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 622,
+              "y": 95,
+              "w": 192,
+              "h": 328,
+              "radius": "12px",
+              "items": [
+                "Home",
+                "Cube",
+                "Amiga",
+                "Square",
+                "Easing",
+                "Spring",
+                "Sequence"
+              ]
+            }
+          ],
+          "focus": "Scene",
+          "theme": "dark"
+        },
+        {
+          "frame": "04-collapsed-cube-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 690,
+            "y": 43,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 665,
+              "y": 43,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 650,
+              "y": 86,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 700,
+              "y": 128,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 682,
+              "y": 172,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 53,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "05-expanded-cube-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "06-controls-tab-open-cube-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 645,
+              "y": 95,
+              "w": 192,
+              "h": 152,
+              "radius": "12px",
+              "items": [
+                "Controls",
+                "Keyframes",
+                "Timeline"
+              ]
+            }
+          ],
+          "focus": "Controls tab",
+          "theme": "dark"
+        },
+        {
+          "frame": "07-panel-closed-cube-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Controls panel",
+          "theme": "dark"
+        },
+        {
+          "frame": "08-mbabb-menu-open-cube-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "menu",
+              "x": 638,
+              "y": 95,
+              "w": 273,
+              "h": 351,
+              "radius": "12px",
+              "items": [
+                "ShareCopy link or load shared state",
+                "Dark modeLight or dark theme",
+                "Keyboard shortcutsEvery key the editor a",
+                "Clear all & reloadReset every saved anim"
+              ]
+            }
+          ],
+          "focus": "DIV",
+          "theme": "dark"
+        },
+        {
+          "frame": "09-hover-scene-trigger-cube-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 402,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 529,
+              "y": 52,
+              "w": 110,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 644,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "@mbabb menu",
+          "theme": "dark"
+        },
+        {
+          "frame": "10-kbd-tab1-amiga-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 515,
+            "y": 43,
+            "w": 410,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 525,
+              "y": 52,
+              "w": 118,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 648,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 794,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 840,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 230,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Scene",
+          "theme": "dark"
+        },
+        {
+          "frame": "11-kbd-tab2-amiga-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 515,
+            "y": 43,
+            "w": 410,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 525,
+              "y": 52,
+              "w": 118,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 648,
+              "y": 52,
+              "w": 140,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 794,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 840,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 230,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Controls tab",
+          "theme": "dark"
+        },
+        {
+          "frame": "12-expanded-easing-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 527,
+            "y": 43,
+            "w": 387,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Easing",
+              "x": 537,
+              "y": 52,
+              "w": 120,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Curve",
+              "x": 663,
+              "y": 52,
+              "w": 113,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 782,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 828,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 219,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "12-expanded-sequence-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 592,
+            "y": 43,
+            "w": 257,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Sequence",
+              "x": 602,
+              "y": 52,
+              "w": 156,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 763,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 154,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "13-expanded-spring-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 519,
+            "y": 43,
+            "w": 401,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 529,
+              "y": 52,
+              "w": 119,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 655,
+              "y": 52,
+              "w": 129,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 790,
+              "y": 51,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 836,
+              "y": 56,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 226,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "14-recollapsed-spring-1440-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 690,
+            "y": 43,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 660,
+              "y": 43,
+              "w": 119,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 655,
+              "y": 86,
+              "w": 129,
+              "h": 39,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 20.352px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 700,
+              "y": 128,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 18.608px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 682,
+              "y": 172,
+              "w": 75,
+              "h": 31,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 16.4px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 702,
+              "y": 53,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16.4px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        }
+      ],
+      "homeErrs": [],
+      "cubeErrs": []
+    },
+    {
+      "tag": "390-light",
+      "frames": [
+        {
+          "frame": "01-collapsed-home-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 144,
+              "y": 30,
+              "w": 103,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 66,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "02-expanded-home-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 101,
+            "y": 30,
+            "w": 188,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 111,
+              "y": 42,
+              "w": 103,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 219,
+              "y": 44,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 106,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "03-scene-select-open-home-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 101,
+            "y": 30,
+            "w": 188,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 111,
+              "y": 42,
+              "w": 103,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 219,
+              "y": 44,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 106,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 111,
+              "y": 78,
+              "w": 192,
+              "h": 328,
+              "radius": "12px",
+              "items": [
+                "Home",
+                "Cube",
+                "Amiga",
+                "Square",
+                "Easing",
+                "Spring",
+                "Sequence"
+              ]
+            }
+          ],
+          "focus": "Scene",
+          "theme": ""
+        },
+        {
+          "frame": "04-collapsed-cube-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 146,
+              "y": 30,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 134,
+              "y": 66,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": ""
+        },
+        {
+          "frame": "05-expanded-cube-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": ""
+        },
+        {
+          "frame": "06-controls-tab-open-cube-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 163,
+              "y": 78,
+              "w": 192,
+              "h": 152,
+              "radius": "12px",
+              "items": [
+                "Controls",
+                "Keyframes",
+                "Timeline"
+              ]
+            }
+          ],
+          "focus": "Controls tab",
+          "theme": ""
+        },
+        {
+          "frame": "07-panel-closed-cube-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Controls panel",
+          "theme": ""
+        },
+        {
+          "frame": "08-mbabb-menu-open-cube-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "menu",
+              "x": 0,
+              "y": 116,
+              "w": 273,
+              "h": 332,
+              "radius": "12px",
+              "items": [
+                "ShareCopy link or load shared state",
+                "Dark modeLight or dark theme",
+                "Keyboard shortcutsEvery key the editor a",
+                "Clear all & reloadReset every saved anim"
+              ]
+            }
+          ],
+          "focus": "DIV",
+          "theme": ""
+        },
+        {
+          "frame": "09-hover-scene-trigger-cube-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "@mbabb menu",
+          "theme": ""
+        },
+        {
+          "frame": "10-kbd-tab1-amiga-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 143,
+              "y": 30,
+              "w": 104,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 134,
+              "y": 66,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "DIV",
+          "theme": ""
+        },
+        {
+          "frame": "11-kbd-tab2-amiga-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 143,
+              "y": 30,
+              "w": 104,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 134,
+              "y": 66,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "INPUT",
+          "theme": ""
+        },
+        {
+          "frame": "12-expanded-easing-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Easing",
+              "x": 65,
+              "y": 42,
+              "w": 107,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Curve",
+              "x": 178,
+              "y": 42,
+              "w": 101,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 285,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": ""
+        },
+        {
+          "frame": "12-expanded-sequence-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 85,
+            "y": 30,
+            "w": 220,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Sequence",
+              "x": 95,
+              "y": 42,
+              "w": 134,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 235,
+              "y": 44,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 122,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": ""
+        },
+        {
+          "frame": "13-expanded-spring-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 59,
+              "y": 42,
+              "w": 106,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 171,
+              "y": 42,
+              "w": 113,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": ""
+        },
+        {
+          "frame": "14-recollapsed-spring-390-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 142,
+              "y": 30,
+              "w": 106,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 138,
+              "y": 66,
+              "w": 113,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": ""
+        }
+      ],
+      "homeErrs": [],
+      "cubeErrs": []
+    },
+    {
+      "tag": "390-dark",
+      "frames": [
+        {
+          "frame": "01-collapsed-home-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 144,
+              "y": 30,
+              "w": 103,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 66,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "02-expanded-home-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 101,
+            "y": 30,
+            "w": 188,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 111,
+              "y": 42,
+              "w": 103,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 219,
+              "y": 44,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 106,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "03-scene-select-open-home-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 101,
+            "y": 30,
+            "w": 188,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Home",
+              "x": 111,
+              "y": 42,
+              "w": 103,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 219,
+              "y": 44,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 106,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 111,
+              "y": 78,
+              "w": 192,
+              "h": 328,
+              "radius": "12px",
+              "items": [
+                "Home",
+                "Cube",
+                "Amiga",
+                "Square",
+                "Easing",
+                "Spring",
+                "Sequence"
+              ]
+            }
+          ],
+          "focus": "Scene",
+          "theme": "dark"
+        },
+        {
+          "frame": "04-collapsed-cube-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 146,
+              "y": 30,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 134,
+              "y": 66,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": "dark"
+        },
+        {
+          "frame": "05-expanded-cube-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": "dark"
+        },
+        {
+          "frame": "06-controls-tab-open-cube-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "listbox",
+              "x": 163,
+              "y": 78,
+              "w": 192,
+              "h": 152,
+              "radius": "12px",
+              "items": [
+                "Controls",
+                "Keyframes",
+                "Timeline"
+              ]
+            }
+          ],
+          "focus": "Controls tab",
+          "theme": "dark"
+        },
+        {
+          "frame": "07-panel-closed-cube-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+              "pressed": "true",
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Controls panel",
+          "theme": "dark"
+        },
+        {
+          "frame": "08-mbabb-menu-open-cube-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [
+            {
+              "role": "menu",
+              "x": 0,
+              "y": 116,
+              "w": 273,
+              "h": 332,
+              "radius": "12px",
+              "items": [
+                "ShareCopy link or load shared state",
+                "Dark modeLight or dark theme",
+                "Keyboard shortcutsEvery key the editor a",
+                "Clear all & reloadReset every saved anim"
+              ]
+            }
+          ],
+          "focus": "DIV",
+          "theme": "dark"
+        },
+        {
+          "frame": "09-hover-scene-trigger-cube-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 59,
+              "y": 42,
+              "w": 98,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 163,
+              "y": 42,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "@mbabb menu",
+          "theme": "dark"
+        },
+        {
+          "frame": "10-kbd-tab1-amiga-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 143,
+              "y": 30,
+              "w": 104,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 134,
+              "y": 66,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "DIV",
+          "theme": "dark"
+        },
+        {
+          "frame": "11-kbd-tab2-amiga-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Amiga",
+              "x": 143,
+              "y": 30,
+              "w": 104,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 134,
+              "y": 66,
+              "w": 122,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "INPUT",
+          "theme": "dark"
+        },
+        {
+          "frame": "12-expanded-easing-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Easing",
+              "x": 65,
+              "y": 42,
+              "w": 107,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Curve",
+              "x": 178,
+              "y": 42,
+              "w": 101,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 285,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": "dark"
+        },
+        {
+          "frame": "12-expanded-sequence-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 85,
+            "y": 30,
+            "w": 220,
+            "h": 56,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 2,
+          "seps": [
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Sequence",
+              "x": 95,
+              "y": 42,
+              "w": 134,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 235,
+              "y": 44,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 122,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "BODY",
+          "theme": "dark"
+        },
+        {
+          "frame": "13-expanded-spring-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 30,
+            "w": 312,
+            "h": 86,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 59,
+              "y": 42,
+              "w": 106,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 171,
+              "y": 42,
+              "w": 113,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 291,
+              "y": 38,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 82,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 168,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": "dark"
+        },
+        {
+          "frame": "14-recollapsed-spring-390-dark.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 165,
+            "y": 30,
+            "w": 60,
+            "h": 56,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Spring",
+              "x": 142,
+              "y": 30,
+              "w": 106,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Physics",
+              "x": 138,
+              "y": 66,
+              "w": 113,
+              "h": 32,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 175,
+              "y": 102,
+              "w": 40,
+              "h": 40,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 165,
+              "y": 146,
+              "w": 60,
+              "h": 26,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 177,
+              "y": 40,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": "dark"
+        }
+      ],
+      "homeErrs": [],
+      "cubeErrs": []
+    },
+    {
+      "tag": "390touch-light",
+      "frames": [
+        {
+          "frame": "15-touch-collapsed-cube-390touch-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap dock-inline",
+            "x": 158,
+            "y": 38,
+            "w": 74,
+            "h": 73,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 4,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 143,
+              "y": 38,
+              "w": 104,
+              "h": 33,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 131,
+              "y": 76,
+              "w": 128,
+              "h": 33,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 172,
+              "y": 113,
+              "w": 47,
+              "h": 47,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 164,
+              "y": 164,
+              "w": 63,
+              "h": 28,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 168,
+              "y": 48,
+              "w": 54,
+              "h": 54,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 21px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            }
+          ],
+          "popup": [],
+          "focus": "Drawer position",
+          "theme": ""
+        },
+        {
+          "frame": "16-touch-tap-expanded-cube-390touch-light.png",
+          "dock": {
+            "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content dock-overflow-wrap dock-inline",
+            "x": 39,
+            "y": 33,
+            "w": 312,
+            "h": 103,
+            "radius": "24px",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          "rows": 3,
+          "seps": [
+            "none",
+            "none"
+          ],
+          "ctrls": [
+            {
+              "name": "Scene",
+              "text": "Cube",
+              "x": 75,
+              "y": 43,
+              "w": 104,
+              "h": 33,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls tab",
+              "text": "Controls",
+              "x": 187,
+              "y": 43,
+              "w": 128,
+              "h": 33,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Controls panel",
+              "text": "",
+              "x": 137,
+              "y": 80,
+              "w": 47,
+              "h": 47,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "@mbabb menu",
+              "text": "@mbabb",
+              "x": 191,
+              "y": 90,
+              "w": 63,
+              "h": 28,
+              "radius": "9999px",
+              "font": "\"Fira Code\" 12.179px 400",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": false
+            },
+            {
+              "name": "Scene",
+              "text": "",
+              "x": 168,
+              "y": 162,
+              "w": 54,
+              "h": 54,
+              "radius": "9999px",
+              "font": "\"Plus Jakarta Sans\" 21px 500",
+              "bg": "rgba(0, 0, 0, 0)",
+              "pressed": null,
+              "overflowsDock": true
+            }
+          ],
+          "popup": [],
+          "focus": "Scene",
+          "theme": ""
+        }
+      ],
+      "errs": []
+    }
+  ]
+}

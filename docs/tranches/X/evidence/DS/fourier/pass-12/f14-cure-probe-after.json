@@ -1,0 +1,262 @@
+{
+ "v-error-light-1440": {
+  "stageW": 1408,
+  "msgW": 1406,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "53.28px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 529.6,
+    "y": 549.9,
+    "w": 202.1
+   },
+   {
+    "x": 743.7,
+    "y": 549.9,
+    "w": 166.8
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "w-error-light-1440": {
+  "stageW": 1408,
+  "msgW": 1406,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "53.28px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 529.6,
+    "y": 565.2,
+    "w": 202.1
+   },
+   {
+    "x": 743.7,
+    "y": 565.2,
+    "w": 166.8
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "morph-light-1440": {
+  "before": [
+   160,
+   160,
+   223,
+   346.5
+  ],
+  "after": [
+   160,
+   160,
+   223,
+   346.5
+  ],
+  "moved": false,
+  "shapeBefore": "PHASE idle N 50 SHAPE Sun TOTAL 350 ms",
+  "shapeAfter": "PHASE idle N 50 SHAPE Moon TOTAL 350 ms",
+  "mask": {
+   "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 4px))",
+   "moreEnd": true
+  }
+ },
+ "v-error-light-390": {
+  "stageW": 358,
+  "msgW": 356,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "32.928px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 106.3,
+    "y": 482.8,
+    "w": 177.5
+   },
+   {
+    "x": 121.3,
+    "y": 534.8,
+    "w": 147.3
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "w-error-light-390": {
+  "stageW": 358,
+  "msgW": 356,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "32.928px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 106.3,
+    "y": 484.7,
+    "w": 177.5
+   },
+   {
+    "x": 121.3,
+    "y": 536.7,
+    "w": 147.3
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "morph-light-390": {
+  "before": [
+   209.7,
+   209.7,
+   209.7,
+   209.7
+  ],
+  "after": [
+   209.7,
+   209.7,
+   209.7,
+   209.7
+  ],
+  "moved": false,
+  "shapeBefore": "PHASE idle N 50 SHAPE Sun TOTAL 350 ms",
+  "shapeAfter": "PHASE idle N 50 SHAPE Moon TOTAL 350 ms",
+  "mask": {
+   "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 4px))",
+   "moreEnd": true
+  }
+ },
+ "v-error-dark-1440": {
+  "stageW": 1408,
+  "msgW": 1406,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "53.28px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 529.6,
+    "y": 549.9,
+    "w": 202.1
+   },
+   {
+    "x": 743.7,
+    "y": 549.9,
+    "w": 166.8
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "w-error-dark-1440": {
+  "stageW": 1408,
+  "msgW": 1406,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "53.28px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 529.6,
+    "y": 565.2,
+    "w": 202.1
+   },
+   {
+    "x": 743.7,
+    "y": 565.2,
+    "w": 166.8
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "morph-dark-1440": {
+  "before": [
+   160,
+   160,
+   223,
+   346.5
+  ],
+  "after": [
+   160,
+   160,
+   223,
+   346.5
+  ],
+  "moved": false,
+  "shapeBefore": "PHASE idle N 50 SHAPE Sun TOTAL 350 ms",
+  "shapeAfter": "PHASE idle N 50 SHAPE Moon TOTAL 350 ms",
+  "mask": {
+   "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 4px))",
+   "moreEnd": true
+  }
+ },
+ "v-error-dark-390": {
+  "stageW": 358,
+  "msgW": 356,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "32.928px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 106.3,
+    "y": 482.8,
+    "w": 177.5
+   },
+   {
+    "x": 121.3,
+    "y": 534.8,
+    "w": 147.3
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "w-error-dark-390": {
+  "stageW": 358,
+  "msgW": 356,
+  "nestedCard": false,
+  "msgShadow": "none",
+  "msgBorder": "0px",
+  "h1Size": "32.928px",
+  "h1Lines": 2,
+  "buttons": [
+   {
+    "x": 106.3,
+    "y": 484.7,
+    "w": 177.5
+   },
+   {
+    "x": 121.3,
+    "y": 536.7,
+    "w": 147.3
+   }
+  ],
+  "actionsCentre": 0
+ },
+ "morph-dark-390": {
+  "before": [
+   209.7,
+   209.7,
+   209.7,
+   209.7
+  ],
+  "after": [
+   209.7,
+   209.7,
+   209.7,
+   209.7
+  ],
+  "moved": false,
+  "shapeBefore": "PHASE idle N 50 SHAPE Sun TOTAL 350 ms",
+  "shapeAfter": "PHASE idle N 50 SHAPE Moon TOTAL 350 ms",
+  "mask": {
+   "mask": "linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0) calc(100% - 4px))",
+   "moreEnd": true
+  }
+ }
+}

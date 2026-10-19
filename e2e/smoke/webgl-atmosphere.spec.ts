@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 import {
     instrumentWebglDraws,
     canvasPresents,
@@ -55,7 +56,7 @@ test("atmosphere canvas warms up without webglcontextlost", async ({ page }) => 
     // Warm-up window: 2s of real-time rendering. performance.now() is
     // browser-monotonic; this is read-only timing (not interaction) and is
     // therefore not the banned `page.evaluate` for-interaction pattern.
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await page.waitForFunction(() => performance.now() > 2000);
 
     // ── S.W0 W0-2(d): APPEARANCE, not just presence (e2e-coverage-gaps §4 P0

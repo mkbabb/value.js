@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5[1m]
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/interpolation-subset.test.ts (5 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  01:43:33
+   Duration  582ms (transform 72ms, setup 39ms, collect 77ms, tests 3ms, environment 179ms, prepare 51ms)
+
+EXIT=0

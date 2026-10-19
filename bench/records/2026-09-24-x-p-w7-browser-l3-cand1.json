@@ -1,0 +1,957 @@
+{
+ "tag": "l3-cand1",
+ "instrument": "bench/paired/browser.mjs (X.P.W7.g)",
+ "arms": [
+  "retired",
+  "product",
+  "l3cand",
+  "l3memo"
+ ],
+ "reps": 2,
+ "rounds": 11,
+ "floors": {
+  "chromium": 20,
+  "webkit": 20,
+  "firefox": 100
+ },
+ "spreadRule": 1.6,
+ "valuejsHead": "cf50270bab4d70637ddb31f0b5564b8117671383",
+ "uptimeStart": "9:56  up 1 day,  7:59, 4 users, load averages: 21.86 24.60 20.29",
+ "versions": {
+  "firefox": "150.0.2",
+  "chromium": "148.0.7778.96",
+  "webkit": "26.4"
+ },
+ "cells": [
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": false,
+   "uptimeBefore": "9:56  up 1 day,  7:59, 4 users, load averages: 21.15 24.41 20.25",
+   "uptimeAfter": "9:56  up 1 day,  7:59, 4 users, load averages: 20.10 24.13 20.18",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.926,
+   "retiredMs": 116,
+   "ratio": {
+    "product": {
+     "paired": 1.009,
+     "below1": 4,
+     "ofMins": 1.046
+    },
+    "l3cand": {
+     "paired": 1.009,
+     "below1": 5,
+     "ofMins": 0.991
+    },
+    "l3memo": {
+     "paired": 1.009,
+     "below1": 5,
+     "ofMins": 0.991
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 1,
+   "clean": true,
+   "uptimeBefore": "9:56  up 1 day,  7:59, 4 users, load averages: 20.10 24.13 20.18",
+   "uptimeAfter": "9:56  up 1 day,  7:59, 4 users, load averages: 18.47 23.65 20.05",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 4,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.257,
+   "retiredMs": 127,
+   "ratio": {
+    "product": {
+     "paired": 1.023,
+     "below1": 2,
+     "ofMins": 1.062
+    },
+    "l3cand": {
+     "paired": 0.955,
+     "below1": 8,
+     "ofMins": 0.965
+    },
+    "l3memo": {
+     "paired": 0.974,
+     "below1": 6,
+     "ofMins": 1.009
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:56  up 1 day,  7:59, 4 users, load averages: 18.47 23.65 20.05",
+   "uptimeAfter": "9:56  up 1 day,  7:59, 4 users, load averages: 17.95 23.46 20.00",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 16,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.146,
+   "retiredMs": 102,
+   "ratio": {
+    "product": {
+     "paired": 0.973,
+     "below1": 6,
+     "ofMins": 0.958
+    },
+    "l3cand": {
+     "paired": 0.98,
+     "below1": 6,
+     "ofMins": 0.917
+    },
+    "l3memo": {
+     "paired": 0.948,
+     "below1": 8,
+     "ofMins": 0.948
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:56  up 1 day,  7:59, 4 users, load averages: 17.95 23.46 20.00",
+   "uptimeAfter": "9:57  up 1 day,  7:59, 4 users, load averages: 17.15 23.20 19.93",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 4,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.165,
+   "retiredMs": 116,
+   "ratio": {
+    "l3memo": {
+     "paired": 0.947,
+     "below1": 9,
+     "ofMins": 0.954
+    },
+    "l3cand": {
+     "paired": 0.991,
+     "below1": 8,
+     "ofMins": 0.991
+    },
+    "product": {
+     "paired": 1.053,
+     "below1": 3,
+     "ofMins": 1.055
+    }
+   }
+  },
+  {
+   "engine": "firefox",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day,  7:59, 4 users, load averages: 17.15 23.20 19.93",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 16,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.163,
+   "retiredMs": 100,
+   "ratio": {
+    "l3memo": {
+     "paired": 0.957,
+     "below1": 6,
+     "ofMins": 0.967
+    },
+    "l3cand": {
+     "paired": 1,
+     "below1": 5,
+     "ofMins": 0.946
+    },
+    "product": {
+     "paired": 0.978,
+     "below1": 6,
+     "ofMins": 0.967
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.089,
+   "retiredMs": 24.6,
+   "ratio": {
+    "product": {
+     "paired": 0.531,
+     "below1": 11,
+     "ofMins": 0.532
+    },
+    "l3cand": {
+     "paired": 0.488,
+     "below1": 11,
+     "ofMins": 0.481
+    },
+    "l3memo": {
+     "paired": 0.484,
+     "below1": 11,
+     "ofMins": 0.477
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.106,
+   "retiredMs": 24.2,
+   "ratio": {
+    "product": {
+     "paired": 0.343,
+     "below1": 11,
+     "ofMins": 0.341
+    },
+    "l3cand": {
+     "paired": 0.349,
+     "below1": 11,
+     "ofMins": 0.341
+    },
+    "l3memo": {
+     "paired": 0.327,
+     "below1": 11,
+     "ofMins": 0.332
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.085,
+   "retiredMs": 25.8,
+   "ratio": {
+    "l3memo": {
+     "paired": 0.491,
+     "below1": 11,
+     "ofMins": 0.484
+    },
+    "l3cand": {
+     "paired": 0.492,
+     "below1": 11,
+     "ofMins": 0.456
+    },
+    "product": {
+     "paired": 0.534,
+     "below1": 11,
+     "ofMins": 0.524
+    }
+   }
+  },
+  {
+   "engine": "chromium",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.74 22.70 19.79",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.36 22.51 19.74",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.155,
+   "retiredMs": 24.6,
+   "ratio": {
+    "l3memo": {
+     "paired": 0.332,
+     "below1": 11,
+     "ofMins": 0.332
+    },
+    "l3cand": {
+     "paired": 0.332,
+     "below1": 11,
+     "ofMins": 0.323
+    },
+    "product": {
+     "paired": 0.319,
+     "below1": 11,
+     "ofMins": 0.319
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.36 22.51 19.74",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.36 22.51 19.74",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.118,
+   "retiredMs": 35,
+   "ratio": {
+    "product": {
+     "paired": 0.771,
+     "below1": 11,
+     "ofMins": 0.765
+    },
+    "l3cand": {
+     "paired": 0.737,
+     "below1": 11,
+     "ofMins": 0.706
+    },
+    "l3memo": {
+     "paired": 0.722,
+     "below1": 11,
+     "ofMins": 0.706
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 0,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.36 22.51 19.74",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.36 22.51 19.74",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rev": false,
+   "spread": 1.05,
+   "retiredMs": 20,
+   "ratio": {
+    "product": {
+     "paired": 0.6,
+     "below1": 11,
+     "ofMins": 0.55
+    },
+    "l3cand": {
+     "paired": 0.6,
+     "below1": 11,
+     "ofMins": 0.55
+    },
+    "l3memo": {
+     "paired": 0.6,
+     "below1": 11,
+     "ofMins": 0.55
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.36 22.51 19.74",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.49 22.41 19.72",
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.059,
+   "retiredMs": 35,
+   "ratio": {
+    "l3memo": {
+     "paired": 0.706,
+     "below1": 11,
+     "ofMins": 0.706
+    },
+    "l3cand": {
+     "paired": 0.714,
+     "below1": 11,
+     "ofMins": 0.676
+    },
+    "product": {
+     "paired": 0.743,
+     "below1": 11,
+     "ofMins": 0.735
+    }
+   }
+  },
+  {
+   "engine": "webkit",
+   "rep": 1,
+   "attempt": 0,
+   "clean": true,
+   "uptimeBefore": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.49 22.41 19.72",
+   "uptimeAfter": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.49 22.41 19.72",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rev": true,
+   "spread": 1.158,
+   "retiredMs": 20,
+   "ratio": {
+    "l3memo": {
+     "paired": 0.579,
+     "below1": 11,
+     "ofMins": 0.526
+    },
+    "l3cand": {
+     "paired": 0.6,
+     "below1": 11,
+     "ofMins": 0.526
+    },
+    "product": {
+     "paired": 0.579,
+     "below1": 11,
+     "ofMins": 0.526
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "9:57  up 1 day, 8 hrs, 4 users, load averages: 15.49 22.41 19.72",
+ "summary": {
+  "product": {
+   "firefox|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": false,
+      "spread": 1.926,
+      "paired": 1.009
+     },
+     {
+      "rep": 0,
+      "attempt": 1,
+      "k": 4,
+      "clean": true,
+      "spread": 1.257,
+      "paired": 1.023
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.165,
+      "paired": 1.053
+     }
+    ],
+    "ratios": [
+     1.023,
+     1.053
+    ],
+    "median": 1.038,
+    "allBelow1": false
+   },
+   "firefox|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.146,
+      "paired": 0.973
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.163,
+      "paired": 0.978
+     }
+    ],
+    "ratios": [
+     0.973,
+     0.978
+    ],
+    "median": 0.976,
+    "allBelow1": true
+   },
+   "chromium|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.089,
+      "paired": 0.531
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.085,
+      "paired": 0.534
+     }
+    ],
+    "ratios": [
+     0.531,
+     0.534
+    ],
+    "median": 0.532,
+    "allBelow1": true
+   },
+   "chromium|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.106,
+      "paired": 0.343
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.155,
+      "paired": 0.319
+     }
+    ],
+    "ratios": [
+     0.343,
+     0.319
+    ],
+    "median": 0.331,
+    "allBelow1": true
+   },
+   "webkit|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.118,
+      "paired": 0.771
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.059,
+      "paired": 0.743
+     }
+    ],
+    "ratios": [
+     0.771,
+     0.743
+    ],
+    "median": 0.757,
+    "allBelow1": true
+   },
+   "webkit|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.05,
+      "paired": 0.6
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.158,
+      "paired": 0.579
+     }
+    ],
+    "ratios": [
+     0.6,
+     0.579
+    ],
+    "median": 0.589,
+    "allBelow1": true
+   }
+  },
+  "l3cand": {
+   "firefox|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": false,
+      "spread": 1.926,
+      "paired": 1.009
+     },
+     {
+      "rep": 0,
+      "attempt": 1,
+      "k": 4,
+      "clean": true,
+      "spread": 1.257,
+      "paired": 0.955
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.165,
+      "paired": 0.991
+     }
+    ],
+    "ratios": [
+     0.955,
+     0.991
+    ],
+    "median": 0.973,
+    "allBelow1": true
+   },
+   "firefox|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.146,
+      "paired": 0.98
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.163,
+      "paired": 1
+     }
+    ],
+    "ratios": [
+     0.98,
+     1
+    ],
+    "median": 0.99,
+    "allBelow1": false
+   },
+   "chromium|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.089,
+      "paired": 0.488
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.085,
+      "paired": 0.492
+     }
+    ],
+    "ratios": [
+     0.488,
+     0.492
+    ],
+    "median": 0.49,
+    "allBelow1": true
+   },
+   "chromium|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.106,
+      "paired": 0.349
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.155,
+      "paired": 0.332
+     }
+    ],
+    "ratios": [
+     0.349,
+     0.332
+    ],
+    "median": 0.341,
+    "allBelow1": true
+   },
+   "webkit|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.118,
+      "paired": 0.737
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.059,
+      "paired": 0.714
+     }
+    ],
+    "ratios": [
+     0.737,
+     0.714
+    ],
+    "median": 0.726,
+    "allBelow1": true
+   },
+   "webkit|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.05,
+      "paired": 0.6
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.158,
+      "paired": 0.6
+     }
+    ],
+    "ratios": [
+     0.6,
+     0.6
+    ],
+    "median": 0.6,
+    "allBelow1": true
+   }
+  },
+  "l3memo": {
+   "firefox|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 4,
+      "clean": false,
+      "spread": 1.926,
+      "paired": 1.009
+     },
+     {
+      "rep": 0,
+      "attempt": 1,
+      "k": 4,
+      "clean": true,
+      "spread": 1.257,
+      "paired": 0.974
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 4,
+      "clean": true,
+      "spread": 1.165,
+      "paired": 0.947
+     }
+    ],
+    "ratios": [
+     0.974,
+     0.947
+    ],
+    "median": 0.96,
+    "allBelow1": true
+   },
+   "firefox|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.146,
+      "paired": 0.948
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 16,
+      "clean": true,
+      "spread": 1.163,
+      "paired": 0.957
+     }
+    ],
+    "ratios": [
+     0.948,
+     0.957
+    ],
+    "median": 0.952,
+    "allBelow1": true
+   },
+   "chromium|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.089,
+      "paired": 0.484
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.085,
+      "paired": 0.491
+     }
+    ],
+    "ratios": [
+     0.484,
+     0.491
+    ],
+    "median": 0.487,
+    "allBelow1": true
+   },
+   "chromium|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.106,
+      "paired": 0.327
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.155,
+      "paired": 0.332
+     }
+    ],
+    "ratios": [
+     0.327,
+     0.332
+    ],
+    "median": 0.33,
+    "allBelow1": true
+   },
+   "webkit|rej|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.118,
+      "paired": 0.722
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.059,
+      "paired": 0.706
+     }
+    ],
+    "ratios": [
+     0.722,
+     0.706
+    ],
+    "median": 0.714,
+    "allBelow1": true
+   },
+   "webkit|large|parseStylesheet": {
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.05,
+      "paired": 0.6
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.158,
+      "paired": 0.579
+     }
+    ],
+    "ratios": [
+     0.6,
+     0.579
+    ],
+    "median": 0.589,
+    "allBelow1": true
+   }
+  }
+ }
+}

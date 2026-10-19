@@ -1,0 +1,474 @@
+{
+ "filter-1440-light": {
+  "host": {
+   "x": 571,
+   "y": 204,
+   "w": 772,
+   "h": 529
+  },
+  "strip": {
+   "x": 571,
+   "y": 204,
+   "w": 772,
+   "h": 90
+  },
+  "stripScrollW": 772,
+  "select": null,
+  "tabs": [
+   [
+    "All",
+    {
+     "x": 571,
+     "y": 204,
+     "w": 47,
+     "h": 43
+    }
+   ],
+   [
+    "Standard",
+    {
+     "x": 622,
+     "y": 204,
+     "w": 114,
+     "h": 43
+    }
+   ],
+   [
+    "Sine",
+    {
+     "x": 740,
+     "y": 204,
+     "w": 66,
+     "h": 43
+    }
+   ],
+   [
+    "Quad",
+    {
+     "x": 810,
+     "y": 204,
+     "w": 79,
+     "h": 43
+    }
+   ],
+   [
+    "Cubic",
+    {
+     "x": 893,
+     "y": 204,
+     "w": 82,
+     "h": 43
+    }
+   ],
+   [
+    "Expo",
+    {
+     "x": 979,
+     "y": 204,
+     "w": 73,
+     "h": 43
+    }
+   ],
+   [
+    "Circ",
+    {
+     "x": 1056,
+     "y": 204,
+     "w": 64,
+     "h": 43
+    }
+   ],
+   [
+    "Back",
+    {
+     "x": 1123,
+     "y": 204,
+     "w": 73,
+     "h": 43
+    }
+   ],
+   [
+    "Bounce",
+    {
+     "x": 1201,
+     "y": 204,
+     "w": 99,
+     "h": 43
+    }
+   ],
+   [
+    "Steps",
+    {
+     "x": 571,
+     "y": 251,
+     "w": 81,
+     "h": 43
+    }
+   ]
+  ]
+ },
+ "pane-edges-light": {
+  "fields": [
+   [
+    "labeled-field-grid",
+    457.4
+   ],
+   [
+    "separator",
+    457.4
+   ],
+   [
+    "button tap-squish focus-",
+    457.4
+   ]
+  ],
+  "ribbonRow": 457.4,
+  "scrub": 457.4,
+  "ribbonRule": 457.4,
+  "glyphs": [
+   [
+    "lucide-chevron-down-icon",
+    444.4
+   ],
+   [
+    "lucide-chevron-down-icon",
+    444.4
+   ],
+   [
+    "lucide-chevron-down-icon",
+    416.4
+   ],
+   [
+    "lucide-pencil-icon",
+    443.4
+   ],
+   [
+    "lucide-chevron-right-icon",
+    444.4
+   ]
+  ]
+ },
+ "filter-popover-light": {
+  "select": {
+   "text": "All",
+   "w": 80
+  },
+  "strip": false,
+  "hostW": 390
+ },
+ "spring-sweep-light": {
+  "sweeping": true,
+  "live": false,
+  "sampler": {
+   "w": 24,
+   "bg": "oklch(0.56 0.17 295)"
+  },
+  "liveBall": {
+   "w": 16,
+   "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.65)"
+  }
+ },
+ "square-legend-light": {
+  "field": {
+   "x": 802,
+   "w": 312,
+   "h": 312
+  },
+  "legend": {
+   "x": 802,
+   "w": 468,
+   "h": 46
+  },
+  "caption": {
+   "x": 802,
+   "w": 346,
+   "h": 19
+  }
+ },
+ "filter-1440-dark": {
+  "host": {
+   "x": 571,
+   "y": 204,
+   "w": 772,
+   "h": 529
+  },
+  "strip": {
+   "x": 571,
+   "y": 204,
+   "w": 772,
+   "h": 90
+  },
+  "stripScrollW": 772,
+  "select": null,
+  "tabs": [
+   [
+    "All",
+    {
+     "x": 571,
+     "y": 204,
+     "w": 47,
+     "h": 43
+    }
+   ],
+   [
+    "Standard",
+    {
+     "x": 622,
+     "y": 204,
+     "w": 114,
+     "h": 43
+    }
+   ],
+   [
+    "Sine",
+    {
+     "x": 740,
+     "y": 204,
+     "w": 66,
+     "h": 43
+    }
+   ],
+   [
+    "Quad",
+    {
+     "x": 810,
+     "y": 204,
+     "w": 79,
+     "h": 43
+    }
+   ],
+   [
+    "Cubic",
+    {
+     "x": 893,
+     "y": 204,
+     "w": 82,
+     "h": 43
+    }
+   ],
+   [
+    "Expo",
+    {
+     "x": 979,
+     "y": 204,
+     "w": 73,
+     "h": 43
+    }
+   ],
+   [
+    "Circ",
+    {
+     "x": 1056,
+     "y": 204,
+     "w": 64,
+     "h": 43
+    }
+   ],
+   [
+    "Back",
+    {
+     "x": 1123,
+     "y": 204,
+     "w": 73,
+     "h": 43
+    }
+   ],
+   [
+    "Bounce",
+    {
+     "x": 1201,
+     "y": 204,
+     "w": 99,
+     "h": 43
+    }
+   ],
+   [
+    "Steps",
+    {
+     "x": 571,
+     "y": 251,
+     "w": 81,
+     "h": 43
+    }
+   ]
+  ]
+ },
+ "pane-edges-dark": {
+  "fields": [
+   [
+    "labeled-field-grid",
+    457.4
+   ],
+   [
+    "separator",
+    457.4
+   ],
+   [
+    "button tap-squish focus-",
+    457.4
+   ]
+  ],
+  "ribbonRow": 457.4,
+  "scrub": 457.4,
+  "ribbonRule": 457.4,
+  "glyphs": [
+   [
+    "lucide-chevron-down-icon",
+    444.4
+   ],
+   [
+    "lucide-chevron-down-icon",
+    444.4
+   ],
+   [
+    "lucide-chevron-down-icon",
+    416.4
+   ],
+   [
+    "lucide-pencil-icon",
+    443.4
+   ],
+   [
+    "lucide-chevron-right-icon",
+    444.4
+   ]
+  ]
+ },
+ "filter-popover-dark": {
+  "select": {
+   "text": "All",
+   "w": 80
+  },
+  "strip": false,
+  "hostW": 390
+ },
+ "spring-sweep-dark": {
+  "sweeping": true,
+  "live": false,
+  "sampler": {
+   "w": 24,
+   "bg": "oklch(0.74 0.13 305)"
+  },
+  "liveBall": {
+   "w": 16,
+   "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.65)"
+  }
+ },
+ "square-legend-dark": {
+  "field": {
+   "x": 802,
+   "w": 312,
+   "h": 312
+  },
+  "legend": {
+   "x": 802,
+   "w": 468,
+   "h": 46
+  },
+  "caption": {
+   "x": 802,
+   "w": 346,
+   "h": 19
+  }
+ },
+ "filter-390-light": {
+  "host": {
+   "x": 49,
+   "y": 227,
+   "w": 292,
+   "h": 464
+  },
+  "strip": {
+   "x": 49,
+   "y": 227,
+   "w": 80,
+   "h": 60
+  },
+  "stripScrollW": 80,
+  "select": {
+   "x": 49,
+   "y": 227,
+   "w": 80,
+   "h": 60
+  },
+  "selectText": "All",
+  "tabs": [
+   [
+    "All",
+    {
+     "x": 49,
+     "y": 227,
+     "w": 80,
+     "h": 60
+    }
+   ]
+  ]
+ },
+ "square-legend-390-light": {
+  "field": {
+   "x": 104,
+   "w": 182,
+   "h": 182
+  },
+  "legend": {
+   "x": 104,
+   "w": 273,
+   "h": 55
+  },
+  "caption": {
+   "x": 104,
+   "w": 273,
+   "h": 32
+  }
+ },
+ "filter-390-dark": {
+  "host": {
+   "x": 49,
+   "y": 227,
+   "w": 292,
+   "h": 464
+  },
+  "strip": {
+   "x": 49,
+   "y": 227,
+   "w": 80,
+   "h": 60
+  },
+  "stripScrollW": 80,
+  "select": {
+   "x": 49,
+   "y": 227,
+   "w": 80,
+   "h": 60
+  },
+  "selectText": "All",
+  "tabs": [
+   [
+    "All",
+    {
+     "x": 49,
+     "y": 227,
+     "w": 80,
+     "h": 60
+    }
+   ]
+  ]
+ },
+ "square-legend-390-dark": {
+  "field": {
+   "x": 104,
+   "w": 182,
+   "h": 182
+  },
+  "legend": {
+   "x": 104,
+   "w": 273,
+   "h": 55
+  },
+  "caption": {
+   "x": 104,
+   "w": 273,
+   "h": 32
+  }
+ }
+}

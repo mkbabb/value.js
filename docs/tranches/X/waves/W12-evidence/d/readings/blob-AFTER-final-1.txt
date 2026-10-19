@@ -1,0 +1,4 @@
+[w12-blob] idle 5000ms → max frame diff 9.414/255 · 45 draws
+[w12-blob] hover after 5000ms idle → max frame diff 7.810/255 · 52 draws
+[w12-blob] PRM → max frame diff 0.000/255 · 0 draws
+  3 passed (1.5m)

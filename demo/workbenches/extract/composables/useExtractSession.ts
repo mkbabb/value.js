@@ -8,14 +8,35 @@
  * survives the consumer boundary here (dominant = max-population with a
  * chroma tiebreak, derived from the RETURNED palette — never a second worker
  * call; the library's `dominantColor()` re-quantizes and is the wrong tool).
+ *
+ * X.W7.g3 (EY-12 — the altitude row): the session lives ABOVE any one mount.
+ * The shell swaps a pane between regions when the viewport crosses a
+ * breakpoint, which remounts the workbench; state held in setup scope died
+ * with it (image, palette, k, overlay). The state is created once, in a
+ * detached effect scope, and every mount is a HOLDER of it: the lifecycle
+ * releases (debounce, worker) run only when the last holder parks or leaves.
+ *
+ * EY-23 / R-24: the preview is an object URL of the user's own File — no
+ * base64 re-encode crossing four seams — revoked when replaced or cleared.
  */
 
-import { ref, shallowRef, computed, onBeforeUnmount } from "vue";
+import {
+    ref,
+    shallowRef,
+    computed,
+    effectScope,
+    onActivated,
+    onBeforeUnmount,
+    onDeactivated,
+    onMounted,
+} from "vue";
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
-import { useImageQuantize } from "./useImageQuantize";
+import { useImageQuantize, type QuantizeOutcome } from "./useImageQuantize";
+import { debounce } from "../../../shared/debounce";
 import { usePaletteStore } from "../../../palettes/usePaletteStore";
 import type { Palette, PaletteColor } from "../../../palettes/types";
+import { paletteRail } from "../../../color-session/palette-rail";
 
 type PresentedColor = Readonly<{
     source: QuantizedColor;
@@ -26,27 +47,21 @@ type PalettePresentation =
     | Readonly<{ ok: true; value: readonly PresentedColor[] }>
     | Readonly<{ ok: false; error: string }>;
 
-function readAsDataUrl(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-    });
-}
-
-export function useExtractSession() {
-    const { palette, isProcessing, error: workerError, quantizeFromFile } =
+function createExtractSession() {
+    const { palette, isProcessing, error: workerError, quantizeFromFile, releaseWorker } =
         useImageQuantize();
     const { createPalette } = usePaletteStore();
 
-    const previewDataUrl = ref<string | null>(null);
+    /** An object URL of the current file; the one retained representation besides the decode. */
+    const previewUrl = ref<string | null>(null);
+    /** The eyedropper overlay is open (session state: it survives a remount). */
+    const eyedropperOpen = ref(false);
     const colorCount = ref(5);
     const chromaWeight = ref(0.5);
     const lastFile = shallowRef<File | null>(null);
     const paletteName = ref("Extracted Palette");
-
-    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+    /** XW-22: the latest run developed, and found no opaque pixel to sample. */
+    const barren = ref(false);
 
     const presentedPalette = computed<PalettePresentation>(() => {
         const value: PresentedColor[] = [];
@@ -98,17 +113,19 @@ export function useExtractSession() {
         };
     });
 
-    const kSliderGradient = computed(() => {
+    /** EC-9: how many colours actually came back (null until a run develops). */
+    const foundCount = computed<number | null>(() => {
         const presented = presentedPalette.value;
-        if (!presented.ok || presented.value.length === 0) return "var(--muted)";
-        const stops = presented.value.map((entry, i) => {
-            const pct =
-                presented.value.length === 1
-                    ? 50
-                    : (i / (presented.value.length - 1)) * 100;
-            return `${entry.serialized} ${pct.toFixed(0)}%`;
-        });
-        return `linear-gradient(to right, ${stops.join(", ")})`;
+        return presented.ok && presented.value.length > 0 ? presented.value.length : null;
+    });
+
+    /** EC-25: the rail IMAGE, or null — never a colour token in a gradient slot.
+     *  EC-10: the image is the returned palette as hard bands (`paletteRail`),
+     *  never an interpolation between the k-means results. */
+    const kSliderGradient = computed<string | null>(() => {
+        const presented = presentedPalette.value;
+        if (!presented.ok || presented.value.length === 0) return null;
+        return paletteRail(presented.value.map((entry) => entry.serialized));
     });
 
     // ── T19: population / dominance (from the RETURNED palette) ──
@@ -150,21 +167,40 @@ export function useExtractSession() {
 
     // ── Quantize orchestration ──
 
-    function runQuantize() {
-        if (lastFile.value) {
-            quantizeFromFile(lastFile.value, colorCount.value, chromaWeight.value);
-        }
+    // X-W7 Repair 1 (D-6 · XP-EXTRACT): every dispatch goes through here and
+    // first cancels the pending debounce (EC-34: one intent, one worker job).
+    // The quantizer settles a typed outcome and writes its own state (only the
+    // latest request may), so nothing here floats a rejection.
+    async function runQuantize(): Promise<QuantizeOutcome | null> {
+        cancelPendingQuantize();
+        const file = lastFile.value;
+        if (!file) return null;
+        barren.value = false;
+        const outcome = await quantizeFromFile(file, colorCount.value, chromaWeight.value);
+        // XW-22: a success with zero opaque pixels is its own state, never
+        // the pre-image ghost beside the image just fed.
+        if (outcome.kind === "developed") barren.value = outcome.palette.length === 0;
+        return outcome;
     }
 
-    function debouncedReQuantize() {
-        if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(runQuantize, 300);
-    }
+    const debouncedReQuantize = debounce(() => void runQuantize(), 300);
 
+    // XW-19: an intake is identified; a slower earlier read can never
+    // overwrite the preview of a later file, so preview and palette always
+    // describe the same image. The palette is dispatched from the same act.
+    let intake = 0;
+    function setPreview(url: string | null) {
+        if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
+        previewUrl.value = url;
+        if (!url) eyedropperOpen.value = false;
+    }
     async function onFile(file: File) {
+        const id = ++intake;
         lastFile.value = file;
-        previewDataUrl.value = await readAsDataUrl(file);
-        runQuantize();
+        const outcome = await runQuantize();
+        if (id !== intake) return;
+        // An undecodable file leaves no half-state: no preview, the words only.
+        setPreview(outcome?.kind === "failed" ? null : URL.createObjectURL(file));
     }
 
     function onKChange(k: number) {
@@ -180,7 +216,7 @@ export function useExtractSession() {
     function onReset() {
         colorCount.value = 5;
         chromaWeight.value = 0.5;
-        if (lastFile.value) runQuantize();
+        void runQuantize();
     }
 
     function onSave(p: Palette) {
@@ -191,23 +227,34 @@ export function useExtractSession() {
         paletteName.value = newName;
     }
 
-    onBeforeUnmount(() => {
-        if (debounceTimer) clearTimeout(debounceTimer);
-    });
+    // X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
+    // A pending re-quantize must not fire into a parked pane.
+    function cancelPendingQuantize() {
+        debouncedReQuantize.cancel();
+    }
+
+    /** The last holder parked or left: nothing runs into an unseen pane. */
+    function release() {
+        cancelPendingQuantize();
+        releaseWorker();
+    }
 
     return {
         // quantizer state
         palette,
         isProcessing,
         quantizeError,
+        barren,
         // session state
-        previewDataUrl,
+        previewUrl,
+        eyedropperOpen,
         colorCount,
         chromaWeight,
         lastFile,
         paletteName,
         // derived
         extractedPalette,
+        foundCount,
         kSliderGradient,
         totalPopulation,
         dominant,
@@ -219,5 +266,38 @@ export function useExtractSession() {
         onReset,
         onSave,
         onRename,
+        release,
     };
+}
+
+export type ExtractSession = ReturnType<typeof createExtractSession>;
+
+let session: ExtractSession | null = null;
+/** Mounted, active holders of the session. */
+let holders = 0;
+
+/**
+ * The ONE extract session, held by the calling component. A remount (the
+ * region swap at a breakpoint crossing) re-attaches to the same state.
+ */
+export function useExtractSession(): ExtractSession {
+    session ??= effectScope(true).run(createExtractSession)!;
+    const held = session;
+    let holding = false;
+    const hold = () => {
+        if (holding) return;
+        holding = true;
+        holders += 1;
+    };
+    const letGo = () => {
+        if (!holding) return;
+        holding = false;
+        holders -= 1;
+        if (holders === 0) held.release();
+    };
+    onMounted(hold);
+    onActivated(hold);
+    onDeactivated(letGo);
+    onBeforeUnmount(letGo);
+    return held;
 }

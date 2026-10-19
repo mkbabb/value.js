@@ -1,0 +1,8 @@
+SERVED MODEL: claude-opus-5-5
+demo/app/App.vue:490:    color: var(--ink-muted, var(--muted-foreground));
+demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue:187:    color: var(--ink-muted, var(--muted-foreground));
+demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue:192:    color: var(--ink-muted, var(--muted-foreground));
+demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue:198:    color: var(--ink-muted, var(--muted-foreground));
+demo/scenes/ConfigSliderPane.vue:293:    color: var(--ink-muted, var(--muted-foreground));
+demo/shared/ui/ColorSpaceSelector.vue:416:    color: var(--ink-muted, var(--muted-foreground));
+demo/shared/ui/PaneHeader.vue:190:    color: var(--ink-muted, var(--muted-foreground));

@@ -1,0 +1,420 @@
+[
+  {
+    "tag": "1440-light",
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 1187.7900390625,
+      "y": 452.3759460449219,
+      "width": 28.419921875,
+      "height": 28.41998291015625
+    },
+    "dialogRole": [
+      "dialog"
+    ],
+    "dialogBox": {
+      "x": 464,
+      "y": 357.30078125,
+      "width": 512,
+      "height": 185.3984375
+    },
+    "metrics": {
+      "dialog": {
+        "r": "16px",
+        "bg": "oklab(0.903549 0.0153586 0.0142464 / 0.705088)",
+        "bf": "blur(11px) saturate(1.6)",
+        "pad": "30.528px 24px",
+        "fs": "18.608px",
+        "fw": "400",
+        "h": 185.3984375,
+        "w": 512,
+        "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) -translate-x-1/2 -translate-y-1/2 g"
+      },
+      "title": {
+        "text": "Delete all saved palettes?",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "20.352px",
+        "fw": "600",
+        "h": 20.3515625,
+        "w": 462,
+        "cls": "text-subheading leading-none tracking-tight"
+      },
+      "desc": {
+        "text": "This will permanently delete 3 palettes from local storage. This cannot be undone.",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "14px",
+        "fw": "400",
+        "h": 40,
+        "w": 462,
+        "cls": "text-sm text-muted-foreground"
+      },
+      "btns": [
+        {
+          "text": "Cancel",
+          "r": "9999px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bf": "none",
+          "pad": "0px 4px",
+          "fs": "16.4px",
+          "fw": "500",
+          "h": 40,
+          "w": 61.59375,
+          "cls": "button tap-squish focus-ring"
+        },
+        {
+          "text": "Delete all",
+          "r": "9999px",
+          "bg": "rgb(219, 36, 36)",
+          "bf": "none",
+          "pad": "0px 16px",
+          "fs": "16.4px",
+          "fw": "500",
+          "h": 40,
+          "w": 125.7734375,
+          "cls": "button tap-squish focus-ring"
+        }
+      ],
+      "overlay": [
+        {
+          "r": "0px",
+          "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+          "bf": "blur(1px) saturate(1.4)",
+          "pad": "0px",
+          "fs": "18.608px",
+          "fw": "400",
+          "h": 900,
+          "w": 1440,
+          "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+        }
+      ],
+      "active": "Cancel",
+      "labelledby": "reka-dialog-title-v-67",
+      "describedby": "reka-dialog-description-v-68"
+    },
+    "afterTab": "Delete all",
+    "openAfterEsc": 0,
+    "openAfterCancel": 0,
+    "storeAfterCancel": 3,
+    "errors": []
+  },
+  {
+    "tag": "1440-dark",
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 1187.7900390625,
+      "y": 452.3759460449219,
+      "width": 28.419921875,
+      "height": 28.41998291015625
+    },
+    "dialogRole": [
+      "dialog"
+    ],
+    "dialogBox": {
+      "x": 464,
+      "y": 357.30078125,
+      "width": 512,
+      "height": 185.3984375
+    },
+    "metrics": {
+      "dialog": {
+        "r": "16px",
+        "bg": "oklab(0.419037 0.0102007 0.0159858 / 0.797248)",
+        "bf": "blur(11px) saturate(1.28) brightness(1.1)",
+        "pad": "30.528px 24px",
+        "fs": "18.608px",
+        "fw": "400",
+        "h": 185.3984375,
+        "w": 512,
+        "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) -translate-x-1/2 -translate-y-1/2 g"
+      },
+      "title": {
+        "text": "Delete all saved palettes?",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "20.352px",
+        "fw": "600",
+        "h": 20.3515625,
+        "w": 462,
+        "cls": "text-subheading leading-none tracking-tight"
+      },
+      "desc": {
+        "text": "This will permanently delete 3 palettes from local storage. This cannot be undone.",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "14px",
+        "fw": "400",
+        "h": 40,
+        "w": 462,
+        "cls": "text-sm text-muted-foreground"
+      },
+      "btns": [
+        {
+          "text": "Cancel",
+          "r": "9999px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bf": "none",
+          "pad": "0px 4px",
+          "fs": "16.4px",
+          "fw": "500",
+          "h": 40,
+          "w": 61.59375,
+          "cls": "button tap-squish focus-ring"
+        },
+        {
+          "text": "Delete all",
+          "r": "9999px",
+          "bg": "rgb(235, 71, 71)",
+          "bf": "none",
+          "pad": "0px 16px",
+          "fs": "16.4px",
+          "fw": "500",
+          "h": 40,
+          "w": 125.7734375,
+          "cls": "button tap-squish focus-ring"
+        }
+      ],
+      "overlay": [
+        {
+          "r": "0px",
+          "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+          "bf": "blur(1px) saturate(1.35) brightness(1.18)",
+          "pad": "0px",
+          "fs": "18.608px",
+          "fw": "400",
+          "h": 900,
+          "w": 1440,
+          "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+        }
+      ],
+      "active": "Cancel",
+      "labelledby": "reka-dialog-title-v-67",
+      "describedby": "reka-dialog-description-v-68"
+    },
+    "afterTab": "Delete all",
+    "openAfterEsc": 0,
+    "openAfterCancel": 0,
+    "storeAfterCancel": 3,
+    "openAfterConfirm": 0,
+    "storeAfterConfirm": 0,
+    "triggerAfterConfirm": 0,
+    "errors": []
+  },
+  {
+    "tag": "390-light",
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 328.7900085449219,
+      "y": 465.1181335449219,
+      "width": 28.420013427734375,
+      "height": 28.41998291015625
+    },
+    "dialogRole": [
+      "dialog"
+    ],
+    "dialogBox": {
+      "x": 0,
+      "y": 309.30078125,
+      "width": 390,
+      "height": 225.3984375
+    },
+    "metrics": {
+      "dialog": {
+        "r": "16px",
+        "bg": "oklab(0.903549 0.0153586 0.0142464 / 0.705088)",
+        "bf": "blur(11px) saturate(1.6)",
+        "pad": "30.528px 24px",
+        "fs": "16px",
+        "fw": "400",
+        "h": 225.3984375,
+        "w": 390,
+        "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) -translate-x-1/2 -translate-y-1/2 g"
+      },
+      "title": {
+        "text": "Delete all saved palettes?",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "20.352px",
+        "fw": "600",
+        "h": 20.3515625,
+        "w": 340,
+        "cls": "text-subheading leading-none tracking-tight"
+      },
+      "desc": {
+        "text": "This will permanently delete 3 palettes from local storage. This cannot be undone.",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "14px",
+        "fw": "400",
+        "h": 40,
+        "w": 340,
+        "cls": "text-sm text-muted-foreground"
+      },
+      "btns": [
+        {
+          "text": "Cancel",
+          "r": "9999px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bf": "none",
+          "pad": "0px 4px",
+          "fs": "14px",
+          "fw": "500",
+          "h": 40,
+          "w": 340,
+          "cls": "button tap-squish focus-ring"
+        },
+        {
+          "text": "Delete all",
+          "r": "9999px",
+          "bg": "rgb(219, 36, 36)",
+          "bf": "none",
+          "pad": "0px 16px",
+          "fs": "14px",
+          "fw": "500",
+          "h": 40,
+          "w": 340,
+          "cls": "button tap-squish focus-ring"
+        }
+      ],
+      "overlay": [
+        {
+          "r": "0px",
+          "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+          "bf": "blur(1px) saturate(1.4)",
+          "pad": "0px",
+          "fs": "16px",
+          "fw": "400",
+          "h": 844,
+          "w": 390,
+          "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+        }
+      ],
+      "active": "Cancel",
+      "labelledby": "reka-dialog-title-v-67",
+      "describedby": "reka-dialog-description-v-68"
+    },
+    "afterTab": "Delete all",
+    "openAfterEsc": 0,
+    "openAfterCancel": 0,
+    "storeAfterCancel": 3,
+    "errors": []
+  },
+  {
+    "tag": "390-dark",
+    "triggerCount": 1,
+    "triggerBox": {
+      "x": 328.7900085449219,
+      "y": 465.1181335449219,
+      "width": 28.420013427734375,
+      "height": 28.41998291015625
+    },
+    "dialogRole": [
+      "dialog"
+    ],
+    "dialogBox": {
+      "x": 0,
+      "y": 309.30078125,
+      "width": 390,
+      "height": 225.3984375
+    },
+    "metrics": {
+      "dialog": {
+        "r": "16px",
+        "bg": "oklab(0.419037 0.0102007 0.0159858 / 0.797248)",
+        "bf": "blur(11px) saturate(1.28) brightness(1.1)",
+        "pad": "30.528px 24px",
+        "fs": "16px",
+        "fw": "400",
+        "h": 225.3984375,
+        "w": 390,
+        "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) -translate-x-1/2 -translate-y-1/2 g"
+      },
+      "title": {
+        "text": "Delete all saved palettes?",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "20.352px",
+        "fw": "600",
+        "h": 20.3515625,
+        "w": 340,
+        "cls": "text-subheading leading-none tracking-tight"
+      },
+      "desc": {
+        "text": "This will permanently delete 3 palettes from local storage. This cannot be undone.",
+        "r": "0px",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bf": "none",
+        "pad": "0px",
+        "fs": "14px",
+        "fw": "400",
+        "h": 40,
+        "w": 340,
+        "cls": "text-sm text-muted-foreground"
+      },
+      "btns": [
+        {
+          "text": "Cancel",
+          "r": "9999px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "bf": "none",
+          "pad": "0px 4px",
+          "fs": "14px",
+          "fw": "500",
+          "h": 40,
+          "w": 340,
+          "cls": "button tap-squish focus-ring"
+        },
+        {
+          "text": "Delete all",
+          "r": "9999px",
+          "bg": "rgb(235, 71, 71)",
+          "bf": "none",
+          "pad": "0px 16px",
+          "fs": "14px",
+          "fw": "500",
+          "h": 40,
+          "w": 340,
+          "cls": "button tap-squish focus-ring"
+        }
+      ],
+      "overlay": [
+        {
+          "r": "0px",
+          "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+          "bf": "blur(1px) saturate(1.35) brightness(1.18)",
+          "pad": "0px",
+          "fs": "16px",
+          "fw": "400",
+          "h": 844,
+          "w": 390,
+          "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+        }
+      ],
+      "active": "Cancel",
+      "labelledby": "reka-dialog-title-v-67",
+      "describedby": "reka-dialog-description-v-68"
+    },
+    "afterTab": "Delete all",
+    "openAfterEsc": 0,
+    "openAfterCancel": 0,
+    "storeAfterCancel": 3,
+    "openAfterConfirm": 0,
+    "storeAfterConfirm": 0,
+    "triggerAfterConfirm": 0,
+    "errors": []
+  }
+]

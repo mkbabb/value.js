@@ -64,7 +64,13 @@ export interface Palette {
 }
 
 export interface PaletteVersion {
+    /** The RELEASE id (`palette_versions._id`) — what revert and the detail route take. */
     hash: string;
+    /** The CONTENT identity; `Palette.currentHash` mirrors it (X-W3 · X.W3.2). */
+    payloadHash: string;
+    /** The palette-scoped release ordinal the list is sorted by (X.W3.2 · G-7);
+     *  the drawer's `vN` (X.W12U.s2 · UIA-V-575). */
+    revisionNo?: number;
     name: string;
     colors: PaletteColor[];
     parentHash: string | null;
@@ -90,7 +96,8 @@ export interface User {
     createdAt: string;
     lastSeenAt?: string;
     status?: "active" | "suspended";
-    paletteCount?: number;
+    /** Always emitted by the server's roster formatter (`UserListEntry`). */
+    paletteCount: number;
 }
 
 export interface Tag {
@@ -114,12 +121,22 @@ export interface FlaggedPalette {
     flags: Flag[];
 }
 
+/**
+ * One admin audit event, AS THE WIRE CARRIES IT — X.W7.d · N-8 (fold W7.66 ·
+ * AAP-4/AAP-5): mirrored field-for-field from the server formatter
+ * (`api/src/modules/admin/service/audit.ts` `AuditEntryDTO`, seven fields). The
+ * old client type dropped `actorSlug` and `payload` and REQUIRED `ipHash` and
+ * `target`, which the server emits optionally — a type that lied in both
+ * directions. `timestamp` is the JSON serialisation of the server's `Date`.
+ */
 export interface AuditEntry {
     id: string;
     timestamp: string;
     action: string;
-    target: string;
-    ipHash: string;
+    target?: string;
+    ipHash?: string;
+    actorSlug?: string | null;
+    payload?: Record<string, unknown>;
 }
 
 export interface PaginatedResponse<T> {

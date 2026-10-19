@@ -34,9 +34,22 @@
  * on the host — the mix is a phase-machine forward edge, so under
  * prefers-reduced-motion `arm()` must COMPLETE-IMMEDIATELY (fire onSettled),
  * never PAUSE; a paused loop would strand the phase machine mid-mix.
+ *
+ * THE CANVAS LIVES AS LONG AS ITS SCENE (X-W6 · X.W6.j, the Mix canary — CC-056
+ * · V·L3, gate j2). The pane is cached by the shell's `<KeepAlive>`
+ * (`PaneSlot.vue`), so a route-away DEACTIVATES it rather than unmounting it:
+ * before this, a narration in flight kept ticking on a detached canvas for the
+ * rest of its 1.2 s window, and the pane-sized backing store it allocated
+ * (`w·dpr × scrollHeight·dpr`) stayed resident for as long as the pane stayed
+ * cached. Now the narration's 2D context is acquired at ONE site (`arm`), held
+ * only for the narration window, and `release()` is the one teardown — run when
+ * the window closes, when the phase machine resets, when the scene deactivates
+ * and when the pane unmounts. A narration cut short by a route-away SETTLES
+ * (the result was computed at `startMix`; the drops are its telling, never its
+ * substance), so the user returns to the inked plate, never to a stranded mix.
  */
 
-import { watch, onBeforeUnmount } from "vue";
+import { watch, onBeforeUnmount, onDeactivated } from "vue";
 import type { Ref } from "vue";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
@@ -63,6 +76,8 @@ export function useMixingAnimation(
 ) {
     let settledFired = false;
     let stage: Stage | null = null;
+    /** The narration's 2D context — held ONLY for the narration window. */
+    let ctx: CanvasRenderingContext2D | null = null;
 
     // PRM gate: the convergence is decorative MOTION. Under
     // prefers-reduced-motion the loop is never armed; the completion event
@@ -87,48 +102,62 @@ export function useMixingAnimation(
     // why respectReducedMotion is FALSE here (arm() owns the PRM fast-path).
     const loop = useRAFLoop(
         ({ elapsed }) => {
-            const canvas = canvasRef.value;
-            const ctx = canvas?.getContext("2d");
-            if (!canvas || !ctx || !stage) {
-                loop.stop();
+            if (!ctx || !stage) {
+                release();
                 return;
             }
 
-            const w = canvas.clientWidth;
-            const h = canvas.clientHeight;
+            const { clientWidth: w, clientHeight: h } = ctx.canvas;
             ctx.clearRect(0, 0, w, h);
 
             drawStage(ctx, stage, elapsed);
 
-            if (!settledFired && elapsed >= MIX_CONVERGE_MS) {
-                settledFired = true;
-                onSettled();
-            }
+            if (elapsed >= MIX_CONVERGE_MS) settle();
 
-            if (elapsed >= MIX_CONVERGE_MS + MIX_EPILOGUE_MS) {
-                loop.stop();
-                ctx.clearRect(0, 0, w, h);
-            }
+            if (elapsed >= MIX_CONVERGE_MS + MIX_EPILOGUE_MS) release();
         },
         { immediate: false, pauseWhenHidden: true, respectReducedMotion: false },
     );
 
-    function arm() {
+    /** Fire the phase machine's forward edge — once per narration. */
+    function settle() {
+        if (settledFired) return;
+        settledFired = true;
+        onSettled();
+    }
+
+    /**
+     * THE one teardown: stop the clock, drop the stage and the context, and
+     * give the backing store back (a zero-area canvas holds no pixels). The
+     * canvas element itself is the component's; only what `arm` allocated is
+     * released here.
+     */
+    function release() {
         loop.stop();
+        stage = null;
+        const canvas = ctx?.canvas ?? null;
+        ctx = null;
+        if (canvas) {
+            canvas.width = 0;
+            canvas.height = 0;
+            canvas.style.height = "";
+        }
+    }
+
+    function arm() {
+        release();
         settledFired = false;
 
         if (prefersReducedMotion.value) {
             // No motion, no dead time: complete immediately.
-            settledFired = true;
-            onSettled();
+            settle();
             return;
         }
 
         const canvas = canvasRef.value;
         const poolCss = convergeCss();
         if (!canvas || !canvas.parentElement || !poolCss) {
-            settledFired = true;
-            onSettled();
+            settle();
             return;
         }
 
@@ -141,29 +170,22 @@ export function useMixingAnimation(
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         canvas.width = w * dpr;
         canvas.height = h * dpr;
-        const ctx = canvas.getContext("2d");
-        if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-        stage = collectStage(canvas, poolCss, space.value, hueMethod.value);
-        if (!stage) {
-            // Nothing measurable to narrate (no stamped sources) — settle
-            // honestly rather than stall the phase machine.
-            settledFired = true;
-            onSettled();
+        // The ONE acquisition site: the context lives for this window only.
+        ctx = canvas.getContext("2d");
+        stage = ctx
+            ? collectStage(canvas, poolCss, space.value, hueMethod.value)
+            : null;
+        if (!ctx || !stage) {
+            // Nothing measurable to narrate (no stamped sources, or no 2D
+            // context) — settle honestly rather than stall the phase machine.
+            release();
+            settle();
             return;
         }
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
         // start() resets the host's elapsed/frame counters to zero.
         loop.start();
-    }
-
-    function clearCanvas() {
-        const canvas = canvasRef.value;
-        const ctx = canvas?.getContext("2d");
-        if (canvas && ctx) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvas.style.height = "";
-        }
     }
 
     // flush:"post" — the ghost well ([data-mix-target]) mounts in the same
@@ -171,20 +193,21 @@ export function useMixingAnimation(
     watch(
         phase,
         (next) => {
-            if (next === "mixing") {
-                arm();
-            } else if (next === "idle") {
-                loop.stop();
-                stage = null;
-                clearCanvas();
-            }
+            if (next === "mixing") arm();
+            else if (next === "idle") release();
         },
         { flush: "post" },
     );
 
-    // useRAFLoop auto-disposes on scope teardown; this belt-and-suspenders stop
-    // also halts an in-flight narration if the pane unmounts mid-mix.
-    onBeforeUnmount(() => loop.stop());
+    // The scene leaves (KeepAlive deactivation) or the pane unmounts: a
+    // narration in flight settles — its result is already computed — and its
+    // clock and pixels go with the scene.
+    function leaveScene() {
+        if (ctx !== null) settle();
+        release();
+    }
+    onDeactivated(leaveScene);
+    onBeforeUnmount(leaveScene);
 
-    return { stop: () => loop.stop() };
+    return { stop: release };
 }

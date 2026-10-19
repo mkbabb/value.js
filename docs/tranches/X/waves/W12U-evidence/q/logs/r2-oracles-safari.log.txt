@@ -1,0 +1,1716 @@
+### oracles-safari (r2, re-run of r1: 59 ids) start 10-13 16:50:47 load1=241.50
+(node:57205) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:57373) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m
+[2m[WebServer] [22m./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m[WebServer] [22m[33m[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+[2m[WebServer] [22m  - vite:css-post (31%)
+[2m[WebServer] [22m  - vite:asset (28%)
+[2m[WebServer] [22m  - vite:worker (17%)
+[2m[WebServer] [22mSee https://rolldown.rs/options/checks#plugintimings for more details.
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22mFound 16 warnings while optimizing generated CSS:
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #1:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var();
+[2m[WebServer] [22m[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #2:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     z-index: var(--z-*);
+[2m[WebServer] [22m[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .z-\[var\(--z-background\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #3:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     width: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     height: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #4:
+[2m[WebServer] [22m[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m[WebServer] [22m[2m│     width: var(--icon-*);[22m
+[2m[WebServer] [22m[2m│[22m     height: var(--icon-*);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #5:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     max-height: var(...);
+[2m[WebServer] [22m[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .max-h-0 {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #6:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #7:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #8:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[var\(…\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     color: var(…);
+[2m[WebServer] [22m[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .text-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #9:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var();
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #10:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var();
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #11:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-duration: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #12:
+[2m[WebServer] [22m[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-duration: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-duration: var(...);
+[2m[WebServer] [22m[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .duration-\[…\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #13:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var();
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var();[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #14:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var();[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var();
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #15:
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│[22m     --tw-ease: var(...);
+[2m[WebServer] [22m[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│     transition-timing-function: var(...);[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m
+[2m[WebServer] [22mIssue #16:
+[2m[WebServer] [22m[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m[WebServer] [22m[2m│     --tw-ease: var(...);[22m
+[2m[WebServer] [22m[2m│[22m     transition-timing-function: var(...);
+[2m[WebServer] [22m[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m[WebServer] [22m[2m┆[22m
+[2m[WebServer] [22m[2m│   }[22m
+[2m[WebServer] [22m[2m│   .ease-accelerate {[22m
+[2m[WebServer] [22m
+
+Running 71 tests using 1 worker
+
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m3362 │[0m /* #__PURE__ */
+[2m[WebServer] [22m [38;5;240m     │[0m ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m        ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+[2m[WebServer] [22m      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+[2m[WebServer] [22m      [38;5;246m│[0m
+[2m[WebServer] [22m [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+[2m[WebServer] [22m [38;5;240m     │[0m                       ───────┬───────  
+[2m[WebServer] [22m [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+[2m[WebServer] [22m [38;5;240m     │[0m 
+[2m[WebServer] [22m [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[2m[WebServer] [22m[38;5;246m──────╯[0m
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22m[33m[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+[2m[WebServer] [22m  - source-export (70%)
+[2m[WebServer] [22m  - unplugin-vue-markdown (14%)
+[2m[WebServer] [22m  - value-defer-glass-fonts (10%)
+[2m[WebServer] [22mSee https://rolldown.rs/options/checks#plugintimings for more details.
+[2m[WebServer] [22m[39m
+[2m[WebServer] [22mnode:events:487
+[2m[WebServer] [22m      throw er; // Unhandled 'error' event
+[2m[WebServer] [22m      ^
+[2m[WebServer] [22m
+[2m[WebServer] [22mError: listen EADDRINUSE: address already in use 127.0.0.1:9142
+[2m[WebServer] [22m[90m    at Server.setupListenHandle [as _listen2] (node:net:2008:16)[39m
+[2m[WebServer] [22m[90m    at listenInCluster (node:net:2065:12)[39m
+[2m[WebServer] [22m[90m    at node:net:2274:7[39m
+[2m[WebServer] [22m[90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+[2m[WebServer] [22mEmitted 'error' event on Server instance at:
+[2m[WebServer] [22m[90m    at emitErrorNT (node:net:2044:8)[39m
+[2m[WebServer] [22m[90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+[2m[WebServer] [22m  code: [32m'EADDRINUSE'[39m,
+[2m[WebServer] [22m  errno: [33m-48[39m,
+[2m[WebServer] [22m  syscall: [32m'listen'[39m,
+[2m[WebServer] [22m  address: [32m'127.0.0.1'[39m,
+[2m[WebServer] [22m  port: [33m9142[39m
+[2m[WebServer] [22m}
+[2m[WebServer] [22m
+[2m[WebServer] [22mNode.js v26.0.0
+(node:60988) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [oracles-safari] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states (4.0m)
+(node:77468) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   2 [oracles-safari] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states (24.3s)
+  ✘   3 [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token (3.0s)
+(node:78347) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   4 [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock (33.0s)
+(node:79706) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   5 [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (8.0s)
+(node:80166) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   6 [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif (8.6s)
+(node:80676) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   7 [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (14.7s)
+(node:81405) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   8 [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub (5.9s)
+(node:81847) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   9 [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated (7.8s)
+(node:82162) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  10 [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (6.9s)
+  ✘  11 [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (33.9s)
+(node:83645) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  12 [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole (20.7s)
+(node:85150) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  13 [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model (7.4s)
+(node:85605) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  14 [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — desktop (14.2s)
+(node:86399) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  15 [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — 390 (11.4s)
+(node:86959) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  16 [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:147:1 › O-17 composition: stamps, dot rest, one-literal, mint law (7.8s)
+(node:87363) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  17 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (11.7s)
+(node:88089) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  18 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (10.9s)
+(node:88476) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  19 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (9.0s)
+(node:89302) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  20 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (5.6s)
+  ✘  21 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) (6.4s)
+(node:90250) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  22 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (7.5s)
+(node:90847) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  23 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) (10.9s)
+  ✘  24 [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (11.5s)
+(node:93311) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  25 [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light (48.5s)
+(node:341) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  26 [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark (20.8s)
+(node:2483) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  27 [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light (35.5s)
+(node:5224) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  28 [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark (33.5s)
+(node:7899) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  29 [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:104:1 › the recalibrated register's computed tokens hold (the named-knob tripwire) (4.0s)
+  ✘  30 [oracles-safari] › e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:37:1 › W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→field leap) (30.2s)
+(node:9409) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  31 [oracles-safari] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields (33.4s)
+(node:11008) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  32 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) (12.3s)
+  ✓  33 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip (5.7s)
+  ✓  34 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register (4.4s)
+  ✓  35 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal (4.3s)
+  ✘  36 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal (1.0m)
+(node:21966) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  37 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail (4.4s)
+  ✓  38 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width (8.5s)
+  ✘  39 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints (1.0m)
+(node:29904) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  40 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound (1.0m)
+(node:33344) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  41 [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason (1.0m)
+(node:38053) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  42 [oracles-safari] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading (6.0m)
+(node:54311) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  43 [oracles-safari] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box (1.0m)
+(node:59926) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  44 [oracles-safari] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome (1.0m)
+(node:71956) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  45 [oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected (1.0m)
+(node:77992) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  46 [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill (1.0m)
+(node:84010) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  47 [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD (1.0m)
+(node:88616) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  48 [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:196:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px (1.0m)
+(node:95967) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  49 [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:321:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle (1.0m)
+(node:5989) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  50 [oracles-safari] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load (2.0m)
+(node:14341) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  51 [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions (1ms)
+[31mWorker teardown timeout of 30000ms exceeded.[39m
+
+[31mFailed worker ran 1 test:[39m
+[oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+
+
+  1) [oracles-safari] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states 
+
+    [31mTest timeout of 240000ms exceeded.[39m
+
+    Error: browserContext.newPage: Test ended.
+
+      55 |         await route.continue();
+      56 |     });
+    > 57 |     const page = await ctx.newPage();
+         |                            ^
+      58 |     await page.goto(hash, { waitUntil: "commit", timeout: 60_000 });
+      59 |     // X.W5.d4 — the plate arm: the held chunk outlasts `PANE_LOAD_DELAY_MS`, so
+      60 |     // the region's loading plate must SHOW before the pane arrives. The cure
+        at coldNavigate (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:57:28)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:83:39
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/cold-nav-scene-enter-X-W5--ada8f-tion-→-0-stuck-enter-states-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/cold-nav-scene-enter-X-W5--ada8f-tion-→-0-stuck-enter-states-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/cold-nav-scene-enter-X-W5--ada8f-tion-→-0-stuck-enter-states-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.pane-shell .space-trigger')
+    Expected: visible
+    Error: strict mode violation: locator('.pane-shell .space-trigger') resolved to 2 elements:
+        1) <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-7" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disable…>…</button> aka getByRole('region', { name: 'Picker' }).getByLabel('Select color space')
+        2) <button dir="ltr" type="button" role="combobox" data-v-f1e2f8a9="" data-state="closed" aria-expanded="false" aria-required="false" aria-autocomplete="none" data-slot="select-trigger" aria-label="Select color space" aria-controls="reka-select-content-v-61" class="control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabl…>…</button> aka getByRole('region', { name: 'About' }).getByLabel('Select color space')
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('.pane-shell .space-trigger')[22m
+
+
+      76 |         await page.goto("/");
+      77 |         await expect(mainPane(page)).toBeVisible();
+    > 78 |         await expect(page.locator(PICKER_TRIGGER)).toBeVisible();
+         |                                                    ^
+      79 |         await expect(page.locator(ABOUT_TRIGGER)).toBeVisible();
+      80 |
+      81 |         const picker = await readVoice(page, PICKER_TRIGGER);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:78:52
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o10-type-locks-O-10a-e-—-t-9ed54--each-host-s-exact-D2-token-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o10-type-locks-O-10a-e-—-t-9ed54--each-host-s-exact-D2-token-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o10-type-locks-O-10a-e-—-t-9ed54--each-host-s-exact-D2-token-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('navigation', { name: 'Application navigation' }).getByRole('button', { name: 'About', exact: true })[22m
+
+
+      161 |             name: "Application navigation",
+      162 |         });
+    > 163 |         await nav.getByRole("button", { name: "About", exact: true }).click();
+          |                                                                       ^
+      164 |         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
+      165 |
+      166 |         // display-1 floor-pins at heading (1.618rem) on phones, so the pane
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:163:71
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o10-type-locks-O-10a-—-the-afa85-02-About-honest-2-line-lock-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o10-type-locks-O-10a-—-the-afa85-02-About-honest-2-line-lock-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o10-type-locks-O-10a-—-the-afa85-02-About-honest-2-line-lock-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    Error: sm:line-clamp-1 not active at desktop
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"1"[39m
+    Received: [31m"none"[39m
+
+      253 |         .first();
+      254 |     const desktop = await typeVoice(longTitle);
+    > 255 |     expect(desktop.lineClamp, "sm:line-clamp-1 not active at desktop").toBe("1");
+          |                                                                        ^
+      256 |     expect(desktop.overflow).toBe("hidden");
+      257 |     const oneLine = await longTitle.evaluate((el) => {
+      258 |         const cs = getComputedStyle(el);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:255:72
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--f3ea6--line-clamp-under-the-serif-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--f3ea6--line-clamp-under-the-serif-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--f3ea6--line-clamp-under-the-serif-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    Error: line-clamp-2 not active <sm
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"2"[39m
+    Received: [31m"none"[39m
+
+      280 |     const voice = await typeVoice(longTitle);
+      281 |     expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
+    > 282 |     expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
+          |                                                            ^
+      283 |     const twoLinesMax = await longTitle.evaluate((el) => {
+      284 |         const cs = getComputedStyle(el);
+      285 |         return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 2.5;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:282:60
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--61eca-o-TWO-lines-under-the-serif-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--61eca-o-TWO-lines-under-the-serif-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--61eca-o-TWO-lines-under-the-serif-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeFocused[2m([22m[2m)[22m failed
+
+    Locator:  getByPlaceholder('Palette name...').filter({ visible: true }).first()
+    Expected: focused
+    Received: inactive
+    Timeout:  8000ms
+
+    Call log:
+    [2m  - Expect "toBeFocused" with timeout 8000ms[22m
+    [2m  - waiting for getByPlaceholder('Palette name...').filter({ visible: true }).first()[22m
+    [2m    19 × locator resolved to <input type="text" data-size="sm" data-slot="input" data-kind="input" data-state="default" aria-label="Palette name" placeholder="Palette name..." class="field-control glass-control-edge flex-1 min-w-0"/>[22m
+    [2m       - unexpected value "inactive"[22m
+
+
+      438 |         .first();
+      439 |     await expect(renameInput).toBeVisible();
+    > 440 |     await expect(renameInput).toBeFocused();
+          |                               ^
+      441 |     // S.W5-7 (never the same string twice): the serif title yields while the
+      442 |     // input shows the name; Escape restores it (asserted below).
+      443 |     await expect(title).toBeHidden();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:440:31
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--8b461-serif-seeded-local-palette--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--8b461-serif-seeded-local-palette--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o10d-display-voice-census--8b461-serif-seeded-local-palette--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+
+    Error: browser.startTracing: Tracing is only available in Chromium
+
+      309 |     });
+      310 |     await scrub();
+    > 311 |     await browser.startTracing(page, {
+          |                   ^
+      312 |         categories: ["devtools.timeline"],
+      313 |     });
+      314 |     await scrub();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:311:19
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o11-header-gates-O-11-gate-31c8e--is-FLAT-under-a-live-scrub-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o11-header-gates-O-11-gate-31c8e--is-FLAT-under-a-live-scrub-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o11-header-gates-O-11-gate-31c8e--is-FLAT-under-a-live-scrub-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated 
+
+    Error: PRM rest veil diverges from normal rest
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m0.52[39m
+
+      356 |     ).toBeGreaterThan(0);
+      357 |
+    > 358 |     expect(prm[0]?.opacity, "PRM rest veil diverges from normal rest").toBe(
+          |                                                                        ^
+      359 |         normal[0]?.opacity,
+      360 |     );
+      361 |     expect(prm[0]?.mask).not.toBe("none");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:358:72
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o11-header-gates-O-11-gate-51517-l-binding-is-supports-gated-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o11-header-gates-O-11-gate-51517-l-binding-is-supports-gated-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o11-header-gates-O-11-gate-51517-l-binding-is-supports-gated-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <div class="dock-plate" aria-hidden="true">…</div> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <nav data-v-f13b4d11="" aria-label="Application navigation" class="dock-band overture-dock-land">…</nav> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    56 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:336:13
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o14-preview-truth-O-14-·-t-2aa13--never-the-near-black-clamp-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o14-preview-truth-O-14-·-t-2aa13--never-the-near-black-clamp-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o14-preview-truth-O-14-·-t-2aa13--never-the-near-black-clamp-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"none"[39m
+
+      118 |             }
+      119 |         }
+    > 120 |         expect(shadow).not.toBe("none");
+          |                            ^
+      121 |         // …and the shadow's canvas is unclipped (asserted above: the inner
+      122 |         // computes overflow visible at settled rest).
+      123 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:120:28
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o15-dock-register-O-15b-·--69d0d-capsule-shadow-render-whole-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o15-dock-register-O-15b-·--69d0d-capsule-shadow-render-whole-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o15-dock-register-O-15b-·--69d0d-capsule-shadow-render-whole-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7m8px 12[27mpx"[39m
+    Received: [31m"[7m4[27mpx"[39m
+
+      144 |         // delivered through the producer's own --dock-compact-control-padding
+      145 |         // token hook, so a producer register change surfaces here.
+    > 146 |         expect(box.padding).toBe("8px 12px");
+          |                             ^
+      147 |         expect(box.marginLeft).toBe("4px");
+      148 |         expect(box.marginRight).toBe("4px");
+      149 |         expect(box.gap).not.toBe("normal");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:146:29
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o15-dock-register-O-15b-·--a3a8b-s-the-true-button-box-model-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o15-dock-register-O-15b-·--a3a8b-s-the-true-button-box-model-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o15-dock-register-O-15b-·--a3a8b-s-the-true-button-box-model-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — desktop 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg')
+    Expected: visible
+    Error: strict mode violation: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg') resolved to 4 elements:
+        1) <svg role="img" viewBox="-0.1 -0.1 1.2 1.2" aria-label="Easing curve 1 → 2" preserveAspectRatio="xMidYMid meet" class="block aspect-square w-full select-none text-(--easing-curve-accent)">…</svg> aka getByRole('img', { name: 'Easing curve 1 →' })
+        2) <svg data-slot="easing-handles" viewBox="-0.1 -0.1 1.2 1.2" preserveAspectRatio="xMidYMid meet" class="absolute inset-0 block size-full touch-none select-none">…</svg> aka getByRole('img').nth(5)
+        3) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down-icon lucide-chevron-down transition-disclosure in-data-[state=open]:rotate-180 h-4 w-4 shrink-0 opacity-(--select-chevron-opacity)">…</svg> aka getByRole('combobox', { name: 'Easing preset' })
+        4) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-copy-icon lucide-copy size-4 shrink-0">…</svg> aka getByRole('button', { name: 'Copy curve literal' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg')[22m
+
+
+      65 |     // Triumvirate trigger, so the cure is routed, not hacked in here.
+      66 |     const svg = row.locator("#easing-authoring-0 svg");
+    > 67 |     await expect(svg).toBeVisible();
+         |                       ^
+      68 |     await expect(
+      69 |         svg,
+      70 |         'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+        at discloseAuthoring (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:67:23)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:130:21
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-1f953-oss-curve-regimes-—-desktop-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-1f953-oss-curve-regimes-—-desktop-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-1f953-oss-curve-regimes-—-desktop-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — 390 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg')
+    Expected: visible
+    Error: strict mode violation: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg') resolved to 4 elements:
+        1) <svg role="img" viewBox="-0.1 -0.1 1.2 1.2" aria-label="Easing curve 1 → 2" preserveAspectRatio="xMidYMid meet" class="block aspect-square w-full select-none text-(--easing-curve-accent)">…</svg> aka getByRole('img', { name: 'Easing curve 1 →' })
+        2) <svg data-slot="easing-handles" viewBox="-0.1 -0.1 1.2 1.2" preserveAspectRatio="xMidYMid meet" class="absolute inset-0 block size-full touch-none select-none">…</svg> aka locator('.absolute.inset-0')
+        3) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down-icon lucide-chevron-down transition-disclosure in-data-[state=open]:rotate-180 h-4 w-4 shrink-0 opacity-(--select-chevron-opacity)">…</svg> aka getByRole('combobox', { name: 'Easing preset' })
+        4) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-copy-icon lucide-copy size-4 shrink-0">…</svg> aka getByRole('button', { name: 'Copy curve literal' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg')[22m
+
+
+      65 |     // Triumvirate trigger, so the cure is routed, not hacked in here.
+      66 |     const svg = row.locator("#easing-authoring-0 svg");
+    > 67 |     await expect(svg).toBeVisible();
+         |                       ^
+      68 |     await expect(
+      69 |         svg,
+      70 |         'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+        at discloseAuthoring (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:67:23)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:130:21
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-559d5--across-curve-regimes-—-390-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-559d5--across-curve-regimes-—-390-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-559d5--across-curve-regimes-—-390-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:147:1 › O-17 composition: stamps, dot rest, one-literal, mint law 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg')
+    Expected: visible
+    Error: strict mode violation: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg') resolved to 4 elements:
+        1) <svg role="img" viewBox="-0.1 -0.1 1.2 1.2" aria-label="Easing curve 1 → 2" preserveAspectRatio="xMidYMid meet" class="block aspect-square w-full select-none text-(--easing-curve-accent)">…</svg> aka getByRole('img', { name: 'Easing curve 1 →' })
+        2) <svg data-slot="easing-handles" viewBox="-0.1 -0.1 1.2 1.2" preserveAspectRatio="xMidYMid meet" class="absolute inset-0 block size-full touch-none select-none">…</svg> aka locator('.absolute.inset-0')
+        3) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-chevron-down-icon lucide-chevron-down transition-disclosure in-data-[state=open]:rotate-180 h-4 w-4 shrink-0 opacity-(--select-chevron-opacity)">…</svg> aka getByRole('combobox', { name: 'Easing preset' })
+        4) <svg width="24" height="24" fill="none" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="lucide lucide-copy-icon lucide-copy size-4 shrink-0">…</svg> aka getByRole('button', { name: 'Copy curve literal' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[id="glass-disclosure-content-v-127"]').locator('#easing-authoring-0 svg')[22m
+
+
+      65 |     // Triumvirate trigger, so the cure is routed, not hacked in here.
+      66 |     const svg = row.locator("#easing-authoring-0 svg");
+    > 67 |     await expect(svg).toBeVisible();
+         |                       ^
+      68 |     await expect(
+      69 |         svg,
+      70 |         'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+        at discloseAuthoring (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:67:23)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o17-easing-composition.spec.ts:160:17
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-3f306-t-rest-one-literal-mint-law-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-3f306-t-rest-one-literal-mint-law-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o17-easing-composition-O-1-3f306-t-rest-one-literal-mint-law-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(255 249 247) vs rgb(101 99 97) — raw oklch(0.985253 0.007203 31.584818) α 1 stack [div.glass-resting=color(srgb 0.203993 0.148252 0.08296 / 0.14)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.73[39m
+
+      761 |                 nameRow!.ratio,
+      762 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 763 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      764 |         });
+      765 |
+      766 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:763:15
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-27e88--fill-derived-ink-together--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.584818) α 1 stack [div.glass-resting=color(srgb 0.092767 0.050346 0.00879 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.74[39m
+
+      761 |                 nameRow!.ratio,
+      762 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 763 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      764 |         });
+      765 |
+      766 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:763:15
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-b6a55--fill-derived-ink-together--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-b6a55--fill-derived-ink-together--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-b6a55--fill-derived-ink-together--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m0.037180607112331766[39m
+    Received:    [31m0.006968179459289377[39m
+
+      1015 |                 accent.C,
+      1016 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+    > 1017 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+           |               ^
+      1018 |
+      1019 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
+      1020 |             //     space trigger wears `--space-title-ink` = the safe accent at
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1017:15
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-W-90fc7-ck-hue-held-C-≥-0-35×-T-35--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-W-90fc7-ck-hue-held-C-≥-0-35×-T-35--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-W-90fc7-ck-hue-held-C-≥-0-35×-T-35--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.199997), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.31[39m
+
+      1316 |                 row!.ratio,
+      1317 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1318 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1319 |         });
+      1320 |
+      1321 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1318:15
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-3dbdc-bypasses-certification-A-1--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-3dbdc-bypasses-certification-A-1--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-3dbdc-bypasses-certification-A-1--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-ca642-tion-over-live-content-N-3--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-ca642-tion-over-live-content-N-3--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-ca642-tion-over-live-content-N-3--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-c830f-tion-over-live-content-N-3--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-c830f-tion-over-live-content-N-3--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o18-contrast-census-O-18-c-c830f-tion-over-live-content-N-3--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test ended.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=93764
+    [pid=93764] <gracefully close start>
+    [pid=93764] <kill>
+    [pid=93764] <will force kill>
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥59-255-—-desktop-light-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥59-255-—-desktop-light-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥59-255-—-desktop-light-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m1.4777999999999736[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥45-255-—-desktop-dark-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥45-255-—-desktop-dark-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥45-255-—-desktop-dark-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:48:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥59-255-—-390-light-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥59-255-—-390-light-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥59-255-—-390-light-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('combobox', { name: 'Select view' })
+    Expected: visible
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:48:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥45-255-—-390-dark-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥45-255-—-390-dark-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o19-netting-luma-netting-luma-delta-≥45-255-—-390-dark-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [oracles-safari] › e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:37:1 › W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→field leap) 
+
+    Error: Timeout 8000ms exceeded while waiting on the predicate
+
+      58 |             { timeout: 8000 },
+      59 |         )
+    > 60 |         .toMatch(/^#[0-9a-f]{6}$/i);
+         |          ^
+      61 |
+      62 |     // ── The measured boot: bare reload; sample the field region's L from as
+      63 |     //    early as the harness can reach through the settle.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:60:10
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o1b-ground-luma-leap-W2-2--0e9c7-onotone-no-slab→field-leap--oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o1b-ground-luma-leap-W2-2--0e9c7-onotone-no-slab→field-leap--oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o1b-ground-luma-leap-W2-2--0e9c7-onotone-no-slab→field-leap--oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [oracles-safari] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('combobox', { name: 'Select view' })
+    Expected: visible
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:65:9
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o20-generate-plate-O-20-·--f1ba5-palette-selecting-it-yields-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o20-generate-plate-O-20-·--f1ba5-palette-selecting-it-yields-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o20-generate-plate-O-20-·--f1ba5-palette-selecting-it-yields-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=11347
+    [pid=11347] <gracefully close start>
+    [pid=11347] <kill>
+    [pid=11347] <will force kill>
+
+    Error: page.reload: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for navigation until "networkidle"[22m
+    [2m    - navigated to "http://localhost:9141/#/gradient"[22m
+
+
+      205 |     // and ordinal rank, not position (GRADSTOP-A §6, the readout-vacuity rule).
+      206 |     for (const terminal of [0, 100]) {
+    > 207 |         await page.reload({ waitUntil: "networkidle" });
+          |                    ^
+      208 |         await openView(page, "Gradient");
+      209 |         await paneSettled(page);
+      210 |         // The reload lands back on `#/gradient`, so `openView` re-picks the
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:207:20
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-the-forw-722c9-pixel-reads-its-own-ordinal-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-the-forw-722c9-pixel-reads-its-own-ordinal-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-the-forw-722c9-pixel-reads-its-own-ordinal-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=22006
+    [pid=22006] <gracefully close start>
+    [pid=22006] <kill>
+    [pid=22006] <will force kill>
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=22006
+    [pid=22006] <gracefully close start>
+    [pid=22006] <kill>
+    [pid=22006] <will force kill>
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-112" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:385:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-stop-ins-f7ff4-the-ordinal-the-rail-paints-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-stop-ins-f7ff4-the-ordinal-the-rail-paints-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-stop-ins-f7ff4-the-ordinal-the-rail-paints-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=30030
+    [pid=30030] <gracefully close start>
+    [pid=30030] <kill>
+    [pid=30030] <will force kill>
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9141/", waiting until "load"[22m
+
+
+      37 |
+      38 | async function openGradient(page: Page): Promise<Locator> {
+    > 39 |     await page.goto("/");
+         |                ^
+      40 |     await openView(page, "Gradient");
+      41 |     const main = page.getByRole("main", { name: "Gradient" });
+      42 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:39:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:444:24
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-keyboard-41c7f--a-terminal-holds-its-bound-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-keyboard-41c7f--a-terminal-holds-its-bound-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-keyboard-41c7f--a-terminal-holds-its-bound-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=33390
+    [pid=33390] <gracefully close start>
+    [pid=33390] <kill>
+    [pid=33390] <will force kill>
+
+    Error: locator.click: Target page, context or browser has been closed
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:40:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:513:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-one-remo-96ce5-control-carrying-its-reason-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-one-remo-96ce5-control-carrying-its-reason-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o21-gradient-rail-one-remo-96ce5-control-carrying-its-reason-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) [oracles-safari] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 180000ms.[39m
+
+    Error: browserContext.close: Test timeout of 180000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=40034
+    [pid=40034] <gracefully close start>
+    [pid=40034] <kill>
+    [pid=40034] <will force kill>
+
+    Error: locator.evaluate: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.about-card')[22m
+    [2m    - locator resolved to visible <div data-size="md" data-slot="card" data-shadow="true" data-surface="glass" class="glass-resting card pane-shell__card relative flex flex-col w-full min-w-0 h-full overflow-hidden about-card">…</div>[22m
+
+
+      133 |
+      134 |     const pick = async (label: string) => {
+    > 135 |         await card.evaluate((element) => element.scrollTo(0, 0));
+          |                    ^
+      136 |         await trigger.click();
+      137 |         const listbox = page.getByRole("listbox");
+      138 |         await expect(listbox).toBeVisible();
+        at pick (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:135:20)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:149:31
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o21-space-catalog-truth-ev-7dc06-ide-is-never-a-bare-heading-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o21-space-catalog-truth-ev-7dc06-ide-is-never-a-bare-heading-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o21-space-catalog-truth-ev-7dc06-ide-is-never-a-bare-heading-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) [oracles-safari] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=55452
+    [pid=55452] <gracefully close start>
+    [pid=55452] <kill>
+    [pid=55452] <will force kill>
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9141/", waiting until "load"[22m
+
+
+      39 |
+      40 | export async function openSpaceCatalog(page: Page): Promise<Locator> {
+    > 41 |     await page.goto("/");
+         |                ^
+      42 |     const main = page.getByRole("main", { name: "Home" });
+      43 |     await expect(main).toBeVisible();
+      44 |     const trigger = main.getByRole("combobox", { name: "Select color space" }).first();
+        at openSpaceCatalog (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o22-specimen-legibility.spec.ts:41:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o22-specimen-legibility.spec.ts:78:27
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o22-specimen-legibility-every-specimen-caption-fits-its-box-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o22-specimen-legibility-every-specimen-caption-fits-its-box-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o22-specimen-legibility-every-specimen-caption-fits-its-box-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  33) [oracles-safari] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=61986
+    [pid=61986] <gracefully close start>
+    [pid=61986] <kill>
+    [pid=61986] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o22-status-lamp-O-22-·-the-fdcea-ant-first-paint-band-chrome-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o22-status-lamp-O-22-·-the-fdcea-ant-first-paint-band-chrome-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o22-status-lamp-O-22-·-the-fdcea-ant-first-paint-band-chrome-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  34) [oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=72050
+    [pid=72050] <gracefully close start>
+    [pid=72050] <kill>
+    [pid=72050] <will force kill>
+
+    Error: expect.toBeVisible: Test timeout of 30000ms exceeded.
+
+      201 |     await page.goto(`/#/?space=oklch&color=${encodeURIComponent(SEED_COLOR)}`);
+      202 |     const main = page.getByRole("main", { name: "Home" });
+    > 203 |     await expect(main).toBeVisible();
+          |                        ^
+      204 |     const trigger = main.getByRole("combobox", { name: "Select color space" }).first();
+      205 |     await expect(trigger).toBeVisible();
+      206 |     await trigger.click();
+        at openCatalog (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:203:24)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:229:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o23-specimen-gamut-honesty-96173-ed-coordinate-was-projected-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o23-specimen-gamut-honesty-96173-ed-coordinate-was-projected-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o23-specimen-gamut-honesty-96173-ed-coordinate-was-projected-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  35) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=78253
+    [pid=78253] <gracefully close start>
+    [pid=78253] <kill>
+    [pid=78253] <will force kill>
+    [pid=78253][err] /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh: line 7: 78296 Killed: 9               DYLD_FRAMEWORK_PATH="$DYLIB_PATH" DYLD_LIBRARY_PATH="$DYLIB_PATH" "$PLAYWRIGHT" "$@"
+
+    Error: expect.toBeVisible: Test timeout of 30000ms exceeded.
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:35:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:75:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--5966e-ng-layer-over-the-stop-fill-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--5966e-ng-layer-over-the-stop-fill-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--5966e-ng-layer-over-the-stop-fill-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=84283
+    [pid=84283] <gracefully close start>
+    [pid=84283] <kill>
+    [pid=84283] <will force kill>
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('combobox', { name: 'Select view' })
+    Expected: visible
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+
+
+       at smoke/fixtures/dock.ts:63
+
+      61 |
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+    > 63 |     await expect(viewSelect).toBeVisible();
+         |                              ^
+      64 |     await viewSelect.click();
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:63:30)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:35:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:107:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-3--485f2-px-the-20px-visual-dot-HELD-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-3--485f2-px-the-20px-visual-dot-HELD-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-3--485f2-px-the-20px-visual-dot-HELD-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:196:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=88939
+    [pid=88939] <gracefully close start>
+    [pid=88939] <kill>
+    [pid=88939] <will force kill>
+
+    Error: page.emulateMedia: Test timeout of 30000ms exceeded.
+
+      200 |     // did not propagate through a bare project `use`); box-shadow is stripped
+      201 |     // in WHCM, so the affordance must ride a real `outline`.
+    > 202 |     await page.emulateMedia({ forcedColors: "active" });
+          |                ^
+      203 |     const main = await openGradient(page);
+      204 |     expect(
+      205 |         await page.evaluate(() => matchMedia("(forced-colors: active)").matches),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o27-focus-affordance.spec.ts:202:16
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--2184e-ia-a-computed-outline-≥-2px-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--2184e-ia-a-computed-outline-≥-2px-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--2184e-ia-a-computed-outline-≥-2px-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  38) [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:321:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle 
+
+    [31mTest timeout of 30000ms exceeded while setting up "page".[39m
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/webkit-2287/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=96734
+    [pid=96734] <gracefully close start>
+    [pid=96734] <kill>
+    [pid=96734] <will force kill>
+
+    Error: browserContext.newPage: Test timeout of 30000ms exceeded.
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--ba086-ne-not-only-the-rail-handle-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--ba086-ne-not-only-the-rail-handle-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o27-focus-affordance-BR-1--ba086-ne-not-only-the-rail-handle-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  39) [oracles-safari] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: page.addInitScript: Test ended.
+
+      38 |     const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+      39 |     const page = await ctx.newPage();
+    > 40 |     await page.addInitScript((n: number) => {
+         |     ^
+      41 |         const w = window as unknown as { __ground: { t: number; stops: string[] }[] };
+      42 |         w.__ground = [];
+      43 |         const read = () => {
+        at coldLoad (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:40:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:118:22
+
+    Error Context: ../../.dev-logs/w12u-q/r2-oracles-safari/o28-atmosphere-coldload-th-de626-eeded-pick-s-on-a-cold-load-oracles-safari/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-oracles-safari/o28-atmosphere-coldload-th-de626-eeded-pick-s-on-a-cold-load-oracles-safari/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-oracles-safari/o28-atmosphere-coldload-th-de626-eeded-pick-s-on-a-cold-load-oracles-safari/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Slow test file: [oracles-safari] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts (6.0m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  39 failed
+    [oracles-safari] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states 
+    [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token 
+    [oracles-safari] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock 
+    [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [oracles-safari] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) 
+    [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub 
+    [oracles-safari] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated 
+    [oracles-safari] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+    [oracles-safari] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+    [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — desktop 
+    [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:121:5 › O-17 zero letterbox across curve regimes — 390 
+    [oracles-safari] › e2e/smoke/oracles/o17-easing-composition.spec.ts:147:1 › O-17 composition: stamps, dot rest, one-literal, mint law 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [oracles-safari] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+    [oracles-safari] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+    [oracles-safari] › e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:37:1 › W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→field leap) 
+    [oracles-safari] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+    [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+    [oracles-safari] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason 
+    [oracles-safari] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [oracles-safari] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 
+    [oracles-safari] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome 
+    [oracles-safari] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:196:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px 
+    [oracles-safari] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:321:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle 
+    [oracles-safari] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+  1 interrupted
+    [oracles-safari] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+  20 did not run
+  11 passed (53.8m)
+  1 error was not a part of any test, see above for details

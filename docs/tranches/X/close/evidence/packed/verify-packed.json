@@ -1,0 +1,51 @@
+{
+    "SERVED MODEL": "claude-opus-5-5",
+    "unit": "X.W11.b · G3 (W11.md:208-228)",
+    "tree": "879be376f5f912762b551ee6d0b32f3038ff9cb9",
+    "tarball": {
+        "file": "mkbabb-value.js-4.1.0.tgz",
+        "cmd": "npm pack --ignore-scripts",
+        "version": "4.1.0",
+        "sha1": "9e288aa636b89401f85af094699b0e161b3d1942",
+        "sha256": "a40c6c55f3c4f981b799c3dcdcad8ac1c5eab82ae53e088025062843d9682789",
+        "bytes": 73969,
+        "files": 29
+    },
+    "command": "node scripts/ci/verify-packed-surface.mjs <tarball> (execute-only; X-W9 owns the bytes), via guarded --light",
+    "runs": [
+        {
+            "exit": 0
+        },
+        {
+            "exit": 0
+        }
+    ],
+    "runsIdentical": true,
+    "forbiddenSpecifiers": "the script throws unless @mkbabb/value.js · /parsing · /units each reject with ERR_PACKAGE_PATH_NOT_EXPORTED; exit 0 = all three rejected",
+    "output": {
+        "runtime": {
+            "color": 30,
+            "value": 1,
+            "css": 20,
+            "easing": 17,
+            "math": 9,
+            "transform": 3,
+            "quantize": 2
+        },
+        "smoke": {
+            "color": 30,
+            "value": 1,
+            "css": 20,
+            "easing": 17,
+            "math": 9,
+            "transform": 3,
+            "quantize": 2
+        },
+        "runtimeExports": 82,
+        "smokeInvocations": 82
+    },
+    "s3BoundaryInputs": {
+        "status": "NOT IN THE SCRIPT — the fold W11.7 cureShape (an achromatic/white/none-hue row per conversion export, input beside verdict) is absent from verify-packed-surface.mjs at these bytes; measured separately by a read-only witness against the same installed tarball",
+        "witness": "docs/tranches/X/close/evidence/battery/g3-s3-boundary-inputs.txt"
+    }
+}

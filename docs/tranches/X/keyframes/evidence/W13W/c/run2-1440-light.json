@@ -1,0 +1,56 @@
+{
+ "base": "http://localhost:5173",
+ "viewport": "1440x900",
+ "theme": "light",
+ "tolPx": 1.5,
+ "report": [
+  {
+   "site": "easing-gallery-tiles",
+   "file": "demo/scenes/easing/EasingTarget.vue",
+   "pairs": 28,
+   "samplesPerPair": 16,
+   "samples": 448,
+   "over1_5px": 440,
+   "maxDistPx": 22.62,
+   "minDistPx": 0.03,
+   "pairsMoving": 25,
+   "verdict": "RED"
+  },
+  {
+   "site": "dock-easing-mini",
+   "file": "demo/scenes/easing/EasingMini.vue",
+   "pairs": 2,
+   "samplesPerPair": 16,
+   "samples": 32,
+   "over1_5px": 30,
+   "maxDistPx": 12.77,
+   "minDistPx": 1.25,
+   "pairsMoving": 2,
+   "verdict": "RED"
+  },
+  {
+   "site": "spring-sweep-sampler",
+   "file": "demo/scenes/spring/SpringTarget.vue (+ SpringTrace.vue)",
+   "pairs": 1,
+   "samplesPerPair": 16,
+   "samples": 16,
+   "over1_5px": 16,
+   "maxDistPx": 108.44,
+   "minDistPx": 104.81,
+   "pairsMoving": 1,
+   "verdict": "RED"
+  },
+  {
+   "site": "spring-live-ball",
+   "file": "demo/scenes/spring/SpringTarget.vue (+ SpringTrace.vue)",
+   "pairs": 1,
+   "samplesPerPair": 16,
+   "samples": 16,
+   "over1_5px": 16,
+   "maxDistPx": 279.81,
+   "minDistPx": 279.81,
+   "pairsMoving": 1,
+   "verdict": "RED"
+  }
+ ]
+}

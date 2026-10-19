@@ -1,0 +1,11 @@
+firefox parseCssColor acc: weighted ratio 0.850
+fn:rgb                 n=  2291 len=  23.2 ret=  1624ns prod=  1305ns x0.804 share=40.7%  "rgb(255 0 153 / 0.5)"
+fn:oklch               n=  1164 len=  27.4 ret=  1615ns prod=  1310ns x0.811 share=20.8%  "oklch(,0% 0.15 50deg)"
+fn:hsl                 n=  1042 len=  25.5 ret=  1473ns prod=  1281ns x0.87 share=18.2%  "hsl(120, 500, 50%)"
+hash                   n=  1554 len=   6.2 ret=   701ns prod=   700ns x0.998 share=14.8%  "#f30099cc"
+fn:color               n=   114 len=    29 ret=  1412ns prod=  1269ns x0.899 share=2.0%  "color(display-p3 1 0.5 0)"
+ident                  n=   161 len=   8.8 ret=   586ns prod=   718ns x1.225 share=1.6%  "chocolate"
+fn:lab                 n=    84 len=  19.1 ret=  1181ns prod=  1029ns x0.871 share=1.2%  "lab(50% -100% 150%)"
+fn:lch                 n=    46 len=  20.1 ret=  1318ns prod=  1243ns x0.943 share=0.8%  "lch(50% 20 30)"
+fn:hwb                 n=     3 len=  18.7 ret=  1172ns prod=  1092ns x0.932 share=0.0%  "hwb(20 10% 30%)"
+fn:oklab               n=     1 len=    19 ret=  1118ns prod=  1089ns x0.974 share=0.0%  "oklab(50% 0.1 0.05)"

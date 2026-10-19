@@ -1,0 +1,44 @@
+SERVED MODEL: claude-opus-5-5
+PD-1 local nginx-in-docker reading 2026-10-16, fourier API at f97d9cb (uvicorn :8191, private mongod :27119, COMPUTE_CONCURRENCY=1), edge = nginx:alpine with the conf dir mounted as docker-compose.prod.yml mounts ./nginx, frontend = nginx:alpine serving fixture js/css/svg. Harness: ~/.fourier-frel/pd/{pd1-outer.sh,pd1.sh,probe.sh} (heavy.lock + guarded). BEFORE = HEAD conf (application/json in gzip_types); AFTER = cured conf (x2).
+=== variant BEFORE (HEAD conf: application/json in gzip_types)
+seeded
+api {"status":"ok"} head f97d9cb
+edge conf-before gzip_types: gzip_types text/plain application/json application/javascript text/css image/svg+xml;
+edge nginx version: nginx/1.31.2
+--- reading 1 (2026-10-16T20:41:07Z)
+draft slug mystic-looming-ecru-leopard
+GET  Accept-Encoding:gzip -> HTTP/1.1 200 OK · ETag W/"28e8829ae516b1d10b54307af291ced025ec4c2baef13dd3471d8f13f4a1ba8e" · Content-Encoding: gzip
+PATCH If-Match <replayed gzip-read ETag> -> 412
+GET  Accept-Encoding:gzip -> ETag W/"28e8829ae516b1d10b54307af291ced025ec4c2baef13dd3471d8f13f4a1ba8e" (changed: no)
+PATCH If-Match <stale ETag W/"28e8829ae516b1d10b54307af291ced025ec4c2baef13dd3471d8f13f4a1ba8e"> -> 412
+cleanup DELETE If-Match <current ETag> -> 412
+SPA GET /app.js gzip -> HTTP/1.1 200 OK · Content-Type: application/javascript · Content-Encoding: gzip
+SPA GET /app.css gzip -> HTTP/1.1 200 OK · Content-Type: text/css · Content-Encoding: gzip
+SPA GET /icon.svg gzip -> HTTP/1.1 200 OK · Content-Type: image/svg+xml · Content-Encoding: gzip
+guarded rc=0
+=== variant AFTER (cured conf)
+seeded
+api {"status":"ok"} head f97d9cb
+edge conf-after gzip_types: gzip_types text/plain application/javascript text/css image/svg+xml;
+edge nginx version: nginx/1.31.2
+--- reading 1 (2026-10-16T20:41:27Z)
+draft slug calm-cutting-carmine-jay
+GET  Accept-Encoding:gzip -> HTTP/1.1 200 OK · ETag "4e367207d05dbf50f56beb26f4115e7221c5f87896d01197677b273bd4728d94" · content-encoding: (none)
+PATCH If-Match <replayed gzip-read ETag> -> 200
+GET  Accept-Encoding:gzip -> ETag "ede2f2f68e9d038a93e37957eef61d2a702b11a07443f6dd18e0392468f68095" (changed: yes)
+PATCH If-Match <stale ETag "4e367207d05dbf50f56beb26f4115e7221c5f87896d01197677b273bd4728d94"> -> 412
+cleanup DELETE If-Match <current ETag> -> 204
+SPA GET /app.js gzip -> HTTP/1.1 200 OK · Content-Type: application/javascript · Content-Encoding: gzip
+SPA GET /app.css gzip -> HTTP/1.1 200 OK · Content-Type: text/css · Content-Encoding: gzip
+SPA GET /icon.svg gzip -> HTTP/1.1 200 OK · Content-Type: image/svg+xml · Content-Encoding: gzip
+--- reading 2 (2026-10-16T20:41:27Z)
+draft slug smoky-stirring-saffron-toad
+GET  Accept-Encoding:gzip -> HTTP/1.1 200 OK · ETag "73001f0428da0db9d2ada7e21185ca87d061fb99090f461b2ae52dd1e77bee68" · content-encoding: (none)
+PATCH If-Match <replayed gzip-read ETag> -> 200
+GET  Accept-Encoding:gzip -> ETag "d0095dd6c71754580e362282f9663e6a235d39add1be54aebfa55c111bfd3129" (changed: yes)
+PATCH If-Match <stale ETag "73001f0428da0db9d2ada7e21185ca87d061fb99090f461b2ae52dd1e77bee68"> -> 412
+cleanup DELETE If-Match <current ETag> -> 204
+SPA GET /app.js gzip -> HTTP/1.1 200 OK · Content-Type: application/javascript · Content-Encoding: gzip
+SPA GET /app.css gzip -> HTTP/1.1 200 OK · Content-Type: text/css · Content-Encoding: gzip
+SPA GET /icon.svg gzip -> HTTP/1.1 200 OK · Content-Type: image/svg+xml · Content-Encoding: gzip
+guarded rc=0

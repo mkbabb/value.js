@@ -1,0 +1,36 @@
+{
+ "about-light": [
+  {
+   "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex-1 min-h-0 overflow-x-hidden",
+   "offsetParent": true,
+   "sh": 7575,
+   "ch": 483,
+   "cardH": 617.015625
+  }
+ ],
+ "extract-light": {
+  "rangeBg": "oklab(0.216128 0.00350075 0.00518669 / 0.88)",
+  "sliderRangeBg": "light-dark(hsl(24 10% 10%),hsl(30 14% 90%))",
+  "primaryAtRange": "oklch(0.985253 0.0228878 151.585)",
+  "primaryRoot": "oklch(0.985253 0.0228878 151.585)",
+  "inkMuted": "oklch(98.59981051185% 0.003861589952 34.629978305623deg)",
+  "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)"
+ },
+ "about-dark": [
+  {
+   "cls": "fading-scroll fading-scroll--y pane-scroll-fade flex-1 min-h-0 overflow-x-hidden",
+   "offsetParent": true,
+   "sh": 7575,
+   "ch": 483,
+   "cardH": 617.015625
+  }
+ ],
+ "extract-dark": {
+  "rangeBg": "oklab(0.925196 0.00238398 0.00574207 / 0.88)",
+  "sliderRangeBg": "hsl(30 14% 90%)",
+  "primaryAtRange": "oklch(0.721821 0.105977 151.585)",
+  "primaryRoot": "oklch(0.721821 0.105977 151.585)",
+  "inkMuted": "oklch(71.276294300865% 0.003821851545 41.86844006185deg)",
+  "trackBg": "color(srgb 0.1232 0.10912 0.0968 / 0.5)"
+ }
+}

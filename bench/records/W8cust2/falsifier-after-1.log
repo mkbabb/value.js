@@ -1,0 +1,72 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:rotate(0;1deg)}" yields ok:false with a css_syntax diagnostic 3ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "@keyframes k{0%{transform:translate(0;1px)}}" yields ok:false with a css_syntax diagnostic 1ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "@keyframes k{from{filter:drop-shadow(0 0;1px red)}}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:translate(0 ; 1px)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:rotate(0deg) scale(1;2)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{filter:blur(1px;2px)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{color:rgb(1;2;3)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{width:calc(1px;2px)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{width:var(--a,1px;2px)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("rotate(0;1deg)") names the `;` at 8 1ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("translate(0 ; 1px)") names the `;` at 12 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("var(--a,1px;2px)") names the `;` at 11 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("calc(1px;2px)") names the `;` at 8 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("0;1px") names the `;` at 1 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue(";") names the `;` at 0 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` that is a token's own text stays valid > "a{transform:rotate(0deg)}" parses 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` that is a token's own text stays valid > "a{transform:rotate(0)scale(1)}" parses 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` that is a token's own text stays valid > "a{content:\"a;b\"}" parses 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` that is a token's own text stays valid > "a{background:url(a;b.png)}" parses 0ms
+ ✓ test/css/bbnf-semicolon.test.ts > a `;` that is a token's own text stays valid > "@keyframes k{0%{transform:translate(0,1px)}}" parses 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a;b)}" is ACCEPTED 3ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;[b]]}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:{a;b}}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:\"a;b\"}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;b]}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a ; b) c}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(g(a;b))}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(;)}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a, b; c)}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;b] f(1px;2px)}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:{a:b;c:d}; color: red}" is ACCEPTED 1ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(\"a;)\";b)}" is ACCEPTED 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a;b)" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:[a;[b]]" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:{a;b}" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:\"a;b\"" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:[a;b]" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a ; b) c" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(g(a;b))" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(;)" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a, b; c)" round-trips 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:{a:b;c:d}; color: red" round-trips 1ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > keeps the value as authored: the raw `<declaration-value>` token sequence 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > the empty custom value stays ACCEPTED: `a{--x: ;}` 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > `a{--x:a;b}` is not one value: the second row is no declaration 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("a;b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue(";") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("f(a);b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("a ; b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("[a];b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("\"a\";b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:[a;b}" yields a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:{a;b]}" yields a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:[a}" yields a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:f(a;[b)}" yields a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("[a;b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("f(a;b") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("{a;b]") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("(a;b]") is refused 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "a{transform:rotate(0;1deg)}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "@keyframes k{0%{transform:translate(0;1px)}}" yields ok:false with a css_syntax diagnostic 1ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "a{grid-template-columns:[a;b] 1fr}" yields ok:false with a css_syntax diagnostic 0ms
+ ✓ test/css/bbnf-custom-semicolon.test.ts > a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "a{color:f(a;b)}" yields ok:false with a css_syntax diagnostic 0ms
+
+ Test Files  2 passed (2)
+      Tests  63 passed (63)
+   Start at  13:42:44
+   Duration  1.15s (transform 236ms, setup 105ms, collect 574ms, tests 19ms, environment 1.09s, prepare 126ms)
+

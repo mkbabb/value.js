@@ -1,0 +1,127 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 2,
+ "load": {
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "fill": "#52e898",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle",
+  "demoBoxes": 1
+ },
+ "controls": [
+  "5s",
+  "0ms",
+  "∞",
+  "alternate",
+  "forwards",
+  "ease-in-out"
+ ],
+ "afterKeyframesTab": {
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "fill": "#52e898",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle",
+  "demoBoxes": 1
+ },
+ "css": [
+  "  animation-duration: 2000ms;",
+  "  animation-timing-function: ",
+  "  animation-iteration-count: ",
+  "  animation-direction: normal;",
+  "  animation-fill-mode: forwards;"
+ ],
+ "keyframesTab4s": {
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "fill": "#52e898",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle",
+  "demoBoxes": 1
+ },
+ "backToControls3s": {
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "fill": "#52e898",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle",
+  "demoBoxes": 1
+ },
+ "transport": [
+  {
+   "r": [
+    692,
+    773,
+    40,
+    40
+   ],
+   "dock": "dock-layer dock-layer--full",
+   "dr": [
+    689,
+    762,
+    62,
+    62
+   ],
+   "text": ""
+  },
+  {
+   "r": [
+    652,
+    773,
+    32,
+    40
+   ],
+   "dock": "dock-layer dock-layer--summary is-active",
+   "dr": [
+    700,
+    773,
+    40,
+    40
+   ],
+   "text": "Transform"
+  }
+ ],
+ "fresh": {
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "fill": "#52e898",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle",
+  "demoBoxes": 1
+ },
+ "freshTransport": [
+  {
+   "r": [
+    690,
+    43,
+    60,
+    56
+   ],
+   "text": ""
+  },
+  {
+   "r": [
+    656,
+    765,
+    129,
+    56
+   ],
+   "text": ""
+  }
+ ],
+ "freshAfterTimelineTab": {
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "fill": "#52e898",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle",
+  "demoBoxes": 2
+ }
+}

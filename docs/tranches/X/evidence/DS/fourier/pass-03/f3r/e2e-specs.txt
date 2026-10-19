@@ -1,0 +1,9 @@
+e2e/f-w13-image-empty.spec.ts
+e2e/f-w13-image-controls.spec.ts
+e2e/f-w14u-vstage.spec.ts
+e2e/f-w14u-gallery.spec.ts
+e2e/gallery.spec.ts
+e2e/f-w14u-paper.spec.ts
+e2e/f-w14v-au6.spec.ts
+e2e/f-w14-control-row.spec.ts
+e2e/visual-checkpoint.spec.ts

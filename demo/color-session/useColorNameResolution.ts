@@ -1,5 +1,5 @@
 import { computed, ref, watch, type ShallowRef, type ComputedRef } from "vue";
-import { debounce } from "../shared/utils";
+import { debounce } from "../shared/debounce";
 import {
     convertPickerColor,
     serializePickerColor,

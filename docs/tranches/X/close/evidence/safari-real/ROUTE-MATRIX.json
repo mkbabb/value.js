@@ -1,0 +1,416 @@
+{
+  "servedModel": "SERVED MODEL: claude-opus-5-5",
+  "cell": "safari-app (real Safari.app via safaridriver)",
+  "separateFrom": "webkit-engine (docs/tranches/X/close/evidence/browser/) — I-20, never merged, no verdict copied",
+  "binary": "Safari 26.4 (21624.1.16.11.4) / macOS 26.4.1 — version read from the installed bundle plist; the binary was NOT launched",
+  "origin": "the released origin (W11.md G8) — not reached",
+  "apiState": "not reached",
+  "routerRecords": 15,
+  "cells": [
+    {
+      "route": "/",
+      "name": "picker",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/",
+      "name": "picker",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/",
+      "name": "picker",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/palettes",
+      "name": "palettes",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/palettes",
+      "name": "palettes",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/palettes",
+      "name": "palettes",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/browse",
+      "name": "browse",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/browse",
+      "name": "browse",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/browse",
+      "name": "browse",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/extract",
+      "name": "extract",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/extract",
+      "name": "extract",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/extract",
+      "name": "extract",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/mix",
+      "name": "mix",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/mix",
+      "name": "mix",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/mix",
+      "name": "mix",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/generate",
+      "name": "generate",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/generate",
+      "name": "generate",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/generate",
+      "name": "generate",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/gradient",
+      "name": "gradient",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/gradient",
+      "name": "gradient",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/gradient",
+      "name": "gradient",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/atmosphere",
+      "name": "atmosphere",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/blob",
+      "name": "blob",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/blob",
+      "name": "blob",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/blob",
+      "name": "blob",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/users",
+      "name": "admin-users",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/users",
+      "name": "admin-users",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/users",
+      "name": "admin-users",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/names",
+      "name": "admin-names",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/names",
+      "name": "admin-names",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/names",
+      "name": "admin-names",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/audit",
+      "name": "admin-audit",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/flagged",
+      "name": "admin-flagged",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/admin/tags",
+      "name": "admin-tags",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "name": "not-found",
+      "viewport": "390x844",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "name": "not-found",
+      "viewport": "1440x900",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "route": "/:pathMatch(.*)*",
+      "name": "not-found",
+      "viewport": "widest-permitted (request 3440x1440, record clamp)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "png": null,
+      "sha256": null
+    }
+  ]
+}

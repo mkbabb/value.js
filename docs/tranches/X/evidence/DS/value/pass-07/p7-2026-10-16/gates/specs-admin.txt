@@ -1,0 +1,2 @@
+e2e/smoke/admin/a11y-authed-user.spec.ts
+e2e/smoke/admin/flows/palette-feature.spec.ts

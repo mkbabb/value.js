@@ -1,0 +1,38 @@
+{
+ "amiga": {
+  "frames": 157,
+  "wMin": 402.4921875,
+  "wMax": 410.3671875,
+  "kidsSeq": "8",
+  "controlsTabSeq": "1"
+ },
+ "square": {
+  "frames": 168,
+  "wMin": 410.3671875,
+  "wMax": 418.2578125,
+  "kidsSeq": "8",
+  "controlsTabSeq": "1"
+ },
+ "spring": {
+  "frames": 152,
+  "wMin": 401.46875,
+  "wMax": 418.2578125,
+  "kidsSeq": "8",
+  "controlsTabSeq": "1"
+ },
+ "easing": {
+  "frames": 237,
+  "wMin": 386.5546875,
+  "wMax": 413.09375,
+  "kidsSeq": "8",
+  "controlsTabSeq": "1"
+ },
+ "cube": {
+  "frames": 187,
+  "wMin": 386.5546875,
+  "wMax": 402.4921875,
+  "kidsSeq": "8",
+  "controlsTabSeq": "1"
+ },
+ "errs": []
+}

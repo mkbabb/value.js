@@ -1,0 +1,75 @@
+{
+ "cells": {
+  "square-1440-light": {
+   "pairGap": 1.5,
+   "innerGap": 0.5,
+   "plate": [
+    127,
+    750
+   ],
+   "field": 312
+  },
+  "square-keyframes-1440-light": {
+   "want": {
+    "numeral": "rgb(124, 102, 80)",
+    "rule": "rgb(198, 180, 159)"
+   },
+   "numerals": [
+    "rgb(124, 102, 80)"
+   ],
+   "active": [
+    "rgb(28, 25, 23)"
+   ],
+   "guides": [
+    "rgb(198, 180, 159)"
+   ],
+   "nNums": 81,
+   "nGuides": 139
+  },
+  "square-390-light": {
+   "pairGap": 1.5,
+   "innerGap": 0.5,
+   "plate": [
+    102,
+    715
+   ],
+   "field": 195
+  },
+  "square-1440-dark": {
+   "pairGap": 1.5,
+   "innerGap": 0.5,
+   "plate": [
+    127,
+    750
+   ],
+   "field": 312
+  },
+  "square-keyframes-1440-dark": {
+   "want": {
+    "numeral": "rgb(172, 160, 145)",
+    "rule": "rgb(101, 87, 73)"
+   },
+   "numerals": [
+    "rgb(172, 160, 145)"
+   ],
+   "active": [
+    "rgb(233, 230, 226)"
+   ],
+   "guides": [
+    "rgb(101, 87, 73)"
+   ],
+   "nNums": 81,
+   "nGuides": 139
+  },
+  "square-390-dark": {
+   "pairGap": 1.5,
+   "innerGap": 0.5,
+   "plate": [
+    102,
+    715
+   ],
+   "field": 195
+  }
+ },
+ "fails": []
+}

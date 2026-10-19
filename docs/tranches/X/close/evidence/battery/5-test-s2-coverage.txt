@@ -1,0 +1,123 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b — S2 (X-W11-FOLD W11.9): the G2 denominator beside its coverage census
+tree: 3d8df74fb7c50ba2c8869ad3cbec1aab73d94b8c (tranche-u; product bytes src/ demo/ test/ api/ package.json identical to 118e89872)
+denominator (5-test.txt): Test Files 1 failed | 95 passed (96) · Tests 5 failed | 1237 passed (1242) — >= open 1242
+
+METHOD (the fold's own witness grep, PCS-4 / CNL-5, generalised):
+  rebuilt set  = git diff --name-only --diff-filter=AMR 014d62c80 HEAD -- 'demo/**/*.vue' (existing, excl. demo/test/)
+                 014d62c80 = COHESION §0i (2026-09-17, X execution's ratification commit); 91 of 93 tracked SFCs
+  assertion corpus = git ls-files test e2e demo/test + demo/**/*.test.ts|*.spec.ts (.ts/.mjs/.js): 240 files
+  reference    = grep -lw <ComponentBasename> over the corpus; 0 files = UNCOVERED
+  LIMIT (stated, not corrected): a name-grep cannot see route/selector-level e2e coverage, so UNCOVERED
+  over-reports for route panes; it is the fold's witness method, not a coverage tool.
+
+named witnesses (re-measured):
+  PCS-4 ⟨grep -lE 'ColorStrip|WEIGHT_FLOOR|segmentPct' <corpus>⟩ → demo/test/palettes/n-fixtures/n-fixtures.test.ts demo/test/palettes/palette-specimen.test.ts (born-RED exit 1 → now hits)
+  CNL-5 ⟨grep -l ColorNutritionLabel <corpus>⟩ → e2e/smoke/crash-battery.spec.ts e2e/smoke/oracles/o10d-display-voice-census.spec.ts e2e/smoke/oracles/o18-contrast-census.spec.ts test/contrast-floor.test.ts
+
+COVERED: 66 · UNCOVERED: 25
+
+UNCOVERED (0 referencing files; owning wave's gate NOT named at these bytes):
+  demo/palettes/admin/UserSortMenu.vue
+  demo/palettes/admin/panels/AdminAuditPanel.vue
+  demo/palettes/admin/panels/AdminListItem.vue
+  demo/palettes/admin/panels/AdminListSkeleton.vue
+  demo/palettes/admin/panels/PaginationBar.vue
+  demo/picker/debug/DebugEventLog.vue
+  demo/picker/debug/PointerDebugOverlay.vue
+  demo/scenes/about/markdown/Markdown.vue
+  demo/scenes/atmosphere/AuroraPane.vue
+  demo/scenes/blob/BlobPane.vue
+  demo/shared/ui/PaletteNameInput.vue
+  demo/shared/ui/color-chips/PreviewStrip.vue
+  demo/shell/PaneErrorPlate.vue
+  demo/shell/PaneLoadingPlate.vue
+  demo/shell/dock/ActionBarToggle.vue
+  demo/shell/dock/DockViewSelect.vue
+  demo/shell/dock/layers/GenericActionBar.vue
+  demo/shell/dock/layers/SlugEditLayer.vue
+  demo/shell/dock/menus/MobileMenuDropdown.vue
+  demo/workbenches/generate/GeneratePane.vue
+  demo/workbenches/gradient/GradientPane.vue
+  demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue
+  demo/workbenches/gradient/GradientVisualizer/GradientStopInspector.vue
+  demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue
+  demo/workbenches/mix/MixPane.vue
+
+COVERED (referencing-file count · component):
+   13  demo/app/App.vue
+    4  demo/app/ErrorBoundary.vue
+    5  demo/palettes/BrowsePane.vue
+    4  demo/palettes/PalettesPane.vue
+    5  demo/palettes/admin/AdminPane.vue
+    3  demo/palettes/admin/panels/AdminFlaggedPanel.vue
+    5  demo/palettes/admin/panels/AdminNamesPanel.vue
+    1  demo/palettes/admin/panels/AdminTagsPanel.vue
+    4  demo/palettes/admin/panels/AdminUsersPanel.vue
+    2  demo/palettes/browser/card/CurrentPaletteEditor.vue
+    4  demo/palettes/browser/card/PaletteCardGrid.vue
+    2  demo/palettes/browser/card/SwatchHoverMenu.vue
+    3  demo/palettes/browser/dialog/FlagReportDialog.vue
+    3  demo/palettes/browser/dialog/MigratePalettesDialog.vue
+    2  demo/palettes/browser/dialog/VersionHistoryDrawer.vue
+    1  demo/palettes/browser/search/MiniColorPicker.vue
+    2  demo/palettes/browser/search/SearchFilterBar.vue
+    1  demo/palettes/browser/search/TagChipSet.vue
+    1  demo/palettes/browser/search/TagEditPopover.vue
+    1  demo/palettes/inspector/PaletteCardMenu.vue
+    3  demo/palettes/inspector/PaletteCardMeta.vue
+    2  demo/palettes/inspector/PaletteCardSwatches.vue
+    6  demo/palettes/inspector/PaletteInspector.vue
+    7  demo/picker/ColorPicker.vue
+    3  demo/picker/controls/ComponentSliders/ComponentSliders.vue
+    1  demo/picker/controls/ComponentSliders/ConsoleRail.vue
+    1  demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue
+    3  demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue
+    8  demo/picker/visual/HeroBlob.vue
+    3  demo/scenes/ConfigSliderPane.vue
+    1  demo/scenes/about/AboutPane.vue
+    4  demo/scenes/about/ColorNutritionLabel.vue
+    1  demo/scenes/notfound/NotFoundPane.vue
+    3  demo/shared/ui/ActionFeedback.vue
+    7  demo/shared/ui/ColorSpaceSelector.vue
+    3  demo/shared/ui/EmptyState.vue
+    1  demo/shared/ui/InterpolationFields.vue
+    3  demo/shared/ui/PaletteCardSkeleton.vue
+    2  demo/shared/ui/PaletteColorStrip.vue
+    5  demo/shared/ui/PaletteSpecimen.vue
+    6  demo/shared/ui/PaneHeader.vue
+    1  demo/shared/ui/SwatchButton.vue
+    1  demo/shared/ui/api-status/ApiStatusChip.vue
+    2  demo/shared/ui/color-chips/PreviewRamp.vue
+   11  demo/shared/ui/watercolor-dot/WatercolorDot.vue
+    3  demo/shell/PaneShell.vue
+    4  demo/shell/PaneSlot.vue
+    2  demo/shell/dock/ActionButton.vue
+    4  demo/shell/dock/ColorInput.vue
+    4  demo/shell/dock/Dock.vue
+    1  demo/shell/dock/ParseEchoReadout.vue
+    2  demo/shell/dock/layers/ActionBarLayer.vue
+    1  demo/shell/dock/menus/ProfileSection.vue
+    3  demo/workbenches/extract/ExtractControls.vue
+    1  demo/workbenches/extract/ExtractPane.vue
+    4  demo/workbenches/extract/ExtractWorkbench.vue
+    2  demo/workbenches/extract/ImageDropZone.vue
+    4  demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue
+    5  demo/workbenches/generate/GenerateControls.vue
+    2  demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue
+    2  demo/workbenches/gradient/GradientVisualizer/GradientStopRail.vue
+    4  demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue
+    1  demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue
+    2  demo/workbenches/mix/MixConfigBar.vue
+    1  demo/workbenches/mix/MixResultDisplay.vue
+    3  demo/workbenches/mix/MixSourceSelector.vue
+
+verdict: S2 arm RED — UNCOVERED is non-empty and no entry names its owning wave's own gate (fold W11.9: G2 green only if empty or each entry names it).
+
+FAILING TESTS → owning honest-RED id (5-test.txt, exit 1; identical 5 in the first run of this seat):
+  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)  → X-W8 honest-RED "ink D6/T-35 → O-62 (a)" (glass GLASS-VEIL-GREY, producer-held)
+  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)  → X-W8 honest-RED "ink D6/T-35 → O-62 (a)" (glass GLASS-VEIL-GREY, producer-held)
+  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)  → X-W8 honest-RED "ink D6/T-35 → O-62 (a)" (glass GLASS-VEIL-GREY, produce
+  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)  → X-W8 honest-RED "ink D6/T-35 → O-62 (a)" (glass GLASS-VEIL-GREY, producer
+  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)  → X-W8 honest-RED "ink D6/T-35 → O-62 (a)" (glass GLASS-VEIL-GREY, producer-held)
+unowned failures: 0

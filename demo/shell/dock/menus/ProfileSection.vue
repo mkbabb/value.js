@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import { computed, inject } from "vue";
+import { computed, defineAsyncComponent, inject, useTemplateRef } from "vue";
 import {
-    Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Moon, Sun,
+    Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Shield,
 } from "@lucide/vue";
-import { DockSeparator } from "@mkbabb/glass-ui/dock";
-import { Button } from "../../../ui/button";
+import { DockControl, DockSeparator, DockTrigger } from "@mkbabb/glass-ui/dock";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
-    DropdownMenu, DropdownMenuContent, DropdownMenuItem,
-    DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
-} from "../../../ui/dropdown-menu";
-import { Avatar, AvatarImage } from "../../../ui/avatar";
+    DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem,
+    DropdownMenuSeparator, DropdownMenuLabel,
+} from "@mkbabb/glass-ui/menu";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
-import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
+import { useChromeAccentFn, useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
+import { DOCK_MENU_SIDE_OFFSET } from "./dockMenuOffset";
+
+// X.W12U.g2d2: the avatar renders only inside the opened menu body, so it loads with
+// the menu, at its root import (glass exports Avatar from its root barrel only;
+// an eager root import pins the whole barrel into the boot graph).
+const Avatar = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.Avatar));
+const AvatarImage = defineAsyncComponent(() => import("@mkbabb/glass-ui").then((m) => m.AvatarImage));
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
@@ -24,8 +29,11 @@ const { cssColorOpaque, linkCopied } = defineProps<{
 // menu ground for roughly half of all picks per scheme. Two hosts, two
 // referents: the trigger sits ON THE DOCK BAND (chrome — its own thinner α),
 // the slug pill inside the menu popover (the floating rung); each ink
-// certifies against the surface it actually composites over.
-const { safeCss: chromeSafeCss } = useSafeAccentFn("chrome");
+// certifies against the surface it actually composites over. The band has no
+// static model (X.W8.d · G-13): its tint is measured off the plate that paints
+// above this section's own root.
+const sectionRoot = useTemplateRef<HTMLElement>("sectionRoot");
+const { safeCss: chromeSafeCss } = useChromeAccentFn(sectionRoot);
 const { safeCss: floatingSafeCss } = useSafeAccentFn("floating");
 const triggerInk = computed(() => chromeSafeCss(cssColorOpaque));
 const menuInk = computed(() => floatingSafeCss(cssColorOpaque));
@@ -41,33 +49,38 @@ const mbabbMenuOpen = defineModel<boolean>("mbabbMenuOpen", { default: false });
 
 const pm = inject(SESSION_PORT_KEY)!;
 const { isDark, toggleDark } = useGlobalDark();
+
+/** The GitHub row's action: the repository in a new, unlinked tab. */
+function openRepository(): void {
+    window.open("https://github.com/mkbabb/value.js", "_blank", "noopener,noreferrer");
+}
 </script>
 
 <template>
     <!-- Desktop-only: user/login section -->
-    <div class="hidden lg:flex items-center gap-1">
+    <div ref="sectionRoot" class="hidden lg:flex items-center gap-1">
         <DockSeparator />
 
         <!-- Logged in: "Account" button with dropdown -->
         <template v-if="pm.userSlug.value">
             <DropdownMenu v-model:open="profileMenuOpen">
-                <DropdownMenuTrigger as-child>
-                    <!-- S.W5-4: hand-rolled pill → glass-ui Button (buttons
-                         only — W7-6 owns this section's casing later). The
-                         live-color identity stays via :style — CERTIFIED
-                         against the floating rung (D6, T.W3-5). -->
-                    <Button
-                        variant="outline"
-                        size="xs"
-                        class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
-                        :style="{ color: triggerInk, borderColor: triggerInk }"
-                        data-o18="profile-trigger"
-                    >
-                        <UserCircle class="w-3.5 h-3.5" />
-                        Profile
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" class="min-w-menu font-display">
+                <!-- X.W12.e (OA-22): the trigger IS glass's dock dropdown
+                     trigger — its plate (transparent at rest, the
+                     --dock-control-hover/active-bg tiers) and its stadium
+                     radius (--dock-control-radius) are the dock control's, never
+                     a generic Button's filled, squared plate. The live-color
+                     identity stays on the INK channel only — CERTIFIED against
+                     the chrome rung (D6, T.W3-5). -->
+                <DockTrigger
+                    for="dropdown"
+                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
+                    :style="{ color: triggerInk }"
+                    data-o18="profile-trigger"
+                >
+                    <UserCircle class="w-3.5 h-3.5" />
+                    Profile
+                </DockTrigger>
+                <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="slug-pill whitespace-nowrap"
@@ -84,18 +97,59 @@ const { isDark, toggleDark } = useGlobalDark();
                         <LogOut class="w-3.5 h-3.5" /> Logout
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem class="text-small gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
-                        <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
+                    <DropdownMenuItem
+                        class="text-small gap-2 cursor-pointer text-muted-foreground"
+                        :disabled="pm.identity.value?.kind === 'pending'"
+                        @select.prevent
+                        @click="pm.onRegenerateSlug()"
+                    >
+                        <RefreshCw class="w-3.5 h-3.5" :class="pm.identity.value?.kind === 'pending' && 'animate-spin'" aria-hidden="true" />
+                        {{ pm.identity.value?.kind === 'pending' ? 'Regenerating…' : 'Regenerate slug' }}
                     </DropdownMenuItem>
+                    <!-- X.W7.d · MMD-2 (the CARRY LOCK): the identity act's verdict
+                         is rendered in the menu it was taken from — the menu stays
+                         open across the act (`@select.prevent`). One cure in
+                         `useSlugMigration`, applied identically at both twins. -->
+                    <div
+                        v-if="pm.identity.value && pm.identity.value.kind !== 'pending'"
+                        :role="pm.identity.value.kind === 'failed' ? 'alert' : 'status'"
+                        data-identity-verdict
+                        :class="[
+                            'px-2 py-1.5 text-small max-w-[16rem]',
+                            pm.identity.value.kind === 'failed' ? 'text-destructive' : 'text-muted-foreground',
+                        ]"
+                    >{{ pm.identity.value.message }}</div>
                 </DropdownMenuContent>
             </DropdownMenu>
         </template>
 
         <!-- Admin (no slug) -->
+        <!-- UIA-V-21/215/227: the admin identity is a menu, like the user's,
+             with its exits — the inert gold pill it replaces looked like a
+             control, opened nothing, and stranded the admin (no Login, no
+             Sign out) until site data was cleared.
+             X-DS VC4-03: the gold is the flat identity ink (.gold-ink);
+             glass's .gold-shimmer swept a clipped gradient on an infinite loop
+             under an inline colour that hid it — motion with no state. -->
         <template v-else-if="pm.isAdminAuthenticated.value">
-            <span class="slug-pill cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold); color: var(--color-gold)">
-                admin
-            </span>
+            <DropdownMenu v-model:open="profileMenuOpen">
+                <DockTrigger
+                    for="dropdown"
+                    class="gap-1.5 text-mono-small font-bold whitespace-nowrap gold-ink"
+                    data-o18="admin-trigger"
+                >
+                    <Shield class="w-3.5 h-3.5" aria-hidden="true" />
+                    admin
+                </DockTrigger>
+                <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
+                        <LogIn class="w-3.5 h-3.5" /> Switch account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.adminLogout()">
+                        <LogOut class="w-3.5 h-3.5" /> Sign out of admin
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
         </template>
 
         <!-- Not logged in -->
@@ -108,16 +162,18 @@ const { isDark, toggleDark } = useGlobalDark();
                  (text + icon), the exact idiom the logged-in Profile trigger
                  already wears — so "Tools/Login CHROME keeps the live accent"
                  is live at Login too, never decorative dead code. -->
-            <Button
-                variant="outline"
-                size="xs"
-                class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
-                :style="{ color: triggerInk, borderColor: triggerInk }"
+            <!-- X.W12.e (OA-22): Login is a glass dock TAB control — the
+                 dock's own plate + stadium, no local background, no squared
+                 corners; the accent rides the ink channel alone. -->
+            <DockControl
+                shape="tab"
+                class="gap-1.5 text-small font-display"
+                :style="{ color: triggerInk }"
                 @click="emit('startSlugEdit')"
             >
                 <LogIn class="w-3.5 h-3.5" />
                 Login
-            </Button>
+            </DockControl>
         </template>
 
         <DockSeparator />
@@ -126,55 +182,55 @@ const { isDark, toggleDark } = useGlobalDark();
     <!-- @mbabb menu -->
     <div class="hidden lg:flex items-center">
         <DropdownMenu v-model:open="mbabbMenuOpen">
-            <DropdownMenuTrigger as-child>
-                <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
-                     section eyebrow — text-mono-small is the non-transforming
-                     mono rung (the former text-mono-caption is glass-ui's
-                     eyebrow utility: mono·caption·UPPERCASE, which shouted
-                     "@MBABB" as generic labelware). Lowercase is the mark. -->
-                <Button
-                    variant="ghost"
-                    size="xs"
-                    class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
-                >
-                    @mbabb
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" class="min-w-menu font-display">
+            <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
+                 section caption — text-mono-small is the non-transforming
+                 mono rung. Lowercase is the mark. X.W12.e (OA-22): it sits on
+                 glass's dock dropdown trigger (the dock control's plate and
+                 stadium), never a generic Button's squared plate. -->
+            <DockTrigger
+                for="dropdown"
+                class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
+            >
+                @mbabb
+            </DockTrigger>
+            <DropdownMenuContent align="end" :side-offset="DOCK_MENU_SIDE_OFFSET" class="z-popover min-w-menu font-display">
                 <div class="flex items-center gap-2 px-2 py-1.5">
                     <Avatar decorative class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
-                    <div>
-                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
-                        <p class="text-micro italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
-                    </div>
+                    <!-- X-DS pass 5 (VP5-04): the header is the avatar and the
+                         handle. The micro italic strapline under it (the app's
+                         smallest text, decorative copy with no action) is gone. -->
+                    <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
                     <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
                     {{ linkCopied ? 'Copied!' : 'Share color' }}
                 </DropdownMenuItem>
-                <DropdownMenuItem class="text-small gap-2 cursor-pointer" as-child>
-                    <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
-                        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.87-1.54-3.87-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39.99 0 1.98.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.13 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
-                        </svg>
-                        GitHub
-                    </a>
+                <!-- UIA-V-18/22/71: glass 7.0.0 DropdownMenuItem drops `as-child`, so the
+                     row was a DIV menuitem around an inline <a> — the icon stacked over the
+                     label and Enter/taps on the pad went nowhere. The item is the row; its
+                     select opens the repository (the link row is glass's, O-71 (4)). -->
+                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select="openRepository">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.87-1.54-3.87-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39.99 0 1.98.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.13 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+                    </svg>
+                    GitHub
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                    <!-- W6-8: native `title` retired (the row's own "Dark mode"
-                         text is the accessible name; the glyph is decorative).
-                         V-W44: Glass 7's DarkModeToggle is a native interactive
-                         theme command (no `passive` mode) — nesting it inside
-                         this already-clickable row would double-toggle, so the
-                         decorative state glyph is a plain theme-reflecting icon. -->
-                    <Moon v-if="isDark" class="aspect-square w-4" aria-hidden="true" />
-                    <Sun v-else class="aspect-square w-4" aria-hidden="true" />
+                <!-- UIA-V-254 · V-268: the theme row is a CHECKBOX item — its state is
+                     announced (menuitemcheckbox, aria-checked) and drawn by the
+                     producer's indicator, not a static "Dark mode" label whose
+                     only state was a sun/moon glyph pushing the label off its column. -->
+                <DropdownMenuCheckboxItem
+                    class="text-small cursor-pointer"
+                    :model-value="isDark"
+                    @update:model-value="toggleDark()"
+                    @select.prevent
+                >
                     Dark mode
-                </DropdownMenuItem>
+                </DropdownMenuCheckboxItem>
             </DropdownMenuContent>
         </DropdownMenu>
     </div>

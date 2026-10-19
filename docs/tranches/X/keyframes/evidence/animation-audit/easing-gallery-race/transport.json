@@ -1,0 +1,110 @@
+[
+ [
+  {
+   "l": "Bezier control point 1",
+   "p": "Bezier control point 1",
+   "v": "0.25"
+  },
+  {
+   "l": "Bezier control point 2",
+   "p": "Bezier control point 2",
+   "v": "0.25"
+  },
+  {
+   "l": null,
+   "v": "1500"
+  },
+  {
+   "l": "Scrub animation timeline",
+   "p": "Scrub animation timeline",
+   "v": "0"
+  }
+ ],
+ {
+  "label": "load",
+  "name": "ease",
+  "lin": "translateX(0px)",
+  "ei": "translateX(0px)",
+  "play": "Play|Reverse",
+  "ribbonBall": 93
+ },
+ {
+  "thumbCount": 1
+ },
+ {
+  "label": "scrub 10xRight",
+  "name": "ease",
+  "lin": "translateX(9.2px)",
+  "ei": "translateX(2.86497px)",
+  "play": "Play|Reverse",
+  "ribbonBall": 148
+ },
+ {
+  "label": "pointer-drag to end (held)",
+  "name": "ease",
+  "lin": "translateX(46px)",
+  "ei": "translateX(46px)",
+  "play": "Play|Reverse",
+  "ribbonBall": 368
+ },
+ {
+  "label": "pointer-drag released",
+  "name": "ease",
+  "lin": "translateX(46px)",
+  "ei": "translateX(46px)",
+  "play": "Play|Reverse",
+  "ribbonBall": 368
+ },
+ {
+  "label": "playing",
+  "lin": [
+   "translateX(12.4875px)",
+   "translateX(15.5541px)",
+   "translateX(18.6085px)",
+   "translateX(21.6905px)",
+   "translateX(24.7541px)",
+   "translateX(28.3299px)"
+  ]
+ },
+ {
+  "label": "after Reverse",
+  "lin": [
+   "translateX(32.9053px)",
+   "translateX(35.9996px)",
+   "translateX(39.0663px)",
+   "translateX(42.642px)",
+   "translateX(45.7087px)",
+   "translateX(43.2247px)"
+  ]
+ },
+ {
+  "label": "ribbon-paused",
+  "lin": [
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)"
+  ]
+ },
+ {
+  "label": "after dock Play",
+  "lin": [
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)",
+   "translateX(38.1125px)"
+  ]
+ },
+ {
+  "label": "dock",
+  "name": "ease",
+  "lin": "translateX(38.1125px)",
+  "ei": "translateX(33.7028px)",
+  "play": "Play|Reverse",
+  "ribbonBall": 349
+ }
+]

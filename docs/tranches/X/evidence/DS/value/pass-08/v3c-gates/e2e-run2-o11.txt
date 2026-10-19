@@ -1,0 +1,72 @@
+(node:48757) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+[1A[2K(node:49388) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/2] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:112:34
+
+    Error Context: test-results/oracles-o11-header-gates-O-5e2e5-r-feather-every-pane-light--smoke/error-context.md
+
+
+[1A[2K(node:55790) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/2] [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark)
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+
+    [31mTest timeout of 120000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m  - element was detached from the DOM, retrying[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o11-header-gates.spec.ts:112:34
+
+    Error Context: test-results/oracles-o11-header-gates-O-5323e-or-feather-every-pane-dark--smoke/error-context.md
+
+
+[1A[2K  2 failed
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) 
+    [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) 
+EXIT 1

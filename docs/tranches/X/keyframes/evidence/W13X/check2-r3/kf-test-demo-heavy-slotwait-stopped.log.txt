@@ -1,0 +1,2 @@
+# 05:39:01 load 39.14 29.38 23.69 head 57fb241a
+# stopped 05:45:14: heavy queue 10 deep; re-read under guarded --light --timeout 30 (disclosed)

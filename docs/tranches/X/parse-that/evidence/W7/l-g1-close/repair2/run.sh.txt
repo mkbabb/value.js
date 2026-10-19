@@ -1,0 +1,22 @@
+# SERVED MODEL: claude-opus-5-5
+#!/bin/sh
+# SERVED MODEL: claude-opus-5-5 -- X.P.W7 Repair 2 of the RESUME 7 Close: bounded quiet-host wait (W7.md ADDENDUM (f) 3), reads launched only at 1-min load < 8
+cd /Users/mkbabb/Programming/value.js
+S=/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/rp2
+T0=$(date +%s)
+waitq() { while :; do l=$(sysctl -n vm.loadavg | awk '{print $2}'); echo "$(date +%T) $l" >> $S/load.txt; if [ "$(echo "$l < 8" | bc)" = 1 ]; then echo "QUIET $1 $(date +%T) $l" >> $S/status.txt; return 0; fi; if [ $(( $(date +%s) - T0 )) -ge 5400 ]; then echo "NEVER-QUIET $1 $(date +%T) $l" >> $S/status.txt; return 1; fi; sleep 30; done; }
+echo "WAITSTART $(date +%T) $(sysctl -n vm.loadavg)" >> $S/status.txt
+waitq build || { echo ABORT >> $S/status.txt; exit 1; }
+node bench/paired/build.mjs > $S/build.log 2>&1
+echo "BUILT $(date +%T)" >> $S/status.txt
+for r in 1 2; do
+  waitq firefox-r$r || { echo ABORT >> $S/status.txt; exit 1; }
+  node bench/paired/browser.mjs rp2-br-r$r-firefox firefox 2 whole,acc,rej,large-eq,large 11 product > $S/br-r$r-firefox.log 2>&1
+  echo "DONE firefox-r$r $(date +%T) $(sysctl -n vm.loadavg)" >> $S/status.txt
+done
+for r in 1 2; do
+  waitq node-r$r || { echo ABORT >> $S/status.txt; exit 1; }
+  node --expose-gc bench/paired/isolated.mjs rp2-node-r$r product 3 11 whole,acc,rej,large-eq,large > $S/node-r$r.log 2>&1
+  echo "DONE node-r$r $(date +%T) $(sysctl -n vm.loadavg)" >> $S/status.txt
+done
+echo ALLDONE >> $S/status.txt

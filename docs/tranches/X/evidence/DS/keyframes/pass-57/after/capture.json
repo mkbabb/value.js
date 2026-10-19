@@ -1,0 +1,262 @@
+{
+ "home-1440-light": {
+  "band": {
+   "top": 398,
+   "bottom": 721,
+   "left": 0
+  },
+  "headline": {
+   "top": 398,
+   "bottom": 584,
+   "left": 43,
+   "right": 1397
+  }
+ },
+ "labels-light": [
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "delay",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "direction",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  }
+ ],
+ "square-1440-light": {
+  "field": 312,
+  "box": 156,
+  "reach": 468,
+  "arena": 812,
+  "innerMeasure": 772
+ },
+ "easing-1440-light": {
+  "fold": 705,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [
+   {
+    "k": "T:ease-in-sinesinu",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-out-sinesin",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-in-out-sine",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   }
+  ],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 684
+   }
+  ]
+ },
+ "chevron-light": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "square-390-light": {
+  "field": 195,
+  "box": 97,
+  "reach": 292,
+  "arena": 332,
+  "innerMeasure": 292
+ },
+ "easing-390-light": {
+  "fold": 654,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 678
+   }
+  ]
+ },
+ "home-1440-dark": {
+  "band": {
+   "top": 398,
+   "bottom": 721,
+   "left": 0
+  },
+  "headline": {
+   "top": 398,
+   "bottom": 584,
+   "left": 43,
+   "right": 1397
+  }
+ },
+ "labels-dark": [
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "delay",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "direction",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  }
+ ],
+ "square-1440-dark": {
+  "field": 312,
+  "box": 156,
+  "reach": 468,
+  "arena": 812,
+  "innerMeasure": 772
+ },
+ "easing-1440-dark": {
+  "fold": 705,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [
+   {
+    "k": "T:ease-in-sinesinu",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-out-sinesin",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-in-out-sine",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   }
+  ],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 684
+   }
+  ]
+ },
+ "chevron-dark": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "square-390-dark": {
+  "field": 195,
+  "box": 97,
+  "reach": 292,
+  "arena": 332,
+  "innerMeasure": 292
+ },
+ "easing-390-dark": {
+  "fold": 654,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 678
+   }
+  ]
+ }
+}

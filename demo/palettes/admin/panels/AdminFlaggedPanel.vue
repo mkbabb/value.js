@@ -1,0 +1,283 @@
+<template>
+    <!-- UIA-V-176/173: a dismiss re-reads the page (the refill) over the
+         retained rows — a refetch, dimmed and `aria-busy`, never a skeleton
+         flash; skeletons only on a first load. -->
+    <div class="grid gap-3 pb-3" :aria-busy="refetching || undefined">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Under the signed-out or error plate every control
+             in it was dead or a second Retry, so the row held nothing live. -->
+        <div v-if="!flagged.access.value && !flagged.loadError.value" class="flex items-center gap-2">
+            <span
+                v-if="!firstLoad"
+                class="text-mono-small text-muted-foreground"
+            >
+                {{ flagged.pager.total }} flagged
+            </span>
+            <div class="flex-1" />
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <!-- X.W12U.s3 · UIA-V-645 (the Users recipe, V-49): busy while a read
+                 runs (disabled, the glyph turning), and stood down while the
+                 error plate's Retry is the recovery. -->
+            <Button
+                emphasis="secondary"
+                size="xs"
+                icon-only
+                aria-label="Refresh flagged palettes"
+                :disabled="flagged.loading.value"
+                @click="flagged.loadFlagged()"
+            >
+                <RefreshCw class="h-3 w-3" :class="flagged.loading.value && 'animate-spin'" aria-hidden="true" />
+            </Button>
+        </div>
+
+        <!-- X.W7.d (S-13): the moderation act's one visible result. -->
+        <div aria-live="polite" data-admin-notice="flagged" class="contents">
+            <ActionFeedback
+                v-if="flagged.notice.value"
+                :key="flagged.notice.value.seq"
+                :message="flagged.notice.value.message"
+                :variant="flagged.notice.value.variant"
+                :visible="true"
+                :auto-dismiss-ms="flagged.notice.value.variant === 'error' ? 0 : 4000"
+                @update:visible="flagged.dismissNotice()"
+            />
+        </div>
+
+        <!-- X.W7.d (N-2 · W7.61 · AF-1): signed out is its own register —
+             never a clear moderation queue. -->
+        <EmptyState
+            v-if="flagged.access.value"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="flagged.access.value.message"
+            detail="Sign in with an admin token to review reports."
+        />
+
+        <!-- W5-1 + F-13: flagged rows load as row shadows, one grammar. -->
+        <div v-else-if="firstLoad" class="grid gap-2" role="status" aria-label="Loading flagged palettes">
+            <AdminListSkeleton v-for="i in 2" :key="i" />
+        </div>
+
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as a clear moderation queue. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="flagged.loadError.value"
+            variant="error"
+            message="Couldn't load flagged palettes."
+            :detail="flagged.loadError.value"
+        >
+            <template #action>
+                <Button size="sm" @click="flagged.loadFlagged()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- W5-5 / F-11: the one panel that defected from the specimen-plate
+             empty grammar (a grey italic apology) joins the register. -->
+        <EmptyState
+            v-else-if="flagged.items.value.length === 0"
+            message="No flagged palettes."
+        />
+
+        <!-- Flagged items. X.W7.d (W7.81 · AF-4): rows and pager belong to the
+             state chain — the error plate never paints beside stale rows. -->
+        <template v-else>
+        <div
+            v-for="item in flagged.items.value"
+            :key="item.paletteSlug"
+            class="rounded-md border border-card-edge overflow-hidden transition-opacity duration-fast"
+            :class="refetching && 'opacity-60'"
+        >
+            <!-- Palette header row. X.W12U.m2 · A2-VA-X-5 (consumer half): the
+                 row WRAPS before it crushes. The name column holds a 10rem
+                 floor; when the report count and the action pair cannot sit
+                 beside it they drop together to their own line at the row's
+                 end, instead of squeezing the name to 14-22 px (one letter
+                 per line). The title's own wrap-vs-truncate is glass's
+                 `text-subheading` shorthand (O-74c G-2). -->
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 px-3 py-2.5">
+                <!-- Color swatches. X.W12U.s3 · UIA-V-646: the cluster is one
+                     fixed column (five 20 px dots, 4 px overlap = 5.25rem), so
+                     every name shares one left edge whatever the colour count;
+                     a deleted palette holds the column with a dashed ghost. -->
+                <div class="flex -space-x-1 shrink-0 w-[5.25rem]">
+                    <div
+                        v-if="!item.palette"
+                        class="h-5 w-5 rounded-full border border-dashed border-muted-foreground/60"
+                        aria-hidden="true"
+                    />
+                    <div
+                        v-for="(c, i) in (item.palette?.colors ?? []).slice(0, 5)"
+                        :key="i"
+                        class="h-5 w-5 rounded-full border border-background"
+                        :style="{ backgroundColor: c.css }"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-0.5 min-w-0 flex-1 basis-40">
+                    <!-- T.W4-6 (T-15/F7 population sweep): a palette NAME is a
+                         title surface — display voice, ≤500 non-bold,
+                         non-italic (user data), same register as PaletteCard. -->
+                    <span class="font-display font-medium text-subheading truncate">
+                        {{ item.palette?.name ?? item.paletteSlug }}
+                    </span>
+                    <!-- W5-5 (F-11): a null palette is a DELETED palette —
+                         say so, never a silent bare slug with an empty strip.
+                         X-DS pass 16 (V16-02): in the readout voice, and the
+                         owner slug exactly as stored: no case transform, no
+                         tracking, no small-caps (value-canon §2 Type). -->
+                    <span
+                        v-if="!item.palette"
+                        class="text-mono-small text-muted-foreground"
+                    >palette deleted</span>
+                    <span v-else-if="item.palette.userSlug" class="text-mono-small text-muted-foreground truncate">
+                        {{ item.palette.userSlug }}
+                    </span>
+                </div>
+
+                <div class="ms-auto flex items-center gap-1 shrink-0">
+                    <!-- X-DS pass 16 (V16-03): the app's ONE count idiom
+                         (V15-02) — a muted mono tabular numeral titled with
+                         its noun; red is never a resting beacon (W5-12). -->
+                    <span
+                        class="text-mono-small tabular-nums text-muted-foreground shrink-0 me-2"
+                        :title="`${item.flagCount} report${item.flagCount === 1 ? '' : 's'}`"
+                    >{{ item.flagCount }}</span>
+                    <!-- W5-12 (F-8): the pair weighted asymmetrically — the
+                         labeled neutral Dismiss is the primary affordance;
+                         the delete is a QUIET icon (ink at rest, red only on
+                         hover/focus), never its equal-weight red twin. -->
+                    <!-- X.W7.e (S-15 · W7.95 · AF-44): each Dismiss names the
+                         palette it acts on — N identical "Dismiss" buttons are
+                         no longer indistinguishable to AT; the visible word
+                         leads the accessible name (label-in-name). -->
+                    <Button
+                        emphasis="secondary"
+                        size="xs"
+                        class="px-2"
+                        :aria-label="`Dismiss reports on ${item.palette?.name ?? item.paletteSlug}`"
+                        @click="flagged.dismiss(item.paletteSlug)"
+                    >
+                        Dismiss
+                    </Button>
+                    <!-- X.W7.e (G14 · W7.91 · AF-2): soft-deleting another user's
+                         palette is confirmed first, as the users scene does. -->
+                    <Button
+                        emphasis="quiet"
+                        size="xs"
+                        icon-only
+                        class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                        :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
+                        @click="onDeleteClick(item.paletteSlug, item.palette?.name ?? item.paletteSlug)"
+                    >
+                        <Trash2 class="h-3 w-3" aria-hidden="true" />
+                    </Button>
+                </div>
+            </div>
+
+            <!-- Flag details -->
+            <div class="border-t border-seam px-3 py-2 flex flex-col gap-1.5">
+                <div
+                    v-for="(flag, i) in item.flags"
+                    :key="i"
+                    class="flex items-center gap-2"
+                >
+                    <Badge variant="secondary" class="text-mono-small shrink-0">
+                        {{ flag.reason }}
+                    </Badge>
+                    <span v-if="flag.detail" class="text-mono-small text-muted-foreground truncate">
+                        {{ flag.detail }}
+                    </span>
+                    <span class="ml-auto text-mono-small text-muted-foreground tabular-nums shrink-0">
+                        {{ formatDate(flag.createdAt) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <PaginationBar :pager="flagged.pager" />
+        </template>
+
+        <!-- X.W7.e (G14): the deliberate rung (Esc · outside, no ✕) is the
+             `dismiss="deliberate"` rung (glass 10.1.0, X-W7L). -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" dismiss="deliberate">
+                <DialogHeader>
+                    <DialogTitle class="font-display font-medium">Delete flagged palette?</DialogTitle>
+                    <DialogDescription>
+                        This will delete the palette
+                        <span class="font-display font-medium text-foreground">{{ confirmName }}</span>
+                        for its owner and every viewer.
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button tone="destructive" :disabled="!confirmAct" @click="onConfirm">
+                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                        Delete palette
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { computed, inject, onMounted, ref, shallowRef, watch } from "vue";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Badge } from "@mkbabb/glass-ui/badge";
+import { RefreshCw, Trash2 } from "@lucide/vue";
+import EmptyState from "../../../shared/ui/EmptyState.vue";
+import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
+import PaginationBar from "./PaginationBar.vue";
+import { formatDate } from "../../browser/dateFormat";
+import { ADMIN_PORT_KEY } from "../../usePalettePorts";
+
+// D.W3 Lane B: route through pm.flagged sub-object (was: direct getFlaggedPalettes/dismissFlags/deletePaletteAdmin)
+const pm = inject(ADMIN_PORT_KEY)!;
+const flagged = pm.flagged;
+
+const firstLoad = computed(() => flagged.loading.value && flagged.items.value.length === 0);
+const refetching = computed(() => flagged.loading.value && flagged.items.value.length > 0);
+
+onMounted(() => flagged.loadFlagged());
+
+// X.W7.e (G14 · N-6): the confirm keeps the palette's name for display through
+// the leave transition; the act is held separately, TAKEN (cleared) before it
+// runs, and released on any dismissal — one acceptance, exactly one request.
+const confirmOpen = ref(false);
+const confirmName = ref("");
+const confirmAct = shallowRef<(() => void) | null>(null);
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAct.value = null;
+    },
+    { flush: "sync" },
+);
+
+function onDeleteClick(slug: string, name: string) {
+    confirmName.value = name;
+    confirmAct.value = () => void flagged.deletePalette(slug);
+    confirmOpen.value = true;
+}
+
+function onConfirm() {
+    const act = confirmAct.value;
+    if (!act) return;
+    confirmAct.value = null;
+    confirmOpen.value = false;
+    act();
+}
+</script>

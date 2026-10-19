@@ -10,9 +10,9 @@
  * `closed` — the click landed on the button but the listbox never opened.
  *
  * The app fix (N.W5 Defect-B): the desktop dock now boots EXPANDED
- * (`Dock.vue` `:start-collapsed="false"`), so the view-select trigger is a
+ * (`Dock.vue` `:collapse="isDesktop ? 'open' : false"`), so the view-select trigger is a
  * top-level reachable control on first paint — exactly as on mobile (where the
- * dock is `always-expanded`). A REAL click then opens the listbox
+ * dock is `:collapse="false"`). A REAL click then opens the listbox
  * deterministically (live-probed: WebGL-off 5/5; SwiftShader-on 3/4, the lone
  * miss being the orthogonal Defect-A WebGL hit-test stall the CI `retries`
  * absorb). This helper is that real-user interaction, factored once:
@@ -31,24 +31,40 @@
  * driving the view-select.
  */
 import { expect } from "@playwright/test";
-import type { Page } from "@playwright/test";
+import type { Locator, Page } from "@playwright/test";
 
 /**
  * Ensure the dock is expanded. A real user clicks the collapsed pill before
  * reaching the controls inside it. No-op when the dock is already expanded
- * (mobile `always-expanded`, or desktop's expanded first-paint).
+ * (mobile `:collapse="false"`, or desktop's expanded first-paint).
  */
 export async function expandDock(page: Page): Promise<void> {
+    const dock = page.locator(".glass-dock").first();
+    const settled = () =>
+        expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
+            timeout: 5000,
+        });
+    // A morph already in flight (an idle collapse under way) is read at its
+    // END, never mid-flight, so "already expanded" is not misread.
+    await settled();
     const collapsedPill = page.locator(".glass-dock.collapsed");
     if (await collapsedPill.count()) {
         // Real click on the pill body; the dock un-collapses on the click.
         await collapsedPill.click();
         // The collapse↔expand morph runs the dock's single settling spring;
         // wait for `[data-morphing]` to clear so the controls inside are at rest.
-        await expect(page.locator(".glass-dock[data-morphing]")).toHaveCount(0, {
-            timeout: 5000,
-        });
+        await settled();
     }
+    // X-W12U .q2 (X-W7L C-DOCK-IDLE, glass 9.0.0+ at X.W7L.m `c8a4959dd`): an
+    // UNHOVERED, unheld desktop dock idles shut `DOCK_COLLAPSE_DELAY_MS`
+    // (3600 ms) after its last release, so an expanded dock could collapse
+    // between this call and the caller's click (r1: o14 ×3 read
+    // "Select view … element is not visible" with the pill collapsed). A
+    // user reaching for a dock control has the pointer ON the dock, which is
+    // what holds it open: rest the pointer on the plate's own inline-start
+    // padding (no control sits there, so no control's hover state is armed).
+    const box = await dock.boundingBox();
+    if (box) await page.mouse.move(box.x + 3, box.y + box.height / 2);
 }
 
 /**
@@ -109,4 +125,33 @@ export async function paneSettled(page: Page): Promise<void> {
             { timeout: 15_000 },
         )
         .toBe(false);
+}
+
+/**
+ * X.W5.c2 (COHESION §0ax ESC-R1-1) — THE MAIN-PANE LANDMARK, declared once.
+ *
+ * X.W5.a retired the static `aria-label` naming for the live
+ * landmark: `<main :aria-labelledby="route-title">`, named BY the route's one
+ * visible `<h1 id="route-title">` (`demo/app/App.vue`), so the name
+ * now tracks the route ("Home", "Gradient", "Not Found", …) and can never
+ * announce a scene that is no longer mounted. Every spec reaches the shell's
+ * main pane through THIS export — never a per-file copy of the query — so the
+ * next landmark change is one edit, not sixty-one.
+ *
+ * X-DS value pass 8 (V8C-01): that H1 is App's caption only where no pane
+ * title says the label; on a `titled` route it is the pane's own title, inside
+ * the row.
+ *
+ * The selector is the relation itself: a `<main>` labelled by `route-title`
+ * that CONTAINS that H1. A `<main>` whose label points elsewhere, or whose H1
+ * went missing, does not match. `MAIN_PANE` is exported for the in-page
+ * (`page.evaluate`) readers that cannot hold a `Locator`.
+ */
+export const ROUTE_TITLE_ID = "route-title";
+
+export const MAIN_PANE = `main[aria-labelledby="${ROUTE_TITLE_ID}"]:has(h1#${ROUTE_TITLE_ID})`;
+
+/** The shell's main-pane landmark — the one `<main>` the route H1 names. */
+export function mainPane(page: Page): Locator {
+    return page.locator(MAIN_PANE);
 }

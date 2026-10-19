@@ -1,0 +1,9 @@
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue

@@ -1,0 +1,7 @@
+X-DS fourier pass 15 cure (critic F15C), 2026-10-18. No consumer source changed: fourier stays at 47e0df6 (m/w1-bump-migration), latex-paper at ebdf787.
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e: no file changed, so no spec touches a changed file; none was run. Pass 14's paper set (80/82 x2, load flakes passing 4/4 x2 in isolation) stands on the identical tree.
+No golden was re-baselined.
+Probe: f15p-probe.mjs, headless real Chrome (channel chrome, DPR 2, touch below 1024), plain vite on :3251. before/ is the first reading (same tree); f15p-probe-after.json the full 4-cell reading.
+Census: scripts/ds-census.mjs --chrome on :3252 (census-after.json): sums 386/978/292/292/208/0/0, identical to pass 13; /equation|dark|1440 397 elements (pass 14's 162 was a partial mount). census-attempt1-server-down.json is a void first attempt: the :3251 vite hit its 90 min guard and the census captured the browser's error page (20 elements per cell).

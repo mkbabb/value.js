@@ -1,0 +1,65 @@
+[
+ {
+  "plate": [
+   16,
+   358
+  ],
+  "card": [
+   16,
+   358
+  ],
+  "detail": [
+   41,
+   308
+  ],
+  "detailText": "Failed to fetch dynamically imported module: http://localhos",
+  "detailSW": 308,
+  "detailCW": 308,
+  "docSW": 390,
+  "vp": 390,
+  "scheme": "light",
+  "inside": true
+ },
+ {
+  "plate": [
+   16,
+   358
+  ],
+  "card": [
+   16,
+   358
+  ],
+  "detail": [
+   41,
+   308
+  ],
+  "detailText": "Failed to fetch dynamically imported module: http://localhos",
+  "detailSW": 308,
+  "detailCW": 308,
+  "docSW": 390,
+  "vp": 390,
+  "scheme": "dark",
+  "inside": true
+ },
+ {
+  "plate": [
+   729,
+   512
+  ],
+  "card": [
+   729,
+   512
+  ],
+  "detail": [
+   763,
+   444
+  ],
+  "detailText": "Failed to fetch dynamically imported module: http://localhos",
+  "detailSW": 444,
+  "detailCW": 444,
+  "docSW": 1440,
+  "vp": 1440,
+  "scheme": "dark",
+  "inside": true
+ }
+]

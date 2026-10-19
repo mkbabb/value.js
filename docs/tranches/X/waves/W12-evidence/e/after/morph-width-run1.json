@@ -1,0 +1,32 @@
+[
+ {
+  "switch": "tools",
+  "frames": 40,
+  "distinctWidths": 2,
+  "widths": [
+   479.5,
+   302
+  ],
+  "morphingFrames": 0
+ },
+ {
+  "switch": "back",
+  "frames": 39,
+  "distinctWidths": 2,
+  "widths": [
+   302,
+   479.5
+  ],
+  "morphingFrames": 0
+ },
+ {
+  "switch": "login",
+  "frames": 37,
+  "distinctWidths": 2,
+  "widths": [
+   479.5,
+   315
+  ],
+  "morphingFrames": 0
+ }
+]

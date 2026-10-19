@@ -1,0 +1,1821 @@
+### smoke-perf (r2, re-run of r1: 7 ids) start 10-13 16:14:04 load1=196.00
+(node:73676) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:73837) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) (30.2s)
+(node:75345) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+dist: dist/gh-pages   (index.html raw=15380 gz=5638)
+eager JS modules: 9
+    ./assets/index-qn-WeF_K.js  raw=474875  gz=157005  (entry-module)
+    ./assets/rolldown-runtime-QTnfLwEv.js  raw=694  gz=423  (modulepreload)
+    ./assets/vue.runtime.esm-bundler-CZavfU-W.js  raw=109858  gz=41722  (modulepreload)
+    ./assets/dist-pmtx1RBP.js  raw=16460  gz=6877  (modulepreload)
+    ./assets/collapsible-DFzK29Oh-C5iJczKI.js  raw=16902  gz=6410  (modulepreload)
+    ./assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js  raw=26075  gz=9324  (modulepreload)
+    ./assets/PaneShell-BZvNEFjQ.js  raw=281113  gz=72007  (modulepreload)
+    ./assets/css-BJ6dgtNv.js  raw=155484  gz=34880  (modulepreload)
+    ./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js  raw=1240  gz=682  (modulepreload)
+eager JS   raw= 1082701  gz= 329330 = 321.6 KiB   (bar 286720 B) -> RED
+render-block CSS raw= 535724  gz= 90302 = 88.2 KiB   (measured, NOT gated)
+    excluded (async): ./assets/glass-fonts-PBJY3762.css  raw=132840  gz=100386  media=print
+TOTAL eager gz= 419632 = 409.8 KiB
+[X-W2 G2] eager JS modules=9 raw=1082701 gz=329330 (321.6 KiB) bar=286720 B → RED
+[X-W2 G2]   entry-module   ./assets/index-qn-WeF_K.js  raw=474875 gz=157005
+[X-W2 G2]   modulepreload  ./assets/rolldown-runtime-QTnfLwEv.js  raw=694 gz=423
+[X-W2 G2]   modulepreload  ./assets/vue.runtime.esm-bundler-CZavfU-W.js  raw=109858 gz=41722
+[X-W2 G2]   modulepreload  ./assets/dist-pmtx1RBP.js  raw=16460 gz=6877
+[X-W2 G2]   modulepreload  ./assets/collapsible-DFzK29Oh-C5iJczKI.js  raw=16902 gz=6410
+[X-W2 G2]   modulepreload  ./assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js  raw=26075 gz=9324
+[X-W2 G2]   modulepreload  ./assets/PaneShell-BZvNEFjQ.js  raw=281113 gz=72007
+[X-W2 G2]   modulepreload  ./assets/css-BJ6dgtNv.js  raw=155484 gz=34880
+[X-W2 G2]   modulepreload  ./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js  raw=1240 gz=682
+[X-W2 G2] render-block CSS raw=535724 gz=90302 (88.2 KiB) — measured, NOT gated
+[X-W2 G2] TOTAL eager gz=419632 (409.8 KiB)
+  ✘  2 [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:313:1 › X-W2 G2 — the eager module set's JS gzip budget, from the built artifact (449ms)
+(node:75446) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[X-W2 CWV] pin: macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9142
+[X-W2 CWV] renderer(raw): ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)
+[X-W2 CWV] origin=http://localhost:9142 route=#/ N=20 settle=3000ms cold-cache=CDP Network.setCacheDisabled
+[X-W2 CWV desktop-unthrottled] warmup (DISCARDED from p75): lcp=2284ms tbt=1086ms fcp=2284ms longTasks=2
+[X-W2 CWV desktop-unthrottled] N=20 p75 LCP=3712ms p75 TBT=1688ms p75 FCP=3712ms p75 TBT[FCP,end]=0ms (reported, not gated) p75 CLS=0.0120 median longTasks=2 p75 longest task=1714ms max TBT=1878ms median transfer(uncompressed, diagnostic)=2286256 B resources=24
+[X-W2 CWV mobile-4x-cpu] warmup (DISCARDED from p75): lcp=2916ms tbt=2502ms fcp=2916ms longTasks=8
+[X-W2 CWV mobile-4x-cpu] N=20 p75 LCP=3912ms p75 TBT=2904ms p75 FCP=3912ms p75 TBT[FCP,end]=44ms (reported, not gated) p75 CLS=0.0007 median longTasks=8 p75 longest task=2202ms max TBT=3180ms median transfer(uncompressed, diagnostic)=2286256 B resources=24
+[X-W2 CWV] record
+{
+  "schema": "x-w2.cwv/1",
+  "gate": "W2.md §6 G3 (p75 TBT ≤ 300 ms) · G4 (p75 LCP ≤ 2500 ms)",
+  "generatedAt": "2026-10-13T20:21:32.236Z",
+  "pin": "macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9142",
+  "rendererRaw": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+  "origin": "http://localhost:9142",
+  "originKind": "BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)",
+  "route": "#/",
+  "n": 20,
+  "settleMs": 3000,
+  "coldCache": "CDP Network.setCacheDisabled + a fresh browser context per load",
+  "tbtDefinition": "Lighthouse calculateSumOfBlockingTime (every long task ≥ 50 ms, CLIPPED to the window, contributes clippedDuration − 50 ms), evaluated over TWO windows. GATED: [navigationStart, observationEnd]. REPORTED BESIDE IT: Lighthouse's strict [FCP, TTI≈observationEnd], which reads 0 on this product because FCP===LCP — nothing paints until Vue mounts, so the boot's blocking task ends before first paint and the strict window is structurally blind to the cost this wave cuts (L-19). observationEnd (per-sample `windowEndMs`) stands in for TTI, which this harness cannot derive without a trace.",
+  "configs": {
+    "desktop-unthrottled": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "cpuThrottleRate": 1,
+      "n": 20,
+      "warmupLoadsDiscarded": 1,
+      "warmup": {
+        "lcp": 2284,
+        "fcp": 2284,
+        "tbt": 1086,
+        "tbtLighthouseWindow": 0,
+        "cls": 0.011968219935010979,
+        "longTasks": 2,
+        "tasks": [
+          {
+            "start": 51.69999998807907,
+            "dur": 1109
+          },
+          {
+            "start": 1282.5,
+            "dur": 77
+          }
+        ],
+        "windowEndMs": 4403.5,
+        "transferBytes": 2286256,
+        "resources": 24
+      },
+      "p75Lcp": 3712,
+      "p75Tbt": 1688,
+      "p75Fcp": 3712,
+      "p75TbtLighthouseWindow": 0,
+      "medianLcp": 3436,
+      "medianTbt": 1262,
+      "maxTbt": 1878,
+      "p75LongestTaskMs": 1714,
+      "p75Cls": 0.011968219935010979,
+      "medianLongTasks": 2,
+      "medianTransferBytesUncompressed": 2286256,
+      "medianResources": 24,
+      "gates": {
+        "G3 p75 TBT ≤ 300 ms": {
+          "measured": 1688,
+          "window": "[navigationStart, observationEnd] — the gated window",
+          "bar": 300,
+          "verdict": "RED",
+          "lighthouseWindowReading": 0,
+          "lighthouseWindowNote": "[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19)."
+        },
+        "G4 p75 LCP ≤ 2500 ms": {
+          "measured": 3712,
+          "bar": 2500,
+          "verdict": "RED"
+        }
+      },
+      "samples": [
+        {
+          "lcp": 3568,
+          "fcp": 3568,
+          "tbt": 176,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 41.79999998211861,
+              "dur": 207
+            },
+            {
+              "start": 503.59999999403954,
+              "dur": 69
+            }
+          ],
+          "windowEndMs": 3757.699999988079,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3436,
+          "fcp": 3436,
+          "tbt": 1801,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 37.900000005960464,
+              "dur": 1823
+            },
+            {
+              "start": 2001.5999999940395,
+              "dur": 78
+            }
+          ],
+          "windowEndMs": 5362.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 4308,
+          "fcp": 4308,
+          "tbt": 1601,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 54.60000002384186,
+              "dur": 1621
+            },
+            {
+              "start": 1823.800000011921,
+              "dur": 80
+            }
+          ],
+          "windowEndMs": 5067,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3096,
+          "fcp": 3096,
+          "tbt": 1262,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 125.59999999403954,
+              "dur": 1284
+            },
+            {
+              "start": 1590.0999999940395,
+              "dur": 78
+            }
+          ],
+          "windowEndMs": 4721.5,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2652,
+          "fcp": 2652,
+          "tbt": 1372,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 83.30000001192093,
+              "dur": 1391
+            },
+            {
+              "start": 1621.7000000178814,
+              "dur": 81
+            }
+          ],
+          "windowEndMs": 4762.9000000059605,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3536,
+          "fcp": 3536,
+          "tbt": 1086,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 59,
+              "dur": 1118
+            },
+            {
+              "start": 1307.5,
+              "dur": 68
+            }
+          ],
+          "windowEndMs": 4433,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2548,
+          "fcp": 2548,
+          "tbt": 216,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 47.60000002384186,
+              "dur": 247
+            },
+            {
+              "start": 467.2000000178814,
+              "dur": 69
+            }
+          ],
+          "windowEndMs": 3708,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3436,
+          "fcp": 3436,
+          "tbt": 903,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 51.099999994039536,
+              "dur": 926
+            },
+            {
+              "start": 1114.8999999761581,
+              "dur": 77
+            }
+          ],
+          "windowEndMs": 4288.299999982119,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3244,
+          "fcp": 3244,
+          "tbt": 1222,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 47.69999998807907,
+              "dur": 1252
+            },
+            {
+              "start": 1421,
+              "dur": 70
+            }
+          ],
+          "windowEndMs": 4548.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2944,
+          "fcp": 2944,
+          "tbt": 823,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 37.599999994039536,
+              "dur": 845
+            },
+            {
+              "start": 1018.6999999880791,
+              "dur": 78
+            }
+          ],
+          "windowEndMs": 4143.199999988079,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2452,
+          "fcp": 2452,
+          "tbt": 1160,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 31.400000005960464,
+              "dur": 1188
+            },
+            {
+              "start": 1372,
+              "dur": 72
+            }
+          ],
+          "windowEndMs": 4530.100000023842,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 4004,
+          "fcp": 4004,
+          "tbt": 1807,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 48.70000001788139,
+              "dur": 1836
+            },
+            {
+              "start": 2028.7000000178814,
+              "dur": 71
+            }
+          ],
+          "windowEndMs": 5132.9000000059605,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3484,
+          "fcp": 3484,
+          "tbt": 1878,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 54.79999998211861,
+              "dur": 1900
+            },
+            {
+              "start": 2087.199999988079,
+              "dur": 78
+            }
+          ],
+          "windowEndMs": 5207.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3508,
+          "fcp": 3508,
+          "tbt": 1735,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 48,
+              "dur": 1770
+            },
+            {
+              "start": 1962,
+              "dur": 65
+            }
+          ],
+          "windowEndMs": 5050.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2640,
+          "fcp": 2640,
+          "tbt": 966,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 51.19999998807907,
+              "dur": 1002
+            },
+            {
+              "start": 1180.0999999940395,
+              "dur": 64
+            }
+          ],
+          "windowEndMs": 4273.199999988079,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2804,
+          "fcp": 2804,
+          "tbt": 754,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 36.099999994039536,
+              "dur": 778
+            },
+            {
+              "start": 1095,
+              "dur": 76
+            }
+          ],
+          "windowEndMs": 4225.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3748,
+          "fcp": 3748,
+          "tbt": 1688,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 35.599999994039536,
+              "dur": 1714
+            },
+            {
+              "start": 1898.5,
+              "dur": 74
+            }
+          ],
+          "windowEndMs": 5014.5,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2984,
+          "fcp": 2984,
+          "tbt": 1261,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 39.79999998211861,
+              "dur": 1277
+            },
+            {
+              "start": 1464.9000000059605,
+              "dur": 84
+            }
+          ],
+          "windowEndMs": 4644.799999982119,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3712,
+          "fcp": 3712,
+          "tbt": 1365,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 51.20000001788139,
+              "dur": 1380
+            },
+            {
+              "start": 1586.300000011921,
+              "dur": 85
+            }
+          ],
+          "windowEndMs": 4715,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 4456,
+          "fcp": 4456,
+          "tbt": 1592,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.011968219935010979,
+          "longTasks": 2,
+          "tasks": [
+            {
+              "start": 54,
+              "dur": 1627
+            },
+            {
+              "start": 1818.7000000178814,
+              "dur": 65
+            }
+          ],
+          "windowEndMs": 4916.300000011921,
+          "transferBytes": 2286256,
+          "resources": 24
+        }
+      ]
+    },
+    "mobile-4x-cpu": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "cpuThrottleRate": 4,
+      "n": 20,
+      "warmupLoadsDiscarded": 1,
+      "warmup": {
+        "lcp": 2916,
+        "fcp": 2916,
+        "tbt": 2502,
+        "tbtLighthouseWindow": 245.5,
+        "cls": 0.0006848911966099887,
+        "longTasks": 8,
+        "tasks": [
+          {
+            "start": 223.80000001192093,
+            "dur": 1856
+          },
+          {
+            "start": 2084.9000000059605,
+            "dur": 115
+          },
+          {
+            "start": 2253.4000000059605,
+            "dur": 52
+          },
+          {
+            "start": 2332.199999988079,
+            "dur": 202
+          },
+          {
+            "start": 2614.800000011921,
+            "dur": 96
+          },
+          {
+            "start": 2730.5,
+            "dur": 414
+          },
+          {
+            "start": 3150.0999999940395,
+            "dur": 56
+          },
+          {
+            "start": 3207.9000000059605,
+            "dur": 111
+          }
+        ],
+        "windowEndMs": 6453.300000011921,
+        "transferBytes": 2286256,
+        "resources": 24
+      },
+      "p75Lcp": 3912,
+      "p75Tbt": 2904,
+      "p75Fcp": 3912,
+      "p75TbtLighthouseWindow": 44.400000005960464,
+      "medianLcp": 3680,
+      "medianTbt": 2412,
+      "maxTbt": 3180,
+      "p75LongestTaskMs": 2202,
+      "p75Cls": 0.0006848911966099887,
+      "medianLongTasks": 8,
+      "medianTransferBytesUncompressed": 2286256,
+      "medianResources": 24,
+      "gates": {
+        "G3 p75 TBT ≤ 300 ms": {
+          "measured": 2904,
+          "window": "[navigationStart, observationEnd] — the gated window",
+          "bar": 300,
+          "verdict": "RED",
+          "lighthouseWindowReading": 44.400000005960464,
+          "lighthouseWindowNote": "[FCP, TTI≈observationEnd]. Reads 0 because FCP===LCP on this product — the boot's blocking task ends before first paint, so the strict window cannot see it (L-19)."
+        },
+        "G4 p75 LCP ≤ 2500 ms": {
+          "measured": 3912,
+          "bar": 2500,
+          "verdict": "RED"
+        }
+      },
+      "samples": [
+        {
+          "lcp": 5968,
+          "fcp": 5968,
+          "tbt": 3135,
+          "tbtLighthouseWindow": 1,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 110.2999999821186,
+              "dur": 2370
+            },
+            {
+              "start": 2486.699999988079,
+              "dur": 160
+            },
+            {
+              "start": 2876,
+              "dur": 218
+            },
+            {
+              "start": 3109.2999999821186,
+              "dur": 105
+            },
+            {
+              "start": 3216.2999999821186,
+              "dur": 438
+            },
+            {
+              "start": 3722.5,
+              "dur": 61
+            },
+            {
+              "start": 4167.799999982119,
+              "dur": 117
+            },
+            {
+              "start": 5953,
+              "dur": 66
+            }
+          ],
+          "windowEndMs": 7525.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 4036,
+          "fcp": 4036,
+          "tbt": 3180,
+          "tbtLighthouseWindow": 12.400000005960464,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 124.7999999821186,
+              "dur": 2386
+            },
+            {
+              "start": 2516.0999999940395,
+              "dur": 135
+            },
+            {
+              "start": 2849.9000000059605,
+              "dur": 64
+            },
+            {
+              "start": 2927.4000000059605,
+              "dur": 199
+            },
+            {
+              "start": 3175.9000000059605,
+              "dur": 117
+            },
+            {
+              "start": 3293.5,
+              "dur": 491
+            },
+            {
+              "start": 3812.9000000059605,
+              "dur": 114
+            },
+            {
+              "start": 4024.4000000059605,
+              "dur": 74
+            }
+          ],
+          "windowEndMs": 7011.199999988079,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3912,
+          "fcp": 3912,
+          "tbt": 2734,
+          "tbtLighthouseWindow": 8.299999982118607,
+          "cls": 0.0006848911966099887,
+          "longTasks": 7,
+          "tasks": [
+            {
+              "start": 235.59999999403954,
+              "dur": 1960
+            },
+            {
+              "start": 2202.5999999940395,
+              "dur": 165
+            },
+            {
+              "start": 2504.4000000059605,
+              "dur": 214
+            },
+            {
+              "start": 2781.199999988079,
+              "dur": 98
+            },
+            {
+              "start": 2925.699999988079,
+              "dur": 457
+            },
+            {
+              "start": 3391.4000000059605,
+              "dur": 114
+            },
+            {
+              "start": 3894.2999999821186,
+              "dur": 76
+            }
+          ],
+          "windowEndMs": 6683.199999988079,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2836,
+          "fcp": 2836,
+          "tbt": 2372,
+          "tbtLighthouseWindow": 274.2999999821186,
+          "cls": 0.0006848911966099887,
+          "longTasks": 11,
+          "tasks": [
+            {
+              "start": 223,
+              "dur": 1735
+            },
+            {
+              "start": 1964.5,
+              "dur": 137
+            },
+            {
+              "start": 2169.7999999821186,
+              "dur": 57
+            },
+            {
+              "start": 2260.2999999821186,
+              "dur": 240
+            },
+            {
+              "start": 2517.2999999821186,
+              "dur": 58
+            },
+            {
+              "start": 2614.5,
+              "dur": 54
+            },
+            {
+              "start": 2668.699999988079,
+              "dur": 92
+            },
+            {
+              "start": 2761.2999999821186,
+              "dur": 333
+            },
+            {
+              "start": 3098.7999999821186,
+              "dur": 55
+            },
+            {
+              "start": 3158.9000000059605,
+              "dur": 98
+            },
+            {
+              "start": 4799.4000000059605,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 6319.799999982119,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 5568,
+          "fcp": 5568,
+          "tbt": 3084,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.0006848911966099887,
+          "longTasks": 9,
+          "tasks": [
+            {
+              "start": 297.30000001192093,
+              "dur": 2353
+            },
+            {
+              "start": 2657.5,
+              "dur": 154
+            },
+            {
+              "start": 2877,
+              "dur": 61
+            },
+            {
+              "start": 2983.0999999940395,
+              "dur": 198
+            },
+            {
+              "start": 3305.2000000178814,
+              "dur": 84
+            },
+            {
+              "start": 3389.9000000059605,
+              "dur": 109
+            },
+            {
+              "start": 3499.4000000059605,
+              "dur": 434
+            },
+            {
+              "start": 3947.0999999940395,
+              "dur": 80
+            },
+            {
+              "start": 5548.5999999940395,
+              "dur": 61
+            }
+          ],
+          "windowEndMs": 7088.700000017881,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3796,
+          "fcp": 3796,
+          "tbt": 2696,
+          "tbtLighthouseWindow": 15.099999994039536,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 293.69999998807907,
+              "dur": 1805
+            },
+            {
+              "start": 2108.899999976158,
+              "dur": 226
+            },
+            {
+              "start": 2563.5999999940395,
+              "dur": 69
+            },
+            {
+              "start": 2634.699999988079,
+              "dur": 222
+            },
+            {
+              "start": 2923.5999999940395,
+              "dur": 110
+            },
+            {
+              "start": 3087.5,
+              "dur": 472
+            },
+            {
+              "start": 3575.7999999821186,
+              "dur": 113
+            },
+            {
+              "start": 3782.0999999940395,
+              "dur": 79
+            }
+          ],
+          "windowEndMs": 6793,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3480,
+          "fcp": 3480,
+          "tbt": 2401,
+          "tbtLighthouseWindow": 0.699999988079071,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 175.40000000596046,
+              "dur": 1462
+            },
+            {
+              "start": 1643.9000000059605,
+              "dur": 157
+            },
+            {
+              "start": 1978.4000000059605,
+              "dur": 84
+            },
+            {
+              "start": 2065.699999988079,
+              "dur": 253
+            },
+            {
+              "start": 2395.5,
+              "dur": 117
+            },
+            {
+              "start": 2592.9000000059605,
+              "dur": 570
+            },
+            {
+              "start": 3214.5,
+              "dur": 89
+            },
+            {
+              "start": 3461.699999988079,
+              "dur": 69
+            }
+          ],
+          "windowEndMs": 6386.800000011921,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3740,
+          "fcp": 3740,
+          "tbt": 2766,
+          "tbtLighthouseWindow": 1,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 234.39999997615814,
+              "dur": 1990
+            },
+            {
+              "start": 2230.899999976158,
+              "dur": 167
+            },
+            {
+              "start": 2452.899999976158,
+              "dur": 64
+            },
+            {
+              "start": 2557.5999999940395,
+              "dur": 240
+            },
+            {
+              "start": 2841.2999999821186,
+              "dur": 96
+            },
+            {
+              "start": 2937.5,
+              "dur": 432
+            },
+            {
+              "start": 3401,
+              "dur": 109
+            },
+            {
+              "start": 3723,
+              "dur": 68
+            }
+          ],
+          "windowEndMs": 6683.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2872,
+          "fcp": 2872,
+          "tbt": 2151,
+          "tbtLighthouseWindow": 44.400000005960464,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 227.5,
+              "dur": 1318
+            },
+            {
+              "start": 1552.5,
+              "dur": 167
+            },
+            {
+              "start": 1770.7000000178814,
+              "dur": 60
+            },
+            {
+              "start": 1865.6000000238419,
+              "dur": 227
+            },
+            {
+              "start": 2155.800000011921,
+              "dur": 109
+            },
+            {
+              "start": 2315.2000000178814,
+              "dur": 497
+            },
+            {
+              "start": 2843.4000000059605,
+              "dur": 92
+            },
+            {
+              "start": 2936.300000011921,
+              "dur": 81
+            }
+          ],
+          "windowEndMs": 6100.600000023842,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2696,
+          "fcp": 2696,
+          "tbt": 2542,
+          "tbtLighthouseWindow": 444,
+          "cls": 0.0006848911966099887,
+          "longTasks": 9,
+          "tasks": [
+            {
+              "start": 233.90000000596046,
+              "dur": 1778
+            },
+            {
+              "start": 2017.9000000059605,
+              "dur": 174
+            },
+            {
+              "start": 2255.2999999821186,
+              "dur": 63
+            },
+            {
+              "start": 2359.7999999821186,
+              "dur": 237
+            },
+            {
+              "start": 2633.699999988079,
+              "dur": 96
+            },
+            {
+              "start": 2825.5,
+              "dur": 107
+            },
+            {
+              "start": 2934.699999988079,
+              "dur": 404
+            },
+            {
+              "start": 3345.2999999821186,
+              "dur": 70
+            },
+            {
+              "start": 6361.799999982119,
+              "dur": 63
+            }
+          ],
+          "windowEndMs": 6453,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2412,
+          "fcp": 2412,
+          "tbt": 2049,
+          "tbtLighthouseWindow": 303.09999999403954,
+          "cls": 0.0006848911966099887,
+          "longTasks": 7,
+          "tasks": [
+            {
+              "start": 205.80000001192093,
+              "dur": 1336
+            },
+            {
+              "start": 1549.800000011921,
+              "dur": 156
+            },
+            {
+              "start": 1764.300000011921,
+              "dur": 64
+            },
+            {
+              "start": 1863.9000000059605,
+              "dur": 195
+            },
+            {
+              "start": 2120.800000011921,
+              "dur": 103
+            },
+            {
+              "start": 2270.0999999940395,
+              "dur": 436
+            },
+            {
+              "start": 2747.9000000059605,
+              "dur": 109
+            }
+          ],
+          "windowEndMs": 5920.800000011921,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2668,
+          "fcp": 2668,
+          "tbt": 2001,
+          "tbtLighthouseWindow": 41.5,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 205,
+              "dur": 1344
+            },
+            {
+              "start": 1556.699999988079,
+              "dur": 163
+            },
+            {
+              "start": 1775.199999988079,
+              "dur": 59
+            },
+            {
+              "start": 1865.9000000059605,
+              "dur": 206
+            },
+            {
+              "start": 2127.5,
+              "dur": 87
+            },
+            {
+              "start": 2258.9000000059605,
+              "dur": 375
+            },
+            {
+              "start": 2642.5,
+              "dur": 98
+            },
+            {
+              "start": 2741.4000000059605,
+              "dur": 69
+            }
+          ],
+          "windowEndMs": 5887.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2216,
+          "fcp": 2216,
+          "tbt": 1887,
+          "tbtLighthouseWindow": 348.19999998807907,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 233.89999997615814,
+              "dur": 1208
+            },
+            {
+              "start": 1448.199999988079,
+              "dur": 131
+            },
+            {
+              "start": 1631.699999988079,
+              "dur": 52
+            },
+            {
+              "start": 1713,
+              "dur": 184
+            },
+            {
+              "start": 1956.699999988079,
+              "dur": 95
+            },
+            {
+              "start": 2097.199999988079,
+              "dur": 443
+            },
+            {
+              "start": 2546.5,
+              "dur": 58
+            },
+            {
+              "start": 2608.899999976158,
+              "dur": 116
+            }
+          ],
+          "windowEndMs": 5870.399999976158,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3144,
+          "fcp": 3144,
+          "tbt": 2071,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.0006848911966099887,
+          "longTasks": 7,
+          "tasks": [
+            {
+              "start": 206,
+              "dur": 1466
+            },
+            {
+              "start": 1678.0999999940395,
+              "dur": 161
+            },
+            {
+              "start": 1967.4000000059605,
+              "dur": 172
+            },
+            {
+              "start": 2192.800000011921,
+              "dur": 81
+            },
+            {
+              "start": 2320.300000011921,
+              "dur": 399
+            },
+            {
+              "start": 2757.300000011921,
+              "dur": 84
+            },
+            {
+              "start": 3129.4000000059605,
+              "dur": 58
+            }
+          ],
+          "windowEndMs": 5984.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 2652,
+          "fcp": 2652,
+          "tbt": 1879,
+          "tbtLighthouseWindow": 2,
+          "cls": 0.0006848911966099887,
+          "longTasks": 7,
+          "tasks": [
+            {
+              "start": 208,
+              "dur": 1317
+            },
+            {
+              "start": 1530.5999999940395,
+              "dur": 147
+            },
+            {
+              "start": 1807.300000011921,
+              "dur": 154
+            },
+            {
+              "start": 2009.800000011921,
+              "dur": 84
+            },
+            {
+              "start": 2139.5999999940395,
+              "dur": 364
+            },
+            {
+              "start": 2512.7000000178814,
+              "dur": 99
+            },
+            {
+              "start": 2640,
+              "dur": 64
+            }
+          ],
+          "windowEndMs": 5681.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 4208,
+          "fcp": 4208,
+          "tbt": 2904,
+          "tbtLighthouseWindow": 9.400000005960464,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 240.5,
+              "dur": 2202
+            },
+            {
+              "start": 2448.9000000059605,
+              "dur": 130
+            },
+            {
+              "start": 2631.4000000059605,
+              "dur": 54
+            },
+            {
+              "start": 2715.9000000059605,
+              "dur": 194
+            },
+            {
+              "start": 2971.7000000178814,
+              "dur": 111
+            },
+            {
+              "start": 3128.800000011921,
+              "dur": 437
+            },
+            {
+              "start": 3620.0999999940395,
+              "dur": 99
+            },
+            {
+              "start": 4190.4000000059605,
+              "dur": 77
+            }
+          ],
+          "windowEndMs": 6804.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3804,
+          "fcp": 3804,
+          "tbt": 2412,
+          "tbtLighthouseWindow": 0,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 241.59999999403954,
+              "dur": 1711
+            },
+            {
+              "start": 1959.199999988079,
+              "dur": 163
+            },
+            {
+              "start": 2178.800000011921,
+              "dur": 56
+            },
+            {
+              "start": 2268.5999999940395,
+              "dur": 202
+            },
+            {
+              "start": 2529.5,
+              "dur": 90
+            },
+            {
+              "start": 2667.199999988079,
+              "dur": 444
+            },
+            {
+              "start": 3120.5999999940395,
+              "dur": 81
+            },
+            {
+              "start": 3788.5999999940395,
+              "dur": 65
+            }
+          ],
+          "windowEndMs": 6366.5999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3680,
+          "fcp": 3680,
+          "tbt": 2358,
+          "tbtLighthouseWindow": 15.800000011920929,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 248.09999999403954,
+              "dur": 1639
+            },
+            {
+              "start": 1893.0999999940395,
+              "dur": 167
+            },
+            {
+              "start": 2113.5999999940395,
+              "dur": 61
+            },
+            {
+              "start": 2199.5999999940395,
+              "dur": 210
+            },
+            {
+              "start": 2466,
+              "dur": 107
+            },
+            {
+              "start": 2611.5999999940395,
+              "dur": 394
+            },
+            {
+              "start": 3013.800000011921,
+              "dur": 102
+            },
+            {
+              "start": 3667.800000011921,
+              "dur": 78
+            }
+          ],
+          "windowEndMs": 6196.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3788,
+          "fcp": 3788,
+          "tbt": 3010,
+          "tbtLighthouseWindow": 30,
+          "cls": 0.0006848911966099887,
+          "longTasks": 8,
+          "tasks": [
+            {
+              "start": 250.69999998807907,
+              "dur": 2220
+            },
+            {
+              "start": 2476.899999976158,
+              "dur": 168
+            },
+            {
+              "start": 2705.2999999821186,
+              "dur": 50
+            },
+            {
+              "start": 2781.0999999940395,
+              "dur": 234
+            },
+            {
+              "start": 3077.7999999821186,
+              "dur": 107
+            },
+            {
+              "start": 3230.0999999940395,
+              "dur": 458
+            },
+            {
+              "start": 3695.899999976158,
+              "dur": 93
+            },
+            {
+              "start": 3789.5,
+              "dur": 80
+            }
+          ],
+          "windowEndMs": 6956.0999999940395,
+          "transferBytes": 2286256,
+          "resources": 24
+        },
+        {
+          "lcp": 3148,
+          "fcp": 3148,
+          "tbt": 2313,
+          "tbtLighthouseWindow": 41.099999994039536,
+          "cls": 0.0006848911966099887,
+          "longTasks": 9,
+          "tasks": [
+            {
+              "start": 327.80000001192093,
+              "dur": 1584
+            },
+            {
+              "start": 1918.5,
+              "dur": 152
+            },
+            {
+              "start": 2137.0999999940395,
+              "dur": 54
+            },
+            {
+              "start": 2227.800000011921,
+              "dur": 217
+            },
+            {
+              "start": 2497.800000011921,
+              "dur": 102
+            },
+            {
+              "start": 2633.2000000178814,
+              "dur": 118
+            },
+            {
+              "start": 2751.4000000059605,
+              "dur": 377
+            },
+            {
+              "start": 3130.0999999940395,
+              "dur": 99
+            },
+            {
+              "start": 6134.9000000059605,
+              "dur": 60
+            }
+          ],
+          "windowEndMs": 6223.800000011921,
+          "transferBytes": 2286256,
+          "resources": 24
+        }
+      ]
+    }
+  }
+}
+  ✘  3 [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs (6.6m)
+(node:91222) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[frame-budget:idle] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))
+  hero live: draws=6 over frames=6 window=3000ms p50=525.7ms p95=649.3ms
+  §6.2 GATE: idle p50 ≤ 13ms (hero live)  [asserted on real GPU — probe-idle-cost.mjs GPU=1]
+  ✘  4 [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:47:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate) (1.1m)
+(node:94787) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[O-24 light] candidate sequence:
+  
+[O-24 dark] candidate sequence:
+  
+[O-24 light] t=-1ms size=-1 <(none)> testid= id= cls="" text="" opacity=
+[O-24 dark ] t=-1ms size=-1 <(none)> testid= id= cls="" text="" opacity=
+  ✘  5 [smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle (1.1m)
+(node:97929) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  6 [smoke-perf] › e2e/smoke/perf/o5-boot-pacing.spec.ts:74:1 › O-5 boot pacing — no jitter spike over the boot window (9.9s)
+(node:98582) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  7 [smoke-perf] › e2e/smoke/perf/view-switch-frame-budget.spec.ts:43:1 › view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (built-bundle gate) (30.3s)
+
+
+  1) [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('slider', { name: 'L channel' }).first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('slider', { name: 'L channel' }).first()[22m
+
+
+      41 |
+      42 |     const slider = page.getByRole("slider", { name: "L channel" }).first();
+    > 43 |     await expect(slider).toBeVisible();
+         |                          ^
+      44 |     const box = await slider.boundingBox();
+      45 |     if (!box) throw new Error("L channel slider not laid out");
+      46 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/drag-frame-budget.spec.ts:43:26
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/drag-frame-budget-slider-d-8d7ac-sks-50ms-built-bundle-gate--smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:313:1 › X-W2 G2 — the eager module set's JS gzip budget, from the built artifact 
+
+    Error: eager JS gzip 329330 B (321.6 KiB) exceeds the 286720 B (280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m286720[39m
+    Received:    [31m329330[39m
+
+      372 |             `(280 KiB) bar. The bar is FIXED at wave-open (W2.md §11 guardrail 1) — the cure is to take ` +
+      373 |             `bytes OUT of the eager graph (X.W2.a's ./blob-config repoint), never to move the bar.`,
+    > 374 |     ).toBeLessThanOrEqual(EAGER_JS_GZ_MAX);
+          |       ^
+      375 | });
+      376 |
+      377 | test("X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:374:7
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/eager-payload-X-W2-G2-—-th-e3033-get-from-the-built-artifact-smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/eager-payload-X-W2-G2-—-th-e3033-get-from-the-built-artifact-smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/eager-payload-X-W2-G2-—-th-e3033-get-from-the-built-artifact-smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs 
+
+    Error: G3 desktop-unthrottled: p75 TBT 1688ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9142]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m300[39m
+    Received:    [31m1688[39m
+
+      531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,
+      532 |             )
+    > 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);
+          |              ^
+      534 |         expect
+      535 |             .soft(
+      536 |                 s.p75Lcp,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:533:14
+
+    Error: G4 desktop-unthrottled: p75 LCP 3712ms over N=20 exceeds 2500ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9142].
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m2500[39m
+    Received:    [31m3712[39m
+
+      538 |                     `on pin [${pin}].`,
+      539 |             )
+    > 540 |             .toBeLessThanOrEqual(P75_LCP_MAX_MS);
+          |              ^
+      541 |     }
+      542 | });
+      543 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:540:14
+
+    Error: G3 mobile-4x-cpu: p75 TBT 2904ms over N=20 (window [navigationStart, observationEnd]) exceeds 300ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9142]. The bar is lighthouserc.json's total-blocking-time error bar, fixed at wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m300[39m
+    Received:    [31m2904[39m
+
+      531 |                     `wave-open; a still-red TBT after the payload cut is a §3a triumvirate trigger, not a re-baseline.`,
+      532 |             )
+    > 533 |             .toBeLessThanOrEqual(P75_TBT_MAX_MS);
+          |              ^
+      534 |         expect
+      535 |             .soft(
+      536 |                 s.p75Lcp,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:533:14
+
+    Error: G4 mobile-4x-cpu: p75 LCP 3912ms over N=20 exceeds 2500ms on pin [macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :9142].
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m2500[39m
+    Received:    [31m3912[39m
+
+      538 |                     `on pin [${pin}].`,
+      539 |             )
+    > 540 |             .toBeLessThanOrEqual(P75_LCP_MAX_MS);
+          |              ^
+      541 |     }
+      542 | });
+      543 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/eager-payload.spec.ts:540:14
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/eager-payload-X-W2-G3-G4-—-2a4c3-≥20-cold-loads-both-configs-smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:47:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate) 
+
+    Error: software-GL idle p50 525.7ms over the 500ms hang guard
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m500[39m
+    Received:    [31m525.7000000000044[39m
+
+      105 |             p50,
+      106 |             `software-GL idle p50 ${p50.toFixed(1)}ms over the ${SOFT_CEIL.idleP50Ms}ms hang guard`,
+    > 107 |         ).toBeLessThanOrEqual(SOFT_CEIL.idleP50Ms);
+          |           ^
+      108 |     } else {
+      109 |         expect(
+      110 |             p50,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/idle-frame-budget.spec.ts:107:11
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/idle-frame-budget-idle-pic-1319a-0-≤-13ms-built-bundle-gate--smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/idle-frame-budget-idle-pic-1319a-0-≤-13ms-built-bundle-gate--smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/idle-frame-budget-idle-pic-1319a-0-≤-13ms-built-bundle-gate--smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle 
+
+    Error: no LCP entry recorded (light)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m-1[39m
+
+      142 |
+      143 |     // Leg 0 — an LCP entry exists on both schemes.
+    > 144 |     expect(light.time, "no LCP entry recorded (light)").toBeGreaterThan(0);
+          |                                                         ^
+      145 |     expect(dark.time, "no LCP entry recorded (dark)").toBeGreaterThan(0);
+      146 |
+      147 |     // Leg 1 — IDENTITY: the LCP element is the same element class across
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/o24-lcp-identity.spec.ts:144:57
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/o24-lcp-identity-O-24-LCP--1e893-—-both-schemes-built-bundle-smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/o24-lcp-identity-O-24-LCP--1e893-—-both-schemes-built-bundle-smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/o24-lcp-identity-O-24-LCP--1e893-—-both-schemes-built-bundle-smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [smoke-perf] › e2e/smoke/perf/o5-boot-pacing.spec.ts:74:1 › O-5 boot pacing — no jitter spike over the boot window 
+
+    Error: no boot frames captured
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m10[39m
+    Received:   [31m3[39m
+
+      94 |     await waitMs(page, 4000);
+      95 |     const frames = (await readFrames(page)).filter((d) => d > 0);
+    > 96 |     expect(frames.length, "no boot frames captured").toBeGreaterThan(10);
+         |                                                      ^
+      97 |
+      98 |     const median = percentile(frames, 50);
+      99 |     const maxDelta = Math.max(...frames);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/o5-boot-pacing.spec.ts:96:54
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/o5-boot-pacing-O-5-boot-pa-aca4a--spike-over-the-boot-window-smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/o5-boot-pacing-O-5-boot-pa-aca4a--spike-over-the-boot-window-smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/o5-boot-pacing-O-5-boot-pa-aca4a--spike-over-the-boot-window-smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [smoke-perf] › e2e/smoke/perf/view-switch-frame-budget.spec.ts:43:1 › view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (built-bundle gate) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('option', { name: 'Gradient', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-14dddf1d="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-112" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      129 |     });
+      130 |
+    > 131 |     await option.click();
+          |                  ^
+      132 |
+      133 |     // The swap committed — the Gradient pane heading proves the view changed.
+      134 |     await expect(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/view-switch-frame-budget.spec.ts:131:18
+
+    Error Context: ../../.dev-logs/w12u-q/r2-smoke-perf/view-switch-frame-budget-v-9f970-k-≤-50ms-built-bundle-gate--smoke-perf/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2-smoke-perf/view-switch-frame-budget-v-9f970-k-≤-50ms-built-bundle-gate--smoke-perf/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2-smoke-perf/view-switch-frame-budget-v-9f970-k-≤-50ms-built-bundle-gate--smoke-perf/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7 failed
+    [smoke-perf] › e2e/smoke/perf/drag-frame-budget.spec.ts:33:1 › slider-drag frame budget: p50 ≤ 20ms · 0 long tasks > 50ms (built-bundle gate) 
+    [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:313:1 › X-W2 G2 — the eager module set's JS gzip budget, from the built artifact 
+    [smoke-perf] › e2e/smoke/perf/eager-payload.spec.ts:377:1 › X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs 
+    [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:47:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate) 
+    [smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle 
+    [smoke-perf] › e2e/smoke/perf/o5-boot-pacing.spec.ts:74:1 › O-5 boot pacing — no jitter spike over the boot window 
+    [smoke-perf] › e2e/smoke/perf/view-switch-frame-budget.spec.ts:43:1 › view-switch frame budget: first frame ≤ 100ms · long task ≤ 50ms (built-bundle gate) 
+### smoke-perf end 10-13 16:25:52 load1=190.81 exit=0

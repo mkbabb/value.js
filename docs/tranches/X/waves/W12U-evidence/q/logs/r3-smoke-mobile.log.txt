@@ -1,0 +1,42 @@
+### smoke-mobile (r3, re-run of r2: 1 ids) start 10-13 16:43:15 load1=814.15
+(node:41005) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:41077) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) (29.3s)
+
+
+  1) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    Error: wrapper top inside card
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m679.765625[39m
+    Received:    [31m127.625[39m
+
+      140 |     if (!wrapper || !card) throw new Error("seat geometry not laid out");
+      141 |     expect(wrapper.x, "wrapper left inside card").toBeGreaterThanOrEqual(card.x - 1);
+    > 142 |     expect(wrapper.y, "wrapper top inside card").toBeGreaterThanOrEqual(card.y - 1);
+          |                                                  ^
+      143 |     expect(
+      144 |         wrapper.x + wrapper.width,
+      145 |         "wrapper right inside card",
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:142:50
+
+    Error Context: ../../.dev-logs/w12u-q/r3-smoke-mobile/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r3-smoke-mobile/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r3-smoke-mobile/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+### smoke-mobile end 10-13 16:44:17 load1=702.25 exit=1

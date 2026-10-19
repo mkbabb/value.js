@@ -1,0 +1,34 @@
+# parseCssColor.retired.cpuprofile — 4110 ms sampled (idle excluded)
+## by layer
+ 76.5% value.js stylesheet/css layer
+ 13.1% regex engine (irregexp code)
+  2.1% value.js colour/value model
+  1.4% GC
+  1.4% V8 (program: runtime/regex/IC)
+  5.5% node/harness JS (loader, script)
+## top 25 self
+ 29.7% parseCssColor · src/src/css/grammar.ts:290   [value.js stylesheet/css layer]
+ 25.3% splitTopLevel · src/src/css/grammar.ts:69   [value.js stylesheet/css layer]
+  7.7% failure · src/src/css/grammar.ts:51   [value.js stylesheet/css layer]
+  6.9% parseFunctionalColor · src/src/css/grammar.ts:208   [value.js stylesheet/css layer]
+  5.2% RegExp: \s ·    [regex engine (irregexp code)]
+  4.3% (anon) · file:///Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W7-research/survey-profile/profile-run.mjs   [other JS (profile-run.mjs)]
+  3.0% RegExp: ^([a-z][\w-]*)\((.*)\)$ ·    [regex engine (irregexp code)]
+  2.5% numberToken · src/src/css/grammar.ts:134   [value.js stylesheet/css layer]
+  1.9% channelToken · src/src/css/grammar.ts:140   [value.js stylesheet/css layer]
+  1.5% createColor · src/src/color/model.ts:78   [value.js colour/value model]
+  1.4% (garbage collector) ·    [GC]
+  1.4% (program) ·    [V8 (program: runtime/regex/IC)]
+  1.2% RegExp: ^#([\da-f]{3,4}|[\da-f]{6}|[\da-f]{8})$ ·    [regex engine (irregexp code)]
+  1.0% RegExp: ^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$ ·    [regex engine (irregexp code)]
+  1.0% (anon) · src/src/css/grammar.ts:169   [value.js stylesheet/css layer]
+  0.7% RegExp: ^(?:currentcolor|accentcolor|accentcolortext|activetext|buttonborder|buttonface|buttontext|canvas|canvastext|field|fieldtext|graytext|highlight|highlighttext|linktext|mark|marktext|selecteditem|selecteditemtext|visitedtext)$ ·    [regex engine (irregexp code)]
+  0.6% RegExp: \bfrom\b ·    [regex engine (irregexp code)]
+  0.6% success · src/src/css/grammar.ts:46   [value.js stylesheet/css layer]
+  0.5% RegExp: ^(?:hsv|kelvin|ictcp|jzazbz)\( ·    [regex engine (irregexp code)]
+  0.5% (anon) · src/src/color/model.ts:102   [value.js colour/value model]
+  0.5% compileForInternalLoader · node:internal/bootstrap/realm   [other JS (realm)]
+  0.4% RegExp: ^(?:var|env)\( ·    [regex engine (irregexp code)]
+  0.4% RegExp: ^([+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?)(deg|grad|rad|turn)?$ ·    [regex engine (irregexp code)]
+  0.2% deepFreeze · src/src/css/grammar.ts:39   [value.js stylesheet/css layer]
+  0.2% chan · src/src/css/grammar.ts:168   [value.js stylesheet/css layer]

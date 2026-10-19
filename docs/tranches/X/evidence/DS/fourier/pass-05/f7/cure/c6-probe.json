@@ -1,0 +1,42 @@
+{
+ "collapsed-light": {
+  "expanded": null,
+  "inset": "16px",
+  "dock": [
+   261,
+   141,
+   104,
+   68
+  ]
+ },
+ "expanded-light": {
+  "expanded": "true",
+  "inset": "79px",
+  "dock": [
+   17,
+   141,
+   348,
+   68
+  ]
+ },
+ "collapsed-dark": {
+  "expanded": null,
+  "inset": "16px",
+  "dock": [
+   261,
+   141,
+   104,
+   68
+  ]
+ },
+ "expanded-dark": {
+  "expanded": "true",
+  "inset": "79px",
+  "dock": [
+   17,
+   141,
+   348,
+   68
+  ]
+ }
+}

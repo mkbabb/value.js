@@ -1,0 +1,72 @@
+[
+ {
+  "leg": "1440-light",
+  "sha": "aaae783b",
+  "dirty": "5",
+  "errs": [],
+  "pressedLinear": {
+   "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+   "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 ",
+   "bc": "rgb(198, 180, 159)",
+   "state": "on"
+  },
+  "restEase": {
+   "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+   "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 ",
+   "bc": "rgb(198, 180, 159)",
+   "state": "off"
+  },
+  "hoverEase": {
+   "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+   "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 ",
+   "bc": "rgb(198, 180, 159)",
+   "state": "off"
+  },
+  "stepsText": "Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps.\n0\n1\nSTEPS (N) — 4\nJUMP TERM\njump-end",
+  "head": "1 → 2\nsteps",
+  "readout": "steps(4, jump-end)",
+  "ctrls": [
+   "slider|Step count|0x20|r=0px|fs=18.608px",
+   "combobox|Jump term|440x40|r=9999px|fs=16.4px"
+  ]
+ },
+ {
+  "leg": "390-light",
+  "sha": "aaae783b",
+  "dirty": "5",
+  "errs": [
+   "SCRIPT TimeoutError: locator.waitFor: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.easing-panel') to be visible\u001b[22m\n"
+  ]
+ },
+ {
+  "leg": "1440-dark",
+  "sha": "aaae783b",
+  "dirty": "5",
+  "errs": [],
+  "pressedLinear": {
+   "bg": "oklab(0.467324 0.0127196 0.0308567 / 0.911296)",
+   "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0",
+   "bc": "rgb(101, 87, 73)",
+   "state": "on"
+  },
+  "restEase": {
+   "bg": "oklab(0.467324 0.0127196 0.0308567 / 0.911296)",
+   "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0",
+   "bc": "rgb(101, 87, 73)",
+   "state": "off"
+  },
+  "hoverEase": {
+   "bg": "oklab(0.467324 0.0127196 0.0308567 / 0.911296)",
+   "bs": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0",
+   "bc": "rgb(101, 87, 73)",
+   "state": "off"
+  },
+  "stepsText": "Left and Right change x from 0 to 1. Up and Down change y from -0.6 to 1.6. Hold Shift for larger steps.\n0\n1\nSTEPS (N) — 4\nJUMP TERM\njump-end",
+  "head": "1 → 2\nsteps",
+  "readout": "steps(4, jump-end)",
+  "ctrls": [
+   "slider|Step count|0x20|r=0px|fs=18.608px",
+   "combobox|Jump term|440x40|r=9999px|fs=16.4px"
+  ]
+ }
+]

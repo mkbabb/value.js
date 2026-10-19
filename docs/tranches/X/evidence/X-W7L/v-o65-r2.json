@@ -1,0 +1,22 @@
+{
+ "origin": "http://localhost:9000",
+ "at": "2026-09-25T17:04:26.472Z",
+ "atRest": {
+  "state": "expanded",
+  "plate": {
+   "w": 479.5,
+   "h": 61
+  },
+  "seats": 9,
+  "outside": []
+ },
+ "idle": {
+  "state": "collapsed",
+  "plate": {
+   "w": 56,
+   "h": 56
+  },
+  "seats": 1,
+  "outside": []
+ }
+}

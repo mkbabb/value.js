@@ -1,0 +1,91 @@
+SERVED MODEL: claude-opus-5[1m]
+X.P.W4.h — the two-cell census, re-emitted 2026-09-19 (COHESION §0ab bullet 2). NEW, beside evidence/W3 (E-3).
+Command: node docs/tranches/X/parse-that/evidence/W4/two-cell-census-2026-09-19-w4h.mjs   (double-run, byte-identical)
+
+#40            identical            raw-identical yes "b { background-color: var(--brand) -!important }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"items":[{"args":[{"kind":"scalar","payload":{"type":"keyword","value":"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"items":[{"args":[{"kind":"scalar","payload":{"type":"keyword","value":"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"items":[{"args":[{"kind":"scalar","payload":{"type":"keyword","value":"
+#41            identical            raw-identical no  "#d { background-color: hsl(73.416 -338 -290)!important } .c { color: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+  js          ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+  4.0.0 raw   ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+ctl-spaced     identical            raw-identical yes "b { color: red !important }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+ctl-minimal    identical            raw-identical yes "b { color: red!important }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+ctl-40-spaced  identical            raw-identical yes "b { background-color: var(--brand) - !important }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"items":[{"args":[{"kind":"scalar","payload":{"type":"keyword","value":"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"items":[{"args":[{"kind":"scalar","payload":{"type":"keyword","value":"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"background-color","value":{"items":[{"args":[{"kind":"scalar","payload":{"type":"keyword","value":"
+ctl-gap        identical            raw-identical yes "b { color: red ! important }"
+  4.0.0 ruled REJECT
+  js          REJECT
+  wasm        REJECT
+ctl-gap2       identical            raw-identical yes "b { color: red! important }"
+  4.0.0 ruled REJECT
+  js          REJECT
+  wasm        REJECT
+ctl-fold       identical            raw-identical yes "b { color: red!IMPORTANT }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+ctl-tail-ws    identical            raw-identical yes "b { color: red!important   }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+ctl-semi       identical            raw-identical yes "b { color: red!important; background: blue }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  js          ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+  wasm        ACCEPT [{"declarations":[{"important":true,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],"
+ctl-twice      identical            raw-identical yes "b { color: red!important!important }"
+  4.0.0 ruled REJECT
+  js          REJECT
+  wasm        REJECT
+f1-col!r       declared-divergence  raw-identical no  "a { col!r: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"col!r","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+  js          REJECT
+  wasm        REJECT
+  4.0.0 raw   ACCEPT [{"declarations":[{"important":false,"name":"col!r","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+f1-lead        declared-divergence  raw-identical no  "a { !color: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"!color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0]
+  js          REJECT
+  wasm        REJECT
+  4.0.0 raw   ACCEPT [{"declarations":[{"important":false,"name":"!color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0]
+f1-trail       declared-divergence  raw-identical no  "a { color!: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"color!","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0]
+  js          REJECT
+  wasm        REJECT
+  4.0.0 raw   ACCEPT [{"declarations":[{"important":false,"name":"color!","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0]
+f1-digit       declared-divergence  raw-identical no  "a { 1color: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"1color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0]
+  js          REJECT
+  wasm        REJECT
+  4.0.0 raw   ACCEPT [{"declarations":[{"important":false,"name":"1color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0]
+f1-ok          identical            raw-identical yes "a { color: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+  js          ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+  wasm        ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+f1-custom      identical            raw-identical yes "a { --brand: red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"--brand","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0
+  js          ACCEPT [{"declarations":[{"important":false,"name":"--brand","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0
+  wasm        ACCEPT [{"declarations":[{"important":false,"name":"--brand","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0
+f1-ws          identical            raw-identical yes "a { color : red }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+  js          ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+  wasm        ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":[255,0,0],
+neq-spaced     identical            raw-identical yes "a { color: red != blue }"
+  4.0.0 ruled ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"items":[{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+  js          ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"items":[{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+  wasm        ACCEPT [{"declarations":[{"important":false,"name":"color","value":{"items":[{"kind":"scalar","payload":{"type":"color","value":{"alpha":1,"channels":
+neq-abut       identical            raw-identical yes "a { color: red!= blue }"
+  4.0.0 ruled REJECT
+  js          REJECT
+  wasm        REJECT
+
+cells #40/#41: #40 identical · #41 identical · rows 20 · identical 16 · declared-divergence 4 · lowerings disagree 0

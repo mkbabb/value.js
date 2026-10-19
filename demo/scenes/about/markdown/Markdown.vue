@@ -1,10 +1,10 @@
 <template>
     <!-- R.W4 Lane A / A2 (U20): glass shimmer bones, not opaque pulse blocks. -->
     <div v-if="isLoading" class="flex items-center space-x-4 h-full">
-        <Skeleton surface="glass" variant="shimmer" class="h-12 w-12 rounded-full" />
+        <Skeleton class="h-12 w-12 rounded-full" />
         <div class="space-y-2">
-            <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
-            <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
+            <Skeleton class="h-4 w-full" />
+            <Skeleton class="h-4 w-full" />
         </div>
     </div>
 
@@ -32,12 +32,12 @@
 </template>
 
 <script setup lang="ts">
-import { Alert, AlertDescription, AlertTitle } from "../../../ui/alert";
-import { Skeleton } from "../../../ui/skeleton";
+import { Alert, AlertDescription, AlertTitle } from "@mkbabb/glass-ui";
+import { Skeleton } from "@mkbabb/glass-ui";
 import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
-import type { DocModule } from "./";
+import type { DocModule } from "./types";
 import { useMarkdownColors } from "./composables/useMarkdownColors";
 import { useMarkdownHighlighting } from "./composables/useMarkdownHighlighting";
 
@@ -238,16 +238,17 @@ onUpdated(() => {
     }
 
     code {
-        @apply text-xs font-mono bg-well rounded;
+        @apply text-caption font-mono bg-well rounded;
     }
 
     /* Inline code — the markdown accent voice (D6, T.W3-5): inline code joins
      * the PLATE-certified `--md-color-accent` the headings already speak — one
      * accent family, certified for the surface it actually sits on. The chip
      * fill joins the well recipe (AB-3), the ground the hljs census re-measures
-     * against. */
-    p > code,
-    li > code {
+     * against. X-DS value pass 12 (V12C-03): ONE inline-code rule — every
+     * code outside a <pre>, so a label's chip inside <strong> speaks the same
+     * register as the prose's chips below it. */
+    :not(pre) > code {
         @apply bg-well rounded px-1 py-0.5;
         color: var(--md-color-accent, var(--foreground));
     }
@@ -297,12 +298,26 @@ onUpdated(() => {
      * .katex { white-space: nowrap }` let wide formulas (the L-a-b lightness
      * row) overflow and clip at the card edge with content loss. `:has(>
      * .katex-display)` is the display-block's true structure; the wide row scrolls
-     * honestly inside its own overflow-x:auto box (no card overflow). */
+     * honestly inside its own overflow-x:auto box (no card overflow).
+     * X-DS VC5-03: that scroll had no cue on a phone (the scrollbar is
+     * hidden), so a cut glyph read as a clipped formula. The row's trailing
+     * edge fades by a flat MASK while there is more of the row to the right;
+     * the fade's width rides the row's own inline scroll timeline, so a row
+     * that fits (an inactive timeline) or a row scrolled to its end carries
+     * no mask, and an engine without scroll timelines resolves to the end
+     * state (no mask) - never a shadow. */
     > div.inline-block:has(> .katex-display) {
         display: block;
         @apply overflow-x-auto;
         padding: var(--phi-1) 0 var(--phi-1) var(--phi-3);
         margin-block: var(--phi-1);
+        mask-image: linear-gradient(
+            to right,
+            #000 calc(100% - var(--katex-row-edge)),
+            transparent
+        );
+        animation: katex-row-edge linear both;
+        animation-timeline: scroll(self inline);
     }
 
     /* Horizontal rule — the section divider carries even φ air (U5). */
@@ -363,18 +378,18 @@ onUpdated(() => {
         padding-top: var(--phi-3);
 
         ol {
-            @apply text-sm;
+            @apply text-small;
         }
     }
 
     /* Footnote links */
     .footnote-ref {
-        @apply text-xs;
+        @apply text-caption;
     }
 
     /* Footnote definitions */
     .footnote-item {
-        @apply text-sm;
+        @apply text-small;
     }
 
     /* Tables of contents — T.W3-4 (the F6 ONE-grammar law): the sticky
@@ -403,6 +418,25 @@ onUpdated(() => {
 
     .toc a {
         @apply text-primary hover:underline transition-colors duration-fast;
+    }
+}
+
+/* X-DS VC5-03 - the display-math row's trailing-edge fade width. Registered
+ * so the scroll timeline interpolates it; its initial value (0) is the
+ * no-mask state a fitting row keeps. */
+@property --katex-row-edge {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+@keyframes katex-row-edge {
+    0%,
+    90% {
+        --katex-row-edge: 1.5rem;
+    }
+    100% {
+        --katex-row-edge: 0px;
     }
 }
 </style>

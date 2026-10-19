@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 
 /**
  * E.W3 Lane A admin flow #10 — tag-delete. Seed the tag list with a
@@ -27,7 +28,7 @@ test("admin tag delete DELETEs /admin/tags/<name>", async ({ page }) => {
     });
 
     await page.goto("/#/admin/tags");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     // Wait for the tag pill to render (the GET /admin/tags fulfilment is
     // async; the delete button is `opacity-0` group-hover-revealed but
     // present in the DOM once the parent pill mounts — wait on the pill
@@ -46,5 +47,12 @@ test("admin tag delete DELETEs /admin/tags/<name>", async ({ page }) => {
         .getByRole("button", { name: "Delete tag ew3-doomed" })
         .filter({ visible: true })
         .dispatchEvent("click");
+    // X.W7.e (G14 · W7.89 · ATP-1): the destructive seat opens a confirm and
+    // DELETEs only from the dialog's own verb (X-W12U .q re-points the flow).
+    expect(deleteCalled, "no DELETE before the confirm").toBe(false);
+    await page
+        .getByRole("dialog", { name: "Delete tag?" })
+        .getByRole("button", { name: "Delete tag" })
+        .click();
     await expect.poll(() => deleteCalled).toBe(true);
 });

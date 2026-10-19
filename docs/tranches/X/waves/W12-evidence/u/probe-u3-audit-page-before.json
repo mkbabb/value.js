@@ -1,0 +1,21 @@
+{
+ "errs": [],
+ "during": {
+  "skeleton": true,
+  "rows": 0,
+  "pager": false,
+  "busy": null,
+  "focus": "BODY:→\nAUDIT LOG\n\nAudit L",
+  "cardH": 341,
+  "pageText": null
+ },
+ "after": {
+  "skeleton": false,
+  "rows": 20,
+  "pager": true,
+  "busy": null,
+  "focus": "BODY:→\nAUDIT LOG\n\nAudit L",
+  "cardH": 1839,
+  "pageText": "Page 2 of 3"
+ }
+}

@@ -1,0 +1,14 @@
+
+Running 10 tests using 2 workers
+
+[1/10] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[2/10] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[3/10] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[4/10] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[5/10] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+[6/10] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[7/10] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[8/10] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[9/10] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[10/10] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+  10 passed (59.0s)

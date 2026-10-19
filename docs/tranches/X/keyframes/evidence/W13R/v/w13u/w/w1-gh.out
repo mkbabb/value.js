@@ -1,0 +1,66 @@
+{
+ "rest": [
+  {
+   "bob": "translateY(4.44247px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(249.805deg) rotateY(0.693904turn) rotateZ(249.805deg)",
+   "cubeComp": "matrix3d(0.119169, 0.0199169, 0.992674, 0, -0.323988, 0.945852, 0.0199169, 0, -0.938526, -0.323988, 0.119169, 0, 0, 0, 0",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(1.25343px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(338.095deg) rotateY(0.939153turn) rotateZ(338.095deg)",
+   "cubeComp": "matrix3d(0.860819, -0.217003, 0.460326, 0, 0.346135, 0.912743, -0.217003, 0, -0.373069, 0.346135, 0.860819, 0, 0, 0, 0, ",
+   "rollComp": "none",
+   "anims": []
+  }
+ ],
+ "autoPlaying": true,
+ "paused": [
+  {
+   "bob": "translateY(0.981039px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(342.949deg) rotateY(0.952636turn) rotateZ(342.949deg)",
+   "cubeComp": "matrix3d(0.91402, -0.198134, 0.353993, 0, 0.280335, 0.939231, -0.198134, 0, -0.293224, 0.280335, 0.91402, 0, 0, 0, 0, 1)",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(0.981039px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(342.949deg) rotateY(0.952636turn) rotateZ(342.949deg)",
+   "cubeComp": "matrix3d(0.91402, -0.198134, 0.353993, 0, 0.280335, 0.939231, -0.198134, 0, -0.293224, 0.280335, 0.91402, 0, 0, 0, 0, 1)",
+   "rollComp": "none",
+   "anims": []
+  }
+ ],
+ "play": [
+  {
+   "bob": "translateY(0.384644px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(353.308deg) rotateY(0.981411turn) rotateZ(353.308deg)",
+   "cubeComp": "matrix3d(0.98642, -0.102253, 0.128533, 0, 0.115741, 0.988002, -0.102253, 0, -0.116535, 0.115741, 0.98642, 0, 0, 0, 0, 1)",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(0px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(360deg) rotateY(1turn) rotateZ(360deg)",
+   "cubeComp": "matrix(1, 0, 0, 1, 0, 0)",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(0.381069px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(353.369deg) rotateY(0.981582turn) rotateZ(353.369deg)",
+   "cubeComp": "matrix3d(0.986668, -0.101451, 0.127259, 0, 0.114694, 0.988207, -0.101451, 0, -0.115466, 0.114694, 0.986668, 0, 0, 0, 0, ",
+   "rollComp": "none",
+   "anims": []
+  }
+ ],
+ "errs": []
+}

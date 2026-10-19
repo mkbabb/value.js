@@ -1,0 +1,25 @@
+# 2026-10-16 07:15:44 load: 21.57 17.95 17.78 head: 389e31d2
+run-demo-roster — 1 observation(s) · one shared chromium + one served dist snapshot
+
+──── smoke ────
+  ✓ entry chunk assets/index-DhTTKDXv.js is substantial (308988 B > 50000 B floor)
+  ✓ entry's static import graph excludes vendor-monaco / vendor-three
+  ✓ CSS asset emitted (assets/index-DZnyjz2C.css)
+  ✓ critical-CSS <style data-critical> block inlined
+  ✓ main stylesheet deferred (media=print onload swap)
+  ✓ no loading-splash residue
+demo-smoke — inv γ (the demo cannot ship blank)
+  ✓ #app mounts with non-trivial children
+  ✓ home hero text renders
+  ✓ no vendor-monaco / vendor-three / worker request at first paint
+  ✓ zero console errors during mount
+  ✓ zero uncaught pageerror during mount
+  ✓ no literal '[object Object]' text node
+
+demo-smoke — PASS: the built demo paints (inv γ holds).
+
+════ run-demo-roster — REPORT ════
+  passed: 1/1
+run-demo-roster — PASS
+EXIT=0
+# end 07:15:49 load: 22.41 18.19 17.86

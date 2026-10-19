@@ -1,0 +1,11 @@
+OA-36 audit seat: value.js palette-scene-actions (2026-09-23). Headed Chromium (Playwright, real GPU), served http://localhost:9000/.
+Scripts: capture.mjs (all states; arg: theme vp), probe.mjs (row overflow / seat focus / verdict race), probe-two.mjs (two-pane selection).
+API routed ONLY at the page's network boundary (page.route): "down" = connection refused; browse = mocked owned remote palette, mutations 500.
+Tree HEAD + dirty count per capture (value.js):
+  light-1440-*  e97c8afc dirty 22   (capture-log-light-1440.json)
+  dark-1440-*   f95a2f77 dirty 4    (capture-log-dark-1440.json)
+  light-390-*   f95a2f77 dirty 5    (capture-log-light-390.json)
+  dark-390-*    f95a2f77 dirty 20   (capture-log-dark-390.json)
+  probe-*-row / probe-*-seat-focus  f95a2f77 dirty 20 (probe-log.json)
+  probe-two-*   5ac82779 dirty 5    (probe-two-log.json)
+sheet-*.png / crop-*.png are contact sheets / crops of the frames above.

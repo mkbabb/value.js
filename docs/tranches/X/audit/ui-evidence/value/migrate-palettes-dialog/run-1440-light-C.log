@@ -1,0 +1,4 @@
+FAILED 1440 light C locator.fill: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('input[aria-label="S
+done 1 frames {"head":"813fb8f6","dirty":6}

@@ -1,0 +1,114 @@
+{
+ "p12": {
+  "left-plate-bottom": {
+   "stamp": [
+    56,
+    23,
+    32
+   ],
+   "field": [
+    92,
+    22,
+    42
+   ],
+   "ratio": 1.22
+  },
+  "about-plate-right": {
+   "stamp": [
+    60,
+    23,
+    30
+   ],
+   "field": [
+    98,
+    22,
+    38
+   ],
+   "ratio": 1.25
+  }
+ },
+ "p11": {
+  "left-plate-bottom": {
+   "stamp": [
+    56,
+    23,
+    32
+   ],
+   "field": [
+    92,
+    22,
+    42
+   ],
+   "ratio": 1.22
+  },
+  "about-plate-right": {
+   "stamp": [
+    61,
+    23,
+    30
+   ],
+   "field": [
+    98,
+    21,
+    38
+   ],
+   "ratio": 1.24
+  }
+ },
+ "poleA": {
+  "left-plate-bottom": {
+   "stamp": [
+    57,
+    23,
+    32
+   ],
+   "field": [
+    93,
+    22,
+    42
+   ],
+   "ratio": 1.22
+  },
+  "about-plate-right": {
+   "stamp": [
+    61,
+    23,
+    29
+   ],
+   "field": [
+    98,
+    22,
+    38
+   ],
+   "ratio": 1.24
+  }
+ },
+ "poleB": {
+  "left-plate-bottom": {
+   "stamp": [
+    74,
+    72,
+    70
+   ],
+   "field": [
+    93,
+    22,
+    42
+   ],
+   "ratio": 1.43
+  },
+  "about-plate-right": {
+   "stamp": [
+    75,
+    73,
+    71
+   ],
+   "field": [
+    98,
+    22,
+    38
+   ],
+   "ratio": 1.41
+  }
+ }
+}

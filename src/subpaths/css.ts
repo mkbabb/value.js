@@ -1,56 +1,9 @@
-export type {
-    AnimationRangeValue,
-    AnimationTimelineValue,
-    AnimationTriggerValue,
-    CSSAnimationOptions,
-    CSSPropertyDescriptor,
-    CSSTimelineOptions,
-    CollectedRule,
-    CssColor,
-    CssColorSpace,
-    CssLinearStop,
-    CssTimingFunction,
-    CustomFunctionDescriptor,
-    CustomFunctionParameter,
-    CustomFunctionRule,
-    Declaration,
-    KeyframeRule,
-    KeyframeSelector,
-    KeyframesBlock,
-    ParseIssue,
-    ParseResult,
-    PropertyRule,
-    RangeBoundary,
-    RangePhase,
-    ScrollTimelineDescriptor,
-    ScrollerKeyword,
-    StyleRule,
-    Stylesheet,
-    StylesheetItem,
-    TimelineAxis,
-    TimelineScopeValue,
-    TriggerType,
-    ViewInset,
-    ViewTimelineDescriptor,
-} from "../css/index";
-export {
-    coerceToSyntax,
-    collectAnimationOptions,
-    collectCustomFunctions,
-    collectDeclarations,
-    collectKeyframes,
-    collectPropertyDescriptors,
-    collectStyleRules,
-    collectTimelineOptions,
-    parseAnimationRange,
-    parseAnimationTimeline,
-    parseCssColor,
-    parseCssScalar,
-    parseCssValue,
-    parseCssValues,
-    parseKeyframeSelector,
-    parseStylesheet,
-    parseTimingFunction,
-    serializeCssColor,
-    serializeTimelineOptions,
-} from "../css/index";
+/**
+ * `@mkbabb/value.js/css` — derived from the area barrel (PSL-1).
+ *
+ * The barrel `../css/index` is the one place this area's public/internal line
+ * is drawn; this file forwards it whole rather than repeating it. The
+ * hand-kept copy it replaces listed 34 types and 19 functions by name, one
+ * edit away from the barrel at every cut.
+ */
+export * from "../css/index";

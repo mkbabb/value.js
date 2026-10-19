@@ -1,0 +1,8 @@
+# 03:40:34 load: 21.04 21.62 20.98 head: 1960910cf
+
+ Test Files  24 passed (24)
+      Tests  487 passed (487)
+   Start at  03:40:35
+   Duration  7.48s (transform 416ms, setup 944ms, collect 1.90s, tests 845ms, environment 5.62s, prepare 1.03s)
+
+EXIT=0

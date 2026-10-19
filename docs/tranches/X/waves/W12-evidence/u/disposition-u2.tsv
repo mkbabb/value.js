@@ -1,0 +1,123 @@
+# SERVED MODEL: claude-opus-5-5 — X.W12.u2 disposition of the UIA-V rows on extract/mix/generate/gradient/gradient-easing-authoring/atmosphere pages (6 pages). Columns: id sev page owner disposition. RESIDUE-U2 = honest-RED id: consumer row (or half) not cured by .u2, routed to .u3's supplement. O-59 = glass relay X-ALL-BK-UI-AUDIT.md (every GLASS/GLASS+CONSUMER row below is present there).
+UIA-V-40	BROKEN	mix-view	CONSUMER	e7f2e5e4
+UIA-V-41	BROKEN	generate-view	CONSUMER	b2548908+728b6d36
+UIA-V-42	BROKEN	generate-view	CONSUMER	c85ae287
+UIA-V-43	BROKEN	generate-view	CONSUMER	e7f2e5e4 (Mix half; palette-card half = .u1 67c4f29a)
+UIA-V-44	BROKEN	gradient-view	GLASS+CONSUMER	b6efe950 (consumer) · O-59 (glass: SelectTrigger value span cannot shrink)
+UIA-V-45	BROKEN	gradient-view	CONSUMER	82516588
+UIA-V-46	BROKEN	atmosphere-view	GLASS	O-59
+UIA-V-134	HIGH	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-135	HIGH	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-136	HIGH	mix-view	GLASS	O-59
+UIA-V-137	HIGH	mix-view	CONSUMER	c911941a (section heads) · RESIDUE-U2 (LabeledField label rung: glass 7.0.0 exposes no label-size prop)
+UIA-V-138	HIGH	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-139	HIGH	mix-view	GLASS	O-59
+UIA-V-140	HIGH	mix-view	CONSUMER	R-5 HOLD (COHESION §0ci: glass stays 7.0.0 until X-W7L)
+UIA-V-141	HIGH	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-142	HIGH	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-143	HIGH	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-144	HIGH	gradient-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-145	HIGH	gradient-view	CONSUMER	6a264f01
+UIA-V-146	HIGH	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-147	HIGH	gradient-view	CONSUMER	316c8058
+UIA-V-148	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-149	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-150	HIGH	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-151	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-152	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-153	HIGH	gradient-easing-authoring	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-154	HIGH	atmosphere-view	GLASS	O-59
+UIA-V-155	HIGH	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-156	HIGH	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-157	HIGH	atmosphere-view	GLASS+CONSUMER	9d27d6e9 (consumer) · O-59 (glass: 7.0.0 text-caption italic; PaneHeader caption)
+UIA-V-158	HIGH	atmosphere-view	CONSUMER	c63fcab0 (readout) · RESIDUE-U2 (spectrum slab variant: the o18 contrast-certified track recipe)
+UIA-V-159	HIGH	atmosphere-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-340	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-341	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-342	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-343	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-344	MEDIUM	extract-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-345	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-346	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-347	MEDIUM	extract-view	GLASS	O-59
+UIA-V-348	MEDIUM	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-349	MEDIUM	extract-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-350	MEDIUM	mix-view	GLASS	O-59
+UIA-V-351	MEDIUM	mix-view	CONSUMER	c6e5e375
+UIA-V-352	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-353	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-354	MEDIUM	mix-view	GLASS	O-59
+UIA-V-355	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-356	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-357	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-358	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-359	MEDIUM	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-360	MEDIUM	mix-view	GLASS	O-59
+UIA-V-361	MEDIUM	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-362	MEDIUM	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-363	MEDIUM	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-364	MEDIUM	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-365	MEDIUM	generate-view	GLASS	O-59
+UIA-V-366	MEDIUM	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-367	MEDIUM	generate-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-368	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-369	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-370	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-371	MEDIUM	gradient-view	CONSUMER	R-5 HOLD → X-W7L (--radius-input removed at glass 8)
+UIA-V-372	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-373	MEDIUM	gradient-view	CONSUMER	5ccc0e3e (selection) · RESIDUE-U2 (help-line block-size jump)
+UIA-V-374	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-375	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-376	MEDIUM	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-377	MEDIUM	gradient-easing-authoring	GLASS	O-59
+UIA-V-378	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-379	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-380	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-381	MEDIUM	gradient-easing-authoring	GLASS	O-59
+UIA-V-382	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-383	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-384	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-385	MEDIUM	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-386	MEDIUM	atmosphere-view	GLASS	O-59
+UIA-V-387	MEDIUM	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-388	MEDIUM	atmosphere-view	GLASS	O-59
+UIA-V-389	MEDIUM	atmosphere-view	GLASS	O-59
+UIA-V-390	MEDIUM	atmosphere-view	CONSUMER	7513b817
+UIA-V-391	MEDIUM	atmosphere-view	CONSUMER	5ead5816 (copy) · RESIDUE-U2 (Reset modified state)
+UIA-V-392	MEDIUM	atmosphere-view	GLASS	O-59
+UIA-V-393	MEDIUM	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-394	MEDIUM	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-395	MEDIUM	atmosphere-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-587	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-588	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-589	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-590	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-591	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-592	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-593	LOW	extract-view	CONSUMER	RESIDUE-U2
+UIA-V-594	LOW	extract-view	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-595	LOW	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-596	LOW	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-597	LOW	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-598	LOW	mix-view	CONSUMER	RESIDUE-U2
+UIA-V-599	LOW	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-600	LOW	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-601	LOW	generate-view	GLASS	O-59
+UIA-V-602	LOW	generate-view	CONSUMER	RESIDUE-U2
+UIA-V-603	LOW	generate-view	CONSUMER	R-5 HOLD → X-W7L (repin removes seams)
+UIA-V-604	LOW	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-605	LOW	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-606	LOW	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-607	LOW	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-608	LOW	gradient-view	CONSUMER	RESIDUE-U2
+UIA-V-609	LOW	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-610	LOW	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-611	LOW	gradient-easing-authoring	CONSUMER	RESIDUE-U2
+UIA-V-612	LOW	gradient-easing-authoring	GLASS+CONSUMER	O-59 + RESIDUE-U2
+UIA-V-613	LOW	atmosphere-view	GLASS	O-59
+UIA-V-614	LOW	atmosphere-view	CONSUMER	72985b2c
+UIA-V-615	LOW	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-616	LOW	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-617	LOW	atmosphere-view	CONSUMER	RESIDUE-U2
+UIA-V-618	LOW	atmosphere-view	GLASS	O-59
+UIA-V-H2	LOW	extract-view	CONSUMER	RESIDUE-U2

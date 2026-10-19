@@ -1,0 +1,6 @@
+load 10.71 9.83 11.06
+[reveal close7-r1 1280x720 light] seq=Vh:3,Lv:260 rects=["16,8,1248,72"] mainTop=[88] pop=0 dockInDomAt=131 firstNonVeiledAt=198 land="overture-plate-land 0.45s 0s linear(0 0%, 0.00382 2.041%, 0.0145 4.08" dockAnims=[] runningAtReveal=[] cls=0 shifts=[[174,0,["svg.lucide<control-surface [148,148,20,20]"]]] GREEN
+[reveal close7-r1 1280x720 dark] seq=Vh:3,Lv:261 rects=["16,8,1248,72"] mainTop=[88] pop=0 dockInDomAt=102 firstNonVeiledAt=152 land="overture-plate-land 0.45s 0s linear(0 0%, 0.00382 2.041%, 0.0145 4.08" dockAnims=[] runningAtReveal=[] cls=0 shifts=[[139,0,["svg.lucide<control-surface [148,148,20,20]"]]] GREEN
+[reveal close7-r1 390x844 light] seq=Vh:3,Lv:260 rects=["16,16,358,72"] mainTop=[104] pop=0 dockInDomAt=118 firstNonVeiledAt=201 land="overture-plate-land 0.45s 0s linear(0 0%, 0.00382 2.041%, 0.0145 4.08" dockAnims=[] runningAtReveal=[] cls=0 shifts=[[154,0,["svg.lucide<control-surface [149,149,13,13]"]]] GREEN
+[reveal close7-r1 844x390 light] seq=Vh:3,Lv:260 rects=["16,8,812,64"] mainTop=[80] pop=0 dockInDomAt=116 firstNonVeiledAt=199 land="overture-plate-land 0.45s 0s linear(0 0%, 0.00382 2.041%, 0.0145 4.08" dockAnims=[] runningAtReveal=[] cls=0.00001 shifts=[[152,0.00001,["svg.lucide<control-surface [124,124,16,16]"]]] RED
+VERDICT RED 3/4

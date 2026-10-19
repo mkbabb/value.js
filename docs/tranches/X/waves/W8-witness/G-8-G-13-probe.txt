@@ -1,0 +1,58 @@
+SERVED MODEL: claude-opus-5-5
+# G-8 (Dock.md G-B motion arm) + G-13 (live chrome tint) — X.W8.d, 2026-10-17
+Instrument: docs/tranches/X/waves/W8-witness/probe-g8-g13.mjs, run as `~/.claude/guard/guarded --timeout 2 -- node …/probe-g8-g13.mjs 9248` against `npx vite --port 9248` (lane-local port; the spec's :9000 is the shared dev port — same tree, same dev build). Drive: `/#/` → click [aria-label="Toggle action bar"] → settle 600 ms → click [aria-label="Open color input"]; every rAF for 700 ms reads both faces of the ActionBarLayer's own <DockCrossfade> (.dock-crossfade.dock-layer-grid).
+Reading of the 'no frame with both faces at opacity extremes' clause: the rest frame before the click and the settled frames after are the motion's endpoints; a SNAP is an extreme frame inside the motion window (first → last frame with a face strictly between 0 and 1). snap = 0 is the gate.
+
+### AFTER, run 1  (url http://localhost:9248/#/, 1440×900, chromium headless)
+- light: G-8 sample @+65 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.625 td 0s [data-crossfading] yes, is-active op 0.375 td 0s [data-crossfading] yes
+  motion window [30.1, 267.8] ms · moving frames 15 / 43 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.20397 0.148263 0.0829736 / 0.1) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.304649 0.121841 9.83402)
+  chrome-probe errors: 0
+- dark: G-8 sample @+73.1 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.738 td 0s [data-crossfading] yes, is-active op 0.262 td 0s [data-crossfading] yes
+  motion window [38.4, 289.9] ms · moving frames 16 / 41 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.0927547 0.0503523 0.00879371 / 0.14) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.958322 0.0210531 9.83402)
+  chrome-probe errors: 0
+
+### AFTER, run 2  (url http://localhost:9248/#/, 1440×900, chromium headless)
+- light: G-8 sample @+63.7 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.597 td 0s [data-crossfading] yes, is-active op 0.403 td 0s [data-crossfading] yes
+  motion window [15.8, 247.6] ms · moving frames 14 / 40 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.20397 0.148263 0.0829736 / 0.1) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.304649 0.121841 9.83402)
+  chrome-probe errors: 0
+- dark: G-8 sample @+78.4 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.730 td 0s [data-crossfading] yes, is-active op 0.270 td 0s [data-crossfading] yes
+  motion window [28.2, 273.3] ms · moving frames 17 / 43 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.0927547 0.0503523 0.00879371 / 0.14) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.958322 0.0210531 9.83402)
+  chrome-probe errors: 0
+
+### AFTER, run 3 (after both falsifiers restored)  (url http://localhost:9248/#/, 1440×900, chromium headless)
+- light: G-8 sample @+70.7 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.736 td 0s [data-crossfading] yes, is-active op 0.264 td 0s [data-crossfading] yes
+  motion window [28.1, 276.2] ms · moving frames 16 / 43 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.20397 0.148263 0.0829736 / 0.1) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.304649 0.121841 9.83402)
+  chrome-probe errors: 0
+- dark: G-8 sample @+73.1 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.800 td 0s [data-crossfading] yes, is-active op 0.200 td 0s [data-crossfading] yes
+  motion window [28.5, 277.3] ms · moving frames 16 / 37 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.0927547 0.0503523 0.00879371 / 0.14) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.958322 0.0210531 9.83402)
+  chrome-probe errors: 0
+
+## G-8 falsifier — DockCrossfade mounted but NOT driven (scratch: ActionBarLayer.vue `:active="activeSubLayer"` → `active="actions"`; byte copy restored, cmp identical)
+### FALSIFIED  (url http://localhost:9248/#/, 1440×900, chromium headless)
+- light: G-8 sample @+66.4 ms (first rAF ≥ 60 ms) faces = is-active op 1.000 td 0s [data-crossfading] NO, - op 0.000 td 0s [data-crossfading] NO
+  motion window None ms · moving frames 0 / 47 · snap frames inside motion None
+  G-13: .dock-plate bg color(srgb 0.20397 0.148263 0.0829736 / 0.1) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.304649 0.121841 9.83402)
+  chrome-probe errors: 0
+- dark: G-8 sample @+67 ms (first rAF ≥ 60 ms) faces = is-active op 1.000 td 0s [data-crossfading] NO, - op 0.000 td 0s [data-crossfading] NO
+  motion window None ms · moving frames 0 / 42 · snap frames inside motion None
+  G-13: .dock-plate bg color(srgb 0.0927547 0.0503523 0.00879371 / 0.14) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color oklch(0.958322 0.0210531 9.83402)
+  chrome-probe errors: 0
+→ RED: no [data-crossfading] ancestor, 0 moving frames, the input face never takes the active seat.
+
+## G-13 runtime falsifier — probe re-pointed at the unpainted element (scratch: resolveDockPlateTint reads only each ancestor's own paint, so the walk lands on the transparent .glass-dock; byte copy restored, cmp identical)
+### FALSIFIED  (url http://localhost:9248/#/, 1440×900, chromium headless)
+- light: G-8 sample @+70.3 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.601 td 0s [data-crossfading] yes, is-active op 0.399 td 0s [data-crossfading] yes
+  motion window [14.6, 277.7] ms · moving frames 17 / 41 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.20397 0.148263 0.0829736 / 0.1) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color None
+  chrome-probe errors: 3 — first: [value.js] unhandled failure (vue · component update) Error: useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable
+- dark: G-8 sample @+80 ms (first rAF ≥ 60 ms) faces = is-leaving op 0.607 td 0s [data-crossfading] yes, is-active op 0.393 td 0s [data-crossfading] yes
+  motion window [21.1, 259.3] ms · moving frames 17 / 46 · snap frames inside motion 0
+  G-13: .dock-plate bg color(srgb 0.0927547 0.0503523 0.00879371 / 0.14) · .glass-dock bg rgba(0, 0, 0, 0) · ink host button "Login" inline color None
+  chrome-probe errors: 3 — first: [value.js] unhandled failure (vue · component update) Error: useChromeAccentFn: no painted dock band above the host element — the chrome referent is unmeasurable
+→ RED: resolveDockPlateTint throws (no static rung to serve); the trigger carries no certified ink. The compile half is G-13-compile-falsifier.txt.

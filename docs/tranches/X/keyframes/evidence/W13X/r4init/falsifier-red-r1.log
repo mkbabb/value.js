@@ -1,0 +1,322 @@
+kf 8343dbe8 + r4init tests · 13:17  up 5 days, 18:19, 2 users, load averages: 9.11 12.03 14.25
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/redwt/kf
+
+ ❯ |demo| test/demo/scenes/amiga-init-after-paint.test.ts (3 tests | 3 failed) 58ms
+     × (1) a mount paints first: no room and no GL context before a frame has run 23ms
+     × (2) the build is staged a frame apart, and the loop arms after the compile 12ms
+     × (3) a dispose mid-build retires it: no GL context is created after 22ms
+ ❯ |demo| test/demo/instrument/css-code-editor-seam.test.ts (5 tests | 1 failed) 2258ms
+     × (5) KFA-81: the editor boots in the first idle period after the pane paints, the well busy under its Skeleton until then 607ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/instrument/css-code-editor-seam.test.ts > G-KFW12-4 — the Monaco seam > (5) KFA-81: the editor boots in the first idle period after the pane paints, the well busy under its Skeleton until then
+AssertionError: expected <div …(4)>…(3)</div> to be null
+
+- Expected:
+null
+
++ Received:
+<div
+  class="monaco-editor no-minimap-shadow enable-user-select mac  showUnused showDeprecated vs"
+  data-uri="inmemory://model/5"
+  role="code"
+  style="width: 5px; height: 5px;"
+>
+  <div
+    class="overflow-guard"
+    data-mprt="3"
+    style="width: 5px; height: 5px;"
+  >
+    <textarea
+      aria-autocomplete="both"
+      aria-label="CSS"
+      aria-multiline="true"
+      aria-required="false"
+      aria-roledescription="editor"
+      autocapitalize="off"
+      autocomplete="off"
+      autocorrect="off"
+      class="inputarea monaco-mouse-cursor-text"
+      data-mprt="7"
+      role="textbox"
+      spellcheck="false"
+      style="tab-size: 20px; font-family: monospace, Menlo, Monaco, \"Courier New\", monospace; font-weight: normal; font-size: 14px; font-feature-settings: \"liga\" on, \"calt\" on; font-variation-settings: normal; line-height: 1px; letter-spacing: 0px; top: 0px; left: 0px; width: 5px; height: 1px;"
+      tabindex="0"
+      wrap="on"
+    />
+    <div
+      class="monaco-editor-background textAreaCover line-numbers"
+      style="position: absolute; top: 0px; left: 0px; width: 5px; height: 1px;"
+    />
+    <div
+      aria-hidden="true"
+      class="margin"
+      role="presentation"
+      style="position: absolute; transform: translate3d(0px, 0px, 0px); contain: strict; top: 0px; height: 368px; width: 18px;"
+    >
+      <div
+        class="glyph-margin"
+        style="left: 0px; width: 0px; height: 368px;"
+      />
+      <div
+        aria-hidden="true"
+        class="margin-view-zones"
+        role="presentation"
+        style="position: absolute;"
+      />
+      <div
+        aria-hidden="true"
+        class="margin-view-overlays"
+        role="presentation"
+        style="position: absolute; font-family: monospace, Menlo, Monaco, \"Courier New\", monospace; font-weight: normal; font-size: 14px; font-feature-settings: \"liga\" on, \"calt\" on; font-variation-settings: normal; line-height: 21px; letter-spacing: 0px; width: 18px; height: 368px;"
+      >
+        <div
+          style="top:16px;height:21px;line-height:21px;"
+        >
+          <div
+            class="current-line"
+            style="width:18px"
+          />
+          <div
+            class="line-numbers active-line-number"
+            style="left:0px;width:10px;"
+          >
+            1
+          </div>
+        </div>
+      </div>
+      <div
+        class="glyph-margin-widgets"
+        style="position: absolute; top: 0px;"
+      />
+    </div>
+    <div
+      class="monaco-scrollable-element editor-scrollable vs mac"
+      data-mprt="6"
+      role="presentation"
+      style="position: absolute; overflow: hidden; left: 18px; height: 5px;"
+    >
+      <div
+        class="lines-content monaco-editor-background"
+        style="position: absolute; overflow: hidden; width: 16777216px; height: 16777216px; transform: translate3d(0px, 0px, 0px); contain: strict; top: 0px; left: 0px;"
+      >
+        <div
+          aria-hidden="true"
+          class="view-overlays"
+          role="presentation"
+          style="position: absolute; font-family: monospace, Menlo, Monaco, \"Courier New\", monospace; font-weight: normal; font-size: 14px; font-feature-settings: \"liga\" on, \"calt\" on; font-variation-settings: normal; line-height: 21px; letter-spacing: 0px; height: 0px; width: 480px;"
+        >
+          <div
+            style="top:16px;height:21px;line-height:21px;"
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          class="view-rulers"
+          role="presentation"
+        />
+        <div
+          aria-hidden="true"
+          class="view-zones"
+          role="presentation"
+          style="position: absolute;"
+        />
+        <div
+          aria-hidden="true"
+          class="view-lines monaco-mouse-cursor-text"
+          data-mprt="8"
+          role="presentation"
+          style="position: absolute; font-family: monospace, Menlo, Monaco, \"Courier New\", monospace; font-weight: normal; font-size: 14px; font-feature-settings: \"liga\" on, \"calt\" on; font-variation-settings: normal; line-height: 21px; letter-spacing: 0px; width: 480px; height: 368px;"
+        >
+          <div
+            class="view-line"
+            style="top:16px;height:21px;line-height:21px;"
+          >
+            <span>
+              <span
+                class="mtk1"
+              >
+                a
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="contentWidgets"
+          data-mprt="1"
+          style="position: absolute; top: 0px;"
+        />
+        <div
+          aria-hidden="true"
+          class="cursors-layer cursor-line-style cursor-solid"
+          role="presentation"
+        >
+          <div
+            class="cursor monaco-mouse-cursor-text"
+            style="height: 21px; top: 0px; left: 0px; font-family: monospace, Menlo, Monaco, \"Courier New\", monospace; font-weight: normal; font-size: 14px; font-feature-settings: \"liga\" on, \"calt\" on; font-variation-settings: normal; line-height: 21px; letter-spacing: 0px; display: none; visibility: hidden;"
+          />
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        class="invisible scrollbar horizontal"
+        role="presentation"
+        style="position: absolute; width: 0px; height: 0px; left: 0px; bottom: 0px;"
+      >
+        <div
+          class="slider"
+          style="position: absolute; top: 0px; left: 0px; height: 12px; transform: translate3d(0px, 0px, 0px); contain: strict; width: 20px;"
+        />
+      </div>
+      <canvas
+        aria-hidden="true"
+        class="decorationsOverviewRuler"
+        height="0"
+        style="position: absolute; transform: translate3d(0px, 0px, 0px); contain: strict; top: 0px; right: 0px; width: 0px; height: 5px; display: none;"
+        width="0"
+      />
+      <div
+        aria-hidden="true"
+        class="invisible scrollbar vertical"
+        role="presentation"
+        style="position: absolute; width: 0px; height: 5px; right: 0px; top: 0px;"
+      >
+        <div
+          class="slider"
+          style="position: absolute; top: 0px; left: 0px; width: 0px; transform: translate3d(0px, 0px, 0px); contain: strict; height: 20px;"
+        />
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      role="presentation"
+      style="width: 5px;"
+    />
+    <div
+      class="overlayWidgets"
+      data-mprt="4"
+      style="width: 5px;"
+    />
+    <div
+      aria-hidden="true"
+      class="minimap slider-mouseover"
+      data-mprt="9"
+      role="presentation"
+      style="position: absolute; left: 0px; width: 0px; height: 5px;"
+    >
+      <div
+        class="minimap-shadow-hidden"
+        style="height: 5px;"
+      />
+      <canvas
+        height="5"
+        style="position: absolute; left: 0px; width: 0px; height: 5px;"
+        width="0"
+      />
+      <canvas
+        class="minimap-decorations-layer"
+        height="5"
+        style="position: absolute; left: 0px; width: 0px; height: 5px;"
+        width="0"
+      />
+      <div
+        class="minimap-slider"
+        style="position: absolute; transform: translate3d(0px, 0px, 0px); contain: strict; width: 0px;"
+      >
+        <div
+          class="minimap-slider-horizontal"
+          style="position: absolute; width: 0px; height: 0px;"
+        />
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      class="blockDecorations-container"
+      role="presentation"
+    />
+  </div>
+  <div
+    class="overflowingContentWidgets"
+    data-mprt="2"
+  />
+  <div
+    class="overflowingOverlayWidgets"
+    data-mprt="5"
+  />
+</div>
+
+ ❯ test/demo/instrument/css-code-editor-seam.test.ts:307:69
+    305|             // Longer than a boot takes when it is not held (the cases…
+    306|             await sleep(600);
+    307|             expect(mounted.element.querySelector(".monaco-editor")).to…
+       |                                                                     ^
+    308|             expect(mounted.element.querySelector("[aria-busy='true']")…
+    309|             expect(mounted.element.querySelector("[data-stub='Skeleton…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |demo| test/demo/scenes/amiga-init-after-paint.test.ts > X.KF.W13X.r4init — KFA-76: the Amiga room builds past the first paint > (1) a mount paints first: no room and no GL context before a frame has run
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ test/demo/scenes/amiga-init-after-paint.test.ts:117:30
+    115|         void handle.setup();
+    116|         await settleTasks();
+    117|         expect(gl.renderers).toBe(0);
+       |                              ^
+    118|         expect(handle.getSphere()).toBeUndefined();
+    119|         expect(handle.booting.value).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |demo| test/demo/scenes/amiga-init-after-paint.test.ts > X.KF.W13X.r4init — KFA-76: the Amiga room builds past the first paint > (2) the build is staged a frame apart, and the loop arms after the compile
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ test/demo/scenes/amiga-init-after-paint.test.ts:131:30
+    129|         // Frame 1 painted: the graph exists, the GL context does not …
+    130|         expect(handle.getSphere()).toBeDefined();
+    131|         expect(gl.renderers).toBe(0);
+       |                              ^
+    132|         await paintFrame();
+    133|         // Frame 2 painted: the context exists; the programs are not c…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |demo| test/demo/scenes/amiga-init-after-paint.test.ts > X.KF.W13X.r4init — KFA-76: the Amiga room builds past the first paint > (3) a dispose mid-build retires it: no GL context is created after
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ test/demo/scenes/amiga-init-after-paint.test.ts:156:30
+    154|         await paintFrame();
+    155|         await built;
+    156|         expect(gl.renderers).toBe(0);
+       |                              ^
+    157|         expect(handle.running).toBe(false);
+    158|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  4 failed | 4 passed (8)
+   Start at  13:17:05
+   Duration  4.90s (transform 1.90s, setup 25ms, import 2.46s, tests 2.32s, environment 636ms)
+

@@ -1,0 +1,995 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "gate": "G-3",
+    "wave": "X.P.W4",
+    "unit": "X.P.W4.b",
+    "generatedAt": "2026-09-20T03:38:52.048Z",
+    "node": "v26.0.0",
+    "npm": "11.12.1",
+    "label": null,
+    "candidate": {
+        "packageDir": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript",
+        "name": "@mkbabb/parse-that",
+        "version": "1.0.0",
+        "declaredFiles": [
+            "./dist",
+            "./src/css"
+        ],
+        "declaredExports": {
+            ".": {
+                "types": "./dist/index.d.ts",
+                "import": "./dist/parse.js",
+                "require": "./dist/parse.cjs"
+            },
+            "./css": {
+                "types": "./src/css/build/ac1.d.ts",
+                "import": "./src/css/build/ac1.js"
+            },
+            "./core": {
+                "types": "./dist/core.d.ts",
+                "import": "./dist/core.js",
+                "require": "./dist/core.cjs"
+            },
+            "./diagnostics": {
+                "types": "./dist/diagnostics.d.ts",
+                "import": "./dist/diagnostics.js",
+                "require": "./dist/diagnostics.cjs"
+            },
+            "./packrat": {
+                "types": "./dist/packrat-entry.d.ts",
+                "import": "./dist/packrat.js",
+                "require": "./dist/packrat.cjs"
+            },
+            "./utils": {
+                "types": "./dist/utils-entry.d.ts",
+                "import": "./dist/utils.js",
+                "require": "./dist/utils.cjs"
+            }
+        },
+        "seamSubpath": "./css"
+    },
+    "symbolSource": {
+        "kind": "seam-contract",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/SEAM-CONTRACT.md",
+        "sha256": "1e8f1fa2bb9b615a7a414f45d505097500f3420ad65f20e0dcd2c60b627beb4e"
+    },
+    "symbolCounts": {
+        "runtime": 19,
+        "types": 33,
+        "total": 52
+    },
+    "symbolCrossCheck": null,
+    "legs": {
+        "pack": {
+            "ok": true,
+            "command": "npm pack --ignore-scripts --json",
+            "filename": "mkbabb-parse-that-1.0.0.tgz",
+            "bytes": 323813,
+            "sha256": "004bbcce02e08b89020a74e43ce35b83dec2f6f6597204afd8b712cc9dd056ec",
+            "npmShasum": "eb1c8cd43cae33b78f35e0be7bcc460614a73903",
+            "npmIntegrity": "sha512-wNcR5ngkLH/OfZL+QRCXDLIw3dxu9SVJUlizTs67Xi8nkT870dbjBpX/Seafv5I+3T6Vflb2vhjtIU73c4QzqA==",
+            "entryCount": 91,
+            "unpackedSize": 1656909,
+            "entries": [
+                "dist/ansi.d.ts",
+                "dist/ansi.d.ts.map",
+                "dist/core.cjs",
+                "dist/core.cjs.map",
+                "dist/core.d.ts",
+                "dist/core.d.ts.map",
+                "dist/core.js",
+                "dist/core.js.map",
+                "dist/debug.d.ts",
+                "dist/debug.d.ts.map",
+                "dist/diagnostics-BLW5A4vz.cjs",
+                "dist/diagnostics-BLW5A4vz.cjs.map",
+                "dist/diagnostics-DBv5ee4t.js",
+                "dist/diagnostics-DBv5ee4t.js.map",
+                "dist/diagnostics.cjs",
+                "dist/diagnostics.cjs.map",
+                "dist/diagnostics.d.ts",
+                "dist/diagnostics.d.ts.map",
+                "dist/diagnostics.js",
+                "dist/diagnostics.js.map",
+                "dist/index.d.ts",
+                "dist/index.d.ts.map",
+                "dist/lazy.d.ts",
+                "dist/lazy.d.ts.map",
+                "dist/leaf.d.ts",
+                "dist/leaf.d.ts.map",
+                "dist/packrat-entry-BgJDiVuh.cjs",
+                "dist/packrat-entry-BgJDiVuh.cjs.map",
+                "dist/packrat-entry-CRSjOdsm.js",
+                "dist/packrat-entry-CRSjOdsm.js.map",
+                "dist/packrat-entry.d.ts",
+                "dist/packrat-entry.d.ts.map",
+                "dist/packrat.cjs",
+                "dist/packrat.cjs.map",
+                "dist/packrat.d.ts",
+                "dist/packrat.d.ts.map",
+                "dist/packrat.js",
+                "dist/packrat.js.map",
+                "dist/parse.cjs",
+                "dist/parse.cjs.map",
+                "dist/parse.js",
+                "dist/parse.js.map",
+                "dist/parser.d.ts",
+                "dist/parser.d.ts.map",
+                "dist/parsers/csv.d.ts",
+                "dist/parsers/csv.d.ts.map",
+                "dist/parsers/index.d.ts",
+                "dist/parsers/index.d.ts.map",
+                "dist/parsers/json.d.ts",
+                "dist/parsers/json.d.ts.map",
+                "dist/parsers/utils.d.ts",
+                "dist/parsers/utils.d.ts.map",
+                "dist/split.d.ts",
+                "dist/split.d.ts.map",
+                "dist/state.d.ts",
+                "dist/state.d.ts.map",
+                "dist/utils-entry.d.ts",
+                "dist/utils-entry.d.ts.map",
+                "dist/utils.cjs",
+                "dist/utils.cjs.map",
+                "dist/utils.d.ts",
+                "dist/utils.d.ts.map",
+                "dist/utils.js",
+                "dist/utils.js.map",
+                "package.json",
+                "src/css/algebra/grammar.mjs",
+                "src/css/algebra/grammar/animation.mjs",
+                "src/css/algebra/grammar/stylesheet.mjs",
+                "src/css/algebra/grammar/value.mjs",
+                "src/css/algebra/ops.mjs",
+                "src/css/algebra/tables.mjs",
+                "src/css/bounds.mjs",
+                "src/css/build.mjs",
+                "src/css/build/ac1.d.ts",
+                "src/css/build/ac1.js",
+                "src/css/build/ac1.wasm",
+                "src/css/build/value-css-4.0.0.d.ts",
+                "src/css/codes.mjs",
+                "src/css/diagnostics.mjs",
+                "src/css/entry.mjs",
+                "src/css/harness-adapter.mjs",
+                "src/css/lower.mjs",
+                "src/css/lowering-js/index.mjs",
+                "src/css/lowering-js/js-alg.mjs",
+                "src/css/lowering-js/values.mjs",
+                "src/css/lowering-wasm/asm.mjs",
+                "src/css/lowering-wasm/index.mjs",
+                "src/css/lowering-wasm/layout.mjs",
+                "src/css/lowering-wasm/runtime.mjs",
+                "src/css/lowering-wasm/wasm-alg.mjs",
+                "src/css/reify/term-alg.mjs"
+            ]
+        },
+        "declaration": {
+            "ok": true,
+            "declaredFiles": [
+                "dist",
+                "src/css"
+            ],
+            "undeclaredEntries": [],
+            "declaredButAbsent": [],
+            "note": null
+        },
+        "install": {
+            "ok": true,
+            "attempts": 1,
+            "command": "npm install --ignore-scripts --no-audit --no-fund --package-lock=false <tarball>",
+            "status": 0,
+            "stderr": null,
+            "installedFiles": [
+                "dist/ansi.d.ts",
+                "dist/ansi.d.ts.map",
+                "dist/core.cjs",
+                "dist/core.cjs.map",
+                "dist/core.d.ts",
+                "dist/core.d.ts.map",
+                "dist/core.js",
+                "dist/core.js.map",
+                "dist/debug.d.ts",
+                "dist/debug.d.ts.map",
+                "dist/diagnostics-BLW5A4vz.cjs",
+                "dist/diagnostics-BLW5A4vz.cjs.map",
+                "dist/diagnostics-DBv5ee4t.js",
+                "dist/diagnostics-DBv5ee4t.js.map",
+                "dist/diagnostics.cjs",
+                "dist/diagnostics.cjs.map",
+                "dist/diagnostics.d.ts",
+                "dist/diagnostics.d.ts.map",
+                "dist/diagnostics.js",
+                "dist/diagnostics.js.map",
+                "dist/index.d.ts",
+                "dist/index.d.ts.map",
+                "dist/lazy.d.ts",
+                "dist/lazy.d.ts.map",
+                "dist/leaf.d.ts",
+                "dist/leaf.d.ts.map",
+                "dist/packrat-entry-BgJDiVuh.cjs",
+                "dist/packrat-entry-BgJDiVuh.cjs.map",
+                "dist/packrat-entry-CRSjOdsm.js",
+                "dist/packrat-entry-CRSjOdsm.js.map",
+                "dist/packrat-entry.d.ts",
+                "dist/packrat-entry.d.ts.map",
+                "dist/packrat.cjs",
+                "dist/packrat.cjs.map",
+                "dist/packrat.d.ts",
+                "dist/packrat.d.ts.map",
+                "dist/packrat.js",
+                "dist/packrat.js.map",
+                "dist/parse.cjs",
+                "dist/parse.cjs.map",
+                "dist/parse.js",
+                "dist/parse.js.map",
+                "dist/parser.d.ts",
+                "dist/parser.d.ts.map",
+                "dist/parsers/csv.d.ts",
+                "dist/parsers/csv.d.ts.map",
+                "dist/parsers/index.d.ts",
+                "dist/parsers/index.d.ts.map",
+                "dist/parsers/json.d.ts",
+                "dist/parsers/json.d.ts.map",
+                "dist/parsers/utils.d.ts",
+                "dist/parsers/utils.d.ts.map",
+                "dist/split.d.ts",
+                "dist/split.d.ts.map",
+                "dist/state.d.ts",
+                "dist/state.d.ts.map",
+                "dist/utils-entry.d.ts",
+                "dist/utils-entry.d.ts.map",
+                "dist/utils.cjs",
+                "dist/utils.cjs.map",
+                "dist/utils.d.ts",
+                "dist/utils.d.ts.map",
+                "dist/utils.js",
+                "dist/utils.js.map",
+                "package.json",
+                "src/css/algebra/grammar.mjs",
+                "src/css/algebra/grammar/animation.mjs",
+                "src/css/algebra/grammar/stylesheet.mjs",
+                "src/css/algebra/grammar/value.mjs",
+                "src/css/algebra/ops.mjs",
+                "src/css/algebra/tables.mjs",
+                "src/css/bounds.mjs",
+                "src/css/build.mjs",
+                "src/css/build/ac1.d.ts",
+                "src/css/build/ac1.js",
+                "src/css/build/ac1.wasm",
+                "src/css/build/value-css-4.0.0.d.ts",
+                "src/css/codes.mjs",
+                "src/css/diagnostics.mjs",
+                "src/css/entry.mjs",
+                "src/css/harness-adapter.mjs",
+                "src/css/lower.mjs",
+                "src/css/lowering-js/index.mjs",
+                "src/css/lowering-js/js-alg.mjs",
+                "src/css/lowering-js/values.mjs",
+                "src/css/lowering-wasm/asm.mjs",
+                "src/css/lowering-wasm/index.mjs",
+                "src/css/lowering-wasm/layout.mjs",
+                "src/css/lowering-wasm/runtime.mjs",
+                "src/css/lowering-wasm/wasm-alg.mjs",
+                "src/css/reify/term-alg.mjs"
+            ],
+            "installedManifest": {
+                "name": "@mkbabb/parse-that",
+                "version": "1.0.0",
+                "description": "Parser combinators for TypeScript",
+                "type": "module",
+                "sideEffects": false,
+                "exports": {
+                    ".": {
+                        "types": "./dist/index.d.ts",
+                        "import": "./dist/parse.js",
+                        "require": "./dist/parse.cjs"
+                    },
+                    "./css": {
+                        "types": "./src/css/build/ac1.d.ts",
+                        "import": "./src/css/build/ac1.js"
+                    },
+                    "./core": {
+                        "types": "./dist/core.d.ts",
+                        "import": "./dist/core.js",
+                        "require": "./dist/core.cjs"
+                    },
+                    "./diagnostics": {
+                        "types": "./dist/diagnostics.d.ts",
+                        "import": "./dist/diagnostics.js",
+                        "require": "./dist/diagnostics.cjs"
+                    },
+                    "./packrat": {
+                        "types": "./dist/packrat-entry.d.ts",
+                        "import": "./dist/packrat.js",
+                        "require": "./dist/packrat.cjs"
+                    },
+                    "./utils": {
+                        "types": "./dist/utils-entry.d.ts",
+                        "import": "./dist/utils.js",
+                        "require": "./dist/utils.cjs"
+                    }
+                },
+                "scripts": {
+                    "test": "NODE_OPTIONS='--max-old-space-size=8192' vitest run",
+                    "test:watch": "vitest",
+                    "build": "vite build",
+                    "bench": "vitest bench",
+                    "proof:manifest": "node test/manifest-gate.mjs",
+                    "proof:no-css-surface": "node scripts/proof-no-css-surface.mjs",
+                    "proof:subpath": "node test/subpath-gate.mjs",
+                    "proof:packrat-cross-input": "node scripts/proof-packrat-cross-input.mjs",
+                    "proof:packrat-reentrant": "node scripts/proof-packrat-reentrant.mjs",
+                    "proof:packrat-large-offset": "node scripts/proof-packrat-large-offset.mjs",
+                    "proof:packrat-armed": "node scripts/proof-packrat-armed.mjs",
+                    "proof:no-span-surface": "node scripts/proof-no-span-surface.mjs",
+                    "proof:no-dead-combinator": "node scripts/proof-no-dead-combinator.mjs",
+                    "proof:perf": "NODE_OPTIONS='--expose-gc' node scripts/proof-perf.mjs",
+                    "proof:all": "npm run proof:manifest && npm run proof:no-css-surface && npm run proof:subpath && npm run proof:packrat-cross-input && npm run proof:packrat-reentrant && npm run proof:packrat-large-offset && npm run proof:packrat-armed && npm run proof:no-span-surface && npm run proof:no-dead-combinator && npm run proof:perf"
+                },
+                "files": [
+                    "./dist",
+                    "./src/css"
+                ],
+                "devDependencies": {
+                    "@types/node": "^22.0.0",
+                    "@types/parsimmon": "^1.10.9",
+                    "arcsecond": "^5.0.0",
+                    "chevrotain": "^11.1.1",
+                    "moo": "^0.5.2",
+                    "nearley": "^2.20.1",
+                    "ohm-js": "^17.5.0",
+                    "parjs": "^1.3.9",
+                    "parsimmon": "^1.18.1",
+                    "peggy": "^5.0.6",
+                    "typescript": "^5.8.0",
+                    "vite": "^7.0.0",
+                    "vite-plugin-dts": "^4.5.0",
+                    "vitest": "^3.2.0"
+                }
+            }
+        },
+        "types": {
+            "ok": true,
+            "ran": true,
+            "tsc": "/Users/mkbabb/Programming/parse-that-css-totality-p2/node_modules/typescript/bin/tsc",
+            "arity": {
+                "ok": true,
+                "ran": true,
+                "reason": null,
+                "compilerApi": {
+                    "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/node_modules/typescript/lib/typescript.js",
+                    "version": "5.9.3"
+                },
+                "resolvedDeclaration": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/ac1.d.ts",
+                "generics": [
+                    "CollectedRule: 0 required of 1",
+                    "ParseResult: 1 required of 1"
+                ],
+                "rows": {
+                    "CssColor": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CssTimingFunction": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "Stylesheet": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "StyleRule": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "Declaration": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CssColorSpace": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CssLinearStop": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "ParseIssue": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "ParseResult": {
+                        "total": 1,
+                        "required": 1,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "AnimationRangeValue": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "AnimationTimelineValue": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "AnimationTriggerValue": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CSSAnimationOptions": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CSSTimelineOptions": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "KeyframeSelector": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "RangeBoundary": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "RangePhase": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "ScrollTimelineDescriptor": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "ScrollerKeyword": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "TimelineAxis": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "TimelineScopeValue": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "TriggerType": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "ViewInset": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "ViewTimelineDescriptor": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CollectedRule": {
+                        "total": 1,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "KeyframeRule": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "KeyframesBlock": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "PropertyRule": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "StylesheetItem": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CSSPropertyDescriptor": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CustomFunctionDescriptor": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CustomFunctionParameter": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    },
+                    "CustomFunctionRule": {
+                        "total": 0,
+                        "required": 0,
+                        "constrainedRequired": [],
+                        "declaredIn": "<consumer>/node_modules/@mkbabb/parse-that/src/css/build/value-css-4.0.0.d.ts"
+                    }
+                }
+            },
+            "consumer": "import type {\n    AnimationRangeValue,\n    AnimationTimelineValue,\n    AnimationTriggerValue,\n    CSSAnimationOptions,\n    CSSPropertyDescriptor,\n    CSSTimelineOptions,\n    CollectedRule,\n    CssColor,\n    CssColorSpace,\n    CssLinearStop,\n    CssTimingFunction,\n    CustomFunctionDescriptor,\n    CustomFunctionParameter,\n    CustomFunctionRule,\n    Declaration,\n    KeyframeRule,\n    KeyframeSelector,\n    KeyframesBlock,\n    ParseIssue,\n    ParseResult,\n    PropertyRule,\n    RangeBoundary,\n    RangePhase,\n    ScrollTimelineDescriptor,\n    ScrollerKeyword,\n    StyleRule,\n    Stylesheet,\n    StylesheetItem,\n    TimelineAxis,\n    TimelineScopeValue,\n    TriggerType,\n    ViewInset,\n    ViewTimelineDescriptor,\n} from \"@mkbabb/parse-that/css\";\nexport type __check_AnimationRangeValue = AnimationRangeValue;\nexport type __check_AnimationTimelineValue = AnimationTimelineValue;\nexport type __check_AnimationTriggerValue = AnimationTriggerValue;\nexport type __check_CSSAnimationOptions = CSSAnimationOptions;\nexport type __check_CSSPropertyDescriptor = CSSPropertyDescriptor;\nexport type __check_CSSTimelineOptions = CSSTimelineOptions;\nexport type __check_CollectedRule = CollectedRule;\nexport type __check_CssColor = CssColor;\nexport type __check_CssColorSpace = CssColorSpace;\nexport type __check_CssLinearStop = CssLinearStop;\nexport type __check_CssTimingFunction = CssTimingFunction;\nexport type __check_CustomFunctionDescriptor = CustomFunctionDescriptor;\nexport type __check_CustomFunctionParameter = CustomFunctionParameter;\nexport type __check_CustomFunctionRule = CustomFunctionRule;\nexport type __check_Declaration = Declaration;\nexport type __check_KeyframeRule = KeyframeRule;\nexport type __check_KeyframeSelector = KeyframeSelector;\nexport type __check_KeyframesBlock = KeyframesBlock;\nexport type __check_ParseIssue = ParseIssue;\nexport type __check_ParseResult = ParseResult<unknown>;\nexport type __check_PropertyRule = PropertyRule;\nexport type __check_RangeBoundary = RangeBoundary;\nexport type __check_RangePhase = RangePhase;\nexport type __check_ScrollTimelineDescriptor = ScrollTimelineDescriptor;\nexport type __check_ScrollerKeyword = ScrollerKeyword;\nexport type __check_StyleRule = StyleRule;\nexport type __check_Stylesheet = Stylesheet;\nexport type __check_StylesheetItem = StylesheetItem;\nexport type __check_TimelineAxis = TimelineAxis;\nexport type __check_TimelineScopeValue = TimelineScopeValue;\nexport type __check_TriggerType = TriggerType;\nexport type __check_ViewInset = ViewInset;\nexport type __check_ViewTimelineDescriptor = ViewTimelineDescriptor;\n",
+            "status": 0,
+            "diagnostics": []
+        },
+        "resolve": {
+            "ok": true,
+            "seamSpecifier": "@mkbabb/parse-that/css",
+            "seamSubpathDeclared": true,
+            "installedExports": {
+                ".": {
+                    "types": "./dist/index.d.ts",
+                    "import": "./dist/parse.js",
+                    "require": "./dist/parse.cjs"
+                },
+                "./css": {
+                    "types": "./src/css/build/ac1.d.ts",
+                    "import": "./src/css/build/ac1.js"
+                },
+                "./core": {
+                    "types": "./dist/core.d.ts",
+                    "import": "./dist/core.js",
+                    "require": "./dist/core.cjs"
+                },
+                "./diagnostics": {
+                    "types": "./dist/diagnostics.d.ts",
+                    "import": "./dist/diagnostics.js",
+                    "require": "./dist/diagnostics.cjs"
+                },
+                "./packrat": {
+                    "types": "./dist/packrat-entry.d.ts",
+                    "import": "./dist/packrat.js",
+                    "require": "./dist/packrat.cjs"
+                },
+                "./utils": {
+                    "types": "./dist/utils-entry.d.ts",
+                    "import": "./dist/utils.js",
+                    "require": "./dist/utils.cjs"
+                }
+            },
+            "runtimeImport": {
+                "ok": true,
+                "exportedNames": [
+                    "coerceToSyntax",
+                    "collectAnimationOptions",
+                    "collectCustomFunctions",
+                    "collectDeclarations",
+                    "collectKeyframes",
+                    "collectPropertyDescriptors",
+                    "collectStyleRules",
+                    "collectTimelineOptions",
+                    "parseAnimationRange",
+                    "parseAnimationTimeline",
+                    "parseCssColor",
+                    "parseCssScalar",
+                    "parseCssValue",
+                    "parseCssValues",
+                    "parseKeyframeSelector",
+                    "parseStylesheet",
+                    "parseTimingFunction",
+                    "serializeCssColor",
+                    "serializeTimelineOptions"
+                ]
+            },
+            "resolved": 52,
+            "unresolved": 0,
+            "of": 52,
+            "rows": [
+                {
+                    "name": "AnimationRangeValue",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "AnimationTimelineValue",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "AnimationTriggerValue",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "coerceToSyntax",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectAnimationOptions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectCustomFunctions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectDeclarations",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CollectedRule",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectKeyframes",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectPropertyDescriptors",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectStyleRules",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "collectTimelineOptions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CSSAnimationOptions",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CssColor",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CssColorSpace",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CssLinearStop",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CSSPropertyDescriptor",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CSSTimelineOptions",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CssTimingFunction",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CustomFunctionDescriptor",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CustomFunctionParameter",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "CustomFunctionRule",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "Declaration",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "KeyframeRule",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "KeyframesBlock",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "KeyframeSelector",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseAnimationRange",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseAnimationTimeline",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssColor",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssScalar",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssValue",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseCssValues",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ParseIssue",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseKeyframeSelector",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ParseResult",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseStylesheet",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "parseTimingFunction",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "PropertyRule",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "RangeBoundary",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "RangePhase",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ScrollerKeyword",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ScrollTimelineDescriptor",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "serializeCssColor",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "serializeTimelineOptions",
+                    "kind": "runtime",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "StyleRule",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "Stylesheet",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "StylesheetItem",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "TimelineAxis",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "TimelineScopeValue",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "TriggerType",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ViewInset",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                },
+                {
+                    "name": "ViewTimelineDescriptor",
+                    "kind": "types",
+                    "resolved": true,
+                    "reason": null
+                }
+            ]
+        },
+        "refusals": {
+            "ok": true,
+            "rows": [
+                {
+                    "specifier": "@mkbabb/parse-that/src/css/entry.mjs",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/src/css/build/ac1.js",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/src/css/build/ac1.d.ts",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/dist/parse.js",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                },
+                {
+                    "specifier": "@mkbabb/parse-that/package.json",
+                    "refused": true,
+                    "code": "ERR_PACKAGE_PATH_NOT_EXPORTED"
+                }
+            ],
+            "note": "a refusal carrying ERR_PACKAGE_PATH_NOT_EXPORTED is the export map refusing; any other code is a missing file refusing, which is a weaker property and is recorded as such"
+        }
+    },
+    "ephemeral": {
+        "consumerRoot": "/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/candidate-packed-I5Trt5",
+        "removed": true
+    },
+    "verdict": {
+        "pack": true,
+        "declaration": true,
+        "install": true,
+        "resolve": true,
+        "refusals": true,
+        "G3": "GREEN"
+    }
+}

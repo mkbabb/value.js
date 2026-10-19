@@ -1,0 +1,95 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 15,
+ "when": "2026-09-23T17:41:04.509Z",
+ "runs": [
+  {
+   "tag": "390-light",
+   "sha": "531aa3f1",
+   "dirty": 15,
+   "frames": [
+    "20-sheet-expanded-390-light.png",
+    "21-sheet-presets-390-light.png",
+    "22-sheet-inline-editor-390-light.png",
+    "23-sheet-ribbon-390-light.png"
+   ],
+   "notes": {
+    "handle": {
+     "tag": "DIV",
+     "role": "slider",
+     "vnow": "0.12",
+     "vtext": "12%, position 1 of 2",
+     "keys": null
+    },
+    "afterDrag": [
+     "0.62",
+     "62%, position 2 of 2",
+     294
+    ],
+    "paneExpanded": [
+     338,
+     727,
+     0,
+     1364
+    ],
+    "s1": 442.5,
+    "s2": 598,
+    "s3": [
+     636.5,
+     1364,
+     727
+    ],
+    "ribbon": [
+     "Play 43,1520,142,40 r=9999px",
+     "Reverse 193,1520,142,40 r=9999px",
+     "Re-seat 43,1640,292,40 r=9999px"
+    ],
+    "reseatInViewport": false
+   }
+  },
+  {
+   "tag": "390-dark",
+   "sha": "531aa3f1",
+   "dirty": 17,
+   "frames": [
+    "20-sheet-expanded-390-dark.png",
+    "21-sheet-presets-390-dark.png",
+    "22-sheet-inline-editor-390-dark.png",
+    "23-sheet-ribbon-390-dark.png"
+   ],
+   "notes": {
+    "handle": {
+     "tag": "DIV",
+     "role": "slider",
+     "vnow": "0.12",
+     "vtext": "12%, position 1 of 2",
+     "keys": null
+    },
+    "afterDrag": [
+     "0.62",
+     "62%, position 2 of 2",
+     294
+    ],
+    "paneExpanded": [
+     338,
+     727,
+     0,
+     1364
+    ],
+    "s1": 442.5,
+    "s2": 598,
+    "s3": [
+     636.5,
+     1364,
+     727
+    ],
+    "ribbon": [
+     "Play 43,884,142,40 r=9999px",
+     "Reverse 193,884,142,40 r=9999px",
+     "Re-seat 43,1004,292,40 r=9999px"
+    ],
+    "reseatInViewport": false
+   }
+  }
+ ]
+}

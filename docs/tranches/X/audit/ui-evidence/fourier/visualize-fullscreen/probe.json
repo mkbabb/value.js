@@ -1,0 +1,130 @@
+{
+ "inlinePlaying": "true",
+ "canvasOverTime": [
+  {
+   "t": 0,
+   "dlgRect": 1413.419677734375,
+   "dlgOffset": 1440,
+   "scale": "0.981541",
+   "transform": "none",
+   "canvasCss": "1373.98px",
+   "ccOffset": 1440
+  },
+  {
+   "t": 60,
+   "dlgRect": 1434.689453125,
+   "dlgOffset": 1440,
+   "scale": "0.996312",
+   "transform": "none",
+   "canvasCss": "1373.98px",
+   "ccOffset": 1440
+  },
+  {
+   "t": 150,
+   "dlgRect": 1439.427734375,
+   "dlgOffset": 1440,
+   "scale": "0.999603",
+   "transform": "none",
+   "canvasCss": "1373.98px",
+   "ccOffset": 1440
+  },
+  {
+   "t": 300,
+   "dlgRect": 1439.990234375,
+   "dlgOffset": 1440,
+   "scale": "0.999993",
+   "transform": "none",
+   "canvasCss": "1373.98px",
+   "ccOffset": 1440
+  },
+  {
+   "t": 600,
+   "dlgRect": 1440,
+   "dlgOffset": 1440,
+   "scale": "1",
+   "transform": "none",
+   "canvasCss": "1373.98px",
+   "ccOffset": 1440
+  },
+  {
+   "t": 1500,
+   "dlgRect": 1440,
+   "dlgOffset": 1440,
+   "scale": "1",
+   "transform": "none",
+   "canvasCss": "1373.98px",
+   "ccOffset": 1440
+  }
+ ],
+ "playRelocation": {
+  "before": {
+   "pressed": "true",
+   "box": {
+    "x": 677,
+    "y": 836,
+    "width": 40,
+    "height": 40
+   }
+  },
+  "at80": {
+   "x": 374.4271240234375,
+   "y": 835.2940673828125,
+   "width": 41.411895751953125,
+   "height": 41.411865234375
+  },
+  "at780": {
+   "x": 252,
+   "y": 836,
+   "width": 40,
+   "height": 40
+  },
+  "pressedAfterClickAtOriginalSpot": "true",
+  "hitAtOriginalSpot": "<span data-orientation=\"horizontal\" class=\"slider-range glass-liquid-fill\" style=\"left: 0%; right: 47%;\"></span>"
+ },
+ "menu": {
+  "rect": [
+   1008,
+   453.5,
+   180.203125,
+   382.5703125
+  ],
+  "insideDialog": false,
+  "wrapperParent": "BODY#",
+  "wrapperZ": "auto",
+  "wrapperStyleZ": "auto",
+  "dlgZ": "140",
+  "hitIsMenu": false,
+  "hit": "<canvas data-v-9a00431e=\"\" class=\"canvas-el\" width=\"2748\" height=\"1717\" style=\"width: 1373.98px; height: 858.736px;\"></c",
+  "chain": [
+   "DIV. z=auto pos=fixed"
+  ],
+  "opacity": "1",
+  "visibility": "visible"
+ },
+ "exitTooltip": [],
+ "focusAfterExitBtn": "BODY ",
+ "mTabs": [
+  "Controls:true",
+  "Canvas:false"
+ ],
+ "mDock": {
+  "r": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "vis": "visible",
+  "hiddenAncestor": true
+ },
+ "mFsButtons": [
+  [
+   0,
+   0,
+   0,
+   0,
+   true
+  ]
+ ],
+ "mViewState": null
+}

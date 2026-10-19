@@ -1,0 +1,2 @@
+# 00:14:24 load: { 22.72 18.75 23.98 } kf=71480d85
+# stopped 00:34:49: queued 00:14:24-00:35 in the guard FIFO (13 queued), never admitted, load 21; re-read under guarded --light (ESC-W13X-close3-1 precedent)

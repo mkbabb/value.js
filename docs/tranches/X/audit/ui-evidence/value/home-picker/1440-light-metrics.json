@@ -1,0 +1,282 @@
+{
+ "tree": "de278769 dirty=22",
+ "html": "",
+ "bodyBg": "rgb(200, 70, 215)",
+ "card": {
+  "box": [
+   199,
+   112,
+   512,
+   685
+  ],
+  "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-",
+  "font-size": "18.608px",
+  "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "border-radius": "16px",
+  "background-color": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+  "box-shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+  "padding": "0px"
+ },
+ "header": {
+  "box": [
+   200,
+   113,
+   510,
+   227
+  ],
+  "cls": "card-header picker-header font-display m-0 pt-3 pb-0 z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col item",
+  "font-size": "18.608px",
+  "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+  "border-radius": "0px",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "box-shadow": "none",
+  "padding": "12px 20.48px 0px"
+ },
+ "title": {
+  "box": [
+   220,
+   125,
+   106,
+   85
+  ],
+  "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:t",
+  "font-size": "53.28px",
+  "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+  "border-radius": "9999px",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+  "padding": "0px 0px 5.0616px"
+ },
+ "readout": {
+  "box": [
+   220,
+   217,
+   442,
+   122
+  ],
+  "cls": "card-title readout flex h-fit w-fit max-w-full m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none",
+  "font-size": "54.644px",
+  "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+  "border-radius": "0px",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "box-shadow": "none",
+  "padding": "0px"
+ },
+ "rail": {
+  "box": [
+   234,
+   599,
+   31,
+   166
+  ],
+  "cls": "channel-rail self-stretch",
+  "font-size": "18.608px",
+  "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "border-radius": "9999px",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "box-shadow": "none",
+  "padding": "2px"
+ },
+ "blob": {
+  "box": [
+   598,
+   112,
+   113,
+   113
+  ],
+  "cls": "pointer-events-none hero-blob-anchor",
+  "font-size": "18.608px",
+  "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "border-radius": "0px",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "box-shadow": "none",
+  "padding": "0px"
+ },
+ "spectrum": {
+  "box": [
+   220,
+   351,
+   469,
+   224
+  ],
+  "cls": "spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target",
+  "font-size": "18.608px",
+  "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+  "border-radius": "12px",
+  "background-color": "rgba(0, 0, 0, 0)",
+  "box-shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+  "padding": "0px"
+ },
+ "sliderRows": [
+  {
+   "box": [
+    275,
+    605,
+    339,
+    24
+   ],
+   "rad": "0px",
+   "cls": "glass-slider channel-slider"
+  },
+  {
+   "box": [
+    576,
+    605,
+    12,
+    24
+   ],
+   "rad": "6.4px",
+   "cls": "slider-thumb glass-specular-track"
+  },
+  {
+   "box": [
+    275,
+    648,
+    339,
+    24
+   ],
+   "rad": "0px",
+   "cls": "glass-slider channel-slider"
+  },
+  {
+   "box": [
+    555,
+    648,
+    12,
+    24
+   ],
+   "rad": "6.4px",
+   "cls": "slider-thumb glass-specular-track"
+  },
+  {
+   "box": [
+    275,
+    692,
+    339,
+    24
+   ],
+   "rad": "0px",
+   "cls": "glass-slider channel-slider"
+  },
+  {
+   "box": [
+    465,
+    692,
+    12,
+    24
+   ],
+   "rad": "6.4px",
+   "cls": "slider-thumb glass-specular-track"
+  }
+ ],
+ "railItems": [
+  {
+   "box": [
+    238,
+    610,
+    24,
+    24
+   ],
+   "rad": "9999px"
+  },
+  {
+   "box": [
+    238,
+    650,
+    24,
+    24
+   ],
+   "rad": "9999px"
+  },
+  {
+   "box": [
+    238,
+    689,
+    24,
+    24
+   ],
+   "rad": "9999px"
+  },
+  {
+   "box": [
+    237,
+    729,
+    25,
+    25
+   ],
+   "rad": "9999px"
+  }
+ ],
+ "buttons": [
+  {
+   "label": "Select color space",
+   "box": [
+    220,
+    125,
+    106,
+    85
+   ],
+   "rad": "9999px",
+   "slot": "select-trigger"
+  },
+  {
+   "label": "l channel",
+   "box": [
+    238,
+    610,
+    24,
+    24
+   ],
+   "rad": "9999px",
+   "slot": null
+  },
+  {
+   "label": "a channel",
+   "box": [
+    238,
+    650,
+    24,
+    24
+   ],
+   "rad": "9999px",
+   "slot": null
+  },
+  {
+   "label": "b channel",
+   "box": [
+    238,
+    689,
+    24,
+    24
+   ],
+   "rad": "9999px",
+   "slot": null
+  },
+  {
+   "label": "alpha channel",
+   "box": [
+    237,
+    729,
+    25,
+    25
+   ],
+   "rad": "9999px",
+   "slot": null
+  }
+ ],
+ "canvas": [
+  {
+   "box": [
+    565,
+    78,
+    180,
+    180
+   ],
+   "rad": "0px",
+   "parentRad": "0px",
+   "pcls": "goo-blob-wrapper w-(--blob-fp)"
+  }
+ ],
+ "docOverflowX": 0,
+ "errs": []
+}

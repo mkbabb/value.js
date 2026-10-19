@@ -1,0 +1,154 @@
+{
+ "start": "2026-09-23T14:59:08.961Z",
+ "khead0": "3c8199c5 dirty=2",
+ "phases": {
+  "A_before": "matrix(1, 0, 0, 1, 123.341, 125.046)",
+  "A": {
+   "animations": [
+    {
+     "type": "CSSTransition",
+     "prop": "opacity",
+     "target": "glass-quiet card rounded-card text-card-foreground scrollbar",
+     "dur": 300,
+     "ct": 33.34799999798399
+    },
+    {
+     "type": "CSSTransition",
+     "prop": "transform",
+     "target": "spring-heatmap-marker",
+     "dur": 200,
+     "ct": 33.34799999798399
+    },
+    {
+     "type": "CSSTransition",
+     "prop": "background-color",
+     "target": "toggle-group__item tap-squish focus-ring preset-cell w-full ",
+     "dur": 200,
+     "ct": 33.34799999798399
+    },
+    {
+     "type": "CSSTransition",
+     "prop": "outline-color",
+     "target": "toggle-group__item tap-squish focus-ring preset-cell w-full ",
+     "dur": 200,
+     "ct": 33.34799999798399
+    },
+    {
+     "type": "CSSAnimation",
+     "prop": "gl-fade-start-in",
+     "target": "dock-layer dock-layer--full is-leaving",
+     "dur": {},
+     "ct": {}
+    },
+    {
+     "type": "CSSAnimation",
+     "prop": "gl-fade-end-out",
+     "target": "dock-layer dock-layer--full is-leaving",
+     "dur": {},
+     "ct": {}
+    }
+   ],
+   "n": 32,
+   "khead": "3c8199c5 dirty=2"
+  },
+  "B": {
+   "frames": 68,
+   "khead": "3c8199c5 dirty=2"
+  },
+  "C": {
+   "animations": [
+    {
+     "type": "CSSTransition",
+     "prop": "opacity",
+     "target": "glass-quiet card rounded-card text-card-foreground scrollbar",
+     "dur": 300,
+     "ct": 17.496999997273832
+    },
+    {
+     "type": "CSSTransition",
+     "prop": "transform",
+     "target": "spring-heatmap-marker",
+     "dur": 200,
+     "ct": 17.496999997273832
+    },
+    {
+     "type": "CSSTransition",
+     "prop": "background-color",
+     "target": "toggle-group__item tap-squish focus-ring preset-cell w-full ",
+     "dur": 200,
+     "ct": 17.496999997273832
+    },
+    {
+     "type": "CSSTransition",
+     "prop": "outline-color",
+     "target": "toggle-group__item tap-squish focus-ring preset-cell w-full ",
+     "dur": 200,
+     "ct": 17.496999997273832
+    },
+    {
+     "type": "CSSAnimation",
+     "prop": "gl-fade-start-in",
+     "target": "dock-layer dock-layer--full",
+     "dur": {},
+     "ct": {}
+    },
+    {
+     "type": "CSSAnimation",
+     "prop": "gl-fade-end-out",
+     "target": "dock-layer dock-layer--full",
+     "dur": {},
+     "ct": {}
+    }
+   ],
+   "n": 32,
+   "khead": "3c8199c5 dirty=2"
+  },
+  "D": {
+   "frames": 102,
+   "khead": "3c8199c5 dirty=2"
+  },
+  "E": {
+   "frames": 33,
+   "getAnimationsDuringPlay": [],
+   "editorMutationsDuringPlay": 0,
+   "khead": "3c8199c5 dirty=2",
+   "raf": {
+    "n": 207,
+    "over20": 0,
+    "max": 17.700000000000728,
+    "mean": 16.66
+   }
+  },
+  "F": {
+   "khead": "3c8199c5 dirty=2",
+   "reversedPressed": "true",
+   "pausedLabel": [
+    "Share animation",
+    "Apply the keyframes as a CSS animation",
+    "Play animation",
+    "Select animation",
+    "Reset animation",
+    "Play animation"
+   ]
+  },
+  "G": {
+   "khead": "3c8199c5 dirty=2",
+   "sInfo": {
+    "max": null,
+    "now": null
+   }
+  }
+ },
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "onScreen": {
+  "heatmapVisible": true,
+  "facetCount": 2,
+  "readout": "0.50 S / Ζ 0.86",
+  "hash": "#/spring"
+ },
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "end": "2026-09-23T15:00:03.189Z",
+ "khead1": "3c8199c5 dirty=2"
+}

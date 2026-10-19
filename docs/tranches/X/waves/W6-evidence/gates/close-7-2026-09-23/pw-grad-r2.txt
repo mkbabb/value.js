@@ -1,0 +1,36 @@
+SERVED MODEL: claude-opus-5-5[1m]
+(node:15718) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:15746) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 22 tests using 1 worker
+
+[1A[2K(node:15755) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+[1A[2K[2/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+[1A[2K[3/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[4/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+[1A[2K[5/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+[1A[2K[6/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:254:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[1A[2K[7/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:322:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[1A[2K[8/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:375:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[1A[2K[9/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:431:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[1A[2K[10/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:500:1 › one removal owner: the floor is a disabled control carrying its reason
+[1A[2K[11/22] [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors
+[1A[2K[12/22] [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+[1A[2K[13/22] [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+[1A[2K[14/22] [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+[1A[2K[15/22] [smoke] › e2e/smoke/views/gradient.spec.ts:209:1 › a grab is not a teleport, and no secondary button mints
+[1A[2K[16/22] [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[1A[2K[17/22] [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved
+[1A[2K[18/22] [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched
+[1A[2K[19/22] [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop
+[1A[2K[20/22] [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal
+[1A[2K[21/22] [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[1A[2K[22/22] [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora
+[1A[2K  22 passed (2.1m)
+EXIT=0

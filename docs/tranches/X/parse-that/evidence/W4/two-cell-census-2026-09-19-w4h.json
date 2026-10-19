@@ -1,0 +1,225 @@
+{
+ "schema": "x-p-w4.h.two-cell-census/1",
+ "rows": [
+  {
+   "id": "#40",
+   "kind": "cell",
+   "src": "b { background-color: var(--brand) -!important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "#41",
+   "kind": "cell",
+   "src": "#d { background-color: hsl(73.416 -338 -290)!important } .c { color: red }",
+   "disposition": "identical",
+   "rawSame": false,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[73.416,-338,-290],\"space\":\"hsl\"}}}}],\"kind\":\"style\",\"selectors\":[\"#d\"]},{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[73.416,0,0],\"space\":\"hsl\"}}}}],\"kind\":\"style\",\"selectors\":[\"#d\"]},{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"select",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[73.416,0,0],\"space\":\"hsl\"}}}}],\"kind\":\"style\",\"selectors\":[\"#d\"]},{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"select",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[73.416,0,0],\"space\":\"hsl\"}}}}],\"kind\":\"style\",\"selectors\":[\"#d\"]},{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"select"
+  },
+  {
+   "id": "ctl-spaced",
+   "kind": "control (was ACCEPT, must stay)",
+   "src": "b { color: red !important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "ctl-minimal",
+   "kind": "control (F-w4f-2 in one line)",
+   "src": "b { color: red!important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "ctl-40-spaced",
+   "kind": "control (#40 with the space)",
+   "src": "b { background-color: var(--brand) - !important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"background-color\",\"value\":{\"items\":[{\"args\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"--brand\"}}],\"kind\":\"call\",\"name\":\"var\"},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"-\"}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "ctl-gap",
+   "kind": "control (4.0.0 REFUSES the gap)",
+   "src": "b { color: red ! important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "REJECT",
+   "oracleRuled": "REJECT",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "ctl-gap2",
+   "kind": "control (4.0.0 REFUSES the gap)",
+   "src": "b { color: red! important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "REJECT",
+   "oracleRuled": "REJECT",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "ctl-fold",
+   "kind": "control (§5.4.7 is case-insensitive)",
+   "src": "b { color: red!IMPORTANT }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "ctl-tail-ws",
+   "kind": "control (trailing ws after the pair)",
+   "src": "b { color: red!important   }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "ctl-semi",
+   "kind": "control (the pair before a `;`)",
+   "src": "b { color: red!important; background: blue }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}},{\"important\":false,\"name\":\"background\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}},{\"important\":false,\"name\":\"background\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}},{\"important\":false,\"name\":\"background\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":true,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}},{\"important\":false,\"name\":\"background\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"b\"]}]"
+  },
+  {
+   "id": "ctl-twice",
+   "kind": "control (a second pair is not a tail)",
+   "src": "b { color: red!important!important }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "REJECT",
+   "oracleRuled": "REJECT",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "f1-col!r",
+   "kind": "F-w4f-1 (a non-ident NAME)",
+   "src": "a { col!r: red }",
+   "disposition": "declared-divergence",
+   "rawSame": false,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"col!r\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"col!r\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "f1-lead",
+   "kind": "F-w4f-1 (a non-ident NAME)",
+   "src": "a { !color: red }",
+   "disposition": "declared-divergence",
+   "rawSame": false,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"!color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"!color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "f1-trail",
+   "kind": "F-w4f-1 (a non-ident NAME)",
+   "src": "a { color!: red }",
+   "disposition": "declared-divergence",
+   "rawSame": false,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color!\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color!\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "f1-digit",
+   "kind": "F-w4f-1 (§4.3.9: no leading digit)",
+   "src": "a { 1color: red }",
+   "disposition": "declared-divergence",
+   "rawSame": false,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"1color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"1color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  },
+  {
+   "id": "f1-ok",
+   "kind": "F-w4f-1 control (an ident NAME)",
+   "src": "a { color: red }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]"
+  },
+  {
+   "id": "f1-custom",
+   "kind": "F-w4f-1 control (a custom property)",
+   "src": "a { --brand: red }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"--brand\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"--brand\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"--brand\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"--brand\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]"
+  },
+  {
+   "id": "f1-ws",
+   "kind": "F-w4f-1 control (§5.4.4's optional ws)",
+   "src": "a { color : red }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}}}],\"kind\":\"style\",\"selectors\":[\"a\"]}]"
+  },
+  {
+   "id": "neq-spaced",
+   "kind": "incumbent splitter control",
+   "src": "a { color: red != blue }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"items\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"!=\"}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors",
+   "oracleRuled": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"items\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"!=\"}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors",
+   "js": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"items\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"!=\"}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors",
+   "wasm": "ACCEPT [{\"declarations\":[{\"important\":false,\"name\":\"color\",\"value\":{\"items\":[{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[255,0,0],\"space\":\"rgb\"}}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"keyword\",\"value\":\"!=\"}},{\"kind\":\"scalar\",\"payload\":{\"type\":\"color\",\"value\":{\"alpha\":1,\"channels\":[0,0,255],\"space\":\"rgb\"}}}],\"kind\":\"list\",\"separator\":\"space\"}}],\"kind\":\"style\",\"selectors"
+  },
+  {
+   "id": "neq-abut",
+   "kind": "incumbent splitter control (ONE token there)",
+   "src": "a { color: red!= blue }",
+   "disposition": "identical",
+   "rawSame": true,
+   "oracleRaw": "REJECT",
+   "oracleRuled": "REJECT",
+   "js": "REJECT",
+   "wasm": "REJECT"
+  }
+ ]
+}

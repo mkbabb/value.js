@@ -1,0 +1,494 @@
+<template>
+    <div class="grid gap-3 pb-3">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Under the signed-out or error plate every control
+             in it was dead or a second Retry, so the row held nothing live. -->
+        <div v-if="!access && !loadError" class="flex items-center gap-2 flex-wrap">
+            <!-- A-3: the count speaks only once the roster resolves — a "0
+                 users" line above three loading skeletons is a self-
+                 contradiction (totalUsers is 0 before the data arrives). -->
+            <!-- UIA-V-168: nor while the read failed — a dead backend is not
+                 an empty roster ("0 users" over the error plate lies). -->
+            <span v-if="!loading" class="text-mono-small text-muted-foreground">
+                {{ totalUsers }} user{{ totalUsers !== 1 ? 's' : '' }}
+            </span>
+            <span v-if="!loading && emptyCount > 0" class="text-mono-small text-muted-foreground">
+                · {{ emptyCount }} empty
+            </span>
+            <div class="flex-1" />
+            <Button
+                size="xs"
+                class="px-2.5 cursor-pointer text-caption gap-1.5"
+                :disabled="loading || emptyCount === 0 || pruning"
+                @click="onPruneClick"
+            >
+                <Loader2 v-if="pruning" class="w-3 h-3 animate-spin" />
+                <Eraser v-else class="w-3 h-3" />
+                Prune empty
+            </Button>
+            <!-- UIA-V-49: while the error plate offers Retry, the header's
+                 duplicate Refresh stands down; both are the recovery probe. -->
+            <Button
+                size="xs"
+                class="px-2.5 cursor-pointer text-caption gap-1.5"
+                :disabled="loading"
+                @click="pm.retryAdminUsers()"
+            >
+                <RefreshCw class="w-3 h-3" :class="loading && 'animate-spin'" />
+                Refresh
+            </Button>
+        </div>
+
+        <!-- X.W7.d (S-13 · W7.64): every mutation's ONE visible result, in an
+             always-mounted live region — never a 3 s unannounced flourish. -->
+        <!-- X.W12U.s3 · UIA-V-625: the region stays mounted for the announcement
+             but generates no box (`contents`), so at rest it takes no grid gap
+             and the toolbar-to-list spacing is the one rung. -->
+        <div aria-live="polite" data-admin-notice="users" class="contents">
+            <ActionFeedback
+                v-if="notice"
+                :key="notice.seq"
+                :message="notice.message"
+                :variant="notice.variant"
+                :visible="true"
+                :auto-dismiss-ms="notice.variant === 'error' ? 0 : 4000"
+                @update:visible="pm.dismissUsersNotice()"
+            />
+        </div>
+
+        <!-- X.W7.d (N-2 · W7.61): signed out is its own register — never the
+             empty roster, never an operable control set. -->
+        <EmptyState
+            v-if="access"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="access.message"
+            detail="Sign in with an admin token to see the roster."
+        />
+        <!-- W5-1 + F-13: rows load as row-shaped shadows in the ONE loading
+             grammar — never a centered generic spinner. -->
+        <div v-else-if="loading" class="grid gap-3" role="status" aria-label="Loading users">
+            <AdminListSkeleton v-for="i in 3" :key="i" />
+        </div>
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as an empty roster. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="loadError"
+            variant="error"
+            message="Couldn't load users."
+            :detail="loadError"
+        >
+            <template #action>
+                <Button size="sm" @click="pm.retryAdminUsers()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+        <!-- UIA-V-409: a search that matches nothing is not an empty roster —
+             it says what it searched and offers the way back (the W7.83
+             filtered-zero register the audit and names panels speak). -->
+        <EmptyState
+            v-else-if="users.length === 0 && pm.usersSearch.value.trim()"
+            variant="filtered"
+            :message="`No users match “${pm.usersSearch.value.trim()}”.`"
+        >
+            <template #action>
+                <Button size="sm" emphasis="quiet" @click="pm.usersSearch.value = ''">
+                    Clear search
+                </Button>
+            </template>
+        </EmptyState>
+        <EmptyState v-else-if="users.length === 0" message="No users found." />
+        <div v-else class="grid gap-3">
+            <!-- A2-VA-L1-12: each user is a glass Collapsible — the app's one
+                 disclosure. U.W-A11Y · BR-9 (WCAG 2.1.1 Keyboard): the identity
+                 half of the row is the disclosure's TRIGGER, a native button
+                 (focusable, Enter/Space, aria-expanded), and it is the only
+                 keyboard path to a user's palettes. A 0-palette user has no
+                 trigger: its identity is plain text (inert, out of the tab
+                 order). The action cluster is the trigger's SIBLING, never
+                 nested inside it. -->
+            <Collapsible
+                v-for="user in users"
+                :key="user.slug"
+                class="rounded-md border border-card-edge overflow-hidden"
+                :open="expandedUserSlug === user.slug"
+                @update:open="toggleUserExpand(user.slug)"
+            >
+                <!-- X.W12U.m2 · A2-VA-X-6: the row WRAPS before it crushes. The
+                     identity holds a 10rem floor (the slug head and its tail
+                     stay legible); when the labelled action cluster cannot
+                     sit beside it, the cluster drops to its own line at the
+                     row's end instead of squeezing the pill to "-1-f". -->
+                <div class="flex flex-wrap items-center gap-x-3 pe-3">
+                    <component
+                        :is="user.paletteCount ? CollapsibleTrigger : 'div'"
+                        :class="[
+                            'flex-1 basis-40 min-w-0 flex items-center gap-2 ps-3 py-2.5 text-left transition-colors',
+                            user.paletteCount ? 'cursor-pointer hover:bg-accent/50' : 'cursor-default',
+                        ]"
+                    >
+                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
+                             W5-12 (F-13): tail-priority truncation — the head
+                             ellipsizes, the last chars (the identity-bearing
+                             suffix) never do, so two prune candidates stay
+                             distinguishable on a phone. -->
+                        <span
+                            class="slug-pill flex items-baseline min-w-0 max-w-full"
+                            :style="{ color: safeAccent, borderColor: safeAccent }"
+                            :title="user.slug"
+                        ><span class="truncate min-w-0">{{ slugHead(user.slug) }}</span><span class="shrink-0">{{ slugTail(user.slug) }}</span></span>
+                        <!-- X-DS pass 15 (V15-02): the app's ONE count idiom
+                             (PaletteSpecimen, V6C-04) — a muted mono tabular
+                             numeral, titled with its noun, no chip. -->
+                        <span
+                            class="text-mono-small tabular-nums text-muted-foreground shrink-0"
+                            :title="`${user.paletteCount ?? 0} palette${(user.paletteCount ?? 0) === 1 ? '' : 's'}`"
+                        >{{ user.paletteCount ?? 0 }}</span>
+                    </component>
+                    <div class="ms-auto flex items-center gap-1.5 shrink-0 py-1.5">
+                        <!-- W5-12 (F-8): the disabled delete on 0-palette
+                             users is DROPPED (superfluous furniture), and the
+                             per-row destructive is quieted to ink-at-rest —
+                             red arrives on hover/focus, never as 5 resting
+                             beacons down the list. -->
+                        <!-- X.W7.e (G15 · DAG §2.3 row 4): the control says what it
+                             destroys BEFORE activation — visible and accessible
+                             names both; the accessible name carries the visible
+                             words (label-in-name) plus the user it acts on. -->
+                        <Button
+                            v-if="user.paletteCount"
+                            emphasis="secondary"
+                            size="xs"
+                            class="px-2 cursor-pointer text-caption"
+                            :aria-label="`Delete all palettes of ${user.slug}`"
+                            @click="onDeletePalettesClick(user.slug, user.paletteCount ?? 0)"
+                        >
+                            <Trash2 class="w-3 h-3 mr-1" aria-hidden="true" />
+                            Delete all palettes
+                        </Button>
+                        <!-- S-15 (W7.96 · Δ-19): the two irreversible acts no longer
+                             share one glyph — deleting the USER reads as a user act. -->
+                        <Button
+                            emphasis="quiet"
+                            size="xs" icon-only
+                            class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                            :aria-label="`Delete user ${user.slug}`"
+                            @click="onDeleteUserClick(user.slug)"
+                        >
+                            <UserX class="w-3 h-3" aria-hidden="true" />
+                        </Button>
+                    </div>
+                </div>
+                <!-- Expandable user palettes -->
+                <CollapsibleContent class="border-t border-seam bg-muted/30">
+                <div class="px-3 py-3">
+                    <div v-if="loadingUserPalettes" class="grid gap-2" role="status" aria-label="Loading palettes">
+                        <AdminListSkeleton v-for="i in 2" :key="i" />
+                    </div>
+                    <!-- W7.86: a failed read is an error, never "No palettes." -->
+                    <EmptyState
+                        v-else-if="userPalettesError"
+                        variant="error"
+                        message="Couldn't load this user's palettes."
+                        :detail="userPalettesError"
+                    />
+                    <EmptyState v-else-if="userPalettes.length === 0" message="No palettes." />
+                    <!-- X.W7.d (DAG §2.3 row 6): the Admin scene owns exactly its own
+                         verbs. The palette renders as the props-only specimen and
+                         the row's action seat carries Feature and Delete — the user
+                         verbs (Save / Remix / Export / Report) never enter it. -->
+                    <ul v-else class="grid gap-2" aria-label="Palettes">
+                        <li
+                            v-for="palette in userPalettes"
+                            :key="palette.slug"
+                            class="admin-palette rounded-card border border-card-edge bg-well"
+                            :data-admin-palette="palette.slug"
+                        >
+                            <PaletteSpecimen :palette="palette" />
+                            <div class="admin-palette__actions flex items-center gap-1.5 pe-2">
+                                <!-- UIA-V-630: the palette-row actions take an emphasis
+                                     (the G-2 mapping: a toggle is secondary, the
+                                     destructive-quiet law is ink at rest), never the
+                                     default filled capsule. -->
+                                <Button
+                                    emphasis="secondary"
+                                    size="xs"
+                                    class="px-2 cursor-pointer text-caption gap-1"
+                                    :aria-pressed="palette.tier === 'featured'"
+                                    :aria-label="`${palette.tier === 'featured' ? 'Unfeature' : 'Feature'} ${palette.name}`"
+                                    @click="pm.onFeaturePalette(palette)"
+                                >
+                                    <Star class="w-3 h-3" aria-hidden="true" />
+                                    {{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}
+                                </Button>
+                                <Button
+                                    emphasis="quiet"
+                                    size="xs"
+                                    icon-only
+                                    class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                    :aria-label="`Delete palette ${palette.name}`"
+                                    @click="onDeletePaletteClick(palette)"
+                                >
+                                    <Trash2 class="w-3 h-3" aria-hidden="true" />
+                                </Button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </CollapsibleContent>
+            </Collapsible>
+        </div>
+
+        <!-- A2-VA-X-12: the roster's other pages. -->
+        <PaginationBar v-if="!loading && !access && !loadError" :pager="pm.usersPager" />
+
+        <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family).
+             X.W7.e (G14 · A-3): the deliberate rung — Esc · outside, no ✕ — the
+             `dismiss="deliberate"` rung (glass 10.1.0, X-W7L). -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" dismiss="deliberate">
+                <DialogHeader>
+                    <DialogTitle class="font-display font-medium">{{ confirmTitle }}</DialogTitle>
+                    <DialogDescription>
+                        {{ confirmDescription }}
+                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
+                             X-DS pass 16 (V16-01): in the dialog the pill reads
+                             the modal plate's certified ink (the accent above
+                             is certified for the resting plate, not this one). -->
+                        <span
+                            v-if="confirmSlug"
+                            class="slug-pill inline-block align-middle mx-0.5 border-current"
+                        >{{ confirmSlug }}</span>
+                        <template v-if="confirmTail">{{ confirmTail }}</template>
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button
+                        :tone="confirmDestructive ? 'destructive' : 'neutral'"
+                        :disabled="!confirmAction"
+                        @click="onConfirm"
+                    >
+                        <component :is="confirmIcon" class="w-3.5 h-3.5" aria-hidden="true" />
+                        {{ confirmLabel }}
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { inject, ref, shallowRef, watch, type Component } from "vue";
+import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
+import { Button } from "@mkbabb/glass-ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
+import { Loader2, Trash2, Eraser, RefreshCw, Star, UserX } from "@lucide/vue";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@mkbabb/glass-ui/collapsible";
+import type { Palette } from "../../types";
+import { ADMIN_PORT_KEY } from "../../usePalettePorts";
+import PaletteSpecimen from "../../../shared/ui/PaletteSpecimen.vue";
+import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
+import EmptyState from "../../../shared/ui/EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
+import PaginationBar from "./PaginationBar.vue";
+
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
+// X.W7.d (fold W7.68 · L-2 · W7.67 · L-1): the panel reads the admin users
+// domain from its port — no forwarded props, no component instance held by the
+// composable, no imperative pokes whose results vanish behind `?.`.
+const pm = inject(ADMIN_PORT_KEY)!;
+
+const users = pm.filteredAdminUsers;
+const loading = pm.loadingUsers;
+const loadError = pm.usersLoadError;
+const totalUsers = pm.adminUsersTotal;
+const access = pm.usersAccess;
+const notice = pm.usersNotice;
+const expandedUserSlug = pm.expandedUserSlug;
+const userPalettes = pm.userPalettes;
+const loadingUserPalettes = pm.loadingUserPalettes;
+const userPalettesError = pm.userPalettesError;
+// N-3: the count the prune confirm quotes is the UNFILTERED loaded roster's.
+const emptyCount = pm.emptyUserCount;
+
+const pruning = ref(false);
+
+// W5-12 (F-13): tail-priority slug split — the kept tail carries the
+// distinguishing suffix (prune candidates read `…-33` vs `…-77`, never two
+// identical `empty-ghost…` stubs).
+// X.W12U.s3 · UIA-V-413: the tail is cut at a HYPHEN, never mid-word — the
+// shortest hyphen-led suffix of at least SLUG_TAIL characters
+// (`eager-mapping-ember-sparrow` keeps `-sparrow`, `verdant-tidal-moss-owl`
+// keeps `-moss-owl`). A slug with no such boundary is not split.
+const SLUG_TAIL = 6;
+function slugCut(slug: string): number {
+    for (let i = slug.lastIndexOf("-"); i > 0; i = slug.lastIndexOf("-", i - 1)) {
+        if (slug.length - i >= SLUG_TAIL) return i;
+    }
+    return slug.length;
+}
+function slugHead(slug: string): string {
+    return slug.slice(0, slugCut(slug));
+}
+function slugTail(slug: string): string {
+    return slug.slice(slugCut(slug));
+}
+
+// Confirmation dialog state
+const confirmOpen = ref(false);
+const confirmTitle = ref("");
+const confirmDescription = ref("");
+const confirmSlug = ref<string | null>(null);
+const confirmTail = ref<string | null>(null);
+const confirmLabel = ref("Confirm");
+const confirmDestructive = ref(false);
+const confirmIcon = shallowRef<Component>(Trash2);
+const confirmAction = shallowRef<(() => void) | null>(null);
+
+function showConfirm(opts: {
+    title: string;
+    description: string;
+    label: string;
+    slug?: string;
+    /** The sentence after the slug pill (X.W12U.s3 · UIA-V-622: said per act, never a shared "and all associated data"). */
+    tail?: string;
+    destructive?: boolean;
+    icon?: Component;
+    action: () => void;
+}) {
+    confirmTitle.value = opts.title;
+    confirmDescription.value = opts.description;
+    confirmSlug.value = opts.slug ?? null;
+    confirmTail.value = opts.tail ?? null;
+    confirmLabel.value = opts.label;
+    confirmDestructive.value = opts.destructive ?? false;
+    confirmIcon.value = opts.icon ?? Trash2;
+    confirmAction.value = opts.action;
+    confirmOpen.value = true;
+}
+
+// A dismissal (Esc · outside · Cancel) releases the pending act: a closed
+// confirm holds nothing that a later activation could fire.
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAction.value = null;
+    },
+    { flush: "sync" },
+);
+
+// Glass 7 folded ConfirmDialog onto the Dialog family: the confirm action
+// fires from the composed footer button, then the dialog closes.
+// X.W7.e (N-6 · W7.92 · Δ-3): the act is TAKEN before it runs — the closure is
+// cleared synchronously, so a second activation inside the leave transition's
+// hit-testable window (271 ms chromium / 159 ms webkit) finds nothing to fire
+// and the footer button is disabled. One acceptance, exactly one request.
+function onConfirm() {
+    const act = confirmAction.value;
+    if (!act) return;
+    confirmAction.value = null;
+    confirmOpen.value = false;
+    act();
+}
+
+/**
+ * N-3 (fold W7.60 · Δ-1): prune is a SERVER-GLOBAL delete of every user with
+ * no palettes. The confirm states that scope in words, and the number it
+ * quotes is read from the unfiltered loaded roster — never the search result.
+ */
+function onPruneClick() {
+    const n = emptyCount.value;
+    showConfirm({
+        title: "Prune every empty user?",
+        description: `This permanently deletes every user with 0 palettes on the server, and their sessions — not only the users shown here. ${n} of the ${pm.adminUsers.value.length} loaded users ${n === 1 ? "is" : "are"} empty. This cannot be undone.`,
+        label: "Prune",
+        destructive: true,
+        // UIA-V-622: the commit wears its trigger's glyph.
+        icon: Eraser,
+        action: async () => {
+            pruning.value = true;
+            try {
+                await pm.onPruneEmpty();
+            } finally {
+                pruning.value = false;
+            }
+        },
+    });
+}
+
+// W5-12 (F-8): the shift-click confirm bypass is EXCISED — an invisible,
+// undocumented, un-undoable fast path on the two most destructive actions
+// in the app (a shift-clicking power user and a shift-holding accident were
+// the same event). No special-case danger affordances (§No-workaround).
+// X.W12U.s3 · UIA-V-622: each confirm names its object as the list shows it
+// and quantifies the effect — the bulk delete says how many palettes and that
+// the user stays; the palette delete names the palette, not its slug.
+function onDeletePalettesClick(slug: string, count: number) {
+    showConfirm({
+        title: "Delete all palettes?",
+        description: `This permanently deletes the ${count} palette${count === 1 ? "" : "s"} of`,
+        slug,
+        tail: ". The user stays. This cannot be undone.",
+        label: "Delete all palettes",
+        destructive: true,
+        action: () => void pm.onDeleteUserPalettes(slug),
+    });
+}
+
+function onDeleteUserClick(slug: string) {
+    showConfirm({
+        title: "Delete user?",
+        description: "This permanently deletes the user",
+        slug,
+        tail: ". This cannot be undone.",
+        label: "Delete user",
+        destructive: true,
+        icon: UserX,
+        action: () => void pm.onDeleteUser(slug),
+    });
+}
+
+// X.W7.e (G14): the admin palette delete in a user's disclosure is the same
+// irreversible act as the flag queue's — it is confirmed here too.
+function onDeletePaletteClick(palette: Palette) {
+    showConfirm({
+        title: "Delete palette?",
+        description: `This permanently deletes “${palette.name}”. This cannot be undone.`,
+        label: "Delete palette",
+        destructive: true,
+        action: () => void pm.onAdminDeletePalette(palette),
+    });
+}
+
+// U.W-A11Y · BR-9: the disclosure trigger (a native button) toggles the row's
+// palettes by pointer, Enter and Space alike.
+function toggleUserExpand(slug: string) {
+    void pm.toggleUserExpand(slug);
+}
+</script>
+
+<style scoped>
+/* The admin palette row hosts the props-only specimen (strip + head) and the
+ * Admin scene's own action seat beside its head. */
+.admin-palette {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "strip strip"
+        "head actions";
+    align-items: center;
+    --specimen-radius: calc(var(--radius-card) - 1px);
+}
+.admin-palette__actions {
+    grid-area: actions;
+}
+</style>

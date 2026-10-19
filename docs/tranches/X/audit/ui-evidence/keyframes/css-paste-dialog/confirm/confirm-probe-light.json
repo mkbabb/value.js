@@ -1,0 +1,92 @@
+{
+ "sha": "6d5b4288",
+ "dirty": 5,
+ "theme": "light",
+ "steps": [],
+ "census": {
+  "chain": [
+   {
+    "el": "BUTTON.button tap-squish focus-ring glass-wash glass-capsule glass-capsule-ho",
+    "ov": "visible",
+    "h": 36,
+    "y": 992,
+    "sh": 36,
+    "ch": 36,
+    "maxH": "none",
+    "pos": "relative"
+   },
+   {
+    "el": "DIV.flex items-center justify-center gap-2 flex-wrap",
+    "ov": "visible",
+    "h": 80,
+    "y": 992,
+    "sh": 80,
+    "ch": 80,
+    "maxH": "none",
+    "pos": "static"
+   },
+   {
+    "el": "DIV.card-content p-3",
+    "ov": "visible",
+    "h": 104,
+    "y": 980,
+    "sh": 104,
+    "ch": 104,
+    "maxH": "none",
+    "pos": "static"
+   },
+   {
+    "el": "DIV.glass-quiet card rounded-card text-card-foreground scrollbar-hidden ca",
+    "ov": "visible",
+    "h": 108,
+    "y": 978,
+    "sh": 104,
+    "ch": 104,
+    "maxH": "none",
+    "pos": "relative"
+   },
+   {
+    "el": "DIV.flex-shrink-0 pl-4 pr-7 pb-2",
+    "ov": "visible",
+    "h": 116,
+    "y": 978,
+    "sh": 116,
+    "ch": 116,
+    "maxH": "none",
+    "pos": "static"
+   },
+   {
+    "el": "DIV.controls-content h-full flex flex-col",
+    "ov": "visible",
+    "h": 727,
+    "y": 539,
+    "sh": 727,
+    "ch": 727,
+    "maxH": "none",
+    "pos": "relative"
+   },
+   {
+    "el": "DIV.controls-pane group/controls min-w-0 overflow-y-auto",
+    "ov": "auto",
+    "h": 727,
+    "y": 539,
+    "sh": 727,
+    "ch": 727,
+    "maxH": "none",
+    "pos": "static"
+   },
+   {
+    "el": "DIV.glass-drawer glass-overlay controls-drawer-content",
+    "ov": "visible",
+    "h": 772,
+    "y": 494,
+    "sh": 771,
+    "ch": 771,
+    "maxH": "calc(100% - 72px)",
+    "pos": "fixed"
+   }
+  ],
+  "paneInChain": true,
+  "paneOv": "auto"
+ }
+}

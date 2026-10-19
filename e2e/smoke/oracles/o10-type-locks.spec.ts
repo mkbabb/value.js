@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W4 · O-10 — THE TYPE LOCKS (SYNTHESIS §6.1 O-10; the D2 ×φ recalibration's
@@ -62,7 +63,11 @@ async function readVoice(page: Page, selector: string): Promise<TypeVoice> {
     }, selector);
 }
 
-const PICKER_TRIGGER = ".pane-shell .space-trigger";
+// `.pane-shell` names every PaneShell wrapper since X-W12U .k2 (A2-VA-L1-1,
+// `ca65ae049`), About included, so it no longer singles out the picker: the
+// picker's trigger is the one in its own header (ColorPicker.vue:35) —
+// re-baselined X-W12U .q2.
+const PICKER_TRIGGER = ".picker-header .space-trigger";
 const ABOUT_TRIGGER = ".about-card .space-trigger";
 const ABOUT_TITLE = ".about-card .pane-header-title";
 
@@ -73,9 +78,7 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
         page,
     }) => {
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         await expect(page.locator(PICKER_TRIGGER)).toBeVisible();
         await expect(page.locator(ABOUT_TRIGGER)).toBeVisible();
 
@@ -121,9 +124,7 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
         page,
     }) => {
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const card = page.locator(".pane-shell > *").first();
         await expect(card).toBeVisible();
         // Let the plate-open choreography land before measuring.
@@ -145,11 +146,11 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
 test.describe("O-10a — the mobile matrix (390)", () => {
     test.use({ viewport: { width: 390, height: 844 } });
 
-    test("phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock", async ({
+    test("phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock", async ({
         page,
     }) => {
         await page.goto("/");
-        const main = page.getByRole("main", { name: "Color tool panes" });
+        const main = mainPane(page);
         await expect(main).toBeVisible();
 
         // The picker trigger keeps the plate rung (display-2 after the T-51/WR-4
@@ -159,19 +160,28 @@ test.describe("O-10a — the mobile matrix (390)", () => {
         expect(Math.abs(picker.sizePx - display2)).toBeLessThanOrEqual(0.5);
         expect(picker.weight).toBe("400");
 
-        // Switch the mobile slot to the About pane (the segmented control).
-        const nav = page.getByRole("navigation", {
-            name: "Application navigation",
-        });
-        await nav.getByRole("button", { name: "About", exact: true }).click();
+        // Re-baselined X-W12U .q2 to X.W5.c (`50633f195`, "one mount, ordered
+        // regions"): the mobile pane index and its segmented Picker/About
+        // switch were DELETED — a phone lays the Home view's regions out in
+        // order, so the About pane is the second region, reached by scrolling.
+        const about = page.getByRole("region", { name: "About", exact: true });
+        await about.scrollIntoViewIfNeeded();
         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
 
-        // display-1 floor-pins at heading (1.618rem) — the deliberate no-op.
+        // display-1 floor-pins at heading (1.618rem) on phones, so the pane
+        // title's own rung (`--pane-title-size`, PaneHeader) floors one rung
+        // higher, at --type-title. X-DS pass 9 (V9C-02), a named re-aim: the
+        // former "deliberate no-op" left the title 1.27x the in-pane section
+        // heads (subheading, 600) and inverted the phone hierarchy. Tightened:
+        // the title now must hold a full step (>= 1.5x) over subheading.
         const display1 = await resolveTokenPx(page, "--type-display-1");
         const heading = await resolveTokenPx(page, "--type-heading");
+        const titleRung = await resolveTokenPx(page, "--type-title");
+        const subheading = await resolveTokenPx(page, "--type-subheading");
         expect(Math.abs(display1 - heading)).toBeLessThanOrEqual(0.5);
         const title = await readVoice(page, ABOUT_TITLE);
-        expect(Math.abs(title.sizePx - display1)).toBeLessThanOrEqual(0.5);
+        expect(Math.abs(title.sizePx - Math.max(titleRung, display1))).toBeLessThanOrEqual(0.5);
+        expect(title.sizePx / subheading).toBeGreaterThanOrEqual(1.5);
 
         // The HONEST 2-line lock (<sm): the sentence + inline member ink two
         // lines — a stable lock, not a value-dependent wrap. Count RENDERED
@@ -205,9 +215,7 @@ test.describe("O-10c — rendered digit advance (the shipped face)", () => {
         page,
     }) => {
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         const r = await page.evaluate(async () => {
             await document.fonts.load("600 55px Fraunces");
             await document.fonts.load("300 55px Fraunces");
@@ -273,10 +281,8 @@ for (const vp of [
             await page.goto(
                 `/#/?space=lab&color=${encodeURIComponent("lab(38% 32 24)")}`,
             );
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
-            const trigger = page.locator(".pane-shell .space-trigger").first();
+            await expect(mainPane(page)).toBeVisible();
+            const trigger = page.locator(PICKER_TRIGGER).first();
             await trigger.click();
             const optionCount = await page.locator('[role="option"]').count();
             await page.keyboard.press("Escape");

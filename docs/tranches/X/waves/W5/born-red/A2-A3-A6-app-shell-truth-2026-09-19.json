@@ -1,0 +1,58 @@
+{
+ "deeplinkGenerate": {
+  "marks": [
+   "overture:b0",
+   "overture:b1",
+   "overture:b2"
+  ],
+  "blob": false,
+  "href": "http://localhost:9000/#/generate?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+  "h1": 0,
+  "gridCols": "512px 512px",
+  "docScrollable": false,
+  "mountHostIsBody": true,
+  "bodyChildren": 8
+ },
+ "afterHashNavHome": {
+  "marks": [
+   "overture:b0",
+   "overture:b1",
+   "overture:b2"
+  ],
+  "blob": false,
+  "href": "http://localhost:9000/#/",
+  "h1": 0,
+  "gridCols": "512px 512px",
+  "docScrollable": false,
+  "mountHostIsBody": true,
+  "bodyChildren": 8
+ },
+ "controlHome": {
+  "marks": [
+   "overture:b0",
+   "overture:b1",
+   "overture:b3",
+   "overture:b2",
+   "overture:b4"
+  ],
+  "blob": true,
+  "href": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+  "h1": 0,
+  "gridCols": "512px 512px",
+  "docScrollable": false,
+  "mountHostIsBody": true,
+  "bodyChildren": 6
+ },
+ "mobileRegen390": {
+  "dockBtnFound": true,
+  "dockChanged": false,
+  "paneBtnFound": true,
+  "paneChanged": true
+ },
+ "desktopRegen1440": {
+  "dockBtnFound": true,
+  "dockChanged": true,
+  "paneBtnFound": true,
+  "paneChanged": true
+ }
+}

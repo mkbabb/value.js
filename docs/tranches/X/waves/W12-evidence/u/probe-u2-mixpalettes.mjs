@@ -1,0 +1,24 @@
+// SERVED MODEL: claude-opus-5-5 — X.W12.u2: Mix palettes mode — an unselected palette paints at full opacity (UIA-V-351).
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { writeFileSync } from "node:fs";
+const BASE = process.env.BASE ?? "http://localhost:9000";
+const OUT = new URL(".", import.meta.url).pathname;
+const b = await chromium.launch({ headless: true });
+const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+await p.goto(`${BASE}/?color=%23abcdef#/generate`, { waitUntil: "domcontentloaded", timeout: 120000 });
+await p.getByRole("button", { name: "Save palette" }).first().waitFor({ timeout: 60000 });
+await p.getByRole("button", { name: "Save palette" }).first().click(); await p.waitForTimeout(300);
+await p.getByRole("button", { name: /Regenerate/ }).first().click(); await p.waitForTimeout(300);
+await p.getByLabel("Palette name").fill("Second");
+await p.getByRole("button", { name: "Save palette" }).first().click(); await p.waitForTimeout(300);
+await p.goto(`${BASE}/?color=%23abcdef#/mix`, { waitUntil: "domcontentloaded", timeout: 120000 });
+await p.getByRole("tab", { name: "Palettes" }).or(p.getByRole("button", { name: "Palettes" })).first().click(); await p.waitForTimeout(600);
+const cards = p.locator('button[aria-pressed]:has(.mix-palette-name)');
+const read = () => cards.evaluateAll((els) => els.map((e) => ({ pressed: e.getAttribute("aria-pressed"), opacity: getComputedStyle(e).opacity, name: getComputedStyle(e.querySelector(".mix-palette-name")).color })));
+const r = { rest: await read() };
+await cards.first().click(); await p.waitForTimeout(300);
+r.oneSelected = await read();
+await p.screenshot({ path: `${OUT}u2-mix-palettes-1440.png` });
+await b.close();
+writeFileSync(`${OUT}probe-u2-mixpalettes${process.env.RUN ?? ""}.json`, JSON.stringify(r, null, 1));
+console.log(JSON.stringify(r));

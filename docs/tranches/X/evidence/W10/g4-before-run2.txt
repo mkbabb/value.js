@@ -1,0 +1,4 @@
+webkit rm=reduce        supports=true titleTransform none -> none | veil 0.52 -> 0.52
+webkit rm=no-preference supports=true titleTransform none -> none | veil 1 -> 1
+chromium rm=reduce        supports=true titleTransform none -> none | veil 0.52 -> 0.52
+chromium rm=no-preference supports=true titleTransform none -> none | veil 0.52 -> 0.52

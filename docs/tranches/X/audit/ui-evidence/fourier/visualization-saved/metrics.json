@@ -1,0 +1,2026 @@
+{
+ "d-light-A1-v-coldload": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-A2-v-settled": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-A3-w-loaded": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-A4-w-to-v-push": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-A5-w-to-v-settled": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-B1-v-does-not-exist": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-B2-v-valid-shape-404": {
+  "url": "/v/zzzz-nope-gone-lost",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-B3-v-unknown-fresh": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-C1-s-redirect": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-light-D1-gallery": {
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root"
+  ],
+  "spinner": {
+   "x": 703,
+   "y": 254,
+   "w": 34,
+   "h": 34,
+   "radius": "1.67772e+07px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "h-6 w-6 animate-spin rounded-full border-2 border-muted-foreground border-t-transparent"
+  },
+  "errCard": null,
+  "errTexts": null,
+  "errButton": null,
+  "dropBtn": null,
+  "stage": null,
+  "canvas": null,
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-A1-v-coldload": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-A2-v-settled": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-A3-w-loaded": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-A4-w-to-v-push": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-A5-w-to-v-settled": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-B1-v-does-not-exist": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-B2-v-valid-shape-404": {
+  "url": "/v/zzzz-nope-gone-lost",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-B3-v-unknown-fresh": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 600,
+   "y": 447,
+   "w": 240,
+   "h": 44,
+   "radius": "22px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "18.608px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1422,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-C1-s-redirect": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "18.608px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 9,
+   "y": 77,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 11,
+   "y": 79,
+   "w": 1022,
+   "h": 810,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "d-dark-D1-gallery": {
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root"
+  ],
+  "spinner": {
+   "x": 703,
+   "y": 254,
+   "w": 33,
+   "h": 33,
+   "radius": "1.67772e+07px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "18.608px 400",
+   "cls": "h-6 w-6 animate-spin rounded-full border-2 border-muted-foreground border-t-transparent"
+  },
+  "errCard": null,
+  "errTexts": null,
+  "errButton": null,
+  "dropBtn": null,
+  "stage": null,
+  "canvas": null,
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 1440,
+  "vw": 1440
+ },
+ "m-light-A1-v-coldload": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-A2-v-settled": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-A3-w-loaded": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-A4-w-to-v-push": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-A5-w-to-v-settled": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-B1-v-does-not-exist": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-B2-v-valid-shape-404": {
+  "url": "/v/zzzz-nope-gone-lost",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-B3-v-unknown-fresh": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-C1-s-redirect": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(253, 245, 236)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-light-D1-gallery": {
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "dark": false,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root"
+  ],
+  "spinner": {
+   "x": 179,
+   "y": 276,
+   "w": 33,
+   "h": 33,
+   "radius": "1.67772e+07px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "h-6 w-6 animate-spin rounded-full border-2 border-muted-foreground border-t-transparent"
+  },
+  "errCard": null,
+  "errTexts": null,
+  "errButton": null,
+  "dropBtn": null,
+  "stage": null,
+  "canvas": null,
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-A1-v-coldload": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-A2-v-settled": {
+  "url": "/v/amber-quiet-river-fox",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-A3-w-loaded": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-A4-w-to-v-push": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-A5-w-to-v-settled": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 2,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-B1-v-does-not-exist": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-B2-v-valid-shape-404": {
+  "url": "/v/zzzz-nope-gone-lost",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-B3-v-unknown-fresh": {
+  "url": "/v/does-not-exist",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": {
+   "x": 90,
+   "y": 425,
+   "w": 209,
+   "h": 44,
+   "radius": "33px",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)",
+   "font": "16px 500",
+   "cls": "button tap-squish focus-ring glass-capsule glass-specular-track glass-capsule-hover drop-target-butt"
+  },
+  "stage": {
+   "x": 5,
+   "y": 79,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage"
+  },
+  "canvas": {
+   "x": 7,
+   "y": 81,
+   "w": 380,
+   "h": 760,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-C1-s-redirect": {
+  "url": "/w/sheer-waiting-salmon-dolphin",
+  "title": "Visualize — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root",
+   "viz-canvas-stage"
+  ],
+  "spinner": null,
+  "errCard": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "16px",
+   "bg": "rgb(53, 42, 34)",
+   "font": "16px 400",
+   "cls": "canvas-container cartoon-card"
+  },
+  "errTexts": [],
+  "errButton": null,
+  "dropBtn": null,
+  "stage": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "viz-panel-right canvas-stage panel-inactive"
+  },
+  "canvas": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "canvas-el"
+  },
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ },
+ "m-dark-D1-gallery": {
+  "url": "/gallery",
+  "title": "Gallery — Fourier Analysis",
+  "dark": true,
+  "vtCalls": 0,
+  "vtNamed": [
+   "root"
+  ],
+  "spinner": {
+   "x": 182,
+   "y": 279,
+   "w": 25,
+   "h": 25,
+   "radius": "1.67772e+07px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "16px 400",
+   "cls": "h-6 w-6 animate-spin rounded-full border-2 border-muted-foreground border-t-transparent"
+  },
+  "errCard": null,
+  "errTexts": null,
+  "errButton": null,
+  "dropBtn": null,
+  "stage": null,
+  "canvas": null,
+  "savedIndicator": [],
+  "modal": null,
+  "scrollW": 390,
+  "vw": 390
+ }
+}

@@ -1,0 +1,20 @@
+[
+ {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "none",
+  "ring": "oklch(0.471189 0.188448 9.83402)",
+  "vp": 1440,
+  "scheme": "light",
+  "tabs": 1
+ },
+ {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "none",
+  "ring": "oklch(0.958322 0.0210531 9.83402)",
+  "vp": 390,
+  "scheme": "dark",
+  "tabs": 1
+ }
+]

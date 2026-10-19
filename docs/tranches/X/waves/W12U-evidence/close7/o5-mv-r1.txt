@@ -1,0 +1,9 @@
+load 10.40 9.85 11.42
+[o5-gpu close7-r1 s1] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@233 firstFrame@238 boot=109ms frames=242 median=16.7ms max=16.8ms (1.0x) gapEnd@1321 dropped=0 (0.0%) canvases=[[112,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1066,"goo-blob-canvas"]] legs={"frames":true,"spike":true,"drop":true} GREEN boot GREEN (<= 122) preT0=[[17,109]]
+    diag: gap=[1304,1321] longtasksInGap=[] loafInGap=[] allLongtasks=[[17,109]]
+[o5-gpu close7-r1 s2] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@205 firstFrame@207 boot=86ms frames=243 median=16.7ms max=16.8ms (1.0x) gapEnd@1273 dropped=0 (0.0%) canvases=[[89,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1035,"goo-blob-canvas"]] legs={"frames":true,"spike":true,"drop":true} GREEN boot GREEN (<= 122) preT0=[[17,86]]
+    diag: gap=[1257,1273] longtasksInGap=[] loafInGap=[] allLongtasks=[[17,86]]
+[o5-gpu close7-r1 s3] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@211 firstFrame@226 boot=88ms frames=242 median=16.7ms max=16.8ms (1.0x) gapEnd@3959 dropped=0 (0.0%) canvases=[[90,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1037,"goo-blob-canvas"]] legs={"frames":true,"spike":true,"drop":true} GREEN boot GREEN (<= 122) preT0=[[16,88]]
+    diag: gap=[3942,3959] longtasksInGap=[] loafInGap=[] allLongtasks=[[16,88]]
+VERDICT GREEN 3/3 green, 0 fault
+BOOT GREEN 3/3 <= 122 ms

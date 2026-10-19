@@ -1,0 +1,24 @@
+[
+ {
+  "cfg": "1440x900-light",
+  "u275_controlsNames": [
+   null
+  ],
+  "u275_timelineNames": [
+   null
+  ],
+  "u061_placeholder": true,
+  "u282_bouncing": 1
+ },
+ {
+  "cfg": "390x844-dark",
+  "u275_controlsNames": [
+   null
+  ],
+  "u275_timelineNames": [
+   null
+  ],
+  "u061_placeholder": true,
+  "u282_bouncing": 1
+ }
+]

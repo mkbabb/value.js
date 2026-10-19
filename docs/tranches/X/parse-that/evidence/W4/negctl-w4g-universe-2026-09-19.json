@@ -1,0 +1,9 @@
+{
+  "_comment": "SERVED MODEL: claude-opus-5[1m] — X.P.W4.g negative-control FIXTURE universe (NOT a measurement). Three synthetic names so each control fires exactly one check of seam-contract-check.mjs.",
+  "tally": { "all": { "TOTAL": 2, "PARTIAL": 1, "ABSENT": 0 } },
+  "rows": [
+    { "name": "alpha", "kind": "runtime", "verdict": "PARTIAL", "remainder": { "GROUND-C": 1 } },
+    { "name": "beta", "kind": "runtime", "verdict": "TOTAL", "remainder": {} },
+    { "name": "gamma", "kind": "runtime", "verdict": "TOTAL", "remainder": {} }
+  ]
+}

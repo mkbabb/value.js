@@ -1,0 +1,66 @@
+{
+ "390": {
+  "trigger": null,
+  "valueSpan": null,
+  "valueSpanInner": null,
+  "desc": null,
+  "wrapCls": "undefined",
+  "grandCls": "undefined",
+  "grandShadow": null,
+  "tokens": {
+   "dropdownText": "calc(clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem ) * 1.5)",
+   "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+   "radiusControl": "9999px",
+   "radiusField": "1rem"
+  }
+ },
+ "1440": {
+  "trigger": {
+   "tag": "BUTTON",
+   "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-between rounded-pill px-3 py-2",
+   "font": "italic 16.4px/21.32px \"Plus Jakarta Sans\", \"Plus Jak",
+   "synth": "weight style small-caps",
+   "overflow": "visible",
+   "clamp": "none",
+   "w": 907.984375,
+   "sw": 906
+  },
+  "valueSpan": {
+   "tag": "SPAN",
+   "cls": "",
+   "font": "italic 16.4px/21.32px \"Plus Jakarta Sans\", \"Plus Jak",
+   "synth": "weight style small-caps",
+   "overflow": "hidden",
+   "clamp": "1",
+   "w": 81.359375,
+   "sw": 81
+  },
+  "valueSpanInner": null,
+  "desc": {
+   "tag": "P",
+   "cls": "pane-header-desc text-caption",
+   "font": "italic 14.384px/18.6992px \"Plus Jakarta Sans\", \"Plus Jak",
+   "synth": "weight style small-caps",
+   "overflow": "visible",
+   "clamp": "none",
+   "w": 992,
+   "sw": 992
+  },
+  "cardShadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+  "cardFilter": "none",
+  "wrapShadow": "none",
+  "wrapCls": "relative w-full mx-auto h-full min-w-0",
+  "grandCls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+  "grandShadow": "none",
+  "tokens": {
+   "dropdownText": "calc(clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem ) * 1)",
+   "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+   "radiusControl": "9999px",
+   "radiusField": "1rem"
+  }
+ },
+ "390-fail": [
+  "http://localhost:9000/#/atmosphere",
+  "→\nATMOSPHERE\n\nAtmosphere view\n\nLoading the scene…"
+ ]
+}

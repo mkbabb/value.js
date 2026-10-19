@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+product bytes = X.P.W8.semi's final bytes 2f590daa8 (src tree aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9 == HEAD:src aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9); grammar.js blob 406bb5a1cc486e5271ba0dbb28282c27d7a8870d; instrument bench/paired/** at b45cf83d4 (Repair 1 instrument: least-of-3 k, Firefox length-cut sliced rounds, acc-eq/rej-eq classes)
+1477365ae756756fc1457d7b52ff973125d6897cf8acf749035a53da2c2bc140  bench/paired/_build/product.mjs
+a65bcc4c78e7d1aa72ce23e085895478982b1ac9d4333432604f2a7309efd4b8  bench/paired/_build/retired.mjs
+bbe91893270bf8b80fe324ec2d5a8ac7b54e6a9f6a955b4fd48232955a9d7cd6  src/css/bbnf/generated/grammar.js

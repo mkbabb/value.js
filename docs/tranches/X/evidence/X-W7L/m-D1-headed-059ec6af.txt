@@ -1,0 +1,390 @@
+SERVED MODEL: claude-opus-5-5
+# X.W7L.m L7 — D1 headed real GPU x2 at HEAD 059ec6af (glass 10.1.0), built bundle (vite build --mode gh-pages) served by e2e/smoke/perf/serve-built.mjs on :8473; PROBE_HEADED=1 node docs/tranches/V/megatranche/workflows/gates/scene-swap-budget.mjs
+## run 1
+{
+  "gate": "D1",
+  "probe": "scene-swap-budget.mjs",
+  "at": "2026-09-25T13:47:46.440Z",
+  "base": "http://localhost:8473",
+  "prm": false,
+  "headed": true,
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "loadAtLaunch": [
+    40.46,
+    26.26,
+    14.79
+  ],
+  "budget": {
+    "over32Ratio": 0.15,
+    "medianMs": 20
+  },
+  "hops": [
+    {
+      "hop": "→/gradient",
+      "frames": 87,
+      "max": 95,
+      "median": 8,
+      "over32": 3,
+      "over50": 2,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "leave",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.034,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    },
+    {
+      "hop": "→/extract",
+      "frames": 103,
+      "max": 38,
+      "median": 8,
+      "over32": 1,
+      "over50": 0,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "back",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "back",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.01,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    },
+    {
+      "hop": "→/mix",
+      "frames": 73,
+      "max": 284,
+      "median": 8,
+      "over32": 1,
+      "over50": 1,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "leave",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.014,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    },
+    {
+      "hop": "→/generate",
+      "frames": 85,
+      "max": 202,
+      "median": 8,
+      "over32": 1,
+      "over50": 1,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.012,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    }
+  ],
+  "pass": true
+}
+## run 2
+{
+  "gate": "D1",
+  "probe": "scene-swap-budget.mjs",
+  "at": "2026-09-25T13:47:58.731Z",
+  "base": "http://localhost:8473",
+  "prm": false,
+  "headed": true,
+  "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "loadAtLaunch": [
+    37.8,
+    26.15,
+    14.89
+  ],
+  "budget": {
+    "over32Ratio": 0.15,
+    "medianMs": 20
+  },
+  "hops": [
+    {
+      "hop": "→/gradient",
+      "frames": 92,
+      "max": 107,
+      "median": 8,
+      "over32": 2,
+      "over50": 1,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "leave",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.022,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    },
+    {
+      "hop": "→/extract",
+      "frames": 106,
+      "max": 43,
+      "median": 8,
+      "over32": 2,
+      "over50": 0,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "back",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "back",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.019,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    },
+    {
+      "hop": "→/mix",
+      "frames": 114,
+      "max": 27,
+      "median": 8,
+      "over32": 0,
+      "over50": 0,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "leave",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    },
+    {
+      "hop": "→/generate",
+      "frames": 115,
+      "max": 33,
+      "median": 8,
+      "over32": 1,
+      "over50": 0,
+      "motion": [
+        {
+          "phase": "leave",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "leave",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 200,
+          "transform": "none",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "inspector",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)",
+          "contain": "layout paint"
+        },
+        {
+          "phase": "enter",
+          "role": "stage",
+          "direction": "forward",
+          "transformMs": 450,
+          "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)",
+          "contain": "layout paint"
+        }
+      ],
+      "over32Ratio": 0.009,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

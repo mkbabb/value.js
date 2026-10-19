@@ -1,0 +1,503 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "unit": "X.W5.c",
+  "note": "BORN-RED, measured read-only 2026-09-19 at HEAD 415c9a3a before any byte of this unit moved. ONE bounded probe session (chromium, dev server on :9010). C1 = per-route rendered <main> text at 390x844 vs 1440x900 (ratio form, U-6). C2 = /#/generate Regenerate at 390. C5 = #/blob canvas + pane-root element identity across a 1440x900 -> 720x450 live resize (the 200% zoom arm).",
+  "probe": "X.W5.c C1/C2/C5 MEASURE-AT-OPEN",
+  "label": "born-red",
+  "base": "http://localhost:9010",
+  "takenAt": "2026-09-19T13:53:31.753Z",
+  "C1": {
+    "rows": [
+      {
+        "route": "/",
+        "wide1440": 1751,
+        "narrow390": 69,
+        "ratio": 0.0394,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 7459
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 7459
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 592
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/palettes",
+        "wide1440": 224,
+        "narrow390": 169,
+        "ratio": 0.7545,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 685
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 685
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 480
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/browse",
+        "wide1440": 268,
+        "narrow390": 121,
+        "ratio": 0.4515,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 515
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 515
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 408
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/extract",
+        "wide1440": 288,
+        "narrow390": 141,
+        "ratio": 0.4896,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 578
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 578
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 565
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/mix",
+        "wide1440": 171,
+        "narrow390": 116,
+        "ratio": 0.6784,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 685
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 685
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 376
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/generate",
+        "wide1440": 294,
+        "narrow390": 147,
+        "ratio": 0.5,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 515
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 515
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 427
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/gradient",
+        "wide1440": 597,
+        "narrow390": 450,
+        "ratio": 0.7538,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 880
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 880
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 862
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/atmosphere",
+        "wide1440": 309,
+        "narrow390": 309,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 654
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 654
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 651
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/blob",
+        "wide1440": 704,
+        "narrow390": 69,
+        "ratio": 0.098,
+        "pass": false,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 512,
+            "h": 2690
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector",
+            "display": "block",
+            "w": 512,
+            "h": 2690
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 592
+          }
+        ],
+        "wideGridCols": "512px 512px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/users",
+        "wide1440": 318,
+        "narrow390": 318,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 231
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 231
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 251
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/names",
+        "wide1440": 318,
+        "narrow390": 318,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 231
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 231
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 251
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/audit",
+        "wide1440": 318,
+        "narrow390": 318,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 231
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 231
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 251
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/flagged",
+        "wide1440": 320,
+        "narrow390": 320,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 231
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 231
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 251
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/admin/tags",
+        "wide1440": 317,
+        "narrow390": 317,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 231
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 231
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 251
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      },
+      {
+        "route": "/does-not-exist",
+        "wide1440": 321,
+        "narrow390": 321,
+        "ratio": 1,
+        "pass": true,
+        "wideWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage",
+            "display": "flex",
+            "w": 1042,
+            "h": 231
+          },
+          {
+            "cls": "pane-wrapper pane-wrapper--right pane-wrapper--inspector pane-wrapper--ghost",
+            "display": "block",
+            "w": 1042,
+            "h": 231
+          }
+        ],
+        "narrowWrappers": [
+          {
+            "cls": "pane-wrapper pane-wrapper--left pane-wrapper--stage pane-slot-mobile",
+            "display": "flex",
+            "w": 358,
+            "h": 251
+          }
+        ],
+        "wideGridCols": "1042px",
+        "narrowGridCols": "358px"
+      }
+    ],
+    "routesMeasured": 15,
+    "routesAtOrAbove0_9": 7,
+    "verdict": "RED"
+  },
+  "C2": {
+    "regenerateFound": true,
+    "specimenChanged": false,
+    "textChanged": false,
+    "paneRegionsPresent": 1,
+    "verdict": "RED"
+  },
+  "C5": {
+    "before": {
+      "canvasCount": 2,
+      "rootCount": 2,
+      "webglContexts": 2
+    },
+    "after": {
+      "canvasCount": 2,
+      "canvasIdentitiesKept": 1,
+      "rootCount": 1,
+      "rootIdentitiesKept": 0
+    },
+    "identityPreserved": false,
+    "verdict": "RED"
+  }
+}

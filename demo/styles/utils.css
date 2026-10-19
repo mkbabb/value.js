@@ -1,31 +1,5 @@
 /* Fonts loaded via <link> tags in index.html to avoid render-blocking @import */
 
-/* Project-specific font aliases */
-.fraunces {
-    font-family: var(--font-display);
-    font-optical-sizing: auto;
-}
-
-.fira-code {
-    font-family: var(--font-mono);
-}
-
-/* Shared single-line caption recipe — `.section-label` (glass-ui typography)
- * extended with muted half-opacity and a one-line clamp. Consumed by the
- * control-bar components (gradient / mix / generate). The standard `line-clamp`
- * drives modern engines; `-webkit-line-clamp` + `-webkit-box` remain the
- * Safari support floor. */
-.section-subtitle {
-    font-family: var(--font-mono);
-    font-size: var(--type-caption);
-    color: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-}
-
 /* `.pastel-rainbow-text` EXCISED (S.W5-7 · Q4 RATIFIED EXCISE 2026-07-05;
  * the `--accent-live` ramp alternative NOT taken): the fixed six-hue candy
  * ramp failed contrast at every stop over the light header wash (≈1.1–1.5:1),
@@ -54,9 +28,17 @@
  * ground (well ≈ resting plate). Low-chroma by construction (both `--well-bg`
  * and `--foreground` are near-neutral), so the muted-family character holds. */
 .skeleton-ink-register {
-    --skeleton-ink: color-mix(in oklab, var(--well-bg), var(--foreground) 15%);
+    --skeleton-ink-pole: var(--foreground);
+    --skeleton-ink: color-mix(in oklab, var(--well-bg), var(--skeleton-ink-pole) 15%);
     --skeleton-glass-bg: var(--skeleton-ink);
     --skeleton-shimmer-tint: color-mix(in srgb, var(--muted-foreground) 24%, transparent);
+}
+/* X-DS value pass 4 (P4R-04): the one tone step keeps its 15 %, but it RECEDES
+ * in both schemes. In dark the foreground is cream, so a step toward it lifted
+ * the ghost above the plate (the brightest slab on Extract's empty card, louder
+ * than the verb that fills it); dark steps toward the page background instead. */
+.dark .skeleton-ink-register {
+    --skeleton-ink-pole: var(--background);
 }
 
 /* The SPECIMEN ink walk (S.W5-1's `specimen` register, FINALLY consumed —
@@ -82,7 +64,8 @@
 }
 
 /* Dashed inset well — the recessed container that collects an in-progress set
- * of colors (the mix "Selected" tray, the current-palette editor). Both sites
+ * of colors (the current-palette editor; the mix "Selected" tray left it for
+ * the bare-section grammar at X-DS pass 9, V9C-05). Both sites
  * used `.dashed-well` as a never-defined phantom (inv-N-7); this mints the
  * intended affordance in house tokens: a dashed-bordered, faintly-recessed
  * column that visually groups its swatch row + label, echoing the dashed
@@ -100,10 +83,21 @@
      * in-plate fixture is an opaque TONE-STEP of its host plate, never a
      * second pane of glass — the ONE `--well-bg` token, NO backdrop-blur
      * (blurring the aurora through the host is the mud generator, RC-3).
-     * The dashed edge ALONE carries the in-progress semantics; the chip
-     * cartoon rung stays. */
+     * The dashed edge ALONE carries the in-progress semantics.
+     * X-DS pass 1 (V1-02): the chip cartoon rung is GONE — a fixture seated
+     * inside a plate casts nothing (the plate already casts the pane's ONE
+     * stamp, and glass's stepped rung fell down-LEFT against it). */
     background: var(--well-bg);
-    box-shadow: var(--shadow-cartoon-sm);
+}
+
+/* X-DS pass 2 (V2C-13) — ONE DASH PER AFFORDANCE. A well that holds the
+ * dashed add-slot (Mix's "Selected", the current-palette editor) draws a plain
+ * hairline: the add-slot's own dashed silhouette is the empty-slot sign, and a
+ * dashed well around it made two dashed outlines for one affordance. A well
+ * with no add-slot inside (Extract's empty drop zone) keeps the dashed edge,
+ * because there the edge IS the affordance. */
+.dashed-well:has(.add-slot-ghost) {
+    border: 1px solid var(--card-edge);
 }
 
 /* THE SEATED SEARCH FIELD (T.W3-3 · T-12 — THE REGISTER LAW: fields on paper
@@ -119,7 +113,8 @@
  *   fill    — the ONE rung-2 `--well-bg` tone-step, NO backdrop-blur (RC-3);
  *   edge    — the drawn `--card-edge` ink hairline (the dashed-well's solid
  *             sibling — hairline law 4, ONE edge mint);
- *   stamp   — `--shadow-cartoon-sm`, the chip-scale elevation PaletteCard rides;
+ *   stamp   — NONE (X-DS pass 1 · V1-02: a seated fixture casts nothing; the
+ *             tone step and the hairline are the whole seat);
  *   measure — the dock cap dies: a seated field runs its host column (ASK-C);
  *   voice   — content-class (the `.input-bar-field` rule below).
  *
@@ -133,15 +128,14 @@
     background: var(--well-bg);
     backdrop-filter: none;
     border: 1.5px solid var(--card-edge);
-    box-shadow: var(--shadow-cartoon-sm);
+    box-shadow: none;
     max-width: none;
 }
 
-/* Compose, never replace: the producer's focus ring joins the stamp (the
- * unlayered base box-shadow above would otherwise silently beat the layered
- * `.input-bar:focus-within` ring). */
+/* The producer's focus ring, restated unlayered (the unlayered `none` above
+ * would otherwise silently beat the layered `.input-bar:focus-within` ring). */
 .search-seated:focus-within {
-    box-shadow: var(--shadow-cartoon-sm), var(--focus-ring-shadow);
+    box-shadow: var(--focus-ring-shadow);
 }
 
 /* Voice = CONTENT-CLASS (T-12): a prose search field speaks its plate's text
@@ -153,29 +147,85 @@
     font-family: inherit;
 }
 
-/* The gold ADMIN-identity icon ink (S.W7-1 consume / W7-7 dedup home) — the
- * ONE demo-side gold icon recipe, lifted here because its consumers span
- * components (the Dock.vue wax-seal ink + DockViewSelect's trigger/menu
- * icons; scoped copies were byte-identical twins, god-module census §2.1).
- * The fuller "ONE gold/admin shimmer primitive" consolidation stays the
- * filed glass-ui letter L15 ask. */
-.gold-shimmer-icon {
-    color: var(--color-gold);
-    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
+/* The gold ADMIN-identity ink (S.W7-1 consume / W7-7 dedup home) — the ONE
+ * demo-side gold ink recipe, lifted here because its consumers span
+ * components (the Dock.vue seal glyph, DockViewSelect's trigger and menu row,
+ * ProfileSection's admin trigger, ColorInput's crown).
+ * X-DS pass 17 (V17C-01): it paints the CERTIFIED gold (`--ink-gold`, DESIGN
+ * Law C-4), never the raw token: raw gold read 1.09:1 on the light dock. The
+ * token is rebound per ground, never per instance: the resting plate at the
+ * root (useAtmosphereBoot), the dock band on the dock (Dock.vue), the wax on
+ * the seal (Dock.vue), the floating plate on menus (shell.css). The hue is
+ * kept (§0dm); only the lightness walks, to a bronze in light. */
+.gold-ink {
+    color: var(--ink-gold);
 }
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch
  * TransitionGroups (CurrentPaletteEditor, MixSourceSelector,
  * MixResultDisplay): dots pop in/out on the enter/exit family with
- * scale-only geometry, neighbours reflow on the family move class, and the
- * leaving dot is lifted out of flow so the row closes smoothly. A shared
- * recipe (3 consumers) per DESIGN.md's global-utility rule. */
+ * scale-only geometry and neighbours reflow on the family move class. A
+ * shared recipe (3 consumers) per DESIGN.md's global-utility rule.
+ *
+ * The leaving dot stays IN FLOW and scales out in its own slot (X.W7.f2 ·
+ * MSS-16/MR-35). It is never lifted out with `position: absolute`: Vue writes
+ * no coordinates to a leaving element, and CSS Flexbox L1 §4.1 places an
+ * abspos child with auto insets as if it were the SOLE flex item — the row's
+ * main-start edge, not its former slot — so the lifted dot teleported to the
+ * leading edge before it shrank. Fixed here once, never per consumer. */
 .swatch-row {
     --vj-enter-y: 0px;
     --vj-enter-scale: 0;
 }
-.swatch-row > .vj-enter-leave-active {
-    position: absolute;
+
+/* The plate ink (X.W7.z2 · R-15 ≡ C-11) — the ONE recipe for the plate
+ * captions (ImageDropZone, ExtractWorkbench, ExtractControls, EmptyState, and
+ * through EmptyState the ErrorBoundary and PaneErrorPlate plates): the
+ * certified de-emphasis rung `--ink-muted` (declared at `:root` in
+ * foundation.css, boot-stamped live), never the STATIC `text-muted-foreground`
+ * that failed the text floor over the live-ambient plate. A shared recipe
+ * (4 consumers) per DESIGN.md's global-utility rule; the bare read, no
+ * masking fallback. */
+.plate-ink {
+    color: var(--ink-muted);
+}
+
+/* THE WELL INK (X-DS pass 1 · V1C-01). V1-03 made `--well-bg` a wash over
+ * the live host plate, so the static `--muted-foreground` (tuned for the old
+ * opaque cream well) fell to 1.6-2.1:1 inside every well. The token, not the
+ * instances, follows the tone: inside a well root the secondary ink is the
+ * certified over-plate rung `--ink-muted`, taken one golden step (0.382)
+ * further toward `--foreground` — the well's own 8% `--foreground` wash moves
+ * the ground toward the ink, so the ink moves away by more (bare `--ink-muted`
+ * measured 3.7-3.9:1 on the dark well). Every `text-muted-foreground`,
+ * placeholder and icon seated in a well reads it. (V1-17 did the bare rung
+ * per-site for the gradient.) */
+.dashed-well,
+.console-well,
+.search-seated,
+[data-generate-plate] {
+    --muted-foreground: color-mix(in oklab, var(--ink-muted), var(--foreground) 38.2%);
+}
+
+/* THE SCALAR RANGE INK (X-DS pass 2 · V2C-06 / V2C-09; re-derived at pass 3 ·
+ * V3C-04). The app's scalar sliders (glass's default scrubber variant: the
+ * config consoles of Atmosphere and Blob, Gradient's Direction, Extract's K and
+ * kC before a run develops) fill their range with ONE ink, set once on the
+ * token glass's slider reads (`--slider-range-bg`), never per pane. The
+ * spectrum sliders (picker channels, the developed K rail, Generate) paint
+ * their own track and leave the range transparent by recipe, so they do not
+ * read it.
+ * The range sits on glass's quiet TRACK, whose tone follows the SCHEME (light
+ * track in light, dark in dark), not the plate. So its ink is the scheme's ink,
+ * `--foreground`. Pass 2 took `--ink-muted` halfway toward `--primary`; both of
+ * those are certified against the PLATE and flip with it, so on a dark plate
+ * in the light scheme (the owner brick, lab(38% 32 24)) the bar went near-white
+ * on the light track: 2.42 on Extract and 2.19 on the Atmosphere well, under
+ * the 3:1 graphics floor (pass-03 `ink-candidates.jsonl`). `--foreground`
+ * holds 5.23 or better on every measured cell, both schemes; any mix toward
+ * `--primary` that keeps the hue falls under 3:1 on the owner brick by 25%. */
+:root {
+    --slider-range-bg: var(--foreground);
 }
 
 /* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:
@@ -185,13 +235,23 @@
  * never a scoped twin (the S.W7-7 lesson). Stops are the THREE root tokens
  * `boot/useViewAccents` writes from the ONE resolver
  * (`@composables/color/palettes-ramp` — derived from the live accent,
- * gamut-guarded, WCAG ≥4.5:1 text-floor); the guard's output IS O-14's T-10
+ * gamut-guarded, each site's WCAG floor); the guard's output IS O-14's T-10
  * referent. C3-ledger: the sanctioned exception to the nav ink law (Q18).
  * Fallbacks = the resolver's own pre-first-write class of value (the
  * `--accent-view` @property initial family), overwritten at first resolve. */
 .palettes-ramp-text {
     background-image: linear-gradient(
         90deg,
+        var(--palettes-ramp-0, oklch(0.632 0.214 333.5)),
+        var(--palettes-ramp-1, oklch(0.632 0.214 13.5)),
+        var(--palettes-ramp-2, oklch(0.632 0.214 53.5))
+    );
+    /* X-DS value pass 4 (P4R-01): the stops sit at their hues' gamut maximum,
+     * so the run between them walks the hue wheel (OKLCh) rather than cutting
+     * through the grey middle of sRGB. The line above stays for engines
+     * without gradient interpolation spaces. */
+    background-image: linear-gradient(
+        in oklch 90deg,
         var(--palettes-ramp-0, oklch(0.632 0.214 333.5)),
         var(--palettes-ramp-1, oklch(0.632 0.214 13.5)),
         var(--palettes-ramp-2, oklch(0.632 0.214 53.5))

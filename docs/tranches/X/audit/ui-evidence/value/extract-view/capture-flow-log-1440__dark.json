@@ -1,0 +1,1552 @@
+[
+ {
+  "tag": "loaded__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "fail": "TimeoutError: locator.waitFor: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('% of the image').first() to be visible\u001b[22m\n"
+ },
+ {
+  "tag": "zonehover__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "hover loaded zone",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     352,
+     462,
+     180
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.1)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Upload image"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     548,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     365,
+     548,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     592,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     584,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     584,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     584,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   }
+  ]
+ },
+ {
+  "tag": "k12__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "k -> 12 via kbd (slider keeps focus)",
+  "errs": [],
+  "overflowX": 0,
+  "active": "SPAN Number of colors",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 3px",
+    "shadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.99988",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   }
+  ]
+ },
+ {
+  "tag": "eyedropper__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "eyedropper open",
+  "errs": [],
+  "overflowX": 0,
+  "active": "DIV Sample colors",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     200,
+     202,
+     510,
+     749
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "Tap to sample"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     213,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   }
+  ]
+ },
+ {
+  "tag": "loupe__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "hover loupe",
+  "errs": [],
+  "overflowX": 0,
+  "active": "DIV Sample colors",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     200,
+     202,
+     510,
+     749
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     213,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     400,
+     584,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px, color(srgb 0.11 0.098 0.09 ",
+    "cls": "loupe",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "pinned__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "tap -> pinned",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     200,
+     202,
+     510,
+     749
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     213,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     609,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Add to palette"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     657,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Apply as current color"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     400,
+     584,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.877528 0.99131 0.768883 / 0.4) 0px 0px 0px 2px, color(srgb 0.11 0.0",
+    "cls": "loupe loupe-pinned",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "swatchpop__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "add-to-palette -> swatch-pop mid-animation",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BUTTON Add to palette",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     200,
+     202,
+     510,
+     749
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     213,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     607,
+     209,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+    "outline": "rgb(233, 230, 226) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Add to palette"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     657,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Apply as current color"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     400,
+     584,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.877528 0.99131 0.768883 / 0.4) 0px 0px 0px 2px, color(srgb 0.11 0.0",
+    "cls": "loupe loupe-pinned",
+    "label": ""
+   },
+   {
+    "s": ".swatch-pulse",
+    "box": [
+     282,
+     217,
+     28,
+     28
+    ],
+    "radius": "26.1369% 23.1918% 28.5968% 32.6082% / 76.7512% 48.9548% 65.5396% 51.6095%",
+    "bg": "rgb(136, 201, 166)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914",
+    "cls": "shrink-0 transition-transform swatch-pulse watercolor-swatch",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "afteradd__1440__dark",
+  "tree": "f82daf4a dirty=5",
+  "note": "after add (any confirmation?)",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BUTTON Add to palette",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     200,
+     202,
+     510,
+     749
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(78.23% 0.0833 160.1deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     213,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     607,
+     209,
+     44,
+     44
+    ],
+    "radius": "9999px",
+    "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+    "outline": "rgb(233, 230, 226) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Add to palette"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     657,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Apply as current color"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     400,
+     584,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.877528 0.99131 0.768883 / 0.4) 0px 0px 0px 2px, color(srgb 0.11 0.0",
+    "cls": "loupe loupe-pinned",
+    "label": ""
+   },
+   {
+    "s": ".swatch-pulse",
+    "box": [
+     282,
+     217,
+     28,
+     28
+    ],
+    "radius": "26.1369% 23.1918% 28.5968% 32.6082% / 76.7512% 48.9548% 65.5396% 51.6095%",
+    "bg": "rgb(136, 201, 166)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914",
+    "cls": "shrink-0 transition-transform swatch-pulse watercolor-swatch",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "zoom__1440__dark",
+  "tree": "f82daf4a dirty=6",
+  "note": "Escape unpin, wheel zoom x6",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   },
+   {
+    "s": ".glass-floating",
+    "box": [
+     200,
+     202,
+     510,
+     749
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.9",
+    "cls": "absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden",
+    "label": "oklch(85.36% 0.1359 109deg)"
+   },
+   {
+    "s": ".glass-floating button",
+    "box": [
+     213,
+     211,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover eyedropper-action-btn",
+    "label": "Close eyedropper"
+   },
+   {
+    "s": ".loupe",
+    "box": [
+     400,
+     549,
+     110,
+     110
+    ],
+    "radius": "50%",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px, color(srgb 0.11 0.098 0.09 ",
+    "cls": "loupe",
+    "label": ""
+   },
+   {
+    "s": ".swatch-pulse",
+    "box": [
+     282,
+     217,
+     28,
+     28
+    ],
+    "radius": "47.3092% 45.434% 55.0724% 32.0714% / 34.2954% 20.7077% 22.5086% 38.5624%",
+    "bg": "rgb(214, 214, 101)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914",
+    "cls": "shrink-0 transition-transform swatch-pulse watercolor-swatch",
+    "label": ""
+   }
+  ]
+ },
+ {
+  "tag": "closed__1440__dark",
+  "tree": "f82daf4a dirty=6",
+  "note": "Escape closes eyedropper",
+  "errs": [],
+  "overflowX": 0,
+  "active": "BODY ",
+  "els": [
+   {
+    "s": "[role=button][aria-label]",
+    "box": [
+     224,
+     210,
+     462,
+     320
+    ],
+    "radius": "12px",
+    "bg": "oklab(0.958322 -0.0512452 0.0614323 / 0.05)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] c",
+    "label": "Sample colors"
+   },
+   {
+    "s": "[data-o18=extract-k-rail]",
+    "box": [
+     252,
+     546,
+     434,
+     24
+    ],
+    "radius": "1.67772e+07px",
+    "bg": "oklch(0.958322 0.0210531 9.83402)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "oklch(0.958322 0.0210531 9.83402) 0px 0px 0px 1.5px inset",
+    "cls": "absolute inset-0 rounded-full overflow-hidden h-6",
+    "label": ""
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     561,
+     546,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Number of colors"
+   },
+   {
+    "s": "[role=slider]",
+    "box": [
+     433,
+     590,
+     12,
+     24
+    ],
+    "radius": "6.4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "color(srgb 0.978993 0.964817 0.950634 / 0.08) 0px 0px 0px 4px, color(srgb 0.11 0",
+    "cls": "slider-thumb glass-specular-track",
+    "label": "Chroma weight"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     224,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Upload image"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     272,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Open camera"
+   },
+   {
+    "s": "[title='Upload image'],[title='Open camera'],[title='Reset']",
+    "box": [
+     646,
+     582,
+     40,
+     40
+    ],
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "color(srgb 0.914 0.9 0.886 / 0.8) none 3px",
+    "shadow": "none",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Reset"
+   },
+   {
+    "s": ".font-display.text-display",
+    "box": [
+     228,
+     634,
+     169,
+     42
+    ],
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none",
+    "cls": "font-display text-display leading-none shrink-0",
+    "label": "29% of the image"
+   }
+  ]
+ }
+]

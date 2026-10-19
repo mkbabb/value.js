@@ -1,0 +1,11 @@
+# 20:44:56 load: { 16.51 21.22 20.72 } gh-pages preview :5399 kf=c761d639
+first samples /vendor-three|three\.module/: +131 setStyle:vendor-three-nw0IrzH_.js | +136 add:vendor-three-nw0IrzH_.js | +137 applyMatrix4:vendor-three-nw0IrzH_.js | +137 Dr:vendor-three-nw0IrzH_.js | +146 multiplyScalar:vendor-three-nw0IrzH_.js | +147 dr:vendor-three-nw0IrzH_.js
+first samples /vendor-monaco|monaco-editor/: +123 computeOptions:vendor-monaco-nwzXcI7Q.js | +123 finalize:vendor-monaco-nwzXcI7Q.js | +123 get:vendor-monaco-nwzXcI7Q.js | +123 asCursorState:vendor-monaco-nwzXcI7Q.js | +124 _onConfigurationChanged:vendor-monaco-nwzXcI7Q.js | +124 _updateDomAttributes:vendor-monaco-nwzXcI7Q.js
+swap cube->amiga · load 16.75 · pageerrors 0
+dest(.amiga-canvas) inserted +31 ms · rAF +112 · painted +130 ms (end of the destination's LoAF; message +131)
+first vendor-three sample +131 ms -> paint-before-three GREEN · first vendor-monaco sample +123 ms -> paint-before-monaco RED
+swap LoAF>50: 2 · max JS self 49 ms -> GREEN (<= 200)
+  +22 dur 108 jsSelf 49 [vendor-reka-ui 33.0, index 7.4, vendor-monaco 3.1, keyboard 2.1, public 2.0] ["ViewTransitionCallback /assets/index-S2NDraZ7.js 7","import.then /assets/index-S2NDraZ7.js 79"]
+  +258 dur 56 jsSelf 28 [KeyframesStringControls 17.2, vendor-monaco 7.0, vendor-prettier 2.8, vendor-reka-ui 0.4, index 0.3] ["import.then /assets/KeyframesStringControls-Bao_tVPG.js 28","FrameRequestCallback /assets/vendor-monaco-nwzXcI7Q.js 10"]
+window JS self 191.8 ms [vendor-reka-ui 62.9, vendor-three 33.9, index 25.8, KeyframesStringControls 17.6, vendor-monaco 14.0] · marker offset resolution 0.25 ms
+# end 20:45:18

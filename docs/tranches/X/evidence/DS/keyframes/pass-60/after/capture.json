@@ -1,0 +1,496 @@
+{
+ "home-1440-light": {
+  "band": {
+   "top": 398,
+   "bottom": 721,
+   "left": 0
+  },
+  "headline": {
+   "top": 398,
+   "bottom": 584,
+   "left": 43,
+   "right": 1397
+  }
+ },
+ "labels-light": [
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "delay",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "direction",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  }
+ ],
+ "square-1440-light": {
+  "field": 312,
+  "box": 156,
+  "reach": 468,
+  "arena": 812,
+  "innerMeasure": 772
+ },
+ "easing-1440-light": {
+  "fold": 705,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [
+   {
+    "k": "T:ease-in-sinesinu",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-out-sinesin",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-in-out-sine",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   }
+  ],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 684
+   }
+  ]
+ },
+ "ribbon-edge-light": {
+  "ribbonTop": 689,
+  "ribbonSeparators": 0,
+  "wellBottom": 680,
+  "wellLeft": 92,
+  "wellRight": 465
+ },
+ "timeline-empty-light": {
+  "hint": {
+   "top": 280,
+   "bottom": 317,
+   "left": 93,
+   "right": 456
+  },
+  "inlineImport": {
+   "top": 325,
+   "bottom": 361,
+   "left": 93,
+   "right": 258
+  },
+  "inlineText": "Import Rotations",
+  "ribbonImport": {
+   "top": 701,
+   "bottom": 737,
+   "left": 191,
+   "right": 267
+  },
+  "inlineEmphasis": {
+   "cls": "glass-capsule glass-capsule-hover",
+   "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)"
+  },
+  "ribbonEmphasis": {
+   "cls": "",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "gapHintToInline": 8
+ },
+ "chevron-light": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "spring-peak-light": {
+  "port": [
+   192,
+   521
+  ],
+  "scrollTop": 189,
+  "reach": 189,
+  "headed": false,
+  "startFadeOn": true,
+  "rowsNearTop": [
+   [
+    "smooth0.5 s · ",
+    137,
+    202
+   ],
+   [
+    "snappy0.35 s ·",
+    137,
+    202
+   ],
+   [
+    "bouncy0.5 s · ",
+    210,
+    275
+   ],
+   [
+    "gentle0.7 s · ",
+    210,
+    275
+   ],
+   [
+    "Peak overshoot",
+    300,
+    336
+   ]
+  ]
+ },
+ "square-390-light": {
+  "field": 195,
+  "box": 97,
+  "reach": 292,
+  "arena": 332,
+  "innerMeasure": 292
+ },
+ "easing-390-light": {
+  "fold": 698,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [
+   {
+    "k": "T:ease-in-sinesinu",
+    "top": 686,
+    "h": 107,
+    "shown": 11.7
+   },
+   {
+    "k": "T:ease-out-sinesin",
+    "top": 686,
+    "h": 107,
+    "shown": 11.7
+   }
+  ],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 678
+   }
+  ]
+ },
+ "sheet-tap-light": {
+  "peek": {
+   "detent": "0.12",
+   "height": 171,
+   "top": 723,
+   "position": "relative",
+   "header": "Rotations",
+   "expanded": "true",
+   "layerHeight": 403
+  },
+  "afterPress": {
+   "detent": "0.36",
+   "height": 304,
+   "top": 723,
+   "position": "relative",
+   "header": "Rotations",
+   "expanded": "true",
+   "layerHeight": 403,
+   "headerHovered": false
+  },
+  "secondPressAtOpen": {
+   "detent": "0.36",
+   "height": 304,
+   "top": 723,
+   "position": "relative",
+   "header": "Rotations",
+   "expanded": "false",
+   "layerHeight": 57
+  }
+ },
+ "home-1440-dark": {
+  "band": {
+   "top": 398,
+   "bottom": 721,
+   "left": 0
+  },
+  "headline": {
+   "top": 398,
+   "bottom": 584,
+   "left": 43,
+   "right": 1397
+  }
+ },
+ "labels-dark": [
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "duration",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "delay",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "iterations",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  },
+  {
+   "t": "direction",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans "
+  }
+ ],
+ "square-1440-dark": {
+  "field": 312,
+  "box": 156,
+  "reach": 468,
+  "arena": 812,
+  "innerMeasure": 772
+ },
+ "easing-1440-dark": {
+  "fold": 705,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [
+   {
+    "k": "T:ease-in-sinesinu",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-out-sinesin",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   },
+   {
+    "k": "T:ease-in-out-sine",
+    "top": 692,
+    "h": 166,
+    "shown": 12.3
+   }
+  ],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 684
+   }
+  ]
+ },
+ "ribbon-edge-dark": {
+  "ribbonTop": 689,
+  "ribbonSeparators": 0,
+  "wellBottom": 680,
+  "wellLeft": 92,
+  "wellRight": 465
+ },
+ "timeline-empty-dark": {
+  "hint": {
+   "top": 280,
+   "bottom": 317,
+   "left": 93,
+   "right": 456
+  },
+  "inlineImport": {
+   "top": 325,
+   "bottom": 361,
+   "left": 93,
+   "right": 258
+  },
+  "inlineText": "Import Rotations",
+  "ribbonImport": {
+   "top": 701,
+   "bottom": 737,
+   "left": 191,
+   "right": 267
+  },
+  "inlineEmphasis": {
+   "cls": "glass-capsule glass-capsule-hover",
+   "bg": "oklab(0.314092 0.0132972 0.0453462 / 0.2776)"
+  },
+  "ribbonEmphasis": {
+   "cls": "",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "gapHintToInline": 8
+ },
+ "chevron-dark": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "spring-peak-dark": {
+  "port": [
+   192,
+   521
+  ],
+  "scrollTop": 189,
+  "reach": 189,
+  "headed": false,
+  "startFadeOn": true,
+  "rowsNearTop": [
+   [
+    "smooth0.5 s · ",
+    137,
+    202
+   ],
+   [
+    "snappy0.35 s ·",
+    137,
+    202
+   ],
+   [
+    "bouncy0.5 s · ",
+    210,
+    275
+   ],
+   [
+    "gentle0.7 s · ",
+    210,
+    275
+   ],
+   [
+    "Peak overshoot",
+    300,
+    336
+   ]
+  ]
+ },
+ "square-390-dark": {
+  "field": 195,
+  "box": 97,
+  "reach": 292,
+  "arena": 332,
+  "innerMeasure": 292
+ },
+ "easing-390-dark": {
+  "fold": 698,
+  "fade": 16,
+  "peek": 12,
+  "crossing": [
+   {
+    "k": "T:ease-in-sinesinu",
+    "top": 686,
+    "h": 107,
+    "shown": 11.7
+   },
+   {
+    "k": "T:ease-out-sinesin",
+    "top": 686,
+    "h": 107,
+    "shown": 11.7
+   }
+  ],
+  "headsNearFold": [
+   {
+    "k": "Sine",
+    "top": 654,
+    "bottom": 678
+   }
+  ]
+ },
+ "sheet-tap-dark": {
+  "peek": {
+   "detent": "0.12",
+   "height": 171,
+   "top": 723,
+   "position": "relative",
+   "header": "Rotations",
+   "expanded": "true",
+   "layerHeight": 403
+  },
+  "afterPress": {
+   "detent": "0.36",
+   "height": 304,
+   "top": 723,
+   "position": "relative",
+   "header": "Rotations",
+   "expanded": "true",
+   "layerHeight": 403,
+   "headerHovered": false
+  },
+  "secondPressAtOpen": {
+   "detent": "0.36",
+   "height": 304,
+   "top": 723,
+   "position": "relative",
+   "header": "Rotations",
+   "expanded": "false",
+   "layerHeight": 57
+  }
+ }
+}

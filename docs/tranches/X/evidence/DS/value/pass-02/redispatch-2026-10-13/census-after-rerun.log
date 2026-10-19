@@ -1,0 +1,67 @@
+{
+  "out": "docs/tranches/X/evidence/DS/value/pass-02/redispatch-2026-10-13/census-after-rerun.json",
+  "gate": {
+    "verdict": "RED",
+    "allowance": {
+      "maxLayersOnOneElement": 1,
+      "insetHighlightLayers": 0,
+      "textShadow": 0,
+      "filterDropShadow": 0,
+      "filterBlur": 0,
+      "gradientFillsOnControls": 0,
+      "loopingAnimations": 0
+    },
+    "over": {
+      "maxLayersOnOneElement": {
+        "value": 6,
+        "allowance": 1
+      },
+      "insetHighlightLayers": {
+        "value": 177,
+        "allowance": 0
+      },
+      "filterDropShadow": {
+        "value": 4,
+        "allowance": 0
+      },
+      "gradientFillsOnControls": {
+        "value": 13,
+        "allowance": 0
+      }
+    }
+  },
+  "static": {
+    "boxShadowDecls": 20,
+    "boxShadowLayers": 24,
+    "insetLayers": 7,
+    "insetHighlightLayers": 0,
+    "multiLayerShadowDecls": 4,
+    "textShadow": 0,
+    "filterDropShadow": 0,
+    "filterBlur": 0,
+    "backdropBlur": 3,
+    "gradientFills": 5,
+    "loopingKeyframes": 1,
+    "lightingTokenDefs": 4,
+    "twShadowUtilities": 1,
+    "twLoopUtilities": 10,
+    "twGradientUtilities": 0
+  },
+  "computed": {
+    "elements": 1573,
+    "boxShadowElements": 123,
+    "boxShadowLayers": 388,
+    "multiLayerElements": 78,
+    "ringLayers": 10,
+    "insetLayers": 276,
+    "insetHighlightLayers": 177,
+    "textShadow": 0,
+    "filterDropShadow": 4,
+    "filterBlur": 0,
+    "backdropBlur": 60,
+    "gradientFillsOnControls": 13,
+    "contentGradientsExempt": 4,
+    "loopingAnimations": 0,
+    "maxLayersOnOneElement": 6
+  }
+}

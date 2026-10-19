@@ -1,0 +1,134 @@
+[
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "triggers": [
+   [
+    224,
+    515,
+    334,
+    551
+   ],
+   [
+    346,
+    515,
+    456,
+    551
+   ],
+   [
+    468,
+    515,
+    578,
+    551
+   ]
+  ],
+  "tile": [
+   590,
+   484,
+   686,
+   618
+  ],
+  "overlaps": 0,
+  "docW": 1440,
+  "posEmpty": {
+   "tag": "INPUT",
+   "type": "text",
+   "val": "",
+   "w": 84,
+   "sw": 82,
+   "cw": 82,
+   "radius": "0px"
+  },
+  "posSelected": {
+   "tag": "INPUT",
+   "type": "text",
+   "val": "100",
+   "w": 84,
+   "sw": 82,
+   "cw": 82,
+   "radius": "0px"
+  },
+  "posTyped": {
+   "tag": "INPUT",
+   "type": "text",
+   "val": "74.7",
+   "w": 84,
+   "sw": 82,
+   "cw": 82,
+   "radius": "0px"
+  },
+  "stopNow": [
+   "0",
+   "74.7"
+  ],
+  "dirOnRadial": 0,
+  "dirOnConic": 2,
+  "dirLabelConic": "From"
+ },
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "triggers": [
+   [
+    33,
+    633,
+    357,
+    669
+   ],
+   [
+    33,
+    709,
+    357,
+    745
+   ],
+   [
+    33,
+    785,
+    357,
+    821
+   ]
+  ],
+  "tile": [
+   33,
+   506,
+   357,
+   586
+  ],
+  "overlaps": 0,
+  "docW": 390,
+  "posEmpty": {
+   "tag": "INPUT",
+   "type": "text",
+   "val": "",
+   "w": 77,
+   "sw": 75,
+   "cw": 75,
+   "radius": "0px"
+  },
+  "posSelected": {
+   "tag": "INPUT",
+   "type": "text",
+   "val": "100",
+   "w": 77,
+   "sw": 75,
+   "cw": 75,
+   "radius": "0px"
+  },
+  "posTyped": {
+   "tag": "INPUT",
+   "type": "text",
+   "val": "74.7",
+   "w": 77,
+   "sw": 75,
+   "cw": 75,
+   "radius": "0px"
+  },
+  "stopNow": [
+   "0",
+   "74.7"
+  ],
+  "dirOnRadial": 0,
+  "dirOnConic": 2,
+  "dirLabelConic": "From"
+ }
+]

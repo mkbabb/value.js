@@ -1,4 +1,5 @@
 import { adminPopulatedTest as test, expect } from "./fixtures/admin-populated";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * T.W4 W4-6 · O-10d (admin half) — the display-voice family census row for
@@ -17,7 +18,7 @@ test("O-10d (admin) — the flagged-panel palette name speaks the display voice,
     page,
 }) => {
     await page.goto("/#/admin/flagged");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expect(
         page.getByRole("heading", { name: "Flagged" }).first(),
     ).toBeVisible();

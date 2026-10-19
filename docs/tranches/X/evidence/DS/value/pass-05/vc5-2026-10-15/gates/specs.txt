@@ -1,0 +1,1 @@
+e2e/smoke/scene-action-contract.spec.ts e2e/smoke/oracles/o29-scene-contracts.spec.ts e2e/smoke/oracles/o15-dock-register.spec.ts e2e/smoke/w12-about-clip.spec.ts e2e/smoke/oracles/o21-space-catalog-truth.spec.ts

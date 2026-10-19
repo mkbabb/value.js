@@ -1,0 +1,412 @@
+{
+  "kf": {
+    "sha": "60477b06",
+    "dirty": 7
+  },
+  "glass": {
+    "sha": "b7099ea6",
+    "dirty": 1
+  },
+  "when": "2026-09-23T17:14:58.920Z",
+  "runs": [
+    {
+      "tag": "390-dark",
+      "frames": [
+        {
+          "frame": "01-keyframes-rest-390-dark.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": true,
+          "pane": {
+            "box": [
+              1,
+              724,
+              388,
+              727
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(101, 87, 73)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none",
+            "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+          },
+          "monacoPane": {
+            "box": [
+              29,
+              732,
+              320,
+              454
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(101, 87, 73)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none",
+            "cls": "monaco-pane"
+          },
+          "editor": {
+            "box": [
+              31,
+              734,
+              316,
+              450
+            ],
+            "radius": "0px",
+            "bg": "rgb(40, 42, 54)",
+            "border": "0px rgb(101, 87, 73)",
+            "color": "rgb(248, 248, 242)",
+            "font": "16px/400 -apple-system",
+            "shadow": "none",
+            "cls": "monaco-editor no-user-select mac  showUnused showDeprecated vs-dark"
+          },
+          "editorCard": {
+            "box": [
+              29,
+              732,
+              320,
+              454
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.294869 0.0110836 0.0185797 / 0.72)",
+            "border": "2px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.",
+            "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden cartoon-surface relative w-full overflow-hidden"
+          },
+          "editorAria": null,
+          "monacoFont": "\"Fira Code\" 14px",
+          "monacoBg": "rgb(40, 42, 54)",
+          "lines": 21,
+          "firstLines": [
+            ".",
+            "keyframes-style-cube-Rotati",
+            "ons {",
+            "  animation-name: "
+          ],
+          "tabTrigger": {
+            "t": "Keyframes",
+            "box": [
+              155,
+              42,
+              138,
+              32
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px color(srgb 1 1 1 / 0.8)",
+            "color": "color(srgb 1 1 1 / 0.8)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none",
+            "cls": "dock-trigger dock-select-trigger dock-label"
+          },
+          "ribbonButtons": [
+            {
+              "t": "Copy",
+              "box": [
+                96,
+                1224,
+                83,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            },
+            {
+              "t": "Format",
+              "box": [
+                187,
+                1224,
+                94,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            },
+            {
+              "t": "Export CSS",
+              "box": [
+                66,
+                1268,
+                122,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            },
+            {
+              "t": "Apply CSS",
+              "box": [
+                196,
+                1268,
+                117,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            }
+          ],
+          "ribbonCard": {
+            "box": [
+              29,
+              1210,
+              320,
+              108
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+            "border": "2px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.",
+            "cls": "glass-quiet card rounded-card text-card-foreground scrollbar-hidden cartoon-surface overflow-visible"
+          },
+          "skeleton": true,
+          "toasts": [],
+          "focus": "Controls panel: fv=false outline=none color(srgb 1 1 1 / 0.8)/none",
+          "paneOverflowX": [
+            388,
+            388
+          ],
+          "docOverflowX": [
+            390,
+            390
+          ],
+          "scroller": [
+            474,
+            474,
+            "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 pb-3"
+          ],
+          "crop": "01-keyframes-rest-390-dark-crop.png"
+        },
+        {
+          "frame": "02-ribbon-in-view-390-dark.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": true,
+          "pane": {
+            "box": [
+              1,
+              724,
+              388,
+              727
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(101, 87, 73)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none",
+            "cls": "controls-pane group/controls min-w-0 overflow-hidden"
+          },
+          "monacoPane": {
+            "box": [
+              29,
+              732,
+              320,
+              454
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(101, 87, 73)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none",
+            "cls": "monaco-pane"
+          },
+          "editor": {
+            "box": [
+              31,
+              734,
+              316,
+              450
+            ],
+            "radius": "0px",
+            "bg": "rgb(40, 42, 54)",
+            "border": "0px rgb(101, 87, 73)",
+            "color": "rgb(248, 248, 242)",
+            "font": "16px/400 -apple-system",
+            "shadow": "none",
+            "cls": "monaco-editor no-user-select mac  showUnused showDeprecated vs-dark"
+          },
+          "editorCard": {
+            "box": [
+              29,
+              732,
+              320,
+              454
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.294869 0.0110836 0.0185797 / 0.72)",
+            "border": "2px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.",
+            "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden cartoon-surface relative w-full overflow-hidden"
+          },
+          "editorAria": null,
+          "monacoFont": "\"Fira Code\" 14px",
+          "monacoBg": "rgb(40, 42, 54)",
+          "lines": 21,
+          "firstLines": [
+            ".",
+            "keyframes-style-cube-Rotati",
+            "ons {",
+            "  animation-name: "
+          ],
+          "tabTrigger": {
+            "t": "Keyframes",
+            "box": [
+              155,
+              42,
+              138,
+              32
+            ],
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px color(srgb 1 1 1 / 0.8)",
+            "color": "color(srgb 1 1 1 / 0.8)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "none",
+            "cls": "dock-trigger dock-select-trigger dock-label"
+          },
+          "ribbonButtons": [
+            {
+              "t": "Copy",
+              "box": [
+                96,
+                1224,
+                83,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            },
+            {
+              "t": "Format",
+              "box": [
+                187,
+                1224,
+                94,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            },
+            {
+              "t": "Export CSS",
+              "box": [
+                66,
+                1268,
+                122,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            },
+            {
+              "t": "Apply CSS",
+              "box": [
+                196,
+                1268,
+                117,
+                36
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+              "border": "0px rgb(255, 255, 255)",
+              "color": "rgb(255, 255, 255)",
+              "font": "14px/500 \"Plus Jakarta Sans\"",
+              "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover"
+            }
+          ],
+          "ribbonCard": {
+            "box": [
+              29,
+              1210,
+              320,
+              108
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.294869 0.0110837 0.0185796 / 0.58)",
+            "border": "2px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+            "color": "rgb(233, 230, 226)",
+            "font": "16px/400 \"Plus Jakarta Sans\"",
+            "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.",
+            "cls": "glass-quiet card rounded-card text-card-foreground scrollbar-hidden cartoon-surface overflow-visible"
+          },
+          "skeleton": true,
+          "toasts": [],
+          "focus": "Controls panel: fv=false outline=none color(srgb 1 1 1 / 0.8)/none",
+          "paneOverflowX": [
+            388,
+            388
+          ],
+          "docOverflowX": [
+            390,
+            390
+          ],
+          "scroller": [
+            474,
+            474,
+            "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 pb-3"
+          ],
+          "crop": "02-ribbon-in-view-390-dark-crop.png"
+        }
+      ],
+      "notes": {
+        "options": [
+          "Controls",
+          "Keyframes",
+          "Timeline"
+        ]
+      },
+      "err": "TimeoutError: locator.hover: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Copy', exact: true }).filter({ visible: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-size=\"sm\" data-v-793046d8=\"\" data-slot=\"button\" data-tone=\"neutral\" data-press-armed=\"\" data-emphasis=\"secondary\" class=\"button tap-squish focus-ring glass-wash glass-c"
+    }
+  ]
+}

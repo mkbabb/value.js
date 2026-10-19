@@ -1,0 +1,16 @@
+parseCssColor          acc      n=6460 k=1 retired 20.774ms spread 13.337 | product x0.594 (26/31<1, min/min x0.578) | load 444.7 -> 441.52
+parseCssScalar         acc      n=7460 k=1 retired 33.46ms spread 13.687 | product x0.518 (26/31<1, min/min x0.512) | load 441.52 -> 444.68
+parseCssValue          acc      n=13023 k=1 retired 96.138ms spread 6.078 | product x0.361 (28/31<1, min/min x0.393) | load 444.68 -> 441.71
+parseCssValues         acc      n=13023 k=1 retired 162.396ms spread 8.59 | product x0.328 (28/31<1, min/min x0.302) | load 441.71 -> 445.3
+parseKeyframeSelector  acc      n=56 k=1024 retired 20.771ms spread 7.725 | product x0.712 (27/31<1, min/min x0.602) | load 448.72 -> 448.72
+parseTimingFunction    acc      n=509 k=4 retired 5.445ms spread 31.135 | product x0.5 (25/31<1, min/min x0.572) | load 448.72 -> 447.7
+parseStylesheet        acc      n=2503 k=1 retired 48.724ms spread 7.287 | product x0.603 (22/31<1, min/min x0.505) | load 447.7 -> 447.32
+parseCssColor          rej      n=23484 k=1 retired 55.981ms spread 6.451 | product x1.022 (15/31<1, min/min x0.598) | load 452.1 -> 450.81
+parseCssScalar         rej      n=22484 k=1 retired 37.538ms spread 4.554 | product x0.591 (30/31<1, min/min x0.571) | load 450.81 -> 455.71
+parseCssValue          rej      n=16921 k=1 retired 670.527ms spread 6.519 | product x0.431 (30/31<1, min/min x0.268) | load 457.9 -> 477.8
+parseCssValues         rej      n=16921 k=1 retired 192.951ms spread 18.551 | product x0.47 (26/31<1, min/min x0.489) | load 479.09 -> 493.6
+parseKeyframeSelector  rej      n=29888 k=2 retired 16.669ms spread 12.044 | product x0.646 (27/31<1, min/min x0.683) | load 493.6 -> 492.19
+parseTimingFunction    rej      n=29435 k=2 retired 22.816ms spread 9.11 | product x0.715 (22/31<1, min/min x0.61) | load 492.19 -> 488.49
+parseStylesheet        rej      n=27441 k=1 retired 187.781ms spread 14.317 | product x0.427 (29/31<1, min/min x0.519) | load 488.49 -> 488.53
+parseStylesheet        large-eq n=4 k=2 retired 16.582ms spread 10.773 | product x0.61 (25/31<1, min/min x0.498) | load 488.53 -> 484.8
+DONE read 2 rounds 31

@@ -1,0 +1,32 @@
+firefox r0a0 parseKeyframeSelector  acc      n=56 k=2048 product x0.884 (63/101<1) spread 14.782 SET-ASIDE
+firefox r0a1 parseKeyframeSelector  acc      n=56 k=256 product x1.333 (39/101<1) spread 131.2 SET-ASIDE
+firefox r0a2 parseKeyframeSelector  acc      n=56 k=512 product x0.837 (57/101<1) spread 62.833 SET-ASIDE
+firefox r0a3 parseKeyframeSelector  acc      n=56 k=512 product x0.906 (57/101<1) spread 54.714 SET-ASIDE
+firefox r0a0 parseTimingFunction    acc      n=509 k=16 product x0.625 (69/101<1) spread 60.688 SET-ASIDE
+firefox r0a1 parseTimingFunction    acc      n=509 k=32 product x0.664 (81/101<1) spread 14.284 SET-ASIDE
+firefox r0a2 parseTimingFunction    acc      n=509 k=32 product x0.733 (77/101<1) spread 33.189 SET-ASIDE
+firefox r0a3 parseTimingFunction    acc      n=509 k=4 product x0.51 (65/101<1) spread 117 SET-ASIDE
+firefox r0a0 parseStylesheet        acc      n=2503 k=1 product x0.888 (64/101<1) spread 13.451 SET-ASIDE
+firefox r0a1 parseStylesheet        acc      n=2503 k=1 product x1.089 (45/101<1) spread 24.544 SET-ASIDE
+firefox r0a2 parseStylesheet        acc      n=2503 k=2 product x0.739 (67/101<1) spread 14.602 SET-ASIDE
+firefox r0a3 parseStylesheet        acc      n=2503 k=1 product x0.796 (66/101<1) spread 32.556 SET-ASIDE
+firefox r1a0 parseTimingFunction    acc      n=509 k=32 product x0.688 (74/101<1) spread 19.707 SET-ASIDE
+firefox r1a1 parseTimingFunction    acc      n=509 k=64 product x0.759 (76/101<1) spread 21.473 SET-ASIDE
+firefox r1a2 parseTimingFunction    acc      n=509 k=32 product x0.612 (74/101<1) spread 34.3 SET-ASIDE
+firefox r1a3 parseTimingFunction    acc      n=509 k=4 product x0.571 (62/101<1) spread 120.667 SET-ASIDE
+firefox r1a0 parseStylesheet        acc      n=2503 k=1 product x0.837 (58/101<1) spread 10.097 SET-ASIDE
+firefox r1a1 parseStylesheet        acc      n=2503 k=1 product x0.751 (68/101<1) spread 29.023 SET-ASIDE
+firefox r1a2 parseStylesheet        acc      n=2503 k=1 product x0.885 (62/101<1) spread 24.213 SET-ASIDE
+firefox r1a3 parseStylesheet        acc      n=2503 k=1 product x0.841 (57/101<1) spread 11.897 SET-ASIDE
+firefox r1a0 parseKeyframeSelector  acc      n=56 k=1024 product x0.841 (63/101<1) spread 32.531 SET-ASIDE
+firefox r1a1 parseKeyframeSelector  acc      n=56 k=2048 product x0.867 (64/101<1) spread 6.978 SET-ASIDE
+firefox r1a2 parseKeyframeSelector  acc      n=56 k=512 product x1.078 (46/101<1) spread 35.385 SET-ASIDE
+firefox r1a3 parseKeyframeSelector  acc      n=56 k=64 product x1 (48/101<1) spread Infinity SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseKeyframeSelector        RED x0.884(SA) x1.333(SA) x0.837(SA) x0.906(SA) x0.841(SA) x0.867(SA) x1.078(SA) x1(SA)
+product firefox|acc|parseTimingFunction          RED x0.625(SA) x0.664(SA) x0.733(SA) x0.51(SA) x0.688(SA) x0.759(SA) x0.612(SA) x0.571(SA)
+product firefox|acc|parseStylesheet              RED x0.888(SA) x1.089(SA) x0.739(SA) x0.796(SA) x0.837(SA) x0.751(SA) x0.885(SA) x0.841(SA)
+11:58  up 1 day, 21:26, 3 users, load averages: 560.22 525.94 461.99 
+ 12:28  up 1 day, 21:55, 3 users, load averages: 294.96 416.71 453.58 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n101-acc-x1.json
+DONE w8lg1-firefox-n101-acc-x1

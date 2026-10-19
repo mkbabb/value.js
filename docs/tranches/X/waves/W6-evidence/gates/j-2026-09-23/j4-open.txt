@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.j — j4 MEASURE-AT-OPEN (before any cure), 2026-09-23 03:29 EDT, HEAD e5bb6a25
+cmd: VJS_E2E_PORT=9651 npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts --project=smoke -g "short landscape" --reporter=line  (x2, identical)
+[j4] blob preview@rest=1.000 last="Reset" inViewport=true hit=true rect={x:383.4,y:379.0,w:84.0,h:36} preview@last=0.000  -> RED (the preview leaves the viewport to reach the last control)
+[j4] atmosphere preview@rest=0.164 last="Reset" inViewport=true hit=true rect={x:383.4,y:379.0,w:84.0,h:36} preview@last=0.079  -> GREEN
+run 1: 1 failed / 1 passed · run 2: 1 failed / 1 passed
+layout probe (720x450, /#/blob): regions Picker 16,128 688x628 · Blob 16,771 688x2553; document 450/3338; goo-blob canvas 507,83 242x242 — one auto-fit column (shell.css .pane-container, --pane-min 25rem)

@@ -1,0 +1,5 @@
+
+Running 1 test using 1 worker
+
+[1/1] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 375x667
+  1 passed (7.5s)

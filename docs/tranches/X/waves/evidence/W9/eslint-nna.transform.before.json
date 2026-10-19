@@ -1,0 +1,1641 @@
+{
+ "SERVED MODEL": "claude-opus-5[1m]",
+ "gate": "G10 — @typescript-eslint/no-non-null-assertion under src/transform/ + src/foundation/",
+ "command": "npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts' --rule '{\"@typescript-eslint/no-non-null-assertion\":\"error\"}' -f json",
+ "when": "e24a7cfb (pre-cure, worktree value.js-x-w9-b)",
+ "note": "155 = src/transform/decompose.ts 113 + src/transform/path.ts 35 + src/foundation/math.ts 7",
+ "totals": {
+  "src/foundation/math.ts": 7,
+  "src/transform/decompose.ts": 113,
+  "src/transform/path.ts": 35
+ },
+ "total": 155,
+ "results": [
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js-x-w9-b/src/foundation/math.ts",
+   "messages": [
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 69,
+     "column": 22,
+     "messageId": "noNonNull",
+     "endLine": 69,
+     "endColumn": 31
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 69,
+     "column": 38,
+     "messageId": "noNonNull",
+     "endLine": 69,
+     "endColumn": 46
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 92,
+     "column": 25,
+     "messageId": "noNonNull",
+     "endLine": 92,
+     "endColumn": 30
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 92,
+     "column": 32,
+     "messageId": "noNonNull",
+     "endLine": 92,
+     "endColumn": 41
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 95,
+     "column": 12,
+     "messageId": "noNonNull",
+     "endLine": 95,
+     "endColumn": 17
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 107,
+     "column": 40,
+     "messageId": "noNonNull",
+     "endLine": 107,
+     "endColumn": 46
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 108,
+     "column": 40,
+     "messageId": "noNonNull",
+     "endLine": 108,
+     "endColumn": 46
+    }
+   ],
+   "suppressedMessages": [],
+   "errorCount": 7,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "source": "// Constrains a value between a lower and upper bound\nexport function clamp(value: number, min: number, max: number): number {\n    return Math.min(Math.max(value, min), max);\n}\n\n// Linear mapping of a value from one range to another\nexport function scale(\n    value: number,\n    fromMin: number,\n    fromMax: number,\n    toMin: number = 0,\n    toMax: number = 1,\n) {\n    // Calculate slope of the linear function\n    const slope = (toMax - toMin) / (fromMax - fromMin);\n\n    // Check for division by zero\n    if (fromMax === fromMin) {\n        throw new Error(\"fromMax and fromMin cannot be equal\");\n    }\n\n    // Apply linear transformation\n    return (value - fromMin) * slope + toMin;\n}\n\n// Linear interpolation between two values.\n// Canonical (a, b, t) — value-pair first, parameter last.\nexport function lerp(start: number, end: number, t: number) {\n    // t is the interpolation factor [0, 1]\n    return (1 - t) * start + t * end;\n}\n\n/**\n * SoA (struct-of-arrays) bulk lerp (Wave D2). Interpolates `K` numeric channels\n * in one flat loop over contiguous `Float64Array`s, writing into a caller-owned\n * `out` buffer — eliminating the AoS pointer-chase and the per-channel closure\n * dispatch of K independent `{value}` carriers.\n *\n * **This is a *consumer-facing* SoA carrier, not an internal interpolation\n * primitive.** value.js's own multi-channel paths cannot adopt it: the color\n * path (`lerpColorValue`) has a per-channel hue special-case + heterogeneous\n * destination writes, and `interpolateDecomposed` is a one-shot. The substrate\n * that *does* consume it is **keyframes.js** — its `FrameCompiler` packs every\n * plain-numeric channel of a compiled segment into parallel `Float64Array`s and\n * drives one `lerpArray` call per playhead sample (the J.W6 S2 ADOPT; the\n * consume-edge contract is locked by `keyframes.js/test/lerparray-adopt.test.ts`\n * — API + `(1-t)·from + t·to` semantics + a K=8 cube-transform equivalence\n * witness). So `lerpArray` is NOT an orphan: it generalized to the downstream\n * animation engine it was built for, not to value.js's own interp loops. The\n * N.W7.B perf-truth lane's verdict is therefore KEEP-and-document (E1.N1).\n *\n * It is pixel-identical to K independent `lerp()` calls. MEASURE-FIRST (the\n * charter's land bar): SLOWER at K=1, BITES from K≥2 — measured on this machine\n * (bench/numeric-soa.mjs) at 1.56× (K=2) → 4.25× (K=64), so callers use it only\n * for multi-channel (K≥2) frames. D1 monomorphization is NOT shipped (a measured\n * non-win, r-interpolation-carrier).\n *\n * `start`, `stop`, `out` must share the same length; only `out` is written.\n */\nexport function lerpArray(\n    start: Float64Array,\n    stop: Float64Array,\n    t: number,\n    out: Float64Array,\n): Float64Array {\n    const n = start.length;\n    const u = 1 - t;\n    for (let i = 0; i < n; i++) {\n        out[i] = u * start[i]! + t * stop[i]!;\n    }\n    return out;\n}\n\n// Logarithmic (geometric) interpolation between two values.\n// Canonical (a, b, t) — value-pair first, parameter last, mirroring `lerp`.\n// The pre-3.0.0 order was `logerp(t, start, end)`; the t-first form was a\n// public-surface footgun against its t-last `lerp` sibling (S.W1 / Q2 reorder).\nexport function logerp(start: number, end: number, t: number) {\n    // Prevent division by zero or log(0)\n    start = start === 0 ? 1e-9 : start;\n    // Interpolate in logarithmic space\n    return start * Math.pow(end / start, t);\n}\n\n// De Casteljau's algorithm for Bézier curve evaluation\nexport function deCasteljau(t: number, points: readonly number[]) {\n    const n = points.length - 1;\n    const b = [...points];\n    // Iteratively interpolate points\n    for (let i = 1; i <= n; i++) {\n        for (let j = 0; j <= n - i; j++) {\n            b[j] = lerp(b[j]!, b[j + 1]!, t);\n        }\n    }\n    return b[0]!;\n}\n\n// Cubic Bézier curve evaluation\nexport function cubicBezier(t: number, x1: number, y1: number, x2: number, y2: number) {\n    // Evaluate x and y components separately\n    return [deCasteljau(t, [0, x1, x2, 1]), deCasteljau(t, [0, y1, y2, 1])] as const;\n}\n\n// Generalized Bézier curve interpolation\nexport function interpBezier(t: number, points: readonly (readonly [x: number, y: number])[]) {\n    // Separate x and y coordinates\n    const xCoords = points.map((xy) => xy[0]!);\n    const yCoords = points.map((xy) => xy[1]!);\n    // Interpolate x and y separately\n    return [deCasteljau(t, xCoords), deCasteljau(t, yCoords)] as const;\n}\n\nexport function cubicBezierToString(x1: number, y1: number, x2: number, y2: number) {\n    const formatNumber = (n: number) => {\n        let s = n.toFixed(2);\n        return s;\n    };\n\n    return `cubic-bezier(${formatNumber(x1)}, ${formatNumber(y1)}, ${formatNumber(x2)}, ${formatNumber(y2)})`;\n}\n",
+   "usedDeprecatedRules": []
+  },
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js-x-w9-b/src/foundation/result.ts",
+   "messages": [],
+   "suppressedMessages": [],
+   "errorCount": 0,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "usedDeprecatedRules": []
+  },
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js-x-w9-b/src/transform/decompose.ts",
+   "messages": [
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 117,
+     "column": 12,
+     "messageId": "noNonNull",
+     "endLine": 117,
+     "endColumn": 29
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 153,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 153,
+     "endColumn": 22
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 153,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 153,
+     "endColumn": 35
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 153,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 153,
+     "endColumn": 48
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 153,
+     "column": 56,
+     "messageId": "noNonNull",
+     "endLine": 153,
+     "endColumn": 62
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 154,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 154,
+     "endColumn": 22
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 154,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 154,
+     "endColumn": 35
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 154,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 154,
+     "endColumn": 48
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 154,
+     "column": 56,
+     "messageId": "noNonNull",
+     "endLine": 154,
+     "endColumn": 62
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 155,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 155,
+     "endColumn": 22
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 155,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 155,
+     "endColumn": 35
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 155,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 155,
+     "endColumn": 49
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 155,
+     "column": 57,
+     "messageId": "noNonNull",
+     "endLine": 155,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 156,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 156,
+     "endColumn": 22
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 156,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 156,
+     "endColumn": 35
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 156,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 156,
+     "endColumn": 49
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 156,
+     "column": 57,
+     "messageId": "noNonNull",
+     "endLine": 156,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 187,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 187,
+     "endColumn": 26
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 187,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 187,
+     "endColumn": 39
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 187,
+     "column": 42,
+     "messageId": "noNonNull",
+     "endLine": 187,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 187,
+     "column": 54,
+     "messageId": "noNonNull",
+     "endLine": 187,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 187,
+     "column": 66,
+     "messageId": "noNonNull",
+     "endLine": 187,
+     "endColumn": 75
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 188,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 188,
+     "endColumn": 26
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 188,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 188,
+     "endColumn": 39
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 188,
+     "column": 42,
+     "messageId": "noNonNull",
+     "endLine": 188,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 188,
+     "column": 54,
+     "messageId": "noNonNull",
+     "endLine": 188,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 188,
+     "column": 66,
+     "messageId": "noNonNull",
+     "endLine": 188,
+     "endColumn": 75
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 189,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 189,
+     "endColumn": 26
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 189,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 189,
+     "endColumn": 39
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 189,
+     "column": 42,
+     "messageId": "noNonNull",
+     "endLine": 189,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 189,
+     "column": 54,
+     "messageId": "noNonNull",
+     "endLine": 189,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 189,
+     "column": 66,
+     "messageId": "noNonNull",
+     "endLine": 189,
+     "endColumn": 75
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 240,
+     "column": 15,
+     "messageId": "noNonNull",
+     "endLine": 240,
+     "endColumn": 21
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 242,
+     "column": 41,
+     "messageId": "noNonNull",
+     "endLine": 242,
+     "endColumn": 46
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 247,
+     "column": 18,
+     "messageId": "noNonNull",
+     "endLine": 247,
+     "endColumn": 23
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 248,
+     "column": 18,
+     "messageId": "noNonNull",
+     "endLine": 248,
+     "endColumn": 23
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 249,
+     "column": 18,
+     "messageId": "noNonNull",
+     "endLine": 249,
+     "endColumn": 24
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 26,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 60,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 65
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 68,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 78
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 81,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 87
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 90,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 101
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 263,
+     "column": 104,
+     "messageId": "noNonNull",
+     "endLine": 263,
+     "endColumn": 110
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 26,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 60,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 65
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 68,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 78
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 81,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 87
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 90,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 101
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 264,
+     "column": 104,
+     "messageId": "noNonNull",
+     "endLine": 264,
+     "endColumn": 110
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 26,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 60,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 65
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 68,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 79
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 82,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 88
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 91,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 102
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 265,
+     "column": 105,
+     "messageId": "noNonNull",
+     "endLine": 265,
+     "endColumn": 111
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 26,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 60,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 65
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 68,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 79
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 82,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 88
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 91,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 102
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 266,
+     "column": 105,
+     "messageId": "noNonNull",
+     "endLine": 266,
+     "endColumn": 111
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 270,
+     "column": 50,
+     "messageId": "noNonNull",
+     "endLine": 270,
+     "endColumn": 56
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 270,
+     "column": 58,
+     "messageId": "noNonNull",
+     "endLine": 270,
+     "endColumn": 64
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 270,
+     "column": 66,
+     "messageId": "noNonNull",
+     "endLine": 270,
+     "endColumn": 72
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 276,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 276,
+     "endColumn": 48
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 276,
+     "column": 50,
+     "messageId": "noNonNull",
+     "endLine": 276,
+     "endColumn": 55
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 276,
+     "column": 57,
+     "messageId": "noNonNull",
+     "endLine": 276,
+     "endColumn": 62
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 277,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 277,
+     "endColumn": 48
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 277,
+     "column": 50,
+     "messageId": "noNonNull",
+     "endLine": 277,
+     "endColumn": 55
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 277,
+     "column": 57,
+     "messageId": "noNonNull",
+     "endLine": 277,
+     "endColumn": 62
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 278,
+     "column": 43,
+     "messageId": "noNonNull",
+     "endLine": 278,
+     "endColumn": 48
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 278,
+     "column": 50,
+     "messageId": "noNonNull",
+     "endLine": 278,
+     "endColumn": 55
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 278,
+     "column": 57,
+     "messageId": "noNonNull",
+     "endLine": 278,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 474,
+     "column": 13,
+     "messageId": "noNonNull",
+     "endLine": 474,
+     "endColumn": 19
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 474,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 474,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 474,
+     "column": 64,
+     "messageId": "noNonNull",
+     "endLine": 474,
+     "endColumn": 69
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 474,
+     "column": 89,
+     "messageId": "noNonNull",
+     "endLine": 474,
+     "endColumn": 94
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 475,
+     "column": 13,
+     "messageId": "noNonNull",
+     "endLine": 475,
+     "endColumn": 19
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 475,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 475,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 475,
+     "column": 64,
+     "messageId": "noNonNull",
+     "endLine": 475,
+     "endColumn": 69
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 475,
+     "column": 89,
+     "messageId": "noNonNull",
+     "endLine": 475,
+     "endColumn": 94
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 476,
+     "column": 13,
+     "messageId": "noNonNull",
+     "endLine": 476,
+     "endColumn": 19
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 476,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 476,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 476,
+     "column": 64,
+     "messageId": "noNonNull",
+     "endLine": 476,
+     "endColumn": 69
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 476,
+     "column": 89,
+     "messageId": "noNonNull",
+     "endLine": 476,
+     "endColumn": 95
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 477,
+     "column": 13,
+     "messageId": "noNonNull",
+     "endLine": 477,
+     "endColumn": 19
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 477,
+     "column": 39,
+     "messageId": "noNonNull",
+     "endLine": 477,
+     "endColumn": 44
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 477,
+     "column": 64,
+     "messageId": "noNonNull",
+     "endLine": 477,
+     "endColumn": 69
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 477,
+     "column": 89,
+     "messageId": "noNonNull",
+     "endLine": 477,
+     "endColumn": 95
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 482,
+     "column": 41,
+     "messageId": "noNonNull",
+     "endLine": 482,
+     "endColumn": 47
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 490,
+     "column": 45,
+     "messageId": "noNonNull",
+     "endLine": 490,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 497,
+     "column": 45,
+     "messageId": "noNonNull",
+     "endLine": 497,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 504,
+     "column": 45,
+     "messageId": "noNonNull",
+     "endLine": 504,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 509,
+     "column": 12,
+     "messageId": "noNonNull",
+     "endLine": 509,
+     "endColumn": 17
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 509,
+     "column": 31,
+     "messageId": "noNonNull",
+     "endLine": 509,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 509,
+     "column": 50,
+     "messageId": "noNonNull",
+     "endLine": 509,
+     "endColumn": 55
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 509,
+     "column": 69,
+     "messageId": "noNonNull",
+     "endLine": 509,
+     "endColumn": 74
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 510,
+     "column": 12,
+     "messageId": "noNonNull",
+     "endLine": 510,
+     "endColumn": 17
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 510,
+     "column": 31,
+     "messageId": "noNonNull",
+     "endLine": 510,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 510,
+     "column": 50,
+     "messageId": "noNonNull",
+     "endLine": 510,
+     "endColumn": 55
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 510,
+     "column": 69,
+     "messageId": "noNonNull",
+     "endLine": 510,
+     "endColumn": 74
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 511,
+     "column": 12,
+     "messageId": "noNonNull",
+     "endLine": 511,
+     "endColumn": 17
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 511,
+     "column": 31,
+     "messageId": "noNonNull",
+     "endLine": 511,
+     "endColumn": 36
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 511,
+     "column": 51,
+     "messageId": "noNonNull",
+     "endLine": 511,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 511,
+     "column": 72,
+     "messageId": "noNonNull",
+     "endLine": 511,
+     "endColumn": 78
+    }
+   ],
+   "suppressedMessages": [],
+   "errorCount": 113,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "source": "/**\n * CSS Transform Matrix Decomposition and Recomposition.\n *\n * Implements the CSSOM View spec algorithm (§15.1) for 2D matrices\n * and polar decomposition for 3D matrices.\n * Also includes quaternion slerp for smooth rotation interpolation.\n */\n\nexport type Vec4 = readonly [x: number, y: number, z: number, w: number];\nexport type Mat4 = readonly [\n    number, number, number, number,\n    number, number, number, number,\n    number, number, number, number,\n    number, number, number, number,\n];\ntype MutableMat4 = number[];\n\nexport type DecomposedMatrix2D = Readonly<{\n    translateX: number;\n    translateY: number;\n    scaleX: number;\n    scaleY: number;\n    angle: number; // radians\n    skew: number; // tan(skew angle)\n}>;\n\nexport type DecomposedMatrix3D = Readonly<{\n    translate: readonly [x: number, y: number, z: number];\n    scale: readonly [x: number, y: number, z: number];\n    skew: readonly [xy: number, xz: number, yz: number];\n    quaternion: Vec4;\n    perspective: Vec4;\n}>;\n\n// ────────────────────────────────────────────────────────────────\n// 2D Decomposition — CSSOM View spec §15.1\n// ────────────────────────────────────────────────────────────────\n\n/**\n * Decompose a 2D CSS matrix(a, b, c, d, e, f) into translate, scale, rotation, and skew.\n *\n * The matrix maps like:\n *   | a c e |\n *   | b d f |\n *   | 0 0 1 |\n */\nexport function decomposeMatrix2D(\n    a: number,\n    b: number,\n    c: number,\n    d: number,\n    e: number,\n    f: number,\n): DecomposedMatrix2D {\n    // Step 1: translate\n    const translateX = e;\n    const translateY = f;\n\n    // Step 2: compute column vectors of the 2x2 sub-matrix\n    let row0x = a,\n        row0y = b;\n    let row1x = c,\n        row1y = d;\n\n    // Step 3: scaleX = length of first column vector\n    let scaleX = Math.sqrt(row0x * row0x + row0y * row0y);\n    if (scaleX !== 0) {\n        row0x /= scaleX;\n        row0y /= scaleX;\n    }\n\n    // Step 4: skew = dot product of first and second column vectors\n    let skew = row0x * row1x + row0y * row1y;\n    // Make second column orthogonal to first\n    row1x -= row0x * skew;\n    row1y -= row0y * skew;\n\n    // Step 5: scaleY = length of second column vector (after orthogonalization)\n    let scaleY = Math.sqrt(row1x * row1x + row1y * row1y);\n    if (scaleY !== 0) {\n        row1x /= scaleY;\n        row1y /= scaleY;\n        skew /= scaleY;\n    }\n\n    // Step 6: check determinant — if negative, negate scaleX and flip row0\n    const det = row0x * row1y - row0y * row1x;\n    if (det < 0) {\n        scaleX = -scaleX;\n        row0x = -row0x;\n        row0y = -row0y;\n    }\n\n    // Step 7: rotation = atan2(row0y, row0x)\n    const angle = Math.atan2(row0y, row0x);\n\n    return { translateX, translateY, scaleX, scaleY, angle, skew };\n}\n\n// ────────────────────────────────────────────────────────────────\n// 3D Decomposition — Polar decomposition approach\n// ────────────────────────────────────────────────────────────────\n\n/** Create a 4x4 identity matrix (column-major) */\nfunction mat4Identity(): MutableMat4 {\n    // prettier-ignore\n    return [\n        1, 0, 0, 0,\n        0, 1, 0, 0,\n        0, 0, 1, 0,\n        0, 0, 0, 1,\n    ];\n}\n\n/** Get element at (row, col) from a column-major 4x4 matrix */\nfunction m4Get(m: readonly number[], row: number, col: number): number {\n    return m[col * 4 + row]!;\n}\n\n/** Set element at (row, col) in a column-major 4x4 matrix */\nfunction m4Set(m: MutableMat4, row: number, col: number, val: number): void {\n    m[col * 4 + row] = val;\n}\n\n/** Multiply two column-major 4x4 matrices: result = A * B */\nfunction mat4Multiply(a: readonly number[], b: readonly number[]): MutableMat4 {\n    const result = new Array(16).fill(0);\n    for (let col = 0; col < 4; col++) {\n        for (let row = 0; row < 4; row++) {\n            let sum = 0;\n            for (let k = 0; k < 4; k++) {\n                sum += m4Get(a, row, k) * m4Get(b, k, col);\n            }\n            m4Set(result, row, col, sum);\n        }\n    }\n    return result;\n}\n\n/** Transpose a column-major 4x4 matrix */\nfunction mat4Transpose(m: readonly number[]): MutableMat4 {\n    const result = new Array(16).fill(0);\n    for (let row = 0; row < 4; row++) {\n        for (let col = 0; col < 4; col++) {\n            m4Set(result, col, row, m4Get(m, row, col));\n        }\n    }\n    return result;\n}\n\n/** Compute the determinant of a 4x4 matrix */\nfunction mat4Determinant(m: readonly number[]): number {\n    const a00 = m[0]!, a01 = m[4]!, a02 = m[8]!, a03 = m[12]!;\n    const a10 = m[1]!, a11 = m[5]!, a12 = m[9]!, a13 = m[13]!;\n    const a20 = m[2]!, a21 = m[6]!, a22 = m[10]!, a23 = m[14]!;\n    const a30 = m[3]!, a31 = m[7]!, a32 = m[11]!, a33 = m[15]!;\n\n    return (\n        a00 * (a11 * (a22 * a33 - a23 * a32) - a12 * (a21 * a33 - a23 * a31) + a13 * (a21 * a32 - a22 * a31)) -\n        a01 * (a10 * (a22 * a33 - a23 * a32) - a12 * (a20 * a33 - a23 * a30) + a13 * (a20 * a32 - a22 * a30)) +\n        a02 * (a10 * (a21 * a33 - a23 * a31) - a11 * (a20 * a33 - a23 * a30) + a13 * (a20 * a31 - a21 * a30)) -\n        a03 * (a10 * (a21 * a32 - a22 * a31) - a11 * (a20 * a32 - a22 * a30) + a12 * (a20 * a31 - a21 * a30))\n    );\n}\n\n/** Invert a 4x4 matrix. Returns null if singular. */\nfunction mat4Inverse(m: readonly number[]): MutableMat4 | null {\n    const det = mat4Determinant(m);\n    if (Math.abs(det) < 1e-12) return null;\n\n    const inv = new Array(16).fill(0);\n\n    // Adjugate matrix / det via cofactor expansion\n    for (let col = 0; col < 4; col++) {\n        for (let row = 0; row < 4; row++) {\n            // Build 3x3 minor\n            const minor: number[] = [];\n            for (let c2 = 0; c2 < 4; c2++) {\n                if (c2 === col) continue;\n                for (let r2 = 0; r2 < 4; r2++) {\n                    if (r2 === row) continue;\n                    minor.push(m4Get(m, r2, c2));\n                }\n            }\n            // 3x3 determinant of the minor\n            const d3 =\n                minor[0]! * (minor[4]! * minor[8]! - minor[5]! * minor[7]!) -\n                minor[3]! * (minor[1]! * minor[8]! - minor[2]! * minor[7]!) +\n                minor[6]! * (minor[1]! * minor[5]! - minor[2]! * minor[4]!);\n\n            const sign = ((row + col) & 1) === 0 ? 1 : -1;\n            // Cofactor transpose (adjugate): (row, col) → (col, row)\n            m4Set(inv, col, row, (sign * d3) / det);\n        }\n    }\n\n    return inv;\n}\n\n/** Normalize a 3D vector */\nfunction vec3Length(x: number, y: number, z: number): number {\n    return Math.sqrt(x * x + y * y + z * z);\n}\n\nfunction vec3Cross(\n    a: [number, number, number],\n    b: [number, number, number],\n): [number, number, number] {\n    return [\n        a[1] * b[2] - a[2] * b[1],\n        a[2] * b[0] - a[0] * b[2],\n        a[0] * b[1] - a[1] * b[0],\n    ];\n}\n\nfunction vec3Dot(a: [number, number, number], b: [number, number, number]): number {\n    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];\n}\n\n/**\n * Decompose a CSS matrix3d (16 values in column-major CSS order) into\n * translate, scale, skew, rotation (quaternion), and perspective.\n *\n * CSS `matrix3d(a1,b1,c1,d1, a2,b2,c2,d2, a3,b3,c3,d3, a4,b4,c4,d4)` maps to:\n *   | a1 a2 a3 a4 |\n *   | b1 b2 b3 b4 |\n *   | c1 c2 c3 c4 |\n *   | d1 d2 d3 d4 |\n * The parameter order is already column-major: [a1,b1,c1,d1, a2,b2,c2,d2, ...].\n *\n * Based on the \"unmatrix\" algorithm from the CSS Transforms spec.\n */\nexport function decomposeMatrix3D(cssValues: Mat4): DecomposedMatrix3D | null {\n    if (cssValues.length !== 16) return null;\n\n    // CSS matrix3d parameter order is already column-major — use directly\n    const m: MutableMat4 = [...cssValues];\n\n    // Step 1: Normalize — divide by m[15] (m44)\n    const w = m[15]!;\n    if (Math.abs(w) < 1e-12) return null;\n    for (let i = 0; i < 16; i++) m[i] = m[i]! / w;\n\n    // Step 2: Perspective\n    const perspective: [number, number, number, number] = [0, 0, 0, 1];\n    if (\n        Math.abs(m[3]!) > 1e-12 ||\n        Math.abs(m[7]!) > 1e-12 ||\n        Math.abs(m[11]!) > 1e-12\n    ) {\n        // perspectiveMatrix = m with last column = [0,0,0,1]\n        const pm = [...m];\n        pm[3] = 0;\n        pm[7] = 0;\n        pm[11] = 0;\n        pm[15] = 1;\n\n        const pmInv = mat4Inverse(pm);\n        if (!pmInv) return null;\n\n        const pmInvT = mat4Transpose(pmInv);\n        // Multiply transposed inverse by the original perspective column\n        perspective[0] = pmInvT[0]! * m[3]! + pmInvT[4]! * m[7]! + pmInvT[8]! * m[11]! + pmInvT[12]! * m[15]!;\n        perspective[1] = pmInvT[1]! * m[3]! + pmInvT[5]! * m[7]! + pmInvT[9]! * m[11]! + pmInvT[13]! * m[15]!;\n        perspective[2] = pmInvT[2]! * m[3]! + pmInvT[6]! * m[7]! + pmInvT[10]! * m[11]! + pmInvT[14]! * m[15]!;\n        perspective[3] = pmInvT[3]! * m[3]! + pmInvT[7]! * m[7]! + pmInvT[11]! * m[11]! + pmInvT[15]! * m[15]!;\n    }\n\n    // Step 3: Translation\n    const translate: [number, number, number] = [m[12]!, m[13]!, m[14]!];\n\n    // Step 4: Extract 3x3 sub-matrix (upper-left) from column-major 4x4\n    // Column 0: m[0], m[1], m[2]\n    // Column 1: m[4], m[5], m[6]\n    // Column 2: m[8], m[9], m[10]\n    let row0: [number, number, number] = [m[0]!, m[1]!, m[2]!];\n    let row1: [number, number, number] = [m[4]!, m[5]!, m[6]!];\n    let row2: [number, number, number] = [m[8]!, m[9]!, m[10]!];\n\n    // Step 5: Compute scale X\n    const scaleX = vec3Length(...row0);\n    row0 = [row0[0] / scaleX, row0[1] / scaleX, row0[2] / scaleX];\n\n    // Step 6: Compute skew XY\n    let skewXY = vec3Dot(row0, row1);\n    row1 = [\n        row1[0] - row0[0] * skewXY,\n        row1[1] - row0[1] * skewXY,\n        row1[2] - row0[2] * skewXY,\n    ];\n\n    // Step 7: Compute scale Y\n    const scaleY = vec3Length(...row1);\n    row1 = [row1[0] / scaleY, row1[1] / scaleY, row1[2] / scaleY];\n    skewXY /= scaleY;\n\n    // Step 8: Compute skew XZ\n    let skewXZ = vec3Dot(row0, row2);\n    row2 = [\n        row2[0] - row0[0] * skewXZ,\n        row2[1] - row0[1] * skewXZ,\n        row2[2] - row0[2] * skewXZ,\n    ];\n\n    // Step 9: Compute skew YZ\n    let skewYZ = vec3Dot(row1, row2);\n    row2 = [\n        row2[0] - row1[0] * skewYZ,\n        row2[1] - row1[1] * skewYZ,\n        row2[2] - row1[2] * skewYZ,\n    ];\n\n    // Step 10: Compute scale Z\n    const scaleZ = vec3Length(...row2);\n    row2 = [row2[0] / scaleZ, row2[1] / scaleZ, row2[2] / scaleZ];\n    skewXZ /= scaleZ;\n    skewYZ /= scaleZ;\n\n    // Step 11: Check for coordinate system flip\n    const cross = vec3Cross(row1, row2);\n    if (vec3Dot(row0, cross) < 0) {\n        row0 = [-row0[0], -row0[1], -row0[2]];\n        row1 = [-row1[0], -row1[1], -row1[2]];\n        row2 = [-row2[0], -row2[1], -row2[2]];\n    }\n\n    // Step 12: Extract rotation as quaternion from rotation matrix\n    // rotation matrix (row-major): [row0[0], row1[0], row2[0], row0[1], row1[1], row2[1], row0[2], row1[2], row2[2]]\n    const quaternion = matrixToQuaternion(\n        row0[0], row1[0], row2[0],\n        row0[1], row1[1], row2[1],\n        row0[2], row1[2], row2[2],\n    );\n\n    return {\n        translate,\n        scale: [scaleX, scaleY, scaleZ],\n        skew: [skewXY, skewXZ, skewYZ],\n        quaternion,\n        perspective,\n    };\n}\n\n/**\n * Convert a 3x3 rotation matrix (row-major) to a quaternion [x, y, z, w].\n */\nfunction matrixToQuaternion(\n    m00: number, m01: number, m02: number,\n    m10: number, m11: number, m12: number,\n    m20: number, m21: number, m22: number,\n): Vec4 {\n    const trace = m00 + m11 + m22;\n    let x: number, y: number, z: number, w: number;\n\n    if (trace > 0) {\n        const s = 0.5 / Math.sqrt(trace + 1);\n        w = 0.25 / s;\n        x = (m21 - m12) * s;\n        y = (m02 - m20) * s;\n        z = (m10 - m01) * s;\n    } else if (m00 > m11 && m00 > m22) {\n        const s = 2 * Math.sqrt(1 + m00 - m11 - m22);\n        w = (m21 - m12) / s;\n        x = 0.25 * s;\n        y = (m01 + m10) / s;\n        z = (m02 + m20) / s;\n    } else if (m11 > m22) {\n        const s = 2 * Math.sqrt(1 + m11 - m00 - m22);\n        w = (m02 - m20) / s;\n        x = (m01 + m10) / s;\n        y = 0.25 * s;\n        z = (m12 + m21) / s;\n    } else {\n        const s = 2 * Math.sqrt(1 + m22 - m00 - m11);\n        w = (m10 - m01) / s;\n        x = (m02 + m20) / s;\n        y = (m12 + m21) / s;\n        z = 0.25 * s;\n    }\n\n    return [x, y, z, w];\n}\n\n// ────────────────────────────────────────────────────────────────\n// Quaternion Slerp\n// ────────────────────────────────────────────────────────────────\n\n/**\n * Spherical linear interpolation between two quaternions.\n * Both quaternions should be normalized.\n */\nexport function slerp(qa: Vec4, qb: Vec4, t: number): Vec4 {\n    let dot = qa[0] * qb[0] + qa[1] * qb[1] + qa[2] * qb[2] + qa[3] * qb[3];\n\n    // If dot < 0, negate one quaternion to take the shorter arc\n    if (dot < 0) {\n        qb = [-qb[0], -qb[1], -qb[2], -qb[3]];\n        dot = -dot;\n    }\n\n    // If quaternions are very close, use linear interpolation\n    if (dot > 0.9995) {\n        const result: Vec4 = [\n            qa[0] + t * (qb[0] - qa[0]),\n            qa[1] + t * (qb[1] - qa[1]),\n            qa[2] + t * (qb[2] - qa[2]),\n            qa[3] + t * (qb[3] - qa[3]),\n        ];\n        // Normalize\n        const len = Math.sqrt(\n            result[0] * result[0] + result[1] * result[1] +\n            result[2] * result[2] + result[3] * result[3],\n        );\n        return [result[0] / len, result[1] / len, result[2] / len, result[3] / len];\n    }\n\n    const theta = Math.acos(dot);\n    const sinTheta = Math.sin(theta);\n    const wa = Math.sin((1 - t) * theta) / sinTheta;\n    const wb = Math.sin(t * theta) / sinTheta;\n\n    return [\n        qa[0] * wa + qb[0] * wb,\n        qa[1] * wa + qb[1] * wb,\n        qa[2] * wa + qb[2] * wb,\n        qa[3] * wa + qb[3] * wb,\n    ];\n}\n\n// ────────────────────────────────────────────────────────────────\n// Recomposition\n// ────────────────────────────────────────────────────────────────\n\n/**\n * Recompose a 2D decomposed matrix back into a CSS matrix(a, b, c, d, e, f)\n * value array (6 values). The algebraic inverse of {@link decomposeMatrix2D}:\n * it rebuilds the recomposition `translate · rotate(angle) · skew · scale`\n * (CSSOM View §15.1 — the 2D analog of {@link recomposeMatrix3D}'s\n * translate→rotate→skew→scale order).\n *\n * With `cos = cos(angle)`, `sin = sin(angle)`, the linear part is\n * `rotate · skew · scale`, giving the column-vector matrix `| a c | / | b d |`.\n * A negative `scaleX` (the decompose determinant-flip encoding) is carried\n * through verbatim, so a reflected matrix round-trips exactly.\n */\nexport function recomposeMatrix2D(d: DecomposedMatrix2D): readonly [number, number, number, number, number, number] {\n    const cos = Math.cos(d.angle);\n    const sin = Math.sin(d.angle);\n\n    return [\n        d.scaleX * cos, // a\n        d.scaleX * sin, // b\n        d.scaleY * (d.skew * cos - sin), // c\n        d.scaleY * (d.skew * sin + cos), // d\n        d.translateX, // e\n        d.translateY, // f\n    ];\n}\n\n/**\n * Recompose a 3D decomposed matrix back into a CSS matrix3d() value array (16 values, column-major CSS order).\n */\nexport function recomposeMatrix3D(d: DecomposedMatrix3D): Mat4 {\n    // Start with identity\n    const m = mat4Identity();\n\n    // Step 1: Apply perspective\n    m4Set(m, 0, 3, d.perspective[0]);\n    m4Set(m, 1, 3, d.perspective[1]);\n    m4Set(m, 2, 3, d.perspective[2]);\n    m4Set(m, 3, 3, d.perspective[3]);\n\n    // Step 2: Apply translation\n    m[12] = m[12]! + d.translate[0] * m[0]! + d.translate[1] * m[4]! + d.translate[2] * m[8]!;\n    m[13] = m[13]! + d.translate[0] * m[1]! + d.translate[1] * m[5]! + d.translate[2] * m[9]!;\n    m[14] = m[14]! + d.translate[0] * m[2]! + d.translate[1] * m[6]! + d.translate[2] * m[10]!;\n    m[15] = m[15]! + d.translate[0] * m[3]! + d.translate[1] * m[7]! + d.translate[2] * m[11]!;\n\n    // Step 3: Apply rotation (from quaternion)\n    const rotMat = quaternionToMatrix(d.quaternion);\n    const mr = mat4Multiply(m, rotMat);\n    for (let i = 0; i < 16; i++) m[i] = mr[i]!;\n\n    // Step 4: Apply skew\n    if (d.skew[2] !== 0) {\n        // YZ skew\n        const skewMat = mat4Identity();\n        m4Set(skewMat, 1, 2, d.skew[2]);\n        const ms = mat4Multiply(m, skewMat);\n        for (let i = 0; i < 16; i++) m[i] = ms[i]!;\n    }\n    if (d.skew[1] !== 0) {\n        // XZ skew\n        const skewMat = mat4Identity();\n        m4Set(skewMat, 0, 2, d.skew[1]);\n        const ms = mat4Multiply(m, skewMat);\n        for (let i = 0; i < 16; i++) m[i] = ms[i]!;\n    }\n    if (d.skew[0] !== 0) {\n        // XY skew\n        const skewMat = mat4Identity();\n        m4Set(skewMat, 0, 1, d.skew[0]);\n        const ms = mat4Multiply(m, skewMat);\n        for (let i = 0; i < 16; i++) m[i] = ms[i]!;\n    }\n\n    // Step 5: Apply scale\n    const [sx, sy, sz] = d.scale;\n    m[0] = m[0]! * sx; m[1] = m[1]! * sx; m[2] = m[2]! * sx; m[3] = m[3]! * sx;\n    m[4] = m[4]! * sy; m[5] = m[5]! * sy; m[6] = m[6]! * sy; m[7] = m[7]! * sy;\n    m[8] = m[8]! * sz; m[9] = m[9]! * sz; m[10] = m[10]! * sz; m[11] = m[11]! * sz;\n\n    // Already in column-major order (same as CSS matrix3d parameter order)\n    return [...m] as unknown as Mat4;\n}\n\n/**\n * Convert a quaternion [x, y, z, w] to a 4x4 rotation matrix (column-major).\n */\nfunction quaternionToMatrix(q: Vec4): Mat4 {\n    const [x, y, z, w] = q;\n    const xx = x * x, yy = y * y, zz = z * z;\n    const xy = x * y, xz = x * z, yz = y * z;\n    const wx = w * x, wy = w * y, wz = w * z;\n\n    return [\n        1 - 2 * (yy + zz), 2 * (xy + wz), 2 * (xz - wy), 0,\n        2 * (xy - wz), 1 - 2 * (xx + zz), 2 * (yz + wx), 0,\n        2 * (xz + wy), 2 * (yz - wx), 1 - 2 * (xx + yy), 0,\n        0, 0, 0, 1,\n    ];\n}\n\n// ────────────────────────────────────────────────────────────────\n// Interpolation helper\n// ────────────────────────────────────────────────────────────────\n\n/**\n * Interpolate between two decomposed matrices at parameter t.\n *\n * 3D: slerp for rotation, lerp for everything else. 2D (CSSOM §15.1): the plane\n * carries a single scalar rotation `angle` rather than a quaternion, so `angle`\n * lerps directly — no slerp needed. The two operands must share dimensionality;\n * a 2D/3D mix is not interpolable and throws.\n */\nexport function interpolateDecomposed(\n    a: DecomposedMatrix2D,\n    b: DecomposedMatrix2D,\n    t: number,\n): DecomposedMatrix2D;\nexport function interpolateDecomposed(\n    a: DecomposedMatrix3D,\n    b: DecomposedMatrix3D,\n    t: number,\n): DecomposedMatrix3D;\nexport function interpolateDecomposed(\n    a: DecomposedMatrix2D | DecomposedMatrix3D,\n    b: DecomposedMatrix2D | DecomposedMatrix3D,\n    t: number,\n): DecomposedMatrix2D | DecomposedMatrix3D {\n    const lerp = (v0: number, v1: number) => v0 + (v1 - v0) * t;\n\n    // 2D shape: discriminated by the scalar `angle` (3D has none). `angle` lerps\n    // directly — the plane has a single rotation axis, so slerp is degenerate.\n    if (\"angle\" in a && \"angle\" in b) {\n        return {\n            translateX: lerp(a.translateX, b.translateX),\n            translateY: lerp(a.translateY, b.translateY),\n            scaleX: lerp(a.scaleX, b.scaleX),\n            scaleY: lerp(a.scaleY, b.scaleY),\n            angle: lerp(a.angle, b.angle),\n            skew: lerp(a.skew, b.skew),\n        };\n    }\n\n    // 3D shape: discriminated by the `quaternion` (2D has none).\n    if (\"quaternion\" in a && \"quaternion\" in b) {\n        return {\n            translate: [\n                lerp(a.translate[0], b.translate[0]),\n                lerp(a.translate[1], b.translate[1]),\n                lerp(a.translate[2], b.translate[2]),\n            ],\n            scale: [\n                lerp(a.scale[0], b.scale[0]),\n                lerp(a.scale[1], b.scale[1]),\n                lerp(a.scale[2], b.scale[2]),\n            ],\n            skew: [\n                lerp(a.skew[0], b.skew[0]),\n                lerp(a.skew[1], b.skew[1]),\n                lerp(a.skew[2], b.skew[2]),\n            ],\n            quaternion: slerp(a.quaternion, b.quaternion, t),\n            perspective: [\n                lerp(a.perspective[0], b.perspective[0]),\n                lerp(a.perspective[1], b.perspective[1]),\n                lerp(a.perspective[2], b.perspective[2]),\n                lerp(a.perspective[3], b.perspective[3]),\n            ],\n        };\n    }\n\n    // Mixed 2D/3D operands: recompose to a common dimensionality before\n    // interpolating — the two shapes have no shared rotation representation.\n    throw new Error(\n        \"interpolateDecomposed: cannot interpolate a 2D and a 3D decomposition together\",\n    );\n}\n",
+   "usedDeprecatedRules": []
+  },
+  {
+   "filePath": "/Users/mkbabb/Programming/value.js-x-w9-b/src/transform/path.ts",
+   "messages": [
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 77,
+     "column": 20,
+     "messageId": "noNonNull",
+     "endLine": 77,
+     "endColumn": 25
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 81,
+     "column": 46,
+     "messageId": "noNonNull",
+     "endLine": 81,
+     "endColumn": 51
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 109,
+     "column": 18,
+     "messageId": "noNonNull",
+     "endLine": 109,
+     "endColumn": 40
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 323,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 323,
+     "endColumn": 38
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 324,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 324,
+     "endColumn": 42
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 342,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 342,
+     "endColumn": 38
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 343,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 343,
+     "endColumn": 42
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 375,
+     "column": 31,
+     "messageId": "noNonNull",
+     "endLine": 375,
+     "endColumn": 39
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 375,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 375,
+     "endColumn": 59
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 376,
+     "column": 31,
+     "messageId": "noNonNull",
+     "endLine": 376,
+     "endColumn": 43
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 376,
+     "column": 51,
+     "messageId": "noNonNull",
+     "endLine": 376,
+     "endColumn": 63
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 377,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 377,
+     "endColumn": 42
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 377,
+     "column": 49,
+     "messageId": "noNonNull",
+     "endLine": 377,
+     "endColumn": 61
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 392,
+     "column": 31,
+     "messageId": "noNonNull",
+     "endLine": 392,
+     "endColumn": 39
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 392,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 392,
+     "endColumn": 59
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 393,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 393,
+     "endColumn": 42
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 393,
+     "column": 49,
+     "messageId": "noNonNull",
+     "endLine": 393,
+     "endColumn": 61
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 412,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 412,
+     "endColumn": 38
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 412,
+     "column": 45,
+     "messageId": "noNonNull",
+     "endLine": 412,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 413,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 413,
+     "endColumn": 42
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 413,
+     "column": 49,
+     "messageId": "noNonNull",
+     "endLine": 413,
+     "endColumn": 61
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 427,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 427,
+     "endColumn": 38
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 427,
+     "column": 45,
+     "messageId": "noNonNull",
+     "endLine": 427,
+     "endColumn": 57
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 442,
+     "column": 32,
+     "messageId": "noNonNull",
+     "endLine": 442,
+     "endColumn": 40
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 442,
+     "column": 47,
+     "messageId": "noNonNull",
+     "endLine": 442,
+     "endColumn": 59
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 443,
+     "column": 33,
+     "messageId": "noNonNull",
+     "endLine": 443,
+     "endColumn": 45
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 444,
+     "column": 38,
+     "messageId": "noNonNull",
+     "endLine": 444,
+     "endColumn": 50
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 445,
+     "column": 35,
+     "messageId": "noNonNull",
+     "endLine": 445,
+     "endColumn": 47
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 446,
+     "column": 30,
+     "messageId": "noNonNull",
+     "endLine": 446,
+     "endColumn": 42
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 446,
+     "column": 49,
+     "messageId": "noNonNull",
+     "endLine": 446,
+     "endColumn": 61
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 487,
+     "column": 36,
+     "messageId": "noNonNull",
+     "endLine": 487,
+     "endColumn": 68,
+     "suggestions": [
+      {
+       "messageId": "suggestOptionalChain",
+       "fix": {
+        "range": [
+         17810,
+         17811
+        ],
+        "text": "?"
+       },
+       "desc": "Consider using the optional chain operator `?.` instead. This operator includes runtime checks, so it is safer than the compile-only non-null assertion operator."
+      }
+     ]
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 518,
+     "column": 23,
+     "messageId": "noNonNull",
+     "endLine": 518,
+     "endColumn": 31
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 530,
+     "column": 17,
+     "messageId": "noNonNull",
+     "endLine": 530,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "messageId": "suggestOptionalChain",
+       "fix": {
+        "range": [
+         19300,
+         19301
+        ],
+        "text": "?"
+       },
+       "desc": "Consider using the optional chain operator `?.` instead. This operator includes runtime checks, so it is safer than the compile-only non-null assertion operator."
+      }
+     ]
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 535,
+     "column": 19,
+     "messageId": "noNonNull",
+     "endLine": 535,
+     "endColumn": 31
+    },
+    {
+     "ruleId": "@typescript-eslint/no-non-null-assertion",
+     "severity": 2,
+     "message": "Forbidden non-null assertion.",
+     "line": 536,
+     "column": 19,
+     "messageId": "noNonNull",
+     "endLine": 536,
+     "endColumn": 27
+    }
+   ],
+   "suppressedMessages": [],
+   "errorCount": 35,
+   "fatalErrorCount": 0,
+   "warningCount": 0,
+   "fixableErrorCount": 0,
+   "fixableWarningCount": 0,
+   "source": "/**\n * Pure value-domain SVG path geometry (VJ-F1, tranche-N W7).\n *\n * Parses an SVG `<path>` `d` string into absolute drawing segments, computes\n * cumulative arc-length, and samples a point (plus a tangent angle for\n * orient-along-path) at a given length or normalized `t`. This is the\n * `getTotalLength`/`getPointAtLength`/`getPointAtPathLength` of\n * `SVGGeometryElement` **without a DOM** — so a consumer (keyframes.js\n * MotionPath / MorphSVG / DrawSVG) can drive motion along a path with no\n * `<path>` element.\n *\n * Supports every path command — `M/L/H/V/C/S/Q/T/A/Z` and their relative\n * lowercase forms — including the smooth shortcuts (`S`/`T`, whose implied\n * control point reflects the previous one), elliptical arcs (`A`, with the\n * large-arc / sweep flags and the out-of-range radius correction per SVG 1.1\n * §F.6), multiple subpaths (multiple `M`), and closed subpaths (`Z`).\n *\n * Bézier arc-length uses adaptive recursive subdivision against a flatness\n * tolerance; the cumulative table is built once at parse time so repeated\n * `getPointAtLength` calls are a binary search + a local interpolation.\n */\n\nexport type Point = Readonly<{\n    x: number;\n    y: number;\n}>;\n\n/** A point plus the unit tangent direction (radians) of the path at that point. */\nexport type PathSample = Readonly<{\n    x: number;\n    y: number;\n    /** Tangent angle in radians (atan2 of the path derivative), for `rotate: auto`. */\n    angle: number;\n}>;\n\n// A flattened path is a polyline: an ordered list of vertices with the\n// cumulative arc-length at each. Curves are subdivided into line segments fine\n// enough that the polyline length is within tolerance of the true arc-length.\ninterface PolyVertex {\n    x: number;\n    y: number;\n    /** Cumulative arc-length from the path start to this vertex. */\n    len: number;\n}\n\n/** Flatness tolerance for adaptive subdivision (px). Sub-pixel = visually exact. */\nconst FLATNESS = 0.1;\n/** Recursion depth cap for subdivision (guards against degenerate curves). */\nconst MAX_SUBDIV_DEPTH = 24;\n\n// ────────────────────────────────────────────────────────────────────────────\n// Tokenizer — split a `d` string into (command, number[]) command groups.\n// ────────────────────────────────────────────────────────────────────────────\n\n/** A single parsed path command: its letter + its flat argument list. */\ninterface RawCommand {\n    code: string;\n    args: number[];\n}\n\nconst COMMAND_RE = /[MmLlHhVvCcSsQqTtAaZz]/;\n// Number token: optional sign, int/decimal/exponent. The leading sign may be\n// glued to a prior number (`10-20`), so we tokenize greedily on this pattern.\nconst NUMBER_RE = /-?(?:\\d*\\.\\d+|\\d+\\.?)(?:[eE][+-]?\\d+)?/g;\n\n/**\n * Tokenize a path `d` string into raw command groups. Numbers may be separated\n * by whitespace, commas, or merely a sign change (`M0 0L10-5`); the number\n * regex handles the implicit separators.\n */\nfunction tokenizePath(d: string): RawCommand[] {\n    const commands: RawCommand[] = [];\n    let i = 0;\n    const n = d.length;\n\n    while (i < n) {\n        const ch = d[i]!;\n        if (COMMAND_RE.test(ch)) {\n            // Collect the argument run up to the next command letter.\n            let j = i + 1;\n            while (j < n && !COMMAND_RE.test(d[j]!)) j++;\n            const argStr = d.slice(i + 1, j);\n            const args =\n                ch === \"Z\" || ch === \"z\"\n                    ? []\n                    : (argStr.match(NUMBER_RE) ?? []).map(Number);\n            commands.push({ code: ch, args });\n            i = j;\n        } else {\n            // Skip leading whitespace / stray separators.\n            i++;\n        }\n    }\n\n    return commands;\n}\n\n// ────────────────────────────────────────────────────────────────────────────\n// Curve flattening — push subdivided line segments onto the polyline.\n// ────────────────────────────────────────────────────────────────────────────\n\nfunction lineDistance(ax: number, ay: number, bx: number, by: number): number {\n    const dx = bx - ax;\n    const dy = by - ay;\n    return Math.hypot(dx, dy);\n}\n\nfunction pushVertex(poly: PolyVertex[], x: number, y: number): void {\n    const prev = poly[poly.length - 1]!;\n    const len = prev.len + lineDistance(prev.x, prev.y, x, y);\n    poly.push({ x, y, len });\n}\n\n// Cubic Bézier point at parameter u.\nfunction cubicAt(\n    p0: number,\n    p1: number,\n    p2: number,\n    p3: number,\n    u: number,\n): number {\n    const v = 1 - u;\n    return (\n        v * v * v * p0 +\n        3 * v * v * u * p1 +\n        3 * v * u * u * p2 +\n        u * u * u * p3\n    );\n}\n\n/**\n * Adaptively subdivide a cubic Bézier into line segments fine enough that the\n * control polygon's deviation from the chord is below FLATNESS, then append the\n * endpoint vertices. The flatness test is the standard control-point distance\n * from the [start,end] chord.\n */\nfunction flattenCubic(\n    poly: PolyVertex[],\n    x0: number, y0: number,\n    x1: number, y1: number,\n    x2: number, y2: number,\n    x3: number, y3: number,\n    depth: number,\n): void {\n    if (depth >= MAX_SUBDIV_DEPTH) {\n        pushVertex(poly, x3, y3);\n        return;\n    }\n\n    // Distance of the two control points from the chord. If both are within\n    // FLATNESS the segment is \"flat enough\" to render as a straight line.\n    const dx = x3 - x0;\n    const dy = y3 - y0;\n    const d1 = Math.abs((x1 - x3) * dy - (y1 - y3) * dx);\n    const d2 = Math.abs((x2 - x3) * dy - (y2 - y3) * dx);\n    const chordSq = dx * dx + dy * dy;\n\n    if ((d1 + d2) * (d1 + d2) < FLATNESS * FLATNESS * chordSq) {\n        pushVertex(poly, x3, y3);\n        return;\n    }\n\n    // de Casteljau split at u = 0.5.\n    const x01 = (x0 + x1) / 2, y01 = (y0 + y1) / 2;\n    const x12 = (x1 + x2) / 2, y12 = (y1 + y2) / 2;\n    const x23 = (x2 + x3) / 2, y23 = (y2 + y3) / 2;\n    const x012 = (x01 + x12) / 2, y012 = (y01 + y12) / 2;\n    const x123 = (x12 + x23) / 2, y123 = (y12 + y23) / 2;\n    const xm = (x012 + x123) / 2, ym = (y012 + y123) / 2;\n\n    flattenCubic(poly, x0, y0, x01, y01, x012, y012, xm, ym, depth + 1);\n    flattenCubic(poly, xm, ym, x123, y123, x23, y23, x3, y3, depth + 1);\n}\n\n/** Flatten a quadratic Bézier by elevating it to an equivalent cubic. */\nfunction flattenQuadratic(\n    poly: PolyVertex[],\n    x0: number, y0: number,\n    cx: number, cy: number,\n    x1: number, y1: number,\n): void {\n    // Degree elevation: cubic control points from the quadratic.\n    const c1x = x0 + (2 / 3) * (cx - x0);\n    const c1y = y0 + (2 / 3) * (cy - y0);\n    const c2x = x1 + (2 / 3) * (cx - x1);\n    const c2y = y1 + (2 / 3) * (cy - y1);\n    flattenCubic(poly, x0, y0, c1x, c1y, c2x, c2y, x1, y1, 0);\n}\n\n/**\n * Flatten an elliptical arc (SVG `A` command). Converts the endpoint\n * parameterization (rx, ry, x-axis-rotation, large-arc, sweep, endpoint) to\n * center parameterization (SVG 1.1 §F.6.5), then samples the parametric ellipse\n * into adaptive line segments.\n */\nfunction flattenArc(\n    poly: PolyVertex[],\n    x0: number, y0: number,\n    rx: number, ry: number,\n    xAxisRotationDeg: number,\n    largeArc: boolean, sweep: boolean,\n    x1: number, y1: number,\n): void {\n    // Degenerate radius → straight line (SVG §F.6.2).\n    if (rx === 0 || ry === 0) {\n        pushVertex(poly, x1, y1);\n        return;\n    }\n\n    rx = Math.abs(rx);\n    ry = Math.abs(ry);\n    const phi = (xAxisRotationDeg * Math.PI) / 180;\n    const cosPhi = Math.cos(phi);\n    const sinPhi = Math.sin(phi);\n\n    // Step 1: compute (x1', y1') — the endpoint in the rotated frame.\n    const dx2 = (x0 - x1) / 2;\n    const dy2 = (y0 - y1) / 2;\n    const x1p = cosPhi * dx2 + sinPhi * dy2;\n    const y1p = -sinPhi * dx2 + cosPhi * dy2;\n\n    // Radius correction (SVG §F.6.6): ensure the radii are large enough.\n    const lambda = (x1p * x1p) / (rx * rx) + (y1p * y1p) / (ry * ry);\n    if (lambda > 1) {\n        const s = Math.sqrt(lambda);\n        rx *= s;\n        ry *= s;\n    }\n\n    // Step 2: compute the center (cx', cy') in the rotated frame.\n    const rxSq = rx * rx;\n    const rySq = ry * ry;\n    const x1pSq = x1p * x1p;\n    const y1pSq = y1p * y1p;\n    let num = rxSq * rySq - rxSq * y1pSq - rySq * x1pSq;\n    if (num < 0) num = 0;\n    const den = rxSq * y1pSq + rySq * x1pSq;\n    let coef = den === 0 ? 0 : Math.sqrt(num / den);\n    if (largeArc === sweep) coef = -coef;\n    const cxp = (coef * (rx * y1p)) / ry;\n    const cyp = (coef * -(ry * x1p)) / rx;\n\n    // Step 3: transform the center back to the original frame.\n    const cx = cosPhi * cxp - sinPhi * cyp + (x0 + x1) / 2;\n    const cy = sinPhi * cxp + cosPhi * cyp + (y0 + y1) / 2;\n\n    // Step 4: compute the start angle and the angle sweep.\n    const angle = (ux: number, uy: number, vx: number, vy: number): number => {\n        const dot = ux * vx + uy * vy;\n        const lenU = Math.hypot(ux, uy);\n        const lenV = Math.hypot(vx, vy);\n        let a = Math.acos(Math.min(1, Math.max(-1, dot / (lenU * lenV))));\n        if (ux * vy - uy * vx < 0) a = -a;\n        return a;\n    };\n    const theta1 = angle(1, 0, (x1p - cxp) / rx, (y1p - cyp) / ry);\n    let dTheta = angle(\n        (x1p - cxp) / rx,\n        (y1p - cyp) / ry,\n        (-x1p - cxp) / rx,\n        (-y1p - cyp) / ry,\n    );\n    if (!sweep && dTheta > 0) dTheta -= 2 * Math.PI;\n    else if (sweep && dTheta < 0) dTheta += 2 * Math.PI;\n\n    // Sample the parametric ellipse. Segment count scales with the angular\n    // sweep so a near-full ellipse gets more segments than a small arc.\n    const segments = Math.max(\n        2,\n        Math.ceil((Math.abs(dTheta) / (Math.PI / 2)) * 16),\n    );\n    for (let i = 1; i <= segments; i++) {\n        const theta = theta1 + (dTheta * i) / segments;\n        const ex = Math.cos(theta) * rx;\n        const ey = Math.sin(theta) * ry;\n        const px = cosPhi * ex - sinPhi * ey + cx;\n        const py = sinPhi * ex + cosPhi * ey + cy;\n        pushVertex(poly, px, py);\n    }\n}\n\n// ────────────────────────────────────────────────────────────────────────────\n// Path → polyline. Walks the absolute drawing state through each command.\n// ────────────────────────────────────────────────────────────────────────────\n\nfunction flattenPath(d: string): PolyVertex[] {\n    const commands = tokenizePath(d);\n    const poly: PolyVertex[] = [];\n\n    // Current point, subpath start, and the previous control point (for S/T\n    // smooth-shortcut reflection). `prevCubicCtrl`/`prevQuadCtrl` hold the last\n    // cubic/quadratic control point, or null when the previous command was not\n    // the matching curve type (then the reflection is the current point itself).\n    let cx = 0, cy = 0;\n    let startX = 0, startY = 0;\n    let prevCubicCtrl: Point | null = null;\n    let prevQuadCtrl: Point | null = null;\n    let started = false;\n\n    const begin = (x: number, y: number): void => {\n        cx = x;\n        cy = y;\n        startX = x;\n        startY = y;\n        if (!started) {\n            poly.push({ x, y, len: 0 });\n            started = true;\n        } else {\n            // A new subpath after a move with no draw — emit the move target as\n            // a zero-length jump vertex so a following draw starts from it.\n            pushVertex(poly, x, y);\n        }\n    };\n\n    for (const { code, args } of commands) {\n        const rel = code === code.toLowerCase() && code !== code.toUpperCase();\n        const upper = code.toUpperCase();\n\n        switch (upper) {\n            case \"M\": {\n                // First pair is the move; subsequent pairs are implicit L.\n                for (let k = 0; k < args.length; k += 2) {\n                    let nx = args[k]!;\n                    let ny = args[k + 1]!;\n                    if (rel) {\n                        nx += cx;\n                        ny += cy;\n                    }\n                    if (k === 0) {\n                        begin(nx, ny);\n                    } else {\n                        pushVertex(poly, nx, ny);\n                        cx = nx;\n                        cy = ny;\n                    }\n                }\n                prevCubicCtrl = prevQuadCtrl = null;\n                break;\n            }\n            case \"L\": {\n                for (let k = 0; k < args.length; k += 2) {\n                    let nx = args[k]!;\n                    let ny = args[k + 1]!;\n                    if (rel) {\n                        nx += cx;\n                        ny += cy;\n                    }\n                    pushVertex(poly, nx, ny);\n                    cx = nx;\n                    cy = ny;\n                }\n                prevCubicCtrl = prevQuadCtrl = null;\n                break;\n            }\n            case \"H\": {\n                for (const a of args) {\n                    const nx = rel ? cx + a : a;\n                    pushVertex(poly, nx, cy);\n                    cx = nx;\n                }\n                prevCubicCtrl = prevQuadCtrl = null;\n                break;\n            }\n            case \"V\": {\n                for (const a of args) {\n                    const ny = rel ? cy + a : a;\n                    pushVertex(poly, cx, ny);\n                    cy = ny;\n                }\n                prevCubicCtrl = prevQuadCtrl = null;\n                break;\n            }\n            case \"C\": {\n                for (let k = 0; k < args.length; k += 6) {\n                    let c1x = args[k]!, c1y = args[k + 1]!;\n                    let c2x = args[k + 2]!, c2y = args[k + 3]!;\n                    let nx = args[k + 4]!, ny = args[k + 5]!;\n                    if (rel) {\n                        c1x += cx; c1y += cy;\n                        c2x += cx; c2y += cy;\n                        nx += cx; ny += cy;\n                    }\n                    flattenCubic(poly, cx, cy, c1x, c1y, c2x, c2y, nx, ny, 0);\n                    prevCubicCtrl = { x: c2x, y: c2y };\n                    cx = nx; cy = ny;\n                }\n                prevQuadCtrl = null;\n                break;\n            }\n            case \"S\": {\n                for (let k = 0; k < args.length; k += 4) {\n                    let c2x = args[k]!, c2y = args[k + 1]!;\n                    let nx = args[k + 2]!, ny = args[k + 3]!;\n                    if (rel) {\n                        c2x += cx; c2y += cy;\n                        nx += cx; ny += cy;\n                    }\n                    // Reflect the previous cubic control point about the current\n                    // point; if the previous command was not a cubic, the\n                    // control point coincides with the current point.\n                    const c1x = prevCubicCtrl ? 2 * cx - prevCubicCtrl.x : cx;\n                    const c1y = prevCubicCtrl ? 2 * cy - prevCubicCtrl.y : cy;\n                    flattenCubic(poly, cx, cy, c1x, c1y, c2x, c2y, nx, ny, 0);\n                    prevCubicCtrl = { x: c2x, y: c2y };\n                    cx = nx; cy = ny;\n                }\n                prevQuadCtrl = null;\n                break;\n            }\n            case \"Q\": {\n                for (let k = 0; k < args.length; k += 4) {\n                    let qx = args[k]!, qy = args[k + 1]!;\n                    let nx = args[k + 2]!, ny = args[k + 3]!;\n                    if (rel) {\n                        qx += cx; qy += cy;\n                        nx += cx; ny += cy;\n                    }\n                    flattenQuadratic(poly, cx, cy, qx, qy, nx, ny);\n                    prevQuadCtrl = { x: qx, y: qy };\n                    cx = nx; cy = ny;\n                }\n                prevCubicCtrl = null;\n                break;\n            }\n            case \"T\": {\n                for (let k = 0; k < args.length; k += 2) {\n                    let nx = args[k]!, ny = args[k + 1]!;\n                    if (rel) {\n                        nx += cx; ny += cy;\n                    }\n                    const qx: number = prevQuadCtrl ? 2 * cx - prevQuadCtrl.x : cx;\n                    const qy: number = prevQuadCtrl ? 2 * cy - prevQuadCtrl.y : cy;\n                    flattenQuadratic(poly, cx, cy, qx, qy, nx, ny);\n                    prevQuadCtrl = { x: qx, y: qy };\n                    cx = nx; cy = ny;\n                }\n                prevCubicCtrl = null;\n                break;\n            }\n            case \"A\": {\n                for (let k = 0; k < args.length; k += 7) {\n                    const rx = args[k]!, ry = args[k + 1]!;\n                    const rot = args[k + 2]!;\n                    const largeArc = args[k + 3]! !== 0;\n                    const sweep = args[k + 4]! !== 0;\n                    let nx = args[k + 5]!, ny = args[k + 6]!;\n                    if (rel) {\n                        nx += cx; ny += cy;\n                    }\n                    flattenArc(poly, cx, cy, rx, ry, rot, largeArc, sweep, nx, ny);\n                    cx = nx; cy = ny;\n                }\n                prevCubicCtrl = prevQuadCtrl = null;\n                break;\n            }\n            case \"Z\": {\n                if (started) {\n                    pushVertex(poly, startX, startY);\n                    cx = startX;\n                    cy = startY;\n                }\n                prevCubicCtrl = prevQuadCtrl = null;\n                break;\n            }\n        }\n    }\n\n    return poly;\n}\n\n// ────────────────────────────────────────────────────────────────────────────\n// Public API.\n// ────────────────────────────────────────────────────────────────────────────\n\n/**\n * A pre-flattened path. Parse a `d` string ONCE into this, then call its\n * `getTotalLength` / `getPointAtLength` / `sampleAtLength` repeatedly without\n * re-parsing — the cumulative arc-length table is built at construction.\n */\nexport class PathGeometry {\n    private readonly poly: PolyVertex[];\n    readonly totalLength: number;\n\n    constructor(d: string) {\n        this.poly = flattenPath(d);\n        this.totalLength =\n            this.poly.length > 0 ? this.poly[this.poly.length - 1]!.len : 0;\n    }\n\n    getTotalLength(): number {\n        return this.totalLength;\n    }\n\n    /**\n     * The point at arc-length `length` along the path. `length` is clamped to\n     * `[0, totalLength]` (an over-long length returns the endpoint, a negative\n     * length the start point) — mirroring `SVGGeometryElement.getPointAtLength`.\n     */\n    getPointAtLength(length: number): Point {\n        const { x, y } = this.sampleAtLength(length);\n        return { x, y };\n    }\n\n    /** As `getPointAtLength`, but `t` is normalized to `[0, 1]` of total length. */\n    getPointAtT(t: number): Point {\n        return this.getPointAtLength(t * this.totalLength);\n    }\n\n    /**\n     * The point AND tangent angle (radians) at arc-length `length`. The angle is\n     * the `atan2` of the local path direction — the value `rotate: auto` of a\n     * MotionPath consumes for orient-along-path.\n     */\n    sampleAtLength(length: number): PathSample {\n        const poly = this.poly;\n        if (poly.length === 0) return { x: 0, y: 0, angle: 0 };\n        if (poly.length === 1) {\n            const p = poly[0]!;\n            return { x: p.x, y: p.y, angle: 0 };\n        }\n\n        const total = this.totalLength;\n        const target = Math.min(Math.max(length, 0), total);\n\n        // Binary search for the segment [i-1, i] containing the target length.\n        let lo = 0;\n        let hi = poly.length - 1;\n        while (lo < hi) {\n            const mid = (lo + hi) >> 1;\n            if (poly[mid]!.len < target) lo = mid + 1;\n            else hi = mid;\n        }\n        // `lo` is the first vertex whose cumulative length ≥ target.\n        const i = Math.max(1, lo);\n        const a = poly[i - 1]!;\n        const b = poly[i]!;\n        const segLen = b.len - a.len;\n        const u = segLen > 0 ? (target - a.len) / segLen : 0;\n\n        return {\n            x: a.x + (b.x - a.x) * u,\n            y: a.y + (b.y - a.y) * u,\n            angle: Math.atan2(b.y - a.y, b.x - a.x),\n        };\n    }\n}\n\n/**\n * The total arc-length of an SVG path `d` string. The DOM-free\n * `SVGGeometryElement.getTotalLength`. Parses on each call — for repeated\n * sampling of one path, construct a `PathGeometry` once and reuse it.\n */\nexport function getTotalLength(d: string): number {\n    return new PathGeometry(d).getTotalLength();\n}\n\n/**\n * The point at arc-length `length` along an SVG path `d` string. The DOM-free\n * `SVGGeometryElement.getPointAtLength`. Parses on each call — for repeated\n * sampling, construct a `PathGeometry` once and reuse it.\n */\nexport function getPointAtLength(d: string, length: number): Point {\n    return new PathGeometry(d).getPointAtLength(length);\n}\n",
+   "usedDeprecatedRules": []
+  }
+ ]
+}

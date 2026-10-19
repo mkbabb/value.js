@@ -1,0 +1,14 @@
+e2e/coarse-pointer.spec.ts
+e2e/f-w13-image-controls.spec.ts
+e2e/f-w14-dpr.spec.ts
+e2e/f-w14-veil.spec.ts
+e2e/f-w14u-d.spec.ts
+e2e/f-w14u-s.spec.ts
+e2e/f-w14u-vstage.spec.ts
+e2e/f-w14v-au2.spec.ts
+e2e/f-w14v-detached.spec.ts
+e2e/visualization-crud.spec.ts
+e2e/visualization-ux.spec.ts
+e2e/visual-checkpoint.spec.ts
+e2e/visual-baseline.spec.ts
+e2e/workspace-flow.spec.ts

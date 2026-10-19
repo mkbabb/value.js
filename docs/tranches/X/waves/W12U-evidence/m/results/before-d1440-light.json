@@ -1,0 +1,26 @@
+{
+ "tag": "d1440",
+ "theme": "light",
+ "W": 1440,
+ "H": 900,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T04:34:07.797Z",
+ "arms": {
+  "D": {
+   "/atmosphere": [
+    "div.action-bar-toggle-inner:126/0"
+   ],
+   "/": [
+    "span.color-input.w-full.block:323/158"
+   ],
+   "/gradient": [],
+   "pass": false
+  },
+  "L2-2": {
+   "redInkPx": 0,
+   "canvasZ": "auto",
+   "h1Position": "static",
+   "pass": false
+  }
+ }
+}

@@ -1,0 +1,1223 @@
+(node:60740) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 120 tests using 1 worker
+
+(node:61235) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘    1 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:86:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline (35.0s)
+(node:64492) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘    2 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) (35.0s)
+(node:67226) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘    3 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) (30.2s)
+(node:70254) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘    4 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) (18.6s)
+(node:72371) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘    5 [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition (54.3s)
+(node:80270) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘    6 [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung (38.8s)
+(node:84417) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[W4-B3] producerSliderVars=12 declaredInternal=4 consumerReads=0
+
+  ✓    7 [smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds (203ms)
+[BR-10] <html dir> = ltr
+  ✘    8 [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) (30.2s)
+(node:87521) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[BR-11] print dock nav display: none
+[BR-11] print body bg color=rgb(255, 255, 255) image=none
+[BR-11] spectrum print-color-adjust: exact
+  ✓    9 [smoke] › e2e/smoke/a11y-web-modality.spec.ts:95:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical) (22.1s)
+  ✓   10 [smoke] › e2e/smoke/crash-battery.spec.ts:66:1 › R14 · pressing Retry on a dead Browse wall leaves a plate behind (20.4s)
+  ✓   11 [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid (5.7s)
+  ✓   12 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=black (2.2s)
+  ✓   13 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=white (1.5s)
+  ✓   14 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#000000 (1.4s)
+  ✓   15 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#808080 (2.4s)
+  ✓   16 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#fefefe (1.7s)
+  ✓   17 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=rgb(17,17,17) (1.4s)
+  ✓   18 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=hsl(0 0% 50%) (1.4s)
+  ✓   19 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: oklch(0.5 0 none) (1.3s)
+  ✓   20 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: lch(50 0 none) (1.6s)
+  ✓   21 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: hsl(none 0% 50%) (2.4s)
+  ✘   22 [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette (25.0s)
+(node:92600) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   23 [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state (29.5s)
+(node:94581) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   24 [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable (25.9s)
+(node:96594) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[dual-pane-1440] {
+  "probe": "R.W2.4 regions-1440 (re-pointed X.W5.c)",
+  "viewport": "1440×900",
+  "cascadeRoot": {
+    "importSite": 1,
+    "indexUnlayered": false,
+    "indexLayered": true,
+    "deferredUnlayered": false,
+    "deferredLayered": false,
+    "componentsHasBareHidden": true,
+    "componentsLayerCount": 0
+  },
+  "importSiteCite": "dist/styles/index.css:1",
+  "cssom": {
+    "hiddenRuleSites": [
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "fouc-guard"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "utilities"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "components"
+      }
+    ],
+    "winningHref": null,
+    "winningLayered": true,
+    "anyUnlayeredHidden": false
+  },
+  "baseline": {
+    "count": 2,
+    "displays": [
+      "block",
+      "block"
+    ],
+    "visible": 2,
+    "displayUtilities": [],
+    "roles": [
+      "Picker",
+      "About"
+    ]
+  },
+  "d8_1": "PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume",
+  "anyUnlayeredHidden": false,
+  "verdict": "REGIONS_RENDER_CASCADE_IMMUNE",
+  "note": "Both regions render at 1440 with zero display utilities on the wrappers. Producer state: PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume (import at dist/styles/index.css:1)."
+}
+  ✓   25 [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune (5.1s)
+  ✓   26 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:73:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token (6.5s)
+  ✓   27 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:119:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1) (6.1s)
+  ✘   28 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock (30.1s)
+(node:304) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   29 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:201:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (4.9s)
+  ✘   30 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px (3.1m)
+(node:14311) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   31 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px (2.0m)
+  ✓   32 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:165:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) (23.9s)
+  ✘   33 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (5.7s)
+(node:32205) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   34 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif (23.0s)
+(node:35188) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   35 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:290:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles (38.1s)
+  ✓   36 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:377:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (6.6s)
+  ✓   37 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:454:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row (1ms)
+  ✓   38 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:92:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) (22.2s)
+  ✓   39 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:92:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) (34.0s)
+  ✓   40 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:137:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders (6.0s)
+  ✓   41 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:194:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub (9.6s)
+  ✓   42 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:306:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated (2.0s)
+  ✓   43 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:376:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header (4.7s)
+  ✓   44 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) (5.2s)
+  ✓   45 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column (2.0s)
+  ✘   46 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (30.1s)
+(node:50544) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   47 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (30.1s)
+(node:52464) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   48 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (19.8s)
+  ✓   49 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (12.2s)
+  ✓   50 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (21.4s)
+[U-F12 BOOKED] dock icon 1.05:1 on live dock chrome rgb(186 186 186) (light) — mid-tint muddiness, not the accent re-guard's floor
+  ✓   51 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) (2.5s)
+[U-F12 BOOKED] dock icon 1:1 on live dock chrome rgb(46 46 46) (dark) — mid-tint muddiness, not the accent re-guard's floor
+  ✓   52 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) (2.7s)
+  ✓   53 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) (3.9s)
+  ✘   54 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (1.3s)
+(node:56190) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   55 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) (7.7s)
+(node:56991) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   56 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) (6.9s)
+  ✓   57 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) (7.1s)
+  ✘   58 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (3.1s)
+(node:58514) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   59 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) (7.2s)
+  ✓   60 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) (1.0s)
+  ✓   61 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 (1.9s)
+  ✓   62 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung) (2.5s)
+  ✓   63 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 (1.5s)
+  ✓   64 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 (1.4s)
+  ✓   65 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung) (2.1s)
+  ✓   66 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 (1.4s)
+  ✘   67 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (1.0s)
+(node:59568) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   68 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) (10.6s)
+  ✓   69 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) (1.5s)
+  ✓   70 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (1.4s)
+  ✓   71 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) (3.3s)
+  ✓   72 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) (2.2s)
+  ✓   73 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) (1.3s)
+  ✓   74 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) (1.2s)
+  ✘   75 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) (1.6s)
+(node:61613) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   76 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (9.7s)
+(node:62990) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   77 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) (6.7s)
+  ✘   78 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (8.3s)
+(node:64912) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   79 [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading (3.0m)
+(node:83189) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   80 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:145:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, LIVING pulse, PRM-static (4.7s)
+  ✘   81 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:193:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers (34.9s)
+(node:87785) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   82 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:212:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers (15.3s)
+  ✓   83 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:224:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers (2.4s)
+  ✘   84 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:255:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) (9.7s)
+(node:91235) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   85 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene (10.4s)
+  ✓   86 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced (13.0s)
+  ✓   87 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced (4.0s)
+  ✓   88 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:55:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced (5.2s)
+  ✓   89 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:63:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced (4.8s)
+  ✓   90 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:71:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced (3.8s)
+  ✓   91 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:80:5 › G13 · admin rows › name approve — the verdict is announced (3.4s)
+  ✓   92 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:124:5 › G13 · user rows › report — a success is announced on the card (20.7s)
+  ✓   93 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:129:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22) (18.9s)
+  ✓   94 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:156:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight) (20.4s)
+  ✓   95 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:170:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST) (17.5s)
+  ✓   96 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:179:5 › G13 · library rows › rename — the new name is what the card shows (11.7s)
+  ✓   97 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › delete — the card leaves the library (15.1s)
+  ✓   98 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:208:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced (7.7s)
+  ✓   99 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:244:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted (9.4s)
+  ✓  100 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:295:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate (2.8s)
+  ✓  101 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (1.4s)
+  ✓  102 [smoke] › e2e/smoke/page-load.spec.ts:71:1 › an unknown address announces its destination and is distinct from home (773ms)
+  ✓  103 [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start (4.9s)
+[w12-about-clip] 1440x900 {"picker":621.265625,"about":621.265625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":482,"scrollHeight":7482,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+  ✓  104 [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller (2.6s)
+[w12-about-clip] 1440x900 overflow docScroll=900 inner=900 picker=621.265625 about=621.265625
+  ✓  105 [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis (3.8s)
+[w12-about-clip] 1280x800 {"picker":617.015625,"about":617.015625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":483,"scrollHeight":7425,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+  ✓  106 [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller (4.4s)
+[w12-about-clip] 1280x800 overflow docScroll=800 inner=800 picker=617.015625 about=617.015625
+  ✓  107 [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis (2.5s)
+[w12-about-clip] 2846x1650-eq {"picker":621.265625,"about":621.265625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":482,"scrollHeight":7466,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+  ✓  108 [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller (3.3s)
+[w12-about-clip] 2846x1650-eq overflow docScroll=825 inner=825 picker=621.265625 about=621.265625
+  ✓  109 [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis (2.6s)
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-small font-display",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 30.96875,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ }
+]
+  ✓  110 [smoke] › e2e/smoke/w12-dock.spec.ts:108:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius (10.4s)
+{
+ "switch": "action-sub-layer",
+ "before": "|",
+ "during": "|lab(92% 88.8 20 / 82.7%)",
+ "after": "|",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSAnimation:input-mode-flash",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-color)",
+  "element:CSSTransition:transition(border-left-color)",
+  "element:CSSTransition:transition(border-right-color)",
+  "element:CSSTransition:transition(border-top-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(stroke)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+  ✓  111 [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM (9.1s)
+{
+ "switch": "tools-action-bar",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|lab(92% 88.8 20 / 82.7%)",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(stroke)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+  ✓  112 [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM (5.2s)
+{
+ "switch": "login-slug-edit",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)"
+ ],
+ "consumer": []
+}
+  ✓  113 [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM (4.6s)
+{
+ "switch": "mobile-edit",
+ "before": "|Login  @mbabb",
+ "during": "|→",
+ "after": "|Login  @mbabb",
+ "faces": 5,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--accent-view)",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-left-radius)",
+  "element:CSSTransition:transition(border-bottom-right-radius)",
+  "element:CSSTransition:transition(border-top-left-radius)",
+  "element:CSSTransition:transition(border-top-right-radius)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+  ✓  114 [smoke] › e2e/smoke/w12-dock.spec.ts:296:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM (7.6s)
+{
+ "focusVisible": false,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+  ✘  115 [smoke] › e2e/smoke/w12-dock.spec.ts:351:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census (6.4s)
+(node:14193) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12-drag SOFTWARE-GL] surface: moves=4 frames=4 p50=609.8 p95=1307.1 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=9ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=6ms · assignSlots@vue.runtime.esm-bundler-DQai_KuN.js:5163=3ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=3ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=2ms · (garbage collector)@:0=2ms
+[w12-drag SOFTWARE-GL] slider L: moves=7 frames=6 p50=325.5 p95=416.0 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=45ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=15ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=7ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=7ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=6ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=5ms
+[w12-drag SOFTWARE-GL] slider a: moves=9 frames=8 p50=375.9 p95=516.6 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=41ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=19ms · (anon)@HeroBlob.vue:116=11ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=9ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=8ms · set@vue.runtime.esm-bundler-DQai_KuN.js:1028=6ms
+[w12-drag SOFTWARE-GL] slider b: moves=7 frames=6 p50=417.0 p95=701.4 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=41ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=12ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=6ms · locateNonHydratedAsyncRoot@vue.runtime.esm-bundler-DQai_KuN.js:6021=4ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=4ms · (garbage collector)@:0=4ms
+[w12-drag SOFTWARE-GL] slider alpha: moves=12 frames=11 p50=125.0 p95=366.7 longTasks=0 maxTask=0
+    hot: getBoundingClientRect@:0=22ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=11ms · updateProps@vue.runtime.esm-bundler-DQai_KuN.js:4890=9ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=7ms · setFullProps@vue.runtime.esm-bundler-DQai_KuN.js:4933=4ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=3ms
+[w12-drag] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev T=8.30 budget p50<=9.30 p95<=17.60
+  ✘  116 [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget (25.3s)
+(node:15563) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  117 [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/) (2.5m)
+(node:23466) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w12-ground #/mix→#/] cold+1s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] cold+3s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] nav→/ black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+6s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+12s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+20s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+32s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] hide(frozen+visibilitychange)/show black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] resize-small black=0 backing=300x150 box=1100x760 50,0,38 | 78,0,34 | 113,22,7 | 117,55,1
+[w12-ground #/mix→#/] resize-back black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] drag black=0 backing=300x150 box=1440x900 32,20,31 | 50,32,40 | 79,60,56 | 89,72,64
+[w12-ground #/mix→#/] scrolled black=0 backing=300x150 box=1440x900 32,20,31 | 50,32,40 | 79,60,56 | 89,72,64
+[w12-ground #/mix→#/] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev samples=48 black=0 maxBacking=300 gpuErrors=0
+  ✓  118 [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/) (2.4m)
+[w12u-p SOFTWARE-GL] surface: moves=6 frames=6 p50=482.8 p95=633.3 longTasks=1 maxTask=57 dockRoving=0/0f dockText=5
+    dock: 
+    main: UpdateLayoutTree=59ms · Layout=36ms · PrePaint=4ms · Paint=10ms · Layerize=2ms · Commit=2ms · FunctionCall=38ms · RunTask=281ms
+    self: getBoundingClientRect@:0=25ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=8ms · c@class-names-FlXcvRRT-DiIf_etZ.js:149=6ms · assignSlots@vue.runtime.esm-bundler-DQai_KuN.js:5163=5ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=4ms · now@:0=4ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=25ms
+    demo: certifyAccentInk@ink.ts:170=7ms · certify@ink.ts:85=6ms · attempt@ink.ts:87=6ms · safeCss@useContrastSafeColor.ts:281=3ms · resolvePalettesRamp@palettes-ramp.ts:103=3ms · _sfc_render@ColorNutritionLabel.vue:113=2ms
+[w12u-p SOFTWARE-GL] slider L: moves=1 frames=2 p50=7808.3 p95=7808.3 longTasks=1 maxTask=8159 dockRoving=0/0f dockText=1
+    dock: 
+    main: UpdateLayoutTree=15ms · Layout=7ms · PrePaint=1ms · Paint=3ms · Layerize=1ms · Commit=1ms · FunctionCall=13ms · RunTask=8227ms
+    self: getContext@:0=8157ms · getBoundingClientRect@:0=8ms · guardReactiveProps@vue.runtime.esm-bundler-DQai_KuN.js:6467=2ms · patchKeyedChildren@vue.runtime.esm-bundler-DQai_KuN.js:5680=2ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=2ms · validateProps@vue.runtime.esm-bundler-DQai_KuN.js:5053=2ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=7ms · getBoundingClientRect<-n@createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:4<-d@createCanvasLifecycle-hJHobVTn-Bn6S7la1.js:115=1ms
+    demo: certifyAccentInk@ink.ts:170=1ms · certify@ink.ts:85=1ms · attempt@ink.ts:87=1ms · watch.deep@HeroBlob.vue:164=1ms · (anon)@useContrastSafeColor.ts:249=1ms · resolvePalettesRamp@palettes-ramp.ts:103=0ms
+[w12u-p SOFTWARE-GL] slider a: moves=3 frames=2 p50=2158.6 p95=2158.6 longTasks=0 maxTask=0 dockRoving=0/0f dockText=3
+    dock: 
+    main: UpdateLayoutTree=39ms · Layout=19ms · PrePaint=2ms · Paint=4ms · Layerize=1ms · Commit=1ms · FunctionCall=28ms · RunTask=160ms
+    self: getBoundingClientRect@:0=18ms · get@vue.runtime.esm-bundler-DQai_KuN.js:6808=7ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=7ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=5ms · openBlock@vue.runtime.esm-bundler-DQai_KuN.js:6342=4ms · createReactiveObject@vue.runtime.esm-bundler-DQai_KuN.js:1278=4ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=18ms
+    demo: certifyAccentInk@ink.ts:170=3ms · (anon)@ColorSpaceSelector.vue:203=3ms · certify@ink.ts:85=2ms · attempt@ink.ts:87=2ms · safeCss@useContrastSafeColor.ts:281=1ms · parseOklch@ink.ts:43=1ms
+[w12u-p SOFTWARE-GL] slider b: moves=2 frames=1 p50=3532.9 p95=3532.9 longTasks=0 maxTask=0 dockRoving=0/0f dockText=2
+    dock: 
+    main: UpdateLayoutTree=25ms · Layout=13ms · PrePaint=1ms · Paint=3ms · Layerize=1ms · Commit=1ms · FunctionCall=18ms · RunTask=105ms
+    self: getBoundingClientRect@:0=13ms · mergeProps@vue.runtime.esm-bundler-DQai_KuN.js:6572=4ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=4ms · track@vue.runtime.esm-bundler-DQai_KuN.js:737=2ms · run@vue.runtime.esm-bundler-DQai_KuN.js:417=2ms · (anon)@dist-vzlhttbQ.js:6144=2ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=13ms
+    demo: certifyAccentInk@ink.ts:170=1ms · certify@ink.ts:85=1ms · attempt@ink.ts:87=1ms · _sfc_render@WatercolorDot.vue:113=1ms · onUpdate:modelValue@ComponentSliders.vue:227=1ms · updateColorComponent@useColorPipeline.ts:138=1ms
+[w12u-p SOFTWARE-GL] slider alpha: moves=1 frames=0 p50=NaN p95=NaN longTasks=0 maxTask=0 dockRoving=0/0f dockText=1
+    dock: 
+    main: UpdateLayoutTree=2ms · Layout=4ms · PrePaint=0ms · Paint=1ms · Layerize=0ms · Commit=0ms · FunctionCall=6ms · RunTask=28ms
+    self: trigger@vue.runtime.esm-bundler-DQai_KuN.js:754=1ms · (anon)@dist-vzlhttbQ.js:35291=1ms · run@vue.runtime.esm-bundler-DQai_KuN.js:417=1ms · resolvePropValue@vue.runtime.esm-bundler-DQai_KuN.js:4960=1ms · renderList@vue.runtime.esm-bundler-DQai_KuN.js:3841=1ms · assignSlots@vue.runtime.esm-bundler-DQai_KuN.js:5163=1ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=-1ms
+    demo: (anon)@ComponentSliders.vue:182=1ms
+[w12u-p] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev bisect=none T=8.30 budget p50<=9.30 p95<=17.60
+  ✘  119 [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame (40.9s)
+(node:37171) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  120 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (30.2s)
+
+
+  1) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:86:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      42 |
+      43 | async function ready(page: Page) {
+    > 44 |     await page.goto("/");
+         |                ^
+      45 |     await expect(mainPane(page)).toBeVisible({
+      46 |         timeout: 20000,
+      47 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:44:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:90:11
+
+    Error Context: test-results/a11y-modality-support-BR-5-3c657-rome-operable-focus-outline-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      42 |
+      43 | async function ready(page: Page) {
+    > 44 |     await page.goto("/");
+         |                ^
+      45 |     await expect(mainPane(page)).toBeVisible({
+      46 |         timeout: 20000,
+      47 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:44:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:155:11
+
+    Error Context: test-results/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9000/", waiting until "load"[22m
+
+
+      42 |
+      43 | async function ready(page: Page) {
+    > 44 |     await page.goto("/");
+         |                ^
+      45 |     await expect(mainPane(page)).toBeVisible({
+      46 |         timeout: 20000,
+      47 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:44:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:191:11
+
+    Error Context: test-results/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('navigation', { name: 'Application navigation' })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('navigation', { name: 'Application navigation' })[22m
+
+
+      278 |     await expect(
+      279 |         page.getByRole("navigation", { name: "Application navigation" }),
+    > 280 |     ).toBeVisible();
+          |       ^
+      281 |     await expect(mainPane(page)).toBeVisible();
+      282 |
+      283 |     // The picker exposes a live region for the color-change announcement (an
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:280:7
+
+    Error Context: test-results/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition 
+
+    TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+
+      147 |     // (`PaneHeader`'s `h3.pane-header-title`) is the product's own signal, and it is also
+      148 |     // the anchor the census scope is resolved from.
+    > 149 |     await page.waitForFunction(
+          |                ^
+      150 |         (v) =>
+      151 |             Array.from(document.querySelectorAll("h3.pane-header-title")).some(
+      152 |                 (h) => (h.textContent ?? "").trim() === v,
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:149:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:312:9
+
+    Error Context: test-results/a11y-select-title-B1-·-com-bf845-nside-the-field-composition-smoke/error-context.md
+
+  6) [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung 
+
+    TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+
+      147 |     // (`PaneHeader`'s `h3.pane-header-title`) is the product's own signal, and it is also
+      148 |     // the anchor the census scope is resolved from.
+    > 149 |     await page.waitForFunction(
+          |                ^
+      150 |         (v) =>
+      151 |             Array.from(document.querySelectorAll("h3.pane-header-title")).some(
+      152 |                 (h) => (h.textContent ?? "").trim() === v,
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:149:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-select-title.spec.ts:400:9
+
+    Error Context: test-results/a11y-select-title-B2-·-tri-a4b0b--lifts-with-the-coarse-rung-smoke/error-context.md
+
+  7) [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking element screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      52 |     await page
+      53 |         .locator(".app-layout")
+    > 54 |         .screenshot({ path: resolve(PI_DIR, "rtl-layout.png") });
+         |          ^
+      55 |
+      56 |     // Integrity 1 — no horizontal overflow (a clipped/overflowing layout scrolls
+      57 |     // sideways). The app-layout is `overflow: hidden` at 100dvh; the honest probe
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-web-modality.spec.ts:54:10
+
+    Error Context: test-results/a11y-web-modality-BR-10-·--5f664-grity-no-clipping-overflow--smoke/error-context.md
+
+  8) [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette ──
+
+    Error: the drop zone never showed the uploaded image — the file path itself is broken
+
+    [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('img[alt=\'Uploaded image\']')
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - the drop zone never showed the uploaded image — the file path itself is broken with timeout 15000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('img[alt=\'Uploaded image\']')[22m
+
+
+      342 |         mainPane(page).locator("img[alt='Uploaded image']"),
+      343 |         "the drop zone never showed the uploaded image — the file path itself is broken",
+    > 344 |     ).toBeVisible({ timeout: 15_000 });
+          |       ^
+      345 |
+      346 |     // R2 · DEAD-LOCATOR RULING (X-W1 repair 1, Check 1 D-4). This bound
+      347 |     // `".extract-swatch, [data-extract-swatch], [data-palette-swatch]"`, and all
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:344:7
+
+    Error Context: test-results/crash-battery-R18-·-a-real-image-file-develops-a-palette-smoke/error-context.md
+
+  9) [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('heading', { name: 'Extract' }).last()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByRole('heading', { name: 'Extract' }).last()[22m
+
+
+      315 |     await expect(
+      316 |         mainPane(page).getByRole("heading", { name: "Extract" }).last(),
+    > 317 |     ).toBeVisible({ timeout: 10_000 });
+          |       ^
+      318 | }
+      319 |
+      320 | /**
+        at openExtract (/Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:317:7)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:377:5
+
+    Error Context: test-results/crash-battery-R18-·-a-corr-46ba5-r-never-a-silent-half-state-smoke/error-context.md
+
+  10) [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeHidden[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('menu').filter({ visible: true }).first()
+    Expected: hidden
+    Received: visible
+    Timeout:  4000ms
+
+    Call log:
+    [2m  - Expect "toBeHidden" with timeout 4000ms[22m
+    [2m  - waiting for getByRole('menu').filter({ visible: true }).first()[22m
+    [2m    - locator resolved to <div dir="ltr" role="menu" tabindex="-1" data-align="end" data-reveal="menu" data-side="bottom" data-state="closed" data-slot="menu-content" data-dismissable-layer="" data-glass-dock-portal="" data-reka-menu-content="" data-orientation="vertical" aria-orientation="vertical" id="reka-dropdown-menu-content-v-14" data-glass-dock-owner="glass-dock-v-0" aria-labelledby="reka-dropdown-menu-trigger-v-4" class="glass-floating glass-overlay-plate glass-reveal min-w-menu font-display">…</div>[22m
+    [2m    - unexpected value "visible"[22m
+
+
+      426 |         // Keyboard operability — the arm the corpus measured RED today.
+      427 |         await page.keyboard.press("Escape");
+    > 428 |         await expect(menu).toBeHidden({ timeout: 4000 });
+          |                            ^
+      429 |         await trigger.focus();
+      430 |         await page.keyboard.press("Enter");
+      431 |         await expect(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/crash-battery.spec.ts:428:28
+
+    Error Context: test-results/crash-battery-R19-·-the-mo-25c8f-s-external-link-is-operable-smoke/error-context.md
+
+  11) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('navigation', { name: 'Application navigation' }).getByRole('button', { name: 'About', exact: true })[22m
+
+
+      161 |             name: "Application navigation",
+      162 |         });
+    > 163 |         await nav.getByRole("button", { name: "About", exact: true }).click();
+          |                                                                       ^
+      164 |         await expect(page.locator(ABOUT_TITLE)).toBeVisible();
+      165 |
+      166 |         // display-1 floor-pins at heading (1.618rem) — the deliberate no-op.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:163:71
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-1c602-op-About-honest-2-line-lock-smoke/error-context.md
+
+  12) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.textContent: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="option"]').nth(14).locator('span').first()[22m
+
+
+      281 |                 const option = page.locator('[role="option"]').nth(i);
+      282 |                 const spaceName =
+    > 283 |                     (await option.locator("span").first().textContent())?.trim() ??
+          |                                                           ^
+      284 |                     `option-${i}`;
+      285 |                 await option.click();
+      286 |                 const readout = page.locator(".readout").first();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:283:59
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/error-context.md
+
+  13) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+
+    Error: sm:line-clamp-1 not active at desktop
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"1"[39m
+    Received: [31m"none"[39m
+
+      253 |         .first();
+      254 |     const desktop = await typeVoice(longTitle);
+    > 255 |     expect(desktop.lineClamp, "sm:line-clamp-1 not active at desktop").toBe("1");
+          |                                                                        ^
+      256 |     expect(desktop.overflow).toBe("hidden");
+      257 |     const oneLine = await longTitle.evaluate((el) => {
+      258 |         const cs = getComputedStyle(el);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:255:72
+
+    Error Context: test-results/oracles-o10d-display-voice-61285--line-clamp-under-the-serif-smoke/error-context.md
+
+  14) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+
+    Error: line-clamp-2 not active <sm
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"2"[39m
+    Received: [31m"none"[39m
+
+      280 |     const voice = await typeVoice(longTitle);
+      281 |     expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
+    > 282 |     expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
+          |                                                            ^
+      283 |     const twoLinesMax = await longTitle.evaluate((el) => {
+      284 |         const cs = getComputedStyle(el);
+      285 |         return el.getBoundingClientRect().height <= parseFloat(cs.lineHeight) * 2.5;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:282:60
+
+    Error Context: test-results/oracles-o10d-display-voice-868f0-o-TWO-lines-under-the-serif-smoke/error-context.md
+
+  15) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    30 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:336:13
+
+    Error Context: test-results/oracles-o14-preview-truth--1d3c7--never-the-near-black-clamp-smoke/error-context.md
+
+  16) [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('combobox', { name: 'Select view' })[22m
+    [2m    - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-3" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    28 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o14-preview-truth.spec.ts:336:13
+
+    Error Context: test-results/oracles-o14-preview-truth--c70ff--never-the-near-black-clamp-smoke/error-context.md
+
+  17) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: resting node ink rgb(28 25 23) vs rgb(95 93 91)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.66[39m
+
+      728 |                 resting!.ratio,
+      729 |                 `resting node ink ${resting!.ink} vs ${resting!.ground}`,
+    > 730 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |               ^
+      731 |
+      732 |             // Hovered: the fill goes live-colored and the ink derives from
+      733 |             // the FILL (contrastInkFor — WCAG-maximal, a pass by construction).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:730:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-86c2e--fill-derived-ink-together--smoke/error-context.md
+
+  18) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+
+    Error: prose ink rgb(28 25 23) vs plate ground rgb(101 99 97)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.91[39m
+
+      781 |                 prose!.ratio,
+      782 |                 `prose ink ${prose!.ink} vs plate ground ${prose!.ground}`,
+    > 783 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |               ^
+      784 |
+      785 |             // Code ink where a block exists (per-doc; skip-if-absent is honest
+      786 |             // here — the roster row is the CLASS, measured wherever mounted).
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:783:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-76d2a-he-rung-1-plate-h-gaps-G-2--smoke/error-context.md
+
+  19) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.74[39m
+
+      761 |                 nameRow!.ratio,
+      762 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 763 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      764 |         });
+      765 |
+      766 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:763:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md
+
+  20) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m0.037180607112331766[39m
+    Received:    [31m0.006968179459289377[39m
+
+      1015 |                 accent.C,
+      1016 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+    > 1017 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+           |               ^
+      1018 |
+      1019 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
+      1020 |             //     space trigger wears `--space-title-ink` = the safe accent at
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1017:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md
+
+  21) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.2), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.31[39m
+
+      1316 |                 row!.ratio,
+      1317 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1318 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1319 |         });
+      1320 |
+      1321 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1318:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/error-context.md
+
+  22) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 6[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",[39m
+    [31m+   "Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",[39m
+    [31m+   "Regenerate slug: 2.8:1 (ink rgb(28 25 23) over rgb(98 96 93), α 1)",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/error-context.md
+
+  23) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 6[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+   "Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+   "Regenerate slug: 3.55:1 (ink rgb(126 123 120) over rgb(41 39 36), α 0.441)",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: test-results/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/error-context.md
+
+  24) [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('listbox').getByRole('option', { name: 'HWB', exact: true })[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-space="hwb" data-v-bbd31ea0="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-1827" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      137 |         const listbox = page.getByRole("listbox");
+      138 |         await expect(listbox).toBeVisible();
+    > 139 |         await listbox.getByRole("option", { name: label, exact: true }).click();
+          |                                                                         ^
+      140 |         return listbox;
+      141 |     };
+      142 |
+        at pick (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:139:73)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:162:25
+
+    Error Context: test-results/oracles-o21-space-catalog--5282a-ide-is-never-a-bare-heading-smoke/error-context.md
+
+  25) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:193:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[data-slot="card"]').filter({ has: getByRole('heading', { name: 'Mix', exact: true }) }).filter({ visible: true }).first().locator('[data-slot="empty-state-trio"]').filter({ visible: true })
+    Expected: [32m1[39m
+    Received: [31mundefined[39m
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[data-slot="card"]').filter({ has: getByRole('heading', { name: 'Mix', exact: true }) }).filter({ visible: true }).first().locator('[data-slot="empty-state-trio"]').filter({ visible: true })[22m
+
+
+      87 |         .locator('[data-slot="empty-state-trio"]')
+      88 |         .filter({ visible: true });
+    > 89 |     await expect(trio).toHaveCount(1);
+         |                        ^
+      90 |     await expect(trio).toHaveAttribute("aria-hidden", "true");
+      91 |     await expect(trio.locator(":scope > *")).toHaveCount(3);
+      92 | }
+        at assertTrio (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:89:24)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:208:11
+
+    Error Context: test-results/oracles-o9-shadow-palette--40d45-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+  26) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:255:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[data-slot="card"]').filter({ has: getByRole('heading', { name: 'Browse', exact: true }) }).filter({ visible: true }).first().getByRole('alert').filter({ visible: true }).first()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('[data-slot="card"]').filter({ has: getByRole('heading', { name: 'Browse', exact: true }) }).filter({ visible: true }).first().getByRole('alert').filter({ visible: true }).first()[22m
+
+
+      265 |     await expect(
+      266 |         browsePane.getByRole("alert").filter({ visible: true }).first(),
+    > 267 |     ).toBeVisible();
+          |       ^
+      268 |     await assertNoFillers(browsePane);
+      269 |     await expect(
+      270 |         browsePane.locator('[data-slot="empty-state-trio"]'),
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:267:7
+
+    Error Context: test-results/oracles-o9-shadow-palette--9f619-rio-R7-surviving-semantics--smoke/error-context.md
+
+  27) [smoke] › e2e/smoke/w12-dock.spec.ts:351:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census 
+
+    Error: the focus-visible frame is a keyboard focus
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      431 |             writeFileSync(`${OUT_DIR}/trigger-clip-${Date.now()}.json`, JSON.stringify({ focusVisible, frames }, null, 1));
+      432 |         }
+    > 433 |         expect(focusVisible, "the focus-visible frame is a keyboard focus").toBe(true);
+          |                                                                             ^
+      434 |         // value.js's half: no consumer ancestor clips the dock trigger. The
+      435 |         // producer row's clip (glass `.dock-layer--full`, O-63) is reported
+      436 |         // above and carried as honest-RED DOCK-TRIGGER-CLIP.
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-dock.spec.ts:433:77
+
+    Error Context: test-results/w12-dock-X-W12-e-—-the-doc-452f9--ancestor-chain-clip-census-smoke/error-context.md
+
+  28) [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+
+    Error: surface: collector dead
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m10[39m
+    Received:   [31m4[39m
+
+      125 |     );
+      126 |     for (const r of results) {
+    > 127 |         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
+          |                                                       ^
+      128 |         if (soft) {
+      129 |             expect(r.maxTask, `${r.name}: in-drag freeze`).toBeLessThanOrEqual(SOFT_MAX_TASK_MS);
+      130 |         } else {
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-drag.spec.ts:127:55
+
+    Error Context: test-results/w12-drag-w12-drag-—-2-s-dr-5224f-h-slider-holds-frame-budget-smoke/error-context.md
+
+  29) [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/) 
+
+    [31mTest timeout of 150000ms exceeded.[39m
+
+    Error: mouse.move: Test timeout of 150000ms exceeded.
+
+      139 |         await page.mouse.down();
+      140 |         for (let i = 1; i <= 40; i++) {
+    > 141 |             await page.mouse.move(
+          |                              ^
+      142 |                 b.x + 20 + (i * (b.width - 40)) / 40,
+      143 |                 b.y + 20 + (i * (b.height - 40)) / 40,
+      144 |             );
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-ground.spec.ts:141:30
+
+    Error Context: test-results/w12-ground-w12-ground-—-the-ground-never-paints-black--smoke/error-context.md
+
+  30) [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+
+    Error: surface: collector dead
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m10[39m
+    Received:   [31m6[39m
+
+      267 |     console.log(`[w12u-p] renderer=${renderer} origin=${ORIGIN ?? "dev"} bisect=${BISECT ?? "none"} T=${budget.T.toFixed(2)} budget p50<=${budget.p50Ms.toFixed(2)} p95<=${budget.p95Ms.toFixed(2)}`);
+      268 |     for (const r of results) {
+    > 269 |         expect(r.frames, `${r.name}: collector dead`).toBeGreaterThan(10);
+          |                                                       ^
+      270 |         expect(
+      271 |             r.rovingFrames,
+      272 |             `${r.name}: the dock run's roving observer fired on ${r.rovingFrames} of ${r.frames} frames`,
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12u-p-drag.spec.ts:269:55
+
+    Error Context: test-results/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/error-context.md
+
+  31) [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('heading', { level: 1 })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('heading', { level: 1 })[22m
+    [2m    12 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+
+
+      115 |     async function assertRouteVoice(label: string) {
+      116 |         const h1 = page.getByRole("heading", { level: 1 });
+    > 117 |         await expect(h1).toHaveCount(1);
+          |                          ^
+      118 |         await expect(h1).toBeVisible();
+      119 |         await expect(h1).toHaveText(label);
+      120 |         await expect(page.getByRole("main", { name: label })).toBeVisible();
+        at assertRouteVoice (/Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:117:26)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/walk.spec.ts:128:15
+
+    Error Context: test-results/walk-walk-all-user-views-s-862ed-ly-with-zero-console-errors-smoke/error-context.md
+
+  31 failed
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:86:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) 
+    [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition 
+    [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung 
+    [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) 
+    [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette ───
+    [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state 
+    [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floor-pins AT heading (deliberate no-op); About = honest 2-line lock 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:259:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:217:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif 
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:264:1 › O-10d census — the 390 phone band: the card name clamps to TWO lines under the serif 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:193:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:255:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) 
+    [smoke] › e2e/smoke/w12-dock.spec.ts:351:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census 
+    [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget 
+    [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/) ──
+    [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame 
+    [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors 
+  89 passed (35.4m)
+run 2 exit 1

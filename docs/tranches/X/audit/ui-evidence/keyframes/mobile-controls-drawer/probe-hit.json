@@ -1,0 +1,237 @@
+{
+ "peek": [
+  {
+   "c": "",
+   "cy": 766,
+   "onscreen": true,
+   "reachable": false,
+   "hitBy": "transport-dock:Select animation"
+  },
+  {
+   "c": "",
+   "cy": 810,
+   "onscreen": true,
+   "reachable": true,
+   "hitBy": null
+  },
+  {
+   "c": "",
+   "cy": 854,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "alternate",
+   "cy": 898,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "forwards",
+   "cy": 942,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Edit easing curve",
+   "cy": 986,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "ease-in-out",
+   "cy": 1030,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "advanced",
+   "cy": 1091,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Back to controls",
+   "cy": 1133,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "replace",
+   "cy": 1187,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Decrease",
+   "cy": 1233,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "",
+   "cy": 1233,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Increase",
+   "cy": 1233,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "enabled",
+   "cy": 1281,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Pause",
+   "cy": 1227,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Reverse",
+   "cy": 1227,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  }
+ ],
+ "expanded": [
+  {
+   "c": "",
+   "cy": 581,
+   "onscreen": true,
+   "reachable": true,
+   "hitBy": null
+  },
+  {
+   "c": "",
+   "cy": 625,
+   "onscreen": true,
+   "reachable": true,
+   "hitBy": null
+  },
+  {
+   "c": "",
+   "cy": 669,
+   "onscreen": true,
+   "reachable": true,
+   "hitBy": null
+  },
+  {
+   "c": "alternate",
+   "cy": 713,
+   "onscreen": true,
+   "reachable": true,
+   "hitBy": null
+  },
+  {
+   "c": "forwards",
+   "cy": 757,
+   "onscreen": true,
+   "reachable": false,
+   "hitBy": "transport-dock:SPAN"
+  },
+  {
+   "c": "Edit easing curve",
+   "cy": 801,
+   "onscreen": true,
+   "reachable": true,
+   "hitBy": null
+  },
+  {
+   "c": "ease-in-out",
+   "cy": 845,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "advanced",
+   "cy": 906,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Back to controls",
+   "cy": 948,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "replace",
+   "cy": 1002,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Decrease",
+   "cy": 1048,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "",
+   "cy": 1048,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Increase",
+   "cy": 1048,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "enabled",
+   "cy": 1096,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Pause",
+   "cy": 1042,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  },
+  {
+   "c": "Reverse",
+   "cy": 1042,
+   "onscreen": false,
+   "reachable": false,
+   "hitBy": null
+  }
+ ],
+ "afterWheel": {
+  "scrollTop": 0,
+  "scrollH": 727,
+  "clientH": 727,
+  "paneBottom": 1266,
+  "vh": 844
+ }
+}

@@ -1,0 +1,7 @@
+cold #/cube · load 9.80 · pageerrors 0
+dest(.cube-bob) inserted +88 ms · rAF +30 · painted +92 ms (end of the destination's LoAF; message +93)
+first vendor-three sample +126 ms -> paint-before-three GREEN · first vendor-monaco sample +128 ms -> paint-before-monaco GREEN
+swap LoAF>50: 2 · max JS self 43 ms -> GREEN (<= 200)
+  +16 dur 76 jsSelf 43 [vendor-reka-ui 28.4, index 7.4, public 2.1, keyboard 1.9, glass-ui 0.9] ["http://localhost:5396/assets/index-C43en /assets/index-C43enX_8.js 6","import.then /assets/keyboard-DBqyvHKw.js 63"]
+  +125 dur 51 jsSelf 22 [vendor-monaco 16.7, KeyframesStringControls 2.9, vendor-three 1.0, vendor-reka-ui 0.7, rolldown-runtime 0.3] ["http://localhost:5396/assets/vendor-mona /assets/vendor-monaco-nwzXcI7Q.js 15","import.then /assets/KeyframesStringControls-KtCiCObT.js 27"]
+window JS self 211.8 ms [vendor-reka-ui 131.3, vendor-monaco 23.6, index 23.0, public 13.6, glass-ui 5.0] · marker offset resolution 0.25 ms

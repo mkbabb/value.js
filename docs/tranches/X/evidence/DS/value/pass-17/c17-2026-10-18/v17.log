@@ -1,0 +1,12 @@
+admin-users  1440 light  viewTrigger=5.45 (h43) adminTrigger=5.45 (h43) seal=- | old: viewTrigger=1.09 adminTrigger=1.08 seal=- 
+admin-seal  1440 light  seal=4.24 (h44) | old: seal=1.08 
+admin-view-menu picker 1440 light  menuAdminIcon=1.94 (h42) menuAdminLabel=1.86 (h42) menuGenerateLabel=3.9 (h24) menuGradientLabel=3.13 (h24) | old: menuAdminIcon=3.31 menuAdminLabel=3.38 menuGenerateLabel=3.9 menuGradientLabel=3.13 | neutral@row: menuAdminIcon=2.25 menuAdminLabel=2.15
+admin-view-menu browse 1440 light  menuAdminIcon=2.83 (h42) menuAdminLabel=2.43 (h42) menuGenerateLabel=4.8 (h24) menuGradientLabel=4.38 (h24) | old: menuAdminIcon=2.24 menuAdminLabel=2.64 menuGenerateLabel=4.79 menuGradientLabel=4.36 | neutral@row: menuAdminIcon=3.25 menuAdminLabel=2.81
+admin-users  390 light  viewTrigger=5.45 (h43) adminTrigger=- seal=- | old: viewTrigger=1.09 adminTrigger=- seal=- 
+admin-seal  390 light the dock did not idle shut within 12 s  | old:  
+admin-users  1440 dark  viewTrigger=4.78 (h43) adminTrigger=4.78 (h43) seal=- | old: viewTrigger=4.78 adminTrigger=4.78 seal=- 
+admin-seal  1440 dark  seal=4.26 (h45) | old: seal=1.05 
+admin-view-menu picker 1440 dark  menuAdminIcon=5.62 (h43) menuAdminLabel=5.67 (h43) menuGenerateLabel=5.15 (h34) menuGradientLabel=6.22 (h34) | old: menuAdminIcon=5.62 menuAdminLabel=5.67 menuGenerateLabel=5.15 menuGradientLabel=6.22 | neutral@row: menuAdminIcon=9 menuAdminLabel=9.08
+admin-view-menu browse 1440 dark  menuAdminIcon=4.12 (h43) menuAdminLabel=4.97 (h43) menuGenerateLabel=6.32 (h34) menuGradientLabel=8.3 (h34) | old: menuAdminIcon=4.13 menuAdminLabel=4.99 menuGenerateLabel=6.32 menuGradientLabel=8.3 | neutral@row: menuAdminIcon=6.61 menuAdminLabel=7.98
+admin-users  390 dark  viewTrigger=4.78 (h43) adminTrigger=- seal=- | old: viewTrigger=4.78 adminTrigger=- seal=- 
+admin-seal  390 dark the dock did not idle shut within 12 s  | old:  

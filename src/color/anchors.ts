@@ -164,13 +164,14 @@ function encodedToHsv([r, g, b]: Vec3): readonly [number, number, number] {
     }
     return [wrapHue(hue), max === 0 ? 0 : delta / max, max];
 }
+// CSS Color 4 §7.1 rgbToHsl: the achromatic test reads the encoded channels before any division;
+// lightness 0 or 1 carries no saturation; the powerless hue is marked by convertColor's finishChannels.
 function encodedToHsl(rgb: Vec3): readonly [number, number, number] {
-    const hsv = encodedToHsv(rgb);
     const max = Math.max(...rgb);
     const min = Math.min(...rgb);
     const lightness = (max + min) / 2;
-    const delta = max - min;
-    return [hsv[0], delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1)), lightness];
+    if (max === min || lightness === 0 || lightness === 1) return [0, 0, lightness];
+    return [encodedToHsv(rgb)[0], (max - lightness) / Math.min(lightness, 1 - lightness), lightness];
 }
 function encodedToHwb(rgb: Vec3): readonly [number, number, number] {
     return [encodedToHsv(rgb)[0], Math.min(...rgb), 1 - Math.max(...rgb)];
@@ -331,14 +332,36 @@ function xyzToKelvin(xyz: Vec3): readonly number[] {
 const encodedSrgbToXyz = (rgb: Vec3) => multiply(rgb.map(srgbDecode) as unknown as Vec3, RGB_TO_XYZ);
 const xyzToEncodedSrgb = (xyz: Vec3) => multiply(xyz, XYZ_TO_RGB).map(srgbEncode) as unknown as Vec3;
 
-export const CONVERSION_ANCHORS = {
+type EncodedSrgbAnchor = Readonly<{
+    toEncoded: (channels: readonly number[]) => Vec3;
+    fromEncoded: (rgb: Vec3) => readonly number[];
+}>;
+
+/**
+ * The sRGB-encoded family (CSS Color 4 §7–§8): rgb, hsl, hsv and hwb are transforms of encoded sRGB.
+ * A conversion between two members goes through encoded sRGB directly, never through XYZ, so the
+ * matrix round trip cannot perturb an in-gamut input.
+ */
+export const SRGB_ENCODED_ANCHORS = {
     rgb: {
-        toXYZ: (channels) => encodedSrgbToXyz(channels.map((v) => v / 255) as unknown as Vec3),
-        fromXYZ: (xyz) => xyzToEncodedSrgb(xyz).map((v) => v * 255),
+        toEncoded: (channels) => channels.map((v) => v / 255) as unknown as Vec3,
+        fromEncoded: (rgb) => rgb.map((v) => v * 255),
     },
-    hsl: { toXYZ: (channels) => encodedSrgbToXyz(hslToEncoded(channels as Vec3)), fromXYZ: (xyz) => encodedToHsl(xyzToEncodedSrgb(xyz)) },
-    hsv: { toXYZ: (channels) => encodedSrgbToXyz(hsvToEncoded(channels as Vec3)), fromXYZ: (xyz) => encodedToHsv(xyzToEncodedSrgb(xyz)) },
-    hwb: { toXYZ: (channels) => encodedSrgbToXyz(hwbToEncoded(channels as Vec3)), fromXYZ: (xyz) => encodedToHwb(xyzToEncodedSrgb(xyz)) },
+    hsl: { toEncoded: (channels) => hslToEncoded(channels as Vec3), fromEncoded: encodedToHsl },
+    hsv: { toEncoded: (channels) => hsvToEncoded(channels as Vec3), fromEncoded: encodedToHsv },
+    hwb: { toEncoded: (channels) => hwbToEncoded(channels as Vec3), fromEncoded: encodedToHwb },
+} as const satisfies Record<"rgb" | "hsl" | "hsv" | "hwb", EncodedSrgbAnchor>;
+
+const encodedFamilyAnchor = (anchor: EncodedSrgbAnchor) => ({
+    toXYZ: (channels: readonly number[]) => encodedSrgbToXyz(anchor.toEncoded(channels)),
+    fromXYZ: (xyz: Vec3) => anchor.fromEncoded(xyzToEncodedSrgb(xyz)),
+});
+
+export const CONVERSION_ANCHORS = {
+    rgb: encodedFamilyAnchor(SRGB_ENCODED_ANCHORS.rgb),
+    hsl: encodedFamilyAnchor(SRGB_ENCODED_ANCHORS.hsl),
+    hsv: encodedFamilyAnchor(SRGB_ENCODED_ANCHORS.hsv),
+    hwb: encodedFamilyAnchor(SRGB_ENCODED_ANCHORS.hwb),
     lab: { toXYZ: (channels) => multiply(labToXyzD50(channels as Vec3), D50_TO_D65), fromXYZ: (xyz) => xyzD50ToLab(multiply(xyz, D65_TO_D50)) },
     lch: { toXYZ: (channels) => multiply(labToXyzD50(polarToRect(channels as Vec3)), D50_TO_D65), fromXYZ: (xyz) => rectToPolar(xyzD50ToLab(multiply(xyz, D65_TO_D50)) as Vec3) },
     oklab: { toXYZ: (channels) => oklabToXyz(channels as Vec3), fromXYZ: xyzToOklab },

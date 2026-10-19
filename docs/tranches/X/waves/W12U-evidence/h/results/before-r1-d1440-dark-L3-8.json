@@ -1,0 +1,43 @@
+{
+ "tag": "d1440",
+ "theme": "dark",
+ "phase": "before",
+ "W": 1440,
+ "H": 900,
+ "base": "http://localhost:9131",
+ "at": "2026-10-07T15:07:22.785Z",
+ "arms": {
+  "L3-8": {
+   "names": [],
+   "frame": "frames/before-L3-8_browse-d1440-dark.jpg",
+   "pass": false
+  }
+ },
+ "gates": {
+  "/browse": {
+   "route": "/browse",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": null,
+     "cMax": 14.384,
+     "cMaxText": "Reload the app",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": null,
+     "cMax": 14.384,
+     "cMaxText": "Reload the app",
+     "P": true,
+     "H": true
+    }
+   ]
+  }
+ }
+}

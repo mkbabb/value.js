@@ -1,0 +1,511 @@
+{
+  "base": "http://localhost:9231",
+  "fold": [
+    {
+      "w": 1440,
+      "h": 900,
+      "theme": "light",
+      "route": "/#/blob",
+      "shot": null,
+      "portTop": 245,
+      "portBottom": 676,
+      "footTop": 676,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+      "cutRow": {
+        "top": 657,
+        "bottom": 703,
+        "text": "Warp0.35",
+        "visiblePx": 19
+      },
+      "rows": [
+        {
+          "top": 258,
+          "bottom": 289,
+          "text": "Geometry"
+        },
+        {
+          "top": 295,
+          "bottom": 341,
+          "text": "Body radius0.220"
+        },
+        {
+          "top": 347,
+          "bottom": 393,
+          "text": "Satellites3"
+        },
+        {
+          "top": 399,
+          "bottom": 445,
+          "text": "Satellite radius0.082"
+        },
+        {
+          "top": 451,
+          "bottom": 497,
+          "text": "Orbit radius0.170"
+        },
+        {
+          "top": 503,
+          "bottom": 549,
+          "text": "Eccentricity0.05"
+        },
+        {
+          "top": 569,
+          "bottom": 599,
+          "text": "Membrane"
+        },
+        {
+          "top": 605,
+          "bottom": 651,
+          "text": "Smoothness0.050"
+        },
+        {
+          "top": 657,
+          "bottom": 703,
+          "text": "Warp0.35"
+        },
+        {
+          "top": 709,
+          "bottom": 755,
+          "text": "Noise amplitude0.038"
+        },
+        {
+          "top": 761,
+          "bottom": 807,
+          "text": "Noise frequency3.5"
+        },
+        {
+          "top": 813,
+          "bottom": 859,
+          "text": "Noise speed0.080"
+        }
+      ]
+    },
+    {
+      "w": 1440,
+      "h": 900,
+      "theme": "light",
+      "route": "/#/atmosphere",
+      "shot": null,
+      "portTop": 227,
+      "portBottom": 700,
+      "footTop": 700,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%)",
+      "cutRow": null,
+      "rows": [
+        {
+          "top": 240,
+          "bottom": 270,
+          "text": "Character"
+        },
+        {
+          "top": 476,
+          "bottom": 507,
+          "text": "Field"
+        },
+        {
+          "top": 513,
+          "bottom": 559,
+          "text": "Color energy0.76"
+        },
+        {
+          "top": 565,
+          "bottom": 611,
+          "text": "Noise0.50"
+        },
+        {
+          "top": 617,
+          "bottom": 663,
+          "text": "Zones6"
+        }
+      ]
+    },
+    {
+      "w": 1280,
+      "h": 800,
+      "theme": "light",
+      "route": "/#/blob",
+      "shot": null,
+      "portTop": 242,
+      "portBottom": 672,
+      "footTop": 672,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+      "cutRow": {
+        "top": 650,
+        "bottom": 696,
+        "text": "Warp0.35",
+        "visiblePx": 22
+      },
+      "rows": [
+        {
+          "top": 255,
+          "bottom": 286,
+          "text": "Geometry"
+        },
+        {
+          "top": 292,
+          "bottom": 337,
+          "text": "Body radius0.220"
+        },
+        {
+          "top": 343,
+          "bottom": 388,
+          "text": "Satellites3"
+        },
+        {
+          "top": 394,
+          "bottom": 440,
+          "text": "Satellite radius0.082"
+        },
+        {
+          "top": 446,
+          "bottom": 491,
+          "text": "Orbit radius0.170"
+        },
+        {
+          "top": 497,
+          "bottom": 543,
+          "text": "Eccentricity0.05"
+        },
+        {
+          "top": 563,
+          "bottom": 593,
+          "text": "Membrane"
+        },
+        {
+          "top": 599,
+          "bottom": 644,
+          "text": "Smoothness0.050"
+        },
+        {
+          "top": 650,
+          "bottom": 696,
+          "text": "Warp0.35"
+        },
+        {
+          "top": 702,
+          "bottom": 747,
+          "text": "Noise amplitude0.038"
+        },
+        {
+          "top": 753,
+          "bottom": 799,
+          "text": "Noise frequency3.5"
+        },
+        {
+          "top": 805,
+          "bottom": 850,
+          "text": "Noise speed0.080"
+        }
+      ]
+    },
+    {
+      "w": 1280,
+      "h": 800,
+      "theme": "light",
+      "route": "/#/atmosphere",
+      "shot": null,
+      "portTop": 224,
+      "portBottom": 695,
+      "footTop": 695,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%)",
+      "cutRow": null,
+      "rows": [
+        {
+          "top": 237,
+          "bottom": 267,
+          "text": "Character"
+        },
+        {
+          "top": 473,
+          "bottom": 504,
+          "text": "Field"
+        },
+        {
+          "top": 510,
+          "bottom": 555,
+          "text": "Color energy0.76"
+        },
+        {
+          "top": 561,
+          "bottom": 607,
+          "text": "Noise0.50"
+        },
+        {
+          "top": 613,
+          "bottom": 658,
+          "text": "Zones6"
+        }
+      ]
+    },
+    {
+      "w": 1440,
+      "h": 900,
+      "theme": "dark",
+      "route": "/#/blob",
+      "shot": null,
+      "portTop": 245,
+      "portBottom": 676,
+      "footTop": 676,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+      "cutRow": {
+        "top": 657,
+        "bottom": 703,
+        "text": "Warp0.35",
+        "visiblePx": 19
+      },
+      "rows": [
+        {
+          "top": 258,
+          "bottom": 289,
+          "text": "Geometry"
+        },
+        {
+          "top": 295,
+          "bottom": 341,
+          "text": "Body radius0.220"
+        },
+        {
+          "top": 347,
+          "bottom": 393,
+          "text": "Satellites3"
+        },
+        {
+          "top": 399,
+          "bottom": 445,
+          "text": "Satellite radius0.082"
+        },
+        {
+          "top": 451,
+          "bottom": 497,
+          "text": "Orbit radius0.170"
+        },
+        {
+          "top": 503,
+          "bottom": 549,
+          "text": "Eccentricity0.05"
+        },
+        {
+          "top": 569,
+          "bottom": 599,
+          "text": "Membrane"
+        },
+        {
+          "top": 605,
+          "bottom": 651,
+          "text": "Smoothness0.050"
+        },
+        {
+          "top": 657,
+          "bottom": 703,
+          "text": "Warp0.35"
+        },
+        {
+          "top": 709,
+          "bottom": 755,
+          "text": "Noise amplitude0.038"
+        },
+        {
+          "top": 761,
+          "bottom": 807,
+          "text": "Noise frequency3.5"
+        },
+        {
+          "top": 813,
+          "bottom": 859,
+          "text": "Noise speed0.080"
+        }
+      ]
+    },
+    {
+      "w": 1440,
+      "h": 900,
+      "theme": "dark",
+      "route": "/#/atmosphere",
+      "shot": null,
+      "portTop": 227,
+      "portBottom": 700,
+      "footTop": 700,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%)",
+      "cutRow": null,
+      "rows": [
+        {
+          "top": 240,
+          "bottom": 270,
+          "text": "Character"
+        },
+        {
+          "top": 476,
+          "bottom": 507,
+          "text": "Field"
+        },
+        {
+          "top": 513,
+          "bottom": 559,
+          "text": "Color energy0.76"
+        },
+        {
+          "top": 565,
+          "bottom": 611,
+          "text": "Noise0.50"
+        },
+        {
+          "top": 617,
+          "bottom": 663,
+          "text": "Zones6"
+        }
+      ]
+    },
+    {
+      "w": 1280,
+      "h": 800,
+      "theme": "dark",
+      "route": "/#/blob",
+      "shot": null,
+      "portTop": 242,
+      "portBottom": 672,
+      "footTop": 672,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+      "cutRow": {
+        "top": 650,
+        "bottom": 696,
+        "text": "Warp0.35",
+        "visiblePx": 22
+      },
+      "rows": [
+        {
+          "top": 255,
+          "bottom": 286,
+          "text": "Geometry"
+        },
+        {
+          "top": 292,
+          "bottom": 337,
+          "text": "Body radius0.220"
+        },
+        {
+          "top": 343,
+          "bottom": 388,
+          "text": "Satellites3"
+        },
+        {
+          "top": 394,
+          "bottom": 440,
+          "text": "Satellite radius0.082"
+        },
+        {
+          "top": 446,
+          "bottom": 491,
+          "text": "Orbit radius0.170"
+        },
+        {
+          "top": 497,
+          "bottom": 543,
+          "text": "Eccentricity0.05"
+        },
+        {
+          "top": 563,
+          "bottom": 593,
+          "text": "Membrane"
+        },
+        {
+          "top": 599,
+          "bottom": 644,
+          "text": "Smoothness0.050"
+        },
+        {
+          "top": 650,
+          "bottom": 696,
+          "text": "Warp0.35"
+        },
+        {
+          "top": 702,
+          "bottom": 747,
+          "text": "Noise amplitude0.038"
+        },
+        {
+          "top": 753,
+          "bottom": 799,
+          "text": "Noise frequency3.5"
+        },
+        {
+          "top": 805,
+          "bottom": 850,
+          "text": "Noise speed0.080"
+        }
+      ]
+    },
+    {
+      "w": 1280,
+      "h": 800,
+      "theme": "dark",
+      "route": "/#/atmosphere",
+      "shot": null,
+      "portTop": 224,
+      "portBottom": 695,
+      "footTop": 695,
+      "fadeWidth": "1.5rem",
+      "fadeEnd": "",
+      "maskImage": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%)",
+      "cutRow": null,
+      "rows": [
+        {
+          "top": 237,
+          "bottom": 267,
+          "text": "Character"
+        },
+        {
+          "top": 473,
+          "bottom": 504,
+          "text": "Field"
+        },
+        {
+          "top": 510,
+          "bottom": 555,
+          "text": "Color energy0.76"
+        },
+        {
+          "top": 561,
+          "bottom": 607,
+          "text": "Noise0.50"
+        },
+        {
+          "top": 613,
+          "bottom": 658,
+          "text": "Zones6"
+        }
+      ]
+    }
+  ],
+  "mix": [
+    {
+      "w": 1440,
+      "theme": "light",
+      "shot": null,
+      "caption": null,
+      "emptyState": "Saved palettesNo saved palettes yet.Save a palette, then pour it or its colors in here.",
+      "savedRows": 0
+    },
+    {
+      "w": 1440,
+      "theme": "dark",
+      "shot": null,
+      "caption": null,
+      "emptyState": "Saved palettesNo saved palettes yet.Save a palette, then pour it or its colors in here.",
+      "savedRows": 0
+    }
+  ]
+}

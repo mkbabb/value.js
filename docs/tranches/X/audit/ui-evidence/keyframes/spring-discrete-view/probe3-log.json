@@ -1,0 +1,132 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 27,
+ "steps": [
+  {
+   "n": "sweep-rest",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@670,100",
+    "relative.flex.items-center@670,100",
+    "transport-row.flex.items-center@605,230",
+    "dock-layer.dock-layer--full.is-active@605,230",
+    "dock-layers@605,230"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Play animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Play animation vis=true op=1"
+   ]
+  },
+  {
+   "n": "entry-rest",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@679,82",
+    "relative.flex.items-center@679,82",
+    "transport-row.flex.items-center@614,212",
+    "dock-layer.dock-layer--full.is-active@614,212",
+    "dock-layers@614,212"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Pause animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Pause animation vis=true op=1"
+   ]
+  },
+  {
+   "n": "after-dismiss-100ms",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@765,82",
+    "relative.flex.items-center@765,82",
+    "transport-row.flex.items-center@700,212",
+    "dock-layer.dock-layer--full.is-leaving@697,46",
+    "dock-layers@700,40"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Pause animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Pause animation vis=true op=1"
+   ]
+  },
+  {
+   "n": "after-dismiss-600ms",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@757,82",
+    "relative.flex.items-center@757,82",
+    "transport-row.flex.items-center@692,212",
+    "dock-layer.dock-layer--full@689,62",
+    "dock-layers@700,40"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Pause animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Pause animation vis=true op=1"
+   ]
+  },
+  {
+   "n": "after-dismiss-2000ms",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@757,82",
+    "relative.flex.items-center@757,82",
+    "transport-row.flex.items-center@692,212",
+    "dock-layer.dock-layer--full@689,62",
+    "dock-layers@700,40"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Pause animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Pause animation vis=true op=1"
+   ]
+  },
+  {
+   "n": "after-dismiss-4000ms",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@757,82",
+    "relative.flex.items-center@757,82",
+    "transport-row.flex.items-center@692,212",
+    "dock-layer.dock-layer--full@689,62",
+    "dock-layers@700,40"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Pause animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Pause animation vis=true op=1"
+   ]
+  },
+  {
+   "n": "hover-orb",
+   "chain": [
+    "dock-trigger.dock-select-trigger.dock-label@679,82",
+    "relative.flex.items-center@679,82",
+    "transport-row.flex.items-center@614,212",
+    "dock-layer.dock-layer--full.is-active@614,212",
+    "dock-layers@614,212"
+   ],
+   "btns": [
+    "Remove the keyframe at 0% vis=true op=1",
+    "Copy to clipboard vis=true op=1",
+    "Pause animation vis=true op=1",
+    "Select animation vis=true op=1",
+    "Reset animation vis=true op=1",
+    "Pause animation vis=true op=1"
+   ]
+  }
+ ]
+}

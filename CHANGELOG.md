@@ -1,5 +1,111 @@
 # Changelog
 
+## [Unreleased] — 2026-09-24
+
+### Added
+
+- `./css`: `collectAnimationOptions` keeps the author's time unit: each `CSSAnimationOptions` row gains `durationUnit` / `delayUnit` (`CssTimeUnit`, `"s" | "ms"`, lowercased; css-values-4 §7.3) beside a `duration` / `delay` read from a number, so a consumer can write `250ms` and `0.25s` back as authored (X.KF.W13X `.r3res2f`, UIA-KF-177). `duration` and `delay` are unchanged, still in seconds.
+- `./color`: `parseCssColor` and `serializeCssColor` (with the types they name: `CssColor`, `CssColorSpace`, `ParseResult`, `ParseIssue`) are published here too (X-W12U `.g2s2`). `parseCssColor` now runs on a `<color>`-rooted parser: the same BBNF grammar, `src/css/grammar/color.bbnf` compiled as a root of its own (entry `colorTop`, `src/css/bbnf/generated/color.js`). They are the same functions `./css` exports, which keeps both names. A bundle that imports only these two drops from 35,838 B gz (the whole `./css` grammar) to 17,728 B gz, from either subpath; a bundle of the whole `./css` grows from 42,868 to 49,918 B gz, because it now carries the colour parser beside the stylesheet parser.
+
+### Changed
+
+- Packaging: every `dist/subpaths/*.js` is now a re-export facade over shared chunks in `dist/` (the stylesheet grammar, the colour grammar, the shared math and colour action tables, and the colour, easing, math, transform, quantize and value areas, each its own chunk; `vite.library.ts`, `libraryCodeSplitting`). A consumer's bundler places code per module, so before this an eager import of any one `./css` name put the whole stylesheet grammar in the consumer's eager chunk; now an eager `parseCssColor` import from `./css` or `./color` leaves the stylesheet grammar in whichever lazy chunk uses it. `"sideEffects": false` is unchanged and was re-read against the emitted chunks: no chunk writes global state at load. The published import paths and export names are unchanged.
+
+### Fixed
+
+- `./css`: custom property names keep their authored case (css-variables-1 §2: `--MyVar` and `--myvar` are distinct declarations). `parseStylesheet`, `collectKeyframes`, `collectStyleRules` and `collectDeclarations` used to lowercase every declaration name, which merged differently-cased custom properties. Standard property names are still ASCII-lowercased. (X.P.W7.cp)
+- `./css`: `parseCssValue` / `parseCssValues` / `parseStylesheet` accept three valid forms they refused (X.P.W7 `.gap`, all in the BBNF grammar `src/css/grammar/value.bbnf`). **Adjacent functions** with no whitespace, `rotate(0)scale(1.3)` (css-syntax-3 §4; css-transforms-1 `<transform-list>`), read as the space list `rotate(0) scale(1.3)` reads. An **unquoted url**, `url(./x.svg)`, is one `<url-token>` (css-syntax-3 §4.3.6): a `url` call whose one argument is the url as authored (keyword `./x.svg`); a bad url such as `url(a b)`, which used to read as a two-item list, is now refused (§4.3.14). A **group inside a math function**, `calc(50% - (1em / 2))` (css-values-4 §10.1 `( <calc-sum> )`), is a call with the empty name (`name: ""`), serialized `( … )`; a bare `( … )` outside a math function is still refused.
+- `./css`: `parseCssValue` / `parseCssValues` / `parseStylesheet` accept three more valid forms (X.P.W7 `.gap2`, BBNF `src/css/grammar/value.bbnf`). **Grid line names**, `grid-template-columns: [rail] 1fr [end]` (css-grid-2 §7.2 `<line-names> = '[' <custom-ident>* ']'`): each block is one keyword spelled canonically (`[a b]`, `[]`); any other `[]` block (`[1px]`, `[a, b]`, `["a"]`) is still refused. The **empty `url()`** (css-syntax-3 §4.3.6, a `<url-token>` with empty contents) is a `url` call with no arguments, serialized `url()`. **`*` with no whitespace** inside a math function, `calc(1px*2)` (css-values-4 §10.1: only `+` and `-` need whitespace), reads as `calc(1px * 2)` does; `calc(1px+2px)` is still refused.
+- `./css`: `parseCssValue` / `parseCssValues` / `parseStylesheet` accept grid line names juxtaposed with no whitespace and identifiers with non-ASCII code points or escapes (X.P.W8 `.g`, BBNF `src/css/grammar/value.bbnf`). **Minified line names**, `grid-template-rows:[top]auto[stage]1fr[bottom]auto` and `[a]1fr[b]` (css-syntax-3 §4.3.1: `[` and `]` are tokens of their own; css-grid-2 §7.2 `<track-list>`), read as their spaced spellings do. **Identifiers** may hold any non-ASCII code point (`-zπ`, `[π]`; css-syntax-3 §4.2) and escapes (`\31st`, `\31 st`; §4.3.7, kept as authored). A named colour still matches ASCII case-insensitively only: `blac\u212A` (U+212A KELVIN SIGN) is a keyword, never `black` (css-values-4 §4.1). `[a]b` now reads as `[a] b`; `[a](b)`, `a[1px]` and a dangling `\` stay refused.
+- `./css`: a math function is checked as a calculation wherever it stands (X.P.W8 `.v`, BBNF `src/css/grammar/value.bbnf` + `src/css/bbnf/calc.ts`; css-values-4 §10): juxtaposed operands (`max(1deg 2deg)`), a dangling operator (`min(1px - )`), a wrong arity (`abs(1, 2)`, `round(nearest, 1px)`), a type error (`min(1px, 0Hz)`, `asin(1deg)`, `min(1%, 0)`), an unknown unit (`1dag`), a keyword that is no calculation constant (`calc(7px * up)`, `abs(none)`) and `fr` (css-grid-2 §7.2.4) are refused; `progress()` (css-values-5) is a math function. A body holding `var()`/`env()`/`attr()`/`if()`/`inherit()`/a custom function is not checked (css-variables-1 §3). `attr(data-x type(<length>))` and `image-set("a" type("image/avif"))` parse (`type()`, css-values-5 §7.7). A quoted `url("…" <modifier>*)` refuses a modifier named twice, a request modifier with a foreign argument and a number or string modifier (css-values-4 §4.5, css-values-5 §4.5.1). Comments between component values stand for nothing (css-syntax-3 §4.3.2): `auto /**/` → `auto`, `color: /* x */ red` is read. **CHANGES a value:** these refusals and acceptances are new.
+- `./css`: a value list's css-color-5 colour functions keep their signatures (X.P.W8 `.t`, BBNF `src/css/grammar/value.bbnf` `mixCall` + `src/css/bbnf/color5.ts`). `color-mix()` (css-color-5 §3) is refused when an item is not one colour with at most one percentage in [0, 100] (`red 150%`, `red -10%`, `red blue`), or its method is malformed or misplaced (`in srgb red, blue`, `red, blue, in srgb`, `in srgb longer hue`); `alpha()` needs `from <color> / <alpha>` (`alpha(from red)` and `alpha(from red / r)` are refused); `contrast-color()` takes one colour (`contrast-color(white max)` is refused). Each stays a call, its colours as authored and the method's keywords in their authored case; a call holding `var()` (or any arbitrary substitution function) is not checked (css-variables-1 §3).
+- `./css`: `serializeCssValue` / `serializeCssColor` write an sRGB colour with a channel outside rgb()'s [0, 255] as `color(srgb …)`: `color(srgb 0.2 0 10)` (never clamped, css-color-4 §10) serialized `rgb(51 0 2550)`, which css-color-4 §5.1 clamps when parsed — the round trip lost the colour (X.P.W8 `.t`).
+- `./css`: css-images-4's image functions (X.P.W8 `.i`, BBNF `src/css/grammar/value.bbnf` `typeCall` + `src/css/bbnf/image.ts`). `element( <id-selector> )` parses and keeps its selector as authored (`element(#a)`, `element(#\31 a)`); `element(a)` and `element(#1a)` are refused. A gradient is refused when its geometry, interpolation method or colour-stop list breaks css-images-4 §3 (`linear-gradient(top, red, blue)`, `linear-gradient(red, blue, lab)`, `radial-gradient(at top 0px, red, blue)`, `linear-gradient(red calc(50% + 30deg), blue)`, `radial-gradient(circle 10px 20px, red, blue)`); `image()` takes an optional tag, a source and a colour (`image(red, blue)` is refused); `image-set()` options are an image or string with at most one resolution and one `type()`. Each stays a call, its colours as computed before; a call holding `var()` is not checked.
+- `./css`: css-fonts-4 values (X.P.W8 `.f`, BBNF `src/css/grammar/value.bbnf` `identTerm` + `src/css/bbnf/value.ts` / `src/css/bbnf/palette.ts`). A **`<urange>`** (css-syntax-3 §7.1; `unicode-range`) parses and keeps its text as authored: `U+0025-00FF`, `u+26`, `U+4??`, `U+0-7F, U+0590-05FF` (each a keyword). A malformed one (`U+4?5`, `U+1234567`, `U+12-`), a start above the end (`U+00FF-0025`) or an end above U+10FFFF (`U+110000`, `U+??????`) is refused. **`palette-mix()`** (css-fonts-4 `font-palette`) is refused when its `<color-interpolation-method>` is malformed or misplaced (`palette-mix(oklab, …)`, `palette-mix(…, in oklab)`, `in oklch shorter`), an item is not one palette (`normal`, `light`, `dark`, a `<dashed-ident>`, a `palette-mix()`) with at most one percentage in [0, 100] (`dark -10%`, `dark 150%`), or the items are not comma-separated.
+- `./css`: `coerceToSyntax(source, "<custom-ident>")` matches only one css-syntax-3 identifier (X.P.W8 `.x`, BBNF `src/css/grammar/tokens.bbnf` `ident`; css-values-4 §4.2): a string (`"a"`), a delimiter (`*`, `+`, `<`, a lone `-`), a `[]` block (`[a]`) and a `<urange>` (`U+26`) are refused with `syntax_mismatch`, as are the CSS-wide keywords and `default`; non-ASCII and escaped identifiers (`é`, `\31 a`) are accepted.
+- `./css`: a custom property may hold the empty value (X.P.W8 `.e`; css-variables-1 §2, `<declaration-value>?`): `parseStylesheet` and the declaration reader accept `--x: ;`, `--x:;` and a comment-only `--x: /* c */ ;`, reading it as the space list of no components (type `CssEmpty` in `./value`, serialized `""`, so `--x: ;` round-trips); a standard property's empty value (`a: ;`) is still refused with `css_syntax`. BBNF `src/css/grammar/value.bbnf` `customTop`.
+- `./css`: a `;` inside a value is refused (X.P.W8 `.semi`, BBNF `src/css/grammar/value.bbnf`; UIA-KF-277). css-syntax-3 §5.4.6 ends a declaration at a top-level `;`, so one a value still holds stands inside a block — `transform: rotate(0;1deg)`, `@keyframes k { 0% { transform: translate(0;1px) } }`, `var(--a, 1px;2px)` — where no property's grammar reads it. `parseCssValue` / `parseCssValues` / `parseStylesheet` used to read it as an operator keyword and accept the sheet with no diagnostic; they now answer `css_syntax` naming the `;` (`actual: ";"`, its own span). A `;` inside a string or an unquoted url stays that token's text. **Narrows acceptance:** a custom property holding a `;` inside a block (`--x: f(a;b)`, valid as css-variables-1 `<declaration-value>`) is refused too (DIVERGENCE-LEDGER §19-S).
+- `./css`: a custom property's value may hold a `;` nested inside a `()`, `[]` or `{}` block, or inside a string (X.P.W8 `.cust2`, BBNF `src/css/grammar/value.bbnf` `customRaw` + `src/css/grammar/stylesheet.bbnf` `semiRun`; css-variables-1 §2 `<declaration-value>`). `a{--x:f(a;b)}`, `--x:[a;[b]]`, `--x:{a;b}` and `--x:"a;b"` parse, and such a value is kept as the raw token sequence it is, round-tripping as authored (`--x: f(a;b);`). A top-level `;` still ends the declaration (`--x:a;b`), brackets that do not pair are refused, and `.semi`'s refusals for every registered property stand. This lifts the custom-property narrowing `.semi` recorded (DIVERGENCE-LEDGER §19-S addendum 2026-10-15).
+- `./css`: css-values-5 `if()` parses again with its branches separated by `;` (X.P.W8 `.ifsemi`, BBNF `src/css/grammar/value.bbnf` `ifCall` + `src/css/bbnf/value.ts` `ifValue`; css-values-5 §5.1 `if( [ <if-branch> ; ]* <if-branch> ;? )`). `.semi` had refused the separator, so `if(supports(color: red): red; else: blue)` answered `css_syntax`; it now parses to the same call as before `.semi` and round-trips. The `;` is admitted only between `if()` branches (or after the last): one inside a branch's own blocks (`if(else: f(a;b))`), one before any branch and every other `;` in a value stay refused, naming the `;`. **Narrows acceptance:** an `if()` whose argument is not `<if-condition> : <declaration-value>?` branches (`if(foo)`, `if(red: a)`, a condition holding a comma) is refused with `expected: "<if()>"`; the condition is `else` or calls joined by `not` / `and` / `or` (DIVERGENCE-LEDGER §19-S addendum 2026-10-15 (b)).
+
+### Migration
+
+- `./easing`: since 4.0.0 the `timingFunctionDescriptions` table and the `bounce-in-ease` / `bounce-out-ease` / `-half` / `bounce-in-out-ease` curves are no longer exported (ruled V-A64, `docs/tranches/V/archive/ADDENDA.md`; `docs/tranches/V/CONSUMER-CUT.md` §1). Keep any description copy your UI renders, and any bounce curve besides `easeInBounce`, in your own code; express other curves as `CubicBezier(...)` or `linearEasing(...)`.
+
+## [4.1.0] — 2026-09-19
+
+The totality cut. 4.0.0's surface was not total on its own declared boundary: public `./css` entries
+threw a `TypeError` on ordinary strings, `./transform` returned values its own `.d.ts` forbade, and
+eight `easing()` names resolved to a bezier approximation of the curve they denote. 4.1.0 is one
+dated event that puts the cured surface and the eight-close SCI-1 debt in consumers' hands together.
+4.0.0 is immutable and stays so; no `4.0.1` was cut.
+
+### Added
+
+- `/color` gains **SCI-1**, the zero-alloc trio atlas asked for and keyframes had already
+  re-implemented: `sampleColorRamp(from, to, count, options)` (the perceptual ramp, in the `Result`
+  idiom instead of keyframes' `throw`), `mixColorsInto(from, to, progress, options, out)` (channels
+  then alpha into a caller-owned `Float64Array`), and
+  `toRgba8Into(color, out, offset, options)` (four bytes at `out[offset…offset+3]`, the `ImageData`
+  layout). Both `…Into` forms allocate nothing on the success path when no space conversion is
+  needed, and refuse a `none` channel rather than writing `NaN`.
+- `/color` gains `toHex(color, options)` — `#rrggbb`, or `#rrggbbaa` when alpha is not fully
+  opaque — retiring two measured hand-rolled implementations.
+- `/easing` gains `easingNames()`: the 40-name catalog as data, frozen and reference-stable.
+
+### Changed
+
+- **`easing()` is memoised.** Every catalog name now hands out ONE `EasingFunction` reference for
+  the process lifetime; the bezier arm previously built a fresh closure per call, so 21 of the 40
+  names failed `easing(n).value === easing(n).value`.
+- **The eight analytic in/out arms are restored** — `ease-in-sine`, `ease-out-sine`,
+  `ease-in-quad`, `ease-out-quad`, `ease-in-cubic`, `ease-in-expo`, `ease-in-circ`,
+  `ease-out-circ` resolve to the closed-form curve their name denotes instead of the cubic-bezier
+  approximation they have carried since 0.13.0. **This changes their shape**: the drift being
+  removed was 8 of 22 names, max |Δ| **0.192** on `ease-out-circ`, measured over 1001 samples, and
+  the restored arms now match 0.13.0 with a worst residual of **4.563e-6** across all 22. Declared
+  to consumers before the tag, not discovered in their visual diff. `bezierPresets` keeps all 30
+  keys unchanged.
+- **The runtime dependency set is empty** (AM-13). `@mkbabb/glass-ui` moves to `devDependencies` —
+  it is a `demo/` dependency, measured in 84 demo files and **0** files under `src/` — and
+  `@mkbabb/keyframes.js` is **removed outright**, measured at 0 occurrences anywhere outside the
+  lockfile. That entry also closed an install-time cycle: keyframes.js exact-pins
+  `@mkbabb/value.js`, so installing value.js installed a copy of value.js.
+  **Tombstone, backfilled:** the [4.0.0] entry below never recorded that it shipped these two as
+  runtime dependencies of a library whose published `files` are `dist/` alone.
+- Types a subpath returns are now declared by the module that returns them:
+  `./value`, `./quantize` and `./easing` publish their own colour / `Result` vocabulary instead of
+  leaving it to a hand-kept list in the subpath barrel. Bare `declare` statements in the emitted
+  `.d.ts` fall from 33 at 4.0.0 to 7.
+
+### Fixed
+
+- No public `./css` entry throws on a string. Empty-body and whitespace-body colour functions
+  (`oklch()`, `rgb()`, `hsl()`, `lab()`, `color()`, `rgba()`, `lch()`, `oklab()`, `hwb()`) return a
+  typed failure instead of `TypeError: Cannot read properties of undefined`.
+- Prototype-reachable lookup tables are prototype-free: `easing("constructor")` and the named-colour
+  and grammar tables no longer resolve an `Object.prototype` key.
+- `./transform` is total over malformed path text: `PathGeometry` accepts drawing commands before a
+  `moveto`, arcs tokenize positionally (SVG 1.1 §8.3.9, what SVGO/Figma/Illustrator emit), truncated
+  command runs are rejected rather than silently truncated, and `decomposeMatrix3D` returns `null`
+  for a singular matrix.
+- `./math` states and enforces one precondition policy; a mis-sized `lerpArray` buffer raises a
+  named `RangeError` instead of writing `NaN` frames.
+- `serializeCssValue` is published on `./css` and answers in a `Result`.
+
+### Removed
+
+- The unused transform matrix family — `decomposeMatrix2D`/`3D`, `recomposeMatrix2D`/`3D`,
+  `interpolateDecomposed`, `slerp` — against a measured zero-consumer census. No shim and no
+  forwarding export stands in its place. `PathGeometry`, `getTotalLength` and `getPointAtLength` are
+  preserved: they are the measured keyframes MorphSVG seam.
+
+### Declined, permanently
+
+- `sampleBezier` — measured zero demand.
+- `resolveCssColor` — declined with its runnable second-consumer re-trigger preserved.
+- `colorScale` / `sampleToSVGPath` — fifteen months of proposal, zero consumers.
+
 ## [4.0.0] — 2026-07-16
 
 The capability cut. Version 4 removes the omnibus package root and publishes exactly seven explicit entries:

@@ -1,0 +1,10 @@
+GREEN KFA-131 home at rest: die still, no class, no resident layer
+GREEN KFA-131 /cube playing class + will-change
+GREEN KFA-131 paused drops the class
+RED   KFA-131 resumed restores the class
+RED   MPEU cell edit paints while paused
+RED   MPEU reset paints while paused
+GREEN MPEU edit does not resume
+GREEN no page errors
+{"home":{"playingClass":false,"willChange":"auto","transport":["Pause the title animation","Play animation"]},"cube":{"playingClass":true,"willChange":"transform","transport":["Pause animation"]},"paused":{"playingClass":false,"willChange":"auto","transport":["Play animation"]},"cell":{"d":1,"t":["Play animation"]},"reset":{"d":1},"resumed":{"playingClass":false,"willChange":"auto","transport":["Play animation"]},"errors":[],"loadStart":"87.45","loadEnd":"80.10"}
+EXIT=0

@@ -1,0 +1,38 @@
+# parseCssColor.noproto.cpuprofile — 5154 ms sampled (idle excluded)
+## by layer
+ 49.4% parse-that core
+ 17.3% value.js actions (src/css/bbnf)
+ 15.5% regex engine (irregexp code)
+  6.5% value.js stylesheet/css layer
+  4.9% bbnf-lang output
+  1.8% GC
+  1.7% value.js colour/value model
+  1.6% V8 (program: runtime/regex/IC)
+  0.0% bundle other
+  1.4% node/harness JS (loader, script)
+## top 25 self
+  8.3% (anon) · parse-that/src/parse/lazy.ts:20   [parse-that core]
+  7.5% regexParser · parse-that/src/parse/leaf.ts:190   [parse-that core]
+  5.7% failure · src/css/result.ts:27   [value.js stylesheet/css layer]
+  5.6% map · parse-that/src/parse/parser.ts:211   [parse-that core]
+  5.3% next · parse-that/src/parse/parser.ts:274   [parse-that core]
+  4.4% allParser · parse-that/src/parse/leaf.ts:113   [parse-that core]
+  4.3% tokenQuantity · src/css/bbnf/math.ts:38   [value.js actions (src/css/bbnf)]
+  4.2% mergeErrorState · parse-that/src/parse/utils.ts:37   [parse-that core]
+  3.8% regexSpanParser · parse-that/src/parse/span.ts:46   [parse-that core]
+  3.7% anyParser · parse-that/src/parse/leaf.ts:31   [parse-that core]
+  3.0% reset · parse-that/src/parse/parser.ts:41   [parse-that core]
+  2.5% dispatchParser · bbnf-lang/src/generate.ts:433   [bbnf-lang output]
+  2.1% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?% ·    [regex engine (irregexp code)]
+  1.8% dispatchParser · bbnf-lang/src/generate.ts:398   [bbnf-lang output]
+  1.8% (garbage collector) ·    [GC]
+  1.7% quantity · src/css/bbnf/math.ts:23   [value.js actions (src/css/bbnf)]
+  1.7% wrapParser · parse-that/src/parse/parser.ts:459   [parse-that core]
+  1.6% (program) ·    [V8 (program: runtime/regex/IC)]
+  1.5% RegExp: [+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\]) ·    [regex engine (irregexp code)]
+  1.4% RegExp: ^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$ ·    [regex engine (irregexp code)]
+  1.2% walk · src/css/bbnf/color.ts:169   [value.js actions (src/css/bbnf)]
+  1.2% RegExp: [a-zA-Z][\w-]*(?![\w(-]) ·    [regex engine (irregexp code)]
+  1.2% keywordColor · src/css/bbnf/color.ts:133   [value.js actions (src/css/bbnf)]
+  1.1% createColor · src/color/model.ts:78   [value.js colour/value model]
+  1.1% build · src/css/bbnf/color.ts:107   [value.js actions (src/css/bbnf)]

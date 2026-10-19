@@ -12,8 +12,8 @@
 
 import { onMounted, onUnmounted, ref, watch, nextTick, type WatchSource } from "vue";
 import { PICKER_CHANNELS } from "../../../../color-session/picker-color";
-import { useTouchGate } from "@mkbabb/glass-ui";
-import type { usePointerDebug } from "../../../composables/usePointerDebug";
+import { useTouchGate } from "@mkbabb/glass-ui/dom";
+import type { usePointerDebug } from "../../../debug/usePointerDebug";
 
 type PointerDebug = ReturnType<typeof usePointerDebug>;
 

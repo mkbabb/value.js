@@ -1,0 +1,66 @@
+
+Running 3 tests using 2 workers
+
+[1/3] [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors
+[2/3] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+  1) [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 32
+
+    - Array []
+    + Array [
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    +   "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    + ]
+
+      265 |                 (message) => !message.includes("favicon") && !message.includes("404"),
+      266 |             ),
+    > 267 |         ).toEqual([]);
+          |           ^
+      268 |     });
+      269 |
+      270 |     test("appendix proofs, proof math, code listings, and bibliography render canonically", async ({ page }) => {
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fourier-head/web/e2e/paper-performance.spec.ts:267:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/paper-performance-Paper-pe-1f4a0--and-logs-no-browser-errors-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/paper-performance-Paper-pe-1f4a0--and-logs-no-browser-errors-chromium/error-context.md
+
+
+[3/3] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+  1 failed
+    [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors 
+  2 passed (20.4s)

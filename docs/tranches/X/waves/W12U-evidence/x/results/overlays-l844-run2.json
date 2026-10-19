@@ -1,0 +1,970 @@
+[
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "palettes-card-menu",
+  "m": {
+   "hash": "#/palettes",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 1748,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 4,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "menu",
+     "t": 489,
+     "b": 723,
+     "l": 581,
+     "r": 773,
+     "h": 234,
+     "sh": 258,
+     "ch": 232,
+     "oy": "auto",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": []
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "palettes-delete-all",
+  "m": {
+   "hash": "#/palettes",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 1748,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 100.3,
+     "b": 289.7,
+     "l": 166,
+     "r": 678,
+     "h": 189.4,
+     "sh": 187,
+     "ch": 187,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/400 Delete all saved pal"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "browse-card-menu",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 2338,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 8,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "menu",
+     "t": 58,
+     "b": 292,
+     "l": 581,
+     "r": 773,
+     "h": 234,
+     "sh": 464,
+     "ch": 232,
+     "oy": "auto",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": []
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "browse-tag-edit",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 1285,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 26,
+    "of": 44,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:243x34",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Search your palettes:295x34",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 14
+   },
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": -187.4,
+     "b": -93.7,
+     "l": 0,
+     "r": 208,
+     "h": 93.7,
+     "sh": 92,
+     "ch": 92,
+     "oy": "hidden",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 32.704px/400 Browse",
+    "H2 32.704px/400 My Palettes6 (6 save"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "browse-versions",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 2878,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 4,
+    "list": []
+   },
+   "minFs": 11,
+   "at11": {
+    "span.text-micro.font-medium": 3,
+    "span.text-micro.text-muted-foreground": 3,
+    "div.mt-1.text-micro": 3
+   },
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 1984.8,
+     "b": 2549.3,
+     "l": 0,
+     "r": 380,
+     "h": 564.4,
+     "sh": 562,
+     "ch": 562,
+     "oy": "visible",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/500 Version History"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "browse-flag-report",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 2337,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 8,
+    "list": []
+   },
+   "minFs": 14.91,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": -59.7,
+     "b": 449.7,
+     "l": 198,
+     "r": 646,
+     "h": 509.4,
+     "sh": 507,
+     "ch": 507,
+     "oy": "visible",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/500 Report Palette"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "dock-profile-menu",
+  "m": {
+   "hash": "#/",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 8511,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 1,
+    "of": 8,
+    "list": [
+     "@mbabb:55x19"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "p.text-micro.italic": 1
+   },
+   "dialogs": [
+    {
+     "role": "menu",
+     "t": 69,
+     "b": 303,
+     "l": 262,
+     "r": 488.6,
+     "h": 234,
+     "sh": 443,
+     "ch": 232,
+     "oy": "auto",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": []
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "dock-slug-edit",
+  "m": {
+   "hash": "#/",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 631,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 9,
+    "of": 13,
+    "list": [
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Select color space:70x37"
+    ]
+   },
+   "minFs": 10.648,
+   "at11": {
+    "mn": 1
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Home",
+    "H3 32.704px/400 92.0%,88.8,20.0",
+    "H2 32.704px/400 About the color spac",
+    "H2 20.352px/600 Basic Information",
+    "H2 20.352px/600 Components",
+    "H2 20.352px/600 Key Properties"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "migrate-dialog",
+  "m": {
+   "hash": "#/",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 8511,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 3,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 69.4,
+     "b": 320.6,
+     "l": 230,
+     "r": 614,
+     "h": 251.1,
+     "sh": 249,
+     "ch": 249,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/500 What about your pale"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "dock-color-input",
+  "unreached": "locator.click: Timeout 30000ms exceeded."
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "browse-plate-error",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 1196,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 10,
+    "of": 20,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:243x34",
+     "Search your palettes:295x34",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 32.704px/400 Browse",
+    "H2 32.704px/400 My Palettes6 (6 save"
+   ]
+  },
+  "text": "BROWSE\n\nBrowse view\n\nBrowse\n\nDiscover palettes from the community.\n\nCouldn't load palettes.\n\nFailed to load palettes: Internal Server Error\n\nRetry\nMy Palettes6\n"
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "id": "browse-plate-slow",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 1196,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 10,
+    "of": 19,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:243x34",
+     "Search your palettes:295x34",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 32.704px/400 Browse",
+    "H2 32.704px/400 My Palettes6 (6 save"
+   ]
+  },
+  "text": "BROWSE\n\nBrowse view\n\nBrowse\n\nDiscover palettes from the community.\n\nMy Palettes6\n(6 saved)\n\nSave, organize, and share your colors.\n\nStart a new palette\nA Long S"
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "palettes-card-menu",
+  "m": {
+   "hash": "#/palettes",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 1748,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 4,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "menu",
+     "t": 489,
+     "b": 723,
+     "l": 581,
+     "r": 773,
+     "h": 234,
+     "sh": 258,
+     "ch": 232,
+     "oy": "auto",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": []
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "palettes-delete-all",
+  "m": {
+   "hash": "#/palettes",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 1748,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 100.3,
+     "b": 289.7,
+     "l": 166,
+     "r": 678,
+     "h": 189.4,
+     "sh": 187,
+     "ch": 187,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/400 Delete all saved pal"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "browse-card-menu",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 2338,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 8,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "menu",
+     "t": 57,
+     "b": 291,
+     "l": 581,
+     "r": 773,
+     "h": 234,
+     "sh": 464,
+     "ch": 232,
+     "oy": "auto",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": []
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "browse-tag-edit",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 1285,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 26,
+    "of": 44,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:243x34",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Show all 2 tags:25x18",
+     "3 votes, click to vote:39x25",
+     "Search your palettes:295x34",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 14
+   },
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": -187.4,
+     "b": -93.7,
+     "l": 0,
+     "r": 208,
+     "h": 93.7,
+     "sh": 92,
+     "ch": 92,
+     "oy": "hidden",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 32.704px/400 Browse",
+    "H2 32.704px/400 My Palettes6 (6 save"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "browse-versions",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 2878,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 4,
+    "list": []
+   },
+   "minFs": 11,
+   "at11": {
+    "span.text-micro.font-medium": 3,
+    "span.text-micro.text-muted-foreground": 3,
+    "div.mt-1.text-micro": 3
+   },
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 1984.3,
+     "b": 2548.8,
+     "l": 0,
+     "r": 380,
+     "h": 564.4,
+     "sh": 562,
+     "ch": 562,
+     "oy": "visible",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/500 Version History"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "browse-flag-report",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 2337,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 8,
+    "list": []
+   },
+   "minFs": 14.91,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": -59.7,
+     "b": 449.7,
+     "l": 198,
+     "r": 646,
+     "h": 509.4,
+     "sh": 507,
+     "ch": 507,
+     "oy": "visible",
+     "clipV": true,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/500 Report Palette"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "dock-profile-menu",
+  "m": {
+   "hash": "#/",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 8511,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 1,
+    "of": 8,
+    "list": [
+     "@mbabb:55x19"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "p.text-micro.italic": 1
+   },
+   "dialogs": [
+    {
+     "role": "menu",
+     "t": 69,
+     "b": 303,
+     "l": 262,
+     "r": 488.6,
+     "h": 234,
+     "sh": 443,
+     "ch": 232,
+     "oy": "auto",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": []
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "dock-slug-edit",
+  "m": {
+   "hash": "#/",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 631,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 9,
+    "of": 13,
+    "list": [
+     "l channel:32x44",
+     "a channel:32x44",
+     "b channel:32x44",
+     "alpha channel:32x44",
+     "L channel:12x24",
+     "A channel:12x24",
+     "B channel:12x24",
+     "ALPHA channel:12x24",
+     "Select color space:70x37"
+    ]
+   },
+   "minFs": 10.648,
+   "at11": {
+    "mn": 1
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Home",
+    "H3 32.704px/400 92.0%,88.8,20.0",
+    "H2 32.704px/400 About the color spac",
+    "H2 20.352px/600 Basic Information",
+    "H2 20.352px/600 Components",
+    "H2 20.352px/600 Key Properties"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "migrate-dialog",
+  "m": {
+   "hash": "#/",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 8511,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 3,
+    "list": []
+   },
+   "minFs": 13.1324,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 69.4,
+     "b": 320.6,
+     "l": 230,
+     "r": 614,
+     "h": 251.1,
+     "sh": 249,
+     "ch": 249,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/500 What about your pale"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "dock-color-input",
+  "unreached": "locator.click: Timeout 30000ms exceeded."
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "browse-plate-error",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 1196,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 10,
+    "of": 20,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:243x34",
+     "Search your palettes:295x34",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 32.704px/400 Browse",
+    "H2 32.704px/400 My Palettes6 (6 save"
+   ]
+  },
+  "text": "BROWSE\n\nBrowse view\n\nBrowse\n\nDiscover palettes from the community.\n\nCouldn't load palettes.\n\nFailed to load palettes: Internal Server Error\n\nRetry\nMy Palettes6\n"
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "id": "browse-plate-slow",
+  "m": {
+   "hash": "#/browse",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 1196,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 10,
+    "of": 19,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search palettes...:243x34",
+     "Search your palettes:295x34",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18",
+     "Show all 2 tags:25x18"
+    ]
+   },
+   "minFs": 11,
+   "at11": {
+    "span.palette-meta__band.palette-meta__band-0": 6
+   },
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Browse",
+    "H2 32.704px/400 Browse",
+    "H2 32.704px/400 My Palettes6 (6 save"
+   ]
+  },
+  "text": "BROWSE\n\nBrowse view\n\nBrowse\n\nDiscover palettes from the community.\n\nMy Palettes6\n(6 saved)\n\nSave, organize, and share your colors.\n\nStart a new palette\nA Long S"
+ }
+]

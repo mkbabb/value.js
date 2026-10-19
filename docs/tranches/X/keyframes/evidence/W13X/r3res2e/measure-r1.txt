@@ -1,0 +1,19 @@
+SERVED MODEL: claude-opus-5-5
+run 1 · kf HEAD 8bf24249 · 2026-10-16T07:18:18Z
+$ git grep -n "litFor\|--lit\|--spec-x\|--spec-y\|--veil-angle\|useCubeRelit\|faceLit" -- demo/scenes/cube ":!*.md"
+       0
+$ git grep -c "onRender\|GROUP_PAINTS_KEY" -- demo/scenes/cube
+       0
+$ git grep -n requestAnimationFrame -- demo/scenes/cube
+demo/scenes/cube/useCubeDemo.ts:163:            requestAnimationFrame(() => {
+$ git grep -n "it(\|not.toMatch" test/demo/scenes/cube-scene.test.ts | head
+test/demo/scenes/cube-scene.test.ts:46:        expect(css).not.toMatch(/gradient\(/);
+test/demo/scenes/cube-scene.test.ts:47:        expect(css).not.toMatch(/box-shadow/);
+test/demo/scenes/cube-scene.test.ts:48:        expect(css).not.toMatch(/face-lacquer|face-relit|--lit\b/);
+test/demo/scenes/cube-scene.test.ts:49:        expect(vue).not.toMatch(/face-lacquer|face-relit|--lit\b|faceLit|useCubeRelit/);
+test/demo/scenes/cube-scene.test.ts:60:        expect(vue).not.toMatch(/--face-step/);
+$ git log -1 --format="%h %ci" e8144b0c ; 73fc7b07
+e8144b0c 2026-10-06 18:44:32 -0400
+73fc7b07 2026-10-08 21:01:59 -0400
+$ git merge-base --is-ancestor e8144b0c 73fc7b07 && echo ancestor
+ancestor

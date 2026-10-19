@@ -1,0 +1,5246 @@
+[
+ {
+  "tag": "v360",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 4118,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:186x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 25.888px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 360,
+   "vh": 780,
+   "dark": false,
+   "docSW": 360,
+   "docSH": 4094,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 265.3,
+     "b": 514.7,
+     "l": 20,
+     "r": 340,
+     "h": 249.3,
+     "sh": 247,
+     "ch": 247,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "v360",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:144x26",
+     "Search color names:238x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 25.888px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "v360",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 1999,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 1999,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "v360",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 4333,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 4028,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 4056,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "v360",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 360,
+   "vh": 815,
+   "dark": false,
+   "docSW": 376,
+   "docSH": 815,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 25.888px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 360,
+   "vh": 780,
+   "dark": false,
+   "docSW": 360,
+   "docSH": 806,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 285,
+     "b": 495,
+     "l": 20,
+     "r": 340,
+     "h": 210,
+     "sh": 208,
+     "ch": 208,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "v360",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "v360",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 4118,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:186x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 25.888px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 360,
+   "vh": 780,
+   "dark": true,
+   "docSW": 360,
+   "docSH": 4094,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 265.3,
+     "b": 514.7,
+     "l": 20,
+     "r": 340,
+     "h": 249.3,
+     "sh": 247,
+     "ch": 247,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "v360",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:144x26",
+     "Search color names:238x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 25.888px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "v360",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 1999,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 1999,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "v360",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 4333,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 4028,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 4056,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "v360",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 360,
+   "vh": 815,
+   "dark": true,
+   "docSW": 376,
+   "docSH": 815,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.116,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 25.888px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 360,
+   "vh": 780,
+   "dark": true,
+   "docSW": 360,
+   "docSH": 806,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 285,
+     "b": 495,
+     "l": 20,
+     "r": 340,
+     "h": 210,
+     "sh": 208,
+     "ch": 208,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "v360",
+  "theme": "dark",
+  "adminHits": 10
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 4118,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:216x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 25.888px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 390,
+   "vh": 844,
+   "dark": false,
+   "docSW": 390,
+   "docSH": 4118,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 307.1,
+     "b": 536.9,
+     "l": 20,
+     "r": 370,
+     "h": 229.7,
+     "sh": 228,
+     "ch": 228,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:159x26",
+     "Search color names:268x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 25.888px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 2000,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 2000,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 4338,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 4033,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 4060,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 390,
+   "vh": 879,
+   "dark": false,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 25.888px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 390,
+   "vh": 844,
+   "dark": false,
+   "docSW": 390,
+   "docSH": 844,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 329,
+     "b": 515,
+     "l": 20,
+     "r": 370,
+     "h": 186,
+     "sh": 184,
+     "ch": 184,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 4118,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:216x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 25.888px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 390,
+   "vh": 844,
+   "dark": true,
+   "docSW": 390,
+   "docSH": 4118,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 307.1,
+     "b": 536.9,
+     "l": 20,
+     "r": 370,
+     "h": 229.7,
+     "sh": 228,
+     "ch": 228,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:159x26",
+     "Search color names:268x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 25.888px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 2000,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 2000,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 25.888px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 4338,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 4033,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 4060,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 25.888px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 390,
+   "vh": 879,
+   "dark": true,
+   "docSW": 406,
+   "docSH": 879,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.179,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 25.888px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 390,
+   "vh": 844,
+   "dark": true,
+   "docSW": 390,
+   "docSH": 844,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 329,
+     "b": 515,
+     "l": 20,
+     "r": 370,
+     "h": 186,
+     "sh": 184,
+     "ch": 184,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "v390",
+  "theme": "dark",
+  "adminHits": 10
+ },
+ {
+  "tag": "v430",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 4119,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:256x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 26.08px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 430,
+   "vh": 932,
+   "dark": false,
+   "docSW": 430,
+   "docSH": 4119,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 363.1,
+     "b": 568.9,
+     "l": 20,
+     "r": 410,
+     "h": 205.7,
+     "sh": 204,
+     "ch": 204,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "v430",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:179x26",
+     "Search color names:308x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 26.08px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "v430",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 26.08px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 26.08px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "v430",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 4253,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 26.08px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 4040,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 26.08px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 4068,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 26.08px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "v430",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 430,
+   "vh": 967,
+   "dark": false,
+   "docSW": 446,
+   "docSH": 967,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 26.08px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 430,
+   "vh": 932,
+   "dark": false,
+   "docSW": 430,
+   "docSH": 932,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 373,
+     "b": 559,
+     "l": 20,
+     "r": 410,
+     "h": 186,
+     "sh": 184,
+     "ch": 184,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "v430",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "v430",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 4119,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:256x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 26.08px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 430,
+   "vh": 932,
+   "dark": true,
+   "docSW": 430,
+   "docSH": 4119,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 363.1,
+     "b": 568.9,
+     "l": 20,
+     "r": 410,
+     "h": 205.7,
+     "sh": 204,
+     "ch": 204,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "v430",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 3871,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:179x26",
+     "Search color names:308x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 26.08px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "v430",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 26.08px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 26.08px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "v430",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 4253,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 26.08px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 4040,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 26.08px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 4068,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 26.08px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "v430",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 430,
+   "vh": 967,
+   "dark": true,
+   "docSW": 446,
+   "docSH": 967,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.263,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 26.08px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 430,
+   "vh": 932,
+   "dark": true,
+   "docSW": 430,
+   "docSH": 932,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 373,
+     "b": 559,
+     "l": 20,
+     "r": 410,
+     "h": 186,
+     "sh": 184,
+     "ch": 184,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 20.352px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "v430",
+  "theme": "dark",
+  "adminHits": 10
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 4072,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:654x34"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 32.704px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 4073,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14.91,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 76.4,
+     "b": 313.6,
+     "l": 166,
+     "r": 678,
+     "h": 237.2,
+     "sh": 235,
+     "ch": 235,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 3886,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:377x32",
+     "Search color names:706x34"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 32.704px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 32.704px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 32.704px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 3532,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 32.704px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 3501,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 32.704px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 3530,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 32.704px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 844,
+   "vh": 397,
+   "dark": false,
+   "docSW": 860,
+   "docSH": 656,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 32.704px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 844,
+   "vh": 390,
+   "dark": false,
+   "docSW": 844,
+   "docSH": 656,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16.9988,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 99.5,
+     "b": 290.5,
+     "l": 166,
+     "r": 678,
+     "h": 190.9,
+     "sh": 189,
+     "ch": 189,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 4072,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 3,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:654x34"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 32.704px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 4073,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 14.91,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 76.4,
+     "b": 313.6,
+     "l": 166,
+     "r": 678,
+     "h": 237.2,
+     "sh": 235,
+     "ch": 235,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 3886,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 4,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:377x32",
+     "Search color names:706x34"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 32.704px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 32.704px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 2003,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 32.704px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 3532,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 32.704px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 3501,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 32.704px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 3530,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 32.704px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 844,
+   "vh": 397,
+   "dark": true,
+   "docSW": 860,
+   "docSH": 656,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 12,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 32.704px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 844,
+   "vh": 390,
+   "dark": true,
+   "docSW": 844,
+   "docSH": 656,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 0,
+    "of": 2,
+    "list": []
+   },
+   "minFs": 16.9988,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 99.5,
+     "b": 290.5,
+     "l": 166,
+     "r": 678,
+     "h": 190.9,
+     "sh": 189,
+     "ch": 189,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.6225px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "l844",
+  "theme": "dark",
+  "adminHits": 10
+ },
+ {
+  "tag": "t768",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 3286,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 93,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:601x22",
+     "Sort users:28x28",
+     "Prune empty:119x28",
+     "Refresh:88x28",
+     "Delete user a-very-long-unbreaka:28x28",
+     "Delete all palettes of user-1-fo:146x28",
+     "Delete user user-1-fox:28x28",
+     "Delete all palettes of user-2-fo:146x28",
+     "Delete user user-2-fox:28x28",
+     "Delete all palettes of user-3-fo:146x28",
+     "Delete user user-3-fox:28x28",
+     "Delete all palettes of user-4-fo:146x28",
+     "Delete user user-4-fox:28x28",
+     "Delete all palettes of user-5-fo:146x28",
+     "Delete user user-5-fox:28x28",
+     "Delete all palettes of user-6-fo:146x28",
+     "Delete user user-6-fox:28x28",
+     "Delete user user-7-fox:28x28",
+     "Delete all palettes of user-8-fo:146x28",
+     "Delete user user-8-fox:28x28",
+     "Delete all palettes of user-9-fo:146x28",
+     "Delete user user-9-fox:28x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 31.488px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 3286,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:58x40",
+     "Delete user:131x40"
+    ]
+   },
+   "minFs": 14.72,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 408.2,
+     "b": 615.8,
+     "l": 128,
+     "r": 640,
+     "h": 207.6,
+     "sh": 206,
+     "ch": 206,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.3615px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "t768",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 3829,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 98,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:339x32",
+     "Search color names:637x22",
+     "Approve color name A Very Long P:28x28",
+     "Reject color name A Very Long Pr:28x28",
+     "Approve color name Name 1:28x28",
+     "Reject color name Name 1:28x28",
+     "Approve color name Name 2:28x28",
+     "Reject color name Name 2:28x28",
+     "Approve color name Name 3:28x28",
+     "Reject color name Name 3:28x28",
+     "Approve color name Name 4:28x28",
+     "Reject color name Name 4:28x28",
+     "Approve color name Name 5:28x28",
+     "Reject color name Name 5:28x28",
+     "Approve color name Name 6:28x28",
+     "Reject color name Name 6:28x28",
+     "Approve color name Name 7:28x28",
+     "Reject color name Name 7:28x28",
+     "Approve color name Name 8:28x28",
+     "Reject color name Name 8:28x28",
+     "Approve color name Name 9:28x28",
+     "Reject color name Name 9:28x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 31.488px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "t768",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 1967,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 7,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Filter by action:128x36",
+     "Filter by target:213x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:46x36"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 31.488px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 1967,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 7,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Filter by action:128x36",
+     "Filter by target:213x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:47x37"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 31.488px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "t768",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 3495,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 45,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on A Very Long U:66x28",
+     "Delete palette A Very Long Unbre:28x28",
+     "Dismiss reports on Flagged 1:66x28",
+     "Delete palette Flagged 1:28x28",
+     "Dismiss reports on Flagged 2:66x28",
+     "Delete palette Flagged 2:28x28",
+     "Dismiss reports on Flagged 3:66x28",
+     "Delete palette Flagged 3:28x28",
+     "Dismiss reports on Flagged 4:66x28",
+     "Delete palette Flagged 4:28x28",
+     "Dismiss reports on Flagged 5:66x28",
+     "Delete palette Flagged 5:28x28",
+     "Dismiss reports on Flagged 6:66x28",
+     "Delete palette Flagged 6:28x28",
+     "Dismiss reports on Flagged 7:66x28",
+     "Delete palette Flagged 7:28x28",
+     "Dismiss reports on Flagged 8:66x28",
+     "Delete palette Flagged 8:28x28",
+     "Dismiss reports on Flagged 9:66x28",
+     "Delete palette Flagged 9:28x28",
+     "Dismiss reports on Flagged 10:66x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 31.488px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 3464,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 45,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:66x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:66x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:66x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:66x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:66x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:66x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:66x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:66x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:66x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:66x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:66x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 31.488px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 3493,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 45,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:66x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:66x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:66x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:66x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:66x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:66x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:66x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:66x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:66x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:66x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:66x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 31.488px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "t768",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 1024,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 16,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh tags:28x28",
+     "New tag name:505x36",
+     "New tag category:144x36",
+     "Create tag:21x28",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 31.488px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 768,
+   "vh": 1024,
+   "dark": false,
+   "docSW": 784,
+   "docSH": 1024,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:58x40",
+     "Delete tag:122x40"
+    ]
+   },
+   "minFs": 14.72,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 430.8,
+     "b": 593.2,
+     "l": 128,
+     "r": 640,
+     "h": 162.4,
+     "sh": 160,
+     "ch": 160,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.3615px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "t768",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "t768",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 3286,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 93,
+    "of": 133,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Search users:601x22",
+     "Sort users:28x28",
+     "Prune empty:119x28",
+     "Refresh:88x28",
+     "Delete user a-very-long-unbreaka:28x28",
+     "Delete all palettes of user-1-fo:146x28",
+     "Delete user user-1-fox:28x28",
+     "Delete all palettes of user-2-fo:146x28",
+     "Delete user user-2-fox:28x28",
+     "Delete all palettes of user-3-fo:146x28",
+     "Delete user user-3-fox:28x28",
+     "Delete all palettes of user-4-fo:146x28",
+     "Delete user user-4-fox:28x28",
+     "Delete all palettes of user-5-fo:146x28",
+     "Delete user user-5-fox:28x28",
+     "Delete all palettes of user-6-fo:146x28",
+     "Delete user user-6-fox:28x28",
+     "Delete user user-7-fox:28x28",
+     "Delete all palettes of user-8-fo:146x28",
+     "Delete user user-8-fox:28x28",
+     "Delete all palettes of user-9-fo:146x28",
+     "Delete user user-9-fox:28x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 31.488px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 3286,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:58x40",
+     "Delete user:131x40"
+    ]
+   },
+   "minFs": 14.72,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 408.2,
+     "b": 615.8,
+     "l": 128,
+     "r": 640,
+     "h": 207.6,
+     "sh": 206,
+     "ch": 206,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.3615px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "t768",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 3829,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 98,
+    "of": 98,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Approved · 47:339x32",
+     "Search color names:637x22",
+     "Approve color name A Very Long P:28x28",
+     "Reject color name A Very Long Pr:28x28",
+     "Approve color name Name 1:28x28",
+     "Reject color name Name 1:28x28",
+     "Approve color name Name 2:28x28",
+     "Reject color name Name 2:28x28",
+     "Approve color name Name 3:28x28",
+     "Reject color name Name 3:28x28",
+     "Approve color name Name 4:28x28",
+     "Reject color name Name 4:28x28",
+     "Approve color name Name 5:28x28",
+     "Reject color name Name 5:28x28",
+     "Approve color name Name 6:28x28",
+     "Reject color name Name 6:28x28",
+     "Approve color name Name 7:28x28",
+     "Reject color name Name 7:28x28",
+     "Approve color name Name 8:28x28",
+     "Reject color name Name 8:28x28",
+     "Approve color name Name 9:28x28",
+     "Reject color name Name 9:28x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 31.488px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "t768",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 1967,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 7,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Filter by action:128x36",
+     "Filter by target:213x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:46x36"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 31.488px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 1967,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 7,
+    "of": 7,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Filter by action:128x36",
+     "Filter by target:213x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:47x37"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 31.488px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "t768",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 3495,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 45,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on A Very Long U:66x28",
+     "Delete palette A Very Long Unbre:28x28",
+     "Dismiss reports on Flagged 1:66x28",
+     "Delete palette Flagged 1:28x28",
+     "Dismiss reports on Flagged 2:66x28",
+     "Delete palette Flagged 2:28x28",
+     "Dismiss reports on Flagged 3:66x28",
+     "Delete palette Flagged 3:28x28",
+     "Dismiss reports on Flagged 4:66x28",
+     "Delete palette Flagged 4:28x28",
+     "Dismiss reports on Flagged 5:66x28",
+     "Delete palette Flagged 5:28x28",
+     "Dismiss reports on Flagged 6:66x28",
+     "Delete palette Flagged 6:28x28",
+     "Dismiss reports on Flagged 7:66x28",
+     "Delete palette Flagged 7:28x28",
+     "Dismiss reports on Flagged 8:66x28",
+     "Delete palette Flagged 8:28x28",
+     "Dismiss reports on Flagged 9:66x28",
+     "Delete palette Flagged 9:28x28",
+     "Dismiss reports on Flagged 10:66x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 31.488px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 3464,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 45,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:66x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:66x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:66x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:66x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:66x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:66x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:66x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:66x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:66x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:66x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:66x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 31.488px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 3493,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 45,
+    "of": 45,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:66x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:66x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:66x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:66x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:66x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:66x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:66x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:66x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:66x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:66x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:66x28"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 31.488px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "t768",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 1024,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 16,
+    "of": 16,
+    "list": [
+     "Select view:56x32",
+     "Menu:40x32",
+     "Refresh tags:28x28",
+     "New tag name:505x36",
+     "New tag category:144x36",
+     "Create tag:21x28",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 12.9728,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 31.488px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 768,
+   "vh": 1024,
+   "dark": true,
+   "docSW": 784,
+   "docSH": 1024,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:58x40",
+     "Delete tag:122x40"
+    ]
+   },
+   "minFs": 14.72,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 430.8,
+     "b": 593.2,
+     "l": 128,
+     "r": 640,
+     "h": 162.4,
+     "sh": 160,
+     "ch": 160,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 21.3615px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "t768",
+  "theme": "dark",
+  "adminHits": 10
+ },
+ {
+  "tag": "t1024",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 3274,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 93,
+    "of": 133,
+    "list": [
+     "Select view:101x32",
+     "@mbabb:73x30",
+     "Search users:857x23",
+     "Sort users:28x28",
+     "Prune empty:122x28",
+     "Refresh:89x28",
+     "Delete user a-very-long-unbreaka:28x28",
+     "Delete all palettes of user-1-fo:150x28",
+     "Delete user user-1-fox:28x28",
+     "Delete all palettes of user-2-fo:150x28",
+     "Delete user user-2-fox:28x28",
+     "Delete all palettes of user-3-fo:150x28",
+     "Delete user user-3-fox:28x28",
+     "Delete all palettes of user-4-fo:150x28",
+     "Delete user user-4-fox:28x28",
+     "Delete all palettes of user-5-fo:150x28",
+     "Delete user user-5-fox:28x28",
+     "Delete all palettes of user-6-fo:150x28",
+     "Delete user user-6-fox:28x28",
+     "Delete user user-7-fox:28x28",
+     "Delete all palettes of user-8-fo:150x28",
+     "Delete user user-8-fox:28x28",
+     "Delete all palettes of user-9-fo:150x28",
+     "Delete user user-9-fox:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 35.584px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 3275,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:60x40",
+     "Delete user:138x40"
+    ]
+   },
+   "minFs": 15.36,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 265.6,
+     "b": 502.4,
+     "l": 256,
+     "r": 768,
+     "h": 236.8,
+     "sh": 235,
+     "ch": 235,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 22.2407px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "t1024",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 3903,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 97,
+    "of": 97,
+    "list": [
+     "Expand dock:40x40",
+     "Approved · 47:467x33",
+     "Search color names:893x23",
+     "Approve color name A Very Long P:28x28",
+     "Reject color name A Very Long Pr:28x28",
+     "Approve color name Name 1:28x28",
+     "Reject color name Name 1:28x28",
+     "Approve color name Name 2:28x28",
+     "Reject color name Name 2:28x28",
+     "Approve color name Name 3:28x28",
+     "Reject color name Name 3:28x28",
+     "Approve color name Name 4:28x28",
+     "Reject color name Name 4:28x28",
+     "Approve color name Name 5:28x28",
+     "Reject color name Name 5:28x28",
+     "Approve color name Name 6:28x28",
+     "Reject color name Name 6:28x28",
+     "Approve color name Name 7:28x28",
+     "Reject color name Name 7:28x28",
+     "Approve color name Name 8:28x28",
+     "Reject color name Name 8:28x28",
+     "Approve color name Name 9:28x28",
+     "Reject color name Name 9:28x28",
+     "Approve color name Name 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 35.584px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "t1024",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 1986,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:343x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:46x36"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 35.584px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 1986,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:343x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:47x37"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 35.584px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "t1024",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 3492,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on A Very Long U:68x28",
+     "Delete palette A Very Long Unbre:28x28",
+     "Dismiss reports on Flagged 1:68x28",
+     "Delete palette Flagged 1:28x28",
+     "Dismiss reports on Flagged 2:68x28",
+     "Delete palette Flagged 2:28x28",
+     "Dismiss reports on Flagged 3:68x28",
+     "Delete palette Flagged 3:28x28",
+     "Dismiss reports on Flagged 4:68x28",
+     "Delete palette Flagged 4:28x28",
+     "Dismiss reports on Flagged 5:68x28",
+     "Delete palette Flagged 5:28x28",
+     "Dismiss reports on Flagged 6:68x28",
+     "Delete palette Flagged 6:28x28",
+     "Dismiss reports on Flagged 7:68x28",
+     "Delete palette Flagged 7:28x28",
+     "Dismiss reports on Flagged 8:68x28",
+     "Delete palette Flagged 8:28x28",
+     "Dismiss reports on Flagged 9:68x28",
+     "Delete palette Flagged 9:28x28",
+     "Dismiss reports on Flagged 10:68x28",
+     "Delete palette Flagged 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 35.584px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 3492,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:68x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:68x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:68x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:68x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:68x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:68x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:68x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:68x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:68x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:68x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:68x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 35.584px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 3522,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:68x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:68x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:68x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:68x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:68x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:68x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:68x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:68x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:68x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:68x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:68x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 35.584px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "t1024",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 768,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 15,
+    "of": 15,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh tags:28x28",
+     "New tag name:759x36",
+     "New tag category:144x36",
+     "Create tag:23x28",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 35.584px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 1024,
+   "vh": 768,
+   "dark": false,
+   "docSW": 1040,
+   "docSH": 768,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:60x40",
+     "Delete tag:129x40"
+    ]
+   },
+   "minFs": 15.36,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 289.1,
+     "b": 478.9,
+     "l": 256,
+     "r": 768,
+     "h": 189.8,
+     "sh": 188,
+     "ch": 188,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 22.2407px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "t1024",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "t1024",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 3274,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 93,
+    "of": 133,
+    "list": [
+     "Select view:101x32",
+     "@mbabb:73x30",
+     "Search users:857x23",
+     "Sort users:28x28",
+     "Prune empty:122x28",
+     "Refresh:89x28",
+     "Delete user a-very-long-unbreaka:28x28",
+     "Delete all palettes of user-1-fo:150x28",
+     "Delete user user-1-fox:28x28",
+     "Delete all palettes of user-2-fo:150x28",
+     "Delete user user-2-fox:28x28",
+     "Delete all palettes of user-3-fo:150x28",
+     "Delete user user-3-fox:28x28",
+     "Delete all palettes of user-4-fo:150x28",
+     "Delete user user-4-fox:28x28",
+     "Delete all palettes of user-5-fo:150x28",
+     "Delete user user-5-fox:28x28",
+     "Delete all palettes of user-6-fo:150x28",
+     "Delete user user-6-fox:28x28",
+     "Delete user user-7-fox:28x28",
+     "Delete all palettes of user-8-fo:150x28",
+     "Delete user user-8-fox:28x28",
+     "Delete all palettes of user-9-fo:150x28",
+     "Delete user user-9-fox:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 35.584px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 3275,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:60x40",
+     "Delete user:138x40"
+    ]
+   },
+   "minFs": 15.36,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 265.6,
+     "b": 502.4,
+     "l": 256,
+     "r": 768,
+     "h": 236.8,
+     "sh": 235,
+     "ch": 235,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 22.2407px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "t1024",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 3903,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 97,
+    "of": 97,
+    "list": [
+     "Expand dock:40x40",
+     "Approved · 47:467x33",
+     "Search color names:893x23",
+     "Approve color name A Very Long P:28x28",
+     "Reject color name A Very Long Pr:28x28",
+     "Approve color name Name 1:28x28",
+     "Reject color name Name 1:28x28",
+     "Approve color name Name 2:28x28",
+     "Reject color name Name 2:28x28",
+     "Approve color name Name 3:28x28",
+     "Reject color name Name 3:28x28",
+     "Approve color name Name 4:28x28",
+     "Reject color name Name 4:28x28",
+     "Approve color name Name 5:28x28",
+     "Reject color name Name 5:28x28",
+     "Approve color name Name 6:28x28",
+     "Reject color name Name 6:28x28",
+     "Approve color name Name 7:28x28",
+     "Reject color name Name 7:28x28",
+     "Approve color name Name 8:28x28",
+     "Reject color name Name 8:28x28",
+     "Approve color name Name 9:28x28",
+     "Reject color name Name 9:28x28",
+     "Approve color name Name 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 35.584px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "t1024",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 1986,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:343x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:46x36"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 35.584px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 1986,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:343x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:47x37"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 35.584px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "t1024",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 3492,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on A Very Long U:68x28",
+     "Delete palette A Very Long Unbre:28x28",
+     "Dismiss reports on Flagged 1:68x28",
+     "Delete palette Flagged 1:28x28",
+     "Dismiss reports on Flagged 2:68x28",
+     "Delete palette Flagged 2:28x28",
+     "Dismiss reports on Flagged 3:68x28",
+     "Delete palette Flagged 3:28x28",
+     "Dismiss reports on Flagged 4:68x28",
+     "Delete palette Flagged 4:28x28",
+     "Dismiss reports on Flagged 5:68x28",
+     "Delete palette Flagged 5:28x28",
+     "Dismiss reports on Flagged 6:68x28",
+     "Delete palette Flagged 6:28x28",
+     "Dismiss reports on Flagged 7:68x28",
+     "Delete palette Flagged 7:28x28",
+     "Dismiss reports on Flagged 8:68x28",
+     "Delete palette Flagged 8:28x28",
+     "Dismiss reports on Flagged 9:68x28",
+     "Delete palette Flagged 9:28x28",
+     "Dismiss reports on Flagged 10:68x28",
+     "Delete palette Flagged 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 35.584px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 3492,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:68x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:68x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:68x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:68x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:68x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:68x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:68x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:68x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:68x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:68x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:68x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 35.584px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 3522,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:68x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:68x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:68x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:68x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:68x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:68x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:68x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:68x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:68x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:68x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:68x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 35.584px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "t1024",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 768,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 15,
+    "of": 15,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh tags:28x28",
+     "New tag name:759x36",
+     "New tag category:144x36",
+     "Create tag:23x28",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 35.584px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 1024,
+   "vh": 768,
+   "dark": true,
+   "docSW": 1040,
+   "docSH": 768,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:60x40",
+     "Delete tag:129x40"
+    ]
+   },
+   "minFs": 15.36,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 289.1,
+     "b": 478.9,
+     "l": 256,
+     "r": 768,
+     "h": 189.8,
+     "sh": 188,
+     "ch": 188,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 22.2407px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "t1024",
+  "theme": "dark",
+  "adminHits": 10
+ },
+ {
+  "tag": "d1440",
+  "theme": "light",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 3326,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 93,
+    "of": 133,
+    "list": [
+     "Select view:103x32",
+     "@mbabb:77x31",
+     "Search users:907x25",
+     "Sort users:28x28",
+     "Prune empty:127x28",
+     "Refresh:93x28",
+     "Delete user a-very-long-unbreaka:28x28",
+     "Delete all palettes of user-1-fo:157x28",
+     "Delete user user-1-fox:28x28",
+     "Delete all palettes of user-2-fo:157x28",
+     "Delete user user-2-fox:28x28",
+     "Delete all palettes of user-3-fo:157x28",
+     "Delete user user-3-fox:28x28",
+     "Delete all palettes of user-4-fo:157x28",
+     "Delete user user-4-fox:28x28",
+     "Delete all palettes of user-5-fo:157x28",
+     "Delete user user-5-fox:28x28",
+     "Delete all palettes of user-6-fo:157x28",
+     "Delete user user-6-fox:28x28",
+     "Delete user user-7-fox:28x28",
+     "Delete all palettes of user-8-fo:157x28",
+     "Delete user user-8-fox:28x28",
+     "Delete all palettes of user-9-fo:157x28",
+     "Delete user user-9-fox:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 41.888px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 3326,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:64x40",
+     "Delete user:144x40"
+    ]
+   },
+   "minFs": 16.4,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 327.4,
+     "b": 572.6,
+     "l": 464,
+     "r": 976,
+     "h": 245.2,
+     "sh": 243,
+     "ch": 243,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 23.6694px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "d1440",
+  "theme": "light",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 4048,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 97,
+    "of": 97,
+    "list": [
+     "Expand dock:40x40",
+     "Approved · 47:492x35",
+     "Search color names:943x25",
+     "Approve color name A Very Long P:28x28",
+     "Reject color name A Very Long Pr:28x28",
+     "Approve color name Name 1:28x28",
+     "Reject color name Name 1:28x28",
+     "Approve color name Name 2:28x28",
+     "Reject color name Name 2:28x28",
+     "Approve color name Name 3:28x28",
+     "Reject color name Name 3:28x28",
+     "Approve color name Name 4:28x28",
+     "Reject color name Name 4:28x28",
+     "Approve color name Name 5:28x28",
+     "Reject color name Name 5:28x28",
+     "Approve color name Name 6:28x28",
+     "Reject color name Name 6:28x28",
+     "Approve color name Name 7:28x28",
+     "Reject color name Name 7:28x28",
+     "Approve color name Name 8:28x28",
+     "Reject color name Name 8:28x28",
+     "Approve color name Name 9:28x28",
+     "Reject color name Name 9:28x28",
+     "Approve color name Name 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 41.888px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "d1440",
+  "theme": "light",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 2042,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:365x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:46x36"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 41.888px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 2042,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:365x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:47x37"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 41.888px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "d1440",
+  "theme": "light",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 3565,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on A Very Long U:71x28",
+     "Delete palette A Very Long Unbre:28x28",
+     "Dismiss reports on Flagged 1:71x28",
+     "Delete palette Flagged 1:28x28",
+     "Dismiss reports on Flagged 2:71x28",
+     "Delete palette Flagged 2:28x28",
+     "Dismiss reports on Flagged 3:71x28",
+     "Delete palette Flagged 3:28x28",
+     "Dismiss reports on Flagged 4:71x28",
+     "Delete palette Flagged 4:28x28",
+     "Dismiss reports on Flagged 5:71x28",
+     "Delete palette Flagged 5:28x28",
+     "Dismiss reports on Flagged 6:71x28",
+     "Delete palette Flagged 6:28x28",
+     "Dismiss reports on Flagged 7:71x28",
+     "Delete palette Flagged 7:28x28",
+     "Dismiss reports on Flagged 8:71x28",
+     "Delete palette Flagged 8:28x28",
+     "Dismiss reports on Flagged 9:71x28",
+     "Delete palette Flagged 9:28x28",
+     "Dismiss reports on Flagged 10:71x28",
+     "Delete palette Flagged 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 41.888px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 3565,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:71x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:71x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:71x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:71x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:71x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:71x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:71x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:71x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:71x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:71x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:71x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 41.888px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 3596,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:71x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:71x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:71x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:71x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:71x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:71x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:71x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:71x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:71x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:71x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:71x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 41.888px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "d1440",
+  "theme": "light",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 900,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 15,
+    "of": 15,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh tags:28x28",
+     "New tag name:809x36",
+     "New tag category:144x36",
+     "Create tag:23x28",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 41.888px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 1440,
+   "vh": 900,
+   "dark": false,
+   "docSW": 1440,
+   "docSH": 900,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:64x40",
+     "Delete tag:134x40"
+    ]
+   },
+   "minFs": 16.4,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 338.4,
+     "b": 561.6,
+     "l": 464,
+     "r": 976,
+     "h": 223.3,
+     "sh": 221,
+     "ch": 221,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 23.6694px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "d1440",
+  "theme": "light",
+  "adminHits": 10
+ },
+ {
+  "tag": "d1440",
+  "theme": "dark",
+  "route": "/admin/users",
+  "rest": {
+   "hash": "#/admin/users",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 3326,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 93,
+    "of": 133,
+    "list": [
+     "Select view:103x32",
+     "@mbabb:77x31",
+     "Search users:907x25",
+     "Sort users:28x28",
+     "Prune empty:127x28",
+     "Refresh:93x28",
+     "Delete user a-very-long-unbreaka:28x28",
+     "Delete all palettes of user-1-fo:157x28",
+     "Delete user user-1-fox:28x28",
+     "Delete all palettes of user-2-fo:157x28",
+     "Delete user user-2-fox:28x28",
+     "Delete all palettes of user-3-fo:157x28",
+     "Delete user user-3-fox:28x28",
+     "Delete all palettes of user-4-fo:157x28",
+     "Delete user user-4-fox:28x28",
+     "Delete all palettes of user-5-fo:157x28",
+     "Delete user user-5-fox:28x28",
+     "Delete all palettes of user-6-fo:157x28",
+     "Delete user user-6-fox:28x28",
+     "Delete user user-7-fox:28x28",
+     "Delete all palettes of user-8-fo:157x28",
+     "Delete user user-8-fox:28x28",
+     "Delete all palettes of user-9-fo:157x28",
+     "Delete user user-9-fox:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Users",
+    "H2 41.888px/400 Users 47"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete user a-very-long-unbreakable-slug",
+  "confirm": {
+   "hash": "#/admin/users",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 3326,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:64x40",
+     "Delete user:144x40"
+    ]
+   },
+   "minFs": 16.4,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 327.4,
+     "b": 572.6,
+     "l": 464,
+     "r": 976,
+     "h": 245.2,
+     "sh": 243,
+     "ch": 243,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 23.6694px/400 Delete user?"
+   ]
+  }
+ },
+ {
+  "tag": "d1440",
+  "theme": "dark",
+  "route": "/admin/names",
+  "rest": {
+   "hash": "#/admin/names",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 4048,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 97,
+    "of": 97,
+    "list": [
+     "Expand dock:40x40",
+     "Approved · 47:492x35",
+     "Search color names:943x25",
+     "Approve color name A Very Long P:28x28",
+     "Reject color name A Very Long Pr:28x28",
+     "Approve color name Name 1:28x28",
+     "Reject color name Name 1:28x28",
+     "Approve color name Name 2:28x28",
+     "Reject color name Name 2:28x28",
+     "Approve color name Name 3:28x28",
+     "Reject color name Name 3:28x28",
+     "Approve color name Name 4:28x28",
+     "Reject color name Name 4:28x28",
+     "Approve color name Name 5:28x28",
+     "Reject color name Name 5:28x28",
+     "Approve color name Name 6:28x28",
+     "Reject color name Name 6:28x28",
+     "Approve color name Name 7:28x28",
+     "Reject color name Name 7:28x28",
+     "Approve color name Name 8:28x28",
+     "Reject color name Name 8:28x28",
+     "Approve color name Name 9:28x28",
+     "Reject color name Name 9:28x28",
+     "Approve color name Name 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Names",
+    "H2 41.888px/400 Names 47"
+   ]
+  },
+  "page2": null,
+  "confirm": null
+ },
+ {
+  "tag": "d1440",
+  "theme": "dark",
+  "route": "/admin/audit",
+  "rest": {
+   "hash": "#/admin/audit",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 2042,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:365x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:46x36"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 41.888px/400 Audit Log"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/audit",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 2042,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 6,
+    "of": 6,
+    "list": [
+     "Expand dock:40x40",
+     "Filter by action:128x36",
+     "Filter by target:365x36",
+     "Refresh audit log:28x28",
+     "Previous page:46x36",
+     "Next page:47x37"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Audit Log",
+    "H2 41.888px/400 Audit Log"
+   ]
+  },
+  "confirm": null
+ },
+ {
+  "tag": "d1440",
+  "theme": "dark",
+  "route": "/admin/flagged",
+  "rest": {
+   "hash": "#/admin/flagged",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 3565,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on A Very Long U:71x28",
+     "Delete palette A Very Long Unbre:28x28",
+     "Dismiss reports on Flagged 1:71x28",
+     "Delete palette Flagged 1:28x28",
+     "Dismiss reports on Flagged 2:71x28",
+     "Delete palette Flagged 2:28x28",
+     "Dismiss reports on Flagged 3:71x28",
+     "Delete palette Flagged 3:28x28",
+     "Dismiss reports on Flagged 4:71x28",
+     "Delete palette Flagged 4:28x28",
+     "Dismiss reports on Flagged 5:71x28",
+     "Delete palette Flagged 5:28x28",
+     "Dismiss reports on Flagged 6:71x28",
+     "Delete palette Flagged 6:28x28",
+     "Dismiss reports on Flagged 7:71x28",
+     "Delete palette Flagged 7:28x28",
+     "Dismiss reports on Flagged 8:71x28",
+     "Delete palette Flagged 8:28x28",
+     "Dismiss reports on Flagged 9:71x28",
+     "Delete palette Flagged 9:28x28",
+     "Dismiss reports on Flagged 10:71x28",
+     "Delete palette Flagged 10:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 41.888px/400 Flagged"
+   ]
+  },
+  "page2": {
+   "hash": "#/admin/flagged",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 3565,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:71x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:71x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:71x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:71x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:71x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:71x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:71x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:71x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:71x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:71x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:71x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 41.888px/400 Flagged"
+   ]
+  },
+  "destrLabel": "Dismiss reports on Flagged 20",
+  "confirm": {
+   "hash": "#/admin/flagged",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 3596,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 44,
+    "of": 44,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh flagged palettes:28x28",
+     "Dismiss reports on Flagged 20:71x28",
+     "Delete palette Flagged 20:28x28",
+     "Dismiss reports on Flagged 21:71x28",
+     "Delete palette Flagged 21:28x28",
+     "Dismiss reports on Flagged 22:71x28",
+     "Delete palette Flagged 22:28x28",
+     "Dismiss reports on Flagged 23:71x28",
+     "Delete palette Flagged 23:28x28",
+     "Dismiss reports on Flagged 24:71x28",
+     "Delete palette Flagged 24:28x28",
+     "Dismiss reports on Flagged 25:71x28",
+     "Delete palette Flagged 25:28x28",
+     "Dismiss reports on Flagged 26:71x28",
+     "Delete palette Flagged 26:28x28",
+     "Dismiss reports on Flagged 27:71x28",
+     "Delete palette Flagged 27:28x28",
+     "Dismiss reports on Flagged 28:71x28",
+     "Delete palette Flagged 28:28x28",
+     "Dismiss reports on Flagged 29:71x28",
+     "Delete palette Flagged 29:28x28",
+     "Dismiss reports on Flagged 30:71x28",
+     "Delete palette Flagged 30:28x28"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Flagged",
+    "H2 41.888px/400 Flagged"
+   ]
+  }
+ },
+ {
+  "tag": "d1440",
+  "theme": "dark",
+  "route": "/admin/tags",
+  "rest": {
+   "hash": "#/admin/tags",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 900,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 15,
+    "of": 15,
+    "list": [
+     "Expand dock:40x40",
+     "Refresh tags:28x28",
+     "New tag name:809x36",
+     "New tag category:144x36",
+     "Create tag:23x28",
+     "Delete tag moody:16x16",
+     "Delete tag earthy:16x16",
+     "Delete tag vintage:16x16",
+     "Delete tag a-very-long-unbreakab:16x16",
+     "Delete tag duotone:16x16",
+     "Delete tag muted:16x16",
+     "Delete tag monochrome:16x16",
+     "Delete tag pastel:16x16",
+     "Delete tag neon:16x16",
+     "Delete tag tropical:16x16"
+    ]
+   },
+   "minFs": 13,
+   "at11": {},
+   "dialogs": [],
+   "headings": [
+    "H1 13px/500 Tags",
+    "H2 41.888px/400 Tags"
+   ]
+  },
+  "page2": null,
+  "destrLabel": "Delete tag moody",
+  "confirm": {
+   "hash": "#/admin/tags",
+   "vw": 1440,
+   "vh": 900,
+   "dark": true,
+   "docSW": 1440,
+   "docSH": 900,
+   "off": [],
+   "cardOver": [],
+   "small": {
+    "n": 2,
+    "of": 2,
+    "list": [
+     "Cancel:64x40",
+     "Delete tag:134x40"
+    ]
+   },
+   "minFs": 16.4,
+   "at11": {},
+   "dialogs": [
+    {
+     "role": "dialog",
+     "t": 338.4,
+     "b": 561.6,
+     "l": 464,
+     "r": 976,
+     "h": 223.3,
+     "sh": 221,
+     "ch": 221,
+     "oy": "visible",
+     "clipV": false,
+     "clipH": false
+    }
+   ],
+   "headings": [
+    "H2 23.6694px/400 Delete tag?"
+   ]
+  }
+ },
+ {
+  "tag": "d1440",
+  "theme": "dark",
+  "adminHits": 10
+ }
+]

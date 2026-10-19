@@ -1,0 +1,130 @@
+# 04:14:53 load 33.12 26.33 22.67
+{
+ "label": "close4-r2",
+ "base": "http://localhost:5396/",
+ "load1": "38.15",
+ "paths": {
+  "R": {
+   "playing": {
+    "snap": {
+     "playing": true,
+     "started": true,
+     "animations": {}
+    },
+    "scrubNow": "882.5999999985099",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Pause animation"
+    ]
+   },
+   "after150": {
+    "snap": {
+     "playing": false,
+     "started": false,
+     "animations": {},
+     "progress": 0
+    },
+    "scrubNow": "0",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Play animation"
+    ]
+   },
+   "after1350": {
+    "snap": {
+     "playing": false,
+     "started": false,
+     "animations": {},
+     "progress": 0
+    },
+    "scrubNow": "0",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Play animation"
+    ]
+   }
+  },
+  "Escape": {
+   "playing": {
+    "snap": {
+     "playing": true,
+     "started": true,
+     "animations": {}
+    },
+    "scrubNow": "878.9999999999998",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Pause animation"
+    ]
+   },
+   "after150": {
+    "snap": {
+     "playing": false,
+     "started": false,
+     "animations": {},
+     "progress": 0
+    },
+    "scrubNow": "0",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Play animation"
+    ]
+   },
+   "after1350": {
+    "snap": {
+     "playing": false,
+     "started": false,
+     "animations": {},
+     "progress": 0
+    },
+    "scrubNow": "0",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Play animation"
+    ]
+   }
+  },
+  "dock": {
+   "playing": {
+    "snap": {
+     "playing": true,
+     "started": true,
+     "animations": {}
+    },
+    "scrubNow": "869.9999999992554",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Pause animation"
+    ]
+   },
+   "after150": {
+    "snap": {
+     "playing": false,
+     "started": false,
+     "animations": {},
+     "progress": 0
+    },
+    "scrubNow": "0",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Play animation"
+    ]
+   },
+   "after1350": {
+    "snap": {
+     "playing": false,
+     "started": false,
+     "animations": {},
+     "progress": 0
+    },
+    "scrubNow": "0",
+    "scrubMax": "1500",
+    "playLabel": [
+     "Play animation"
+    ]
+   }
+  }
+ },
+ "errs": []
+}
+EXIT=0

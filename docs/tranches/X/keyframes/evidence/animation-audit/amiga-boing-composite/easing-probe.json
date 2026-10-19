@@ -1,0 +1,350 @@
+{
+ "Spin": {
+  "ctor": "CSSKeyframesAnimation",
+  "optTF": [
+   0.0197,
+   0.1292,
+   0.5,
+   0.8708
+  ],
+  "optTFsrc": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+  "templates": [
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ]
+  ],
+  "frames": [
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0
+    },
+    "time": {
+     "start": 0,
+     "stop": 2000
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.25
+    },
+    "time": {
+     "start": 2000,
+     "stop": 4000
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.5
+    },
+    "time": {
+     "start": 4000,
+     "stop": 6000
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.75
+    },
+    "time": {
+     "start": 6000,
+     "stop": 8000
+    }
+   }
+  ],
+  "useWAAPI": true,
+  "keys": [
+   "waapiIneligibleReason"
+  ]
+ },
+ "Bouncing X": {
+  "ctor": "CSSKeyframesAnimation",
+  "optTF": [
+   0.0197,
+   0.1292,
+   0.5,
+   0.8708
+  ],
+  "optTFsrc": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+  "templates": [
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ],
+   [
+    0.1,
+    0.25,
+    0.5,
+    0.75
+   ]
+  ],
+  "frames": [
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0
+    },
+    "time": {
+     "start": 0,
+     "stop": 2000
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.25
+    },
+    "time": {
+     "start": 2000,
+     "stop": 4000
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.5
+    },
+    "time": {
+     "start": 4000,
+     "stop": 6000
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.75
+    },
+    "time": {
+     "start": 6000,
+     "stop": 8000
+    }
+   }
+  ],
+  "useWAAPI": true,
+  "keys": [
+   "waapiIneligibleReason"
+  ]
+ },
+ "Bouncing Y": {
+  "ctor": "CSSKeyframesAnimation",
+  "optTF": [
+   0.0197,
+   0.1292,
+   0.5,
+   0.8708
+  ],
+  "optTFsrc": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+  "templates": [
+   [
+    0.017,
+    0.0935,
+    0.3154,
+    0.6219
+   ],
+   [
+    0.1606,
+    0.3781,
+    0.6846,
+    0.9065
+   ],
+   [
+    0.017,
+    0.0935,
+    0.3154,
+    0.6219
+   ],
+   [
+    0.1606,
+    0.3781,
+    0.6846,
+    0.9065
+   ],
+   [
+    0.004,
+    0.0625,
+    0.5,
+    0.9375
+   ]
+  ],
+  "frames": [
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0
+    },
+    "time": {
+     "start": 0,
+     "stop": 400
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.25
+    },
+    "time": {
+     "start": 400,
+     "stop": 800
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.5
+    },
+    "time": {
+     "start": 800,
+     "stop": 1200
+    }
+   },
+   {
+    "tf": [
+     0.0197,
+     0.1292,
+     0.5,
+     0.8708
+    ],
+    "src": "(e) => Number.isFinite(e) ? e === 0 || e === 1 ? e : m(h(e, n, i), r, a) : NaN",
+    "start": {
+     "kind": "percent",
+     "value": 0.75
+    },
+    "time": {
+     "start": 1200,
+     "stop": 1600
+    }
+   }
+  ],
+  "useWAAPI": true,
+  "keys": [
+   "waapiIneligibleReason"
+  ]
+ }
+}

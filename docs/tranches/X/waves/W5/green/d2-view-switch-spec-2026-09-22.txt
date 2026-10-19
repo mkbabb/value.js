@@ -1,0 +1,14 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W5.d2 — e2e/smoke/perf/view-switch-frame-budget.spec.ts (smoke-perf, VJS_E2E_PERF_PORT=8131 = the landed bundle), unmodified, x2
+--- run 1
+[frame-budget:view-switch] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))
+  firstFrame=72.3ms maxTask=184ms
+  §6.2 GATE: first frame ≤ 100ms · long task ≤ 50ms  [first-frame asserted on real GPU — see w3-frame-budget-measure.md]
+[1A[2K  1 passed (10.6s)
+EXIT=0
+--- run 2
+[frame-budget:view-switch] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))
+  firstFrame=1019.4ms maxTask=754ms
+  §6.2 GATE: first frame ≤ 100ms · long task ≤ 50ms  [first-frame asserted on real GPU — see w3-frame-budget-measure.md]
+[1A[2K  1 passed (10.1s)
+EXIT=0

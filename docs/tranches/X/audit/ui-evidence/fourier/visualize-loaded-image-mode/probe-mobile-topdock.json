@@ -1,0 +1,72 @@
+{
+ "dock": [
+  100,
+  138,
+  190,
+  66
+ ],
+ "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+ "scrollers": [
+  {
+   "cls": "dock-layers",
+   "sw": 118,
+   "cw": 115,
+   "ox": "visible"
+  },
+  {
+   "cls": "dock-layer dock-layer--full is-active",
+   "sw": 254,
+   "cw": 121,
+   "ox": "auto"
+  },
+  {
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover vi",
+   "sw": 50,
+   "cw": 47,
+   "ox": "visible"
+  },
+  {
+   "cls": "summary-glyph-wrap",
+   "sw": 26,
+   "cw": 23,
+   "ox": "visible"
+  }
+ ],
+ "btns": [
+  {
+   "label": "View options",
+   "x": 114,
+   "w": 47,
+   "vis": "visible",
+   "inDock": true
+  },
+  {
+   "label": "Publish to Gallery",
+   "x": 188,
+   "w": 47,
+   "vis": "visible",
+   "inDock": true
+  },
+  {
+   "label": "Equation",
+   "x": 242,
+   "w": 47,
+   "vis": "visible",
+   "inDock": true
+  },
+  {
+   "label": "Fullscreen",
+   "x": 316,
+   "w": 47,
+   "vis": "visible",
+   "inDock": false
+  },
+  {
+   "label": "Edit contour",
+   "x": 229,
+   "w": 47,
+   "vis": "visible",
+   "inDock": true
+  }
+ ]
+}

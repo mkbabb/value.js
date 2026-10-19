@@ -1,0 +1,42 @@
+(node:79463) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:79491) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+(node:79500) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/1] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+    Expected: 3
+    Received: 2
+    Timeout:  8000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+        20 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      220 |         const rb = (await live.boundingBox())!;
+      221 |         await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
+    > 222 |         await expect(live.locator("[data-stop-id]")).toHaveCount(before.length + 1);
+          |                                                      ^
+      223 |
+      224 |         const after = await ids();
+      225 |         const mintedId = after.find((id) => !before.includes(id))!;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:222:54
+
+    Error Context: ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/rep1w6/tr/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 

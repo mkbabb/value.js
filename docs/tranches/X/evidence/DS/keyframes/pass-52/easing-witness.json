@@ -1,0 +1,85 @@
+{
+ "fails": [],
+ "cells": {
+  "easing-390x844-light": {
+   "fold": 654.1,
+   "maxBlockSize": "392px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 526.9,
+    "bottom": 634.3
+   }
+  },
+  "easing-390x700-light": {
+   "fold": 540.1,
+   "maxBlockSize": "278px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 526.9,
+    "bottom": 634.3
+   }
+  },
+  "easing-1440x900-light": {
+   "fold": 652.6,
+   "maxBlockSize": "399px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 467.9,
+    "bottom": 633.8
+   }
+  },
+  "easing-1280x800-light": {
+   "fold": 611.7,
+   "maxBlockSize": "367px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 442.3,
+    "bottom": 591.4
+   }
+  },
+  "easing-390x844-dark": {
+   "fold": 654.1,
+   "maxBlockSize": "392px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 526.9,
+    "bottom": 634.3
+   }
+  },
+  "easing-390x700-dark": {
+   "fold": 540.1,
+   "maxBlockSize": "278px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 526.9,
+    "bottom": 634.3
+   }
+  },
+  "easing-1440x900-dark": {
+   "fold": 652.6,
+   "maxBlockSize": "399px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 467.9,
+    "bottom": 633.8
+   }
+  },
+  "easing-1280x800-dark": {
+   "fold": 611.7,
+   "maxBlockSize": "367px",
+   "lastAbove": {
+    "kind": "tile",
+    "text": "ease-in-outslow st",
+    "top": 442.3,
+    "bottom": 591.4
+   }
+  }
+ }
+}

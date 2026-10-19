@@ -1,0 +1,7 @@
+negative control: ctl-style.vue → FAIL · ctl-inline.vue → FAIL · ctl-utility.vue → FAIL · ctl-read.vue → FAIL
+positive control: a transition inside the no-preference block → clean
+quarantine record: present (docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md)
+guard demo/styles/animations.css: present (a reduce block)
+guard node_modules/@mkbabb/glass-ui/dist/styles/utilities/a11y-overrides.css: present (a reduce block)
+files scanned: 15 · requestAnimationFrame calls: 0 · CSS motion declarations: 8
+GATE e2 (PRM idiom) — GREEN

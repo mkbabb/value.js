@@ -9,7 +9,7 @@ import { computed, type ComputedRef } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { channelNumber, type PickerColorIn } from "../../../../color-session/picker-color";
 import { spectrumFieldIsLight } from "../../spectrumLuma";
-import type { useTouchGate } from "@mkbabb/glass-ui";
+import type { useTouchGate } from "@mkbabb/glass-ui/dom";
 
 export function useSpectrumPlateStyle(opts: {
     HSVCurrentColor: ComputedRef<PickerColorIn<"hsv">>;
@@ -46,19 +46,25 @@ export function useSpectrumPlateStyle(opts: {
 
     const spectrumDotStyle = computed(() => {
         const { s: sClamped, v: vClamped } = dotPos.value;
+        const hue = clamp(channelNumber(HSVCurrentColor.value, "h"), 0, 360);
 
-        // B3: the border regime reads the SHARED plate-luma helper — the same
-        // predicate the overlay's contour/hatch ink flips on (one function,
-        // one threshold; never a copied constant).
-        const light = spectrumFieldIsLight(sClamped, vClamped);
+        // B3: the border regime reads the SHARED hue-aware plate helper — the
+        // same predicate the slider needle's ink flips on (one function, one
+        // decision; never a copied constant). X.W8.i2: the field's luminance
+        // depends on its hue, so the hue rides with (s, v).
+        const light = spectrumFieldIsLight(hue, sClamped, vClamped);
         const borderAlpha = light ? 0.8 : 0.9;
         const borderColor = light
             ? `rgba(0, 0, 0, ${borderAlpha})`
             : `rgba(255, 255, 255, ${borderAlpha})`;
 
+        // X-DS pass 3 (V3C-07): the vertical travel is inset by the thumb's
+        // radius, so at high V the thumb sits inside the plate instead of
+        // riding half over the value readout (SpectrumCanvas maps the pointer
+        // over the same inset span). The horizontal travel is unchanged.
         return {
             left: `${100 * sClamped}%`,
-            top: `${100 * (1 - vClamped)}%`,
+            top: `calc(var(--spectrum-dot-size) / 2 + ${1 - vClamped} * (100% - var(--spectrum-dot-size)))`,
             backgroundColor: cssColorOpaque.value,
             "--dot-border": borderColor,
         };

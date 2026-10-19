@@ -1,0 +1,186 @@
+{
+  "spa": "https://fourier.babb.dev",
+  "api": "https://api.fourier.babb.dev",
+  "at": "2026-10-16T19:28:08.955Z",
+  "rows": [
+    {
+      "row": "session",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "user": "calm-turning-jet-tern"
+      }
+    },
+    {
+      "row": "upload daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slug": "faded-darting-onyx-yak"
+      }
+    },
+    {
+      "row": "upright daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "w": 768,
+        "h": 1024
+      }
+    },
+    {
+      "row": "extract daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 55,
+        "source": "extract",
+        "points": 1024
+      }
+    },
+    {
+      "row": "epicycles daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "create daraksha.jpg",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "slug": "lofty-floating-taupe-salmon",
+        "etag": "\"aeecff1ce5535cbe1996378c879c65e367f01f7100ee8f31b043539f633e02e9\""
+      }
+    },
+    {
+      "row": "upload daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "slug": "twilit-cresting-prism-kestrel"
+      }
+    },
+    {
+      "row": "upright daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "w": 768,
+        "h": 1024
+      }
+    },
+    {
+      "row": "extract daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 53,
+        "source": "extract",
+        "points": 1024
+      }
+    },
+    {
+      "row": "epicycles daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "row": "create daraksha.jpeg",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "slug": "faded-crossing-auburn-gull",
+        "etag": "\"2fefe3ca32e03dad527d844e8cea89e068db268b74cd019001582439149d62ce\""
+      }
+    },
+    {
+      "row": "preview /v/<slug>",
+      "ok": true,
+      "detail": {
+        "slug": "lofty-floating-taupe-salmon",
+        "canvas": true,
+        "failed": 0
+      }
+    },
+    {
+      "row": "publish",
+      "ok": false,
+      "detail": {
+        "status": 412
+      }
+    },
+    {
+      "row": "remix",
+      "ok": true,
+      "detail": {
+        "status": 201,
+        "child": "faint-striking-crimson-egret"
+      }
+    },
+    {
+      "row": "diff",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "keys": [
+          "from_hash",
+          "to_hash",
+          "ops",
+          "identical"
+        ]
+      }
+    },
+    {
+      "row": "gallery",
+      "ok": false,
+      "detail": {
+        "status": 200,
+        "listed": false,
+        "items": 0
+      }
+    },
+    {
+      "row": "edit (PATCH, If-Match)",
+      "ok": false,
+      "detail": {
+        "etagExposed": true,
+        "status": 412
+      }
+    },
+    {
+      "row": "delete faint-striking-crimson-egret",
+      "ok": false,
+      "detail": {
+        "status": 412,
+        "text": "{\"detail\":\"{\\\"type\\\":\\\"urn:contract:etag-mismatch\\\",\\\"title\\\":\\\"ETag precondition failed\\\",\\\"status\\\":412,\\\"detail\\\":\\\"If-Match does not equal the current ETag\\\"}\"}"
+      }
+    },
+    {
+      "row": "delete faded-crossing-auburn-gull",
+      "ok": false,
+      "detail": {
+        "status": 412,
+        "text": "{\"detail\":\"{\\\"type\\\":\\\"urn:contract:etag-mismatch\\\",\\\"title\\\":\\\"ETag precondition failed\\\",\\\"status\\\":412,\\\"detail\\\":\\\"If-Match does not equal the current ETag\\\"}\"}"
+      }
+    },
+    {
+      "row": "delete lofty-floating-taupe-salmon",
+      "ok": false,
+      "detail": {
+        "status": 412,
+        "text": "{\"detail\":\"{\\\"type\\\":\\\"urn:contract:etag-mismatch\\\",\\\"title\\\":\\\"ETag precondition failed\\\",\\\"status\\\":412,\\\"detail\\\":\\\"If-Match does not equal the current ETag\\\"}\"}"
+      }
+    },
+    {
+      "row": "no CORS console errors",
+      "ok": true,
+      "detail": {
+        "cors": []
+      }
+    }
+  ]
+}

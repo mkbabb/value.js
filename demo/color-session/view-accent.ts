@@ -1,12 +1,10 @@
 import {
     convertColor,
     oklch,
-    safeAccentColor,
-} from "@mkbabb/value.js/color";
-import {
     parseCssColor,
+    safeAccentColor,
     serializeCssColor,
-} from "@mkbabb/value.js/css";
+} from "@mkbabb/value.js/color";
 
 /** Four just-noticeable chroma steps from neutral, retained as product policy. */
 export const VIEW_ACCENT_MIN_CHROMA = 0.08;

@@ -1,0 +1,62 @@
+{
+ "tag": "dry-after-d3",
+ "base": "http://localhost:5861/",
+ "pass": 3,
+ "total": 3,
+ "res": [
+  {
+   "cell": "D3-home-1440-light",
+   "ok": true,
+   "collapsed": {
+    "mini": true,
+    "lucide": false
+   },
+   "trigger": {
+    "mini": true,
+    "lucide": false
+   },
+   "list": {
+    "options": 7,
+    "homeMini": true,
+    "lucide": 0,
+    "minis": 7
+   }
+  },
+  {
+   "cell": "D3-home-1440-dark",
+   "ok": true,
+   "collapsed": {
+    "mini": true,
+    "lucide": false
+   },
+   "trigger": {
+    "mini": true,
+    "lucide": false
+   },
+   "list": {
+    "options": 7,
+    "homeMini": true,
+    "lucide": 0,
+    "minis": 7
+   }
+  },
+  {
+   "cell": "D3-home-390-light",
+   "ok": true,
+   "collapsed": {
+    "mini": true,
+    "lucide": false
+   },
+   "trigger": {
+    "mini": true,
+    "lucide": false
+   },
+   "list": {
+    "options": 7,
+    "homeMini": true,
+    "lucide": 0,
+    "minis": 7
+   }
+  }
+ ]
+}

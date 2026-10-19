@@ -1,0 +1,444 @@
+{
+ "tag": "before-r1",
+ "base": "http://localhost:5881/",
+ "pass": 20,
+ "of": 33,
+ "res": [
+  {
+   "cell": "T square 1440 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true,
+    "T294": true
+   },
+   "r": {
+    "where": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0,
+     "snapshot": 1,
+     "import": 1,
+     "add": 1,
+     "export": 1,
+     "more": null
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     }
+    ],
+    "clearDisabled": true,
+    "menu": null,
+    "toolRow": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0
+    },
+    "oneToolbar": false
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     365,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T square 1024 dark",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true,
+    "T294": true
+   },
+   "r": {
+    "where": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0,
+     "snapshot": 1,
+     "import": 1,
+     "add": 1,
+     "export": 1,
+     "more": null
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     }
+    ],
+    "clearDisabled": true,
+    "menu": null,
+    "toolRow": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0
+    },
+    "oneToolbar": false
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     290,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T square 390 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true,
+    "T294": true
+   },
+   "r": {
+    "where": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0,
+     "snapshot": 1,
+     "import": 1,
+     "add": 1,
+     "export": 1,
+     "more": null
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     }
+    ],
+    "clearDisabled": true,
+    "menu": null,
+    "toolRow": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0
+    },
+    "oneToolbar": false
+   },
+   "fit": {
+    "shown": true,
+    "inside": true,
+    "labelInside": true,
+    "dx": 0,
+    "dy": 0,
+    "stage": [
+     324,
+     96
+    ],
+    "subj": [
+     66,
+     66
+    ],
+    "demoBoxes": 2
+   }
+  },
+  {
+   "cell": "T cube 1440 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true
+   },
+   "r": {
+    "where": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0,
+     "snapshot": 1,
+     "import": 1,
+     "add": 1,
+     "export": 1,
+     "more": null
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 365
+     }
+    ],
+    "clearDisabled": true,
+    "menu": null,
+    "toolRow": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0
+    },
+    "oneToolbar": false
+   },
+   "fit": null
+  },
+  {
+   "cell": "T cube 1024 dark",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true
+   },
+   "r": {
+    "where": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0,
+     "snapshot": 1,
+     "import": 1,
+     "add": 1,
+     "export": 1,
+     "more": null
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 290
+     }
+    ],
+    "clearDisabled": true,
+    "menu": null,
+    "toolRow": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0
+    },
+    "oneToolbar": false
+   },
+   "fit": null
+  },
+  {
+   "cell": "T cube 390 light",
+   "ok": {
+    "T179": false,
+    "T200": true,
+    "T295": true
+   },
+   "r": {
+    "where": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0,
+     "snapshot": 1,
+     "import": 1,
+     "add": 1,
+     "export": 1,
+     "more": null
+    },
+    "rows": 2,
+    "rowFacts": [
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     },
+     {
+      "n": 4,
+      "oneLine": true,
+      "inside": true,
+      "w": 324
+     }
+    ],
+    "clearDisabled": true,
+    "menu": null,
+    "toolRow": {
+     "undo": 0,
+     "redo": 0,
+     "clear": 0,
+     "fold": 0
+    },
+    "oneToolbar": false
+   },
+   "fit": null
+  },
+  {
+   "cell": "K cube 1440 light",
+   "ok": {
+    "K172": true,
+    "K219": false,
+    "K173": true
+   },
+   "k172": {
+    "found": true,
+    "common": "glass-quiet card pane-frame",
+    "separateCards": [],
+    "rowOneLine": true,
+    "rowInside": true,
+    "lead": "Apply CSS"
+   },
+   "names": {
+    "copy": [
+     "Rotations"
+    ],
+    "compiled": [
+     "Rotations"
+    ]
+   },
+   "toastsAfterCopy": [
+    "CSS copied to clipboard",
+    "Compiled CSS copied — zero-runtime, paste & ship 🎉"
+   ],
+   "toastsAfterEdit": [
+    "Compiled CSS copied — zero-runtime, paste & ship 🎉",
+    "Keyframes parsed 🎉"
+   ]
+  },
+  {
+   "cell": "K cube 390 dark",
+   "ok": {
+    "K172": true,
+    "K219": false,
+    "K173": true
+   },
+   "k172": {
+    "found": true,
+    "common": "pane-frame",
+    "separateCards": [],
+    "rowOneLine": true,
+    "rowInside": true,
+    "lead": "Apply CSS"
+   },
+   "names": {
+    "copy": [
+     "Rotations"
+    ],
+    "compiled": [
+     "Rotations"
+    ]
+   },
+   "toastsAfterCopy": [
+    "CSS copied to clipboard",
+    "Compiled CSS copied — zero-runtime, paste & ship 🎉"
+   ],
+   "toastsAfterEdit": [
+    "Keyframes parsed 🎉"
+   ]
+  },
+  {
+   "cell": "K square 1440 dark",
+   "ok": {
+    "K172": true,
+    "K219": false
+   },
+   "k172": {
+    "found": true,
+    "common": "glass-quiet card pane-frame",
+    "separateCards": [],
+    "rowOneLine": true,
+    "rowInside": true,
+    "lead": "Apply CSS"
+   },
+   "names": {
+    "copy": [
+     "Transform"
+    ],
+    "compiled": []
+   },
+   "toastsAfterCopy": [
+    "CSS copied to clipboard",
+    "Cannot compile to CSS — custom-renderercustom renderer (a transform closure, not the default DOM-style renderer) cannot be expressed as CSS — the JS playback is the only faithful path"
+   ],
+   "toastsAfterEdit": [
+    "Cannot compile to CSS — custom-renderercustom renderer (a transform closure, not the default DOM-style renderer) cannot be expressed as CSS — the JS playback is the only faithful path",
+    "Keyframes parsed 🎉"
+   ]
+  },
+  {
+   "cell": "S spring 1440 light",
+   "ok": {
+    "Sart": false,
+    "S097": false
+   },
+   "m": {
+    "found": false
+   }
+  },
+  {
+   "cell": "S spring 1440 dark",
+   "ok": {
+    "Sart": false,
+    "S097": false
+   },
+   "m": {
+    "found": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+dock-mobile-menu capture record (READ-ONLY seat; dev server :9000 + api :3000 already running, never touched)
+run1 capture.mjs (all 8 combos)          tree c25f8968→de278769 dirty=22 (HEAD moved under us; concurrent workflows) 2026-09-23T15:40Z
+   light-* frames + dark-390-out frames from run1. Vite "504 Outdated Optimize Dep" during run1 -> the About/lab.md panel boundary error visible in those frames is ENVIRONMENTAL.
+   dark-390-in goto timed out (30s) in run1 and run2; clean on retry.
+run2 ONLY=dark-390-in,dark-1440-*,light-390-out  tree de278769 dirty=22 2026-09-23T15:43Z  (log: capture-log-dark-390-in_dark-1440-out_dark-1440-in_light-390-out.txt)
+run3 ONLY=dark-390-in                    tree 503694a1 dirty=4 2026-09-23T15:49Z (log: capture-log-dark-390-in.txt)
+probe-share.mjs      -> Share row flips "Share color"->"Copied!" (both themes); 4b frames. (run1's "never flips" was a has-text locator artefact.)
+probe-measure.mjs    -> row typography / arrow-walk / slug-layer overflow; frame light-390-in-9-slug-layer-measure.png   tree 503694a1
+probe-github-enter.mjs -> Enter on GitHub row closes menu, no navigation; click on row padding = no navigation.  tree 503694a1
+1440: MobileMenuDropdown is lg:hidden; the 1440 frames capture the desktop twin (ProfileSection @mbabb menu) for cohesion comparison.
+Regenerate wrote throwaway users (vivid-heron-42 -> lush-arching-papaya-goose) to the LOCAL dev DB only.

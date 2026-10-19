@@ -1,0 +1,6 @@
+[dark]
+PASS V-509 no dead prop/injections in ColorInput.vue hits=0
+PASS V-505 CSS-literal field opts out of text correction ["false","off","off"]
+PASS V-508 Enter drops the pending debounced parse address after 2.6 s: #/?space=hex&color=#222222
+PASS V-502 hidden Tools trigger is inert [true]
+PASS V-488/493 distinct admin glyphs {"u":"lucide-users-icon","n":"lucide-type-icon","tg":"lucide-tag-icon"}

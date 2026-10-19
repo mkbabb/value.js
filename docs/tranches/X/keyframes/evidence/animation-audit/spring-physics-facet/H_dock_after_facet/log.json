@@ -1,0 +1,122 @@
+[
+ [
+  "load",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@605:v:1.00 Select@670:v:1.00 Reset@795:v:1.00 Play@560:h:0.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full.is-active:1.00 | dock-layer.dock-layer--summary:0.00",
+   "anims": ""
+  }
+ ],
+ [
+  "after heatmap click",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@700:v:1.00 Select@765:v:1.00 Reset@890:v:1.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full.is-leaving:1.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "opacity:running,transform:running,background-color:running,outline-color:running"
+  }
+ ],
+ [
+  "+100",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@700:v:0.21 Select@765:v:0.21 Reset@890:v:0.21 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full.is-leaving:0.21 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "opacity:running,transform:running,background-color:running,outline-color:running,gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+200",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@700:v:0.00 Select@765:v:0.00 Reset@890:v:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full.is-leaving:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "opacity:running,gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+300",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@700:v:0.00 Select@765:v:0.00 Reset@890:v:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full.is-leaving:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+400",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:v:0.00 Select@757:v:0.00 Reset@882:v:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "visibility:running,gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+500",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:v:0.00 Select@757:v:0.00 Reset@882:v:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "visibility:running,gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+600",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:v:0.00 Select@757:v:0.00 Reset@882:v:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "visibility:running,gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+700",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+800",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+900",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+1000",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+1100",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "+1200",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ],
+ [
+  "settled",
+  {
+   "btns": "Share@702:h:0.00 Apply@246:v:1.00 Apply@0:v:1.00 Play@692:h:0.00 Select@757:h:0.00 Reset@882:h:0.00 Play@667:v:1.00",
+   "layers": "dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00 | dock-layer.dock-layer--full:0.00 | dock-layer.dock-layer--summary.is-active:1.00",
+   "anims": "gl-fade-start-in:running,gl-fade-end-out:running"
+  }
+ ]
+]

@@ -1,0 +1,1377 @@
+{
+ "390": {
+  "empty": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    789,
+    361,
+    1084
+   ],
+   "track": [
+    47,
+    893,
+    343,
+    941
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "stageVisible": false,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "subjTransform": "none",
+   "subjFits": true,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 941,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "populated": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    244,
+    361,
+    546
+   ],
+   "track": [
+    47,
+    456,
+    343,
+    504
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    328,
+    343,
+    424
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    343,
+    228,
+    409
+   ],
+   "subjTransform": "matrix(0.340862, 0, 0, 0.340862, -97.5, -97.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 62,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 328,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    507,
+    507,
+    507
+   ],
+   "trackBottom": 504,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\n1\n2\n3\n4\n5\n6\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Posed preview. transform rotateX(90deg); opacity 0.5.",
+   "rect": [
+    81,
+    642,
+    309,
+    823
+   ],
+   "coversUndo": false,
+   "img": false,
+   "ellipsized": 0
+  },
+  "selected": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    386,
+    361,
+    826
+   ],
+   "track": [
+    47,
+    598,
+    343,
+    646
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    470,
+    343,
+    566
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    484,
+    228,
+    551
+   ],
+   "subjTransform": "matrix(0.340862, 0, 0, 0.340862, -97.5, -97.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 62,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 328,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    649,
+    649
+   ],
+   "trackBottom": 646,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 4,
+   "sh": 1015,
+   "ih": 844
+  },
+  "removeGlyph": "lucide lucide-trash2-icon lucide-trash-2 icon-sm",
+  "afterRoundTrip": 3,
+  "expanded": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    0,
+    334,
+    390,
+    716
+   ],
+   "track": [
+    18,
+    546,
+    372,
+    674
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    18,
+    418,
+    372,
+    514
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    433,
+    228,
+    499
+   ],
+   "subjTransform": "matrix(0.340862, 0, 0, 0.340862, -97.5, -97.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 40,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 350,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    677,
+    677,
+    677
+   ],
+   "trackBottom": 674,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 40.2109375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "expandedClip": {
+   "children": 1,
+   "overflow": 14
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ },
+ "768": {
+  "empty": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    969,
+    739,
+    1218
+   ],
+   "track": [
+    47,
+    1073,
+    721,
+    1121
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "stageVisible": false,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "subjTransform": "none",
+   "subjFits": true,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 1121,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1392,
+   "ih": 1024
+  },
+  "populated": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    491,
+    739,
+    793
+   ],
+   "track": [
+    47,
+    703,
+    721,
+    751
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    575,
+    721,
+    671
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    351,
+    590,
+    417,
+    656
+   ],
+   "subjTransform": "matrix(0.230792, 0, 0, 0.230792, -144, -144)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 62,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 384,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 706,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    754,
+    754,
+    754
+   ],
+   "trackBottom": 751,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 1392,
+   "ih": 1024
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\n1\n2\n3\n4\n5\n6\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Posed preview. transform rotateX(90deg); opacity 0.5.",
+   "rect": [
+    265,
+    747,
+    504,
+    931
+   ],
+   "coversUndo": false,
+   "img": false,
+   "ellipsized": 0
+  },
+  "selected": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    491,
+    739,
+    933
+   ],
+   "track": [
+    47,
+    703,
+    721,
+    751
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    575,
+    721,
+    671
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    351,
+    590,
+    417,
+    656
+   ],
+   "subjTransform": "matrix(0.230792, 0, 0, 0.230792, -144, -144)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 62,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 384,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 706,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    754,
+    754
+   ],
+   "trackBottom": 751,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 4,
+   "sh": 1392,
+   "ih": 1024
+  },
+  "removeGlyph": "lucide lucide-trash2-icon lucide-trash-2 icon-sm",
+  "afterRoundTrip": 3,
+  "expanded": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    0,
+    514,
+    768,
+    896
+   ],
+   "track": [
+    18,
+    726,
+    750,
+    854
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    18,
+    598,
+    750,
+    694
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    351,
+    613,
+    417,
+    679
+   ],
+   "subjTransform": "matrix(0.230792, 0, 0, 0.230792, -144, -144)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 40,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 384,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 728,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    857,
+    857,
+    857
+   ],
+   "trackBottom": 854,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 40.2109375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 1392,
+   "ih": 1024
+  },
+  "expandedClip": {
+   "children": 1,
+   "overflow": 0
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ },
+ "1440": {
+  "empty": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    323
+   ],
+   "track": [
+    89,
+    148,
+    460,
+    196
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "stageVisible": false,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "subjTransform": "none",
+   "subjFits": true,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 196,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 104.34375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "populated": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    346
+   ],
+   "track": [
+    89,
+    256,
+    460,
+    304
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    242,
+    143,
+    308,
+    209
+   ],
+   "subjTransform": "matrix(0.295413, 0, 0, 0.295413, -112.5, -112.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 104,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 445,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    307,
+    307,
+    307
+   ],
+   "trackBottom": 304,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 104.34375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\n1\n2\n3\n4\n5\n6\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Posed preview. transform rotateX(90deg); opacity 0.5.",
+   "rect": [
+    143,
+    300,
+    407,
+    491
+   ],
+   "coversUndo": false,
+   "img": false,
+   "ellipsized": 0
+  },
+  "selected": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    471
+   ],
+   "track": [
+    89,
+    256,
+    460,
+    304
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    242,
+    143,
+    308,
+    209
+   ],
+   "subjTransform": "matrix(0.295413, 0, 0, 0.295413, -112.5, -112.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 104,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 445,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    307,
+    307
+   ],
+   "trackBottom": 304,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 104.34375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 4,
+   "sh": 900,
+   "ih": 900
+  },
+  "removeGlyph": "lucide lucide-trash2-icon lucide-trash-2 icon-sm",
+  "afterRoundTrip": 3,
+  "expanded": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    43,
+    482,
+    518,
+    846
+   ],
+   "track": [
+    61,
+    676,
+    500,
+    804
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    61,
+    548,
+    500,
+    644
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    248,
+    563,
+    314,
+    629
+   ],
+   "subjTransform": "matrix(0.295413, 0, 0, 0.295413, -112.5, -112.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 83,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 281,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 478,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    807,
+    807,
+    807
+   ],
+   "trackBottom": 804,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 83.4140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "expandedClip": {
+   "children": 1,
+   "overflow": 0
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ },
+ "1440d": {
+  "empty": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    323
+   ],
+   "track": [
+    89,
+    148,
+    460,
+    196
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "stageVisible": false,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "subjTransform": "none",
+   "subjFits": true,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 196,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 104.34375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "populated": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    346
+   ],
+   "track": [
+    89,
+    256,
+    460,
+    304
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    242,
+    143,
+    308,
+    209
+   ],
+   "subjTransform": "matrix(0.295413, 0, 0, 0.295413, -112.5, -112.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 104,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 445,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    307,
+    307,
+    307
+   ],
+   "trackBottom": 304,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 104.34375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\n1\n2\n3\n4\n5\n6\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Posed preview. transform rotateX(90deg); opacity 0.5.",
+   "rect": [
+    143,
+    300,
+    407,
+    491
+   ],
+   "coversUndo": false,
+   "img": false,
+   "ellipsized": 0
+  },
+  "selected": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    471
+   ],
+   "track": [
+    89,
+    256,
+    460,
+    304
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    242,
+    143,
+    308,
+    209
+   ],
+   "subjTransform": "matrix(0.295413, 0, 0, 0.295413, -112.5, -112.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 104,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 445,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    307,
+    307
+   ],
+   "trackBottom": 304,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 104.34375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 4,
+   "sh": 900,
+   "ih": 900
+  },
+  "removeGlyph": "lucide lucide-trash2-icon lucide-trash-2 icon-sm",
+  "afterRoundTrip": 3,
+  "expanded": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    43,
+    482,
+    518,
+    846
+   ],
+   "track": [
+    61,
+    676,
+    500,
+    804
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    61,
+    548,
+    500,
+    644
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    248,
+    563,
+    314,
+    629
+   ],
+   "subjTransform": "matrix(0.295413, 0, 0, 0.295413, -112.5, -112.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 83,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 281,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 478,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    807,
+    807,
+    807
+   ],
+   "trackBottom": 804,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 83.4140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "expandedClip": {
+   "children": 1,
+   "overflow": 0
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ },
+ "390d": {
+  "empty": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    789,
+    361,
+    1084
+   ],
+   "track": [
+    47,
+    893,
+    343,
+    941
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(255, 255, 255)",
+   "stage": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "stageVisible": false,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "subjTransform": "none",
+   "subjFits": true,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 941,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "populated": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    244,
+    361,
+    546
+   ],
+   "track": [
+    47,
+    456,
+    343,
+    504
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(255, 255, 255)",
+   "stage": [
+    47,
+    328,
+    343,
+    424
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    343,
+    228,
+    409
+   ],
+   "subjTransform": "matrix(0.340862, 0, 0, 0.340862, -97.5, -97.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 62,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 328,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    507,
+    507,
+    507
+   ],
+   "trackBottom": 504,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\n1\n2\n3\n4\n5\n6\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Posed preview. transform rotateX(90deg); opacity 0.5.",
+   "rect": [
+    81,
+    642,
+    309,
+    823
+   ],
+   "coversUndo": false,
+   "img": false,
+   "ellipsized": 0
+  },
+  "selected": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    29,
+    386,
+    361,
+    826
+   ],
+   "track": [
+    47,
+    598,
+    343,
+    646
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(255, 255, 255)",
+   "stage": [
+    47,
+    470,
+    343,
+    566
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    484,
+    228,
+    551
+   ],
+   "subjTransform": "matrix(0.340862, 0, 0, 0.340862, -97.5, -97.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 62,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 328,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    649,
+    649
+   ],
+   "trackBottom": 646,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 62.140625,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 4,
+   "sh": 1015,
+   "ih": 844
+  },
+  "removeGlyph": "lucide lucide-trash2-icon lucide-trash-2 icon-sm",
+  "afterRoundTrip": 3,
+  "expanded": {
+   "mounted": 1,
+   "visible": 1,
+   "card": [
+    0,
+    334,
+    390,
+    716
+   ],
+   "track": [
+    18,
+    546,
+    372,
+    674
+   ],
+   "trackRadius": "16px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    18,
+    418,
+    372,
+    514
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    433,
+    228,
+    499
+   ],
+   "subjTransform": "matrix(0.340862, 0, 0, 0.340862, -97.5, -97.5)",
+   "subjFits": true,
+   "markers": [
+    {
+     "x": 40,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 350,
+     "inL": true,
+     "inR": true
+    }
+   ],
+   "caretTops": [
+    677,
+    677,
+    677
+   ],
+   "trackBottom": 674,
+   "playheadLeft": "translateX(0px)",
+   "playheadX": 40.2109375,
+   "panRowH": 0,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "expandedClip": {
+   "children": 1,
+   "overflow": 14
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ }
+}

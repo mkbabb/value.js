@@ -1,0 +1,14 @@
+test/demo/app/mbabb-menu-dialogs.test.ts
+test/demo/app/mbabb-menu-self-hold.test.ts
+test/demo/app/mbabb-menu-share-keyboard.test.ts
+test/demo/app/r4dock-register.test.ts
+test/demo/app/r4dock-share-fallback.test.ts
+test/demo/instrument/channel-options-w13x.test.ts
+test/demo/instrument/hero-wave-pause.test.ts
+test/demo/instrument/timeline-transport-clock.test.ts
+test/demo/lib-cogency-w13x.test.ts
+test/demo/scenes/ball-on-curve.test.ts
+test/demo/scenes/cube-channels-compose.test.ts
+test/demo/scenes/easing-header-literal.test.ts
+test/demo/scenes/easing-picker-hierarchy.test.ts
+test/demo/scenes/matrix-editor.test.ts

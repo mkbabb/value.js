@@ -1,0 +1,139 @@
+[
+ {
+  "cell": "A 1440 home light",
+  "ok": false,
+  "mbabb": "Fira Code",
+  "scene": "Plus Jakarta Sans",
+  "register": "code",
+  "ident": {
+   "text": "@mbabb",
+   "fam": "Fira Code"
+  }
+ },
+ {
+  "cell": "A 1440 cube dark",
+  "ok": false,
+  "mbabb": "Fira Code",
+  "scene": "Plus Jakarta Sans",
+  "register": "code",
+  "ident": {
+   "text": "@mbabb",
+   "fam": "Fira Code"
+  }
+ },
+ {
+  "cell": "A 390 home light",
+  "ok": false,
+  "mbabb": "Fira Code",
+  "scene": "Plus Jakarta Sans",
+  "register": "code",
+  "ident": {
+   "text": "@mbabb",
+   "fam": "Fira Code"
+  }
+ },
+ {
+  "cell": "B1 1440 Share closes the menu, opens the popover",
+  "ok": true,
+  "menuOpen": false,
+  "popover": true
+ },
+ {
+  "cell": "B2 1440 a completed copy closes the chain",
+  "ok": true,
+  "popover": false,
+  "menuOpen": false,
+  "toast": true
+ },
+ {
+  "cell": "B3 1440 a refused copy offers the link, selected",
+  "ok": false,
+  "popover": false,
+  "field": false,
+  "value": null,
+  "hasState": false,
+  "focused": false,
+  "selected": false,
+  "addressBarToast": true,
+  "menuOpen": false,
+  "href": "http://localhost:5871/#/cube?state=JTdCJTIyb3B0aW9ucyUyMiUzQSU3QiUyMmN1YmUlMjIlM0ElN0IlMjJNYXRyaXglMjIlM0ElN0IlMjJhbmltYXRpb25PcHRpb25zJTIyJTNBJTdCJTIyZHVyYXRpb24lMjIlM0ElMjI1cyUyMiUyQyUyMmRlbGF5JTIyJTNBJTIyMG1zJTIyJTJDJTIyaXRlcmF0aW9uQ291bnQlMjIlM0ElMjJpbmZpbml0ZSUyMiUyQyUyMmZpbGxNb2RlJTIyJTNBJTIyZm9yd2FyZHMlMjIlMkMlMjJkaXJlY3Rpb24lMjIlM0ElMjJhbHRlcm5hdGUlMjIlMkMlMjJ0aW1pbmdGdW5jdGlvbiUyMiUzQSUyMmVhc2UtaW4tb3V0JTIyJTJDJTIycmVzcGVjdFJlZHVjZWRNb3Rpb24lMjIlM0F0cnVlJTdEJTJDJTIyc3RlcE9wdGlvbnMlMjIlM0ElN0IlMjJzdGVwcyUyMiUzQTEwMCUyQyUyMmp1bXBUZXJtJTIyJTNBJTIyanVtcC1zdGFydCUyMiU3RCUyQyUyMmN1YmljQmV6aWVyT3B0aW9ucyUyMiUzQSU3QiUyMmNvbnRyb2xQb2ludHMlMjIlM0ElNUIwLjIlMkMwLjY1JTJDMC42JTJDMSU1RCU3RCU3RCUyQyUyMlJvdGF0aW9ucyUyMiUzQSU3QiUyMmFuaW1hdGlvbk9wdGlvbnMlMjIlM0ElN0IlMjJkdXJhdGlvbiUyMiUzQSUyMjVzJTIyJTJDJTIyZGVsYXklMjIlM0ElMjIwbXMlMjIlMkMlMjJpdGVyYXRpb25Db3VudCUyMiUzQSUyMmluZmluaXRlJTIyJTJDJTIyZmlsbE1vZGUlMjIlM0ElMjJmb3J3YXJkcyUyMiUyQyUyMmRpcmVjdGlvbiUyMiUzQSUyMmFsdGVybmF0ZSUyMiUyQyUyMnRpbWluZ0Z1bmN0aW9uJTIyJTNBJTIyZWFzZS1pbi1vdXQlMjIlMkMlMjJyZXNwZWN0UmVkdWNlZE1vdGlvbiUyMiUzQXRydWUlN0QlMkMlMjJzdGVwT3B0aW9ucyUyMiUzQSU3QiUyMnN0ZXBzJTIyJTNBMTAwJTJDJTIyanVtcFRlcm0lMjIlM0ElMjJqdW1wLXN0YXJ0JTIyJTdEJTJDJTIyY3ViaWNCZXppZXJPcHRpb25zJTIyJTNBJTdCJTIyY29udHJvbFBvaW50cyUyMiUzQSU1QjAuMiUyQzAuNjUlMkMwLjYlMkMxJTVEJTdEJTdEJTJDJTIySG92ZXIlMjIlM0ElN0IlMjJhbmltYXRpb25PcHRpb25zJTIyJTNBJTdCJTIyZHVyYXRpb24lMjIlM0ElMjI1cyUyMiUyQyUyMmRlbGF5JTIyJTNBJTIyMG1zJTIyJTJDJTIyaXRlcmF0aW9uQ291bnQlMjIlM0ElMjJpbmZpbml0ZSUyMiUyQyUyMmZpbGxNb2RlJTIyJTNBJTIyZm9yd2FyZHMlMjIlMkMlMjJkaXJlY3Rpb24lMjIlM0ElMjJhbHRlcm5hdGUlMjIlMkMlMjJ0aW1pbmdGdW5jdGlvbiUyMiUzQSUyMmVhc2UtaW4tb3V0JTIyJTJDJTIycmVzcGVjdFJlZHVjZWRNb3Rpb24lMjIlM0F0cnVlJTdEJTJDJTIyc3RlcE9wdGlvbnMlMjIlM0ElN0IlMjJzdGVwcyUyMiUzQTEwMCUyQyUyMmp1bXBUZXJtJTIyJTNBJTIyanVtcC1zdGFydCUyMiU3RCUyQyUyMmN1YmljQmV6aWVyT3B0aW9ucyUyMiUzQSU3QiUyMmNvbnRyb2xQb2ludHMlMjIlM0ElNUIwLjIlMkMwLjY1JTJDMC42JTJDMSU1RCU3RCU3RCU3RCU3RCUyQyUyMmNvbnRyb2xzJTIyJTNBJTdCJTIyY3ViZSUyMiUzQSU3QiUyMnNlbGVjdGVkQ29udHJvbCUyMiUzQSUyMmNvbnRyb2xzJTIyJTJDJTIyc2VsZWN0ZWRBbmltYXRpb24lMjIlM0ElMjJSb3RhdGlvbnMlMjIlMkMlMjJrZXlmcmFtZUNvbnRyb2xzJTIyJTNBJTdCJTIyc2VsZWN0ZWRLZXlmcmFtZXNDb250cm9sJTIyJTNBJTIya2V5ZnJhbWVzJTIyJTJDJTIyZGlhbG9nT3BlbiUyMiUzQWZhbHNlJTJDJTIya2V5ZnJhbWVzJTIyJTNBJTIyJTIyJTJDJTIyYWRkS2V5ZnJhbWVzJTIyJTNBJTIyJTIyJTdEJTJDJTIyaXNUaW1lbGluZUV4cGFuZGVkJTIyJTNBZmFsc2UlMkMlMjJpc0NvbnRyb2xzUGFuZWxPcGVuJTIyJTNBdHJ1ZSUyQyUyMnBwTW9kZSUyMiUzQWZhbHNlJTdEJTdEJTJDJTIyYWN0aXZlU2NlbmUlMjIlM0ElMjJjdWJlJTIyJTdE",
+  "unchanged": false
+ },
+ {
+  "cell": "B1 390 Share closes the menu, opens the popover",
+  "ok": true,
+  "menuOpen": false,
+  "popover": true
+ },
+ {
+  "cell": "B2 390 a completed copy closes the chain",
+  "ok": true,
+  "popover": false,
+  "menuOpen": false,
+  "toast": true
+ },
+ {
+  "cell": "B3 390 a refused copy offers the link, selected",
+  "ok": false,
+  "popover": false,
+  "field": false,
+  "value": null,
+  "hasState": false,
+  "focused": false,
+  "selected": false,
+  "addressBarToast": true,
+  "menuOpen": false,
+  "href": "http://localhost:5871/#/cube?state=JTdCJTIyb3B0aW9ucyUyMiUzQSU3QiUyMmN1YmUlMjIlM0ElN0IlMjJNYXRyaXglMjIlM0ElN0IlMjJhbmltYXRpb25PcHRpb25zJTIyJTNBJTdCJTIyZHVyYXRpb24lMjIlM0ElMjI1cyUyMiUyQyUyMmRlbGF5JTIyJTNBJTIyMG1zJTIyJTJDJTIyaXRlcmF0aW9uQ291bnQlMjIlM0ElMjJpbmZpbml0ZSUyMiUyQyUyMmZpbGxNb2RlJTIyJTNBJTIyZm9yd2FyZHMlMjIlMkMlMjJkaXJlY3Rpb24lMjIlM0ElMjJhbHRlcm5hdGUlMjIlMkMlMjJ0aW1pbmdGdW5jdGlvbiUyMiUzQSUyMmVhc2UtaW4tb3V0JTIyJTJDJTIycmVzcGVjdFJlZHVjZWRNb3Rpb24lMjIlM0F0cnVlJTdEJTJDJTIyc3RlcE9wdGlvbnMlMjIlM0ElN0IlMjJzdGVwcyUyMiUzQTEwMCUyQyUyMmp1bXBUZXJtJTIyJTNBJTIyanVtcC1zdGFydCUyMiU3RCUyQyUyMmN1YmljQmV6aWVyT3B0aW9ucyUyMiUzQSU3QiUyMmNvbnRyb2xQb2ludHMlMjIlM0ElNUIwLjIlMkMwLjY1JTJDMC42JTJDMSU1RCU3RCU3RCUyQyUyMlJvdGF0aW9ucyUyMiUzQSU3QiUyMmFuaW1hdGlvbk9wdGlvbnMlMjIlM0ElN0IlMjJkdXJhdGlvbiUyMiUzQSUyMjVzJTIyJTJDJTIyZGVsYXklMjIlM0ElMjIwbXMlMjIlMkMlMjJpdGVyYXRpb25Db3VudCUyMiUzQSUyMmluZmluaXRlJTIyJTJDJTIyZmlsbE1vZGUlMjIlM0ElMjJmb3J3YXJkcyUyMiUyQyUyMmRpcmVjdGlvbiUyMiUzQSUyMmFsdGVybmF0ZSUyMiUyQyUyMnRpbWluZ0Z1bmN0aW9uJTIyJTNBJTIyZWFzZS1pbi1vdXQlMjIlMkMlMjJyZXNwZWN0UmVkdWNlZE1vdGlvbiUyMiUzQXRydWUlN0QlMkMlMjJzdGVwT3B0aW9ucyUyMiUzQSU3QiUyMnN0ZXBzJTIyJTNBMTAwJTJDJTIyanVtcFRlcm0lMjIlM0ElMjJqdW1wLXN0YXJ0JTIyJTdEJTJDJTIyY3ViaWNCZXppZXJPcHRpb25zJTIyJTNBJTdCJTIyY29udHJvbFBvaW50cyUyMiUzQSU1QjAuMiUyQzAuNjUlMkMwLjYlMkMxJTVEJTdEJTdEJTJDJTIySG92ZXIlMjIlM0ElN0IlMjJhbmltYXRpb25PcHRpb25zJTIyJTNBJTdCJTIyZHVyYXRpb24lMjIlM0ElMjI1cyUyMiUyQyUyMmRlbGF5JTIyJTNBJTIyMG1zJTIyJTJDJTIyaXRlcmF0aW9uQ291bnQlMjIlM0ElMjJpbmZpbml0ZSUyMiUyQyUyMmZpbGxNb2RlJTIyJTNBJTIyZm9yd2FyZHMlMjIlMkMlMjJkaXJlY3Rpb24lMjIlM0ElMjJhbHRlcm5hdGUlMjIlMkMlMjJ0aW1pbmdGdW5jdGlvbiUyMiUzQSUyMmVhc2UtaW4tb3V0JTIyJTJDJTIycmVzcGVjdFJlZHVjZWRNb3Rpb24lMjIlM0F0cnVlJTdEJTJDJTIyc3RlcE9wdGlvbnMlMjIlM0ElN0IlMjJzdGVwcyUyMiUzQTEwMCUyQyUyMmp1bXBUZXJtJTIyJTNBJTIyanVtcC1zdGFydCUyMiU3RCUyQyUyMmN1YmljQmV6aWVyT3B0aW9ucyUyMiUzQSU3QiUyMmNvbnRyb2xQb2ludHMlMjIlM0ElNUIwLjIlMkMwLjY1JTJDMC42JTJDMSU1RCU3RCU3RCU3RCU3RCUyQyUyMmNvbnRyb2xzJTIyJTNBJTdCJTIyY3ViZSUyMiUzQSU3QiUyMnNlbGVjdGVkQ29udHJvbCUyMiUzQSUyMmNvbnRyb2xzJTIyJTJDJTIyc2VsZWN0ZWRBbmltYXRpb24lMjIlM0ElMjJSb3RhdGlvbnMlMjIlMkMlMjJrZXlmcmFtZUNvbnRyb2xzJTIyJTNBJTdCJTIyc2VsZWN0ZWRLZXlmcmFtZXNDb250cm9sJTIyJTNBJTIya2V5ZnJhbWVzJTIyJTJDJTIyZGlhbG9nT3BlbiUyMiUzQWZhbHNlJTJDJTIya2V5ZnJhbWVzJTIyJTNBJTIyJTIyJTJDJTIyYWRkS2V5ZnJhbWVzJTIyJTNBJTIyJTIyJTdEJTJDJTIyaXNUaW1lbGluZUV4cGFuZGVkJTIyJTNBZmFsc2UlMkMlMjJpc0NvbnRyb2xzUGFuZWxPcGVuJTIyJTNBZmFsc2UlMkMlMjJwcE1vZGUlMjIlM0FmYWxzZSU3RCU3RCUyQyUyMmFjdGl2ZVNjZW5lJTIyJTNBJTIyY3ViZSUyMiU3RA==",
+  "unchanged": false
+ },
+ {
+  "cell": "C 1440 light channel select named for what it does",
+  "ok": false,
+  "named": 0,
+  "old": 1,
+  "oldRole": 0
+ },
+ {
+  "cell": "C 390 dark channel select named for what it does",
+  "ok": false,
+  "named": 0,
+  "old": 1,
+  "oldRole": 0
+ },
+ {
+  "cell": "N 1440 Matrix Controls in use (witness)",
+  "ok": null,
+  "used": true,
+  "dockAttrs": {
+   "data-v-3178508c": "",
+   "data-backdrop-mode": "live",
+   "data-backdrop-sample-state": "unavailable",
+   "data-backdrop-sample-source": "canvas",
+   "data-backdrop-sample-reason": "source-unavailable"
+  },
+  "paneTitle": "Matrix",
+  "item": {
+   "label": "Matrix",
+   "pressed": "true",
+   "active": ""
+  }
+ },
+ {
+  "cell": "N 390 Matrix Controls in use (witness)",
+  "ok": null,
+  "used": true,
+  "dockAttrs": {
+   "data-v-3178508c": "",
+   "data-backdrop-mode": "live",
+   "data-backdrop-sample-state": "unavailable",
+   "data-backdrop-sample-source": "canvas",
+   "data-backdrop-sample-reason": "source-unavailable"
+  },
+  "paneTitle": "Matrix",
+  "item": {
+   "label": "Matrix",
+   "pressed": "true",
+   "active": ""
+  }
+ }
+]

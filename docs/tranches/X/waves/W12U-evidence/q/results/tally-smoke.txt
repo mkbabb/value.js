@@ -1,0 +1,46 @@
+STEADYx2 · smoke/a11y-control-targets.spec.ts:352 · A1 · fine-pointer target size — every attributed target box is ≥24×24 · failed@314:374/66s · timedOut@344/360s · Test timeout of 180000ms exceeded.
+STEADYx2 · smoke/a11y-modality-support.spec.ts:151 · BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, · timedOut@149/33s · failed@95/0s · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+STEADYx2 · smoke/a11y-modality-support.spec.ts:187 · BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed · timedOut@144/32s · failed@83/0s · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+STEADYx1 · smoke/a11y-modality-support.spec.ts:271 · U-F57 · screen-reader landmark structure + live region (role/landmark battery) · failed@131:280/15s · - · Error: expect(locator).toBeVisible() failed
+STEADYx1 · smoke/a11y-select-title.spec.ts:304 · B1 · composed trigger title — the combobox name derives from a rendered title in · failed@120:149/38s · - · TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+STEADYx1 · smoke/a11y-select-title.spec.ts:393 · B2 · trigger height rides the size axis — and lifts with the coarse rung · failed@336:149/41s · - · TimeoutError: page.waitForFunction: Timeout 30000ms exceeded.
+STEADYx1 · smoke/a11y-web-modality.spec.ts:33 · BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) · timedOut@563/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/a11y-web-modality.spec.ts:95 · BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical) · timedOut@528/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/atmosphere-cold-load.spec.ts:74 · cold load at a URL color paints the DERIVED field first frame (light) · failed@508:179/20s · - · Error: expect(locator).toHaveCSS(expected) failed
+STEADYx1 · smoke/atmosphere-cold-load.spec.ts:74 · cold load at a URL color paints the DERIVED field first frame (dark) · failed@490:179/24s · - · Error: expect(locator).toHaveCSS(expected) failed
+STEADYx1 · smoke/color-space-switching.spec.ts:9 · color-space select switches the active space · timedOut@424/36s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/crash-battery.spec.ts:400 · opens, publishes its rows, and its external link is operable · timedOut@120/31s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/crash-battery.spec.ts:147 · R15 · an achromatic colour then LCh does not kill the pane grid · timedOut@284/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/crash-battery.spec.ts:331 · R18 · a real image file develops a palette · failed@146:317/30s · - · Error: expect(locator).toBeVisible() failed
+STEADYx1 · smoke/crash-battery.spec.ts:374 · R18 · a corrupt file surfaces a visible error, never a silent half-state · timedOut@135/33s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/color-propose.spec.ts:34 · propose cycle reaches 'Propose color name' state for an unnamed color · timedOut@147/31s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/color-propose.spec.ts:89 · the sub-layer cycle keeps exactly one active layer, the other inert · timedOut@159/31s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/color-propose.spec.ts:128 · a successful propose returns the toolbar to its actions state · timedOut@143/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/palette-delete.spec.ts:22 · delete an owned remote palette DELETEs /palettes/<slug> · timedOut@157/31s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/palette-edit.spec.ts:22 · rename a remote palette PATCHes /palettes/<slug> with new name · timedOut@182/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/palette-flag.spec.ts:21 · flag a remote palette POSTs /palettes/<slug>/flag with reason · timedOut@314/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/palette-fork.spec.ts:21 · remix a remote palette POSTs /palettes/<slug>/fork with parent slug · timedOut@360/33s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/flows/palette-save.spec.ts:20 · save current palette persists to localStorage 'color-palettes' · timedOut@700/31s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/oracles/o10-type-locks.spec.ts:73 · host-independence: family/style/weight identical; size ≡ each host's exact D2 to · failed@863:78/6s · - · Error: expect(locator).toBeVisible() failed
+STEADYx1 · smoke/oracles/o10-type-locks.spec.ts:145 · phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line · timedOut@970/30s · - · Test timeout of 30000ms exceeded.
+STEADYx1 · smoke/oracles/o10-type-locks.spec.ts:267 · every space inks its own locked line count at 1440px · timedOut@975/181s · - · Test timeout of 180000ms exceeded.
+STEADYx1 · smoke/oracles/o10-type-locks.spec.ts:267 · every space inks its own locked line count at 390px · timedOut@623/181s · - · Test timeout of 180000ms exceeded.
+STEADYx1 · smoke/oracles/o10d-display-voice-census.spec.ts:165 · O-10d census — every heading across the 7-view walk speaks the display voice (+  · failed@953:188/99s · - · Error: expect(locator).toBeVisible() failed
+STEADYx1 · smoke/oracles/o10d-display-voice-census.spec.ts:217 · O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; l · timedOut@941/61s · - · Test timeout of 60000ms exceeded.
+STEADYx1 · smoke/oracles/o10d-display-voice-census.spec.ts:264 · O-10d census — the 390 phone band: the card name clamps to TWO lines under the s · timedOut@248/62s · - · Test timeout of 60000ms exceeded.
+STEADYx1 · smoke/oracles/o10d-display-voice-census.spec.ts:290 · O-10d census — gated title surfaces: report dialog · versions drawer · hover-car · timedOut@356/180s · - · Test timeout of 90000ms exceeded.
+STEADYx1 · smoke/oracles/o10d-display-voice-census.spec.ts:377 · O-10d census — the rename-input morph re-verified under the serif (seeded local  · timedOut@660/61s · - · Test timeout of 60000ms exceeded.
+STEADYx1 · smoke/oracles/o11-header-gates.spec.ts:100 · O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) · timedOut@978/121s · - · Test timeout of 120000ms exceeded.
+STEADYx1 · smoke/oracles/o11-header-gates.spec.ts:100 · O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) · timedOut@438/240s · - · Test timeout of 120000ms exceeded.
+STEADYx1 · smoke/oracles/o11-header-gates.spec.ts:220 · O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; th · timedOut@936/180s · - · Test timeout of 90000ms exceeded.
+STEADYx1 · smoke/oracles/o11-header-gates.spec.ts:332 · O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane · timedOut@336/62s · - · Test timeout of 30000ms exceeded while setting up "page".
+STEADYx1 · smoke/oracles/o11-header-gates.spec.ts:402 · O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-st · timedOut@356/122s · - · Test timeout of 60000ms exceeded.
+STEADYx1 · smoke/oracles/o12-blob-seat.spec.ts:122 · O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead' · timedOut@95/60s · - · Test timeout of 30000ms exceeded while setting up "page".
+STEADYx1 · smoke/oracles/o12-blob-seat.spec.ts:176 · O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per fr · timedOut@274/60s · - · Test timeout of 30000ms exceeded while setting up "page".
+STEADYx1 · smoke/oracles/o12-blob-seat.spec.ts:241 · O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms · timedOut@144/61s · - · Test timeout of 30000ms exceeded while setting up "page".
+STEADYx1 · smoke/oracles/o12-blob-seat.spec.ts:285 · O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store i · failed@117/0s · - · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+STEADYx1 · smoke/oracles/o14-preview-truth.spec.ts:198 · dropdown entry + Palettes title each render their per-site guarded stops — one r · failed@134/0s · - · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+STEADYx1 · smoke/oracles/o14-preview-truth.spec.ts:252 · the excised legend stays dead — no per-view static tokens, no dot column · failed@270/0s · - · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+STEADYx1 · smoke/oracles/o14-preview-truth.spec.ts:294 · each site's stops clear its floor against the surface it sits on — never the nea · failed@137/0s · - · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+STEADYx1 · smoke/oracles/o14-preview-truth.spec.ts:294 · each site's stops clear its floor against the surface it sits on — never the nea · failed@72/0s · - · TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+COUNT smoke [r1,r2a] total=77 PASS=32 FLAKE=0 STEADY=45 SKIPPED=0 notRunInFirstTag=216

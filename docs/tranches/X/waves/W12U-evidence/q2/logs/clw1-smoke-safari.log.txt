@@ -1,0 +1,17 @@
+### smoke-safari (clw1) start 10-16 14:55:43 load1=9.55 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-9db19dec3
+(node:95893) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:95932) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:95980) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[w6-5 aurora] renderer=Apple GPU gradientFallback=false
+  ✓  1 [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:90:5 › S.W6-5 WebKit atmosphere + hero › aurora paints on WebKit (L1 shader cure re-verify) (7.2s)
+[w6-5 spazz] wrapper={"x":262,"y":127,"w":112,"h":112} inkSamples=10/10 maxJumpPx=6.0 centroids=[{"x":329,"y":214,"ink":36860},{"x":329,"y":214,"ink":37433},{"x":329,"y":214,"ink":37073},{"x":329,"y":214,"ink":36981},{"x":330,"y":214,"ink":36282},{"x":334,"y":210,"ink":32604},{"x":334,"y":210,"ink":32750},{"x":334,"y":209,"ink":32901},{"x":334,"y":209,"ink":32911},{"x":334,"y":209,"ink":31779}]
+  ✓  2 [smoke-safari] › e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:163:5 › S.W6-5 WebKit atmosphere + hero › blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro) (8.6s)
+
+  2 passed (18.6s)
+### smoke-safari end 10-16 14:56:06 load1=11.41 exit=0

@@ -1,0 +1,790 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 14 tests using 3 workers
+
+[1/14] [chromium] › e2e/f-w14v-p.spec.ts:96:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p1: signed out → the inline sign-in, then the publish resumes
+[2/14] [chromium] › e2e/f-w14v-p.spec.ts:106:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p2: a stale sign-in → the server's owner_required reaches the inline sign-in, never the raw toast
+[3/14] [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1440: the toast and the Configurator's aside do not intersect
+[4/14] [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect
+[5/14] [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time
+[6/14] [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel
+  1) [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+
+    Error: axe-core serious/critical violations at "gallery admin banner (GAB-1 stat cells)":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:100:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/error-context.md
+
+
+  2) [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+
+    Error: toast {"x":620,"y":656.96875,"width":388,"height":95.03125} over aside {"x":656,"y":88,"width":352,"height":668}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 33451
+
+      148 |                 y: Math.max(0, Math.min(a.y + a.height, t.y + t.height) - Math.max(a.y, t.y)),
+      149 |             };
+    > 150 |             expect(overlap.x * overlap.y, `toast ${JSON.stringify(t)} over aside ${JSON.stringify(a)}`).toBe(0);
+          |                                                                                                         ^
+      151 |         });
+      152 |     }
+      153 | });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-p.spec.ts:150:105
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/error-context.md
+
+
+  3) [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Users":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span:nth-child(1)
+          div[aria-label="Notifications (F8)"] > span:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:111:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/error-context.md
+
+
+[7/14] [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel
+[8/14] [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel
+[9/14] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+  4) [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+
+    Error: expect(locator).toHaveScreenshot(expected) failed
+
+    Locator: getByRole('button', { name: 'Open Amber fox spiral' })
+      Expected an image 240px by 301px, received 277px by 238px. 15799 pixels (ratio 0.19 of all image pixels) are different.
+
+      Snapshot: checkpoint-card-resting.png
+
+    Call log:
+      - Expect "toHaveScreenshot(checkpoint-card-resting.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - waiting for getByRole('button', { name: 'Open Amber fox spiral' })
+        - locator resolved to <button type="button" class="card-open" data-v-7dfef4b2="" aria-label="Open Amber fox spiral">…</button>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - Expected an image 240px by 301px, received 277px by 238px. 15799 pixels (ratio 0.19 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - waiting for getByRole('button', { name: 'Open Amber fox spiral' })
+        - locator resolved to <button type="button" class="card-open" data-v-7dfef4b2="" aria-label="Open Amber fox spiral">…</button>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - captured a stable screenshot
+      - Expected an image 240px by 301px, received 277px by 238px. 15799 pixels (ratio 0.19 of all image pixels) are different.
+
+
+       97 |         await freeze(page);
+       98 |
+    >  99 |         await expect(card).toHaveScreenshot("checkpoint-card-resting.png", SHOT);
+          |                            ^
+      100 |     });
+      101 |
+      102 |     test("item 2 — `cartoon-card` hover, the state no spec in the suite reached", async ({
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:99:28
+
+    attachment #1: checkpoint-card-resting (image/png) ─────────────────────────────────────────────
+    Expected: e2e/visual-checkpoint.spec.ts-snapshots/checkpoint-card-resting-chromium-darwin.png
+    Received: test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/checkpoint-card-resting-actual.png
+    Diff:     test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/checkpoint-card-resting-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/error-context.md
+
+
+  5) [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Audit Log":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:133:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/error-context.md
+
+
+  6) [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Flagged":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:122:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/error-context.md
+
+
+[10/14] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+[11/14] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+[12/14] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+[13/14] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+  7) [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+
+    Error: expect(locator).toHaveScreenshot(expected) failed
+
+    Locator: getByRole('button', { name: 'Open Amber fox spiral' })
+      Expected an image 246px by 307px, received 277px by 238px. 13494 pixels (ratio 0.16 of all image pixels) are different.
+
+      Snapshot: checkpoint-card-hover.png
+
+    Call log:
+      - Expect "toHaveScreenshot(checkpoint-card-hover.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - waiting for getByRole('button', { name: 'Open Amber fox spiral' })
+        - locator resolved to <button type="button" class="card-open" data-v-7dfef4b2="" aria-label="Open Amber fox spiral">…</button>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - Expected an image 246px by 307px, received 277px by 238px. 13494 pixels (ratio 0.16 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - waiting for getByRole('button', { name: 'Open Amber fox spiral' })
+        - locator resolved to <button type="button" class="card-open" data-v-7dfef4b2="" aria-label="Open Amber fox spiral">…</button>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - captured a stable screenshot
+      - Expected an image 246px by 307px, received 277px by 238px. 13494 pixels (ratio 0.16 of all image pixels) are different.
+
+
+      118 |         await card.hover();
+      119 |
+    > 120 |         await expect(card).toHaveScreenshot("checkpoint-card-hover.png", SHOT);
+          |                            ^
+      121 |     });
+      122 |
+      123 |     test("item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened", async ({
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:120:28
+
+    attachment #1: checkpoint-card-hover (image/png) ───────────────────────────────────────────────
+    Expected: e2e/visual-checkpoint.spec.ts-snapshots/checkpoint-card-hover-chromium-darwin.png
+    Received: test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/checkpoint-card-hover-actual.png
+    Diff:     test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/checkpoint-card-hover-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/error-context.md
+
+
+  8) [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+
+    Error: expect(locator).toHaveScreenshot(expected) failed
+
+    Locator: getByRole('dialog')
+      Expected an image 448px by 636px, received 448px by 628px. 43181 pixels (ratio 0.16 of all image pixels) are different.
+
+      Snapshot: checkpoint-card-modal.png
+
+    Call log:
+      - Expect "toHaveScreenshot(checkpoint-card-modal.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - waiting for getByRole('dialog')
+        - locator resolved to <div id="" tabindex="-1" role="dialog" data-scroll="" aria-modal="true" data-state="open" data-dismiss="free" data-surface="opaque" data-motion="reduced" data-dismissable-layer="" data-slot="dialog-content" aria-labelledby="reka-dialog-title-v-10" aria-describedby="reka-dialog-description-v-11" class="fixed left-1/2 top-1/2 z-modal glass-floating max-h-[calc(100dvh-2rem)] overflow-y-auto max-w-[28rem]">…</div>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        2 × waiting for element to be stable
+          - element is not stable
+        - retrying scroll into view action
+        - waiting 20ms
+        2 × waiting for element to be stable
+          - element is not stable
+        - retrying scroll into view action
+          - waiting 100ms
+        - waiting for element to be stable
+      - Expected an image 448px by 636px, received 448px by 628px. 43181 pixels (ratio 0.16 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - waiting for getByRole('dialog')
+        - locator resolved to <div id="" tabindex="-1" role="dialog" data-scroll="" aria-modal="true" data-state="open" data-dismiss="free" data-surface="opaque" data-motion="reduced" data-dismissable-layer="" data-slot="dialog-content" aria-labelledby="reka-dialog-title-v-10" aria-describedby="reka-dialog-description-v-11" class="fixed left-1/2 top-1/2 z-modal glass-floating max-h-[calc(100dvh-2rem)] overflow-y-auto max-w-[28rem]">…</div>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - captured a stable screenshot
+      - Expected an image 448px by 636px, received 448px by 628px. 43181 pixels (ratio 0.16 of all image pixels) are different.
+
+
+      140 |         await freeze(page);
+      141 |
+    > 142 |         await expect(modal).toHaveScreenshot("checkpoint-card-modal.png", SHOT);
+          |                             ^
+      143 |     });
+      144 |
+      145 |     test("item 8 — `text-admin-label`, reached through S1's admin entry", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:142:29
+
+    attachment #1: checkpoint-card-modal (image/png) ───────────────────────────────────────────────
+    Expected: e2e/visual-checkpoint.spec.ts-snapshots/checkpoint-card-modal-chromium-darwin.png
+    Received: test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/checkpoint-card-modal-actual.png
+    Diff:     test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/checkpoint-card-modal-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/error-context.md
+
+
+[14/14] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  9) [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project 
+
+    Error: expect(locator).toHaveScreenshot(expected) failed
+
+    Locator: getByRole('button', { name: 'Auto-select harmonics by Parseval energy' })
+      134 pixels (ratio 0.03 of all image pixels) are different.
+
+      Snapshot: checkpoint-tooltip-trigger.png
+
+    Call log:
+      - Expect "toHaveScreenshot(checkpoint-tooltip-trigger.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - waiting for getByRole('button', { name: 'Auto-select harmonics by Parseval energy' })
+        - locator resolved to <button tabindex="0" type="button" data-state="on" data-v-38855d39="" aria-pressed="true" data-slot="toggle-group-item" aria-label="Auto-select harmonics by Parseval energy" class="toggle-group__item control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring hue-chip fourier-chip">…</button>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - 134 pixels (ratio 0.03 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - waiting for getByRole('button', { name: 'Auto-select harmonics by Parseval energy' })
+        - locator resolved to <button tabindex="0" type="button" data-state="on" data-v-38855d39="" aria-pressed="true" data-slot="toggle-group-item" aria-label="Auto-select harmonics by Parseval energy" class="toggle-group__item control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring hue-chip fourier-chip">…</button>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - captured a stable screenshot
+      - 134 pixels (ratio 0.03 of all image pixels) are different.
+
+
+      220 |         await expect(trigger).toBeVisible({ timeout: 30_000 });
+      221 |
+    > 222 |         await expect(trigger).toHaveScreenshot("checkpoint-tooltip-trigger.png", SHOT);
+          |                               ^
+      223 |     });
+      224 | });
+      225 |
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:222:31
+
+    attachment #1: checkpoint-tooltip-trigger (image/png) ──────────────────────────────────────────
+    Expected: e2e/visual-checkpoint.spec.ts-snapshots/checkpoint-tooltip-trigger-mobile-chromium-darwin.png
+    Received: test-results/visual-checkpoint-G-F9-23--c9c5c-en-under-the-coarse-project-mobile-chromium/checkpoint-tooltip-trigger-actual.png
+    Diff:     test-results/visual-checkpoint-G-F9-23--c9c5c-en-under-the-coarse-project-mobile-chromium/checkpoint-tooltip-trigger-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--c9c5c-en-under-the-coarse-project-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--c9c5c-en-under-the-coarse-project-mobile-chromium/error-context.md
+
+
+  10) [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+
+    Error: expect(locator).toHaveScreenshot(expected) failed
+
+    Locator: locator('.eq-configurator .configurator-aside').first()
+      10041 pixels (ratio 0.04 of all image pixels) are different.
+
+      Snapshot: checkpoint-disclosure-body.png
+
+    Call log:
+      - Expect "toHaveScreenshot(checkpoint-disclosure-body.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - waiting for locator('.eq-configurator .configurator-aside').first()
+        - locator resolved to <aside class="configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden">…</aside>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - 10041 pixels (ratio 0.04 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - waiting for locator('.eq-configurator .configurator-aside').first()
+        - locator resolved to <aside class="configurator-aside flex min-h-0 min-w-0 flex-col glass-floating rounded-card border border-border/60 overflow-hidden">…</aside>
+      - taking element screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - attempting scroll into view action
+        - waiting for element to be stable
+      - captured a stable screenshot
+      - 10041 pixels (ratio 0.04 of all image pixels) are different.
+
+
+      194 |         const panel = page.locator(".eq-configurator .configurator-aside").first();
+      195 |         await expect(panel).toBeVisible();
+    > 196 |         await expect(panel).toHaveScreenshot("checkpoint-disclosure-body.png", SHOT);
+          |                             ^
+      197 |     });
+      198 |
+      199 |     test("@coarse item 4 — the tooltip re-proportion, taken under the coarse project", async ({
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:196:29
+
+    attachment #1: checkpoint-disclosure-body (image/png) ──────────────────────────────────────────
+    Expected: e2e/visual-checkpoint.spec.ts-snapshots/checkpoint-disclosure-body-chromium-darwin.png
+    Received: test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/checkpoint-disclosure-body-actual.png
+    Diff:     test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/checkpoint-disclosure-body-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/error-context.md
+
+
+  10 failed
+    [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+    [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+    [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+    [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+    [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+    [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project 
+  4 passed (2.0m)

@@ -1,25 +1,44 @@
 <template>
     <div
-        class="dashed-well"
+        class="dashed-well current-palette-well"
+        :data-empty="savedColorStrings.length === 0 || undefined"
     >
+        <!-- X.W12U.h · A2-VA-L3-4: with no swatches the well is ONE line, the
+             caption and the add slot side by side; it spent a caption row and a
+             second row holding the lone "+" before the first saved palette. -->
+        <!-- X-DS pass 9 (P9R-05): empty, the row is the one command — a click
+             on "Start a new palette" adds the current colour, as the trailing
+             add slot does. The slot stays the keyboard stop and the accessible
+             name; the row only widens its pointer target, so the label's
+             action rung is a promise the hit area keeps. -->
         <div
-            class="flex items-center justify-between gap-2"
+            class="flex items-baseline gap-2"
+            :class="savedColorStrings.length === 0 && 'cursor-pointer'"
+            data-well-label-row
+            @click="savedColorStrings.length === 0 && addCurrentColor()"
         >
+            <!-- X-DS V8C-02: the well's label is the pane's action, so it speaks
+                 the body rung in foreground ink at 600 — one step over
+                 EmptyState's statement (body, 500) on every host, rather than
+                 ranking under it as a muted small caption. -->
             <span
-                class="text-small font-display font-semibold text-muted-foreground"
+                class="text-body font-display font-semibold text-foreground"
             >
                 {{
                     savedColorStrings.length > 0
-                        ? "Current Palette"
+                        ? "Current palette"
                         : "Start a new palette"
                 }}
             </span>
-            <!-- S.W5-7: singular form — "1 color", never "1 colors". -->
+            <!-- X-DS value pass 6 (V6C-02): the app's ONE count idiom
+                 (PaletteSpecimen): a bare muted mono tabular numeral on the
+                 label's baseline, beside it; the noun lives in `title`
+                 (S.W5-7's singular form — "1 color", never "1 colors"). -->
             <span
                 v-if="savedColorStrings.length > 0"
-                class="text-mono-small text-muted-foreground"
-                >{{ savedColorStrings.length }} color{{ savedColorStrings.length !== 1 ? "s" : "" }}</span
-            >
+                class="text-mono-small tabular-nums text-muted-foreground shrink-0"
+                :title="`${savedColorStrings.length} color${savedColorStrings.length === 1 ? '' : 's'}`"
+            >{{ formatCount(savedColorStrings.length).text }}</span>
         </div>
         <TransitionGroup
             name="vj-enter"
@@ -27,29 +46,23 @@
             class="swatch-row flex items-center gap-2.5 flex-wrap"
         >
             <SwatchHoverMenu
-                v-for="(color, i) in savedColorStrings"
-                :key="swatchKeys[i] ?? i"
+                v-for="({ color, key }, i) in swatches"
+                :key="key"
                 :color="color"
                 :open="currentSwatchPopoverIndex === i"
-                :can-hover="canHover"
-                :floating-style="currentFloatingStyle"
-                size-class="w-11 h-11 sm:w-12 sm:h-12"
+                size="lg"
                 :ghost="isSwatchEditing(i)"
-                @hover="onCurrentSwatchHover(i, $event)"
-                @leave="onCurrentSwatchLeave()"
-                @cancel-leave="cancelCurrentSwatchLeave()"
-                @click="onCurrentSwatchClick(i)"
-                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
+                @update:open="(v: boolean) => onCurrentSwatchOpenChange(v, i)"
             >
                 <template #actions>
                     <!-- W5-a11y: icon-only swatch action buttons need accessible names -->
-                    <button :aria-label="`Edit color ${color}`" @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                    <button :aria-label="`Edit color ${formatCssCaption(color)}`" @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Pencil class="w-4 h-4" aria-hidden="true" />
                     </button>
-                    <button :aria-label="`Copy color ${color}`" @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                    <button :aria-label="`Copy color ${formatCssCaption(color)}`" @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Copy class="w-4 h-4" aria-hidden="true" />
                     </button>
-                    <button :aria-label="`Remove color ${color} from palette`" @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                    <button :aria-label="`Remove color ${formatCssCaption(color)} from palette`" @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Trash2 class="w-4 h-4 text-destructive" aria-hidden="true" />
                     </button>
                 </template>
@@ -59,23 +72,22 @@
                             <div class="flex items-center gap-2">
                                 <!-- The FROM slot reads as the shipped ghost variant — the
                                      seeded dashed silhouette (A3, U22) — not an outline fork. -->
-                                <WatercolorDot :color="color" variant="ghost" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-from-' + i" />
+                                <WatercolorDot :color="color" variant="ghost" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-from-' + i" />
                                 <span class="text-muted-foreground text-caption">&rarr;</span>
-                                <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
+                                <WatercolorDot :color="cssColorOpaque" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
                             <div class="flex gap-2 mt-2 self-center">
                                 <!-- W5-a11y: title is tooltip-only; add aria-label so AT reads it -->
                                 <!-- T.W5-R5 (T-14 / D7): the per-site spatial strays
-                                     (transition-all + hover:scale-110/active:scale-95 on the
-                                     dead 150ms bare-utility default — F3) retire onto the
-                                     producer's `btn-interactive` atom: the scale leg rides
-                                     --transition-liquid-spatial @ --spring-smooth-duration
-                                     (inherited, never re-implemented), press/hover magnitudes
-                                     + the house focus register come with it. -->
-                                <button class="btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
+                                     (transition-all + hover:scale-110/active:scale-95 — F3)
+                                     stay retired. X.W8.d (W5-BTN-INTERACTIVE-DEAD): the
+                                     `btn-interactive` atom they moved onto left glass at
+                                     490cc46e, so the class matched no rule and is deleted;
+                                     the press/hover motion question rides O-52 R-2. -->
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
                                     <Check class="w-5 h-5" :style="{ color: safeAccent }" aria-hidden="true" />
                                 </button>
-                                <button class="btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Cancel edit" aria-label="Cancel edit" @click.stop="emit('cancelEdit')">
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer" title="Cancel edit" aria-label="Cancel edit" @click.stop="emit('cancelEdit')">
                                     <Undo2 class="w-5 h-5 text-muted-foreground" aria-hidden="true" />
                                 </button>
                             </div>
@@ -91,29 +103,47 @@
                             <!-- W5-a11y: tooltip provides name but aria-label ensures AT reads it -->
                             <!-- R.W4 Lane A / A3 (U18): the add-slot is the shipped
                                  WatercolorDot ghost — the seeded dashed silhouette the
-                                 committed swatch will fill — seeded by the LIVE color. -->
-                            <WatercolorDot
-                                :color="cssColorOpaque"
-                                variant="ghost"
-                                tag="button"
-                                seed="add-current-slot"
-                                class="add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
-                                :aria-label="`Add current color ${cssColorOpaque} to palette`"
+                                 committed swatch will fill — seeded by the LIVE color.
+                                 X.W12.u1 (G-2 sweep · UIA-V-24): glass 7.0.0's
+                                 WatercolorDot is a visual primitive (inheritAttrs:false,
+                                 no `tag`, no slot) — it forwards only class/style, so the
+                                 command lives on glass's Button (text emphasis, icon-only;
+                                 UIA-V-24 fix shape) and the dot paints inside it. -->
+                            <Button
+                                emphasis="text"
+                                icon-only
+                                size="lg"
+                                class="add-slot-ghost shrink-0 cursor-pointer"
+                                :aria-label="`Add current color ${formatCssCaption(cssColorOpaque)} to palette`"
                                 @click="addCurrentColor"
                             >
-                                <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
-                            </WatercolorDot>
+                                <WatercolorDot
+                                    :color="cssColorOpaque"
+                                    variant="ghost"
+                                    seed="add-current-slot"
+                                    class="w-full h-full"
+                                />
+                                <Plus class="absolute w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
-                            Add current color ({{ cssColorOpaque }})
+                            Add current color ({{ formatCssCaption(cssColorOpaque) }})
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
             </div>
         </TransitionGroup>
+        <!-- X.W7.c (fold N-11): the swatch copy verb's verdict — the same
+             feedback chip the palette card uses, bound to the CopyResult. -->
+        <ActionFeedback
+            :message="copyFeedback.message"
+            :variant="copyFeedback.variant"
+            :visible="copyFeedback.visible"
+            @update:visible="copyFeedback.visible = $event"
+        />
         <!-- K-INV5 degraded affordance: the save surface names its state
              when the backend is down — the palette still saves locally. -->
-        <ApiOfflineChip v-if="savedColorStrings.length > 0" class="self-start" />
+        <ApiStatusChip v-if="savedColorStrings.length > 0" seat="surface" class="self-start" />
         <div
             v-if="savedColorStrings.length > 0"
             class="flex items-center gap-2"
@@ -129,16 +159,20 @@
                 "
                 size="sm"
                 class="flex-1"
+                aria-label="New palette name"
                 @keydown.enter="saveCurrentPalette"
             />
+            <!-- X.W12U.s2 · UIA-V-99 · V-276: a named glass square — no per-instance
+                 size, radius or border overrides. -->
             <Button
-                variant="outline"
                 icon-only
-                class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+                size="sm"
+                aria-label="Save palette"
+                class="shrink-0"
                 :disabled="savedColorStrings.length === 0"
                 @click="saveCurrentPalette"
             >
-                <Check class="w-4 h-4 text-foreground" />
+                <Check class="w-4 h-4" aria-hidden="true" />
             </Button>
         </div>
         <div
@@ -148,22 +182,8 @@
             <span class="text-mono-small text-muted-foreground italic">
                 "{{ duplicateTarget.name }}" already exists.
             </span>
-            <Button
-                variant="outline"
-                size="sm"
-                class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
-                @click="confirmUpdatePalette"
-            >
-                Update
-            </Button>
-            <Button
-                variant="ghost"
-                size="sm"
-                class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
-                @click="duplicateTarget = null"
-            >
-                Cancel
-            </Button>
+            <Button size="sm" @click="confirmUpdatePalette">Update</Button>
+            <Button size="sm" emphasis="text" @click="duplicateTarget = null">Cancel</Button>
         </div>
     </div>
 </template>
@@ -171,14 +191,15 @@
 <script setup lang="ts">
 import { inject, ref, toRef, TransitionGroup } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
-import { Input } from "../../../ui/input";
-import { Button } from "../../../ui/button";
+import { formatCount, formatCssCaption } from "../../../color-session/format-color";
+import { Input } from "@mkbabb/glass-ui/input";
+import { Button } from "@mkbabb/glass-ui/button";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../../../ui/tooltip";
+} from "@mkbabb/glass-ui/tooltip";
 import {
     Plus,
     Pencil,
@@ -188,9 +209,10 @@ import {
     Undo2,
 } from "@lucide/vue";
 import type { Palette, PaletteColor } from "../../types";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
-import ApiOfflineChip from "../status/ApiOfflineChip.vue";
+import ActionFeedback from "../../../shared/ui/ActionFeedback.vue";
+import ApiStatusChip from "../../../shared/ui/api-status/ApiStatusChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
 const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =
@@ -216,15 +238,10 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 // --- Swatch interaction state & actions ---
 const {
-    canHover,
     currentSwatchPopoverIndex,
-    currentFloatingStyle,
-    swatchKeys,
-    onCurrentSwatchHover,
-    onCurrentSwatchLeave,
-    cancelCurrentSwatchLeave,
-    onCurrentSwatchPopoverUpdateTouch,
-    onCurrentSwatchClick,
+    swatches,
+    copyFeedback,
+    onCurrentSwatchOpenChange,
     isSwatchEditing,
     addCurrentColor,
     onCurrentSwatchEdit,
@@ -279,11 +296,23 @@ function confirmUpdatePalette() {
 <style scoped>
 /* R.W4 Lane A / A3 (U18/U22): the former `.swatch-editing` dashed-outline +
  * `.swatch-cutout` forks are DELETED — the being-edited slot and the edit
- * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
- * (the seeded dashed silhouette; one shape source, producer-owned). */
+ * overlay's FROM slot now consume the WatercolorDot ghost variant (relocated from glass-ui into value.js at glass 8.0.0)
+ * (the seeded dashed silhouette; one shape source, `shared/ui/watercolor-dot`). */
 
-/* The add-slot ghost hosts a centred Plus glyph in its default slot. */
+/* The add-slot host Button fills with the ghost dot (the dot's own inline style
+ * pins position:relative, so it sizes by w/h, never by inset); the Plus glyph is
+ * the absolutely placed child, centred at its flex static position. */
+/* A2-VA-L3-4: the empty well reads as one line — caption leading, the add
+ * slot trailing. Only the caption row and the swatch row (holding the slot
+ * alone) are mounted then, so the column becomes a row. */
+.current-palette-well[data-empty] {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .add-slot-ghost {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;

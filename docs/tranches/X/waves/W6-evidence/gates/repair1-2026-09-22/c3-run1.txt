@@ -1,0 +1,9 @@
+(node:12170) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+negative control: oklch(N N N) vs oklch(N% N Ndeg) → FAIL (two shapes — the classifier sees the RED pair)
+authored: oklch(75% 0.15 145deg)  |  oklch(65% 0.18 265deg)
+minted:   oklch(72.5% 0.1575 175deg)  |  oklch(69.5% 0.1665 211deg)  |  oklch(67.26% 0.17323 237.93deg)
+grammar shapes across authored + minted: oklch(N% N Ndeg)  (1)
+readout: linear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(72.5% 0.1575 175deg) 37.5%, oklch(69.5% 0.1665 211deg) 62.5%, oklch(67.26% 0.17323 237.93deg) 81.2%, oklch(65% 0.18 265deg) 100%)
+GATE c3 (literal dialect) — GREEN
+EXIT 0

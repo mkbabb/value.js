@@ -1,0 +1,677 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 27,
+ "when": "2026-09-23T17:53:05.320Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "sha": "531aa3f1",
+   "dirty": 27,
+   "notes": {
+    "exit": [
+     [
+      0,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      56,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      93,
+      "flex",
+      "0.47",
+      "(0.947111, 0, 0, 0.947111, 0, 10.5778)"
+     ],
+     [
+      143,
+      "flex",
+      "0.03",
+      "(0.90273, 0, 0, 0.90273, 0, 19.454)"
+     ],
+     [
+      195,
+      "flex",
+      "0.00",
+      "(0.899578, 0, 0, 0.899578, 0, 20.0845)"
+     ],
+     [
+      242,
+      "flex",
+      "0.00",
+      "(0.899935, 0, 0, 0.899935, 0, 20.013)"
+     ],
+     [
+      292,
+      "flex",
+      "0.00",
+      "(0.899999, 0, 0, 0.899999, 0, 20.0001)"
+     ],
+     [
+      343,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      393,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      443,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      492,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      543,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      593,
+      "none",
+      "0.00",
+      "none"
+     ],
+     [
+      642,
+      "none",
+      "0.00",
+      "none"
+     ]
+    ],
+    "enter": [
+     [
+      0,
+      "none",
+      "0.00",
+      "none"
+     ],
+     [
+      39,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      89,
+      "flex",
+      "0.76",
+      "(0.976228, 0, 0, 0.976228, 0, 4.75431)"
+     ],
+     [
+      139,
+      "flex",
+      "1.00",
+      "(0.999894, 0, 0, 0.999894, 0, 0.0212488)"
+     ],
+     [
+      189,
+      "flex",
+      "1.00",
+      "(1.00029, 0, 0, 1.00029, 0, -0.0577525)"
+     ],
+     [
+      238,
+      "flex",
+      "1.00",
+      "(1.00002, 0, 0, 1.00002, 0, -0.0044725)"
+     ],
+     [
+      288,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      339,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      388,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      438,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      489,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      539,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      589,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      638,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ]
+    ],
+    "dockIdle": {
+     "x": 757,
+     "y": 773.3828125,
+     "w": 81.796875,
+     "h": 38.5234375,
+     "cls": "dock-trigger dock-select-trigger dock-label",
+     "comboVisible": true
+    },
+    "playVisibleOnHover": false,
+    "radii": {
+     "stageCard": [
+      "16px",
+      "glass-resting card rounded-card text-card-foreground scrollbar-hidden flex flex-"
+     ],
+     "discrete": [
+      "8px",
+      "discrete-card is-open"
+     ],
+     "artifact": [
+      "6px",
+      "artifact text-mono-small tabular-nums text-muted-foreground block w-full"
+     ],
+     "chip": [
+      "9999px",
+      "active-preset-chip text-mono-small capitalize"
+     ],
+     "toggle": [
+      "9999px",
+      "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-pl"
+     ],
+     "copy": [
+      "9999px",
+      "button tap-squish focus-ring"
+     ],
+     "presets": "9999px h0,9999px h0,9999px h0,9999px h0,9999px h75,9999px h75,9999px h75,9999px h52",
+     "rootScroll": [
+      900,
+      900
+     ],
+     "titleLines": [
+      "@starting-style",
+      44,
+      "43.9824px",
+      "manual",
+      "41.888px"
+     ]
+    },
+    "setCss": "Primitive>Surface>Card>StartingStyleTarget",
+    "notReady": {
+     "status": "No artifact yet — the compile is still running, or it refused.",
+     "copy": false
+    },
+    "mismatched": "This artifact does not describe the card above — it is not safe to paste.",
+    "presetClick": "clicked",
+    "afterBouncy": {
+     "chip": "bouncy",
+     "line": "eased by | bouncy | ζ 0.45 · 500 ms | — response is not expressed on this card",
+     "artHead": " scale(0.9);\n  display: none;\n  transition: opacity 500ms linear(0, 0.35284 4.00"
+    }
+   }
+  },
+  {
+   "tag": "1440-dark",
+   "sha": "531aa3f1",
+   "dirty": 27,
+   "notes": {
+    "dockIdle": {
+     "x": 679.1015625,
+     "y": 773.3828125,
+     "w": 81.796875,
+     "h": 38.5234375,
+     "cls": "dock-trigger dock-select-trigger dock-label",
+     "comboVisible": true
+    },
+    "playVisibleOnHover": false,
+    "radii": {
+     "stageCard": [
+      "16px",
+      "glass-resting card rounded-card text-card-foreground scrollbar-hidden flex flex-"
+     ],
+     "discrete": [
+      "8px",
+      "discrete-card is-open"
+     ],
+     "artifact": [
+      "6px",
+      "artifact text-mono-small tabular-nums text-muted-foreground block w-full"
+     ],
+     "chip": [
+      "9999px",
+      "active-preset-chip text-mono-small capitalize"
+     ],
+     "toggle": [
+      "9999px",
+      "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-pl"
+     ],
+     "copy": [
+      "9999px",
+      "button tap-squish focus-ring"
+     ],
+     "presets": "9999px h0,9999px h0,9999px h0,9999px h0,9999px h75,9999px h75,9999px h75,9999px h52",
+     "rootScroll": [
+      900,
+      900
+     ],
+     "titleLines": [
+      "@starting-style",
+      44,
+      "43.9824px",
+      "manual",
+      "41.888px"
+     ]
+    },
+    "setCss": "Primitive>Surface>Card>StartingStyleTarget",
+    "notReady": {
+     "status": "No artifact yet — the compile is still running, or it refused.",
+     "copy": false
+    },
+    "mismatched": "This artifact does not describe the card above — it is not safe to paste.",
+    "presetClick": "clicked",
+    "afterBouncy": {
+     "chip": "bouncy",
+     "line": "eased by | bouncy | ζ 0.45 · 500 ms | — response is not expressed on this card",
+     "artHead": " scale(0.9);\n  display: none;\n  transition: opacity 500ms linear(0, 0.35284 4.00"
+    }
+   }
+  },
+  {
+   "tag": "390-light",
+   "sha": "531aa3f1",
+   "dirty": 27,
+   "notes": {
+    "exit": [
+     [
+      0,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      42,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      92,
+      "flex",
+      "0.49",
+      "(0.948564, 0, 0, 0.948564, 0, 10.2873)"
+     ],
+     [
+      142,
+      "flex",
+      "0.03",
+      "(0.902728, 0, 0, 0.902728, 0, 19.4543)"
+     ],
+     [
+      192,
+      "flex",
+      "0.00",
+      "(0.899578, 0, 0, 0.899578, 0, 20.0843)"
+     ],
+     [
+      243,
+      "flex",
+      "0.00",
+      "(0.899935, 0, 0, 0.899935, 0, 20.013)"
+     ],
+     [
+      292,
+      "flex",
+      "0.00",
+      "(0.899999, 0, 0, 0.899999, 0, 20.0002)"
+     ],
+     [
+      342,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      392,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      442,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      492,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      542,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      592,
+      "none",
+      "0.00",
+      "none"
+     ],
+     [
+      642,
+      "none",
+      "0.00",
+      "none"
+     ]
+    ],
+    "enter": [
+     [
+      0,
+      "none",
+      "0.00",
+      "none"
+     ],
+     [
+      45,
+      "flex",
+      "0.00",
+      "(0.9, 0, 0, 0.9, 0, 20)"
+     ],
+     [
+      96,
+      "flex",
+      "0.77",
+      "(0.97724, 0, 0, 0.97724, 0, 4.55201)"
+     ],
+     [
+      145,
+      "flex",
+      "1.00",
+      "(0.999894, 0, 0, 0.999894, 0, 0.0211156)"
+     ],
+     [
+      196,
+      "flex",
+      "1.00",
+      "(1.00028, 0, 0, 1.00028, 0, -0.0560007)"
+     ],
+     [
+      246,
+      "flex",
+      "1.00",
+      "(1.00002, 0, 0, 1.00002, 0, -0.00382954)"
+     ],
+     [
+      296,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      346,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      396,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      446,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      496,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      546,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      596,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ],
+     [
+      645,
+      "flex",
+      "1.00",
+      "(1, 0, 0, 1, 0, 0)"
+     ]
+    ],
+    "dockIdle": {
+     "x": 232,
+     "y": 741.0625,
+     "w": 71.15625,
+     "h": 32,
+     "cls": "dock-trigger dock-select-trigger dock-label",
+     "comboVisible": true
+    },
+    "playVisibleOnHover": false,
+    "radii": {
+     "stageCard": [
+      "16px",
+      "glass-resting card rounded-card text-card-foreground scrollbar-hidden flex flex-"
+     ],
+     "discrete": [
+      "8px",
+      "discrete-card is-open"
+     ],
+     "artifact": [
+      "6px",
+      "artifact text-mono-small tabular-nums text-muted-foreground block w-full"
+     ],
+     "chip": [
+      "9999px",
+      "active-preset-chip text-mono-small capitalize"
+     ],
+     "toggle": [
+      "9999px",
+      "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-pl"
+     ],
+     "copy": [
+      "9999px",
+      "button tap-squish focus-ring"
+     ],
+     "presets": "9999px h0,9999px h0,9999px h0,9999px h0,9999px h68,9999px h68,9999px h68,9999px h68",
+     "rootScroll": [
+      844,
+      844
+     ],
+     "titleLines": [
+      "@starting-style",
+      82,
+      "27.1824px",
+      "manual",
+      "25.888px"
+     ]
+    },
+    "collide": {
+     "toggle": [
+      323,
+      363
+     ],
+     "label": [
+      349,
+      369
+     ],
+     "labelVisibleDisplay": "block",
+     "eased": [
+      49,
+      676,
+      36
+     ],
+     "sheet": [
+      [
+       "glass-drawer glass-overlay controls-drawer-content",
+       679
+      ],
+      [
+       "glass-drawer-handle",
+       680
+      ],
+      [
+       "glass-drawer-grip",
+       702
+      ]
+     ]
+    },
+    "setCss": "Primitive>Surface>Card>StartingStyleTarget",
+    "notReady": {
+     "status": "No artifact yet — the compile is still running, or it refused.",
+     "copy": false
+    },
+    "mismatched": "This artifact does not describe the card above — it is not safe to paste.",
+    "handles": [],
+    "presetClick": "clicked",
+    "afterBouncy": {
+     "chip": "bouncy",
+     "line": "eased by | bouncy | ζ 0.45 · 500 ms | — response is not expressed on this card",
+     "artHead": " scale(0.9);\n  display: none;\n  transition: opacity 500ms linear(0, 0.35284 4.00"
+    }
+   }
+  },
+  {
+   "tag": "390-dark",
+   "sha": "531aa3f1",
+   "dirty": 27,
+   "notes": {
+    "dockIdle": {
+     "x": 159.421875,
+     "y": 741.0625,
+     "w": 71.15625,
+     "h": 32,
+     "cls": "dock-trigger dock-select-trigger dock-label",
+     "comboVisible": true
+    },
+    "playVisibleOnHover": false,
+    "radii": {
+     "stageCard": [
+      "16px",
+      "glass-resting card rounded-card text-card-foreground scrollbar-hidden flex flex-"
+     ],
+     "discrete": [
+      "8px",
+      "discrete-card is-open"
+     ],
+     "artifact": [
+      "6px",
+      "artifact text-mono-small tabular-nums text-muted-foreground block w-full"
+     ],
+     "chip": [
+      "9999px",
+      "active-preset-chip text-mono-small capitalize"
+     ],
+     "toggle": [
+      "9999px",
+      "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-pl"
+     ],
+     "copy": [
+      "9999px",
+      "button tap-squish focus-ring"
+     ],
+     "presets": "9999px h0,9999px h0,9999px h0,9999px h0,9999px h68,9999px h68,9999px h68,9999px h68",
+     "rootScroll": [
+      844,
+      844
+     ],
+     "titleLines": [
+      "@starting-style",
+      82,
+      "27.1824px",
+      "manual",
+      "25.888px"
+     ]
+    },
+    "collide": {
+     "toggle": [
+      323,
+      363
+     ],
+     "label": [
+      349,
+      369
+     ],
+     "labelVisibleDisplay": "block",
+     "eased": [
+      49,
+      676,
+      36
+     ],
+     "sheet": [
+      [
+       "glass-drawer glass-overlay controls-drawer-content",
+       679
+      ],
+      [
+       "glass-drawer-handle",
+       680
+      ],
+      [
+       "glass-drawer-grip",
+       702
+      ]
+     ]
+    },
+    "setCss": "Primitive>Surface>Card>StartingStyleTarget",
+    "notReady": {
+     "status": "No artifact yet — the compile is still running, or it refused.",
+     "copy": false
+    },
+    "mismatched": "This artifact does not describe the card above — it is not safe to paste.",
+    "handles": [],
+    "presetClick": "clicked",
+    "afterBouncy": {
+     "chip": "bouncy",
+     "line": "eased by | bouncy | ζ 0.45 · 500 ms | — response is not expressed on this card",
+     "artHead": " scale(0.9);\n  display: none;\n  transition: opacity 500ms linear(0, 0.35284 4.00"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+[1/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    Error: expect(locator).toBeVisible() failed
+[2/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+  2) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+    Error: expect(locator).toBeVisible() failed
+[3/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+  3) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+    Error: expect(locator).toBeVisible() failed
+[4/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+  4) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+    Error: expect(locator).toBeVisible() failed
+[5/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+  5) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    Error: expect(locator).toBeVisible() failed
+[6/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+  6) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    Error: expect(locator).toBeVisible() failed
+[7/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+  7) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    Error: expect(locator).toBeVisible() failed
+[8/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+  8) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    Error: expect(locator).toBeVisible() failed
+[9/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+  9) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+    Error: expect(locator).toBeVisible() failed
+[10/22] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason
+  10) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason 
+    Error: expect(locator).toBeVisible() failed
+[11/22] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:113:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[12/22] [smoke] › e2e/smoke/views/gradient.spec.ts:38:1 › gradient view renders direction slider with zero console errors
+  11) [smoke] › e2e/smoke/views/gradient.spec.ts:38:1 › gradient view renders direction slider with zero console errors 
+    Error: expect(locator).toBeVisible() failed
+[13/22] [smoke] › e2e/smoke/views/gradient.spec.ts:73:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+  12) [smoke] › e2e/smoke/views/gradient.spec.ts:73:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) 
+    Error: expect(locator).toBeVisible() failed
+[14/22] [smoke] › e2e/smoke/views/gradient.spec.ts:118:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+  13) [smoke] › e2e/smoke/views/gradient.spec.ts:118:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) 
+    Error: expect(locator).toBeVisible() failed
+[15/22] [smoke] › e2e/smoke/views/gradient.spec.ts:160:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+  14) [smoke] › e2e/smoke/views/gradient.spec.ts:160:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+    Error: expect(locator).toBeVisible() failed
+[16/22] [smoke] › e2e/smoke/views/gradient.spec.ts:206:1 › a grab is not a teleport, and no secondary button mints
+  15) [smoke] › e2e/smoke/views/gradient.spec.ts:206:1 › a grab is not a teleport, and no secondary button mints 
+    Error: expect(locator).toBeVisible() failed
+[17/22] [smoke] › e2e/smoke/views/gradient.spec.ts:240:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+  16) [smoke] › e2e/smoke/views/gradient.spec.ts:240:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+    Error: expect(locator).toBeVisible() failed
+[18/22] [smoke] › e2e/smoke/views/gradient.spec.ts:296:1 › round-trip: authored CSS applies atomically with literals preserved
+  17) [smoke] › e2e/smoke/views/gradient.spec.ts:296:1 › round-trip: authored CSS applies atomically with literals preserved 
+    Error: expect(locator).toBeVisible() failed
+[19/22] [smoke] › e2e/smoke/views/gradient.spec.ts:326:1 › garbage input fails LOUD and leaves the model untouched
+  18) [smoke] › e2e/smoke/views/gradient.spec.ts:326:1 › garbage input fails LOUD and leaves the model untouched 
+    Error: expect(locator).toBeVisible() failed
+[20/22] [smoke] › e2e/smoke/views/gradient.spec.ts:350:1 › radial geometry is model-or-reject, never a silent drop
+  19) [smoke] › e2e/smoke/views/gradient.spec.ts:350:1 › radial geometry is model-or-reject, never a silent drop 
+    Error: expect(locator).toBeVisible() failed
+[21/22] [smoke] › e2e/smoke/views/gradient.spec.ts:364:1 › easing row carries its live ramp; steps mode lands in the literal
+  20) [smoke] › e2e/smoke/views/gradient.spec.ts:364:1 › easing row carries its live ramp; steps mode lands in the literal 
+    Error: expect(locator).toBeVisible() failed
+[22/22] [smoke] › e2e/smoke/views/gradient.spec.ts:398:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+  21) [smoke] › e2e/smoke/views/gradient.spec.ts:398:1 › no pane subtree rests on a permanent compositing transform (W5-10) 
+    Error: expect(locator).toBeVisible() failed
+  21 failed
+  1 passed (7.8m)
+EXIT=1

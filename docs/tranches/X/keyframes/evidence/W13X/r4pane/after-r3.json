@@ -1,0 +1,416 @@
+{
+ "label": "after-r3",
+ "base": "http://localhost:5894",
+ "loadStart": "460.47",
+ "cells": [
+  {
+   "route": "easing",
+   "w": 1440,
+   "h": 900,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 457,
+     "ch": 457,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Curve",
+   "facetExpected": "Curve",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 1,
+   "copyButtons": [
+    "Copy easing literal"
+   ],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "cube-matrix",
+   "w": 1440,
+   "h": 900,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 520,
+     "ch": 520,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Matrix",
+   "facetExpected": "Matrix",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "easing",
+   "w": 1440,
+   "h": 900,
+   "theme": "dark",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 457,
+     "ch": 457,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Curve",
+   "facetExpected": "Curve",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 1,
+   "copyButtons": [
+    "Copy easing literal"
+   ],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "cube-matrix",
+   "w": 1440,
+   "h": 900,
+   "theme": "dark",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 520,
+     "ch": 520,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Matrix",
+   "facetExpected": "Matrix",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px i",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "spring",
+   "w": 1440,
+   "h": 900,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 460,
+     "ch": 460,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Physics",
+   "facetExpected": "Physics",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "easing",
+   "w": 1024,
+   "h": 768,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 368,
+     "ch": 368,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Curve",
+   "facetExpected": "Curve",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 1,
+   "copyButtons": [
+    "Copy easing literal"
+   ],
+   "stageContentBottom": 642.5,
+   "transportTop": 651.3,
+   "errs": []
+  },
+  {
+   "route": "spring",
+   "w": 1024,
+   "h": 768,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 494,
+     "ch": 380,
+     "over": true,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Physics",
+   "facetExpected": "Physics",
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 642.5,
+   "transportTop": 651.3,
+   "errs": []
+  },
+  {
+   "route": "cube",
+   "w": 1440,
+   "h": 900,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 354,
+     "ch": 354,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Controls",
+   "facetExpected": null,
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": {
+    "glyphSvg": 1,
+    "easingCurve": 0,
+    "name": "ease-in-out"
+   },
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "cube-keyframes",
+   "w": 1440,
+   "h": 900,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 506,
+     "ch": 506,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Keyframes",
+   "facetExpected": null,
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 0,
+   "copyButtons": [
+    "Copy keyframes",
+    "Copy compiled CSS"
+   ],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "square",
+   "w": 1440,
+   "h": 900,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-surface",
+     "sh": 354,
+     "ch": 354,
+     "over": false,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Controls",
+   "facetExpected": null,
+   "cardsInPane": 1,
+   "frameIsCard": true,
+   "frameShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px in",
+   "frameCartoon": false,
+   "trigger": {
+    "glyphSvg": 1,
+    "easingCurve": 0,
+    "name": "ease-in-out-cubic"
+   },
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 750.1,
+   "transportTop": 758.2,
+   "errs": []
+  },
+  {
+   "route": "easing",
+   "w": 390,
+   "h": 844,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 756,
+     "ch": 218,
+     "over": true,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Curve",
+   "facetExpected": "Curve",
+   "cardsInPane": 0,
+   "frameIsCard": false,
+   "frameShadow": "none",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 1,
+   "copyButtons": [
+    "Copy easing literal",
+    "Copy curve literal"
+   ],
+   "stageContentBottom": 714.6,
+   "transportTop": 722.6,
+   "errs": []
+  },
+  {
+   "route": "easing",
+   "w": 390,
+   "h": 844,
+   "theme": "dark",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 756,
+     "ch": 218,
+     "over": true,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Curve",
+   "facetExpected": "Curve",
+   "cardsInPane": 0,
+   "frameIsCard": false,
+   "frameShadow": "none",
+   "frameCartoon": false,
+   "trigger": null,
+   "presetSelects": 1,
+   "copyButtons": [
+    "Copy easing literal",
+    "Copy curve literal"
+   ],
+   "stageContentBottom": 714.6,
+   "transportTop": 722.6,
+   "errs": []
+  },
+  {
+   "route": "square",
+   "w": 390,
+   "h": 844,
+   "theme": "light",
+   "ports": [
+    {
+     "cls": "fading-scroll fading-scroll--y controls-pane group/controls ",
+     "sh": 556,
+     "ch": 218,
+     "over": true,
+     "fading": true,
+     "mask": true
+    }
+   ],
+   "fadeClassEls": 0,
+   "panelLabel": "Controls",
+   "facetExpected": null,
+   "cardsInPane": 0,
+   "frameIsCard": false,
+   "frameShadow": "none",
+   "frameCartoon": false,
+   "trigger": {
+    "glyphSvg": 1,
+    "easingCurve": 0,
+    "name": "ease-in-out-cubic"
+   },
+   "presetSelects": 0,
+   "copyButtons": [],
+   "stageContentBottom": 714.6,
+   "transportTop": 722.6,
+   "errs": []
+  }
+ ],
+ "applyCss": {
+  "before": "false",
+  "after": "true"
+ },
+ "loadEnd": "470.99"
+}

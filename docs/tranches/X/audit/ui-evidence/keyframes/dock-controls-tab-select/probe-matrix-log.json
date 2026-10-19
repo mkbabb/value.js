@@ -1,0 +1,255 @@
+{
+  "sha": "60477b06",
+  "dirty": 2,
+  "when": "2026-09-23T16:59:56.327Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "steps": [
+        {
+          "frame": "11-cube-matrix-expanded-1440-light.png",
+          "trig": {
+            "text": "Controls",
+            "w": 140,
+            "outline": "none 3px rgb(28, 25, 23)",
+            "shadow": "none",
+            "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+            "border": "0px rgb(28, 25, 23)",
+            "fv": false,
+            "f": false,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "12-cube-matrix-open-1440-light.png",
+          "trig": {
+            "text": "Controls",
+            "w": 140,
+            "outline": "none 3px rgb(28, 25, 23)",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px",
+            "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+            "border": "0px rgb(28, 25, 23)",
+            "fv": true,
+            "f": true,
+            "state": "open",
+            "expanded": "true",
+            "options": [
+              "Controls*",
+              "Keyframes",
+              "Timeline",
+              "Matrix Controls"
+            ],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "13-cube-matrix-controls-picked-1440-light.png",
+          "trig": {
+            "text": "Matrix Controls",
+            "w": 201,
+            "outline": "none 3px rgb(28, 25, 23)",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px",
+            "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+            "border": "0px rgb(28, 25, 23)",
+            "fv": true,
+            "f": true,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        }
+      ],
+      "err": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Select animation').first()\u001b[22m\n\u001b[2m    - locator resolved to <button dir=\"ltr\" type=\"button\" role=\"combobox\" data-v-f4109496=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-required=\"false\" aria-autocomplete=\"none\" aria-label=\"Select animation\" aria-controls=\"reka-select-content-v-55\" class=\"dock-tr"
+    },
+    {
+      "tag": "1440-dark",
+      "steps": [
+        {
+          "frame": "11-cube-matrix-expanded-1440-dark.png",
+          "trig": {
+            "text": "Controls",
+            "w": 140,
+            "outline": "none 3px rgb(233, 230, 226)",
+            "shadow": "none",
+            "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+            "border": "0px rgb(233, 230, 226)",
+            "fv": false,
+            "f": false,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "12-cube-matrix-open-1440-dark.png",
+          "trig": {
+            "text": "Controls",
+            "w": 140,
+            "outline": "none 3px rgb(233, 230, 226)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srgb 0.73 0.718 0.67 / 0.15) 0px 0px 8px 0px",
+            "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+            "border": "0px rgb(233, 230, 226)",
+            "fv": true,
+            "f": true,
+            "state": "open",
+            "expanded": "true",
+            "options": [
+              "Controls*",
+              "Keyframes",
+              "Timeline",
+              "Matrix Controls"
+            ],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "13-cube-matrix-controls-picked-1440-dark.png",
+          "trig": {
+            "text": "Matrix Controls",
+            "w": 201,
+            "outline": "none 3px rgb(233, 230, 226)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srgb 0.73 0.718 0.67 / 0.15) 0px 0px 8px 0px",
+            "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+            "border": "0px rgb(233, 230, 226)",
+            "fv": true,
+            "f": true,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        }
+      ],
+      "err": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Select animation').first()\u001b[22m\n\u001b[2m    - locator resolved to <button dir=\"ltr\" type=\"button\" role=\"combobox\" data-v-f4109496=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-required=\"false\" aria-autocomplete=\"none\" aria-label=\"Select animation\" aria-controls=\"reka-select-content-v-55\" class=\"dock-tr"
+    },
+    {
+      "tag": "390-light",
+      "steps": [
+        {
+          "frame": "11-cube-matrix-expanded-390-light.png",
+          "trig": {
+            "text": "Controls",
+            "w": 122,
+            "outline": "none 3px rgb(28, 25, 23)",
+            "shadow": "none",
+            "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+            "border": "0px rgb(28, 25, 23)",
+            "fv": false,
+            "f": false,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "12-cube-matrix-open-390-light.png",
+          "trig": {
+            "text": "Controls",
+            "w": 122,
+            "outline": "none 3px rgb(28, 25, 23)",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px",
+            "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+            "border": "0px rgb(28, 25, 23)",
+            "fv": true,
+            "f": true,
+            "state": "open",
+            "expanded": "true",
+            "options": [
+              "Controls*",
+              "Keyframes",
+              "Timeline",
+              "Matrix Controls"
+            ],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "13-cube-matrix-controls-picked-390-light.png",
+          "trig": {
+            "text": "Matrix Controls",
+            "w": 170,
+            "outline": "none 3px color(srgb 0 0 0 / 0.8)",
+            "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.15) 0px 0px 8px 0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px color(srgb 0 0 0 / 0.8)",
+            "fv": true,
+            "f": true,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        }
+      ],
+      "err": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Select animation').first()\u001b[22m\n\u001b[2m    - locator resolved to <button dir=\"ltr\" type=\"button\" role=\"combobox\" data-v-f4109496=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-required=\"false\" aria-autocomplete=\"none\" aria-label=\"Select animation\" aria-controls=\"reka-select-content-v-57\" class=\"dock-tr"
+    },
+    {
+      "tag": "390-dark",
+      "steps": [
+        {
+          "frame": "11-cube-matrix-expanded-390-dark.png",
+          "trig": {
+            "text": "Controls",
+            "w": 122,
+            "outline": "none 3px rgb(233, 230, 226)",
+            "shadow": "none",
+            "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+            "border": "0px rgb(233, 230, 226)",
+            "fv": false,
+            "f": false,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "12-cube-matrix-open-390-dark.png",
+          "trig": {
+            "text": "Controls",
+            "w": 122,
+            "outline": "none 3px rgb(233, 230, 226)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srgb 0.73 0.718 0.67 / 0.15) 0px 0px 8px 0px",
+            "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+            "border": "0px rgb(233, 230, 226)",
+            "fv": true,
+            "f": true,
+            "state": "open",
+            "expanded": "true",
+            "options": [
+              "Controls*",
+              "Keyframes",
+              "Timeline",
+              "Matrix Controls"
+            ],
+            "channel": "Matrix"
+          }
+        },
+        {
+          "frame": "13-cube-matrix-controls-picked-390-dark.png",
+          "trig": {
+            "text": "Matrix Controls",
+            "w": 170,
+            "outline": "none 3px color(srgb 1 1 1 / 0.8)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srgb 0.73 0.718 0.67 / 0.15) 0px 0px 8px 0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px color(srgb 1 1 1 / 0.8)",
+            "fv": true,
+            "f": true,
+            "state": "closed",
+            "expanded": "false",
+            "options": [],
+            "channel": "Matrix"
+          }
+        }
+      ],
+      "err": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Select animation').first()\u001b[22m\n\u001b[2m    - locator resolved to <button dir=\"ltr\" type=\"button\" role=\"combobox\" data-v-f4109496=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-required=\"false\" aria-autocomplete=\"none\" aria-label=\"Select animation\" aria-controls=\"reka-select-content-v-57\" class=\"dock-tr"
+    }
+  ]
+}

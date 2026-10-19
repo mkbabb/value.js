@@ -1,0 +1,65 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 · X.W3.2 — L-19 falsifier pass. Each gate fails for exactly one reason.
+
+Method: the cure is committed (9b3e6923 · 0324197e). Each falsifier is applied to the
+WORKING TREE only, measured, then restored by `cp` from a scratchpad copy taken before
+the edit; `git status --porcelain api/` is re-read after every restore and is EMPTY, so
+the restored bytes are the committed bytes. The git index was never touched — no stash,
+no `checkout --`, no reset. Command for every reading:
+
+  ⟨cmd⟩ npx vitest run src/modules/palette/__tests__/palette-versions.test.ts
+
+Cured reading (control): Tests 11 passed (11).
+
+---------------------------------------------------------------------------
+F-1 (G-5) — un-join the DETAIL read
+  edit:    getPaletteVersion's `findByPaletteAndHash(paletteSlug, hash)`
+           -> `findByHash(hash)`   (authorization left in place)
+  reading: Tests 1 failed | 10 passed (11)
+  failing: "G-5: GET /palettes/A/versions/<hash-of-B> -> 404"  (expected 404, got 200)
+  reads:   the ONE failure is G-5's cross-object row. G-6 stays GREEN — a different
+           byte — and the private-palette row stays GREEN, so G-5's cross-object clause
+           measures the JOIN and nothing else (not the authorization, not revert).
+
+F-2 (G-6, P0) — un-join the REVERT read
+  edit:    revertToVersion's `findByPaletteAndHash(slug, hash)` -> `findByHash(hash)`
+  reading: Tests 1 failed | 10 passed (11)
+  failing: "G-6: owner of A reverting to a hash belonging to B -> 404, A byte-unchanged"
+  reads:   the ONE failure is G-6. G-5 stays GREEN. The two joins are independent
+           bytes and each gate fails only for its own.
+
+F-3 (G-7, framing) — drop `uint64be(len)` from `frame()`
+  edit:    Buffer.concat([label, 0x00, len, payload]) -> Buffer.concat([label, 0x00, payload])
+  reading: Tests 1 failed | 10 passed (11)
+  failing: "G-7: payloadHash is framed `domain || 0x00 || uint64be(len) || bytes`"
+  reads:   the exact-digest reconstruction (built in the spec from the SPEC's words,
+           not from the implementation's framer) is the row that measures the length
+           prefix. NOTE, recorded rather than claimed away: the field-separation row
+           ("ab","c") vs ("a","bc") stays GREEN under this falsifier, because the
+           per-field domain labels already separate those two fields. That row was
+           re-titled in 6e5b6e32 to claim only what it can fail for.
+
+F-4 (G-7, identity) — collapse release identity back into payload identity
+  edit:    createVersionRecord's `_id: releaseHash` -> `_id: payloadHash`
+  reading: Tests 2 failed | 9 passed (11)
+  failing: "G-7: release identity is a separate field — one payload, two releases"
+           "G-7: revisionNo is first-class, monotone, and the list's total-order key"
+  reads:   exactly the two rows that assert the split. The second reds on its wire
+           clause (`hash` must not equal `payloadHash` on the envelope), which is the
+           client-visible half of the same defect.
+
+F-5 (G-7 / fold S-6, total order) — drop the total-order key from the list sort
+  edit:    findByPaletteSlug's `.sort({ revisionNo: -1, _id: -1 })` -> `.sort({ createdAt: -1 })`
+  reading: Tests 1 failed | 10 passed (11)
+  failing: "G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash"
+  reads:   the ONE row that seeds two rows sharing an IDENTICAL `createdAt` — i.e.
+           exactly S-6's stated defect (createdAt is not injective, so the old sort
+           returned an arbitrary order and the client's `v{{ total - i }}` ordinal
+           drifted). The live-service rows stay GREEN because their timestamps happen
+           to differ, which is why the seeded-estate row is the honest probe.
+
+---------------------------------------------------------------------------
+Restore verification after every falsifier:
+  ⟨cmd⟩ git status --porcelain api/      -> (no output)
+  ⟨cmd⟩ cd api && npx tsc --noEmit -p tsconfig.json   -> exit 0
+  ⟨cmd⟩ npx vitest run …/palette-versions.test.ts     -> Tests 11 passed (11)

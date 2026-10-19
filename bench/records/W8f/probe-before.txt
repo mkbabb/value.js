@@ -1,0 +1,22 @@
+(node:20608) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+"U+0025-00FF" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":11,"expected":["scalar"],"actual":"U+0025-00FF
+"u+0025-00ff" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":11,"expected":["scalar"],"actual":"u+0025-00ff
+"U+26" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":4,"expected":["scalar"],"actual":"U+26"}]}
+"U+4??" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":5,"expected":["scalar"],"actual":"U+4??"}]}
+"U+??????" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":8,"expected":["scalar"],"actual":"U+??????"}]}
+"U+0-7F, U+0590-05FF" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":19,"expected":["scalar"],"actual":"U+0-7F, U+0
+"U+0-10FFFF" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":10,"expected":["scalar"],"actual":"U+0-10FFFF"
+"U+" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"U+"}]}
+"U+?" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":3,"expected":["scalar"],"actual":"U+?"}]}
+"U+1234567" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":9,"expected":["scalar"],"actual":"U+1234567"}]
+"U+???????" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":9,"expected":["scalar"],"actual":"U+???????"}]
+"U+4?5" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":5,"expected":["scalar"],"actual":"U+4?5"}]}
+"U+00FF-0025" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":11,"expected":["scalar"],"actual":"U+00FF-0025
+"U+110000" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":8,"expected":["scalar"],"actual":"U+110000"}]}
+"U+0-110000" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":10,"expected":["scalar"],"actual":"U+0-110000"
+"U+12g" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":5,"expected":["scalar"],"actual":"U+12g"}]}
+"U+12-" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":5,"expected":["scalar"],"actual":"U+12-"}]}
+"U+-12" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":5,"expected":["scalar"],"actual":"U+-12"}]}
+"U+0025 - 00FF" REFUSE {"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":13,"expected":["scalar"],"actual":"U+0025 - 00
+"U +25" ACCEPT {"ok":true,"value":"U 25"}

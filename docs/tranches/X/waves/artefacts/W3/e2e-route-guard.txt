@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X-W3 §8 artefact 6 — e2e route-guard (G-18 P0 · G-20), re-run by the CLOSE SEAT at the settled bytes
+
+Close seat (VERIFY-ONLY), 2026-09-18 18:57 EDT, branch tranche-u, HEAD fff145da.
+⟨cmd⟩ npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts --reporter=list
+
+Test 3 is the STANDING L-19 FALSIFIER: it seeds the admin token and passes on BOTH
+sides of the cure, so a guard that fail-closed on the ROUTE rather than on the TOKEN
+would red there. It passes, so the guard fences the token.
+
+The one WebServer console.warn ('Failed to load users') is the anonymous admin fetch
+meeting the dev server's HTML 404 — expected under anonymity, and is not a test failure.
+--------------------------------------------------------------------
+(node:48410) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:48438) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:48552) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:50:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (5.0s)
+  ✓  2 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:71:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (2.1s)
+[2m[WebServer] [22m[2m6:57:40 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to load users: SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON
+  ✓  3 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:88:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (1.2s)
+
+  3 passed (10.1s)

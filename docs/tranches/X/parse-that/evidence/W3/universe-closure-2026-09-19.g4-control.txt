@@ -1,0 +1,48 @@
+// SERVED MODEL: claude-opus-5[1m]
+X.P.W3.b — CSS RECOVERY CLOSURE (G-4 · G-8)
+
+corpus          typescript/test/css-recovery/corpus.json — 685 inputs, shape {rows:[{src}]}
+frozen union    c654824e:src/css/types.ts
+reachable set   34 modules from 2 public entries (3 authored) · bare specifiers [node:module, node:path, node:url, tsx/esm/api]
+executed        13860 calls · 11460 rejections · 11490 issues, over 2 lowerings × 3 entries
+
+CTRL  a 23rd operation halts the si fires  
+CTRL  a missing operation halts the fires  
+CTRL  a ninth code halts the frozen fires  
+CTRL  a missing code halts the froz fires  
+CTRL  an unknown label has no named fires  
+CTRL  the silence instrument sees a fires  
+
+C-1   ⊆ built graph                 GREEN  904 code sites · declared [animation_option_invalid color_context_required css_syntax keyframe_selector_invalid timeline_option_invalid trailing_input] · outside frozen 0 · intrinsics [css_syntax trailing_input] verified at 19 lowering sites, undeclared 0
+C-2   ⊆ executed corpus             GREEN  emitted [animation_option_invalid color_context_required css_syntax keyframe_selector_invalid timeline_option_invalid trailing_input] · outside frozen 0
+C-3   ⊇ executed corpus             RED    frozen \ emitted = 2 [syntax_descriptor_invalid syntax_mismatch]
+C-4   no fallback arm               RED    authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 11460 rejections
+C-5   tuple law                     GREEN  ok:false with an empty tuple 0 · ok:true carrying diagnostics 0
+C-6   span law                      GREEN  spans outside [0,len] or with a mismatched actual 0 · empty expected 0
+C-7   G-8 expected[0] named         GREEN  11490 issues · unnamed first expectations 0 · label surface 108 rows
+C-8   G-8 unarmed                   GREEN  isDiagnosticsEnabled() before=false after=false
+C-9   G-8 silence                   GREEN  executed writes 0 · authored call sites 0 · inherited 1 (unguarded 0) · references 3 · strict letter: 1 call site(s) on the reachable set
+C-10  22-operator closure           GREEN  signature 22 · destructured 22 · both differences ∅
+
+fallback arms, every site with its window (the inspection's own evidence):
+  inherited typescript/src/css/lowering-js/index.mjs:84
+      82: const actual = source.slice(f);
+      83: sg.D.push({
+      84: code: sg.far.code === null ? "css_syntax" : sg.far.code,
+  inherited typescript/src/css/lowering-wasm/index.mjs:146
+      144: (t) => t.gget(G.farf).set(f));
+      145: b.gget(G.farcode).i32(0).x("i32.lt_s").if_(I32,
+      146: (t) => t.i32(CODES.indexOf("css_syntax")),
+
+console.* CALL sites in the reachable set:
+  inherited typescript/src/parse/parser.ts:67  console.error(  guard: isDiagnosticsEnabled()
+
+the ⊇ difference, with the incumbent site each missing code is emitted from:
+  syntax_descriptor_invalid  incumbent: src/css/stylesheet.ts:302 · src/css/stylesheet.ts:305 · src/css/syntax.ts:94
+  syntax_mismatch            incumbent: src/css/stylesheet.ts:318 · src/css/syntax.ts:100
+  the candidate's grammar names 10 entries (P:color · P:timing-function · P:scalar · P:value · P:values · P:keyframe-selector · P:animation-timeline · P:animation-range · P:animation-option · P:stylesheet) of the frozen surface's nine public parsers; the five codes above are the diagnostic vocabulary of entries it does not yet realize.
+
+union authentication  c654824e:src/css/types.ts → 8 codes, both differences ∅
+branch census         default: 5 (authored 0) · else 30 (authored 0)
+
+RED — 8 of 10 legs green; negative controls all fire.

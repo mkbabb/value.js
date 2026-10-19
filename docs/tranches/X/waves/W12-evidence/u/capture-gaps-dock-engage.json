@@ -1,0 +1,52 @@
+[
+ {
+  "frame": "dock-engage__adminaudit__1440__dark.png",
+  "head": "92b6d868",
+  "leg": "dock-engage",
+  "theme": "dark",
+  "series": [
+   {
+    "t": 501,
+    "collapsed": false
+   },
+   {
+    "t": 3003,
+    "collapsed": false
+   },
+   {
+    "t": 5500,
+    "collapsed": true
+   },
+   {
+    "t": 7001,
+    "collapsed": true
+   }
+  ],
+  "note": "pointer engaged the dock 800 ms, then left to the content; t from the leave"
+ },
+ {
+  "frame": "dock-engage__adminaudit__1440__light.png",
+  "head": "92b6d868",
+  "leg": "dock-engage",
+  "theme": "light",
+  "series": [
+   {
+    "t": 503,
+    "collapsed": false
+   },
+   {
+    "t": 3003,
+    "collapsed": false
+   },
+   {
+    "t": 5501,
+    "collapsed": true
+   },
+   {
+    "t": 7002,
+    "collapsed": true
+   }
+  ],
+  "note": "pointer engaged the dock 800 ms, then left to the content; t from the leave"
+ }
+]

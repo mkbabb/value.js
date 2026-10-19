@@ -1,0 +1,97 @@
+{
+ "scene-select": [
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 205,
+   "escAt": 1604,
+   "drops": []
+  },
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 205,
+   "escAt": 1604,
+   "drops": []
+  },
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 204,
+   "escAt": 1604,
+   "drops": [
+    {
+     "at": 91,
+     "dt": 33.3
+    }
+   ]
+  }
+ ],
+ "mbabb-menu": [
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 205,
+   "escAt": 1608,
+   "drops": [
+    {
+     "at": 88,
+     "dt": 34
+    }
+   ]
+  },
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 205,
+   "escAt": 1618,
+   "drops": [
+    {
+     "at": 89,
+     "dt": 35.1
+    }
+   ]
+  },
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 204,
+   "escAt": 1605,
+   "drops": [
+    {
+     "at": 91,
+     "dt": 33.1
+    }
+   ]
+  }
+ ],
+ "controls-select": [
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 206,
+   "escAt": 1604,
+   "drops": [
+    {
+     "at": 88,
+     "dt": 35.3
+    }
+   ]
+  },
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 209,
+   "escAt": 1651,
+   "drops": [
+    {
+     "at": 103,
+     "dt": 34.4
+    }
+   ]
+  },
+  {
+   "k": "d54a6ab8 dirty=2",
+   "n": 207,
+   "escAt": 1613,
+   "drops": [
+    {
+     "at": 86,
+     "dt": 32.4
+    }
+   ]
+  }
+ ]
+}

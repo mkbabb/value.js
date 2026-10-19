@@ -1,0 +1,450 @@
+{
+  "gate": "A2 blob arm (re-authored, addendum 2026-09-22)",
+  "probe": "a2-blob-arm.mjs",
+  "servedModel": "claude-fable-5-1",
+  "unit": "X.W5.t",
+  "at": "2026-09-23T00:05:13.683Z",
+  "base": "http://127.0.0.1:8093",
+  "limbs": {
+    "I_schemaTruth": true,
+    "II_deepLinkThenHome": true,
+    "III_canvasSized": true
+  },
+  "schema": [
+    {
+      "route": "/",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": true,
+      "blobInStage": true,
+      "pickerPanePresent": true,
+      "canvasBox": {
+        "w": 180,
+        "h": 180
+      },
+      "h1": "Home",
+      "waitedMs": 2394,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/palettes",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": true,
+      "blobInStage": true,
+      "pickerPanePresent": true,
+      "canvasBox": {
+        "w": 180,
+        "h": 180
+      },
+      "h1": "Palettes",
+      "waitedMs": 2614,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/browse",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Browse",
+      "waitedMs": 1537,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/extract",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Extract",
+      "waitedMs": 1589,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/mix",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": true,
+      "blobInStage": true,
+      "pickerPanePresent": true,
+      "canvasBox": {
+        "w": 180,
+        "h": 180
+      },
+      "h1": "Mix",
+      "waitedMs": 2431,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/generate",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Generate",
+      "waitedMs": 1535,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/gradient",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Gradient",
+      "waitedMs": 1533,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/atmosphere",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Atmosphere",
+      "waitedMs": 1528,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/blob",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": true,
+      "blobInStage": true,
+      "pickerPanePresent": true,
+      "canvasBox": {
+        "w": 180,
+        "h": 180
+      },
+      "h1": "Blob",
+      "waitedMs": 2139,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/admin/users",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Not Found",
+      "waitedMs": 1525,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/admin/names",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Not Found",
+      "waitedMs": 1524,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/admin/audit",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Not Found",
+      "waitedMs": 1522,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/admin/flagged",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Not Found",
+      "waitedMs": 1522,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/admin/tags",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Not Found",
+      "waitedMs": 1518,
+      "limbI": true,
+      "limbIII": true
+    },
+    {
+      "route": "/does-not-exist",
+      "marks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "blobPresent": false,
+      "blobInStage": false,
+      "pickerPanePresent": false,
+      "canvasBox": null,
+      "h1": "Not Found",
+      "waitedMs": 1530,
+      "limbI": true,
+      "limbIII": true
+    }
+  ],
+  "deep": [
+    {
+      "deepLink": "/generate",
+      "bootMarks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "bootBlob": false,
+      "home": {
+        "marks": [
+          "b0",
+          "b1",
+          "b3",
+          "b2",
+          "b4"
+        ],
+        "blobPresent": true,
+        "blobInStage": true,
+        "pickerPanePresent": true,
+        "canvasBox": {
+          "w": 180,
+          "h": 180
+        },
+        "h1": "Home",
+        "waitedMs": 1102
+      },
+      "limbII": true
+    },
+    {
+      "deepLink": "/browse",
+      "bootMarks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "bootBlob": false,
+      "home": {
+        "marks": [
+          "b0",
+          "b1",
+          "b3",
+          "b2",
+          "b4"
+        ],
+        "blobPresent": true,
+        "blobInStage": true,
+        "pickerPanePresent": true,
+        "canvasBox": {
+          "w": 180,
+          "h": 180
+        },
+        "h1": "Home",
+        "waitedMs": 294
+      },
+      "limbII": true
+    },
+    {
+      "deepLink": "/gradient",
+      "bootMarks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "bootBlob": false,
+      "home": {
+        "marks": [
+          "b0",
+          "b1",
+          "b3",
+          "b2",
+          "b4"
+        ],
+        "blobPresent": true,
+        "blobInStage": true,
+        "pickerPanePresent": true,
+        "canvasBox": {
+          "w": 180,
+          "h": 180
+        },
+        "h1": "Home",
+        "waitedMs": 577
+      },
+      "limbII": true
+    },
+    {
+      "deepLink": "/extract",
+      "bootMarks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "bootBlob": false,
+      "home": {
+        "marks": [
+          "b0",
+          "b1",
+          "b3",
+          "b2",
+          "b4"
+        ],
+        "blobPresent": true,
+        "blobInStage": true,
+        "pickerPanePresent": true,
+        "canvasBox": {
+          "w": 180,
+          "h": 180
+        },
+        "h1": "Home",
+        "waitedMs": 958
+      },
+      "limbII": true
+    },
+    {
+      "deepLink": "/atmosphere",
+      "bootMarks": [
+        "b0",
+        "b1",
+        "b3",
+        "b2",
+        "b4"
+      ],
+      "bootBlob": false,
+      "home": {
+        "marks": [
+          "b0",
+          "b1",
+          "b3",
+          "b2",
+          "b4"
+        ],
+        "blobPresent": true,
+        "blobInStage": true,
+        "pickerPanePresent": true,
+        "canvasBox": {
+          "w": 180,
+          "h": 180
+        },
+        "h1": "Home",
+        "waitedMs": 1151
+      },
+      "limbII": true
+    }
+  ],
+  "pass": true
+}

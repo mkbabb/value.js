@@ -26,7 +26,6 @@
         surface="veil"
         tier="quiet"
         :shadow="false"
-        :grain="false"
         class="sliders-console rounded-panel"
     >
         <div class="flex gap-x-2.5 items-stretch">
@@ -34,6 +33,7 @@
                 :components="componentEntries.map(([c]) => c)"
                 :active="activeComponent"
                 :animation-key="animationKey"
+                :cascade="cascade"
                 @select="scrollToSlider"
             />
 
@@ -45,7 +45,8 @@
                  hover-jailed thumb tooltip is DEAD — one voice per fact). -->
             <div
                 :key="animationKey"
-                class="channel-rows flex-1 min-w-0 flex flex-col justify-around stagger-children"
+                class="channel-rows flex-1 min-w-0 flex flex-col justify-around"
+                :class="cascade && 'stagger-children'"
             >
                 <div
                     v-for="[component] in componentEntries"
@@ -81,7 +82,7 @@
                             "
                         />
                     </div>
-                    <span class="channel-meter fira-code" aria-live="off">{{
+                    <span class="channel-meter font-mono" aria-live="off">{{
                         meterText(component)
                     }}</span>
                 </div>
@@ -91,14 +92,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watch } from "vue";
-import { Card } from "../../../ui/card";
-import { Slider } from "../../../ui/slider";
+import { computed, inject, onDeactivated, ref, watch } from "vue";
+import { Card } from "@mkbabb/glass-ui/card";
+import { Slider } from "@mkbabb/glass-ui/slider";
 import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "../../../color-session/picker-color";
 import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
-import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
 import ConsoleRail from "./ConsoleRail.vue";
@@ -140,7 +141,20 @@ watch(currentColorSpace, () => { activeComponent.value = null; });
 // Animation key — re-keys the ROWS + rail letters on a space change (the
 // chassis-persistence law: console card + ring never re-mount).
 const animationKey = ref(0);
-watch(currentColorSpace, () => { animationKey.value++; });
+// X.W12.b (OA-25): the cascade voices a FRESH row set — the pane's first
+// mount and every space-change re-key. A KeepAlive return re-inserts the SAME
+// rows, and the browser restarts a CSS animation on a re-inserted element, so
+// the cascade re-ran inside the pane-swap travel on every return (census,
+// before: stagger-child-in in the gradient→picker window). Deactivation retires
+// the class while the rows are detached; the next re-key re-arms it.
+const cascade = ref(true);
+watch(currentColorSpace, () => {
+    animationKey.value++;
+    cascade.value = true;
+});
+onDeactivated(() => {
+    cascade.value = false;
+});
 
 // --- W4-3: THE METER — the strip's persistent live reading -----------------
 // The same formatted cell the header tuple consumes (currentColorComponents-
@@ -172,12 +186,13 @@ function meterText(component: string): string {
     return `${s}${fmt.unit ?? ""}`;
 }
 
-// The needle's ink regime reads the SHARED plate-luma helper (B3 — one
-// function, one threshold): the ramp color under the thumb IS the live color,
-// so the thumb border, the WatercolorDot border, and the overlay contour ink
-// can never disagree about the same color.
+// The needle's ink regime reads the SHARED hue-aware plate helper (B3 — one
+// function, one decision; X.W8.i2): the ramp color under the thumb IS the
+// live color, so the thumb border and the WatercolorDot border can never
+// disagree about the same color.
 const thumbInk = computed(() => {
     return spectrumFieldIsLight(
+        clamp(channelNumber(HSVCurrentColor.value, "h"), 0, 360),
         clamp(channelNumber(HSVCurrentColor.value, "s"), 0, 1),
         clamp(channelNumber(HSVCurrentColor.value, "v"), 0, 1),
     )
@@ -189,12 +204,12 @@ const thumbInk = computed(() => {
 // on the track, the LIVE color on the thumb, the value-aware needle ink on
 // the border. Touch-action rides the same gate as the spectrum plate.
 // The ALPHA row's ramp composes the house `--alpha-checker` ground UNDER it
-// via the producer's own `--slider-track-bg` seam.
+// via the producer's own `--glass-slider-track-background` seam.
 function sliderVars(component: string): Record<string, string | undefined> {
     const stops = componentsSlidersStyle.value[component];
     const ramp = stops ? `linear-gradient(to right, ${stops.join(", ")})` : undefined;
     return {
-        "--slider-track-bg":
+        "--glass-slider-track-background":
             ramp && component === "alpha"
                 ? `${ramp}, var(--alpha-checker)`
                 : ramp,
@@ -284,10 +299,12 @@ useSliderAnnouncements({
     padding: 0.75rem 0.875rem;
     /* T.W8-WR-3 (T-50) — THE VEIL-SIGNAL CALIBRATION: the landed quiet-glass α
      * (0.50 light / 0.58 dark) read OPAQUE — only ~15% of the surviving field
-     * variation survives the blur. The console tint α is lowered here (a
-     * DIRECT `--glass-bg-quiet` override on the veil element, unambiguous
-     * across the substitution chain — veil-surface reads `var(--glass-bg-quiet)`
-     * for its `--veil-bg`) so more variation reads as glass. The D6 ink
+     * variation survives the blur. The console tint α is lowered here so more
+     * variation reads as glass. X-W7L (glass 10.1.0): the veil surface now picks
+     * its α off the veil ladder (`[data-surface="veil"]` sets
+     * `--glass-veil-tier: var(--glass-veil-quiet)`, `glass-plate` reads it), and
+     * `--glass-plate-quiet` has no declaration; the one-rung-lower α is the ladder's
+     * own `wash` rung, which re-resolves per scheme (the old `.dark` arm folds in). The D6 ink
      * referent re-threads BY THE LIVE PROBE, not an ink.ts edit: the rail's
      * `resolveMutedInk` reads this lowered-α veil recipe and walks its rest
      * ink to floor against the now-more-ambient ground (O-18 W4 rail-letter
@@ -296,10 +313,7 @@ useSliderAnnouncements({
      * PLATE behind the console so the blur has a live-field backdrop, not the
      * opaque cartoon plate — needs `ColorPicker.vue` (out of this lane's tree),
      * booked as the picker-plate half. */
-    --glass-bg-quiet: color-mix(in srgb, var(--card) 42%, transparent);
-}
-.dark .sliders-console {
-    --glass-bg-quiet: color-mix(in srgb, var(--card) 50%, transparent);
+    --glass-veil-tier: var(--glass-veil-wash);
 }
 
 /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────

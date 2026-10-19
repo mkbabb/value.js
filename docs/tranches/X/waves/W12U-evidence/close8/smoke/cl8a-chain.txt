@@ -1,0 +1,5 @@
+10-17 04:30:23 cl8a smoke-admin exit=0 load1=20.65
+10-17 04:31:22 cl8a smoke-mobile exit=0 load1=15.22
+10-17 04:31:45 cl8a smoke-reactivity exit=0 load1=14.24
+10-17 04:35:48 cl8a smoke-perf exit=1 load1=19.03
+10-17 04:58:09 cl8a smoke exit=1 load1=19.72

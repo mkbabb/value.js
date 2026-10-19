@@ -1,0 +1,271 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 109 tests using 1 worker
+
+[1/109] [chromium] › e2e/f-w13-image-controls.spec.ts:78:5 › G-b — F.W13 image-mode controls act (frame 3) › at rest the drop target opens the picker by key; with an image the Image layer discloses
+[2/109] [chromium] › e2e/f-w13-image-controls.spec.ts:102:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: every sidebar control acts and every icon-only command is a circle
+[3/109] [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback
+[4/109] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[G-g 1440 light] veils=0 surface=rgba(253, 245, 236, 1) card=rgba(253, 245, 236, 1) stage=rgba(253, 245, 236, 1) ΔE(surface,card)=0.0000 ΔE(surface,stage)=0.0000 ink=47 min=5.26
+
+[5/109] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 light) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[G-g 390 light] veils=0 surface=rgba(253, 245, 236, 1) card=rgba(253, 245, 236, 1) stage=rgba(253, 245, 236, 1) ΔE(surface,card)=0.0000 ΔE(surface,stage)=0.0000 ink=47 min=5.26
+
+[6/109] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (1440 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[G-g 1440 dark] veils=0 surface=rgba(53, 42, 34, 1) card=rgba(53, 42, 34, 1) stage=rgba(53, 42, 34, 1) ΔE(surface,card)=0.0000 ΔE(surface,stage)=0.0000 ink=47 min=4.66
+
+[7/109] [chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[chromium] › e2e/f-w14-veil.spec.ts:198:13 › G-g — OA-43 the image-mode sidebar is live, not veiled (390 dark) › no veil on any ancestor · surface = --card = the stage's · ink AA
+[G-g 390 dark] veils=0 surface=rgba(53, 42, 34, 1) card=rgba(53, 42, 34, 1) stage=rgba(53, 42, 34, 1) ΔE(surface,card)=0.0000 ΔE(surface,stage)=0.0000 ink=47 min=4.66
+
+[8/109] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[9/109] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  1) [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.controls-dock-anchor .glass-dock')
+    Expected pattern: /\bcollapsed\b/
+    Received string:  "glass-dock horizontal shape-pill expanded fit-content"
+    Timeout: 30000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 30000ms
+      - waiting for locator('.controls-dock-anchor .glass-dock')
+        3 × locator resolved to <div expanded="true" data-morphing="" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+          - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+        61 × locator resolved to <div expanded="true" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+           - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+
+
+      72 |     // re-seats after the layer swap); wait until its box holds still.
+      73 |     const dock = page.locator(".controls-dock-anchor .glass-dock");
+    > 74 |     await expect(dock).toHaveClass(/\bcollapsed\b/, { timeout: 30_000 });
+         |                        ^
+      75 |     let last = "";
+      76 |     await expect
+      77 |         .poll(async () => {
+        at traceOff (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-d.spec.ts:74:24)
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-d.spec.ts:42:16)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-d.spec.ts:141:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-18b10-lyph-and-stays-on-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-18b10-lyph-and-stays-on-the-plate-chromium/error-context.md
+
+
+[10/109] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[11/109] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  2) [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.controls-dock-anchor .glass-dock')
+    Expected pattern: /\bcollapsed\b/
+    Received string:  "glass-dock horizontal shape-pill expanded fit-content"
+    Timeout: 30000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 30000ms
+      - waiting for locator('.controls-dock-anchor .glass-dock')
+        4 × locator resolved to <div expanded="true" data-morphing="" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+          - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+        60 × locator resolved to <div expanded="true" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+           - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+
+
+      72 |     // re-seats after the layer swap); wait until its box holds still.
+      73 |     const dock = page.locator(".controls-dock-anchor .glass-dock");
+    > 74 |     await expect(dock).toHaveClass(/\bcollapsed\b/, { timeout: 30_000 });
+         |                        ^
+      75 |     let last = "";
+      76 |     await expect
+      77 |         .poll(async () => {
+        at traceOff (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-d.spec.ts:74:24)
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-d.spec.ts:42:16)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-d.spec.ts:141:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-42b00-lyph-and-stays-on-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-42b00-lyph-and-stays-on-the-plate-chromium/error-context.md
+
+
+[12/109] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[13/109] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+[14/109] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1440 light) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[15/109] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1024 light) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[16/109] [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (light) › the sheet is a plain column within the shell and the viewport
+[17/109] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1440 dark) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[18/109] [chromium] › e2e/f-w14u-s.spec.ts:120:13 › G-s — OA-59 the controls pane is a detached glass card (1024 dark) › inset gutter from the viewport edge and the stage · --radius-card corners · own shadow
+[19/109] [chromium] › e2e/f-w14u-s.spec.ts:151:9 › G-s — OA-59 the 390 mobile sheet keeps its own form, inside the viewport (dark) › the sheet is a plain column within the shell and the viewport
+[20/109] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[21/109] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[22/109] [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why
+[23/109] [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing
+[24/109] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[25/109] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[26/109] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[27/109] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[28/109] [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading
+[29/109] [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in
+[30/109] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[31/109] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[32/109] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[33/109] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[34/109] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[35/109] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[36/109] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[37/109] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[38/109] [chromium] › e2e/f-w14v-au2.spec.ts:66:1 › L2-8 · 844×390: the Export dialog fits the viewport; title and footer reachable
+[chromium] › e2e/f-w14v-au2.spec.ts:66:1 › L2-8 · 844×390: the Export dialog fits the viewport; title and footer reachable
+[au2] L2-8 {"top":16,"bottom":374,"h":358,"vh":390,"sh":469,"ch":356,"oy":"auto"}
+
+[39/109] [chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 360: every expanded editor tool is inside the plate, no sideways scroll
+[chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 360: every expanded editor tool is inside the plate, no sideways scroll
+[au2] L2-15@360 {"n":4,"out":[],"scrollers":[],"plate":[33.09375,326.90625],"fit":[151,151]}
+
+[40/109] [chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 390: every expanded editor tool is inside the plate, no sideways scroll
+[chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 390: every expanded editor tool is inside the plate, no sideways scroll
+[au2] L2-15@390 {"n":4,"out":[],"scrollers":[],"plate":[48.046875,341.953125],"fit":[151,151]}
+
+[41/109] [chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 430: every expanded editor tool is inside the plate, no sideways scroll
+[chromium] › e2e/f-w14v-au2.spec.ts:104:5 › L2-15 · 430: every expanded editor tool is inside the plate, no sideways scroll
+[au2] L2-15@430 {"n":4,"out":[],"scrollers":[],"plate":[67.96875,362.046875],"fit":[151,151]}
+
+[42/109] [chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 360: the expanded animation dock layer does not overflow
+[chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 360: the expanded animation dock layer does not overflow
+[au2] L2-19@360 []
+
+[43/109] [chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 390: the expanded animation dock layer does not overflow
+[chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 390: the expanded animation dock layer does not overflow
+[au2] L2-19@390 []
+
+[44/109] [chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 430: the expanded animation dock layer does not overflow
+[chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 430: the expanded animation dock layer does not overflow
+[au2] L2-19@430 []
+
+[45/109] [chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 768: the expanded animation dock layer does not overflow
+[chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 768: the expanded animation dock layer does not overflow
+[au2] L2-19@768 []
+
+[46/109] [chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 1440: the expanded animation dock layer does not overflow
+[chromium] › e2e/f-w14v-au2.spec.ts:150:5 › L2-19 · 1440: the expanded animation dock layer does not overflow
+[au2] L2-19@1440 []
+
+[47/109] [chromium] › e2e/f-w14v-au2.spec.ts:167:5 › L3-5ˢ · 1440: no consumer surface between the aside card and its layers
+[chromium] › e2e/f-w14v-au2.spec.ts:167:5 › L3-5ˢ · 1440: no consumer surface between the aside card and its layers
+[au2] L3-5@1440 {"painted":[],"reachedAside":true}
+
+[48/109] [chromium] › e2e/f-w14v-au2.spec.ts:167:5 › L3-5ˢ · 390: no consumer surface between the aside card and its layers
+[chromium] › e2e/f-w14v-au2.spec.ts:167:5 › L3-5ˢ · 390: no consumer surface between the aside card and its layers
+[au2] L3-5@390 {"painted":[],"reachedAside":true}
+
+[49/109] [chromium] › e2e/f-w14v-au2.spec.ts:192:1 › L1-11 · /w empty and /v loaded: one file input, the view's
+[chromium] › e2e/f-w14v-au2.spec.ts:192:1 › L1-11 · /w empty and /v loaded: one file input, the view's
+[au2] L1-11 /w fileInputs=1
+
+[au2] L1-11 /v fileInputs=1
+
+[50/109] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1440x900 light beside gap=13.0 gutter=216,215,213 ground=233,232,231 delta=-17,-17,-18 spread=1 chroma=3/2 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[51/109] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1024x768 light beside gap=13.0 gutter=216,215,214 ground=233,232,231 delta=-17,-17,-17 spread=0 chroma=2/2 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[52/109] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1440x900 dark beside gap=13.0 gutter=30,28,28 ground=21,19,18 delta=9,9,10 spread=1 chroma=2/3 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[53/109] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1024x768 dark beside gap=13.0 gutter=29,28,27 ground=21,19,18 delta=8,9,9 spread=1 chroma=2/3 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[54/109] [chromium] › e2e/f-w14v-detached.spec.ts:153:5 › db · O-68 — each layer's reset is inline in its header › the reset sits on the header row, resets without toggling, and no body reset remains
+[55/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 375x667
+[56/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 375x667
+[57/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 375x667
+[58/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 375x667
+[59/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 375x667
+[60/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 375x667
+[61/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 375x667
+[62/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1280x800
+[63/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1280x800
+[64/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1280x800
+[65/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1280x800
+[66/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1280x800
+[67/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1280x800
+[68/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1280x800
+[69/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1440x900
+[70/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1440x900
+[71/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1440x900
+[72/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1440x900
+[73/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1440x900
+[74/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1440x900
+[75/109] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1440x900
+[76/109] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+[77/109] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+[78/109] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+[79/109] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+[80/109] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+[81/109] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[82/109] [chromium] › e2e/visualization-crud.spec.ts:641:14 › visualization CRUD lifecycle @ mobile (375×667) @mutating › a11y keystone: workspace default is clean @ mobile @mutating
+[83/109] [chromium] › e2e/visualization-crud.spec.ts:651:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › a11y keystone: ExportModal Dialog-open is clean @ mobile @mutating
+[84/109] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[85/109] [chromium] › e2e/visualization-crud.spec.ts:641:14 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › a11y keystone: workspace default is clean @ laptop @mutating
+[86/109] [chromium] › e2e/visualization-crud.spec.ts:651:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › a11y keystone: ExportModal Dialog-open is clean @ laptop @mutating
+[87/109] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[88/109] [chromium] › e2e/visualization-crud.spec.ts:641:14 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › a11y keystone: workspace default is clean @ desktop @mutating
+[89/109] [chromium] › e2e/visualization-crud.spec.ts:651:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › a11y keystone: ExportModal Dialog-open is clean @ desktop @mutating
+[90/109] [chromium] › e2e/visualization-ux.spec.ts:115:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: workspace default has no serious/critical a11y violations
+[91/109] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[92/109] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+[93/109] [chromium] › e2e/visualization-ux.spec.ts:181:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: AnimationControls dropdown-open is a11y-clean
+[94/109] [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean
+[95/109] [chromium] › e2e/visualization-ux.spec.ts:272:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /paper is a11y-clean
+[96/109] [chromium] › e2e/visualization-ux.spec.ts:284:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /morph is a11y-clean
+[97/109] [chromium] › e2e/visualization-ux.spec.ts:300:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /demo/shape-extractor is a11y-clean
+[98/109] [chromium] › e2e/visualization-ux.spec.ts:332:5 › B.W2 — visualization UX coherence (a11y keystones) › save_contour_then_recompute: the saved contour is recomputed in one pass, the canvas keeps its render
+[99/109] [chromium] › e2e/workspace-flow.spec.ts:32:5 › Asset-based workspace flow › upload → extract → canvas renders
+[100/109] [chromium] › e2e/workspace-flow.spec.ts:57:5 › Asset-based workspace flow › image metadata is accessible via API
+[101/109] [chromium] › e2e/workspace-flow.spec.ts:78:5 › Asset-based workspace flow › extract-contour returns contour asset
+[102/109] [chromium] › e2e/workspace-flow.spec.ts:122:5 › Asset-based workspace flow › compute epicycles from contour
+[103/109] [chromium] › e2e/workspace-flow.spec.ts:171:5 › Asset-based workspace flow › image blob endpoint returns image with cache headers
+[104/109] [chromium] › e2e/workspace-flow.spec.ts:197:5 › Asset-based workspace flow › no console errors during full flow
+[105/109] [mobile-chromium] › e2e/coarse-pointer.spec.ts:45:5 › @coarse — the coarse-pointer cell (G-F9-13) › @coarse the emulation is actually coarse (this cell's own falsifier)
+[106/109] [mobile-chromium] › e2e/coarse-pointer.spec.ts:63:5 › @coarse — the coarse-pointer cell (G-F9-13) › @coarse the producer's coarse token pair is in force on :root
+[107/109] [mobile-chromium] › e2e/coarse-pointer.spec.ts:105:5 › @coarse — the coarse-pointer cell (G-F9-13) › @coarse every shell-header control meets the 44px touch floor
+[108/109] [mobile-chromium] › e2e/coarse-pointer.spec.ts:148:5 › @coarse — the coarse-pointer cell (G-F9-13) › @coarse the image-upload affordance is reachable on touch
+[109/109] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  2 failed
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+  3 skipped
+  104 passed (4.8m)

@@ -1,0 +1,458 @@
+{
+ "tag": "P",
+ "rounds": 11,
+ "reps": 2,
+ "arms": "stock,np-direct",
+ "uptimeStart": "18:38  up 1 day,  1:27, 3 users, load averages: 48.80 57.59 46.50",
+ "cells": {
+  "parseCssColor": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 1.702,
+      "pairedMax": 3.5,
+      "roundsBelow1": 1,
+      "ofMedians": 1.781,
+      "ofMins": 1.717
+     },
+     "np-direct": {
+      "paired": 1.642,
+      "pairedMax": 4.046,
+      "roundsBelow1": 0,
+      "ofMedians": 1.665,
+      "ofMins": 1.605
+     }
+    },
+    "medianMs": {
+     "retired": 38.38,
+     "stock": 68.34,
+     "np-direct": 63.89
+    },
+    "minMs": {
+     "retired": 31.47,
+     "stock": 54.03,
+     "np-direct": 50.5
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 46.82 57.04 46.36",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 46.82 57.04 46.36"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 1.532,
+      "pairedMax": 1.785,
+      "roundsBelow1": 0,
+      "ofMedians": 1.519,
+      "ofMins": 1.543
+     },
+     "stock": {
+      "paired": 1.762,
+      "pairedMax": 2.409,
+      "roundsBelow1": 0,
+      "ofMedians": 1.764,
+      "ofMins": 1.812
+     }
+    },
+    "medianMs": {
+     "np-direct": 52.21,
+     "stock": 60.65,
+     "retired": 34.38
+    },
+    "minMs": {
+     "np-direct": 47.04,
+     "stock": 55.25,
+     "retired": 30.49
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 34.44 52.80 45.25",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 34.44 52.80 45.25"
+   }
+  ],
+  "parseCssScalar": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 1.565,
+      "pairedMax": 1.835,
+      "roundsBelow1": 0,
+      "ofMedians": 1.53,
+      "ofMins": 1.453
+     },
+     "np-direct": {
+      "paired": 1.3,
+      "pairedMax": 1.46,
+      "roundsBelow1": 0,
+      "ofMedians": 1.27,
+      "ofMins": 1.298
+     }
+    },
+    "medianMs": {
+     "retired": 45.63,
+     "stock": 69.82,
+     "np-direct": 57.96
+    },
+    "minMs": {
+     "retired": 41.73,
+     "stock": 60.63,
+     "np-direct": 54.17
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 46.82 57.04 46.36",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 44.51 56.39 46.20"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 1.361,
+      "pairedMax": 1.859,
+      "roundsBelow1": 0,
+      "ofMedians": 1.389,
+      "ofMins": 1.284
+     },
+     "stock": {
+      "paired": 1.57,
+      "pairedMax": 2.157,
+      "roundsBelow1": 0,
+      "ofMedians": 1.57,
+      "ofMins": 1.502
+     }
+    },
+    "medianMs": {
+     "np-direct": 69.02,
+     "stock": 78.03,
+     "retired": 49.71
+    },
+    "minMs": {
+     "np-direct": 57.82,
+     "stock": 67.62,
+     "retired": 45.03
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 34.44 52.80 45.25",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 33.20 52.24 45.09"
+   }
+  ],
+  "parseCssValue": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 2.386,
+      "pairedMax": 2.779,
+      "roundsBelow1": 0,
+      "ofMedians": 2.453,
+      "ofMins": 2.218
+     },
+     "np-direct": {
+      "paired": 0.892,
+      "pairedMax": 1.221,
+      "roundsBelow1": 8,
+      "ofMedians": 0.952,
+      "ofMins": 0.86
+     }
+    },
+    "medianMs": {
+     "retired": 150.46,
+     "stock": 369.07,
+     "np-direct": 143.22
+    },
+    "minMs": {
+     "retired": 128.41,
+     "stock": 284.8,
+     "np-direct": 110.38
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 44.51 56.39 46.20",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 42.23 55.72 46.02"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 0.945,
+      "pairedMax": 1.144,
+      "roundsBelow1": 8,
+      "ofMedians": 0.902,
+      "ofMins": 0.949
+     },
+     "stock": {
+      "paired": 2.374,
+      "pairedMax": 2.459,
+      "roundsBelow1": 0,
+      "ofMedians": 2.272,
+      "ofMins": 2.447
+     }
+    },
+    "medianMs": {
+     "np-direct": 118.81,
+     "stock": 299.4,
+     "retired": 131.76
+    },
+    "minMs": {
+     "np-direct": 110.6,
+     "stock": 285.26,
+     "retired": 116.56
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:28, 3 users, load averages: 33.20 52.24 45.09",
+    "uptimeAfter": "18:38  up 1 day,  1:28, 3 users, load averages: 32.39 51.75 44.96"
+   }
+  ],
+  "parseCssValues": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 2.419,
+      "pairedMax": 2.714,
+      "roundsBelow1": 0,
+      "ofMedians": 2.37,
+      "ofMins": 2.399
+     },
+     "np-direct": {
+      "paired": 0.904,
+      "pairedMax": 0.979,
+      "roundsBelow1": 11,
+      "ofMedians": 0.91,
+      "ofMins": 0.93
+     }
+    },
+    "medianMs": {
+     "retired": 150.89,
+     "stock": 357.58,
+     "np-direct": 137.35
+    },
+    "minMs": {
+     "retired": 136.43,
+     "stock": 327.26,
+     "np-direct": 126.88
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 40.21 55.07 45.85",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 38.27 54.42 45.67"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 0.88,
+      "pairedMax": 0.951,
+      "roundsBelow1": 11,
+      "ofMedians": 0.843,
+      "ofMins": 0.854
+     },
+     "stock": {
+      "paired": 2.314,
+      "pairedMax": 2.984,
+      "roundsBelow1": 0,
+      "ofMedians": 2.399,
+      "ofMins": 2.115
+     }
+    },
+    "medianMs": {
+     "np-direct": 114.37,
+     "stock": 325.3,
+     "retired": 135.63
+    },
+    "minMs": {
+     "np-direct": 95.36,
+     "stock": 236.19,
+     "retired": 111.65
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:28, 3 users, load averages: 32.39 51.75 44.96",
+    "uptimeAfter": "18:39  up 1 day,  1:28, 3 users, load averages: 30.65 50.75 44.69"
+   }
+  ],
+  "parseKeyframeSelector": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 1.335,
+      "pairedMax": 1.532,
+      "roundsBelow1": 0,
+      "ofMedians": 1.345,
+      "ofMins": 1.375
+     },
+     "np-direct": {
+      "paired": 1.251,
+      "pairedMax": 1.428,
+      "roundsBelow1": 0,
+      "ofMedians": 1.27,
+      "ofMins": 1.308
+     }
+    },
+    "medianMs": {
+     "retired": 5.61,
+     "stock": 7.55,
+     "np-direct": 7.12
+    },
+    "minMs": {
+     "retired": 5.05,
+     "stock": 6.95,
+     "np-direct": 6.61
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 38.27 54.42 45.67",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 38.27 54.42 45.67"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 1.322,
+      "pairedMax": 1.513,
+      "roundsBelow1": 0,
+      "ofMedians": 1.302,
+      "ofMins": 1.31
+     },
+     "stock": {
+      "paired": 1.268,
+      "pairedMax": 2.555,
+      "roundsBelow1": 0,
+      "ofMedians": 1.306,
+      "ofMins": 1.368
+     }
+    },
+    "medianMs": {
+     "np-direct": 6.55,
+     "stock": 6.58,
+     "retired": 5.03
+    },
+    "minMs": {
+     "np-direct": 5.77,
+     "stock": 6.02,
+     "retired": 4.4
+    },
+    "uptimeBefore": "18:39  up 1 day,  1:28, 3 users, load averages: 30.65 50.75 44.69",
+    "uptimeAfter": "18:39  up 1 day,  1:28, 3 users, load averages: 30.65 50.75 44.69"
+   }
+  ],
+  "parseTimingFunction": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 1.434,
+      "pairedMax": 1.639,
+      "roundsBelow1": 0,
+      "ofMedians": 1.476,
+      "ofMins": 1.435
+     },
+     "np-direct": {
+      "paired": 1.321,
+      "pairedMax": 1.462,
+      "roundsBelow1": 0,
+      "ofMedians": 1.342,
+      "ofMins": 1.27
+     }
+    },
+    "medianMs": {
+     "retired": 8.36,
+     "stock": 12.34,
+     "np-direct": 11.22
+    },
+    "minMs": {
+     "retired": 7.91,
+     "stock": 11.35,
+     "np-direct": 10.05
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 38.27 54.42 45.67",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 38.27 54.42 45.67"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 1.275,
+      "pairedMax": 1.542,
+      "roundsBelow1": 1,
+      "ofMedians": 1.198,
+      "ofMins": 1.275
+     },
+     "stock": {
+      "paired": 1.378,
+      "pairedMax": 1.8,
+      "roundsBelow1": 0,
+      "ofMedians": 1.28,
+      "ofMins": 1.209
+     }
+    },
+    "medianMs": {
+     "np-direct": 10.05,
+     "stock": 10.73,
+     "retired": 8.39
+    },
+    "minMs": {
+     "np-direct": 9.06,
+     "stock": 8.59,
+     "retired": 7.1
+    },
+    "uptimeBefore": "18:39  up 1 day,  1:28, 3 users, load averages: 30.65 50.75 44.69",
+    "uptimeAfter": "18:39  up 1 day,  1:28, 3 users, load averages: 30.65 50.75 44.69"
+   }
+  ],
+  "parseStylesheet": [
+   {
+    "rep": 0,
+    "ratio": {
+     "stock": {
+      "paired": 6.061,
+      "pairedMax": 7.003,
+      "roundsBelow1": 0,
+      "ofMedians": 6.103,
+      "ofMins": 5.725
+     },
+     "np-direct": {
+      "paired": 2.549,
+      "pairedMax": 2.9,
+      "roundsBelow1": 0,
+      "ofMedians": 2.606,
+      "ofMins": 2.495
+     }
+    },
+    "medianMs": {
+     "retired": 74.16,
+     "stock": 452.59,
+     "np-direct": 193.22
+    },
+    "minMs": {
+     "retired": 63.87,
+     "stock": 365.66,
+     "np-direct": 159.38
+    },
+    "uptimeBefore": "18:38  up 1 day,  1:27, 3 users, load averages: 37.36 53.97 45.56",
+    "uptimeAfter": "18:38  up 1 day,  1:27, 3 users, load averages: 36.13 53.44 45.43"
+   },
+   {
+    "rep": 1,
+    "ratio": {
+     "np-direct": {
+      "paired": 2.556,
+      "pairedMax": 3.071,
+      "roundsBelow1": 0,
+      "ofMedians": 2.509,
+      "ofMins": 2.388
+     },
+     "stock": {
+      "paired": 5.587,
+      "pairedMax": 6.892,
+      "roundsBelow1": 0,
+      "ofMedians": 5.652,
+      "ofMins": 5.737
+     }
+    },
+    "medianMs": {
+     "np-direct": 165.59,
+     "stock": 372.95,
+     "retired": 65.99
+    },
+    "minMs": {
+     "np-direct": 139.06,
+     "stock": 334.07,
+     "retired": 58.23
+    },
+    "uptimeBefore": "18:39  up 1 day,  1:28, 3 users, load averages: 30.65 50.75 44.69",
+    "uptimeAfter": "18:39  up 1 day,  1:28, 3 users, load averages: 27.47 49.41 44.28"
+   }
+  ]
+ },
+ "uptimeEnd": "18:39  up 1 day,  1:28, 3 users, load averages: 27.47 49.41 44.28"
+}

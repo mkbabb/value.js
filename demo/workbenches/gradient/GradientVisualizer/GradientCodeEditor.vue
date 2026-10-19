@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, useTemplateRef } from "vue";
-import { debounce } from "../../../shared/utils";
+import { debounce } from "../../../shared/debounce";
 
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
@@ -83,6 +83,10 @@ onMounted(() => render(modelValue));
 
 <template>
     <div class="flex flex-col gap-1.5">
+        <!-- X-DS value pass 12 (V12C-01): no height cap. The block form
+             (V11C-02) sets one stop per line, so the old 12rem cap cut a
+             5-stop gradient mid-stop inside a nested scroller; the well grows
+             with its text and the pane's own port is the one scroller. -->
         <div
             ref="editorRef"
             contenteditable="true"
@@ -90,11 +94,8 @@ onMounted(() => render(modelValue));
             role="textbox"
             aria-label="Gradient CSS"
             :aria-invalid="hasError || undefined"
-            class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap break-all outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-            :class="[hasError ? 'border-destructive' : 'border-border/40']"
-            :style="{
-                transition: `border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard)`,
-            }"
+            class="code-editor hljs text-mono-small leading-relaxed p-3 rounded-lg border min-h-[5rem] whitespace-pre-wrap wrap-break-word outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            :class="[hasError ? 'border-destructive' : 'border-card-edge']"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"
@@ -102,15 +103,34 @@ onMounted(() => render(modelValue));
         <!-- The one-line Fira verdict (W5-11): explicit destructive failure —
              never a silent partial apply, never a stolen caret. -->
         <!-- text-mono-SMALL, deliberately: the verdict quotes code literals,
-             and text-mono-caption is the UPPERCASE eyebrow token (the P1-7
+             and text-mono-caption is the UPPERCASE caption token (the P1-7
              label-costume trap — case-sensitive code never wears it). -->
         <p
             v-if="parseVerdict"
             data-testid="gradient-parse-verdict"
-            class="fira-code text-mono-small text-destructive"
+            class="font-mono text-mono-small text-destructive"
             role="status"
         >
             {{ parseVerdict }}
         </p>
     </div>
 </template>
+
+<style scoped>
+/* X-DS pass 4 (V4C-03): the code sits on the code paper its crayons are
+   certified on (`--code-ground`, hljs.css), not on a translucent wash over the
+   aurora. Scoped, so it outranks `.hljs { background: transparent }`. */
+.code-editor {
+    background: var(--code-ground);
+}
+
+/* The verdict edge eases in only where motion is wanted (X-W6 · X.W6.e — e2):
+   a reduced-motion reader gets the error border at once, structurally. */
+@media (prefers-reduced-motion: no-preference) {
+    .code-editor {
+        transition:
+            border-color var(--duration-normal) var(--ease-standard),
+            box-shadow var(--duration-normal) var(--ease-standard);
+    }
+}
+</style>

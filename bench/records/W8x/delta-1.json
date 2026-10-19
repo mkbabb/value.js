@@ -1,0 +1,199 @@
+{
+ "identical": 973,
+ "gone": [],
+ "moved": [],
+ "new": [
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27097,
+   "source": "\"\"",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "\"\"",
+      "code": "syntax_mismatch",
+      "end": 2,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27099,
+   "source": "\"<color>\"",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "\"<color>\"",
+      "code": "syntax_mismatch",
+      "end": 9,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27100,
+   "source": "\"<length>\"",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "\"<length>\"",
+      "code": "syntax_mismatch",
+      "end": 10,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27101,
+   "source": "\"<number>\"",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "\"<number>\"",
+      "code": "syntax_mismatch",
+      "end": 10,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27104,
+   "source": "\"Instrument Serif Fallback\"",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "\"Instrument Serif Fallback\"",
+      "code": "syntax_mismatch",
+      "end": 27,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27133,
+   "source": "'a b'",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "'a b'",
+      "code": "syntax_mismatch",
+      "end": 5,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27616,
+   "source": "<",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "<",
+      "code": "syntax_mismatch",
+      "end": 1,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  },
+  {
+   "section": "public:coerceToSyntax(<custom-ident>)",
+   "key": 27617,
+   "source": "<=",
+   "nonAscii": false,
+   "cpCase": false,
+   "golden": {
+    "$same": "entry:parseCssValue"
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "<=",
+      "code": "syntax_mismatch",
+      "end": 2,
+      "expected": [
+       "<custom-ident>"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  }
+ ]
+}

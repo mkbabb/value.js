@@ -1,0 +1,11 @@
+import { createRequire } from "node:module";
+const { chromium } = createRequire("/Users/mkbabb/Programming/value.js/package.json")("playwright");
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const p = await (await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" })).newPage();
+await p.goto("http://localhost:5173/#/square"); await p.waitForTimeout(5000);
+const anc = await p.evaluate(()=>{const o=[];let e=document.querySelector(".square-stage");while(e){const s=getComputedStyle(e);o.push([e.className.toString().slice(0,40),s.transform!=="none",s.contain,s.overflow,s.position,s.zIndex,s.backdropFilter!=="none"]);e=e.parentElement;}return o;});
+console.log(JSON.stringify(anc));
+await p.addStyleTag({content:".editor-shell{overflow:visible!important} html,body{overflow:visible!important}"});
+await p.waitForTimeout(500);
+await p.screenshot({path:"sq-ov.png", clip:{x:540,y:560,width:260,height:200}});
+await b.close();

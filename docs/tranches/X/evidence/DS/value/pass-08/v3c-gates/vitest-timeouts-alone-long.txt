@@ -1,0 +1,154 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:32889) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:32894) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ demo/test/generate/generate-rail.test.ts (1 test) 21945ms
+   ✓ GenerateControls count control > V3C-05: Colors is glass's scrubber at the sm rung, with no content-as-track rail  21944ms
+(node:32898) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/admin-destructive.test.ts (10 tests) 20122ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > color-name delete (AdminNamesPanel)  4032ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > color-name reject (AdminNamesPanel, W7.93)  2548ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > tag delete (AdminTagsPanel)  1701ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > flagged-palette delete (AdminFlaggedPanel)  2301ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > delete-all-palettes (AdminUsersPanel)  2499ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > user-disclosure palette delete (AdminUsersPanel)  2215ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > delete user (AdminUsersPanel)  2169ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > a dismissed confirm releases its act — Cancel then nothing can fire it  1005ms
+   ✓ G15 · S-15 — destructive naming > delete-all states the destruction in its visible AND accessible names, before activation  479ms
+   ✓ G15 · S-15 — destructive naming > N Dismiss buttons each name their palette; the two irreversible user acts wear distinct glyphs  1170ms
+ ❯ demo/test/export/byte-exact.test.ts (31 tests | 2 failed) 113362ms
+   ✓ canonical OKLCH spelling (§2) > matches the appendix's two worked examples exactly 1ms
+   ✓ canonical OKLCH spelling (§2) > never trims a fractional digit, exponent or sign 0ms
+   ✓ positional identifiers + XML escaping (§2/§6) > pads the 1-based ordinal to three decimals 0ms
+   ✓ positional identifiers + XML escaping (§2/§6) > performs exactly the five substitutions, ampersand first (no double-escape) 0ms
+   ✓ filenames + MIME (§2) > stems and extensions per source arm 0ms
+   ✓ filenames + MIME (§2) > exact MIME/extension pairing 0ms
+   ✓ filenames + MIME (§2) > identifier prefix: slug for release/workspace, palette-<digest> for a draft 1ms
+   ✓ JSON export (§3) > is the exact RFC 8785 value + one trailing LF 5ms
+   ✓ JSON export (§3) > copies the source union without renaming sourceKind 1ms
+   ✓ CSS export (§4) > is two-space-indented declarations with the release slug prefix 0ms
+   ✓ CSS export (§4) > uses palette-<digest> for a device draft 0ms
+   ✓ Tailwind export (§5) > is a data-only RFC 8785 object + trailing LF (no executable JS) 1ms
+   ✓ SVG export (§6) > is the exact font/script-free swatch strip 0ms
+   ✓ SVG export (§6) > escapes the display name and never renders text/font/script 7ms
+   ✓ PNG export (§7) > has the exact frozen framing: signature, IHDR, sRGB, gAMA, IDAT, IEND  380ms
+   ✓ PNG export (§7) > has 18 stored DEFLATE blocks with the exact contract headers + Adler-32  541ms
+   × PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans 60684ms
+     → Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   × PNG export (§7) > is deterministic: two serializations are byte-identical 50587ms
+     → Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ golden full-file hashes (the cross-engine lock) > release fixture hashes match the Chromium/Firefox/WebKit-proven goldens  364ms
+   ✓ counts: 1 and 50 colours (§7 spans) > serializes a single colour and fills the whole PNG width 20ms
+   ✓ counts: 1 and 50 colours (§7 spans) > serializes fifty colours; ids run color-001..color-050; PNG stays 1200 wide 159ms
+   ✓ out-of-gamut clipping is W8-owned (§7) > clips a very-high-chroma atom into valid RGBA bytes 287ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > two independent preparations yield identical snapshot bytes 3ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > validates + verifies well-formed stored bytes 3ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > rejects a single tampered byte (terminal snapshot_corrupt) 0ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > rejects an unknown top-level key 0ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > rejects a duplicate key (non-canonical stored bytes) 1ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > rejects a mismatched contentDigest (recomputed from the colours, never trusted) 1ms
+   ✓ reload identity (pure half; the routed seat is W50/W44-gated) > rejects a snapshot digest that does not match the operation key 2ms
+   ✓ G5 — non-ASCII names survive export > the one slug keeps the name's identity (was 'blue' / '-blue') 4ms
+   ✓ G5 — non-ASCII names survive export > the exported filename carries the slug, and displayName is byte-exact 4ms
+ ❯ demo/test/palettes/palette-card-layout.test.ts (6 tests | 6 skipped) 135662ms
+   ↓ G9 · the meta row at 390×844 with a legal payload > does not overflow; the name keeps a rendered width
+   ↓ G10 · the no-overflow law and the height law at every fixture N > no fixture overflows its card or the page
+   ↓ G10 · the no-overflow law and the height law at every fixture N > one card height across the whole fixture set
+   ↓ G11 · root-only: the cast and the hover register live on the card root > the card casts nothing, and the hover register is the root's own rise
+   ↓ N-13 · the reduced-motion disclosure completes > collapse under prefers-reduced-motion removes the swatch subtree
+   ↓ N-13 · the reduced-motion disclosure completes > the animated disclosure (no preference) still completes on its height morph
+stderr | demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugin `externalize-deps`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 4 skipped) 247938ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   ↓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/palette-card-layout.test.ts [ demo/test/palettes/palette-card-layout.test.ts ]
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/palette-card-layout.test.ts:26:1
+     24| let seat: HarnessSeat;
+     25| 
+     26| beforeAll(async () => {
+       | ^
+     27|     seat = await openHarness({ width: 390, height: 844 });
+     28| }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:77:5
+     75| ])("plate at $width px", (viewport) => {
+     76|     let seat: HarnessSeat;
+     77|     beforeAll(async () => {
+       |     ^
+     78|         seat = await openHarness(viewport);
+     79|     }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/export/byte-exact.test.ts > PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans
+Error: Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ demo/test/export/byte-exact.test.ts:315:5
+    313| 
+    314|     // Full-raster decode + 240 deep row comparisons: ~7s on shared CI…
+    315|     it("decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans"…
+       |     ^
+    316|         const { oklch, toRgba8 } = await import("@mkbabb/value.js/colo…
+    317|         const png = serializePng(release);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  demo/test/export/byte-exact.test.ts > PNG export (§7) > is deterministic: two serializations are byte-identical
+Error: Test timed out in 30000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ demo/test/export/byte-exact.test.ts:351:5
+    349| 
+    350|     // Two full PNG serializations back-to-back: ~5.5s on shared CI ru…
+    351|     it("is deterministic: two serializations are byte-identical", { ti…
+       |     ^
+    352|         const a = serializePng(release);
+    353|         const b = serializePng(release);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-worker]: Timeout calling "onTaskUpdate"
+ ❯ Object.onTimeoutError node_modules/vitest/dist/chunks/rpc.-pEldfrD.js:53:10
+ ❯ Timeout._onTimeout node_modules/vitest/dist/chunks/index.B521nVV-.js:59:62
+ ❯ listOnTimeout node:internal/timers:605:17
+ ❯ processTimers node:internal/timers:541:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  3 failed | 2 passed (5)
+      Tests  2 failed | 40 passed | 10 skipped (52)
+     Errors  1 error
+   Start at  15:20:22
+   Duration  269.02s (transform 28.77s, setup 4.14s, collect 48.43s, tests 539.03s, environment 9.82s, prepare 2.61s)
+

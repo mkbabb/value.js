@@ -1,0 +1,172 @@
+{
+  "sha": "60477b06",
+  "dirty": 2,
+  "when": "2026-09-23T17:03:46.960Z",
+  "steps": [
+    {
+      "frame": "20-matrix-open-1440-light.png",
+      "note": "dock tab listbox with Matrix channel",
+      "trig": {
+        "text": "Controls",
+        "fv": true,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg"
+      },
+      "channel": "Matrix",
+      "tabpanel": [
+        "durationdelayiterationsdirectionalternat",
+        ""
+      ],
+      "options": [
+        "Controls*",
+        "Keyframes",
+        "Timeline",
+        "Matrix Controls"
+      ],
+      "content": {
+        "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin) data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1 glass-floating glass-field-port",
+        "radius": "12px",
+        "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 "
+      },
+      "rowCls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropdown outline-none data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none da",
+      "active": "Controls tab"
+    },
+    {
+      "frame": "21-matrix-controls-picked-1440-light.png",
+      "note": "after pointer pick",
+      "trig": {
+        "text": "Matrix Controls",
+        "fv": true,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg"
+      },
+      "channel": "Matrix",
+      "tabpanel": [
+        "",
+        "SxyzPwxSyzPwxySzPwTxTyTzw"
+      ],
+      "options": [],
+      "content": null,
+      "active": "Controls tab"
+    },
+    {
+      "frame": "22-back-to-rotations-1440-light.png",
+      "note": "channel back to Rotations with matrix-controls selected",
+      "trig": {
+        "text": "Controls",
+        "fv": false,
+        "shadow": "none"
+      },
+      "channel": "Rotations",
+      "tabpanel": [
+        "durationdelayiterationsdirectionalternat",
+        "1."
+      ],
+      "options": [],
+      "content": null,
+      "active": "Select animation"
+    },
+    {
+      "frame": "23-back-to-rotations-open-1440-light.png",
+      "note": "reopen tab list",
+      "trig": {
+        "text": "Controls",
+        "fv": true,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg"
+      },
+      "channel": "Rotations",
+      "tabpanel": [
+        "durationdelayiterationsdirectionalternat",
+        "1."
+      ],
+      "options": [
+        "Controls*",
+        "Keyframes",
+        "Timeline"
+      ],
+      "content": {
+        "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin) data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1 glass-floating glass-field-port",
+        "radius": "12px",
+        "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 "
+      },
+      "rowCls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropdown outline-none data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none da",
+      "active": "Controls tab"
+    },
+    {
+      "frame": "24-matrix-again-1440-light.png",
+      "note": "back to Matrix — does the pick restore?",
+      "trig": {
+        "text": "Controls",
+        "fv": false,
+        "shadow": "none"
+      },
+      "channel": "Matrix",
+      "tabpanel": [
+        "durationdelayiterationsdirectionalternat",
+        ""
+      ],
+      "options": [],
+      "content": null,
+      "active": "Select animation"
+    },
+    {
+      "frame": "25-kbd-focus-trigger-1440-light.png",
+      "trig": {
+        "text": "Controls",
+        "fv": true,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg"
+      },
+      "channel": "Rotations",
+      "tabpanel": [
+        "durationdelayiterationsdirectionalternat",
+        "123456789101112131415.keyframes-style-cu"
+      ],
+      "options": [],
+      "content": null,
+      "active": "Controls tab"
+    },
+    {
+      "frame": "26-kbd-open-1440-light.png",
+      "trig": {
+        "text": "Controls",
+        "fv": false,
+        "shadow": "none"
+      },
+      "channel": "Rotations",
+      "tabpanel": [
+        "durationdelayiterationsdirectionalternat",
+        "123456789101112131415.keyframes-style-cu"
+      ],
+      "options": [
+        "Controls*",
+        "Keyframes",
+        "Timeline"
+      ],
+      "content": {
+        "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin) data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1 glass-floating glass-field-port",
+        "radius": "12px",
+        "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 "
+      },
+      "rowCls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropdown outline-none data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none da",
+      "active": "DIV"
+    },
+    {
+      "frame": "27-kbd-picked-1440-light.png",
+      "trig": {
+        "text": "Keyframes",
+        "fv": true,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srg"
+      },
+      "channel": "Rotations",
+      "tabpanel": [
+        "123456789101112131415.keyframes-style-cu"
+      ],
+      "options": [],
+      "content": null,
+      "active": "Controls tab"
+    }
+  ],
+  "errs": [],
+  "tabOrder": [
+    "Scene",
+    "Controls tab"
+  ]
+}

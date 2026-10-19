@@ -1,0 +1,130 @@
+SERVED MODEL: claude-opus-5-5
+X-W8 RESUME close (§0fx) · G-15 null-DELTA pair over the receiver-semantics-unchanged families (.b barrel rewrite + .c SCC closure).
+Instrument: X-W1's e2e/visual route census (CC-030, the spec's preferred instrument), viewports 390x844 · 1024x768 · 3440x1440, light + dark, the oracle's own committed tolerance.
+BEFORE tree = 17090b54a (product bytes == wave-open d17dece5a: git diff --stat d17dece5a 17090b54a -- demo src package.json e2e = empty), own npm ci --ignore-scripts (clsx/tailwind-merge still declared there), dist copied from main (src identical).
+AFTER tree  = cac84202a (post-.c), node_modules = main's (package.json/lock unchanged cac84202a..HEAD). Harness bytes identical: git diff --stat 17090b54a cac84202a -- e2e/visual playwright.config.ts = empty.
+
+$ (before) VJS_E2E_PORT=9671 guarded --timeout 60 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts --update-snapshots=all --workers=1
+  1) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · light ────
+    Error: pane 1 (about) is unreachable at 390 on picker
+  2) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · light
+    Error: pane 0 (color-picker) is unreachable at 390 on palettes
+  3) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · light ─
+    Error: pane 1 (palettes) is unreachable at 390 on browse
+  4) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on extract
+  5) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · light
+    Error: pane 0 (color-picker) is unreachable at 390 on mix
+  6) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on generate
+  7) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on gradient
+  8) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · light ───────
+    Error: pane 1 (blob) is unreachable at 390 on blob
+  9) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · dark ─────
+    Error: pane 1 (about) is unreachable at 390 on picker
+  10) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · dark
+    Error: pane 0 (color-picker) is unreachable at 390 on palettes
+  11) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · dark ─
+    Error: pane 1 (palettes) is unreachable at 390 on browse
+  12) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on extract
+  13) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · dark
+    Error: pane 0 (color-picker) is unreachable at 390 on mix
+  14) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on generate
+  15) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on gradient
+  16) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · dark ───────
+    Error: pane 1 (blob) is unreachable at 390 on blob
+  16 failed
+  60 passed (6.0m)
+
+# goldens minted on BEFORE copied over AFTER's e2e/visual/goldens/darwin/ (scratch worktree only; nothing committed to e2e/)
+$ (after) VJS_E2E_PORT=9673 guarded --timeout 60 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts --workers=1   # run 1
+  1) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · light ────
+    Error: pane 1 (about) is unreachable at 390 on picker
+  2) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · light
+    Error: pane 0 (color-picker) is unreachable at 390 on palettes
+  3) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · light ─
+    Error: pane 1 (palettes) is unreachable at 390 on browse
+  4) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on extract
+  5) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · light
+    Error: pane 0 (color-picker) is unreachable at 390 on mix
+  6) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on generate
+  7) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on gradient
+  8) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · light ───────
+    Error: pane 1 (blob) is unreachable at 390 on blob
+  9) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · dark ─────
+    Error: pane 1 (about) is unreachable at 390 on picker
+  10) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · dark
+    Error: pane 0 (color-picker) is unreachable at 390 on palettes
+  11) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · dark ─
+    Error: pane 1 (palettes) is unreachable at 390 on browse
+  12) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on extract
+  13) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · dark
+    Error: pane 0 (color-picker) is unreachable at 390 on mix
+  14) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on generate
+  15) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on gradient
+  16) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · dark ───────
+    Error: pane 1 (blob) is unreachable at 390 on blob
+  16 failed
+  60 passed (5.7m)
+
+$ (after) VJS_E2E_PORT=9673 guarded --timeout 60 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts --workers=1   # run 2
+  1) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · light ────
+    Error: pane 1 (about) is unreachable at 390 on picker
+  2) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · light
+    Error: pane 0 (color-picker) is unreachable at 390 on palettes
+  3) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · light ─
+    Error: pane 1 (palettes) is unreachable at 390 on browse
+  4) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on extract
+  5) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · light
+    Error: pane 0 (color-picker) is unreachable at 390 on mix
+  6) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on generate
+  7) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · light
+    Error: pane 1 (palettes) is unreachable at 390 on gradient
+  8) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · light ───────
+    Error: pane 1 (blob) is unreachable at 390 on blob
+  9) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › picker · about · dark ─────
+    Error: pane 1 (about) is unreachable at 390 on picker
+  10) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › palettes · color-picker · dark
+    Error: pane 0 (color-picker) is unreachable at 390 on palettes
+  11) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › browse · palettes · dark ─
+    Error: pane 1 (palettes) is unreachable at 390 on browse
+  12) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › extract · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on extract
+  13) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › mix · color-picker · dark
+    Error: pane 0 (color-picker) is unreachable at 390 on mix
+  14) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › generate · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on generate
+  15) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › gradient · palettes · dark
+    Error: pane 1 (palettes) is unreachable at 390 on gradient
+  16) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 390 › blob · blob · dark ───────
+    Error: pane 1 (blob) is unreachable at 390 on blob
+  17) [visual] › e2e/visual/routes.visual.spec.ts:63:21 › at-rest · 1024 › generate · both · light ─
+    Error: expect(page).toHaveScreenshot(expected) failed
+      4602 pixels (ratio 0.01 of all image pixels) are different.
+      Snapshot: at-rest__generate__both__1024__light__real__angle-google-vulkan-1-3-0-swiftshader-device-llv-be9edeaf.png
+  17 failed
+  59 passed (5.5m)
+
+# Adjudication of after-run-2's one pixel cell (at-rest · 1024 › generate · both · light, 4602 px / ratio 0.01): the cell alone, x2 per tree
+$ (after) guarded --timeout 15 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts -g "at-rest · 1024 generate · both · light" --workers=1   # run 1
+gen after run1 rc=0 ::  1 passed (15.7s)
+$ (after) guarded --timeout 15 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts -g "at-rest · 1024 generate · both · light" --workers=1   # run 2
+gen after run2 rc=0 ::  1 passed (17.3s)
+$ (before) guarded --timeout 15 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts -g "at-rest · 1024 generate · both · light" --workers=1   # run 1
+gen before run1 rc=0 ::  1 passed (17.6s)
+$ (before) guarded --timeout 15 -- npx playwright test --project=visual e2e/visual/routes.visual.spec.ts -g "at-rest · 1024 generate · both · light" --workers=1   # run 2
+gen before run2 rc=0 ::  1 passed (17.5s)
+
+READING: 60 of 60 capturable cells match BEFORE goldens in AFTER run 1; 59/60 in run 2, the one cell passing 4 of 4 isolated re-reads on both trees => capture nondeterminism on the generate route, not a W8 delta. 16 cells (390 second-pane: about/color-picker/palettes/blob) fail IDENTICALLY on BEFORE (while minting) and AFTER with the harness's own 'pane N is unreachable at 390' — a census/harness fact that predates X-W8, not a pixel reading. G-15 null-DELTA: GREEN at the instrument's tolerance for every capturable cell.

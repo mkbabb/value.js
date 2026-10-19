@@ -1,0 +1,2241 @@
+{
+ "viewport": "932x430",
+ "theme": "light",
+ "states": [
+  {
+   "scene": "cube",
+   "surface": "(initial)",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 877,
+     "b": 1065,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 329.8,
+    "r": 602.2,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 329.8,
+    "R": 329.8
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": []
+  },
+  {
+   "scene": "cube",
+   "surface": "Controls",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 877,
+     "b": 1065,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": []
+  },
+  {
+   "scene": "cube",
+   "surface": "Keyframes",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 361,
+     "b": 815,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 839,
+     "b": 911,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": []
+  },
+  {
+   "scene": "cube",
+   "surface": "Timeline",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 823,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 750,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 774,
+     "b": 846,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": []
+  },
+  {
+   "scene": "cube",
+   "surface": "Scene facet",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 823,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 750,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 774,
+     "b": 846,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": []
+  },
+  {
+   "scene": "square",
+   "surface": "(initial)",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 877,
+     "b": 1065,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.square-stage",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "square",
+   "surface": "Controls",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 877,
+     "b": 1065,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.square-stage",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "square",
+   "surface": "Keyframes",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 361,
+     "b": 815,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 839,
+     "b": 911,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.square-stage",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "square",
+   "surface": "Timeline",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 823,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 750,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 774,
+     "b": 846,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.square-stage",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "square",
+   "surface": "Scene facet",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 823,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 750,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 774,
+     "b": 846,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.square-stage",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "amiga",
+   "surface": "(initial)",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 877,
+     "b": 1065,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 350.8,
+    "r": 581.2,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 350.8,
+    "R": 350.8
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "amiga-canvas.kf-focus-ring.h-full",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "amiga",
+   "surface": "Controls",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 877,
+     "b": 1065,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 350.8,
+    "r": 581.2,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 350.8,
+    "R": 350.8
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "amiga-canvas.kf-focus-ring.h-full",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "amiga",
+   "surface": "Keyframes",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 361,
+     "b": 815,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 839,
+     "b": 911,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "amiga-canvas.kf-focus-ring.h-full",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "amiga",
+   "surface": "Timeline",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 823,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 750,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 774,
+     "b": 846,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "amiga-canvas.kf-focus-ring.h-full",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "amiga",
+   "surface": "Scene facet",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 296,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 823,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 369,
+     "b": 750,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 774,
+     "b": 846,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.36",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "amiga-canvas.kf-focus-ring.h-full",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "easing",
+   "surface": "(initial)",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 827,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 1381,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1405,
+     "b": 1593,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.easing-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ],
+   "designed": [
+    [
+     "scroll",
+     "fading-scroll",
+     94
+    ]
+   ]
+  },
+  {
+   "scene": "easing",
+   "surface": "Controls",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 567,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1860,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1884,
+     "b": 2072,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.easing-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ],
+   "designed": [
+    [
+     "scroll",
+     "fading-scroll",
+     94
+    ]
+   ]
+  },
+  {
+   "scene": "easing",
+   "surface": "Keyframes",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 234,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 753,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 753,
+     "b": 1761,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1785,
+     "b": 1857,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.easing-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ],
+   "designed": [
+    [
+     "scroll",
+     "fading-scroll",
+     94
+    ]
+   ]
+  },
+  {
+   "scene": "easing",
+   "surface": "Timeline",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 234,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 753,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1307,
+     "b": 1687,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1711,
+     "b": 1783,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.easing-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ],
+   "designed": [
+    [
+     "scroll",
+     "fading-scroll",
+     94
+    ]
+   ]
+  },
+  {
+   "scene": "easing",
+   "surface": "Curve",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 234,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 753,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1331,
+     "b": 1519,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.easing-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ],
+   "designed": [
+    [
+     "scroll",
+     "fading-scroll",
+     94
+    ]
+   ]
+  },
+  {
+   "scene": "spring",
+   "surface": "(initial)",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 827,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 1016,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1040,
+     "b": 1280,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 340.4,
+    "r": 591.6,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 340.4,
+    "R": 340.4
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.spring-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "spring",
+   "surface": "Controls",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 567,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 853,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1307,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 853,
+     "b": 1495,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1519,
+     "b": 1707,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.spring-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "spring",
+   "surface": "Keyframes",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 234,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 753,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 753,
+     "b": 1396,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1420,
+     "b": 1492,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.spring-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "spring",
+   "surface": "Timeline",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 234,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 753,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 942,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 942,
+     "b": 1323,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 1347,
+     "b": 1419,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.spring-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "spring",
+   "surface": "Physics",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 266,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 234,
+    "b": 501,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-resting.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 753,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 299,
+     "b": 942,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    },
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 966,
+     "b": 1206,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 436,
+    "r": 496,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 436,
+    "R": 436
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.62",
+    "bs": 267
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.spring-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "sequence",
+   "surface": "(initial)",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 691,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.seq-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "sequence",
+   "surface": "Controls",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 691,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.seq-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "sequence",
+   "surface": "Keyframes",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 691,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.seq-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "sequence",
+   "surface": "Timeline",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 691,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.seq-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  },
+  {
+   "scene": "sequence",
+   "surface": "Scene facet",
+   "vw": 932,
+   "iw": 932,
+   "vv": 932,
+   "docOvf": 0,
+   "docSH": 205,
+   "sheet": {
+    "l": 0,
+    "r": 932,
+    "t": 300,
+    "b": 505,
+    "dC": 0,
+    "L": 0,
+    "R": 0
+   },
+   "cards": [
+    {
+     "cls": "glass-quiet.card",
+     "l": 37,
+     "r": 895,
+     "t": 373,
+     "b": 691,
+     "dC": 0,
+     "L": 37,
+     "R": 37
+    }
+   ],
+   "transport": {
+    "l": 397.5,
+    "r": 534.5,
+    "t": 307,
+    "b": 367,
+    "dC": 0,
+    "L": 397.5,
+    "R": 397.5
+   },
+   "scrollers": [],
+   "det": {
+    "now": "0.12",
+    "bs": 205
+   },
+   "gutter": 36,
+   "gutterToken": "calc(1.25rem + 1rem)",
+   "stage": [
+    {
+     "cls": "glass-resting.card.seq-target",
+     "l": 36,
+     "r": 896,
+     "t": 108,
+     "b": 322,
+     "dC": 0,
+     "L": 36,
+     "R": 36
+    }
+   ]
+  }
+ ],
+ "bad": [],
+ "summary": {
+  "states": 30,
+  "red": 0
+ }
+}

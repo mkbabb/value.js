@@ -1,0 +1,69 @@
+{
+ "tag": "l844",
+ "theme": "light",
+ "W": 844,
+ "H": 390,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T05:27:38.450Z",
+ "arms": {
+  "SA": {
+   "inset": "landscape",
+   "/": {
+    "top": [
+     "Select color space@33,141-123,209",
+     "l channel@49,390-81,434",
+     "L channel@299,397-311,421"
+    ],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/palettes": {
+    "top": [
+     "Select color space@33,103-123,171",
+     "l channel@49,352-81,396",
+     "a channel@49,396-81,440",
+     "L channel@299,359-311,383"
+    ],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/browse": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/generate": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/gradient": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/atmosphere": {
+    "top": [
+     "Smooth@109,358-803,418"
+    ],
+    "end": [
+     "Reset@695,311-815,355"
+    ],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/admin/users": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "pass": false
+  }
+ }
+}

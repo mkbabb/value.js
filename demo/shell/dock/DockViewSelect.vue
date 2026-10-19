@@ -2,21 +2,24 @@
 import { ArrowLeft, Shield } from "@lucide/vue";
 import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import {
-    Select, SelectContent, SelectGroup, SelectItem, SelectValue,
-} from "../../ui/select";
-import { inject } from "vue";
+    Select, SelectContent, SelectGroup, SelectItem, SelectSeparator, SelectValue,
+} from "@mkbabb/glass-ui/select";
+import { computed, inject } from "vue";
 import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
 const {
     currentView,
     currentIcon,
+    currentLabel,
     isAdminMode,
     isDesktop,
     viewEntries,
 } = defineProps<{
     currentView: string;
     currentIcon: unknown;
+    /** The current view's schema label (viewSchema), named on the trigger. */
+    currentLabel: string;
     isAdminMode: boolean;
     isDesktop: boolean;
     viewEntries: ViewEntry[];
@@ -33,6 +36,20 @@ const emit = defineEmits<{
 const open = defineModel<boolean>("open", { default: false });
 
 const pm = inject(SESSION_PORT_KEY)!;
+
+/**
+ * UIA-V-7: glass consumes `--dock-ring` as a whole `box-shadow` (its default is
+ * `var(--focus-ring-shadow)`). A bare colour there is an invalid shadow, so the
+ * trigger drew NO keyboard focus ring. The seam carries the full ring, in the
+ * shape of glass's own `--focus-ring-shadow` (the width ring), tinted by
+ * the view accent — or admin gold. Glass's colour-only ring seam is the root ask (O-59).
+ */
+const viewRing = computed(() => {
+    const hue = isAdminMode ? "var(--ink-gold)" : "var(--accent-view)";
+    // X-DS pass 1 (V1C-10): the width ring alone; the 0 0 8px accent glow
+    // halo that rode under it is gone.
+    return `0 0 0 var(--focus-ring-width) color-mix(in srgb, ${hue} 30%, transparent)`;
+});
 
 // T.W6 · W6-4 (T-10, the owner overrule of W7-4's color-wheel legend): the
 // menu speaks INK. Rows are icon + label in the popover foreground pair;
@@ -54,9 +71,6 @@ const pm = inject(SESSION_PORT_KEY)!;
         @update:open="open = $event"
         @update:model-value="(id) => emit('update:modelValue', id as string)"
     >
-        <!-- Ad-18 marker: [&>span]:line-clamp-none cancels glass-ui's internal
-             line-clamp-1 on the trigger label span. Root fix is a `clampLabel`
-             prop on glass-ui DockSelectTrigger (filed coordination/Q.md §3). -->
         <!-- W7-4 (ONE dock voice): the trigger — icon + ring — speaks
              `--accent-view`, the CURRENT view's gamut-guarded token. The ring
              seam (`--dock-ring`) is re-wired off the live accent onto the view
@@ -66,8 +80,8 @@ const pm = inject(SESSION_PORT_KEY)!;
         <DockTrigger
             for="select"
             aria-label="Select view"
-            class="view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
-            :style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"
+            class="view-select-trigger text-small font-display font-normal"
+            :style="{ '--dock-ring': viewRing }"
         >
             <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
                  swaps on the morph family (scale-settle beat), and reads the
@@ -77,14 +91,19 @@ const pm = inject(SESSION_PORT_KEY)!;
                     :is="currentIcon"
                     :key="currentView"
                     class="w-6 h-6 shrink-0"
-                    :class="isAdminMode && 'gold-shimmer-icon'"
+                    :class="isAdminMode && 'gold-ink'"
                     :style="[
                         { '--vj-morph-scale': '0.6', '--vj-morph-y': '0px' },
                         isAdminMode ? {} : { color: 'var(--accent-view)' },
                     ]"
                 />
             </Transition>
-            <SelectValue v-if="isDesktop" />
+            <!-- X-DS pass 3 (V3C-10): the trigger names the current view from
+                 the SCHEMA, not from the options. reka's SelectValue resolves
+                 its text from the rendered items, and /atmosphere and /blob are
+                 not among a non-admin's options, so there the trigger was a
+                 bare glyph and a chevron. -->
+            <SelectValue v-if="isDesktop">{{ currentLabel }}</SelectValue>
         </DockTrigger>
         <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">
@@ -94,16 +113,18 @@ const pm = inject(SESSION_PORT_KEY)!;
                     :key="entry.id"
                     :value="entry.id"
                     class="py-1.5 px-2.5"
-                    hide-indicator
                 >
-                    <!-- W6-4 (T-10) — the INK menu: icon + label, both the
+                    <!-- UIA-V-72 · V-216: the current view wears the producer's
+                         selected indicator (its check). `hide-indicator` stripped
+                         it, and no row was highlighted on open either, so the
+                         list said nothing about where the user is.
+                         W6-4 (T-10) — the INK menu: icon + label, both the
                          popover foreground. P4-R4 (T-40a): the current
                          entry's `font-semibold` selection marker is RETIRED
                          (the ColorSpaceSelector precedent — the owner's
                          "dropdown options should not be bold"): EVERY option
                          computes 400, selection speaks reka's `aria-selected`
-                         + the producer's glass-quiet highlighted-on-open row,
-                         never weight. The one chromatic row is Palettes (Q5
+                         + the producer's selected indicator, never weight. The one chromatic row is Palettes (Q5
                          RULED): its label letterforms wear the guarded ramp —
                          the nav row whose destination IS color data. The W7-4
                          legend (per-row hue + dot swatch column) died here. -->
@@ -120,7 +141,8 @@ const pm = inject(SESSION_PORT_KEY)!;
 
                 <!-- Admin mode toggle separator + entry (single derived row, not two duplicated branches) -->
                 <template v-if="pm.isAdminAuthenticated.value">
-                    <div class="border-t border-border my-1"></div>
+                    <!-- UIA-V-226 · V-489: the producer's separator, not a hand-rolled rule. -->
+                    <SelectSeparator />
                     <SelectItem
                         value="__admin_toggle__"
                         class="py-1.5 px-2.5"
@@ -129,10 +151,11 @@ const pm = inject(SESSION_PORT_KEY)!;
                         <!-- W6-4: the dot column died with the legend (the
                              admin rows shed theirs identically — S-12
                              superfluity). Gold ink stays: mode identity,
-                             the ledger's second sanctioned exception. -->
+                             the ledger's second sanctioned exception.
+                             X-DS VC4-03: flat gold ink, no idle sweep. -->
                         <span v-if="!isAdminMode" class="flex items-center gap-2">
-                            <Shield class="w-4 h-4 shrink-0 gold-shimmer-icon" />
-                            <span class="gold-shimmer">Admin</span>
+                            <Shield class="w-4 h-4 shrink-0 gold-ink" />
+                            <span class="gold-ink">Admin</span>
                         </span>
                         <span v-else class="flex items-center gap-2">
                             <ArrowLeft class="w-4 h-4 shrink-0 text-muted-foreground" />
@@ -146,7 +169,7 @@ const pm = inject(SESSION_PORT_KEY)!;
 </template>
 
 <style scoped>
-/* `.gold-shimmer-icon` lives in @styles/utils.css (S.W7-7 — the byte-identical
+/* `.gold-ink` lives in @styles/utils.css (S.W7-7 — the byte-identical
  * scoped twin this file carried is retired; ONE global recipe, god-module
  * census §2.1). */
 

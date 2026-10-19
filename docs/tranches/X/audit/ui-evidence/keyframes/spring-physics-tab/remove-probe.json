@@ -1,0 +1,21 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 24,
+ "dom": {
+  "appLen": 381779,
+  "bodyLen": 382893,
+  "kf": true,
+  "hash": "#/spring"
+ },
+ "cards": [
+  "Keyframe at 0% | 0% | 168h op=1 cls=grid",
+  "Keyframe at 25% | 25% | 168h op=1 cls=grid",
+  "Keyframe at 75% | 75% | 168h op=1 cls=grid",
+  "Keyframe at 100% | 100% | 168h op=1 cls=grid"
+ ],
+ "errs": [
+  "error Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "pageerror BrowserScalarResolutionError: Could not resolve \"translateX(0%) rotate(0deg)\" for \"transform\" to a numeric CSS scalar (computed: \"matrix(1, 0, 0, 1, 0, 0)\").\n    at unresolvable (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/resolve/browser.ts:111:29)\n    at requireParsed (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/compile/parse-facade.ts:69:8)\n    at numericScalar (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/resolve/browser.ts:112:17)\n    at probeBrowserScalar (http://localhost:5173/@fs/Users/",
+  "warning The keyframe's exit motion did not settle within twice its declared length (1400 ms); the removal lands regardless."
+ ]
+}

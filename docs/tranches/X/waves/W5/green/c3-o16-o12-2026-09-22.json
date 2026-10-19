@@ -1,0 +1,34 @@
+{
+  "SERVED_MODEL": "claude-opus-5-5[1m]",
+  "unit": "X.W5.c3",
+  "rulings": ["COHESION §0ay ESC-W5c2-1", "COHESION §0ay ESC-W5c2-2"],
+  "o16": {
+    "commit": "8ddafa23",
+    "cmd": "VJS_E2E_PORT=5285 VJS_E2E_PERF_PORT=5286 npx playwright test e2e/smoke/oracles/o16-computed-cascade.spec.ts --reporter=line",
+    "runs": [
+      {"load": "15.83 -> 16.53", "result": "2 passed / 2 failed", "R2_transform": "0.44s == resolved token 0.44s (PASS, both projects)", "R3": "PASS", "first_failure": "R4 translate duration: Expected \"0.3s\", Received undefined (smoke + oracles-safari)"},
+      {"load": "8.58 -> 7.57", "result": "2 passed / 2 failed", "R2_transform": "0.44s == resolved 0.44s (PASS)", "R3": "PASS", "first_failure": "R4 translate duration: Expected \"0.3s\", Received undefined (smoke + oracles-safari)"}
+    ],
+    "latent_rows_probe": {
+      "cmd": "node scratchpad/c3-rows.mjs (read-only, chromium swiftshader + webkit, both schemes, identical)",
+      "R4_cartoon-surface": "all | 0s  (target translate/scale 0.3s linear + box-shadow 0.3s; glass 7.0.0 components/card/styles.css ships `@utility cartoon-surface { position; border-width; box-shadow }` only)",
+      "R5_btn-interactive": "all | 0s  (target scale 0.45s)",
+      "R5_channel-rail-item": "color, background-color, transform | 0.3s, 0.3s, 0.12s  (target transform 0.16s)",
+      "R5_send-btn": "all | 0s  (guarded by if(census.send); target scale 0.45s)",
+      "R8_vj-morph-enter-active": "opacity, transform, max-height | 0.2s, 0.44s, 0.3s  (== resolved token; PASS under the c3 byte)",
+      "R11_pane-shell": "transform | 0.35s  (target 0.45s)"
+    },
+    "verdict": "RED — R2/R8 cured; the census stays RED at R4 (first), R5, R11: pre-glass-7.0.0 rows outside the :218/:266 grant — ESC-W5c3-1"
+  },
+  "o12_3": {
+    "instrument": "headed, real GPU, D1-of-record launch shape (channel chromium, headless:false, no swiftshader args); scratch config scratchpad/c3-o12-gpu-headed.config.ts; repo config + spec untouched",
+    "cmd": "VJS_E2E_PORT=5287 npx playwright test -c scratchpad/c3-o12-gpu-headed.config.ts --reporter=line",
+    "renderer_witness": "[o12-backing] renderer=REAL-GPU backing 180x180 ratio 0.999; [o12-hover-active] renderer=REAL-GPU p50=10.2ms (both runs)",
+    "floor": "6/255 (unchanged)",
+    "runs": [
+      {"load": "7.09 -> 6.00", "hover_diff": "0.30/255", "result": "O-12·3 FAIL; O-12·1+2, ·4, ·5 PASS"},
+      {"load": "5.92 -> 5.74", "hover_diff": "0.53/255", "result": "O-12·3 FAIL; O-12·1+2, ·4, ·5 PASS"}
+    ],
+    "verdict": "below floor on the real GPU -> a blob-mood defect -> registered to X-W8 .i by id O12-3-HOVER-GPU (ESC-W5c2-2); no W5 byte"
+  }
+}

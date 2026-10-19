@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * S.W3-6 / Q10 — the Safari-true proof (WebKit engine, iPhone 14 descriptor).
@@ -24,7 +24,7 @@ test("mix convergence completes on WebKit with zero console errors", async ({
     await page.goto("/");
     await openView(page, "Mix");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
 
     // ── X-W1 · R2 (SH-8 = PP-2 = A-3 = MX-3 = MSS-2 = MR-2) ─────────────────
     // The add-slot was bound by `getByRole("button", { name: "Add current color

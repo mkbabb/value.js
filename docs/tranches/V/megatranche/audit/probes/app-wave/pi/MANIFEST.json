@@ -1,0 +1,87 @@
+{
+  "servedModel": "claude-opus-5-5[1m]",
+  "unit": "X.W5.d",
+  "section": "W5.md \u00a78 audit/probes/app-wave/pi \u2014 the desktop-1440 / mobile-390 capture pair on /#/generate + the H1 accessibility-tree dump pair",
+  "at": "2026-09-22T20:08:18.255Z",
+  "head": "2183b814 (the X.W5.d \u00a79 commit 4 bytes; built = worktree at capture, identical for every demo path)",
+  "route": "/#/generate",
+  "served": "vite build --mode gh-pages (static)",
+  "shots": [
+    {
+      "name": "desktop-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "png": "generate-desktop-1440.png",
+      "sha256": "8cab9c4ed21e807ce3e116d543dc44b92d231bb270208a253c951983fc3c8e99",
+      "h1": [
+        {
+          "text": "Generate",
+          "visible": true,
+          "inMain": true
+        }
+      ],
+      "regions": [
+        {
+          "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+          "label": "Generate",
+          "box": {
+            "x": 199,
+            "y": 244.015625,
+            "width": 512,
+            "height": 514.703125
+          }
+        },
+        {
+          "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--inspector",
+          "label": "Palettes",
+          "box": {
+            "x": 729,
+            "y": 244.015625,
+            "width": 512,
+            "height": 514.703125
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "png": "generate-mobile-390.png",
+      "sha256": "958ce9c2c9d1807c1fc67bef8826e56694afc01dda28336fdf3bdf73110d8576",
+      "h1": [
+        {
+          "text": "Generate",
+          "visible": true,
+          "inMain": true
+        }
+      ],
+      "regions": [
+        {
+          "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--stage",
+          "label": "Generate",
+          "box": {
+            "x": 16,
+            "y": 127.984375,
+            "width": 358,
+            "height": 426.703125
+          }
+        },
+        {
+          "cls": "pane-wrapper w-full min-w-0 min-h-0 pane-wrapper--inspector",
+          "label": "Palettes",
+          "box": {
+            "x": 16,
+            "y": 570,
+            "width": 358,
+            "height": 480.015625
+          }
+        }
+      ]
+    }
+  ]
+}

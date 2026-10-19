@@ -40,10 +40,16 @@
 // The cure is the consumer's binding (`demo/`, this wave's Triumvirate trigger),
 // so it is ROUTED. The canary is the gate, and it is born-RED on the second
 // case below.
+//
+// RE-AUTHORED X.W8.i2 (COHESION §0fx.2, ESC-W8i-2 RULED): the second case
+// asserted that the producer's Checkbox HONOURS a stale `checked` prop — a
+// producer behaviour the third case contradicts. It now asserts the consumer
+// contract its own title names: `v-model` / `modelValue` drives the state, and
+// a stale `checked` prop drives NOTHING (`'unchecked'`).
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 
-import { Checkbox } from "../../ui/checkbox";
+import { Checkbox } from "@mkbabb/glass-ui/checkbox";
 
 describe("NG-6 · the reka binding-correctness canary", () => {
     it("the RENDERED EFFECT follows the model binding — the idiom itself", () => {
@@ -62,8 +68,9 @@ describe("NG-6 · the reka binding-correctness canary", () => {
 
     it("a `:checked` binding drives NOTHING — the stale-binding class, caught", () => {
         // This is the assertion a type gate cannot make. Passing `checked`
-        // where the component reads `modelValue` compiles, mounts, and renders
-        // the WRONG state — silently.
+        // where the component reads `modelValue` compiles and mounts, and the
+        // stale prop has no effect on the rendered state — only the model
+        // binding the consumer actually uses (`v-model` ⇒ `modelValue`) does.
         const viaStaleProp = mount(Checkbox, {
             props: { checked: true } as unknown as { modelValue: boolean },
         });
@@ -71,10 +78,21 @@ describe("NG-6 · the reka binding-correctness canary", () => {
 
         expect(
             state,
-            'a `:checked` binding renders as "' +
+            'a stale `:checked` binding renders as "' +
                 state +
-                "\" — glass-ui's Checkbox declares modelValue/update:modelValue and NO checked prop, so SearchFilterBar.vue:52-53's `:checked` + `@update:checked` are both stale: the box never reflects the filter and toggling it never reaches toggleTag. vue-tsc is green over this because tsconfig.demo resolves the producer through dist/ under skipLibCheck. Cure is the consumer binding — demo/, routed.",
-        ).toBe("checked");
+                "\" — glass-ui's Checkbox declares modelValue/update:modelValue and NO checked prop, so `checked` must drive nothing",
+        ).toBe("unchecked");
+
+        // …and beside a live model binding, the model wins and the stale prop
+        // still drives nothing.
+        const modelOff = mount(Checkbox, {
+            props: { checked: true, modelValue: false } as unknown as { modelValue: boolean },
+        });
+        const modelOn = mount(Checkbox, {
+            props: { checked: false, modelValue: true } as unknown as { modelValue: boolean },
+        });
+        expect(modelOff.get("[data-slot=checkbox]").attributes("data-state")).toBe("unchecked");
+        expect(modelOn.get("[data-slot=checkbox]").attributes("data-state")).toBe("checked");
     });
 
     it("the emit the consumer listens for is the emit the producer publishes", async () => {

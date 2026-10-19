@@ -1,0 +1,68 @@
+{
+ "rest": [
+  {
+   "bob": "translateY(3.74628px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(279.889deg) rotateY(0.777471turn) rotateZ(279.889deg)",
+   "cubeComp": "matrix3d(0.0294974, -0.0025141, 0.999562, 0, 0.169196, 0.985579, -0.0025141, 0, -0.985141, 0.169196, 0.0294974, 0, 0, 0,",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(0.562457px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(350.24deg) rotateY(0.97289turn) rotateZ(350.24deg)",
+   "cubeComp": "matrix3d(0.971264, -0.138743, 0.193382, 0, 0.167064, 0.976135, -0.138743, 0, -0.169517, 0.167064, 0.971264, 0, 0, 0, 0, ",
+   "rollComp": "none",
+   "anims": []
+  }
+ ],
+ "autoPlaying": true,
+ "paused": [
+  {
+   "bob": "translateY(0.382367px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(353.347deg) rotateY(0.98152turn) rotateZ(353.347deg)",
+   "cubeComp": "matrix3d(0.986578, -0.101742, 0.127722, 0, 0.115074, 0.988133, -0.101742, 0, -0.115854, 0.115074, 0.986578, 0, 0, 0, 0, ",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(0.382367px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(353.347deg) rotateY(0.98152turn) rotateZ(353.347deg)",
+   "cubeComp": "matrix3d(0.986578, -0.101742, 0.127722, 0, 0.115074, 0.988133, -0.101742, 0, -0.115854, 0.115074, 0.986578, 0, 0, 0, 0, ",
+   "rollComp": "none",
+   "anims": []
+  }
+ ],
+ "play": [
+  {
+   "bob": "translateY(0.052966px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(359.061deg) rotateY(0.997393turn) rotateZ(359.061deg)",
+   "cubeComp": "matrix3d(0.999732, -0.0161094, 0.0166437, 0, 0.0163776, 0.999736, -0.0161094, 0, -0.0163798, 0.0163776, 0.999732, 0, 0, ",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(0.129042px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(357.73deg) rotateY(0.993696turn) rotateZ(357.73deg)",
+   "cubeComp": "matrix3d(0.998432, -0.0380038, 0.0411082, 0, 0.0395709, 0.998494, -0.0380038, 0, -0.039602, 0.0395709, 0.998432, 0, 0, 0",
+   "rollComp": "none",
+   "anims": []
+  },
+  {
+   "bob": "translateY(1.02813px)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "cubeInline": "rotateX(342.117deg) rotateY(0.950326turn) rotateZ(342.117deg)",
+   "cubeComp": "matrix3d(0.90571, -0.202497, 0.372404, 0, 0.292232, 0.934663, -0.202497, 0, -0.307067, 0.292232, 0.90571, 0, 0, 0, 0, 1)",
+   "rollComp": "none",
+   "anims": []
+  }
+ ],
+ "errs": [
+  "console:Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}

@@ -60,11 +60,34 @@ describe("Value 4 color behavior", () => {
             .toEqual({ ok: false, error: { code: "color_invalid_input" } });
     });
 
-    it("matches the independent IEC sRGB dark-band oracle", () => {
-        for (let byte = 1; byte <= 10; byte++) {
+    // X.W9.e · G18. This assertion used to read
+    //   expect(converted.channels[1]).toBeCloseTo((byte / 255) / 12.92, 12)
+    // under the name "matches the independent IEC sRGB dark-band oracle". That
+    // expected value is the implementation's OWN low-branch constant re-derived
+    // in the test, so the oracle was circular and the name was false — it could
+    // not fail for the reason it claimed to guard. The independent vectors now
+    // live in `test/color-anchors.test.ts` (culori / Ottosson published
+    // goldens, forward-only). What is asserted here is the one thing that file
+    // does not cover and that no published triple pins: the SHAPE the IEC
+    // 61966-2-1 transfer function specifies — piecewise, with a straight line
+    // through the origin below the knee at encoded 0.04045 (0.04045 × 255 =
+    // 10.31, so bytes 1..10 are on the line and byte 11 is not). No constant of
+    // either branch is quoted; a single-branch implementation, or one whose
+    // knee has moved, fails it.
+    it("takes the sRGB straight-line branch below the knee and leaves it above", () => {
+        const luminance = (byte: number) => {
             const converted = unwrap(convertColor(unwrap(rgb(byte, byte, byte)), "xyz"));
-            expect(converted.channels[1]).toBeCloseTo((byte / 255) / 12.92, 12);
+            const y = converted.channels[1];
+            if (y === "none") throw new Error("xyz Y is powerless");
+            return y;
+        };
+        const slope = luminance(1);
+        for (let byte = 2; byte <= 10; byte++) {
+            expect(luminance(byte) / byte).toBeCloseTo(slope, 18);
         }
+        expect(luminance(11) / 11).not.toBeCloseTo(slope, 18);
+        expect(luminance(11) / 11).toBeGreaterThan(slope);
+        expect(luminance(128) / 128).toBeGreaterThan(slope);
     });
 
     it("implements every hue route in physical degrees", () => {

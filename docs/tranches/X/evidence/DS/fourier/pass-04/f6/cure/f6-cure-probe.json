@@ -1,0 +1,244 @@
+{
+ "v-canvas-light-390": {
+  "asides": [
+   {
+    "display": "none",
+    "top": 0,
+    "h": 0
+   }
+  ],
+  "under": [
+   [
+    836,
+    "CANVAS",
+    "canvas-el"
+   ],
+   [
+    837,
+    "CANVAS",
+    "canvas-el"
+   ],
+   [
+    838,
+    "CANVAS",
+    "canvas-el"
+   ],
+   [
+    839,
+    "DIV",
+    "configurator-stage relative min-h-0 min-w-0 glass-floating r"
+   ],
+   [
+    840,
+    "DIV",
+    "viz-workspace flex flex-col flex-1 min-h-0"
+   ],
+   [
+    841,
+    "DIV",
+    "viz-workspace flex flex-col flex-1 min-h-0"
+   ]
+  ]
+ },
+ "v-controls-light-390": {
+  "asides": [
+   {
+    "display": "flex",
+    "top": 132,
+    "h": 703
+   }
+  ],
+  "stages": [
+   "none"
+  ]
+ },
+ "eq-canvas-light-390": {
+  "asides": [
+   {
+    "display": "none",
+    "top": 0,
+    "h": 0
+   }
+  ],
+  "under": [
+   [
+    836,
+    "DIV",
+    "px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-card"
+   ],
+   [
+    837,
+    "DIV",
+    "px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-card"
+   ],
+   [
+    838,
+    "DIV",
+    "px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-card"
+   ],
+   [
+    839,
+    "DIV",
+    "configurator-stage relative min-h-0 min-w-0 glass-floating r"
+   ],
+   [
+    840,
+    "DIV",
+    "eq-workspace flex flex-col flex-1 min-h-0"
+   ],
+   [
+    841,
+    "DIV",
+    "eq-workspace flex flex-col flex-1 min-h-0"
+   ]
+  ]
+ },
+ "eq-controls-light-390": {
+  "asides": [
+   {
+    "display": "flex",
+    "top": 132,
+    "h": 708
+   }
+  ],
+  "stages": [
+   "none"
+  ]
+ },
+ "moremenu-light": {
+  "kids": [
+   "DIV:menu-label",
+   "group:menu-radio-group",
+   "separator:menu-separator",
+   "DIV:menu-label",
+   "group:menu-radio-group"
+  ],
+  "seps": [
+   508
+  ],
+  "lastRole": "group",
+  "lastBottom": 814,
+  "plateBottom": 827
+ },
+ "v-canvas-dark-390": {
+  "asides": [
+   {
+    "display": "none",
+    "top": 0,
+    "h": 0
+   }
+  ],
+  "under": [
+   [
+    836,
+    "CANVAS",
+    "canvas-el"
+   ],
+   [
+    837,
+    "CANVAS",
+    "canvas-el"
+   ],
+   [
+    838,
+    "CANVAS",
+    "canvas-el"
+   ],
+   [
+    839,
+    "DIV",
+    "configurator-stage relative min-h-0 min-w-0 glass-floating r"
+   ],
+   [
+    840,
+    "DIV",
+    "viz-workspace flex flex-col flex-1 min-h-0"
+   ],
+   [
+    841,
+    "DIV",
+    "viz-workspace flex flex-col flex-1 min-h-0"
+   ]
+  ]
+ },
+ "v-controls-dark-390": {
+  "asides": [
+   {
+    "display": "flex",
+    "top": 132,
+    "h": 703
+   }
+  ],
+  "stages": [
+   "none"
+  ]
+ },
+ "eq-canvas-dark-390": {
+  "asides": [
+   {
+    "display": "none",
+    "top": 0,
+    "h": 0
+   }
+  ],
+  "under": [
+   [
+    836,
+    "DIV",
+    "px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-card"
+   ],
+   [
+    837,
+    "DIV",
+    "px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-card"
+   ],
+   [
+    838,
+    "DIV",
+    "px-3 py-2 flex-1 min-h-0 flex flex-col eq-plot-card"
+   ],
+   [
+    839,
+    "DIV",
+    "configurator-stage relative min-h-0 min-w-0 glass-floating r"
+   ],
+   [
+    840,
+    "DIV",
+    "eq-workspace flex flex-col flex-1 min-h-0"
+   ],
+   [
+    841,
+    "DIV",
+    "eq-workspace flex flex-col flex-1 min-h-0"
+   ]
+  ]
+ },
+ "eq-controls-dark-390": {
+  "asides": [
+   {
+    "display": "flex",
+    "top": 132,
+    "h": 708
+   }
+  ],
+  "stages": [
+   "none"
+  ]
+ },
+ "moremenu-dark": {
+  "kids": [
+   "DIV:menu-label",
+   "group:menu-radio-group",
+   "separator:menu-separator",
+   "DIV:menu-label",
+   "group:menu-radio-group"
+  ],
+  "seps": [
+   508
+  ],
+  "lastRole": "group",
+  "lastBottom": 814,
+  "plateBottom": 827
+ }
+}

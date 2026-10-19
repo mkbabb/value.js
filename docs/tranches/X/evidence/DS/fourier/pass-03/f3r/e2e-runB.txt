@@ -1,0 +1,280 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 82 tests using 3 workers
+
+[1/82] [chromium] › e2e/f-w13-image-controls.spec.ts:78:5 › G-b — F.W13 image-mode controls act (frame 3) › at rest the drop target opens the picker by key; with an image the Image layer discloses
+[2/82] [chromium] › e2e/f-w13-image-controls.spec.ts:102:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: every sidebar control acts and every icon-only command is a circle
+[3/82] [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback
+[4/82] [chromium] › e2e/f-w13-image-empty.spec.ts:62:5 › G-c — F.W13 image mode: one drop affordance, the sidebar arrives with content (frame 4) › at rest: no sidebar, the main area full width, ONE upload affordance that signals on dragenter
+[5/82] [chromium] › e2e/f-w13-image-empty.spec.ts:95:5 › G-c — F.W13 image mode: one drop affordance, the sidebar arrives with content (frame 4) › after a file pick the sidebar is present and its enter ran (band + content)
+[6/82] [chromium] › e2e/f-w13-image-empty.spec.ts:126:5 › G-c — PRM context: the sidebar arrives without motion › reduced motion: no sidebar at rest, then present after a pick with no transition run
+[7/82] [chromium] › e2e/f-w14-control-row.spec.ts:210:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[8/82] [chromium] › e2e/f-w14-control-row.spec.ts:210:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+  1) [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('button', { name: /(Play|Pause) animation/ })
+    Expected: "true"
+    Received: "false"
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 60000ms
+      - waiting for getByRole('button', { name: /(Play|Pause) animation/ })
+        51 × locator resolved to <button type="button" data-v-3c550e2c="" data-press-armed="" data-state="closed" aria-pressed="false" data-grace-area-trigger="" aria-label="Play animation" class="dock-icon-button glass-specular-track glass-capsule-hover play-control">…</button>
+           - unexpected value "false"
+
+
+      207 |
+      208 |         // Playback autostarts once the decomposition lands; toggle from there.
+    > 209 |         await expect(play).toHaveAttribute("aria-pressed", "true", { timeout: 60_000 });
+          |                            ^
+      210 |         await play.press("Enter");
+      211 |         await expect(play).toHaveAttribute("aria-pressed", "false");
+      212 |         await expect(play).toHaveAccessibleName("Play animation");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w13-image-controls.spec.ts:209:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w13-image-controls-G-b-—-c6fba-circle-and-toggles-playback-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w13-image-controls-G-b-—-c6fba-circle-and-toggles-playback-chromium/error-context.md
+
+
+[9/82] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 light › grid, filters, modal, drafts
+[10/82] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 light › grid, filters, modal, drafts
+[11/82] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 dark › grid, filters, modal, drafts
+[12/82] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 dark › grid, filters, modal, drafts
+[13/82] [chromium] › e2e/f-w14u-gallery.spec.ts:128:5 › g39 UIA-F-39 — search, tier and basis narrow on the server › each control's value reaches GET /api/visualizations and the grid follows
+[14/82] [chromium] › e2e/f-w14u-gallery.spec.ts:176:5 › g46 UIA-F-46 — Like is a toggle, and it persists › press → liked (+1), press → unliked (−1), press → liked; a reload keeps it
+[chromium] › e2e/f-w14-control-row.spec.ts:210:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 390] 12 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=64
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=64
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=64
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=64
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=64
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=81.8
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[15/82] [chromium] › e2e/f-w14u-gallery.spec.ts:221:5 › g96 UIA-F-96 — Open Visualizer opens the saved entity › the CTA routes to /v/<visualization slug>
+[16/82] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (1440) › Escape and an outside press close it; the press opens nothing behind
+[17/82] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (390) › Escape and an outside press close it; the press opens nothing behind
+[18/82] [chromium] › e2e/f-w14u-gallery.spec.ts:268:5 › g98 UIA-F-98 ⊕ g186 UIA-F-186 — the card is glass Card; tier, focus and selection separate › radius --radius-card, no role=button div, no offset stamp; tier rim ≠ focus ink, elevation kept
+[19/82] [chromium] › e2e/f-w14u-gallery.spec.ts:304:5 › g99 UIA-F-99 ⊕ g187 UIA-F-187 — the title leads; one basis vocabulary › card and dialog show the title; names come from it; filter and badge share labels
+[20/82] [chromium] › e2e/f-w14u-gallery.spec.ts:332:5 › g184 UIA-F-184 — one clear control, a query-aware empty state, Skeleton loading › the native cancel is withdrawn; a nomatch names the query and clears; loading is skeletons
+[21/82] [chromium] › e2e/f-w14u-gallery.spec.ts:373:5 › g185 UIA-F-185 — the drawer's Selects keep the producer's sizing › no consumer h-8 / rounded-lg / border override; the drawer is glass's plate
+[22/82] [chromium] › e2e/f-w14u-gallery.spec.ts:388:5 › g188 UIA-F-188 ⊕ g247 UIA-F-247 — the modal's controls are glass's; gallery micro-issues › tier is one 3-state ToggleGroup; the CTA is primary; no consumer rim; no chatter; no bounce
+[23/82] [chromium] › e2e/f-w14u-gallery.spec.ts:429:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › glass Card at --radius-card; no My Drafts disclosure; a Draft badge; a link opens /w/<slug>
+[24/82] [chromium] › e2e/f-w14u-gallery.spec.ts:458:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › the empty Drafts state has its action
+[25/82] [chromium] › e2e/f-w14u-gallery.spec.ts:470:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › the publishing row is busy, the others live; no-contour is disabled with a reason; the toast names the piece
+[26/82] [chromium] › e2e/f-w14u-gallery.spec.ts:496:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › logging out keeps the local drafts listed (one rule)
+[27/82] [chromium] › e2e/f-w14u-gallery.spec.ts:519:5 › g248 UIA-F-248 — a draft card's hover is visible › hovering a draft changes its paint
+[28/82] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames light › 1440 › frame 1440 light
+[29/82] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames light › 390 › frame 390 light
+[30/82] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames dark › 1440 › frame 1440 dark
+[31/82] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames dark › 390 › frame 390 dark
+[32/82] [chromium] › e2e/f-w14u-paper.spec.ts:86:5 › paper-desktop 1440 › UIA-F-61: the article is glass Card, the rail glass-quiet, one light source, one top line
+[33/82] [chromium] › e2e/f-w14u-paper.spec.ts:114:5 › paper-desktop 1440 › UIA-F-156: a compact disclosure, a wider rail, one active class (no inline style)
+[34/82] [chromium] › e2e/f-w14u-paper.spec.ts:134:5 › paper-desktop 1440 › UIA-F-164 + UIA-F-234: no statistics tooltip on a row; a collapsed CONTENTS reclaims its space
+[35/82] [chromium] › e2e/f-w14u-paper.spec.ts:156:5 › paper-desktop 1440 › X-DS F1-09: the page readout is homed in the ToC drawer, never over the article
+[36/82] [chromium] › e2e/f-w14u-paper.spec.ts:178:5 › paper-desktop 1440 › UIA-F-147 (consumer half): ToC rows ride Button's sm rung; no local radius or padding override
+[37/82] [chromium] › e2e/f-w14u-paper.spec.ts:195:5 › paper-desktop 1440 › UIA-F-157: the reading progress is glass ScrollProgressRim and it tracks the scroll
+[38/82] [chromium] › e2e/f-w14u-paper.spec.ts:213:5 › paper-search 1440 › UIA-F-158: a query with no match says so in the inline panel
+[39/82] [chromium] › e2e/f-w14u-paper.spec.ts:221:5 › paper-search 1440 › UIA-F-159: one inline surface and ⌘K — no Expand; ⌘K from the field carries the query
+[40/82] [chromium] › e2e/f-w14u-paper.spec.ts:235:5 › paper-search 1440 › UIA-F-160: inline options are not tab stops; one cursor; canon Badge
+[41/82] [chromium] › e2e/f-w14u-paper.spec.ts:265:5 › paper-search 1440 › UIA-F-161: word-start matching with contiguous highlights; a scattered subsequence matches nothing
+[42/82] [chromium] › e2e/f-w14u-paper.spec.ts:280:5 › paper-search 1440 › UIA-F-64: the palette is glass Command — input, groups per type, items, empty
+[43/82] [chromium] › e2e/f-w14u-paper.spec.ts:300:5 › paper-search 1440 › UIA-F-235: search fields do not spellcheck
+[44/82] [chromium] › e2e/f-w14u-paper.spec.ts:314:5 › paper-mobile 390 › UIA-F-66: floating ToC rows are start-aligned; Scroll to top is one line
+[45/82] [chromium] › e2e/f-w14u-paper.spec.ts:341:5 › paper-mobile 390 › UIA-F-67: the phone ToC is glass Popover; no inline overflow write; every level reachable
+[46/82] [chromium] › e2e/f-w14u-paper.spec.ts:365:5 › paper-mobile 390 › UIA-F-162: content first — no inline chapter list; a compact bar at the top; one icon radius
+[47/82] [chromium] › e2e/f-w14u-paper.spec.ts:397:5 › paper-mobile 390 › UIA-F-163: no consumer :hover paint outside (hover: hover)
+[48/82] [chromium] › e2e/f-w14u-paper.spec.ts:425:5 › paper-mobile 390 › UIA-F-236: the bar reports chapter and section, is inset from the edges, the chip stays clear
+[49/82] [chromium] › e2e/f-w14u-paper.spec.ts:466:5 › paper-mobile 390 › UIA-F-158 + UIA-F-235: the phone search says 'No results'; its panel is the bar's width with a gap
+[50/82] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[51/82] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[52/82] [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why
+[53/82] [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing
+[chromium] › e2e/f-w14-control-row.spec.ts:210:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 1440] 15 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  image           Sample Points                      idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 thumb=1 fill=1 h=90.7
+
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 thumb=1 fill=1 h=68
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[54/82] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[55/82] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[56/82] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[57/82] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[58/82] [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading
+[59/82] [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in
+[60/82] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[61/82] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[62/82] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[63/82] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[64/82] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[65/82] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[66/82] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[67/82] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[68/82] [chromium] › e2e/f-w14v-au6.spec.ts:17:5 › A2-FO-L1-24 (d) — the shape extractor is dev-only › the dev server still serves the tool
+[69/82] [chromium] › e2e/f-w14v-au6.spec.ts:22:5 › A2-FO-L1-24 (d) — the shape extractor is dev-only › the production bundle has no such route: it is the not-found page
+[70/82] [chromium] › e2e/gallery.spec.ts:56:5 › Gallery UX › gallery page renders with tabs and search bar
+[71/82] [chromium] › e2e/gallery.spec.ts:84:5 › Gallery UX › switching to drafts tab shows drafts section
+[72/82] [chromium] › e2e/gallery.spec.ts:101:5 › Gallery UX › search bar filter drawer toggles
+[73/82] [chromium] › e2e/gallery.spec.ts:126:5 › Gallery UX › login form shows the format placeholder and dice button
+[74/82] [chromium] › e2e/gallery.spec.ts:151:5 › Gallery UX › a gallery card opens its modal and the modal names itself
+[75/82] [chromium] › e2e/gallery.spec.ts:180:5 › Gallery UX › no console errors OR warnings on gallery page
+[76/82] [chromium] › e2e/gallery.spec.ts:226:5 › Visualizer overlay dock › visualizer surfaces its overlay control dock
+[77/82] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+[78/82] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+[79/82] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+[80/82] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+[81/82] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+  2) [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      330 |             // F-169: no Preview layer in the editor.
+      331 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+    > 332 |             await page.getByRole("button", { name: "Edit contour" }).first().click();
+          |                                                                              ^
+      333 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Controls" }).click();
+      334 |             await page.waitForTimeout(600);
+      335 |             await frame(page, "e169-editor-panel");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:332:78
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-b4fa0-ew-layer-one-amplitude-view-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-b4fa0-ew-layer-one-amplitude-view-chromium/error-context.md
+
+
+  3) [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForResponse: Test timeout of 30000ms exceeded.
+
+      180 |         // and 8/8 twice. The capture now waits for the compute to answer, so it
+      181 |         // is taken of the settled panel. No threshold moves.
+    > 182 |         const compute = page.waitForResponse(
+          |                              ^
+      183 |             (r) =>
+      184 |                 new URL(r.url()).pathname.endsWith("/api/equations/compute") &&
+      185 |                 r.request().method() === "POST",
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:182:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--8958a-ken-as-the-consumer-sees-it-chromium/error-context.md
+
+
+[82/82] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  4) [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: locator.click: Test timeout of 120000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Edit contour' }).first()
+
+
+      330 |             // F-169: no Preview layer in the editor.
+      331 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+    > 332 |             await page.getByRole("button", { name: "Edit contour" }).first().click();
+          |                                                                              ^
+      333 |             if (vp.width < 1024) await page.getByRole("tab", { name: "Controls" }).click();
+      334 |             await page.waitForTimeout(600);
+      335 |             await frame(page, "e169-editor-panel");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14u-vstage.spec.ts:332:78
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vstage-F-W14U-vstag-f9a5f-ew-layer-one-amplitude-view-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vstage-F-W14U-vstag-f9a5f-ew-layer-one-amplitude-view-chromium/error-context.md
+
+
+  4 failed
+    [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+    [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+  78 passed (5.3m)

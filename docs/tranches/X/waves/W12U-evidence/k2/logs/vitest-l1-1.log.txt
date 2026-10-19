@@ -1,0 +1,8 @@
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > user-disclosure palette delete (AdminUsersPanel)  428ms
+   ✓ G14 · N-6 — a destructive seat fires nothing until accepted, then exactly once > delete user (AdminUsersPanel)  395ms
+
+ Test Files  4 passed (4)
+      Tests  38 passed (38)
+   Start at  12:51:22
+   Duration  21.19s (transform 8.88s, setup 1.69s, collect 44.54s, tests 15.86s, environment 7.67s, prepare 2.28s)
+

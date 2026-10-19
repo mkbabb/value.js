@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import { ATMOSPHERE_TESTID } from "../fixtures/webgl-appearance";
 import { sampleRegion, meanRgb, srgbToOklch } from "../fixtures/frame-diff";
 
@@ -40,7 +41,7 @@ test("W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→f
 
     // ── Prime the returning session via the app's own write-through.
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(SEED));
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expect
         .poll(
             () =>

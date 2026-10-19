@@ -1,0 +1,279 @@
+{
+  "kf": "60477b06+7",
+  "runs": [
+    {
+      "theme": "light",
+      "steps": [
+        {
+          "label": "after-select",
+          "copy": [
+            96,
+            1224,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              679,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "after-drag-full",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "wheel-margin",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "wheel-editor",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "scrollIntoView",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        }
+      ],
+      "hasControlsPanelBtn": 1,
+      "handle": {
+        "x": 1,
+        "y": 680.3599853515625,
+        "width": 388,
+        "height": 44
+      }
+    },
+    {
+      "theme": "dark",
+      "steps": [
+        {
+          "label": "after-select",
+          "copy": [
+            96,
+            1224,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              679,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "after-drag-full",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "wheel-margin",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "wheel-editor",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        },
+        {
+          "label": "scrollIntoView",
+          "copy": [
+            96,
+            1039,
+            83,
+            36
+          ],
+          "drawer": {
+            "box": [
+              0,
+              494,
+              390,
+              772
+            ],
+            "snap": "open"
+          },
+          "scrollers": [],
+          "transport": [
+            232,
+            741,
+            105,
+            32
+          ]
+        }
+      ],
+      "hasControlsPanelBtn": 1,
+      "handle": {
+        "x": 1,
+        "y": 680.3599853515625,
+        "width": 388,
+        "height": 44
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+SERVED MODEL: claude-opus-5-5
+[no-cut r1] route / main=visible h1="Home"
+[no-cut r1] route /palettes main=visible h1="Palettes"
+[no-cut r1] route /browse main=visible h1="Browse"
+[no-cut r1] route /extract main=visible h1="Extract"
+[no-cut r1] route /mix main=visible h1="Mix"
+[no-cut r1] route /generate main=visible h1="Generate"
+[no-cut r1] route /gradient main=visible h1="Gradient"
+[no-cut r1] route /atmosphere main=visible h1="Atmosphere"
+[no-cut r1] route /blob main=visible h1="Blob"
+[no-cut r1] route /no-such-page main=visible h1="Not Found"
+[no-cut r1] colour-input layer: field visible + filled
+[no-cut r1] lazy chunks fetched: ColorInput=["ColorInput-BttLFem3.js"] dialog-barrel=["dialog-DJek-BIq.js"] pageErrors=[]
+VERDICT GREEN (0 failures)

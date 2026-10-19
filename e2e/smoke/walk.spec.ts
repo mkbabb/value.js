@@ -46,7 +46,9 @@ test("walk all user views sequentially with zero console errors", async ({
     );
 
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    // X.W5.a — the landmark is named by the route heading, so `main` is
+    // re-acquired per view rather than pinned to a static string.
+    const main = page.getByRole("main");
     await expect(main).toBeVisible();
 
     // Per-view content assertions folded from the retired per-view specs. The
@@ -85,8 +87,10 @@ test("walk all user views sequentially with zero console errors", async ({
                 main.getByRole("heading", { name: "Generate" }).last(),
             ).toBeVisible();
             await expect(
+                // The field's title is "Preset" since CC-047 (`583715162`,
+                // LabeledField) — re-baselined X-W12U .q2.
                 main
-                    .getByRole("combobox", { name: "Generation preset" })
+                    .getByRole("combobox", { name: "Preset" })
                     .last(),
             ).toBeVisible();
         },
@@ -100,14 +104,42 @@ test("walk all user views sequentially with zero console errors", async ({
     // Gradient carries its own rich behavioral spec (views/gradient.spec.ts);
     // the walk asserts only that its pane landmark holds across the swap.
     const views = ["Palettes", "Browse", "Extract", "Generate", "Gradient", "Mix"];
+
+    /**
+     * X.W5.a · gate A5 — the route H1 walk.
+     *
+     * Every view carries exactly ONE visible `<h1>`, it speaks that view's own
+     * `VIEW_MAP` label, and the `<main>` landmark takes its name from it. Four
+     * distinct failures are caught here — zero headings, two, an invisible
+     * one, and a label that disagrees with the schema — which is why the
+     * assertion is a count plus a text, not a presence check.
+     *
+     * X-DS value pass 9 (V9C-01): on a `titled` route the H1 is the pane title,
+     * which SAYS the label — it is the label, or ends on it ("My Palettes" on
+     * /palettes). The text check is anchored at the end on a word boundary, so
+     * a label that disagrees with the schema still fails.
+     */
+    async function assertRouteVoice(label: string) {
+        const h1 = page.getByRole("heading", { level: 1 });
+        await expect(h1).toHaveCount(1);
+        await expect(h1).toBeVisible();
+        const says = new RegExp(`(^|\\s)${label}$`);
+        await expect(h1).toHaveText(says);
+        await expect(page.getByRole("main", { name: says })).toBeVisible();
+    }
+
+    await assertRouteVoice("Home");
+
     for (const name of views) {
         await openView(page, name);
         await expect(main).toBeVisible();
+        await assertRouteVoice(name);
         await assertContent[name]?.();
     }
     // Return to the picker (label "Home" per VIEW_MAP).
     await openView(page, "Home");
     await expect(main).toBeVisible();
+    await assertRouteVoice("Home");
 
     expect(consoleErrors).toEqual([]);
 });

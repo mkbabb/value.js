@@ -1,0 +1,51 @@
+# SERVED MODEL: claude-opus-5-5 — X.W12.u3 cures (id → sha/disposition), input to build-disposition-u3.py
+UIA-V-54	e3d459de (consumer: --z-max) · O-59 (glass: --z-debug rung absent)
+UIA-V-676	e3d459de (consumer: --z-max clears --z-toggle 999 + teleported overlays) · O-59 (glass: --z-debug rung)
+UIA-V-458	e3d459de
+UIA-V-460	e3d459de
+UIA-V-671	e3d459de
+UIA-V-672	e3d459de
+UIA-V-673	e3d459de
+UIA-V-674	e3d459de
+UIA-V-51	6e7f215e
+UIA-V-49	e585692e
+UIA-V-52	c680a943
+UIA-V-53	f2a7ab8f
+UIA-V-18	b4173137
+UIA-V-22	b4173137
+UIA-V-71	b4173137
+UIA-V-265	b4173137
+UIA-V-511	b4173137
+UIA-V-516	b4173137
+UIA-V-183	b6f90b5c
+UIA-V-446	b6f90b5c
+UIA-V-447	b6f90b5c
+UIA-V-449	b6f90b5c
+UIA-V-656	b6f90b5c
+UIA-V-184	2480c047
+UIA-V-455	2480c047
+UIA-V-453	f8fa42d4
+UIA-V-168	85a478f3
+UIA-V-167	85a478f3
+UIA-V-173	2d3799d7
+UIA-V-172	426bf798
+UIA-V-181	426bf798
+UIA-V-176	81ac55b5
+UIA-V-180	bd0af74d (consumer) · O-59 (glass: Chip nowrap/truncate)
+UIA-V-182	bd0af74d
+UIA-V-179	HONEST-RED CHIP-STYLES-ORPHAN (glass 7.0.0 ./styles never imports styles/glass/glass-chip.css — the glass-chip.css orphan already reported as O-20 SC-1; the removable Chip renders an 8px unstyled remove button, measured); consumer keeps its chip until the repin (X-W7L)
+UIA-V-189	2480c047 (the region fallback on the resting Card; no square UA outline — the row is V-184+V-455 seen from the ground)
+UIA-V-409	4d63f788
+UIA-V-414	4d63f788
+UIA-V-426	4d63f788
+UIA-V-432	4d63f788
+UIA-V-434	426bf798 (icon-only rung: 44x44 at 390, measured probe-u3-admin-icons)
+UIA-V-630	b0c81878
+UIA-V-624	b0c81878 (Prune inert while loading) · RESIDUE-U3 → SUPPLEMENT X-W12S (dimmed-rows refresh + Refresh loading)
+UIA-V-651	0223f1c6
+UIA-V-652	0223f1c6
+UIA-V-653	0223f1c6
+UIA-V-659	eeebabd9
+UIA-V-642	2d3799d7 (the pager and its aria-live region stay mounted through a page turn — measured probe-u3-audit-page)
+UIA-V-631	426bf798 (icon-only rung: Delete user 44x44 at 390, measured probe-u3-admin-icons-run3/4)
+UIA-V-7	f91d5ccd (consumer; a colour-only glass ring seam would retire the composed shadow — not yet relayed, noted in the receipt)

@@ -1,0 +1,338 @@
+{
+ "light": {
+  "edit": {
+   "scrollH": 463,
+   "clientH": 463,
+   "range": 0,
+   "surfBottom": 527,
+   "mask": "linear-gradient(rgba(0, 0, 0, 0), rgb(0,",
+   "readoutTop": 488,
+   "readoutBottom": 502,
+   "headerH": 40
+  },
+  "focus": [
+   {
+    "label": "v-7-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 4,
+     "right": 4,
+     "bottom": 294,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-8-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 48,
+     "right": 4,
+     "bottom": 250,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-9-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 92,
+     "right": 4,
+     "bottom": 206,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-10-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 136,
+     "right": 4,
+     "bottom": 162,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-12-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 180,
+     "right": 4,
+     "bottom": 118,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "reka-popover-trigger-v-17",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 237,
+     "right": 4,
+     "bottom": 61,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "Edit easing curve",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 239,
+     "right": 8,
+     "bottom": 63,
+     "left": 319
+    },
+    "whole": true
+   },
+   {
+    "label": "BUTTON",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 294,
+     "right": 4,
+     "bottom": 4,
+     "left": 4
+    },
+    "whole": true
+   }
+  ],
+  "legendPlaying": [
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   }
+  ],
+  "legendSettled": {
+   "op": 1,
+   "state": "SETTLED"
+  },
+  "ruler": {
+   "originX": 183.9,
+   "endX": 455.4,
+   "playheadCx": 184.9,
+   "labels": [
+    {
+     "t": "0",
+     "cx": 184.9,
+     "left": 179.8,
+     "right": 189.9,
+     "gridX": 183.9
+    },
+    {
+     "t": "970",
+     "cx": 320.6,
+     "left": 305.5,
+     "right": 335.7,
+     "gridX": 319.6
+    },
+    {
+     "t": "1940",
+     "cx": 436.3,
+     "left": 416.1,
+     "right": 456.4,
+     "gridX": 455.4
+    }
+   ]
+  }
+ },
+ "dark": {
+  "edit": {
+   "scrollH": 463,
+   "clientH": 463,
+   "range": 0,
+   "surfBottom": 527,
+   "mask": "linear-gradient(rgba(0, 0, 0, 0), rgb(0,",
+   "readoutTop": 488,
+   "readoutBottom": 502,
+   "headerH": 40
+  },
+  "focus": [
+   {
+    "label": "v-7-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 4,
+     "right": 4,
+     "bottom": 294,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-8-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 48,
+     "right": 4,
+     "bottom": 250,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-9-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 92,
+     "right": 4,
+     "bottom": 206,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-10-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 136,
+     "right": 4,
+     "bottom": 162,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "v-12-control",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 180,
+     "right": 4,
+     "bottom": 118,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "reka-popover-trigger-v-17",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 237,
+     "right": 4,
+     "bottom": 61,
+     "left": 107
+    },
+    "whole": true
+   },
+   {
+    "label": "Edit easing curve",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 239,
+     "right": 8,
+     "bottom": 63,
+     "left": 319
+    },
+    "whole": true
+   },
+   {
+    "label": "BUTTON",
+    "fv": true,
+    "reach": 4,
+    "inset": {
+     "top": 294,
+     "right": 4,
+     "bottom": 4,
+     "left": 4
+    },
+    "whole": true
+   }
+  ],
+  "legendPlaying": [
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   },
+   {
+    "op": 0,
+    "state": "TRACKING"
+   }
+  ],
+  "legendSettled": {
+   "op": 1,
+   "state": "SETTLED"
+  },
+  "ruler": {
+   "originX": 183.9,
+   "endX": 455.4,
+   "playheadCx": 184.9,
+   "labels": [
+    {
+     "t": "0",
+     "cx": 184.9,
+     "left": 179.8,
+     "right": 189.9,
+     "gridX": 183.9
+    },
+    {
+     "t": "970",
+     "cx": 320.6,
+     "left": 305.5,
+     "right": 335.7,
+     "gridX": 319.6
+    },
+    {
+     "t": "1940",
+     "cx": 436.3,
+     "left": 416.1,
+     "right": 456.4,
+     "gridX": 455.4
+    }
+   ]
+  }
+ }
+}

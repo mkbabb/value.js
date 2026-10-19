@@ -1,0 +1,245 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 142 tests using 1 worker
+
+[1/142] [chromium] › e2e/contrast-floor.spec.ts:107:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm
+[2/142] [chromium] › e2e/contrast-floor.spec.ts:107:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm
+[3/142] [chromium] › e2e/contrast-floor.spec.ts:168:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression
+[4/142] [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 1440] 15 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[5/142] [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales
+[G-h after 390] 14 rows
+
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+
+[6/142] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked
+[7/142] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked
+[8/142] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 1440 storage blocked › the root with site data blocked
+[9/142] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked
+[10/142] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked
+[11/142] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 390 storage blocked › the root with site data blocked
+[12/142] [chromium] › e2e/f-w14u-misc.spec.ts:130:5 › m115 UIA-F-115 — the morph stage is the page's dominant content (1440) › a large stage beside the controls
+[13/142] [chromium] › e2e/f-w14u-misc.spec.ts:143:5 › m115 UIA-F-115 — the stage stays in view while tuning (390) › scrolled to the level strip, the stage is still on screen
+[14/142] [chromium] › e2e/f-w14u-misc.spec.ts:156:5 › m117 UIA-F-117 — the readouts never move the controls (390) › the first control keeps its place through a whole morph
+[15/142] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[16/142] [chromium] › e2e/f-w14u-misc.spec.ts:190:5 › m209 UIA-F-209 — the number fields keep a field's measure at 390 › no field renders as a circle
+[17/142] [chromium] › e2e/f-w14u-misc.spec.ts:202:5 › m210 UIA-F-210 — a preview tile previews; it never rewrites the range › Low and High hold, and the chosen tile is in view
+[18/142] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (1440) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[19/142] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (1024) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[20/142] [chromium] › e2e/f-w14u-misc.spec.ts:226:9 › m210f X-DS DS-F9X-C2/C3 — the levels show the whole range in two even rows (390) › every tile, both bound tiles among them, is in view; two equal rows; no fading edge
+[21/142] [chromium] › e2e/f-w14u-misc.spec.ts:264:5 › m254 UIA-F-254 — /morph's micro-issues › no nested scroller · Export is secondary by the stage · bound tiles not in a basis hue
+[22/142] [chromium] › e2e/f-w14u-misc.spec.ts:293:5 › m57 UIA-F-57 (.shell R-1, the morph remainder) — the tile label sits on a named rung › the n= label is on the caption rung, not the dead text-sm
+[23/142] [chromium] › e2e/f-w14u-misc.spec.ts:316:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (1440) › multi-line, on a surface at the field radius, with a Copy control
+[24/142] [chromium] › e2e/f-w14u-misc.spec.ts:316:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (390) › multi-line, on a surface at the field radius, with a Copy control
+[25/142] [chromium] › e2e/f-w14u-misc.spec.ts:345:5 › x211 UIA-F-211 — the extractor has a heading hierarchy, glass frames and a centred column (1440) › title rung above body, subjects on Cards, the column centred and bounded
+[26/142] [chromium] › e2e/f-w14u-misc.spec.ts:367:5 › x255 UIA-F-255 — the extractor's micro-issues › titled and noindexed · the extract action reports each run
+[27/142] [chromium] › e2e/f-w14u-misc.spec.ts:402:5 › r119 UIA-F-119 — the dock's section comes from the route's meta › trailing slash and /v/ mark Visualize; tools and unknown paths mark none
+[28/142] [chromium] › e2e/f-w14u-misc.spec.ts:422:5 › r212 UIA-F-212 — one remembered-tab writer, from the route's meta › a saved visualization and a trailing-slash path are remembered as Visualize
+[29/142] [chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[30/142] [chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:438:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[31/142] [chromium] › e2e/f-w14u-misc.spec.ts:463:5 › r213 UIA-F-213 — a storage write after boot never crashes (auth) › logging in with site data blocked keeps the session in memory
+
+[WebServer] 6:23:42 PM [vite] http proxy error: /api/visualizations?limit=20&sort=newest
+[WebServer] AggregateError [ECONNREFUSED]: 
+[WebServer]     at internalConnectMultiple (node:net:1193:18)
+[WebServer]     at afterConnectMultiple (node:net:1783:7)
+[32/142] [chromium] › e2e/f-w14u-misc.spec.ts:484:5 › v246 UIA-F-246 — /s/ resolves to the entity it names › a saved visualization's slug opens /v/; an image slug opens /w/
+[33/142] [chromium] › e2e/f-w14u-misc.spec.ts:517:5 › v246 UIA-F-246 ⊕ g96 UIA-F-96 (.gallery R-1) — one view transition per navigation › gallery → saved visualization morphs once
+[34/142] [chromium] › e2e/f-w14u-misc.spec.ts:535:5 › a256 UIA-F-256 (.shell R-2) — a failed logout is reported, not toasted as done › the server refuses the delete: an error, and the account stays
+[35/142] [chromium] › e2e/f-w14u-shell.spec.ts:58:9 › s52 UIA-F-52 — the login surface moves focus in, returns it, dismisses (1440) › open focuses the field; Escape and an outside press close and return focus
+[36/142] [chromium] › e2e/f-w14u-shell.spec.ts:73:9 › s55 UIA-F-55 ⊕ s53 UIA-F-53 — the dock row never morphs for the form (1440) › opening the form and a slug error leave the dock box unchanged
+[37/142] [chromium] › e2e/f-w14u-shell.spec.ts:58:9 › s52 UIA-F-52 — the login surface moves focus in, returns it, dismisses (390) › open focuses the field; Escape and an outside press close and return focus
+[38/142] [chromium] › e2e/f-w14u-shell.spec.ts:73:9 › s55 UIA-F-55 ⊕ s53 UIA-F-53 — the dock row never morphs for the form (390) › opening the form and a slug error leave the dock box unchanged
+[39/142] [chromium] › e2e/f-w14u-shell.spec.ts:90:5 › s54 UIA-F-54 ⊕ s153 UIA-F-153 — one face per control, no plate inside the dock › logged in: the account is one trigger; every dock control is a dock face; no bordered plate
+[40/142] [chromium] › e2e/f-w14u-shell.spec.ts:118:5 › s155 UIA-F-155 — the field says what is wrong, on one channel › a malformed slug is named on blur, before any Enter
+[41/142] [chromium] › e2e/f-w14u-shell.spec.ts:126:5 › s155 UIA-F-155 — the field says what is wrong, on one channel › a server failure is reported in the field only (no toast), Generate too
+[42/142] [chromium] › e2e/f-w14u-shell.spec.ts:150:5 › s232 UIA-F-232 — the login micro-issues › a readable identity, a quiet placeholder, glass emphasis, and copy is announced
+[43/142] [chromium] › e2e/f-w14u-shell.spec.ts:177:5 › s121 UIA-F-121 — no raw HTTP status as the message › an unknown slug and a refused admin token say what happened, not 'Not Found' / 'Forbidden'
+[44/142] [chromium] › e2e/f-w14u-shell.spec.ts:200:5 › s121 UIA-F-121 — no raw HTTP status as the message › the gallery route's duplicate problemMessage is gone (one reader, lib/api-problem)
+[45/142] [chromium] › e2e/f-w14u-shell.spec.ts:207:5 › s214 UIA-F-214 — toast policy › no tone-echo title; an error stays until dismissed
+[46/142] [chromium] › e2e/f-w14u-shell.spec.ts:228:5 › s214 UIA-F-214 — toast policy › a failed morph Export copy reports itself
+[47/142] [chromium] › e2e/f-w14u-shell.spec.ts:280:5 › s256 UIA-F-256 ⊕ UIA-F-248 (View) — the publish toast names the piece and offers it › no parenthesised slug; a View action opens the piece
+[48/142] [chromium] › e2e/f-w14u-shell.spec.ts:309:5 › s57 UIA-F-57 ⊕ s154 UIA-F-154 ⊕ s233 UIA-F-233 (About) ⊕ s219 UIA-F-219 — the About card › a type ramp under the body size; glass Separator; the house ring; content that earns its place; no offset literal
+[49/142] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (1440) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[50/142] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (1024) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[51/142] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (768) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[52/142] [chromium] › e2e/f-w14u-shell.spec.ts:356:9 › s151 (re-baselined, §0dw) — the sections are one dropdown (390) › one Navigate trigger, no Sections tab row; the menu marks the current section; keyboard open/close
+[53/142] [chromium] › e2e/f-w14u-shell.spec.ts:387:5 › s128 UIA-F-128 ⊕ s233 (nav) ⊕ s231 UIA-F-231 — the phone nav menu › no local current-row tint or plate literals; a visible label; one press reaches About
+[54/142] [chromium] › e2e/f-w14u-shell.spec.ts:409:5 › s128 UIA-F-128 ⊕ s233 (nav) ⊕ s231 UIA-F-231 — the phone nav menu › an unknown route does not claim a section
+[55/142] [chromium] › e2e/f-w14u-shell.spec.ts:419:5 › s152 UIA-F-152 ⊕ s130 UIA-F-130 — the dock's gutter and one face for the theme control › the header clears content by its gutter; the theme control is a dock face in the dock cell
+[56/142] [chromium] › e2e/f-w14u-shell.spec.ts:440:5 › s150 UIA-F-150 ⊕ s144 UIA-F-144 (consumer) — one admin state, one Log out › no admin disc in the dock; the account menu carries the admin state; one Log out
+[57/142] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames light 1440 › dock, login, error, About, nav, account
+[58/142] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames light 390 › dock, login, error, About, nav, account
+[59/142] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames dark 1440 › dock, login, error, About, nav, account
+[60/142] [chromium] › e2e/f-w14u-shell.spec.ts:458:13 › frames dark 390 › dock, login, error, About, nav, account
+[61/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-light › frames the unread views d1440-light
+[62/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light
+[63/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-light › frames the unread views t768-light
+[64/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light
+[65/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark
+[66/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark
+[67/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-dark › frames the unread views t768-dark
+[68/142] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark
+[69/142] [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m360-light-loggedin › frames the logged-in shell m360-light-loggedin
+[70/142] [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m430-light-loggedin › frames the logged-in shell m430-light-loggedin
+[71/142] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (portrait 390) › the document never scrolls by the inset
+[72/142] [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (landscape 844) › the document never scrolls by the inset
+[73/142] [chromium] › e2e/f-w14v-au1.spec.ts:133:5 › au1 L2-2 consumer half (390 portrait) › the animation dock ends above the inset, in the stage and in fullscreen
+[74/142] [chromium] › e2e/f-w14v-au1.spec.ts:158:5 › au1 L2-3 (844×390, insets L/R 47) › interactive content keeps clear of the notch sides on every route
+[75/142] [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row
+[76/142] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (360) › the Controls/Canvas strip is centred on the column, inside its gutter
+[77/142] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (390) › the Controls/Canvas strip is centred on the column, inside its gutter
+[78/142] [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (430) › the Controls/Canvas strip is centred on the column, inside its gutter
+[79/142] [chromium] › e2e/f-w14v-au1.spec.ts:270:5 › au1 L2-16 (844×390 /paper) › the floating bar is one title rung and its ToC plate ends above the inset
+[80/142] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (1440) › the content edge holds across route switches
+[81/142] [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (390) › the content edge holds across route switches
+[82/142] [chromium] › e2e/f-w14v-au1.spec.ts:344:5 › au1 L2-17 (390 touch) › the modal Like, the /equation layer triggers and the About links are ≥ 44 px
+[83/142] [chromium] › e2e/f-w14v-au1.spec.ts:379:5 › au1 X-1 (1024×768) › the stage is either beside the controls or a full tab, never a stacked strip
+[84/142] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (360 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[85/142] [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (390 logged in) › the app dock's layer does not pan sideways once the Account group mounts
+[86/142] [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult
+[87/142] [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation
+[88/142] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /morph, and the class paints nothing
+[89/142] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing
+[90/142] [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing
+[91/142] [chromium] › e2e/f-w14v-au3.spec.ts:156:5 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · the morph control is a glass Surface, the cards glass Cards
+[92/142] [chromium] › e2e/f-w14v-au5.spec.ts:121:5 › A2-FO-L1-1 — one ToC tree › the drawer and the phone bar render one row anatomy per depth, and one reach
+[93/142] [chromium] › e2e/f-w14v-au5.spec.ts:146:5 › A2-FO-L1-19 — one scroll restoration on /paper › the shell writes no <main> offset on /paper; a generic route keeps its restore
+[94/142] [chromium] › e2e/f-w14v-nav.spec.ts:18:5 › nav falsifier (1440): one section trigger, no inline section links › the dock's sections are one dropdown trigger
+[95/142] [chromium] › e2e/f-w14v-nav.spec.ts:48:9 › dm falsifier (1440): the dark-mode glyph is the dock's glyph box › morph glyph bbox equals the section and account glyph bboxes
+[96/142] [chromium] › e2e/f-w14v-nav.spec.ts:48:9 › dm falsifier (390): the dark-mode glyph is the dock's glyph box › morph glyph bbox equals the section and account glyph bboxes
+[97/142] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › expanded: every element inside the plate
+[98/142] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › expanded: every element inside the plate
+[99/142] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › expanded: every element inside the plate
+[100/142] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › expanded: every element inside the plate
+[101/142] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › expanded: every element inside the plate
+[102/142] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › expanded: every element inside the plate
+[103/142] [chromium] › e2e/shell-header.spec.ts:48:5 › Shell header (G-F9-12) › the logo trigger is named and opens its attribution card
+[104/142] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1440)
+[105/142] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1440)
+[106/142] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (1024)
+[107/142] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (1024)
+[108/142] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (768)
+[109/142] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (768)
+[110/142] [chromium] › e2e/shell-header.spec.ts:65:9 › Shell header (G-F9-12) › the nav trigger names the current section and lists every route (390)
+[111/142] [chromium] › e2e/shell-header.spec.ts:91:9 › Shell header (G-F9-12) › the nav trigger actually navigates, and re-names itself when it does (390)
+[112/142] [chromium] › e2e/shell-header.spec.ts:112:5 › Shell header (G-F9-12) › the dark-mode toggle announces its state through aria-pressed
+[113/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 375x667
+[114/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 375x667
+[115/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 375x667
+[116/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 375x667
+[117/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 375x667
+[118/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 375x667
+[119/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 375x667
+[120/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1280x800
+[121/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1280x800
+[122/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1280x800
+[123/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1280x800
+[124/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1280x800
+[125/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1280x800
+[126/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1280x800
+[127/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1440x900
+[128/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1440x900
+[129/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1440x900
+[130/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1440x900
+[131/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1440x900
+[132/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1440x900
+[133/142] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1440x900
+[134/142] [chromium] › e2e/visualization-ux.spec.ts:115:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: workspace default has no serious/critical a11y violations
+[135/142] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[136/142] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+[137/142] [chromium] › e2e/visualization-ux.spec.ts:181:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: AnimationControls dropdown-open is a11y-clean
+[138/142] [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean
+[139/142] [chromium] › e2e/visualization-ux.spec.ts:272:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /paper is a11y-clean
+[140/142] [chromium] › e2e/visualization-ux.spec.ts:284:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /morph is a11y-clean
+[141/142] [chromium] › e2e/visualization-ux.spec.ts:300:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /demo/shape-extractor is a11y-clean
+[142/142] [chromium] › e2e/visualization-ux.spec.ts:332:5 › B.W2 — visualization UX coherence (a11y keystones) › save_contour_then_recompute: the saved contour is recomputed in one pass, the canvas keeps its render
+  142 passed (9.1m)

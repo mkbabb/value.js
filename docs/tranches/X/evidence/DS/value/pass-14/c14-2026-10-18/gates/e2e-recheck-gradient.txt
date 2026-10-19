@@ -1,0 +1,254 @@
+=== e2e/smoke/oracles/o21-gradient-rail.spec.ts
+(node:81125) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 10 tests using 1 worker
+
+(node:81134) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) (9.0s)
+  ✓   2 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip (2.5s)
+  ✓   3 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register (2.1s)
+  ✓   4 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal (2.2s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal (6.1s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail (2.9s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width (4.5s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints (2.7s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound (5.3s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason (2.8s)
+
+  10 passed (40.5s)
+--- exit 0 e2e/smoke/oracles/o21-gradient-rail.spec.ts
+=== e2e/smoke/oracles/o21-gradient-rail.spec.ts
+(node:83154) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 10 tests using 1 worker
+
+(node:83167) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) (10.5s)
+  ✓   2 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip (2.6s)
+  ✓   3 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register (2.1s)
+  ✘   4 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal (9.9m)
+(node:84107) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   5 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal (11.8s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail (2.2s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width (4.3s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints (2.2s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound (2.3s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason (2.6s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+
+    [31mTearing down "context" exceeded the test timeout of 30000ms.[39m
+
+    Error Context: test-results/oracles-o21-gradient-rail--bb2b6-ramp-paints-its-own-ordinal-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+  9 passed (10.6m)
+--- exit 1 e2e/smoke/oracles/o21-gradient-rail.spec.ts
+=== e2e/smoke/a11y-gradient-stop-grammar.spec.ts
+(node:85920) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:85927) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[W4-C1] caretLeft=252.891 mintedLeft=252.891 inline="calc(var(--rail-inset) + var(--rail-track) * 0.55)"
+[W4-C1] pointerEventsDuringKeyboardJourney=0
+  ✓  1 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints (4.8s)
+[W4-C2] [{"role":"slider","min":"0","max":"100","now":"0","text":"Stop 1 of 3, position 0%","name":"Gradient stop 1 of 3"},{"role":"slider","min":"0","max":"100","now":"50","text":"Stop 2 of 3, position 50%","name":"Gradient stop 2 of 3"},{"role":"slider","min":"0","max":"100","now":"100","text":"Stop 3 of 3, position 100%","name":"Gradient stop 3 of 3"}]
+  ✓  2 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal (2.1s)
+[W4-C3] home=12 end=450 unit=4.3800px/% inline="calc(var(--rail-inset) + var(--rail-track) * 1)"
+[W4-C3-LEDGER] {"unitPxPerPercent":4.38,"presses":[{"key":"Home","before":231,"after":12,"delta":-219,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowLeft","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"End","before":12,"after":450,"delta":438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"ArrowRight","before":450,"after":450,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"Home","before":450,"after":12,"delta":-438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"PageUp","before":12,"after":55.797,"delta":43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.1)"},{"key":"PageDown","before":55.797,"after":12,"delta":-43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowUp","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowDown","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowLeft","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"ArrowRight","before":20.75,"after":25.125,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.03)"},{"key":"Escape","before":25.125,"after":12,"delta":-13.125,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":" ","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"Escape","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"}]}
+[W4-C3] defects=0
+
+  ✓  3 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left (3.6s)
+[W4-C4-SETTLE] geometry inFlightAtEntry=[]
+[W4-C4-FINE] [{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16},{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16}]
+[W4-C4-SETTLE] clip inFlightAtEntry=[]
+[W4-C4-RING] {"shadow":"rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px","spread":3,"clippers":[],"focusVisible":true}
+  ✓  4 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer) (2.5s)
+[W4-C4-COARSE] [{"w":24,"h":24,"hitW":44,"hitH":44},{"w":24,"h":24,"hitW":44,"hitH":44}]
+  ✓  5 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer) (2.1s)
+
+  5 passed (15.6s)
+--- exit 0 e2e/smoke/a11y-gradient-stop-grammar.spec.ts
+=== e2e/smoke/oracles/o29-scene-contracts.spec.ts
+(node:87254) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:87510) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  1 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:114:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions (11.9m)
+(node:88774) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  2 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:250:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene (1.1s)
+(node:88897) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  3 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss (1.1s)
+(node:88983) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  4 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss (1.1s)
+(node:89105) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  5 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 (1.1s)
+(node:89147) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  6 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 (1.1s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:114:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+
+    [31mTest timeout of 90000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 90000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.pane-wrapper--stage[role="region"]').getByTestId('gradient-stop-bar')[22m
+    [2m    - locator resolved to <div role="group" data-v-726037bb="" data-testid="gradient-stop-bar" aria-label="Gradient stop rail" class="gradient-rail relative select-none touch-none cursor-copy">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      133 |     const before = await handles.count();
+      134 |     const box = (await rail.boundingBox())!;
+    > 135 |     await rail.click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+          |                ^
+      136 |     await expect(handles).toHaveCount(before + 1);
+      137 |     // Re-baselined X-W12U .q2 to X.W12.u2 UIA-V-373 (`5ccc0e3e7`): the MINTED
+      138 |     // stop already is the inspector's subject, and a press on the selected
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:135:16
+
+    Error Context: test-results/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:250:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9372/#/mix
+    Call log:
+    [2m  - navigating to "http://localhost:9372/#/mix", waiting until "load"[22m
+
+
+      39 |
+      40 | async function openScene(page: Page, hash: string, stageLabel: string) {
+    > 41 |     await page.goto(`/#/${hash}`);
+         |                ^
+      42 |     const stage = page.locator(`.pane-wrapper--stage[role="region"]`);
+      43 |     await expect(stage).toHaveAttribute("aria-label", stageLabel, { timeout: 20_000 });
+      44 |     await regionSettled(stage);
+        at openScene (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:41:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:259:11
+
+    Error Context: test-results/oracles-o29-scene-contract-2a7d3-n-canvas-bound-to-its-scene-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9372/#/blob
+    Call log:
+    [2m  - navigating to "http://localhost:9372/#/blob", waiting until "load"[22m
+
+
+      39 |
+      40 | async function openScene(page: Page, hash: string, stageLabel: string) {
+    > 41 |     await page.goto(`/#/${hash}`);
+         |                ^
+      42 |     const stage = page.locator(`.pane-wrapper--stage[role="region"]`);
+      43 |     await expect(stage).toHaveAttribute("aria-label", stageLabel, { timeout: 20_000 });
+      44 |     await regionSettled(stage);
+        at openScene (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:41:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:403:15
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9372/#/atmosphere
+    Call log:
+    [2m  - navigating to "http://localhost:9372/#/atmosphere", waiting until "load"[22m
+
+
+      39 |
+      40 | async function openScene(page: Page, hash: string, stageLabel: string) {
+    > 41 |     await page.goto(`/#/${hash}`);
+         |                ^
+      42 |     const stage = page.locator(`.pane-wrapper--stage[role="region"]`);
+      43 |     await expect(stage).toHaveAttribute("aria-label", stageLabel, { timeout: 20_000 });
+      44 |     await regionSettled(stage);
+        at openScene (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:41:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:403:15
+
+    Error Context: test-results/oracles-o29-scene-contract-4b87d-a-forced-WebGL-context-loss-smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9372/#/blob
+    Call log:
+    [2m  - navigating to "http://localhost:9372/#/blob", waiting until "load"[22m
+
+
+      39 |
+      40 | async function openScene(page: Page, hash: string, stageLabel: string) {
+    > 41 |     await page.goto(`/#/${hash}`);
+         |                ^
+      42 |     const stage = page.locator(`.pane-wrapper--stage[role="region"]`);
+      43 |     await expect(stage).toHaveAttribute("aria-label", stageLabel, { timeout: 20_000 });
+      44 |     await regionSettled(stage);
+        at openScene (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:41:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:605:19
+
+    Error Context: test-results/oracles-o29-scene-contract-1e91c-e-both-reachable-at-720×450-smoke/error-context.md
+
+  6) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9372/#/atmosphere
+    Call log:
+    [2m  - navigating to "http://localhost:9372/#/atmosphere", waiting until "load"[22m
+
+
+      39 |
+      40 | async function openScene(page: Page, hash: string, stageLabel: string) {
+    > 41 |     await page.goto(`/#/${hash}`);
+         |                ^
+      42 |     const stage = page.locator(`.pane-wrapper--stage[role="region"]`);
+      43 |     await expect(stage).toHaveAttribute("aria-label", stageLabel, { timeout: 20_000 });
+      44 |     await regionSettled(stage);
+        at openScene (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:41:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:605:19
+
+    Error Context: test-results/oracles-o29-scene-contract-b5706-e-both-reachable-at-720×450-smoke/error-context.md
+
+  6 failed
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:114:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:250:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 
+--- exit 1 e2e/smoke/oracles/o29-scene-contracts.spec.ts
+=== e2e/smoke/oracles/o27-focus-affordance.spec.ts
+[guarded] waiting for headroom (load 106 > 36)
+(node:95112) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:95166) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:95313) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill (17.7s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD (2.8s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:139:1 › BR-4 · every channel slider exposes a human-readable aria-valuetext (481ms)
+  ✓  4 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:175:5 › BR-3 coarse pointer › effective target ≥ 44px on coarse pointers (producer referent) (2.3s)
+  ✓  5 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px (3.2s)
+[o27 WHCM roster] .channel-rail-item → 3px none rgba(5, 0, 73, 0.8) | .readout-fig → 3px none rgba(5, 0, 73, 0.8) | .space-trigger → 3px none rgba(5, 0, 73, 0.8) | .interval-head → 2px solid rgba(5, 0, 73, 0.8) | .rail-btn → 3px none oklch(0.510323 0.00386159 34.63) | .rail-handle → 2px solid rgba(5, 0, 73, 0.8)
+  ✓  6 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:326:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle (3.6s)
+
+  6 passed (33.0s)
+--- exit 0 e2e/smoke/oracles/o27-focus-affordance.spec.ts

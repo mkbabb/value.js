@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5[1m]
+e1 capture-method controls (Repair 1): the settled-box clip capture, run against localhost:9002 with a scratch Playwright script (source below).
+unperturbed moved = false
+local animation injected moved = true
+
+--- source ---
+import { chromium } from "@playwright/test";
+const b = await chromium.launch(); const page = await b.newPage({ viewport: { width: 1280, height: 720 } });
+await page.goto("http://localhost:9002/#/gradient");
+const rail = page.locator('[data-testid="gradient-stop-bar"]:visible').first();
+await rail.waitFor({ timeout: 15000 }); await rail.scrollIntoViewIfNeeded(); await page.waitForTimeout(1500);
+const cap = async () => { const box = await rail.boundingBox(); const f = []; for (let i = 0; i < 5; i++) { f.push(await page.screenshot({ clip: box, animations: "allow" })); await page.waitForTimeout(300); } return f.slice(1).some((x) => !x.equals(f[0])); };
+console.log("unperturbed moved =", await cap());
+await page.addStyleTag({ content: '@keyframes ctl{from{filter:hue-rotate(0)}to{filter:hue-rotate(360deg)}} [data-testid="gradient-stop-bar"]{animation:ctl 1s linear infinite}' });
+await page.waitForTimeout(200);
+console.log("local animation injected moved =", await cap());
+await b.close();

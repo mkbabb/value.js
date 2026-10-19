@@ -1,0 +1,432 @@
+<template>
+    <!-- S.W5-12 (F-1 + F-4): the raw reka-ui Tabs assembly is DEAD — the
+         moderation core consumes the glass-ui SegmentedTabs strip (the
+         sanctioned primitive, feedback_glass_ui_first_class), and the panel
+         bodies are plain min-w-0 blocks. That min-w-0 is the F-1 cure: the
+         old TabsContent grid item sat at min-width:auto, so the un-breakable
+         truncate spans propagated their full-line min-content up as the grid
+         track floor — pushing approve/reject ~250px off-card on mobile (the
+         moderation flow was INOPERABLE at 390px).
+         Ag-13: AdminListItem content slots use primary/secondary hierarchy;
+         F-9: the secondary line is a CSS literal — a READOUT: Fira, never
+         italic display type. -->
+    <!-- X.W7.d (N-2 · W7.61 · C-5/L-10): signed out is its own register — never
+         "· QUEUE CLEAR ·", a false moderation fact, over operable controls. -->
+    <EmptyState
+        v-if="access"
+        variant="error"
+        data-admin-access="signed-out"
+        :message="access.message"
+        detail="Sign in with an admin token to moderate color names."
+    />
+    <div v-else class="w-full grid gap-3 pb-3 min-w-0" :data-names-direction="namesDirection">
+        <!-- X.W12U.s3 · UIA-V-420: Pending | Approved swaps whole panels, so the
+             strip is a TABLIST (glass `semantics="tabs"`), each tab
+             `aria-controls` its panel, and each branch root is that tabpanel.
+             X-DS pass 16 (V16-04): control text speaks glass's label voice
+             (DESIGN.md three-voice law), as Mix's strip does. -->
+        <SegmentedTabs
+            v-model="namesTab"
+            variant="pill"
+            semantics="tabs"
+            class="w-full"
+            :options="namesTabOptions"
+        />
+
+        <!-- X.W5.c2 · gate N15 (fold W5F-72 · D-misc-mobile-order): the
+             decided composition is SELECTOR before QUERY, in source order —
+             what AT and sequential focus follow. The parent supplies the
+             query here, below the strip, never above this panel. -->
+        <slot name="query" />
+
+        <!-- X.W5.c2 · gate D4 (COHESION §0aq, ESC-W5d-2): the Pending |
+             Approved swap is a NAMED transition, never a bare `v-if` cut —
+             one root per branch, `vj-morph` out-in, as MixSourceSelector's
+             mode swap. The direction token (`data-names-direction` above,
+             read from the strip's own option order) sets which way the
+             content travels. -->
+        <Transition name="vj-morph" mode="out-in">
+            <div
+                v-if="namesTab === 'pending'"
+                id="admin-names-pending"
+                key="pending"
+                ref="pendingPanel"
+                role="tabpanel"
+                aria-label="Pending"
+                class="min-w-0"
+            >
+                <!-- W5-1 + F-13: the queue loads as row shadows, one grammar. -->
+                <div v-if="loadingPending" class="grid gap-2" role="status" aria-label="Loading pending proposals">
+                    <AdminListSkeleton v-for="i in 3" :key="i" />
+                </div>
+                <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
+                <EmptyState
+                    v-else-if="pendingError"
+                    variant="error"
+                    message="Couldn't load proposals."
+                    :detail="pendingError"
+                >
+                    <template #action>
+                        <Button size="sm" @click="emit('retryPending')">
+                            Retry
+                        </Button>
+                    </template>
+                </EmptyState>
+                <!-- W7.83 (D-5): a FILTERED zero is not a clear queue. -->
+                <!-- X.W12U.s3 · UIA-V-635: the filtered register, with its way out. -->
+                <EmptyState
+                    v-else-if="pendingItems.length === 0 && filtered"
+                    variant="filtered"
+                    message="No pending proposals match this search."
+                >
+                    <template #action>
+                        <Button size="sm" emphasis="quiet" @click="emit('clearSearch')">Clear search</Button>
+                    </template>
+                </EmptyState>
+                <EmptyState v-else-if="pendingItems.length === 0" message="No pending proposals." />
+                <div v-else class="grid gap-2 min-w-0">
+                    <AdminListItem v-for="item in pendingItems" :key="item.id">
+                        <template #swatch>
+                            <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
+                        </template>
+                        <template #content>
+                            <!-- primary line -->
+                            <span class="text-small font-medium truncate">{{ item.name }}</span>
+                            <!-- secondary line — a CSS literal is a readout (F-9) -->
+                            <span class="text-mono-small text-muted-foreground truncate">{{ formatCssCaption(item.css) }}</span>
+                        </template>
+                        <template #actions>
+                            <Button emphasis="secondary" size="xs" icon-only class="cursor-pointer" :loading="isBusy(item.id)" :disabled="isBusy(item.id)" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
+                                <Check class="w-3.5 h-3.5" aria-hidden="true" />
+                            </Button>
+                            <!-- W5-12 (F-8): destructive quieted to ink-at-rest;
+                                 red arrives on hover/focus, never as a resting
+                                 beacon on every row. -->
+                            <Button
+                                emphasis="quiet"
+                                size="xs" icon-only
+                                class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                :loading="isBusy(item.id)"
+                                :disabled="isBusy(item.id)"
+                                :aria-label="`Reject color name ${item.name}`"
+                                @click="onRejectClick(item)"
+                            >
+                                <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
+                            </Button>
+                        </template>
+                    </AdminListItem>
+                </div>
+                <!-- A2-VA-X-12: the queue's other pages. -->
+                <PaginationBar v-if="!loadingPending && !pendingError" :pager="pendingPager" />
+            </div>
+
+            <div
+                v-else
+                id="admin-names-approved"
+                key="approved"
+                ref="approvedPanel"
+                role="tabpanel"
+                aria-label="Approved"
+                class="min-w-0"
+            >
+                <div v-if="loadingApproved" class="grid gap-2" role="status" aria-label="Loading approved names">
+                    <AdminListSkeleton v-for="i in 3" :key="i" />
+                </div>
+                <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
+                <EmptyState
+                    v-else-if="approvedError"
+                    variant="error"
+                    message="Couldn't load approved names."
+                    :detail="approvedError"
+                >
+                    <template #action>
+                        <Button size="sm" @click="emit('retryApproved')">
+                            Retry
+                        </Button>
+                    </template>
+                </EmptyState>
+                <!-- X.W12U.s3 · UIA-V-635: the filtered register, with its way out. -->
+                <EmptyState
+                    v-else-if="approvedItems.length === 0 && filtered"
+                    variant="filtered"
+                    message="No approved names match this search."
+                >
+                    <template #action>
+                        <Button size="sm" emphasis="quiet" @click="emit('clearSearch')">Clear search</Button>
+                    </template>
+                </EmptyState>
+                <EmptyState v-else-if="approvedItems.length === 0" message="No approved color names." />
+                <div v-else class="grid gap-2 min-w-0">
+                    <AdminListItem v-for="item in approvedItems" :key="item.id">
+                        <template #swatch>
+                            <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
+                        </template>
+                        <template #content>
+                            <!-- primary line -->
+                            <span class="text-small font-medium truncate">{{ item.name }}</span>
+                            <!-- secondary line — a CSS literal is a readout (F-9) -->
+                            <span class="text-mono-small text-muted-foreground truncate">{{ formatCssCaption(item.css) }}</span>
+                        </template>
+                        <template #actions>
+                            <!-- W5-12 (F-8): quiet destructive — ink at rest. -->
+                            <Button
+                                emphasis="quiet"
+                                size="xs"
+                                icon-only
+                                class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                                :loading="isBusy(item.id)"
+                                :disabled="isBusy(item.id)"
+                                :aria-label="`Delete color name ${item.name}`"
+                                @click="onDeleteClick(item)"
+                            >
+                                <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
+                            </Button>
+                        </template>
+                    </AdminListItem>
+                </div>
+                <PaginationBar v-if="!loadingApproved && !approvedError" :pager="approvedPager" />
+            </div>
+        </Transition>
+
+        <!-- X.W7.e (G14 · W7.93 · D-2): Reject and Delete are irreversible — each
+             is confirmed before the command leaves the panel. The deliberate rung
+             (Esc · outside, no ✕) is the `dismiss="deliberate"` rung
+             (glass 10.1.0, X-W7L). -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" dismiss="deliberate">
+                <DialogHeader>
+                    <DialogTitle class="font-display font-medium">{{ confirmRequest?.title }}</DialogTitle>
+                    <DialogDescription>
+                        {{ confirmRequest?.description }}
+                        <!-- X.W12U.s3 · UIA-V-634: the name in the row's own (sans)
+                             voice, quoted — mono is the CSS literal's readout rung. -->
+                        <span class="font-medium text-foreground break-words">“{{ confirmRequest?.subject }}”</span>.
+                        This cannot be undone.
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button tone="destructive" :disabled="!confirmAct" @click="onConfirm">
+                        <component :is="confirmRequest?.icon" class="w-3.5 h-3.5" aria-hidden="true" />
+                        {{ confirmRequest?.label }}
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref, shallowRef, useTemplateRef, watch, type Component } from "vue";
+import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Check, X as XIcon, Trash2 } from "@lucide/vue";
+import type { ProposedColorName } from "../../../color-session/color-names";
+import { formatCssCaption } from "../../../color-session/format-color";
+import AdminListItem from "./AdminListItem.vue";
+import EmptyState from "../../../shared/ui/EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
+import PaginationBar from "./PaginationBar.vue";
+import type { Pager } from "../../usePager";
+
+const {
+    pendingItems,
+    approvedItems,
+    pendingPager,
+    approvedPager,
+    loadingPending,
+    loadingApproved,
+    pendingError = null,
+    approvedError = null,
+    access = null,
+    filtered = false,
+    busyIds = null,
+} = defineProps<{
+    pendingItems: ProposedColorName[];
+    approvedItems: ProposedColorName[];
+    /** A2-VA-X-12: each list's pager — its `total` is the list, not the page. */
+    pendingPager: Pager;
+    approvedPager: Pager;
+    loadingPending: boolean;
+    loadingApproved: boolean;
+    /** W5-5 (F-2): surfaced load failures — error ≠ empty. */
+    pendingError?: string | null;
+    approvedError?: string | null;
+    /** N-2: why the queue is not readable (signed out / denied), else `null`. */
+    access?: { readonly message: string } | null;
+    /** W7.83: a search query is narrowing both lists. */
+    filtered?: boolean;
+    /** X.W12U.s3 · UIA-V-418: the ids whose moderation write is in flight. */
+    busyIds?: ReadonlySet<string> | null;
+}>();
+
+const emit = defineEmits<{
+    approve: [item: ProposedColorName];
+    reject: [item: ProposedColorName];
+    delete: [item: ProposedColorName];
+    retryPending: [];
+    retryApproved: [];
+    /** UIA-V-635: the filtered-zero plate's way out (the query is the host's). */
+    clearSearch: [];
+}>();
+
+// UIA-V-418: a row's verbs show the write that is running (glass `loading`)
+// and refuse a second press, instead of a silent no-op.
+function isBusy(id: string): boolean {
+    return busyIds?.has(id) ?? false;
+}
+
+// X.W7.e (G14 · N-6): the confirm holds its request for display through the
+// leave transition, and its act separately — the act is TAKEN (cleared) before
+// it runs, and any dismissal releases it, so one acceptance emits exactly once.
+interface ConfirmRequest {
+    title: string;
+    description: string;
+    subject: string;
+    label: string;
+    icon: Component;
+}
+const confirmOpen = ref(false);
+const confirmRequest = shallowRef<ConfirmRequest | null>(null);
+const confirmAct = shallowRef<(() => void) | null>(null);
+watch(
+    confirmOpen,
+    (open) => {
+        if (!open) confirmAct.value = null;
+    },
+    { flush: "sync" },
+);
+
+function askConfirm(request: ConfirmRequest, act: () => void) {
+    confirmRequest.value = request;
+    confirmAct.value = act;
+    confirmOpen.value = true;
+}
+
+function onConfirm() {
+    const act = confirmAct.value;
+    if (!act) return;
+    confirmAct.value = null;
+    confirmOpen.value = false;
+    act();
+}
+
+function rowIndex(item: ProposedColorName): number {
+    return (namesTab.value === "pending" ? pendingItems : approvedItems).findIndex((i) => i.id === item.id);
+}
+
+function onRejectClick(item: ProposedColorName) {
+    askConfirm(
+        {
+            title: "Reject color name?",
+            description: "This will permanently reject the proposed name",
+            subject: item.name,
+            label: "Reject name",
+            icon: XIcon,
+        },
+        () => {
+            removedIndex = rowIndex(item);
+            emit("reject", item);
+        },
+    );
+}
+
+function onDeleteClick(item: ProposedColorName) {
+    askConfirm(
+        {
+            title: "Delete color name?",
+            description: "This will permanently delete the approved name",
+            subject: item.name,
+            label: "Delete name",
+            icon: Trash2,
+        },
+        () => {
+            removedIndex = rowIndex(item);
+            emit("delete", item);
+        },
+    );
+}
+
+const namesTab = ref<string>("pending");
+
+// A2-VA-X-12: a list's count is the SERVER's total — the loaded page's length
+// read "50 Approved" of 120. While a query narrows the page, the count is
+// what the query shows.
+function listCount(items: readonly ProposedColorName[], pager: Pager): number {
+    return filtered ? items.length : pager.total;
+}
+
+// UIA-V-414: a list's count speaks only once that list resolved — never a
+// "0" while it loads or over its load-error plate.
+const namesTabOptions = computed(() => [
+    {
+        label: loadingPending || pendingError ? "Pending" : `Pending · ${listCount(pendingItems, pendingPager)}`,
+        value: "pending",
+        controls: "admin-names-pending",
+    },
+    {
+        label: loadingApproved || approvedError ? "Approved" : `Approved · ${listCount(approvedItems, approvedPager)}`,
+        value: "approved",
+        controls: "admin-names-approved",
+    },
+]);
+
+// X.W12U.s3 · UIA-V-419: a confirmed Reject/Delete removes the very row whose
+// button the Dialog hands focus back to, which dropped focus to <body>. When a
+// list update leaves focus nowhere, it moves to the row that took the removed
+// row's place (the one after it, else the new last row), or — the list now
+// empty — to the selected tab. A failed act leaves its row, and focus with it.
+const pendingPanel = useTemplateRef<HTMLElement>("pendingPanel");
+const approvedPanel = useTemplateRef<HTMLElement>("approvedPanel");
+let removedIndex = -1;
+watch(
+    () => [pendingItems, approvedItems],
+    () => {
+        const active = document.activeElement;
+        if (removedIndex < 0 || (active && active !== document.body)) return;
+        const panel = namesTab.value === "pending" ? pendingPanel.value : approvedPanel.value;
+        const rows = panel?.querySelector(".grid")?.children;
+        const row = rows && rows.length > 0 ? rows[Math.min(removedIndex, rows.length - 1)] : null;
+        const target =
+            row?.querySelector<HTMLElement>("button:not(:disabled)") ??
+            panel?.parentElement?.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]');
+        removedIndex = -1;
+        target?.focus();
+    },
+    { flush: "post" },
+);
+
+// X.W5.c2 · gate D4 — the swap's direction token, read from the strip's OWN
+// option order: a move to a later tab is `forward`, to an earlier one `back`.
+// Updated in the pre-flush, so the token and the swap render together.
+const namesDirection = ref<"forward" | "back">("forward");
+watch(namesTab, (to, from) => {
+    const order = namesTabOptions.value.map((o) => o.value);
+    namesDirection.value = order.indexOf(to) >= order.indexOf(from) ? "forward" : "back";
+});
+</script>
+
+<style scoped>
+/* X.W5.c2 · gate D4 — the swap's travel, the MixSourceSelector idiom: the
+   direction token sets the `vj-morph` inline offset ON THE BRANCH ROOT ONLY,
+   only while its enter-from / leave-to class is on it; the leave mirrors it.
+   Motion only: the global reduced-motion guard (animations.css) zeroes it. */
+[data-names-direction="forward"] > .vj-morph-enter-from,
+[data-names-direction="forward"] > .vj-morph-leave-to {
+    --vj-morph-x: 1.5rem;
+    --vj-morph-y: 0px;
+}
+[data-names-direction="back"] > .vj-morph-enter-from,
+[data-names-direction="back"] > .vj-morph-leave-to {
+    --vj-morph-x: -1.5rem;
+    --vj-morph-y: 0px;
+}
+</style>

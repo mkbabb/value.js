@@ -1,0 +1,133 @@
+
+Running 32 tests using 3 workers
+
+[1/32] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 light › grid, filters, modal, drafts
+[2/32] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 light › grid, filters, modal, drafts
+[3/32] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 1440 dark › grid, filters, modal, drafts
+[4/32] [chromium] › e2e/f-w14u-gallery.spec.ts:103:13 › frames — /gallery 390 dark › grid, filters, modal, drafts
+[5/32] [chromium] › e2e/f-w14u-gallery.spec.ts:128:5 › g39 UIA-F-39 — search, tier and basis narrow on the server › each control's value reaches GET /api/visualizations and the grid follows
+[6/32] [chromium] › e2e/f-w14u-gallery.spec.ts:176:5 › g46 UIA-F-46 — Like is a toggle, and it persists › press → liked (+1), press → unliked (−1), press → liked; a reload keeps it
+[7/32] [chromium] › e2e/f-w14u-gallery.spec.ts:221:5 › g96 UIA-F-96 — Open Visualizer opens the saved entity › the CTA routes to /v/<visualization slug>
+[8/32] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (1440) › Escape and an outside press close it; the press opens nothing behind
+[9/32] [chromium] › e2e/f-w14u-gallery.spec.ts:236:9 › g97 UIA-F-97 — the filter drawer is a dismissable popover (390) › Escape and an outside press close it; the press opens nothing behind
+[10/32] [chromium] › e2e/f-w14u-gallery.spec.ts:268:5 › g98 UIA-F-98 ⊕ g186 UIA-F-186 — the card is glass Card; tier, focus and selection separate › radius --radius-card, no role=button div, no offset stamp; tier rim ≠ focus ink, elevation kept
+[11/32] [chromium] › e2e/f-w14u-gallery.spec.ts:304:5 › g99 UIA-F-99 ⊕ g187 UIA-F-187 — the title leads; one basis vocabulary › card and dialog show the title; names come from it; filter and badge share labels
+[12/32] [chromium] › e2e/f-w14u-gallery.spec.ts:332:5 › g184 UIA-F-184 — one clear control, a query-aware empty state, Skeleton loading › the native cancel is withdrawn; a nomatch names the query and clears; loading is skeletons
+[13/32] [chromium] › e2e/f-w14u-gallery.spec.ts:373:5 › g185 UIA-F-185 — the drawer's Selects keep the producer's sizing › no consumer h-8 / rounded-lg / border override; the drawer is glass's plate
+[14/32] [chromium] › e2e/f-w14u-gallery.spec.ts:388:5 › g188 UIA-F-188 ⊕ g247 UIA-F-247 — the modal's controls are glass's; gallery micro-issues › tier is one 3-state ToggleGroup; the CTA is primary; no consumer rim; no chatter; no bounce
+[15/32] [chromium] › e2e/f-w14u-gallery.spec.ts:429:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › glass Card at --radius-card; no My Drafts disclosure; a Draft badge; a link opens /w/<slug>
+[16/32] [chromium] › e2e/f-w14u-gallery.spec.ts:458:5 › g101 g102 g189 — the drafts are gallery cards with one keyboard action › the empty Drafts state has its action
+[17/32] [chromium] › e2e/f-w14u-gallery.spec.ts:470:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › the publishing row is busy, the others live; no-contour is disabled with a reason; the toast names the piece
+[18/32] [chromium] › e2e/f-w14u-gallery.spec.ts:496:5 › g103 UIA-F-103 ⊕ g190 UIA-F-190 ⊕ g248 UIA-F-248 — publishing a draft › logging out keeps the local drafts listed (one rule)
+[19/32] [chromium] › e2e/f-w14u-gallery.spec.ts:519:5 › g248 UIA-F-248 — a draft card's hover is visible › hovering a draft changes its paint
+[20/32] [chromium] › e2e/gallery.spec.ts:56:5 › Gallery UX › gallery page renders with tabs and search bar
+[21/32] [chromium] › e2e/gallery.spec.ts:84:5 › Gallery UX › switching to drafts tab shows drafts section
+[22/32] [chromium] › e2e/gallery.spec.ts:101:5 › Gallery UX › search bar filter drawer toggles
+[23/32] [chromium] › e2e/gallery.spec.ts:126:5 › Gallery UX › login form shows the format placeholder and dice button
+[24/32] [chromium] › e2e/gallery.spec.ts:151:5 › Gallery UX › a gallery card opens its modal and the modal names itself
+[25/32] [chromium] › e2e/gallery.spec.ts:180:5 › Gallery UX › no console errors OR warnings on gallery page
+[26/32] [chromium] › e2e/gallery.spec.ts:226:5 › Visualizer overlay dock › visualizer surfaces its overlay control dock
+[27/32] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+[28/32] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+[29/32] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+  1) [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      94 |
+      95 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 96 |         await expect(card).toBeVisible({ timeout: 30_000 });
+         |                            ^
+      97 |         await freeze(page);
+      98 |
+      99 |         await expect(card).toHaveScreenshot("checkpoint-card-resting.png", SHOT);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:96:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/error-context.md
+
+
+  2) [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      114 |
+      115 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 116 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      117 |         await freeze(page);
+      118 |         await card.hover();
+      119 |
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:116:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/error-context.md
+
+
+[30/32] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+[31/32] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+  3) [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      132 |
+      133 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 134 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      135 |         await card.click();
+      136 |
+      137 |         const modal = page.getByRole("dialog");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:134:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/error-context.md
+
+
+[32/32] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  3 failed
+    [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+    [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+    [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+  29 passed (55.8s)

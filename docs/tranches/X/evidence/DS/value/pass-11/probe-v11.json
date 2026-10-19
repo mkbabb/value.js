@@ -1,0 +1,304 @@
+[
+  {
+    "theme": "light",
+    "name": "picker",
+    "tokens": {
+      "shadowCardHover": "",
+      "shadowCartoonHover": "-4px 4px 0px 0px color-mix(in oklab,oklch(from light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) clamp(0.28,l,0.34) clamp(0.030,c,0.050) h) 32%,transparent)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 80%, transparent)",
+      "shadowCard": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 80%, transparent)"
+    },
+    "hovers": [
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 0,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 2,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "canvas",
+        "i": 0,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "canvas",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      }
+    ],
+    "error": ""
+  },
+  {
+    "theme": "light",
+    "name": "browse",
+    "tokens": {
+      "shadowCardHover": "",
+      "shadowCartoonHover": "-4px 4px 0px 0px color-mix(in oklab,oklch(from light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) clamp(0.28,l,0.34) clamp(0.030,c,0.050) h) 32%,transparent)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 80%, transparent)",
+      "shadowCard": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 80%, transparent)"
+    },
+    "hovers": [
+      {
+        "sel": "[role=\"article\"]",
+        "i": 0,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[role=\"article\"]",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[role=\"article\"]",
+        "i": 2,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 0,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 1,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      }
+    ],
+    "error": ""
+  },
+  {
+    "theme": "light",
+    "name": "palettes",
+    "tokens": {
+      "shadowCardHover": "",
+      "shadowCartoonHover": "-4px 4px 0px 0px color-mix(in oklab,oklch(from light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) clamp(0.28,l,0.34) clamp(0.030,c,0.050) h) 32%,transparent)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 80%, transparent)",
+      "shadowCard": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 80%, transparent)"
+    },
+    "hovers": [
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 0,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 2,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "button",
+        "i": 0,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "button",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "button",
+        "i": 2,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      }
+    ],
+    "error": ""
+  },
+  {
+    "theme": "dark",
+    "name": "picker",
+    "tokens": {
+      "shadowCardHover": "",
+      "shadowCartoonHover": "-4px 4px 0px 0px color-mix(in oklab,oklch(from hsl(30 14% 90%) clamp(0.28,l,0.34) clamp(0.030,c,0.050) h) 46%,transparent)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)",
+      "shadowCard": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)"
+    },
+    "hovers": [
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 0,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 2,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "canvas",
+        "i": 0,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "canvas",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      }
+    ],
+    "error": ""
+  },
+  {
+    "theme": "dark",
+    "name": "browse",
+    "tokens": {
+      "shadowCardHover": "",
+      "shadowCartoonHover": "-4px 4px 0px 0px color-mix(in oklab,oklch(from hsl(30 14% 90%) clamp(0.28,l,0.34) clamp(0.030,c,0.050) h) 46%,transparent)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)",
+      "shadowCard": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)"
+    },
+    "hovers": [
+      {
+        "sel": "[role=\"article\"]",
+        "i": 0,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[role=\"article\"]",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[role=\"article\"]",
+        "i": 2,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 0,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 1,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px"
+      }
+    ],
+    "error": ""
+  },
+  {
+    "theme": "dark",
+    "name": "palettes",
+    "tokens": {
+      "shadowCardHover": "",
+      "shadowCartoonHover": "-4px 4px 0px 0px color-mix(in oklab,oklch(from hsl(30 14% 90%) clamp(0.28,l,0.34) clamp(0.030,c,0.050) h) 46%,transparent)",
+      "shadowCartoon": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)",
+      "shadowCard": "8px 8px 0px 0px color-mix(in srgb, color(srgb 0.11 0.098 0.09) 50%, transparent)"
+    },
+    "hovers": [
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 0,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "[data-slot=\"card\"]",
+        "i": 2,
+        "changed": false,
+        "before": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "after": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.08) -1.5px 4px 16px -2px, color(srgb 0.11 0.098 0.09 / 0.12) 0px 4px 20px 0px, color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px"
+      },
+      {
+        "sel": "button",
+        "i": 0,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "button",
+        "i": 1,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      },
+      {
+        "sel": "button",
+        "i": 2,
+        "changed": false,
+        "before": "none",
+        "after": "none"
+      }
+    ],
+    "error": ""
+  }
+]

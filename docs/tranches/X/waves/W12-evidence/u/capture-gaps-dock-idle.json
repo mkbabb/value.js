@@ -1,0 +1,140 @@
+[
+ {
+  "frame": "dock-idle__adminaudit__1440__dark.png",
+  "head": "92b6d868",
+  "leg": "dock-idle",
+  "hash": "#/admin/audit",
+  "theme": "dark",
+  "series": [
+   {
+    "t": 0,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 1002,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 2003,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 4001,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 7002,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   }
+  ],
+  "note": "t=0 is 2.5 s after main mounted; no pointer, no key"
+ },
+ {
+  "leg": "dock-idle",
+  "hash": "#/admin/audit",
+  "theme": "dark",
+  "collapsedAfterPointerToDock": false
+ },
+ {
+  "frame": "dock-idle__adminaudit__1440__light.png",
+  "head": "92b6d868",
+  "leg": "dock-idle",
+  "hash": "#/admin/audit",
+  "theme": "light",
+  "series": [
+   {
+    "t": 0,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 1002,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 2002,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 4002,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   },
+   {
+    "t": 7003,
+    "collapsed": false,
+    "w": 356,
+    "h": 56
+   }
+  ],
+  "note": "t=0 is 2.5 s after main mounted; no pointer, no key"
+ },
+ {
+  "leg": "dock-idle",
+  "hash": "#/admin/audit",
+  "theme": "light",
+  "collapsedAfterPointerToDock": false
+ },
+ {
+  "frame": "dock-idle__mix__1440__light.png",
+  "head": "92b6d868",
+  "leg": "dock-idle",
+  "hash": "#/mix",
+  "theme": "light",
+  "series": [
+   {
+    "t": 0,
+    "collapsed": false,
+    "w": 435,
+    "h": 56
+   },
+   {
+    "t": 1002,
+    "collapsed": false,
+    "w": 435,
+    "h": 56
+   },
+   {
+    "t": 2002,
+    "collapsed": false,
+    "w": 435,
+    "h": 56
+   },
+   {
+    "t": 4002,
+    "collapsed": false,
+    "w": 435,
+    "h": 56
+   },
+   {
+    "t": 7002,
+    "collapsed": false,
+    "w": 435,
+    "h": 56
+   }
+  ],
+  "note": "t=0 is 2.5 s after main mounted; no pointer, no key"
+ },
+ {
+  "leg": "dock-idle",
+  "hash": "#/mix",
+  "theme": "light",
+  "collapsedAfterPointerToDock": false
+ }
+]

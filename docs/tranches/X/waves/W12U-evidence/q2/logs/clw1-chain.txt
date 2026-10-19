@@ -1,0 +1,2 @@
+10-16 14:56:06 clw1 smoke-safari rev=9db19dec3 exit=0 load1=11.41
+10-16 15:48:53 clw1 oracles-safari rev=9db19dec3 exit=0 load1=28.71

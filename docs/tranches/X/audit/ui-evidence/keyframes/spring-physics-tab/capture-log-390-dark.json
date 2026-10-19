@@ -1,0 +1,1983 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 24,
+ "when": "2026-09-23T17:45:46.848Z",
+ "runs": [
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 24,
+   "frames": [
+    {
+     "frame": "00p-drawer-peek-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=on",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       1207,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      1362,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,679,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,732,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,802,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,1362,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "DIV Drawer position",
+     "hscroll": false
+    },
+    {
+     "frame": "00-physics-tab-rest-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=on",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       799,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      954,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,324,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,394,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,954,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls panel",
+     "hscroll": false
+    },
+    {
+     "frame": "01-dock-controls-tab-select-open-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=on",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       799,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      954,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,324,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,394,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,954,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "02a-response-slider-hover-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=on",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       799,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      954,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,324,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,394,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,954,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "02b-response-slider-kbd-focus-none-preset-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       799,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.53 s / ζ 0.86",
+      "0.53 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      954,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,324,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,394,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,954,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN slider",
+     "hscroll": false
+    },
+    {
+     "frame": "03-no-preset-active-crop-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       630,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.53 s / ζ 0.86",
+      "0.53 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      786,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,156,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,226,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,786,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN slider",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-heatmap-hover-cell-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       821,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.53 s / ζ 0.86",
+      "0.53 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      976,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,346,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,416,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,976,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN slider",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-heatmap-kbd-focus-arrow-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       821,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.48 s / ζ 0.91",
+      "0.48 s / ζ 0.91"
+     ],
+     "kfSection": [
+      47,
+      976,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,346,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,416,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,976,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "DIV Spring parameter field — response 0.1 to 1.2 s across, damping ζ 1.5 at the top to 0.2 at the bottom. Click, sweep or use the arrow keys to move by 0.05; the sliders above set exact values.",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-preset-smooth-selected-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=on",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       630,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      786,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,156,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,226,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,786,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-preset-bouncy-hover-crop-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=on",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=off",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=on",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=off",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       630,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.86",
+      "0.50 s / ζ 0.86"
+     ],
+     "kfSection": [
+      47,
+      786,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,156,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,226,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,786,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-preset-bouncy-selected-crop-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       630,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      786,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,156,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,226,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,786,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-preset-kbd-arrow-focus-crop-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       630,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      786,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,156,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,226,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,786,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06a-inline-editor-top-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       184,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      340,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      0,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-290,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-220,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,340,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06b-inline-editor-scrolled-footer-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       466,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      622,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      743,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-8,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,62,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,622,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "06c-keyframe-card-hover-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON toggle-group__item tap-squish focus-ring",
+     "hscroll": false
+    },
+    {
+     "frame": "07-invalid-offset-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1179,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "abc 64w r=9999px inv=true",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [
+      "Invalid keyframe selector \"abc\": keyframe_selector_invalid at 0-3."
+     ],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "INPUT Offset",
+     "hscroll": false
+    },
+    {
+     "frame": "08a-toolbar-kbd-focus-add-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Add keyframes",
+     "hscroll": false
+    },
+    {
+     "frame": "08b-add-keyframes-dialog-open-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px",
+      "Add keyframesAppend @keyframes stops to the current animationAdd keyframesClose 0,178,390,488 r=16px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "TEXTAREA Add keyframes",
+     "hscroll": false
+    },
+    {
+     "frame": "09a-apply-hover-tooltip-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Add keyframes",
+     "hscroll": false
+    },
+    {
+     "frame": "09b-apply-clicked-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Apply the keyframes as a CSS animation",
+     "hscroll": false
+    },
+    {
+     "frame": "09c-offsets-slider-kbd-retime-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       311,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      466,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-164,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-94,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,466,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN Value 2 of 5",
+     "hscroll": false
+    },
+    {
+     "frame": "10a-resample-hover-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       184,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      340,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-290,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-220,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,340,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "SPAN Value 2 of 5",
+     "hscroll": false
+    },
+    {
+     "frame": "10b-resample-clicked-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       184,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      340,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,-290,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,-220,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,340,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON reseed-btn shrink-0 inline-flex items-ce",
+     "hscroll": false
+    },
+    {
+     "frame": "11a-tab-keyframes-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       1275,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      1430,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane 29,346,320,454 vis=visible",
+      "spring-heatmap-section grid gap-2 47,870,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,1430,284,444 vis=visible",
+      "monaco-pane 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Keyframes",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "11b-tab-controls-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       1209,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      1365,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controlsdurationdelayiterationsdirectionalternatefill modeforwardseasinglinearadvancedadvanced12345678910.keyframes-style-spring-Spring-Keyframes { an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      " 29,346,320,389 vis=visible",
+      "monaco-pane inactive 29,735,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,805,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,1365,284,444 vis=visible",
+      " 0,0,0,0 vis=false",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Controls",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "11c-tab-timeline-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       821,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      976,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,346,320,0 vis=false",
+      " 29,346,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,416,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,976,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      " 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Timeline",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    },
+    {
+     "frame": "11d-tab-physics-390-dark.png",
+     "sha": "531aa3f1",
+     "dirty": 24,
+     "dark": true,
+     "presetCells": [
+      "smooth0.5 / 0.86 138x68 r=9999px st=off",
+      "snappy0.35 / 0.65 138x68 r=9999px st=off",
+      "bouncy0.5 / 0.45 138x68 r=9999px st=on",
+      "gentle0.7 / 1 138x68 r=9999px st=off",
+      "smooth0.5 / 0.86 0x0 r=9999px st=off",
+      "snappy0.35 / 0.65 0x0 r=9999px st=off",
+      "bouncy0.5 / 0.45 0x0 r=9999px st=on",
+      "gentle0.7 / 1 0x0 r=9999px st=off"
+     ],
+     "presetGroup": {
+      "r": [
+       47,
+       821,
+       284,
+       144
+      ],
+      "radius": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "bf": "none",
+      "pad": "0px"
+     },
+     "heatReadout": [
+      "0.50 s / ζ 0.45",
+      "0.50 s / ζ 0.45"
+     ],
+     "kfSection": [
+      47,
+      976,
+      284,
+      444
+     ],
+     "kfScroll": [
+      416,
+      1159,
+      69,
+      "6px"
+     ],
+     "offsetInputs": [
+      "0% 64w r=9999px inv=null",
+      "25.1% 64w r=9999px inv=null",
+      "50% 64w r=9999px inv=null",
+      "75% 64w r=9999px inv=null",
+      "100% 64w r=9999px inv=null",
+      "0% 0w r=9999px inv=null",
+      "25% 0w r=9999px inv=null",
+      "50% 0w r=9999px inv=null",
+      "75% 0w r=9999px inv=null",
+      "100% 0w r=9999px inv=null"
+     ],
+     "offsetErr": [],
+     "toasts": [],
+     "dialog": [
+      "Animation controls12345678910.keyframes-style-spring-Spring-Keyframes { animation-name: keyframes-style-spring-Sp ring-Keyframes; animation-duration: 1400ms; an 0,293,390,772 r=12px 12px 0px 0px"
+     ],
+     "panes": [
+      "monaco-pane inactive 29,346,320,0 vis=false",
+      "spring-heatmap-section grid gap-2 47,416,284,392 vis=visible",
+      "keyframes-section grid gap-2 47,976,284,444 vis=visible",
+      "monaco-pane inactive 0,0,0,0 vis=false",
+      "spring-heatmap-section grid gap-2 0,0,0,0 vis=false",
+      "keyframes-section grid gap-2 0,0,0,0 vis=false"
+     ],
+     "tabSel": "Physics",
+     "active": "BUTTON Controls tab",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "drawer": [
+     293,
+     772
+    ],
+    "heatBox": {
+     "x": 77,
+     "y": 463.5474853515625,
+     "width": 254,
+     "height": 256
+    },
+    "heatFocus": "<div data-v-167efa80=\"\" class=\"spring-heatmap kf-focus-ring relative select-none cursor-crosshair rounded-md\" role=\"application\" aria-label=\"Spring parameter field — response 0.1 to 1.2 s across, damp"
+   },
+   "errors": [
+    "404 http://localhost:5173/assets/icons/favicon.svg",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  }
+ ]
+}

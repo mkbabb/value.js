@@ -1,0 +1,82 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": "2",
+ "at": "2026-09-23T14:59:04.507Z",
+ "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "stage": {
+  "x": 385,
+  "y": 299.578125,
+  "width": 670,
+  "height": 261.875,
+  "top": 299.578125,
+  "right": 1055,
+  "bottom": 561.453125,
+  "left": 385
+ },
+ "preC": {
+  "t": 10523.5,
+  "dt": 16.6,
+  "ph": "idle",
+  "b": [
+   {
+    "p": 1,
+    "o": 1,
+    "sc": "1",
+    "tf": "matrix(1, 0, 0, 1, 560, 0)",
+    "cx": 1038,
+    "w": 25.59
+   },
+   {
+    "p": 0.998328,
+    "o": 1,
+    "sc": "1.00067",
+    "tf": "matrix(1, 0, 0, 1, 559.189, 0)",
+    "cx": 1037.56,
+    "w": 25.61
+   },
+   {
+    "p": 0.7,
+    "o": 1,
+    "sc": "1.12",
+    "tf": "matrix(1, 0, 0, 1, 437.031, 0)",
+    "cx": 967.47,
+    "w": 28.66
+   },
+   {
+    "p": 0.695765,
+    "o": 0.995463,
+    "sc": "1.11746",
+    "tf": "matrix(1, 0, 0, 1, 458.128, 0)",
+    "cx": 989.94,
+    "w": 28.6
+   },
+   {
+    "p": 0,
+    "o": 0.25,
+    "sc": "0.7",
+    "tf": "matrix(1, 0, 0, 1, 300.206, 0)",
+    "cx": 688.14,
+    "w": 17.92
+   }
+  ],
+  "hx": [
+   478,
+   553.05,
+   628.1,
+   703.15,
+   778.2
+  ],
+  "loading": false,
+  "clock": "970"
+ },
+ "dockPlay": {
+  "x": 650.8046875,
+  "y": 772.6484375,
+  "width": 32,
+  "height": 40
+ },
+ "logs": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "info: <Suspense> is an experimental feature and its API will likely change."
+ ]
+}

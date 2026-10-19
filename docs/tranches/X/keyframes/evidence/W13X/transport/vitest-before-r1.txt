@@ -1,0 +1,31 @@
+# RED at de006ee2 bytes (git archive, scratch tree), final falsifier file
+     × (1) KFA-54 — an open channel Select holds the dock, and a closed one releases it 61ms
+     × (2) UIA-KF-152 — the channel list opens above the bottom dock, offset clear of its edge 20ms
+     × (3) UIA-KF-256 — the trigger rides DockTrigger's own rung (no dock-label on it) 20ms
+     × (4) UIA-KF-257 — no Tooltip (and no wrapper div) around the channel Select 15ms
+     × (5) UIA-KF-151 · KFA-167 · UIA-KF-108 · UIA-KF-261 — rows carry no status dot, progress ring or bold; the SelectItem indicator shows the selection 1ms
+     × (6) UIA-KF-153 · UIA-KF-283 — no timeline Collapse chip and no inert 'Timeline' label in the transport 20ms
+     × (7) KFA-166 — the transport mounts collapsed, like ChromeDock (it idles without a first hover) 11ms
+     × (8) KFA-165 — rotateY is ONE decelerating interval (no stop at the mirrored pose), the scale dip its own track 11ms
+     × (9) UIA-KF-051 · UIA-KF-155 — the ribbon carries no Play/Pause twin of the dock's Play 25ms
+     × (10) KFA-174 — Reverse re-arms the read-back, so a paused ribbon re-seats in the new direction 10ms
+     × (11) KFA-104 — selecting a channel on an idle group (pick or keyboard cycle) does not start playback 2ms
+     × (12) A2-KE-L1-3 — one ticker name: the useRafLoop alias is deleted and nothing imports it 0ms
+     × (13) UIA-KF-225 — the stage cell reserves the STABLE (peak) dock band, so an expanding transport never rims over it 1ms
+     × (14) UIA-KF-300 — the eye's tooltip states the next action; the name stays stable with aria-pressed 54ms
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+AssertionError: expected 'bottom' to be 'top' // Object.is equality
+AssertionError: expected true to be false // Object.is equality
+AssertionError: expected [ 'TooltipTrigger', 'Tooltip' ] to deeply equal []
+AssertionError: expected '<template>\n    <div\n        ref="me…' not to match /hide-indicator/
+AssertionError: expected <button data-v-e9c35e86 …(6)>…(1)</button> to be null
+AssertionError: expected 'open' to be 'closed' // Object.is equality
+AssertionError: expected 41.354166666666686 to be less than or equal to 0.3515635
+AssertionError: expected [ …(1) ] to have a length of +0 but got 1
+AssertionError: expected [ 'toggleReverse' ] to include 'scrubbed'
+AssertionError: expected [ [ 'playStateChange', true ], …(1) ] to deeply equal []
+AssertionError: expected true to be false // Object.is equality
+AssertionError: expected '\n    box-sizing: border-box;\n    pa…' to match /padding-block:\s*var\(--dock-band-res…/
+AssertionError: expected [] to include 'Show ball preview'
+      Tests  14 failed (14)

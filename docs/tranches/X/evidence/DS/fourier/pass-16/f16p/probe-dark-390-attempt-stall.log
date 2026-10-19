@@ -1,0 +1,13 @@
+[0.5s] cell dark-390
+[0.7s] goto
+[1.6s] loaded
+[6.6s] scroll 0
+[10.1s] scroll 10
+[13.7s] scroll 20
+[17.2s] scroll 30
+[20.7s] scroll 40
+[24.3s] scroll 50
+[27.8s] scroll 60
+[559.4s] scroll 70
+[560.8s] done dark-390
+[guarded] KILLED: timeout after 6 min

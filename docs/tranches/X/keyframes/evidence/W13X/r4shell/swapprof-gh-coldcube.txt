@@ -1,0 +1,28 @@
+SERVED MODEL: claude-opus-5-5
+cold #/cube · load 211.39 · LoAF>50 [{"start":6,"dur":111,"scripts":["ViewTransitionCallback /assets/index-D0_beOZ_.js 84"]},{"start":207,"dur":103,"scripts":["import.then /assets/keyboard-CnXwndiT.js 100"]},{"start":382,"dur":525,"scripts":["import.then /assets/index-D0_beOZ_.js 7","http://localhost:5395/assets/vendor-pret /assets/vendor-prettier-BlTWbCTH.js 6","import.then /assets/formatEditorCSS-lK225U-H.js 12","http://localhost:5395/assets/vendor-mona /assets/vendor-monaco-nwzXcI7Q.js 33"]},{"start":908,"dur":100,"scripts":["import.then /assets/KeyframesStringControls-D8wu0AfO.js 73","FrameRequestCallback /assets/vendor-monaco-nwzXcI7Q.js 23"]}]
+JS self by file:
+  172.9ms /assets/vendor-reka-ui-C_Tr5-Vi.js
+  118.5ms /assets/vendor-monaco-nwzXcI7Q.js
+  76.3ms /assets/index-D0_beOZ_.js
+  17.7ms /assets/vendor-prettier-BlTWbCTH.js
+  8.3ms /assets/public-DlxaOhT0.js
+  8.3ms /assets/keyboard-CnXwndiT.js
+  7.9ms /assets/KeyframesStringControls-D8wu0AfO.js
+  4.9ms /assets/progress-Bnzf-W0u.js
+  3.5ms /assets/glass-ui-BASaZkFs.js
+  1.2ms /assets/vendor-lucide-BRnuH496.js
+  0.8ms /assets/timing-function-BQji-1X5.js
+  0.6ms /assets/rolldown-runtime-DK3Fl9T5.js
+JS self by function:
+  37.0ms f /assets/index-D0_beOZ_.js:2
+  22.5ms _readFromDomElements /assets/vendor-monaco-nwzXcI7Q.js:13
+  12.2ms _readClientRects /assets/vendor-monaco-nwzXcI7Q.js:48
+  9.8ms measureReferenceDomElement /assets/vendor-monaco-nwzXcI7Q.js:46
+  9.3ms Ya /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  9.2ms co /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  8.5ms hl /assets/index-D0_beOZ_.js:3
+  7.7ms zc /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  7.5ms (anon) /assets/vendor-reka-ui-C_Tr5-Vi.js:5
+  6.6ms (anon) /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  6.2ms d /assets/vendor-reka-ui-C_Tr5-Vi.js:1
+  6.0ms (anon) /assets/index-D0_beOZ_.js:2

@@ -1,0 +1,160 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.c — G11 AFTER reading. Worktree value.js-x-w9-c, base fdebfef5.
+W9.md §Hard Gate G11 :353 — command: test/math.test.ts. Every figure DOUBLE-RUN.
+
+================ 1. G11's own command, BEFORE -> AFTER ================
+⟨cmd⟩ npx vitest run test/math.test.ts   [pre-cure src/foundation/math.ts restored at HEAD]
+      -> Tests  11 failed | 58 passed (69)        [the battery watched failing]
+⟨cmd⟩ npx vitest run test/math.test.ts   [cured]  run 1:
+ Test Files  1 passed (1)
+      Tests  69 passed (69)
+                                                  run 2:
+ Test Files  1 passed (1)
+      Tests  69 passed (69)
+
+================ 2. the three banked G11 legs + the arms that must not move ================
+⟨cmd⟩ MATH_SRC=<tree>/src/foundation/math.ts npx vite-node <harness §5>   run 1:
+--- G11 legs (W9.md :353) ---
+deCasteljau(0.5, [])                        ->  THROW RangeError: deCasteljau: points must hold at least one control point; received an empty array
+interpBezier(0.5, [])                       ->  THROW RangeError: interpBezier: points must hold at least one control point; received an empty array
+lerpArray(len3, len2, .5, out3)             ->  THROW RangeError: lerpArray: start, stop and out must share one length; received 3, 2, 3
+lerpArray(len2, len2, .5, out1)             ->  THROW RangeError: lerpArray: start, stop and out must share one length; received 2, 2, 1
+lerpArray(len2, len3, .5, out2)             ->  THROW RangeError: lerpArray: start, stop and out must share one length; received 2, 3, 2
+--- scale: equal-bounds guard vs its own division ---
+scale(5, 5, 5, 0, 10)                       ->  THROW RangeError: scale: fromMax and fromMin cannot be equal
+scale(5, 5, 5)          (slope computed?)   ->  THROW RangeError: scale: fromMax and fromMin cannot be equal
+--- the arms that must NOT move ---
+deCasteljau(0.5, [5])                       ->  5 (typeof number)
+deCasteljau(0.5, [0, 0.5, 0.5, 1])          ->  0.5 (typeof number)
+deCasteljau(0, [3,7,2,9,1]) / (1, …)        ->  [3,1] (typeof object)
+cubicBezier(0.5, .25,.1,.25,1)              ->  [0.3125,0.5375000000000001] (typeof object)
+interpBezier(0.5, [[0,0],[5,10],[10,0]])    ->  [5,5] (typeof object)
+interpBezier(0.5, [[1,2]])                  ->  [1,2] (typeof object)
+lerpArray(len2, len2, .5, out2)             ->  [50, 15]
+lerpArray(len0, len0, .5, out0)             ->  []
+scale(5, 0, 10, 0, 100)                     ->  50 (typeof number)
+clamp(5, 0, 10) / lerp(10,20,.5) / logerp   ->  [5,15,10] (typeof object)
+
+                                                                          run 2 diff vs run 1:
+IDENTICAL (diff -q silent)
+
+================ 3. the 7 dangerous assertions ================
+⟨cmd⟩ npx eslint 'src/transform/**/*.ts' 'src/foundation/**/*.ts' --rule '{"@typescript-eslint/no-non-null-assertion":"error"}'
+      exit=0  output bytes=0   [BEFORE: 7 problems (7 errors), all src/foundation/math.ts]
+      -> G10's combined scope is CLEAN: src/transform 0 (X-W9.b) + src/foundation 0 (this unit)
+
+================ 4. collateral ================
+⟨cmd⟩ npx vue-tsc -p tsconfig.lib.json --noEmit
+      exit=0 — CLEAN
+⟨cmd⟩ npx eslint src test
+      exit=0 — CLEAN
+⟨cmd⟩ npx vue-tsc -p tsconfig.test.json --noEmit  -> 2 errors, BOTH test/parser-totality.test.ts (X-W9.a's file).
+      Measured IDENTICAL with this unit's three files reverted to HEAD -> inherited, not caused here (ESC-W9c-PARSER-TOTALITY-TSC).
+⟨cmd⟩ npx vitest run  (whole suite, after npm run build)
+      -> Test Files 3 failed | 32 passed (35)   Tests  3 failed | 597 passed (600)
+      the 3: test/spectrum-luma.test.ts (C-5 born-RED, X-W4) · test/v4-c1.test.ts (ESC-W9b-V4C1-SNAPSHOT)
+             · demo/test/shell/reka-binding-idiom.test.ts (NG-6, demo). None touches ./math.
+⟨cmd⟩ npm run lint  -> 55 problems, all 35 carriers under docs/** (X-W8 G-6). ZERO under src/ or test/.
+
+================ 5. re-read at the SETTLED bytes (after the prettier pass) ================
+sha256 of the three subjects, at the bytes committed:
+      4ffc5de25be486e5a93dd59ee9e56b659e1abe98a95ea988c799406730be3829  src/foundation/math.ts
+      ce971f990c6786306d28d5e446bf6676094c3f60c73bd680562f0ac83cccf8f1  src/subpaths/math.ts
+      addd848c6f7f05aa655eb67f1d9f21abfe1040e068ee1405ff461de6fd65c62b  test/math.test.ts
+⟨cmd⟩ npx vitest run test/math.test.ts        -> Tests  69 passed (69)   [run 1 and run 2 identical]
+⟨cmd⟩ npx eslint <G10 scope> --rule no-non-null-assertion  -> exit 0, no output
+⟨cmd⟩ npx vue-tsc -p tsconfig.lib.json --noEmit            -> exit 0
+⟨cmd⟩ npx eslint src test                                  -> exit 0
+⟨cmd⟩ equiv-probe.mts                                      -> cases=33169  mismatches=0
+
+The harness of §2 (g11-probe.mts), verbatim, so the reading is re-runnable:
+// X-W9.c — G11 reading harness. Imports the SUBJECT by absolute path so the
+// same script measures any tree it is pointed at (worktree or primary).
+const SRC = process.env.MATH_SRC;
+if (!SRC) throw new Error("MATH_SRC must name src/foundation/math.ts");
+const M: Record<string, (...a: any[]) => any> = await import(SRC);
+
+const show = (v: unknown) => {
+    if (v instanceof Error) return `THROW ${v.constructor.name}: ${v.message}`;
+    if (ArrayBuffer.isView(v)) return `[${Array.from(v as any).join(", ")}]`;
+    return `${JSON.stringify(v)} (typeof ${typeof v})`;
+};
+const run = (label: string, f: () => unknown) => {
+    let out: unknown;
+    try {
+        out = f();
+    } catch (e) {
+        out = e;
+    }
+    console.log(`${label}  ->  ${show(out)}`);
+};
+
+console.log("--- G11 legs (W9.md :353) ---");
+run(`deCasteljau(0.5, [])                      `, () => M.deCasteljau!(0.5, []));
+run(`interpBezier(0.5, [])                     `, () => M.interpBezier!(0.5, []));
+run(`lerpArray(len3, len2, .5, out3)           `, () =>
+    M.lerpArray!(
+        Float64Array.of(1, 2, 3),
+        Float64Array.of(4, 5),
+        0.5,
+        new Float64Array(3),
+    ),
+);
+run(`lerpArray(len2, len2, .5, out1)           `, () =>
+    M.lerpArray!(
+        Float64Array.of(1, 2),
+        Float64Array.of(3, 4),
+        0.5,
+        new Float64Array(1),
+    ),
+);
+run(`lerpArray(len2, len3, .5, out2)           `, () =>
+    M.lerpArray!(
+        Float64Array.of(1, 2),
+        Float64Array.of(3, 4, 5),
+        0.5,
+        new Float64Array(2),
+    ),
+);
+
+console.log("--- scale: equal-bounds guard vs its own division ---");
+run(`scale(5, 5, 5, 0, 10)                     `, () => M.scale!(5, 5, 5, 0, 10));
+run(`scale(5, 5, 5)          (slope computed?) `, () => M.scale!(5, 5, 5));
+
+console.log("--- the arms that must NOT move ---");
+run(`deCasteljau(0.5, [5])                     `, () => M.deCasteljau!(0.5, [5]));
+run(`deCasteljau(0.5, [0, 0.5, 0.5, 1])        `, () =>
+    M.deCasteljau!(0.5, [0, 0.5, 0.5, 1]),
+);
+run(`deCasteljau(0, [3,7,2,9,1]) / (1, …)      `, () => [
+    M.deCasteljau!(0, [3, 7, 2, 9, 1]),
+    M.deCasteljau!(1, [3, 7, 2, 9, 1]),
+]);
+run(`cubicBezier(0.5, .25,.1,.25,1)            `, () =>
+    M.cubicBezier!(0.5, 0.25, 0.1, 0.25, 1),
+);
+run(`interpBezier(0.5, [[0,0],[5,10],[10,0]])  `, () =>
+    M.interpBezier!(0.5, [
+        [0, 0],
+        [5, 10],
+        [10, 0],
+    ]),
+);
+run(`interpBezier(0.5, [[1,2]])                `, () => M.interpBezier!(0.5, [[1, 2]]));
+run(`lerpArray(len2, len2, .5, out2)           `, () =>
+    M.lerpArray!(
+        Float64Array.of(0, 10),
+        Float64Array.of(100, 20),
+        0.5,
+        new Float64Array(2),
+    ),
+);
+run(`lerpArray(len0, len0, .5, out0)           `, () =>
+    M.lerpArray!(new Float64Array(0), new Float64Array(0), 0.5, new Float64Array(0)),
+);
+run(`scale(5, 0, 10, 0, 100)                   `, () => M.scale!(5, 0, 10, 0, 100));
+run(`clamp(5, 0, 10) / lerp(10,20,.5) / logerp `, () => [
+    M.clamp!(5, 0, 10),
+    M.lerp!(10, 20, 0.5),
+    M.logerp!(1, 100, 0.5),
+]);

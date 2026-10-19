@@ -1,0 +1,57 @@
+[
+ {
+  "hash": "#/atmosphere",
+  "svgCls": "lucide lucide-sparkles-icon lucide-sparkles w-6 h-6 shrink-0 gold-shimmer-icon",
+  "svgColor": "oklch(0.751 0.147 84.2)",
+  "svgStroke": "oklch(0.751 0.147 84.2)",
+  "trigAccent": "oklch(0.471189 0.188448 289.834)",
+  "ring": "light-dark(oklch(0.751 0.147 84.2), oklch(0.784 0.143 86.0))",
+  "adminText": [
+   "Tools",
+   "Login",
+   "@mbabb"
+  ]
+ },
+ {
+  "hash": "#/",
+  "svgCls": "lucide lucide-house-icon lucide-house w-6 h-6 shrink-0 gold-shimmer-icon",
+  "svgColor": "oklch(0.751 0.147 84.2)",
+  "svgStroke": "oklch(0.751 0.147 84.2)",
+  "trigAccent": "oklch(0.471189 0.188448 9.83402)",
+  "ring": "light-dark(oklch(0.751 0.147 84.2), oklch(0.784 0.143 86.0))",
+  "adminText": [
+   "Home",
+   "Tools",
+   "Login",
+   "@mbabb"
+  ]
+ },
+ {
+  "hash": "#/gradient",
+  "svgCls": "lucide lucide-rainbow-icon lucide-rainbow w-6 h-6 shrink-0 gold-shimmer-icon",
+  "svgColor": "oklch(0.751 0.147 84.2)",
+  "svgStroke": "oklch(0.751 0.147 84.2)",
+  "trigAccent": "oklch(0.471189 0.132793 249.834)",
+  "ring": "light-dark(oklch(0.751 0.147 84.2), oklch(0.784 0.143 86.0))",
+  "adminText": [
+   "Gradient",
+   "Tools",
+   "Login",
+   "@mbabb"
+  ]
+ },
+ {
+  "hash": "#/mix",
+  "svgCls": "lucide lucide-blend-icon lucide-blend w-6 h-6 shrink-0 gold-shimmer-icon",
+  "svgColor": "oklch(0.751 0.147 84.2)",
+  "svgStroke": "oklch(0.751 0.147 84.2)",
+  "trigAccent": "oklch(0.471189 0.0934485 169.834)",
+  "ring": "light-dark(oklch(0.751 0.147 84.2), oklch(0.784 0.143 86.0))",
+  "adminText": [
+   "Mix",
+   "Tools",
+   "Login",
+   "@mbabb"
+  ]
+ }
+]

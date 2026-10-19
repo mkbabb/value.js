@@ -1,0 +1,37 @@
+# parseStylesheet.bbnf.cpuprofile — 5864 ms sampled (idle excluded)
+## by layer
+ 50.8% parse-that core
+ 23.8% value.js actions (src/css/bbnf)
+  8.4% bbnf-lang output
+  5.5% value.js stylesheet/css layer
+  5.4% regex engine (irregexp code)
+  3.7% GC
+  1.0% V8 (program: runtime/regex/IC)
+  0.3% value.js colour/value model
+  1.2% node/harness JS (loader, script)
+## top 25 self
+ 11.8% mapState · parse-that/dist/parse.js:846   [parse-that core]
+  8.1% tagsOf · src/css/bbnf/stylesheet.ts:25   [value.js actions (src/css/bbnf)]
+  6.6% (anon) · parse-that/dist/parse.js:13   [parse-that core]
+  6.2% map · parse-that/dist/parse.js:833   [parse-that core]
+  5.7% ok · parse-that/dist/parse.js:419   [parse-that core]
+  4.8% dispatchParser · bbnf-lang/dist/bbnf.js:2281   [bbnf-lang output]
+  4.2% many · parse-that/dist/parse.js:1162   [parse-that core]
+  4.0% regexParser · parse-that/dist/parse.js:621   [parse-that core]
+  3.7% (garbage collector) ·    [GC]
+  3.4% allParser · parse-that/dist/parse.js:560   [parse-that core]
+  3.3% textOf · src/css/bbnf/stylesheet.ts:11   [value.js actions (src/css/bbnf)]
+  3.2% (anon) · src/css/bbnf/stylesheet.ts:49   [value.js actions (src/css/bbnf)]
+  2.5% (anon) · src/css/bbnf/stylesheet.ts:46   [value.js actions (src/css/bbnf)]
+  2.5% deepFreeze · src/css/result.ts:13   [value.js stylesheet/css layer]
+  2.1% all2 · bbnf-lang/dist/bbnf.js:2238   [bbnf-lang output]
+  1.8% mergeErrorState · parse-that/dist/parse.js:52   [parse-that core]
+  1.3% dispatchParser · bbnf-lang/dist/bbnf.js:2306   [bbnf-lang output]
+  1.2% reset · parse-that/dist/parse.js:694   [parse-that core]
+  1.1% failure · src/css/result.ts:27   [value.js stylesheet/css layer]
+  1.1% anyParser · parse-that/dist/parse.js:501   [parse-that core]
+  1.0% (anon) · src/css/bbnf/stylesheet.ts:50   [value.js actions (src/css/bbnf)]
+  1.0% opt · parse-that/dist/parse.js:905   [parse-that core]
+  1.0% (program) ·    [V8 (program: runtime/regex/IC)]
+  0.9% stringParser · parse-that/dist/parse.js:587   [parse-that core]
+  0.7% call · parse-that/dist/parse.js:1087   [parse-that core]

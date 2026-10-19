@@ -1,0 +1,154 @@
+[
+ {
+  "scheme": "light",
+  "probe": "Delete point hovered glyph",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "frame": "before-hover-delete-1440-light.png",
+  "x": 587,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   221,
+   212,
+   204
+  ],
+  "ratio": 11.96
+ },
+ {
+  "scheme": "light",
+  "probe": "Save contour hovered glyph",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "frame": "before-hover-save-1440-light.png",
+  "x": 430,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   240,
+   232,
+   223
+  ],
+  "ratio": 14.42
+ },
+ {
+  "scheme": "light",
+  "probe": "Smooth contour hovered glyph on its row tint",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "frame": "before-hover-smooth-1440-light.png",
+  "x": 652,
+  "y": 593,
+  "need": 3,
+  "surface": [
+   197,
+   180,
+   160
+  ],
+  "ratio": 8.67
+ },
+ {
+  "scheme": "light",
+  "probe": "Simplify contour hovered glyph on its row tint",
+  "ink": [
+   28,
+   25,
+   23
+  ],
+  "frame": "before-hover-simplify-1440-light.png",
+  "x": 652,
+  "y": 637,
+  "need": 3,
+  "surface": [
+   193,
+   171,
+   145
+  ],
+  "ratio": 7.91
+ },
+ {
+  "scheme": "dark",
+  "probe": "Delete point hovered glyph",
+  "ink": [
+   251,
+   251,
+   250
+  ],
+  "frame": "before-hover-delete-1440-dark.png",
+  "x": 589,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   53,
+   42,
+   34
+  ],
+  "ratio": 13.47
+ },
+ {
+  "scheme": "dark",
+  "probe": "Save contour hovered glyph",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "frame": "before-hover-save-1440-dark.png",
+  "x": 430,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   64,
+   54,
+   46
+  ],
+  "ratio": 9.46
+ },
+ {
+  "scheme": "dark",
+  "probe": "Smooth contour hovered glyph on its row tint",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "frame": "before-hover-smooth-1440-dark.png",
+  "x": 652,
+  "y": 593,
+  "need": 3,
+  "surface": [
+   57,
+   41,
+   22
+  ],
+  "ratio": 11.23
+ },
+ {
+  "scheme": "dark",
+  "probe": "Simplify contour hovered glyph on its row tint",
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "frame": "before-hover-simplify-1440-dark.png",
+  "x": 652,
+  "y": 637,
+  "need": 3,
+  "surface": [
+   68,
+   49,
+   25
+  ],
+  "ratio": 9.94
+ }
+]

@@ -1,0 +1,838 @@
+
+Running 87 tests using 2 workers
+
+[1/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 1440 light › Flagged: one admin row idiom
+[2/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 1440 light › Users: one admin row idiom
+[3/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 1440 light › Audit Log: one admin row idiom
+[4/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 390 light › Users: one admin row idiom
+[5/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 390 light › Flagged: one admin row idiom
+[6/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 390 light › Audit Log: one admin row idiom
+[7/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 1440 dark › Users: one admin row idiom
+[8/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 1440 dark › Flagged: one admin row idiom
+[9/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 1440 dark › Audit Log: one admin row idiom
+[10/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 390 dark › Users: one admin row idiom
+[11/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 390 dark › Flagged: one admin row idiom
+[12/87] [chromium] › e2e/f-w14-admin-idiom.spec.ts:124:17 › G-a (OA-50) admin idiom @ 390 dark › Audit Log: one admin row idiom
+[13/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 1440 light › Audit Log: badges fit, one rule per row, one-line timestamp
+[14/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 1440 light › Flagged: badges fit, one rule per row
+[15/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 1440 light › Users: badges fit, one rule per row
+[16/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 390 light › Audit Log: badges fit, one rule per row
+[17/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 390 light › Flagged: badges fit, one rule per row
+[18/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 390 light › Users: badges fit, one rule per row
+[19/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 1440 dark › Audit Log: badges fit, one rule per row, one-line timestamp
+[20/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 1440 dark › Flagged: badges fit, one rule per row
+[21/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 1440 dark › Users: badges fit, one rule per row
+[22/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 390 dark › Audit Log: badges fit, one rule per row
+[23/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 390 dark › Flagged: badges fit, one rule per row
+[24/87] [chromium] › e2e/f-w14-admin-table.spec.ts:189:17 › G-t — admin tables @ 390 dark › Users: badges fit, one rule per row
+[25/87] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[26/87] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+[27/87] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[28/87] [chromium] › e2e/f-w14u-admin.spec.ts:111:13 › frames 1440 light › admin surfaces 1440 light
+[29/87] [chromium] › e2e/f-w14u-admin.spec.ts:111:13 › frames 390 light › admin surfaces 390 light
+[30/87] [chromium] › e2e/f-w14u-admin.spec.ts:111:13 › frames 1440 dark › admin surfaces 1440 dark
+[31/87] [chromium] › e2e/f-w14u-admin.spec.ts:111:13 › frames 390 dark › admin surfaces 390 dark
+[32/87] [chromium] › e2e/f-w14u-admin.spec.ts:181:13 › a106 UIA-F-106 — the admin search glyph paints › 1440 › the glyph is the topmost element at its own centre
+[33/87] [chromium] › e2e/f-w14u-admin.spec.ts:181:13 › a106 UIA-F-106 — the admin search glyph paints › 390 › the glyph is the topmost element at its own centre
+[34/87] [chromium] › e2e/f-w14u-admin.spec.ts:208:13 › a107 UIA-F-107 — the batch-delete confirm fits its plate › 1440 › every footer control sits inside the dialog
+[35/87] [chromium] › e2e/f-w14u-admin.spec.ts:208:13 › a107 UIA-F-107 — the batch-delete confirm fits its plate › 390 › every footer control sits inside the dialog
+[36/87] [chromium] › e2e/f-w14u-admin.spec.ts:260:13 › a109 UIA-F-109 — the moderation row is padded › 1440 › media and text sit inset from the plate's rim
+[37/87] [chromium] › e2e/f-w14u-admin.spec.ts:260:13 › a109 UIA-F-109 — the moderation row is padded › 390 › media and text sit inset from the plate's rim
+[38/87] [chromium] › e2e/f-w14u-admin.spec.ts:278:13 › a110 UIA-F-110 — one visible action per row, the rest in a menu › 1440 › Dismiss shows; Keep and Delete live in the row's menu
+[39/87] [chromium] › e2e/f-w14u-admin.spec.ts:278:13 › a110 UIA-F-110 — one visible action per row, the rest in a menu › 390 › Dismiss shows; Keep and Delete live in the row's menu
+[40/87] [chromium] › e2e/f-w14u-admin.spec.ts:297:5 › a197 UIA-F-197 — one destructive signal; Normal hidden; Keep gated › neutral row ink, no Normal tier line, Keep disabled on a Saved row
+[41/87] [chromium] › e2e/f-w14u-admin.spec.ts:327:5 › a198 UIA-F-198 — a broken thumbnail falls back to a media tile › no broken-image glyph; a fallback tile on --radius-media
+[42/87] [chromium] › e2e/f-w14u-admin.spec.ts:341:5 › a251 UIA-F-251 — flagged micro-issues › Load more is a chevron; the thumbnail is --radius-media; the in-flight dialog is locked
+[43/87] [chromium] › e2e/f-w14u-admin.spec.ts:392:5 › a111 UIA-F-111 — the badge shows the stored action; the filter finds what it shows › no uppercase transform; typing the shown value in any case matches
+[44/87] [chromium] › e2e/f-w14u-admin.spec.ts:412:9 › a200 UIA-F-200 — the ledger's filter bar sticks flush and stays compact › 1440 › scrolled, no row paints between the dock and the bar
+[45/87] [chromium] › e2e/f-w14u-admin.spec.ts:432:9 › a200 UIA-F-200 — the ledger's filter bar sticks flush and stays compact › 390 › the phone bar is one compact row; its filters open in a popover
+[46/87] [chromium] › e2e/f-w14u-admin.spec.ts:446:5 › a252 UIA-F-252 — audit micro-issues › short relative times, an inline clear on filtered-empty, one pager voice, no double dim
+[47/87] [chromium] › e2e/f-w14u-admin.spec.ts:497:5 › a193 UIA-F-193 — user rows read selected; one count; labelled row actions › the selected row takes a fill; a header count; the row menu names Suspend and Delete
+[48/87] [chromium] › e2e/f-w14u-admin.spec.ts:515:5 › a194 UIA-F-194 — one toolbar pattern; Prune in an overflow menu › no Prune peer of search; the More menu's Prune opens the confirm
+[49/87] [chromium] › e2e/f-w14u-admin.spec.ts:531:5 › a195 UIA-F-195 — a page turn lands on the list's top › Next brings the list head into view
+[50/87] [chromium] › e2e/f-w14u-admin.spec.ts:553:5 › a195b UIA-F-195 — the audit ledger's page turn lands on its top › Next brings the table head into view
+[51/87] [chromium] › e2e/f-w14u-admin.spec.ts:571:5 › a196 UIA-F-196 — at 390 user meta never wraps and slugs keep their length › each labelled field is one line; a 24-character slug is whole
+[52/87] [chromium] › e2e/f-w14u-admin.spec.ts:586:5 › a250 UIA-F-250 — users loading is skeletal; the pager jumps and sizes › Skeleton rows while loading; First/Last and a page size
+[53/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-light › frames the unread views d1440-light
+[54/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light
+[55/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-light › frames the unread views t768-light
+[56/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light
+[57/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark
+[58/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark
+[59/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-dark › frames the unread views t768-dark
+[60/87] [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark
+[61/87] [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung
+  1) [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+
+    Error: Settle Out is a glass CardTitle in a glass Card
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      138 |         });
+      139 |         expect(read.length, "the four /morph cards (three phases, the levels)").toBe(4);
+    > 140 |         for (const t of read) expect(t.glass, `${t.text} is a glass CardTitle in a glass Card`).toBe(true);
+          |                                                                                                 ^
+      141 |         expect(new Set(read.map((t) => t.size)).size, `one title size (read ${read.map((t) => t.size)})`).toBe(1);
+      142 |         expect(new Set(read.map((t) => t.gap)).size, `one title margin and header inset (read ${read.map((t) => t.gap)})`).toBe(1);
+      143 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:140:97
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/error-context.md
+
+
+[62/87] [chromium] › e2e/f-w14v-au4.spec.ts:82:5 › L1-9 — the three destructive confirms are one ConfirmDialog › gallery, users and flagged confirms mount shared/ConfirmDialog.vue
+[63/87] [chromium] › e2e/f-w14v-au4.spec.ts:107:5 › L1-10 — TierMark reads the tier, TierControl sets it, the store mutates it › card, modal and flagged row share the readout; card and modal share the setter
+[64/87] [chromium] › e2e/f-w14v-au4.spec.ts:133:5 › L1-10 — TierMark reads the tier, TierControl sets it, the store mutates it › the flagged Keep speaks through the gallery store's setTier (the fork is gone)
+[65/87] [chromium] › e2e/f-w14v-au4.spec.ts:146:5 › L1-27 — users and flagged on glass DataTable, one pager, admin-row.css retired › users and flagged are DataTables; users and audit share one Pager; the toolbar is its own file
+[66/87] [chromium] › e2e/f-w14v-au4.spec.ts:203:5 › L2-10 — admin checkboxes are ≥ 44 px on touch › user rows and gallery cards
+[67/87] [chromium] › e2e/f-w14v-au4.spec.ts:223:9 › L2-11 — the audit ledger fits @ 360 › card-per-row projection, no sideways pan
+[68/87] [chromium] › e2e/f-w14v-au4.spec.ts:223:9 › L2-11 — the audit ledger fits @ 390 › card-per-row projection, no sideways pan
+[69/87] [chromium] › e2e/f-w14v-au4.spec.ts:223:9 › L2-11 — the audit ledger fits @ 430 › card-per-row projection, no sideways pan
+[70/87] [chromium] › e2e/f-w14v-au4.spec.ts:258:9 › L3-1 — the users toolbar @ 1440 light › search, sort and the overflow share one row
+[71/87] [chromium] › e2e/f-w14v-au4.spec.ts:258:9 › L3-1 — the users toolbar @ 1440 dark › search, sort and the overflow share one row
+[72/87] [chromium] › e2e/f-w14v-au4.spec.ts:275:9 › L3-2 — the flagged actions @ 390 light › no action runs past the row
+[73/87] [chromium] › e2e/f-w14v-au4.spec.ts:275:9 › L3-2 — the flagged actions @ 390 dark › no action runs past the row
+[74/87] [chromium] › e2e/f-w14v-au4.spec.ts:333:5 › X-8 — the audit log's filters, header and chips @ 1440 › filters sized to their tokens, IP hash one line, chips carry one destructive signal
+[75/87] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate
+[76/87] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate
+  2) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [552,582] vs plate [451,553]",
+    +   "span.metric__unit [587,596] vs plate [451,553]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--0620e-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--0620e-ry-element-inside-the-plate-chromium/error-context.md
+
+
+  3) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [552,582] vs plate [451,553]",
+    +   "span.metric__unit [587,596] vs plate [451,553]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--2e642-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--2e642-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[77/87] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate
+[78/87] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate
+  4) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [380,408] vs plate [279,381]",
+    +   "span.metric__unit [413,421] vs plate [279,381]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--26cd8-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--26cd8-ry-element-inside-the-plate-chromium/error-context.md
+
+
+  5) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [380,408] vs plate [279,381]",
+    +   "span.metric__unit [413,421] vs plate [279,381]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--de1b0-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--de1b0-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[79/87] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate
+[80/87] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate
+  6) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [247,272] vs plate [140,250]",
+    +   "span.metric__unit [277,284] vs plate [140,250]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--3fab1-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--3fab1-ry-element-inside-the-plate-chromium/error-context.md
+
+
+  7) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [247,272] vs plate [140,250]",
+    +   "span.metric__unit [277,284] vs plate [140,250]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--23afc-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--23afc-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[81/87] [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time
+[82/87] [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel
+  8) [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+
+    Error: axe-core serious/critical violations at "gallery admin banner (GAB-1 stat cells)":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:100:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/error-context.md
+
+
+  9) [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Users":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span:nth-child(1)
+          div[aria-label="Notifications (F8)"] > span:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:111:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/error-context.md
+
+
+[83/87] [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel
+[84/87] [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel
+  10) [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Flagged":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:122:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/error-context.md
+
+
+[85/87] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+  11) [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Audit Log":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/gallery-admin-a11y.spec.ts:133:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/error-context.md
+
+
+[86/87] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+  12) [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      94 |
+      95 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 96 |         await expect(card).toBeVisible({ timeout: 30_000 });
+         |                            ^
+      97 |         await freeze(page);
+      98 |
+      99 |         await expect(card).toHaveScreenshot("checkpoint-card-resting.png", SHOT);
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:96:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/error-context.md
+
+
+  13) [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      114 |
+      115 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 116 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      117 |         await freeze(page);
+      118 |         await card.hover();
+      119 |
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:116:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/error-context.md
+
+
+[87/87] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+  14) [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      132 |
+      133 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 134 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      135 |         await card.click();
+      136 |
+      137 |         const modal = page.getByRole("dialog");
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/visual-checkpoint.spec.ts:134:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/error-context.md
+
+
+  14 failed
+    [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+    [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+    [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+    [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+  73 passed (5.5m)

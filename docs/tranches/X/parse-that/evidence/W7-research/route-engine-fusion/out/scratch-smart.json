@@ -1,0 +1,266 @@
+{
+ "script": "bench.mjs",
+ "mode": "joint",
+ "rounds": 7,
+ "arms": [
+  "fx-fused-dcr",
+  "fx-fused-dcr+a",
+  "fx-smart-dcr",
+  "fx-smart-dcr+a"
+ ],
+ "node": "v26.0.0",
+ "sources": 29944,
+ "uptimeStart": "18:06  up 1 day, 55 mins, 3 users, load averages: 19.74 23.76 26.24",
+ "cells": [
+  {
+   "entry": "parseCssColor",
+   "arms": [
+    "fx-fused-dcr",
+    "fx-fused-dcr+a",
+    "fx-smart-dcr",
+    "fx-smart-dcr+a"
+   ],
+   "uptimeBefore": "18:06  up 1 day, 55 mins, 3 users, load averages: 19.74 23.76 26.24",
+   "uptimeAfter": "18:06  up 1 day, 55 mins, 3 users, load averages: 19.74 23.76 26.24",
+   "res": {
+    "retired": {
+     "medianMs": 31.24,
+     "minMs": 29.77,
+     "pairedRatio": 1,
+     "ms": [
+      35.27,
+      31.12,
+      29.77,
+      32.51,
+      30.49,
+      31.24,
+      32.35
+     ]
+    },
+    "fx-fused-dcr": {
+     "medianMs": 34.88,
+     "minMs": 31,
+     "pairedRatio": 1.097,
+     "ms": [
+      37.4,
+      41.83,
+      31,
+      34.88,
+      34.07,
+      34.26,
+      35.8
+     ]
+    },
+    "fx-fused-dcr+a": {
+     "medianMs": 35.88,
+     "minMs": 31.54,
+     "pairedRatio": 1.145,
+     "ms": [
+      37.85,
+      43.17,
+      34.09,
+      34.18,
+      35.88,
+      31.54,
+      42.42
+     ]
+    },
+    "fx-smart-dcr": {
+     "medianMs": 35.26,
+     "minMs": 33.96,
+     "pairedRatio": 1.173,
+     "ms": [
+      42.7,
+      33.96,
+      34.92,
+      35.2,
+      35.26,
+      36.75,
+      40.91
+     ]
+    },
+    "fx-smart-dcr+a": {
+     "medianMs": 36.81,
+     "minMs": 31.77,
+     "pairedRatio": 1.14,
+     "ms": [
+      48.48,
+      34.82,
+      32.04,
+      31.77,
+      36.81,
+      42.71,
+      36.87
+     ]
+    }
+   }
+  },
+  {
+   "entry": "parseTimingFunction",
+   "arms": [
+    "fx-fused-dcr",
+    "fx-fused-dcr+a",
+    "fx-smart-dcr",
+    "fx-smart-dcr+a"
+   ],
+   "uptimeBefore": "18:06  up 1 day, 55 mins, 3 users, load averages: 19.74 23.76 26.24",
+   "uptimeAfter": "18:06  up 1 day, 55 mins, 3 users, load averages: 19.74 23.76 26.24",
+   "res": {
+    "retired": {
+     "medianMs": 7.78,
+     "minMs": 7.22,
+     "pairedRatio": 1,
+     "ms": [
+      15.69,
+      7.55,
+      9.2,
+      8.44,
+      7.44,
+      7.22,
+      7.78
+     ]
+    },
+    "fx-fused-dcr": {
+     "medianMs": 7.54,
+     "minMs": 6.13,
+     "pairedRatio": 0.971,
+     "ms": [
+      15.24,
+      7.54,
+      7.77,
+      8.65,
+      6.87,
+      7.22,
+      6.13
+     ]
+    },
+    "fx-fused-dcr+a": {
+     "medianMs": 7.05,
+     "minMs": 6.32,
+     "pairedRatio": 0.851,
+     "ms": [
+      6.98,
+      7.75,
+      7.83,
+      7.21,
+      6.32,
+      7.05,
+      6.61
+     ]
+    },
+    "fx-smart-dcr": {
+     "medianMs": 8.44,
+     "minMs": 7.48,
+     "pairedRatio": 1.04,
+     "ms": [
+      13.03,
+      9.54,
+      8.44,
+      10.07,
+      7.74,
+      7.54,
+      7.48
+     ]
+    },
+    "fx-smart-dcr+a": {
+     "medianMs": 8.79,
+     "minMs": 7.97,
+     "pairedRatio": 1.105,
+     "ms": [
+      8.79,
+      9.49,
+      10.17,
+      8.33,
+      8.98,
+      8.06,
+      7.97
+     ]
+    }
+   }
+  },
+  {
+   "entry": "parseStylesheet",
+   "arms": [
+    "fx-fused-dcr",
+    "fx-fused-dcr+a",
+    "fx-smart-dcr",
+    "fx-smart-dcr+a"
+   ],
+   "uptimeBefore": "18:06  up 1 day, 55 mins, 3 users, load averages: 19.74 23.76 26.24",
+   "uptimeAfter": "18:06  up 1 day, 55 mins, 3 users, load averages: 18.64 23.46 26.12",
+   "res": {
+    "retired": {
+     "medianMs": 65.43,
+     "minMs": 56.01,
+     "pairedRatio": 1,
+     "ms": [
+      73.22,
+      56.01,
+      63.78,
+      65.1,
+      74.73,
+      72.31,
+      65.43
+     ]
+    },
+    "fx-fused-dcr": {
+     "medianMs": 140.02,
+     "minMs": 134.75,
+     "pairedRatio": 2.126,
+     "ms": [
+      155.65,
+      139.53,
+      184.08,
+      135.78,
+      140.02,
+      155.74,
+      134.75
+     ]
+    },
+    "fx-fused-dcr+a": {
+     "medianMs": 93.96,
+     "minMs": 71.83,
+     "pairedRatio": 1.374,
+     "ms": [
+      105.15,
+      76.97,
+      71.83,
+      99.8,
+      93.96,
+      109.56,
+      79.94
+     ]
+    },
+    "fx-smart-dcr": {
+     "medianMs": 155.47,
+     "minMs": 120.54,
+     "pairedRatio": 2.152,
+     "ms": [
+      167.86,
+      120.54,
+      134.55,
+      189.17,
+      155.47,
+      182.39,
+      130.6
+     ]
+    },
+    "fx-smart-dcr+a": {
+     "medianMs": 93.63,
+     "minMs": 78.8,
+     "pairedRatio": 1.438,
+     "ms": [
+      127.22,
+      83.2,
+      78.8,
+      93.63,
+      107.21,
+      134.19,
+      91.58
+     ]
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "18:06  up 1 day, 55 mins, 3 users, load averages: 18.64 23.46 26.12"
+}

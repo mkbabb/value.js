@@ -1,0 +1,9 @@
+[
+ {
+  "tag": "offline__390__light",
+  "sha": "f82daf4a",
+  "dirty": "4",
+  "fail": "Error: page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ }
+]

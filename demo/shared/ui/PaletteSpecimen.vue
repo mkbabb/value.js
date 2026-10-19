@@ -1,0 +1,177 @@
+<template>
+    <!-- X.W7.c (W7.md §5.c; G12) — the palette SPECIMEN: strip + name + counts,
+         props-only. No emit, no port, no control: a specimen renders a
+         palette's truth and owns none of its mutations (those stay with the
+         host — the card today, the entity inspector at X.W7.d).
+
+         `display: contents` — the specimen contributes its two parts (the
+         strip and the head) straight to the HOST's layout, so a host can seat
+         its own controls in the head's row without the specimen's subtree
+         containing a single interactive descendant. -->
+    <div class="palette-specimen" data-palette-specimen>
+        <PaletteColorStrip
+            class="palette-specimen__strip"
+            :colors="palette.colors"
+            :orientation="layout === 'aside' ? 'vertical' : 'horizontal'"
+        />
+        <!-- The head is its own inline-size container: its children's collapse
+             priority reads the width the host gives it, in any host (A-20's
+             ruled consumer interim — container queries + min-inline-size: 0 +
+             declared priority; composition, not masking). -->
+        <div class="palette-specimen__head">
+            <!-- Priority 1 (last to yield): the name. Truncates, never zero. -->
+            <span
+                data-palette-name
+                class="palette-specimen__name font-display font-medium text-subheading"
+                :class="{ invisible: nameYielded }"
+                :title="palette.name"
+            >{{ palette.name }}</span>
+            <!-- X-DS pass 9 (V9C-03): the featured badge is flat — the idle
+                 metal sweep (glass `.gold-shimmer`) carried no state.
+                 X-DS pass 15 (V15-01): the gold GLYPH carries the tier, in
+                 the certified gold ink (`--ink-gold`: gold's hue, its
+                 lightness walked until it clears the plate); the word reads in the
+                 plate's own ink. The ring is glass's outline-variant ring.
+                 Priority 3: the label yields before the mark. -->
+            <Badge
+                v-if="palette.tier === 'featured'"
+                variant="outline"
+                class="featured-badge text-mono-small shrink-0 gap-1"
+            >
+                <span class="featured-badge__icon inline-flex" title="Featured">
+                    <Award class="w-3 h-3" aria-hidden="true" />
+                </span>
+                <span class="palette-specimen__yield-3">Featured</span>
+            </Badge>
+            <!-- Priority 2: the colour count — the N every fixture asserts.
+                 X-DS pass 6 (V6C-04): the app's ONE count idiom — a muted mono
+                 tabular numeral on the name's baseline, no chip. -->
+            <span
+                data-count="colors"
+                class="text-mono-small tabular-nums text-muted-foreground shrink-0"
+                :title="`${palette.colors.length} color${palette.colors.length === 1 ? '' : 's'}`"
+            >{{ formatCount(palette.colors.length).text }}</span>
+            <!-- Priority 4 (first to yield): provenance + history counts. -->
+            <span
+                v-if="palette.forkOf"
+                class="palette-specimen__yield-4 items-center text-micro text-muted-foreground shrink-0"
+                :title="`Remixed from ${palette.forkOf}`"
+            >
+                <GitFork class="w-3 h-3" aria-hidden="true" />
+            </span>
+            <span
+                v-if="(palette.forkCount ?? 0) > 0"
+                class="palette-specimen__yield-4 items-center gap-0.5 text-micro text-muted-foreground shrink-0"
+                data-count="forks"
+                :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
+            >
+                <GitFork class="w-3 h-3" aria-hidden="true" />
+                <span class="font-mono">{{ formatCount(palette.forkCount ?? 0).text }}</span>
+            </span>
+            <span
+                v-if="(palette.versionCount ?? 0) > 1"
+                class="palette-specimen__yield-4 items-center gap-0.5 text-micro text-muted-foreground shrink-0"
+                data-count="versions"
+                :title="`${palette.versionCount} versions`"
+            >
+                <History class="w-3 h-3" aria-hidden="true" />
+                <span class="font-mono">{{ formatCount(palette.versionCount ?? 0).text }}</span>
+            </span>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { Award, GitFork, History } from "@lucide/vue";
+import { Badge } from "@mkbabb/glass-ui/badge";
+import type { Palette } from "../../palettes/types";
+import { formatCount } from "../../color-session/format-color";
+import PaletteColorStrip from "./PaletteColorStrip.vue";
+
+const {
+    palette,
+    layout = "default",
+    nameYielded = false,
+} = defineProps<{
+    palette: Palette;
+    /** "default" = strip on top; "aside" = vertical strip on the left. */
+    layout?: "default" | "aside";
+    /** S.W5-7 (never the same string twice): the host sets this while its
+     *  rename input shows the name, so the name yields its ink but keeps its
+     *  box (no geometry jump). */
+    nameYielded?: boolean;
+}>();
+</script>
+
+<style scoped>
+.palette-specimen {
+    display: contents;
+}
+/* The strip carries its own corners (the host does not clip — S.W5-10: a
+ * card-level radius clip rasterizes 1-bit). A bordered host sets
+ * `--specimen-radius` to its INNER radius; unhosted, the card radius. */
+.palette-specimen__strip {
+    grid-area: strip;
+    align-self: stretch;
+    --strip-r: var(--specimen-radius, var(--radius-card));
+}
+.palette-specimen__strip[data-orientation="horizontal"] {
+    border-start-start-radius: var(--strip-r);
+    border-start-end-radius: var(--strip-r);
+}
+.palette-specimen__strip[data-orientation="vertical"] {
+    border-start-start-radius: var(--strip-r);
+    border-end-start-radius: var(--strip-r);
+}
+
+/* The head row. `min-inline-size: 0` + `overflow: hidden` are the backstop —
+ * the declared priority below is the design; the clip only guarantees the
+ * row can never widen its host (G9). */
+.palette-specimen__head {
+    grid-area: head;
+    container: specimen-head / inline-size;
+    display: flex;
+    /* V6C-04: name, counts and badges share the name's baseline. */
+    align-items: baseline;
+    gap: 0.5rem;
+    min-inline-size: 0;
+    overflow: hidden;
+    padding-block: 0.625rem;
+    padding-inline-start: 0.75rem;
+}
+
+/* Priority 1 — the name shrinks, truncates, and keeps a floor. */
+.palette-specimen__name {
+    flex: 0 1 auto;
+    min-inline-size: min(5rem, 100%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Priority 4 yields first, priority 3 next; the colour count (2) and the
+ * name (1) always stay. Thresholds are the head's own inline size. */
+.palette-specimen__yield-4 {
+    display: none;
+}
+.palette-specimen__yield-3 {
+    display: none;
+}
+@container specimen-head (min-width: 16rem) {
+    .palette-specimen__yield-3 {
+        display: inline;
+    }
+}
+@container specimen-head (min-width: 20rem) {
+    .palette-specimen__yield-4 {
+        display: inline-flex;
+    }
+}
+
+/* The featured badge's gold is its glyph, in the certified gold ink (X-DS
+ * pass 15, V15-01: raw `--color-gold` read 1.76:1 on the light plate). The
+ * lucide glyph strokes `currentColor`. */
+.featured-badge__icon {
+    color: var(--ink-gold);
+}
+</style>

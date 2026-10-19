@@ -1,0 +1,188 @@
+SERVED MODEL: claude-fable-5-1
+# KF.W13.a · the authored G-KFW13-0 proof, banked WHOLE — restore byte-for-byte (from line 4 on) to keyframes.js test/demo/app/dock-context-slot-resolution.test.ts; sha256 of the file as authored: 35cdeb4da1460e923c762c46cc72fc041aeb4e2e3882b8aeece9851dea617308
+# ---- file begins on the next line ----
+// X.KF.W13.a · G-KFW13-0 — THE MECHANISM PROOF, and nothing else.
+//
+// kf-ChromeDock M-4 is a deletion whose safety rests on a claim about Vue's
+// `inject` resolution: that slot content authored in App.vue and rendered
+// inside ChromeDock's `<GlassDock>` CAN reach that dock's provided context via
+// `useOptionalDockContext()`. ChromeDock.vue's own docblock says the opposite
+// ("resolves ABOVE this provider and cannot hold the dock open itself"), and
+// the registry's C/S-2 kill says the docblock is wrong. Nothing in the demo
+// executes the call today — the sole `useOptionalDockContext` hit in `demo/` IS
+// that comment. This file executes it, in a mounted render, BEFORE a site is
+// deleted (KF-W13 §Sequencing L-1). It carries ZERO `demo/**` bytes by design.
+//
+// What is proven, and how it is observable:
+//   1. a component authored as the dock's SLOT CONTENT (not as a child of the
+//      dock's own SFC) receives the provider's context — non-null, and it is
+//      THAT provider's (`ctx.id` is the mounted dock's id);
+//   2. `keepOpen()` from inside the slot HOLDS the dock: with the hold taken,
+//      the dock's own focus-out path does not schedule a collapse and the
+//      collapse clock, run well past `collapseDelay`, leaves `expanded` TRUE;
+//   3. `release()` from inside the slot lets the same clock collapse it —
+//      `expanded` reads FALSE once the release grace + `collapseDelay` elapse;
+//   4. the negative control: the same slot component mounted with NO
+//      `<GlassDock>` above it resolves `null` — the context is the provider's,
+//      not a global.
+// The hold/release clock is the producer's (`useDockState`: keep-open count,
+// release grace `min(collapseDelay, 800)`, then the `collapseDelay` timer),
+// driven here through the dock's OWN exported seams — no producer selector is
+// copied and no internal is reached past the public `expanded` expose.
+
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import { createApp, defineComponent, h, nextTick, ref, type App } from "vue";
+import { GlassDock, useOptionalDockContext, type DockContext } from "@mkbabb/glass-ui/dock";
+
+const COLLAPSE_DELAY = 2500;
+const RELEASE_GRACE = Math.min(COLLAPSE_DELAY, 800);
+
+/** jsdom ships no ResizeObserver; the dock's layer-measure watch constructs one
+ *  unguarded on mount. The same no-op stand-in the tree already uses
+ *  (`timeline-hover-preview.test.ts`), saved and restored around this file —
+ *  environment provisioning, not a mask: nothing this file asserts rides on
+ *  resize. */
+const savedResizeObserver = (globalThis as { ResizeObserver?: unknown }).ResizeObserver;
+beforeAll(() => {
+    class NoopResizeObserver {
+        observe(): void {}
+        unobserve(): void {}
+        disconnect(): void {}
+    }
+    (globalThis as { ResizeObserver?: unknown }).ResizeObserver = NoopResizeObserver;
+    (window as unknown as { ResizeObserver?: unknown }).ResizeObserver = NoopResizeObserver;
+});
+afterAll(() => {
+    (globalThis as { ResizeObserver?: unknown }).ResizeObserver = savedResizeObserver;
+    (window as unknown as { ResizeObserver?: unknown }).ResizeObserver = savedResizeObserver;
+});
+
+type DockExpose = { expanded: boolean; isHeld: boolean };
+
+let captured: DockContext | null | undefined;
+
+/** Authored as SLOT CONTENT of the dock — the shape App.vue's `#items` has. */
+const SlotChild = defineComponent({
+    name: "SlotChild",
+    setup() {
+        captured = useOptionalDockContext();
+        return () => h("span", { "data-testid": "slot-child" }, "slot content");
+    },
+});
+
+function mountDockWithSlotChild(): { app: App; host: HTMLElement; dock: () => DockExpose } {
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const dockRef = ref<DockExpose | null>(null);
+    const app = createApp(
+        defineComponent({
+            setup() {
+                return () =>
+                    h(
+                        GlassDock,
+                        // `autoLuminance: false` + a static backdrop: jsdom has no
+                        // canvas 2D context, and the legibility sampler is not
+                        // what this file proves.
+                        {
+                            ref: dockRef,
+                            collapseDelay: COLLAPSE_DELAY,
+                            startCollapsed: true,
+                            autoLuminance: false,
+                            backdropMode: "static",
+                        },
+                        { default: () => h(SlotChild) },
+                    );
+            },
+        }),
+    );
+    app.mount(host);
+    return { app, host, dock: () => dockRef.value! };
+}
+
+function dockRootOf(host: HTMLElement): HTMLElement {
+    const child = host.querySelector<HTMLElement>('[data-testid="slot-child"]');
+    if (!child) throw new Error("slot child did not render");
+    // The dock's `focusin`/`focusout` listeners sit on its root; walk up to the
+    // element that carries the provided context id (the dock stamps its own id).
+    const root = child.closest<HTMLElement>(`[id="${captured!.id}"]`) ?? host.firstElementChild;
+    if (!(root instanceof HTMLElement)) throw new Error("dock root not found");
+    return root;
+}
+
+describe("G-KFW13-0 — useOptionalDockContext() resolves the GlassDock provider from slot content", () => {
+    beforeEach(() => {
+        captured = undefined;
+        vi.useFakeTimers();
+    });
+    afterEach(() => {
+        vi.useRealTimers();
+        document.body.innerHTML = "";
+    });
+
+    it("slot content receives the provider's context (non-null, that dock's id)", () => {
+        const { app, dock } = mountDockWithSlotChild();
+        try {
+            expect(captured).not.toBeNull();
+            expect(captured).toBeDefined();
+            const ctx = captured as DockContext;
+            expect(typeof ctx.keepOpen).toBe("function");
+            expect(typeof ctx.release).toBe("function");
+            expect(ctx.id).toMatch(/^glass-dock-/);
+            expect(ctx.held.value).toBe(false);
+            expect(dock().isHeld).toBe(false);
+        } finally {
+            app.unmount();
+        }
+    });
+
+    it("keepOpen() from the slot holds `expanded` TRUE across the collapse clock; release() lets it fall", async () => {
+        const { app, host, dock } = mountDockWithSlotChild();
+        try {
+            const ctx = captured as DockContext;
+            expect(dock().expanded).toBe(false); // start-collapsed
+
+            // Focus entering the dock expands it (the producer's own focus path).
+            const root = dockRootOf(host);
+            root.dispatchEvent(new FocusEvent("focusin", { bubbles: true }));
+            await nextTick();
+            expect(dock().expanded).toBe(true);
+
+            // THE HOLD, taken from inside the slot.
+            ctx.keepOpen();
+            await nextTick();
+            expect(ctx.held.value).toBe(true);
+            expect(dock().isHeld).toBe(true);
+
+            // Focus leaves to nowhere: unheld, this schedules the collapse.
+            root.dispatchEvent(new FocusEvent("focusout", { bubbles: true, relatedTarget: null }));
+            vi.advanceTimersByTime(COLLAPSE_DELAY * 2);
+            await nextTick();
+            expect(dock().expanded).toBe(true); // held — the clock did not collapse it
+
+            // THE RELEASE, from inside the slot: grace, then the collapse delay.
+            ctx.release();
+            await nextTick();
+            expect(ctx.held.value).toBe(false);
+            vi.advanceTimersByTime(RELEASE_GRACE - 1);
+            await nextTick();
+            expect(dock().expanded).toBe(true);
+            vi.advanceTimersByTime(1 + COLLAPSE_DELAY);
+            await nextTick();
+            expect(dock().expanded).toBe(false); // released — the clock collapsed it
+        } finally {
+            app.unmount();
+        }
+    });
+
+    it("negative control: the same slot component with no GlassDock above it resolves null", () => {
+        const host = document.createElement("div");
+        document.body.appendChild(host);
+        const app = createApp(defineComponent({ setup: () => () => h(SlotChild) }));
+        app.mount(host);
+        try {
+            expect(captured).toBeNull();
+        } finally {
+            app.unmount();
+        }
+    });
+});

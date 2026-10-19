@@ -208,6 +208,11 @@ export const adminPopulatedTest = base.extend({
         });
 
         // 3. Populated admin surface — routed per-endpoint, most-specific first.
+        // X-W12 Repair 1 (SR-2): the flagged queue is per-test state, as it is on
+        // the server — `DELETE /admin/flags/:slug` deletes that palette's reports
+        // (`api/src/modules/admin/service/flagged.ts` `deleteByPaletteSlug`), so
+        // the consumer's post-dismiss re-read (UIA-V-176) no longer sees them.
+        let flagged = [...FLAGGED];
         await page.route("**/admin/**", (route) => {
             const req = route.request();
             const url = req.url();
@@ -222,8 +227,16 @@ export const adminPopulatedTest = base.extend({
 
             // Mutations answer a shape-correct success so click-throughs never error.
             if (method === "DELETE") {
-                if (url.includes("/flags/"))
-                    return json(JSON.stringify({ dismissed: 1 }));
+                if (url.includes("/flags/")) {
+                    const slug = decodeURIComponent(
+                        new URL(url).pathname.split("/flags/")[1] ?? "",
+                    );
+                    const dismissed = flagged
+                        .filter((f) => f.paletteSlug === slug)
+                        .reduce((n, f) => n + f.flagCount, 0);
+                    flagged = flagged.filter((f) => f.paletteSlug !== slug);
+                    return json(JSON.stringify({ dismissed }));
+                }
                 // ── X-W1 · R32 ────────────────────────────────────────────
                 // This answered `204` with an empty body. The route answers
                 // **200** with `{"deleted":true}`
@@ -261,7 +274,7 @@ export const adminPopulatedTest = base.extend({
             if (url.includes("/admin/users/") && url.includes("/palettes"))
                 return json(JSON.stringify(USER_PALETTES));
             if (url.includes("/admin/users")) return json(paginated(USERS));
-            if (url.includes("/admin/flagged")) return json(paginated(FLAGGED));
+            if (url.includes("/admin/flagged")) return json(paginated(flagged));
             if (url.includes("/admin/audit")) return json(paginated(AUDIT));
             if (url.includes("/admin/queue") || url.includes("/admin/approved"))
                 return json(paginated(QUEUE));

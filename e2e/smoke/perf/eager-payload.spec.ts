@@ -1,6 +1,7 @@
 // SERVED MODEL: claude-opus-5[1m]
 import { test, expect } from "@playwright/test";
 import type { Browser } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import { execFileSync, execSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import os from "node:os";
@@ -238,7 +239,7 @@ async function coldLoad(
 
         await page.goto("/#/");
         await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
+            mainPane(page),
             `${cfg.name}: the built bundle never reached a mounted main`,
         ).toBeVisible({ timeout: 30_000 });
         await page.waitForTimeout(SETTLE_MS);

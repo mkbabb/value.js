@@ -1,0 +1,254 @@
+{
+ "light-1440x900": {
+  "l1rest": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ownsCut": true,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 79,
+   "bandRule": "rgb(28, 25, 23)",
+   "bandRuleWidth": "0px",
+   "bandFootY": 668
+  },
+  "l1scrolled": {
+   "scrollTop": 55,
+   "scrolled": true,
+   "ownsCut": true,
+   "mainRule": "rgb(198, 180, 159)",
+   "mainRuleY": 79,
+   "bandRule": "rgb(198, 180, 159)",
+   "bandRuleWidth": "0px",
+   "bandFootY": 613
+  },
+  "l1gallery": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ownsCut": false,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 79,
+   "bandFootY": null
+  },
+  "t1rest": {
+   "portTop": 80,
+   "asideTop": 88,
+   "articleTop": 88,
+   "cutTop": "0px",
+   "cutColor": "rgba(0, 0, 0, 0)",
+   "asideStickyTop": "0px"
+  },
+  "t1scrolled": {
+   "portTop": 80,
+   "asideTop": 80,
+   "articleTop": -39109,
+   "cutTop": "0px",
+   "cutColor": "rgb(198, 180, 159)",
+   "asideStickyTop": "0px"
+  }
+ },
+ "light-390x844": {
+  "l1rest": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ownsCut": true,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 75,
+   "bandRule": "rgba(0, 0, 0, 0)",
+   "bandRuleWidth": "1px",
+   "bandFootY": 308
+  },
+  "l1scrolled": {
+   "scrollTop": 160,
+   "scrolled": true,
+   "ownsCut": true,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 75,
+   "bandRule": "rgb(198, 180, 159)",
+   "bandRuleWidth": "1px",
+   "bandFootY": 209
+  },
+  "l1gallery": {
+   "scrollTop": 112,
+   "scrolled": true,
+   "ownsCut": false,
+   "mainRule": "rgb(198, 180, 159)",
+   "mainRuleY": 75,
+   "bandFootY": null
+  }
+ },
+ "light-844x390": {
+  "l2": {
+   "band": [
+    68,
+    118,
+    50
+   ],
+   "bar": [
+    72,
+    118,
+    46
+   ],
+   "title": [
+    73,
+    117,
+    44
+   ],
+   "search": [
+    73,
+    117,
+    44
+   ],
+   "readout": [
+    86,
+    104,
+    17
+   ],
+   "dock": [
+    0,
+    68,
+    68
+   ],
+   "barPad": "0px",
+   "barBorder": "1px",
+   "children": [
+    [
+     "button tap-squish focus-ring floating-to",
+     44
+    ],
+    [
+     "page-readout fira-code floating-toc-page",
+     17
+    ],
+    [
+     "button tap-squish focus-ring floating-to",
+     44
+    ]
+   ]
+  }
+ },
+ "dark-1440x900": {
+  "l1rest": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ownsCut": true,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 79,
+   "bandRule": "rgb(233, 230, 226)",
+   "bandRuleWidth": "0px",
+   "bandFootY": 668
+  },
+  "l1scrolled": {
+   "scrollTop": 55,
+   "scrolled": true,
+   "ownsCut": true,
+   "mainRule": "rgb(101, 87, 73)",
+   "mainRuleY": 79,
+   "bandRule": "rgb(101, 87, 73)",
+   "bandRuleWidth": "0px",
+   "bandFootY": 613
+  },
+  "l1gallery": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ownsCut": false,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 79,
+   "bandFootY": null
+  },
+  "t1rest": {
+   "portTop": 80,
+   "asideTop": 88,
+   "articleTop": 88,
+   "cutTop": "0px",
+   "cutColor": "rgba(0, 0, 0, 0)",
+   "asideStickyTop": "0px"
+  },
+  "t1scrolled": {
+   "portTop": 80,
+   "asideTop": 80,
+   "articleTop": -39109,
+   "cutTop": "0px",
+   "cutColor": "rgb(101, 87, 73)",
+   "asideStickyTop": "0px"
+  }
+ },
+ "dark-390x844": {
+  "l1rest": {
+   "scrollTop": 0,
+   "scrolled": false,
+   "ownsCut": true,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 75,
+   "bandRule": "rgba(0, 0, 0, 0)",
+   "bandRuleWidth": "1px",
+   "bandFootY": 308
+  },
+  "l1scrolled": {
+   "scrollTop": 160,
+   "scrolled": true,
+   "ownsCut": true,
+   "mainRule": "rgba(0, 0, 0, 0)",
+   "mainRuleY": 75,
+   "bandRule": "rgb(101, 87, 73)",
+   "bandRuleWidth": "1px",
+   "bandFootY": 209
+  },
+  "l1gallery": {
+   "scrollTop": 112,
+   "scrolled": true,
+   "ownsCut": false,
+   "mainRule": "rgb(101, 87, 73)",
+   "mainRuleY": 75,
+   "bandFootY": null
+  }
+ },
+ "dark-844x390": {
+  "l2": {
+   "band": [
+    68,
+    118,
+    50
+   ],
+   "bar": [
+    72,
+    118,
+    46
+   ],
+   "title": [
+    73,
+    117,
+    44
+   ],
+   "search": [
+    73,
+    117,
+    44
+   ],
+   "readout": [
+    86,
+    104,
+    17
+   ],
+   "dock": [
+    0,
+    68,
+    68
+   ],
+   "barPad": "0px",
+   "barBorder": "1px",
+   "children": [
+    [
+     "button tap-squish focus-ring floating-to",
+     44
+    ],
+    [
+     "page-readout fira-code floating-toc-page",
+     17
+    ],
+    [
+     "button tap-squish focus-ring floating-to",
+     44
+    ]
+   ]
+  }
+ }
+}

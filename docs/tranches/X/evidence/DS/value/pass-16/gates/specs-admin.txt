@@ -1,0 +1,8 @@
+e2e/smoke/admin/admin-populated.spec.ts
+e2e/smoke/admin/a11y-authed-user.spec.ts
+e2e/smoke/admin/admin-walk.spec.ts
+e2e/smoke/admin/route-guard.spec.ts
+e2e/smoke/admin/o10d-admin-title-voice.spec.ts
+e2e/smoke/admin/a11y-authed-admin.spec.ts
+e2e/smoke/admin/flows/user-status.spec.ts
+e2e/smoke/admin/o18-modal-ink.spec.ts

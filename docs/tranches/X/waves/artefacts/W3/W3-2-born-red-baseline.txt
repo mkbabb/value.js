@@ -1,0 +1,158 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 · X.W3.2 — BORN-RED transcript (spec before cure)
+HEAD: 02238dbb  clock: 2026-09-18 18:10:46 EDT
+
+⟨cmd⟩ npx vitest run src/modules/palette/__tests__/palette-versions.test.ts
+
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts (10 tests | 7 failed) 217ms
+   × service.palette.versions > G-7: two palettes differing only in per-color `name` hash differently 8ms
+     → expected '9d4a48b389c609dac7f7002198ae25279be71…' not to be '9d4a48b389c609dac7f7002198ae25279be71…' // Object.is equality
+   × service.palette.versions > G-7: payloadHash is framed `domain ‖ 0x00 ‖ uint64be(len) ‖ bytes` 6ms
+     → expected 'ca1f6d97b480d06d1790b13af45edb16188a7…' to be 'e31d76f49b4e932b05213377b70afe584f1b0…' // Object.is equality
+   ✓ service.palette.versions > G-7: length framing defeats field-boundary confusion 2ms
+   × service.palette.versions > G-7: release identity is a separate field — one payload, two releases 26ms
+     → expected '7b55e5f12ed7cc11aad31c3ba01ee87ae6eb5…' not to be '7b55e5f12ed7cc11aad31c3ba01ee87ae6eb5…' // Object.is equality
+   × service.palette.versions > G-7: revisionNo is first-class, monotone, and the list's total-order key 29ms
+     → expected [ undefined, undefined, undefined ] to deeply equal [ 3, 2, 1 ]
+   × service.palette.versions > G-5: GET /palettes/A/versions/<hash-of-B> → 404 22ms
+     → expected 200 to be 404 // Object.is equality
+   × service.palette.versions > G-5: a private palette's revision detail is refused anonymously 20ms
+     → expected 200 to be 404 // Object.is equality
+   × service.palette.versions > G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged 25ms
+     → expected 200 to be 404 // Object.is equality
+   ✓ service.palette.versions > G-6: the owner's own prior revision still reverts 23ms
+   ✓ service.palette.versions > revertToVersion throws NotFoundError on missing palette 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: two palettes differing only in per-color `name` hash differently
+AssertionError: expected '9d4a48b389c609dac7f7002198ae25279be71…' not to be '9d4a48b389c609dac7f7002198ae25279be71…' // Object.is equality
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:95:23
+     93|         const a = computeContentHash("p", [{ css: "#fff", name: "snow"…
+     94|         const b = computeContentHash("p", [{ css: "#fff", name: "paper…
+     95|         expect(a).not.toBe(b);
+       |                       ^
+     96|     });
+     97| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: payloadHash is framed `domain ‖ 0x00 ‖ uint64be(len) ‖ bytes`
+AssertionError: expected 'ca1f6d97b480d06d1790b13af45edb16188a7…' to be 'e31d76f49b4e932b05213377b70afe584f1b0…' // Object.is equality
+
+Expected: [32m"e31d76f49b4e932b05213377b70afe584f1b0ffacf4b2a9a5ce26c22349ef3c1"[39m
+Received: [31m"ca1f6d97b480d06d1790b13af45edb16188a7a515ed5cd69352dc64d1312db04"[39m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:116:54
+    114|             )
+    115|             .digest("hex");
+    116|         expect(computeContentHash("Sample", colors)).toBe(expected);
+       |                                                      ^
+    117|     });
+    118| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: release identity is a separate field — one payload, two releases
+AssertionError: expected '7b55e5f12ed7cc11aad31c3ba01ee87ae6eb5…' not to be '7b55e5f12ed7cc11aad31c3ba01ee87ae6eb5…' // Object.is equality
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:142:24
+    140|         // two rows under two ids. (Before the split, `_id` WAS the pa…
+    141|         // hash, so the second release silently vanished.)
+    142|         expect(r1).not.toBe(r2);
+       |                        ^
+    143|         const rows = await services.repositories.paletteVersions.findB…
+    144|             "p",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-7: revisionNo is first-class, monotone, and the list's total-order key
+AssertionError: expected [ undefined, undefined, undefined ] to deeply equal [ 3, 2, 1 ]
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  [[22m
+[32m-   3,[39m
+[32m-   2,[39m
+[32m-   1,[39m
+[31m+   undefined,[39m
+[31m+   undefined,[39m
+[31m+   undefined,[39m
+[2m  ][22m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:177:52
+    175|         const list = await listVersions(services, "x", 0, 10);
+    176|         expect(list.total).toBe(3);
+    177|         expect(list.data.map((v) => v.revisionNo)).toEqual([3, 2, 1]);
+       |                                                    ^
+    178| 
+    179|         // …and it reaches the wire (fold S-6: the ordinal the client …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-5: GET /palettes/A/versions/<hash-of-B> → 404
+AssertionError: expected 200 to be 404 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 404[39m
+[31m+ 200[39m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:214:32
+    212|         // …and is not reachable through A.
+    213|         const crossed = await app.request(`/palettes/a/versions/${bHas…
+    214|         expect(crossed.status).toBe(404);
+       |                                ^
+    215|         expect(await crossed.text()).not.toContain("#00ff00");
+    216|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-5: a private palette's revision detail is refused anonymously
+AssertionError: expected 200 to be 404 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 404[39m
+[31m+ 200[39m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:230:29
+    228| 
+    229|         const anon = await app.request(`/palettes/p/versions/${hash}`);
+    230|         expect(anon.status).toBe(404);
+       |                             ^
+    231|         expect(await anon.text()).not.toContain("#123456");
+    232| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged
+AssertionError: expected 200 to be 404 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 404[39m
+[31m+ 200[39m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:260:28
+    258|             body: JSON.stringify({ hash: bHash }),
+    259|         });
+    260|         expect(res.status).toBe(404);
+       |                            ^
+    261| 
+    262|         const after = await services.repositories.palettes.findBySlug(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 3 passed (10)
+   Start at  18:10:47
+   Duration  1.61s (transform 126ms, setup 0ms, collect 266ms, tests 217ms, environment 0ms, prepare 35ms)
+

@@ -1,0 +1,1171 @@
+{
+ "khead": "d78bed01",
+ "kdirty": "4",
+ "T0": 3156.60000000149,
+ "rows": [
+  {
+   "i": 0,
+   "file": "s000.png",
+   "dt": 0,
+   "cube": "rotateX(185.603deg) rotateY(0.515565turn) rotateZ(185.603deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.99689px)",
+   "bobRect": [
+    844.76,
+    342.16
+   ]
+  },
+  {
+   "i": 1,
+   "file": "s001.png",
+   "dt": 104.2,
+   "cube": "rotateX(198.493deg) rotateY(0.551371turn) rotateZ(198.493deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.9654px)",
+   "bobRect": [
+    844.76,
+    342.13
+   ]
+  },
+  {
+   "i": 2,
+   "file": "s002.png",
+   "dt": 208.3,
+   "cube": "rotateX(211.262deg) rotateY(0.586838turn) rotateZ(211.262deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.89857px)",
+   "bobRect": [
+    844.77,
+    342.07
+   ]
+  },
+  {
+   "i": 3,
+   "file": "s003.png",
+   "dt": 312.5,
+   "cube": "rotateX(223.825deg) rotateY(0.621736turn) rotateZ(223.825deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.79489px)",
+   "bobRect": [
+    844.77,
+    341.97
+   ]
+  },
+  {
+   "i": 4,
+   "file": "s004.png",
+   "dt": 416.7,
+   "cube": "rotateX(236.106deg) rotateY(0.655849turn) rotateZ(236.106deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.65325px)",
+   "bobRect": [
+    844.78,
+    341.84
+   ]
+  },
+  {
+   "i": 5,
+   "file": "s005.png",
+   "dt": 520.8,
+   "cube": "rotateX(248.03deg) rotateY(0.688972turn) rotateZ(248.03deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.47317px)",
+   "bobRect": [
+    844.79,
+    341.67
+   ]
+  },
+  {
+   "i": 6,
+   "file": "s006.png",
+   "dt": 625,
+   "cube": "rotateX(259.532deg) rotateY(0.720921turn) rotateZ(259.532deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.25505px)",
+   "bobRect": [
+    844.81,
+    341.47
+   ]
+  },
+  {
+   "i": 7,
+   "file": "s007.png",
+   "dt": 729.2,
+   "cube": "rotateX(270.551deg) rotateY(0.751532turn) rotateZ(270.551deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.00047px)",
+   "bobRect": [
+    844.83,
+    341.23
+   ]
+  },
+  {
+   "i": 8,
+   "file": "s008.png",
+   "dt": 833.3,
+   "cube": "rotateX(281.037deg) rotateY(0.780659turn) rotateZ(281.037deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.71245px)",
+   "bobRect": [
+    844.85,
+    340.96
+   ]
+  },
+  {
+   "i": 9,
+   "file": "s009.png",
+   "dt": 937.5,
+   "cube": "rotateX(290.946deg) rotateY(0.808183turn) rotateZ(290.946deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.39571px)",
+   "bobRect": [
+    844.87,
+    340.67
+   ]
+  },
+  {
+   "i": 10,
+   "file": "s010.png",
+   "dt": 1041.7,
+   "cube": "rotateX(300.24deg) rotateY(0.834001turn) rotateZ(300.24deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.05665px)",
+   "bobRect": [
+    844.89,
+    340.35
+   ]
+  },
+  {
+   "i": 11,
+   "file": "s011.png",
+   "dt": 1145.8,
+   "cube": "rotateX(308.893deg) rotateY(0.858036turn) rotateZ(308.893deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.70322px)",
+   "bobRect": [
+    844.91,
+    340.02
+   ]
+  },
+  {
+   "i": 12,
+   "file": "s012.png",
+   "dt": 1250,
+   "cube": "rotateX(316.882deg) rotateY(0.880227turn) rotateZ(316.882deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.34445px)",
+   "bobRect": [
+    844.94,
+    339.69
+   ]
+  },
+  {
+   "i": 13,
+   "file": "s013.png",
+   "dt": 1354.2,
+   "cube": "rotateX(324.191deg) rotateY(0.900531turn) rotateZ(324.191deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.98977px)",
+   "bobRect": [
+    844.96,
+    339.36
+   ]
+  },
+  {
+   "i": 14,
+   "file": "s014.png",
+   "dt": 1458.3,
+   "cube": "rotateX(330.813deg) rotateY(0.918924turn) rotateZ(330.813deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.64831px)",
+   "bobRect": [
+    844.98,
+    339.04
+   ]
+  },
+  {
+   "i": 15,
+   "file": "s015.png",
+   "dt": 1562.5,
+   "cube": "rotateX(336.741deg) rotateY(0.935392turn) rotateZ(336.741deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.32819px)",
+   "bobRect": [
+    845,
+    338.74
+   ]
+  },
+  {
+   "i": 16,
+   "file": "s016.png",
+   "dt": 1666.7,
+   "cube": "rotateX(341.978deg) rotateY(0.949938turn) rotateZ(341.978deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.03604px)",
+   "bobRect": [
+    845.02,
+    338.47
+   ]
+  },
+  {
+   "i": 17,
+   "file": "s017.png",
+   "dt": 1770.8,
+   "cube": "rotateX(346.525deg) rotateY(0.96257turn) rotateZ(346.525deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.776794px)",
+   "bobRect": [
+    845.04,
+    338.22
+   ]
+  },
+  {
+   "i": 18,
+   "file": "s018.png",
+   "dt": 1875,
+   "cube": "rotateX(350.392deg) rotateY(0.97331turn) rotateZ(350.392deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.553698px)",
+   "bobRect": [
+    845.06,
+    338.02
+   ]
+  },
+  {
+   "i": 19,
+   "file": "s019.png",
+   "dt": 1979.2,
+   "cube": "rotateX(353.586deg) rotateY(0.982184turn) rotateZ(353.586deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.368509px)",
+   "bobRect": [
+    845.07,
+    337.84
+   ]
+  },
+  {
+   "i": 20,
+   "file": "s020.png",
+   "dt": 2083.3,
+   "cube": "rotateX(356.121deg) rotateY(0.989224turn) rotateZ(356.121deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.221766px)",
+   "bobRect": [
+    845.08,
+    337.71
+   ]
+  },
+  {
+   "i": 21,
+   "file": "s021.png",
+   "dt": 2187.5,
+   "cube": "rotateX(358.009deg) rotateY(0.994468turn) rotateZ(358.009deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.113084px)",
+   "bobRect": [
+    845.09,
+    337.61
+   ]
+  },
+  {
+   "i": 22,
+   "file": "s022.png",
+   "dt": 2291.7,
+   "cube": "rotateX(359.265deg) rotateY(0.997958turn) rotateZ(359.265deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0414243px)",
+   "bobRect": [
+    845.09,
+    337.54
+   ]
+  },
+  {
+   "i": 23,
+   "file": "s023.png",
+   "dt": 2395.8,
+   "cube": "rotateX(359.905deg) rotateY(0.999735turn) rotateZ(359.905deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0053216px)",
+   "bobRect": [
+    845.09,
+    337.5
+   ]
+  },
+  {
+   "i": 24,
+   "file": "s024.png",
+   "dt": 2500,
+   "cube": "rotateX(360deg) rotateY(1turn) rotateZ(360deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0px)",
+   "bobRect": [
+    845.09,
+    337.5
+   ]
+  },
+  {
+   "i": 25,
+   "file": "s025.png",
+   "dt": 2604.2,
+   "cube": "rotateX(359.702deg) rotateY(0.999172turn) rotateZ(359.702deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0167096px)",
+   "bobRect": [
+    845.09,
+    337.52
+   ]
+  },
+  {
+   "i": 26,
+   "file": "s026.png",
+   "dt": 2708.3,
+   "cube": "rotateX(358.797deg) rotateY(0.996658turn) rotateZ(358.797deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0680238px)",
+   "bobRect": [
+    845.09,
+    337.56
+   ]
+  },
+  {
+   "i": 27,
+   "file": "s027.png",
+   "dt": 2812.5,
+   "cube": "rotateX(357.269deg) rotateY(0.992413turn) rotateZ(357.269deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.15557px)",
+   "bobRect": [
+    845.08,
+    337.65
+   ]
+  },
+  {
+   "i": 28,
+   "file": "s028.png",
+   "dt": 2916.7,
+   "cube": "rotateX(355.102deg) rotateY(0.986395turn) rotateZ(355.102deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.280654px)",
+   "bobRect": [
+    845.07,
+    337.76
+   ]
+  },
+  {
+   "i": 29,
+   "file": "s029.png",
+   "dt": 3020.8,
+   "cube": "rotateX(352.283deg) rotateY(0.978565turn) rotateZ(352.283deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.444061px)",
+   "bobRect": [
+    845.06,
+    337.91
+   ]
+  },
+  {
+   "i": 30,
+   "file": "s030.png",
+   "dt": 3125,
+   "cube": "rotateX(348.799deg) rotateY(0.968886turn) rotateZ(348.799deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.64581px)",
+   "bobRect": [
+    845.05,
+    338.1
+   ]
+  },
+  {
+   "i": 31,
+   "file": "s031.png",
+   "dt": 3229.2,
+   "cube": "rotateX(344.638deg) rotateY(0.957329turn) rotateZ(344.638deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.884872px)",
+   "bobRect": [
+    845.03,
+    338.33
+   ]
+  },
+  {
+   "i": 32,
+   "file": "s032.png",
+   "dt": 3333.3,
+   "cube": "rotateX(339.793deg) rotateY(0.943869turn) rotateZ(339.793deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.15887px)",
+   "bobRect": [
+    845.02,
+    338.58
+   ]
+  },
+  {
+   "i": 33,
+   "file": "s033.png",
+   "dt": 3437.5,
+   "cube": "rotateX(334.257deg) rotateY(0.928491turn) rotateZ(334.257deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.46385px)",
+   "bobRect": [
+    845,
+    338.87
+   ]
+  },
+  {
+   "i": 34,
+   "file": "s034.png",
+   "dt": 3541.7,
+   "cube": "rotateX(328.028deg) rotateY(0.911188turn) rotateZ(328.028deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.79413px)",
+   "bobRect": [
+    844.97,
+    339.17
+   ]
+  },
+  {
+   "i": 35,
+   "file": "s035.png",
+   "dt": 3645.8,
+   "cube": "rotateX(321.107deg) rotateY(0.891964turn) rotateZ(321.107deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.14239px)",
+   "bobRect": [
+    844.95,
+    339.5
+   ]
+  },
+  {
+   "i": 36,
+   "file": "s036.png",
+   "dt": 3750,
+   "cube": "rotateX(313.502deg) rotateY(0.870838turn) rotateZ(313.502deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.5px)",
+   "bobRect": [
+    844.93,
+    339.83
+   ]
+  },
+  {
+   "i": 37,
+   "file": "s037.png",
+   "dt": 3854.2,
+   "cube": "rotateX(305.223deg) rotateY(0.847842turn) rotateZ(305.223deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.85761px)",
+   "bobRect": [
+    844.9,
+    340.17
+   ]
+  },
+  {
+   "i": 38,
+   "file": "s038.png",
+   "dt": 3958.3,
+   "cube": "rotateX(296.289deg) rotateY(0.823026turn) rotateZ(296.289deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.20587px)",
+   "bobRect": [
+    844.88,
+    340.49
+   ]
+  },
+  {
+   "i": 39,
+   "file": "s039.png",
+   "dt": 4062.5,
+   "cube": "rotateX(286.725deg) rotateY(0.796457turn) rotateZ(286.725deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.53615px)",
+   "bobRect": [
+    844.86,
+    340.8
+   ]
+  },
+  {
+   "i": 40,
+   "file": "s040.png",
+   "dt": 4166.7,
+   "cube": "rotateX(276.561deg) rotateY(0.768225turn) rotateZ(276.561deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.84113px)",
+   "bobRect": [
+    844.84,
+    341.08
+   ]
+  },
+  {
+   "i": 41,
+   "file": "s041.png",
+   "dt": 4270.8,
+   "cube": "rotateX(265.838deg) rotateY(0.738439turn) rotateZ(265.838deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.11513px)",
+   "bobRect": [
+    844.82,
+    341.34
+   ]
+  },
+  {
+   "i": 42,
+   "file": "s042.png",
+   "dt": 4375,
+   "cube": "rotateX(254.603deg) rotateY(0.707229turn) rotateZ(254.603deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.35419px)",
+   "bobRect": [
+    844.8,
+    341.56
+   ]
+  },
+  {
+   "i": 43,
+   "file": "s043.png",
+   "dt": 4479.2,
+   "cube": "rotateX(242.91deg) rotateY(0.67475turn) rotateZ(242.91deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.55594px)",
+   "bobRect": [
+    844.79,
+    341.75
+   ]
+  },
+  {
+   "i": 44,
+   "file": "s044.png",
+   "dt": 4583.3,
+   "cube": "rotateX(230.822deg) rotateY(0.641174turn) rotateZ(230.822deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.71935px)",
+   "bobRect": [
+    844.78,
+    341.9
+   ]
+  },
+  {
+   "i": 45,
+   "file": "s045.png",
+   "dt": 4687.5,
+   "cube": "rotateX(218.41deg) rotateY(0.606694turn) rotateZ(218.41deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.84443px)",
+   "bobRect": [
+    844.77,
+    342.02
+   ]
+  },
+  {
+   "i": 46,
+   "file": "s046.png",
+   "dt": 4791.7,
+   "cube": "rotateX(205.748deg) rotateY(0.571522turn) rotateZ(205.748deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.93198px)",
+   "bobRect": [
+    844.76,
+    342.1
+   ]
+  },
+  {
+   "i": 47,
+   "file": "s047.png",
+   "dt": 4895.8,
+   "cube": "rotateX(192.917deg) rotateY(0.53588turn) rotateZ(192.917deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.98329px)",
+   "bobRect": [
+    844.76,
+    342.15
+   ]
+  },
+  {
+   "i": 48,
+   "file": "s048.png",
+   "dt": 5000,
+   "cube": "rotateX(180deg) rotateY(0.5turn) rotateZ(180deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(5px)",
+   "bobRect": [
+    844.76,
+    342.17
+   ]
+  },
+  {
+   "i": 49,
+   "file": "s049.png",
+   "dt": 5104.2,
+   "cube": "rotateX(167.083deg) rotateY(0.46412turn) rotateZ(167.083deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.98329px)",
+   "bobRect": [
+    844.76,
+    342.15
+   ]
+  },
+  {
+   "i": 50,
+   "file": "s050.png",
+   "dt": 5208.3,
+   "cube": "rotateX(154.252deg) rotateY(0.428478turn) rotateZ(154.252deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.93198px)",
+   "bobRect": [
+    844.76,
+    342.1
+   ]
+  },
+  {
+   "i": 51,
+   "file": "s051.png",
+   "dt": 5312.5,
+   "cube": "rotateX(141.59deg) rotateY(0.393306turn) rotateZ(141.59deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.84443px)",
+   "bobRect": [
+    844.77,
+    342.02
+   ]
+  },
+  {
+   "i": 52,
+   "file": "s052.png",
+   "dt": 5416.7,
+   "cube": "rotateX(129.178deg) rotateY(0.358826turn) rotateZ(129.178deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.71935px)",
+   "bobRect": [
+    844.78,
+    341.9
+   ]
+  },
+  {
+   "i": 53,
+   "file": "s053.png",
+   "dt": 5520.8,
+   "cube": "rotateX(117.09deg) rotateY(0.32525turn) rotateZ(117.09deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.55594px)",
+   "bobRect": [
+    844.79,
+    341.75
+   ]
+  },
+  {
+   "i": 54,
+   "file": "s054.png",
+   "dt": 5625,
+   "cube": "rotateX(105.397deg) rotateY(0.292771turn) rotateZ(105.397deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.35419px)",
+   "bobRect": [
+    844.8,
+    341.56
+   ]
+  },
+  {
+   "i": 55,
+   "file": "s055.png",
+   "dt": 5729.2,
+   "cube": "rotateX(94.162deg) rotateY(0.261561turn) rotateZ(94.162deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.11513px)",
+   "bobRect": [
+    844.82,
+    341.34
+   ]
+  },
+  {
+   "i": 56,
+   "file": "s056.png",
+   "dt": 5833.3,
+   "cube": "rotateX(83.4389deg) rotateY(0.231775turn) rotateZ(83.4389deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.84113px)",
+   "bobRect": [
+    844.84,
+    341.08
+   ]
+  },
+  {
+   "i": 57,
+   "file": "s057.png",
+   "dt": 5937.5,
+   "cube": "rotateX(73.2754deg) rotateY(0.203543turn) rotateZ(73.2754deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.53615px)",
+   "bobRect": [
+    844.86,
+    340.8
+   ]
+  },
+  {
+   "i": 58,
+   "file": "s058.png",
+   "dt": 6041.7,
+   "cube": "rotateX(63.7108deg) rotateY(0.176974turn) rotateZ(63.7108deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.20587px)",
+   "bobRect": [
+    844.88,
+    340.49
+   ]
+  },
+  {
+   "i": 59,
+   "file": "s059.png",
+   "dt": 6145.8,
+   "cube": "rotateX(54.7769deg) rotateY(0.152158turn) rotateZ(54.7769deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.85761px)",
+   "bobRect": [
+    844.9,
+    340.17
+   ]
+  },
+  {
+   "i": 60,
+   "file": "s060.png",
+   "dt": 6250,
+   "cube": "rotateX(46.4983deg) rotateY(0.129162turn) rotateZ(46.4983deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.5px)",
+   "bobRect": [
+    844.93,
+    339.83
+   ]
+  },
+  {
+   "i": 61,
+   "file": "s061.png",
+   "dt": 6354.2,
+   "cube": "rotateX(38.8929deg) rotateY(0.108036turn) rotateZ(38.8929deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.14239px)",
+   "bobRect": [
+    844.95,
+    339.5
+   ]
+  },
+  {
+   "i": 62,
+   "file": "s062.png",
+   "dt": 6458.3,
+   "cube": "rotateX(31.9724deg) rotateY(0.0888122turn) rotateZ(31.9724deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.79413px)",
+   "bobRect": [
+    844.97,
+    339.17
+   ]
+  },
+  {
+   "i": 63,
+   "file": "s063.png",
+   "dt": 6562.5,
+   "cube": "rotateX(25.7432deg) rotateY(0.071509turn) rotateZ(25.7432deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.46385px)",
+   "bobRect": [
+    845,
+    338.87
+   ]
+  },
+  {
+   "i": 64,
+   "file": "s064.png",
+   "dt": 6666.7,
+   "cube": "rotateX(20.2071deg) rotateY(0.0561308turn) rotateZ(20.2071deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.15887px)",
+   "bobRect": [
+    845.02,
+    338.58
+   ]
+  },
+  {
+   "i": 65,
+   "file": "s065.png",
+   "dt": 6770.8,
+   "cube": "rotateX(15.3616deg) rotateY(0.0426712turn) rotateZ(15.3616deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.884872px)",
+   "bobRect": [
+    845.03,
+    338.33
+   ]
+  },
+  {
+   "i": 66,
+   "file": "s066.png",
+   "dt": 6875,
+   "cube": "rotateX(11.2011deg) rotateY(0.031114turn) rotateZ(11.2011deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.64581px)",
+   "bobRect": [
+    845.05,
+    338.1
+   ]
+  },
+  {
+   "i": 67,
+   "file": "s067.png",
+   "dt": 6979.2,
+   "cube": "rotateX(7.71672deg) rotateY(0.0214353turn) rotateZ(7.71672deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.444061px)",
+   "bobRect": [
+    845.06,
+    337.91
+   ]
+  },
+  {
+   "i": 68,
+   "file": "s068.png",
+   "dt": 7083.3,
+   "cube": "rotateX(4.89772deg) rotateY(0.0136048turn) rotateZ(4.89772deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.280654px)",
+   "bobRect": [
+    845.07,
+    337.76
+   ]
+  },
+  {
+   "i": 69,
+   "file": "s069.png",
+   "dt": 7187.5,
+   "cube": "rotateX(2.73123deg) rotateY(0.00758676turn) rotateZ(2.73123deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.15557px)",
+   "bobRect": [
+    845.08,
+    337.65
+   ]
+  },
+  {
+   "i": 70,
+   "file": "s070.png",
+   "dt": 7291.7,
+   "cube": "rotateX(1.20309deg) rotateY(0.00334193turn) rotateZ(1.20309deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0680238px)",
+   "bobRect": [
+    845.09,
+    337.56
+   ]
+  },
+  {
+   "i": 71,
+   "file": "s071.png",
+   "dt": 7395.8,
+   "cube": "rotateX(0.298032deg) rotateY(0.000827867turn) rotateZ(0.298032deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0167096px)",
+   "bobRect": [
+    845.09,
+    337.52
+   ]
+  },
+  {
+   "i": 72,
+   "file": "s072.png",
+   "dt": 7500,
+   "cube": "rotateX(0deg) rotateY(0turn) rotateZ(0deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0px)",
+   "bobRect": [
+    845.09,
+    337.5
+   ]
+  },
+  {
+   "i": 73,
+   "file": "s073.png",
+   "dt": 7604.2,
+   "cube": "rotateX(0.298032deg) rotateY(0.000827867turn) rotateZ(0.298032deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0167096px)",
+   "bobRect": [
+    845.09,
+    337.52
+   ]
+  },
+  {
+   "i": 74,
+   "file": "s074.png",
+   "dt": 7708.3,
+   "cube": "rotateX(1.20309deg) rotateY(0.00334193turn) rotateZ(1.20309deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.0680238px)",
+   "bobRect": [
+    845.09,
+    337.56
+   ]
+  },
+  {
+   "i": 75,
+   "file": "s075.png",
+   "dt": 7812.5,
+   "cube": "rotateX(2.73123deg) rotateY(0.00758676turn) rotateZ(2.73123deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.15557px)",
+   "bobRect": [
+    845.08,
+    337.65
+   ]
+  },
+  {
+   "i": 76,
+   "file": "s076.png",
+   "dt": 7916.7,
+   "cube": "rotateX(4.89772deg) rotateY(0.0136048turn) rotateZ(4.89772deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.280654px)",
+   "bobRect": [
+    845.07,
+    337.76
+   ]
+  },
+  {
+   "i": 77,
+   "file": "s077.png",
+   "dt": 8020.8,
+   "cube": "rotateX(7.71672deg) rotateY(0.0214353turn) rotateZ(7.71672deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.444061px)",
+   "bobRect": [
+    845.06,
+    337.91
+   ]
+  },
+  {
+   "i": 78,
+   "file": "s078.png",
+   "dt": 8125,
+   "cube": "rotateX(11.2011deg) rotateY(0.031114turn) rotateZ(11.2011deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.64581px)",
+   "bobRect": [
+    845.05,
+    338.1
+   ]
+  },
+  {
+   "i": 79,
+   "file": "s079.png",
+   "dt": 8229.2,
+   "cube": "rotateX(15.3616deg) rotateY(0.0426712turn) rotateZ(15.3616deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(0.884872px)",
+   "bobRect": [
+    845.03,
+    338.33
+   ]
+  },
+  {
+   "i": 80,
+   "file": "s080.png",
+   "dt": 8333.3,
+   "cube": "rotateX(20.2071deg) rotateY(0.0561308turn) rotateZ(20.2071deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.15887px)",
+   "bobRect": [
+    845.02,
+    338.58
+   ]
+  },
+  {
+   "i": 81,
+   "file": "s081.png",
+   "dt": 8437.5,
+   "cube": "rotateX(25.7432deg) rotateY(0.071509turn) rotateZ(25.7432deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.46385px)",
+   "bobRect": [
+    845,
+    338.87
+   ]
+  },
+  {
+   "i": 82,
+   "file": "s082.png",
+   "dt": 8541.7,
+   "cube": "rotateX(31.9724deg) rotateY(0.0888122turn) rotateZ(31.9724deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(1.79413px)",
+   "bobRect": [
+    844.97,
+    339.17
+   ]
+  },
+  {
+   "i": 83,
+   "file": "s083.png",
+   "dt": 8645.8,
+   "cube": "rotateX(38.8929deg) rotateY(0.108036turn) rotateZ(38.8929deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.14239px)",
+   "bobRect": [
+    844.95,
+    339.5
+   ]
+  },
+  {
+   "i": 84,
+   "file": "s084.png",
+   "dt": 8750,
+   "cube": "rotateX(46.4983deg) rotateY(0.129162turn) rotateZ(46.4983deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.5px)",
+   "bobRect": [
+    844.93,
+    339.83
+   ]
+  },
+  {
+   "i": 85,
+   "file": "s085.png",
+   "dt": 8854.2,
+   "cube": "rotateX(54.7769deg) rotateY(0.152158turn) rotateZ(54.7769deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(2.85761px)",
+   "bobRect": [
+    844.9,
+    340.17
+   ]
+  },
+  {
+   "i": 86,
+   "file": "s086.png",
+   "dt": 8958.3,
+   "cube": "rotateX(63.7108deg) rotateY(0.176974turn) rotateZ(63.7108deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.20587px)",
+   "bobRect": [
+    844.88,
+    340.49
+   ]
+  },
+  {
+   "i": 87,
+   "file": "s087.png",
+   "dt": 9062.5,
+   "cube": "rotateX(73.2754deg) rotateY(0.203543turn) rotateZ(73.2754deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.53615px)",
+   "bobRect": [
+    844.86,
+    340.8
+   ]
+  },
+  {
+   "i": 88,
+   "file": "s088.png",
+   "dt": 9166.7,
+   "cube": "rotateX(83.4389deg) rotateY(0.231775turn) rotateZ(83.4389deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(3.84113px)",
+   "bobRect": [
+    844.84,
+    341.08
+   ]
+  },
+  {
+   "i": 89,
+   "file": "s089.png",
+   "dt": 9270.8,
+   "cube": "rotateX(94.162deg) rotateY(0.261561turn) rotateZ(94.162deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.11513px)",
+   "bobRect": [
+    844.82,
+    341.34
+   ]
+  },
+  {
+   "i": 90,
+   "file": "s090.png",
+   "dt": 9375,
+   "cube": "rotateX(105.397deg) rotateY(0.292771turn) rotateZ(105.397deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.35419px)",
+   "bobRect": [
+    844.8,
+    341.56
+   ]
+  },
+  {
+   "i": 91,
+   "file": "s091.png",
+   "dt": 9479.2,
+   "cube": "rotateX(117.09deg) rotateY(0.32525turn) rotateZ(117.09deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.55594px)",
+   "bobRect": [
+    844.79,
+    341.75
+   ]
+  },
+  {
+   "i": 92,
+   "file": "s092.png",
+   "dt": 9583.3,
+   "cube": "rotateX(129.178deg) rotateY(0.358826turn) rotateZ(129.178deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.71935px)",
+   "bobRect": [
+    844.78,
+    341.9
+   ]
+  },
+  {
+   "i": 93,
+   "file": "s093.png",
+   "dt": 9687.5,
+   "cube": "rotateX(141.59deg) rotateY(0.393306turn) rotateZ(141.59deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.84443px)",
+   "bobRect": [
+    844.77,
+    342.02
+   ]
+  },
+  {
+   "i": 94,
+   "file": "s094.png",
+   "dt": 9791.7,
+   "cube": "rotateX(154.252deg) rotateY(0.428478turn) rotateZ(154.252deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.93198px)",
+   "bobRect": [
+    844.76,
+    342.1
+   ]
+  },
+  {
+   "i": 95,
+   "file": "s095.png",
+   "dt": 9895.8,
+   "cube": "rotateX(167.083deg) rotateY(0.46412turn) rotateZ(167.083deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(4.98329px)",
+   "bobRect": [
+    844.76,
+    342.15
+   ]
+  },
+  {
+   "i": 96,
+   "file": "s096.png",
+   "dt": 10000,
+   "cube": "rotateX(180deg) rotateY(0.5turn) rotateZ(180deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+   "bob": "translateY(5px)",
+   "bobRect": [
+    844.76,
+    342.17
+   ]
+  }
+ ]
+}

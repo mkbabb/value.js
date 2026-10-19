@@ -1,0 +1,241 @@
+{
+  "base": "http://localhost:9474 (HEAD 9b05194d1 + this cure, clean worktree)",
+  "at": "2026-10-07T17:09:57.214Z",
+  "rows": [
+    {
+      "name": "V1C-01 'Start a new palette' in the dashed well",
+      "scheme": "light",
+      "ink": "oklab(0.261452 0.00330096 0.00333748)",
+      "ground": "rgb(210,112,129)",
+      "ratio": 4.69
+    },
+    {
+      "name": "V1C-01 search placeholder in the seated field",
+      "scheme": "light",
+      "ink": "oklab(0.261452 0.00330096 0.00333748)",
+      "ground": "rgb(210,119,124)",
+      "ratio": 4.91
+    },
+    {
+      "name": "V1C-01 generate seed line",
+      "scheme": "light",
+      "ink": "oklab(0.261452 0.00330096 0.00333748)",
+      "ground": "rgb(210,66,148)",
+      "ratio": 3.64
+    },
+    {
+      "name": "V1C-07 generate plate header strip",
+      "scheme": "light",
+      "strips": 0,
+      "firstChild": "DIV"
+    },
+    {
+      "name": "V1C-04 FIELD head ink on the console well",
+      "scheme": "light",
+      "ink": "rgb(28, 25, 23)",
+      "ground": "rgb(210,74,144)",
+      "ratio": 4.27
+    },
+    {
+      "name": "V1C-04 head voice",
+      "scheme": "light",
+      "section": {
+        "tag": "H3",
+        "text": "Field",
+        "family": "Fraunces",
+        "weight": "600",
+        "transform": "none",
+        "tracking": "normal"
+      },
+      "field": {
+        "tag": "LABEL",
+        "text": "Harmony",
+        "family": "\"Plus Jakarta Sans\"",
+        "weight": "500",
+        "transform": "none",
+        "tracking": "normal"
+      },
+      "route": {
+        "tag": "H1",
+        "text": "Atmosphere",
+        "family": "Fraunces",
+        "weight": "500",
+        "transform": "none",
+        "tracking": "normal"
+      }
+    },
+    {
+      "name": "V1C-05 aurora select triggers' left edges",
+      "scheme": "light",
+      "x": [
+        324,
+        324,
+        324,
+        324
+      ]
+    },
+    {
+      "name": "V1C-06 config slider range vs track",
+      "scheme": "light",
+      "variant": "scrubber",
+      "rangeWidth": 731,
+      "trackWidth": 962,
+      "rangeTint": "oklch(28.946800213063% 0.003861589952 34.629978305623deg)",
+      "rangeBg": "oklab(0.289468 0.00317747 0.00219444 / 0.88)",
+      "rangeImage": "none",
+      "trackBg": "color(srgb 0.963 0.953467 0.937 / 0.5)"
+    },
+    {
+      "name": "V1C-08 empty k rail height",
+      "scheme": "light",
+      "rail": 12,
+      "kc": 12
+    },
+    {
+      "name": "V1C-02 skeleton cells animating (refused; recorded)",
+      "scheme": "light",
+      "infinite": 5
+    },
+    {
+      "name": "V1C-09 spectrum stamp seat @1440",
+      "scheme": "light",
+      "gapToConsole": 24,
+      "stampBottomBreath": 16,
+      "stampRight": 690,
+      "consoleRight": 690,
+      "cardRight": 711
+    },
+    {
+      "name": "V1C-09 spectrum stamp seat @390",
+      "scheme": "light",
+      "gapToConsole": 24,
+      "stampBottomBreath": 16,
+      "stampRight": 359,
+      "consoleRight": 359,
+      "cardRight": 374
+    },
+    {
+      "name": "V1C-10 dock view trigger --dock-ring",
+      "scheme": "light",
+      "ring": "0 0 0 var(--focus-ring-width) color-mix(in srgb, var(--accent-view) 30%, transparent)"
+    },
+    {
+      "name": "V1C-01 'Start a new palette' in the dashed well",
+      "scheme": "dark",
+      "ink": "oklab(0.793912 0.00266954 0.00376986)",
+      "ground": "rgb(127,30,41)",
+      "ratio": 5.19
+    },
+    {
+      "name": "V1C-01 search placeholder in the seated field",
+      "scheme": "dark",
+      "ink": "oklab(0.793912 0.00266954 0.00376986)",
+      "ground": "rgb(133,29,38)",
+      "ratio": 5
+    },
+    {
+      "name": "V1C-01 generate seed line",
+      "scheme": "dark",
+      "ink": "oklab(0.793912 0.00266954 0.00376986)",
+      "ground": "rgb(103,31,59)",
+      "ratio": 5.99
+    },
+    {
+      "name": "V1C-07 generate plate header strip",
+      "scheme": "dark",
+      "strips": 0,
+      "firstChild": "DIV"
+    },
+    {
+      "name": "V1C-04 FIELD head ink on the console well",
+      "scheme": "dark",
+      "ink": "rgb(233, 230, 226)",
+      "ground": "rgb(108,31,56)",
+      "ratio": 8.93
+    },
+    {
+      "name": "V1C-04 head voice",
+      "scheme": "dark",
+      "section": {
+        "tag": "H3",
+        "text": "Field",
+        "family": "Fraunces",
+        "weight": "600",
+        "transform": "none",
+        "tracking": "normal"
+      },
+      "field": {
+        "tag": "LABEL",
+        "text": "Harmony",
+        "family": "\"Plus Jakarta Sans\"",
+        "weight": "500",
+        "transform": "none",
+        "tracking": "normal"
+      },
+      "route": {
+        "tag": "H1",
+        "text": "Atmosphere",
+        "family": "Fraunces",
+        "weight": "500",
+        "transform": "none",
+        "tracking": "normal"
+      }
+    },
+    {
+      "name": "V1C-05 aurora select triggers' left edges",
+      "scheme": "dark",
+      "x": [
+        324,
+        324,
+        324,
+        324
+      ]
+    },
+    {
+      "name": "V1C-06 config slider range vs track",
+      "scheme": "dark",
+      "variant": "scrubber",
+      "rangeWidth": 731,
+      "trackWidth": 962,
+      "rangeTint": "oklch(71.276294300865% 0.003821851545 41.86844006185deg)",
+      "rangeBg": "oklab(0.712763 0.00284605 0.00255079 / 0.88)",
+      "rangeImage": "none",
+      "trackBg": "color(srgb 0.1232 0.10912 0.0968 / 0.5)"
+    },
+    {
+      "name": "V1C-08 empty k rail height",
+      "scheme": "dark",
+      "rail": 12,
+      "kc": 12
+    },
+    {
+      "name": "V1C-02 skeleton cells animating (refused; recorded)",
+      "scheme": "dark",
+      "infinite": 5
+    },
+    {
+      "name": "V1C-09 spectrum stamp seat @1440",
+      "scheme": "dark",
+      "gapToConsole": 24,
+      "stampBottomBreath": 16,
+      "stampRight": 690,
+      "consoleRight": 690,
+      "cardRight": 711
+    },
+    {
+      "name": "V1C-09 spectrum stamp seat @390",
+      "scheme": "dark",
+      "gapToConsole": 24,
+      "stampBottomBreath": 16,
+      "stampRight": 359,
+      "consoleRight": 359,
+      "cardRight": 374
+    },
+    {
+      "name": "V1C-10 dock view trigger --dock-ring",
+      "scheme": "dark",
+      "ring": "0 0 0 var(--focus-ring-width) color-mix(in srgb, var(--accent-view) 30%, transparent)"
+    }
+  ],
+  "errors": []
+}

@@ -72,9 +72,10 @@ const SWIFTSHADER_LAUNCH = {
     args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
 };
 
+// Default `chrome-headless-shell`, no `channel` — mirrors playwright.config.ts
+// (re-probed 2026-10-16: teardown-clean under these swiftshader args).
 const BASE_USE = {
     browserName: "chromium" as const,
-    channel: "chromium" as const,
     headless: true,
     launchOptions: SWIFTSHADER_LAUNCH,
     // Every cell sets its own viewport; this is only the pre-navigation default.

@@ -1,0 +1,22 @@
+### smoke (cl4c) start 10-16 20:13:05 load1=11.04 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-83decad02
+(node:13591) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:13632) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:13662) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[o12-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=55 frames=55 p50=58.0ms (gate ≤13ms real-GPU)
+  ✓  1 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget (20.7s)
+(node:14258) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[o12-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=59 frames=58 p50=52.8ms (gate ≤13ms real-GPU)
+  ✓  2 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget (12.7s)
+(node:14638) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[o12-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=57 frames=57 p50=57.7ms (gate ≤13ms real-GPU)
+  ✓  3 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget (12.1s)
+
+  3 passed (49.4s)

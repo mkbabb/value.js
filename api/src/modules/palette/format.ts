@@ -24,8 +24,18 @@ export interface FormattedPalette {
     tags: string[];
     voteCount: number;
     userSlug: string | null;
-    /** I.W1 canonical visibility: `public`/`unlisted`/`private`. */
+    /** Canonical visibility, 2-state since X-W3 · G-15 (D9): `public`/`private`.
+     * What the OWNER asked for — never the moderation clock. */
     visibility: Palette["visibility"];
+    // X-W3 · G-15 — `moderation` (D9) is deliberately NOT on this envelope.
+    // The clock is a first-class field of `Palette` and is composed by the read
+    // predicate, but no shipped client reads it, and L-19 governs here exactly
+    // as it governs the diff class: a surface with no named consumer is not
+    // built. Emitting it would also widen the CRUD-CONTRACT v2 envelope whose
+    // key set `api/test/conformance/crud.test.ts` pins — a contract change,
+    // owed to the wave that owns that contract and that file, neither of which
+    // is X-W3. Withdrawal is already OBSERVABLE without it: a withdrawn row
+    // answers `404` to everyone but its owner.
     /** I.W1 canonical curation tier: `standard`/`featured`/`archived`. */
     tier: Palette["tier"];
     /** I.W2 soft-delete timestamp; null means live. */
@@ -35,6 +45,15 @@ export interface FormattedPalette {
     currentHash: string | null;
     forkOf: string | null;
     forkOfHash: string | null;
+    /**
+     * X-W3 · G-14 — the viewer-filtered count of this palette's live children,
+     * computed at format time from the same filtered join the fork list pages
+     * over. It is NOT `palettes.forkCount`: that stored counter is maintained
+     * by blind `$inc`/`$dec`, counts children the viewer may not see, and is
+     * documented APPROXIMATE (`repository/palette.ts`) — it survives only as
+     * the `most-forked` sort key. Publishing it here made the envelope disclose
+     * the existence of private children the fork list correctly refuses to name.
+     */
     forkCount: number;
     versionCount: number;
     /** J.W1c derived convenience: true ⟺ visibility === "public". NEVER a
@@ -48,18 +67,35 @@ export interface FormattedPalette {
 }
 
 /**
+ * The read-time facts the envelope carries that the DOCUMENT does not hold —
+ * X-W3 · G-14.
+ *
+ * `forkCount` is REQUIRED, deliberately and with no default: an optional one
+ * would fall back to the stored approximation at every call site that forgot
+ * it, which is precisely the gate's defect wearing a nicer signature. Every
+ * caller states which viewer's count it is publishing, so the question "whose
+ * count is this?" always has an answer at the call site.
+ */
+export interface FormatPaletteContext {
+    /** The viewer-filtered live child count — see `FormattedPalette.forkCount`. */
+    forkCount: number;
+    /** paletteSlugs the current user has voted on; omitted ⇒ `voted` is undefined. */
+    votedSlugs?: Set<string> | undefined;
+}
+
+/**
  * Format a palette document for API response.
  *
  * @param doc - the Palette document (with the driver-supplied `_id`) as returned
  *   by the repository read boundary (`WithId<Palette>`).
- * @param votedSlugs - optional set of paletteSlugs the current user has voted on;
- *   when supplied, `voted` is set to true/false; when omitted, `voted` is undefined.
+ * @param ctx - the read-time facts the document does not carry.
  */
 export function formatPalette(
     doc: WithId<Palette>,
-    votedSlugs?: Set<string>,
+    ctx: FormatPaletteContext,
 ): FormattedPalette {
     const { _id, ...rest } = doc;
+    const { forkCount, votedSlugs } = ctx;
 
     // Lane D F1: every field below is guaranteed-present by the
     // `assertMigrationsApplied` smoke probe at startup. The previous `??`
@@ -71,7 +107,8 @@ export function formatPalette(
         colors: rest.colors,
         tags: rest.tags,
         versionCount: rest.versionCount,
-        forkCount: rest.forkCount,
+        // X-W3 · G-14: the computed count, never `rest.forkCount`.
+        forkCount,
         forkOf: rest.forkOf,
         forkOfHash: rest.forkOfHash,
         currentHash: rest.currentHash,

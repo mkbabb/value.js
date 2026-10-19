@@ -1,0 +1,30 @@
+{
+ "tag": "t1024",
+ "theme": "dark",
+ "W": 1024,
+ "H": 768,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T14:52:25.462Z",
+ "arms": {
+  "L2-6": {
+   "/": [
+    "Reset color:44x44",
+    "Copy color:48.4x48.4",
+    "Random color:44x44",
+    "Palettes:44x44",
+    "Extract palette:44x44"
+   ],
+   "/generate": [
+    "Regenerate:48.4x48.4",
+    "Save palette:44x44",
+    "Copy colors:44x44"
+   ],
+   "/gradient": [
+    "Reset:48.4x48.4",
+    "Copy CSS:44x44",
+    "Seed from palette:44x44"
+   ],
+   "pass": true
+  }
+ }
+}

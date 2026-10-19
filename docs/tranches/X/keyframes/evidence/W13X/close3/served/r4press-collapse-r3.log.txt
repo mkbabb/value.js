@@ -1,0 +1,4 @@
+# 20:29:00 load: { 15.71 15.72 17.26 } base=http://localhost:5398/ kf=c761d639
+{"mode":"collapse","paused":["Play animation"],"collapsed":["glass-dock horizontal shape-pill collapsed fit-content","glass-dock horizontal shape-pill collapsed fit-content"],"after800":["Pause animation"],"after2300":["Pause animation"],"log":["63:pointerdown>svg#1 btn=BUTTON#2:Play animation","125:attr aria-label=null on DIV#3","157:pointerup>BUTTON#4 btn=BUTTON#4:Channel to edit","158:removed s
+EXIT=0
+# end 20:29:21 load: { 15.42 15.67 17.21 }

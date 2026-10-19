@@ -1,0 +1,361 @@
+{
+  "base": "http://localhost:9000",
+  "at": "2026-10-08T16:13:22.683Z",
+  "rows": [
+    {
+      "name": "V2C-01 My Palettes companion (browse)",
+      "scheme": "light",
+      "cardH": 362,
+      "scrollH": 416,
+      "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+      "feather": "1.5rem",
+      "messageBottomBelowCardTop": 336,
+      "featherStartBelowCardTop": 338,
+      "wellBorder": "solid 1px"
+    },
+    {
+      "name": "V2C-01 My Palettes companion (generate)",
+      "scheme": "light",
+      "cardH": 405,
+      "messageBottomBelowCardTop": 336
+    },
+    {
+      "0": {
+        "name": "Colors",
+        "value": "5",
+        "nameLeft": 224,
+        "valueRight": 686,
+        "trackLeft": 224,
+        "trackRight": 686,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "name": "V2C-02 generate count row",
+      "scheme": "light"
+    },
+    {
+      "0": {
+        "name": "Colors",
+        "value": "5",
+        "nameLeft": 224,
+        "valueRight": 686,
+        "trackLeft": 224,
+        "trackRight": 686,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "1": {
+        "name": "Chroma weight",
+        "value": "0.5",
+        "nameLeft": 341,
+        "valueRight": 617,
+        "trackLeft": 341,
+        "trackRight": 617,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "name": "V2C-02 extract K and kC rows",
+      "scheme": "light"
+    },
+    {
+      "name": "V2C-03 extract sliders with no image",
+      "scheme": "light",
+      "disabled": [
+        false,
+        false
+      ],
+      "railOpacity": "1"
+    },
+    {
+      "name": "V2C-14 'Upload image' voice",
+      "scheme": "light",
+      "family": "Fraunces",
+      "size": "16.4px"
+    },
+    {
+      "0": {
+        "name": "Color Energy",
+        "value": "0.76",
+        "nameLeft": 239,
+        "valueRight": 1201,
+        "trackLeft": 239,
+        "trackRight": 1201,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "1": {
+        "name": "Noise",
+        "value": "0.50",
+        "nameLeft": 239,
+        "valueRight": 1201,
+        "trackLeft": 239,
+        "trackRight": 1201,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "2": {
+        "name": "Zones",
+        "value": "6",
+        "nameLeft": 239,
+        "valueRight": 1201,
+        "trackLeft": 239,
+        "trackRight": 1201,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "name": "V2C-02/09 atmosphere config rows",
+      "scheme": "light"
+    },
+    {
+      "name": "V2C-12 aurora triggers",
+      "scheme": "light",
+      "widths": [
+        320,
+        320,
+        320,
+        320
+      ],
+      "lefts": [
+        324,
+        324,
+        324,
+        324
+      ]
+    },
+    {
+      "0": {
+        "name": "Direction",
+        "value": "90°",
+        "nameLeft": 224,
+        "valueRight": 578,
+        "trackLeft": 224,
+        "trackRight": 578,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(28.946800213063% 0.003861589952 34.629978305623deg), oklch(0.304"
+      },
+      "name": "V2C-02/06 gradient Direction row",
+      "scheme": "light"
+    },
+    {
+      "name": "V2C-06 Direction readout ink",
+      "scheme": "light",
+      "classes": "text-mono-small plate-ink tabular-nums",
+      "color": "oklch(0.289468 0.00386159 34.63)"
+    },
+    {
+      "0": {
+        "text": "1 → 2",
+        "color": "rgb(112, 89, 66)"
+      },
+      "1": {
+        "text": "linear",
+        "color": "rgb(28, 25, 23)"
+      },
+      "name": "V2C-07 easing summary inks",
+      "scheme": "light"
+    },
+    {
+      "name": "V2C-08 CSS output wrapping",
+      "scheme": "light",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "text": "linear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)"
+    },
+    {
+      "name": "V2C-13 Mix selected well edge",
+      "scheme": "light",
+      "border": "solid 1px"
+    },
+    {
+      "name": "V2C-17 About fade feather",
+      "scheme": "light",
+      "feather": "1.5rem",
+      "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)"
+    },
+    {
+      "name": "V2C-01 My Palettes companion (browse)",
+      "scheme": "dark",
+      "cardH": 362,
+      "scrollH": 416,
+      "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)",
+      "feather": "1.5rem",
+      "messageBottomBelowCardTop": 336,
+      "featherStartBelowCardTop": 338,
+      "wellBorder": "solid 1px"
+    },
+    {
+      "name": "V2C-01 My Palettes companion (generate)",
+      "scheme": "dark",
+      "cardH": 405,
+      "messageBottomBelowCardTop": 336
+    },
+    {
+      "0": {
+        "name": "Colors",
+        "value": "5",
+        "nameLeft": 224,
+        "valueRight": 686,
+        "trackLeft": 224,
+        "trackRight": 686,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "name": "V2C-02 generate count row",
+      "scheme": "dark"
+    },
+    {
+      "0": {
+        "name": "Colors",
+        "value": "5",
+        "nameLeft": 224,
+        "valueRight": 686,
+        "trackLeft": 224,
+        "trackRight": 686,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "1": {
+        "name": "Chroma weight",
+        "value": "0.5",
+        "nameLeft": 341,
+        "valueRight": 617,
+        "trackLeft": 341,
+        "trackRight": 617,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "name": "V2C-02 extract K and kC rows",
+      "scheme": "dark"
+    },
+    {
+      "name": "V2C-03 extract sliders with no image",
+      "scheme": "dark",
+      "disabled": [
+        false,
+        false
+      ],
+      "railOpacity": "1"
+    },
+    {
+      "name": "V2C-14 'Upload image' voice",
+      "scheme": "dark",
+      "family": "Fraunces",
+      "size": "16.4px"
+    },
+    {
+      "0": {
+        "name": "Color Energy",
+        "value": "0.76",
+        "nameLeft": 239,
+        "valueRight": 1201,
+        "trackLeft": 239,
+        "trackRight": 1201,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "1": {
+        "name": "Noise",
+        "value": "0.50",
+        "nameLeft": 239,
+        "valueRight": 1201,
+        "trackLeft": 239,
+        "trackRight": 1201,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "2": {
+        "name": "Zones",
+        "value": "6",
+        "nameLeft": 239,
+        "valueRight": 1201,
+        "trackLeft": 239,
+        "trackRight": 1201,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "name": "V2C-02/09 atmosphere config rows",
+      "scheme": "dark"
+    },
+    {
+      "name": "V2C-12 aurora triggers",
+      "scheme": "dark",
+      "widths": [
+        320,
+        320,
+        320,
+        320
+      ],
+      "lefts": [
+        324,
+        324,
+        324,
+        324
+      ]
+    },
+    {
+      "0": {
+        "name": "Direction",
+        "value": "90°",
+        "nameLeft": 224,
+        "valueRight": 578,
+        "trackLeft": 224,
+        "trackRight": 578,
+        "valueAboveTrack": true,
+        "valueTabular": "tabular-nums",
+        "rangeTint": "color-mix(in oklab, oklch(71.276294300865% 0.003821851545 41.86844006185deg), oklch(0.9583"
+      },
+      "name": "V2C-02/06 gradient Direction row",
+      "scheme": "dark"
+    },
+    {
+      "name": "V2C-06 Direction readout ink",
+      "scheme": "dark",
+      "classes": "text-mono-small plate-ink tabular-nums",
+      "color": "oklch(0.712763 0.00382185 41.8684)"
+    },
+    {
+      "0": {
+        "text": "1 → 2",
+        "color": "rgb(195, 185, 172)"
+      },
+      "1": {
+        "text": "linear",
+        "color": "rgb(233, 230, 226)"
+      },
+      "name": "V2C-07 easing summary inks",
+      "scheme": "dark"
+    },
+    {
+      "name": "V2C-08 CSS output wrapping",
+      "scheme": "dark",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "text": "linear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)"
+    },
+    {
+      "name": "V2C-13 Mix selected well edge",
+      "scheme": "dark",
+      "border": "solid 1px"
+    },
+    {
+      "name": "V2C-17 About fade feather",
+      "scheme": "dark",
+      "feather": "1.5rem",
+      "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 24px), rgba(0, 0, 0, 0) 100%)"
+    }
+  ],
+  "errors": []
+}

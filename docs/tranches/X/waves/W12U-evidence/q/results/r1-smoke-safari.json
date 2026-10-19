@@ -1,0 +1,473 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/safari/dual-webgl-atmosphere.spec.ts",
+      "file": "smoke/safari/dual-webgl-atmosphere.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "S.W6-5 WebKit atmosphere + hero",
+          "file": "smoke/safari/dual-webgl-atmosphere.spec.ts",
+          "line": 85,
+          "column": 6,
+          "specs": [
+            {
+              "title": "aurora paints on WebKit (L1 shader cure re-verify)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-safari",
+                  "projectName": "smoke-safari",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 33140,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts",
+                            "column": 38,
+                            "line": 95
+                          },
+                          "message": "Error: locator.boundingBox: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByTestId('atmosphere-canvas')\u001b[22m\n\n\n  93 |         const atmosphere = page.getByTestId(\"atmosphere-canvas\");\n  94 |         await expect(atmosphere).toBeAttached();\n> 95 |         const box = await atmosphere.boundingBox();\n     |                                      ^\n  96 |         expect(box, \"atmosphere canvas must be laid out\").not.toBeNull();\n  97 |         expect(box!.width).toBeGreaterThan(0);\n  98 |         expect(box!.height).toBeGreaterThan(0);\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:95:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-13T19:46:11.311Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/dual-webgl-atmosphere-S-W6-e687b-t-L1-shader-cure-re-verify--smoke-safari/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "fa0d69eea0b2b4146a9b-3c3041050ee12199dbf7",
+              "file": "smoke/safari/dual-webgl-atmosphere.spec.ts",
+              "line": 86,
+              "column": 5
+            },
+            {
+              "title": "blob centroid stays in wrapper under dual-WebGL2 drive (spazz repro)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "smoke-safari",
+                  "projectName": "smoke-safari",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 31793,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts",
+                            "column": 30,
+                            "line": 170
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n\n\n  168 |         // BOTH GL surfaces live — the dual-WebGL2-contention vehicle.\n  169 |         const canvas = page.getByTestId(\"goo-blob-canvas\").last();\n> 170 |         await expect(canvas).toBeAttached();\n      |                              ^\n  171 |         await expect(page.getByTestId(\"atmosphere-canvas\")).toBeAttached();\n  172 |\n  173 |         // Settle the first blob frame (W3-2 idle-callback defer).\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/dual-webgl-atmosphere.spec.ts:170:30"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-13T19:46:46.566Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/dual-webgl-atmosphere-S-W6-3b43f-l-WebGL2-drive-spazz-repro--smoke-safari/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "fa0d69eea0b2b4146a9b-b00b9d46630e8f374655",
+              "file": "smoke/safari/dual-webgl-atmosphere.spec.ts",
+              "line": 159,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/safari/mix-flow.spec.ts",
+      "file": "smoke/safari/mix-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mix convergence completes on WebKit with zero console errors",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-safari",
+              "projectName": "smoke-safari",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 32164,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts",
+                        "column": 22,
+                        "line": 64
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('combobox', { name: 'Select view' })\u001b[22m\n\u001b[2m    - locator resolved to <button dir=\"ltr\" type=\"button\" role=\"combobox\" data-v-f4747a24=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-required=\"false\" aria-label=\"Select view\" aria-autocomplete=\"none\" aria-controls=\"reka-select-content-v-8\" class=\"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none\">…</button>\u001b[22m\n\n\n   at smoke/fixtures/dock.ts:64\n\n  62 |     const viewSelect = page.getByRole(\"combobox\", { name: \"Select view\" });\n  63 |     await expect(viewSelect).toBeVisible();\n> 64 |     await viewSelect.click();\n     |                      ^\n  65 |\n  66 |     // Assert the listbox actually opened, so a closed-listbox regression\n  67 |     // surfaces HERE with a clear message rather than as a downstream\n    at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/mix-flow.spec.ts:25:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:47:19.914Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/mix-flow-mix-convergence-c-cbdf7-it-with-zero-console-errors-smoke-safari/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/mix-flow-mix-convergence-c-cbdf7-it-with-zero-console-errors-smoke-safari/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ff99dc39ca2f69c7d5c4-7727f7b6030a7f4b05d8",
+          "file": "smoke/safari/mix-flow.spec.ts",
+          "line": 19,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/safari/sustained-30s.spec.ts",
+      "file": "smoke/safari/sustained-30s.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zero console failures",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-safari",
+              "projectName": "smoke-safari",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 33101,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/sustained-30s.spec.ts:123:62",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari/sustained-30s.spec.ts",
+                      "column": 62,
+                      "line": 123
+                    },
+                    "snippet": "  121 |     // `webglcontextlost` listener will fire and the final assertion will\n  122 |     // catch it — that's a real finding, not a spec bug.\n> 123 |     await expect(page.getByTestId(\"goo-blob-canvas\").last()).toBeAttached();\n      |                                                              ^\n  124 |\n  125 |     // ── Step 2: 10s spectrum-drive (exercises the recursion-guard path) ─\n  126 |     // The spectrum canvas is the HSV picker that emits a fresh"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari/sustained-30s.spec.ts",
+                        "column": 62,
+                        "line": 123
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeAttached\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('goo-blob-canvas').last()\nExpected: attached\nTimeout: 8000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeAttached\" with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('goo-blob-canvas').last()\u001b[22m\n\n\n  121 |     // `webglcontextlost` listener will fire and the final assertion will\n  122 |     // catch it — that's a real finding, not a spec bug.\n> 123 |     await expect(page.getByTestId(\"goo-blob-canvas\").last()).toBeAttached();\n      |                                                              ^\n  124 |\n  125 |     // ── Step 2: 10s spectrum-drive (exercises the recursion-guard path) ─\n  126 |     // The spectrum canvas is the HSV picker that emits a fresh\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/safari/sustained-30s.spec.ts:123:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:47:53.906Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/sustained-30s-iOS-Safari-s-dfa30-ender-zero-console-failures-smoke-safari/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-safari/sustained-30s-iOS-Safari-s-dfa30-ender-zero-console-failures-smoke-safari/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari/sustained-30s.spec.ts",
+                    "column": 62,
+                    "line": 123
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7f4e273fe53144967ba8-5894a4b87c81758a5f99",
+          "file": "smoke/safari/sustained-30s.spec.ts",
+          "line": 81,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T19:46:09.999Z",
+    "duration": 137768.01,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

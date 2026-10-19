@@ -1,0 +1,38 @@
+# parseCssColor.bbnf.cpuprofile — 5288 ms sampled (idle excluded)
+## by layer
+ 50.6% parse-that core
+ 17.1% value.js actions (src/css/bbnf)
+ 15.6% regex engine (irregexp code)
+  5.1% value.js stylesheet/css layer
+  4.6% bbnf-lang output
+  2.1% GC
+  1.8% value.js colour/value model
+  1.6% V8 (program: runtime/regex/IC)
+  0.0% bundle other
+  1.6% node/harness JS (loader, script)
+## top 25 self
+  8.0% regexParser · parse-that/dist/parse.js:621   [parse-that core]
+  7.8% (anon) · parse-that/dist/parse.js:13   [parse-that core]
+  5.9% map · parse-that/dist/parse.js:833   [parse-that core]
+  5.3% next · parse-that/dist/parse.js:885   [parse-that core]
+  4.8% allParser · parse-that/dist/parse.js:560   [parse-that core]
+  4.5% mergeErrorState · parse-that/dist/parse.js:52   [parse-that core]
+  4.2% failure · src/css/result.ts:27   [value.js stylesheet/css layer]
+  3.9% tokenQuantity · src/css/bbnf/math.ts:38   [value.js actions (src/css/bbnf)]
+  3.7% regexSpanParser · parse-that/dist/parse.js:1336   [parse-that core]
+  3.6% anyParser · parse-that/dist/parse.js:501   [parse-that core]
+  2.5% reset · parse-that/dist/parse.js:694   [parse-that core]
+  2.3% dispatchParser · bbnf-lang/dist/bbnf.js:2306   [bbnf-lang output]
+  2.1% (garbage collector) ·    [GC]
+  2.0% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?% ·    [regex engine (irregexp code)]
+  1.8% wrapParser · parse-that/dist/parse.js:1051   [parse-that core]
+  1.6% (program) ·    [V8 (program: runtime/regex/IC)]
+  1.6% quantity · src/css/bbnf/math.ts:23   [value.js actions (src/css/bbnf)]
+  1.5% dispatchParser · bbnf-lang/dist/bbnf.js:2281   [bbnf-lang output]
+  1.5% RegExp: [+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\]) ·    [regex engine (irregexp code)]
+  1.4% keywordColor · src/css/bbnf/color.ts:133   [value.js actions (src/css/bbnf)]
+  1.3% RegExp: ^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$ ·    [regex engine (irregexp code)]
+  1.1% walk · src/css/bbnf/color.ts:169   [value.js actions (src/css/bbnf)]
+  1.1% createColor · src/color/model.ts:78   [value.js colour/value model]
+  1.0% readChannel · src/css/bbnf/color.ts:68   [value.js actions (src/css/bbnf)]
+  1.0% build · src/css/bbnf/color.ts:107   [value.js actions (src/css/bbnf)]

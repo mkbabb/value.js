@@ -1,0 +1,113 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 77 tests using 1 worker
+
+[1/77] [chromium] › e2e/f-w13-image-controls.spec.ts:78:5 › G-b — F.W13 image-mode controls act (frame 3) › at rest the drop target opens the picker by key; with an image the Image layer discloses
+[2/77] [chromium] › e2e/f-w13-image-controls.spec.ts:102:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: every sidebar control acts and every icon-only command is a circle
+[3/77] [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback
+[4/77] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[5/77] [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter
+[6/77] [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why
+[7/77] [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing
+[8/77] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[9/77] [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage
+[10/77] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[11/77] [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box
+[12/77] [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading
+[13/77] [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in
+[14/77] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[15/77] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[16/77] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[17/77] [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view
+[18/77] [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan
+[19/77] [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue
+[20/77] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[21/77] [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp
+[22/77] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1440x900 light beside gap=13.0 gutter=216,215,213 ground=233,232,231 delta=-17,-17,-18 spread=1 chroma=3/2 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[23/77] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1024x768 light beside gap=13.0 gutter=216,215,214 ground=233,232,231 delta=-17,-17,-17 spread=0 chroma=2/2 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[24/77] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1440x900 dark beside gap=13.0 gutter=30,28,28 ground=21,19,18 delta=9,9,10 spread=1 chroma=2/3 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[25/77] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground
+[chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground
+[f-w14v gutter] 1024x768 dark beside gap=13.0 gutter=29,28,27 ground=21,19,18 delta=8,9,9 spread=1 chroma=2/3 shellBg=rgba(0, 0, 0, 0) gridBg=rgba(0, 0, 0, 0) o77Clipped=none
+
+[26/77] [chromium] › e2e/f-w14v-detached.spec.ts:153:5 › db · O-68 — each layer's reset is inline in its header › the reset sits on the header row, resets without toggling, and no body reset remains
+[27/77] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (1440)
+[28/77] [chromium] › e2e/f-w14v-u4.spec.ts:109:9 › X.F.W14V.u4 — the stage surface and its readouts › u68 · UIA-F-68 ⊕ F-168 — no cartoon-card stamp inside the stage (390)
+[29/77] [chromium] › e2e/f-w14v-u4.spec.ts:130:5 › X.F.W14V.u4 — the stage surface and its readouts › u170 · UIA-F-170 — the legend and the Harmonics readout agree
+[30/77] [chromium] › e2e/f-w14v-u4.spec.ts:150:5 › X.F.W14V.u4 — the stage surface and its readouts › u74 · UIA-F-74 — at 390 a finished upload shows the canvas
+[31/77] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (1440)
+[32/77] [chromium] › e2e/f-w14v-u4.spec.ts:164:9 › X.F.W14V.u4 — the stage surface and its readouts › u71 · UIA-F-71 — the first upload shows one busy mark, in view (390)
+[33/77] [chromium] › e2e/f-w14v-u4.spec.ts:175:5 › X.F.W14V.u4 — the stage surface and its readouts › u146 · UIA-F-146 — no tooltip on a non-focusable target; no Tooltip as a TransitionGroup child
+[34/77] [chromium] › e2e/f-w14v-u4.spec.ts:194:5 › X.F.W14V.u4 — the stage surface and its readouts › u172 · UIA-F-172 (non-colour limb) — the magnet's state reads in text
+[35/77] [chromium] › e2e/f-w14v-u4.spec.ts:225:5 › X.F.W14V.u4 — the stage surface and its readouts › u238 · UIA-F-238 — reserved compute row, role=status, the tab strip, the header reset, no orphan
+[36/77] [chromium] › e2e/f-w14v-u4.spec.ts:268:5 › X.F.W14V.u4 — the stage surface and its readouts › u239 · UIA-F-239 — no local GlassTimeline; the caret is glass's floating plate
+[37/77] [chromium] › e2e/f-w14v-u4.spec.ts:294:5 › X.F.W14V.u4 — the stage surface and its readouts › u239b · UIA-F-239 — at 390 the legend is clear of the expanded dock
+[38/77] [chromium] › e2e/settings-persistence.spec.ts:63:5 › Settings persistence across reload (asset arch) › harmonics setting persists to the IndexedDB draft and restores on reload
+[39/77] [chromium] › e2e/settings-persistence.spec.ts:101:5 › Settings persistence across reload (asset arch) › sample points setting persists to the IndexedDB draft and restores on reload
+[40/77] [chromium] › e2e/slider-scrub-contrast.spec.ts:139:9 › X·F F.W3 — g2 contrast leg (MPC-10) › every scrub fill clears its floor against its own track — light arm
+[41/77] [chromium] › e2e/slider-scrub-contrast.spec.ts:139:9 › X·F F.W3 — g2 contrast leg (MPC-10) › every scrub fill clears its floor against its own track — dark arm
+[42/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 375x667
+[43/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 375x667
+[44/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 375x667
+[45/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 375x667
+[46/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 375x667
+[47/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 375x667
+[48/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 375x667
+[49/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1280x800
+[50/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1280x800
+[51/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1280x800
+[52/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1280x800
+[53/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1280x800
+[54/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1280x800
+[55/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1280x800
+[56/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] home @ 1440x900
+[57/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] paper @ 1440x900
+[58/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] gallery @ 1440x900
+[59/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] equation @ 1440x900
+[60/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] morph @ 1440x900
+[61/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] shape-extractor @ 1440x900
+[62/77] [chromium] › e2e/visual-baseline.spec.ts:58:9 › π capture [before] workspace @ 1440x900
+[63/77] [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap
+[64/77] [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached
+[65/77] [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened
+[66/77] [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry
+[67/77] [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it
+[68/77] [chromium] › e2e/visualization-ux.spec.ts:115:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: workspace default has no serious/critical a11y violations
+[69/77] [chromium] › e2e/visualization-ux.spec.ts:128:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ContourSettings Configurator-open is a11y-clean
+[70/77] [chromium] › e2e/visualization-ux.spec.ts:145:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: ExportModal Dialog-open is a11y-clean
+[71/77] [chromium] › e2e/visualization-ux.spec.ts:181:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: AnimationControls dropdown-open is a11y-clean
+[72/77] [chromium] › e2e/visualization-ux.spec.ts:218:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /equation is a11y-clean
+[73/77] [chromium] › e2e/visualization-ux.spec.ts:272:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /paper is a11y-clean
+[74/77] [chromium] › e2e/visualization-ux.spec.ts:284:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /morph is a11y-clean
+[75/77] [chromium] › e2e/visualization-ux.spec.ts:300:5 › B.W2 — visualization UX coherence (a11y keystones) › keystone: /demo/shape-extractor is a11y-clean
+[76/77] [chromium] › e2e/visualization-ux.spec.ts:332:5 › B.W2 — visualization UX coherence (a11y keystones) › save_contour_then_recompute: the saved contour is recomputed in one pass, the canvas keeps its render
+[77/77] [mobile-chromium] › e2e/visual-checkpoint.spec.ts:199:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › @coarse item 4 — the tooltip re-proportion, taken under the coarse project
+  77 passed (2.7m)

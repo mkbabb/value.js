@@ -1,0 +1,217 @@
+{
+  "schema": "x-w2.eager-bytes/1",
+  "tool": "scripts/perf/eager-bytes.mjs",
+  "generatedAt": "2026-10-16T22:37:51.804Z",
+  "dist": "dist/gh-pages",
+  "method": "zlib.gzipSync (default level) over the emitted files ON DISK; <noscript> stripped before collection (F-3); NEVER PerformanceResourceTiming.transferSize (W2.md §ENV — serve-built.mjs sends no Content-Encoding).",
+  "indexHtml": {
+    "path": "index.html",
+    "raw": 16448,
+    "gz": 5890,
+    "noscriptBlocksStripped": 1
+  },
+  "eagerJs": {
+    "count": 22,
+    "raw": 1093927,
+    "gz": 340516,
+    "files": [
+      {
+        "href": "./assets/index-DJUzfcER.js",
+        "role": "entry-module",
+        "path": "assets/index-DJUzfcER.js",
+        "raw": 568703,
+        "gz": 182430
+      },
+      {
+        "href": "./assets/rolldown-runtime-QTnfLwEv.js",
+        "role": "modulepreload",
+        "path": "assets/rolldown-runtime-QTnfLwEv.js",
+        "raw": 694,
+        "gz": 423
+      },
+      {
+        "href": "./assets/vue.runtime.esm-bundler-CZavfU-W.js",
+        "role": "modulepreload",
+        "path": "assets/vue.runtime.esm-bundler-CZavfU-W.js",
+        "raw": 109858,
+        "gz": 41722
+      },
+      {
+        "href": "./assets/keyframes-BUfwlxCX.js",
+        "role": "modulepreload",
+        "path": "assets/keyframes-BUfwlxCX.js",
+        "raw": 17860,
+        "gz": 6118
+      },
+      {
+        "href": "./assets/css-CgSD0JjG.js",
+        "role": "modulepreload",
+        "path": "assets/css-CgSD0JjG.js",
+        "raw": 165380,
+        "gz": 36386
+      },
+      {
+        "href": "./assets/picker-color---N83eGx.js",
+        "role": "modulepreload",
+        "path": "assets/picker-color---N83eGx.js",
+        "raw": 4335,
+        "gz": 1630
+      },
+      {
+        "href": "./assets/color-model-CNPjkC7M.js",
+        "role": "modulepreload",
+        "path": "assets/color-model-CNPjkC7M.js",
+        "raw": 302,
+        "gz": 234
+      },
+      {
+        "href": "./assets/dist-pmtx1RBP.js",
+        "role": "modulepreload",
+        "path": "assets/dist-pmtx1RBP.js",
+        "raw": 16460,
+        "gz": 6877
+      },
+      {
+        "href": "./assets/createLucideIcon-Dp7_ZpJp.js",
+        "role": "modulepreload",
+        "path": "assets/createLucideIcon-Dp7_ZpJp.js",
+        "raw": 8116,
+        "gz": 3445
+      },
+      {
+        "href": "./assets/participation-Di4UHbzk-CV1UZbc8.js",
+        "role": "modulepreload",
+        "path": "assets/participation-Di4UHbzk-CV1UZbc8.js",
+        "raw": 8331,
+        "gz": 3655
+      },
+      {
+        "href": "./assets/PopperContent-CLF-VhLa.js",
+        "role": "modulepreload",
+        "path": "assets/PopperContent-CLF-VhLa.js",
+        "raw": 34899,
+        "gz": 12715
+      },
+      {
+        "href": "./assets/_plugin-vue_export-helper-B3ysoDQm-D_58GX8-.js",
+        "role": "modulepreload",
+        "path": "assets/_plugin-vue_export-helper-B3ysoDQm-D_58GX8-.js",
+        "raw": 6162,
+        "gz": 2597
+      },
+      {
+        "href": "./assets/fading-scroll-CTeW3KNS-DX72Msgb.js",
+        "role": "modulepreload",
+        "path": "assets/fading-scroll-CTeW3KNS-DX72Msgb.js",
+        "raw": 20294,
+        "gz": 7381
+      },
+      {
+        "href": "./assets/selection-DqIULxRG-DSyWpRL6.js",
+        "role": "modulepreload",
+        "path": "assets/selection-DqIULxRG-DSyWpRL6.js",
+        "raw": 4188,
+        "gz": 1817
+      },
+      {
+        "href": "./assets/Presence-BQz47qla.js",
+        "role": "modulepreload",
+        "path": "assets/Presence-BQz47qla.js",
+        "raw": 3359,
+        "gz": 1583
+      },
+      {
+        "href": "./assets/badge-BO6BC4G5-Cg9wR19Y.js",
+        "role": "modulepreload",
+        "path": "assets/badge-BO6BC4G5-Cg9wR19Y.js",
+        "raw": 45437,
+        "gz": 9364
+      },
+      {
+        "href": "./assets/keyboard-GWEx_jlv.js",
+        "role": "modulepreload",
+        "path": "assets/keyboard-GWEx_jlv.js",
+        "raw": 2465,
+        "gz": 1206
+      },
+      {
+        "href": "./assets/PopoverTrigger-DRJphc6b.js",
+        "role": "modulepreload",
+        "path": "assets/PopoverTrigger-DRJphc6b.js",
+        "raw": 1721,
+        "gz": 848
+      },
+      {
+        "href": "./assets/popover-DA87hFBx-C6X6feBF.js",
+        "role": "modulepreload",
+        "path": "assets/popover-DA87hFBx-C6X6feBF.js",
+        "raw": 30635,
+        "gz": 6702
+      },
+      {
+        "href": "./assets/status-dot-W4LFiJps-BVoPOXdg.js",
+        "role": "modulepreload",
+        "path": "assets/status-dot-W4LFiJps-BVoPOXdg.js",
+        "raw": 24290,
+        "gz": 6567
+      },
+      {
+        "href": "./assets/label-CE03H1KL-Kylv-82M.js",
+        "role": "modulepreload",
+        "path": "assets/label-CE03H1KL-Kylv-82M.js",
+        "raw": 19198,
+        "gz": 6134
+      },
+      {
+        "href": "./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+        "role": "modulepreload",
+        "path": "assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+        "raw": 1240,
+        "gz": 682
+      }
+    ]
+  },
+  "renderBlockingCss": {
+    "count": 1,
+    "raw": 534922,
+    "gz": 89872,
+    "files": [
+      {
+        "href": "./assets/index-Fo8K2EzD.css",
+        "media": null,
+        "path": "assets/index-Fo8K2EzD.css",
+        "raw": 534922,
+        "gz": 89872
+      }
+    ]
+  },
+  "excludedCss": {
+    "count": 1,
+    "raw": 132840,
+    "gz": 100386,
+    "files": [
+      {
+        "href": "./assets/glass-fonts-PBJY3762.css",
+        "media": "print",
+        "why": "async (media=print swap)",
+        "path": "assets/glass-fonts-PBJY3762.css",
+        "raw": 132840,
+        "gz": 100386
+      }
+    ]
+  },
+  "duplicateRefs": [],
+  "skippedRemoteRefs": [],
+  "totals": {
+    "eagerRaw": 1628849,
+    "eagerGz": 430388
+  },
+  "budget": {
+    "gate": "W2.md §6 G2",
+    "eagerJsGzMax": 286720,
+    "eagerJsGz": 340516,
+    "marginBytes": -53796,
+    "verdict": "RED",
+    "note": "CSS is MEASURED, NOT GATED (W2.md §ENV). The enforcing gate is e2e/smoke/perf/eager-payload.spec.ts."
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "unit": "X-W9.e",
+    "gate": "G20 — packed-surface check is behavioural",
+    "command": "node scripts/ci/verify-packed-surface.mjs mkbabb-value.js-4.0.0.tgz",
+    "substrate": {
+        "worktree": "/Users/mkbabb/Programming/value.js-x-w9-e",
+        "head": "fdebfef5",
+        "node": "v26.0.0",
+        "platform": "darwin arm64",
+        "tarball": "mkbabb-value.js-4.0.0.tgz",
+        "tarballSha256": "66d5cea1c1d502e2e97e6daa9ed2e80fe8261725fbd4295db23d6507b0e2dc02",
+        "doubleRun": "identical (diff -q run1 run2 silent)"
+    },
+    "readingTakenThrough": {
+        "note": "The TYPES half of the script compiles fixtures/public-types/value-v4.ts, which still names the ten symbols X-W9.b retired. That file is in NO unit's writable set and is absent from W9.md §File Bounds, so this unit may not cure it — see ESC-W9e-FIXTURE-V4TYPES in packed-surface.measured.txt. This BEHAVIOUR reading was therefore taken with the script and a corrected copy of that ONE fixture placed in a scratch overlay directory; the tarball, the script's own bytes and every check are unchanged.",
+        "overlay": "scratchpad/overlay-repo (script byte-identical to scripts/ci/verify-packed-surface.mjs; fixture minus its 14 stale lines)"
+    },
+    "runtime": { "color": 23, "value": 1, "css": 19, "easing": 16, "math": 9, "transform": 3, "quantize": 2 },
+    "smoke": { "color": 23, "value": 1, "css": 19, "easing": 16, "math": 9, "transform": 3, "quantize": 2 },
+    "runtimeExports": 73,
+    "smokeInvocations": 73,
+    "strictTypes": "DELETED — the hardcoded 62 at :137 was produced by no check and is gone; every number above is read from a check that just ran"
+}

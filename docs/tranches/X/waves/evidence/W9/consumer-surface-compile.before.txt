@@ -1,0 +1,12 @@
+=== CONSUMER-SURFACE COMPILE PROBE ===
+
+RED  LEG1  2 public type(s) unnameable from the subpath that returns them:
+       leg1.ts(2,15): error TS2459: Module '"@mkbabb/value.js/css"' declares 'CssValue' locally, but it is not exported.
+       leg1.ts(3,15): error TS2459: Module '"@mkbabb/value.js/color"' declares 'ColorFactory' locally, but it is not exported.
+RED  LEG2  root specifier does not type-resolve:
+       leg2.ts(2,31): error TS2307: Cannot find module '@mkbabb/value.js' or its corresponding type declarations.
+RED  LEG2  Node runtime resolution of the root specifier -> ERR_PACKAGE_PATH_NOT_EXPORTED
+       consumers: fourier web/src ConvergencePlot.vue:5, harmonics.ts:5,
+       useCurveTransition.ts:8, easings.ts:9, easings.ts:16
+
+RED — 4 failing assertion(s)

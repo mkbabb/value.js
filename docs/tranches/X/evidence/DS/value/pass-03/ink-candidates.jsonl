@@ -1,0 +1,10 @@
+{"theme":"light","name":"extract-owner","ground":[207,135,141],"alpha":0.88,"current":2.42,"fg":5.23,"fgPrimary25":2.75,"fgPrimary38":1.88,"fgAccentView38":1.88,"fgAccentView50":1.35}
+{"theme":"light","name":"extract-default","ground":[236,157,198],"alpha":0.88,"current":5.26,"fg":6.78,"fgPrimary25":6.37,"fgPrimary38":6.12,"fgAccentView38":6.12,"fgAccentView50":5.92}
+{"theme":"light","name":"atmosphere-default","ground":[228,177,185],"alpha":0.88,"current":5.8,"fg":7.4,"fgPrimary25":6.95,"fgPrimary38":6.75,"fgAccentView38":6.75,"fgAccentView50":6.55}
+{"theme":"light","name":"atmosphere-owner","ground":[209,150,128],"alpha":0.88,"current":2.19,"fg":5.73,"fgPrimary25":3.02,"fgPrimary38":2.06,"fgAccentView38":2.06,"fgAccentView50":1.49}
+{"theme":"light","name":"gradient-default","ground":[236,161,197],"alpha":0.88,"current":5.45,"fg":6.96,"fgPrimary25":6.53,"fgPrimary38":6.3,"fgAccentView38":6.3,"fgAccentView50":6.14}
+{"theme":"dark","name":"extract-owner","ground":[65,24,23],"alpha":0.88,"current":5.12,"fg":9.81,"fgPrimary25":8.54,"fgPrimary38":7.83,"fgAccentView38":7.83,"fgAccentView50":7.28}
+{"theme":"dark","name":"extract-default","ground":[62,19,33],"alpha":0.88,"current":7.78,"fg":10.15,"fgPrimary25":10.38,"fgPrimary38":10.63,"fgAccentView38":10.63,"fgAccentView50":10.67}
+{"theme":"dark","name":"atmosphere-default","ground":[79,32,35],"alpha":0.88,"current":6.62,"fg":8.69,"fgPrimary25":8.87,"fgPrimary38":8.98,"fgAccentView38":8.98,"fgAccentView50":9.07}
+{"theme":"dark","name":"atmosphere-owner","ground":[77,29,24],"alpha":0.88,"current":4.54,"fg":9,"fgPrimary25":7.67,"fgPrimary38":7.04,"fgAccentView38":7.04,"fgAccentView50":6.5}
+{"theme":"dark","name":"gradient-default","ground":[64,22,33],"alpha":0.88,"current":7.53,"fg":9.91,"fgPrimary25":10.17,"fgPrimary38":10.25,"fgAccentView38":10.25,"fgAccentView50":10.33}

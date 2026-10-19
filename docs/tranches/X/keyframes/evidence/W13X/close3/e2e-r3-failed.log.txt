@@ -1,0 +1,69 @@
+# 2026-10-15 21:17:20 load: { 10.32 12.49 13.42 } head: c761d639 (§0ev.2 re-run 3 of the failed observations; guarded --light, as r1/r2)
+run-demo-roster — 3 observation(s) · one shared chromium + one served dist snapshot
+
+──── smoke ────
+  ✓ entry chunk assets/index-S2NDraZ7.js is substantial (308552 B > 50000 B floor)
+  ✓ entry's static import graph excludes vendor-monaco / vendor-three
+  ✓ CSS asset emitted (assets/index-BxbssrVz.css)
+  ✓ critical-CSS <style data-critical> block inlined
+  ✓ main stylesheet deferred (media=print onload swap)
+  ✓ no loading-splash residue
+demo-smoke — inv γ (the demo cannot ship blank)
+  ✓ #app mounts with non-trivial children
+  ✓ home hero text renders
+  ✓ no vendor-monaco / vendor-three / worker request at first paint
+  ✓ zero console errors during mount
+  ✓ zero uncaught pageerror during mount
+  ✓ no literal '[object Object]' text node
+
+demo-smoke — PASS: the built demo paints (inv γ holds).
+
+──── live-session ────
+live-session observation — ONE interaction-driven session over the BUILT dist: PLAY + SWITCH + DRAG with a single accumulated ERROR BUDGET = 0 + the product-facing DOM
+  · B2 dev-server leg skipped (KF_DEV_SERVER unset); the built-dist visibility transition passed above.
+  ✗ ERROR BUDGET BLOWN — 0 HARD + 4 PROMOTED charge(s) across the battery (S2a, the complement of the named-benign set):
+      [PROMOTED|B3:amiga-present-loop] amiga content-visibility(verbose): Rendering was performed in a subtree hidden by content-visibility. [source: http://127.0.0.1:62
+      [PROMOTED|B3:amiga-present-loop] amiga content-visibility(verbose): Rendering was performed in a subtree hidden by content-visibility. [source: http://127.0.0.1:62
+      [PROMOTED|B7/B9:amiga] amiga content-visibility(verbose): Rendering was performed in a subtree hidden by content-visibility. [source: http://127.0.0.1:62
+      [PROMOTED|B7/B9:amiga] amiga content-visibility(verbose): Rendering was performed in a subtree hidden by content-visibility. [source: http://127.0.0.1:62
+  ✓ B1 COLD hero play STARTS the engine (aria flips Play→Pause + slider advances from "0"; idle bob excluded) — PASS · {"aria":"Play→Pause","slider":"null→9.299999999999983","ariaIsPause":true,"sliderAdvanced":true,"wrapperDistinctGated":1,"pass":true}
+  ✓ B2 synthetic visibilitychange on a playing scene raises NO _gen throw — PASS · {"genThrows":0,"switchNote":"dock-Select clicked \"Cube\" (of 7 options, trusted)","pass":true,"replayClean":true}
+  ✓ B4 switch-into-easing mounts the EasingPicker + a handle-drag mutates — PASS · {"present":true,"mountedActive":true,"handleCount":2,"dMutated":true,"pass":true}
+  ✓ B3 amiga centre-drag moves the SUBJECT not the room — PASS · {"mad":{"centreMAD":35.621255252812794,"peripheryMAD":0},"pass":true}
+  ✓ B6 /square drag selects NO text + the transform PERSISTS — PASS · {"selectedChars":0,"bodyDragging":true,"userSelectSuppressed":true,"persisted":true,"pass":true}
+  ✗ B7 the glass ::before carry NO bloom at rest — FAIL · {"totalGlass":62,"maxRest":0.16,"bloomers":["cube:dock-icon-button glass-s(op=0.16)","amiga:dock-icon-button glass-s(op=0.16)","square:dock-icon-button glass-s(op=0.16)","easing:dock-icon-button glass-s(op=0.16)","spring
+  ✓ B9 every scene glyph PAINTS — PASS · {"scenesGlyphPainted":7,"total":7,"glyphFailures":[],"pass":true}
+  ✓ font register — the body font IS Plus Jakarta Sans (T.D3/OD-6) — PASS · {"body":"\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback","jakarta":true,"pass":true}
+  ✗ S5 EVERY routed scene enters clean + plays/interacts + the covering dock-switch walk lands — FAIL · {"roster":7,"visited":8,"sceneFails":["sequence: PLAY red — the sequence transport produced only 0 row-state changes (<3)"],"pass":false}
+  ✓ S2 the engine's respectReducedMotion path SNAPS live under PRM (dots rest · sheet one-emit) — PASS · {"prmMatches":true,"controlChurn":[4,4,4],"prmChurn":[1,1,1],"sheetTrail":null,"sheetLeg":"Glass-owned Drawer spring; trail recorded only","pass":true}
+  ✓ S4 keyboard operability — Tab reaches play · focus-visible ring · Enter + global Space actuate — PASS · {"reachedAt":16,"sawTransport":true,"focusRing":{"matchesFV":true,"ringPainted":true},"enterToggled":true,"enterLive":204,"spaceToggled":true,"pass":true}
+
+live-session observation — FAIL (5): the human battery (PLAY + SWITCH + DRAG) blew the ERROR BUDGET (S2a) or a product-facing DOM assertion failed.
+
+──── live-session-mobile ────
+live-session-mobile observation — a REAL 390×844 + hasTouch context: sheet open/scroll/close/RE-OPEN + dock switch + touch-drag + play, every gesture a TOUCH gesture, ERROR BUDGET = 0 + an honest Glass Drawer/menubar overlap measurement
+  ✗ M1 sheet OPEN: the Drawer did not reach its expanded detent (open=false, --detent-t=0.12) — the touch expand gesture is broken
+  · UPSTREAM GLASS 5 OVERLAP (sheet OPEN): sheet.bottom 887 > menubar.top 716; the Drawer covers the menubar by 171px. This measured defect is queued to Glass 6; no clearance claim is made.
+  ✓ M1 sheet SCROLL: a real touch swipe scrolls the open sheet to below-fold content (scrollTop=232px of 655px overflow)
+  ✓ M1 sheet CLOSE: a drag DOWN collapses the Drawer to the peek detent (--detent-t=0.36)
+  · UPSTREAM GLASS 5 OVERLAP (sheet CLOSED (peek)): sheet.bottom 1020 > menubar.top 716; the Drawer covers the menubar by 304px. This measured defect is queued to Glass 6; no clearance claim is made.
+  ✗ M1 sheet RE-OPEN: the second open did not restore a scrollable expanded sheet (open=false, --detent-t=0.36, overflow-y=auto) — the M2 latch class (no transitionend ever fires on the spring-driven sheet)
+  ✓ M2 dock: a touch tap expands the morphing scene dock (hit-testable on touch)
+  ✓ M2 dock SWITCH: the touch combobox commit landed cube→easing per the expected-destination-state predicate (machine=easing, control-tab "Curve" PROJECTS — the T.B2-derived triad's tell, the #25 asymmetry cure)
+  ✓ M3 touch-drag: the /square touch drag COMPLETED — transform persists (matrix(1.11341, -6.24027e-06, 1.31922e-05, 1.113…) and getSelection() is empty (no touch-drag text selection)
+  · M4 play: the group-play button is behind the ADOPTED Drawer (bottom:0, z-modal 140) on 390×844 — UPSTREAM GLASS 5 OVERLAP queued to Glass 6; no touch-reachability claim is made here.
+  ✗ ERROR BUDGET BLOWN — 2 charge(s) across the mobile battery:
+      [PROMOTED|M1:amiga-sheet] amiga content-visibility(verbose): Rendering was performed in a subtree hidden by content-visibility. [source: http://127.0.0.1:62
+      [PROMOTED|M1:amiga-sheet] amiga content-visibility(verbose): Rendering was performed in a subtree hidden by content-visibility. [source: http://127.0.0.1:62
+  · Keyframes-owned mobile interaction observations completed; the Glass 5 Drawer/menubar overlap was reported separately above. Appearance observations run next.
+  ✓ A1 appearance — 390×844 hero/subject print-over contract holds: hero h1 (y 150–267) vs cube (y 298–510), overlap=0px² (disjoint)
+  ✓ A2 appearance — DARK --ball-tone/accent legible: the .dark token surface is LIVE (html.dark, backdrop rgb(11, 10, 9)), --ball-tone resolves the OD-6 accent (oklch(74% .13 305)); the violet tile ball (oklch(0.74 0.13 305)) contrasts 8.19 and the selected tile's accent name (rgb(233, 230, 226)) contrasts 15.90 — both ≥ the 3 legibility floor
+  ✓ A3 appearance — ghost rail ABSENT on the home sweep: home (railless, wrapper null×null) + sequence (paned, wrapper null×null, the full-width bottom sheet) carry NO hollow rail-width side column (XH-1)
+
+live-session-mobile observation — FAIL (3): the 390×844 + hasTouch session found a Keyframes-owned touch, interaction, error-budget, or appearance defect.
+
+════ run-demo-roster — REPORT ════
+  passed: 1/3
+  ✗ failed: live-session, live-session-mobile
+EXIT=1
+# end 21:20:19 load: { 8.35 10.58 12.45 }

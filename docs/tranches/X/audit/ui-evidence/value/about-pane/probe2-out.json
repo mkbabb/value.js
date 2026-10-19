@@ -1,0 +1,44 @@
+{
+ "sha": "f95a2f77",
+ "dirty": 20,
+ "bold": {
+  "text": "Perceptual uniformity",
+  "fw": "700",
+  "w700": 157.7578125,
+  "w400": 157.7578125,
+  "faces": [
+   "Plus Jakarta Sans Fallback|normal|error",
+   "Plus Jakarta Sans Fallback|normal|error",
+   "Plus Jakarta Sans Fallback|normal|error",
+   "Plus Jakarta Sans Fallback|normal|loaded"
+  ]
+ },
+ "katex": [],
+ "rows": [
+  "RGBrgb(385.3 143.4 199.6 / 82.7%)",
+  "HSLhsl(346deg -1295% 103.7% / 82.7%)",
+  "HSVhsv · 346 · 0.6279 · 1.511",
+  "HWBhwb(346deg 56.23% -51.1% / 82.7%)",
+  "Lablab(92% 88.8 20 / 82.7%)",
+  "LChlch(92% 91.02 12.69deg / 82.7%)",
+  "OKLaboklab(95.83% 0.2684 0.0465 / 82.7%)",
+  "OKLChoklch(95.83% 0.2725 9.834deg / 82.7%)",
+  "XYZcolor(xyz 1.267 0.7878 0.6296 / 82.7%)",
+  "Kelvinkelvin · 5309",
+  "sRGB Linearcolor(srgb-linear 2.58 0.2763 0.5753 / 82.7%)",
+  "Display P3color(display-p3 1.402 0.6284 0.7905 / 82.7%)",
+  "Adobe RGBcolor(a98-rgb 1.347 0.5571 0.7701 / 82.7%)",
+  "ProPhoto RGBcolor(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)",
+  "Rec. 2020color(rec2020 1.258 0.7095 0.798 / 82.7%)",
+  "ICtCpictcp · 0.5591 · 0.0437 · 0.1739",
+  "Jzazbzjzazbz · 0.2215 · 0.1177 · 0.0428",
+  "Hex#ff8fc8d3"
+ ],
+ "selectorRect": {
+  "x": 16,
+  "w": 412.6484375,
+  "right": 428.6484375,
+  "y": 391.5,
+  "h": 384
+ }
+}

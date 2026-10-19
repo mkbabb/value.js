@@ -1,0 +1,12 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+browser.newContext: Target page, context or browser has been closed
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/evidence/DS/fourier/pass-16/f16p/f16p-probe.mjs:25:17 {
+  log: []
+}
+
+Node.js v26.0.0
+[guarded] KILLED: timeout after 20 min
+exit 124

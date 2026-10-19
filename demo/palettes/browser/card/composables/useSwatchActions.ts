@@ -1,10 +1,10 @@
-import { ref, computed, inject, watch } from "vue";
+import { ref, computed, inject } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { EditTarget } from "../../../../color-session/color-model";
 import { EDIT_TARGET_KEY } from "../../../../color-session/keys";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import { CURRENT_PALETTE_ID } from "../../../constants";
-import { useHoverPopover } from "./useHoverPopover";
+import { usePopupMutex } from "../../../../shared/usePopupMutex";
 
 export interface SwatchActionsDeps {
     savedColorStrings: Ref<string[]>;
@@ -27,35 +27,39 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
     }
 
     // --- Hover popover for current swatches ---
+    // A2-VA-L1-16: the app's one keyed mutex, keyed by swatch index.
     const {
-        canHover,
-        openIndex: currentSwatchPopoverIndex,
-        style: currentFloatingStyle,
-        onHover: onCurrentSwatchHover,
-        onLeave: onCurrentSwatchLeave,
-        cancelLeave: cancelCurrentSwatchLeave,
+        current: currentSwatchPopoverIndex,
         close: closeCurrentSwatchPopover,
-        onPopoverUpdateTouch: onCurrentSwatchPopoverUpdateTouch,
-        onSwatchClick: onCurrentSwatchClick,
-    } = useHoverPopover();
+        setOpen: setCurrentSwatchOpen,
+    } = usePopupMutex<number>({ swapDelay: 0 });
+    const onCurrentSwatchOpenChange = (open: boolean, index: number) =>
+        setCurrentSwatchOpen(index, open);
 
-    // --- Stable keys for TransitionGroup ---
-    let swatchKeyCounter = 0;
-    const swatchKeyMap = new Map<string, number>();
-    const swatchKeys = computed(() =>
-        savedColorStrings.value.map((color, i) => {
-            const mapKey = `${color}::${i}`;
-            if (!swatchKeyMap.has(mapKey)) {
-                swatchKeyMap.set(mapKey, swatchKeyCounter++);
-            }
-            return swatchKeyMap.get(mapKey)!;
-        }),
-    );
-    watch(savedColorStrings, () => {
-        const validKeys = new Set(savedColorStrings.value.map((c, i) => `${c}::${i}`));
-        for (const key of swatchKeyMap.keys()) {
-            if (!validKeys.has(key)) swatchKeyMap.delete(key);
+    // --- Identity keys for TransitionGroup ---
+    // X.W7.c (fold N-5 · C-9 ≡ MSS-3 ≡ SH-7): a swatch's key is its IDENTITY,
+    // never its index. The retired colour-plus-index key map re-minted every
+    // survivor's key on any non-tail removal (every index after the cut
+    // shifts), so Vue replaced nodes that had not changed and the move
+    // transition was unreachable by construction. Here each new list is
+    // matched against the previous one BY VALUE, in order (a repeated colour
+    // pairs with its earliest unclaimed predecessor): a survivor keeps its key
+    // wherever it lands, and only a genuinely new colour mints one.
+    let nextKey = 0;
+    let previous: { color: string; key: number }[] = [];
+    const swatches = computed<{ color: string; key: number }[]>(() => {
+        const unclaimed = new Map<string, number[]>();
+        for (const { color, key } of previous) {
+            const keys = unclaimed.get(color);
+            if (keys) keys.push(key);
+            else unclaimed.set(color, [key]);
         }
+        const next = savedColorStrings.value.map((color) => ({
+            color,
+            key: unclaimed.get(color)?.shift() ?? nextKey++,
+        }));
+        previous = next;
+        return next;
     });
 
     // --- Swatch actions ---
@@ -82,9 +86,22 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
         });
     }
 
-    function onCurrentSwatchCopy(css: string) {
+    // --- The copy verdict (fold N-11 · PC-21 ≡ PS-23) ---
+    // `writeClipboard` resolves a discriminated `CopyResult`; the verdict is
+    // bound and shown (the editor renders it through `ActionFeedback`), never
+    // discarded — a rejected clipboard write is a visible failure.
+    const copyFeedback = ref<{ message: string; variant: "success" | "error"; visible: boolean }>({
+        message: "",
+        variant: "success",
+        visible: false,
+    });
+
+    async function onCurrentSwatchCopy(css: string) {
         closeCurrentSwatchPopover();
-        void writeClipboard(css);
+        const result = await writeClipboard(css);
+        copyFeedback.value = result.ok
+            ? { message: `Copied ${css}`, variant: "success", visible: true }
+            : { message: `Could not copy ${css}`, variant: "error", visible: true };
     }
 
     function onCurrentSwatchRemove(css: string, index: number) {
@@ -95,16 +112,11 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
 
     return {
         // State
-        canHover,
         currentSwatchPopoverIndex,
-        currentFloatingStyle,
-        swatchKeys,
-        // Hover/popover handlers
-        onCurrentSwatchHover,
-        onCurrentSwatchLeave,
-        cancelCurrentSwatchLeave,
-        onCurrentSwatchPopoverUpdateTouch,
-        onCurrentSwatchClick,
+        swatches,
+        copyFeedback,
+        // Popover handler
+        onCurrentSwatchOpenChange,
         // Swatch state checks
         isSwatchEditing,
         // Actions

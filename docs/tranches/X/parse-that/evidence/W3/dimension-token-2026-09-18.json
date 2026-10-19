@@ -1,0 +1,525 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "unit": "X.P.W3.g",
+  "date": "2026-09-18",
+  "surfaces": {
+    "classKeys": [
+      "ws",
+      "ident",
+      "digit",
+      "hexdigit",
+      "any-but-paren",
+      "any-but-brace-or-semi",
+      "any-but-semi-or-close",
+      "any-but-brace-close",
+      "ident-start"
+    ],
+    "identStartLabel": "ident",
+    "labelCount": 60,
+    "stringAt": 50
+  },
+  "theta": {
+    "input": 65458,
+    "class3": {
+      "input": 65458,
+      "vstack": {
+        "ceiling": 65536,
+        "cap": 65536,
+        "K": 1,
+        "unit": "code unit",
+        "S": 78
+      },
+      "arena": {
+        "ceiling": 6611304,
+        "cap": 7208960,
+        "K": 101,
+        "unit": "code unit",
+        "S": 46
+      },
+      "expsnap": {
+        "ceiling": 1,
+        "cap": 32,
+        "K": 0,
+        "unit": "depth level",
+        "S": 1
+      }
+    },
+    "rates": {
+      "P:color": 72,
+      "P:timing-function": 98,
+      "P:stylesheet": 101
+    }
+  },
+  "named": [
+    {
+      "id": "F-e1",
+      "src": "hsl(120deg50%50%)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":17,\"expected\":[\"<ident>\"],\"actual\":\"50%50%)\"}",
+      "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":17,\"expected\":[\"<ident>\"],\"actual\":\"50%50%)\"}",
+      "identical": true,
+      "incumbent": "ok:false css_syntax"
+    },
+    {
+      "id": "F-e2",
+      "src": "rgb(255none none)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":17,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none none)\"}",
+      "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":17,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none none)\"}",
+      "identical": true,
+      "incumbent": "ok:false css_syntax"
+    },
+    {
+      "id": "legacy",
+      "src": "hsl(120, 50, 50)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":16,\"expected\":[\"<percent-sign>\"],\"actual\":\", 50)\"}",
+      "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":16,\"expected\":[\"<percent-sign>\"],\"actual\":\", 50)\"}",
+      "identical": true,
+      "incumbent": "ok:true {\"space\":\"hsl\",\"channels\":[120,50,50],\"alpha\":1}"
+    },
+    {
+      "id": "control",
+      "src": "hsl(120 50% 50%)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "identical": true,
+      "incumbent": "ok:true {\"space\":\"hsl\",\"channels\":[120,0.5,0.5],\"alpha\":1}"
+    },
+    {
+      "id": "control",
+      "src": "rgb(255 0 0)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "identical": true,
+      "incumbent": "ok:true {\"space\":\"rgb\",\"channels\":[255,0,0],\"alpha\":1}"
+    },
+    {
+      "id": "control",
+      "src": "hsl(120deg 50% 50%)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "identical": true,
+      "incumbent": "ok:true {\"space\":\"hsl\",\"channels\":[120,0.5,0.5],\"alpha\":1}"
+    },
+    {
+      "id": "control",
+      "src": "rgb(255 none none)",
+      "entry": "parseCssColor",
+      "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+      "identical": true,
+      "incumbent": "ok:true {\"space\":\"rgb\",\"channels\":[255,\"none\",\"none\"],\"alpha\":1}"
+    }
+  ],
+  "merged": {
+    "count": 33,
+    "notRejected": [],
+    "incumbentAccepts": 0,
+    "rows": [
+      {
+        "src": "hsl(120deg50 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120deg0 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120degs 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120degx 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120deg-2 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120deg_a 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120grad50 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120grad0 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120grads 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120gradx 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120grad-2 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120grad_a 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120rad50 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120rad0 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120rads 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120radx 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":20,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120rad-2 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120rad_a 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120turn50 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"50 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120turn0 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"0 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120turns 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"s 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120turnx 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":21,\"expected\":[\"<ident>\"],\"actual\":\"x 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120turn-2 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"-2 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120turn_a 50% 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":11,\"end\":22,\"expected\":[\"<ident>\"],\"actual\":\"_a 50% 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(255none none none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":22,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none none none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":22,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none none none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(255px none none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":20,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"px none none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":20,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"px none none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(255e none none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":19,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"e none none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":19,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"e none none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(255deg none none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":21,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"deg none none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":21,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"deg none none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(255abc none none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":21,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"abc none none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":21,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"abc none none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120deg50%50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":17,\"expected\":[\"<ident>\"],\"actual\":\"50%50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":10,\"end\":17,\"expected\":[\"<ident>\"],\"actual\":\"50%50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(255none none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":17,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":17,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120none 50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":16,\"expected\":[\"<angle-unit> ('deg')\",\"<angle-unit> ('grad')\",\"<angle-unit> ('rad')\",\"<angle-unit> ('turn')\",\"<ident>\"],\"actual\":\"none 50%)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":16,\"expected\":[\"<angle-unit> ('deg')\",\"<angle-unit> ('grad')\",\"<angle-unit> ('rad')\",\"<angle-unit> ('turn')\",\"<ident>\"],\"actual\":\"none 50%)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "oklch(0.5 0.1none)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":13,\"end\":18,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":13,\"end\":18,\"expected\":[\"<percent-sign>\",\"<ident>\"],\"actual\":\"none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      }
+    ]
+  },
+  "pinnedEdges": {
+    "count": 10,
+    "notRejected": [],
+    "rows": [
+      {
+        "src": "cubic-bezier(0, 0, 1none, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":28,\"expected\":[\"<comma>\"],\"actual\":\"none, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":28,\"expected\":[\"<comma>\"],\"actual\":\"none, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "cubic-bezier(0, 0, 1px, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":26,\"expected\":[\"<comma>\"],\"actual\":\"px, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":26,\"expected\":[\"<comma>\"],\"actual\":\"px, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "cubic-bezier(0, 0, 1e, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":25,\"expected\":[\"<comma>\"],\"actual\":\"e, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":25,\"expected\":[\"<comma>\"],\"actual\":\"e, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "cubic-bezier(0, 0, 1deg, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":27,\"expected\":[\"<comma>\"],\"actual\":\"deg, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":20,\"end\":27,\"expected\":[\"<comma>\"],\"actual\":\"deg, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "steps(2jump-start)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":18,\"expected\":[\"<comma>\",\"<close-paren>\"],\"actual\":\"jump-start)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":18,\"expected\":[\"<comma>\",\"<close-paren>\"],\"actual\":\"jump-start)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "steps(2none)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":12,\"expected\":[\"<comma>\",\"<close-paren>\"],\"actual\":\"none)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":12,\"expected\":[\"<comma>\",\"<close-paren>\"],\"actual\":\"none)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "steps(2x)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":9,\"expected\":[\"<comma>\",\"<close-paren>\"],\"actual\":\"x)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":7,\"end\":9,\"expected\":[\"<comma>\",\"<close-paren>\"],\"actual\":\"x)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "linear(0none, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":16,\"expected\":[\"<whitespace>\",\"<comma>\"],\"actual\":\"none, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":16,\"expected\":[\"<whitespace>\",\"<comma>\"],\"actual\":\"none, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "linear(0px, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":14,\"expected\":[\"<whitespace>\",\"<comma>\"],\"actual\":\"px, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":14,\"expected\":[\"<whitespace>\",\"<comma>\"],\"actual\":\"px, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "linear(0x, 1)",
+        "entry": "parseTimingFunction",
+        "js": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":13,\"expected\":[\"<whitespace>\",\"<comma>\"],\"actual\":\"x, 1)\"}",
+        "wasm": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":8,\"end\":13,\"expected\":[\"<whitespace>\",\"<comma>\"],\"actual\":\"x, 1)\"}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      }
+    ]
+  },
+  "preserved": {
+    "count": 5,
+    "lost": [],
+    "rows": [
+      {
+        "src": "rgb(50%20%30%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(1.5.5 3)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "hsl(120 50%50%)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(1-2 3)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "identical": true,
+        "incumbent": "ok:false css_syntax"
+      },
+      {
+        "src": "rgb(1 -2 3)",
+        "entry": "parseCssColor",
+        "js": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "wasm": "{\"ok\":true,\"code\":null,\"start\":null,\"end\":null,\"expected\":null,\"actual\":null}",
+        "identical": true,
+        "incumbent": "ok:true {\"space\":\"rgb\",\"channels\":[1,-2,3],\"alpha\":1}"
+      }
+    ]
+  },
+  "shield": {
+    "before": 0,
+    "after": 0
+  }
+}

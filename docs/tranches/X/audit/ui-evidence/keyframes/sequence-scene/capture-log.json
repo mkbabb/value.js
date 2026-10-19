@@ -1,0 +1,8163 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 15,
+ "when": "2026-09-23T17:41:31.618Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 15,
+   "frames": [
+    {
+     "frame": "00a-boot-250ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00b-storyboard-rest-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00c-card-crop-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "01-header-metric-crop-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "02-top-dock-hover-no-controls-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-playing-650ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       990,
+       244,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock650ms",
+     "timecode": "0.335",
+     "scrubBall": [
+      591,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1044,
+       "ballP": "1.01863500161498",
+       "scale": "0.992546",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 942,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 980,
+       "ballP": "0.7169974506763857",
+       "scale": "1.1302",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-playing-1350ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       990,
+       244,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1433ms",
+     "timecode": "0.739",
+     "scrubBall": [
+      862,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1040,
+       "ballP": "1.022604970062726",
+       "scale": "0.990958",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1018,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-played-end-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-reel-300ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 927,
+       "ballP": "1",
+       "scale": "1.12665",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 916,
+       "ballP": "1",
+       "scale": "1.10017",
+       "op": "0.96",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1039,
+       "ballP": "1",
+       "scale": "1.17734",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 821,
+       "ballP": "1",
+       "scale": "0.946331",
+       "op": "0.69",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-reel-900ms-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1.0002",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1.0007",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1035,
+       "ballP": "1",
+       "scale": "1.01138",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1018,
+       "ballP": "1",
+       "scale": "1.11974",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-reel-done-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-row3-handle-hover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-row3-drag-mid-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 750,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@943ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-row3-retimed-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 750,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@943ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-row2-kbd-focus-nudged-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 576,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@340ms"
+      },
+      {
+       "handleCx": 750,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@943ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 2 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "06-reset-default-stagger-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Reset the storyboard rows to the default stagger",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-scrub-drag-mid-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1067ms",
+     "timecode": "0.550",
+     "scrubBall": [
+      736,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 967,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 993,
+       "ballP": "0.7003208180843026",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 789,
+       "ballP": "0.2503358939946349",
+       "scale": "0.850202",
+       "op": "0.52",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-scrub-dragback-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock582ms",
+     "timecode": "0.300",
+     "scrubBall": [
+      568,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 917,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 943,
+       "ballP": "0.7003086621016635",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 926,
+       "ballP": "0.6406612348515397",
+       "scale": "1.0844",
+       "op": "0.94",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-scrub-end-p1-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-scrub-kbd-focus-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      447,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 915,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "08-reel-button-hover-1440-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      447,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 915,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "play": [
+     [
+      668,
+      773
+     ],
+     [
+      666,
+      771
+     ]
+    ],
+    "errs": [
+     "404 http://localhost:5173/assets/icons/favicon.svg",
+     "Failed to load resource: the server responded with a status of 404 (Not Found) @http://localhost:5173/assets/icons/favicon.svg"
+    ]
+   }
+  },
+  {
+   "tag": "1440-dark",
+   "vp": "1440",
+   "sha": "531aa3f1",
+   "dirty": 17,
+   "frames": [
+    {
+     "frame": "00a-boot-250ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00b-storyboard-rest-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00c-card-crop-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "01-header-metric-crop-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "02-top-dock-hover-no-controls-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-playing-650ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       990,
+       244,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock650ms",
+     "timecode": "0.335",
+     "scrubBall": [
+      591,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1044,
+       "ballP": "1.0188613882881126",
+       "scale": "0.992455",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 942,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 980,
+       "ballP": "0.7168966043767262",
+       "scale": "1.13014",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-playing-1350ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       990,
+       244,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1432ms",
+     "timecode": "0.738",
+     "scrubBall": [
+      862,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1041,
+       "ballP": "1.0232981596966102",
+       "scale": "0.990681",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1018,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-played-end-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-reel-300ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 927,
+       "ballP": "1",
+       "scale": "1.12665",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 916,
+       "ballP": "1",
+       "scale": "1.10017",
+       "op": "0.96",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1039,
+       "ballP": "1",
+       "scale": "1.17765",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 830,
+       "ballP": "1",
+       "scale": "0.955675",
+       "op": "0.71",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-reel-900ms-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1.0001",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1.0006",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1037,
+       "ballP": "1",
+       "scale": "1.00459",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1018,
+       "ballP": "1",
+       "scale": "1.11988",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-reel-done-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-row3-handle-hover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-row3-drag-mid-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 750,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@943ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-row3-retimed-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 750,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@943ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-row2-kbd-focus-nudged-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 576,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@340ms"
+      },
+      {
+       "handleCx": 750,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@943ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 2 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "06-reset-default-stagger-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      367,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 478,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Reset the storyboard rows to the default stagger",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-scrub-drag-mid-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1067ms",
+     "timecode": "0.550",
+     "scrubBall": [
+      736,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 967,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 993,
+       "ballP": "0.7003208180843026",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 789,
+       "ballP": "0.2503358939946349",
+       "scale": "0.850202",
+       "op": "0.52",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-scrub-dragback-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock582ms",
+     "timecode": "0.300",
+     "scrubBall": [
+      568,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 917,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 943,
+       "ballP": "0.7003086621016635",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 926,
+       "ballP": "0.6406612348515397",
+       "scale": "1.0844",
+       "op": "0.94",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-scrub-end-p1-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      1037,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 1038,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-scrub-kbd-focus-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      447,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 915,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "08-reel-button-hover-1440-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      368,
+      218,
+      704,
+      465
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      463,
+      463
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       1001,
+       244,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      447,
+      627,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 478,
+       "ballCx": 915,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 553,
+       "ballCx": 531,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 628,
+       "ballCx": 583,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 703,
+       "ballCx": 636,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 778,
+       "ballCx": 688,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "play": [
+     [
+      668,
+      773
+     ],
+     [
+      666,
+      771
+     ]
+    ],
+    "errs": []
+   }
+  },
+  {
+   "tag": "390-light",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 17,
+   "frames": [
+    {
+     "frame": "00a-boot-250ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00b-storyboard-rest-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00c-card-crop-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "01-header-metric-crop-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "02-top-dock-hover-no-controls-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-playing-650ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       113,
+       258,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock650ms",
+     "timecode": "0.335",
+     "scrubBall": [
+      126,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 334,
+       "ballP": "1.0184086149418499",
+       "scale": "0.992637",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 298,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 311,
+       "ballP": "0.717098296976044",
+       "scale": "1.13026",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-playing-1350ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       113,
+       270,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1400ms",
+     "timecode": "0.722",
+     "scrubBall": [
+      245,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 319,
+       "ballP": "0.7454089144232006",
+       "scale": "1.10184",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 325,
+       "ballP": "0.6999972090067743",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-played-end-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-reel-300ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 293,
+       "ballP": "1",
+       "scale": "1.12665",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 289,
+       "ballP": "1",
+       "scale": "1.10009",
+       "op": "0.96",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1.17765",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 257,
+       "ballP": "1",
+       "scale": "0.951522",
+       "op": "0.70",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-reel-900ms-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1.0002",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1.0007",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 331,
+       "ballP": "1",
+       "scale": "1.0114",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 325,
+       "ballP": "1",
+       "scale": "1.11974",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-reel-done-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-row3-handle-hover-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-row3-drag-mid-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 236,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@995ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-row3-retimed-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 236,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@995ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-row2-kbd-focus-nudged-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 169,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@340ms"
+      },
+      {
+       "handleCx": 236,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@995ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 2 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "06-reset-default-stagger-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Reset the storyboard rows to the default stagger",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-scrub-drag-mid-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1067ms",
+     "timecode": "0.550",
+     "scrubBall": [
+      192,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 307,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 316,
+       "ballP": "0.7003208177364357",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 244,
+       "ballP": "0.25033537972472875",
+       "scale": "0.850201",
+       "op": "0.52",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-scrub-dragback-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock582ms",
+     "timecode": "0.300",
+     "scrubBall": [
+      115,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 289,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 298,
+       "ballP": "0.7003086623767983",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 292,
+       "ballP": "0.6406609792074364",
+       "scale": "1.0844",
+       "op": "0.94",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-scrub-end-p1-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-scrub-kbd-focus-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      60,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 288,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "08-reel-button-hover-390-light.png",
+     "dark": false,
+     "bodyBg": "rgb(251, 250, 248)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      60,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 288,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "play": [
+     [
+      143,
+      737
+     ],
+     [
+      141,
+      735
+     ]
+    ],
+    "errs": []
+   }
+  },
+  {
+   "tag": "390-dark",
+   "vp": "390",
+   "sha": "531aa3f1",
+   "dirty": 18,
+   "frames": [
+    {
+     "frame": "00a-boot-250ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00b-storyboard-rest-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "00c-card-crop-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "01-header-metric-crop-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "02-top-dock-hover-no-controls-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "03a-playing-650ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       113,
+       258,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock651ms",
+     "timecode": "0.336",
+     "scrubBall": [
+      126,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 334,
+       "ballP": "1.0188613882881126",
+       "scale": "0.992455",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 298,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 311,
+       "ballP": "0.7168966043767262",
+       "scale": "1.13014",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03b-playing-1350ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "playing",
+      "r": [
+       113,
+       270,
+       65,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1400ms",
+     "timecode": "0.722",
+     "scrubBall": [
+      245,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 319,
+       "ballP": "0.7454089144232006",
+       "scale": "1.10184",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 325,
+       "ballP": "0.6999972090067743",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Pause animation",
+      "Reset animation",
+      "Pause animation"
+     ],
+     "active": "BUTTON Pause animation",
+     "hscroll": false
+    },
+    {
+     "frame": "03c-played-end-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Play animation",
+     "hscroll": false
+    },
+    {
+     "frame": "04a-reel-300ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 290,
+       "ballP": "1",
+       "scale": "1.12165",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 296,
+       "ballP": "1",
+       "scale": "1.11436",
+       "op": "0.99",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 310,
+       "ballP": "1",
+       "scale": "1.12623",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 255,
+       "ballP": "1",
+       "scale": "0.945292",
+       "op": "0.69",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04b-reel-900ms-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1.00021",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1.00071",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 333,
+       "ballP": "1",
+       "scale": "0.988539",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 325,
+       "ballP": "1",
+       "scale": "1.11973",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "04c-reel-done-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05a-row3-handle-hover-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    },
+    {
+     "frame": "05b-row3-drag-mid-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 236,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@995ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05c-row3-retimed-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 236,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@995ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 3 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "05d-row2-kbd-focus-nudged-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 169,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@340ms"
+      },
+      {
+       "handleCx": 236,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@995ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Re-time row 2 start offset",
+     "hscroll": false
+    },
+    {
+     "frame": "06-reset-default-stagger-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock0ms",
+     "timecode": "0.000",
+     "scrubBall": [
+      23,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 134,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BUTTON Reset the storyboard rows to the default stagger",
+     "hscroll": false
+    },
+    {
+     "frame": "07a-scrub-drag-mid-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1067ms",
+     "timecode": "0.550",
+     "scrubBall": [
+      192,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 307,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 316,
+       "ballP": "0.7003208177364357",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 244,
+       "ballP": "0.25033537972472875",
+       "scale": "0.850201",
+       "op": "0.52",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07b-scrub-dragback-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock582ms",
+     "timecode": "0.300",
+     "scrubBall": [
+      115,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 289,
+       "ballP": "0.7",
+       "scale": "1.12",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 298,
+       "ballP": "0.7003086623767983",
+       "scale": "1.12019",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 292,
+       "ballP": "0.6406609792074364",
+       "scale": "1.0844",
+       "op": "0.94",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07c-scrub-end-p1-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      197,
+      342,
+      449
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      447,
+      447
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       270,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock1940ms",
+     "timecode": "1.000",
+     "scrubBall": [
+      331,
+      592,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 332,
+       "ballP": "1",
+       "scale": "1",
+       "op": "1.00",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "07d-scrub-kbd-focus-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      60,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 288,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "DIV Scrub the sequence master clock",
+     "hscroll": false
+    },
+    {
+     "frame": "08-reel-button-hover-390-dark.png",
+     "dark": true,
+     "bodyBg": "rgb(11, 10, 9)",
+     "card": [
+      24,
+      209,
+      342,
+      426
+     ],
+     "cardRadius": "16px",
+     "cardScroll": [
+      424,
+      424
+     ],
+     "stageRadius": "0px",
+     "badge": {
+      "text": "ready",
+      "r": [
+       113,
+       258,
+       54,
+       14
+      ],
+      "radius": "1.67772e+07px"
+     },
+     "metric": "clock233ms",
+     "timecode": "0.120",
+     "scrubBall": [
+      60,
+      580,
+      36,
+      36
+     ],
+     "rows": [
+      {
+       "handleCx": 134,
+       "ballCx": 288,
+       "ballP": "0.69733609713766",
+       "scale": "1.1184",
+       "op": "1.00",
+       "label": "1@0ms"
+      },
+      {
+       "handleCx": 161,
+       "ballCx": 153,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "2@260ms"
+      },
+      {
+       "handleCx": 187,
+       "ballCx": 171,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "3@520ms"
+      },
+      {
+       "handleCx": 214,
+       "ballCx": 190,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "4@780ms"
+      },
+      {
+       "handleCx": 240,
+       "ballCx": 208,
+       "ballP": "0",
+       "scale": "0.7",
+       "op": "0.25",
+       "label": "5@1040ms"
+      }
+     ],
+     "controlsTab": false,
+     "visibleControls": [
+      "Scene",
+      "@mbabb menu",
+      "Scene",
+      "Play the reel — a cascading wave replay",
+      "Reset the storyboard rows to the default stagger",
+      "Re-time row 1 start offset",
+      "Re-time row 2 start offset",
+      "Re-time row 3 start offset",
+      "Re-time row 4 start offset",
+      "Re-time row 5 start offset",
+      "Scrub the sequence master clock",
+      "Play animation",
+      "Reset animation",
+      "Play animation"
+     ],
+     "active": "BODY ",
+     "hscroll": false
+    }
+   ],
+   "notes": {
+    "play": [
+     [
+      143,
+      737
+     ],
+     [
+      141,
+      735
+     ]
+    ],
+    "errs": [
+     "[vite] SyntaxError: The requested module '/@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/sequence/useSequenceDemo.ts?t=1790185371292' does not provide a @http://localhost:5173/@vite/client",
+     "[vite] Failed to reload /@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/sequence/SequenceTarget.vue. This could be due to syntax errors or importing non- @http://localhost:5173/@vite/client",
+     "[vite] SyntaxError: The requested module '/@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/sequence/useSequenceDemo.ts?t=1790185371292' does not provide a @http://localhost:5173/@vite/client",
+     "[vite] Failed to reload /@fs/Users/mkbabb/Programming/keyframes.js/demo/scenes/sequence/SequenceScene.vue. This could be due to syntax errors or importing non-e @http://localhost:5173/@vite/client"
+    ]
+   }
+  }
+ ]
+}

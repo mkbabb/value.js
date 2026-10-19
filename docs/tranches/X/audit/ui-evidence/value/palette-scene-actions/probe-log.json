@@ -1,0 +1,247 @@
+{
+ "390": {
+  "row": {
+   "nSeats": 9,
+   "dock": {
+    "x": 39,
+    "y": 16.390625,
+    "width": 312,
+    "height": 65.71875,
+    "top": 16.390625,
+    "right": 351,
+    "bottom": 82.109375,
+    "left": 39
+   },
+   "rowW": 344.125,
+   "scrollers": [
+    {
+     "cls": "dock-layer dock-layer--full is-active",
+     "sw": 421,
+     "cw": 290,
+     "ox": "auto"
+    }
+   ],
+   "seats": [
+    {
+     "l": "Save palette",
+     "x": 127,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Rename palette",
+     "x": 166,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Edit tags",
+     "x": 205,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Version history",
+     "x": 244,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Make private",
+     "x": 283,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Remix palette",
+     "x": 322,
+     "w": 32,
+     "h": 32,
+     "visible": false
+    },
+    {
+     "l": "Vote",
+     "x": 361,
+     "w": 32,
+     "h": 32,
+     "visible": false
+    },
+    {
+     "l": "Export JSON",
+     "x": 400,
+     "w": 32,
+     "h": 32,
+     "visible": false
+    },
+    {
+     "l": "Delete palette",
+     "x": 439,
+     "w": 32,
+     "h": 32,
+     "visible": false
+    }
+   ],
+   "back": {
+    "x": 53.0390625,
+    "w": 46.796875,
+    "h": 46.796875,
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "radius": "9999px"
+   },
+   "seatCls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm",
+   "seatRadius": "4px"
+  },
+  "focused": {
+   "l": "Back",
+   "outline": "none 3px",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+  },
+  "race": [
+   [
+    14,
+    ""
+   ],
+   [
+    168,
+    "Vote failed: Server exploded"
+   ],
+   [
+    1110,
+    "CLICK visibility"
+   ],
+   [
+    1268,
+    "Unpublish failed: Server exploded"
+   ],
+   [
+    2995,
+    ""
+   ]
+  ]
+ },
+ "1440": {
+  "row": {
+   "nSeats": 9,
+   "dock": {
+    "x": 507.5,
+    "y": 12.7890625,
+    "width": 425,
+    "height": 56,
+    "top": 12.7890625,
+    "right": 932.5,
+    "bottom": 68.7890625,
+    "left": 507.5
+   },
+   "rowW": 336,
+   "scrollers": [],
+   "seats": [
+    {
+     "l": "Save palette",
+     "x": 585,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Rename palette",
+     "x": 623,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Edit tags",
+     "x": 661,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Version history",
+     "x": 699,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Make private",
+     "x": 737,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Remix palette",
+     "x": 775,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Vote",
+     "x": 813,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Export JSON",
+     "x": 851,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    },
+    {
+     "l": "Delete palette",
+     "x": 889,
+     "w": 32,
+     "h": 32,
+     "visible": true
+    }
+   ],
+   "back": {
+    "x": 519.5,
+    "w": 40,
+    "h": 40,
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "radius": "9999px"
+   },
+   "seatCls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm",
+   "seatRadius": "4px"
+  },
+  "focused": {
+   "l": "Back",
+   "outline": "none 3px",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+  },
+  "race": [
+   [
+    17,
+    ""
+   ],
+   [
+    172,
+    "Vote failed: Server exploded"
+   ],
+   [
+    1137,
+    "CLICK visibility"
+   ],
+   [
+    1295,
+    "Unpublish failed: Server exploded"
+   ],
+   [
+    2971,
+    ""
+   ]
+  ]
+ },
+ "head": "f95a2f77",
+ "dirty": 20
+}

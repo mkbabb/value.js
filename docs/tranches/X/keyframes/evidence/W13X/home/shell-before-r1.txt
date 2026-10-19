@@ -1,0 +1,6 @@
+RED   UIA-KF-067 1440x900-light fallback box [91.2,154,1257.6,592] vs resolved stage [518.4,127,878.4,646] IoU 0.60 · pane during fallback false -> resolved true
+GREEN UIA-KF-233 1440x900-light transport Play enabled during the fallback: false (skeleton shown true)
+GREEN UIA-KF-068 1440x900-light cube pane true -> during the amiga fallback true · channel label 'Rotations' -> 'Rotations' · skeleton true
+GREEN UIA-KF-067 390x844-dark fallback box [44,89.9,302,664.3] vs resolved stage [28,107,334,629.9] IoU 0.86 · pane during fallback false -> resolved false
+GREEN UIA-KF-233 390x844-dark transport Play enabled during the fallback: false (skeleton shown true)
+GREEN UIA-KF-068 390x844-dark cube pane false -> during the amiga fallback false · channel label 'Rotations' -> 'Rotations' · skeleton true

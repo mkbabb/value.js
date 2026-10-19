@@ -1,0 +1,122 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 92 tests using 1 worker
+
+[1/92] [chromium] › e2e/f-w14-residuals.spec.ts:38:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r1 — scroll-to-top is a glass Button beside the disclosure, and it acts
+[2/92] [chromium] › e2e/f-w14-residuals.spec.ts:63:5 › F.W14.r — the desktop ToC (F.W13 `.a` residuals) › G-r2 — `.sidebar-link` corner is glass's row canon (`--radius-lg`)
+[3/92] [chromium] › e2e/f-w14-residuals.spec.ts:81:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c1 — the sidebar enters on the pick, while the upload is still in flight
+[4/92] [chromium] › e2e/f-w14-residuals.spec.ts:133:5 › F.W14.r — the image sidebar (F.W13 `.c` residuals) › G-c2 — a failed upload is the leave path: no sidebar, and no empty column after
+[5/92] [chromium] › e2e/f-w14-residuals.spec.ts:163:5 › F.W14.r — PRM reaches the page (F.W13 `.c` r4) › G-c4 — `contextOptions.reducedMotion` is in force on the page
+[6/92] [chromium] › e2e/f-w14-uia.spec.ts:26:5 › UIA-F-1 — a featured entry renders the strip, not a crash › the pager lives inside its Carousel; no useCarousel pageerror
+[7/92] [chromium] › e2e/f-w14-uia.spec.ts:62:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-2: a cold deep link sends GET /api/visualizations/<slug> and leaves the upload stage
+[8/92] [chromium] › e2e/f-w14-uia.spec.ts:73:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-3: an in-app push /w/ → /v/ stays on /v/ with no orphaned transition
+[9/92] [chromium] › e2e/f-w14-uia.spec.ts:86:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-50: an unknown path renders a titled, noindexed not-found card
+[10/92] [chromium] › e2e/f-w14-uia.spec.ts:99:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-4: /v/<unknown> names the failed slug instead of the upload prompt
+[11/92] [chromium] › e2e/f-w14-uia.spec.ts:107:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-49: the error card's action is labelled, and nothing covers the diagnosis
+[12/92] [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock
+[13/92] [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels
+[14/92] [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled
+[15/92] [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace
+[16/92] [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save'
+[17/92] [chromium] › e2e/f-w14-uia.spec.ts:321:5 › UIA-F-19 — one drop, one upload › a file dropped over a loaded image sends exactly one POST /api/images
+[18/92] [chromium] › e2e/f-w14-uia.spec.ts:356:5 › UIA-F-20 — the paper restores its scroll position › a reload returns to the saved section instead of the top
+[19/92] [chromium] › e2e/f-w14-uia.spec.ts:377:5 › UIA-F-24 — floating ToC chapter rows navigate; the disclosure toggles › tapping a chapter row scrolls to it; the chevron is its own control
+[20/92] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[21/92] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+[22/92] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[23/92] [chromium] › e2e/f-w14-uia.spec.ts:484:5 › UIA-F-48 — the Drafts card sits inside the column gutter › its right edge stays inside its column and the viewport
+[24/92] [chromium] › e2e/f-w14-uia.spec.ts:509:5 › UIA-F-41 — the gallery column never scrolls sideways at 390 (consumer half) › focusing the last admin tab leaves the column at scrollLeft 0
+[25/92] [chromium] › e2e/f-w14-uia.spec.ts:530:5 › UIA-F-45 — focus opens inside the card modal and stays there › initial focus is the dialog's title and Tab never reaches the page behind
+[26/92] [chromium] › e2e/f-w14-uia.spec.ts:546:5 › UIA-F-40 — the admin grid does not wait on admin stats › a slow stats call neither delays the grid request nor shows the empty CTA over entries
+[27/92] [chromium] › e2e/f-w14-uia.spec.ts:567:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload
+[28/92] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card
+[29/92] [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card
+[30/92] [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor
+[31/92] [chromium] › e2e/f-w14-uia.spec.ts:684:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one
+[32/92] [chromium] › e2e/f-w14-uia.spec.ts:712:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport
+[33/92] [chromium] › e2e/f-w14-uia.spec.ts:754:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-28/F-29: the login form opens in a popover; its error wraps in its own line
+[34/92] [chromium] › e2e/f-w14-uia.spec.ts:774:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-30: logged in, the account is one trigger and the dark-mode toggle stays on the plate
+[35/92] [chromium] › e2e/f-w14-uia.spec.ts:800:5 › UIA-F-22 — mobile paper search: one instance, and a tapped result navigates › one listbox, no duplicate ids, and tapping a result scrolls to it
+[36/92] [chromium] › e2e/f-w14-uia.spec.ts:824:5 › UIA-F-23 — the floating ToC's Close search closes with a query typed › one tap on Close search closes the search and it stays closed
+[37/92] [chromium] › e2e/f-w14-uia.spec.ts:841:5 › UIA-F-25 — the search palette has one dismissal owner › no ✕ under Clear, and Esc collapses the palette keeping the query
+[38/92] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked
+[39/92] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked
+[40/92] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 1440 storage blocked › the root with site data blocked
+[41/92] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked
+[42/92] [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked
+[43/92] [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 390 storage blocked › the root with site data blocked
+[44/92] [chromium] › e2e/f-w14u-misc.spec.ts:130:5 › m115 UIA-F-115 — the morph stage is the page's dominant content (1440) › a large stage beside the controls
+[45/92] [chromium] › e2e/f-w14u-misc.spec.ts:143:5 › m115 UIA-F-115 — the stage stays in view while tuning (390) › scrolled to the level strip, the stage is still on screen
+[46/92] [chromium] › e2e/f-w14u-misc.spec.ts:156:5 › m117 UIA-F-117 — the readouts never move the controls (390) › the first control keeps its place through a whole morph
+[47/92] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[48/92] [chromium] › e2e/f-w14u-misc.spec.ts:190:5 › m209 UIA-F-209 — the number fields keep a field's measure at 390 › no field renders as a circle
+[49/92] [chromium] › e2e/f-w14u-misc.spec.ts:202:5 › m210 UIA-F-210 — a preview tile previews; it never rewrites the range › Low and High hold, the chosen tile is in view, the strip fades where it continues
+[50/92] [chromium] › e2e/f-w14u-misc.spec.ts:226:5 › m254 UIA-F-254 — /morph's micro-issues › no nested scroller · Export is secondary by the stage · bound tiles not in a basis hue
+[51/92] [chromium] › e2e/f-w14u-misc.spec.ts:254:5 › m57 UIA-F-57 (.shell R-1, the morph remainder) — the tile label sits on a named rung › the n= label is on the caption rung, not the dead text-sm
+[52/92] [chromium] › e2e/f-w14u-misc.spec.ts:277:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (1440) › multi-line, on a surface at the field radius, with a Copy control
+[53/92] [chromium] › e2e/f-w14u-misc.spec.ts:277:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (390) › multi-line, on a surface at the field radius, with a Copy control
+[54/92] [chromium] › e2e/f-w14u-misc.spec.ts:306:5 › x211 UIA-F-211 — the extractor has a heading hierarchy, glass frames and a centred column (1440) › title rung above body, subjects on Cards, the column centred and bounded
+[55/92] [chromium] › e2e/f-w14u-misc.spec.ts:328:5 › x255 UIA-F-255 — the extractor's micro-issues › titled and noindexed · the extract action reports each run
+[56/92] [chromium] › e2e/f-w14u-misc.spec.ts:363:5 › r119 UIA-F-119 — the dock's section comes from the route's meta › trailing slash and /v/ mark Visualize; tools and unknown paths mark none
+[57/92] [chromium] › e2e/f-w14u-misc.spec.ts:383:5 › r212 UIA-F-212 — one remembered-tab writer, from the route's meta › a saved visualization and a trailing-slash path are remembered as Visualize
+[58/92] [chromium] › e2e/f-w14u-misc.spec.ts:399:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:399:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[59/92] [chromium] › e2e/f-w14u-misc.spec.ts:399:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[chromium] › e2e/f-w14u-misc.spec.ts:399:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render
+[r120 /paper, carried] pageerrors=0
+
+[60/92] [chromium] › e2e/f-w14u-misc.spec.ts:424:5 › r213 UIA-F-213 — a storage write after boot never crashes (auth) › logging in with site data blocked keeps the session in memory
+[61/92] [chromium] › e2e/f-w14u-misc.spec.ts:445:5 › v246 UIA-F-246 — /s/ resolves to the entity it names › a saved visualization's slug opens /v/; an image slug opens /w/
+[62/92] [chromium] › e2e/f-w14u-misc.spec.ts:478:5 › v246 UIA-F-246 ⊕ g96 UIA-F-96 (.gallery R-1) — one view transition per navigation › gallery → saved visualization morphs once
+[63/92] [chromium] › e2e/f-w14u-misc.spec.ts:496:5 › a256 UIA-F-256 (.shell R-2) — a failed logout is reported, not toasted as done › the server refuses the delete: an error, and the account stays
+[64/92] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames light › 1440 › frame 1440 light
+[65/92] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames light › 390 › frame 390 light
+[66/92] [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames dark › 1440 › frame 1440 dark
+[67/92] [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames dark › 390 › frame 390 dark
+[68/92] [chromium] › e2e/f-w14u-paper.spec.ts:86:5 › paper-desktop 1440 › UIA-F-61: the article is glass Card, the rail glass-quiet, one light source, one top line
+[69/92] [chromium] › e2e/f-w14u-paper.spec.ts:114:5 › paper-desktop 1440 › UIA-F-156: a compact disclosure, a wider rail, one active class (no inline style)
+[70/92] [chromium] › e2e/f-w14u-paper.spec.ts:134:5 › paper-desktop 1440 › UIA-F-164 + UIA-F-234: no statistics tooltip on a row; a collapsed CONTENTS reclaims its space
+[71/92] [chromium] › e2e/f-w14u-paper.spec.ts:156:5 › paper-desktop 1440 › X-DS F1-09: the page readout is homed in the ToC drawer, never over the article
+[72/92] [chromium] › e2e/f-w14u-paper.spec.ts:178:5 › paper-desktop 1440 › UIA-F-147 (consumer half): ToC rows ride Button's sm rung; no local radius or padding override
+[73/92] [chromium] › e2e/f-w14u-paper.spec.ts:195:5 › paper-desktop 1440 › UIA-F-157: the reading progress is glass ScrollProgressRim and it tracks the scroll
+[74/92] [chromium] › e2e/f-w14u-paper.spec.ts:213:5 › paper-search 1440 › UIA-F-158: a query with no match says so in the inline panel
+[75/92] [chromium] › e2e/f-w14u-paper.spec.ts:221:5 › paper-search 1440 › UIA-F-159: one inline surface and ⌘K — no Expand; ⌘K from the field carries the query
+[76/92] [chromium] › e2e/f-w14u-paper.spec.ts:235:5 › paper-search 1440 › UIA-F-160: inline options are not tab stops; one cursor; canon Badge
+[77/92] [chromium] › e2e/f-w14u-paper.spec.ts:265:5 › paper-search 1440 › UIA-F-161: word-start matching with contiguous highlights; a scattered subsequence matches nothing
+[78/92] [chromium] › e2e/f-w14u-paper.spec.ts:280:5 › paper-search 1440 › UIA-F-64: the palette is glass Command — input, groups per type, items, empty
+[79/92] [chromium] › e2e/f-w14u-paper.spec.ts:300:5 › paper-search 1440 › UIA-F-235: search fields do not spellcheck
+[80/92] [chromium] › e2e/f-w14u-paper.spec.ts:314:5 › paper-mobile 390 › UIA-F-66: floating ToC rows are start-aligned; Scroll to top is one line
+[81/92] [chromium] › e2e/f-w14u-paper.spec.ts:341:5 › paper-mobile 390 › UIA-F-67: the phone ToC is glass Popover; no inline overflow write; every level reachable
+[82/92] [chromium] › e2e/f-w14u-paper.spec.ts:365:5 › paper-mobile 390 › UIA-F-162: content first — no inline chapter list; a compact bar at the top; one icon radius
+[83/92] [chromium] › e2e/f-w14u-paper.spec.ts:397:5 › paper-mobile 390 › UIA-F-163: no consumer :hover paint outside (hover: hover)
+[84/92] [chromium] › e2e/f-w14u-paper.spec.ts:425:5 › paper-mobile 390 › UIA-F-236: the bar reports chapter and section, is inset from the edges, the chip stays clear
+[85/92] [chromium] › e2e/f-w14u-paper.spec.ts:466:5 › paper-mobile 390 › UIA-F-158 + UIA-F-235: the phone search says 'No results'; its panel is the bar's width with a gap
+[86/92] [chromium] › e2e/f-w14u-t.spec.ts:103:9 › G-t — the desktop ToC is a drawer under the paper (1440, light) › t1+t2 — hide slides it under the paper to an edge tab; show restores it exactly; focus stays
+[87/92] [chromium] › e2e/f-w14u-t.spec.ts:103:9 › G-t — the desktop ToC is a drawer under the paper (1440, dark) › t1+t2 — hide slides it under the paper to an edge tab; show restores it exactly; focus stays
+[88/92] [chromium] › e2e/f-w14u-t.spec.ts:162:5 › G-t — persistence and motion (1440) › t3 — the state persists per viewer across a reload, both ways
+[89/92] [chromium] › e2e/f-w14u-t.spec.ts:177:5 › G-t — persistence and motion (1440) › t4 — storage that throws never breaks the page
+[90/92] [chromium] › e2e/f-w14u-t.spec.ts:206:9 › G-t — persistence and motion (1440) › reduced motion › t5 — prefers-reduced-motion: the hide is instant
+[91/92] [chromium] › e2e/f-w14u-t.spec.ts:223:9 › G-t — the mobile presentation of the one ToC (390, light) › t6 — no desktop drawer below lg; the floating bar opens the ToC
+[92/92] [chromium] › e2e/f-w14u-t.spec.ts:223:9 › G-t — the mobile presentation of the one ToC (390, dark) › t6 — no desktop drawer below lg; the floating bar opens the ToC
+  92 passed (2.7m)

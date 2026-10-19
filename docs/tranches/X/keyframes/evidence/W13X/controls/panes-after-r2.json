@@ -1,0 +1,13 @@
+[
+ {
+  "theme": "light",
+  "k117_switched": true,
+  "k117_maxGapMs": 12,
+  "k117_blankFrames": 0,
+  "k119_switched": true,
+  "k119_blankFrames": 0,
+  "k119_maxGapMs": 32,
+  "k118_railClosed": true,
+  "k118_maxScrollLeft": 0
+ }
+]

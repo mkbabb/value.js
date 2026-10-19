@@ -1,0 +1,9 @@
+SERVED MODEL: claude-opus-5-5
+drag-probe.mjs round r1; D=bcbc1c887 built dist (worktree) on :8193; SwiftShader headless; 1440x900 dark #/?space=lab
+load={ 8.65 12.18 15.54 }
+[drag-probe r1] as-is       surface: moves=6 frames=5 p50=417.0 p95=664.4 | slider L: moves=14 frames=13 p50=141.1 p95=217.7
+[drag-probe r1] no-webgl    surface: moves=20 frames=19 p50=119.3 p95=131.7 | slider L: moves=19 frames=18 p50=116.9 p95=156.9
+[drag-probe r1] no-backdrop surface: moves=19 frames=18 p50=125.3 p95=141.7 | slider L: moves=18 frames=17 p50=119.9 p95=141.1
+[drag-probe r1] neither     surface: moves=23 frames=23 p50=96.3 p95=117.7 | slider L: moves=18 frames=17 p50=104.3 p95=366.8
+[drag-probe r1] blank       fill: moves=263 frames=0 p50=undefined p95=undefined   <- instrument fault (init script does not reach setContent); fixed for r2
+load={ 12.53 12.73 15.58 }

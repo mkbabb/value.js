@@ -1,0 +1,32 @@
+{
+ "sha": "60477b06",
+ "dirty": 7,
+ "t0": {
+  "moving": true,
+  "btns": [
+   "Pause animation",
+   "Pause animation"
+  ]
+ },
+ "afterDockHover": {
+  "moving": true,
+  "btns": [
+   "Pause animation",
+   "Pause animation"
+  ]
+ },
+ "afterKeyframes": {
+  "moving": true,
+  "btns": [
+   "Pause animation",
+   "Pause animation"
+  ]
+ },
+ "afterBackToControls": {
+  "moving": true,
+  "btns": [
+   "Pause animation",
+   "Pause animation"
+  ]
+ }
+}

@@ -1,0 +1,395 @@
+{
+ "1-expand": {
+  "frames": 93,
+  "morphFrames": 31,
+  "blurFrames": 31,
+  "maxBlur": [
+   "none",
+   "blur(1.25px)",
+   "blur(1.12426px)",
+   "blur(0.836613px)",
+   "blur(0.47928px)",
+   "blur(0.121782px)"
+  ],
+  "dockScaleFrames": 35,
+  "textChainScaled": 87,
+  "textChainSample": [
+   "button.dock-trigger.dock-select-trigger#p1ls{f:none;s:1;t:none}",
+   "div.dock-layers#24vo{f:none;s:1.33333 1;t:none}",
+   "div.glass-dock.horizontal#edd8{f:blur(1.25px);s:0.75 1;t:none}",
+   "div.dock-layers#24vo{f:none;s:1.31135 1;t:none}",
+   "div.glass-dock.horizontal#edd8{f:blur(1.12426px);s:0.762574 1;t:none}",
+   "button.dock-trigger.dock-select-trigger#p1ls{f:none;s:0.998362;t:none}"
+  ],
+  "implicitFrames": 26,
+  "implicitMax": 8,
+  "implicitOwners": [
+   "button.dock-trigger.dock-select-trigger|opacity|spring+CSSTransition",
+   "button.dock-trigger.dock-select-trigger|scale|spring+CSSTransition",
+   "button.dock-icon-button.glass-specular-track|opacity|spring+CSSTransition",
+   "button.dock-icon-button.glass-specular-track|scale|spring+CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger|opacity|spring+CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger|scale|spring+CSSTransition"
+  ],
+  "widths": {
+   "min": 60,
+   "max": 402.4921875,
+   "kidsSeq": "1>8"
+  },
+  "dblOwnerFrames": 0,
+  "dblOwners": [],
+  "runningKinds": [
+   "button.button.tap-squish#1gmq|background-color|CSSTransition",
+   "button.button.tap-squish#1gmq|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#p1ls|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#p1ls|scale|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#p1ls|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#p1ls|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#p1ls::before|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#ogiy|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#ogiy|scale|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#5we3|opacity|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#5we3|scale|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#o8d0|opacity|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#o8d0|scale|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#ogiy|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#ogiy|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#ogiy::before|opacity|CSSTransition",
+   "div.dock-layer.dock-layer--summary#gea6|visibility|CSSTransition"
+  ],
+  "rectJumps": 2,
+  "layoutShifts": 2,
+  "shiftSum": 0.0117,
+  "shiftSrc": [
+   "div.glass-dock.horizontal#edd8",
+   "svg.lucide.lucide-sliders-horizontal-icon#nx4w",
+   "svg.lucide.lucide-panel-left-close-icon#zj0o",
+   "svg.dock-glyph#sl2e",
+   "svg.lucide.lucide-chevron-down-icon#1cmr"
+  ],
+  "rest": {
+   "x": 518.75,
+   "y": 43.25,
+   "w": 402.4921875,
+   "textX": 560.75,
+   "textY": 55.984375,
+   "textXfrac": 0.25,
+   "textYfrac": 0.015625,
+   "filter": "none",
+   "chain": [
+    "button.dock-trigger.dock-select-trigger#p1ls{f:none;s:1;t:none}"
+   ]
+  },
+  "errs": []
+ },
+ "2-collapse": {
+  "frames": 271,
+  "morphFrames": 31,
+  "blurFrames": 31,
+  "maxBlur": [
+   "none",
+   "blur(0px)",
+   "blur(0.205472px)",
+   "blur(0.48731px)",
+   "blur(0.695482px)",
+   "blur(0.89375px)"
+  ],
+  "dockScaleFrames": 31,
+  "textChainScaled": 151,
+  "textChainSample": [
+   "button.dock-trigger.dock-select-trigger#z2rg{f:none;s:1;t:none}"
+  ],
+  "implicitFrames": 16,
+  "implicitMax": 2,
+  "implicitOwners": [
+   "button.button.tap-squish|opacity|spring+CSSTransition",
+   "button.button.tap-squish|scale|spring+CSSTransition"
+  ],
+  "widths": {
+   "min": 60,
+   "max": 402.4921875,
+   "kidsSeq": "8>1"
+  },
+  "dblOwnerFrames": 0,
+  "dblOwners": [],
+  "runningKinds": [
+   "button.dock-trigger.dock-select-trigger#nqvw|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#nqvw|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#nqvw::before|opacity|CSSTransition",
+   "button.button.tap-squish#jixn|opacity|CSSTransition",
+   "button.button.tap-squish#jixn|scale|CSSTransition",
+   "div.dock-layer.dock-layer--full#9p2j|visibility|CSSTransition"
+  ],
+  "rectJumps": 0,
+  "layoutShifts": 2,
+  "shiftSum": 0.0087,
+  "shiftSrc": [
+   "div.dock-layer.dock-layer--full#9p2j",
+   "::before.#oy5o",
+   "::before.#70yv",
+   "::before.#2drk",
+   "::before.#nadm",
+   "div.glass-dock.horizontal#8v1k"
+  ],
+  "rest": {
+   "x": 690,
+   "y": 43.25,
+   "w": 60,
+   "textXfrac": null,
+   "textYfrac": null,
+   "filter": "none",
+   "chain": []
+  },
+  "errs": []
+ },
+ "3-scene-switch": {
+  "frames": 186,
+  "morphFrames": 0,
+  "blurFrames": 0,
+  "maxBlur": [
+   "none"
+  ],
+  "dockScaleFrames": 0,
+  "textChainScaled": 186,
+  "textChainSample": [
+   "button.dock-trigger.dock-select-trigger#6w5f{f:none;s:1;t:none}"
+  ],
+  "implicitFrames": 0,
+  "implicitMax": 0,
+  "implicitOwners": [],
+  "widths": {
+   "min": 218.5625,
+   "max": 410.3671875,
+   "kidsSeq": "8>5>8"
+  },
+  "dblOwnerFrames": 0,
+  "dblOwners": [],
+  "runningKinds": [
+   "div.dock-plate#55wv|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6w5f|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6w5f|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6w5f|box-shadow|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6w5f::before|opacity|CSSTransition",
+   "svg.lucide.lucide-chevron-down-icon#wqcz|rotate|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#7xkm|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#7xkm|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#7xkm::before|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6w5f::before|--specular-y|CSSTransition"
+  ],
+  "rectJumps": 0,
+  "layoutShifts": 7,
+  "shiftSum": 0.0318,
+  "shiftSrc": [
+   "div.glass-dock.horizontal#gp9d",
+   "div.glass-dock.horizontal#rxl5",
+   "::before.#2h3b",
+   "div.stage-cell.justify-self-stretch#00ir",
+   "div.glass-dock.horizontal#nglt"
+  ],
+  "rest": {
+   "x": 514.8125,
+   "y": 43.25,
+   "w": 410.3671875,
+   "textX": 556.8125,
+   "textY": 55.984375,
+   "textXfrac": 0.1875,
+   "textYfrac": 0.015625,
+   "filter": "none",
+   "chain": [
+    "button.dock-trigger.dock-select-trigger#6w5f{f:none;s:1;t:none}"
+   ]
+  },
+  "errs": []
+ },
+ "4-panel-toggle": {
+  "frames": 149,
+  "morphFrames": 0,
+  "blurFrames": 0,
+  "maxBlur": [
+   "none"
+  ],
+  "dockScaleFrames": 0,
+  "textChainScaled": 149,
+  "textChainSample": [
+   "button.dock-trigger.dock-select-trigger#f4mb{f:none;s:1;t:none}"
+  ],
+  "implicitFrames": 0,
+  "implicitMax": 0,
+  "implicitOwners": [],
+  "widths": {
+   "min": 402.4921875,
+   "max": 402.4921875,
+   "kidsSeq": "8"
+  },
+  "dblOwnerFrames": 0,
+  "dblOwners": [],
+  "runningKinds": [
+   "button.dock-trigger.dock-select-trigger#zq9k|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#zq9k|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#zq9k::before|opacity|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#bpq5|color|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#bpq5|scale|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#bpq5|background-color|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#bpq5::before|opacity|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#bpq5::before|--specular-x|CSSTransition"
+  ],
+  "rectJumps": 0,
+  "layoutShifts": 56,
+  "shiftSum": 0.4557,
+  "shiftSrc": [
+   "div.stage-cell.justify-self-stretch#r6br",
+   "div.glass-dock.horizontal#fyap"
+  ],
+  "rest": {
+   "x": 518.75,
+   "y": 43.25,
+   "w": 402.4921875,
+   "textX": 560.75,
+   "textY": 55.984375,
+   "textXfrac": 0.25,
+   "textYfrac": 0.015625,
+   "filter": "none",
+   "chain": [
+    "button.dock-trigger.dock-select-trigger#f4mb{f:none;s:1;t:none}"
+   ]
+  },
+  "errs": []
+ },
+ "5-menu": {
+  "frames": 131,
+  "morphFrames": 0,
+  "blurFrames": 0,
+  "maxBlur": [
+   "none"
+  ],
+  "dockScaleFrames": 0,
+  "textChainScaled": 131,
+  "textChainSample": [
+   "button.dock-trigger.dock-select-trigger#b9p3{f:none;s:1;t:none}"
+  ],
+  "implicitFrames": 0,
+  "implicitMax": 0,
+  "implicitOwners": [],
+  "widths": {
+   "min": 402.4921875,
+   "max": 402.4921875,
+   "kidsSeq": "8"
+  },
+  "dblOwnerFrames": 0,
+  "dblOwners": [],
+  "runningKinds": [
+   "div.dock-plate#g65z|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6n1c|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6n1c|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#6n1c::before|opacity|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#9ou5|color|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#9ou5|background-color|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#9ou5::before|opacity|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#9ou5|box-shadow|CSSTransition"
+  ],
+  "rectJumps": 0,
+  "layoutShifts": 4,
+  "shiftSum": 0.0033,
+  "shiftSrc": [
+   "div.glass-dock.horizontal#uxam",
+   "span.#0ar6",
+   "span.slider-thumb.glass-specular-track#aemy"
+  ],
+  "rest": {
+   "x": 518.75,
+   "y": 43.25,
+   "w": 402.4921875,
+   "textX": 560.75,
+   "textY": 55.984375,
+   "textXfrac": 0.25,
+   "textYfrac": 0.015625,
+   "filter": "none",
+   "chain": [
+    "button.dock-trigger.dock-select-trigger#b9p3{f:none;s:1;t:none}"
+   ]
+  },
+  "errs": []
+ },
+ "6-hover-collapsed": {
+  "frames": 231,
+  "morphFrames": 62,
+  "blurFrames": 62,
+  "maxBlur": [
+   "none",
+   "blur(1.25px)",
+   "blur(1.12426px)",
+   "blur(0.834605px)",
+   "blur(0.481467px)",
+   "blur(0.121782px)"
+  ],
+  "dockScaleFrames": 66,
+  "textChainScaled": 163,
+  "textChainSample": [
+   "button.dock-trigger.dock-select-trigger#mr7b{f:none;s:1;t:none}",
+   "div.dock-layers#auu2{f:none;s:1.33333 1;t:none}",
+   "div.glass-dock.horizontal#toik{f:blur(1.25px);s:0.75 1;t:none}",
+   "div.dock-layers#auu2{f:none;s:1.31135 1;t:none}",
+   "div.glass-dock.horizontal#toik{f:blur(1.12426px);s:0.762574 1;t:none}",
+   "button.dock-trigger.dock-select-trigger#mr7b{f:none;s:0.998405;t:none}"
+  ],
+  "implicitFrames": 41,
+  "implicitMax": 8,
+  "implicitOwners": [
+   "button.dock-trigger.dock-select-trigger|opacity|spring+CSSTransition",
+   "button.dock-trigger.dock-select-trigger|scale|spring+CSSTransition",
+   "button.dock-icon-button.glass-specular-track|opacity|spring+CSSTransition",
+   "button.dock-icon-button.glass-specular-track|scale|spring+CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger|opacity|spring+CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger|scale|spring+CSSTransition",
+   "button.button.tap-squish|opacity|spring+CSSTransition",
+   "button.button.tap-squish|scale|spring+CSSTransition"
+  ],
+  "widths": {
+   "min": 60,
+   "max": 402.4921875,
+   "kidsSeq": "1>8>1"
+  },
+  "dblOwnerFrames": 0,
+  "dblOwners": [],
+  "runningKinds": [
+   "button.button.tap-squish#y3h2|background-color|CSSTransition",
+   "button.button.tap-squish#y3h2|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#mr7b|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#mr7b|scale|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#mr7b|background-color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#mr7b|color|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#mr7b::before|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#u71n|opacity|CSSTransition",
+   "button.dock-trigger.dock-select-trigger#u71n|scale|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#csox|opacity|CSSTransition",
+   "button.dock-icon-button.glass-specular-track#csox|scale|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#vjyd|opacity|CSSTransition",
+   "button.dropdown-menu__trigger.dock-trigger#vjyd|scale|CSSTransition",
+   "div.dock-layer.dock-layer--summary#xj65|visibility|CSSTransition",
+   "button.button.tap-squish#y3h2|opacity|CSSTransition",
+   "button.button.tap-squish#y3h2|scale|CSSTransition",
+   "div.dock-layer.dock-layer--full#vh74|visibility|CSSTransition"
+  ],
+  "rectJumps": 2,
+  "layoutShifts": 4,
+  "shiftSum": 0.0204,
+  "shiftSrc": [
+   "div.glass-dock.horizontal#toik",
+   "svg.lucide.lucide-sliders-horizontal-icon#ghos",
+   "svg.lucide.lucide-panel-left-close-icon#4hxl",
+   "svg.dock-glyph#q54z",
+   "svg.lucide.lucide-chevron-down-icon#h68s",
+   "div.dock-layer.dock-layer--full#vh74"
+  ],
+  "rest": {
+   "x": 690,
+   "y": 43.25,
+   "w": 60,
+   "textXfrac": null,
+   "textYfrac": null,
+   "filter": "none",
+   "chain": []
+  },
+  "errs": []
+ }
+}

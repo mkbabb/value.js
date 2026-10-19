@@ -1,6 +1,7 @@
 import type { Page } from "@playwright/test";
 import { userTest as test, expect } from "../fixtures/user-auth";
-import { expandDock } from "../fixtures/dock";
+import { expandDock, mainPane } from "../fixtures/dock";
+import { routeBrowsePalettes } from "../fixtures/browse-palettes";
 
 /**
  * T.W3 W3-5 · O-18 — THE POPULATION CONTRAST CENSUS (SYNTHESIS §6.1 O-18).
@@ -426,7 +427,7 @@ const IDENTITY_C_FLOOR = 0.35;
 /** Boot to the owner color and wait for the ink writers (boot contract). */
 async function bootAtOwnerColor(page: Page) {
     await page.goto(OWNER_URL);
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
         await expect
             .poll(
@@ -448,7 +449,7 @@ async function bootAtOwnerColor(page: Page) {
  *  "lavendi") and wait for the view-accent writer to stamp `--accent-view`. */
 async function bootAtDefaultSeed(page: Page) {
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     for (const token of ["--accent-view", "--accent-live", "--ink-ambient-l"]) {
         await expect
             .poll(
@@ -528,7 +529,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const probe = document.createElement("div");
                 probe.style.cssText =
                     "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
-                probe.style.background = "var(--glass-bg-resting)";
+                probe.style.background = "var(--glass-plate-resting)";
                 document.body.appendChild(probe);
                 const tint = resolve(getComputedStyle(probe).backgroundColor);
                 probe.remove();
@@ -849,7 +850,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const probe = document.createElement("div");
                 probe.style.cssText =
                     "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
-                probe.style.background = "var(--glass-bg-resting)";
+                probe.style.background = "var(--glass-plate-resting)";
                 document.body.appendChild(probe);
                 const tint = resolve(getComputedStyle(probe).backgroundColor);
                 probe.remove();
@@ -941,9 +942,7 @@ for (const scheme of ["light", "dark"] as const) {
             // The direct route (no admin meta): the config surface mounts
             // without the dock's admin-mode dance.
             await page.goto("/#/atmosphere");
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
+            await expect(mainPane(page)).toBeVisible();
             await expect(
                 page.locator(".config-console .configurator-row").first(),
             ).toBeVisible();
@@ -1100,9 +1099,7 @@ for (const scheme of ["light", "dark"] as const) {
             await page.goto(
                 "/#/extract?space=lab&color=" + encodeURIComponent(OWNER_COLOR),
             );
-            await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
+            await expect(mainPane(page)).toBeVisible();
             await expect
                 .poll(
                     () =>
@@ -1114,8 +1111,16 @@ for (const scheme of ["light", "dark"] as const) {
                     { timeout: 8000 },
                 )
                 .not.toBe("");
+            // X-DS pass 3 (V3C-04) RE-AIM, exactly as the config leg was at
+            // V1C-06: with no image the K and kC sliders are scalars on glass's
+            // default RANGE variant, the value's extent is the filled RANGE in
+            // the one scalar ink (`--slider-range-bg`), and the unfilled track is
+            // glass's quiet tone. The graphics floor moves with the meaning: it
+            // is each RANGE that must clear 3:1 on the plate. Same floor, same
+            // ground, the indicator re-pointed. (The developed K rail keeps its
+            // certified ink + hairline ring; it mounts only with a ramp.)
             await expect(
-                page.locator('[data-o18="extract-kc"] .slider-track'),
+                page.locator('[data-o18="extract-kc"] .slider-range'),
             ).toBeVisible();
 
             const settleSurface = async (
@@ -1135,17 +1140,17 @@ for (const scheme of ["light", "dark"] as const) {
                 `${row.name} fill ${row.ink} vs ground ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
 
             const kc = await settleSurface(
-                '[data-o18="extract-kc"] .slider-track',
-                "extract-kc-track",
+                '[data-o18="extract-kc"] .slider-range',
+                "extract-kc-range",
             );
-            expect(kc, "kC track mounted").not.toBeNull();
+            expect(kc, "kC range mounted").not.toBeNull();
             expect(kc!.ratio, diag(kc!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
 
             const kRail = await settleSurface(
-                '[data-o18="extract-k-rail"]',
-                "extract-k-rail",
+                '[data-o18="extract-k"] .slider-range',
+                "extract-k-range",
             );
-            expect(kRail, "K rail mounted").not.toBeNull();
+            expect(kRail, "K range mounted").not.toBeNull();
             expect(kRail!.ratio, diag(kRail!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });
@@ -1159,24 +1164,28 @@ for (const scheme of ["light", "dark"] as const) {
 // 1.4.11 wants ≥3:1 for the control's extent), and the spectrum `.slider-range`
 // is transparent by recipe so no filled/unfilled split reads either. This leg
 // is the cure's BORN-RED gate: born red against the pre-cure `--secondary`
-// track, green against the `--slider-track-bg: var(--ink-muted)` re-ink
+// track, green against the `--glass-slider-track-background: var(--ink-muted)` re-ink
 // (ConfigSliderPane — the SAME certified-material class as the eb7bb2c Extract
 // re-ink). The census extension is the W6.5 precedent (a bounds extension, not
 // a weakening — the GRAPHICS floor is unchanged).
+// X-DS pass 1 (V1C-06) RE-AIM: the config sliders leave the spectrum variant
+// (a colour-track variant with no fill) for glass's default RANGE variant. The
+// value's extent is now the filled RANGE, in the certified `--ink-muted`
+// (`--slider-range-bg`), and the unfilled track is glass's quiet tone. The
+// graphics floor moves with the meaning: it is the RANGE that must clear 3:1
+// on the well. Same floor, same well, the indicator re-pointed.
 
 for (const scheme of ["light", "dark"] as const) {
     test.describe(`O-18 config-track graphics leg (${scheme})`, () => {
         test.use({ colorScheme: scheme });
 
-        test("the ConfigSliderPane spectrum tracks ≥3:1 on the well (boot-A · M-34)", async ({
+        test("the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06)", async ({
             page,
         }) => {
             await page.goto("/#/atmosphere");
+            await expect(mainPane(page)).toBeVisible();
             await expect(
-                page.getByRole("main", { name: "Color tool panes" }),
-            ).toBeVisible();
-            await expect(
-                page.locator(".config-console .configurator-row .slider-track").first(),
+                page.locator(".config-console .configurator-row .slider-range").first(),
             ).toBeVisible();
             // The track material is the certified de-emphasis rung — wait for
             // the ink writer to stamp `--ink-muted` (the census certifies the
@@ -1209,12 +1218,12 @@ for (const scheme of ["light", "dark"] as const) {
             const diag = (row: CensusRow) =>
                 `${row.name} fill ${row.ink} vs ground ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
 
-            const track = await settleSurface(
-                ".config-console .configurator-row .slider-track",
-                "config-slider-track",
+            const range = await settleSurface(
+                ".config-console .configurator-row .slider-range",
+                "config-slider-range",
             );
-            expect(track, "config slider track mounted").not.toBeNull();
-            expect(track!.ratio, diag(track!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+            expect(range, "config slider range mounted").not.toBeNull();
+            expect(range!.ratio, diag(range!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });
 }
@@ -1292,7 +1301,7 @@ for (const scheme of ["light", "dark"] as const) {
             await bootAtOwnerColor(page);
             await expandDock(page);
 
-            const pill = page.locator(".slug-pill.gold-shimmer");
+            const pill = page.locator('[data-o18="admin-trigger"]');
             await expect(
                 pill,
                 "the admin branch mounts — if this fails the census is still blind and the row below proves nothing",
@@ -1300,7 +1309,7 @@ for (const scheme of ["light", "dark"] as const) {
 
             const row = await censusElement(
                 page,
-                ".slug-pill.gold-shimmer",
+                '[data-o18="admin-trigger"]',
                 "admin-pill",
             );
             expect(row, "the admin pill is enrolled").not.toBeNull();
@@ -1351,6 +1360,79 @@ for (const scheme of ["light", "dark"] as const) {
                 failures,
                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
             ).toEqual([]);
+        });
+    });
+}
+
+/**
+ * X-DS value pass 15 (V15-01) — THE FEATURED BADGE IS ENROLLED.
+ *
+ * The badge is the one tier mark on a card, and the census never read it, so a
+ * 1.76:1 label (raw `--color-gold` ink on the light card plate) shipped GREEN.
+ * Its label is TEXT (≥4.5:1, WCAG 1.4.3); at phone width the badge folds to its
+ * glyph alone, so the glyph is a graphic that must carry the tier by itself
+ * (≥3:1, WCAG 1.4.11). The identity leg holds the glyph's hue on gold (§0dm:
+ * the cure certifies gold's lightness, never strips the hue). Born-RED against
+ * the raw-gold ink, the same arithmetic as the admin pill above (A-1).
+ */
+const GOLD_HUE = 84;
+
+for (const scheme of ["light", "dark"] as const) {
+    test.describe(`O-18 census · V15-01 the featured badge (${scheme})`, () => {
+        test.use({ colorScheme: scheme });
+
+        test("the Featured label ≥4.5:1 and its gold glyph ≥3:1, hue held on gold", async ({
+            page,
+        }) => {
+            await routeBrowsePalettes(page);
+            await page.goto("/#/browse");
+            await expect(mainPane(page)).toBeVisible();
+            const badge = page.locator(".featured-badge").first();
+            await expect(badge, "the featured badge mounts on the wall's first card").toBeVisible({
+                timeout: 15000,
+            });
+            await expect
+                .poll(
+                    () =>
+                        page.evaluate(() =>
+                            getComputedStyle(document.documentElement)
+                                .getPropertyValue("--ink-ambient-l")
+                                .trim(),
+                        ),
+                    { timeout: 8000 },
+                )
+                .not.toBe("");
+
+            const diag = (row: CensusRow) =>
+                `${row.name} ink ${row.ink} vs ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
+            const label = await censusElement(
+                page,
+                ".featured-badge .palette-specimen__yield-3",
+                "featured-label",
+            );
+            const glyph = await censusElement(page, ".featured-badge__icon", "featured-glyph");
+            expect(label, "the label is enrolled").not.toBeNull();
+            expect(glyph, "the glyph is enrolled").not.toBeNull();
+            expect(label!.ratio, diag(label!)).toBeGreaterThanOrEqual(TEXT_FLOOR);
+            expect(glyph!.ratio, diag(glyph!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+
+            // The identity leg: the glyph's painted ink stays a gold.
+            const hue = await page.evaluate(() => {
+                const el = document.querySelector<HTMLElement>(".featured-badge__icon")!;
+                const probe = document.createElement("div");
+                probe.style.color = `oklch(from ${getComputedStyle(el).color} l c h)`;
+                document.body.appendChild(probe);
+                const out = getComputedStyle(probe).color;
+                probe.remove();
+                const m = /oklch\(\s*[\d.]+%?\s+([\d.]+)\s+([\d.]+)/.exec(out);
+                return m ? { c: Number(m[1]), h: Number(m[2]) } : null;
+            });
+            expect(hue, "the glyph ink resolves in OKLCh").not.toBeNull();
+            expect(hue!.c, "the glyph is chromatic, not a grey").toBeGreaterThan(0.04);
+            expect(
+                Math.abs(((hue!.h - GOLD_HUE + 540) % 360) - 180),
+                `the glyph's hue ${hue!.h} stays on gold (${GOLD_HUE})`,
+            ).toBeLessThanOrEqual(20);
         });
     });
 }

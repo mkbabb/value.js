@@ -1,0 +1,30 @@
+# load 137.84 122.94 85.32
+
+Running 1 test using 1 worker
+
+  ✘  1 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock (30.0s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:9000/", waiting until "load"
+
+
+      146 |         page,
+      147 |     }) => {
+    > 148 |         await page.goto("/");
+          |                    ^
+      149 |         const main = mainPane(page);
+      150 |         await expect(main).toBeVisible();
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:148:20
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-80763-02-About-honest-2-line-lock-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:145:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock 
+# load 131.28 123.15 87.13

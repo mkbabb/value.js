@@ -1,5 +1,29 @@
 # Tranche V — Optical Bench Visual Constitution
 
+> **TOMBSTONE — folded into `demo/DESIGN.md` at X-W10 (unit X.W10.f, 2026-10-18).** This file is
+> no longer design law. Nothing below binds a component author; where it disagrees with
+> `demo/DESIGN.md`, the canon governs. Kept as the Tranche V record. What moved where (canon
+> section names, never line numbers):
+>
+> - §1 Product identity → `demo/DESIGN.md` § 4 Chroma fidelity (§ 4.1 THE C3 LAW, § 4.2 Data
+>   surfaces show the colour) and § 6.3 The product-surface laws.
+> - §2 Material hierarchy → § 2 Material and elevation (§ Surfaces — THE MATERIAL LADDER).
+> - §3 Proportion laws → § 3 Proportion and derivation (law 5, the header contraction, is § 3.2
+>   The condensed register; the dock band and the mobile sequence are § Layout). The golden split
+>   is cited to the producer contract, glass `DESIGN.md` §L6 — Aristotelian Proportion (CC-102).
+> - §3.1 Binding route compositions and §3.2 the Picker crop → stay in
+>   `docs/tranches/V/OPTICAL-BENCH-COMPOSITIONS.md`, the decided composition record.
+> - §4 Type jurisdictions, §4.1, §4.2 → § 6.1 Type — the three-voice law and § 6.3.
+> - §5 Interaction grammar, §5.1, §5.2 → § 1.1 BREATH OF LIFE (the engagement ladder) and § 1.2
+>   MOVEMENT OF MOMENTUM (reorders, observer motion).
+> - §6 Motion and §6.1 → § 5 Motion (§ 5.1 The six tiers, § 5.4 Who owns each motion, § 5.6
+>   Reduced motion is a property of the construct).
+> - §6.2 Frame-zero seed latch → **no canon home**: it is a boot/data contract, not design law.
+>   Its identifiers (`GroundSeedBoot`, `SeedToken`, `data-ground-state`) have 0 matches in
+>   `demo/` and `src/` at this date; the record below is history.
+> - §7 Workbench directions → § 6.3 The product-surface laws.
+> - §8 π and DELTA → the evidence discipline of `docs/tranches/V/EVIDENCE.md`, unchanged.
+
 ## 1. Product identity
 
 value.js is a chromatic laboratory, not a dashboard. A person brings one color, image, or palette and leaves with an understood, edited, code-ready color artifact. Each screen therefore has one dominant instrument, one clear specimen, and one primary action instrument.
@@ -24,7 +48,7 @@ The pastel-rainbow identity has exactly two textual coordinates: the `Palettes` 
 
 ## 3. Proportion laws
 
-1. A two-part desktop scene is **earned**, not default. A P122 instrument chooses exactly `golden` (`61.8033989% / 38.1966011%`) or `preview-dominant` (`66.6666667% / 33.3333333%`); the display-rounded protagonist law is 61.8–66.7%. Non-P122 workspaces may tune within those exact outer bounds only where their binding composition says so.
+1. A two-part desktop scene is **earned**, not default. A P122 instrument chooses exactly `golden` (the golden section of the row, major / minor, per glass `DESIGN.md` §L6 — Aristotelian Proportion) or `preview-dominant` (`66.6666667% / 33.3333333%`); the display-rounded protagonist law is 61.8–66.7%. Non-P122 workspaces may tune within those exact outer bounds only where their binding composition says so.
 2. Empty secondary content occupies at most a narrow invitation tray (≤15% of the stage) or disappears. It never receives half the viewport.
 3. Configuration panes show preview first, controls second. Atmosphere/Blob preview area is larger than the form at every desktop size.
 4. The top dock owns a reserved band. Expanded/collapsed/mounted states do not move the scene below it.
@@ -39,10 +63,10 @@ The pastel-rainbow identity has exactly two textual coordinates: the `Palettes` 
 
 | Distinct member | Protagonist | Support / collapse | Mobile order | Outer housing |
 |---|---|---|---|---|
-| Picker | optical color stage | exact golden inspector 38.1966011%; an absent inspector leaves no filler | stage, then shallow controls | `InstrumentChassis` |
+| Picker | optical color stage | golden inspector, the minor part of the golden section (glass `DESIGN.md` §L6); an absent inspector leaves no filler | stage, then shallow controls | `InstrumentChassis` |
 | About | typographic product argument | no synthetic companion; supporting examples content-hug | argument, examples, provenance | structural article, no default Card |
-| Browse | discoverable public specimen field at 64%…66.6666667% when selected | complementary selected-public-palette inspector at 33.3333333%…36%; primary empty invitation content-hugs | search, results, selected inspector | browse workspace chassis; every rendered bounded palette entity slip has exactly one Card shell, and the field/empty/inspector have none |
-| Library / My Palettes | owned Device Draft, Workspace, Published and Trash field at 64%…66.6666667% when selected | complementary selected action/history inspector at 33.3333333%…36%; an empty secondary lane collapses | owner-state selector, library, selected inspector | owner workspace chassis; every rendered bounded palette entity slip has exactly one Card shell, and the field/lane/empty/inspector have none |
+| Browse | discoverable public specimen field at exactly 66.6666667% when a palette is selected and 100% protagonist when none is — the `preview-dominant` posture sourced from `CONSTELLATION.md` P122, not independently derived | complementary selected-public-palette inspector at exactly 33.3333333%, the other half of the same `CONSTELLATION.md` P122 `preview-dominant` pair, present only while a palette is selected; primary empty invitation content-hugs | search, results, selected inspector | browse workspace chassis; every rendered bounded palette entity slip has exactly one Card shell, and the field/empty/inspector have none |
+| Library / My Palettes | owned Device Draft, Workspace, Published and Trash field at exactly 66.6666667% when an object is selected and 100% protagonist when none is — the `preview-dominant` posture sourced from `CONSTELLATION.md` P122, not independently derived | complementary selected action/history inspector at exactly 33.3333333%, the other half of the same `CONSTELLATION.md` P122 `preview-dominant` pair, present only while an object is selected; an empty secondary lane collapses | owner-state selector, library, selected inspector | owner workspace chassis; every rendered bounded palette entity slip has exactly one Card shell, and the field/lane/empty/inspector have none |
 | Generate | generated WatercolorDot specimen | generative-model inspector then commit region | specimen, model inspector, commit action | `InstrumentChassis` |
 | Extract | source image and sampler stage | developed specimen/inspector; undeveloped result stays contextual | source, sampled result, controls | `InstrumentChassis` |
 | Mix | ordered N-operand convergence trough | result/provenance inspector; absent operands occupy no filler | operand rack, result, controls | its own `InstrumentChassis` composition |

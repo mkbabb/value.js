@@ -1,0 +1,48 @@
+{
+ "tag": "t1",
+ "instrument": "bench/paired/readers.mjs (X.P.W7.l4)",
+ "counts": {
+  "ruleList": 117,
+  "atPrelude": 1011,
+  "splitTopLevel": 1820,
+  "declaration": 1972,
+  "emptyListComma": 10,
+  "parseCssValue": 1972
+ },
+ "results": [
+  {
+   "engine": "node",
+   "msPerPass": {
+    "whole": 17.714,
+    "ruleList": 5.14,
+    "atPrelude": 0.074,
+    "splitTopLevel": 0.676,
+    "declaration": 0.559,
+    "emptyListComma": 0.004,
+    "parseCssValue": 2.369
+   },
+   "remainder": 8.892,
+   "uptime": [
+    "12:38  up 1 day, 10:41, 3 users, load averages: 58.51 47.72 54.37",
+    "12:39  up 1 day, 10:41, 3 users, load averages: 60.15 48.24 54.51"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "msPerPass": {
+    "whole": 36.75,
+    "ruleList": 12.75,
+    "atPrelude": 0.125,
+    "splitTopLevel": 2.75,
+    "declaration": 0.5,
+    "emptyListComma": 0,
+    "parseCssValue": 12.125
+   },
+   "remainder": 8.5,
+   "uptime": [
+    "12:39  up 1 day, 10:41, 3 users, load averages: 60.15 48.24 54.51",
+    "12:39  up 1 day, 10:42, 3 users, load averages: 58.38 48.47 54.49"
+   ]
+  }
+ ]
+}

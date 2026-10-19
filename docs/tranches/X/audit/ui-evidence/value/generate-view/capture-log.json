@@ -1,0 +1,3854 @@
+{
+ "tree": "f95a2f77 dirty=20",
+ "at": "2026-09-23T15:56:40.730Z",
+ "frames": [
+  {
+   "frame": "1440-light-01-default.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-01b-card.png",
+   "tree": "f95a2f77 dirty=20"
+  },
+  {
+   "frame": "1440-light-02-hover-regen.png",
+   "tree": "f95a2f77 dirty=20"
+  },
+  {
+   "frame": "1440-light-02b-swatch-focus.png",
+   "tree": "f95a2f77 dirty=20"
+  },
+  {
+   "frame": "1440-light-02c-name-hover.png",
+   "tree": "f95a2f77 dirty=20"
+  },
+  {
+   "frame": "1440-light-03-select-open.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-03b-select-kbd.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-03c-harmony-open.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-04-tools-open.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-05a-regen-150ms.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-05-after-regenerate.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-06a-save-300ms.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-light-06-after-save.png",
+   "tree": "f95a2f77 dirty=20",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-01-default.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-01b-card.png",
+   "tree": "40a65e85 dirty=19"
+  },
+  {
+   "frame": "390-light-01c-fullpage.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-03-select-open.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-03b-select-kbd.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-04-tools-open.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-05a-regen-150ms.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-05-after-regenerate.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-06a-save-300ms.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-06-after-save.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-light-06b-after-save-full.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-01-default.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-01b-card.png",
+   "tree": "40a65e85 dirty=19"
+  },
+  {
+   "frame": "1440-dark-02-hover-regen.png",
+   "tree": "40a65e85 dirty=19"
+  },
+  {
+   "frame": "1440-dark-02b-swatch-focus.png",
+   "tree": "40a65e85 dirty=19"
+  },
+  {
+   "frame": "1440-dark-02c-name-hover.png",
+   "tree": "40a65e85 dirty=19"
+  },
+  {
+   "frame": "1440-dark-03-select-open.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-03b-select-kbd.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-03c-harmony-open.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-04-tools-open.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-05a-regen-150ms.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-05-after-regenerate.png",
+   "tree": "40a65e85 dirty=19",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-06a-save-300ms.png",
+   "tree": "6283637a dirty=5",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "1440-dark-06-after-save.png",
+   "tree": "6283637a dirty=5",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-01-default.png",
+   "tree": "b63de8ef dirty=4",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-01b-card.png",
+   "tree": "b63de8ef dirty=4"
+  },
+  {
+   "frame": "390-dark-01c-fullpage.png",
+   "tree": "b63de8ef dirty=4",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-03-select-open.png",
+   "tree": "b63de8ef dirty=4",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-03b-select-kbd.png",
+   "tree": "b63de8ef dirty=4",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-04-tools-open.png",
+   "tree": "b63de8ef dirty=4",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-05a-regen-150ms.png",
+   "tree": "b63de8ef dirty=4",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-05-after-regenerate.png",
+   "tree": "b63de8ef dirty=5",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-06a-save-300ms.png",
+   "tree": "b63de8ef dirty=5",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-06-after-save.png",
+   "tree": "b63de8ef dirty=5",
+   "hash": "#/generate"
+  },
+  {
+   "frame": "390-dark-06b-after-save-full.png",
+   "tree": "b63de8ef dirty=5",
+   "hash": "#/generate"
+  }
+ ],
+ "metrics": {
+  "1440-light-default": {
+   "hash": "#/generate",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      224,
+      363,
+      462,
+      219
+     ],
+     "rad": "16px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / ",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     199,
+     267,
+     512,
+     470
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      243,
+      1408,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      200,
+      268,
+      510,
+      89
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      284,
+      462,
+      44
+     ],
+     "rad": "0px",
+     "font": "41.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      329,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      329,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      600,
+      462,
+      67
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      225,
+      364,
+      460,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      237,
+      414,
+      398,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      643,
+      416,
+      30,
+      26
+     ],
+     "rad": "9999px",
+     "font": "16.4px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(237, 230, 222)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      440,
+      451,
+      145,
+      40
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      593,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      637,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      237,
+      501,
+      40,
+      40
+     ],
+     "rad": "59.7499% 46.9202% 71.2798% 64.4731% / 64.8823% 63.6372% 30.8543% 65.4304%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.573601 0.231642 303.346)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      283,
+      501,
+      40,
+      40
+     ],
+     "rad": "47.1916% 34.2123% 44.5699% 39.8412% / 45.6086% 66.7475% 77.446% 41.578%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.646906 0.127846 80.8536)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      485,
+      25,
+      130,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px none color(srgb 0 0 0 / 0.8)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      224,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      461,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      461,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      683,
+      20,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      405,
+      683,
+      12,
+      24
+     ],
+     "rad": "6.4px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(251, 250, 248)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      252,
+      683,
+      434,
+      24
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     252,
+     683,
+     434,
+     24
+    ]
+   },
+   "selectContent": [],
+   "options": [],
+   "previewChips": [],
+   "seed": [
+    "seed: ff75f90c"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "1440-light-swatchFocus": {
+   "aria": null,
+   "outline": "rgb(28, 25, 23) none 1.5px",
+   "boxShadow": "none",
+   "filter": "none"
+  },
+  "1440-light-selectOpen": {
+   "hash": "#/generate",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      224,
+      364,
+      462,
+      219
+     ],
+     "rad": "16px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / ",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     199,
+     267,
+     512,
+     470
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      243,
+      1408,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      200,
+      268,
+      510,
+      89
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      284,
+      462,
+      44
+     ],
+     "rad": "0px",
+     "font": "41.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      330,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      330,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      600,
+      462,
+      67
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      225,
+      365,
+      460,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      237,
+      415,
+      398,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      643,
+      417,
+      30,
+      26
+     ],
+     "rad": "9999px",
+     "font": "16.4px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(237, 230, 222)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      440,
+      451,
+      145,
+      40
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      593,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      637,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      237,
+      501,
+      40,
+      40
+     ],
+     "rad": "59.7499% 46.9202% 71.2798% 64.4731% / 64.8823% 63.6372% 30.8543% 65.4304%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.573601 0.231642 303.346)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      283,
+      501,
+      40,
+      40
+     ],
+     "rad": "47.1916% 34.2123% 44.5699% 39.8412% / 45.6086% 66.7475% 77.446% 41.578%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.646906 0.127846 80.8536)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      485,
+      25,
+      130,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+     "shadow": "none",
+     "border": "0px none rgb(28, 25, 23)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      224,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      461,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      461,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      684,
+      20,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      405,
+      683,
+      12,
+      24
+     ],
+     "rad": "6.4px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(251, 250, 248)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      252,
+      683,
+      434,
+      24
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     252,
+     683,
+     434,
+     24
+    ]
+   },
+   "selectContent": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      485,
+      61,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    },
+    {
+     "sel": "[data-slot=select-content]",
+     "box": [
+      485,
+      61,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      494,
+      71,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      494,
+      115,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    }
+   ],
+   "previewChips": [],
+   "seed": [
+    "seed: ff75f90c"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "1440-light-tools": [
+   {
+    "token": "generate.regenerate",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.save",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.copyColors",
+    "state": "ready",
+    "rad": "4px"
+   }
+  ],
+  "1440-light-regen": {
+   "seedBefore": " seed: ff75f90c",
+   "seedAfter": " seed: e8d572b6",
+   "changed": true
+  },
+  "1440-light-save": {
+   "cardsBefore": [
+    "Palette: Sunset Coast"
+   ],
+   "cardsAfter": [
+    "Palette: Generated Palette",
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": [],
+   "hash": "#/generate",
+   "stored": [
+    "Generated Palette",
+    "Sunset Coast"
+   ]
+  },
+  "390-light-default": {
+   "hash": "#/generate",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      33,
+      205,
+      324,
+      233
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / ",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     16,
+     128,
+     358,
+     465
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      104,
+      358,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      17,
+      129,
+      356,
+      69
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      145,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      454,
+      324,
+      82
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      34,
+      206,
+      322,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      46,
+      256,
+      257,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      311,
+      256,
+      33,
+      31
+     ],
+     "rad": "9999px",
+     "font": "21px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(237, 230, 222)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      46,
+      293,
+      185,
+      60
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      239,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      301,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      46,
+      363,
+      36,
+      36
+     ],
+     "rad": "44.7313% 35.6162% 34.1132% 51.8432% / 66.2455% 20.0508% 74.0811% 76.4515%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.559648 0.160842 148.274)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      88,
+      363,
+      36,
+      36
+     ],
+     "rad": "45.9936% 61.4254% 36.11% 57.99% / 66.5287% 53.2759% 74.7453% 66.55%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.605875 0.224843 285.782)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      117,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px none color(srgb 0 0 0 / 0.8)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      33,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      201,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      201,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      554,
+      20,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      164,
+      542,
+      12,
+      44
+     ],
+     "rad": "6.4px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(251, 250, 248)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      61,
+      542,
+      296,
+      44
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     61,
+     552,
+     296,
+     24
+    ]
+   },
+   "selectContent": [],
+   "options": [],
+   "previewChips": [],
+   "seed": [
+    "seed: 46688e97"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "390-light-selectOpen": {
+   "hash": "#/generate",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      33,
+      205,
+      324,
+      233
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / ",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     16,
+     128,
+     358,
+     465
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      104,
+      358,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      17,
+      129,
+      356,
+      69
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      145,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      454,
+      324,
+      82
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      34,
+      206,
+      322,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      46,
+      256,
+      257,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      311,
+      256,
+      33,
+      31
+     ],
+     "rad": "9999px",
+     "font": "21px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(237, 230, 222)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      46,
+      293,
+      185,
+      60
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      239,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      301,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      46,
+      363,
+      36,
+      36
+     ],
+     "rad": "44.7313% 35.6162% 34.1132% 51.8432% / 66.2455% 20.0508% 74.0811% 76.4515%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.559648 0.160842 148.274)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      88,
+      363,
+      36,
+      36
+     ],
+     "rad": "45.9936% 61.4254% 36.11% 57.99% / 66.5287% 53.2759% 74.7453% 66.55%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.605875 0.224843 285.782)",
+     "shadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      117,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+     "shadow": "none",
+     "border": "0px none rgb(28, 25, 23)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      33,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      201,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      201,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      554,
+      20,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      164,
+      542,
+      12,
+      44
+     ],
+     "rad": "6.4px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(251, 250, 248)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      61,
+      542,
+      296,
+      44
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     61,
+     552,
+     296,
+     24
+    ]
+   },
+   "selectContent": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      117,
+      70,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    },
+    {
+     "sel": "[data-slot=select-content]",
+     "box": [
+      117,
+      70,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      126,
+      80,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      126,
+      124,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(198, 180, 159)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    }
+   ],
+   "previewChips": [],
+   "seed": [
+    "seed: 46688e97"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "390-light-tools": [
+   {
+    "token": "generate.regenerate",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.save",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.copyColors",
+    "state": "ready",
+    "rad": "4px"
+   }
+  ],
+  "390-light-regen": {
+   "seedBefore": " seed: 46688e97",
+   "seedAfter": " seed: ca57c579",
+   "changed": true
+  },
+  "390-light-save": {
+   "cardsBefore": [
+    "Palette: Sunset Coast"
+   ],
+   "cardsAfter": [
+    "Palette: Generated Palette",
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": [],
+   "hash": "#/generate",
+   "stored": [
+    "Generated Palette",
+    "Sunset Coast"
+   ]
+  },
+  "1440-dark-default": {
+   "hash": "#/generate",
+   "html": "dark",
+   "bodyBg": "rgb(38, 0, 27)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      224,
+      364,
+      462,
+      219
+     ],
+     "rad": "16px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.0115033 0.0277069 / ",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     199,
+     267,
+     512,
+     470
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      243,
+      1408,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      200,
+      268,
+      510,
+      89
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      284,
+      462,
+      44
+     ],
+     "rad": "0px",
+     "font": "41.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      330,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      330,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      600,
+      462,
+      67
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      225,
+      365,
+      460,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      237,
+      415,
+      398,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      643,
+      417,
+      30,
+      26
+     ],
+     "rad": "9999px",
+     "font": "16.4px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(47, 40, 35)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      440,
+      451,
+      145,
+      40
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      593,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      637,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      237,
+      501,
+      40,
+      40
+     ],
+     "rad": "34.1528% 76.071% 41.295% 37.4796% / 54.0018% 22.7401% 52.4674% 37.8799%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.714244 0.19614 308.227)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      283,
+      501,
+      40,
+      40
+     ],
+     "rad": "46.1637% 31.8098% 54.0933% 52.5673% / 30.0583% 53.8553% 33.8163% 24.6697%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.693876 0.142079 85.7343)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      485,
+      25,
+      130,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px none color(srgb 1 1 1 / 0.8)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      224,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      461,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      461,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      684,
+      20,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      405,
+      683,
+      12,
+      24
+     ],
+     "rad": "6.4px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(11, 10, 9)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      252,
+      683,
+      434,
+      24
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     252,
+     683,
+     434,
+     24
+    ]
+   },
+   "selectContent": [],
+   "options": [],
+   "previewChips": [],
+   "seed": [
+    "seed: 8c1d948d"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "1440-dark-swatchFocus": {
+   "aria": null,
+   "outline": "rgb(233, 230, 226) none 1.5px",
+   "boxShadow": "none",
+   "filter": "none"
+  },
+  "1440-dark-selectOpen": {
+   "hash": "#/generate",
+   "html": "dark",
+   "bodyBg": "rgb(38, 0, 27)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      224,
+      363,
+      462,
+      219
+     ],
+     "rad": "16px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.0115033 0.0277069 / ",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     199,
+     267,
+     512,
+     470
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      243,
+      1408,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      200,
+      268,
+      510,
+      89
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      284,
+      462,
+      44
+     ],
+     "rad": "0px",
+     "font": "41.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      329,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      329,
+      462,
+      19
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      224,
+      600,
+      462,
+      67
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      225,
+      364,
+      460,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      237,
+      414,
+      398,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      643,
+      416,
+      30,
+      26
+     ],
+     "rad": "9999px",
+     "font": "16.4px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(47, 40, 35)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      440,
+      451,
+      145,
+      40
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      593,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      637,
+      453,
+      36,
+      36
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "16.4px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      237,
+      501,
+      40,
+      40
+     ],
+     "rad": "34.1528% 76.071% 41.295% 37.4796% / 54.0018% 22.7401% 52.4674% 37.8799%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.714244 0.19614 308.227)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      283,
+      501,
+      40,
+      40
+     ],
+     "rad": "46.1637% 31.8098% 54.0933% 52.5673% / 30.0583% 53.8553% 33.8163% 24.6697%",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.693876 0.142079 85.7343)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      485,
+      25,
+      130,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+     "shadow": "none",
+     "border": "0px none rgb(233, 230, 226)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      224,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      461,
+      631,
+      225,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      461,
+      600,
+      225,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      224,
+      683,
+      20,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      405,
+      683,
+      12,
+      24
+     ],
+     "rad": "6.4px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(11, 10, 9)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      252,
+      683,
+      434,
+      24
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     252,
+     683,
+     434,
+     24
+    ]
+   },
+   "selectContent": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      485,
+      61,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    },
+    {
+     "sel": "[data-slot=select-content]",
+     "box": [
+      485,
+      61,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      494,
+      71,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      494,
+      115,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    }
+   ],
+   "previewChips": [],
+   "seed": [
+    "seed: 8c1d948d"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "1440-dark-tools": [
+   {
+    "token": "generate.regenerate",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.save",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.copyColors",
+    "state": "ready",
+    "rad": "4px"
+   }
+  ],
+  "1440-dark-regen": {
+   "seedBefore": " seed: 8c1d948d",
+   "seedAfter": " seed: b6738b75",
+   "changed": true
+  },
+  "1440-dark-save": {
+   "cardsBefore": [
+    "Palette: Sunset Coast"
+   ],
+   "cardsAfter": [
+    "Palette: Generated Palette",
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": [],
+   "hash": "#/generate",
+   "stored": [
+    "Generated Palette",
+    "Sunset Coast"
+   ]
+  },
+  "390-dark-default": {
+   "hash": "#/generate",
+   "html": "dark",
+   "bodyBg": "rgb(38, 0, 27)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      33,
+      205,
+      324,
+      233
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.0115033 0.0277069 / ",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     16,
+     128,
+     358,
+     465
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      104,
+      358,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      17,
+      129,
+      356,
+      69
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      145,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      454,
+      324,
+      82
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      34,
+      206,
+      322,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      46,
+      256,
+      257,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      311,
+      256,
+      33,
+      31
+     ],
+     "rad": "9999px",
+     "font": "21px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(47, 40, 35)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      46,
+      293,
+      185,
+      60
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      239,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      301,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      46,
+      363,
+      36,
+      36
+     ],
+     "rad": "58.4624% 43.1038% 21.2173% 24.4503% / 43.4% 30.8052% 45.6992% 41.5037%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.59714 0.179875 350.693)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      88,
+      363,
+      36,
+      36
+     ],
+     "rad": "43.6059% 70.1583% 73.2149% 23.8874% / 48.9673% 36.3158% 39.7804% 51.4299%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.706777 0.185328 128.201)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      117,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px none color(srgb 1 1 1 / 0.8)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      33,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      201,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      201,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      554,
+      20,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      164,
+      542,
+      12,
+      44
+     ],
+     "rad": "6.4px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(11, 10, 9)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      61,
+      542,
+      296,
+      44
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     61,
+     552,
+     296,
+     24
+    ]
+   },
+   "selectContent": [],
+   "options": [],
+   "previewChips": [],
+   "seed": [
+    "seed: 523646a1"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "390-dark-selectOpen": {
+   "hash": "#/generate",
+   "html": "dark",
+   "bodyBg": "rgb(38, 0, 27)",
+   "overflowX": 0,
+   "card": [
+    {
+     "sel": "[data-generate-plate]",
+     "box": [
+      33,
+      205,
+      324,
+      233
+     ],
+     "rad": "16px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "shadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.0115033 0.0277069 / ",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+     "cls": "rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+    }
+   ],
+   "paneCard": {
+    "box": [
+     16,
+     128,
+     358,
+     465
+    ],
+    "rad": "16px",
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
+   },
+   "header": [
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      16,
+      104,
+      358,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "route-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      17,
+      129,
+      356,
+      69
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      145,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-title font-display"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc-wrap"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      174,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "pane-header-desc text-caption"
+    },
+    {
+     "sel": "[data-generate-plate] ~ *, h1, h2, [class*=pane-header]",
+     "box": [
+      33,
+      454,
+      324,
+      82
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "grid grid-cols-2 gap-3"
+    }
+   ],
+   "strip": [
+    {
+     "sel": "[data-generate-plate] > :first-child",
+     "box": [
+      34,
+      206,
+      322,
+      40
+     ],
+     "rad": "16px 16px 0px 0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card"
+    }
+   ],
+   "nameInput": [
+    {
+     "sel": "[data-generate-plate] input",
+     "box": [
+      46,
+      256,
+      257,
+      31
+     ],
+     "rad": "4px",
+     "font": "20.352px/500 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashe"
+    }
+   ],
+   "badge": [
+    {
+     "sel": "[data-generate-plate] [data-slot=badge], [data-generate-plate] .badge",
+     "box": [
+      311,
+      256,
+      33,
+      31
+     ],
+     "rad": "9999px",
+     "font": "21px/600 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgb(47, 40, 35)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "badge-atom inline-flex items-center gap-1.5 rounded-badge font-semibold wrap-anywhere [&_svg:not([class*=size-])]:size-(--ui-glyph-sm) [&_sv"
+    }
+   ],
+   "buttons": [
+    {
+     "label": "Regenerate",
+     "box": [
+      46,
+      293,
+      185,
+      60
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Save palette",
+     "box": [
+      239,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    },
+    {
+     "label": "Copy all colors",
+     "box": [
+      301,
+      296,
+      54,
+      54
+     ],
+     "rad": "9999px",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "font": "21px",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0"
+    }
+   ],
+   "swatches": [
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      46,
+      363,
+      36,
+      36
+     ],
+     "rad": "58.4624% 43.1038% 21.2173% 24.4503% / 43.4% 30.8052% 45.6992% 41.5037%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.59714 0.179875 350.693)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    },
+    {
+     "sel": ".generate-swatch",
+     "box": [
+      88,
+      363,
+      36,
+      36
+     ],
+     "rad": "43.6059% 70.1583% 73.2149% 23.8874% / 48.9673% 36.3158% 39.7804% 51.4299%",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklch(0.706777 0.185328 128.201)",
+     "shadow": "color(srgb 0.0436 0.03928 0.0364 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.914 0.9 0.886",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-s"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      117,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+     "shadow": "none",
+     "border": "0px none rgb(233, 230, 226)",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      33,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      201,
+      482,
+      156,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+     "border": "1px solid color(srgb 0.914 0.9 0.886 / 0.14)",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    }
+   ],
+   "labels": [
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      201,
+      454,
+      156,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "[data-generate-plate] ~ div label, label",
+     "box": [
+      33,
+      554,
+      20,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/700 \"Fira Code\", \"Fira Code Fallba",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+    }
+   ],
+   "slider": [
+    {
+     "sel": "[role=slider]",
+     "box": [
+      164,
+      542,
+      12,
+      44
+     ],
+     "rad": "6.4px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px",
+     "border": "2px solid rgb(11, 10, 9)",
+     "cls": "slider-thumb glass-specular-track"
+    },
+    {
+     "sel": "[data-slot=slider]",
+     "box": [
+      61,
+      542,
+      296,
+      44
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "glass-slider relative w-full"
+    }
+   ],
+   "sliderTrackBg": {
+    "rad": "1.67772e+07px",
+    "box": [
+     61,
+     552,
+     296,
+     24
+    ]
+   },
+   "selectContent": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      117,
+      70,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    },
+    {
+     "sel": "[data-slot=select-content]",
+     "box": [
+      117,
+      70,
+      192,
+      328
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jak",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px 0px inset, oklab(0.999994 0.00",
+     "border": "1px solid oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-select-content-transform-origin)"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      126,
+      80,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      126,
+      124,
+      174,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 Fraunces, \"Fraunces Fallback\",",
+     "bg": "rgba(0, 0, 0, 0)",
+     "shadow": "none",
+     "border": "0px solid rgb(101, 87, 73)",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:curs"
+    }
+   ],
+   "previewChips": [],
+   "seed": [
+    "seed: 523646a1"
+   ],
+   "paletteCards": [
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": []
+  },
+  "390-dark-tools": [
+   {
+    "token": "generate.regenerate",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.save",
+    "state": "ready",
+    "rad": "4px"
+   },
+   {
+    "token": "generate.copyColors",
+    "state": "ready",
+    "rad": "4px"
+   }
+  ],
+  "390-dark-regen": {
+   "seedBefore": " seed: 523646a1",
+   "seedAfter": " seed: 4ee906d7",
+   "changed": true
+  },
+  "390-dark-save": {
+   "cardsBefore": [
+    "Palette: Sunset Coast"
+   ],
+   "cardsAfter": [
+    "Palette: Generated Palette",
+    "Palette: Sunset Coast"
+   ],
+   "toasts": [
+    "Generate view"
+   ],
+   "panes": [],
+   "hash": "#/generate",
+   "stored": [
+    "Generated Palette",
+    "Sunset Coast"
+   ]
+  }
+ },
+ "errs": {
+  "1440-light": [],
+  "390-light": [],
+  "1440-dark": [],
+  "390-dark": []
+ },
+ "net": {
+  "1440-light": [],
+  "390-light": [],
+  "1440-dark": [],
+  "390-dark": []
+ }
+}

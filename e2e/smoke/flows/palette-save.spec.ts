@@ -1,5 +1,5 @@
 import { userTest as test, expect } from "../fixtures/user-auth";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #3 — palette-save (local save of current swatches).
@@ -21,7 +21,7 @@ test("save current palette persists to localStorage 'color-palettes'", async ({
     page,
 }) => {
     await page.goto("/");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
 
     await openView(page, "Palettes");

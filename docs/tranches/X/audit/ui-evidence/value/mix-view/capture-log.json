@@ -1,0 +1,724 @@
+[
+ {
+  "tag": "1440-light-colors",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-light-colors-FAIL.png"
+  ]
+ },
+ {
+  "tag": "1440-dark-colors",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }).getByRole('button', { name: /^Add color .* from Sunset Coast/ }).first()\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-dark-colors-01-colors-empty.png",
+   "1440-dark-colors-02-tab-focus.png",
+   "1440-dark-colors-03-from-palettes-open.png",
+   "1440-dark-colors-FAIL.png"
+  ]
+ },
+ {
+  "tag": "390-light-colors",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-light-colors-FAIL.png"
+  ]
+ },
+ {
+  "tag": "390-dark-colors",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: locator.waitFor: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.pane-scroll-fade').filter({ hasText: 'Mix colors and palettes' }) to be visible\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-colors-FAIL.png"
+  ]
+ },
+ {
+  "tag": "1440-light-palettes",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "url": "http://localhost:9000/#/mix",
+  "notes": "",
+  "errs": [],
+  "shots": [
+   "1440-light-palettes-11-tab-swap-110ms.png",
+   "1440-light-palettes-12-palettes.png",
+   "1440-light-palettes-13-palettes-selected.png",
+   "1440-light-palettes-14-tab-swap-back-110ms.png",
+   "1440-light-palettes-15-palettes-config.png",
+   "1440-light-palettes-16-anim-200ms.png",
+   "1440-light-palettes-16-anim-600ms.png",
+   "1440-light-palettes-17-result-palette.png"
+  ],
+  "m": {
+   "pane": {
+    "w": 512,
+    "h": 837,
+    "r": "16px",
+    "contentBottom": 836,
+    "deadSpace": 1
+   },
+   "items": [
+    {
+     "sel": "[role=group], [role=tablist]",
+     "w": 162,
+     "h": 39,
+     "r": "10003px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "[class*=indicator], [data-slot*=indicator]",
+     "w": 77,
+     "h": 31,
+     "r": "9999px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule glass-lens glass-drag-grabbable"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 227,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 227,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 462,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 227,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 227,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 462,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".mix-plate",
+     "w": 462,
+     "h": 171,
+     "r": "12px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well"
+    },
+    {
+     "sel": ".mix-plate .h-4",
+     "w": 430,
+     "h": 16,
+     "r": "1.67772e+07px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "h-4 rounded-full overflow-hidden"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 462,
+     "h": 81,
+     "r": "16px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(251, 250, 248) 0px",
+     "border": "solid 0px",
+     "cls": "cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 ring-"
+    },
+    {
+     "sel": "canvas",
+     "w": 510,
+     "h": 835,
+     "r": "0px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "absolute inset-0 w-full h-full pointer-events-none z-controls"
+    },
+    {
+     "sel": "h1, h2, h3",
+     "w": 462,
+     "h": 44,
+     "r": "0px",
+     "font": "41.888px/Fraunces",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "pane-header-title font-display"
+    }
+   ],
+   "mixBtn": []
+  }
+ },
+ {
+  "tag": "1440-dark-palettes",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-dark-palettes-FAIL.png"
+  ]
+ },
+ {
+  "tag": "390-light-palettes",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "url": "http://localhost:9000/#/mix",
+  "notes": "",
+  "errs": [],
+  "shots": [
+   "390-light-palettes-11-tab-swap-110ms.png",
+   "390-light-palettes-12-palettes.png",
+   "390-light-palettes-13-palettes-selected.png",
+   "390-light-palettes-14-tab-swap-back-110ms.png",
+   "390-light-palettes-15-palettes-config.png",
+   "390-light-palettes-16-anim-200ms.png",
+   "390-light-palettes-16-anim-600ms.png",
+   "390-light-palettes-17-result-palette.png"
+  ],
+  "m": {
+   "pane": {
+    "w": 358,
+    "h": 848,
+    "r": "16px",
+    "contentBottom": 847,
+    "deadSpace": 1
+   },
+   "items": [
+    {
+     "sel": "[role=group], [role=tablist]",
+     "w": 145,
+     "h": 34,
+     "r": "10002px",
+     "font": "16px/\"Plus Jakarta Sans\"",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 69,
+     "h": 28,
+     "r": "5px",
+     "font": "13px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 69,
+     "h": 28,
+     "r": "5px",
+     "font": "13px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "[class*=indicator], [data-slot*=indicator]",
+     "w": 69,
+     "h": 28,
+     "r": "9999px",
+     "font": "16px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule glass-lens glass-drag-grabbable"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 158,
+     "h": 54,
+     "r": "9999px",
+     "font": "21px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 158,
+     "h": 54,
+     "r": "9999px",
+     "font": "21px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 324,
+     "h": 54,
+     "r": "9999px",
+     "font": "21px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 158,
+     "h": 20,
+     "r": "0px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 158,
+     "h": 20,
+     "r": "0px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 324,
+     "h": 20,
+     "r": "0px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": ".mix-plate",
+     "w": 324,
+     "h": 168,
+     "r": "12px",
+     "font": "16px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well"
+    },
+    {
+     "sel": ".mix-plate .h-4",
+     "w": 292,
+     "h": 16,
+     "r": "1.67772e+07px",
+     "font": "16px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "h-4 rounded-full overflow-hidden"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 69,
+     "h": 28,
+     "r": "5px",
+     "font": "13px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 69,
+     "h": 28,
+     "r": "5px",
+     "font": "13px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 324,
+     "h": 78,
+     "r": "16px",
+     "font": "16px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(251, 250, 248) 0px",
+     "border": "solid 0px",
+     "cls": "cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 ring-"
+    },
+    {
+     "sel": "canvas",
+     "w": 356,
+     "h": 846,
+     "r": "0px",
+     "font": "16px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "absolute inset-0 w-full h-full pointer-events-none z-controls"
+    },
+    {
+     "sel": "h1, h2, h3",
+     "w": 324,
+     "h": 27,
+     "r": "0px",
+     "font": "25.888px/Fraunces",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "pane-header-title font-display"
+    }
+   ],
+   "mixBtn": []
+  }
+ },
+ {
+  "tag": "390-dark-palettes",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-palettes-FAIL.png"
+  ]
+ },
+ {
+  "tag": "1440-light-palettes-empty",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "url": "http://localhost:9000/#/mix",
+  "notes": "",
+  "errs": [],
+  "shots": [
+   "1440-light-palettes-empty-18-palettes-empty.png",
+   "1440-light-palettes-empty-19-colors-no-library.png"
+  ],
+  "m": {
+   "pane": {
+    "w": 512,
+    "h": 685,
+    "r": "16px",
+    "contentBottom": 412,
+    "deadSpace": 273
+   },
+   "items": [
+    {
+     "sel": "[role=group], [role=tablist]",
+     "w": 162,
+     "h": 39,
+     "r": "10003px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "color(srgb 0.994 0.96 0.926 / 0.5)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-tabs segmented-tabs--pill glass-capsule-track"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "[role=group] button, [role=tablist] [role=tab]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "[class*=indicator], [data-slot*=indicator]",
+     "w": 77,
+     "h": 31,
+     "r": "9999px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.925644 0.0094459 0.0291917 / 0.83872)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 0px",
+     "cls": "segmented-indicator segmented-indicator--js glass-capsule glass-lens glass-drag-grabbable"
+    },
+    {
+     "sel": ".dashed-well",
+     "w": 462,
+     "h": 108,
+     "r": "16px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "bs": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / ",
+     "border": "dashed 1.5px",
+     "cls": "dashed-well"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 227,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "button[role=combobox]",
+     "w": 227,
+     "h": 36,
+     "r": "9999px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+     "border": "solid 1px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-sm) tap-squish focus-ring flex w-full items-center justify-between rou"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 227,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "label, [id*=label]",
+     "w": 227,
+     "h": 23,
+     "r": "0px",
+     "font": "16.4px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "glass-label"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab"
+    },
+    {
+     "sel": "button[aria-pressed]",
+     "w": 77,
+     "h": 31,
+     "r": "5px",
+     "font": "14px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "none 0px",
+     "cls": "segmented-tab glass-capsule-hover"
+    },
+    {
+     "sel": "canvas",
+     "w": 510,
+     "h": 683,
+     "r": "0px",
+     "font": "18.608px/\"Plus Jakarta Sans\"",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "absolute inset-0 w-full h-full pointer-events-none z-controls"
+    },
+    {
+     "sel": "h1, h2, h3",
+     "w": 462,
+     "h": 44,
+     "r": "0px",
+     "font": "41.888px/Fraunces",
+     "bg": "rgba(0, 0, 0, 0)",
+     "bs": "none",
+     "border": "solid 0px",
+     "cls": "pane-header-title font-display"
+    }
+   ],
+   "mixBtn": []
+  }
+ },
+ {
+  "tag": "1440-dark-palettes-empty",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": []
+ },
+ {
+  "tag": "390-light-palettes-empty",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": []
+ },
+ {
+  "tag": "390-dark-palettes-empty",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-palettes-empty-FAIL.png"
+  ]
+ },
+ {
+  "tag": "1440-light-dock",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": []
+ },
+ {
+  "tag": "1440-dark-dock",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": []
+ },
+ {
+  "tag": "390-light-dock",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": []
+ },
+ {
+  "tag": "390-dark-dock",
+  "sha": "40a65e85",
+  "dirty": "19",
+  "fail": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": []
+ }
+]

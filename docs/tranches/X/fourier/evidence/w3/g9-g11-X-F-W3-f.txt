@@ -1,0 +1,102 @@
+SERVED MODEL: claude-fable-5-1
+# X.F.W3.f — g9 (ACTIVE-STATE, tree-wide) and g11 (TOOLTIP ADAPTER, tree-wide) transcript, 2026-09-19
+# read-only via git grep at refs: main m/w1-bump-migration @ 21e11b0 (.c head) · x-f-w3-b @ b9995b3 (.b) · x/f3e @ 8aa9252 (.e over .d 74084fa)
+# the two unit branches are UNINTEGRATED on main at this seat: git merge-tree 21e11b0 8aa9252 b9995b3 -> 0 "changed in both", 0 conflict markers; shared changed paths -> none
+
+## g9 @ 21e11b0 — files:sites (grep -c is-active, zero-rows dropped)
+web/src/components/equation/EquationModeToggle.vue:4
+web/src/components/equation/FunctionInput.vue:2
+web/src/components/layout/AppHeader.vue:3
+web/src/components/paper/MobileFloatingToc.vue:3
+web/src/components/paper/PaperSidebar.vue:5
+web/src/components/visualization/EasingPicker.vue:3
+web/src/components/visualization/gallery/GallerySearchBar.vue:2
+TOTAL: 7 files / 22 sites
+is-active-sub: web/src/components/paper/PaperSidebar.vue:1  · is-playing: web/src/components/equation/convergence/ConvergenceTimeline.vue:2 web/src/components/visualization/AnimationControls.vue:4  · :is-active PROP:  · :class="{ active": web/src/components/visualization/gallery/GalleryCardModal.vue:2 web/src/components/visualization/gallery/GallerySearchBar.vue:1 
+
+## g9 @ b9995b3 — files:sites (grep -c is-active, zero-rows dropped)
+web/src/components/equation/EquationModeToggle.vue:4
+web/src/components/equation/FunctionInput.vue:2
+web/src/components/layout/AppHeader.vue:3
+web/src/components/paper/MobileFloatingToc.vue:3
+web/src/components/paper/PaperSidebar.vue:5
+web/src/components/visualization/EasingPicker.vue:1
+web/src/components/visualization/gallery/GallerySearchBar.vue:2
+TOTAL: 7 files / 20 sites
+is-active-sub: web/src/components/paper/PaperSidebar.vue:1  · is-playing: web/src/components/equation/convergence/ConvergenceTimeline.vue:2 web/src/components/visualization/AnimationControls.vue:4  · :is-active PROP:  · :class="{ active": web/src/components/visualization/gallery/GalleryCardModal.vue:2 web/src/components/visualization/gallery/GallerySearchBar.vue:1 
+
+## g9 @ 8aa9252 — files:sites (grep -c is-active, zero-rows dropped)
+web/src/components/equation/FunctionInput.vue:2
+web/src/components/paper/MobileFloatingToc.vue:3
+web/src/components/paper/PaperSidebar.vue:5
+web/src/components/visualization/EasingPicker.vue:3
+web/src/components/visualization/gallery/GallerySearchBar.vue:1
+web/src/style.css:6
+TOTAL: 6 files / 20 sites
+is-active-sub: web/src/components/paper/PaperSidebar.vue:1 web/src/style.css:2  · is-playing: web/src/components/equation/convergence/ConvergenceTimeline.vue:2 web/src/components/visualization/AnimationControls.vue:4 web/src/style.css:2  · :is-active PROP: web/src/style.css:2  · :class="{ active": web/src/components/visualization/gallery/GalleryCardModal.vue:1 web/src/style.css:1 
+
+## g9 @ 8aa9252 — every is-active site BY POSITION (binding / scoped rule / prose)
+web/src/components/equation/FunctionInput.vue:203:                                    :class="{ 'is-active': activePreset?.name === preset.n
+web/src/components/equation/FunctionInput.vue:293:.preset-pill.is-active {
+web/src/components/paper/MobileFloatingToc.vue:167:                            :class="{ 'is-active': activeRootId === section.id }"
+web/src/components/paper/MobileFloatingToc.vue:402:.floating-toc-item.is-active {
+web/src/components/paper/MobileFloatingToc.vue:407:.floating-toc-item.is-active {
+web/src/components/paper/PaperSidebar.vue:144:                                    :class="{ 'is-active': activeRootId === section.id }"
+web/src/components/paper/PaperSidebar.vue:173:                                            :class="{ 'is-active-sub': isActive(sub.id) || isI
+web/src/components/paper/PaperSidebar.vue:403:.sidebar-link.is-active {
+web/src/components/paper/PaperSidebar.vue:407:.sidebar-link.is-active:hover {
+web/src/components/paper/PaperSidebar.vue:417:.sidebar-link.is-active .sidebar-number {
+web/src/components/visualization/EasingPicker.vue:26:                :class="{ 'is-active': anim.easing === key }"
+web/src/components/visualization/EasingPicker.vue:84:.easing-chip.is-active {
+web/src/components/visualization/EasingPicker.vue:98:.easing-chip.is-active .easing-chip-label {
+web/src/components/visualization/gallery/GallerySearchBar.vue:227:   `.is-active` class, so the announcement and the paint were two channels
+web/src/style.css:352:     ⟨cmd⟩ `grep -rl 'is-active' src | sort`       → 6 files / 18 sites
+web/src/style.css:353:     ⟨cmd⟩ `grep -rn 'is-active-sub' src | wc -l`  → 1
+web/src/style.css:358:   was DEAD. The banked fifth spelling, `PaperView.vue`'s `:is-active` PROP, is
+web/src/style.css:359:   ABSENT from this tree (⟨cmd⟩ `grep -rn ':is-active' src` → 0); its
+web/src/style.css:381:   RETIRED: `.is-active` · `.is-active-sub` · `.is-playing` · `.liked` · the
+web/src/style.css:386:      `is-active` grep: the token is also a PROP name in the paper route's
+
+## g9 @ b9995b3 — EasingPicker.vue (the .b branch; 3 sites at 21e11b0 -> 1 docblock)
+web/src/components/visualization/EasingPicker.vue:39: *     file mints no `.is-active` spelling at all;
+
+## g9 double-run @ 8aa9252: 20 / 20
+
+## g11 @ 21e11b0 and @ 8aa9252 — <Tooltip files:sites
+-- 21e11b0 --
+web/src/App.vue:1
+web/src/components/equation/FunctionInput.vue:2
+web/src/components/paper/PaperSidebar.vue:3
+web/src/components/shared/CoefficientsSpectrum.vue:2
+web/src/components/ui/tooltip/Tooltip.vue:3
+web/src/components/visualization/AnimationControls.vue:4
+web/src/components/visualization/BasisSelector.vue:2
+web/src/components/visualization/CanvasControlsDock.vue:6
+web/src/components/visualization/ContourSettings.vue:6
+web/src/components/visualization/EditorControlsDock.vue:9
+web/src/components/visualization/VisualizationView.vue:1
+TOTAL: 11 files / 39 sites
+max-width over ui/tooltip: 
+ui/tooltip import identities:    8 @/components/ui/tooltip;   1 @/components/ui/tooltip/Tooltip.vue;
+inheritAttrs/$attrs in Tooltip.vue: 
+
+-- 8aa9252 --
+web/src/App.vue:1
+web/src/components/equation/FunctionInput.vue:2
+web/src/components/paper/PaperSidebar.vue:3
+web/src/components/shared/CoefficientsSpectrum.vue:2
+web/src/components/ui/tooltip/Tooltip.vue:7
+web/src/components/visualization/AnimationControls.vue:4
+web/src/components/visualization/BasisSelector.vue:2
+web/src/components/visualization/CanvasControlsDock.vue:6
+web/src/components/visualization/ContourSettings.vue:6
+web/src/components/visualization/EditorControlsDock.vue:9
+web/src/components/visualization/VisualizationView.vue:1
+TOTAL: 11 files / 43 sites
+max-width over ui/tooltip: web/src/components/ui/tooltip/Tooltip.vue:2 web/src/components/ui/tooltip/index.ts:3 
+ui/tooltip import identities:    9 @/components/ui/tooltip;   1 @/components/ui/tooltip/Tooltip.vue;
+inheritAttrs/$attrs in Tooltip.vue: web/src/components/ui/tooltip/Tooltip.vue:3
+
+## g11 double-run @ 8aa9252: 43 / 43
+
+VERDICT: g9 HONEST-RED (one vocabulary PUBLISHED at .e 7dc4c0b and applied in .e files; unswept sites named by owner in the receipt) · g11 HONEST-RED (contract re-parameterised at .e; FR-TT-20 second identity PaperSidebar.vue:2 survives; naming leg unminted; the 35/9 sweep is the owners'/F.W4's).

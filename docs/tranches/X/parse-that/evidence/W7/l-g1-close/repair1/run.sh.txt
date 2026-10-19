@@ -1,0 +1,20 @@
+#!/bin/sh
+cd /Users/mkbabb/Programming/value.js
+S=/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/rp1
+T0=$(date +%s)
+waitq() { while :; do l=$(sysctl -n vm.loadavg | awk '{print $2}'); echo "$(date +%T) $l" >> $S/load.log; if [ "$(echo "$l < 8" | bc)" = 1 ]; then echo "QUIET $1 $(date +%T) $l" >> $S/status; return 0; fi; if [ $(( $(date +%s) - T0 )) -ge 5400 ]; then echo "NEVER-QUIET $1 $(date +%T) $l" >> $S/status; return 1; fi; sleep 30; done; }
+node bench/paired/build.mjs > $S/build.log 2>&1
+echo "BUILT $(date +%T)" >> $S/status
+for r in 1 2; do
+  waitq firefox-r$r || { echo ABORT >> $S/status; exit 1; }
+  node bench/paired/browser.mjs rp1-br-r$r-firefox firefox 2 whole,acc,rej,large-eq,large 11 product > $S/br-r$r-firefox.log 2>&1
+  mv bench/records/2026-09-24-x-p-w7-browser-rp1-br-r$r-firefox.json $S/ 2>/dev/null
+  echo "DONE firefox-r$r $(date +%T) $(sysctl -n vm.loadavg)" >> $S/status
+done
+for r in 1 2; do
+  waitq node-r$r || { echo ABORT >> $S/status; exit 1; }
+  node --expose-gc bench/paired/isolated.mjs rp1-node-r$r product 3 11 whole,acc,rej,large-eq,large > $S/node-r$r.log 2>&1
+  mv bench/records/2026-09-23-x-p-w7-rp1-node-r$r.json $S/ 2>/dev/null
+  echo "DONE node-r$r $(date +%T) $(sysctl -n vm.loadavg)" >> $S/status
+done
+echo ALLDONE >> $S/status

@@ -1,0 +1,221 @@
+{
+ "base": "http://localhost:9291",
+ "results": [
+  {
+   "file": "picker-1440-light.png",
+   "ok": true,
+   "title": {
+    "h1Count": 1,
+    "label": "Home",
+    "id": "route-title",
+    "inMain": true,
+    "paneTitle": false,
+    "caption": true,
+    "fontPx": 14.384,
+    "tabindex": "-1",
+    "h1Left": 199,
+    "h1TextAlign": "start",
+    "stageCardLeft": 199,
+    "labelSaidInMain": 1,
+    "viewLabel": "Home",
+    "viewLabelOutsideH1": 0,
+    "h1Region": "none"
+   },
+   "about": {
+    "found": true,
+    "heading": "Components",
+    "box": {
+     "x": 754,
+     "y": 4271.921875,
+     "w": 462,
+     "h": 200
+    },
+    "items": [
+     {
+      "text": "L* (Lightness):",
+      "katexTextRuns": 0,
+      "katexCount": 1,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "a* (Green-Red axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "b* (Blue-Yellow axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     }
+    ]
+   }
+  },
+  {
+   "file": "picker-390-light.png",
+   "ok": true,
+   "title": {
+    "h1Count": 1,
+    "label": "Home",
+    "id": "route-title",
+    "inMain": true,
+    "paneTitle": false,
+    "caption": true,
+    "fontPx": 12.179,
+    "tabindex": "-1",
+    "h1Left": 16,
+    "h1TextAlign": "start",
+    "stageCardLeft": 16,
+    "labelSaidInMain": 1,
+    "viewLabel": "Home",
+    "viewLabelOutsideH1": 0,
+    "h1Region": "none"
+   },
+   "about": {
+    "found": true,
+    "heading": "Components",
+    "box": {
+     "x": 29,
+     "y": 5132.328125,
+     "w": 332,
+     "h": 200
+    },
+    "items": [
+     {
+      "text": "L* (Lightness):",
+      "katexTextRuns": 0,
+      "katexCount": 1,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "a* (Green-Red axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "b* (Blue-Yellow axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     }
+    ]
+   }
+  },
+  {
+   "file": "picker-1440-dark.png",
+   "ok": true,
+   "title": {
+    "h1Count": 1,
+    "label": "Home",
+    "id": "route-title",
+    "inMain": true,
+    "paneTitle": false,
+    "caption": true,
+    "fontPx": 14.384,
+    "tabindex": "-1",
+    "h1Left": 199,
+    "h1TextAlign": "start",
+    "stageCardLeft": 199,
+    "labelSaidInMain": 1,
+    "viewLabel": "Home",
+    "viewLabelOutsideH1": 0,
+    "h1Region": "none"
+   },
+   "about": {
+    "found": true,
+    "heading": "Components",
+    "box": {
+     "x": 754,
+     "y": 4271.921875,
+     "w": 462,
+     "h": 200
+    },
+    "items": [
+     {
+      "text": "L* (Lightness):",
+      "katexTextRuns": 0,
+      "katexCount": 1,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "a* (Green-Red axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "b* (Blue-Yellow axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     }
+    ]
+   }
+  },
+  {
+   "file": "picker-390-dark.png",
+   "ok": true,
+   "title": {
+    "h1Count": 1,
+    "label": "Home",
+    "id": "route-title",
+    "inMain": true,
+    "paneTitle": false,
+    "caption": true,
+    "fontPx": 12.179,
+    "tabindex": "-1",
+    "h1Left": 16,
+    "h1TextAlign": "start",
+    "stageCardLeft": 16,
+    "labelSaidInMain": 1,
+    "viewLabel": "Home",
+    "viewLabelOutsideH1": 0,
+    "h1Region": "none"
+   },
+   "about": {
+    "found": true,
+    "heading": "Components",
+    "box": {
+     "x": 29,
+     "y": 5132.328125,
+     "w": 332,
+     "h": 200
+    },
+    "items": [
+     {
+      "text": "L* (Lightness):",
+      "katexTextRuns": 0,
+      "katexCount": 1,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "a* (Green-Red axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     },
+     {
+      "text": "b* (Blue-Yellow axis):",
+      "katexTextRuns": 0,
+      "katexCount": 2,
+      "valueLines": 1,
+      "family": "\"Plus Jakarta Sans\""
+     }
+    ]
+   }
+  }
+ ]
+}

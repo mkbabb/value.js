@@ -1,0 +1,6 @@
+swap cube->amiga · load 14.73 · pageerrors 0
+dest(.amiga-canvas) inserted +17 ms · rAF +85 · painted +91 ms
+first vendor-three sample +101 ms -> paint-before-three GREEN · first vendor-monaco sample +43 ms -> paint-before-monaco RED
+swap LoAF>50: 1 · max JS self 31 ms -> GREEN (<= 200)
+  +9 dur 81 jsSelf 31 [vendor-reka-ui 21.5, index 3.9, public 1.4, vendor-monaco 1.3, glass-ui 1.3] ["ViewTransitionCallback /assets/index-Cm5M5BRU.js 5","import.then /assets/index-Cm5M5BRU.js 52"]
+window JS self 124.7 ms [vendor-reka-ui 34.9, vendor-three 26.6, index 15.4, KeyframesStringControls 11.7, public 10.0] · marker offset resolution 0.25 ms

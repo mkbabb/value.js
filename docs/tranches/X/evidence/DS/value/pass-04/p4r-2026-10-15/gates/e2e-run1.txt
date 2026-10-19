@@ -1,0 +1,41 @@
+(node:40686) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:40765) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 29 tests using 1 worker
+
+[1A[2K(node:40812) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/29] [smoke] › e2e/smoke/crash-battery.spec.ts:66:1 › R14 · pressing Retry on a dead Browse wall leaves a plate behind
+[1A[2K[2/29] [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid
+[1A[2K[3/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=black
+[1A[2K[4/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=white
+[1A[2K[5/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#000000
+[1A[2K[6/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#808080
+[1A[2K[7/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#fefefe
+[1A[2K[8/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=rgb(17,17,17)
+[1A[2K[9/29] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=hsl(0 0% 50%)
+[1A[2K[10/29] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: oklch(0.5 0 none)
+[1A[2K[11/29] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: lch(50 0 none)
+[1A[2K[12/29] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: hsl(none 0% 50%)
+[1A[2K[13/29] [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette
+[1A[2K[14/29] [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state
+[1A[2K[15/29] [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable
+[1A[2K[16/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8)
+[1A[2K[17/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column
+[1A[2K[18/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp
+[1A[2K[19/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp
+[1A[2K[20/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip
+[1A[2K[21/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops
+[1A[2K[22/29] [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize
+[1A[2K[23/29] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static
+[1A[2K[24/29] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:189:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[25/29] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:208:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[26/29] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:220:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[27/29] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:251:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)
+[1A[2K[28/29] [smoke] › e2e/smoke/views/browse-loading.spec.ts:17:1 › browse mid-fetch renders developing-plate skeletons, never a spinner
+[1A[2K[29/29] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+[1A[2K  29 passed (1.7m)

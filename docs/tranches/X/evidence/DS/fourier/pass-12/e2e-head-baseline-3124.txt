@@ -1,0 +1,44 @@
+
+Running 12 tests using 3 workers
+
+  ✓   1 [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen (1.6s)
+  ✓   2 [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill (6.6s)
+  ✓   3 [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height (7.5s)
+  ✓   4 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-light › frames the unread views d1440-light (30.4s)
+  ✓   6 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-light › frames the unread views t768-light (29.6s)
+  ✓   5 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light (34.1s)
+  ✓   7 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light (28.2s)
+  ✓   8 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark (30.0s)
+  ✓   9 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark (33.9s)
+  ✘  12 [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung (1.8s)
+  ✓  10 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-dark › frames the unread views t768-dark (30.6s)
+  ✓  11 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark (28.9s)
+
+
+  1) [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+
+    Error: Settle Out is a glass CardTitle in a glass Card
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      138 |         });
+      139 |         expect(read.length, "the four /morph cards (three phases, the levels)").toBe(4);
+    > 140 |         for (const t of read) expect(t.glass, `${t.text} is a glass CardTitle in a glass Card`).toBe(true);
+          |                                                                                                 ^
+      141 |         expect(new Set(read.map((t) => t.size)).size, `one title size (read ${read.map((t) => t.size)})`).toBe(1);
+      142 |         expect(new Set(read.map((t) => t.gap)).size, `one title margin and header inset (read ${read.map((t) => t.gap)})`).toBe(1);
+      143 |     });
+        at /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/fa-head/web/e2e/f-w14v-au3.spec.ts:140:97
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/error-context.md
+
+  1 failed
+    [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+  11 passed (1.6m)

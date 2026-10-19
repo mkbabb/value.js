@@ -1,0 +1,205 @@
+SERVED MODEL: claude-opus-5-5
+==   span=5.0s actions=27 pendingAtEnd=0
+  +3.0s Test.expect  dur=0.1s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.0s Frame.expect .pane-shell .space-trigger dur=0.0s ERR Expect failed
+  console/page errors: 0
+==   span=10.8s actions=768 pendingAtEnd=0
+  +9.8s Test.expect  dur=0.0s ERR Error: sm:line-clamp-1 not active at desktop
+  console/page errors: 0
+==   span=8.4s actions=757 pendingAtEnd=0
+  +7.7s Test.expect  dur=0.0s ERR Error: line-clamp-2 not active <sm
+  console/page errors: 0
+==   span=31.2s actions=52 pendingAtEnd=1
+  +5.1s Test.pw:api internal:role=combobox[name="Select view"i] dur=25.7s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +5.1s PENDING Frame.click internal:role=combobox[name="Select view"i]
+  console/page errors: 0
+==   span=31.3s actions=54 pendingAtEnd=1
+  +11.9s Test.pw:api internal:role=combobox[name="Select view"i] dur=19.1s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +11.9s PENDING Frame.click internal:role=combobox[name="Select view"i]
+  console/page errors: 0
+==   span=1.6s actions=42 pendingAtEnd=0
+  +1.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Obje
+  console/page errors: 0
+==   span=5.9s actions=32 pendingAtEnd=0
+  +5.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  console/page errors: 0
+==   span=9.7s actions=51 pendingAtEnd=0
+  +9.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +9.3s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+  console/page errors: 0
+==   span=10.3s actions=51 pendingAtEnd=0
+  +9.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +9.9s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+  console/page errors: 0
+==   span=10.2s actions=51 pendingAtEnd=0
+  +9.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +9.6s Frame.expect main[aria-labelledby="route-title"]:has(> h1#route-title) >> [id="glas dur=0.0s ERR Expect failed
+  console/page errors: 0
+==   span=8.6s actions=674 pendingAtEnd=0
+  +8.3s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+  console/page errors: 0
+==   span=1.7s actions=654 pendingAtEnd=0
+  +1.4s Test.expect  dur=0.0s ERR Error: admin gold ink rgb(218 165 31) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.2), stack []. --color-gol
+  console/page errors: 0
+==   span=5.2s actions=672 pendingAtEnd=0
+  +4.9s Test.expect  dur=0.0s ERR Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content thr
+  console/page errors: 0
+==   span=7.5s actions=654 pendingAtEnd=0
+  +7.2s Test.expect  dur=0.0s ERR Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.
+  console/page errors: 0
+==   span=2.8s actions=660 pendingAtEnd=0
+  +2.4s Test.expect  dur=0.0s ERR Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [
+  console/page errors: 0
+==   span=23.5s actions=97 pendingAtEnd=0
+  +10.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +10.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +11.1s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +11.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +12.6s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+==   span=21.8s actions=93 pendingAtEnd=1
+  +8.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +8.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +9.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +9.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +12.5s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[2
+==   span=19.4s actions=109 pendingAtEnd=0
+  +8.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +8.1s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +8.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +8.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +10.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[2
+==   span=21.7s actions=114 pendingAtEnd=0
+  +9.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +10.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +10.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +10.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +12.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[2
+==   span=30.6s actions=38 pendingAtEnd=1
+  +9.0s Test.pw:api internal:role=combobox[name="Generation preset"i] dur=21.5s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +9.0s PENDING Frame.click internal:role=combobox[name="Generation preset"i]
+  console/page errors: 0
+==   span=8.3s actions=39 pendingAtEnd=0
+  +8.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  console/page errors: 0
+==   span=11.8s actions=29 pendingAtEnd=0
+  +1.7s Test.expect  dur=10.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +1.7s Frame.expect .dock-status-lamp dur=10.0s ERR Expect failed
+  console/page errors: 1
+  err: Failed to load resource: net::ERR_CONNECTION_REFUSED
+==   span=4.8s actions=53 pendingAtEnd=0
+  +4.0s Test.expect  dur=0.0s ERR Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+  console/page errors: 0
+==   span=20.3s actions=59 pendingAtEnd=0
+  +19.8s Test.expect  dur=0.0s ERR Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5
+  console/page errors: 0
+==   span=10.6s actions=58 pendingAtEnd=0
+  +8.3s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +8.4s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +8.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +9.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equalit
+  +10.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+==   span=12.3s actions=37 pendingAtEnd=0
+  +3.9s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +3.9s Frame.expect internal:role=option[name="Picker"s] dur=8.0s ERR Expect failed
+  console/page errors: 0
+==   span=23.4s actions=70 pendingAtEnd=0
+  +11.9s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one
+  +17.6s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+  +22.7s Test.expect  dur=0.0s ERR Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+  console/page errors: 0
+==   span=6.5s actions=43 pendingAtEnd=0
+  +3.3s Test.expect  dur=0.0s ERR Error: the region never settled
+  +3.4s Test.expect  dur=0.0s ERR Error: the region never settled
+  +3.7s Test.expect  dur=0.0s ERR Error: the region never settled
+  +4.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  console/page errors: 0
+==   span=22.5s actions=254 pendingAtEnd=0
+  +2.7s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +2.7s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+  +2.7s Test.expect  dur=0.0s ERR Error: Home (dark): a card off rung-1
+  +2.7s Test.expect  dur=0.0s ERR Error: Home (dark): grain not on
+  +2.7s Test.expect  dur=0.0s ERR Error: Home (dark): veil off the quiet rung
+==   span=24.3s actions=258 pendingAtEnd=0
+  +3.2s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +3.2s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+  +3.2s Test.expect  dur=0.0s ERR Error: Home (light): a card off rung-1
+  +3.2s Test.expect  dur=0.0s ERR Error: Home (light): grain not on
+  +3.2s Test.expect  dur=0.0s ERR Error: Home (light): veil off the quiet rung
+==   span=4.0s actions=32 pendingAtEnd=0
+  +2.7s Test.expect  dur=0.0s ERR Error: 390 (light): a card off rung-1
+  console/page errors: 0
+==   span=30.5s actions=722 pendingAtEnd=1
+  +6.5s Test.pw:api internal:role=dialog >> internal:role=checkbox >> nth=0 dur=23.9s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +6.5s PENDING Frame.click internal:role=dialog >> internal:role=checkbox >> nth=0
+  console/page errors: 0
+==   span=14.9s actions=761 pendingAtEnd=0
+  +6.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +6.9s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +7.2s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +7.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  +8.7s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+==   span=30.6s actions=68 pendingAtEnd=1
+  +2.3s Test.pw:api internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains dur=28.2s ERR Error: locator.click: Test timeout of 30000ms exceeded.
+  +2.3s PENDING Frame.click internal:text="azure-fox-01"s >> nth=0 >> xpath=ancestor::div[contains
+  console/page errors: 0
+==   span=10.3s actions=52 pendingAtEnd=0
+  +10.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  console/page errors: 0
+==   span=9.3s actions=52 pendingAtEnd=0
+  +8.8s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  console/page errors: 0
+==   span=8.4s actions=52 pendingAtEnd=0
+  +8.0s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality
+  console/page errors: 0
+==   span=8.8s actions=65 pendingAtEnd=0
+  +8.5s Test.expect  dur=0.0s ERR Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+  console/page errors: 0
+==   span=5.9s actions=68 pendingAtEnd=0
+  +1.9s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.0s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.2s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.3s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.6s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=6.3s actions=68 pendingAtEnd=0
+  +2.0s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.2s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.4s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.5s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.8s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=6.2s actions=68 pendingAtEnd=0
+  +2.2s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.3s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.5s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.7s Test.expect  dur=0.0s ERR Error: the region never settled
+  +2.9s Test.expect  dur=0.0s ERR Error: the region never settled
+==   span=11.4s actions=64 pendingAtEnd=0
+  +10.8s Test.expect  dur=0.0s ERR Error: the focus-visible frame is a keyboard focus
+  console/page errors: 0
+==   span=22.3s actions=274 pendingAtEnd=0
+  +21.7s Test.expect  dur=0.0s ERR Error: surface: collector dead
+  console/page errors: 0
+==   span=25.5s actions=316 pendingAtEnd=0
+  +24.9s Test.expect  dur=0.0s ERR Error: surface: collector dead
+  console/page errors: 0
+==   span=20.5s actions=905 pendingAtEnd=0
+  +12.2s Test.expect  dur=8.0s ERR Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+  +12.2s Frame.expect internal:role=main >> internal:role=combobox[name="Generation preset"i dur=8.0s ERR Expect failed
+  console/page errors: 0
+==   span=14.4s actions=37 pendingAtEnd=0
+  +14.0s Test.expect  dur=0.0s ERR Error: painted dominant chroma 0.17687 vs the gamut-mapped current chroma 0.25325
+  console/page errors: 0
+==   span=10.4s actions=35 pendingAtEnd=0
+  +9.9s Test.expect  dur=0.0s ERR Error: painted dominant chroma 0.13792 vs the gamut-mapped current chroma 0.17901
+  console/page errors: 0
+==   span=0.3s actions=13 pendingAtEnd=0
+  console/page errors: 0
+==   span=177.1s actions=804 pendingAtEnd=0
+  console/page errors: 43
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev
+==   span=6.8s actions=37 pendingAtEnd=0
+  +6.4s Test.expect  dur=0.0s ERR Error: boot jitter spike 1925.4ms = 33.5× median (> 3×) — the 44→315ms hole class; re-measured at X-W2 (2026-0
+  console/page errors: 1
+  err: [value.js] value.js dev is MISCONFIGURED: http://localhost:9152 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev

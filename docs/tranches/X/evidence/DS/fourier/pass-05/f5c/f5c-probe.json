@@ -1,0 +1,260 @@
+{
+ "w-429-light-1440": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour"
+  ],
+  "status": [
+   {
+    "text": "Server busy, not computed yetRetry",
+    "color": "rgb(112, 89, 66)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px"
+   }
+  ]
+ },
+ "w-429-light-1440-after-retry": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients401 terms · n = ±2"
+  ],
+  "status": []
+ },
+ "w-429-light-390": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour"
+  ],
+  "status": [
+   {
+    "text": "Server busy, not computed yetRetry",
+    "color": "rgb(112, 89, 66)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px"
+   }
+  ]
+ },
+ "w-429-light-390-after-retry": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients401 terms · n = ±2"
+  ],
+  "status": []
+ },
+ "v-light-390": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients401 terms · n = ±2"
+  ],
+  "status": []
+ },
+ "v-menu-light-1440": [
+  {
+   "t": "Paper",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Visualize",
+   "cur": "page",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Gallery",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Equation",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Morph",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ ],
+ "gallery-light-1440": {
+  "tablist": {
+   "x": 16,
+   "top": 96,
+   "bottom": 139.5,
+   "w": 168.9
+  },
+  "searchInput": {
+   "x": 200.9,
+   "top": 99.5,
+   "bottom": 139.5,
+   "w": 512
+  },
+  "searchField": {
+   "x": 200.9,
+   "top": 99.5,
+   "bottom": 139.5,
+   "w": 512
+  }
+ },
+ "gallery-light-390": {
+  "tablist": {
+   "x": 16,
+   "top": 92,
+   "bottom": 135.5,
+   "w": 358
+  },
+  "searchInput": {
+   "x": 16,
+   "top": 141.5,
+   "bottom": 201.5,
+   "w": 358
+  },
+  "searchField": {
+   "x": 16,
+   "top": 141.5,
+   "bottom": 201.5,
+   "w": 358
+  }
+ },
+ "w-429-dark-1440": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour"
+  ],
+  "status": [
+   {
+    "text": "Server busy, not computed yetRetry",
+    "color": "rgb(195, 185, 172)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px"
+   }
+  ]
+ },
+ "w-429-dark-1440-after-retry": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients401 terms · n = ±2"
+  ],
+  "status": []
+ },
+ "w-429-dark-390": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour"
+  ],
+  "status": [
+   {
+    "text": "Server busy, not computed yetRetry",
+    "color": "rgb(195, 185, 172)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px"
+   }
+  ]
+ },
+ "w-429-dark-390-after-retry": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients401 terms · n = ±2"
+  ],
+  "status": []
+ },
+ "v-dark-390": {
+  "toasts": [],
+  "layers": [
+   "Image",
+   "Basis",
+   "Contour",
+   "Coefficients401 terms · n = ±2"
+  ],
+  "status": []
+ },
+ "v-menu-dark-1440": [
+  {
+   "t": "Paper",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Visualize",
+   "cur": "page",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Gallery",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Equation",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "Morph",
+   "cur": null,
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ ],
+ "gallery-dark-1440": {
+  "tablist": {
+   "x": 16,
+   "top": 96,
+   "bottom": 139.5,
+   "w": 168.9
+  },
+  "searchInput": {
+   "x": 200.9,
+   "top": 99.5,
+   "bottom": 139.5,
+   "w": 512
+  },
+  "searchField": {
+   "x": 200.9,
+   "top": 99.5,
+   "bottom": 139.5,
+   "w": 512
+  }
+ },
+ "gallery-dark-390": {
+  "tablist": {
+   "x": 16,
+   "top": 92,
+   "bottom": 135.5,
+   "w": 358
+  },
+  "searchInput": {
+   "x": 16,
+   "top": 141.5,
+   "bottom": 201.5,
+   "w": 358
+  },
+  "searchField": {
+   "x": 16,
+   "top": 141.5,
+   "bottom": 201.5,
+   "w": 358
+  }
+ }
+}

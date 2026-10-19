@@ -1,0 +1,21 @@
+    [chromium] › e2e/contrast-floor.spec.ts:128:5 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair has a re-derivable expression 
+    [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — dark arm 
+    [chromium] › e2e/contrast-floor.spec.ts:82:9 › X·F F.W4 — contrast floor (G-F4-CONTRAST-FLOOR) › every named pair meets its floor — light arm 
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+    [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view 
+    [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+    [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+    [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+    [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+    [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it 
+    [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+  18 failed
+  3 skipped
+  409 passed (9.6m)

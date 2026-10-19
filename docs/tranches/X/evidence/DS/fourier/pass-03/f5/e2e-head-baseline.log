@@ -1,0 +1,842 @@
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] Generated an empty chunk: "vendor-paper".
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 76 tests using 3 workers
+
+  ✓   2 [chromium] › e2e/f-w13-radius.spec.ts:83:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 2: the history control is a circle and navigates back (10.3s)
+  ✓   3 [chromium] › e2e/f-w13-radius.spec.ts:56:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 1: the CONTENTS disclosure is a circle and collapses the list (10.2s)
+  ✓   5 [chromium] › e2e/f-w14-uia.spec.ts:26:5 › UIA-F-1 — a featured entry renders the strip, not a crash › the pager lives inside its Carousel; no useCarousel pageerror (3.4s)
+  ✓   6 [chromium] › e2e/f-w14-uia.spec.ts:62:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-2: a cold deep link sends GET /api/visualizations/<slug> and leaves the upload stage (3.9s)
+  ✓   7 [chromium] › e2e/f-w14-uia.spec.ts:73:5 › UIA-F-2 / UIA-F-3 — /v/:visualizationSlug loads the saved entity › F-3: an in-app push /w/ → /v/ stays on /v/ with no orphaned transition (2.2s)
+  ✓   8 [chromium] › e2e/f-w14-uia.spec.ts:86:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-50: an unknown path renders a titled, noindexed not-found card (1.4s)
+  ✓   9 [chromium] › e2e/f-w14-uia.spec.ts:99:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-4: /v/<unknown> names the failed slug instead of the upload prompt (1.8s)
+  ✓  10 [chromium] › e2e/f-w14-uia.spec.ts:107:5 › UIA-F-50 / UIA-F-4 / UIA-F-49 — not-found and load-error states › F-49: the error card's action is labelled, and nothing covers the diagnosis (2.1s)
+  ✓  11 [chromium] › e2e/f-w14-uia.spec.ts:122:5 › UIA-F-7 — the collapsed dock's position readout paints its fill › the mini readout is a progressbar whose painted fill tracks the clock (2.1s)
+  ✘   1 [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests (30.3s)
+  ✓  13 [chromium] › e2e/f-w14-uia.spec.ts:247:5 › UIA-F-16 — Undo enables after a point drag › a drag writes history and the dock's Undo is enabled (3.4s)
+  ✘   4 [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius (30.3s)
+  ✓  14 [chromium] › e2e/f-w14-uia.spec.ts:261:5 › UIA-F-15 — editor shortcuts act only on the editor › Delete works on a picked point; out of edit mode a sidebar field keeps its Backspace (7.6s)
+  ✓  12 [chromium] › e2e/f-w14-uia.spec.ts:163:5 › UIA-F-17 — every export switch changes the PNG › switching Epicycles and Trace path off removes their pixels (20.8s)
+  ✓  15 [chromium] › e2e/f-w14-uia.spec.ts:291:5 › UIA-F-18 — one Publish action gives one outcome › a double-click sends one save and shows no false 'Could not save' (3.9s)
+  ✓  17 [chromium] › e2e/f-w14-uia.spec.ts:356:5 › UIA-F-20 — the paper restores its scroll position › a reload returns to the saved section instead of the top (2.9s)
+  ✓  16 [chromium] › e2e/f-w14-uia.spec.ts:321:5 › UIA-F-19 — one drop, one upload › a file dropped over a loaded image sends exactly one POST /api/images (4.0s)
+  ✓  18 [chromium] › e2e/f-w14-uia.spec.ts:377:5 › UIA-F-24 — floating ToC chapter rows navigate; the disclosure toggles › tapping a chapter row scrolls to it; the chevron is its own control (4.5s)
+  ✓  19 [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen (2.4s)
+  ✓  22 [chromium] › e2e/f-w14-uia.spec.ts:484:5 › UIA-F-48 — the Drafts card sits inside the column gutter › its right edge stays inside its column and the viewport (1.9s)
+  ✓  20 [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height (7.9s)
+  ✓  21 [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill (7.4s)
+  ✓  24 [chromium] › e2e/f-w14-uia.spec.ts:530:5 › UIA-F-45 — focus opens inside the card modal and stays there › initial focus is the dialog's title and Tab never reaches the page behind (2.1s)
+  ✓  25 [chromium] › e2e/f-w14-uia.spec.ts:546:5 › UIA-F-40 — the admin grid does not wait on admin stats › a slow stats call neither delays the grid request nor shows the empty CTA over entries (1.4s)
+  ✓  23 [chromium] › e2e/f-w14-uia.spec.ts:509:5 › UIA-F-41 — the gallery column never scrolls sideways at 390 (consumer half) › focusing the last admin tab leaves the column at scrollLeft 0 (6.9s)
+  ✓  26 [chromium] › e2e/f-w14-uia.spec.ts:567:5 › UIA-F-47 — a published draft leaves the Drafts list › after Publish the draft row is gone, and stays gone on reload (6.5s)
+  ✘  27 [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card (21.0s)
+  ✘  28 [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card (21.4s)
+  ✘  29 [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor (21.1s)
+  ✓  30 [chromium] › e2e/f-w14-uia.spec.ts:684:5 › UIA-F-12 — the canvas dock's View options are reachable by keyboard › Enter opens the menu and the keys reach both rows; Enter toggles one (4.2s)
+  ✓  31 [chromium] › e2e/f-w14-uia.spec.ts:712:5 › UIA-F-5 — at 390 every expanded canvas-dock control is visible and hittable › each control's centre hits that control, inside the viewport (3.6s)
+  ✓  32 [chromium] › e2e/f-w14-uia.spec.ts:774:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-30: logged in, the account is one trigger and the dark-mode toggle stays on the plate (2.6s)
+  ✓  33 [chromium] › e2e/f-w14-uia.spec.ts:800:5 › UIA-F-22 — mobile paper search: one instance, and a tapped result navigates › one listbox, no duplicate ids, and tapping a result scrolls to it (3.0s)
+  ✓  34 [chromium] › e2e/f-w14-uia.spec.ts:824:5 › UIA-F-23 — the floating ToC's Close search closes with a query typed › one tap on Close search closes the search and it stays closed (3.4s)
+  ✓  35 [chromium] › e2e/f-w14-uia.spec.ts:754:5 › UIA-F-28 / UIA-F-29 / UIA-F-30 — the account group fits the dock at 390 › F-28/F-29: the login form opens in a popover; its error wraps in its own line (2.1s)
+  ✓  36 [chromium] › e2e/f-w14-uia.spec.ts:841:5 › UIA-F-25 — the search palette has one dismissal owner › no ✕ under Clear, and Esc collapses the palette keeping the query (2.7s)
+  ✓  37 [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size (5.9s)
+  ✓  39 [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size (13.7s)
+  ✓  38 [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate (20.8s)
+  ✓  40 [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate (17.3s)
+  ✓  41 [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size (8.8s)
+  ✓  42 [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate (7.7s)
+  ✓  43 [chromium] › e2e/f-w14u-vedit.spec.ts:138:5 › X.F.W14U.vedit — the contour editor › v86 · UIA-F-86 — the editor's Contour trace acts on the editing surface (8.2s)
+  ✓  44 [chromium] › e2e/f-w14u-vedit.spec.ts:152:5 › X.F.W14U.vedit — the contour editor › v87 · UIA-F-87 — handles are legible, targetable and the selection is found (7.2s)
+  ✓  45 [chromium] › e2e/f-w14u-vedit.spec.ts:201:5 › X.F.W14U.vedit — the contour editor › v88 · UIA-F-88 — at 390 every expanded editor tool is reachable (5.9s)
+  ✓  46 [chromium] › e2e/f-w14u-vedit.spec.ts:266:5 › X.F.W14U.vedit — the contour editor › v89 · UIA-F-89 — at 390, editing, the Controls tab gives the pane the height (4.9s)
+  ✓  47 [chromium] › e2e/f-w14u-vedit.spec.ts:281:5 › X.F.W14U.vedit — the contour editor › v179 · UIA-F-179 — keyboard focus on the editor surface is visible (5.3s)
+  ✓  49 [chromium] › e2e/f-w14u-vedit.spec.ts:345:5 › X.F.W14U.vedit — the contour editor › v242 · UIA-F-242 ⊕ F-172 — dock micro-issues (8.1s)
+  ✓  48 [chromium] › e2e/f-w14u-vedit.spec.ts:298:5 › X.F.W14U.vedit — the contour editor › v180 · UIA-F-180 — leaving with edits asks; Reset is undoable; exit clears the selection (11.8s)
+  ✘  50 [chromium] › e2e/f-w14u-vedit.spec.ts:495:5 › X.F.W14U.vedit — the equation panel › v83 · UIA-F-83 (consumer) ⊕ F-176 — every term, reachable, conventionally written (30.3s)
+  ✘  51 [chromium] › e2e/f-w14u-vedit.spec.ts:515:5 › X.F.W14U.vedit — the equation panel › v177 · UIA-F-177 — the panel is a labelled dialog with glass chrome (30.4s)
+  ✘  52 [chromium] › e2e/f-w14u-vedit.spec.ts:554:5 › X.F.W14U.vedit — the equation panel › v177m · UIA-F-177 — at 390 the panel clears the canvas dock (30.1s)
+  ✓  54 [chromium] › e2e/f-w14u-vedit.spec.ts:618:9 › X.F.W14U.vedit — frames at 1440 and 390 › frames 1440 — the editor and the equation panel (10.5s)
+  ✓  55 [chromium] › e2e/f-w14u-vedit.spec.ts:618:9 › X.F.W14U.vedit — frames at 1440 and 390 › frames 390 — the editor and the equation panel (7.8s)
+  ✓  53 [chromium] › e2e/f-w14u-vedit.spec.ts:573:5 › X.F.W14U.vedit — the equation panel › v178 · UIA-F-178 — the fit is a measurement, never the destructive ink (17.9s)
+  ✘  58 [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung (2.6s)
+  ✓  59 [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /morph, and the class paints nothing (2.1s)
+  ✓  56 [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult (21.8s)
+  ✓  60 [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing (20.6s)
+  ✓  62 [chromium] › e2e/f-w14v-au3.spec.ts:156:5 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · the morph control is a glass Surface, the cards glass Cards (2.1s)
+  ✘  57 [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation (30.2s)
+  ✓  61 [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing (13.9s)
+  ✓  63 [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside (17.7s)
+  ✓  64 [chromium] › e2e/f-w14v-eq2.spec.ts:66:5 › X.F.W14V.eq2 — q2 /equation below lg (390) › q2 Controls tab shows the layers and no empty stage box; Canvas tab shows the stage (18.6s)
+  ✓  65 [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 light › frames 1440 light (19.3s)
+  ✓  66 [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 light › frames 390 light (12.7s)
+  ✓  67 [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 1440 dark › frames 1440 dark (14.3s)
+  ✓  69 [chromium] › e2e/f-w14v-p.spec.ts:96:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p1: signed out → the inline sign-in, then the publish resumes (5.2s)
+  ✓  68 [chromium] › e2e/f-w14v-eq2.spec.ts:90:13 › X.F.W14V.eq2 — frames 390 dark › frames 390 dark (14.0s)
+  ✓  71 [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1440: the toast and the Configurator's aside do not intersect (4.0s)
+  ✓  70 [chromium] › e2e/f-w14v-p.spec.ts:106:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p2: a stale sign-in → the server's owner_required reaches the inline sign-in, never the raw toast (5.3s)
+  ✘  73 [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time (2.3s)
+  ✘  72 [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect (4.3s)
+  ✘  74 [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel (2.2s)
+  ✘  75 [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel (2.0s)
+  ✘  76 [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel (2.2s)
+
+
+  1) [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForResponse: Test timeout of 30000ms exceeded.
+
+      88 |         await expect(compute).toBeEnabled();
+      89 |
+    > 90 |         const computeResponse = page.waitForResponse(
+         |                                      ^
+      91 |             (r) => COMPUTE_URL.test(new URL(r.url()).pathname) && r.request().method() === "POST",
+      92 |             { timeout: 60_000 },
+      93 |         );
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/equation-interaction.spec.ts:90:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/equation-interaction-S2-—--f2555--the-route-and-its-requests-chromium/error-context.md
+
+  2) [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.waitForResponse: Test timeout of 30000ms exceeded.
+
+      104 |
+      105 |     test("frame 5: every visualizer panel is on the card radius", async ({ page }) => {
+    > 106 |         const computed = page.waitForResponse(
+          |                               ^
+      107 |             (r) => r.url().includes("/api/equations/compute") && r.request().method() === "POST",
+      108 |             { timeout: 60_000 },
+      109 |         );
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w13-radius.spec.ts:106:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w13-radius-G-a-—-F-W13-r-fbb5f-panel-is-on-the-card-radius-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w13-radius-G-a-—-F-W13-r-fbb5f-panel-is-on-the-card-radius-chromium/error-context.md
+
+  3) [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14-uia.spec.ts:635:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-c42ff--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-c42ff--nothing-is-cut-by-the-card-chromium/error-context.md
+
+  4) [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14-uia.spec.ts:635:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-33-UIA-F-3-e2d51--nothing-is-cut-by-the-card-chromium/error-context.md
+
+  5) [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card').locator('.katex').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 20000ms
+      - waiting for locator('.eq-card').locator('.katex').first()
+
+
+      624 |     if (page.viewportSize()!.width < 1024) await page.getByRole("tab", { name: "Canvas" }).click();
+      625 |     const card = page.locator(".eq-card");
+    > 626 |     await expect(card.locator(".katex").first()).toBeVisible({ timeout: 20_000 });
+          |                                                  ^
+      627 |     return card;
+      628 | }
+      629 |
+        at openEquationCard (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14-uia.spec.ts:626:50)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14-uia.spec.ts:658:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14-uia-UIA-F-32-—-the-c-bc694-over-clipped-by-no-ancestor-chromium/error-context.md
+
+  6) [chromium] › e2e/f-w14u-vedit.spec.ts:495:5 › X.F.W14U.vedit — the equation panel › v83 · UIA-F-83 (consumer) ⊕ F-176 — every term, reachable, conventionally written 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-panel').locator('.eq-scroll-region .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for locator('.eq-panel').locator('.eq-scroll-region .katex').first()
+
+
+      131 |     const panel = page.locator(".eq-panel");
+      132 |     await expect(panel).toBeVisible();
+    > 133 |     await expect(panel.locator(".eq-scroll-region .katex").first()).toBeVisible({ timeout: 30_000 });
+          |                                                                     ^
+      134 |     return panel;
+      135 | }
+      136 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14u-vedit.spec.ts:133:69)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14u-vedit.spec.ts:497:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vedit-X-F-W14U-vedi-13e8e-able-conventionally-written-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vedit-X-F-W14U-vedi-13e8e-able-conventionally-written-chromium/error-context.md
+
+  7) [chromium] › e2e/f-w14u-vedit.spec.ts:515:5 › X.F.W14U.vedit — the equation panel › v177 · UIA-F-177 — the panel is a labelled dialog with glass chrome 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-panel').locator('.eq-scroll-region .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for locator('.eq-panel').locator('.eq-scroll-region .katex').first()
+
+
+      131 |     const panel = page.locator(".eq-panel");
+      132 |     await expect(panel).toBeVisible();
+    > 133 |     await expect(panel.locator(".eq-scroll-region .katex").first()).toBeVisible({ timeout: 30_000 });
+          |                                                                     ^
+      134 |     return panel;
+      135 | }
+      136 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14u-vedit.spec.ts:133:69)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14u-vedit.spec.ts:517:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vedit-X-F-W14U-vedi-33105-ed-dialog-with-glass-chrome-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vedit-X-F-W14U-vedi-33105-ed-dialog-with-glass-chrome-chromium/error-context.md
+
+  8) [chromium] › e2e/f-w14u-vedit.spec.ts:554:5 › X.F.W14U.vedit — the equation panel › v177m · UIA-F-177 — at 390 the panel clears the canvas dock 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-panel').locator('.eq-scroll-region .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for locator('.eq-panel').locator('.eq-scroll-region .katex').first()
+
+
+      131 |     const panel = page.locator(".eq-panel");
+      132 |     await expect(panel).toBeVisible();
+    > 133 |     await expect(panel.locator(".eq-scroll-region .katex").first()).toBeVisible({ timeout: 30_000 });
+          |                                                                     ^
+      134 |     return panel;
+      135 | }
+      136 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14u-vedit.spec.ts:133:69)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14u-vedit.spec.ts:556:23
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-vedit-X-F-W14U-vedi-51509-anel-clears-the-canvas-dock-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-vedit-X-F-W14U-vedi-51509-anel-clears-the-canvas-dock-chromium/error-context.md
+
+  9) [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.eq-card .katex').first()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 90000ms
+      - waiting for locator('.eq-card .katex').first()
+
+
+      52 | async function openEquation(page: Page): Promise<void> {
+      53 |     await page.goto("/equation");
+    > 54 |     await expect(page.locator(".eq-card .katex").first()).toBeVisible({ timeout: LOAD });
+         |                                                           ^
+      55 |     await settle(page);
+      56 | }
+      57 |
+        at openEquation (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14v-au3.spec.ts:54:59)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14v-au3.spec.ts:112:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--a978d-l-on-visualize-and-equation-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--a978d-l-on-visualize-and-equation-chromium/error-context.md
+
+  10) [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+
+    Error: Settle Out is a glass CardTitle in a glass Card
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      138 |         });
+      139 |         expect(read.length, "the four /morph cards (three phases, the levels)").toBe(4);
+    > 140 |         for (const t of read) expect(t.glass, `${t.text} is a glass CardTitle in a glass Card`).toBe(true);
+          |                                                                                                 ^
+      141 |         expect(new Set(read.map((t) => t.size)).size, `one title size (read ${read.map((t) => t.size)})`).toBe(1);
+      142 |         expect(new Set(read.map((t) => t.gap)).size, `one title margin and header inset (read ${read.map((t) => t.gap)})`).toBe(1);
+      143 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14v-au3.spec.ts:140:97
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/error-context.md
+
+  11) [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+
+    Error: toast {"x":620,"y":656.96875,"width":388,"height":95.03125} over aside {"x":656,"y":88,"width":352,"height":668}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 33451
+
+      148 |                 y: Math.max(0, Math.min(a.y + a.height, t.y + t.height) - Math.max(a.y, t.y)),
+      149 |             };
+    > 150 |             expect(overlap.x * overlap.y, `toast ${JSON.stringify(t)} over aside ${JSON.stringify(a)}`).toBe(0);
+          |                                                                                                         ^
+      151 |         });
+      152 |     }
+      153 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/f-w14v-p.spec.ts:150:105
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/error-context.md
+
+  12) [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+
+    Error: axe-core serious/critical violations at "gallery admin banner (GAB-1 stat cells)":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:100:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-d8889-e-graded-for-the-first-time-chromium/error-context.md
+
+  13) [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Users":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span:nth-child(1)
+          div[aria-label="Notifications (F8)"] > span:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:111:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-2e4aa-ADMIN-AXE-admin-users-panel-chromium/error-context.md
+
+  14) [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Flagged":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:122:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-56988-MIN-AXE-admin-flagged-panel-chromium/error-context.md
+
+  15) [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+
+    Error: axe-core serious/critical violations at "admin panel — Audit Log":
+      • [serious] aria-hidden-focus — ARIA hidden element must not be focusable or contain focusable elements (2 node(s))
+          div[aria-label="Notifications (F8)"] > span[aria-hidden="true"]:nth-child(1)
+          span[aria-hidden="true"]:nth-child(3)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 76
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure aria-hidden elements are not focusable nor contain focusable elements",
+    +     "help": "ARIA hidden element must not be focusable or contain focusable elements",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-hidden-focus?application=playwright",
+    +     "id": "aria-hidden-focus",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "div[aria-label=\"Notifications (F8)\"] > span[aria-hidden=\"true\"]:nth-child(1)",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "focusable-not-tabbable",
+    +             "impact": "serious",
+    +             "message": "Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +                 "target": Array [
+    +                   "span[aria-hidden=\"true\"]:nth-child(3)",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "any": Array [],
+    +         "failureSummary": "Fix all of the following:
+    +   Focusable content should have tabindex=\"-1\" or be removed from the DOM",
+    +         "html": "<span aria-hidden=\"true\" tabindex=\"0\" style=\"position: fixed; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); white-space: nowrap; overflow-wrap: normal; top: -1px; left: -1px;\"></span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[aria-hidden=\"true\"]:nth-child(3)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.name-role-value",
+    +       "wcag2a",
+    +       "wcag412",
+    +       "TTv5",
+    +       "TT6.a",
+    +       "EN-301-549",
+    +       "EN-9.4.1.2",
+    +       "RGAAv4",
+    +       "RGAA-10.8.1",
+    +     ],
+    +   },
+    + ]
+
+      69 |                 )
+      70 |                 .join("\n"),
+    > 71 |     ).toEqual([]);
+         |       ^
+      72 | }
+      73 |
+      74 | /** Enter admin mode through the shipped path and wait for the banner. */
+        at checkA11y (/Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:71:7)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p3f5-head/web/e2e/gallery-admin-a11y.spec.ts:133:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/gallery-admin-a11y-X·F-F-W-ad7cf-N-AXE-admin-audit-log-panel-chromium/error-context.md
+
+  15 failed
+    [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+    [chromium] › e2e/f-w13-radius.spec.ts:105:5 › G-a — F.W13 radius register (frames 1, 2, 5) › frame 5: every visualizer panel is on the card radius 
+    [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (1440) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:634:9 › UIA-F-33 / UIA-F-34 — the equation card's controls sit in a header row (390) › no control overlaps another or the equation, and nothing is cut by the card 
+    [chromium] › e2e/f-w14-uia.spec.ts:657:5 › UIA-F-32 — the coefficient popover escapes the equation card › hovering a coefficient shows the whole popover, clipped by no ancestor 
+    [chromium] › e2e/f-w14u-vedit.spec.ts:495:5 › X.F.W14U.vedit — the equation panel › v83 · UIA-F-83 (consumer) ⊕ F-176 — every term, reachable, conventionally written 
+    [chromium] › e2e/f-w14u-vedit.spec.ts:515:5 › X.F.W14U.vedit — the equation panel › v177 · UIA-F-177 — the panel is a labelled dialog with glass chrome 
+    [chromium] › e2e/f-w14u-vedit.spec.ts:554:5 › X.F.W14U.vedit — the equation panel › v177m · UIA-F-177 — at 390 the panel clears the canvas dock 
+    [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation 
+    [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+    [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+    [chromium] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 
+  61 passed (4.9m)

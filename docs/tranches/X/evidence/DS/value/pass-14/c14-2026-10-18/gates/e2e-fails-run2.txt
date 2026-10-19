@@ -1,0 +1,15 @@
+    [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints 
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+    [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 1440 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1182:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1297:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1322:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:713:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:993:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:114:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis 
+    [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground 

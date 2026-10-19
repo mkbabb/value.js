@@ -1,0 +1,15 @@
+SERVED MODEL: claude-opus-5-5
+master CI x2 on the .g2 merge 67e503b, read 2026-10-16T21:42:06Z
+38964281712 push completed success 67e503b 2026-10-16T20:43:22Z->2026-10-16T21:41:36Z | web (vue-tsc + vite build)=success, api/tests (with live Mongo)=success, e2e (Playwright, COMPUTE_RATE_LIMIT=1000)=success, production compose boot + health=success, inv-27 evidence (covering run id + SHA)=success
+   step: Producer-held manifest (excluded from the gate below) = success
+   step: Run Playwright e2e = success
+   step: Producer-held set (glass ADOPT-AT-LANDING rows) — still RED as declared = success
+38964317279 workflow_dispatch completed success 67e503b 2026-10-16T20:43:40Z->2026-10-16T21:35:27Z | e2e (Playwright, COMPUTE_RATE_LIMIT=1000)=success, production compose boot + health=success, web (vue-tsc + vite build)=success, api/tests (with live Mongo)=success, inv-27 evidence (covering run id + SHA)=success
+   step: Producer-held manifest (excluded from the gate below) = success
+   step: Run Playwright e2e = success
+   step: Producer-held set (glass ADOPT-AT-LANDING rows) — still RED as declared = success
+== later master runs
+38971075205 deploy-pages workflow_run in_progress  67e503b
+38970403887 deploy-pages workflow_run completed skipped 67e503b
+38964317279 CI workflow_dispatch completed success 67e503b
+38964281712 CI push completed success 67e503b

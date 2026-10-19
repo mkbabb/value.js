@@ -17,10 +17,13 @@ import type {
     Filter,
     Sort,
     UpdateFilter,
+    UpdateResult,
     WithId,
     WithoutId,
 } from "mongodb";
 import type { Palette } from "../model.js";
+import { paletteETagFilter, type PaletteETagSource } from "../etag.js";
+import { paletteReadableFilter } from "../service/visibility.js";
 
 export class PaletteRepository {
     constructor(private readonly col: Collection<Palette>) {}
@@ -66,20 +69,72 @@ export class PaletteRepository {
         return this.col.countDocuments({ userSlug, deletedAt: null });
     }
 
-    findForksOf(slug: string, skip: number, limit: number): Promise<WithId<Palette>[]> {
+    /**
+     * X-W3 · G-13 — the live children of `slug` THIS VIEWER MAY READ.
+     *
+     * The filter is `{forkOf, deletedAt: null}` ∧ `paletteReadableFilter(viewer)`:
+     * the liveness axis this listing has always carried, composed with the
+     * policy's OWN query spelling. The clause is imported, never re-derived —
+     * a second spelling of "who may see this row" is the drift the policy
+     * kernel exists to close, and it is how an unfiltered `find({forkOf})`
+     * came to disclose every private child to an anonymous caller.
+     */
+    findForksOf(
+        slug: string,
+        skip: number,
+        limit: number,
+        viewer: string | null | undefined,
+    ): Promise<WithId<Palette>[]> {
         return this.col
-            .find({ forkOf: slug, deletedAt: null })
+            .find({ forkOf: slug, deletedAt: null, ...paletteReadableFilter(viewer) })
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
             .toArray();
     }
 
-    countForksOf(slug: string, session?: ClientSession): Promise<number> {
+    /**
+     * The count of the SAME filtered join `findForksOf` pages over, so a
+     * response's `total` can never exceed what its rows are allowed to show.
+     */
+    countForksOf(
+        slug: string,
+        viewer: string | null | undefined,
+        session?: ClientSession,
+    ): Promise<number> {
         return this.col.countDocuments(
-            { forkOf: slug, deletedAt: null },
+            { forkOf: slug, deletedAt: null, ...paletteReadableFilter(viewer) },
             session ? { session } : undefined,
         );
+    }
+
+    /**
+     * X-W3 · G-14 — the same viewer-filtered count for MANY parents in one
+     * round trip, keyed by parent slug. A page of palettes each needs its
+     * `forkCount` computed at format time; doing that with one
+     * `countForksOf` per row would be an N+1 the browse list cannot afford,
+     * and publishing the stored approximation instead is the drift G-14
+     * refuses. Parents with zero readable children are simply absent from the
+     * map — the caller reads a miss as `0`.
+     */
+    async countForksOfMany(
+        slugs: string[],
+        viewer: string | null | undefined,
+    ): Promise<Map<string, number>> {
+        if (slugs.length === 0) return new Map();
+        const rows = await this.col
+            .aggregate<{ _id: string; n: number }>([
+                {
+                    $match: {
+                        forkOf: { $in: slugs },
+                        deletedAt: null,
+                        ...paletteReadableFilter(viewer),
+                    },
+                },
+                { $group: { _id: "$forkOf", n: { $sum: 1 } } },
+            ])
+            .toArray();
+        return new Map(rows.map((r) => [r._id, r.n]));
     }
 
     /** All palette slugs — used by cron to detect orphaned vote rows. */
@@ -104,14 +159,47 @@ export class PaletteRepository {
         return palette.slug;
     }
 
+    /**
+     * Update one palette by slug, OPTIONALLY fenced against the state the
+     * caller read (X-W3 · G-8).
+     *
+     * The driver's `UpdateResult` is RETURNED, not discarded: `matchedCount`
+     * is the only honest answer to "did my write land?", and throwing it away
+     * (`.then(() => undefined)`) is what made every palette write unable to
+     * tell a committed update from a lost race.
+     *
+     * Pass `expect` — the palette document the caller read — to fence the
+     * write: `paletteETagFilter` turns that read into a filter clause, so the
+     * update applies only while the document still carries the ETag the caller
+     * validated `If-Match` against, and `matchedCount === 0` means another
+     * writer won. Callers map that zero to `412` with `assertFenceHeld`
+     * (`../etag.js`), beside the `assertIfMatch` it completes.
+     *
+     * The guard is a filter clause rather than a repository throw because that
+     * is this codebase's existing CAS shape (`color/repository/proposedName.ts:73-79`
+     * guards `{_id, status: from}` and returns the result); HTTP semantics stay
+     * in the domain/HTTP layer, and the repository stays free of `ApiError`.
+     *
+     * `expect` is the FOURTH parameter, after `session`, because X.W3.3 could
+     * not reach the three product call sites from its own writable set and
+     * returned them as `ESC-W3.3-CAS-CALLERS` rather than leaving the gate
+     * green-by-apparatus. That escalation is DISCHARGED at Repair 1: PATCH
+     * (`service/crud.ts`), revert (`service/versions.ts`) and publish
+     * (`service/visibility.ts`) all pass their read document and assert the
+     * result through `assertFenceHeld`. The remaining un-fenced writes are the
+     * ones the gate does not name — the soft-delete stamp, the fork-count
+     * counters, the admin verbs — and each is single-field, commutative, or
+     * carries no `If-Match` contract.
+     */
     update(
         slug: string,
         update: UpdateFilter<Palette>,
         session?: ClientSession,
-    ): Promise<void> {
-        return this.col
-            .updateOne({ slug }, update, session ? { session } : undefined)
-            .then(() => undefined);
+        expect?: PaletteETagSource,
+    ): Promise<UpdateResult<Palette>> {
+        const filter: Filter<Palette> =
+            expect === undefined ? { slug } : { slug, ...paletteETagFilter(expect) };
+        return this.col.updateOne(filter, update, session ? { session } : undefined);
     }
 
     updateManyBySlugs(
@@ -202,8 +290,15 @@ export class PaletteRepository {
     }
 
     /**
-     * Set `forkCount` to an absolute value — used by the restore path to
-     * recompute the count from `countForksOf` truth rather than blind-bumping.
+     * Set the STORED, approximate `forkCount` to an absolute value — used by
+     * the restore path to recompute it rather than blind-bumping.
+     *
+     * X-W3 · G-14: the stored field is no longer an authority. It is the
+     * `most-forked` sort key and nothing else (`service/crud-list.ts:
+     * sortSpecFor`); what a response PUBLISHES as `forkCount` is the
+     * viewer-filtered count computed at format time. Recomputing it here from
+     * the unfiltered live-child count is therefore still right for its one
+     * remaining job — a ranking must not vary by who is looking.
      * The blind `incrementForkCount` is safe at fork-CREATION (one genuinely
      * new live fork) but NOT on restore: the soft-delete decrement is gated
      * `{forkCount: {$gt: 0}}`, so a delete→restore round-trip that hit the

@@ -1,0 +1,50 @@
+19:07  up 6 days, 10 mins, 2 users, load averages: 13.43 24.58 42.49
+firefox r0a0 parseCssColor          acc-eq   n=4835 k=32 S=15 product x0.924 (31/31<1) spread 1.53
+firefox r0a0 parseCssScalar         acc-eq   n=5835 k=16 S=15 product x0.762 (31/31<1) spread 1.175
+firefox r0a0 parseCssValue          acc-eq   n=10439 k=4 S=15 product x0.464 (31/31<1) spread 1.196
+firefox r0a0 parseCssValues         acc-eq   n=10439 k=4 S=15 product x0.471 (31/31<1) spread 1.204
+firefox r0a0 parseKeyframeSelector  acc-eq   n=56 k=8192 S=13 product x0.87 (31/31<1) spread 1.168
+firefox r0a0 parseTimingFunction    acc-eq   n=362 k=512 S=15 product x0.678 (31/31<1) spread 1.176
+firefox r0a0 parseStylesheet        acc-eq   n=1962 k=8 S=15 product x0.716 (31/31<1) spread 1.377
+firefox r0a0 parseCssColor          rej-eq   n=21760 k=8 S=14 product x0.719 (31/31<1) spread 1.136
+firefox r0a0 parseCssScalar         rej-eq   n=20759 k=8 S=14 product x0.519 (31/31<1) spread 1.2
+firefox r0a0 parseCssValue          rej-eq   n=15821 k=4 S=15 product x0.769 (31/31<1) spread 1.216
+firefox r0a0 parseCssValues         rej-eq   n=15821 k=2 S=15 product x0.788 (31/31<1) spread 1.295
+firefox r0a0 parseKeyframeSelector  rej-eq   n=29888 k=16 S=14 product x0.906 (31/31<1) spread 1.224
+firefox r0a0 parseTimingFunction    rej-eq   n=29412 k=16 S=14 product x0.75 (31/31<1) spread 1.25
+firefox r0a0 parseStylesheet        rej-eq   n=27197 k=8 S=14 product x0.887 (31/31<1) spread 1.246
+firefox r1a0 parseCssScalar         acc-eq   n=5835 k=16 S=15 product x0.799 (31/31<1) spread 1.387
+firefox r1a0 parseCssValue          acc-eq   n=10439 k=4 S=15 product x0.482 (31/31<1) spread 1.441
+firefox r1a0 parseCssValues         acc-eq   n=10439 k=4 S=15 product x0.495 (31/31<1) spread 1.232
+firefox r1a0 parseKeyframeSelector  acc-eq   n=56 k=8192 S=13 product x0.944 (31/31<1) spread 1.257
+firefox r1a0 parseTimingFunction    acc-eq   n=362 k=512 S=15 product x0.737 (31/31<1) spread 1.192
+firefox r1a0 parseStylesheet        acc-eq   n=1962 k=8 S=15 product x0.719 (31/31<1) spread 1.388
+firefox r1a0 parseCssColor          acc-eq   n=4835 k=32 S=15 product x0.977 (31/31<1) spread 1.311
+firefox r1a0 parseCssScalar         rej-eq   n=20759 k=4 S=14 product x0.52 (31/31<1) spread 1.236
+firefox r1a0 parseCssValue          rej-eq   n=15821 k=4 S=15 product x0.807 (31/31<1) spread 1.24
+firefox r1a0 parseCssValues         rej-eq   n=15821 k=2 S=15 product x0.839 (31/31<1) spread 1.204
+firefox r1a0 parseKeyframeSelector  rej-eq   n=29888 k=8 S=14 product x0.924 (30/31<1) spread 1.384
+firefox r1a0 parseTimingFunction    rej-eq   n=29412 k=8 S=14 product x0.777 (31/31<1) spread 1.302
+firefox r1a0 parseStylesheet        rej-eq   n=27197 k=4 S=14 product x0.916 (31/31<1) spread 1.336
+firefox r1a0 parseCssColor          rej-eq   n=21760 k=8 S=14 product x0.747 (31/31<1) spread 1.312
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc-eq|parseCssColor             <1 x0.924 x0.977
+product firefox|acc-eq|parseCssScalar            <1 x0.762 x0.799
+product firefox|acc-eq|parseCssValue             <1 x0.464 x0.482
+product firefox|acc-eq|parseCssValues            <1 x0.471 x0.495
+product firefox|acc-eq|parseKeyframeSelector     <1 x0.87 x0.944
+product firefox|acc-eq|parseTimingFunction       <1 x0.678 x0.737
+product firefox|acc-eq|parseStylesheet           <1 x0.716 x0.719
+product firefox|rej-eq|parseCssColor             <1 x0.719 x0.747
+product firefox|rej-eq|parseCssScalar            <1 x0.519 x0.52
+product firefox|rej-eq|parseCssValue             <1 x0.769 x0.807
+product firefox|rej-eq|parseCssValues            <1 x0.788 x0.839
+product firefox|rej-eq|parseKeyframeSelector     <1 x0.906 x0.924
+product firefox|rej-eq|parseTimingFunction       <1 x0.75 x0.777
+product firefox|rej-eq|parseStylesheet           <1 x0.887 x0.916
+19:07  up 6 days, 10 mins, 2 users, load averages: 13.43 24.58 42.49 
+ 19:29  up 6 days, 31 mins, 2 users, load averages: 28.75 21.49 22.67 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c2-firefox-n31-eq.json
+DONE w8lg1c2-firefox-n31-eq
+guarded exit 0
+19:29  up 6 days, 31 mins, 2 users, load averages: 27.49 21.35 22.62

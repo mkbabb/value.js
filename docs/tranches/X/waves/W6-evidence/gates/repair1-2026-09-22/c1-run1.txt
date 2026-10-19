@@ -1,0 +1,2 @@
+GATE G4 (structure) — GREEN
+EXIT 0

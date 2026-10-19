@@ -1,0 +1,518 @@
+{"SERVED MODEL": "claude-opus-5-5",
+ "unit": "X.P.W6.x",
+ "date": "2026-09-23",
+ "bench": "bench/css-parse.bench.ts (npx vitest bench --run -c bench/vitest.config.ts)",
+ "candidate": "src/css/grammar/*.bbnf via @mkbabb/bbnf-lang 0.1.4 on @mkbabb/parse-that 0.8.2 (value.js HEAD dff875e8 + this bench)",
+ "incumbent": "src/css/grammar.ts + src/css/stylesheet.ts @ 2155142bad8b7ac8292ad2263f232a47a656f36e (read back from git by bench/retired.ts)",
+ "corpus": "29,944 distinct sources: bench/css-equivalence/assay-corpus.json (27,021) ∪ real-corpus.json (3,049); one iteration = every source through one entry",
+ "host": "darwin, 18 logical cores, shared with concurrent seats; loadavg = 1/5/15-min",
+ "quiesceRule": "each reading of record opened when the 1-min load fell below the core count (18); the host was never idle",
+ "readingsOfRecord": [
+  {
+   "start": "16:47:12",
+   "loadavgAtStart": "{ 17.20 29.49 37.48 }",
+   "loadavgAtEnd": "{ 25.48 29.28 36.87 }",
+   "entries": {
+    "parseCssColor × 29944 sources": {
+     "bbnf": {
+      "hz": 17.878,
+      "meanMs": 55.935,
+      "p99Ms": 92.347,
+      "rmePct": 7.62,
+      "samples": 36
+     },
+     "retired": {
+      "hz": 35.985,
+      "meanMs": 27.79,
+      "p99Ms": 31.72,
+      "rmePct": 1.08,
+      "samples": 72
+     },
+     "bbnfOverRetired": 2.01
+    },
+    "parseCssScalar × 29944 sources": {
+     "bbnf": {
+      "hz": 23.277,
+      "meanMs": 42.961,
+      "p99Ms": 60.843,
+      "rmePct": 4.02,
+      "samples": 47
+     },
+     "retired": {
+      "hz": 31.214,
+      "meanMs": 32.037,
+      "p99Ms": 43.55,
+      "rmePct": 3.02,
+      "samples": 63
+     },
+     "bbnfOverRetired": 1.34
+    },
+    "parseCssValue × 29944 sources": {
+     "bbnf": {
+      "hz": 3.717,
+      "meanMs": 269.069,
+      "p99Ms": 301.544,
+      "rmePct": 7.34,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 10.38,
+      "meanMs": 96.339,
+      "p99Ms": 129.49,
+      "rmePct": 6.68,
+      "samples": 21
+     },
+     "bbnfOverRetired": 2.79
+    },
+    "parseCssValues × 29944 sources": {
+     "bbnf": {
+      "hz": 4.721,
+      "meanMs": 211.809,
+      "p99Ms": 232.55,
+      "rmePct": 4.57,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 7.406,
+      "meanMs": 135.029,
+      "p99Ms": 289.128,
+      "rmePct": 23.44,
+      "samples": 15
+     },
+     "bbnfOverRetired": 1.57
+    },
+    "parseKeyframeSelector × 29944 sources": {
+     "bbnf": {
+      "hz": 64.74,
+      "meanMs": 15.446,
+      "p99Ms": 49.079,
+      "rmePct": 9.31,
+      "samples": 130
+     },
+     "retired": {
+      "hz": 169.952,
+      "meanMs": 5.884,
+      "p99Ms": 12.312,
+      "rmePct": 3.15,
+      "samples": 340
+     },
+     "bbnfOverRetired": 2.63
+    },
+    "parseTimingFunction × 29944 sources": {
+     "bbnf": {
+      "hz": 49.403,
+      "meanMs": 20.242,
+      "p99Ms": 63.282,
+      "rmePct": 7.36,
+      "samples": 99
+     },
+     "retired": {
+      "hz": 54.642,
+      "meanMs": 18.301,
+      "p99Ms": 132.51,
+      "rmePct": 21.71,
+      "samples": 111
+     },
+     "bbnfOverRetired": 1.11
+    },
+    "parseStylesheet × 29944 sources": {
+     "bbnf": {
+      "hz": 1.291,
+      "meanMs": 774.877,
+      "p99Ms": 1218.155,
+      "rmePct": 22.51,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 19.08,
+      "meanMs": 52.41,
+      "p99Ms": 67.239,
+      "rmePct": 3.31,
+      "samples": 39
+     },
+     "bbnfOverRetired": 14.78
+    }
+   }
+  },
+  {
+   "start": "16:48:08",
+   "loadavgAtStart": "{ 25.48 29.28 36.87 }",
+   "loadavgAtEnd": "{ 17.28 26.57 35.48 }",
+   "entries": {
+    "parseCssColor × 29944 sources": {
+     "bbnf": {
+      "hz": 24.113,
+      "meanMs": 41.471,
+      "p99Ms": 60.99,
+      "rmePct": 4.07,
+      "samples": 49
+     },
+     "retired": {
+      "hz": 41.291,
+      "meanMs": 24.219,
+      "p99Ms": 29.713,
+      "rmePct": 1.37,
+      "samples": 83
+     },
+     "bbnfOverRetired": 1.71
+    },
+    "parseCssScalar × 29944 sources": {
+     "bbnf": {
+      "hz": 22.616,
+      "meanMs": 44.217,
+      "p99Ms": 59.727,
+      "rmePct": 4.28,
+      "samples": 46
+     },
+     "retired": {
+      "hz": 33.445,
+      "meanMs": 29.9,
+      "p99Ms": 37.829,
+      "rmePct": 1.88,
+      "samples": 67
+     },
+     "bbnfOverRetired": 1.48
+    },
+    "parseCssValue × 29944 sources": {
+     "bbnf": {
+      "hz": 5.086,
+      "meanMs": 196.621,
+      "p99Ms": 216.848,
+      "rmePct": 4.3,
+      "samples": 11
+     },
+     "retired": {
+      "hz": 11.123,
+      "meanMs": 89.901,
+      "p99Ms": 105.454,
+      "rmePct": 3.36,
+      "samples": 23
+     },
+     "bbnfOverRetired": 2.19
+    },
+    "parseCssValues × 29944 sources": {
+     "bbnf": {
+      "hz": 4.569,
+      "meanMs": 218.878,
+      "p99Ms": 259.073,
+      "rmePct": 5.36,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 9.04,
+      "meanMs": 110.625,
+      "p99Ms": 158.637,
+      "rmePct": 6.92,
+      "samples": 19
+     },
+     "bbnfOverRetired": 1.98
+    },
+    "parseKeyframeSelector × 29944 sources": {
+     "bbnf": {
+      "hz": 99.599,
+      "meanMs": 10.04,
+      "p99Ms": 19.655,
+      "rmePct": 2.66,
+      "samples": 200
+     },
+     "retired": {
+      "hz": 212.798,
+      "meanMs": 4.699,
+      "p99Ms": 6.444,
+      "rmePct": 1.11,
+      "samples": 426
+     },
+     "bbnfOverRetired": 2.14
+    },
+    "parseTimingFunction × 29944 sources": {
+     "bbnf": {
+      "hz": 91.404,
+      "meanMs": 10.94,
+      "p99Ms": 14.446,
+      "rmePct": 1.34,
+      "samples": 183
+     },
+     "retired": {
+      "hz": 130.135,
+      "meanMs": 7.684,
+      "p99Ms": 13.315,
+      "rmePct": 2.2,
+      "samples": 261
+     },
+     "bbnfOverRetired": 1.42
+    },
+    "parseStylesheet × 29944 sources": {
+     "bbnf": {
+      "hz": 3.801,
+      "meanMs": 263.112,
+      "p99Ms": 313.128,
+      "rmePct": 8.05,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 21.324,
+      "meanMs": 46.895,
+      "p99Ms": 59.696,
+      "rmePct": 2.19,
+      "samples": 43
+     },
+     "bbnfOverRetired": 5.61
+    }
+   }
+  }
+ ],
+ "loadedReadingsForContext": [
+  {
+   "start": "16:25:32",
+   "loadavgAtStart": "16:25  up 23:14, 3 users, load averages: 51.18 48.27 49.93",
+   "loadavgAtEnd": "16:26  up 23:15, 3 users, load averages: 37.11 44.86 48.56",
+   "entries": {
+    "parseCssColor × 29944 sources": {
+     "bbnf": {
+      "hz": 14.415,
+      "meanMs": 69.374,
+      "p99Ms": 112.063,
+      "rmePct": 6.74,
+      "samples": 29
+     },
+     "retired": {
+      "hz": 29.034,
+      "meanMs": 34.443,
+      "p99Ms": 47.472,
+      "rmePct": 2.67,
+      "samples": 59
+     },
+     "bbnfOverRetired": 2.01
+    },
+    "parseCssScalar × 29944 sources": {
+     "bbnf": {
+      "hz": 13.83,
+      "meanMs": 72.306,
+      "p99Ms": 108.003,
+      "rmePct": 6.19,
+      "samples": 28
+     },
+     "retired": {
+      "hz": 22.169,
+      "meanMs": 45.108,
+      "p99Ms": 72.721,
+      "rmePct": 4.56,
+      "samples": 45
+     },
+     "bbnfOverRetired": 1.6
+    },
+    "parseCssValue × 29944 sources": {
+     "bbnf": {
+      "hz": 2.971,
+      "meanMs": 336.566,
+      "p99Ms": 360.271,
+      "rmePct": 3.18,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 7.762,
+      "meanMs": 128.829,
+      "p99Ms": 147.342,
+      "rmePct": 4.02,
+      "samples": 16
+     },
+     "bbnfOverRetired": 2.61
+    },
+    "parseCssValues × 29944 sources": {
+     "bbnf": {
+      "hz": 3.179,
+      "meanMs": 314.556,
+      "p99Ms": 336.063,
+      "rmePct": 2.97,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 8.163,
+      "meanMs": 122.507,
+      "p99Ms": 145.96,
+      "rmePct": 3.96,
+      "samples": 17
+     },
+     "bbnfOverRetired": 2.57
+    },
+    "parseKeyframeSelector × 29944 sources": {
+     "bbnf": {
+      "hz": 80.089,
+      "meanMs": 12.486,
+      "p99Ms": 28.301,
+      "rmePct": 5.05,
+      "samples": 161
+     },
+     "retired": {
+      "hz": 166.738,
+      "meanMs": 5.997,
+      "p99Ms": 11.798,
+      "rmePct": 1.92,
+      "samples": 334
+     },
+     "bbnfOverRetired": 2.08
+    },
+    "parseTimingFunction × 29944 sources": {
+     "bbnf": {
+      "hz": 58.342,
+      "meanMs": 17.14,
+      "p99Ms": 22.368,
+      "rmePct": 2.01,
+      "samples": 117
+     },
+     "retired": {
+      "hz": 101.439,
+      "meanMs": 9.858,
+      "p99Ms": 17.172,
+      "rmePct": 2.65,
+      "samples": 203
+     },
+     "bbnfOverRetired": 1.74
+    },
+    "parseStylesheet × 29944 sources": {
+     "bbnf": {
+      "hz": 2.39,
+      "meanMs": 418.436,
+      "p99Ms": 674.31,
+      "rmePct": 17.21,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 14.814,
+      "meanMs": 67.503,
+      "p99Ms": 107.617,
+      "rmePct": 6.43,
+      "samples": 30
+     },
+     "bbnfOverRetired": 6.2
+    }
+   }
+  },
+  {
+   "start": "16:26:22",
+   "loadavgAtStart": "16:26  up 23:15, 3 users, load averages: 37.11 44.86 48.56",
+   "loadavgAtEnd": "16:27  up 23:16, 3 users, load averages: 32.39 42.36 47.41",
+   "entries": {
+    "parseCssColor × 29944 sources": {
+     "bbnf": {
+      "hz": 15.991,
+      "meanMs": 62.536,
+      "p99Ms": 69.316,
+      "rmePct": 2.12,
+      "samples": 32
+     },
+     "retired": {
+      "hz": 25.892,
+      "meanMs": 38.622,
+      "p99Ms": 56.188,
+      "rmePct": 5.26,
+      "samples": 52
+     },
+     "bbnfOverRetired": 1.62
+    },
+    "parseCssScalar × 29944 sources": {
+     "bbnf": {
+      "hz": 14.697,
+      "meanMs": 68.041,
+      "p99Ms": 94.357,
+      "rmePct": 4.25,
+      "samples": 30
+     },
+     "retired": {
+      "hz": 21.944,
+      "meanMs": 45.57,
+      "p99Ms": 105.655,
+      "rmePct": 7.98,
+      "samples": 44
+     },
+     "bbnfOverRetired": 1.49
+    },
+    "parseCssValue × 29944 sources": {
+     "bbnf": {
+      "hz": 2.759,
+      "meanMs": 362.503,
+      "p99Ms": 464.549,
+      "rmePct": 8.48,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 8.449,
+      "meanMs": 118.352,
+      "p99Ms": 127.569,
+      "rmePct": 2.04,
+      "samples": 17
+     },
+     "bbnfOverRetired": 3.06
+    },
+    "parseCssValues × 29944 sources": {
+     "bbnf": {
+      "hz": 3.131,
+      "meanMs": 319.425,
+      "p99Ms": 367.739,
+      "rmePct": 5.3,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 8.262,
+      "meanMs": 121.039,
+      "p99Ms": 146.89,
+      "rmePct": 4.03,
+      "samples": 17
+     },
+     "bbnfOverRetired": 2.64
+    },
+    "parseKeyframeSelector × 29944 sources": {
+     "bbnf": {
+      "hz": 81.999,
+      "meanMs": 12.195,
+      "p99Ms": 21.589,
+      "rmePct": 2.53,
+      "samples": 164
+     },
+     "retired": {
+      "hz": 166.96,
+      "meanMs": 5.989,
+      "p99Ms": 8.708,
+      "rmePct": 1.28,
+      "samples": 334
+     },
+     "bbnfOverRetired": 2.04
+    },
+    "parseTimingFunction × 29944 sources": {
+     "bbnf": {
+      "hz": 48.121,
+      "meanMs": 20.781,
+      "p99Ms": 63.616,
+      "rmePct": 7.22,
+      "samples": 97
+     },
+     "retired": {
+      "hz": 101.133,
+      "meanMs": 9.888,
+      "p99Ms": 14.133,
+      "rmePct": 1.61,
+      "samples": 203
+     },
+     "bbnfOverRetired": 2.1
+    },
+    "parseStylesheet × 29944 sources": {
+     "bbnf": {
+      "hz": 1.796,
+      "meanMs": 556.845,
+      "p99Ms": 1143.037,
+      "rmePct": 35.21,
+      "samples": 10
+     },
+     "retired": {
+      "hz": 16.535,
+      "meanMs": 60.478,
+      "p99Ms": 80.707,
+      "rmePct": 2.83,
+      "samples": 34
+     },
+     "bbnfOverRetired": 9.21
+    }
+   }
+  }
+ ]
+}

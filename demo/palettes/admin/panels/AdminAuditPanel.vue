@@ -1,0 +1,199 @@
+<template>
+    <!-- UIA-V-173: a page turn is a REFETCH, not a first load — the rows and
+         the pager stay mounted (dimmed, the list `aria-busy`), so focus stays
+         on the pager button and the card never collapses to skeletons. -->
+    <!-- X.W12U.s3 · UIA-V-641: the list is busy for EVERY read (first load and
+         refetch), and a first load is one status region, not one per shadow. -->
+    <div class="grid gap-3 pb-3" :aria-busy="audit.loading.value || undefined">
+        <!-- X.W12U.h · A2-VA-L3-2 (consumer half): the toolbar stands only over a
+             readable list. Signed out, every control in it was disabled; beside
+             the error plate the filters stay live and Refresh stands down. -->
+        <div v-if="!audit.access.value" class="flex items-center gap-2 flex-wrap">
+            <!-- S.W5-3 (S-17/F-7): the glass-ui Input pill, sm rung — the
+                 hand-rolled square chrome under the SearchBar pills is dead. -->
+            <Input
+                v-model="audit.actionFilter.value"
+                type="text"
+                size="sm"
+                placeholder="Action..."
+                aria-label="Filter by action"
+                class="w-32 font-mono"
+            />
+            <Input
+                v-model="audit.targetFilter.value"
+                type="text"
+                size="sm"
+                placeholder="Target..."
+                aria-label="Filter by target"
+                class="flex-1 min-w-[6rem] font-mono"
+            />
+            <!-- X-DS pass 16 (V16-05): the count and its Refresh are ONE
+                 non-wrapping cluster at the row's end (the Flagged and Tags
+                 header shape), so at 390 they drop to their own line
+                 together, never a lone glyph under the filters. -->
+            <div class="ms-auto flex items-center gap-2 shrink-0">
+            <!-- S.W5-7: the naked count gains its unit, matching the
+                 labeled counts everywhere else ("5 users", "2 flagged"). -->
+            <!-- UIA-V-426: nor beside the error plate (a stale count there
+                 contradicts "Couldn't load the audit log."). -->
+            <!-- X.W12U.s3 · UIA-V-638: nor over an empty plate, which already
+                 says there is nothing (the count only repeated it). -->
+            <span v-if="!firstLoad && !audit.loadError.value && audit.entries.value.length > 0" class="text-mono-small text-muted-foreground">
+                {{ audit.pager.total }} entr{{ audit.pager.total === 1 ? "y" : "ies" }}
+            </span>
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <!-- X.W12U.s3 · UIA-V-428 (the Users recipe, V-49): busy while a read
+                 runs (disabled, the glyph turning), and stood down while the
+                 error plate's Retry is the recovery. -->
+            <Button
+                v-if="!audit.loadError.value"
+                emphasis="secondary"
+                size="xs"
+                icon-only
+                aria-label="Refresh audit log"
+                :disabled="audit.loading.value"
+                @click="audit.loadAuditLog()"
+            >
+                <RefreshCw class="h-3 w-3" :class="audit.loading.value && 'animate-spin'" aria-hidden="true" />
+            </Button>
+            </div>
+        </div>
+
+        <!-- X.W7.d (N-2 · W7.61): signed out is its own register — never a
+             clear ledger. -->
+        <EmptyState
+            v-if="audit.access.value"
+            variant="error"
+            data-admin-access="signed-out"
+            :message="audit.access.value.message"
+            detail="Sign in with an admin token to read the audit log."
+        />
+
+        <!-- W5-1 + F-13: entries load as row shadows, one grammar. -->
+        <div v-else-if="firstLoad" class="grid gap-2" role="status" aria-label="Loading audit log">
+            <AdminListSkeleton v-for="i in 3" :key="i" />
+        </div>
+
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as a clear ledger. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="audit.loadError.value"
+            variant="error"
+            message="Couldn't load the audit log."
+            :detail="audit.loadError.value"
+        >
+            <template #action>
+                <Button size="sm" @click="audit.loadAuditLog()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- W7.83 (AAP-6): a FILTERED zero is not a clear ledger. -->
+        <!-- X.W12U.s3 · UIA-V-638: and it offers the way out. -->
+        <EmptyState
+            v-else-if="audit.entries.value.length === 0 && filtered"
+            variant="filtered"
+            message="No audit entries match these filters."
+        >
+            <template #action>
+                <Button size="sm" emphasis="quiet" @click="clearFilters">
+                    Clear filters
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
+        <EmptyState v-else-if="audit.entries.value.length === 0" message="No audit entries found." />
+
+        <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy.
+             X.W7.d (W7.425 · AAP-2): the rows and the pager belong to the
+             state chain, so skeletons and the error plate never paint over a
+             retained page. -->
+        <template v-else>
+        <!-- UIA-V-52 (the AdminListItem S.W5-12 F-1 law): `min-w-0` on the ROW
+             ITSELF — a grid item's `min-width: auto` let the untruncated
+             target blow the track past the card at 390, pushing the count,
+             Refresh and the pager off-card. -->
+        <div
+            v-for="entry in audit.entries.value"
+            :key="entry.id"
+            class="min-w-0 flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-opacity duration-fast"
+            :class="refetching && 'opacity-60'"
+        >
+            <div class="flex flex-col gap-0.5 min-w-0 flex-1">
+                <!-- primary line: action badge + timestamp -->
+                <!-- X-DS pass 16: the action is a machine identifier, shown in
+                     the case it has (V16-02, the readout voice, no caps); the
+                     line wraps the actor clause whole rather than cutting it
+                     mid-word (V16-05). -->
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                    <Badge variant="secondary" class="text-mono-small shrink-0">
+                        {{ entry.action }}
+                    </Badge>
+                    <span class="text-small text-muted-foreground tabular-nums shrink-0">
+                        {{ formatTime(entry.timestamp) }}
+                    </span>
+                    <!-- X.W12U.s3 · UIA-V-424: the ledger answers "who" — the
+                         acting admin's slug, a machine string in the readout
+                         voice; an unattributed entry says so. -->
+                    <span class="text-mono-small text-muted-foreground min-w-0 break-words" data-audit-actor>
+                        by {{ entry.actorSlug ?? "an unrecorded admin" }}
+                    </span>
+                </div>
+                <!-- secondary line: target — a machine string is a READOUT:
+                     Fira, never italic display type (W5-12 / F-9). -->
+                <span class="text-mono-small text-muted-foreground truncate">
+                    {{ entry.target }}
+                </span>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <PaginationBar :pager="audit.pager" />
+        </template>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { computed, inject, onMounted, onScopeDispose, watch } from "vue";
+import { Button } from "@mkbabb/glass-ui/button";
+import { Input } from "@mkbabb/glass-ui/input";
+import { Badge } from "@mkbabb/glass-ui/badge";
+import { RefreshCw } from "@lucide/vue";
+import EmptyState from "../../../shared/ui/EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
+import PaginationBar from "./PaginationBar.vue";
+import { formatTime } from "../../browser/dateFormat";
+import { ADMIN_PORT_KEY } from "../../usePalettePorts";
+import { debounce } from "../../../shared/debounce";
+
+// D.W3 Lane B: route through pm.audit sub-object (was: direct getAuditLog)
+const pm = inject(ADMIN_PORT_KEY)!;
+const audit = pm.audit;
+
+const reloadFiltered = debounce(() => {
+    audit.pager.page = 1;
+    audit.loadAuditLog();
+}, 300);
+watch([audit.actionFilter, audit.targetFilter], () => reloadFiltered());
+
+// W7.70 (AAP-20): a debounce pending at unmount must not write the singleton
+// port's page or fire a request after the panel is gone.
+onScopeDispose(() => reloadFiltered.cancel());
+
+const filtered = computed(() => !!(audit.actionFilter.value || audit.targetFilter.value));
+
+// UIA-V-638: the filtered-zero plate's way out; the filter watch above reloads.
+function clearFilters() {
+    audit.actionFilter.value = "";
+    audit.targetFilter.value = "";
+}
+
+// UIA-V-173: skeletons only when there is nothing on the card yet; a read
+// over a retained page (a page turn, Refresh, a filter) is a refetch.
+const firstLoad = computed(() => audit.loading.value && audit.entries.value.length === 0);
+const refetching = computed(() => audit.loading.value && audit.entries.value.length > 0);
+
+onMounted(() => audit.loadAuditLog());
+</script>

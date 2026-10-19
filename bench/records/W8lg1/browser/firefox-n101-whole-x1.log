@@ -1,0 +1,14 @@
+firefox r0a0 parseCssScalar         whole    n=29944 k=1 product x0.782 (72/101<1) spread 9.062 SET-ASIDE
+firefox r0a1 parseCssScalar         whole    n=29944 k=1 product x0.612 (94/101<1) spread 7.921 SET-ASIDE
+firefox r0a2 parseCssScalar         whole    n=29944 k=1 product x0.684 (82/101<1) spread 16.235 SET-ASIDE
+firefox r0a3 parseCssScalar         whole    n=29944 k=1 product x0.738 (85/101<1) spread 6.916 SET-ASIDE
+firefox r1a0 parseCssScalar         whole    n=29944 k=1 product x0.659 (87/101<1) spread 10.497 SET-ASIDE
+firefox r1a1 parseCssScalar         whole    n=29944 k=1 product x0.697 (75/101<1) spread 8.225 SET-ASIDE
+firefox r1a2 parseCssScalar         whole    n=29944 k=1 product x0.626 (78/101<1) spread 9.226 SET-ASIDE
+firefox r1a3 parseCssScalar         whole    n=29944 k=1 product x0.695 (74/101<1) spread 4.938 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|whole|parseCssScalar             RED x0.782(SA) x0.612(SA) x0.684(SA) x0.738(SA) x0.659(SA) x0.697(SA) x0.626(SA) x0.695(SA)
+12:57  up 1 day, 22:24, 3 users, load averages: 423.45 362.62 348.15 
+ 13:12  up 1 day, 22:40, 3 users, load averages: 277.20 310.09 347.98 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n101-whole-x1.json
+DONE w8lg1-firefox-n101-whole-x1

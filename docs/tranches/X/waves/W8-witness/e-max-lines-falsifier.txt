@@ -1,0 +1,30 @@
+SERVED MODEL: claude-opus-5-5
+# G-14 (X.W8.e) max-lines ratchet falsifier — 2026-10-17, HEAD 62fdd2b3b + the eslint.config.js ratchet (uncommitted at run time)
+# Pins: demo 1013 · src/**/*.ts 672 · api/src product 357 · api/src __tests__ 539
+# Act: one file one line OVER each pin (body: 'export {};' repeated), npm run lint (guarded --light), files deleted, npm run lint again.
+
+$ wc -l <the four falsifier files>
+    1014 demo/__w8e_falsifier.ts
+     673 src/__w8e_falsifier.ts
+     358 api/src/__w8e_falsifier.ts
+     540 api/src/__tests__/__w8e_falsifier.ts
+    2585 total
+
+$ npm run lint   # with the four files present
+> @mkbabb/value.js@4.1.0 lint
+> eslint . --max-warnings=0
+api/src/__tests__/__w8e_falsifier.ts
+  540:1  error  File has too many lines (540). Maximum allowed is 539  max-lines
+api/src/__w8e_falsifier.ts
+  358:1  error  File has too many lines (358). Maximum allowed is 357  max-lines
+demo/__w8e_falsifier.ts
+  1014:1  error  File has too many lines (1014). Maximum allowed is 1013  max-lines
+src/__w8e_falsifier.ts
+  673:1  error  File has too many lines (673). Maximum allowed is 672  max-lines
+✖ 4 problems (4 errors, 0 warnings)
+exit=1
+
+$ rm <the four files> && npm run lint
+> @mkbabb/value.js@4.1.0 lint
+> eslint . --max-warnings=0
+exit=0

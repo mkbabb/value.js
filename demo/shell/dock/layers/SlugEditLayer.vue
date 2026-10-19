@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, nextTick, inject, useTemplateRef } from "vue";
-import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "@lucide/vue";
+import { LogIn, ArrowRight, X as XIcon, Loader2 } from "@lucide/vue";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
+import { Input } from "@mkbabb/glass-ui/input";
 
 const pm = inject(SESSION_PORT_KEY)!;
 
@@ -11,14 +12,14 @@ const slugEditMode = defineModel<boolean>("active", { default: false });
 const slugInput = ref("");
 const slugSwitching = ref(false);
 const slugError = ref("");
-const slugInputRef = useTemplateRef<HTMLInputElement>("slugInputRef");
+const slugInputRef = useTemplateRef<{ $el?: HTMLInputElement }>("slugInputRef");
 
 function onStartSlugEdit() {
     slugInput.value = "";
     slugError.value = "";
     slugEditMode.value = true;
     nextTick(() => {
-        slugInputRef.value?.focus();
+        slugInputRef.value?.$el?.focus();
     });
 }
 
@@ -36,30 +37,35 @@ function normalizeTokenInput(raw: string): string {
     return token;
 }
 
+/**
+ * UIA-V-14/15/16/20: the submit AWAITS the switch and reads its outcome. The
+ * layer holds its pending state (spinner, aria-busy) for the whole request,
+ * closes only on success (or when the migrate dialog takes over), and on
+ * failure stays open with the typed text and the reason, announced. A string
+ * that is not slug-shaped is offered to the server as a token; the session port
+ * asks the server before it touches the user identity.
+ */
 async function onSlugSubmit() {
     const raw = slugInput.value.trim();
-    if (!raw) return;
-    slugSwitching.value = true;
+    if (!raw || slugSwitching.value) return;
     slugError.value = "";
-    try {
-        const normalized = normalizeTokenInput(raw).toLowerCase();
-        const isAdmin = !looksLikeSlug(normalized);
+    const normalized = normalizeTokenInput(raw).toLowerCase();
+    const isAdmin = !looksLikeSlug(normalized);
 
-        if (looksLikeSlug(normalized) && normalized === pm.userSlug.value) {
-            slugError.value = "Already signed in.";
-            slugSwitching.value = false;
+    if (!isAdmin && normalized === pm.userSlug.value) {
+        slugError.value = "Already signed in.";
+        return;
+    }
+
+    slugSwitching.value = true;
+    try {
+        const outcome = await pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
+        if (outcome.kind === "failed") {
+            slugError.value = outcome.message;
             return;
         }
-
-        pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
         slugInput.value = "";
         slugEditMode.value = false;
-    } catch (e: any) {
-        const msg = e?.message ?? "";
-        if (msg.includes("409")) slugError.value = "Already signed in.";
-        else if (msg.includes("404")) slugError.value = "Slug not found.";
-        else if (msg.includes("429")) slugError.value = "Too many attempts.";
-        else slugError.value = msg || "Login failed";
     } finally {
         slugSwitching.value = false;
     }
@@ -74,24 +80,55 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
 
 <template>
     <form
-        class="flex items-center gap-1.5"
+        class="slug-form flex items-center gap-1.5 min-w-0"
+        :aria-busy="slugSwitching"
         @submit.prevent="onSlugSubmit"
     >
         <LogIn class="w-4 h-4 text-muted-foreground shrink-0" />
-        <input
+        <!-- X-W4 · A4 (CC-041): the field's NAME. `placeholder` is not a name —
+             it is prompt text that vanishes at the first keystroke, and the §6
+             census rule ranks it nowhere. The prompt stays (it carries the format
+             hint); the name is now the field's own.
+             UIA-V-17/247: the field takes the room the row leaves (flex-1
+             min-w-0), not a fixed 160 px that truncated the prompt and every
+             real slug and pushed Cancel past a 390 dock.
+             A2-VA-L1-14 (UIA-V-249): the field is glass's Input — the app's one
+             text-field idiom — at the control floor, not a bare `<input>`.
+             X.W12U.m2 · A2-VA-X-14: "the room the row leaves" was the input's
+             own 20-column intrinsic width (210 px), because the dock run lays a
+             face out at max-content; at 360 that put Cancel past the run's
+             end. The field states its width instead (scoped CSS below). -->
+        <Input
             ref="slugInputRef"
             v-model="slugInput"
-            placeholder="enter slug or token..."
-            class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground"
+            aria-label="Slug or admin token"
+            placeholder="slug or token"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            :aria-invalid="slugError ? 'true' : undefined"
+            :aria-describedby="slugError ? 'slug-edit-error' : undefined"
+            size="sm"
+            class="slug-input text-mono-small min-w-0"
+            @input="slugError = ''"
             @keydown.escape.stop="slugEditMode = false"
         />
+        <!-- UIA-V-248/14: the reason a submit did not switch, rendered and
+             announced (it used to be written to refs no template bound). -->
+        <span
+            v-if="slugError"
+            id="slug-edit-error"
+            role="alert"
+            class="slug-error text-caption text-destructive truncate"
+        >{{ slugError }}</span>
         <!-- W6-8 register pass: native `title` retired dock-wide — icon-only
              controls carry aria-label (the UA tooltip slab is a foreign
              register on the liquid-glass dock). -->
         <DockControl
             compact
             type="submit"
-            aria-label="Switch to slug"
+            class="slug-control"
+            :aria-label="slugSwitching ? 'Signing in…' : 'Switch to slug'"
             :disabled="!slugInput.trim() || slugSwitching"
         >
             <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
@@ -99,21 +136,67 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
         </DockControl>
     </form>
 
+    <!-- UIA-V-17/250/513: the login layer carries no identity-destroying act.
+         "Generate new slug" lives in the profile menu only (Regenerate slug),
+         where its verdict renders; the layer is field, submit and Cancel. -->
     <DockSeparator />
 
     <DockControl
         compact
-        aria-label="Generate new slug"
-        @click="slugEditMode = false; pm.onRegenerateSlug()"
-    >
-        <RefreshCw class="w-3.5 h-3.5" />
-    </DockControl>
-
-    <DockControl
-        compact
+        class="slug-control"
         aria-label="Cancel"
         @click="slugEditMode = false"
     >
         <XIcon class="w-3.5 h-3.5" />
     </DockControl>
 </template>
+
+<style scoped>
+/* ── X-W4 · A1/A2 (CC-040) — THE SLUG CLUSTER'S TARGET GEOMETRY ─────────────
+ * Measured born-RED at this unit's re-baseline: the three `DockControl compact`
+ * seats rendered 22×22 (smoke, fine) and 23.3×23.3 (smoke-mobile, coarse), and
+ * the field 160×22.4 / 160×19.6 — every one under the 24 CSS-px floor, at BOTH
+ * pointer classes.
+ *
+ * The lift is the PRODUCER's own, not a hand-rolled box. `.dock-icon-button--compact`
+ * (glass-ui 7.0.0, `dist/components/dock/styles/controls/icon-button.css`) reads its
+ * whole geometry from published custom properties — `--dock-compact-control-size`
+ * sets width AND height — and `--control-floor` (`dist/styles/tokens/sizing.css`) is
+ * `0px` at `:root` and `var(--touch-target, 2.75rem)` under `@media (pointer: coarse)`
+ * (`dist/styles/tokens/light-dark.css`). So ONE declaration, composed of two producer
+ * tokens, states both rungs exactly once:
+ *
+ *     max(1.5rem, var(--control-floor))  →  24px fine  ·  44px coarse
+ *
+ * The glyphs are untouched (w-3.5 = 14px): the HIT CELL grows, the paint does not —
+ * the producer's own "hit box ≠ paint box" law, stated in DockControl's docblock.
+ *
+ * The field takes `--control-h-xs` as published (28px fine / 44px coarse) — the same
+ * size axis A3 asserts over every other control in this wave. It is a MINIMUM, so the
+ * dock band's own rhythm still sets the resting height wherever that is taller.
+ * Nothing here restates a producer value as a literal: `1.5rem` is the 24px floor
+ * W4.md §3 Scope 1 names, and every other number arrives through a token.
+ */
+.slug-control {
+    --dock-compact-control-size: max(1.5rem, var(--control-floor));
+}
+
+.slug-input {
+    min-block-size: var(--control-h-xs);
+    /* X.W12U.m2 · A2-VA-X-14: the colour-input face's inline-size contract
+     * (ColorInput.vue, A2-VA-X-13), restated for the sibling field: 40% of the
+     * viewport between an 8rem floor (the "slug or token" prompt fits) and a
+     * 14rem cap, so the layer (glyph · field · submit · separator · Cancel)
+     * stays inside a 360 dock's run. */
+    flex: 0 1 auto;
+    inline-size: clamp(8rem, 40vw, 14rem);
+}
+
+/* The layer's row may shrink its field; the reason never outgrows half of it. */
+.slug-form {
+    flex: 1 1 auto;
+}
+.slug-error {
+    max-inline-size: 50%;
+}
+</style>

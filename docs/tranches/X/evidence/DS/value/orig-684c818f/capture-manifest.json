@@ -1,0 +1,24 @@
+{
+  "base": "http://localhost:9131",
+  "routes": [
+    "/"
+  ],
+  "results": [
+    {
+      "name": "picker-1440-light.png",
+      "ok": true
+    },
+    {
+      "name": "picker-390-light.png",
+      "ok": true
+    },
+    {
+      "name": "picker-1440-dark.png",
+      "ok": true
+    },
+    {
+      "name": "picker-390-dark.png",
+      "ok": true
+    }
+  ]
+}

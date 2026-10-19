@@ -1,0 +1,396 @@
+{
+ "easing-1440-light": {
+  "drawer": [
+   254,
+   705
+  ],
+  "plate": [
+   204,
+   733
+  ],
+  "atFold": [
+   {
+    "k": "Sine",
+    "r": [
+     654,
+     684
+    ]
+   },
+   {
+    "k": "tile",
+    "r": [
+     692,
+     858
+    ]
+   },
+   {
+    "k": "tile",
+    "r": [
+     692,
+     858
+    ]
+   },
+   {
+    "k": "tile",
+    "r": [
+     692,
+     858
+    ]
+   }
+  ],
+  "belowFoldToPlateFoot": 28
+ },
+ "cube-keyframes-1440-light": {
+  "header": {
+   "region": "Rotations",
+   "title": "Rotations",
+   "expanded": "true",
+   "status": "Parsed",
+   "statusRight": 432,
+   "chevronLeft": 440,
+   "headerRight": 476,
+   "expandersInPane": [
+    "Cube",
+    "@mbabb",
+    "Expand dock",
+    "Rotations",
+    "Rotations",
+    "Expand dock"
+   ]
+  },
+  "monaco": {
+   "width": 373,
+   "visualLines": 20,
+   "logicalLines": 18,
+   "easeInOutRows": [
+    "  animation-timing-function: ease-in-out;"
+   ]
+  }
+ },
+ "easing-390-light": {
+  "drawer": [
+   262,
+   654
+  ],
+  "plate": [
+   197,
+   698
+  ],
+  "atFold": [
+   {
+    "k": "tile",
+    "r": [
+     527,
+     634
+    ]
+   },
+   {
+    "k": "Sine",
+    "r": [
+     654,
+     678
+    ]
+   }
+  ],
+  "belowFoldToPlateFoot": 44
+ },
+ "cube-keyframes-390-light": {
+  "header": {
+   "region": "Rotations",
+   "title": "Rotations",
+   "expanded": "true",
+   "status": "Parsed",
+   "statusRight": 336,
+   "chevronLeft": 340,
+   "headerRight": 376,
+   "expandersInPane": [
+    "Cube",
+    "@mbabb",
+    "Expand dock",
+    "Rotations",
+    "Expand dock",
+    "Rotations"
+   ]
+  },
+  "monaco": {
+   "width": 336,
+   "visualLines": 24,
+   "logicalLines": 18,
+   "easeInOutRows": [
+    "    ease-in-out;"
+   ]
+  }
+ },
+ "spring-peak-open-1440x900-light": {
+  "scrollTop": 200,
+  "max": 200,
+  "settledMs": 183,
+  "portTop": 191.8,
+  "bouncyTop": null,
+  "legend": {
+   "swatchTop": 334,
+   "runs": [
+    {
+     "text": "0 → 53 % overshoot ·",
+     "tops": [
+      327
+     ]
+    },
+    {
+     "text": "set by damping alone",
+     "tops": [
+      327
+     ]
+    }
+   ],
+   "lines": 1
+  }
+ },
+ "spring-peak-open-1280x800-light": {
+  "scrollTop": 199,
+  "max": 199,
+  "settledMs": 167,
+  "portTop": 185.8,
+  "bouncyTop": null,
+  "legend": {
+   "swatchTop": 319,
+   "runs": [
+    {
+     "text": "0 → 53 % overshoot ·",
+     "tops": [
+      312
+     ]
+    },
+    {
+     "text": "set by damping alone",
+     "tops": [
+      330
+     ]
+    }
+   ],
+   "lines": 1
+  }
+ },
+ "spring-peak-open-1440x1080-light": {
+  "scrollTop": 49,
+  "max": 49,
+  "settledMs": 182,
+  "portTop": 202.6,
+  "bouncyTop": null,
+  "legend": {
+   "swatchTop": 496,
+   "runs": [
+    {
+     "text": "0 → 53 % overshoot ·",
+     "tops": [
+      489
+     ]
+    },
+    {
+     "text": "set by damping alone",
+     "tops": [
+      489
+     ]
+    }
+   ],
+   "lines": 1
+  }
+ },
+ "easing-1440-dark": {
+  "drawer": [
+   254,
+   705
+  ],
+  "plate": [
+   204,
+   733
+  ],
+  "atFold": [
+   {
+    "k": "Sine",
+    "r": [
+     654,
+     684
+    ]
+   },
+   {
+    "k": "tile",
+    "r": [
+     692,
+     858
+    ]
+   },
+   {
+    "k": "tile",
+    "r": [
+     692,
+     858
+    ]
+   },
+   {
+    "k": "tile",
+    "r": [
+     692,
+     858
+    ]
+   }
+  ],
+  "belowFoldToPlateFoot": 28
+ },
+ "cube-keyframes-1440-dark": {
+  "header": {
+   "region": "Rotations",
+   "title": "Rotations",
+   "expanded": "true",
+   "status": "Parsed",
+   "statusRight": 432,
+   "chevronLeft": 440,
+   "headerRight": 476,
+   "expandersInPane": [
+    "Cube",
+    "@mbabb",
+    "Expand dock",
+    "Rotations",
+    "Rotations",
+    "Expand dock"
+   ]
+  },
+  "monaco": {
+   "width": 373,
+   "visualLines": 20,
+   "logicalLines": 18,
+   "easeInOutRows": [
+    "  animation-timing-function: ease-in-out;"
+   ]
+  }
+ },
+ "easing-390-dark": {
+  "drawer": [
+   262,
+   654
+  ],
+  "plate": [
+   197,
+   698
+  ],
+  "atFold": [
+   {
+    "k": "tile",
+    "r": [
+     527,
+     634
+    ]
+   },
+   {
+    "k": "Sine",
+    "r": [
+     654,
+     678
+    ]
+   }
+  ],
+  "belowFoldToPlateFoot": 44
+ },
+ "cube-keyframes-390-dark": {
+  "header": {
+   "region": "Rotations",
+   "title": "Rotations",
+   "expanded": "true",
+   "status": "Parsed",
+   "statusRight": 336,
+   "chevronLeft": 340,
+   "headerRight": 376,
+   "expandersInPane": [
+    "Cube",
+    "@mbabb",
+    "Expand dock",
+    "Rotations",
+    "Expand dock",
+    "Rotations"
+   ]
+  },
+  "monaco": {
+   "width": 336,
+   "visualLines": 24,
+   "logicalLines": 18,
+   "easeInOutRows": [
+    "    ease-in-out;"
+   ]
+  }
+ },
+ "spring-peak-open-1440x900-dark": {
+  "scrollTop": 200,
+  "max": 200,
+  "settledMs": 168,
+  "portTop": 191.8,
+  "bouncyTop": null,
+  "legend": {
+   "swatchTop": 334,
+   "runs": [
+    {
+     "text": "0 → 53 % overshoot ·",
+     "tops": [
+      327
+     ]
+    },
+    {
+     "text": "set by damping alone",
+     "tops": [
+      327
+     ]
+    }
+   ],
+   "lines": 1
+  }
+ },
+ "spring-peak-open-1280x800-dark": {
+  "scrollTop": 199,
+  "max": 199,
+  "settledMs": 170,
+  "portTop": 185.8,
+  "bouncyTop": null,
+  "legend": {
+   "swatchTop": 319,
+   "runs": [
+    {
+     "text": "0 → 53 % overshoot ·",
+     "tops": [
+      312
+     ]
+    },
+    {
+     "text": "set by damping alone",
+     "tops": [
+      330
+     ]
+    }
+   ],
+   "lines": 1
+  }
+ },
+ "spring-peak-open-1440x1080-dark": {
+  "scrollTop": 49,
+  "max": 49,
+  "settledMs": 168,
+  "portTop": 202.6,
+  "bouncyTop": null,
+  "legend": {
+   "swatchTop": 496,
+   "runs": [
+    {
+     "text": "0 → 53 % overshoot ·",
+     "tops": [
+      489
+     ]
+    },
+    {
+     "text": "set by damping alone",
+     "tops": [
+      489
+     ]
+    }
+   ],
+   "lines": 1
+  }
+ }
+}

@@ -1,0 +1,410 @@
+{
+ "light": [
+  {
+   "kind": "chip ink on its tint",
+   "label": "Epicycles",
+   "ink": [
+    146,
+    33,
+    20
+   ],
+   "surface": [
+    231,
+    206,
+    193
+   ],
+   "ratio": 5.71,
+   "need": 4.5
+  },
+  {
+   "kind": "chip ink on its tint",
+   "label": "T\u2099 Chebyshev",
+   "ink": [
+    30,
+    56,
+    125
+   ],
+   "surface": [
+    216,
+    209,
+    206
+   ],
+   "ratio": 7.27,
+   "need": 4.5
+  },
+  {
+   "kind": "chip ink on its tint",
+   "label": "P\u2099 Legendre",
+   "ink": [
+    100,
+    41,
+    118
+   ],
+   "surface": [
+    225,
+    208,
+    206
+   ],
+   "ratio": 6.66,
+   "need": 4.5
+  },
+  {
+   "kind": "slider fill",
+   "label": "Harmonics",
+   "fill": [
+    215,
+    53,
+    35
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    253,
+    245,
+    236
+   ],
+   "vsTrack": 4.34,
+   "vsSurface": 4.4,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Sample Points",
+   "fill": [
+    49,
+    86,
+    185
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    253,
+    245,
+    236
+   ],
+   "vsTrack": 6.07,
+   "vsSurface": 6.15,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "ML Threshold",
+   "fill": [
+    157,
+    101,
+    21
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    251,
+    243,
+    234
+   ],
+   "vsTrack": 4.46,
+   "vsSurface": 4.44,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Blur Sigma",
+   "fill": [
+    157,
+    101,
+    21
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    253,
+    245,
+    236
+   ],
+   "vsTrack": 4.46,
+   "vsSurface": 4.52,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Min Area %",
+   "fill": [
+    157,
+    101,
+    21
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    253,
+    245,
+    236
+   ],
+   "vsTrack": 4.46,
+   "vsSurface": 4.52,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Max Contours",
+   "fill": [
+    157,
+    101,
+    21
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    252,
+    244,
+    235
+   ],
+   "vsTrack": 4.46,
+   "vsSurface": 4.48,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Smoothing",
+   "fill": [
+    156,
+    101,
+    21
+   ],
+   "rest": [
+    249,
+    244,
+    237
+   ],
+   "surface": [
+    253,
+    245,
+    236
+   ],
+   "vsTrack": 4.48,
+   "vsSurface": 4.54,
+   "need": 3
+  }
+ ],
+ "dark": [
+  {
+   "kind": "chip ink on its tint",
+   "label": "Epicycles",
+   "ink": [
+    244,
+    152,
+    140
+   ],
+   "surface": [
+    71,
+    47,
+    36
+   ],
+   "ratio": 5.72,
+   "need": 4.5
+  },
+  {
+   "kind": "chip ink on its tint",
+   "label": "T\u2099 Chebyshev",
+   "ink": [
+    165,
+    185,
+    238
+   ],
+   "surface": [
+    62,
+    51,
+    48
+   ],
+   "ratio": 6.26,
+   "need": 4.5
+  },
+  {
+   "kind": "chip ink on its tint",
+   "label": "P\u2099 Legendre",
+   "ink": [
+    219,
+    171,
+    233
+   ],
+   "surface": [
+    68,
+    50,
+    47
+   ],
+   "ratio": 6.32,
+   "need": 4.5
+  },
+  {
+   "kind": "slider fill",
+   "label": "Harmonics",
+   "fill": [
+    235,
+    115,
+    102
+   ],
+   "rest": [
+    45,
+    38,
+    32
+   ],
+   "surface": [
+    58,
+    48,
+    40
+   ],
+   "vsTrack": 5.09,
+   "vsSurface": 4.39,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Sample Points",
+   "fill": [
+    136,
+    161,
+    231
+   ],
+   "rest": [
+    45,
+    38,
+    32
+   ],
+   "surface": [
+    58,
+    48,
+    40
+   ],
+   "vsTrack": 5.89,
+   "vsSurface": 5.08,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "ML Threshold",
+   "fill": [
+    232,
+    185,
+    109
+   ],
+   "rest": [
+    45,
+    38,
+    32
+   ],
+   "surface": [
+    59,
+    49,
+    41
+   ],
+   "vsTrack": 8.22,
+   "vsSurface": 6.99,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Blur Sigma",
+   "fill": [
+    232,
+    185,
+    109
+   ],
+   "rest": [
+    44,
+    38,
+    32
+   ],
+   "surface": [
+    58,
+    48,
+    40
+   ],
+   "vsTrack": 8.25,
+   "vsSurface": 7.1,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Min Area %",
+   "fill": [
+    232,
+    185,
+    109
+   ],
+   "rest": [
+    45,
+    38,
+    32
+   ],
+   "surface": [
+    58,
+    48,
+    40
+   ],
+   "vsTrack": 8.22,
+   "vsSurface": 7.1,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Max Contours",
+   "fill": [
+    232,
+    185,
+    109
+   ],
+   "rest": [
+    45,
+    38,
+    32
+   ],
+   "surface": [
+    58,
+    48,
+    40
+   ],
+   "vsTrack": 8.22,
+   "vsSurface": 7.1,
+   "need": 3
+  },
+  {
+   "kind": "slider fill",
+   "label": "Smoothing",
+   "fill": [
+    232,
+    185,
+    110
+   ],
+   "rest": [
+    45,
+    38,
+    32
+   ],
+   "surface": [
+    58,
+    48,
+    40
+   ],
+   "vsTrack": 8.23,
+   "vsSurface": 7.1,
+   "need": 3
+  }
+ ]
+}

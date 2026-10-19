@@ -1,0 +1,14 @@
+SERVED MODEL: claude-opus-5-5
+# npm test (vitest run --maxWorkers=2) on the committed tree 9db19dec3, 2026-10-16 12:10:18 load { 14.87 11.65 10.81 }
+rc=1
+      Tests  7 failed | 1209 passed (1216)
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (dark)
+ FAIL  test/ink.test.ts > D6 — resolveMutedInk (de-emphasis as a floor-clamped rung, F-4) > stays QUIETER than the raw foreground — a designed step, not a repaint (light)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (dark)
+ FAIL  test/ink.test.ts > T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1) > the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ 0.35× the pick (light)
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue
+ Test Files  3 failed | 87 passed (90)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+# end 12:47:39 load { 16.81 14.23 13.73 }

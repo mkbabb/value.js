@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5[1m]
+# X.F.W3.d — §7 cadence transcript
+# seat: X.F.W3.d · 2026-09-19 · worktree .worktrees/f3d @ 74084fa
+
+⟨cmd⟩ (web/) npx vue-tsc -b --noEmit
+src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared but its value is never read.
+# the single error is PRE-EXISTING at base 21e11b0, in ContourEditorCanvas.vue — no bounds row of this unit.
+
+⟨cmd⟩ (web/) npx vite build
+dist/assets/PaperView-DhTFrJYN.js                                    478.90 kB │ gzip: 122.68 kB
+dist/assets/index-Dlc1x3Mk.js                                        489.17 kB │ gzip: 227.62 kB
+✓ built in 2.34s
+# §7 DISCLOSED STANDING RED IS CLEARED AT THE ADOPTED PIN: FR-NP-32 (= fr-PaperSidebar M1),
+# the CssSyntaxError from style.css:3 @import "@mkbabb/glass-ui/styles", does not reproduce at 8.0.0.
+# The per-batch build is an honest batch signal for this unit, not a standing RED.
+
+⟨cmd⟩ (web/) npx playwright test --list
+Total: 87 tests in 12 files
+# NOT RUN: the suite declares no webServer (playwright.config.ts) and needs the full
+# uvicorn + Mongo + vite stack via scripts/e2e.sh. curl localhost:3000 -> 000 at this seat.
+# Collection is the honest signal available; see LC-2 in the unit receipt.
+
+⟨cmd⟩ git diff --check
+(exit 0)
+⟨cmd⟩ git status --porcelain (worktree) | wc -l
+       0
+⟨cmd⟩ git status --porcelain (fourier root)
+?? .worktrees/
+# the one untracked row is .worktrees/ — §5b's own declared residue, not a settle failure.

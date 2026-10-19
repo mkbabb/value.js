@@ -1,0 +1,17 @@
+⟨cmd⟩ node docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-readout.mjs
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s) (readout ranges read at HEAD: 184-206 markup, 316-324 style, 325-328 style, 329-332 style, 333-335 style, 336-338 style, 352-357 style)
+EXIT=0

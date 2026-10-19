@@ -1,0 +1,128 @@
+{
+ "tag": "dry-after-d2",
+ "base": "http://localhost:5861/",
+ "pass": 10,
+ "total": 10,
+ "res": [
+  {
+   "cell": "D2-cube-1440-open",
+   "ok": true,
+   "set": true,
+   "railed": true,
+   "target": 957.6,
+   "topCx": 957.6,
+   "botCx": 957.6,
+   "stageCx": 957.6,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-cube-1440-closed",
+   "ok": true,
+   "set": true,
+   "railed": false,
+   "target": 720,
+   "topCx": 720,
+   "botCx": 720,
+   "stageCx": 720,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-easing-1440-open",
+   "ok": true,
+   "set": true,
+   "railed": true,
+   "target": 957.6,
+   "topCx": 957.6,
+   "botCx": 957.6,
+   "stageCx": 957.6,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-easing-1440-closed",
+   "ok": true,
+   "set": true,
+   "railed": false,
+   "target": 720,
+   "topCx": 720,
+   "botCx": 720,
+   "stageCx": 720,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-cube-1024-open",
+   "ok": true,
+   "set": true,
+   "railed": true,
+   "target": 712,
+   "topCx": 712,
+   "botCx": 712,
+   "stageCx": 712,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-cube-1024-closed",
+   "ok": true,
+   "set": true,
+   "railed": false,
+   "target": 512,
+   "topCx": 512,
+   "botCx": 512,
+   "stageCx": 512,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-easing-1024-open",
+   "ok": true,
+   "set": true,
+   "railed": true,
+   "target": 712,
+   "topCx": 712,
+   "botCx": 712,
+   "stageCx": 712,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-easing-1024-closed",
+   "ok": true,
+   "set": true,
+   "railed": false,
+   "target": 512,
+   "topCx": 512,
+   "botCx": 512,
+   "stageCx": 512,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-cube-390-open",
+   "ok": true,
+   "set": true,
+   "railed": true,
+   "target": 195,
+   "topCx": 195,
+   "botCx": 195,
+   "stageCx": 195,
+   "dTop": 0,
+   "dBot": 0
+  },
+  {
+   "cell": "D2-easing-390-open",
+   "ok": true,
+   "set": true,
+   "railed": true,
+   "target": 195,
+   "topCx": 195,
+   "botCx": 195,
+   "stageCx": 195,
+   "dTop": 0,
+   "dBot": 0
+  }
+ ]
+}

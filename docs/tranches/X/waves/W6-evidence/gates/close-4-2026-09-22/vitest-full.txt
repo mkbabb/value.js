@@ -1,0 +1,151 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/demo/palettes/api/admin-palettes.test.ts (2 tests) 1140ms
+   ✓ Admin palette curation transport > sends the explicit featured=true state  1058ms
+ ✓ test/katex-corpus.test.ts (66 tests) 240ms
+ ✓ test/easing.test.ts (5 tests) 8ms
+ ✓ test/value-domain-clamp.test.ts (6 tests) 73ms
+ ✓ test/easing-export-stability.test.ts (11 tests) 223ms
+ ✓ test/dock-status-lamp.test.ts (6 tests) 75ms
+ ❯ test/spectrum-luma.test.ts (4 tests | 1 failed) 22ms
+   ✓ spectrumLuma — the shared plate regime > is the documented model, exactly (no drift in the shared helper) 3ms
+   ✓ spectrumLuma — the shared plate regime > M-12 · the degenerate boundary: the ENTIRE s=1,v=1 edge sits ON the threshold 0ms
+   ✓ spectrumLuma — the shared plate regime > is hue-blind by construction — the same (s,v) gives one answer for every hue 0ms
+   × spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue 17ms
+     → the hue-blind regime picks an invisible stroke at: 45° → 1.65:1, 60° → 1.07:1, 120° → 1.37:1, 180° → 1.25:1 — cure routed to X-W4 (fold R23): expected [ { hue: 45, …(1) }, …(3) ] to deeply equal []
+ ✓ test/gradient-parse.test.ts (19 tests) 15ms
+ ✓ test/v4-quantize.test.ts (7 tests) 87ms
+ ✓ test/ink.test.ts (20 tests) 419ms
+ ✓ test/parser-totality.test.ts (123 tests) 55ms
+ ✓ test/v4-c1.test.ts (36 tests) 332ms
+ ✓ test/view-accents.test.ts (34 tests) 497ms
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-A · the catch path renders and announces > paints role=alert with the machine-truth detail
+[C-A] role: alert
+[C-A] aria-live: assertive
+[C-A] tabindex: -1
+[C-A] text: "This panel hit an unexpected error.boom-from-render Try again"
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-B · DIAGNOSTIC BLACKOUT > no console.error, no console.warn, no app.config.errorHandler
+[C-B] boundary painted: true
+[C-B] console.error mentioning the throw: false
+[C-B] console.warn mentioning the throw: false
+[C-B] app.config.errorHandler invocations: 0
+[C-B] component emissions on catch: {}
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-C · the recovery button is a LOOP when the cause persists > Try again remounts the same throwing subtree; boundary re-catches
+[C-C] after Try again, error plate still present: true
+[C-C] emitted: {"reset":[[],[]]}
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-D · FOCUS IS NEVER RESTORED on successful recovery > activeElement falls to <body> after reset
+[C-D] activeElement after catch: DIV alert
+[C-D] activeElement before reset: BUTTON
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-D · FOCUS IS NEVER RESTORED on successful recovery > activeElement falls to <body> after reset
+[C-D] error plate gone: true
+[C-D] healthy child mounted: true
+[C-D] activeElement AFTER reset: BODY (=== document.body)
+
+ ✓ demo/test/shell/error-boundary.test.ts (6 tests) 338ms
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-E · the boundary never RE-ARMS when the slot content changes > navigating to a healthy pane keeps the dead error plate on screen
+[C-E] after navigating to a HEALTHY pane:
+[C-E]   error plate still rendered: true
+[C-E]   healthy pane mounted: false
+[C-E]   visible text: "This panel hit an unexpected error.boom-from-render Try again"
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-F · no live region exists before the error (Safari/VO announcement hazard) > the aria-live node is created in the same commit as its content
+[C-F] pre-error DOM: "<!-- U.W-A11Y · U-F58 (thrown-error a11y half): a focus-managed,\n         SR-ANNOUNCED error boundary — NEVER a silent white-screen dead plate.\n         When any descendant pane throws during render / lifecycle, this catches\n         it and paints an announced fallback IN PLACE of the dead subtree:\n           · role=\"alert\" + aria-live=\"assertive\" — a status message a screen\n             reader speaks the moment it appears (WCAG 4.1.3 Status Messages);\n           · tabindex=-1 + focus() on catch — focus moves INTO the boundary so a\n             keyboard / SR user LANDS on the recovery affordance instead of being\n             stranded on the now-unmounted tree (WCAG 2.4.3 Focus Order);\n           · a real recovery <button> — never a terminal dead end.\n         The plain register mirrors EmptyState's `error` variant (Q6: quiet\n         destructive glyph, Fraunces statement, the machine truth in Fira on the\n         certified `--ink-muted` de-emphasis rung — no new sub-floor detail). -->\n<p id=\"healthy-other\">a different, healthy pane</p>"
+[C-F] pre-error [aria-live] count: 0
+[C-F] pre-error [role=alert] count: 0
+
+stdout | demo/test/shell/error-boundary-recovery.test.ts > C-G · unbounded machine-truth detail > renders an arbitrarily long error message verbatim, unclamped
+[C-G] rendered detail length: 4000
+[C-G] detail classes: text-mono-small plate-ink max-w-[46ch] break-words
+
+ ✓ demo/test/shell/error-boundary-recovery.test.ts (7 tests) 459ms
+ ❯ demo/test/shell/reka-binding-idiom.test.ts (3 tests | 1 failed) 589ms
+   ✓ NG-6 · the reka binding-correctness canary > the RENDERED EFFECT follows the model binding — the idiom itself  452ms
+   × NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught 51ms
+     → a `:checked` binding renders as "unchecked" — glass-ui's Checkbox declares modelValue/update:modelValue and NO checked prop, so SearchFilterBar.vue:52-53's `:checked` + `@update:checked` are both stale: the box never reflects the filter and toggling it never reaches toggleTag. vue-tsc is green over this because tsconfig.demo resolves the producer through dist/ under skipLibCheck. Cure is the consumer binding — demo/, routed.: expected 'unchecked' to be 'checked' // Object.is equality
+   ✓ NG-6 · the reka binding-correctness canary > the emit the consumer listens for is the emit the producer publishes 46ms
+ ✓ test/transform/path-geometry.test.ts (43 tests) 118ms
+ ✓ test/math.test.ts (70 tests) 79ms
+ ✓ test/gamut-verdict.test.ts (4 tests) 115ms
+ ✓ test/v4-css-emerging.test.ts (22 tests) 388ms
+ ✓ demo/test/glass/aurora-bracket.test.ts (9 tests) 461ms
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 255ms
+ ✓ test/mix-v4.test.ts (3 tests) 23ms
+ ✓ test/color-anchors.test.ts (12 tests) 8ms
+ ✓ test/v4-css-public.test.ts (6 tests) 131ms
+ ✓ test/preview-chips.test.ts (4 tests) 27ms
+ ✓ test/v4-color-behavior.test.ts (8 tests) 181ms
+ ✓ test/gradient-v4-consume.test.ts (3 tests) 17ms
+ ✓ test/image-sampler-v4.test.ts (3 tests) 10ms
+ ✓ test/status-lamp.test.ts (14 tests) 9ms
+ ✓ test/interpolation-subset.test.ts (5 tests) 10ms
+ ✓ test/parsing/timeline/parsing-easing.test.ts (5 tests) 8ms
+ ✓ test/picker-blob-config.test.ts (3 tests) 9ms
+ ✓ test/readout-reservation.test.ts (14 tests) 13ms
+ ✓ test/contrast-floor.test.ts (4 tests) 7ms
+ ✓ test/slider-announcement.test.ts (7 tests) 7ms
+ ✓ demo/test/glass/aurora-motion.test.ts (1 test) 5ms
+ ✓ demo/test/export/byte-exact.test.ts (29 tests) 27128ms
+   ✓ PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans  9902ms
+   ✓ PNG export (§7) > is deterministic: two serializations are byte-identical  16795ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue
+AssertionError: the hue-blind regime picks an invisible stroke at: 45° → 1.65:1, 60° → 1.07:1, 120° → 1.37:1, 180° → 1.25:1 — cure routed to X-W4 (fold R23): expected [ { hue: 45, …(1) }, …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   {
++     "hue": 45,
++     "ratio": 1.6501457858115987,
++   },
++   {
++     "hue": 60,
++     "ratio": 1.0738392309265699,
++   },
++   {
++     "hue": 120,
++     "ratio": 1.3721902770517513,
++   },
++   {
++     "hue": 180,
++     "ratio": 1.2538810604251256,
++   },
++ ]
+
+ ❯ test/spectrum-luma.test.ts:109:11
+    107|                 failures.map((f) => `${f.hue}° → ${f.ratio.toFixed(2)}…
+    108|                 ` — cure routed to X-W4 (fold R23)`,
+    109|         ).toEqual([]);
+       |           ^
+    110|     });
+    111| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+AssertionError: a `:checked` binding renders as "unchecked" — glass-ui's Checkbox declares modelValue/update:modelValue and NO checked prop, so SearchFilterBar.vue:52-53's `:checked` + `@update:checked` are both stale: the box never reflects the filter and toggling it never reaches toggleTag. vue-tsc is green over this because tsconfig.demo resolves the producer through dist/ under skipLibCheck. Cure is the consumer binding — demo/, routed.: expected 'unchecked' to be 'checked' // Object.is equality
+
+Expected: "checked"
+Received: "unchecked"
+
+ ❯ demo/test/shell/reka-binding-idiom.test.ts:77:11
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 36 passed (38)
+      Tests  2 failed | 639 passed (641)
+   Start at  17:36:58
+   Duration  32.73s (transform 7.72s, setup 12.69s, collect 25.69s, tests 33.58s, environment 78.44s, prepare 14.83s)
+
+EXIT 1

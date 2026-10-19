@@ -1,0 +1,13 @@
+{
+    // X.W6.f · f7 — the witness project: the demo program VERBATIM (extends
+    // `tsconfig.demo.json`, inheriting its paths and its `src/vite-env.d.ts`
+    // ambient `*.vue` declaration) plus the one witness file. The demo program
+    // itself is left untouched: a witness that must not ship cannot live in the
+    // shipped program's include set.
+    "extends": "../../../../../../tsconfig.demo.json",
+    "include": [
+        "../../../../../../demo/",
+        "../../../../../../src/vite-env.d.ts",
+        "./f7-witness.ts"
+    ]
+}

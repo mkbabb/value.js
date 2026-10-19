@@ -1,0 +1,2 @@
+GREEN UIA-KF-143 garbage ?state= on load → toasts ["Invalid shared stateThis link's shared state could not be read."]
+GREEN UIA-KF-143 valid ?state= on load (payload built by the page: true) → toasts ["State restored!Animation state loaded from shared URL."]

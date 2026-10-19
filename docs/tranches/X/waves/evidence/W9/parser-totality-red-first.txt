@@ -1,0 +1,496 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.a — RED-FIRST BATTERY, the failing run (Commit Plan row 1; W9.md §Archaeology guardrail 1)
+Worktree /Users/mkbabb/Programming/value.js-x-w9-a @ e24a7cfb · node v26.0.0 · darwin arm64 · vitest 3.2.6
+Command: npx vitest run test/parser-totality.test.ts   -> exit 1
+Reading: 123 tests · 120 FAILED · 3 passed. Three distinct failure shapes, ONE root each:
+  (1) TypeError: Cannot read properties of undefined (reading 'replace')   -- src/css/grammar.ts:181  slash[0]!
+  (2) TypeError: source.trim is not a function                       -- src/css/grammar.ts:265-266 NAMED_COLORS[k] -> Object.prototype.constructor
+  (3) expected 'function' to be 'string' (steps position)               -- src/css/grammar.ts:457-462 + src/css/stylesheet.ts:163-171
+---------------------------------------------------------------------------
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js-x-w9-a
+
+ ❯ test/parser-totality.test.ts (123 tests | 120 failed) 21ms
+   ✓ X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > enumerates exactly 56 vectors 1ms
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgb()") returns a typed result, never a TypeError 4ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgb(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgba()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgba(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsl()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsl(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsla()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsla(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hwb()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hwb(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lab()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lab(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lch()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lch(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklab()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklab(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklch()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklch(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("calc()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("calc(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("linear-gradient()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("linear-gradient(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color-mix()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color-mix(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("steps()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("steps(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgb()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgb(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgba()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgba(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsl()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsl(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsla()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsla(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hwb()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hwb(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lab()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lab(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lch()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lch(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklab()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklab(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklch()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklch(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("calc()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("calc(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("linear-gradient()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("linear-gradient(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color-mix()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color-mix(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("steps()") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("steps(   )") returns a typed result, never a TypeError 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgb()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgb(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgba()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgba(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsl()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsl(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsla()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsla(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hwb()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hwb(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lab()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lab(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lch()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lch(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklab()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklab(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklch()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklch(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("color()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("color(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgb()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgb(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgba()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgba(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsl()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsl(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsla()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsla(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hwb()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hwb(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lab()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lab(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lch()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lch(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklab()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklab(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklch()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklch(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("color()") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("color(   )") returns a typed result 0ms
+     → expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor("constructor") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor("__proto__") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssScalar("constructor") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssScalar("__proto__") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValue("constructor") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValue("__proto__") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValues("constructor") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValues("__proto__") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > coerceToSyntax("constructor") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > coerceToSyntax("__proto__") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor never resolves a prototype member as a named colour 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{color:constructor}") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{color:__proto__}") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("@keyframes k{from{color:constructor}}") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{background:linear-gradient(constructor,red)}") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{animation:x 1s steps(2,constructor)}") returns a typed result 0ms
+     → expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, constructor)") never returns a non-string position 1ms
+     → expected 'function' to be 'string' // Object.is equality
+   × X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, __proto__)") never returns a non-string position 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'object' to be 'string' // Object.is equality
+   ✓ X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, toString)") never returns a non-string position 0ms
+   × X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > collectAnimationOptions never yields a non-string steps position 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+   × X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("constructor") rejects instead of throwing 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'TypeError: function is not iterable (…' to be '' // Object.is equality
+   × X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("__proto__") rejects instead of throwing 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'TypeError: object is not iterable (ca…' to be '' // Object.is equality
+   × X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("toString") rejects instead of throwing 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'TypeError: function is not iterable (…' to be '' // Object.is equality
+   × X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("valueOf") rejects instead of throwing 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'TypeError: function is not iterable (…' to be '' // Object.is equality
+   × X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("hasOwnProperty") rejects instead of throwing 0ms
+     → Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'TypeError: function is not iterable (…' to be '' // Object.is equality
+   ✓ X-W9.a §5 · easing(name) is total over Object.prototype keys > the control arms are unchanged 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 120 ⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgb()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgb(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgba()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("rgba(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsl()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsl(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsla()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hsla(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hwb()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("hwb(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lab()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lab(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lch()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("lch(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklab()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklab(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklch()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("oklch(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("calc()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("calc(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("linear-gradient()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("linear-gradient(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color-mix()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("color-mix(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("steps()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssColor("steps(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgb()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgb(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgba()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("rgba(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsl()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsl(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsla()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hsla(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hwb()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("hwb(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lab()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lab(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lch()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("lch(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklab()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklab(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklch()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("oklch(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("calc()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("calc(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("linear-gradient()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("linear-gradient(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color-mix()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("color-mix(   )") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("steps()") returns a typed result, never a TypeError
+ FAIL  test/parser-totality.test.ts > X-W9.a §1 · empty- and whitespace-body totality (56 vectors) > parseCssScalar("steps(   )") returns a typed result, never a TypeError
+AssertionError: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ TypeError: Cannot read properties of undefined (reading 'replace')
+
+ ❯ test/parser-totality.test.ts:90:36
+     88|         it(`${entry}(${JSON.stringify(source)}) returns a typed result…
+     89|             const outcome = call(() => fn(source));
+     90|             expect(threw(outcome)).toBe("");
+       |                                    ^
+     91|             expect(outcome).toHaveProperty("ok");
+     92|         });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/120]⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgb()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgb(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgba()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("rgba(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsl()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsl(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsla()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hsla(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hwb()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("hwb(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lab()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lab(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lch()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("lch(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklab()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklab(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklch()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("oklch(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("color()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValue("color(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgb()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgb(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgba()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("rgba(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsl()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsl(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsla()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hsla(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hwb()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("hwb(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lab()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lab(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lch()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("lch(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklab()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklab(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklch()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("oklch(   )") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("color()") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §2 · R1 §A1 — the widened scalar class > parseCssValues("color(   )") returns a typed result
+AssertionError: expected 'TypeError: Cannot read properties of …' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ TypeError: Cannot read properties of undefined (reading 'replace')
+
+ ❯ test/parser-totality.test.ts:111:44
+    109|                 it(`${entry}(${JSON.stringify(source)}) returns a type…
+    110|                     const outcome = call(() => fn(source));
+    111|                     expect(threw(outcome)).toBe("");
+       |                                            ^
+    112|                     expect(outcome).toHaveProperty("ok");
+    113|                 });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/120]⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor("constructor") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor("__proto__") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssScalar("constructor") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssScalar("__proto__") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValue("constructor") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValue("__proto__") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValues("constructor") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssValues("__proto__") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > coerceToSyntax("constructor") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > coerceToSyntax("__proto__") returns a typed result
+AssertionError: expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ TypeError: source.trim is not a function
+
+ ❯ test/parser-totality.test.ts:147:40
+    145|             it(`${entry}(${JSON.stringify(key)}) returns a typed resul…
+    146|                 const outcome = call(() => fn(key));
+    147|                 expect(threw(outcome)).toBe("");
+       |                                        ^
+    148|                 expect(outcome).toHaveProperty("ok");
+    149|             });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/120]⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseCssColor never resolves a prototype member as a named colour
+AssertionError: expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ TypeError: source.trim is not a function
+
+ ❯ test/parser-totality.test.ts:156:36
+    154|         for (const key of PROTO_KEYS) {
+    155|             const outcome = call(() => parseCssColor(key));
+    156|             expect(threw(outcome)).toBe("");
+       |                                    ^
+    157|             expect(outcome).toMatchObject({ ok: false });
+    158|         }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/120]⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{color:constructor}") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{color:__proto__}") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("@keyframes k{from{color:constructor}}") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{background:linear-gradient(constructor,red)}") returns a typed result
+ FAIL  test/parser-totality.test.ts > X-W9.a §3 · R1 §A2 — prototype keys reach the ./css entries > parseStylesheet("a{animation:x 1s steps(2,constructor)}") returns a typed result
+AssertionError: expected 'TypeError: source.trim is not a funct…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ TypeError: source.trim is not a function
+
+ ❯ test/parser-totality.test.ts:164:36
+    162|         it(`parseStylesheet(${JSON.stringify(source)}) returns a typed…
+    163|             const outcome = call(() => parseStylesheet(source));
+    164|             expect(threw(outcome)).toBe("");
+       |                                    ^
+    165|             expect(outcome).toHaveProperty("ok");
+    166|         });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/120]⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, constructor)") never returns a non-string position
+AssertionError: expected 'function' to be 'string' // Object.is equality
+
+Expected: "string"
+Received: "function"
+
+ ❯ test/parser-totality.test.ts:180:51
+    178|             expect(outcome.value.kind).toBe("steps");
+    179|             if (outcome.value.kind !== "steps") return;
+    180|             expect(typeof outcome.value.position).toBe("string");
+       |                                                   ^
+    181|         });
+    182|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/120]⎯
+
+ FAIL  test/parser-totality.test.ts > X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > parseTimingFunction("steps(2, __proto__)") never returns a non-string position
+ FAIL  test/parser-totality.test.ts > X-W9.a §4 · steps() alias resolution is a JumpPosition or a failure > collectAnimationOptions never yields a non-string steps position
+ FAIL  test/parser-totality.test.ts > X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("constructor") rejects instead of throwing
+ FAIL  test/parser-totality.test.ts > X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("__proto__") rejects instead of throwing
+ FAIL  test/parser-totality.test.ts > X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("toString") rejects instead of throwing
+ FAIL  test/parser-totality.test.ts > X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("valueOf") rejects instead of throwing
+ FAIL  test/parser-totality.test.ts > X-W9.a §5 · easing(name) is total over Object.prototype keys > easing("hasOwnProperty") rejects instead of throwing
+Error: Failed to fully serialize error: Cannot assign to read only property 'constructor' of object '#<Object>'
+Inner error message: expected 'object' to be 'string' // Object.is equality
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/120]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  120 failed | 3 passed (123)
+   Start at  20:22:57
+   Duration  453ms (transform 66ms, setup 30ms, collect 71ms, tests 21ms, environment 119ms, prepare 39ms)
+

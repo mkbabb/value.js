@@ -1,0 +1,814 @@
+{
+  "servedModel": "claude-fable-5-1",
+  "unit": "X.P.W3.h",
+  "sitting": "2026-09-18",
+  "hashes": {
+    "src/css/algebra/grammar/value.mjs": {
+      "sha256": "e8d25c6770a55ae1d611d7986094ab7b5b023f498798b6c02b3c5b43352a8b0c",
+      "bytes": 20032
+    },
+    "src/css/algebra/grammar.mjs": {
+      "sha256": "86d997a5c07eb31d4a70467e5db37275eeb35a6d3d5d6a00ccca8524dd46646c",
+      "bytes": 22547
+    },
+    "src/css/algebra/tables.mjs": {
+      "sha256": "33aa3249d986a2ab8ba7284ff6705cad1684b557ba687e0db4d3ecf76f994179",
+      "bytes": 28227
+    },
+    "src/css/diagnostics.mjs": {
+      "sha256": "7bf924b9b58510ee3c537dc1993f2762a51c6282df48a0a72d920f38bc9ac068",
+      "bytes": 10084
+    },
+    "src/css/lowering-js/js-alg.mjs": {
+      "sha256": "c7e9a73712e024814174775b0b82490fa2f26460bc2c2b39a137447136c697ac",
+      "bytes": 34345
+    },
+    "src/css/lowering-wasm/wasm-alg.mjs": {
+      "sha256": "d94b80840e84c77f4c496bba75e637c7fefeaf923888e50c4aca9b6cc5f0b858",
+      "bytes": 49298
+    },
+    "src/css/bounds.mjs": {
+      "sha256": "dc844b26c23c9bd7c31b931dd6780c560e91b9741c7d38a12c10348c2284a7d3",
+      "bytes": 49969
+    },
+    "src/css/entry.mjs": {
+      "sha256": "bdb77904fa2ea6fa14d124172f61735c072bbe56768de7e722f8cd20c53dbaf2",
+      "bytes": 24954
+    },
+    "src/css/build.mjs": {
+      "sha256": "d000ed208f9d7703a63e79abf0b26fd1c4321c9c5f842e9682e702f8708f2e82",
+      "bytes": 3401
+    },
+    "src/css/harness-adapter.mjs": {
+      "sha256": "d244b046ec1d291b34e301322be22b4fd8c6a9e87ffad1f40605fb43a26c5b16",
+      "bytes": 3901
+    },
+    "test/css-recovery/value-grammar.test.ts": {
+      "sha256": "e1df37cc3601dc5f9468318f46cc46724aa56ffd06962717e08bea7a9397b0a1",
+      "bytes": 17501
+    },
+    "src/css/build/ac1.js": {
+      "sha256": "9e75a4054b7ea649c133aed3d57c000f6ccd627341b3b658276bdfd7a9b89fdd",
+      "bytes": 418
+    },
+    "src/css/build/ac1.wasm": {
+      "sha256": "7a4c21b97d5c9d82c1e07c414c8d1fc0ce75fa438edcc47faf89723c106d0ad6",
+      "bytes": 347727
+    },
+    "src/css/build/ac1.d.ts": {
+      "sha256": "2e632a422e988b4f274e0797a100c9fef499c1ce0d850c11ae2e00bf4f97cadc",
+      "bytes": 595
+    }
+  },
+  "theta": {
+    "INPUT_BOUND": 14107,
+    "THETA": {
+      "depthBound": 64,
+      "input": 14107,
+      "marks": 32768,
+      "recoveries": 4096,
+      "D": 4096,
+      "C": 65536,
+      "P": 65536,
+      "vstack": 65536,
+      "arena": 7208960,
+      "expsnap": 32
+    },
+    "perEntry": {
+      "P:color": {
+        "rate": 72,
+        "cells": 71,
+        "fixed": 0,
+        "exp": 1
+      },
+      "P:timing-function": {
+        "rate": 98,
+        "cells": 14,
+        "fixed": 0,
+        "exp": 1
+      },
+      "P:stylesheet": {
+        "rate": 101,
+        "cells": 78,
+        "fixed": 46,
+        "exp": 1
+      },
+      "P:scalar": {
+        "rate": 136,
+        "cells": 17,
+        "fixed": 0,
+        "exp": 1
+      },
+      "P:value": {
+        "rate": 463,
+        "cells": 863,
+        "fixed": 0,
+        "exp": 1
+      },
+      "P:values": {
+        "rate": 511,
+        "cells": 863,
+        "fixed": 0,
+        "exp": 1
+      }
+    },
+    "class3": {
+      "perEntry": {
+        "P:color": {
+          "rate": 72,
+          "verts": [
+            {
+              "num": 88,
+              "mw": 3
+            },
+            {
+              "num": 224,
+              "mw": 4
+            },
+            {
+              "num": 272,
+              "mw": 5
+            },
+            {
+              "num": 384,
+              "mw": 8
+            },
+            {
+              "num": 480,
+              "mw": 10
+            },
+            {
+              "num": 496,
+              "mw": 11
+            },
+            {
+              "num": 552,
+              "mw": 12
+            },
+            {
+              "num": 568,
+              "mw": 13
+            },
+            {
+              "num": 584,
+              "mw": 14
+            },
+            {
+              "num": 600,
+              "mw": 15
+            },
+            {
+              "num": 616,
+              "mw": 16
+            }
+          ],
+          "mw": 3,
+          "fixed": 0,
+          "cells": 71,
+          "cellsVia": -1,
+          "mwVia": null,
+          "exp": 1,
+          "expVia": -1
+        },
+        "P:timing-function": {
+          "rate": 98,
+          "verts": [
+            {
+              "num": 56,
+              "mw": 4
+            },
+            {
+              "num": 176,
+              "mw": 8
+            },
+            {
+              "num": 430,
+              "mw": 10
+            }
+          ],
+          "mw": 4,
+          "fixed": 0,
+          "cells": 14,
+          "cellsVia": -1,
+          "mwVia": null,
+          "exp": 1,
+          "expVia": -1
+        },
+        "P:stylesheet": {
+          "rate": 101,
+          "verts": [
+            {
+              "num": 46,
+              "mw": 0
+            }
+          ],
+          "mw": 0,
+          "fixed": 46,
+          "cells": 78,
+          "cellsVia": -1,
+          "mwVia": null,
+          "exp": 1,
+          "expVia": -1
+        },
+        "P:scalar": {
+          "rate": 136,
+          "verts": [
+            {
+              "num": 136,
+              "mw": 1
+            },
+            {
+              "num": 152,
+              "mw": 2
+            },
+            {
+              "num": 203,
+              "mw": 3
+            },
+            {
+              "num": 288,
+              "mw": 4
+            },
+            {
+              "num": 336,
+              "mw": 5
+            },
+            {
+              "num": 448,
+              "mw": 8
+            },
+            {
+              "num": 544,
+              "mw": 10
+            },
+            {
+              "num": 560,
+              "mw": 11
+            },
+            {
+              "num": 616,
+              "mw": 12
+            },
+            {
+              "num": 632,
+              "mw": 13
+            },
+            {
+              "num": 648,
+              "mw": 14
+            },
+            {
+              "num": 664,
+              "mw": 15
+            },
+            {
+              "num": 680,
+              "mw": 16
+            }
+          ],
+          "mw": 1,
+          "fixed": 0,
+          "cells": 17,
+          "cellsVia": -1,
+          "mwVia": null,
+          "exp": 1,
+          "expVia": -1
+        },
+        "P:value": {
+          "rate": 463,
+          "verts": [
+            {
+              "num": 463,
+              "mw": 1
+            },
+            {
+              "num": 491,
+              "mw": 2
+            },
+            {
+              "num": 834,
+              "mw": 3
+            },
+            {
+              "num": 979,
+              "mw": 10
+            },
+            {
+              "num": 1007,
+              "mw": 11
+            },
+            {
+              "num": 1075,
+              "mw": 12
+            },
+            {
+              "num": 1103,
+              "mw": 13
+            },
+            {
+              "num": 1131,
+              "mw": 14
+            },
+            {
+              "num": 1159,
+              "mw": 15
+            },
+            {
+              "num": 1187,
+              "mw": 16
+            }
+          ],
+          "mw": 1,
+          "fixed": 0,
+          "cells": 863,
+          "cellsVia": -1,
+          "mwVia": null,
+          "exp": 1,
+          "expVia": -1
+        },
+        "P:values": {
+          "rate": 511,
+          "verts": [
+            {
+              "num": 511,
+              "mw": 1
+            },
+            {
+              "num": 539,
+              "mw": 2
+            },
+            {
+              "num": 882,
+              "mw": 3
+            },
+            {
+              "num": 1027,
+              "mw": 10
+            },
+            {
+              "num": 1055,
+              "mw": 11
+            },
+            {
+              "num": 1123,
+              "mw": 12
+            },
+            {
+              "num": 1151,
+              "mw": 13
+            },
+            {
+              "num": 1179,
+              "mw": 14
+            },
+            {
+              "num": 1207,
+              "mw": 15
+            },
+            {
+              "num": 1235,
+              "mw": 16
+            }
+          ],
+          "mw": 1,
+          "fixed": 0,
+          "cells": 863,
+          "cellsVia": -1,
+          "mwVia": null,
+          "exp": 1,
+          "expVia": -1
+        }
+      },
+      "vstack": {
+        "K": 1,
+        "unit": "code unit",
+        "S": 863
+      },
+      "arena": {
+        "K": 511,
+        "unit": "code unit",
+        "S": 46
+      },
+      "expsnap": {
+        "K": 0,
+        "unit": "depth level",
+        "S": 1
+      }
+    }
+  },
+  "measured": {
+    "space list (idents)": {
+      "length": 800,
+      "ok": true,
+      "arenaBytes": 48208,
+      "arenaPerCodeUnit": 60.26,
+      "marksPerItem": 17.06,
+      "itemsAtMarkCap": 1920
+    },
+    "comma list": {
+      "length": 801,
+      "ok": true,
+      "arenaBytes": 105928,
+      "arenaPerCodeUnit": 132.24,
+      "marksPerItem": 39.1,
+      "itemsAtMarkCap": 838
+    },
+    "slash list": {
+      "length": 801,
+      "ok": true,
+      "arenaBytes": 83528,
+      "arenaPerCodeUnit": 104.28,
+      "marksPerItem": 37.1,
+      "itemsAtMarkCap": 883
+    },
+    "space list (calls)": {
+      "length": 2000,
+      "ok": true,
+      "arenaBytes": 176208,
+      "arenaPerCodeUnit": 88.1,
+      "marksPerItem": 34.06,
+      "itemsAtMarkCap": 962
+    },
+    "space list (numbers)": {
+      "length": 1600,
+      "ok": true,
+      "arenaBytes": 57808,
+      "arenaPerCodeUnit": 36.13,
+      "marksPerItem": 5.06,
+      "itemsAtMarkCap": 6475
+    },
+    "space list (colours)": {
+      "length": 1600,
+      "ok": true,
+      "arenaBytes": 57808,
+      "arenaPerCodeUnit": 36.13,
+      "marksPerItem": 1.06,
+      "itemsAtMarkCap": 30913
+    },
+    "one token": {
+      "length": 3,
+      "ok": true,
+      "arenaBytes": 320,
+      "arenaPerCodeUnit": 106.67,
+      "marksPerItem": 0.07,
+      "itemsAtMarkCap": 451972
+    }
+  },
+  "g1": {
+    "parseCssColor": {
+      "cells": 26604,
+      "raw": 4042,
+      "byKind": {
+        "FALSE_REJECT": 1272,
+        "MIS_ACCEPT": 1200,
+        "DIVERGENT_VALUE": 1570,
+        "ORACLE_THREW": 0
+      },
+      "insideClasses": 4042,
+      "byClass": {
+        "COLOR": 4042
+      },
+      "outsideClasses": 0,
+      "outsideSample": []
+    },
+    "parseCssScalar": {
+      "cells": 26604,
+      "raw": 4042,
+      "byKind": {
+        "FALSE_REJECT": 1272,
+        "MIS_ACCEPT": 1200,
+        "DIVERGENT_VALUE": 1570,
+        "ORACLE_THREW": 0
+      },
+      "insideClasses": 4042,
+      "byClass": {
+        "COLOR": 4042
+      },
+      "outsideClasses": 0,
+      "outsideSample": []
+    },
+    "parseCssValue": {
+      "cells": 26604,
+      "raw": 4830,
+      "byKind": {
+        "FALSE_REJECT": 2058,
+        "MIS_ACCEPT": 1201,
+        "DIVERGENT_VALUE": 1571,
+        "ORACLE_THREW": 0
+      },
+      "insideClasses": 4830,
+      "byClass": {
+        "COLOR": 4046,
+        "PB-12": 784
+      },
+      "outsideClasses": 0,
+      "outsideSample": []
+    },
+    "parseCssValues": {
+      "cells": 26604,
+      "raw": 4830,
+      "byKind": {
+        "FALSE_REJECT": 2058,
+        "MIS_ACCEPT": 1201,
+        "DIVERGENT_VALUE": 1571,
+        "ORACLE_THREW": 0
+      },
+      "insideClasses": 4830,
+      "byClass": {
+        "COLOR": 4046,
+        "PB-12": 784
+      },
+      "outsideClasses": 0,
+      "outsideSample": []
+    }
+  },
+  "ctorFamily": {
+    "R_ctor": [
+      "rgb",
+      "hsl",
+      "oklch",
+      "hex8",
+      "hex6",
+      "hex4",
+      "hex3",
+      "context",
+      "named-color",
+      "transparent",
+      "timing-keyword",
+      "step-alias",
+      "cubic-bezier",
+      "steps",
+      "linear-function",
+      "linear-stop",
+      "style-rule",
+      "declaration",
+      "value-color",
+      "stylesheet",
+      "hwb",
+      "lab",
+      "lch",
+      "oklab",
+      "xyz",
+      "srgb-linear",
+      "display-p3",
+      "a98-rgb",
+      "prophoto-rgb",
+      "rec2020",
+      "xyz-d50",
+      "value-number",
+      "value-keyword",
+      "value-operator",
+      "value-string",
+      "value-call",
+      "value-args",
+      "value-group",
+      "value-wrap"
+    ],
+    "js": [
+      "rgb",
+      "hsl",
+      "oklch",
+      "hex8",
+      "hex6",
+      "hex4",
+      "hex3",
+      "context",
+      "named-color",
+      "transparent",
+      "timing-keyword",
+      "step-alias",
+      "cubic-bezier",
+      "steps",
+      "linear-function",
+      "linear-stop",
+      "style-rule",
+      "declaration",
+      "value-color",
+      "stylesheet",
+      "hwb",
+      "lab",
+      "lch",
+      "oklab",
+      "xyz",
+      "srgb-linear",
+      "display-p3",
+      "a98-rgb",
+      "prophoto-rgb",
+      "rec2020",
+      "xyz-d50",
+      "value-number",
+      "value-keyword",
+      "value-operator",
+      "value-string",
+      "value-call",
+      "value-args",
+      "value-group",
+      "value-wrap"
+    ],
+    "wasm": [
+      "xyz-d50",
+      "hex8",
+      "hex6",
+      "hex4",
+      "hex3",
+      "context",
+      "named-color",
+      "transparent",
+      "timing-keyword",
+      "step-alias",
+      "cubic-bezier",
+      "steps",
+      "linear-function",
+      "linear-stop",
+      "style-rule",
+      "declaration",
+      "value-color",
+      "value-number",
+      "value-keyword",
+      "value-operator",
+      "value-string",
+      "value-args",
+      "value-call",
+      "value-group",
+      "value-wrap",
+      "stylesheet",
+      "rgb",
+      "hsl",
+      "oklch",
+      "hwb",
+      "lab",
+      "lch",
+      "oklab",
+      "xyz",
+      "srgb-linear",
+      "display-p3",
+      "a98-rgb",
+      "prophoto-rgb",
+      "rec2020"
+    ],
+    "alloc": [
+      "rgb",
+      "hsl",
+      "oklch",
+      "hex8",
+      "hex6",
+      "hex4",
+      "hex3",
+      "context",
+      "named-color",
+      "transparent",
+      "timing-keyword",
+      "step-alias",
+      "cubic-bezier",
+      "steps",
+      "linear-function",
+      "linear-stop",
+      "style-rule",
+      "declaration",
+      "value-color",
+      "stylesheet",
+      "hwb",
+      "lab",
+      "lch",
+      "oklab",
+      "xyz",
+      "srgb-linear",
+      "display-p3",
+      "a98-rgb",
+      "prophoto-rgb",
+      "rec2020",
+      "xyz-d50",
+      "value-number",
+      "value-keyword",
+      "value-operator",
+      "value-string",
+      "value-call",
+      "value-args",
+      "value-group",
+      "value-wrap"
+    ],
+    "scratch": [
+      "rgb",
+      "hsl",
+      "oklch",
+      "hex8",
+      "hex6",
+      "hex4",
+      "hex3",
+      "context",
+      "named-color",
+      "transparent",
+      "timing-keyword",
+      "step-alias",
+      "cubic-bezier",
+      "steps",
+      "linear-function",
+      "linear-stop",
+      "style-rule",
+      "declaration",
+      "value-color",
+      "stylesheet",
+      "hwb",
+      "lab",
+      "lch",
+      "oklab",
+      "xyz",
+      "srgb-linear",
+      "display-p3",
+      "a98-rgb",
+      "prophoto-rgb",
+      "rec2020",
+      "xyz-d50",
+      "value-number",
+      "value-keyword",
+      "value-operator",
+      "value-string",
+      "value-call",
+      "value-args",
+      "value-group",
+      "value-wrap"
+    ]
+  },
+  "labels": [
+    "whitespace",
+    "ident",
+    "<digit>",
+    "<hex-digit>",
+    "any-but-paren",
+    "any-but-brace-or-semi",
+    "any-but-semi-or-close",
+    "any-but-brace-close",
+    "<named-color>",
+    "'transparent'",
+    "<context-color>",
+    "'none'",
+    "<timing-keyword>",
+    "<step-alias>",
+    "<jump-position>",
+    "<color-function>",
+    "<timing-function>",
+    "<finite-number>",
+    "context-free color",
+    "x1 in [0,1]",
+    "x2 in [0,1]",
+    "<integer> >= 1",
+    "jump-none needs >= 2",
+    "<linear-stop-list>",
+    "<linear-stop>",
+    "<qualified-rule>",
+    "<declaration>",
+    "<color>",
+    "<stylesheet>",
+    "end of input",
+    "<number>",
+    "nesting <= 64",
+    "'('",
+    "')'",
+    "','",
+    "'/'",
+    "'%'",
+    "'#'",
+    "';'",
+    "':'",
+    "'{'",
+    "'}'",
+    "'!'",
+    "'deg'",
+    "'grad'",
+    "'rad'",
+    "'turn'",
+    "'important'",
+    "<declaration-value>",
+    "rule",
+    "<string>",
+    "input <= 14107",
+    "marks <= 32768",
+    "recoveries <= 4096",
+    "D <= 4096",
+    "C <= 65536",
+    "P <= 65536",
+    "vstack <= 65536",
+    "arena <= 7208960",
+    "expsnap <= 32",
+    "token boundary",
+    "ident start",
+    "<unit>",
+    "<operator>",
+    "double quote",
+    "single quote",
+    "string text",
+    "<color-space>",
+    "concrete xyz-d50",
+    "<function-arguments>",
+    "<value-list>",
+    "<value>",
+    "<scalar>",
+    "'\\'",
+    "'\"'",
+    "'''"
+  ],
+  "shield": {
+    "open": 0,
+    "exit": 0
+  }
+}

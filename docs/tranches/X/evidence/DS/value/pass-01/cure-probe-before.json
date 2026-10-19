@@ -1,0 +1,169 @@
+{
+  "base": "http://localhost:9475 (HEAD 9b05194d1, clean worktree)",
+  "rows": [
+    {
+      "name": "V1C-01 'Start a new palette' in the dashed well",
+      "scheme": "light",
+      "ink": "rgb(112, 89, 66)",
+      "ground": "rgb(210,112,129)",
+      "ratio": 1.99
+    },
+    {
+      "name": "V1C-01 search placeholder in the seated field",
+      "scheme": "light",
+      "ink": "rgb(112, 89, 66)",
+      "ground": "rgb(210,119,124)",
+      "ratio": 2.09
+    },
+    {
+      "name": "V1C-01 generate seed line",
+      "scheme": "light",
+      "ink": "rgb(112, 89, 66)",
+      "ground": "rgb(210,66,148)",
+      "ratio": 1.55
+    },
+    {
+      "name": "V1C-07 generate plate header strip",
+      "scheme": "light",
+      "strips": 0,
+      "firstChild": "DIV"
+    },
+    {
+      "name": "V1C-04 FIELD head ink on the console well",
+      "scheme": "light",
+      "ink": "rgb(112, 89, 66)",
+      "ground": "rgb(210,74,144)",
+      "ratio": 1.6
+    },
+    {
+      "name": "V1C-04 head voice",
+      "scheme": "light",
+      "section": {
+        "tag": "SPAN",
+        "text": "Field",
+        "family": "\"Fira Code\"",
+        "weight": "400",
+        "transform": "uppercase",
+        "tracking": "1.64px"
+      },
+      "field": null,
+      "route": {
+        "tag": "H1",
+        "text": "Atmosphere",
+        "family": "Fraunces",
+        "weight": "500",
+        "transform": "uppercase",
+        "tracking": "0.78px"
+      }
+    },
+    {
+      "name": "V1C-05 aurora select triggers' left edges",
+      "scheme": "light",
+      "x": []
+    },
+    {
+      "name": "V1C-06 config slider range vs track",
+      "scheme": "light",
+      "variant": "spectrum",
+      "rangeWidth": 731,
+      "trackWidth": 962,
+      "rangeTint": "oklch(0.88 0.1 75)",
+      "rangeBg": "rgba(0, 0, 0, 0)",
+      "rangeImage": "none",
+      "trackBg": "oklch(0.289468 0.00386159 34.63)"
+    },
+    {
+      "name": "V1C-08 empty k rail height",
+      "scheme": "light",
+      "rail": 24,
+      "kc": 12
+    },
+    {
+      "name": "V1C-02 skeleton cells animating (refused; recorded)",
+      "scheme": "light",
+      "infinite": 5
+    },
+    {
+      "name": "V1C-01 'Start a new palette' in the dashed well",
+      "scheme": "dark",
+      "ink": "rgb(195, 185, 172)",
+      "ground": "rgb(127,30,42)",
+      "ratio": 5.12
+    },
+    {
+      "name": "V1C-01 search placeholder in the seated field",
+      "scheme": "dark",
+      "ink": "rgb(195, 185, 172)",
+      "ground": "rgb(135,29,35)",
+      "ratio": 4.87
+    },
+    {
+      "name": "V1C-01 generate seed line",
+      "scheme": "dark",
+      "ink": "rgb(195, 185, 172)",
+      "ground": "rgb(103,31,59)",
+      "ratio": 5.91
+    },
+    {
+      "name": "V1C-07 generate plate header strip",
+      "scheme": "dark",
+      "strips": 0,
+      "firstChild": "DIV"
+    },
+    {
+      "name": "V1C-04 FIELD head ink on the console well",
+      "scheme": "dark",
+      "ink": "rgb(195, 185, 172)",
+      "ground": "rgb(107,31,56)",
+      "ratio": 5.78
+    },
+    {
+      "name": "V1C-04 head voice",
+      "scheme": "dark",
+      "section": {
+        "tag": "SPAN",
+        "text": "Field",
+        "family": "\"Fira Code\"",
+        "weight": "400",
+        "transform": "uppercase",
+        "tracking": "1.64px"
+      },
+      "field": null,
+      "route": {
+        "tag": "H1",
+        "text": "Atmosphere",
+        "family": "Fraunces",
+        "weight": "500",
+        "transform": "uppercase",
+        "tracking": "0.78px"
+      }
+    },
+    {
+      "name": "V1C-05 aurora select triggers' left edges",
+      "scheme": "dark",
+      "x": []
+    },
+    {
+      "name": "V1C-06 config slider range vs track",
+      "scheme": "dark",
+      "variant": "spectrum",
+      "rangeWidth": 731,
+      "trackWidth": 962,
+      "rangeTint": "oklch(0.42 0.06 75)",
+      "rangeBg": "rgba(0, 0, 0, 0)",
+      "rangeImage": "none",
+      "trackBg": "oklch(0.712763 0.00382185 41.8684)"
+    },
+    {
+      "name": "V1C-08 empty k rail height",
+      "scheme": "dark",
+      "rail": 24,
+      "kc": 12
+    },
+    {
+      "name": "V1C-02 skeleton cells animating (refused; recorded)",
+      "scheme": "dark",
+      "infinite": 5
+    }
+  ]
+}

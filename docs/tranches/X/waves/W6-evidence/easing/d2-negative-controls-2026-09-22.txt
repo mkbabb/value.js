@@ -1,0 +1,104 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X.W6.d · gate d2 NEGATIVE CONTROLS, RE-CAPTURED 2026-09-22 (X-W6 Repair 1; Check 3 defect 3).
+Dated file BESIDE d2-negative-controls-2026-09-19.txt (E-3: that file stands; its four blocks print GREEN, which is the defect).
+Each direction runs a scratch COPY of the gate at HEAD 9557e6b5 with ROOT pinned to the repo and ONE perturbation;
+the committed gate and ask are never edited. Copies: /private/tmp/claude-504/scr/d2-dir{1,2,3}.mjs.
+
+DIRECTION 1 - the ask must CARRY the census: LabeledField's shipped 'error' slot dropped from a COPY of the ask's table.
+$ node d2-dir1.mjs
+GATE d2 (easing readout) — RED
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s) (readout ranges read at HEAD: 184-206, 319-330, 331-334, 335-338, 339-341, 342-344)
+  FAIL the ask states `LabeledField` without its shipped slot `error` — the census must be pasted, not summarised
+exit=1
+
+DIRECTION 2 - a fitting primitive refuses the letter branch: ACTION_SLOT widened to accept 'default' (NumberField then fits).
+$ node d2-dir2.mjs
+GATE d2 (easing readout) — RED
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncrement
+  branch selected by the census: COMPOSE; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s) (readout ranges read at HEAD: 184-206, 319-330, 331-334, 335-338, 339-341, 342-344)
+  FAIL a fitting published primitive EXISTS (NumberField via ./number-field, NumberFieldContent via ./number-field, NumberFieldDecrement via ./number-field, NumberFieldIncrement via ./number-field) and the readout does not compose it — W6.md:226 fails d2 in this direction explicitly
+exit=1
+
+DIRECTION 3 - L4 (scope corrected at 78af2c6a) still reds a readout restyle: a COPY of the editor with 'rounded-full ... ring-1' added to the readout rail, diffed against the pre-wave bytes.
+$ node d2-dir3.mjs
+GATE d2 (easing readout) — RED
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 1 line(s) (readout ranges read at HEAD: 184-206, 319-330, 331-334, 335-338, 339-341, 342-344)
+  FAIL this wave added 1 styling line(s) to the readout rail — W6.md:217 bans a local restyle in favour of the dated ask: 184: +                <div class="readout-rail flex items-center gap-1.5 rounded-full bg-w
+exit=1
+
+RESTORED run 1 - the committed gate, unperturbed:
+$ node docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-readout.mjs
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s) (readout ranges read at HEAD: 184-206, 319-330, 331-334, 335-338, 339-341, 342-344)
+exit=0
+
+RESTORED run 2 - the committed gate, unperturbed:
+$ node docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-readout.mjs
+GATE d2 (easing readout) — GREEN
+  installed @mkbabb/glass-ui 7.0.0; field subpaths published: ./labeled-field ./number-field; `./input` published: false
+    ./labeled-field  LabeledField           label REQUIRED  slots [default, error]
+    ./labeled-field  LabeledInput           label REQUIRED  slots [error]
+    ./labeled-field  LabeledSelect          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSlider          label REQUIRED  slots [error]
+    ./labeled-field  LabeledSwitch          label REQUIRED  slots [error]
+    ./number-field   NumberField            label optional  slots [default]
+    ./number-field   NumberFieldContent     label optional  slots [default]
+    ./number-field   NumberFieldDecrement   label optional  slots [default]
+    ./number-field   NumberFieldIncrement   label optional  slots [default]
+    ./number-field   NumberFieldInput       label optional  slots [—]
+  fitting primitives (optional label AND a leading/trailing action slot): NONE
+  branch selected by the census: DATED ASK; wave composes=false ask=true
+  local restyle of the readout in this wave's diff: 0 line(s) (readout ranges read at HEAD: 184-206, 319-330, 331-334, 335-338, 339-341, 342-344)
+exit=0
+

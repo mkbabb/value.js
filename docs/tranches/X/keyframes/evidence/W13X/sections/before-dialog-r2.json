@@ -1,0 +1,46 @@
+{
+ "run": "before-dialog-r2",
+ "base": "http://localhost:5331",
+ "da": [],
+ "db": [],
+ "ribbon": [],
+ "header": [],
+ "dialog": [
+  {
+   "cfg": "Keyboard-shortcuts-1440-light",
+   "dialog": true,
+   "focused": "button:Close",
+   "focusVisible": true,
+   "outline": "solid 2px",
+   "boxShadow": "none",
+   "ring": "RING"
+  },
+  {
+   "cfg": "Clear-all-1440-light",
+   "dialog": true,
+   "focused": "button:Cancel",
+   "focusVisible": true,
+   "outline": "solid 2px",
+   "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.0",
+   "ring": "RING"
+  },
+  {
+   "cfg": "Keyboard-shortcuts-1440-dark",
+   "dialog": true,
+   "focused": "button:Close",
+   "focusVisible": true,
+   "outline": "solid 2px",
+   "boxShadow": "none",
+   "ring": "RING"
+  },
+  {
+   "cfg": "Clear-all-1440-dark",
+   "dialog": true,
+   "focused": "button:Cancel",
+   "focusVisible": true,
+   "outline": "solid 2px",
+   "boxShadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.",
+   "ring": "RING"
+  }
+ ]
+}

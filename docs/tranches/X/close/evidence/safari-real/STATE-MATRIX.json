@@ -1,0 +1,80 @@
+{
+  "servedModel": "SERVED MODEL: claude-opus-5-5",
+  "cell": "safari-app (real Safari.app via safaridriver)",
+  "separateFrom": "webkit-engine (docs/tranches/X/close/evidence/browser/) — I-20, never merged, no verdict copied",
+  "binary": "Safari 26.4 (21624.1.16.11.4) / macOS 26.4.1 — version read from the installed bundle plist; the binary was NOT launched",
+  "cells": [
+    {
+      "state": "RTL (dir=rtl post-load)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "reachable when the owner runs the cell",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "dark scheme (app toggle)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "reachable when the owner runs the cell",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "zoom (execute)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "reachable when the owner runs the cell",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "prefers-reduced-motion",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "UNREACHABLE-IN-CELL (needs media emulation WebDriver classic lacks)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "prefers-color-scheme (no toggle)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "UNREACHABLE-IN-CELL (needs media emulation WebDriver classic lacks)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "pointer:coarse",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "UNREACHABLE-IN-CELL (needs media emulation WebDriver classic lacks)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "forced-colors",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "UNVERIFIABLE-IN-CELL (fold S7 / W11.11: only the static roster grep counts)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "print register",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "UNVERIFIABLE-IN-CELL (fold S7 / W11.11: only the static roster grep counts)",
+      "png": null,
+      "sha256": null
+    },
+    {
+      "state": "dock morph arm (glass S0 --dock-expand-t)",
+      "safariVerdict": "UNMEASURED",
+      "reason": "UNMEASURED (owner-scheduled, COHESION §0ei.3: safaridriver always opens and activates a Safari window; no seat runs Safari.app)",
+      "inCellReach": "reachable when the owner runs the cell",
+      "png": null,
+      "sha256": null
+    }
+  ]
+}

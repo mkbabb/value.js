@@ -1,0 +1,25 @@
+SERVED MODEL: claude-opus-5-5
+START 15:52:58 load { 111.35 131.59 157.17 }
+
+> @mkbabb/keyframes.js@6.0.0 check
+> vue-tsc --noEmit -p tsconfig.json && vue-tsc --noEmit -p tsconfig.test.json && npm run proof:structure
+
+
+> @mkbabb/keyframes.js@6.0.0 proof:structure
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=0 END 15:53:37 load { 114.21 129.79 155.34 }
+START 15:53:37 load { 114.21 129.79 155.34 }
+
+> @mkbabb/keyframes.js@6.0.0 check
+> vue-tsc --noEmit -p tsconfig.json && vue-tsc --noEmit -p tsconfig.test.json && npm run proof:structure
+
+
+> @mkbabb/keyframes.js@6.0.0 proof:structure
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=0 END 15:54:20 load { 116.16 128.21 153.44 }

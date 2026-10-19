@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5
+maxGap: rounds 101 · median before 167 · median after 150 · median ratio 0.887 · 95% bootstrap upper 0.913 · GREEN
+longestTaskMs: rounds 101 · median before 124.1 · median after 79.6 · median ratio 0.650 · 95% bootstrap upper 0.661 · GREEN
+load range 80.84–337.32

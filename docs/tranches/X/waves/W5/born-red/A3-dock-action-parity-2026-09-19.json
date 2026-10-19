@@ -1,0 +1,56 @@
+{
+ "probe": "dock-action-parity",
+ "gate": "A3",
+ "cureOwner": "X-W8 (MT-DOCK-LAYERS-1) — COHESION §0k.3 S-1; X-W5 witnesses only",
+ "base": "http://localhost:9000",
+ "when": "2026-09-19T12:30:18.971Z",
+ "live": [
+  {
+   "label": "mobile390",
+   "width": 390,
+   "height": 844,
+   "dockBtnFound": true,
+   "dockDisabled": true,
+   "dockChanged": false,
+   "paneBtnFound": true,
+   "paneChanged": true
+  },
+  {
+   "label": "zoom200_720x900",
+   "width": 720,
+   "height": 900,
+   "dockBtnFound": true,
+   "dockDisabled": true,
+   "dockChanged": false,
+   "paneBtnFound": true,
+   "paneChanged": true
+  },
+  {
+   "label": "desktop1440",
+   "width": 1440,
+   "height": 900,
+   "dockBtnFound": true,
+   "dockDisabled": false,
+   "dockChanged": true,
+   "paneBtnFound": true,
+   "paneChanged": true
+  }
+ ],
+ "source": {
+  "unconditionalPaneFlip": true,
+  "paneSlots": 3,
+  "boundSlots": 2,
+  "everySlotReports": false,
+  "dockCommandRegistry": false
+ },
+ "parity": {
+  "mobileChanged": false,
+  "zoom200Changed": false,
+  "desktopChanged": true,
+  "green": false
+ },
+ "saveCancelDiscardArm": {
+  "green": false,
+  "note": "a mobile edit may not report success while the edit is discarded"
+ }
+}

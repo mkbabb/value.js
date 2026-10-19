@@ -1,0 +1,73 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X-W3 §8 artefact 3 — api-test-after.txt (unit X.W3.1's leg)
+# ⟨cmd⟩ cd api && npm test   — the AFTER transcript, run twice back to back.
+# Wall clock: 2026-09-18 17:39:05 / 17:39:19 EDT.
+# RUN 1: Test Files  39 passed (39) | Tests  222 passed (222) | exit 0 | 12.63s
+# RUN 2: Test Files  39 passed (39) | Tests  222 passed (222) | exit 0 | 12.83s
+#
+# DELTA against api-test-before.txt (38 files / 213 tests):
+#   +1 test file   = src/modules/palette/__tests__/palette-policy.test.ts (this unit's create)
+#   +9 tests       = that file's 9 rows, all GREEN
+#   0 regressions  — every one of the 213 pre-existing tests still passes.
+# The wave's own api-test-after.txt is owed at close; this is unit X.W3.1's leg of it.
+
+
+> palette-api@2.0.0 test
+> vitest run
+
+
+ RUN  v3.2.4 /Users/mkbabb/Programming/value.js/api
+
+stdout | src/modules/meta/__tests__/meta.test.ts > routes.meta — GET /health (real readiness: reachable + primary) > returns 200 ok with mongo reachable AND a primary elected
+Connected to MongoDB
+
+ ✓ src/modules/meta/__tests__/meta.test.ts (8 tests) 875ms
+   ✓ routes.meta — GET /health (real readiness: reachable + primary) > returns 200 ok with mongo reachable AND a primary elected  856ms
+ ✓ test/conformance/sessions-colors.test.ts (12 tests) 424ms
+ ✓ test/conformance/withTransaction-rollback-h-w1.test.ts (9 tests) 406ms
+ ✓ test/conformance/txn-right-sizing.test.ts (5 tests) 326ms
+ ✓ src/modules/palette/__tests__/palette-list.test.ts (4 tests) 295ms
+ ✓ src/modules/palette/__tests__/palettes-publish.test.ts (11 tests) 242ms
+ ✓ src/modules/palette/__tests__/palette.test.ts (10 tests) 187ms
+ ✓ src/modules/palette/__tests__/palette-policy.test.ts (9 tests) 122ms
+ ✓ src/modules/admin/__tests__/admin-palettes.test.ts (4 tests) 111ms
+ ✓ src/modules/palette/__tests__/palette-forks.test.ts (7 tests) 146ms
+ ✓ src/modules/palette/__tests__/palettes-votes-flags.test.ts (7 tests) 137ms
+ ✓ test/conformance/idempotency.test.ts (8 tests) 141ms
+ ✓ src/modules/palette/__tests__/palettes-forks.test.ts (6 tests) 134ms
+ ✓ src/modules/palette/__tests__/vote.test.ts (8 tests) 128ms
+ ✓ src/modules/admin/__tests__/admin-users.test.ts (5 tests) 125ms
+ ✓ test/conformance/crud.test.ts (8 tests) 142ms
+ ✓ src/modules/palette/__tests__/palettes-ownership.test.ts (7 tests) 126ms
+ ✓ src/modules/palette/__tests__/palette-votes.test.ts (4 tests) 107ms
+ ✓ src/modules/color/__tests__/proposedName.test.ts (5 tests) 103ms
+ ✓ src/modules/session/__tests__/user.test.ts (5 tests) 106ms
+ ✓ src/modules/session/__tests__/session.test.ts (5 tests) 103ms
+ ✓ src/modules/palette/__tests__/palette-crud.test.ts (6 tests) 105ms
+ ✓ src/modules/admin/__tests__/admin-tags.test.ts (4 tests) 99ms
+ ✓ src/modules/admin/__tests__/admin-impersonate.test.ts (5 tests) 83ms
+ ✓ src/modules/palette/__tests__/flag.test.ts (4 tests) 76ms
+ ✓ src/modules/palette/__tests__/palette-flags.test.ts (4 tests) 81ms
+ ✓ src/modules/admin/__tests__/admin-colors.test.ts (5 tests) 73ms
+ ✓ src/modules/color/__tests__/tag.test.ts (4 tests) 71ms
+ ✓ src/modules/admin/__tests__/adminAudit.test.ts (3 tests) 69ms
+ ✓ src/modules/palette/__tests__/paletteVersion.test.ts (3 tests) 53ms
+ ✓ src/modules/palette/__tests__/palette-versions.test.ts (4 tests) 50ms
+ ✓ test/conformance/withTransaction-rollback.test.ts (2 tests) 53ms
+ ✓ src/modules/session/__tests__/session-token-at-rest.test.ts (1 test) 35ms
+ ✓ src/modules/palette/__tests__/palettes-patch-readcount.test.ts (1 test) 44ms
+ ✓ src/modules/palette/__tests__/palette-ownership.test.ts (2 tests) 40ms
+stdout | test/conformance/db-indexes.test.ts > db.ts index topology
+Connected to MongoDB
+
+ ✓ test/conformance/db-indexes.test.ts (5 tests) 18ms
+ ✓ test/conformance/envelope.test.ts (18 tests) 2ms
+ ✓ test/hono-advisory-floor.test.ts (2 tests) 2ms
+ ✓ test/config-truth.test.ts (2 tests) 1ms
+
+ Test Files  39 passed (39)
+      Tests  222 passed (222)
+   Start at  17:39:19
+   Duration  12.83s (transform 215ms, setup 0ms, collect 1.74s, tests 5.44s, environment 2ms, prepare 769ms)
+

@@ -1,0 +1,24 @@
+## r1 light load { 22.74 23.69 21.76 }
+{"W":1440,"H":900,"theme":"light","hits":{"admin":1,"browse":0},"arm":"overlying","head":true,"title":"Users 47","host":true,"port":true,"hostSH":3177,"hostCH":777,"rows":0,"scrollers":[{"cls":"card-scroll-host pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden","sh":3177,"ch":777}],"docSH":9
+1440x900 light A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":777,"docSH":900,"before":"false","after":"true","back":"false"}
+{"W":1440,"H":900,"theme":"light","arm":"seated","head":true,"title":"Mix","host":false,"port":true,"rows":0,"scrollers":[{"cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","sh":787,"ch":361}],"docSH":900,"innerH":900,"before":"false","restTitlePx":41.888,"afte
+1440x900 light A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2
+## r1 dark load { 19.79 22.84 21.54 }
+{"W":1440,"H":900,"theme":"dark","hits":{"admin":1,"browse":0},"arm":"overlying","head":true,"title":"Users 47","host":true,"port":true,"hostSH":3177,"hostCH":777,"rows":0,"scrollers":[{"cls":"card-scroll-host pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden","sh":3177,"ch":777}],"docSH":90
+1440x900 dark A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":777,"docSH":900,"before":"false","after":"true","back":"false"}
+{"W":1440,"H":900,"theme":"dark","arm":"seated","head":true,"title":"Mix","host":false,"port":true,"rows":0,"scrollers":[{"cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","sh":787,"ch":361}],"docSH":900,"innerH":900,"before":"false","restTitlePx":41.888,"after
+1440x900 dark A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2
+## r2 light load { 19.22 22.42 21.44 }
+{"W":1440,"H":900,"theme":"light","hits":{"admin":1,"browse":0},"arm":"overlying","head":true,"title":"Users 47","host":true,"port":true,"hostSH":3177,"hostCH":777,"rows":0,"scrollers":[{"cls":"card-scroll-host pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden","sh":3177,"ch":777}],"docSH":9
+1440x900 light A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":777,"docSH":900,"before":"false","after":"true","back":"false"}
+{"W":1440,"H":900,"theme":"light","arm":"seated","head":true,"title":"Mix","host":false,"port":true,"rows":0,"scrollers":[{"cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","sh":787,"ch":361}],"docSH":900,"innerH":900,"before":"false","restTitlePx":41.888,"afte
+1440x900 light A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2
+## r2 dark load { 15.83 21.22 21.04 }
+{"W":1440,"H":900,"theme":"dark","hits":{"admin":1,"browse":0},"arm":"overlying","head":true,"title":"Users 47","host":true,"port":true,"hostSH":3177,"hostCH":777,"rows":0,"scrollers":[{"cls":"card-scroll-host pane-scroll-fade flex-1 min-h-0 min-w-0 overflow-x-hidden","sh":3177,"ch":777}],"docSH":90
+1440x900 dark A2-VA-X-14 overlying-with-room /admin/users GREEN {"hostSH":3177,"hostCH":777,"docSH":900,"before":"false","after":"true","back":"false"}
+{"W":1440,"H":900,"theme":"dark","arm":"seated","head":true,"title":"Mix","host":false,"port":true,"rows":0,"scrollers":[{"cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min","sh":787,"ch":361}],"docSH":900,"innerH":900,"before":"false","restTitlePx":41.888,"after
+1440x900 dark A2-VA-X-14 seated /mix GREEN {"host":false,"port":true,"after":"false","titlePx":41.888,"restTitlePx":41.888}
+GREEN 2/2

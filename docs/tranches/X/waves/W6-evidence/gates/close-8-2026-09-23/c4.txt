@@ -1,0 +1,11 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/interpolation-subset.test.ts (5 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  03:56:07
+   Duration  415ms (transform 49ms, setup 32ms, collect 53ms, tests 3ms, environment 118ms, prepare 34ms)
+
+EXIT=0

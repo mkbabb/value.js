@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import { ATMOSPHERE_TESTID } from "../fixtures/webgl-appearance";
 import { detectRenderer, isSoftwareGL } from "../perf/frame-budget";
 import { sampleRegion, meanRgb, srgbToOklch } from "../fixtures/frame-diff";
@@ -47,9 +48,7 @@ test("O-1 color-truth — the settled boot field is the DERIVED seed's material"
     );
 
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(SEED));
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     const renderer = await detectRenderer(page);
     const canvas = page.getByTestId(ATMOSPHERE_TESTID);

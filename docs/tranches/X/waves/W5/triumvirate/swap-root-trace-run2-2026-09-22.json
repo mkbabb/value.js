@@ -1,0 +1,942 @@
+{
+  "probe": "swap-root-trace.mjs",
+  "servedModel": "claude-fable-5-1",
+  "unit": "X.W5.t",
+  "at": "2026-09-22T23:54:41.417Z",
+  "base": "http://127.0.0.1:8093",
+  "windowMs": 900,
+  "walks": [
+    {
+      "travel": "on",
+      "home": {
+        "wrappers": [
+          {
+            "role": "stage",
+            "label": "Picker",
+            "w": 512,
+            "h": 7459,
+            "layerPx": 15276032,
+            "children": 1,
+            "leaving": 0,
+            "entering": 0,
+            "nodes": 79,
+            "svgFilterPrimitives": 2,
+            "filterUsers": 3,
+            "backdropUsers": 1,
+            "willChange": 1
+          },
+          {
+            "role": "inspector",
+            "label": "About",
+            "w": 512,
+            "h": 7459,
+            "layerPx": 15276032,
+            "children": 1,
+            "leaving": 0,
+            "entering": 0,
+            "nodes": 1455,
+            "svgFilterPrimitives": 0,
+            "filterUsers": 0,
+            "backdropUsers": 1,
+            "willChange": 0
+          }
+        ],
+        "animations": 14,
+        "dpr": 2
+      },
+      "hops": [
+        {
+          "hop": "→/gradient",
+          "travel": "on",
+          "frames": 49,
+          "over32": 9,
+          "over32Ratio": 0.184,
+          "median": 8,
+          "max": 81,
+          "msByBucket": {
+            "raster": 730,
+            "gpu": 53,
+            "composite": 50,
+            "style": 48,
+            "js": 30,
+            "layout": 13,
+            "paint": 9,
+            "prepaint": 4,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 730,
+            "GPUTask": 53,
+            "Commit": 50,
+            "UpdateLayoutTree": 48,
+            "FunctionCall": 28,
+            "Layout": 13,
+            "Paint": 8,
+            "PrePaint": 4,
+            "TimerFire": 2,
+            "PaintImage": 1,
+            "EventDispatch": 0,
+            "HitTest": 0
+          },
+          "traceEvents": 8436,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Gradient",
+                "w": 512,
+                "h": 7974,
+                "layerPx": 16330752,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 361,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 4,
+                "backdropUsers": 1,
+                "willChange": 3
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 7974,
+                "layerPx": 16330752,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 1509,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 1,
+                "willChange": 2
+              }
+            ],
+            "animations": 30,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Gradient",
+                "w": 512,
+                "h": 960,
+                "layerPx": 1966080,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 282,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 1,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 960,
+                "layerPx": 1966080,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 8,
+            "dpr": 2
+          }
+        },
+        {
+          "hop": "→/extract",
+          "travel": "on",
+          "frames": 52,
+          "over32": 11,
+          "over32Ratio": 0.212,
+          "median": 8,
+          "max": 68,
+          "msByBucket": {
+            "raster": 238,
+            "style": 52,
+            "js": 20,
+            "paint": 7,
+            "layout": 6,
+            "prepaint": 4,
+            "composite": 3,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 238,
+            "UpdateLayoutTree": 52,
+            "FunctionCall": 19,
+            "Paint": 7,
+            "Layout": 6,
+            "PrePaint": 4,
+            "Commit": 3,
+            "PaintImage": 1,
+            "EventDispatch": 1,
+            "TimerFire": 1,
+            "HitTest": 0
+          },
+          "traceEvents": 8335,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Extract",
+                "w": 512,
+                "h": 1538,
+                "layerPx": 3149824,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 352,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 4,
+                "backdropUsers": 0,
+                "willChange": 2
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 1538,
+                "layerPx": 3149824,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 31,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Extract",
+                "w": 512,
+                "h": 578,
+                "layerPx": 1183744,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 70,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 3,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 578,
+                "layerPx": 1183744,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 18,
+            "dpr": 2
+          }
+        },
+        {
+          "hop": "→/mix",
+          "travel": "on",
+          "frames": 23,
+          "over32": 14,
+          "over32Ratio": 0.609,
+          "median": 35,
+          "max": 104,
+          "msByBucket": {
+            "raster": 456,
+            "composite": 114,
+            "gpu": 111,
+            "style": 63,
+            "js": 58,
+            "layout": 18,
+            "paint": 12,
+            "prepaint": 5,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 456,
+            "Commit": 114,
+            "GPUTask": 111,
+            "UpdateLayoutTree": 63,
+            "FunctionCall": 52,
+            "Layout": 18,
+            "Paint": 11,
+            "PrePaint": 5,
+            "EventDispatch": 5,
+            "PaintImage": 1,
+            "TimerFire": 1,
+            "HitTest": 0
+          },
+          "traceEvents": 8076,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Picker",
+                "w": 512,
+                "h": 1169,
+                "layerPx": 2394112,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 149,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 6,
+                "backdropUsers": 1,
+                "willChange": 3
+              },
+              {
+                "role": "inspector",
+                "label": "Mix",
+                "w": 512,
+                "h": 1169,
+                "layerPx": 2394112,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 101,
+                "svgFilterPrimitives": 10,
+                "filterUsers": 10,
+                "backdropUsers": 0,
+                "willChange": 2
+              }
+            ],
+            "animations": 54,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Picker",
+                "w": 512,
+                "h": 685,
+                "layerPx": 1402880,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 79,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 3,
+                "backdropUsers": 1,
+                "willChange": 1
+              },
+              {
+                "role": "inspector",
+                "label": "Mix",
+                "w": 512,
+                "h": 685,
+                "layerPx": 1402880,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 47,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 2,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 14,
+            "dpr": 2
+          }
+        },
+        {
+          "hop": "→/generate",
+          "travel": "on",
+          "frames": 63,
+          "over32": 11,
+          "over32Ratio": 0.175,
+          "median": 8,
+          "max": 67,
+          "msByBucket": {
+            "raster": 340,
+            "gpu": 52,
+            "composite": 50,
+            "style": 36,
+            "js": 26,
+            "layout": 8,
+            "paint": 8,
+            "prepaint": 4,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 340,
+            "GPUTask": 52,
+            "Commit": 50,
+            "UpdateLayoutTree": 36,
+            "FunctionCall": 25,
+            "Layout": 8,
+            "Paint": 7,
+            "PrePaint": 4,
+            "PaintImage": 1,
+            "TimerFire": 1,
+            "EventDispatch": 0,
+            "HitTest": 0
+          },
+          "traceEvents": 8102,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Generate",
+                "w": 512,
+                "h": 1142,
+                "layerPx": 2338816,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 170,
+                "svgFilterPrimitives": 12,
+                "filterUsers": 7,
+                "backdropUsers": 1,
+                "willChange": 3
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 1142,
+                "layerPx": 2338816,
+                "children": 2,
+                "leaving": 1,
+                "entering": 1,
+                "nodes": 101,
+                "svgFilterPrimitives": 10,
+                "filterUsers": 10,
+                "backdropUsers": 0,
+                "willChange": 2
+              }
+            ],
+            "animations": 27,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Generate",
+                "w": 512,
+                "h": 515,
+                "layerPx": 1054720,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 91,
+                "svgFilterPrimitives": 10,
+                "filterUsers": 5,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 515,
+                "layerPx": 1054720,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 6,
+            "dpr": 2
+          }
+        }
+      ]
+    },
+    {
+      "travel": "suppressed",
+      "home": {
+        "wrappers": [
+          {
+            "role": "stage",
+            "label": "Picker",
+            "w": 512,
+            "h": 7459,
+            "layerPx": 15276032,
+            "children": 1,
+            "leaving": 0,
+            "entering": 0,
+            "nodes": 79,
+            "svgFilterPrimitives": 2,
+            "filterUsers": 3,
+            "backdropUsers": 1,
+            "willChange": 1
+          },
+          {
+            "role": "inspector",
+            "label": "About",
+            "w": 512,
+            "h": 7459,
+            "layerPx": 15276032,
+            "children": 1,
+            "leaving": 0,
+            "entering": 0,
+            "nodes": 1455,
+            "svgFilterPrimitives": 0,
+            "filterUsers": 0,
+            "backdropUsers": 1,
+            "willChange": 0
+          }
+        ],
+        "animations": 15,
+        "dpr": 2
+      },
+      "hops": [
+        {
+          "hop": "→/gradient",
+          "travel": "suppressed",
+          "frames": 105,
+          "over32": 2,
+          "over32Ratio": 0.019,
+          "median": 8,
+          "max": 104,
+          "msByBucket": {
+            "raster": 339,
+            "style": 71,
+            "js": 45,
+            "gpu": 26,
+            "composite": 22,
+            "layout": 11,
+            "paint": 11,
+            "prepaint": 6,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 339,
+            "UpdateLayoutTree": 71,
+            "FunctionCall": 44,
+            "GPUTask": 26,
+            "Commit": 22,
+            "Layout": 11,
+            "Paint": 10,
+            "PrePaint": 6,
+            "PaintImage": 1,
+            "EventDispatch": 1,
+            "TimerFire": 1,
+            "HitTest": 0
+          },
+          "traceEvents": 11865,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Gradient",
+                "w": 512,
+                "h": 960,
+                "layerPx": 1966080,
+                "children": 1,
+                "leaving": 0,
+                "entering": 1,
+                "nodes": 282,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 1,
+                "backdropUsers": 0,
+                "willChange": 1
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 960,
+                "layerPx": 1966080,
+                "children": 0,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 0,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 0,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 9,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Gradient",
+                "w": 512,
+                "h": 960,
+                "layerPx": 1966080,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 282,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 1,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 960,
+                "layerPx": 1966080,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 8,
+            "dpr": 2
+          }
+        },
+        {
+          "hop": "→/extract",
+          "travel": "suppressed",
+          "frames": 63,
+          "over32": 11,
+          "over32Ratio": 0.175,
+          "median": 11,
+          "max": 40,
+          "msByBucket": {
+            "raster": 134,
+            "style": 69,
+            "js": 22,
+            "paint": 10,
+            "layout": 5,
+            "prepaint": 5,
+            "composite": 3,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 134,
+            "UpdateLayoutTree": 69,
+            "FunctionCall": 21,
+            "Paint": 9,
+            "Layout": 5,
+            "PrePaint": 5,
+            "Commit": 3,
+            "PaintImage": 1,
+            "EventDispatch": 1,
+            "TimerFire": 1,
+            "HitTest": 0
+          },
+          "traceEvents": 10609,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Extract",
+                "w": 512,
+                "h": 578,
+                "layerPx": 1183744,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 70,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 3,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 578,
+                "layerPx": 1183744,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 24,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Extract",
+                "w": 512,
+                "h": 578,
+                "layerPx": 1183744,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 70,
+                "svgFilterPrimitives": 0,
+                "filterUsers": 3,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 578,
+                "layerPx": 1183744,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 18,
+            "dpr": 2
+          }
+        },
+        {
+          "hop": "→/mix",
+          "travel": "suppressed",
+          "frames": 23,
+          "over32": 16,
+          "over32Ratio": 0.696,
+          "median": 45,
+          "max": 66,
+          "msByBucket": {
+            "raster": 232,
+            "gpu": 164,
+            "composite": 159,
+            "js": 79,
+            "style": 66,
+            "layout": 22,
+            "paint": 12,
+            "prepaint": 5,
+            "hitTest": 0
+          },
+          "msByName": {
+            "RasterTask": 232,
+            "GPUTask": 164,
+            "Commit": 159,
+            "UpdateLayoutTree": 66,
+            "FunctionCall": 65,
+            "Layout": 22,
+            "EventDispatch": 13,
+            "Paint": 11,
+            "PrePaint": 5,
+            "PaintImage": 1,
+            "TimerFire": 1,
+            "HitTest": 0
+          },
+          "traceEvents": 7925,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Picker",
+                "w": 512,
+                "h": 673,
+                "layerPx": 1378304,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 79,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 3,
+                "backdropUsers": 1,
+                "willChange": 1
+              },
+              {
+                "role": "inspector",
+                "label": "Mix",
+                "w": 512,
+                "h": 673,
+                "layerPx": 1378304,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 47,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 2,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 30,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Picker",
+                "w": 512,
+                "h": 685,
+                "layerPx": 1402880,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 79,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 3,
+                "backdropUsers": 1,
+                "willChange": 1
+              },
+              {
+                "role": "inspector",
+                "label": "Mix",
+                "w": 512,
+                "h": 685,
+                "layerPx": 1402880,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 47,
+                "svgFilterPrimitives": 2,
+                "filterUsers": 2,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 14,
+            "dpr": 2
+          }
+        },
+        {
+          "hop": "→/generate",
+          "travel": "suppressed",
+          "frames": 118,
+          "over32": 2,
+          "over32Ratio": 0.017,
+          "median": 8,
+          "max": 39,
+          "msByBucket": {
+            "raster": 161,
+            "style": 69,
+            "js": 32,
+            "gpu": 26,
+            "composite": 25,
+            "layout": 9,
+            "paint": 9,
+            "prepaint": 7
+          },
+          "msByName": {
+            "RasterTask": 161,
+            "UpdateLayoutTree": 69,
+            "FunctionCall": 31,
+            "GPUTask": 26,
+            "Commit": 25,
+            "Layout": 9,
+            "Paint": 9,
+            "PrePaint": 7,
+            "TimerFire": 1,
+            "PaintImage": 0,
+            "EventDispatch": 0
+          },
+          "traceEvents": 12039,
+          "midGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Generate",
+                "w": 512,
+                "h": 515,
+                "layerPx": 1054720,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 91,
+                "svgFilterPrimitives": 10,
+                "filterUsers": 5,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 515,
+                "layerPx": 1054720,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 10,
+            "dpr": 2
+          },
+          "endGeom": {
+            "wrappers": [
+              {
+                "role": "stage",
+                "label": "Generate",
+                "w": 512,
+                "h": 515,
+                "layerPx": 1054720,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 91,
+                "svgFilterPrimitives": 10,
+                "filterUsers": 5,
+                "backdropUsers": 0,
+                "willChange": 0
+              },
+              {
+                "role": "inspector",
+                "label": "Palettes",
+                "w": 512,
+                "h": 515,
+                "layerPx": 1054720,
+                "children": 1,
+                "leaving": 0,
+                "entering": 0,
+                "nodes": 54,
+                "svgFilterPrimitives": 8,
+                "filterUsers": 8,
+                "backdropUsers": 0,
+                "willChange": 0
+              }
+            ],
+            "animations": 6,
+            "dpr": 2
+          }
+        }
+      ]
+    }
+  ]
+}

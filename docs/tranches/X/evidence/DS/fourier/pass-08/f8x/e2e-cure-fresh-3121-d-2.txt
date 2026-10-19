@@ -1,0 +1,68 @@
+
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] ../../../web/node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "../../../web/node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 6 tests using 1 worker
+
+[1/6] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[2/6] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 light) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+[3/6] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[4/6] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  1) [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+
+    Error: expect(locator).toHaveClass(expected) failed
+
+    Locator: locator('.controls-dock-anchor .glass-dock')
+    Expected pattern: /\bcollapsed\b/
+    Received string:  "glass-dock horizontal shape-pill expanded fit-content"
+    Timeout: 30000ms
+
+    Call log:
+      - Expect "toHaveClass" with timeout 30000ms
+      - waiting for locator('.controls-dock-anchor .glass-dock')
+        3 × locator resolved to <div expanded="true" data-morphing="" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+          - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+        61 × locator resolved to <div expanded="true" data-v-3902c638="" data-v-bf700a2f="" data-backdrop-mode="live" data-backdrop-sample-source="canvas" data-backdrop-sample-state="unavailable" data-backdrop-sample-reason="source-unavailable" class="glass-dock horizontal shape-pill expanded fit-content">…</div>
+           - unexpected value "glass-dock horizontal shape-pill expanded fit-content"
+
+
+      72 |     // re-seats after the layer swap); wait until its box holds still.
+      73 |     const dock = page.locator(".controls-dock-anchor .glass-dock");
+    > 74 |     await expect(dock).toHaveClass(/\bcollapsed\b/, { timeout: 30_000 });
+         |                        ^
+      75 |     let last = "";
+      76 |     await expect
+      77 |         .poll(async () => {
+        at traceOff (/Users/mkbabb/Programming/fourier-analysis/.worktrees/f8x-base/web/e2e/f-w14u-d.spec.ts:74:24)
+        at loadCollapsed (/Users/mkbabb/Programming/fourier-analysis/.worktrees/f8x-base/web/e2e/f-w14u-d.spec.ts:42:16)
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/f8x-base/web/e2e/f-w14u-d.spec.ts:141:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14u-d-F-W14U-d-—-collap-42b00-lyph-and-stays-on-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14u-d-F-W14U-d-—-collap-42b00-lyph-and-stays-on-the-plate-chromium/error-context.md
+
+
+[5/6] [chromium] › e2e/f-w14u-d.spec.ts:102:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d1 — the collapsed speed reading is glass's Metric: value never dimmer than its unit, the dock's own size
+[6/6] [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (390 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate
+  1 failed
+    [chromium] › e2e/f-w14u-d.spec.ts:136:9 › F.W14U.d — collapsed docks, consumer half (1440 dark) › d2 — the canvas dock's view dot never covers the collapsed face's glyph and stays on the plate 
+  5 passed (51.8s)

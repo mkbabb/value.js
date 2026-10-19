@@ -1,0 +1,5414 @@
+{
+ "tree": "5ac82779 dirty=6",
+ "at": "2026-09-23T16:01:28.984Z",
+ "frames": [
+  {
+   "frame": "1440-light-01-default.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-01b-card.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-light-02a-trigger-hover.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-light-02b-trigger-focus.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-light-03a-select-harmony-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-03a2-harmony-kbd-hover.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-03b-select-arrangement-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-03c-select-medium-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-03d-select-motion-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-pastel.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-watercolor.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-oil.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-crayon.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-vangogh.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-oil-pastel.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-04-medium-smooth.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-05a-slider-focus-energy-max.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-light-05b-slider-dragging.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-light-05c-tuned.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-06a-after-copy.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-light-06b-after-reset.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-01-default.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-01b-card.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "390-light-01c-fullpage.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-02b-trigger-focus.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "390-light-03a-select-harmony-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-03a2-harmony-kbd-hover.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-03b-select-arrangement-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-03c-select-medium-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-03d-select-motion-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-04-medium-watercolor.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-04-medium-vangogh.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-04-medium-oil-pastel.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-05a-slider-focus-energy-max.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "390-light-05b-slider-dragging.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "390-light-05c-tuned.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-06a-after-copy.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-light-06b-after-reset.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-01-default.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-01b-card.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-dark-02a-trigger-hover.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-dark-02b-trigger-focus.png",
+   "tree": "7fdd0c9f dirty=6"
+  },
+  {
+   "frame": "1440-dark-03a-select-harmony-open.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-03a2-harmony-kbd-hover.png",
+   "tree": "7fdd0c9f dirty=6",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-03b-select-arrangement-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-03c-select-medium-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-03d-select-motion-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-pastel.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-watercolor.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-oil.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-crayon.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-vangogh.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-oil-pastel.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-04-medium-smooth.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-05a-slider-focus-energy-max.png",
+   "tree": "7fdd0c9f dirty=7"
+  },
+  {
+   "frame": "1440-dark-05b-slider-dragging.png",
+   "tree": "7fdd0c9f dirty=7"
+  },
+  {
+   "frame": "1440-dark-05c-tuned.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-06a-after-copy.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "1440-dark-06b-after-reset.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-01-default.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-01b-card.png",
+   "tree": "7fdd0c9f dirty=7"
+  },
+  {
+   "frame": "390-dark-01c-fullpage.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-02b-trigger-focus.png",
+   "tree": "7fdd0c9f dirty=7"
+  },
+  {
+   "frame": "390-dark-03a-select-harmony-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-03a2-harmony-kbd-hover.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-03b-select-arrangement-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-03c-select-medium-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-03d-select-motion-open.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-04-medium-watercolor.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-04-medium-vangogh.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-04-medium-oil-pastel.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-05a-slider-focus-energy-max.png",
+   "tree": "7fdd0c9f dirty=7"
+  },
+  {
+   "frame": "390-dark-05b-slider-dragging.png",
+   "tree": "7fdd0c9f dirty=7"
+  },
+  {
+   "frame": "390-dark-05c-tuned.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-06a-after-copy.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  },
+  {
+   "frame": "390-dark-06b-after-reset.png",
+   "tree": "7fdd0c9f dirty=7",
+   "hash": "#/atmosphere"
+  }
+ ],
+ "metrics": {
+  "1440-light-default": {
+   "hash": "#/atmosphere",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": {
+    "sel": "card",
+    "box": [
+     199,
+     175,
+     1042,
+     655
+    ],
+    "rad": "16px",
+    "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+    "pad": "0px",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-full relative flex flex",
+    "text": "AtmosphereAurora palette follows the pic"
+   },
+   "scroll": {
+    "scrollH": 576,
+    "clientH": 576
+   },
+   "h1": [
+    {
+     "sel": "h1",
+     "box": [
+      16,
+      151,
+      1408,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fa",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "route-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "title": [
+    {
+     "sel": ".pane-header-title",
+     "box": [
+      224,
+      192,
+      992,
+      44
+     ],
+     "rad": "0px",
+     "font": "41.888px/400 Fraunces, \"Fraunces Fa",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "pane-header-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "desc": [
+    {
+     "sel": ".pane-header-desc",
+     "box": [
+      224,
+      237,
+      992,
+      19
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Plus Jakarta Sans\", \"",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "pane-header-desc text-caption",
+     "text": "Aurora palette follows the picked color."
+    }
+   ],
+   "rowLabels": [
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      279,
+      72,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Harmony"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      327,
+      113,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Arrangement"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      375,
+      62,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Medium"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      423,
+      62,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Motion"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      582,
+      25,
+      60,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 0 0 0 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0 0 0 / 0.8)",
+     "pad": "4px 8px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      308,
+      272,
+      908,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      349,
+      320,
+      867,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      298,
+      368,
+      918,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      298,
+      416,
+      918,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Drifting"
+    }
+   ],
+   "console": [
+    {
+     "sel": ".config-console",
+     "box": [
+      224,
+      464,
+      992,
+      263
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "pad": "12px 14px",
+     "cls": "config-console console-well flex flex-col gap-5",
+     "text": "FieldColour Energy0.760Noise0.500Zones6"
+    }
+   ],
+   "sectionTitle": [
+    {
+     "sel": ".config-section-title",
+     "box": [
+      239,
+      484,
+      59,
+      20
+     ],
+     "rad": "0px",
+     "font": "16.4px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "config-section-title",
+     "text": "Field"
+    }
+   ],
+   "cfgRows": [
+    {
+     "sel": ".configurator-row",
+     "box": [
+      239,
+      519,
+      962,
+      61
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Colour Energy0.760"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      239,
+      586,
+      962,
+      61
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Noise0.500"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      239,
+      653,
+      962,
+      61
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Zones6"
+    }
+   ],
+   "rowLabelText": [
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      523,
+      110,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "glass-label truncate text-small font-medium text-foreground",
+     "text": "Colour Energy"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      357,
+      531,
+      34,
+      14
+     ],
+     "rad": "0px",
+     "font": "11px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "truncate text-micro font-mono text-muted-foreground/70",
+     "text": "0.760"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      552,
+      962,
+      24
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "glass-slider",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      552,
+      962,
+      24
+     ],
+     "rad": "9999px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklch(0.447121 0.00386159 34.63)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "slider-track",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      552,
+      731,
+      24
+     ],
+     "rad": "9999px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "slider-range glass-liquid-fill",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      961,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "2px rgb(251, 250, 248)",
+     "pad": "0px",
+     "cls": "slider-thumb glass-specular-track",
+     "text": ""
+    }
+   ],
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      961,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      714,
+      619,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      1189,
+      686,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "track": [],
+   "actionBar": [
+    {
+     "sel": ".config-action-bar",
+     "box": [
+      200,
+      751,
+      1040,
+      77
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.35)",
+     "pad": "10px 12px",
+     "cls": "config-action-bar",
+     "text": "Copy JSON  Reset"
+    }
+   ],
+   "actionDock": [
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      593,
+      762,
+      254,
+      56
+     ],
+     "rad": "9999px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "8px 12px",
+     "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-",
+     "text": "Copy JSON  Reset"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      605,
+      772,
+      135,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      746,
+      772,
+      89,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "actionBtns": [
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      605,
+      772,
+      135,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      746,
+      772,
+      89,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "listbox": [],
+   "options": [],
+   "dockItems": [
+    "Save edit",
+    "Cancel edit",
+    "Switch to slug",
+    "Generate new slug",
+    "Cancel",
+    "Select view",
+    "Toggle action bar",
+    "Menu",
+    "Login",
+    "@mbabb"
+   ],
+   "canvases": [
+    {
+     "box": [
+      0,
+      0,
+      1440,
+      900
+     ],
+     "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+     "z": "auto",
+     "parent": "app-layout"
+    }
+   ],
+   "regions": [],
+   "toasts": [
+    "Atmosphere view"
+   ],
+   "focus": {
+    "sel": "focus",
+    "box": [
+     0,
+     0,
+     1440,
+     900
+    ],
+    "rad": "0px",
+    "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgb(200, 70, 215)",
+    "border": "0px rgb(198, 180, 159)",
+    "pad": "0px",
+    "cls": "relative",
+    "text": "→Tools Login  @mbabb AtmosphereAtmospher"
+   },
+   "focusRing": {
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none"
+   }
+  },
+  "1440-light-focus": {
+   "focus": {
+    "sel": "focus",
+    "box": [
+     301,
+     272,
+     922,
+     37
+    ],
+    "rad": "9999px",
+    "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.973918 0.0056791 0.0137255 / 0.5525)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "pad": "8px 12px",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+    "text": "Analogous"
+   },
+   "ring": {
+    "outline": "rgb(28, 25, 23) none 3px",
+    "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+   }
+  },
+  "1440-light-open-harmony": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      308,
+      312,
+      910,
+      322
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "Analogous Complementary Split Complement"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      318,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      370,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      422,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Split Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      473,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Triad"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      525,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Tetradic"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      577,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Monochrome"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      692,
+      25,
+      60,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 0 0 0 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0 0 0 / 0.8)",
+     "pad": "4px 8px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    }
+   ]
+  },
+  "1440-light-open-arrangement": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      349,
+      360,
+      869,
+      144
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "ScatteredComposedCentred /* Hide scrollb"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      354,
+      366,
+      859,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      354,
+      410,
+      859,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Composed"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      354,
+      454,
+      859,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Centred"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      308,
+      272,
+      908,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    }
+   ]
+  },
+  "1440-light-open-medium": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      298,
+      408,
+      920,
+      320
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "SmoothPastelWatercolorOilCrayonVangoghOi"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      414,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      458,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Pastel"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      502,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Watercolor"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      546,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      590,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Crayon"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      634,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Vangogh"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      678,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil Pastel"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      349,
+      320,
+      867,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    }
+   ]
+  },
+  "1440-light-open-motion": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      298,
+      456,
+      920,
+      144
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "StillBreathingDrifting /* Hide scrollbar"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      462,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Still"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      506,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Breathing"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      550,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Drifting"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      298,
+      368,
+      918,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    }
+   ]
+  },
+  "1440-light-afterMedia": {
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ]
+  },
+  "1440-light-tuned": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "1",
+     "box": [
+      1189,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.11",
+     "box": [
+      344,
+      619,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "1",
+     "box": [
+      239,
+      686,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    }
+   ]
+  },
+  "1440-light-copy": {
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "1440-light-reset": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      961,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      714,
+      619,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      1189,
+      686,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ],
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "390-light-default": {
+   "hash": "#/atmosphere",
+   "html": "",
+   "bodyBg": "rgb(200, 70, 215)",
+   "overflowX": 0,
+   "card": {
+    "sel": "card",
+    "box": [
+     16,
+     133,
+     358,
+     698
+    ],
+    "rad": "16px",
+    "font": "16px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(28, 25, 23)",
+    "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+    "pad": "0px",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-full relative flex flex",
+    "text": "AtmosphereAurora palette follows the pic"
+   },
+   "scroll": {
+    "scrollH": 602,
+    "clientH": 602
+   },
+   "h1": [
+    {
+     "sel": "h1",
+     "box": [
+      16,
+      109,
+      358,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fa",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "route-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "title": [
+    {
+     "sel": ".pane-header-title",
+     "box": [
+      33,
+      150,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fa",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "pane-header-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "desc": [
+    {
+     "sel": ".pane-header-desc",
+     "box": [
+      33,
+      179,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "pane-header-desc text-caption",
+     "text": "Aurora palette follows the picked color."
+    }
+   ],
+   "rowLabels": [
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      220,
+      61,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Harmony"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      268,
+      96,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Arrangement"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      316,
+      52,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Medium"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      364,
+      52,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklab(0.457941 0.0144455 0.0327382)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Motion"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      137,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 0 0 0 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0 0 0 / 0.8)",
+     "pad": "4.68px 9.36px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      106,
+      211,
+      251,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      141,
+      259,
+      216,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      97,
+      307,
+      260,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      97,
+      355,
+      260,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Drifting"
+    }
+   ],
+   "console": [
+    {
+     "sel": ".config-console",
+     "box": [
+      33,
+      403,
+      324,
+      309
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.913295 0.00550478 0.0130424)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+     "pad": "12px 14px",
+     "cls": "config-console console-well flex flex-col gap-5",
+     "text": "FieldColour Energy0.760Noise0.500Zones6"
+    }
+   ],
+   "sectionTitle": [
+    {
+     "sel": ".config-section-title",
+     "box": [
+      48,
+      422,
+      50,
+      18
+     ],
+     "rad": "0px",
+     "font": "14px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(112, 89, 66)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "config-section-title",
+     "text": "Field"
+    }
+   ],
+   "cfgRows": [
+    {
+     "sel": ".configurator-row",
+     "box": [
+      48,
+      454,
+      294,
+      78
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Colour Energy0.760"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      48,
+      538,
+      294,
+      78
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Noise0.500"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      48,
+      621,
+      294,
+      78
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Zones6"
+    }
+   ],
+   "rowLabelText": [
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      458,
+      94,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "glass-label truncate text-small font-medium text-foreground",
+     "text": "Colour Energy"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      150,
+      464,
+      34,
+      14
+     ],
+     "rad": "0px",
+     "font": "11px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklch(0.447121 0.00386159 34.63)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "truncate text-micro font-mono text-muted-foreground/70",
+     "text": "0.760"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      484,
+      294,
+      44
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "glass-slider",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      494,
+      294,
+      24
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklch(0.447121 0.00386159 34.63)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "slider-track",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      494,
+      223,
+      24
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "0px",
+     "cls": "slider-range glass-liquid-fill",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      262,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "2px rgb(251, 250, 248)",
+     "pad": "0px",
+     "cls": "slider-thumb glass-specular-track",
+     "text": ""
+    }
+   ],
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      262,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      189,
+      567,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      330,
+      651,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "track": [],
+   "actionBar": [
+    {
+     "sel": ".config-action-bar",
+     "box": [
+      17,
+      736,
+      356,
+      94
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.35)",
+     "pad": "10px 12px",
+     "cls": "config-action-bar",
+     "text": "Copy JSON  Reset"
+    }
+   ],
+   "actionDock": [
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      39,
+      747,
+      312,
+      73
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "9.36px 14.04px",
+     "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-",
+     "text": "Copy JSON  Reset"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      53,
+      756,
+      166,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      226,
+      756,
+      111,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "actionBtns": [
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      53,
+      756,
+      166,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      226,
+      756,
+      111,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(0, 0, 0)",
+     "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+     "border": "0px rgb(0, 0, 0)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "listbox": [],
+   "options": [],
+   "dockItems": [
+    "Save edit",
+    "Cancel edit",
+    "Switch to slug",
+    "Generate new slug",
+    "Cancel",
+    "Select view",
+    "Toggle action bar",
+    "Menu",
+    "Login",
+    "@mbabb"
+   ],
+   "canvases": [
+    {
+     "box": [
+      0,
+      0,
+      390,
+      844
+     ],
+     "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+     "z": "auto",
+     "parent": "app-layout"
+    }
+   ],
+   "regions": [],
+   "toasts": [
+    "Atmosphere view"
+   ],
+   "focus": {
+    "sel": "focus",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "rad": "0px",
+    "font": "16px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgb(200, 70, 215)",
+    "border": "0px rgb(198, 180, 159)",
+    "pad": "0px",
+    "cls": "relative",
+    "text": "→ Login  @mbabb AtmosphereAtmosphere vie"
+   },
+   "focusRing": {
+    "outline": "rgb(28, 25, 23) none 1.5px",
+    "shadow": "none"
+   }
+  },
+  "390-light-focus": {
+   "focus": {
+    "sel": "focus",
+    "box": [
+     106,
+     211,
+     251,
+     36
+    ],
+    "rad": "9999px",
+    "font": "21px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(28, 25, 23)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "pad": "8px 12px",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+    "text": "Analogous"
+   },
+   "ring": {
+    "outline": "rgb(28, 25, 23) none 3px",
+    "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p"
+   }
+  },
+  "390-light-open-harmony": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      106,
+      251,
+      253,
+      384
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "Analogous Complementary Split Complement"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      257,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      319,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      382,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Split Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      444,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Triad"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      506,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Tetradic"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      569,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Monochrome"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      137,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 0 0 0 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0 0 0 / 0.8)",
+     "pad": "4.68px 9.36px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    }
+   ]
+  },
+  "390-light-open-arrangement": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      141,
+      299,
+      218,
+      144
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "ScatteredComposedCentred /* Hide scrollb"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      146,
+      305,
+      208,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      146,
+      349,
+      208,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Composed"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      146,
+      393,
+      208,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Centred"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      106,
+      211,
+      251,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    }
+   ]
+  },
+  "390-light-open-medium": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      98,
+      347,
+      262,
+      320
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "SmoothPastelWatercolorOilCrayonVangoghOi"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      353,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      397,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Pastel"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      441,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Watercolor"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      485,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      529,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Crayon"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      573,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Vangogh"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      617,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil Pastel"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      141,
+      259,
+      216,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    }
+   ]
+  },
+  "390-light-open-motion": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      98,
+      395,
+      262,
+      144
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.955857 0.0095643 0.0296614 / 0.7488)",
+     "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "StillBreathingDrifting /* Hide scrollbar"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      401,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Still"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      445,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Breathing"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      489,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+     "border": "0px rgb(198, 180, 159)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Drifting"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      97,
+      307,
+      260,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(28, 25, 23)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    }
+   ]
+  },
+  "390-light-afterMedia": {
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ]
+  },
+  "390-light-tuned": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "1",
+     "box": [
+      330,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.38",
+     "box": [
+      155,
+      567,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "1",
+     "box": [
+      48,
+      651,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    }
+   ]
+  },
+  "390-light-copy": {
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "390-light-reset": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      262,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      189,
+      567,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      330,
+      651,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ],
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "1440-dark-default": {
+   "hash": "#/atmosphere",
+   "html": "dark",
+   "bodyBg": "rgb(38, 0, 27)",
+   "overflowX": 0,
+   "card": {
+    "sel": "card",
+    "box": [
+     199,
+     175,
+     1042,
+     655
+    ],
+    "rad": "16px",
+    "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+    "pad": "0px",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-full relative flex flex",
+    "text": "AtmosphereAurora palette follows the pic"
+   },
+   "scroll": {
+    "scrollH": 576,
+    "clientH": 576
+   },
+   "h1": [
+    {
+     "sel": "h1",
+     "box": [
+      16,
+      151,
+      1408,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fa",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "route-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "title": [
+    {
+     "sel": ".pane-header-title",
+     "box": [
+      224,
+      192,
+      992,
+      44
+     ],
+     "rad": "0px",
+     "font": "41.888px/400 Fraunces, \"Fraunces Fa",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "pane-header-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "desc": [
+    {
+     "sel": ".pane-header-desc",
+     "box": [
+      224,
+      237,
+      992,
+      19
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Plus Jakarta Sans\", \"",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "pane-header-desc text-caption",
+     "text": "Aurora palette follows the picked color."
+    }
+   ],
+   "rowLabels": [
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      279,
+      72,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Harmony"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      327,
+      113,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Arrangement"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      375,
+      62,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Medium"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      224,
+      423,
+      62,
+      22
+     ],
+     "rad": "0px",
+     "font": "14.384px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Motion"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      582,
+      25,
+      60,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 1 1 1 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 1 1 1 / 0.8)",
+     "pad": "4px 8px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      308,
+      272,
+      908,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      349,
+      320,
+      867,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      298,
+      368,
+      918,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      298,
+      416,
+      918,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Drifting"
+    }
+   ],
+   "console": [
+    {
+     "sel": ".config-console",
+     "box": [
+      224,
+      464,
+      992,
+      263
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+     "pad": "12px 14px",
+     "cls": "config-console console-well flex flex-col gap-5",
+     "text": "FieldColour Energy0.760Noise0.500Zones6"
+    }
+   ],
+   "sectionTitle": [
+    {
+     "sel": ".config-section-title",
+     "box": [
+      239,
+      484,
+      59,
+      20
+     ],
+     "rad": "0px",
+     "font": "16.4px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "config-section-title",
+     "text": "Field"
+    }
+   ],
+   "cfgRows": [
+    {
+     "sel": ".configurator-row",
+     "box": [
+      239,
+      519,
+      962,
+      61
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Colour Energy0.760"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      239,
+      586,
+      962,
+      61
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Noise0.500"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      239,
+      653,
+      962,
+      61
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Zones6"
+    }
+   ],
+   "rowLabelText": [
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      523,
+      110,
+      23
+     ],
+     "rad": "0px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "glass-label truncate text-small font-medium text-foreground",
+     "text": "Colour Energy"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      357,
+      531,
+      34,
+      14
+     ],
+     "rad": "0px",
+     "font": "11px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "truncate text-micro font-mono text-muted-foreground/70",
+     "text": "0.760"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      552,
+      962,
+      24
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "glass-slider",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      552,
+      962,
+      24
+     ],
+     "rad": "9999px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklch(0.729311 0.00382185 41.8684)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "slider-track",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      239,
+      552,
+      731,
+      24
+     ],
+     "rad": "9999px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "slider-range glass-liquid-fill",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      961,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "2px rgb(11, 10, 9)",
+     "pad": "0px",
+     "cls": "slider-thumb glass-specular-track",
+     "text": ""
+    }
+   ],
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      961,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      714,
+      619,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      1189,
+      686,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "track": [],
+   "actionBar": [
+    {
+     "sel": ".config-action-bar",
+     "box": [
+      200,
+      751,
+      1040,
+      77
+     ],
+     "rad": "0px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.3944 0.34 0.2856 / 0.35)",
+     "pad": "10px 12px",
+     "cls": "config-action-bar",
+     "text": "Copy JSON  Reset"
+    }
+   ],
+   "actionDock": [
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      593,
+      762,
+      254,
+      56
+     ],
+     "rad": "9999px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "8px 12px",
+     "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-",
+     "text": "Copy JSON  Reset"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      605,
+      772,
+      135,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      746,
+      772,
+      89,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "actionBtns": [
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      605,
+      772,
+      135,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      746,
+      772,
+      89,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 12px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "listbox": [],
+   "options": [],
+   "dockItems": [
+    "Save edit",
+    "Cancel edit",
+    "Switch to slug",
+    "Generate new slug",
+    "Cancel",
+    "Select view",
+    "Toggle action bar",
+    "Menu",
+    "Login",
+    "@mbabb"
+   ],
+   "canvases": [
+    {
+     "box": [
+      0,
+      0,
+      1440,
+      900
+     ],
+     "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+     "z": "auto",
+     "parent": "app-layout"
+    }
+   ],
+   "regions": [],
+   "toasts": [
+    "Atmosphere view"
+   ],
+   "focus": {
+    "sel": "focus",
+    "box": [
+     0,
+     0,
+     1440,
+     900
+    ],
+    "rad": "0px",
+    "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgb(38, 0, 27)",
+    "border": "0px rgb(101, 87, 73)",
+    "pad": "0px",
+    "cls": "relative",
+    "text": "→Tools Login  @mbabb AtmosphereAtmospher"
+   },
+   "focusRing": {
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none"
+   }
+  },
+  "1440-dark-focus": {
+   "focus": {
+    "sel": "focus",
+    "box": [
+     301,
+     272,
+     922,
+     37
+    ],
+    "rad": "9999px",
+    "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.294869 0.0110836 0.0185797 / 0.629)",
+    "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+    "pad": "8px 12px",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+    "text": "Analogous"
+   },
+   "ring": {
+    "outline": "rgb(233, 230, 226) none 3px",
+    "shadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px "
+   }
+  },
+  "1440-dark-open-harmony": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      308,
+      312,
+      910,
+      322
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "Analogous Complementary Split Complement"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      318,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      370,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      422,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Split Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      473,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Triad"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      525,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Tetradic"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      313,
+      577,
+      900,
+      52
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Monochrome"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      692,
+      25,
+      60,
+      32
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 1 1 1 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 1 1 1 / 0.8)",
+     "pad": "4px 8px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    }
+   ]
+  },
+  "1440-dark-open-arrangement": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      349,
+      360,
+      869,
+      144
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "ScatteredComposedCentred /* Hide scrollb"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      354,
+      366,
+      859,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      354,
+      410,
+      859,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Composed"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      354,
+      454,
+      859,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Centred"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      308,
+      272,
+      908,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    }
+   ]
+  },
+  "1440-dark-open-medium": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      298,
+      408,
+      920,
+      320
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "SmoothPastelWatercolorOilCrayonVangoghOi"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      414,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      458,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Pastel"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      502,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Watercolor"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      546,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      590,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Crayon"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      634,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Vangogh"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      678,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil Pastel"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      349,
+      320,
+      867,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    }
+   ]
+  },
+  "1440-dark-open-motion": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      298,
+      456,
+      920,
+      144
+     ],
+     "rad": "12px",
+     "font": "18.608px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "StillBreathingDrifting /* Hide scrollbar"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      462,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Still"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      506,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Breathing"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      303,
+      550,
+      910,
+      44
+     ],
+     "rad": "8px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Drifting"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      298,
+      368,
+      918,
+      36
+     ],
+     "rad": "9999px",
+     "font": "16.4px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    }
+   ]
+  },
+  "1440-dark-afterMedia": {
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ]
+  },
+  "1440-dark-tuned": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "1",
+     "box": [
+      1189,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.11",
+     "box": [
+      344,
+      619,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "1",
+     "box": [
+      239,
+      686,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    }
+   ]
+  },
+  "1440-dark-copy": {
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "1440-dark-reset": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      961,
+      552,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      714,
+      619,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      1189,
+      686,
+      12,
+      24
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ],
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "390-dark-default": {
+   "hash": "#/atmosphere",
+   "html": "dark",
+   "bodyBg": "rgb(38, 0, 27)",
+   "overflowX": 0,
+   "card": {
+    "sel": "card",
+    "box": [
+     16,
+     133,
+     358,
+     698
+    ],
+    "rad": "16px",
+    "font": "16px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(233, 230, 226)",
+    "bg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.04)",
+    "pad": "0px",
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-full relative flex flex",
+    "text": "AtmosphereAurora palette follows the pic"
+   },
+   "scroll": {
+    "scrollH": 602,
+    "clientH": 602
+   },
+   "h1": [
+    {
+     "sel": "h1",
+     "box": [
+      16,
+      109,
+      358,
+      16
+     ],
+     "rad": "0px",
+     "font": "13px/500 Fraunces, \"Fraunces Fa",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "route-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "title": [
+    {
+     "sel": ".pane-header-title",
+     "box": [
+      33,
+      150,
+      324,
+      27
+     ],
+     "rad": "0px",
+     "font": "25.888px/400 Fraunces, \"Fraunces Fa",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "pane-header-title font-display",
+     "text": "Atmosphere"
+    }
+   ],
+   "desc": [
+    {
+     "sel": ".pane-header-desc",
+     "box": [
+      33,
+      179,
+      324,
+      16
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Plus Jakarta Sans\", \"",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "pane-header-desc text-caption",
+     "text": "Aurora palette follows the picked color."
+    }
+   ],
+   "rowLabels": [
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      220,
+      61,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Harmony"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      268,
+      96,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Arrangement"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      316,
+      52,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Medium"
+    },
+    {
+     "sel": ".aurora-row .section-label",
+     "box": [
+      33,
+      364,
+      52,
+      18
+     ],
+     "rad": "0px",
+     "font": "12.179px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "section-label",
+     "text": "Motion"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      137,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 1 1 1 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 1 1 1 / 0.8)",
+     "pad": "4.68px 9.36px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      106,
+      211,
+      251,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      141,
+      259,
+      216,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      97,
+      307,
+      260,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      97,
+      355,
+      260,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Drifting"
+    }
+   ],
+   "console": [
+    {
+     "sel": ".config-console",
+     "box": [
+      33,
+      403,
+      324,
+      309
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.345295 0.0103877 0.0175526)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+     "pad": "12px 14px",
+     "cls": "config-console console-well flex flex-col gap-5",
+     "text": "FieldColour Energy0.760Noise0.500Zones6"
+    }
+   ],
+   "sectionTitle": [
+    {
+     "sel": ".config-section-title",
+     "box": [
+      48,
+      422,
+      50,
+      18
+     ],
+     "rad": "0px",
+     "font": "14px/400 \"Fira Code\", \"Fira Cod",
+     "color": "rgb(195, 185, 172)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "config-section-title",
+     "text": "Field"
+    }
+   ],
+   "cfgRows": [
+    {
+     "sel": ".configurator-row",
+     "box": [
+      48,
+      454,
+      294,
+      78
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Colour Energy0.760"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      48,
+      538,
+      294,
+      78
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Noise0.500"
+    },
+    {
+     "sel": ".configurator-row",
+     "box": [
+      48,
+      621,
+      294,
+      78
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "4px 0px",
+     "cls": "configurator-row flex flex-col gap-1.5 py-1",
+     "text": "Zones6"
+    }
+   ],
+   "rowLabelText": [
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      458,
+      94,
+      20
+     ],
+     "rad": "0px",
+     "font": "14px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "glass-label truncate text-small font-medium text-foreground",
+     "text": "Colour Energy"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      150,
+      464,
+      34,
+      14
+     ],
+     "rad": "0px",
+     "font": "11px/400 \"Fira Code\", \"Fira Cod",
+     "color": "oklch(0.729311 0.00382185 41.8684)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "truncate text-micro font-mono text-muted-foreground/70",
+     "text": "0.760"
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      484,
+      294,
+      44
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "glass-slider",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      494,
+      294,
+      24
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklch(0.729311 0.00382185 41.8684)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "slider-track",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      48,
+      494,
+      223,
+      24
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "0px",
+     "cls": "slider-range glass-liquid-fill",
+     "text": ""
+    },
+    {
+     "sel": ".configurator-row label, .configurator-row span",
+     "box": [
+      262,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "2px rgb(11, 10, 9)",
+     "pad": "0px",
+     "cls": "slider-thumb glass-specular-track",
+     "text": ""
+    }
+   ],
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      262,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      189,
+      567,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      330,
+      651,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "track": [],
+   "actionBar": [
+    {
+     "sel": ".config-action-bar",
+     "box": [
+      17,
+      736,
+      356,
+      94
+     ],
+     "rad": "0px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.3944 0.34 0.2856 / 0.35)",
+     "pad": "10px 12px",
+     "cls": "config-action-bar",
+     "text": "Copy JSON  Reset"
+    }
+   ],
+   "actionDock": [
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      39,
+      747,
+      312,
+      73
+     ],
+     "rad": "9999px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "9.36px 14.04px",
+     "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-",
+     "text": "Copy JSON  Reset"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      53,
+      756,
+      166,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar [data-slot], .config-action-bar > *",
+     "box": [
+      226,
+      756,
+      111,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "actionBtns": [
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      53,
+      756,
+      166,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Copy JSON"
+    },
+    {
+     "sel": ".config-action-bar button",
+     "box": [
+      226,
+      756,
+      111,
+      54
+     ],
+     "rad": "9999px",
+     "font": "21px/500 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(255, 255, 255)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(255, 255, 255)",
+     "pad": "0px 18px",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover",
+     "text": "Reset"
+    }
+   ],
+   "listbox": [],
+   "options": [],
+   "dockItems": [
+    "Save edit",
+    "Cancel edit",
+    "Switch to slug",
+    "Generate new slug",
+    "Cancel",
+    "Select view",
+    "Toggle action bar",
+    "Menu",
+    "Login",
+    "@mbabb"
+   ],
+   "canvases": [
+    {
+     "box": [
+      0,
+      0,
+      390,
+      844
+     ],
+     "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+     "z": "auto",
+     "parent": "app-layout"
+    }
+   ],
+   "regions": [],
+   "toasts": [
+    "Atmosphere view"
+   ],
+   "focus": {
+    "sel": "focus",
+    "box": [
+     0,
+     0,
+     390,
+     844
+    ],
+    "rad": "0px",
+    "font": "16px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgb(38, 0, 27)",
+    "border": "0px rgb(101, 87, 73)",
+    "pad": "0px",
+    "cls": "relative",
+    "text": "→ Login  @mbabb AtmosphereAtmosphere vie"
+   },
+   "focusRing": {
+    "outline": "rgb(233, 230, 226) none 1.5px",
+    "shadow": "none"
+   }
+  },
+  "390-dark-focus": {
+   "focus": {
+    "sel": "focus",
+    "box": [
+     106,
+     211,
+     251,
+     36
+    ],
+    "rad": "9999px",
+    "font": "21px/400 \"Plus Jakarta Sans\", \"",
+    "color": "rgb(233, 230, 226)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+    "pad": "8px 12px",
+    "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+    "text": "Analogous"
+   },
+   "ring": {
+    "outline": "rgb(233, 230, 226) none 3px",
+    "shadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px "
+   }
+  },
+  "390-dark-open-harmony": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      106,
+      251,
+      253,
+      384
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "Analogous Complementary Split Complement"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      257,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Analogous"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      319,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      382,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Split Complementary"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      444,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Triad"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      506,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Tetradic"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      111,
+      569,
+      243,
+      62
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Monochrome"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      137,
+      33,
+      59,
+      33
+     ],
+     "rad": "9999px",
+     "font": "14px/400 Fraunces, \"Fraunces Fa",
+     "color": "color(srgb 1 1 1 / 0.8)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 1 1 1 / 0.8)",
+     "pad": "4.68px 9.36px",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-n",
+     "text": ""
+    }
+   ]
+  },
+  "390-dark-open-arrangement": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      141,
+      299,
+      218,
+      144
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "ScatteredComposedCentred /* Hide scrollb"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      146,
+      305,
+      208,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Scattered"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      146,
+      349,
+      208,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Composed"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      146,
+      393,
+      208,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Centred"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      106,
+      211,
+      251,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Analogous"
+    }
+   ]
+  },
+  "390-dark-open-medium": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      98,
+      347,
+      262,
+      320
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "SmoothPastelWatercolorOilCrayonVangoghOi"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      353,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Smooth"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      397,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Pastel"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      441,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Watercolor"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      485,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      529,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Crayon"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      573,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Vangogh"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      617,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Oil Pastel"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      141,
+      259,
+      216,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Scattered"
+    }
+   ]
+  },
+  "390-dark-open-motion": {
+   "listbox": [
+    {
+     "sel": "[role=listbox]",
+     "box": [
+      98,
+      395,
+      262,
+      144
+     ],
+     "rad": "12px",
+     "font": "16px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.398985 0.0137168 0.032461 / 0.845248)",
+     "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+     "pad": "0px",
+     "cls": "relative z-popover overflow-hidden rounded-panel border text-popover-foreground glass-reveal origin-(--reka-se",
+     "text": "StillBreathingDrifting /* Hide scrollbar"
+    }
+   ],
+   "options": [
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      401,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Still"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      445,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Breathing"
+    },
+    {
+     "sel": "[role=option]",
+     "box": [
+      103,
+      489,
+      252,
+      44
+     ],
+     "rad": "8px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+     "border": "0px rgb(101, 87, 73)",
+     "pad": "6px 8px 6px 28px",
+     "cls": "interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1.5 text-dropd",
+     "text": "Drifting"
+    }
+   ],
+   "triggers": [
+    {
+     "sel": "[data-slot=select-trigger], button[role=combobox]",
+     "box": [
+      97,
+      307,
+      260,
+      36
+     ],
+     "rad": "9999px",
+     "font": "21px/400 \"Plus Jakarta Sans\", \"",
+     "color": "rgb(233, 230, 226)",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.914 0.9 0.886 / 0.14)",
+     "pad": "8px 12px",
+     "cls": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-",
+     "text": "Smooth"
+    }
+   ]
+  },
+  "390-dark-afterMedia": {
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ]
+  },
+  "390-dark-tuned": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "1",
+     "box": [
+      330,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.38",
+     "box": [
+      155,
+      567,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "1",
+     "box": [
+      48,
+      651,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    }
+   ]
+  },
+  "390-dark-copy": {
+   "toasts": [
+    "Atmosphere view"
+   ]
+  },
+  "390-dark-reset": {
+   "thumbs": [
+    {
+     "label": "Colour Energy",
+     "now": "0.76",
+     "box": [
+      262,
+      484,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Noise",
+     "now": "0.5",
+     "box": [
+      189,
+      567,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    },
+    {
+     "label": "Zones",
+     "now": "6",
+     "box": [
+      330,
+      651,
+      12,
+      44
+     ],
+     "rad": "6.4px"
+    }
+   ],
+   "triggers": [
+    "",
+    "Analogous",
+    "Scattered",
+    "Smooth",
+    "Drifting"
+   ],
+   "toasts": [
+    "Atmosphere view"
+   ]
+  }
+ },
+ "errs": {
+  "1440-light": [],
+  "390-light": [],
+  "1440-dark": [],
+  "390-dark": []
+ },
+ "net": {
+  "1440-light": [],
+  "390-light": [],
+  "1440-dark": [],
+  "390-dark": []
+ },
+ "motion": {
+  "1440-light-drifting": {
+   "meanAbsDiff": 1.45,
+   "meanLum": 190.8,
+   "w": 2880,
+   "h": 1800
+  },
+  "1440-light-still": {
+   "meanAbsDiff": 83.114,
+   "meanLum": 107.6,
+   "w": 2880,
+   "h": 1800
+  },
+  "390-light-drifting": {
+   "meanAbsDiff": 1.005,
+   "meanLum": 194.3,
+   "w": 780,
+   "h": 1688
+  },
+  "390-light-still": {
+   "meanAbsDiff": 0.09,
+   "meanLum": 194.2,
+   "w": 780,
+   "h": 1688
+  },
+  "1440-dark-drifting": {
+   "meanAbsDiff": 1.278,
+   "meanLum": 64.8,
+   "w": 2880,
+   "h": 1800
+  },
+  "1440-dark-still": {
+   "meanAbsDiff": 0.914,
+   "meanLum": 63.8,
+   "w": 2880,
+   "h": 1800
+  },
+  "390-dark-drifting": {
+   "meanAbsDiff": 1.165,
+   "meanLum": 70,
+   "w": 780,
+   "h": 1688
+  },
+  "390-dark-still": {
+   "meanAbsDiff": 0.432,
+   "meanLum": 70.3,
+   "w": 780,
+   "h": 1688
+  }
+ },
+ "clip": {
+  "1440-light": "{\n  \"harmony\": \"analogous\",\n  \"colorEnergy\": 1,\n  \"zones\": {\n    \"count\": 1,\n    \"arrangement\": \"scattered\"\n  },\n  \"noise\": 0.11,\n  \"medium\": {\n    \"kind\": \"smooth\"\n  },\n  \"motion\": \"drifting\",\n  \"interactivity\": {\n    \"swirl\": true\n  },\n  \"seed\": \"oklch(95.832172477266% 0.272450443952 9.83402284231deg)\"\n}",
+  "390-light": "{\n  \"harmony\": \"analogous\",\n  \"colorEnergy\": 1,\n  \"zones\": {\n    \"count\": 1,\n    \"arrangement\": \"scattered\"\n  },\n  \"noise\": 0.38,\n  \"medium\": {\n    \"kind\": \"smooth\"\n  },\n  \"motion\": \"drifting\",\n  \"interactivity\": {\n    \"swirl\": true\n  },\n  \"seed\": \"oklch(95.832172477266% 0.272450443952 9.83402284231deg)\"\n}",
+  "1440-dark": "{\n  \"harmony\": \"analogous\",\n  \"colorEnergy\": 1,\n  \"zones\": {\n    \"count\": 1,\n    \"arrangement\": \"scattered\"\n  },\n  \"noise\": 0.11,\n  \"medium\": {\n    \"kind\": \"smooth\"\n  },\n  \"motion\": \"drifting\",\n  \"interactivity\": {\n    \"swirl\": true\n  },\n  \"seed\": \"oklch(95.832172477266% 0.272450443952 9.83402284231deg)\"\n}",
+  "390-dark": "{\n  \"harmony\": \"analogous\",\n  \"colorEnergy\": 1,\n  \"zones\": {\n    \"count\": 1,\n    \"arrangement\": \"scattered\"\n  },\n  \"noise\": 0.38,\n  \"medium\": {\n    \"kind\": \"smooth\"\n  },\n  \"motion\": \"drifting\",\n  \"interactivity\": {\n    \"swirl\": true\n  },\n  \"seed\": \"oklch(95.832172477266% 0.272450443952 9.83402284231deg)\"\n}"
+ }
+}

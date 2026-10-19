@@ -1,0 +1,6081 @@
+{
+ "slug": "sheer-waiting-salmon-dolphin",
+ "metrics": {
+  "d-light-1-loaded-playing-collapsed": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(0, 0, 0)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<body>\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background text-foreground paper-texture overflow-hidden isola",
+   "loadMs": 12071
+  },
+  "d-light-2-paused": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<body>\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background text-foreground paper-texture overflow-hidden isola",
+   "before": {
+    "pressed": "true",
+    "label": "Pause animation"
+   },
+   "after": {
+    "pressed": "false",
+    "label": "Play animation"
+   }
+  },
+  "d-light-3-top-expanded": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 743,
+     "y": 85,
+     "w": 280,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": {
+    "x": 942,
+    "y": 141,
+    "w": 98,
+    "h": 40,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "font": "14.384px/400 \"Computer Modern Serif\","
+   },
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<body>\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background text-foreground paper-texture overflow-hidden isola"
+  },
+  "d-light-3b-view-options": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 743,
+     "y": 85,
+     "w": 280,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": {
+    "x": 607,
+    "y": 139,
+    "w": 336,
+    "h": 118,
+    "radius": "16px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<body>\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background text-foreground paper-texture overflow-hidden isola"
+  },
+  "d-light-4-bottom-expanded": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 743,
+     "y": 85,
+     "w": 280,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 40,
+     "y": 819,
+     "w": 960,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 582,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 52,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<body>\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background text-foreground paper-texture overflow-hidden isola"
+  },
+  "d-light-5-both-expanded": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 743,
+     "y": 85,
+     "w": 280,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 40,
+     "y": 819,
+     "w": 960,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 582,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 52,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<body>\n        <div id=\"app\" data-v-app=\"\"><div class=\"h-dvh flex flex-col bg-background text-foreground paper-texture overflow-hidden isola",
+   "play": {
+    "pressed": "false",
+    "label": "Play animation"
+   }
+  },
+  "d-light-6-more-menu": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 40,
+     "y": 819,
+     "w": 960,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 527,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": {
+    "x": 808,
+    "y": 445,
+    "w": 180,
+    "h": 383,
+    "radius": "16px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "menu": {
+    "x": 808,
+    "y": 445,
+    "w": 180,
+    "h": 383,
+    "radius": "16px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "menuItems": [
+    {
+     "x": 821,
+     "y": 493,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 821,
+     "y": 537,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 821,
+     "y": 581,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 821,
+     "y": 625,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 821,
+     "y": 669,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 821,
+     "y": 713,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 821,
+     "y": 770,
+     "w": 154,
+     "h": 44,
+     "radius": "10px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<div data-dismissable-layer=\"\" tabindex=\"-1\" id=\"reka-dropdown-menu-content-v-27\" aria-labelledby=\"reka-dropdown-menu-trigger-v-17\" class=\"g"
+  },
+  "d-light-7-focus-basis": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": 77,
+    "w": 399,
+    "h": 868,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 868,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": 85,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 414,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 824,
+     "w": 383,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "closed"
+    },
+    {
+     "x": 1040,
+     "y": 880,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": 86,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 415,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 825,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 955,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 1139,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 510,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 510,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 552,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 357,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": 149,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 634,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 746,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1011,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 1075,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 676,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 788,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 1051,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 1115,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 955,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 1139,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 474,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 884,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": {
+    "x": 1042,
+    "y": 443,
+    "w": 256,
+    "h": 61,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+    "font": "14.384px/400 \"Computer Modern Serif\","
+   },
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 600,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 712,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 920,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1011,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 1075,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<button data-v-8864faae=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-control-target=\"\" data-press"
+  },
+  "d-light-8-contour-advanced-open": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": -271,
+    "w": 399,
+    "h": 1290,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 1290,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": -263,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 65,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 476,
+     "w": 383,
+     "h": 478,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 954,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": -262,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 66,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 477,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 606,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 790,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.6)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 161,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 161,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 203,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 8,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": -200,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 286,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 398,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 662,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 726,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1154,
+     "y": 824,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 824,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 890,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 328,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 440,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 702,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 766,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 864,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1316,
+     "y": 864,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1071,
+     "y": 930,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 606,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 790,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.6)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 125,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 536,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 251,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 364,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 572,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 662,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 726,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 824,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1238,
+     "y": 824,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 890,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<button data-v-dd3bd92c=\"\" type=\"button\" aria-controls=\"glass-disclosure-content-v-11\" aria-expanded=\"true\" data-state=\"open\" data-slot=\"col"
+  },
+  "d-light-8b-strategy-select": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": -271,
+    "w": 399,
+    "h": 1290,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 1290,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": -263,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 65,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 476,
+     "w": 383,
+     "h": 478,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 954,
+     "w": 383,
+     "h": 57,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "closed"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": -262,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 66,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 477,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 606,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 790,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 161,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 161,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 203,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": 8,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": -200,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 286,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 398,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 662,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 726,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1154,
+     "y": 824,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 824,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 890,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 328,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 440,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 702,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 766,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 864,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1316,
+     "y": 864,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1071,
+     "y": 930,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 606,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 790,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": 125,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 536,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": {
+    "x": 1061,
+    "y": 218,
+    "w": 343,
+    "h": 384,
+    "radius": "16px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.22)",
+    "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.16)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 251,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 364,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 572,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 662,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 726,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 824,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1238,
+     "y": 824,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 890,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<div data-v-dd3bd92c=\"\" class=\"interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 t"
+  },
+  "d-light-9-coefficients-open": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": -403,
+    "w": 399,
+    "h": 1837,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 1837,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": -395,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": -67,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 344,
+     "w": 383,
+     "h": 478,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 822,
+     "w": 383,
+     "h": 603,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "open"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": -394,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": -66,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": 345,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 474,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 658,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": 29,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": 29,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": 71,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": -124,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": -332,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": 154,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 266,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 530,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 594,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1154,
+     "y": 692,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 692,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 758,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": 196,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": 308,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 570,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 634,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 732,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1316,
+     "y": 732,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1071,
+     "y": 798,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": 474,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 658,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": -7,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": 404,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 119,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 232,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": 440,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 530,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 594,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 692,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1238,
+     "y": 692,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 758,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<button data-v-22ad90dd=\"\" type=\"button\" data-slot=\"configurator-layer-trigger\" class=\"configurator-layer-trigger group flex w-full items-ce"
+  },
+  "d-light-9b-sidebar-bottom": {
+   "theme": "",
+   "url": "/w/sheer-waiting-salmon-dolphin",
+   "vw": 1440,
+   "vh": 900,
+   "scrollW": 1440,
+   "configurator": {
+    "x": 8,
+    "y": 76,
+    "w": 1424,
+    "h": 812,
+    "radius": "12px",
+    "bg": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "border": "1px oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "cols": "1022px 400px",
+   "stage": {
+    "x": 9,
+    "y": 77,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "canvas": {
+    "x": 11,
+    "y": 79,
+    "w": 1022,
+    "h": 810,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "aside": {
+    "x": 1032,
+    "y": -950,
+    "w": 399,
+    "h": 1837,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "asideScrollH": 1837,
+   "docks": [
+    {
+     "x": 456,
+     "y": 12,
+     "w": 528,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 927,
+     "y": 85,
+     "w": 96,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 469,
+     "y": 819,
+     "w": 102,
+     "h": 56,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "dockExpanded": [
+    "app-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned always-expanded dock-inline",
+    "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline",
+    "animation-dock glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed dock-inline"
+   ],
+   "layers": [
+    {
+     "x": 1040,
+     "y": -942,
+     "w": 383,
+     "h": 317,
+     "radius": "4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Image",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": -613,
+     "w": 383,
+     "h": 411,
+     "radius": "4px 4px 0px 0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Decomposition",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": -203,
+     "w": 383,
+     "h": 478,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Contour",
+     "open": "open"
+    },
+    {
+     "x": 1040,
+     "y": 276,
+     "w": 383,
+     "h": 603,
+     "radius": "0px 0px 4px 4px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.778 0.7052 0.622 / 0.7)",
+     "font": "18.608px/400 \"Computer Modern Serif\",",
+     "label": "Coefficients",
+     "open": "open"
+    }
+   ],
+   "layerHeaders": [
+    {
+     "x": 1041,
+     "y": -941,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": -612,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1041,
+     "y": -202,
+     "w": 381,
+     "h": 55,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": -72,
+     "w": 341,
+     "h": 40,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1192,
+     "y": 112,
+     "w": 79,
+     "h": 24,
+     "radius": "9999px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "basisToggles": [
+    {
+     "x": 1113,
+     "y": -517,
+     "w": 114,
+     "h": 36,
+     "radius": "18px",
+     "bg": "color(srgb 0.843137 0.207843 0.137255 / 0.12)",
+     "border": "2px color(srgb 0.843137 0.207843 0.137255 / 0.4)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1233,
+     "y": -517,
+     "w": 117,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1178,
+     "y": -475,
+     "w": 107,
+     "h": 36,
+     "radius": "18px",
+     "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+     "border": "2px color(srgb 0.11 0.098 0.09 / 0.12)",
+     "font": "14.384px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "replaceBtn": {
+    "x": 1061,
+    "y": -670,
+    "w": 341,
+    "h": 36,
+    "radius": "18px",
+    "bg": "oklab(0.673443 0.0210928 0.0746619 / 0.244)",
+    "border": "1px rgba(0, 0, 0, 0)",
+    "font": "14.384px/500 \"Computer Modern Serif\","
+   },
+   "preview": {
+    "x": 1061,
+    "y": -878,
+    "w": 341,
+    "h": 200,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "numberFields": [
+    {
+     "x": 1330,
+     "y": -393,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": -281,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": -16,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 48,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1154,
+     "y": 146,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 146,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1330,
+     "y": 212,
+     "w": 72,
+     "h": 36,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(112, 89, 66)",
+     "font": "14px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "sliders": [
+    {
+     "x": 473,
+     "y": 835,
+     "w": 0,
+     "h": 24,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1197,
+     "y": -351,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1138,
+     "y": -239,
+     "w": 0,
+     "h": 20,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1232,
+     "y": 24,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1095,
+     "y": 88,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1061,
+     "y": 186,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1316,
+     "y": 186,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1071,
+     "y": 252,
+     "w": 0,
+     "h": 16,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "selectTrigger": {
+    "x": 1061,
+    "y": -72,
+    "w": 341,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "font": "16.4px/400 \"Computer Modern Serif\","
+   },
+   "advancedTrigger": {
+    "x": 1192,
+    "y": 112,
+    "w": 79,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0.11 0.098 0.09 / 0.4)",
+    "font": "14px/500 \"Computer Modern Serif\","
+   },
+   "resetBtns": [
+    {
+     "x": 1362,
+     "y": -553,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    },
+    {
+     "x": 1362,
+     "y": -143,
+     "w": 40,
+     "h": 40,
+     "radius": "20px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "1px rgba(0, 0, 0, 0)",
+     "font": "16.4px/500 \"Computer Modern Serif\","
+    }
+   ],
+   "playCtl": {
+    "x": 477,
+    "y": 827,
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px color(srgb 0 0 0 / 0.8)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabs": {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0,
+    "radius": "0px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px rgb(28, 25, 23)",
+    "font": "18.608px/400 \"Computer Modern Serif\","
+   },
+   "tabsText": "ControlsCanvas",
+   "popover": null,
+   "menu": null,
+   "menuItems": [],
+   "rowLabels": [
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": -427,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": -315,
+     "w": 341,
+     "h": 104,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "configurator-row flex flex-col gap-1.5 p",
+     "x": 1061,
+     "y": -107,
+     "w": 341,
+     "h": 82,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": -16,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 48,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(28, 25, 23)",
+     "font": "18.608px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 146,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1238,
+     "y": 146,
+     "w": 165,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    },
+    {
+     "cls": "slider-control",
+     "x": 1061,
+     "y": 212,
+     "w": 341,
+     "h": 56,
+     "radius": "0px",
+     "bg": "rgba(0, 0, 0, 0)",
+     "border": "0px rgb(91, 70, 51)",
+     "font": "16.4px/400 \"Computer Modern Serif\","
+    }
+   ],
+   "headings": [
+    "H3:Image"
+   ],
+   "activeEl": "<button data-v-22ad90dd=\"\" type=\"button\" data-slot=\"configurator-layer-trigger\" class=\"configurator-layer-trigger group flex w-full items-ce"
+  }
+ },
+ "errors": [
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not an HTML element; it cannot take focus, so this tooltip has no keyboard path. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not an HTML element; it cannot take focus, so this tooltip has no keyboard path. JSHandle@node",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Vue warn]: Component inside <Transition> renders non-element root node that cannot be animated. \n  at <PopperRoot data-slot=\"tooltip\" > \n  at <TooltipRoot data-slot=\"tooltip\" open=undefined default-o",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node",
+  "d-light console.warning [Tooltip] the as-child target is not focusable (tabIndex < 0), so this tooltip has no keyboard path. Give it a real control element or an explicit tabindex. JSHandle@node"
+ ]
+}

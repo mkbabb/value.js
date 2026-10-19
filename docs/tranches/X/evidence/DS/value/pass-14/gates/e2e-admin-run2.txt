@@ -1,0 +1,16 @@
+(node:84922) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:84970) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:85024) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:19:1 › battery: the populated browse wall passes accessible-name + target-size (21.6s)
+  ✓  2 [smoke-admin] › e2e/smoke/admin/a11y-authed-user.spec.ts:45:1 › battery: the authed Profile identity menu passes accessible-name (the login surface) (5.2s)
+  ✓  3 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (1.2s)
+  ✓  4 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:58:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (1.5s)
+  ✓  5 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:99:1 › admin-flagged renders a seeded flagged palette + moderation actions (578ms)
+
+  5 passed (33.3s)

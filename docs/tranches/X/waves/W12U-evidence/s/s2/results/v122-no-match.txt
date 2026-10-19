@@ -1,0 +1,11 @@
+## HEAD bytes
+[390x844 light] RED  {"empty":{"text":"No palettes published yet.","cards":0},"hasClear":false,"after":null}
+## cured
+[390x844 light] PASS {"empty":{"text":"No palettes match. Nothing on the wall matches your search and filters. Clear search and filters","cards":0},"hasClear":true,"after":{"text":"Remote 0 5 +2 3 A Long Published Palette Name That Must Truncate 5 +2 3 Remote 2 5 +2 3 Remote 3 5 +2 3 Remote 4 5 +2 3 ","cards":8,"field":""}}
+[1440x900 light] PASS {"empty":{"text":"No palettes match. Nothing on the wall matches your search and filters. Clear search and filters","cards":0},"hasClear":true,"after":{"text":"Remote 0 5 3 +2 3 A Long Published Palette Name That Must Truncate 5 3 +2 3 Remote 2 5 3 +2 3 Remote 3 5 3 +2 3 Remote 4","cards":8,"field":""}}
+[390x844 dark] PASS {"empty":{"text":"No palettes match. Nothing on the wall matches your search and filters. Clear search and filters","cards":0},"hasClear":true,"after":{"text":"Remote 0 5 +2 3 A Long Published Palette Name That Must Truncate 5 +2 3 Remote 2 5 +2 3 Remote 3 5 +2 3 Remote 4 5 +2 3 ","cards":8,"field":""}}
+[1440x900 dark] PASS {"empty":{"text":"No palettes match. Nothing on the wall matches your search and filters. Clear search and filters","cards":0},"hasClear":true,"after":{"text":"Remote 0 5 3 +2 3 A Long Published Palette Name That Must Truncate 5 3 +2 3 Remote 2 5 3 +2 3 Remote 3 5 3 +2 3 Remote 4","cards":8,"field":""}}
+## V-33 re-read (badge now host-owned)
+[1440x900 dark]
+PASS (a) hsl(0 100% 50%) → {"swatch":"rgb(255, 0, 0)","invalid":null,"alert":"","badge":"1"}
+PASS (b) nope → {"swatch":"rgb(68, 136, 204)","invalid":"true","alert":"“nope” is not a CSS color.","badge":""}

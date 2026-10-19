@@ -1,0 +1,10 @@
+=== CONSUMER-SURFACE COMPILE PROBE ===
+
+ok   LEG1  public return types are nameable from their own subpath
+RED  LEG2  root specifier does not type-resolve:
+       leg2.ts(2,31): error TS2307: Cannot find module '@mkbabb/value.js' or its corresponding type declarations.
+RED  LEG2  Node runtime resolution of the root specifier -> ERR_PACKAGE_PATH_NOT_EXPORTED
+       consumers: fourier web/src ConvergencePlot.vue:5, harmonics.ts:5,
+       useCurveTransition.ts:8, easings.ts:9, easings.ts:16
+
+RED — 2 failing assertion(s)

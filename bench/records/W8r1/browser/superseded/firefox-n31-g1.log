@@ -1,0 +1,17 @@
+firefox r0a0 parseCssColor          acc      n=6460 k=8 S=16 product x0.702 (25/31<1) spread 3.773 SET-ASIDE
+firefox r0a0 parseCssScalar         acc      n=7460 k=8 S=16 product x0.647 (31/31<1) spread 9.167 SET-ASIDE
+firefox r0a0 parseCssColor          rej      n=23484 k=4 S=16 product x1.033 (15/31<1) spread 3.123 SET-ASIDE
+firefox r0a0 parseCssScalar         rej      n=22484 k=2 S=16 product x0.591 (28/31<1) spread 4.373 SET-ASIDE
+firefox r1a0 parseCssScalar         acc      n=7460 k=4 S=16 product x0.532 (29/31<1) spread 4.834 SET-ASIDE
+firefox r1a0 parseCssColor          acc      n=6460 k=8 S=16 product x0.872 (19/31<1) spread 4.447 SET-ASIDE
+firefox r1a0 parseCssScalar         rej      n=22484 k=2 S=16 product x0.556 (28/31<1) spread 6.754 SET-ASIDE
+firefox r1a0 parseCssColor          rej      n=23484 k=2 S=16 product x1.21 (13/31<1) spread 3.879 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssColor                RED x0.702(SA) x0.872(SA)
+product firefox|acc|parseCssScalar               RED x0.647(SA) x0.532(SA)
+product firefox|rej|parseCssColor                RED x1.033(SA) x1.21(SA)
+product firefox|rej|parseCssScalar               RED x0.591(SA) x0.556(SA)
+17:07  up 2 days,  2:35, 3 users, load averages: 303.93 278.66 290.52 
+ 18:46  up 2 days,  4:13, 3 users, load averages: 181.65 193.55 212.92 → bench/records/2026-09-24-x-p-w7-browser-w8r1-firefox-n31-g1.json
+DONE w8r1-firefox-n31-g1

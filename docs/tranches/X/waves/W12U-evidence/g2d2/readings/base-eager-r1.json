@@ -1,0 +1,140 @@
+{
+  "schema": "x-w2.eager-bytes/1",
+  "tool": "scripts/perf/eager-bytes.mjs",
+  "generatedAt": "2026-10-17T03:02:29.904Z",
+  "dist": "dist/gh-pages",
+  "method": "zlib.gzipSync (default level) over the emitted files ON DISK; <noscript> stripped before collection (F-3); NEVER PerformanceResourceTiming.transferSize (W2.md §ENV — serve-built.mjs sends no Content-Encoding).",
+  "indexHtml": {
+    "path": "index.html",
+    "raw": 15484,
+    "gz": 5665,
+    "noscriptBlocksStripped": 1
+  },
+  "eagerJs": {
+    "count": 11,
+    "raw": 996612,
+    "gz": 313423,
+    "files": [
+      {
+        "href": "./assets/index-CIxPK5jG.js",
+        "role": "entry-module",
+        "path": "assets/index-CIxPK5jG.js",
+        "raw": 468893,
+        "gz": 155069
+      },
+      {
+        "href": "./assets/rolldown-runtime-QTnfLwEv.js",
+        "role": "modulepreload",
+        "path": "assets/rolldown-runtime-QTnfLwEv.js",
+        "raw": 694,
+        "gz": 423
+      },
+      {
+        "href": "./assets/vue.runtime.esm-bundler-CZavfU-W.js",
+        "role": "modulepreload",
+        "path": "assets/vue.runtime.esm-bundler-CZavfU-W.js",
+        "raw": 109858,
+        "gz": 41722
+      },
+      {
+        "href": "./assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js",
+        "role": "modulepreload",
+        "path": "assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js",
+        "raw": 26075,
+        "gz": 9324
+      },
+      {
+        "href": "./assets/serialize-6j3RLSkC--yquWdXp.js",
+        "role": "modulepreload",
+        "path": "assets/serialize-6j3RLSkC--yquWdXp.js",
+        "raw": 72791,
+        "gz": 19707
+      },
+      {
+        "href": "./assets/picker-color-BQ_XhfKf.js",
+        "role": "modulepreload",
+        "path": "assets/picker-color-BQ_XhfKf.js",
+        "raw": 4355,
+        "gz": 1645
+      },
+      {
+        "href": "./assets/color-model-DyHdiHDv.js",
+        "role": "modulepreload",
+        "path": "assets/color-model-DyHdiHDv.js",
+        "raw": 302,
+        "gz": 235
+      },
+      {
+        "href": "./assets/dist-pmtx1RBP.js",
+        "role": "modulepreload",
+        "path": "assets/dist-pmtx1RBP.js",
+        "raw": 16460,
+        "gz": 6877
+      },
+      {
+        "href": "./assets/collapsible-DFzK29Oh-BFiZ4mHC.js",
+        "role": "modulepreload",
+        "path": "assets/collapsible-DFzK29Oh-BFiZ4mHC.js",
+        "raw": 16828,
+        "gz": 6369
+      },
+      {
+        "href": "./assets/glass-ui-B_NJ6Xgy.js",
+        "role": "modulepreload",
+        "path": "assets/glass-ui-B_NJ6Xgy.js",
+        "raw": 279116,
+        "gz": 71370
+      },
+      {
+        "href": "./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+        "role": "modulepreload",
+        "path": "assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+        "raw": 1240,
+        "gz": 682
+      }
+    ]
+  },
+  "renderBlockingCss": {
+    "count": 1,
+    "raw": 536488,
+    "gz": 90072,
+    "files": [
+      {
+        "href": "./assets/index-BuaLmRbN.css",
+        "media": null,
+        "path": "assets/index-BuaLmRbN.css",
+        "raw": 536488,
+        "gz": 90072
+      }
+    ]
+  },
+  "excludedCss": {
+    "count": 1,
+    "raw": 132840,
+    "gz": 100386,
+    "files": [
+      {
+        "href": "./assets/glass-fonts-PBJY3762.css",
+        "media": "print",
+        "why": "async (media=print swap)",
+        "path": "assets/glass-fonts-PBJY3762.css",
+        "raw": 132840,
+        "gz": 100386
+      }
+    ]
+  },
+  "duplicateRefs": [],
+  "skippedRemoteRefs": [],
+  "totals": {
+    "eagerRaw": 1533100,
+    "eagerGz": 403495
+  },
+  "budget": {
+    "gate": "W2.md §6 G2",
+    "eagerJsGzMax": 286720,
+    "eagerJsGz": 313423,
+    "marginBytes": -26703,
+    "verdict": "RED",
+    "note": "CSS is MEASURED, NOT GATED (W2.md §ENV). The enforcing gate is e2e/smoke/perf/eager-payload.spec.ts."
+  }
+}

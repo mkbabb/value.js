@@ -1,0 +1,33 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/bbnf-value.test.ts (7 tests) 11ms
+ ✓ test/css/bbnf-color5.test.ts (8 tests) 21ms
+ ✓ test/css/bbnf-fonts.test.ts (8 tests) 23ms
+ ✓ test/css/css-color5.test.ts (23 tests) 159ms
+ ✓ test/css/custom-property-case.test.ts (4 tests) 21ms
+ ✓ test/css/bbnf-grid.test.ts (8 tests) 23ms
+ ✓ test/css/css-var-animation.test.ts (4 tests) 9ms
+ ✓ test/css/bbnf-values.test.ts (11 tests) 41ms
+ ✓ test/css/bbnf-refusal.test.ts (13 tests) 15ms
+ ✓ test/css/bbnf-success-path.test.ts (11 tests) 52ms
+ ✓ test/css/bbnf-gap.test.ts (25 tests) 227ms
+ ✓ test/css/bbnf-depth.test.ts (2 tests) 59ms
+ ✓ test/css/custom-property-empty.test.ts (17 tests) 7ms
+ ✓ test/css/syntax-custom-ident.test.ts (39 tests) 50ms
+ ✓ test/css/bbnf-images.test.ts (10 tests) 2372ms
+   ✓ X.P.W8 .i — gradients > accepts every valid WPT gradient and round-trips it  2076ms
+ ✓ test/css/hex-color.test.ts (6 tests) 2025ms
+   ✓ hex colours (css-color-4 §5.2) > reads every #rgba form  708ms
+   ✓ hex colours (css-color-4 §5.2) > reads #rrggbb forms  581ms
+   ✓ hex colours (css-color-4 §5.2) > reads #rrggbbaa forms, the high byte included  716ms
+ ✓ test/css/bbnf-frozen.test.ts (22 tests) 1831ms
+   ✓ sampled results are deeply frozen, every entry > parseCssValue — the real corpus  813ms
+   ✓ sampled results are deeply frozen, every entry > parseCssValues — the real corpus  595ms
+
+ Test Files  17 passed (17)
+      Tests  218 passed (218)
+   Start at  16:09:07
+   Duration  8.79s (transform 1.40s, setup 3.70s, collect 16.12s, tests 6.94s, environment 38.88s, prepare 5.54s)
+
+exit 0

@@ -1,0 +1,269 @@
+SERVED MODEL: claude-opus-5-5
+diff --git a/demo/app/App.vue b/demo/app/App.vue
+index e34ddf21..8911b297 100644
+--- a/demo/app/App.vue
++++ b/demo/app/App.vue
+@@ -39,7 +39,8 @@
+         :animation-group="currentAnimationGroup"
+         :channels="currentChannels"
+         :super-key="resolvedScene.superKey"
+-        :show-start-screen="isHome"
++        :show-start-screen="showStartScreen"
++        :hide-controls="isHome"
+         :auto-play="autoPlayNext"
+         :stage-mode="stageMode"
+         :grid-background="resolvedScene.id !== AMIGA_SCENE_ID"
+@@ -84,11 +85,15 @@
+                  `sceneSwapStyle` on this SIBLING <div> (SpringProgress +
+                  rationale in `useSceneSwap`), never a wrapper <Transition>, so
+                  the re-break can't recur. -->
++            <!-- UIA-KF-066 — the first press on the stage engages the subject
++                 and dismisses the start screen (`useStartScreen`); off home it
++                 is inert. -->
+             <div
+                 ref="sceneHostEl"
+                 class="scene-host h-full w-full"
+                 tabindex="-1"
+                 :style="sceneSwapStyle"
++                @pointerdown="engageStartScreen"
+             >
+                 <Suspense :key="activeSceneKey" @resolve="onSceneResolved">
+                     <component
+@@ -177,6 +182,7 @@ import {
+ 
+ import { useSceneMachineRouterBinding } from "./scene/useSceneMachineRouterBinding";
+ import { useSceneMachineShellBinding } from "./scene/useSceneMachineShellBinding";
++import { useStartScreen } from "./scene/useStartScreen";
+ import { useSceneSwap } from "./transition/useSceneSwap";
+ import { useSceneTransition } from "./transition/useSceneTransition";
+ import { scenes, sceneMap, warmScene, homeScene } from "./scene/scenes";
+@@ -209,6 +215,7 @@ useSceneMachineRouterBinding({ getRunSceneSwitch: () => runSceneSwitch });
+ 
+ const currentSceneId = computed(() => machine.activeScene.value);
+ const isHome = computed(() => currentSceneId.value === HOME_SCENE_ID);
++const { showStartScreen, engage: engageStartScreen } = useStartScreen(isHome);
+ // T.B8 — the `machinePlaying` computed (the machine → transport intent edge) is
+ // RETIRED: `useAnimationGroupPlayback` derives `isPlaying` directly from
+ // `machine.status` now, so the transport can never read a stale `false` — the
+diff --git a/demo/app/scene/scenes.ts b/demo/app/scene/scenes.ts
+index 9f565ae0..ac0d852b 100644
+--- a/demo/app/scene/scenes.ts
++++ b/demo/app/scene/scenes.ts
+@@ -149,11 +149,24 @@ export function warmScenesAtIdle(): void {
+     else setTimeout(warmAll, 0);
+ }
+ 
+-/** The home/hero landing: the cube backdrop under the start screen. */
++/**
++ * The home/hero landing: the cube backdrop under the start screen.
++ *
++ * KFA-22 (X.KF.W13X.r4shell) — HOME STORES UNDER THE CUBE'S KEY. Home IS the
++ * cube scene (the same `CubeScene`, the same `<Suspense>` key, App.vue), and
++ * its transport lists the cube's channels. It kept a store key of its own, and
++ * `EditorShell` keys its `AnimationControlsGroup` on the store key, so the home
++ * Play (a hop to the cube) tore down the transport and the scene slot inside
++ * it and mounted both again inside the swap: the 230-320 ms frame gap after
++ * Play. One key keeps the one scene mounted across the hop (the shell binding
++ * re-binds the group on the shared-scene id change), and a pick on home's list
++ * is the cube's pick by construction: there is no second bucket to carry it
++ * out of (UIA-KF-004's carry is deleted with the bucket).
++ */
+ export const homeScene: SceneDescriptor = {
+     id: HOME_SCENE_ID,
+     label: "Home",
+-    superKey: HOME_SCENE_ID,
++    superKey: CUBE_SCENE_ID,
+     stageMode: "subject",
+     icon: HomeIcon,
+     component: CubeScene,
+diff --git a/demo/app/scene/useSceneMachineShellBinding.ts b/demo/app/scene/useSceneMachineShellBinding.ts
+index c171f888..df9b8a80 100644
+--- a/demo/app/scene/useSceneMachineShellBinding.ts
++++ b/demo/app/scene/useSceneMachineShellBinding.ts
+@@ -134,15 +134,12 @@ export function useSceneMachineShellBinding(opts: {
+     // ── The SCENE_READY emit (S4 — once per entry, targets-attached) ──────────
+     // The once-per-entry guard keys on the (scene-id × BOUND-GROUP-IDENTITY)
+     // pair, not the scene-id alone (K.W0). A new scene-id re-arms it; so does a
+-    // *fresh group object* for the same scene-id — the home→cube hero handoff
+-    // crosses the `AnimationControlsGroup :key="superKey"` boundary
+-    // (`__home__`→`Cube`, EditorShell.vue), so CubeScene REMOUNTS and exposes a
+-    // BRAND-NEW group. Keying on scene-id alone, the synchronous pre-remount
+-    // drive consumed the guard against the OLD (doomed) group — which the
+-    // outgoing CubeScene's `onBeforeUnmount` then `stop()`ed — and the genuinely-
+-    // live post-remount group was blocked from ever re-driving SCENE_READY/PLAY
+-    // (the cold hero P0: the FSM read playing/started while the live engine was
+-    // dead). Keying on the group identity, the post-remount group RE-drives.
++    // *fresh group object* for the same scene-id — a scene that remounts
++    // exposes a BRAND-NEW group, and keying on scene-id alone let a drive
++    // against the OLD (doomed) group consume the guard and block the live one
++    // from ever re-driving SCENE_READY/PLAY (the cold hero P0 of the era when
++    // home→cube remounted; KFA-22 keeps that hop on one mount now, `scenes.ts`
++    // homeScene). Keying on the group identity, a remounted group RE-drives.
+     let readyFor: string | null = null;
+     let readyGroup: object | null = null;
+ 
+@@ -241,15 +238,12 @@ export function useSceneMachineShellBinding(opts: {
+ 
+     // Re-arm the guard on every machine scene change; drive readiness DIRECTLY
+     // for the home ↔ cube transition (shared Suspense key 'cube' → no @resolve).
+-    // home and cube share the CubeScene component but NOT the `superKey`
+-    // (`__home__` vs `Cube`), so crossing home→cube REMOUNTS the scene across the
+-    // `AnimationControlsGroup :key="superKey"` boundary — the synchronous drive
+-    // here lands on the OUTGOING group (no liveGroup yet for the incoming one),
+-    // so markSceneReady binds nothing playable and DEFERS; the group-watcher's
+-    // re-drive (the new group's bind) carries the SCENE_READY/PLAY. We still
+-    // call it here to advance the restore for the home→home / cube→cube echo and
+-    // to re-arm the guard. A genuine remount of another scene is driven by the
+-    // group watcher / @resolve when the new scene's surface binds.
++    // KFA-22 (X.KF.W13X.r4shell) — home and cube share the CubeScene component
++    // AND the store key (`scenes.ts` homeScene), so the hop crosses no
++    // `AnimationControlsGroup :key` boundary: the scene stays mounted, its group
++    // is the live one, and this drive binds it and carries the SCENE_READY/PLAY
++    // inside the swap's update callback. A genuine remount of another scene is
++    // driven by the group watcher / @resolve when the new scene's surface binds.
+     watch(currentSceneId, (id, prev) => {
+         readyFor = null;
+         readyGroup = null;
+@@ -263,20 +257,10 @@ export function useSceneMachineShellBinding(opts: {
+     }
+ 
+     // ── Playback events from the bottom bar → the machine (S2) ────────────────
+-    // UIA-KF-004 — home's transport lists the CUBE's channels (home renders the
+-    // CubeScene backdrop), so a pick there is a "play this on cube" intent. The
+-    // pick is written to HOME's control bucket (the transport's own store), and
+-    // cube selects from ITS bucket, so the hop carries the pick across and
+-    // consumes it — a later bare Play on home leaves cube's selection alone.
+-    function carryHomePick() {
+-        const home = getStoredAnimationGroupControlOptions(currentSuperKey.value);
+-        const cube = sceneMap.get("cube");
+-        if (!home.selectedAnimation || !cube) return;
+-        getStoredAnimationGroupControlOptions(cube.superKey).selectedAnimation =
+-            home.selectedAnimation;
+-        home.selectedAnimation = null;
+-    }
+-
++    // UIA-KF-004 — home's transport lists the CUBE's channels, so a pick there
++    // is a "play this on cube" intent. Home stores under the cube's key
++    // (KFA-22, `scenes.ts` homeScene), so the pick IS the cube's selection when
++    // the hop lands; nothing is carried between buckets.
+     function onPlayStateChange(playing: boolean) {
+         // Home "play" is a user gesture — it navigates to cube and auto-plays.
+         // Gate on the empty home group so re-activating a cached scene whose
+@@ -284,7 +268,6 @@ export function useSceneMachineShellBinding(opts: {
+         const group = currentAnimationGroup.value;
+         const isHomeEmptyGroup = Object.keys(group.animations).length === 0;
+         if (isHome.value && playing && isHomeEmptyGroup) {
+-            carryHomePick();
+             autoPlayNext.value = true;
+             getRunSceneSwitch()("cube");
+             return;
+diff --git a/demo/components/instrument/shell/EditorShell.vue b/demo/components/instrument/shell/EditorShell.vue
+index b2e6bdf4..5904f773 100644
+--- a/demo/components/instrument/shell/EditorShell.vue
++++ b/demo/components/instrument/shell/EditorShell.vue
+@@ -81,7 +81,7 @@
+             :channels="channels"
+             :super-key="superKey"
+             :auto-play="autoPlay"
+-            :hide-controls="showStartScreen"
++            :hide-controls="hideControls"
+             :stage-mode="stageMode"
+             :has-control-surfaces="hasControlSurfaces"
+             @play-state-change="onPlayStateChange"
+@@ -147,6 +147,12 @@ const props = withDefaults(
+         // `superKey: undefined` as this prop's own default.
+         superKey?: string | undefined;
+         showStartScreen?: boolean;
++        // UIA-KF-066 (X.KF.W13X.r4shell) — the transport's controls are
++        // withheld on their OWN flag. They rode `showStartScreen`, so the
++        // start screen could not be dismissed (a drag of the subject) without
++        // unhiding controls the landing has nothing for; the App now passes
++        // "home is open" here and "home, not yet engaged" above.
++        hideControls?: boolean;
+         gridBackground?: boolean;
+         autoPlay?: boolean;
+         // T.B8 — the `machinePlaying` prop is RETIRED. It existed only to sync
+@@ -168,6 +174,7 @@ const props = withDefaults(
+     {
+         superKey: undefined,
+         showStartScreen: true,
++        hideControls: false,
+         gridBackground: true,
+         autoPlay: false,
+         stageMode: "subject",
+diff --git a/test/demo/app/home-pick-carry.test.ts b/test/demo/app/home-pick-carry.test.ts
+index 4ff6e215..529821cb 100644
+--- a/test/demo/app/home-pick-carry.test.ts
++++ b/test/demo/app/home-pick-carry.test.ts
+@@ -3,13 +3,14 @@ import { computed, effectScope, ref, shallowRef } from "vue";
+ import type { AnimationGroup } from "@mkbabb/keyframes.js";
+ import { getStoredAnimationGroupControlOptions, HOME_SCENE_ID } from "@state";
+ import { useSceneMachineShellBinding } from "../../../demo/app/scene/useSceneMachineShellBinding";
+-import { sceneMap } from "../../../demo/app/scene/scenes";
++import { homeScene, sceneMap } from "../../../demo/app/scene/scenes";
+ 
+ // UIA-KF-004 (X.KF.W13V.u): home's transport lists the cube's channels (home
+ // renders the CubeScene backdrop), and a pick there is a navigate-to-cube
+-// intent. The pick lands in HOME's control bucket; the intercept that carries
+-// the user to cube must carry the pick with it, or cube plays its own stored
+-// channel (Rotations) and the choice is thrown away.
++// intent: the cube must play the picked channel, or the choice is thrown away.
++// X.KF.W13X.r4shell (KFA-22): home stores under the cube's key, so the pick
++// is written straight into the bucket the cube selects from — the hop carries
++// nothing, and a later bare Play keeps whatever the cube's selection is.
+ const bindHome = () => {
+     const runSceneSwitch = vi.fn();
+     const scope = effectScope();
+@@ -17,7 +18,7 @@ const bindHome = () => {
+         useSceneMachineShellBinding({
+             sceneRef: shallowRef(null),
+             currentSceneId: computed(() => HOME_SCENE_ID),
+-            currentSuperKey: computed(() => HOME_SCENE_ID),
++            currentSuperKey: computed(() => homeScene.superKey),
+             isHome: computed(() => true),
+             currentAnimationGroup: shallowRef({
+                 animations: {},
+@@ -33,7 +34,7 @@ describe("home's channel pick survives the hop to cube (UIA-KF-004)", () => {
+     const cubeKey = sceneMap.get("cube")!.superKey;
+ 
+     it("a pick on home is the channel cube selects", () => {
+-        const home = getStoredAnimationGroupControlOptions(HOME_SCENE_ID);
++        const home = getStoredAnimationGroupControlOptions(homeScene.superKey);
+         const cube = getStoredAnimationGroupControlOptions(cubeKey);
+         cube.selectedAnimation = "Rotations";
+         home.selectedAnimation = "Matrix";
+@@ -46,8 +47,8 @@ describe("home's channel pick survives the hop to cube (UIA-KF-004)", () => {
+         stop();
+     });
+ 
+-    it("the pick is consumed: a later bare Play on home keeps cube's own selection", () => {
+-        const home = getStoredAnimationGroupControlOptions(HOME_SCENE_ID);
++    it("a later bare Play on home keeps cube's own selection", () => {
++        const home = getStoredAnimationGroupControlOptions(homeScene.superKey);
+         const cube = getStoredAnimationGroupControlOptions(cubeKey);
+         home.selectedAnimation = "Matrix";
+         const { binding, stop } = bindHome();
+diff --git a/test/demo/app/scene-swap-w13x.test.ts b/test/demo/app/scene-swap-w13x.test.ts
+index d8551f71..33785a69 100644
+--- a/test/demo/app/scene-swap-w13x.test.ts
++++ b/test/demo/app/scene-swap-w13x.test.ts
+@@ -20,6 +20,7 @@ import { createMemoryHistory, createRouter } from "vue-router";
+ 
+ import * as scenesModule from "../../../demo/app/scene/scenes";
+ import { allScenes, sceneMap } from "../../../demo/app/scene/scenes";
++import { CUBE_SCENE_ID } from "../../../demo/scenes/cube/cubeKeys";
+ import type { SceneExposedApi } from "../../../demo/app/scene/sceneExposedApi";
+ import { useSceneMachineRouterBinding } from "../../../demo/app/scene/useSceneMachineRouterBinding";
+ import { useSceneTransition } from "../../../demo/app/transition/useSceneTransition";
+@@ -155,7 +156,10 @@ describe("A2-KE-L1-13 / L1-14 — the scene contract carries no dead members", (
+         for (const s of allScenes) {
+             expect(Object.keys(s)).not.toContain("showStartScreen");
+             expect(Object.keys(s)).not.toContain("gridBackground");
+-            expect(s.superKey).toBe(s.id);
++            // KFA-22 (X.KF.W13X.r4shell): home stores under the cube's key (it IS
++            // the cube scene, one mount across the Play hop); every other scene
++            // stores under its own id.
++            expect(s.superKey).toBe(s.id === HOME_SCENE_ID ? CUBE_SCENE_ID : s.id);
+         }
+         // One HOME_SCENE_ID: the state layer's; the registry does not redefine it.
+         expect(Object.keys(scenesModule)).not.toContain("HOME_SCENE_ID");

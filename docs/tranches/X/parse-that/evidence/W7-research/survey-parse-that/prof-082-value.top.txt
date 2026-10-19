@@ -1,0 +1,41 @@
+total ms 2534
+ 12.4% (anon) bbnf-082.mjs:395
+  9.9% map bbnf-082.mjs:1188
+  8.0% mapState bbnf-082.mjs:1201
+  5.4% regexParser bbnf-082.mjs:976
+  5.2% dispatchParser bbnf-082.mjs:4405
+  4.2% all2 bbnf-082.mjs:4337
+  4.0% ok bbnf-082.mjs:774
+  3.4% mergeErrorState bbnf-082.mjs:419
+  2.8% deepFreeze bbnf-082.mjs:2
+  2.7% many bbnf-082.mjs:1517
+  2.6% (garbage collector) :0
+  2.4% (anon) bbnf-082.mjs:5423
+  2.3% next bbnf-082.mjs:1240
+  2.0% allParser bbnf-082.mjs:915
+  1.8% anyParser bbnf-082.mjs:856
+  1.5% identScalar bbnf-082.mjs:5328
+  1.2% failure bbnf-082.mjs:13
+  1.2% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?[%a-zA-Z-]*(?![\w\\.]) :0
+  1.1% wrapParser bbnf-082.mjs:1406
+  1.0% tokenQuantity bbnf-082.mjs:4558
+  1.0% (anon) bbnf-082.mjs:5340
+  0.9% RegExp: [-_a-zA-Z][-_a-zA-Z\d]*(?![\w(-]) :0
+  0.9% opt bbnf-082.mjs:1260
+  0.9% compileForInternalLoader realm:383
+  0.9% RegExp: (?:--[\w-]*|[a-zA-Z_-][\w-]*)(?=\() :0
+  0.8% reset bbnf-082.mjs:1049
+  0.8% regexSpanParser bbnf-082.mjs:1671
+  0.8% (program) :0
+  0.8% dispatchParser bbnf-082.mjs:4380
+  0.8% build bbnf-082.mjs:5079
+  0.8% run bbnf-082.mjs:4525
+  0.6% RegExp: ^([+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?)(.*)$ :0
+  0.6% RegExp: \s+|(?=[:;])|(?<=[:;]) :0
+  0.6% RegExp: \s* :0
+  0.6% numericScalar bbnf-082.mjs:5333
+  0.5% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?% :0
+  0.5% RegExp: \s*\/\s* :0
+  0.5% RegExp: [+-]?(?:\d*\.\d+|\d+(?!\.\d))(?:[eE][+-]?\d+)?(?![\w%\\]) :0
+  0.5% readChannel bbnf-082.mjs:5048
+  0.4% RegExp: [+-]?(?:\d*\.\d+|\d+)(?:[eE][+-]?\d+)?(?:[dD]eg|[gG]rad|[rR]ad|[tT]urn)(?![\w-]) :0

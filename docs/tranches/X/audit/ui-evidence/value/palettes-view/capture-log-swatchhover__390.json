@@ -1,0 +1,16 @@
+[
+ {
+  "tag": "swatchhover__390__light",
+  "sha": "aaae783b",
+  "dirty": "5",
+  "fail": "TimeoutError: locator.tap: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.dashed-well .swatch-row button').nth(2)\u001b[22m\n",
+  "errs": []
+ },
+ {
+  "tag": "swatchhover__390__dark",
+  "sha": "aaae783b",
+  "dirty": "5",
+  "fail": "TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ }
+]

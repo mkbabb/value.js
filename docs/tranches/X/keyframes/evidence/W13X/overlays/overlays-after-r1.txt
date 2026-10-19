@@ -1,0 +1,35 @@
+GREEN A2-KE-L2-12 1440x900-light popover x[413.0,685.0] of 1440 (>=16 gutter)
+GREEN UIA-KF-141 1440x900-light field 246.0 of 248.0 inner
+GREEN UIA-KF-071 1440x900-light buttons ["Copy link","Load"]
+GREEN UIA-KF-248 1440x900-light focus on open BUTTON:Copy link
+GREEN UIA-KF-224 1440x900-light native title attrs in popover 0
+RED   UIA-KF-140 1440x900-light trigger 28x36 no-fade
+GREEN UIA-KF-142 1440x900-light aria-invalid=true described="This link's shared state could not be read."
+GREEN UIA-KF-070 1440x900-light after copy: menu false body-pe auto focus @mbabb menu
+GREEN UIA-KF-070 1440x900-light after load (link 2942 ch): menu false body-pe auto focus @mbabb menu
+GREEN UIA-KF-249 1440x900-light field on reopen after a load: ""
+GREEN UIA-KF-016 1440x900-light dialog scroll 803/803 port position relative
+GREEN UIA-KF-072 1440x900-light heading static bg rgba(0, 0, 0, 0)
+GREEN UIA-KF-139 1440x900-light focus on open BUTTON · title "Keyboard shortcuts"
+GREEN UIA-KF-147 1440x900-light port 684/684 (all rows visible without scrolling)
+GREEN UIA-KF-250 1440x900-light port scrollbar-width none gutter auto
+GREEN UIA-KF-251 1440x900-light desc "Grouped by area." · row radius 0px bg rgba(0, 0, 0, 0)
+RED   UIA-KF-145 1440x900-light Delete caps ["⌫","Backspace"]
+GREEN UIA-KF-016 1440x900-light after wheel past end: dialog scrollTop 0
+GREEN A2-KE-L2-12 390x844-dark popover x[16.0,288.0] of 390 (>=16 gutter)
+GREEN UIA-KF-141 390x844-dark field 246.0 of 248.0 inner
+GREEN UIA-KF-071 390x844-dark buttons ["Copy link","Load"]
+GREEN UIA-KF-248 390x844-dark focus on open BUTTON:Copy link
+GREEN UIA-KF-224 390x844-dark native title attrs in popover 0
+RED   UIA-KF-140 390x844-dark trigger 44x54 no-fade
+GREEN UIA-KF-142 390x844-dark aria-invalid=true described="This link's shared state could not be read."
+GREEN UIA-KF-070 390x844-dark after copy: menu false body-pe auto focus @mbabb menu
+GREEN UIA-KF-070 390x844-dark after load (link 2942 ch): menu false body-pe auto focus @mbabb menu
+GREEN UIA-KF-249 390x844-dark field on reopen after a load: ""
+GREEN UIA-KF-016 390x844-dark dialog scroll 593/593 port position relative
+GREEN UIA-KF-072 390x844-dark heading static bg rgba(0, 0, 0, 0)
+GREEN UIA-KF-139 390x844-dark focus on open BUTTON · title "Keyboard shortcuts"
+GREEN UIA-KF-250 390x844-dark port scrollbar-width none gutter auto
+GREEN UIA-KF-251 390x844-dark desc "Grouped by area." · row radius 0px bg rgba(0, 0, 0, 0)
+RED   UIA-KF-145 390x844-dark Delete caps ["⌫","Backspace"]
+GREEN UIA-KF-016 390x844-dark after wheel past end: dialog scrollTop 0

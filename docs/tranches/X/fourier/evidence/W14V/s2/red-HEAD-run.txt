@@ -1,0 +1,251 @@
+
+Running 5 tests using 5 workers
+
+[1/5] [chromium] › e2e/f-w14v-detached.spec.ts:137:5 › db · O-68 — each layer's reset is inline in its header › the reset sits on the header row, resets without toggling, and no body reset remains
+[2/5] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground
+[3/5] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground
+[4/5] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground
+[5/5] [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground
+  1) [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground 
+
+    Error: the gutter (66,49,37) is the page ground's colour (25,24,23): the shift 41,25,14 is a neutral shade
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    27
+
+      124 |                 const spread = Math.max(...delta) - Math.min(...delta);
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+    > 126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+          |                                                                                                                                              ^
+      127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+      128 |             });
+      129 |         });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:126:142
+
+    Error: the gutter (66,49,37) is no more tinted than the ground (25,24,23)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 5
+    Received:    29
+
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+      126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+    > 127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+          |                                                                                                                     ^
+      128 |             });
+      129 |         });
+      130 |     }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:127:117
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-detached-da-·-O-75--be866-urface-over-the-page-ground-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-detached-da-·-O-75--be866-urface-over-the-page-ground-chromium/error-context.md
+
+
+  2) [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground 
+
+    Error: the gutter (242,232,219) is the page ground's colour (227,227,225): the shift 15,5,-6 is a neutral shade
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    21
+
+      124 |                 const spread = Math.max(...delta) - Math.min(...delta);
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+    > 126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+          |                                                                                                                                              ^
+      127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+      128 |             });
+      129 |         });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:126:142
+
+    Error: the gutter (242,232,219) is no more tinted than the ground (227,227,225)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 5
+    Received:    23
+
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+      126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+    > 127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+          |                                                                                                                     ^
+      128 |             });
+      129 |         });
+      130 |     }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:127:117
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-detached-da-·-O-75--4c76b-urface-over-the-page-ground-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-detached-da-·-O-75--4c76b-urface-over-the-page-ground-chromium/error-context.md
+
+
+  3) [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground 
+
+    Error: the gutter (248,237,225) is the page ground's colour (227,227,225): the shift 21,10,0 is a neutral shade
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    21
+
+      124 |                 const spread = Math.max(...delta) - Math.min(...delta);
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+    > 126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+          |                                                                                                                                              ^
+      127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+      128 |             });
+      129 |         });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:126:142
+
+    Error: the gutter (248,237,225) is no more tinted than the ground (227,227,225)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 5
+    Received:    23
+
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+      126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+    > 127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+          |                                                                                                                     ^
+      128 |             });
+      129 |         });
+      130 |     }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:127:117
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-detached-da-·-O-75--2a8ec-urface-over-the-page-ground-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-detached-da-·-O-75--2a8ec-urface-over-the-page-ground-chromium/error-context.md
+
+
+  4) [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground 
+
+    Error: the gutter (62,46,33) is the page ground's colour (25,24,23): the shift 37,22,10 is a neutral shade
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4
+    Received:    27
+
+      124 |                 const spread = Math.max(...delta) - Math.min(...delta);
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+    > 126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+          |                                                                                                                                              ^
+      127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+      128 |             });
+      129 |         });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:126:142
+
+    Error: the gutter (62,46,33) is no more tinted than the ground (25,24,23)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 5
+    Received:    29
+
+      125 |                 const chroma = (c: Rgb) => Math.max(...c) - Math.min(...c);
+      126 |                 expect.soft(spread, `the gutter (${gutter}) is the page ground's colour (${ground}): the shift ${delta} is a neutral shade`).toBeLessThanOrEqual(4);
+    > 127 |                 expect.soft(chroma(gutter), `the gutter (${gutter}) is no more tinted than the ground (${ground})`).toBeLessThanOrEqual(chroma(ground) + 3);
+          |                                                                                                                     ^
+      128 |             });
+      129 |         });
+      130 |     }
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:127:117
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-detached-da-·-O-75--a515c-urface-over-the-page-ground-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-detached-da-·-O-75--a515c-urface-over-the-page-ground-chromium/error-context.md
+
+
+  5) [chromium] › e2e/f-w14v-detached.spec.ts:137:5 › db · O-68 — each layer's reset is inline in its header › the reset sits on the header row, resets without toggling, and no body reset remains 
+
+    Error: Decomposition: the reset is in the header, not the body
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      175 |         for (const l of withReset) {
+      176 |             expect.soft(l.resets.length, `${l.label}: one reset`).toBe(1);
+    > 177 |             expect.soft(l.resets.every((r) => r.inHeader), `${l.label}: the reset is in the header, not the body`).toBe(true);
+          |                                                                                                                    ^
+      178 |             expect.soft(l.resets.every((r) => r.onRow), `${l.label}: the reset sits on the label's row`).toBe(true);
+      179 |         }
+      180 |
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:177:116
+
+    Error: Decomposition: the reset sits on the label's row
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      176 |             expect.soft(l.resets.length, `${l.label}: one reset`).toBe(1);
+      177 |             expect.soft(l.resets.every((r) => r.inHeader), `${l.label}: the reset is in the header, not the body`).toBe(true);
+    > 178 |             expect.soft(l.resets.every((r) => r.onRow), `${l.label}: the reset sits on the label's row`).toBe(true);
+          |                                                                                                          ^
+      179 |         }
+      180 |
+      181 |         // Clicking it resets and does not toggle the layer.
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:178:106
+
+    Error: Contour: the reset is in the header, not the body
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      175 |         for (const l of withReset) {
+      176 |             expect.soft(l.resets.length, `${l.label}: one reset`).toBe(1);
+    > 177 |             expect.soft(l.resets.every((r) => r.inHeader), `${l.label}: the reset is in the header, not the body`).toBe(true);
+          |                                                                                                                    ^
+      178 |             expect.soft(l.resets.every((r) => r.onRow), `${l.label}: the reset sits on the label's row`).toBe(true);
+      179 |         }
+      180 |
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:177:116
+
+    Error: Contour: the reset sits on the label's row
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      176 |             expect.soft(l.resets.length, `${l.label}: one reset`).toBe(1);
+      177 |             expect.soft(l.resets.every((r) => r.inHeader), `${l.label}: the reset is in the header, not the body`).toBe(true);
+    > 178 |             expect.soft(l.resets.every((r) => r.onRow), `${l.label}: the reset sits on the label's row`).toBe(true);
+          |                                                                                                          ^
+      179 |         }
+      180 |
+      181 |         // Clicking it resets and does not toggle the layer.
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-detached.spec.ts:178:106
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-detached-db-·-O-68--8ca87-g-and-no-body-reset-remains-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-detached-db-·-O-68--8ca87-g-and-no-body-reset-remains-chromium/error-context.md
+
+
+  5 failed
+    [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the controls pane are each their own surface over the page ground 
+    [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the controls pane are each their own surface over the page ground 
+    [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the controls pane are each their own surface over the page ground 
+    [chromium] › e2e/f-w14v-detached.spec.ts:79:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the controls pane are each their own surface over the page ground 
+    [chromium] › e2e/f-w14v-detached.spec.ts:137:5 › db · O-68 — each layer's reset is inline in its header › the reset sits on the header row, resets without toggling, and no body reset remains 

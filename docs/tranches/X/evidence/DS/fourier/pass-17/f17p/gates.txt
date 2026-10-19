@@ -1,0 +1,7 @@
+X-DS fourier pass 17 cure (critic F17C), 2026-10-18. No consumer source changed: fourier stays at 95eed0c (m/w1-bump-migration), latex-paper at ebdf787 (5be04ae local on master, unpublished; npm 0.2.1).
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e: no file changed, so no spec touches a changed file; none run. Pass 16's paper-surface runs stand on the identical tree.
+No golden was re-baselined; no tracked file left modified.
+Probe: f17p-probe.mjs, headless real Chrome (channel chrome, DPR 2, touch below 1024), vite :3100 (the standing fourier dev server on this tree). One reading of the unchanged tree (f17p-probe-after.json, probe.log).
+Census: scripts/ds-census.mjs --chrome --base http://localhost:3100 (census-after.json): static and computed perPage identical to pass 16; sums 386/978/292/292/0/0/0/208/0/0. RED on glass rows only.

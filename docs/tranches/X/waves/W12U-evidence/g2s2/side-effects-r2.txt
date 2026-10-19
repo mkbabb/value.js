@@ -1,0 +1,41 @@
+SERVED MODEL: claude-opus-5-5
+actions.js survives=11314 var e=e=>({ok:!0,value:e}),t=e=>({ok:!1,error:e});Object.freeze([]);function n(e){let t=e[0],n=e[1],r=e[2],i=e[3],a=e[4],o=e[5],s=e[6],c=e[7],l=e[8],u=a*l-o*c,d
+anchors.js survives=1301 function e(e){let t=e[0],n=e[1],r=e[2],i=e[3],a=e[4],o=e[5],s=e[6],c=e[7],l=e[8],u=a*l-o*c,d=r*c-n*l,f=n*o-r*a,p=o*s-i*l,m=t*l-r*s,h=r*i-t*o,g=i*c-a*s,_=n*s-t*c
+color.js survives=2070 Object.freeze([]);function e(e){let t=e[0],n=e[1],r=e[2],i=e[3],a=e[4],o=e[5],s=e[6],c=e[7],l=e[8],u=a*l-o*c,d=r*c-n*l,f=n*o-r*a,p=o*s-i*l,m=t*l-r*s,h=r*i-t*o,g
+color-grammar.js survives=59209 var e=e=>({ok:!0,value:e}),t=e=>({ok:!1,error:e});Object.freeze([]);var n=([e,t,n],r)=>[r[0]*e+r[1]*t+r[2]*n,r[3]*e+r[4]*t+r[5]*n,r[6]*e+r[7]*t+r[8]*n];function
+css-grammar.js survives=151199 var e=e=>({ok:!0,value:e}),t=e=>({ok:!1,error:e});Object.freeze([]);var n=([e,t,n],r)=>[r[0]*e+r[1]*t+r[2]*n,r[3]*e+r[4]*t+r[5]*n,r[6]*e+r[7]*t+r[8]*n];function
+easing.js survives=2383 Object.freeze([]);function e(e){return e}var t=e=>1-(1-e)**3,n=e=>-(Math.cos(Math.PI*e)-1)/2,r=e=>e<.5?4*e**3:1-(-2*e+2)**3/2,i=e=>e<.5?2*e*e:1-(-2*e+2)**2/2,a=
+math.js survives=0 
+quantize.js survives=2070 Object.freeze([]);function e(e){let t=e[0],n=e[1],r=e[2],i=e[3],a=e[4],o=e[5],s=e[6],c=e[7],l=e[8],u=a*l-o*c,d=r*c-n*l,f=n*o-r*a,p=o*s-i*l,m=t*l-r*s,h=r*i-t*o,g
+result.js survives=18 Object.freeze([]);
+serialize.js survives=2070 Object.freeze([]);function e(e){let t=e[0],n=e[1],r=e[2],i=e[3],a=e[4],o=e[5],s=e[6],c=e[7],l=e[8],u=a*l-o*c,d=r*c-n*l,f=n*o-r*a,p=o*s-i*l,m=t*l-r*s,h=r*i-t*o,g
+subpaths/color.js survives=59209 var e=e=>({ok:!0,value:e}),t=e=>({ok:!1,error:e});Object.freeze([]);var n=([e,t,n],r)=>[r[0]*e+r[1]*t+r[2]*n,r[3]*e+r[4]*t+r[5]*n,r[6]*e+r[7]*t+r[8]*n];function
+subpaths/css.js survives=188730 var e=e=>({ok:!0,value:e}),t=e=>({ok:!1,error:e});Object.freeze([]);var n=([e,t,n],r)=>[r[0]*e+r[1]*t+r[2]*n,r[3]*e+r[4]*t+r[5]*n,r[6]*e+r[7]*t+r[8]*n];function
+subpaths/easing.js survives=2383 Object.freeze([]);function e(e){return e}var t=e=>1-(1-e)**3,n=e=>-(Math.cos(Math.PI*e)-1)/2,r=e=>e<.5?4*e**3:1-(-2*e+2)**3/2,i=e=>e<.5?2*e*e:1-(-2*e+2)**2/2,a=
+subpaths/math.js survives=0 
+subpaths/quantize.js survives=2070 Object.freeze([]);function e(e){let t=e[0],n=e[1],r=e[2],i=e[3],a=e[4],o=e[5],s=e[6],c=e[7],l=e[8],u=a*l-o*c,d=r*c-n*l,f=n*o-r*a,p=o*s-i*l,m=t*l-r*s,h=r*i-t*o,g
+subpaths/transform.js survives=0 
+subpaths/value.js survives=167 new Set(`%.var.calc.vh.vw.vmin.vmax.vi.vb.svh.svw.svmin.svmax.svi.svb.lvh.lvw.lvmin.lvmax.lvi.lvb.dvh.dvw.dvmin.dvmax.dvi.dvb.cqw.cqh.cqi.cqb.cqmin.cqmax`.split
+transform.js survives=0 
+value.js survives=167 new Set(`%.var.calc.vh.vw.vmin.vmax.vi.vb.svh.svw.svmin.svmax.svi.svb.lvh.lvw.lvmin.lvmax.lvi.lvb.dvh.dvw.dvmin.dvmax.dvi.dvb.cqw.cqh.cqi.cqb.cqmin.cqmax`.split
+EFFECTFUL 15 of 19
+exec actions.js no-global-write
+exec anchors.js no-global-write
+exec color.js no-global-write
+exec color-grammar.js no-global-write
+exec css-grammar.js no-global-write
+exec easing.js no-global-write
+exec math.js no-global-write
+exec quantize.js no-global-write
+exec result.js no-global-write
+exec serialize.js no-global-write
+exec subpaths/color.js no-global-write
+exec subpaths/css.js no-global-write
+exec subpaths/easing.js no-global-write
+exec subpaths/math.js no-global-write
+exec subpaths/quantize.js no-global-write
+exec subpaths/transform.js no-global-write
+exec subpaths/value.js no-global-write
+exec transform.js no-global-write
+exec value.js no-global-write
+GLOBAL-WRITERS 0 of 19 => "sideEffects": false is TRUE to the bytes (and REQUIRED: part 1)

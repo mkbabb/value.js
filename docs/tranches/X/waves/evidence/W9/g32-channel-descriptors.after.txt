@@ -1,0 +1,82 @@
+SERVED MODEL: claude-opus-5[1m]
+
+G32 AFTER — X-W9.h worktree `value.js-x-w9-h` @ 4c306e12
+
+cmd: node docs/tranches/X/waves/evidence/W9/g32-channel-descriptors.mjs
+
+--- run 1 ---
+G32 channel-descriptor resolution
+  spaces (ChannelsBySpace)  : 17
+  (space, channel id) pairs : 49
+  failures                  : 0
+  witness ictcp.cp          : "Cp (protan)"
+  witness jzazbz.jz         : "Lightness (Jz)"
+G32 GREEN
+exit 0
+--- run 2 ---
+G32 channel-descriptor resolution
+  spaces (ChannelsBySpace)  : 17
+  (space, channel id) pairs : 49
+  failures                  : 0
+  witness ictcp.cp          : "Cp (protan)"
+  witness jzazbz.jz         : "Lightness (Jz)"
+G32 GREEN
+exit 0
+
+--- all 49 resolved pairs (G32_ROWS=1, run 3) ---
+G32 channel-descriptor resolution
+  spaces (ChannelsBySpace)  : 17
+  (space, channel id) pairs : 49
+  failures                  : 0
+  witness ictcp.cp          : "Cp (protan)"
+  witness jzazbz.jz         : "Lightness (Jz)"
+  ROW rgb.r -> "Red"
+  ROW rgb.g -> "Green"
+  ROW rgb.b -> "Blue"
+  ROW hsl.h -> "Hue"
+  ROW hsl.s -> "Saturation"
+  ROW hsl.l -> "Lightness"
+  ROW hsv.h -> "Hue"
+  ROW hsv.s -> "Saturation"
+  ROW hsv.v -> "Value"
+  ROW hwb.h -> "Hue"
+  ROW hwb.w -> "Whiteness"
+  ROW hwb.b -> "Blackness"
+  ROW lab.l -> "L* (Lightness)"
+  ROW lab.a -> "a* (Green-Red)"
+  ROW lab.b -> "b* (Blue-Yellow)"
+  ROW lch.l -> "L (Lightness)"
+  ROW lch.c -> "C (Chroma)"
+  ROW lch.h -> "h (hue)"
+  ROW oklab.l -> "L (Lightness)"
+  ROW oklab.a -> "a (Green-Red)"
+  ROW oklab.b -> "b (Blue-Yellow)"
+  ROW oklch.l -> "L (Lightness)"
+  ROW oklch.c -> "C (Chroma)"
+  ROW oklch.h -> "h (hue)"
+  ROW xyz.x -> "X"
+  ROW xyz.y -> "Y"
+  ROW xyz.z -> "Z"
+  ROW kelvin.kelvin -> "Temperature (K)"
+  ROW srgb-linear.r -> "Red (linear)"
+  ROW srgb-linear.g -> "Green (linear)"
+  ROW srgb-linear.b -> "Blue (linear)"
+  ROW display-p3.r -> "Red"
+  ROW display-p3.g -> "Green"
+  ROW display-p3.b -> "Blue"
+  ROW a98-rgb.r -> "Red"
+  ROW a98-rgb.g -> "Green"
+  ROW a98-rgb.b -> "Blue"
+  ROW prophoto-rgb.r -> "Red"
+  ROW prophoto-rgb.g -> "Green"
+  ROW prophoto-rgb.b -> "Blue"
+  ROW rec2020.r -> "Red"
+  ROW rec2020.g -> "Green"
+  ROW rec2020.b -> "Blue"
+  ROW ictcp.i -> "Intensity (I)"
+  ROW ictcp.ct -> "Ct (tritan)"
+  ROW ictcp.cp -> "Cp (protan)"
+  ROW jzazbz.jz -> "Lightness (Jz)"
+  ROW jzazbz.az -> "az (red-green)"
+  ROW jzazbz.bz -> "bz (yellow-blue)"
+G32 GREEN

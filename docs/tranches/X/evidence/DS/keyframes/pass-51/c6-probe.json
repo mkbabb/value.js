@@ -1,0 +1,137 @@
+{
+ "fails": [],
+ "cells": {
+  "spring-1440x900-light-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    499,
+    517.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-light-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    499,
+    517.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-600ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-light-2500ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-600ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-light-2500ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    499,
+    517.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1440x900-dark-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "fold": 527,
+   "labels": [
+    499,
+    517.7
+   ],
+   "maxBlockSize": "399px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-600ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1280x800-dark-2500ms": {
+   "scrollTop": 201,
+   "maxScroll": 201,
+   "fold": 511,
+   "labels": [
+    483.5,
+    501.7
+   ],
+   "maxBlockSize": "389px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-600ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  },
+  "spring-1440x1080-dark-2500ms": {
+   "scrollTop": 28,
+   "maxScroll": 28,
+   "fold": 701.8,
+   "labels": [
+    673.8,
+    692.5
+   ],
+   "maxBlockSize": "563px",
+   "initiallyOpen": false
+  }
+ }
+}

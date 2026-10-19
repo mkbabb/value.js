@@ -1,0 +1,17 @@
+firefox r0a0 parseCssValue          acc      n=13023 k=1 S=16 product x0.349 (31/31<1) spread 5.692 SET-ASIDE
+firefox r0a0 parseCssValues         acc      n=13023 k=1 S=16 product x0.342 (31/31<1) spread 6.716 SET-ASIDE
+firefox r0a0 parseCssValue          rej      n=16921 k=2 S=16 product x0.93 (18/31<1) spread 5.372 SET-ASIDE
+firefox r0a0 parseCssValues         rej      n=16921 k=1 S=16 product x0.896 (20/31<1) spread 5.325 SET-ASIDE
+firefox r1a0 parseCssValues         acc      n=13023 k=1 S=16 product x0.33 (30/31<1) spread 3.983 SET-ASIDE
+firefox r1a0 parseCssValue          acc      n=13023 k=1 S=16 product x0.35 (30/31<1) spread 4.327 SET-ASIDE
+firefox r1a0 parseCssValues         rej      n=16921 k=1 S=16 product x0.914 (18/31<1) spread 4.919 SET-ASIDE
+firefox r1a0 parseCssValue          rej      n=16921 k=2 S=16 product x0.822 (18/31<1) spread 4.839 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|acc|parseCssValue                RED x0.349(SA) x0.35(SA)
+product firefox|acc|parseCssValues               RED x0.342(SA) x0.33(SA)
+product firefox|rej|parseCssValue                RED x0.93(SA) x0.822(SA)
+product firefox|rej|parseCssValues               RED x0.896(SA) x0.914(SA)
+17:08  up 2 days,  2:35, 3 users, load averages: 303.93 278.66 290.52 
+ 18:47  up 2 days,  4:14, 3 users, load averages: 158.63 185.71 208.73 → bench/records/2026-09-24-x-p-w7-browser-w8r1-firefox-n31-g2.json
+DONE w8r1-firefox-n31-g2

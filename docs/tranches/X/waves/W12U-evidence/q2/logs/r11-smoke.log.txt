@@ -1,0 +1,1370 @@
+### smoke (r11) start 10-16 07:17:49 load1=24.60 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0
+(node:67611) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:67703) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 293 tests using 1 worker
+
+(node:67828) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[W4-CENSUS] {"route":"/","rows":[{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":224,"h":36,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Random color","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Palettes","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Extract palette","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"send-btn btn-interactive","name":"Apply color","w":24,"h":24,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Open color input","w":40,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none","name":"Select view","w":105.8,"h":32,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":119.1,"h":40,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"dock-tab-button glass-specular-track gap-1.5 text-small font-display","name":"Login","w":86.8,"h":38,"attributedTo":"self"},{"route":"/","tag":"button","id":"reka-dropdown-menu-trigger-v-5","cls":"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap","name":"@mbabb","w":73.6,"h":30.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]","name":"Select color space","w":109.3,"h":83.2,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"l channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"a channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"b channel","w":24,"h":24.4,"attributedTo":"self"},{"route":"/","tag":"button","id":"","cls":"channel-rail-item font-display text-subheading italic","name":"alpha channel","w":24.6,"h":25.4,"attributedTo":"self"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"L channel","w":344,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"A channel","w":344,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"B channel","w":344,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"span","id":"","cls":"slider-thumb glass-specular-track","name":"ALPHA channel","w":344,"h":24,"attributedTo":"span.glass-slider.channel-slider"},{"route":"/","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em] space-trigger--inline","name":"Select color space","w":84.5,"h":46.3,"attributedTo":"self"},{"route":"/","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"DefinitionThe L*a*b* color space is a three-dimensional color model designed to be perceptually uniform and device-independent. Basic Information Device Dependency:Device-independentWhite Point:Variable (typically D50 or D65)Gamut:UnlimitedCreated:1976 Components L* (Lightness)0% to 100%a* (Green-Red)-125 to 125b* (Blue-Yellow)-125 to 125 Key Properties Perceptual Uniformity:YesHue Linearity:NoLightness Separation:Yes Conversion Graph LabXYZLabLChLabXYZOKLabLabLChOKLChUsageCommon Applications: Color management, Image processing, Color difference calculationsIndustries: Printing, Textile, Paint manufacturing, Color researchDetailed GuideAttributesL*: Lightness (0 to 100)a*: Green-Red axis (negative green, positive red)b*: Blue-Yellow axis (negative blue, positive yellow)Historical ContextStandardized by the CIE in 1976, Lab was designed to be perceptually uniform—equal distances in the space should correspond to equal perceived color differences. It’s device-independent: Lab describes what a color looks like, not how a particular device produces it. For decades it’s been the workhorse of color management, ICC profiles, and industrial colorimetry.Key CharacteristicsPerceptual uniformity: the founding goal. Largely successful, though the blue-purple region exhibits more error than Ottosson’s OKLab.Device independence: Lab values are defined relative to a standard illuminant, not a particular display or printer.Separated lightness: L* is orthogonal to the chromatic axes, enabling brightness adjustment without hue shift.AdvantagesPerceptually uniform (the CIE 1976 definition)Device-independent—the standard for cross-media color communicationCovers all perceivable colors (gamut exceeds any physical display)Delta-E calculations (color difference metrics) are native to this spaceDisadvantagesComputationally heavier than RGB conversions (piecewise f(t) function)Not directly displayable—out-of-gamut Lab values must be mapped to sRGB or similarUnintuitive for manual color selection (what does a* = -40 look like?)White PointsD50: graphic arts, printing, ICC profile standard. Lab’s default illuminant.D65: average daylight, digital imaging. Used by sRGB and Display P3.Conversions between D50 and D65 use Bradford chromatic adaptation.Color ModelComponentsL* (Lightness):L∗=0 (black) to 100 (diffuse white)L^* = 0 \\text{ (black) to } 100 \\text{ (diffuse white)}L∗=0 (black) to 100 (diffuse white)a* (Green-Red axis):a∗<0 (green) to a∗>0 (red)a^* < 0 \\text{ (green) to } a^* > 0 \\text{ (red)}a∗<0 (green) to a∗>0 (red)b* (Blue-Yellow axis):b∗<0 (blue) to b∗>0 (yellow)b^* < 0 \\text{ (blue) to } b^* > 0 \\text{ (yellow)}b∗<0 (blue) to b∗>0 (yellow)RepresentationA three-dimensional Cartesian space. L* is the vertical axis; the a*/b* plane describes chromaticity at each lightness level. The cylindrical variant (LCh) converts a*,b* to polar coordinates—chroma and hue.Color ConversionsXYZ to LabNormalize XYZ by the reference white point, apply a piecewise function that approximates a cube root, then scale into L*a*b*:f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases} \\sqrt[3]{t} & t > \\epsilon \\\\ \\frac{\\kappa\\, t + 16}{116} & \\text{otherwise} \\end{cases}f(t)={3t​116κt+16​​t>ϵotherwise​L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b∗=200[f ⁣(YYn)−f ⁣(ZZn)]L^* = 116\\, f\\!\\left(\\frac{Y}{Y_n}\\right) - 16, \\quad a^* = 500\\left[f\\!\\left(\\frac{X}{X_n}\\right) - f\\!\\left(\\frac{Y}{Y_n}\\right)\\right], \\quad b^* = 200\\left[f\\!\\left(\\frac{Y}{Y_n}\\right) - f\\!\\left(\\frac{Z}{Z_n}\\right)\\right]L∗=116f(Yn​Y​)−16,a∗=500[f(Xn​X​)−f(Yn​Y​)],b∗=200[f(Yn​Y​)−f(Zn​Z​)]where ϵ=21624389\\epsilon = \\tfrac{216}{24389}ϵ=24389216​ and κ=2438927\\kappa = \\tfrac{24389}{27}κ=2724389​.Lab to XYZInvert the L*a*b* formulas—recover the normalized XYZ ratios, apply the inverse piecewise function, then scale by the white point:fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac{L^* + 16}{116}, \\quad f_x = \\frac{a^*}{500} + f_y, \\quad f_z = f_y - \\frac{b^*}{200}fy​=116L∗+16​,fx​=500a∗​+fy​,fz​=fy​−200b∗​X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n \\cdot f^{-1}(f_x), \\quad Y = Y_n \\cdot f^{-1}(f_y), \\quad Z = Z_n \\cdot f^{-1}(f_z)X=Xn​⋅f−1(fx​),Y=Yn​⋅f−1(fy​),Z=Zn​⋅f−1(fz​)ApplicationsICC color management: the internal representation for color profiles and device-independent color communication.Delta-E calculations: industrial quality control (textiles, paint, manufacturing) relies on Lab-based color difference formulas.Image processing: operations like sharpening and blurring benefit from the perceptual uniformity.Print production: gamut mapping between CMYK and RGB passes through Lab.Scientific colorimetry: the standard coordinate system for color measurement and analysis.","w":514.8,"h":465.1,"attributedTo":"self"}]}
+[W4-CENSUS] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Save edit","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover","name":"Cancel edit","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","name":"Slug or admin token","w":224,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Switch to slug","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control","name":"Cancel","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover shrink-0","name":"Back","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Reset","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Copy CSS","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper","name":"Seed from palette","w":40,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none","name":"Select view","w":126.4,"h":32,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn","name":"Toggle action bar","w":119.1,"h":40,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-tab-button glass-specular-track gap-1.5 text-small font-display","name":"Login","w":86.8,"h":38,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"reka-dropdown-menu-trigger-v-5","cls":"menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap","name":"@mbabb","w":73.6,"h":30.4,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Stops Select a stop on the rail to set its position or remove it.  Interpolation TypeLinear Color spaceOKLCh Hue methodShorter Direction90°Easing1 → 2linearCSSlinear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)","w":510,"h":668.6,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0","name":"Add gradient stop at 50%","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 1 of 2","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0","name":"Gradient stop 2 of 2","w":24,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Type","w":110,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Color space","w":110,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","name":"Hue method","w":110,"h":36,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"glass-disclosure-trigger-v-29","cls":"disclosure-trigger disclosure-group-trigger interval-head w-full flex items-center gap-2.5 py-2 px-(--easing-inset) text-left","name":"1 → 2linear","w":460,"h":44,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact","name":"Copy rendered CSS (easing baked in)","w":28,"h":28,"attributedTo":"self"},{"route":"/#/gradient","tag":"div","id":"","cls":"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden","name":"Start a new paletteNo saved palettes yet.Add colors, then save.","w":510,"h":320.5,"attributedTo":"self"},{"route":"/#/gradient","tag":"input","id":"","cls":"input-bar-field","name":"Search your palettes","w":414,"h":24,"attributedTo":"self"},{"route":"/#/gradient","tag":"button","id":"","cls":"button tap-squish focus-ring add-slot-ghost btn-interactive shrink-0 cursor-pointer","name":"Add current color lab(92% 88.8 20) to palette","w":44,"h":44,"attributedTo":"self"}]}
+[W4-A1] undersized=0
+
+  ✓    1 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 (15.5s)
+[W4-SIZED] {"route":"/","rows":[{"route":"/","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":36,"token":0,"controlFloor":0}]}
+[W4-SIZED] {"route":"/#/gradient","rows":[{"route":"/#/gradient","tag":"input","slot":"input","size":"sm","cls":"field-control glass-control-edge slug-input text-mono-small min-w-0","blockSize":36,"token":0,"controlFloor":0},{"route":"/#/gradient","tag":"button","slot":"button","size":"lg","cls":"button tap-squish focus-ring add-slot-ghost btn-interactive shrink-0 cursor-pointer","blockSize":44,"token":44,"controlFloor":0}]}
+[W4-A3] measured=1 mismatches=0
+
+  ✓    2 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:377:1 › A3 · the size axis owns control height — computed blockSize == the producer size token (6.8s)
+[W4-A4] nameless=0
+
+  ✓    3 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:411:1 › A4 · zero nameless interactive elements (6.9s)
+[W4-C1] caretLeft=252.891 mintedLeft=252.891 inline="calc(var(--rail-inset) + var(--rail-track) * 0.55)"
+[W4-C1] pointerEventsDuringKeyboardJourney=0
+  ✓    4 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:259:1 › C1 · a keyboard-only journey mints a stop — and the pointer-add gesture still mints (3.1s)
+[W4-C2] [{"role":"slider","min":"0","max":"100","now":"0","text":"Stop 1 of 3, position 0%","name":"Gradient stop 1 of 3"},{"role":"slider","min":"0","max":"100","now":"50","text":"Stop 2 of 3, position 50%","name":"Gradient stop 2 of 3"},{"role":"slider","min":"0","max":"100","now":"100","text":"Stop 3 of 3, position 100%","name":"Gradient stop 3 of 3"}]
+  ✓    5 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:319:1 › C2 · every stop handle is a slider in the a11y tree — role, value triple, valuetext, ordinal (2.9s)
+[W4-C3] home=12 end=450 unit=4.3800px/% inline="calc(var(--rail-inset) + var(--rail-track) * 1)"
+[W4-C3-LEDGER] {"unitPxPerPercent":4.38,"presses":[{"key":"Home","before":231,"after":12,"delta":-219,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowLeft","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"End","before":12,"after":450,"delta":438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"ArrowRight","before":450,"after":450,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 1)"},{"key":"Home","before":450,"after":12,"delta":-438,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"PageUp","before":12,"after":55.797,"delta":43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.1)"},{"key":"PageDown","before":55.797,"after":12,"delta":-43.797,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowUp","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowDown","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowLeft","before":16.375,"after":12,"delta":-4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"ArrowRight","before":20.75,"after":25.125,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.03)"},{"key":"Escape","before":25.125,"after":12,"delta":-13.125,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":" ","before":12,"after":12,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0)"},{"key":"ArrowRight","before":12,"after":16.375,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.01)"},{"key":"ArrowRight","before":16.375,"after":20.75,"delta":4.375,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":" ","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"},{"key":"Escape","before":20.75,"after":20.75,"delta":0,"inline":"calc(var(--rail-inset) + var(--rail-track) * 0.02)"}]}
+[W4-C3] defects=0
+
+  ✓    6 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:374:1 › C3 · the full keyboard grammar moves the stop — every key measured at style.left (4.8s)
+[W4-C4-SETTLE] geometry inFlightAtEntry=[]
+[W4-C4-FINE] [{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16},{"w":24,"h":24,"hitW":24,"hitH":24,"faceW":20,"faceH":20,"rootFontSize":16}]
+[W4-C4-SETTLE] clip inFlightAtEntry=[]
+[W4-C4-RING] {"shadow":"rgba(0, 0, 0, 0.85) 0px 0px 0px 1px, rgba(255, 255, 255, 0.92) 0px 0px 0px 3px","spread":3,"clippers":[],"focusVisible":true}
+  ✓    7 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:552:1 › C4 · handle target ≥24×24 and a focus ring that paints, unclipped (fine pointer) (3.3s)
+[W4-C4-COARSE] [{"w":24,"h":24,"hitW":44,"hitH":44},{"w":24,"h":24,"hitW":44,"hitH":44}]
+  ✓    8 [smoke] › e2e/smoke/a11y-gradient-stop-grammar.spec.ts:640:5 › C4 coarse pointer › C4 · handle target ≥24×24 with the producer's coarse hit rung (coarse pointer) (2.7s)
+[BR-5] forced-color-adjust spectrum: auto → none; atmosphere-canvas: none
+[BR-5] max focus outline width under forced-colors: 2px
+  ✓    9 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:86:1 › BR-5 · forced-colors:active — color surfaces preserved + chrome operable + focus outline (2.8s)
+[BR-6] --glass-tint-strength: '4%' → '0%'; --muted-foreground: 'light-dark(hsl(30 22% 40%),hsl(34 14% 62%))' → 'color-mix(in oklab, light-dark(hsl(24 10% 10%),hsl(30 14% 90%)) 88%, light-dark(hsl(40 30% 98%),hsl(24 9% 4%)))'
+  ✓   10 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:157:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) (2.9s)
+[BR-7] --glass-level: '1' → '0'; --glass-tint-strength: '4%' → '0%'; glass-resting bg: 'color(srgb 0.20397 0.148263 0.0829736 / 0.14)' → 'rgb(253, 245, 236)'; carrier ::before backdrop-filter: 'none'
+  ✓   11 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:193:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) (2.5s)
+[U-F57 SR] aria-live / status / alert regions: 8
+  ✓   12 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:277:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) (963ms)
+[W4-B1-CENSUS] {"route":"/#/mix","rows":[{"route":"/#/mix","inScope":false,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]","ariaLabel":"Select color space","labelledBy":null,"titleText":"","sharesFieldRoot":false,"titleBoxInsideField":false,"blockSize":83.19,"tokenSm":36},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-65-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-67-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+[W4-B1-CENSUS] {"route":"/#/generate","rows":[{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-28-label","titleText":"Preset","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-30-label","titleText":"Harmony","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+[W4-B1-CENSUS] {"route":"/#/gradient","rows":[{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-23-label","titleText":"Type","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-25-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-27-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+[W4-B1] asserted=7 excluded=1 defects=0
+
+  ✓   13 [smoke] › e2e/smoke/a11y-select-title.spec.ts:304:1 › B1 · composed trigger title — the combobox name derives from a rendered title inside the field composition (10.0s)
+[W4-B2-FINE] {"route":"/#/mix","rows":[{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-65-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-67-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+[W4-B2-COARSE] {"route":"/#/mix","rows":[{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-65-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/mix","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-67-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54}]}
+[W4-B2-FINE] {"route":"/#/generate","rows":[{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-23-label","titleText":"Preset","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-25-label","titleText":"Harmony","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+[W4-B2-COARSE] {"route":"/#/generate","rows":[{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-23-label","titleText":"Preset","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/generate","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-25-label","titleText":"Harmony","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54}]}
+[W4-B2-FINE] {"route":"/#/gradient","rows":[{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-23-label","titleText":"Type","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-25-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-27-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":36,"tokenSm":36}]}
+[W4-B2-COARSE] {"route":"/#/gradient","rows":[{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-23-label","titleText":"Type","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-25-label","titleText":"Color space","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54},{"route":"/#/gradient","inScope":true,"cls":"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)","ariaLabel":null,"labelledBy":"v-27-label","titleText":"Hue method","sharesFieldRoot":true,"titleBoxInsideField":true,"blockSize":54,"tokenSm":54}]}
+[W4-B2] asserted=7 defects=0
+
+  ✓   14 [smoke] › e2e/smoke/a11y-select-title.spec.ts:393:1 › B2 · trigger height rides the size axis — and lifts with the coarse rung (10.1s)
+[W4-B3] producerSliderVars=12 declaredInternal=4 consumerReads=0
+
+  ✓   15 [smoke] › e2e/smoke/a11y-select-title.spec.ts:497:1 › B3 · slider seam consumed as published — the A-16 receipt exists and the fence holds (34ms)
+[BR-8] channel sliders found: 4
+[BR-8] L channel: Home=0 End=1 ArrowLeft=0.9990000000000001 → MOVES
+[BR-8] A channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+[BR-8] B channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+[BR-8] ALPHA channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+  ✓   16 [smoke] › e2e/smoke/a11y-slider-operation.spec.ts:34:1 › BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value across the range (2.2s)
+[BR-10] <html dir> = ltr
+[BR-10] RTL overflow: scrollWidth=1280 clientWidth=1280
+  ✓   17 [smoke] › e2e/smoke/a11y-web-modality.spec.ts:33:1 › BR-10 · dir plumbing + dir=rtl layout integrity (no clipping / overflow) (4.1s)
+[BR-11] print dock nav display: none
+[BR-11] print body bg color=rgb(255, 255, 255) image=none
+[BR-11] spectrum print-color-adjust: exact
+  ✓   18 [smoke] › e2e/smoke/a11y-web-modality.spec.ts:101:1 › BR-11 · @media print — legible palette artifact (chrome hidden, ink-economical) (2.1s)
+  ✓   19 [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (light) (2.8s)
+  ✓   20 [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:74:5 › cold load at a URL color paints the DERIVED field first frame (dark) (2.8s)
+  ✓   21 [smoke] › e2e/smoke/atmosphere-cold-load.spec.ts:186:1 › the body carries the paper-field contract — no orphan amber field-floor on glass cards (971ms)
+  ✓   22 [smoke] › e2e/smoke/color-space-switching.spec.ts:9:1 › color-space select switches the active space (3.3s)
+  ✓   23 [smoke] › e2e/smoke/crash-battery.spec.ts:66:1 › R14 · pressing Retry on a dead Browse wall leaves a plate behind (3.0s)
+  ✓   24 [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid (2.9s)
+  ✓   25 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=black (1.5s)
+  ✓   26 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=white (769ms)
+  ✓   27 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#000000 (771ms)
+  ✓   28 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#808080 (780ms)
+  ✓   29 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#fefefe (852ms)
+  ✓   30 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=rgb(17,17,17) (765ms)
+  ✓   31 [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=hsl(0 0% 50%) (927ms)
+  ✓   32 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: oklch(0.5 0 none) (1.1s)
+  ✓   33 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: lch(50 0 none) (1.2s)
+  ✓   34 [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: hsl(none 0% 50%) (1.2s)
+  ✓   35 [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette (4.6s)
+  ✓   36 [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state (4.3s)
+  ✓   37 [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable (1.9s)
+[dual-pane-1440] {
+  "probe": "R.W2.4 regions-1440 (re-pointed X.W5.c)",
+  "viewport": "1440×900",
+  "cascadeRoot": {
+    "importSite": 1,
+    "indexUnlayered": false,
+    "indexLayered": true,
+    "deferredUnlayered": false,
+    "deferredLayered": false,
+    "componentsHasBareHidden": true,
+    "componentsLayerCount": 0
+  },
+  "importSiteCite": "dist/styles/index.css:1",
+  "cssom": {
+    "hiddenRuleSites": [
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "fouc-guard"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "utilities"
+      },
+      {
+        "href": null,
+        "layered": true,
+        "layerName": "components"
+      }
+    ],
+    "winningHref": null,
+    "winningLayered": true,
+    "anyUnlayeredHidden": false
+  },
+  "baseline": {
+    "count": 2,
+    "displays": [
+      "block",
+      "flex"
+    ],
+    "visible": 2,
+    "displayUtilities": [],
+    "roles": [
+      "Picker",
+      "About"
+    ]
+  },
+  "d8_1": "PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume",
+  "anyUnlayeredHidden": false,
+  "verdict": "REGIONS_RENDER_CASCADE_IMMUNE",
+  "note": "Both regions render at 1440 with zero display utilities on the wrappers. Producer state: PRODUCER-CURE-OBSERVED (layer(components) present in dist) — D8-1 verified at consume (import at dist/styles/index.css:1)."
+}
+  ✓   38 [smoke] › e2e/smoke/dual-pane-1440.spec.ts:248:1 › D8-1 · regions at 1440 — both render, and the pane axis is cascade-immune (983ms)
+  ✓   39 [smoke] › e2e/smoke/flows/color-propose.spec.ts:34:1 › propose cycle reaches 'Propose color name' state for an unnamed color (1.9s)
+  ✓   40 [smoke] › e2e/smoke/flows/color-propose.spec.ts:89:1 › the sub-layer cycle keeps exactly one active layer, the other inert (2.2s)
+  ✓   41 [smoke] › e2e/smoke/flows/color-propose.spec.ts:128:1 › a successful propose returns the toolbar to its actions state (2.4s)
+  ✓   42 [smoke] › e2e/smoke/flows/login-register.spec.ts:27:1 › cold-boot vote auto-registers via POST /sessions and persists token (911ms)
+  ✓   43 [smoke] › e2e/smoke/flows/palette-delete.spec.ts:22:1 › delete an owned remote palette DELETEs /palettes/<slug> (2.5s)
+  ✓   44 [smoke] › e2e/smoke/flows/palette-edit.spec.ts:22:1 › rename a remote palette PATCHes /palettes/<slug> with new name (1.7s)
+  ✓   45 [smoke] › e2e/smoke/flows/palette-flag.spec.ts:21:1 › flag a remote palette POSTs /palettes/<slug>/flag with reason (2.7s)
+  ✓   46 [smoke] › e2e/smoke/flows/palette-fork.spec.ts:21:1 › remix a remote palette POSTs /palettes/<slug>/fork with parent slug (1.8s)
+  ✓   47 [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes' (3.9s)
+  ✓   48 [smoke] › e2e/smoke/flows/vote-toggle.spec.ts:20:1 › vote heart on a remote palette POSTs /vote and toggles voted flag (1.5s)
+  ✓   49 [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/gradient: 5 fresh contexts × cold first navigation → 0 stuck enter states (18.4s)
+  ✓   50 [smoke] › e2e/smoke/oracles/cold-nav-scene-enter.spec.ts:79:9 › X.W5.d3 — cold navigation leaves no scene mid-enter › /#/: 5 fresh contexts × cold first navigation → 0 stuck enter states (16.2s)
+[O-1] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) (software-GL CSS placeholder) sample rgb=(81,9,21) → OKLCh L=0.284 C=0.102 h=19.0° (seed h≈28°)
+  ✓   51 [smoke] › e2e/smoke/oracles/o1-color-truth-boot.spec.ts:39:1 › O-1 color-truth — the settled boot field is the DERIVED seed's material (6.3s)
+  ✓   52 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:77:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token (1.4s)
+  ✓   53 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:123:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1) (2.4s)
+  ✓   54 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:149:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock (2.3s)
+  ✓   55 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (1.6s)
+  ✓   56 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px (40.7s)
+  ✓   57 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px (18.0s)
+  ✓   58 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) (9.5s)
+  ✓   59 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:223:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif (3.2s)
+  ✓   60 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:275:1 › O-10d census — the 390 phone band: the card name truncates to ONE line under the serif (2.8s)
+  ✓   61 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:305:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles (9.1s)
+  ✓   62 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:392:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette) (5.1s)
+  ✓   63 [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:469:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row (2ms)
+  ✓   64 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (light) (7.5s)
+  ✓   65 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:100:5 › O-11 gates 1+2 — constitutive rest floor + feather, every pane (dark) (7.5s)
+  ✓   66 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:160:1 › O-11 gate 3 — the swell completes ≤64px; no naked window under the earliest colliders (2.7s)
+  ✓   67 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:220:1 › O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opacity; the CDP layout track is FLAT under a live scrub (5.5s)
+  ✓   68 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:332:1 › O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; every --pane-scroll binding is @supports-gated (2.0s)
+  ✓   69 [smoke] › e2e/smoke/oracles/o11-header-gates.spec.ts:402:1 › O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothing out-stacks --z-header (3.3s)
+  ✓   70 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:122:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc (3.8s)
+[o12-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=47 frames=49 p50=66.0ms (gate ≤13ms real-GPU)
+  ✓   71 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:176:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget (9.6s)
+[o12-hover-active] renderer=SOFTWARE-GL frames=128 p50=53.1ms (gate ≤20ms real-GPU)
+  ✓   72 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:241:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms (11.2s)
+[o12-backing] renderer=SOFTWARE-GL backing 180x180 css 180.2x180.2 dpr 1 → ratio 0.999 (full-res ≈ 1.0; R2 wreck ≈ 0.35; floor 0.6)
+  ✓   73 [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:285:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2) (5.2s)
+  ✓   74 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:198:5 › O-14 · the T-10 letterform-ramp referent › dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8) (5.2s)
+  ✓   75 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:252:5 › O-14 · the T-10 letterform-ramp referent › the excised legend stays dead — no per-view static tokens, no dot column (1.8s)
+  ✓   76 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (light) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (5.7s)
+  ✓   77 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:294:9 › O-14 · the ramp feasibility leg (dark) › each site's stops clear its floor against the surface it sits on — never the near-black clamp (6.4s)
+  ✓   78 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:361:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › honest absence: with <2 operands the rows carry NO chip (4.2s)
+  ✓   79 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:373:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › every open-menu chip's painted gradient carries exactly its stamped stops (5.2s)
+  ✓   80 [smoke] › e2e/smoke/oracles/o14-preview-truth.spec.ts:440:5 › O-14 · the T-17 chip referent (mix Space/Hue ramps) › the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize (9.4s)
+  ✓   81 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection (6.1s)
+  ✓   82 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots (3.8s)
+  ✓   83 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole (1.5s)
+  ✓   84 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:138:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model (1.3s)
+  ✓   85 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:165:5 › O-15b · the Tools clip release + register pass (W6-8) › zero native title on the dock set (the UA-slab retirement) (2.1s)
+  ✓   86 [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:187:5 › O-15b · the Tools clip release + register pass (W6-8) › the separator folds into the slot's arrival — one presence grammar (1.2s)
+[O-16] :root --default-transition-duration = 0.2s
+[O-16] card surface=glass dur=0.18s, 0.18s timing=cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)
+[O-16] card surface=veil dur=0.18s, 0.18s timing=cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)
+[O-16] card surface=glass dur=0.18s, 0.18s timing=cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)
+  ✓   87 [smoke] › e2e/smoke/oracles/o16-computed-cascade.spec.ts:30:1 › O-16 computed-cascade — the dist :root 150ms transition-default clobber is not live (851ms)
+[O-16·W5·light] R2 enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.45s","timing":"linear(0 0%, 0.00971 2.041%, 0.03623 4.082%, 0.07594 6.122%, 0.12565 8.163%, 0.18258 10.204%, 0.24431 12.245%, 0.30881 14.286%, 0.37435 16.327%, 0.43949 18.367%, 0.5031 20.408%, 0.56427 22.449%, 0.62228 24.49%, 0.67665 26.531%, 0.72702 28.571%, 0.77319 30.612%, 0.81507 32.653%, 0.85266 34.694%, 0.88606 36.735%, 0.91541 38.776%, 0.94092 40.816%, 0.96281 42.857%, 0.98134 44.898%, 0.99679 46.939%, 1.00944 48.98%, 1.01957 51.02%, 1.02746 53.061%, 1.03337 55.102%, 1.03756 57.143%, 1.04026 59.184%, 1.04171 61.224%, 1.04211 63.265%, 1.04164 65.306%, 1.04048 67.347%, 1.03877 69.388%, 1.03665 71.429%, 1.03423 73.469%, 1.03162 75.51%, 1.0289 77.551%, 1.02614 79.592%, 1.0234 81.633%, 1.02073 83.673%, 1.01816 85.714%, 1.01573 87.755%, 1.01345 89.796%, 1.01134 91.837%, 1.00941 93.878%, 1.00766 95.918%, 1.00609 97.959%, 1 100%)"}}
+[O-16·W5·light] R3 leave: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+[O-16·W5·light] R3 resolved tokens: {"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}
+[O-16·W5·light] R4 cartoon-surface (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+[O-16·W5·light] R4 live cards: 0
+[O-16·W5·light] R5 btn-interactive (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+[O-16·W5·light] R5 send-btn (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+[O-16·W5·light] R5 rail-item: {"color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"background-color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"transform":{"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+[O-16·W5·light] R5 rail-item resolved tokens: {"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+[O-16·W5·light] R8 vj-morph enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00629 2.041%, 0.0233 4.082%, 0.0486 6.122%, 0.08016 8.163%, 0.11629 10.204%, 0.15561 12.245%, 0.19697 14.286%, 0.23945 16.327%, 0.28231 18.367%, 0.32495 20.408%, 0.36689 22.449%, 0.40777 24.49%, 0.44732 26.531%, 0.48534 28.571%, 0.52169 30.612%, 0.55626 32.653%, 0.58902 34.694%, 0.61994 36.735%, 0.64904 38.776%, 0.67633 40.816%, 0.70186 42.857%, 0.7257 44.898%, 0.7479 46.939%, 0.76853 48.98%, 0.78768 51.02%, 0.80541 53.061%, 0.82182 55.102%, 0.83696 57.143%, 0.85094 59.184%, 0.86381 61.224%, 0.87565 63.265%, 0.88654 65.306%, 0.89653 67.347%, 0.9057 69.388%, 0.91411 71.429%, 0.92181 73.469%, 0.92885 75.51%, 0.93529 77.551%, 0.94117 79.592%, 0.94655 81.633%, 0.95145 83.673%, 0.95592 85.714%, 0.95999 87.755%, 0.96371 89.796%, 0.96708 91.837%, 0.97016 93.878%, 0.97296 95.918%, 0.9755 97.959%, 1 100%)"},"max-height":{"duration":"0.3s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+[O-16·W5·light] R11 pane-shell: {"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+[O-16·W5·light] R11 resolved tokens: {"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+[O-16·W5·light] R9 gradient-stop handle: "HANDED-ACROSS → W6-2 (T-46); target --spring-present @ --spring-present-duration; census owns the row at merge"
+[O-16·W5·light] R10 dialog scrim: "discharged by excision (W0-3 CC-6)"
+[O-16·W5·dark] R2 enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.45s","timing":"linear(0 0%, 0.00971 2.041%, 0.03623 4.082%, 0.07594 6.122%, 0.12565 8.163%, 0.18258 10.204%, 0.24431 12.245%, 0.30881 14.286%, 0.37435 16.327%, 0.43949 18.367%, 0.5031 20.408%, 0.56427 22.449%, 0.62228 24.49%, 0.67665 26.531%, 0.72702 28.571%, 0.77319 30.612%, 0.81507 32.653%, 0.85266 34.694%, 0.88606 36.735%, 0.91541 38.776%, 0.94092 40.816%, 0.96281 42.857%, 0.98134 44.898%, 0.99679 46.939%, 1.00944 48.98%, 1.01957 51.02%, 1.02746 53.061%, 1.03337 55.102%, 1.03756 57.143%, 1.04026 59.184%, 1.04171 61.224%, 1.04211 63.265%, 1.04164 65.306%, 1.04048 67.347%, 1.03877 69.388%, 1.03665 71.429%, 1.03423 73.469%, 1.03162 75.51%, 1.0289 77.551%, 1.02614 79.592%, 1.0234 81.633%, 1.02073 83.673%, 1.01816 85.714%, 1.01573 87.755%, 1.01345 89.796%, 1.01134 91.837%, 1.00941 93.878%, 1.00766 95.918%, 1.00609 97.959%, 1 100%)"}}
+[O-16·W5·dark] R3 leave: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+[O-16·W5·dark] R3 resolved tokens: {"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"}
+[O-16·W5·dark] R4 cartoon-surface (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+[O-16·W5·dark] R4 live cards: 0
+[O-16·W5·dark] R5 btn-interactive (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+[O-16·W5·dark] R5 send-btn (RETIRED 2026-09-23, §0az): {"all":{"duration":"0s","timing":"ease"}}
+[O-16·W5·dark] R5 rail-item: {"color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"background-color":{"duration":"0.3s","timing":"cubic-bezier(0.4, 0, 0.2, 1)"},"transform":{"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+[O-16·W5·dark] R5 rail-item resolved tokens: {"duration":"0.12s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+[O-16·W5·dark] R8 vj-morph enter: {"opacity":{"duration":"0.2s","timing":"cubic-bezier(0, 0, 0.2, 1)"},"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00629 2.041%, 0.0233 4.082%, 0.0486 6.122%, 0.08016 8.163%, 0.11629 10.204%, 0.15561 12.245%, 0.19697 14.286%, 0.23945 16.327%, 0.28231 18.367%, 0.32495 20.408%, 0.36689 22.449%, 0.40777 24.49%, 0.44732 26.531%, 0.48534 28.571%, 0.52169 30.612%, 0.55626 32.653%, 0.58902 34.694%, 0.61994 36.735%, 0.64904 38.776%, 0.67633 40.816%, 0.70186 42.857%, 0.7257 44.898%, 0.7479 46.939%, 0.76853 48.98%, 0.78768 51.02%, 0.80541 53.061%, 0.82182 55.102%, 0.83696 57.143%, 0.85094 59.184%, 0.86381 61.224%, 0.87565 63.265%, 0.88654 65.306%, 0.89653 67.347%, 0.9057 69.388%, 0.91411 71.429%, 0.92181 73.469%, 0.92885 75.51%, 0.93529 77.551%, 0.94117 79.592%, 0.94655 81.633%, 0.95145 83.673%, 0.95592 85.714%, 0.95999 87.755%, 0.96371 89.796%, 0.96708 91.837%, 0.97016 93.878%, 0.97296 95.918%, 0.9755 97.959%, 1 100%)"},"max-height":{"duration":"0.3s","timing":"cubic-bezier(0, 0, 0.2, 1)"}}
+[O-16·W5·dark] R11 pane-shell: {"transform":{"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}}
+[O-16·W5·dark] R11 resolved tokens: {"duration":"0.2s","timing":"linear(0 0%, 0.00284 2.041%, 0.0109 4.082%, 0.02354 6.122%, 0.04014 8.163%, 0.06017 10.204%, 0.08311 12.245%, 0.1085 14.286%, 0.1359 16.327%, 0.16495 18.367%, 0.19528 20.408%, 0.22657 22.449%, 0.25855 24.49%, 0.29095 26.531%, 0.32354 28.571%, 0.35613 30.612%, 0.38852 32.653%, 0.42057 34.694%, 0.45213 36.735%, 0.48309 38.776%, 0.51333 40.816%, 0.54279 42.857%, 0.57137 44.898%, 0.59903 46.939%, 0.62572 48.98%, 0.65141 51.02%, 0.67605 53.061%, 0.69965 55.102%, 0.72219 57.143%, 0.74366 59.184%, 0.76407 61.224%, 0.78343 63.265%, 0.80175 65.306%, 0.81906 67.347%, 0.83537 69.388%, 0.8507 71.429%, 0.86509 73.469%, 0.87857 75.51%, 0.89116 77.551%, 0.9029 79.592%, 0.91382 81.633%, 0.92395 83.673%, 0.93333 85.714%, 0.942 87.755%, 0.94999 89.796%, 0.95733 91.837%, 0.96406 93.878%, 0.9702 95.918%, 0.97581 97.959%, 1 100%)"}
+[O-16·W5·dark] R9 gradient-stop handle: "HANDED-ACROSS → W6-2 (T-46); target --spring-present @ --spring-present-duration; census owns the row at merge"
+[O-16·W5·dark] R10 dialog scrim: "discharged by excision (W0-3 CC-6)"
+  ✓   88 [smoke] › e2e/smoke/oracles/o16-computed-cascade.spec.ts:126:1 › O-16 W5 census — every owned row's computed duration/curve ≡ its liquid target (both schemes) (966ms)
+  ✓   89 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:126:5 › O-17 zero letterbox across curve regimes — desktop (4.7s)
+  ✓   90 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:126:5 › O-17 zero letterbox across curve regimes — 390 (3.8s)
+  ✓   91 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:152:1 › O-17 composition: stamps, dot rest, one-literal, mint law (4.4s)
+[U-F12 BOOKED] dock icon 1:1 on live dock chrome rgb(186 186 186) (light) — mid-tint muddiness, not the accent re-guard's floor
+  ✓   92 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (light) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) (2.0s)
+[U-F12 BOOKED] dock icon 2.71:1 on live dock chrome rgb(46 46 46) (dark) — mid-tint muddiness, not the accent re-guard's floor
+  ✓   93 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:483:9 › O-18 U-F26 accent-view leg (dark) › the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2) (1.8s)
+  ✓   94 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (light) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) (3.9s)
+  ✓   95 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (light) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (2.4s)
+  ✓   96 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (light) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) (1.7s)
+  ✓   97 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (light) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) (1.2s)
+  ✓   98 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:637:9 › O-18 census (dark) › menus — the slug pill + Profile trigger wear certified floating-rung ink (A11Y-F2) (4.0s)
+  ✘   99 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) (2.7s)
+(node:91104) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  100 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:766:9 › O-18 census (dark) › markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2) (7.5s)
+  ✓  101 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:800:9 › O-18 census (dark) › the root accent leg — `--accent-live` vs the LIVE resting-rung ground (the generalized guard proof) (1.4s)
+  ✓  102 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (light) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 (2.5s)
+  ✓  103 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (light) › the channel letters ≥4.5:1 on the console well (rest rung) (2.0s)
+  ✓  104 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (light) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 (1.7s)
+  ✓  105 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:894:9 › O-18 W4 rows (dark) › readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1 (2.0s)
+  ✓  106 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:912:9 › O-18 W4 rows (dark) › the channel letters ≥4.5:1 on the console well (rest rung) (2.1s)
+  ✓  107 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:938:9 › O-18 W4 rows (dark) › ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1 (1.3s)
+  ✘  108 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (1.5s)
+(node:92884) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  109 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (light) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) (8.9s)
+  ✓  110 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (light) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) (1.8s)
+  ✓  111 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (dark) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) (2.2s)
+  ✓  112 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1046:9 › O-18 W6.5 legs (dark) › the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8) (4.7s)
+  ✓  113 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1090:9 › O-18 W6.5 legs (dark) › the GRAPHICS leg — the Extract instrument tracks ≥3:1 on their ground (T-44a · WCAG 1.4.11) (1.6s)
+  ✓  114 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (light) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) (1.0s)
+  ✓  115 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1181:9 › O-18 config-track graphics leg (dark) › the ConfigSliderPane range fills ≥3:1 on the well (boot-A · M-34 · V1C-06) (1.4s)
+  ✘  116 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) (1.9s)
+(node:95403) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  117 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (11.0s)
+(node:96330) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  118 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) (7.1s)
+(node:96768) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  119 [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) (8.9s)
+(node:97437) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  120 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light (25.2s)
+(node:98949) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  121 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark (22.7s)
+(node:319) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  122 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light (19.6s)
+(node:2634) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  123 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark (20.3s)
+(node:4424) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  124 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:104:1 › the recalibrated register's computed tokens hold (the named-knob tripwire) (2.0s)
+[W2-2 luma] L series: [0.705, 0.692, 0.692, 0.692, 0.692, 0.692, 0.692, 0.692, 0.692, 0.692]
+  ✓  125 [smoke] › e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts:37:1 › W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→field leap) (12.4s)
+[O-2] persisted=#7c8922 restored --saved-bg=#7c8922
+[O-2] --saved-bg write trace: [#7c8922]
+  ✓  126 [smoke] › e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts:44:1 › O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path (1.7s)
+  ✓  127 [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead (6.5s)
+  ✓  128 [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields (4.8s)
+  ✓  129 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:65:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) (5.5s)
+  ✓  130 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:85:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip (3.6s)
+  ✓  131 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:112:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register (4.4s)
+  ✓  132 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:148:1 › one axis: every handle centre sits where the ramp paints its own ordinal (3.8s)
+  ✓  133 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:193:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal (9.8s)
+  ✓  134 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:260:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail (5.0s)
+  ✓  135 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:328:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width (8.9s)
+  ✓  136 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:381:1 › stop inspector numeric entry round-trips to the ordinal the rail paints (4.4s)
+  ✓  137 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:440:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound (4.5s)
+  ✓  138 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:509:1 › one removal owner: the floor is a disabled control carrying its reason (4.6s)
+X.W6.f f3 CENSUS — 18 spaces walked on the live About route
+  rgb           created=1931                 guide=authored       A color space based on the additive mixture of red, green, and b…
+  hsl           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hsv           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hwb           created=1978                 guide=authored       A cylindrical representation of the RGB color space, using White…
+  lab           created=1976                 guide=authored       The L*a*b* color space is a three-dimensional color model design…
+  lch           created=1976                 guide=authored       A cylindrical representation of the Lab color space.…
+  oklab         created=2019                 guide=authored       A perceptually uniform color space designed to be more intuitive…
+  oklch         created=2019                 guide=authored       A cylindrical representation of the OKLab color space.…
+  xyz           created=1931                 guide=authored       The CIE 1931 XYZ color space is a device-independent color space…
+  kelvin        created=Beginning of time    guide=authored       The Kelvin color space represents the color of an ideal black-bo…
+  srgb-linear   created=1996                 guide=none-authored  The sRGB primaries and white point with the transfer function re…
+  display-p3    created=2015                 guide=none-authored  A display-referred wide-gamut space: the DCI-P3 primaries carrie…
+  a98-rgb       created=1998                 guide=none-authored  Adobe's 1998 wide-gamut RGB working space, defined to encompass …
+  prophoto-rgb  created=2000                 guide=none-authored  Kodak's very wide RGB working space, whose primaries lie partly …
+  rec2020       created=2012                 guide=none-authored  The ultra-high-definition broadcast space whose red, green and b…
+  ictcp         created=2016                 guide=none-authored  An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS c…
+  jzazbz        created=2017                 guide=none-authored  A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2…
+  hex           created=1996                 guide=authored       A compact hexadecimal notation for sRGB colors, widely used in w…
+X.W6.f — spaces that did NOT survive the model→URL→model round-trip: ictcp→oklch, jzazbz→oklch  [PRE-EXISTING, escalated: see the note at the foot of this file]
+  ✓  139 [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading (1.1m)
+X.W6.f f4 CENSUS — 1/18 captions overflow
+  box (narrowest clientWidth): 76px
+  worst scrollWidth: 539px (64 chars, "color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)")
+  per-character advance: 8.422px
+  caption type: font-size 14.048px letter-spacing normal
+  OVER  539/438 px  64ch  color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)
+  fits  278/278 px  33ch  hsl(346deg -1295% 103.7% / 82.7%)
+  fits  219/219 px  26ch  hsv · 346 · 0.6279 · 1.511
+  fits  278/278 px  33ch  hwb(346deg 56.23% -51.1% / 82.7%)
+  fits  202/202 px  24ch  lab(92% 88.8 20 / 82.7%)
+  fits  261/261 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  295/295 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  312/312 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  320/320 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  110/110 px  13ch  kelvin · 5309
+  fits  379/379 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  379/379 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  354/354 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  388/388 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  345/345 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  270/270 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  278/278 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   76/76 px   9ch  #ff8fc8d3
+  ✘  140 [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box (3.2s)
+(node:14481) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  141 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:58:5 › O-22 · the dock status lamp (W6-6 / T-9) › healthy backend → no lamp; the dead banner stays dead (4.2s)
+  ✓  142 [smoke] › e2e/smoke/oracles/o22-status-lamp.spec.ts:80:5 › O-22 · the dock status lamp (W6-6 / T-9) › transport failure → the unavailable variant, first-paint band chrome (916ms)
+X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)
+  rgb           css       MARKED    color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%)
+  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)
+  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511
+  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)
+  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)
+  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)
+  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  kelvin        channels  in-gamut  kelvin · 5309
+  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739
+  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428
+  hex           css       MARKED    #ff8fc8d3
+  ✘  143 [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected (2.8s)
+(node:14947) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+X.W6.f f8 CENSUS — distinctVisualSignatures = 18 of 18
+  (url-keyed would report 18 — the recorded false-GREEN trap, excluded)
+  rgb           seed=139 bg=lab(92 88.8 20 / 0.827) radius=23.4211% 70.4608% 75.3555% 45.2175% / 43.6606% 24.8166% 51.9599% 50.8219%
+  hsl           seed=151 bg=lab(92 88.8 20 / 0.827) radius=38.62% 42.1289% 41.8862% 78.9748% / 76.6361% 26.1014% 23.3427% 61.5578%
+  hsv           seed=161 bg=lab(92 88.8 20 / 0.827) radius=63.356% 24.9525% 74.3151% 61.3301% / 24.3797% 75.4923% 49.3263% 58.6792%
+  hwb           seed= 17 bg=lab(92 88.8 20 / 0.827) radius=35.3019% 71.9359% 60.0809% 47.318% / 50.8487% 28.0749% 61.6113% 71.0058%
+  lab           seed= 63 bg=lab(92 88.8 20 / 0.827) radius=58.1404% 72.6354% 69.7% 61.9799% / 23.0273% 35.3412% 37.9846% 76.2753%
+  lch           seed=135 bg=lab(92 88.8 20 / 0.827) radius=75.9955% 55.4428% 56.1283% 40.4491% / 47.7428% 23.8725% 31.0119% 39.9504%
+  oklab         seed=185 bg=lab(92 88.8 20 / 0.827) radius=34.5921% 25.4806% 29.5453% 53.2048% / 65.5605% 39.9849% 58.6353% 24.6319%
+  oklch         seed=  1 bg=lab(92 88.8 20 / 0.827) radius=64.9889% 30.2963% 66.2162% 63.1166% / 34.8126% 63.9556% 67.884% 75.654%
+  xyz           seed=123 bg=lab(92 88.8 20 / 0.827) radius=77.9535% 32.3528% 62.8153% 24.5566% / 76.1964% 22.2908% 31.2272% 46.3252%
+  kelvin        seed=249 bg=lab(92 88.8 20 / 0.827) radius=32.7486% 68.2008% 73.2236% 42.5248% / 53.2509% 74.7796% 31.0369% 68.0678%
+  srgb-linear   seed=102 bg=lab(92 88.8 20 / 0.827) radius=24.4176% 49.9775% 34.8167% 61.1069% / 63.0184% 25.6046% 69.8946% 53.9848%
+  display-p3    seed=118 bg=lab(92 88.8 20 / 0.827) radius=52.2055% 67.0283% 49.9445% 55.1341% / 72.2384% 25.2067% 42.9991% 37.827%
+  a98-rgb       seed=202 bg=lab(92 88.8 20 / 0.827) radius=58.0477% 29.6316% 57.1131% 59.5696% / 72.4616% 33.2626% 38.2899% 44.2414%
+  prophoto-rgb  seed=179 bg=lab(92 88.8 20 / 0.827) radius=30.7185% 62.8157% 22.9077% 68.3142% / 42.2426% 21.2406% 69.0458% 35.6567%
+  rec2020       seed= 14 bg=lab(92 88.8 20 / 0.827) radius=66.624% 30.9382% 43.441% 60.978% / 58.1172% 57.2564% 67.4878% 28.8015%
+  ictcp         seed=  3 bg=lab(92 88.8 20 / 0.827) radius=33.267% 72.0988% 57.0025% 62.8495% / 26.7332% 57.697% 63.8372% 65.6862%
+  jzazbz        seed=235 bg=lab(92 88.8 20 / 0.827) radius=42.5542% 59.1851% 37.6087% 28.2555% / 70.6899% 20.5531% 61.1712% 51.1076%
+  hex           seed=213 bg=lab(92 88.8 20 / 0.827) radius=33.6998% 50.5583% 70.2832% 45.9203% / 65.4062% 70.224% 66.447% 44.4037%
+  ✓  144 [smoke] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url (9.1s)
+h030 · north-west field: ΔE2000 vs unseeded 16.26 · vs h120 51.72
+h030 · west field: ΔE2000 vs unseeded 16.52 · vs h120 51.95
+h030 · east field: ΔE2000 vs unseeded 16.86 · vs h120 52.59
+h030 · south-east field: ΔE2000 vs unseeded 16.87 · vs h120 52.80
+h120 · north-west field: ΔE2000 vs unseeded 61.42 · vs h210 29.83
+h120 · west field: ΔE2000 vs unseeded 61.98 · vs h210 30.10
+h120 · east field: ΔE2000 vs unseeded 62.59 · vs h210 32.01
+h120 · south-east field: ΔE2000 vs unseeded 62.33 · vs h210 32.73
+h210 · north-west field: ΔE2000 vs unseeded 40.37 · vs h300 30.35
+h210 · west field: ΔE2000 vs unseeded 40.40 · vs h300 30.70
+h210 · east field: ΔE2000 vs unseeded 44.93 · vs h300 31.71
+h210 · south-east field: ΔE2000 vs unseeded 47.55 · vs h300 31.83
+h300 · north-west field: ΔE2000 vs unseeded 32.91 · vs h030 34.92
+h300 · west field: ΔE2000 vs unseeded 32.11 · vs h030 34.30
+h300 · east field: ΔE2000 vs unseeded 29.25 · vs h030 33.46
+h300 · south-east field: ΔE2000 vs unseeded 28.91 · vs h030 33.74
+  ✓  145 [smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames (1.3s)
+[O-26] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) (software-GL — CSS placeholder still; authoritative read is the O-3 headed annex)
+[O-26] calm 2s glance diff = 0.000/255
+[O-26] 10s migration diff (max pairwise) = 0.000/255 (need ≥ 4)
+  ✘  146 [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s (17.5s)
+(node:17528) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  147 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:71:1 › BR-1 · focus affordance PAINTS a ring layer over the stop fill (11.6s)
+  ✓  148 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:103:1 › BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD (3.1s)
+  ✓  149 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:139:1 › BR-4 · every channel slider exposes a human-readable aria-valuetext (980ms)
+  ✓  150 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:175:5 › BR-3 coarse pointer › effective target ≥ 44px on coarse pointers (producer referent) (3.6s)
+  ✓  151 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:201:1 › BR-1 forced-colors · focus affordance survives WHCM via a computed outline ≥ 2px (4.9s)
+[o27 WHCM roster] .channel-rail-item → 3px none rgba(5, 0, 73, 0.8) | .readout-fig → 3px none rgba(5, 0, 73, 0.8) | .space-trigger → 3px none rgba(5, 0, 73, 0.8) | .interval-head → 2px solid rgba(5, 0, 73, 0.8) | .rail-btn → 3px none oklch(0.510323 0.00386159 34.63) | .rail-handle → 2px solid rgba(5, 0, 73, 0.8)
+  ✓  152 [smoke] › e2e/smoke/oracles/o27-focus-affordance.spec.ts:326:1 › BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle (4.3s)
+oklch(0.62 0.2 30): first-paint 64ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.1595; settled vs unseeded max 0.1845
+oklch(0.62 0.2 150): first-paint 68ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.2933; settled vs unseeded max 0.3699
+oklch(0.62 0.2 260): first-paint 88ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.2433; settled vs unseeded max 0.2938
+  ✘  153 [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load (16.7s)
+(node:19855) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  154 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:114:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions (10.8s)
+  ✓  155 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:250:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene (12.2s)
+  ✓  156 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — blob: the preview repaints after a forced WebGL context loss (5.6s)
+  ✓  157 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:397:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss (3.8s)
+[j4] blob preview@rest=0.000 last="Reset" inViewport=true hit=true rect={"x":607.703125,"y":206.96875,"w":83.296875,"h":36} preview@last=0.818
+  ✓  158 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 (3.3s)
+[j4] atmosphere preview@rest=0.305 last="Reset" inViewport=true hit=true rect={"x":519.703125,"y":395.5,"w":83.296875,"h":36} preview@last=0.302
+  ✓  159 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:596:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 (2.1s)
+  -  160 [smoke] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark)
+  -  161 [smoke] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light)
+[O-4 1×] b0@11ms → b1@383ms → b3@1413ms → b2@1414ms → b4@2501ms
+  ✓  162 [smoke] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 1× CPU (2.9s)
+[O-4 6×] b0@36ms → b1@2162ms → b3@3888ms → b2@3943ms → b4@5106ms
+  ✓  163 [smoke] › e2e/smoke/oracles/o4-order-invariance.spec.ts:41:5 › O-4 order-invariance — beat marks hold the DAG order at 6× CPU (7.0s)
+  ✓  164 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light) (11.9s)
+  ✓  165 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark) (12.1s)
+  ✓  166 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:410:1 › O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached) (5.2s)
+  ✓  167 [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:448:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached) (2.2s)
+  ✓  168 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static (1.0s)
+  ✓  169 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:198:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers (4.2s)
+  ✓  170 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:217:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers (3.1s)
+  ✓  171 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:229:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers (972ms)
+  ✓  172 [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:260:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) (814ms)
+  ✓  173 [smoke] › e2e/smoke/oracles/readout-seam.spec.ts:92:5 › T-33b — the reserved-line band is designed air, never a dead band › lab @ the reference color: one locked line, no reserved air either side (X.W12.d) (1.0s)
+  ✓  174 [smoke] › e2e/smoke/oracles/readout-seam.spec.ts:126:5 › T-33b — the reserved-line band is designed air, never a dead band › lab @ its worst-case tuple: still one line — the measure holds the widest value (X.W12.d) (1.0s)
+  ✓  175 [smoke] › e2e/smoke/oracles/readout-seam.spec.ts:156:5 › T-33b — the reserved-line band is designed air, never a dead band › rgb @ its one-line lock: reserved ≡ painted — the anchor mints no air (1.1s)
+  ✓  176 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:78:5 › T-31 · band structure (the retired trio stays dead) › two-band grid, in-flow static nav, zero z-index arms, designed gap (1.2s)
+  ✓  177 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:128:5 › T-31 · band structure (the retired trio stays dead) › the retired utilities are gone from the dock root (fixed/z-dock/top-dock-inset) (1.2s)
+  ✓  178 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:154:5 › T-31/T-57 · band-height invariance across the collapse↔expand morph › the band height + scene top never change across seal↔pill (T-57 reflow cure) (9.3s)
+  ✓  179 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:224:9 › T-31 · occlusion probe @1280 (views × scroll × schemes) › the dock band is never a card — light (4.4s)
+  ✓  180 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:224:9 › T-31 · occlusion probe @1280 (views × scroll × schemes) › the dock band is never a card — dark (5.2s)
+  ✓  181 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:255:9 › T-31 · occlusion probe @390 (the mobile band) › the dock band is never a card — 390 light (3.2s)
+  ✓  182 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:255:9 › T-31 · occlusion probe @390 (the mobile band) › the dock band is never a card — 390 dark (3.1s)
+  ✓  183 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:277:5 › T-31 · the pass-B worst case (short viewport) › the flush 0–1px clearance is dead — band and card never touch (1.0s)
+  ✓  184 [smoke] › e2e/smoke/oracles/t31-dock-band.spec.ts:301:5 › T-31 · the ultra-wide pin (re-confirmed in-band) › the dock keeps its pinned-at-top read — the band IS the top (1.2s)
+  ✓  185 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:53:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name delete (Names → Approved) (4.2s)
+  ✓  186 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:85:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › color-name reject (Names → Pending, W7.93) (3.0s)
+  ✓  187 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:91:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › tag delete — the seat is visible at rest (S-14(b)), then deliberate (3.4s)
+  ✓  188 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:101:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › flagged-palette delete (3.6s)
+  ✓  189 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:107:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › delete-all-palettes — named for its destruction (G15), then deliberate (2.8s)
+  ✓  190 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:121:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › user-disclosure palette delete (3.7s)
+  ✓  191 [smoke] › e2e/smoke/oracles/w7-destructive-seats.spec.ts:133:5 › G14 · N-6 — destructive Admin seats fire nothing until accepted, then exactly once › browse-wall admin delete (card menu) (3.5s)
+  ✓  192 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:77:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › rename — a refused PATCH is said on the inspector (2.3s)
+  ✓  193 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:86:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › tag — a refused tag save is said on the inspector (3.0s)
+  ✓  194 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:108:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › publish / unpublish — a refused flip is said on the inspector (2.3s)
+  ✓  195 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:114:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › fork — a refused remix is said on the inspector (2.2s)
+  ✓  196 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:120:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › vote — a refused vote is said on the inspector (2.0s)
+  ✓  197 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:126:5 › G13 · the six inspector rows — a failure is rendered where the act was taken › delete — a refused delete is said on the inspector, and the palette stays (3.1s)
+  ✓  198 [smoke] › e2e/smoke/oracles/w7-inspector-rows.spec.ts:137:5 › the selected entity on X-W4's typed SceneActionSet › selecting a palette makes its verbs the dock's set; a seat runs the inspector's path (3.6s)
+  ✓  199 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene (1.6s)
+  ✓  200 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced (2.5s)
+  ✓  201 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced (1.5s)
+  ✓  202 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:59:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced (2.0s)
+  ✓  203 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:67:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced (1.8s)
+  ✓  204 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:75:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced (2.2s)
+  ✓  205 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:84:5 › G13 · admin rows › name approve — the verdict is announced (935ms)
+  ✓  206 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:128:5 › G13 · user rows › report — a success is announced on the card (2.8s)
+  ✓  207 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:133:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22) (3.0s)
+  ✓  208 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:160:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight) (2.1s)
+  ✓  209 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:174:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST) (2.4s)
+  ✓  210 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › rename — the new name is what the card shows (1.3s)
+  ✓  211 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:201:5 › G13 · library rows › delete — the card leaves the library (2.3s)
+  ✓  212 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:219:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced (1.7s)
+  ✓  213 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:255:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted (2.6s)
+  ✓  214 [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:306:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate (2.0s)
+  ✓  215 [smoke] › e2e/smoke/page-load.spec.ts:14:1 › page loads with shell landmarks and zero console errors (1.1s)
+  ✓  216 [smoke] › e2e/smoke/page-load.spec.ts:71:1 › an unknown address announces its destination and is distinct from home (878ms)
+  ✓  217 [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row (1.8s)
+  ✓  218 [smoke] › e2e/smoke/scene-action-contract.spec.ts:125:5 › D1 · one contract, ONE render path › a workbench scene renders through the SAME row and shape (2.6s)
+  ✓  219 [smoke] › e2e/smoke/scene-action-contract.spec.ts:139:5 › D1 · one contract, ONE render path › the Picker priority is GONE: /mix renders the mix set, not the picker's (2.6s)
+  ✓  220 [smoke] › e2e/smoke/scene-action-contract.spec.ts:180:9 › D4 · the mobile branch registers its scene panes — every seat READY › Generate: every action is named, modelled 'ready', and operable (2.6s)
+  ✓  221 [smoke] › e2e/smoke/scene-action-contract.spec.ts:180:9 › D4 · the mobile branch registers its scene panes — every seat READY › Gradient: every action is named, modelled 'ready', and operable (2.7s)
+  ✓  222 [smoke] › e2e/smoke/scene-action-contract.spec.ts:180:9 › D4 · the mobile branch registers its scene panes — every seat READY › Mix: every action is named, modelled 'ready', and operable (2.5s)
+  ✓  223 [smoke] › e2e/smoke/scene-action-contract.spec.ts:214:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch (3.2s)
+  ✓  224 [smoke] › e2e/smoke/scene-action-contract.spec.ts:259:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed (3.0s)
+  ✓  225 [smoke] › e2e/smoke/scene-action-contract.spec.ts:271:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed (2.5s)
+  ✓  226 [smoke] › e2e/smoke/scene-action-contract.spec.ts:281:5 › AB-32 · the collapse CARRIES the active/selected member › the palette-open indicator survives the contract collapse (2.8s)
+  ✓  227 [smoke] › e2e/smoke/url-color-precedence.spec.ts:61:1 › URL hash color WINS over populated localStorage (readout + trigger + accent agree) (925ms)
+  ✓  228 [smoke] › e2e/smoke/url-color-precedence.spec.ts:96:1 › localStorage RESTORES the last session when the hash carries no color (858ms)
+  ✓  229 [smoke] › e2e/smoke/views/browse-loading.spec.ts:17:1 › browse mid-fetch renders developing-plate skeletons, never a spinner (7.2s)
+  ✓  230 [smoke] › e2e/smoke/views/browse-pagination.spec.ts:20:1 › browse wall renders a full keyset page of palettes (2.9s)
+  ✓  231 [smoke] › e2e/smoke/views/browse-pagination.spec.ts:50:1 › browse wall pages past the 50-cap through the load-more affordance (4.3s)
+  ✓  232 [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start (3.8s)
+  ✓  233 [smoke] › e2e/smoke/views/gradient.spec.ts:50:1 › gradient view renders direction slider with zero console errors (3.9s)
+  ✓  234 [smoke] › e2e/smoke/views/gradient.spec.ts:85:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) (7.2s)
+  ✓  235 [smoke] › e2e/smoke/views/gradient.spec.ts:130:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) (3.7s)
+  ✓  236 [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict (6.9s)
+  ✓  237 [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints (4.1s)
+  ✓  238 [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove (5.3s)
+  ✓  239 [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved (5.1s)
+  ✓  240 [smoke] › e2e/smoke/views/gradient.spec.ts:392:1 › garbage input fails LOUD and leaves the model untouched (5.0s)
+  ✓  241 [smoke] › e2e/smoke/views/gradient.spec.ts:416:1 › radial geometry is model-or-reject, never a silent drop (5.1s)
+  ✓  242 [smoke] › e2e/smoke/views/gradient.spec.ts:430:1 › easing row carries its live ramp; steps mode lands in the literal (4.0s)
+  ✓  243 [smoke] › e2e/smoke/views/gradient.spec.ts:465:1 › no pane subtree rests on a permanent compositing transform (W5-10) (4.3s)
+  ✓  244 [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora (4.1s)
+  ✓  245 [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget (5.3s)
+[w12-about-clip] 1440x900 {"picker":621.265625,"about":621.265625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7451,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+  ✓  246 [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller (2.0s)
+[w12-about-clip] 1440x900 overflow docScroll=900 inner=900 picker=621.265625 about=621.265625
+  ✓  247 [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis (1.9s)
+[w12-about-clip] 1280x800 {"picker":617.015625,"about":617.015625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":460,"scrollHeight":7394,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+  ✓  248 [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller (1.9s)
+[w12-about-clip] 1280x800 overflow docScroll=800 inner=800 picker=617.015625 about=617.015625
+  ✓  249 [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis (1.9s)
+[w12-about-clip] 2846x1650-eq {"picker":621.265625,"about":621.265625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7449,"insideCard":true},"card":{"overflow":"hidden hidden","radius":16}}
+  ✓  250 [smoke] › e2e/smoke/w12-about-clip.spec.ts:129:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller (1.9s)
+[w12-about-clip] 2846x1650-eq overflow docScroll=825 inner=825 picker=621.265625 about=621.265625
+  ✓  251 [smoke] › e2e/smoke/w12-about-clip.spec.ts:199:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis (1.9s)
+[
+ {
+  "name": "Login",
+  "classes": "dock-tab-button glass-specular-track gap-1.5 text-small font-display",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 38,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ },
+ {
+  "name": "@mbabb",
+  "classes": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap",
+  "rest": "rgba(0, 0, 0, 0)",
+  "hoverToken": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)",
+  "reference": "rgba(0, 0, 0, 0)",
+  "height": 30.96875,
+  "radii": [
+   9999,
+   9999,
+   9999,
+   9999
+  ],
+  "hover": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)"
+ }
+]
+  ✓  252 [smoke] › e2e/smoke/w12-dock.spec.ts:109:5 › X.W12.e — the dock sits on glass's primitives › (1) Login + @mbabb pills: glass dock-control plate and a stadium radius (4.3s)
+{
+ "switch": "action-sub-layer",
+ "before": "|",
+ "during": "|lab(92% 88.8 20 / 82.7%)",
+ "after": "|",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSAnimation:input-mode-flash",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-color)",
+  "element:CSSTransition:transition(border-left-color)",
+  "element:CSSTransition:transition(border-right-color)",
+  "element:CSSTransition:transition(border-top-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(stroke)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+  ✓  253 [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch action-sub-layer: glass DockCrossfade faces, no consumer keyframes, WebM (6.0s)
+{
+ "switch": "tools-action-bar",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|lab(92% 88.8 20 / 82.7%)",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(scale)",
+  "element:CSSTransition:transition(stroke)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+  ✓  254 [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch tools-action-bar: glass DockCrossfade faces, no consumer keyframes, WebM (5.1s)
+{
+ "switch": "login-slug-edit",
+ "before": "|HomeTools Login  @mbabb",
+ "during": "|",
+ "after": "|HomeTools Login  @mbabb",
+ "faces": 6,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(--specular-y)",
+  "element:CSSTransition:transition(background-color)"
+ ],
+ "consumer": []
+}
+  ✓  255 [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch login-slug-edit: glass DockCrossfade faces, no consumer keyframes, WebM (4.9s)
+{
+ "switch": "mobile-edit",
+ "before": "|Login  @mbabb",
+ "during": "|→",
+ "after": "|Login  @mbabb",
+ "faces": 5,
+ "names": [
+  "element:CSSAnimation:gl-dock-cap-inline-end",
+  "element:CSSAnimation:gl-dock-cap-inline-start",
+  "element:CSSTransition:transition(--accent-view)",
+  "element:CSSTransition:transition(--specular-x)",
+  "element:CSSTransition:transition(background-color)",
+  "element:CSSTransition:transition(border-bottom-left-radius)",
+  "element:CSSTransition:transition(border-bottom-right-radius)",
+  "element:CSSTransition:transition(border-top-left-radius)",
+  "element:CSSTransition:transition(border-top-right-radius)",
+  "element:CSSTransition:transition(color)",
+  "element:CSSTransition:transition(opacity)",
+  "element:CSSTransition:transition(transform)"
+ ],
+ "consumer": []
+}
+  ✓  256 [smoke] › e2e/smoke/w12-dock.spec.ts:303:9 › X.W12.e — the dock sits on glass's primitives › (2) layer switch mobile-edit: glass DockCrossfade faces, no consumer keyframes, WebM (7.7s)
+{
+ "focusVisible": true,
+ "frames": {
+  "rest": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "hover": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "selected": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ],
+  "focus-visible": [
+   {
+    "node": "div.dock-layer.dock-layer--full.dock-run.is-active",
+    "overflow": "auto hidden",
+    "clipPath": "none",
+    "contain": "none",
+    "owner": "producer",
+    "cutBlock": 0
+   }
+  ]
+ }
+}
+  ✓  257 [smoke] › e2e/smoke/w12-dock.spec.ts:359:5 › X.W12.e — the dock sits on glass's primitives › (3) DOCK-TRIGGER-CLIP: hover / selected / focus-visible frames + the ancestor-chain clip census (8.1s)
+[w12-drag SOFTWARE-GL] surface: moves=12 frames=13 p50=199.7 p95=333.7 longTasks=3 maxTask=54
+    hot: get scrollTop@:0=95ms · visitNode@:267=69ms · getBoundingClientRect@:0=30ms · r@anchors-DtONOvhx.js:142=29ms · c@operations-CeP11Miy.js:3=20ms · visitChild@:322=19ms
+[w12-drag SOFTWARE-GL] slider L: moves=11 frames=10 p50=212.9 p95=237.1 longTasks=1 maxTask=50
+    hot: get scrollTop@:0=89ms · visitNode@:267=76ms · getBoundingClientRect@:0=40ms · r@anchors-DtONOvhx.js:142=33ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=24ms · c@operations-CeP11Miy.js:3=16ms
+[w12-drag SOFTWARE-GL] slider a: moves=12 frames=11 p50=208.0 p95=274.1 longTasks=2 maxTask=51
+    hot: get scrollTop@:0=99ms · visitNode@:267=78ms · getBoundingClientRect@:0=43ms · r@anchors-DtONOvhx.js:142=31ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=22ms · c@operations-CeP11Miy.js:3=19ms
+[w12-drag SOFTWARE-GL] slider b: moves=10 frames=9 p50=238.9 p95=324.3 longTasks=4 maxTask=52
+    hot: get scrollTop@:0=84ms · visitNode@:267=70ms · getBoundingClientRect@:0=49ms · r@anchors-DtONOvhx.js:142=31ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=20ms · c@operations-CeP11Miy.js:3=18ms
+[w12-drag SOFTWARE-GL] slider alpha: moves=27 frames=26 p50=66.6 p95=109.0 longTasks=0 maxTask=0
+    hot: get scrollTop@:0=201ms · visitNode@:267=152ms · getBoundingClientRect@:0=39ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=26ms · visitChild@:322=19ms · get@vue.runtime.esm-bundler-DQai_KuN.js:996=15ms
+[w12-drag] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev T=7.70 budget p50<=8.70 p95<=16.40
+  ✓  258 [smoke] › e2e/smoke/w12-drag.spec.ts:75:1 › w12-drag — 2 s drag on the surface and each slider holds frame budget (19.1s)
+[w12-ground #/] cold+1s black=0 backing=300x150 box=1440x900 49,0,37 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] cold+3s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] idle+6s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] idle+12s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] idle+20s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] idle+32s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] hide(frozen+visibilitychange)/show black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] resize-small black=0 backing=300x150 box=1100x760 50,0,38 | 78,0,34 | 113,22,7 | 117,55,1
+[w12-ground #/] resize-back black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/] drag black=0 backing=300x150 box=1440x900 32,20,31 | 50,32,40 | 79,60,56 | 89,72,64
+[w12-ground #/] scrolled black=0 backing=300x150 box=1440x900 32,20,31 | 50,32,40 | 79,60,56 | 89,72,64
+[w12-ground #/] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev samples=44 black=0 maxBacking=300 gpuErrors=0
+  ✓  259 [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/) (1.2m)
+[w12-ground #/mix→#/] cold+1s black=0 backing=300x150 box=1440x900 50,0,35 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] cold+3s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] nav→/ black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+6s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+12s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+20s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] idle+32s black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] hide(frozen+visibilitychange)/show black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] resize-small black=0 backing=300x150 box=1100x760 50,0,38 | 78,0,34 | 113,22,7 | 117,55,1
+[w12-ground #/mix→#/] resize-back black=0 backing=300x150 box=1440x900 49,0,38 | 76,0,36 | 113,24,7 | 118,56,1
+[w12-ground #/mix→#/] drag black=0 backing=300x150 box=1440x900 32,20,31 | 50,32,40 | 79,60,56 | 89,72,64
+[w12-ground #/mix→#/] scrolled black=0 backing=300x150 box=1440x900 32,20,31 | 50,32,40 | 79,60,56 | 89,72,64
+[w12-ground #/mix→#/] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev samples=48 black=0 maxBacking=300 gpuErrors=0
+  ✓  260 [smoke] › e2e/smoke/w12-ground.spec.ts:65:5 › w12-ground — the ground never paints black (#/mix→#/) (1.1m)
+rows 109 · elements 56 · boot CLS 0.0111 · switch CLS {"picker→palettes":0.24839999999999998,"palettes→gradient":0.00005107005764263974,"gradient→picker":0.0001683450757721324}
+multi-owner 0
+re-mount mid-enter 0
+transform beside layout 0
+re-runs 0
+ancestor-stacked transform 3
+  STACK picker→palettes: svg.lucide.lucide-house-icon.lucide-house (transition(transform)) inside div (@keyframes vj-settle) — together 132 ms
+  STACK palettes→gradient: svg.lucide.lucide-palette-icon.lucide-palette (transition(transform)) inside div (@keyframes vj-settle) — together 190 ms
+  STACK gradient→picker: svg.lucide.lucide-rainbow-icon.lucide-rainbow (transition(transform)) inside div (@keyframes vj-settle) — together 196 ms
+boot shifts: [[432,0.0111,["div.card-content.z-1.flex 198,238 515×474→198,249 515×474","h3.card-title.readout.flex 218,190 342×56→218,201 342×56","button.control-surface.glass-control-edge.glass-capsule-hover 217,125 31×26→217,114 107×86"]],[448,0,["svg.lucide.lucide-chevron-down-icon.lucide-chevron-down 303,147 21×21→309,147 21×21"]]]
+  ✓  261 [smoke] › e2e/smoke/w12-motion.spec.ts:341:5 › X.W12.b — one owner per element per property (boot + 3 pane switches) › continuous census: 0 multi-owner · boot CLS ≤ 0.02 (14.2s)
+[w12-blob] idle 5000ms → max frame diff 10.095/255 · 73 draws
+  ✓  262 [smoke] › e2e/smoke/w12-picker-blob.spec.ts:76:1 › w12-picker-blob · idle: the bead still moves after 5 s without input (14.2s)
+[w12-blob] hover after 5000ms idle → max frame diff 11.994/255 · 66 draws
+  ✓  263 [smoke] › e2e/smoke/w12-picker-blob.spec.ts:87:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it (14.9s)
+[w12-blob] PRM → max frame diff 0.000/255 · 0 draws
+  ✓  264 [smoke] › e2e/smoke/w12-picker-blob.spec.ts:99:1 › w12-picker-blob · PRM: the producer holds one static frame (11.8s)
+  ✓  265 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 light › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (7.4s)
+  ✓  266 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 light › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (8.6s)
+  ✓  267 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 dark › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (8.1s)
+  ✓  268 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 1440 dark › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (6.6s)
+  ✓  269 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 light › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (4.9s)
+  ✓  270 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 light › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (5.5s)
+  ✓  271 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 dark › picker: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (4.6s)
+  ✓  272 [smoke] › e2e/smoke/w12-text-trigger.spec.ts:130:21 › X.W12.t · the large colour-space dropdown is a text trigger › 390 dark › about: paint-free, glass focus ring on --radius-field, opens + selects by keyboard and pointer (5.4s)
+[w12u-p SOFTWARE-GL] surface: moves=11 frames=13 p50=163.6 p95=337.5 longTasks=4 maxTask=60 dockRoving=0/0f dockText=9
+    dock: 
+    main: UpdateLayoutTree=139ms · Layout=71ms · PrePaint=5ms · Paint=17ms · Layerize=3ms · Commit=3ms · FunctionCall=42ms · RunTask=696ms
+    self: get scrollTop@:0=86ms · visitNode@:267=75ms · getBoundingClientRect@:0=29ms · r@anchors-DtONOvhx.js:142=25ms · c@operations-CeP11Miy.js:3=21ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=19ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=29ms
+    demo: certify@ink.ts:85=97ms · attempt@ink.ts:87=97ms · certifyAccentInk@ink.ts:170=96ms · resolvePalettesRamp@palettes-ramp.ts:113=86ms · _sfc_render@Markdown.vue:82=5ms · safeCss@useContrastSafeColor.ts:302=4ms
+[w12u-p SOFTWARE-GL] slider L: moves=10 frames=9 p50=232.4 p95=274.9 longTasks=4 maxTask=53 dockRoving=0/0f dockText=10
+    dock: 
+    main: UpdateLayoutTree=153ms · Layout=71ms · PrePaint=5ms · Paint=15ms · Layerize=2ms · Commit=4ms · FunctionCall=54ms · RunTask=686ms
+    self: get scrollTop@:0=91ms · visitNode@:267=69ms · getBoundingClientRect@:0=39ms · r@anchors-DtONOvhx.js:142=24ms · c@operations-CeP11Miy.js:3=17ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=15ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=39ms
+    demo: certifyAccentInk@ink.ts:170=94ms · resolvePalettesRamp@palettes-ramp.ts:113=91ms · certify@ink.ts:85=91ms · attempt@ink.ts:87=91ms · _sfc_render@ColorNutritionLabel.vue:131=4ms · safeCss@useContrastSafeColor.ts:302=4ms
+[w12u-p SOFTWARE-GL] slider a: moves=9 frames=8 p50=294.1 p95=307.2 longTasks=4 maxTask=52 dockRoving=0/0f dockText=9
+    dock: 
+    main: UpdateLayoutTree=148ms · Layout=64ms · PrePaint=5ms · Paint=14ms · Layerize=2ms · Commit=3ms · FunctionCall=60ms · RunTask=634ms
+    self: get scrollTop@:0=79ms · visitNode@:267=65ms · getBoundingClientRect@:0=48ms · r@anchors-DtONOvhx.js:142=23ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=16ms · c@operations-CeP11Miy.js:3=16ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=48ms
+    demo: certifyAccentInk@ink.ts:170=76ms · certify@ink.ts:85=76ms · attempt@ink.ts:87=76ms · resolvePalettesRamp@palettes-ramp.ts:113=75ms · _sfc_render@WatercolorDot.vue:113=2ms · _sfc_render@ColorPicker.vue:291=1ms
+[w12u-p SOFTWARE-GL] slider b: moves=8 frames=7 p50=289.1 p95=482.1 longTasks=6 maxTask=51 dockRoving=0/0f dockText=8
+    dock: 
+    main: UpdateLayoutTree=147ms · Layout=59ms · PrePaint=5ms · Paint=12ms · Layerize=2ms · Commit=3ms · FunctionCall=69ms · RunTask=592ms
+    self: get scrollTop@:0=69ms · visitNode@:267=63ms · getBoundingClientRect@:0=59ms · r@anchors-DtONOvhx.js:142=23ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=14ms · c@operations-CeP11Miy.js:3=13ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=59ms
+    demo: resolvePalettesRamp@palettes-ramp.ts:113=69ms · certify@ink.ts:85=68ms · attempt@ink.ts:87=68ms · certifyAccentInk@ink.ts:170=68ms · (anon)@ActionBarLayer.vue:178=2ms · (anon)@ColorSpaceSelector.vue:203=1ms
+[w12u-p SOFTWARE-GL] slider alpha: moves=19 frames=18 p50=95.5 p95=175.7 longTasks=0 maxTask=0 dockRoving=0/0f dockText=19
+    dock: 
+    main: UpdateLayoutTree=136ms · Layout=90ms · PrePaint=5ms · Paint=9ms · Layerize=4ms · Commit=4ms · FunctionCall=52ms · RunTask=663ms
+    self: get scrollTop@:0=158ms · visitNode@:267=109ms · getBoundingClientRect@:0=39ms · s@class-names-FlXcvRRT-DiIf_etZ.js:145=18ms · visitChild@:322=17ms · setStyle@vue.runtime.esm-bundler-DQai_KuN.js:7535=7ms
+    layout: getBoundingClientRect<-Te@@mkbabb_glass-ui_dock.js:111<-De@@mkbabb_glass-ui_dock.js:125=38ms · getBoundingClientRect<-visitNode@:267<-visitChild@:322=1ms
+    demo: _sfc_render@WatercolorDot.vue:113=3ms · (anon)@ColorSpaceSelector.vue:203=2ms · _sfc_render@Markdown.vue:82=2ms · (anon)@useMarkdownColors.ts:24=2ms · certifyAccentInk@ink.ts:170=2ms · onUpdate:modelValue@ComponentSliders.vue:227=1ms
+[w12u-p] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver) origin=dev bisect=none T=7.60 budget p50<=8.60 p95<=16.20
+  ✓  273 [smoke] › e2e/smoke/w12u-p-drag.spec.ts:205:1 › w12u-p — colour drags hold frame budget; the dock run is not re-rendered per frame (21.2s)
+  ✓  274 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 light › token-less deep link fail-closes to Not Found at the typed address (856ms)
+  ✓  275 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 light › token-less in-app hash navigation fail-closes the same way (1.1s)
+  ✓  276 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 light › admin token mounts the Tags pane with its rows, never the catch-all (766ms)
+  ✓  277 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:34:9 › 390x844 dark › token-less deep link fail-closes to Not Found at the typed address (654ms)
+  ✓  278 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:41:9 › 390x844 dark › token-less in-app hash navigation fail-closes the same way (936ms)
+  ✓  279 [smoke] › e2e/smoke/w12u-x-admin-tags.spec.ts:53:9 › 390x844 dark › admin token mounts the Tags pane with its rows, never the catch-all (727ms)
+  ✓  280 [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors (12.9s)
+  ✓  281 [smoke] › e2e/smoke/webgl-atmosphere.spec.ts:21:1 › atmosphere canvas warms up without webglcontextlost (2.4s)
+[blob-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=64 frames=64 p50=50.6ms
+  ✓  282 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:83:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park) (10.0s)
+[blob-idle-cost] PRM window=3000ms draws=0 frames=410
+  ✓  283 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:121:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws) (7.7s)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 356.49 · ΔC -0.02105 (stated ±0.04) · px 2324
+  ✓  284 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — lab(92% 88.8 20) (10.0s)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.6175 C 0.13787 h 140.50 · ΔC -0.04113 (stated ±0.04) · px 2324
+  ✘  285 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) (10.1s)
+(node:60142) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.5634 C 0.17747 h 318.79 · ΔC -0.07578 (stated ±0.04) · px 2324
+  ✘  286 [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) (14.8s)
+(node:61011) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  287 [smoke] › e2e/smoke/webgl-blob.spec.ts:13:1 › goo-blob canvas survives view switch without webglcontextlost (13.1s)
+[x-w7l gutter] 1440x900 light beside gap=18.0 gutter=255,145,176 casts=236,119,163 ground=255,145,176/255,145,176 delta=0,0,0 spread=0 drift=0 chroma=110/110 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+  ✓  288 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 light) › the stage and the inspector are each their own surface over the page ground (5.3s)
+[x-w7l gutter] 1024x768 light beside gap=12.8 gutter=255,150,176 casts=70,51,51 ground=255,150,176/255,150,176 delta=0,0,0 spread=0 drift=0 chroma=105/105 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+  ✓  289 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 light) › the stage and the inspector are each their own surface over the page ground (4.6s)
+[x-w7l gutter] 1440x900 dark beside gap=18.0 gutter=89,0,26 casts=75,1,24 ground=89,0,26/89,0,26 delta=0,0,0 spread=0 drift=0 chroma=89/89 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+  ✓  290 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1440×900 dark) › the stage and the inspector are each their own surface over the page ground (5.6s)
+[x-w7l gutter] 1024x768 dark beside gap=12.8 gutter=92,0,24 casts=62,12,24 ground=92,0,24/92,0,24 delta=0,0,0 spread=0 drift=0 chroma=92/92 stack=div.pane-container>main.pane-main>div.app-layout>div plates=0
+  ✓  291 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:117:13 › da · O-75 — the gutter reads the page ground (1024×768 dark) › the stage and the inspector are each their own surface over the page ground (4.4s)
+[x-w7l sections #/blob] Geometry:0 · Membrane:0 · Color:0 · Lit glass:0 · Pointer:0 · Satellites:0 · Tempo:0
+  ✓  292 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it (2.3s)
+[x-w7l sections #/atmosphere] Character:0 · Field:0
+  ✓  293 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it (2.3s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+
+    Error: component-name ink rgb(223 140 123) vs rgb(42 40 38) — raw oklch(0.721821 0.105977 31.5848) α 1 stack [div.glass-resting=color(srgb 0.0927547 0.0503523 0.00879371 / 0.18)] — floor is the guard's WALKED target 5.75, not the bare WCAG 4.5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m5.75[39m
+    Received:    [31m5.74[39m
+
+      761 |                 nameRow!.ratio,
+      762 |                 `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+    > 763 |             ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
+          |               ^
+      764 |         });
+      765 |
+      766 |         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o18-contrast-census.spec.ts:763:15
+
+    Error Context: ../out/r11-smoke/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o18-contrast-censu-d3222--fill-derived-ink-together--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+
+    Error: accent chroma ≥ 0.35× pick (accent oklch(98.525329694861% 0.007203053454 31.584817895596deg); pick C 0.1062)
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m0.037180607112331766[39m
+    Received:    [31m0.006968179459289377[39m
+
+      1015 |                 accent.C,
+      1016 |                 `accent chroma ≥ ${IDENTITY_C_FLOOR}× pick (accent ${accentCss}; pick C ${pick.C.toFixed(4)})`,
+    > 1017 |             ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C);
+           |               ^
+      1018 |
+      1019 |             // 2 — the owner's NAMED instance (t33-audit-03's shot): the "Lab"
+      1020 |             //     space trigger wears `--space-title-ink` = the safe accent at
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o18-contrast-census.spec.ts:1017:15
+
+    Error Context: ../out/r11-smoke/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o18-contrast-censu-cd6e9-ck-hue-held-C-≥-0-35×-T-35--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(109 109 109) vs rgb(109 109 109) — raw oklch(0.751 0.147 84.2), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m1[39m
+
+      1316 |                 row!.ratio,
+      1317 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1318 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1319 |         });
+      1320 |
+      1321 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o18-contrast-census.spec.ts:1318:15
+
+    Error Context: ../out/r11-smoke/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o18-contrast-censu-64d69-bypasses-certification-A-1--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 6[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",[39m
+    [31m+   "Logout: 1:1 (ink rgb(98 96 93) over rgb(98 96 93), α 0)",[39m
+    [31m+   "Regenerate slug: 4.39:1 (ink rgb(220 216 213) over rgb(98 96 93), α 0.808)",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: ../out/r11-smoke/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o18-contrast-censu-1949f-tion-over-live-content-N-3--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+
+    Error: admin gold ink rgb(46 46 46) vs rgb(46 46 46) — raw oklch(0.784 0.143 86), stack []. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m1[39m
+
+      1316 |                 row!.ratio,
+      1317 |                 `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+    > 1318 |             ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+           |               ^
+      1319 |         });
+      1320 |
+      1321 |         test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o18-contrast-census.spec.ts:1318:15
+
+    Error Context: ../out/r11-smoke/oracles-o18-contrast-censu-56e44-bypasses-certification-A-1--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o18-contrast-censu-56e44-bypasses-certification-A-1--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o18-contrast-censu-56e44-bypasses-certification-A-1--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+
+    Error: the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 6[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "Copy slug: not measurable",[39m
+    [31m+   "Switch account: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+   "Logout: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+   "Regenerate slug: 1:1 (ink rgb(41 39 36) over rgb(41 39 36), α 0)",[39m
+    [31m+ ][39m
+
+      1359 |                 failures,
+      1360 |                 "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+    > 1361 |             ).toEqual([]);
+           |               ^
+      1362 |         });
+      1363 |     });
+      1364 | }
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o18-contrast-census.spec.ts:1361:15
+
+    Error Context: ../out/r11-smoke/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o18-contrast-censu-ba390-tion-over-live-content-N-3--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m4.713999999999999[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../out/r11-smoke/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m3.2612000000000023[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../out/r11-smoke/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m15.329600000000013[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../out/r11-smoke/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m45[39m
+    Received:    [31m12.115199999999987[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: ../out/r11-smoke/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 3[39m
+
+    [32m- Array [][39m
+    [31m+ Array [[39m
+    [31m+   "color(srgb 1.510980392157 0.562352941176 0.782745098039 / 82.7%) (539px > 438px)",[39m
+    [31m+ ][39m
+
+      113 |             (row) => `${row.text} (${row.scrollWidth}px > ${row.clientWidth}px)`,
+      114 |         ),
+    > 115 |     ).toEqual([]);
+          |       ^
+      116 | });
+      117 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o22-specimen-legibility.spec.ts:115:7
+
+    Error Context: ../out/r11-smoke/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o22-specimen-legib-1355d-ecimen-caption-fits-its-box-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+
+    Error: hsl channel 1 printed 0 against -12.951521561243181 (hsl(346deg -1295% 103.7% / 82.7%))
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.006482236542402211[39m
+    Received:    [31m12.951521561243181[39m
+
+      293 |                 Math.abs(channel - truth),
+      294 |                 `${row.space} channel ${index} printed ${channel} against ${truth} (${row.text})`,
+    > 295 |             ).toBeLessThanOrEqual(policyResolution(truth));
+          |               ^
+      296 |         });
+      297 |
+      298 |         // (ii)(c) the same claim in Lab, against the measured bound
+        at forEach (/Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:295:15)
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:288:31
+
+    Error Context: ../out/r11-smoke/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o23-specimen-gamut-0e794-ed-coordinate-was-projected-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s 
+
+    Error: aurora field does not migrate perceptibly over 10s (0.000 < 4/255) — the T-25/T-26 still, cured at W2-5
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4[39m
+    Received:    [31m0.00012544988925802878[39m
+
+      108 |         migration,
+      109 |         `aurora field does not migrate perceptibly over 10s (${migration.toFixed(3)} < ${MIGRATION_MIN}/255) — the T-25/T-26 still, cured at W2-5`,
+    > 110 |     ).toBeGreaterThanOrEqual(MIGRATION_MIN);
+          |       ^
+      111 | });
+      112 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:110:7
+
+    Error Context: ../out/r11-smoke/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o26-aurora-percept-745af-rates-unmistakably-over-10s-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.15948859187521458[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.29330989323473755[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.24326322147615295[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error Context: ../out/r11-smoke/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.13787 vs the gamut-mapped current chroma 0.17901
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.04113378770292658[39m
+
+      288 |             Math.abs(paintedC - targetC),
+      289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      291 |     });
+      292 | }
+      293 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/webgl-blob-idle.spec.ts:290:11
+
+    Error Context: ../out/r11-smoke/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.17747 vs the gamut-mapped current chroma 0.25325
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.04[39m
+    Received:    [31m0.07577653551124103[39m
+
+      288 |             Math.abs(paintedC - targetC),
+      289 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 290 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      291 |     });
+      292 | }
+      293 |
+        at /Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0/e2e/smoke/webgl-blob-idle.spec.ts:290:11
+
+    Error Context: ../out/r11-smoke/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../out/r11-smoke/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../out/r11-smoke/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16 failed
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:712:9 › O-18 census (dark) › graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:992:9 › O-18 W6.5 legs (light) › the IDENTITY leg — the certified accent SPEAKS the pick: hue held, C ≥ 0.35× (T-35) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (light) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (light) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1296:9 › O-18 census · R27 blind rows (dark) › the admin pill — the ONE ink that bypasses certification (A-1) 
+    [smoke] › e2e/smoke/oracles/o18-contrast-census.spec.ts:1321:9 › O-18 census · R27 blind rows (dark) › the profile menu ROW LABELS — the unguarded population, over live content (N-3) 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+    [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box 
+    [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:225:1 › out-of-gamut rows are marked, and no printed coordinate was projected 
+    [smoke] › e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts:52:1 › O-26 aurora perceptibility — the field migrates unmistakably over 10s 
+    [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:210:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+  2 skipped
+  275 passed (26.8m)
+### smoke end 10-16 07:44:38 load1=21.05 exit=1

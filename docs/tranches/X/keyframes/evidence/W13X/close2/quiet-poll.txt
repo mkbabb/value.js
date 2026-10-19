@@ -1,0 +1,11 @@
+SERVED MODEL: claude-opus-5-5
+15:53:43 load=111.63
+15:54:13 load=118.22
+15:54:44 load=110.31
+15:55:14 load=109.33
+15:55:44 load=116.14
+15:56:14 load=120.01
+15:56:44 load=120.76
+15:57:14 load=113.47
+15:57:45 load=100.38
+STOPPED by the close seat 15:58:08 (never below 25; runs=0)

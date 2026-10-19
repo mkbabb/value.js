@@ -1,0 +1,31 @@
+{
+ "run": "explore1",
+ "mode": "play",
+ "load": [
+  "447.97",
+  "448.63"
+ ],
+ "maxGap": 400,
+ "longestTaskMs": 268.1,
+ "tasksOver50": 3,
+ "top": [
+  "191.5ms RunMicrotasks",
+  "152.8ms Document::UpdateStyleAndLayout",
+  "152.8ms Blink.ForcedStyleAndLayout.UpdateTime",
+  "152.8ms LocalFrameView::UpdateStyleAndLayout",
+  "135.3ms Blink.Layout.UpdateTime",
+  "135.3ms LocalFrameView::layout",
+  "135.3ms Layout",
+  "135.3ms LocalFrameView::performLayout",
+  "133.1ms InlineNode::ShapeTextIncludingFirstLine",
+  "75.9ms v8.evaluateModule",
+  "34.1ms Blink.Style.UpdateTime",
+  "34.0ms UpdateLayoutTree",
+  "31.9ms Document::updateStyle",
+  "31.7ms Document::recalcStyle",
+  "3.5ms Blink.ParseStyleSheet.UpdateTime",
+  "3.4ms CSSParserImpl::parseStyleSheet",
+  "3.4ms CSSParserImpl::parseStyleSheet.parse",
+  "2.7ms StyleElement::processStyleSheet"
+ ]
+}

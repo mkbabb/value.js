@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 gap-y-2 p-0 m-0">
+    <div class="color-input-face grid grid-cols-1 gap-y-2 p-0 m-0">
         <Popover
             trigger="hover"
             :close-delay="0"
@@ -12,10 +12,12 @@
                         ref="inputColorRef"
                         contenteditable
                         role="textbox"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        autocorrect="off"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-input px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-media px-3 py-2 focus-visible:outline-none font-mono text-ellipsis whitespace-nowrap text-center"
                         :class="{
-                            'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
                             'color-input-mode-flash': modeTransition,
                         }"
@@ -32,7 +34,7 @@
                             <TooltipTrigger as-child>
                                 <Crown
                                     :key="crownKey"
-                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] text-gold opacity-75 hover:opacity-100 hover:scale-110 transition-[opacity,transform] cursor-help"
+                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] gold-ink hover:scale-110 transition-transform cursor-help"
                                     :stroke-width="1.75"
                                     style="
                                         animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards;
@@ -51,22 +53,21 @@
                                         by {{ currentColorMeta.contributor }}
                                     </span>
                                     <span class="text-muted-foreground">
-                                        {{ currentColorMeta.css }}
+                                        {{ formatCssCaption(currentColorMeta.css) }}
                                     </span>
                                 </div>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
 
-                    <!-- Inline send button — T.W5-R5: the spatial hover/press
-                         legs come from the producer `btn-interactive` atom
-                         (scale @ --spring-smooth-duration on
-                         --transition-liquid-spatial, house press/hover
-                         magnitudes + focus register); .send-btn keeps only
-                         seat geometry (see the scoped block). -->
+                    <!-- Inline send button — .send-btn keeps only seat
+                         geometry (see the scoped block). X.W8.d
+                         (W5-BTN-INTERACTIVE-DEAD): the `btn-interactive` atom
+                         left glass at 490cc46e; its dead class is deleted. -->
                     <button
                         v-if="proposeMode"
-                        class="send-btn btn-interactive"
+                        class="send-btn"
+                        aria-label="Propose this color name"
                         :disabled="!proposedName.trim() || proposing"
                         @click="submitProposedName"
                     >
@@ -75,7 +76,8 @@
                     </button>
                     <button
                         v-else
-                        class="send-btn btn-interactive"
+                        class="send-btn"
+                        aria-label="Apply color"
                         @click="onSubmitColor"
                     >
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
@@ -100,8 +102,8 @@
                 </p>
                 <Separator class="my-2" />
 
-                <div class="fira-code w-full flex justify-center">
-                    {{ serializePickerColor(currentPhysicalColor) }}
+                <div class="font-mono w-full flex justify-center">
+                    {{ formatColor(currentPhysicalColor, "caption") }}
                 </div>
 
                 <!-- E4 (Q10): the Parse-Lab echo (AST + gamut verdict). -->
@@ -113,44 +115,47 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted, ref, useTemplateRef, watch } from "vue";
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { computed, inject, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from "vue";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "../../ui/popover";
+} from "@mkbabb/glass-ui/popover";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "../../ui/tooltip";
-import { Separator } from "../../ui/separator";
+} from "@mkbabb/glass-ui/tooltip";
+import { Separator } from "@mkbabb/glass-ui/separator";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "../../color-session/color-names";
 import { useSession } from "../../platform/auth/useSession";
-import type { EditTarget } from "../../color-session/color-model";
 import { serializePickerColor } from "../../color-session/picker-color";
+import { formatColor, formatCssCaption } from "../../color-session/format-color";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../color-session/keys";
 
 const { proposeMode } = defineProps<{
-    editTarget: EditTarget | null;
     proposeMode?: boolean;
+}>();
+
+const emit = defineEmits<{
+    /** A name proposal succeeded (UIA-V-12); the parent leaves propose mode. */
+    proposed: [name: string];
 }>();
 
 const {
     currentPhysicalColor,
     cssColor,
-    cssColorOpaque,
     formattedCurrentColor,
     currentColorMeta,
     crownKey,
-    canProposeName,
     parseAndSetColor,
     parseAndSetColorDebounced,
     parseError,
+    clearParseError,
     updateModel,
 } = inject(COLOR_MODEL_KEY)!;
 
@@ -188,7 +193,8 @@ const onInputBlur = () => {
     // the (reset) model value — the `formattedCurrentColor` watch skips repaint
     // while focused, leaving stale text without this snap-back.
     if (!proposeMode && inputColorRef.value) {
-        inputColorRef.value.innerText = formattedCurrentColor.value;
+        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
+        clearParseError();
     }
 };
 const onInputInput = (e: Event) => {
@@ -196,6 +202,8 @@ const onInputInput = (e: Event) => {
     if (proposeMode) {
         proposedName.value = text;
     } else {
+        // UIA-V-13: the verdict belonged to the text just replaced.
+        clearParseError();
         parseAndSetColorDebounced(text);
     }
 };
@@ -205,6 +213,9 @@ const onInputKeydown = (e: KeyboardEvent) => {
         if (proposeMode) {
             submitProposedName();
         } else {
+            // UIA-V-508: Enter commits NOW; the pending debounced parse of the
+            // same text is dropped rather than re-running 2 s later.
+            parseAndSetColorDebounced.cancel();
             parseAndSetColor((e.target as HTMLElement).innerText);
         }
     }
@@ -212,6 +223,7 @@ const onInputKeydown = (e: KeyboardEvent) => {
 
 const onSubmitColor = () => {
     if (inputColorRef.value) {
+        parseAndSetColorDebounced.cancel();
         parseAndSetColor(inputColorRef.value.innerText);
     }
 };
@@ -233,12 +245,15 @@ async function submitProposedName() {
     try {
         await session.ensureSession();
         const cssStr = serializePickerColor(currentPhysicalColor.value);
-        await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
+        const name = proposedName.value.trim().toLowerCase();
+        await proposeColorName(name, cssStr);
         proposedName.value = "";
-        // Signal parent to exit propose mode
-        if (inputColorRef.value) {
-            inputColorRef.value.innerText = formattedCurrentColor.value;
-        }
+        // UIA-V-12: the parent owns the toolbar mode, so the success is a
+        // signal, not a local repaint — writing the colour string into the
+        // propose-mode field is what left "lab(...)" sitting in the name slot.
+        // The mode watch below repaints the colour when the parent leaves
+        // propose.
+        emit("proposed", name);
     } catch (e: any) {
         console.warn("[ColorInput] Failed to propose name:", e?.message);
     } finally {
@@ -262,20 +277,40 @@ watch(() => proposeMode, (propose) => {
         requestAnimationFrame(() => inputColorRef.value?.focus());
     } else {
         inputColorRef.value.removeAttribute("data-placeholder");
-        inputColorRef.value.innerText = formattedCurrentColor.value;
+        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
     }
 });
 
-// Sync displayed text when not focused (only in color mode)
-watch(formattedCurrentColor, (text) => {
-    if (!proposeMode && !inputIsFocused.value && inputColorRef.value) {
-        inputColorRef.value.innerText = text;
+// Sync displayed text when not focused (only in color mode).
+// X.W12U.p (W12U.md addendum (c) 3): this is the dock seat a colour drag
+// re-renders on every input. An `innerText` write REPLACES the text node — a
+// childList mutation inside the dock run, which glass's `useDockRun` roving
+// MutationObserver answers with a `syncRoving` pass each input. The caption is
+// therefore painted at most once per frame (latest text wins) and in place on
+// the existing text node (a characterData write: no node churn, no roving pass).
+let captionFrame: number | null = null;
+const paintCaption = () => {
+    captionFrame = null;
+    const el = inputColorRef.value;
+    if (proposeMode || inputIsFocused.value || !el) return;
+    const text = formatCssCaption(formattedCurrentColor.value);
+    const node = el.firstChild;
+    if (node instanceof Text && node === el.lastChild) {
+        if (node.data !== text) node.data = text;
+    } else {
+        el.textContent = text;
     }
+};
+watch(formattedCurrentColor, () => {
+    if (captionFrame === null) captionFrame = requestAnimationFrame(paintCaption);
+});
+onBeforeUnmount(() => {
+    if (captionFrame !== null) cancelAnimationFrame(captionFrame);
 });
 
 onMounted(() => {
     if (inputColorRef.value) {
-        inputColorRef.value.innerText = formattedCurrentColor.value;
+        inputColorRef.value.innerText = formatCssCaption(formattedCurrentColor.value);
     }
 });
 
@@ -291,12 +326,32 @@ defineExpose({
 <style scoped>
 @reference "../../styles/foundation.css";
 
+/* UIA-V-9 · V-79 · A2-VA-X-13: the field has an inline-size contract. The span
+ * is content-sized (nowrap), so the face's min-content was the typed text: the
+ * dock grew to it on every keystroke (a 50 px stub when empty) and, below sm,
+ * pushed Back and the arm toggle out of the aperture. Size containment on the
+ * inline axis takes the text out of the measure, and the face states its own
+ * width: 40% of the viewport between an 8rem floor and a 14rem cap — at 360 it
+ * leaves Back, both separators and the arm toggle inside the dock; at 1440 it
+ * is the cap. The text ellipsizes inside a width that no keystroke moves. */
+.color-input-face {
+    contain: inline-size;
+    inline-size: clamp(8rem, 40vw, 14rem);
+    /* X.W12U.m2 · A2-VA-X-13: the inline action (Apply / Propose) takes the
+     * control floor the slug cluster's seats take (SlugEditLayer.vue): glass's
+     * `--control-floor` is 0px at :root and `--touch-target` (44 px) under
+     * `(pointer: coarse)`, so it is 24 px fine · 44 px coarse. The field's end
+     * padding, its fade and the button all read this one width. */
+    --input-action-size: max(1.5rem, var(--control-floor));
+}
+
 .color-input {
     border-color: var(--input);
     transition:
         border-color var(--duration-fast) var(--ease-standard),
         box-shadow var(--duration-fast) var(--ease-standard);
-    --input-action-width: 2.5rem;
+    --input-action-width: calc(var(--input-action-size) + 1rem);
+    padding-inline-end: calc(var(--input-action-size) + 0.75rem);
     mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
 }
@@ -309,13 +364,11 @@ defineExpose({
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--destructive) 25%, transparent);
 }
 
+/* X.W12.e: input-mode-flash and crown-appear live in styles/animations.css
+ * (moved, never deleted). crown-appear is bound from an INLINE style, which
+ * a scoped (hash-renamed) keyframe could never match — global is its home. */
 .color-input-mode-flash {
     animation: input-mode-flash var(--duration-slow) var(--ease-decelerate);
-}
-
-@keyframes input-mode-flash {
-    0% { transform: scaleX(0.97); opacity: 0.6; }
-    100% { transform: scaleX(1); opacity: 1; }
 }
 
 .color-input:empty[data-placeholder]::before {
@@ -326,15 +379,17 @@ defineExpose({
 
 /* T.W5-R5 (T-14 / D7): the bespoke transform-on-bezier hover/press recipe
  * (scale 1.1/0.95 composed into `transform` @ --duration-fast --ease-standard
- * — the F3 spatial-on-bezier stray) is RETIRED onto the producer
- * `btn-interactive` atom (template class): the scale longhand rides
- * --transition-liquid-spatial @ --spring-smooth-duration, press/hover
- * magnitudes + focus ring + disabled opacity are the house registers. This
- * block keeps ONLY the seat geometry — the static translateY(-50%) transform
- * composes cleanly under the atom's `scale` longhand. */
+ * — the F3 spatial-on-bezier stray) stays RETIRED. The producer
+ * `btn-interactive` atom it moved onto left glass at 490cc46e and its class is
+ * deleted (X.W8.d, W5-BTN-INTERACTIVE-DEAD; the motion question rides O-52
+ * R-2). This block keeps ONLY the seat geometry. */
 .send-btn {
     position: absolute;
     right: 0.25rem;
+    display: grid;
+    place-items: center;
+    min-inline-size: var(--input-action-size);
+    min-block-size: var(--input-action-size);
     top: 50%;
     transform: translateY(-50%);
     padding: 0.25rem;
@@ -350,7 +405,7 @@ defineExpose({
     right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    @apply text-xs;
+    @apply text-caption;
     line-height: 1;
     padding: 0.2rem 0.4rem;
     border-radius: var(--radius-sm);
@@ -363,15 +418,5 @@ defineExpose({
        from-state matches it (pure pop, no positional jump). */
     --vj-celebrate-y: -50%;
     --vj-celebrate-scale: 0.85;
-}
-
-/* Crown indicator animation */
-@keyframes crown-appear {
-    0%   { opacity: 0; color: var(--color-gold-light); transform: scale(0) rotate(-15deg); }
-    40%  { opacity: 1; color: var(--color-gold); transform: scale(1.4) rotate(5deg);
-           filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-gold) 70%, transparent)); }
-    70%  { color: var(--color-gold); transform: scale(0.95) rotate(-2deg);
-           filter: drop-shadow(0 0 3px color-mix(in srgb, var(--color-gold) 40%, transparent)); }
-    100% { color: var(--color-gold); transform: scale(1) rotate(0deg); filter: none; }
 }
 </style>

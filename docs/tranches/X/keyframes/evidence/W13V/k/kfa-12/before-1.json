@@ -1,0 +1,35 @@
+{
+ "kf": {
+  "head": "28e97ec3",
+  "dirty": "2"
+ },
+ "raw": {
+  "typeofOnDocument": "function"
+ },
+ "res": {
+  "calls": [
+   {
+    "t": 4998.79999999702,
+    "thisIsDocument": false,
+    "argKind": "object",
+    "stack": "    at Document.startViewTransition (<anonymous>:6:108) |     at http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/orchestration/view-transition/view-transition.ts:81:37 |     at withReducedMotion (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/internal/reduced-motion.ts:125:38) |     at viewTransition (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/orchestration/view-transition/view-transition.ts:73:9)",
+    "threw": "Illegal invocation"
+   },
+   {
+    "t": 4999,
+    "thisIsDocument": false,
+    "argKind": "function",
+    "stack": "    at Document.startViewTransition (<anonymous>:6:108) |     at http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/orchestration/view-transition/view-transition.ts:87:10 |     at withReducedMotion (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/internal/reduced-motion.ts:125:38) |     at viewTransition (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/orchestration/view-transition/view-transition.ts:73:9)",
+    "threw": "Illegal invocation"
+   }
+  ],
+  "hash": "#/amiga"
+ },
+ "control": {
+  "vtPseudoAnimsWhenBound": 10
+ },
+ "errs": [
+  "Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ]
+}
+// unhooked unbound native call: TypeError: Illegal invocation

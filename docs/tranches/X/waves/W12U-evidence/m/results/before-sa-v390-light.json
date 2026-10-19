@@ -1,0 +1,65 @@
+{
+ "tag": "v390",
+ "theme": "light",
+ "W": 390,
+ "H": 844,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T05:27:41.091Z",
+ "arms": {
+  "SA": {
+   "inset": "portrait",
+   "/": {
+    "top": [
+     "Open color input@363,27-407,71"
+    ],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/palettes": {
+    "top": [
+     "Open color input@363,27-407,71",
+     "Add current color lab(92% 88.8 20) to palette@46,878-112,944"
+    ],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/browse": {
+    "top": [
+     "Palette menu@290,867-344,921"
+    ],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/generate": {
+    "top": [
+     "Palette menu@290,834-344,888"
+    ],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/gradient": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/atmosphere": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "/admin/users": {
+    "top": [],
+    "end": [],
+    "pad": "16px 16px 8px",
+    "viewport": "width=device-width, initial-scale=1.0"
+   },
+   "pass": false
+  }
+ }
+}

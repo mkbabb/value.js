@@ -1,0 +1,282 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "gate": "G-4",
+    "wave": "X.P.W4",
+    "unit": "X.P.W4.b",
+    "generatedAt": "2026-09-19T10:39:16.717Z",
+    "node": "v26.0.0",
+    "command": "node scripts/wasm-admission.mjs <artifact>.wasm [...]",
+    "artifacts": [
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/build/ac1.wasm",
+                "bytes": 636753,
+                "sha256": "04fbb80ee92575f7c497a69feb4b8da0927c4de8981c5e2cb3085f4028ce9c8d"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 7,
+                "byKind": {
+                    "function": 6,
+                    "memory": 1
+                },
+                "memoryExported": true,
+                "names": [
+                    "function:run",
+                    "function:setTheta",
+                    "function:highWater",
+                    "function:cHighWater",
+                    "function:pHighWater",
+                    "function:reset",
+                    "memory:memory"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        },
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/w4b/typescript/target/w4b-emit/ac1-emit.wasm",
+                "bytes": 662339,
+                "sha256": "f0d063d6241812de8118444ed41c53b2558fcedf2204156b2de564e7eafe10c9"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 7,
+                "byKind": {
+                    "function": 6,
+                    "memory": 1
+                },
+                "memoryExported": true,
+                "names": [
+                    "function:run",
+                    "function:setTheta",
+                    "function:highWater",
+                    "function:cHighWater",
+                    "function:pHighWater",
+                    "function:reset",
+                    "memory:memory"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        },
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/experiments/w2/ac1-tagless/build/ac1.wasm",
+                "bytes": 187341,
+                "sha256": "049b9904e829bedadf2dc12287013e33279a2079a43ddd4dd88c3a82611c6e22"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 5,
+                "byKind": {
+                    "function": 4,
+                    "memory": 1
+                },
+                "memoryExported": true,
+                "names": [
+                    "function:run",
+                    "function:setTheta",
+                    "function:highWater",
+                    "function:reset",
+                    "memory:memory"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        },
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/experiments/w2/ac1-tagless/build/ac1.wasm",
+                "bytes": 187341,
+                "sha256": "049b9904e829bedadf2dc12287013e33279a2079a43ddd4dd88c3a82611c6e22"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 5,
+                "byKind": {
+                    "function": 4,
+                    "memory": 1
+                },
+                "memoryExported": true,
+                "names": [
+                    "function:run",
+                    "function:setTheta",
+                    "function:highWater",
+                    "function:reset",
+                    "memory:memory"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        },
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac2/experiments/w2/ac2-closed-ir/artifacts/ac2.wasm",
+                "bytes": 117544,
+                "sha256": "d70449e8b2eb637326dbc319cd8b2e7631178815ccc1dc141cc00a6ce15d33c7"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 4,
+                "byKind": {
+                    "memory": 1,
+                    "function": 3
+                },
+                "memoryExported": true,
+                "names": [
+                    "memory:memory",
+                    "function:parse_P_color",
+                    "function:parse_P_timing_function",
+                    "function:parse_P_stylesheet"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        },
+        {
+            "artifact": {
+                "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac3/experiments/w2/ac3-span/build/ac3.wasm",
+                "bytes": 25267,
+                "sha256": "fef1f1a7373c9797a1bda52d8e8f4ceb9f6e86ef92160ff34d8d4993e23bcecc"
+            },
+            "imports": {
+                "total": 0,
+                "functionKind": 0,
+                "list": [],
+                "accounted": [],
+                "unaccounted": []
+            },
+            "exports": {
+                "total": 32,
+                "byKind": {
+                    "function": 31,
+                    "memory": 1
+                },
+                "memoryExported": true,
+                "names": [
+                    "function:scan",
+                    "function:take",
+                    "function:lit",
+                    "function:kw",
+                    "function:num",
+                    "function:spanDigits",
+                    "function:dec2f64",
+                    "function:clamp",
+                    "function:scale",
+                    "function:guard",
+                    "function:pushC",
+                    "function:pushP",
+                    "function:pushD",
+                    "function:truncate",
+                    "function:labPush",
+                    "function:labCopy",
+                    "function:raise",
+                    "function:mark",
+                    "function:rollback",
+                    "function:atEnd",
+                    "function:setErr",
+                    "function:setCut",
+                    "function:setOff",
+                    "function:setDepth",
+                    "function:setFar",
+                    "function:begin",
+                    "function:resetAll",
+                    "function:runEnd",
+                    "function:cls",
+                    "function:fold",
+                    "function:at",
+                    "memory:memory"
+                ]
+            },
+            "instantiation": {
+                "ok": true,
+                "error": null
+            },
+            "verdict": {
+                "functionKindZero": true,
+                "emptyImportInstantiation": true,
+                "everyImportAccounted": true,
+                "admitted": true
+            }
+        }
+    ],
+    "tally": {
+        "artifacts": 6,
+        "admitted": 6,
+        "functionKindImportsTotal": 0,
+        "unaccountedImportsTotal": 0
+    },
+    "verdict": "GREEN"
+}

@@ -1,0 +1,38 @@
+SERVED MODEL: claude-opus-5[1m]
+X.F.W3.e — g10 (WRAPPER LAW), the Tooltip leg. Worktree f3e, branch x/f3e.
+Base 74084fa (.d's head). All readings double-run at the settled bytes.
+
+== BEFORE (RESUME baseline, fourier 21e11b0, reproduced at base 74084fa) ==
+⟨cmd⟩ git show 74084fa:web/src/components/ui/tooltip/Tooltip.vue | grep -n "attrs\|inheritAttrs" ; echo "exit=$?"
+exit=1 (1 = no match, the baseline's ∅)
+
+== AFTER (this seat) — the three legs g10 names ==
+-- leg 1: ui/tooltip/Tooltip.vue (.e's, cured at 511cbd0) --
+⟨cmd⟩ grep -n "defineOptions({ inheritAttrs: false })" src/components/ui/tooltip/Tooltip.vue
+51:defineOptions({ inheritAttrs: false });
+⟨cmd⟩ grep -n "v-bind=\"\$attrs\"" src/components/ui/tooltip/Tooltip.vue
+22: * false` WITH a pre-placed `v-bind="$attrs"` on the intended host.** The host
+144:            v-bind="$attrs"
+  -> declares inheritAttrs:false WITH a pre-placed v-bind on the intended host (TooltipContent). GREEN.
+
+-- leg 2: ui/SliderControl.vue (.a's, cured at a08809b; verified here, not re-cured) --
+⟨cmd⟩ grep -n "defineOptions({ inheritAttrs: false })\|useAttrs()\|chassisAttrs\|controlAttrs" src/components/ui/SliderControl.vue
+84:defineOptions({ inheritAttrs: false });
+86:const attrs = useAttrs();
+88:const chassisAttrs = computed(() => ({ class: attrs.class, style: attrs.style }));
+90:const controlAttrs = computed(() => {
+135:    <div class="slider-control" v-bind="chassisAttrs">
+160:            v-bind="controlAttrs"
+  -> the ANTI-RULE is honoured: the fallthrough is SPLIT (class/style to the chassis,
+     everything else to the control), not blanketed. class fallthrough survives. GREEN.
+
+-- leg 3: visualization/CanvasOverlayButton.vue (F.W0's git rm) --
+⟨cmd⟩ ls src/components/visualization/CanvasOverlayButton.vue
+ls: src/components/visualization/CanvasOverlayButton.vue: No such file or directory
+  -> ABSENT. 'or does not wrap at all' — the wrapper that unified 0 of 9 sites is gone. GREEN.
+
+== DOUBLE-RUN ==
+run 1: inheritAttrs decls in ui/tooltip + ui/SliderControl =        2
+run 2: inheritAttrs decls in ui/tooltip + ui/SliderControl =        2
+
+VERDICT: g10 GREEN. The .e-owned leg is the Tooltip shim.

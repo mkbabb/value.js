@@ -46,7 +46,7 @@ from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables._g_l_y_f import Glyph, GlyphComponent
 from fontTools.ttLib.tables import otTables as ot
 
-FONT = Path("demo/color-picker/public/fonts/fraunces-latin-normal.woff2")
+FONT = Path("demo/app/public/fonts/fraunces-latin-normal.woff2")
 
 DIGITS = "0123456789"
 # The readout's design-space point: fig-int wght 600, font-optical-sizing

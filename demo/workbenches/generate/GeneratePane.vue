@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { inject, ref } from "vue";
-import { Card } from "../../ui/card";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import PaneShell from "../../shell/PaneShell.vue";
 import GenerateControls from "./GenerateControls.vue";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
@@ -11,12 +10,14 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(LIBRARY_PORT_KEY)!;
 const controlsRef = ref<InstanceType<typeof GenerateControls> | null>(null);
 
-function onSave(colors: string[]) {
+// X.W12.u2 (UIA-V-42): the save carries the plate's own name (GenerateControls
+// emits it); the dock's generate.save routes through the same emit.
+function onSave(colors: string[], name: string) {
     const paletteColors: PaletteColor[] = colors.map((css, i) => ({
         css,
         position: i,
     }));
-    pm.createPalette("Generated Palette", paletteColors);
+    pm.createPalette(name.trim() || "Generated Palette", paletteColors);
 }
 
 defineExpose({
@@ -27,14 +28,8 @@ defineExpose({
 </script>
 
 <template>
-    <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
-            <PaneHeader description="Create pleasing random palettes with aesthetic presets.">
-                Generate
-            </PaneHeader>
-            <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">
-                <GenerateControls ref="controlsRef" @save="onSave" />
-            </div>
-        </Card>
-    </div>
+    <PaneShell seated title="Generate" description="Create pleasing random palettes with aesthetic presets.">
+        <!-- A2-VA-L1-1: the one pane shell. -->
+        <GenerateControls ref="controlsRef" @save="onSave" />
+    </PaneShell>
 </template>

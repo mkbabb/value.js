@@ -41,6 +41,9 @@
  * (hero-scale legibility, row A family), which STANDS amended. */
 .pane-shell {
     --blob-fp: clamp(7rem, 22cqi, 11rem);
+    /* The spectrum's live-tinted hard stamp offset (V1-27, 684c818f) — ONE
+     * value the stamp and the seat's breath both read. */
+    --spectrum-stamp: 8px;
     /* Q3 "Flush." — the ruled seat inset; the knob survives for taste
      * passes (positive = deeper into the card; negatives are DEAD — they
      * re-admit the overflow class the ruling closed). */
@@ -55,28 +58,10 @@
     z-index: var(--z-ornament);
 }
 
-/* The CONTACT SHADOW — the seat's depth signature (D8: the corner-break's
- * "wet on the plate" is REPLACED, not deleted). A static radial pool under
- * the bead's base anchors it to the plate (the paperweight read; also the
- * demo-side half of the T-30 blur percept cure — a grounded object reads
- * focused; the engine-side wet-edge register is the P6 open-Q9 row, now
- * WANTED). Geometry derives from the same identity: bead center at 50%,
- * base at 76% of the wrapper. PRM-static; both schemes via --shadow-color. */
-.hero-blob-anchor::before {
-    content: "";
-    position: absolute;
-    left: 24%;
-    right: 24%;
-    top: 68%;
-    height: 14%;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(
-        ellipse 50% 50% at 50% 50%,
-        color-mix(in srgb, var(--shadow-color) 22%, transparent),
-        transparent 70%
-    );
-}
+/* X-DS pass 1 (V1-10): the consumer's CONTACT SHADOW pool (a radial-gradient
+ * ellipse under the bead, D8) is gone. The bead already carries the producer's
+ * own drop-shadows; a third shadow under one object read as a grey smudge on
+ * the light plate. The bead's own shading is glass's (O-87). */
 
 /* The title row hosts the bead (the C1-settled band): its W20-locked
  * reservation + min-height remain the ONE 0.76·fp formula; W29 changes paint,
@@ -87,4 +72,17 @@
 .title-row {
     padding-right: calc(0.76 * var(--blob-fp) + 0.5rem);
     min-height: calc(0.76 * var(--blob-fp) - 0.75rem);
+}
+
+/* X-DS pass 1 (V1C-09): the spectrum's stamp lands in OPEN space, as in the
+ * original (684c818f, grid gap-4: the 8px offset inside a 16px gap). The
+ * spectrum→console gap is the stamp plus a breath (8px + 1rem; it was 12px,
+ * so the stamp all but touched the console), and the field gives up the
+ * stamp's width on its right, so the stamp ends on the console's edge instead
+ * of overrunning it toward the card margin. */
+.picker-body {
+    gap: calc(var(--spectrum-stamp) + 1rem);
+}
+.picker-body > .spectrum-figure {
+    padding-inline-end: var(--spectrum-stamp);
 }

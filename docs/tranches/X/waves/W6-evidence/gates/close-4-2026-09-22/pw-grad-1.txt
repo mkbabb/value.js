@@ -1,0 +1,250 @@
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:211:18
+
+    Error Context: test-results/views-gradient-a-grab-is-n-2555f-d-no-secondary-button-mints-smoke/error-context.md
+
+
+(node:31148) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[16/22] [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+  16) [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:247:18
+
+    Error Context: test-results/views-gradient-stop-add-ba-2271f--drag-and-touch-true-remove-smoke/error-context.md
+
+
+(node:31804) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[17/22] [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved
+  17) [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:303:18
+
+    Error Context: test-results/views-gradient-round-trip--0e4a5-lly-with-literals-preserved-smoke/error-context.md
+
+
+(node:32408) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[18/22] [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched
+  18) [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:331:18
+
+    Error Context: test-results/views-gradient-garbage-inp-9b0f0--leaves-the-model-untouched-smoke/error-context.md
+
+
+(node:32849) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[19/22] [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop
+  19) [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:355:18
+
+    Error Context: test-results/views-gradient-radial-geom-dc505--reject-never-a-silent-drop-smoke/error-context.md
+
+
+(node:33630) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[20/22] [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal
+  20) [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:371:18
+
+    Error Context: test-results/views-gradient-easing-row--6c09b-s-mode-lands-in-the-literal-smoke/error-context.md
+
+
+(node:34456) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[21/22] [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+  21) [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10) 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:405:5
+
+    Error Context: test-results/views-gradient-no-pane-sub-41efa-ompositing-transform-W5-10--smoke/error-context.md
+
+
+(node:35201) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[22/22] [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora
+  22) [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora ──────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      504 |     const frames: Buffer[] = [];
+      505 |     for (let i = 0; i < 5; i++) {
+    > 506 |         frames.push(await page.screenshot({ clip: box!, animations: "allow" }));
+          |                                ^
+      507 |         await page.waitForTimeout(300);
+      508 |     }
+      509 |     const moved = frames.slice(1).some((f) => !f.equals(frames[0]!));
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:506:32
+
+    Error Context: test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+
+  22 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:209:1 › a grab is not a teleport, and no secondary button mints 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora ────────────────────
+EXIT 1

@@ -1,0 +1,5 @@
+[0;32m[pages-smoke][0m bundle /assets/index-BYSiPuAh.js carries the API base https://api.fourier.babb.dev
+[0;32m[pages-smoke][0m health: 200 application/json {"status":"ok"}
+[0;32m[pages-smoke][0m CORS: Access-Control-Allow-Origin https://fourier.babb.dev
+[0;32m[pages-smoke][0m cert: api.fourier.babb.dev valid until Jan  4 15:19:06 2027 GMT (> 14 days)
+[0;32m[pages-smoke][0m PASS

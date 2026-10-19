@@ -1,0 +1,4 @@
+⟨cmd⟩ node --input-type=module -e "const {parseCssColor}=await import('./dist/subpaths/css.js'); try{parseCssColor('oklch()');process.exit(0)}catch{process.exit(1)}"; node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"
+7.0.0
+EXIT=0
+R1 EXIT=0

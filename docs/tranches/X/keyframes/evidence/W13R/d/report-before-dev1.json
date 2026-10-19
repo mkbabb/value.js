@@ -1,0 +1,513 @@
+{
+ "base": "http://localhost:5173",
+ "tag": "before-dev1",
+ "load": "77.41 209.99 185.58",
+ "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+ "tokens": {
+  "--spring-dock-duration": "calc(0.21s * 1)",
+  "--spring-dock-settle": "0.21s",
+  "--spring-dock-exit-duration": "calc(clamp(0.12s,0.21s * 0.6,0.25s) * 1)",
+  "--duration-panel": "0.55s",
+  "--duration-slow": "0.45s",
+  "--duration-normal": "0.3s",
+  "--motion-tempo": "1"
+ },
+ "ctx": {
+  "top-expand-collapse": {
+   "dockKey": "top",
+   "errs": [],
+   "marks": [
+    {
+     "m": "expand1",
+     "t": 6355
+    },
+    {
+     "m": "collapse1",
+     "t": 8220.5
+    },
+    {
+     "m": "expand2",
+     "t": 13570.10000000894
+    },
+    {
+     "m": "collapse2",
+     "t": 15423
+    }
+   ],
+   "segments": [
+    {
+     "m": "expand1",
+     "frames": 161,
+     "w0": 56,
+     "w1": 454.49,
+     "wMin": 56,
+     "wMax": 454.49,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 398.49,
+     "widthSettleMs": 0,
+     "morphFrames": 43,
+     "morphSpanMs": 550.3,
+     "rowsSeq": "1>0>1",
+     "rowsOverRest": 0,
+     "rowReversals": 1,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 5,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 29,
+     "dblOwners": [
+      "dock-trigger.dock-select-trigger::before|opacity"
+     ],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "collapse1",
+     "frames": 485,
+     "w0": 454.49,
+     "w1": 56,
+     "wMin": 56,
+     "wMax": 454.49,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 67.31,
+     "widthSettleMs": 244.5,
+     "morphFrames": 40,
+     "morphSpanMs": 540,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 39,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "expand2",
+     "frames": 169,
+     "w0": 56,
+     "w1": 454.49,
+     "wMin": 56,
+     "wMax": 454.49,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 66.78,
+     "widthSettleMs": 245.4,
+     "morphFrames": 44,
+     "morphSpanMs": 540.6,
+     "rowsSeq": "1>0>1",
+     "rowsOverRest": 0,
+     "rowReversals": 1,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 20,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "collapse2",
+     "frames": 491,
+     "w0": 454.49,
+     "w1": 56,
+     "wMin": 56,
+     "wMax": 454.49,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 64.88,
+     "widthSettleMs": 242.5,
+     "morphFrames": 45,
+     "morphSpanMs": 546.1,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 44,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    }
+   ]
+  },
+  "bottom-expand-collapse": {
+   "dockKey": "bottom",
+   "errs": [],
+   "marks": [
+    {
+     "m": "expand1",
+     "t": 6339.0999999940395
+    },
+    {
+     "m": "collapse1",
+     "t": 8185.4000000059605
+    },
+    {
+     "m": "expand2",
+     "t": 13506.59999999404
+    },
+    {
+     "m": "collapse2",
+     "t": 15358.40000000596
+    }
+   ],
+   "segments": [
+    {
+     "m": "expand1",
+     "frames": 181,
+     "w0": 278.59,
+     "w1": 278.59,
+     "wMin": 278.59,
+     "wMax": 278.59,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 0,
+     "widthSettleMs": 0,
+     "morphFrames": 0,
+     "morphSpanMs": 0,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 9999,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 0,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "collapse1",
+     "frames": 511,
+     "w0": 278.59,
+     "w1": 56,
+     "wMin": 56,
+     "wMax": 279,
+     "overshootPx": 0,
+     "widthReversals": 1,
+     "maxFrameJumpPx": 223,
+     "widthSettleMs": 0,
+     "morphFrames": 47,
+     "morphSpanMs": 552.9,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 5,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "expand2",
+     "frames": 175,
+     "w0": 56,
+     "w1": 278.59,
+     "wMin": 56,
+     "wMax": 279,
+     "overshootPx": 0.41,
+     "widthReversals": 1,
+     "maxFrameJumpPx": 35.96,
+     "widthSettleMs": 239.6,
+     "morphFrames": 49,
+     "morphSpanMs": 550.2,
+     "rowsSeq": "1>0>1",
+     "rowsOverRest": 0,
+     "rowReversals": 1,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 23,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "collapse2",
+     "frames": 499,
+     "w0": 278.59,
+     "w1": 56,
+     "wMin": 56,
+     "wMax": 279,
+     "overshootPx": 0,
+     "widthReversals": 1,
+     "maxFrameJumpPx": 37.71,
+     "widthSettleMs": 248.8,
+     "morphFrames": 46,
+     "morphSpanMs": 552.6,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 50,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 46,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    }
+   ]
+  },
+  "top-scene-switch": {
+   "dockKey": "top",
+   "errs": [],
+   "marks": [
+    {
+     "m": "square>spring",
+     "t": 8485.10000000894
+    },
+    {
+     "m": "spring>square",
+     "t": 13009.5
+    },
+    {
+     "m": "square>spring",
+     "t": 17669
+    },
+    {
+     "m": "tail",
+     "t": 20162
+    }
+   ],
+   "segments": [
+    {
+     "m": "square>spring",
+     "frames": 414,
+     "w0": 470.26,
+     "w1": 453.47,
+     "wMin": 453.47,
+     "wMax": 470.26,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 16.79,
+     "widthSettleMs": 0,
+     "morphFrames": 0,
+     "morphSpanMs": 0,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 9999,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 0,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "spring>square",
+     "frames": 442,
+     "w0": 453.47,
+     "w1": 470.26,
+     "wMin": 453.47,
+     "wMax": 470.26,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 16.79,
+     "widthSettleMs": 0,
+     "morphFrames": 0,
+     "morphSpanMs": 0,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 9999,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 0,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "square>spring",
+     "frames": 221,
+     "w0": 470.26,
+     "w1": 453.47,
+     "wMin": 453.47,
+     "wMax": 470.26,
+     "overshootPx": 0,
+     "widthReversals": 0,
+     "maxFrameJumpPx": 16.79,
+     "widthSettleMs": 0,
+     "morphFrames": 0,
+     "morphSpanMs": 0,
+     "rowsSeq": "1",
+     "rowsOverRest": 0,
+     "rowReversals": 0,
+     "hMax": 56,
+     "hRest": 56,
+     "radMin": 9999,
+     "pradMin": 9999,
+     "radSeq": [
+      "9999px"
+     ],
+     "textBlurMorphFrames": 0,
+     "textBlurSettleFrames": 0,
+     "textBlurAnyFrames": 0,
+     "textScaleMorphFrames": 0,
+     "textScaleSettleFrames": 0,
+     "dblFrames": 0,
+     "dblOwners": [],
+     "blurOwners": [],
+     "dockFilters": [
+      "none"
+     ],
+     "plateBackdrop": [
+      "blur(16px) saturate(1.2)"
+     ]
+    },
+    {
+     "m": "tail",
+     "frames": 0
+    }
+   ]
+  }
+ }
+}

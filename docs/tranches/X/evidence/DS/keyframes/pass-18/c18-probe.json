@@ -1,0 +1,102 @@
+{
+  "spring-1440-light": {
+    "zeroTick": {
+      "left": 658.7,
+      "right": 667.4,
+      "cy": 691.2
+    },
+    "balls": [
+      {
+        "cls": "curve-ball sampler-ball",
+        "left": 677.4,
+        "right": 693.4,
+        "cy": 691.2,
+        "size": 16
+      },
+      {
+        "cls": "curve-ball spring-ball",
+        "left": 673.4,
+        "right": 697.4,
+        "cy": 691.2,
+        "size": 24
+      }
+    ],
+    "gapPx": 6,
+    "plotBallSize": "1.5rem"
+  },
+  "spring-390-light": {
+    "zeroTick": {
+      "left": 66.2,
+      "right": 73.5,
+      "cy": 661.4
+    },
+    "balls": [
+      {
+        "cls": "curve-ball sampler-ball",
+        "left": 83.5,
+        "right": 99.5,
+        "cy": 661.4,
+        "size": 16
+      },
+      {
+        "cls": "curve-ball spring-ball",
+        "left": 79.5,
+        "right": 103.5,
+        "cy": 661.4,
+        "size": 24
+      }
+    ],
+    "gapPx": 6,
+    "plotBallSize": "1.5rem"
+  },
+  "spring-1440-dark": {
+    "zeroTick": {
+      "left": 658.7,
+      "right": 667.4,
+      "cy": 691.2
+    },
+    "balls": [
+      {
+        "cls": "curve-ball sampler-ball",
+        "left": 677.4,
+        "right": 693.4,
+        "cy": 691.2,
+        "size": 16
+      },
+      {
+        "cls": "curve-ball spring-ball",
+        "left": 673.4,
+        "right": 697.4,
+        "cy": 691.2,
+        "size": 24
+      }
+    ],
+    "gapPx": 6,
+    "plotBallSize": "1.5rem"
+  },
+  "spring-390-dark": {
+    "zeroTick": {
+      "left": 66.2,
+      "right": 73.5,
+      "cy": 661.4
+    },
+    "balls": [
+      {
+        "cls": "curve-ball sampler-ball",
+        "left": 83.5,
+        "right": 99.5,
+        "cy": 661.4,
+        "size": 16
+      },
+      {
+        "cls": "curve-ball spring-ball",
+        "left": 79.5,
+        "right": 103.5,
+        "cy": 661.4,
+        "size": 24
+      }
+    ],
+    "gapPx": 6,
+    "plotBallSize": "1.5rem"
+  }
+}

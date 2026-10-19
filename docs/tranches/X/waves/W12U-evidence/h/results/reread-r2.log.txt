@@ -1,0 +1,5 @@
+CELL d1440 light done load=148.25 116.34 76.00
+CELL d1440 dark done load=132.42 124.12 90.09
+CELL v390 light done load=171.73 145.38 104.55
+CELL v390 dark done load=134.27 140.14 109.22
+MATRIX-EXIT

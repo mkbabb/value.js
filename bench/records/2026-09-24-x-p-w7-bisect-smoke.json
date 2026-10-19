@@ -1,0 +1,46 @@
+{
+ "tag": "smoke",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "large",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "product",
+  "ruleList",
+  "declarations",
+  "declaration",
+  "values"
+ ],
+ "valuejsHead": "7932365cca087bc0552338316ba0a632edd2ef3b",
+ "uptimeStart": "14:55  up 12:58, 3 users, load averages: 34.51 30.50 19.87",
+ "versions": {
+  "node": "v26.0.0"
+ },
+ "results": {
+  "node": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910
+   },
+   "ms": {
+    "retired": 17.01,
+    "product": 6.53,
+    "ruleList": 2.94,
+    "declarations": 3.63,
+    "declaration": 3.28,
+    "values": 12.42
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.383,
+    "ruleList": 0.176,
+    "declarations": 0.211,
+    "declaration": 0.184,
+    "values": 0.703
+   }
+  }
+ },
+ "uptimeEnd": "14:55  up 12:58, 3 users, load averages: 34.51 30.50 19.87"
+}

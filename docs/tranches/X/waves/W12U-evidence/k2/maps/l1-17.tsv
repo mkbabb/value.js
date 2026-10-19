@@ -1,0 +1,16 @@
+demo/palettes/browser/admin	demo/palettes/admin/panels
+demo/palettes/browser/search/UserSortMenu.vue	demo/palettes/admin/UserSortMenu.vue
+demo/palettes/useAdminAudit.ts	demo/palettes/admin/composables/useAdminAudit.ts
+demo/palettes/useAdminFlagged.ts	demo/palettes/admin/composables/useAdminFlagged.ts
+demo/palettes/useAdminTags.ts	demo/palettes/admin/composables/useAdminTags.ts
+demo/palettes/useAdminUsers.ts	demo/palettes/admin/composables/useAdminUsers.ts
+demo/palettes/PaletteInspector.vue	demo/palettes/inspector/PaletteInspector.vue
+demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue	demo/palettes/inspector/PaletteCardMenu.vue
+demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue	demo/palettes/inspector/PaletteCardMeta.vue
+demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue	demo/palettes/inspector/PaletteCardSwatches.vue
+demo/palettes/browser/card/PaletteCard/ActionFeedback.vue	demo/shared/ui/ActionFeedback.vue
+demo/palettes/browser/card/PaletteSpecimen.vue	demo/shared/ui/PaletteSpecimen.vue
+demo/palettes/browser/card/PaletteColorStrip.vue	demo/shared/ui/PaletteColorStrip.vue
+demo/palettes/browser/card/PaletteCardSkeleton.vue	demo/shared/ui/PaletteCardSkeleton.vue
+demo/color-session/ColorSpaceSelector.vue	demo/shared/ui/ColorSpaceSelector.vue
+demo/color-session/color-chips	demo/shared/ui/color-chips

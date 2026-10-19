@@ -1,0 +1,42 @@
+[
+ {
+  "leg": "cell-playing",
+  "frames": 127,
+  "rafSamples": 136,
+  "distinctPoses": 136,
+  "maxStepM11": 0.0164,
+  "lastPoseChangeMs": 1406,
+  "cellSeries": "1 → 1.0201666666666658 → 1.03 → 1.05 → 1.07 → 1.09 → 1.11 → 1.14 → 1.16 → 1.17 → 1.19 → 1.21",
+  "endM11": 1.0639
+ },
+ {
+  "leg": "reset-playing",
+  "frames": 134,
+  "rafSamples": 138,
+  "distinctPoses": 138,
+  "maxStepM11": 0.0055,
+  "lastPoseChangeMs": 1408,
+  "cellSeries": "1.50 → 1.42 → 1.36 → 1.31 → 1.27 → 1.23 → 1.20 → 1.17 → 1.14 → 1.12 → 1.10 → 1.08",
+  "endM11": 1
+ },
+ {
+  "leg": "cell-paused",
+  "frames": 128,
+  "rafSamples": 137,
+  "distinctPoses": 1,
+  "maxStepM11": 0,
+  "lastPoseChangeMs": 0,
+  "cellSeries": "1 → 1.02 → 1.03 → 1.05 → 1.07 → 1.09 → 1.10 → 1.12 → 1.14 → 1.15 → 1.17 → 1.19",
+  "endM11": 1
+ },
+ {
+  "leg": "reset-paused",
+  "frames": 99,
+  "rafSamples": 137,
+  "distinctPoses": 1,
+  "maxStepM11": 0,
+  "lastPoseChangeMs": 0,
+  "cellSeries": "1.50 → 1.42 → 1.36 → 1.31 → 1.27 → 1.23 → 1.20 → 1.17 → 1.14 → 1.12 → 1.10 → 1.08",
+  "endM11": 1
+ }
+]

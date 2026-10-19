@@ -1,0 +1,521 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/Programming/value.js/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/Programming/value.js/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/Programming/value.js/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/mobile/a11y-control-targets.spec.ts",
+      "file": "smoke/mobile/a11y-control-targets.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "A2 · coarse-pointer target size — every attributed target box is ≥24×24",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18414,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[W4-CENSUS-COARSE] {\"route\":\"/\",\"rows\":[{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover\",\"name\":\"Save edit\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover\",\"name\":\"Cancel edit\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"input\",\"id\":\"\",\"cls\":\"field-control glass-control-edge slug-input text-mono-small min-w-0\",\"name\":\"Slug or admin token\",\"w\":26,\"h\":54,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control\",\"name\":\"Switch to slug\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control\",\"name\":\"Cancel\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover shrink-0\",\"name\":\"Back\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-3\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Reset color\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-4\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Copy color\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-5\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Random color\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-6\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Palettes\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-7\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Extract palette\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"send-btn btn-interactive\",\"name\":\"Apply color\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover shrink-0\",\"name\":\"Open color input\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none\",\"name\":\"Select view\",\"w\":56,\"h\":32,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn\",\"name\":\"Toggle action bar\",\"w\":32.8,\"h\":32.8,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"reka-dropdown-menu-trigger-v-9\",\"cls\":\"menu__trigger dock-trigger dock-dropdown-trigger\",\"name\":\"Menu\",\"w\":40,\"h\":32,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]\",\"name\":\"Select color space\",\"w\":70.3,\"h\":52.7,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"channel-rail-item font-display text-subheading italic\",\"name\":\"l channel\",\"w\":31.7,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"channel-rail-item font-display text-subheading italic\",\"name\":\"a channel\",\"w\":31.7,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"channel-rail-item font-display text-subheading italic\",\"name\":\"b channel\",\"w\":31.7,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"channel-rail-item font-display text-subheading italic\",\"name\":\"alpha channel\",\"w\":31.7,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/\",\"tag\":\"span\",\"id\":\"\",\"cls\":\"slider-thumb glass-specular-track\",\"name\":\"L channel\",\"w\":220.8,\"h\":24,\"attributedTo\":\"span.glass-slider.channel-slider\"},{\"route\":\"/\",\"tag\":\"span\",\"id\":\"\",\"cls\":\"slider-thumb glass-specular-track\",\"name\":\"A channel\",\"w\":220.8,\"h\":24,\"attributedTo\":\"span.glass-slider.channel-slider\"},{\"route\":\"/\",\"tag\":\"span\",\"id\":\"\",\"cls\":\"slider-thumb glass-specular-track\",\"name\":\"B channel\",\"w\":220.8,\"h\":24,\"attributedTo\":\"span.glass-slider.channel-slider\"},{\"route\":\"/\",\"tag\":\"span\",\"id\":\"\",\"cls\":\"slider-thumb glass-specular-track\",\"name\":\"ALPHA channel\",\"w\":220.8,\"h\":24,\"attributedTo\":\"span.glass-slider.channel-slider\"}]}\n"
+                    },
+                    {
+                      "text": "[W4-CENSUS-COARSE] {\"route\":\"/#/gradient\",\"rows\":[{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover\",\"name\":\"Save edit\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover\",\"name\":\"Cancel edit\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"input\",\"id\":\"\",\"cls\":\"field-control glass-control-edge slug-input text-mono-small min-w-0\",\"name\":\"Slug or admin token\",\"w\":26,\"h\":54,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control\",\"name\":\"Switch to slug\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-control\",\"name\":\"Cancel\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover shrink-0\",\"name\":\"Back\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-3\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Reset\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-4\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Copy CSS\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"reka-popover-trigger-v-5\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover action-button-wrapper\",\"name\":\"Seed from palette\",\"w\":44,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none\",\"name\":\"Select view\",\"w\":56,\"h\":32,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn\",\"name\":\"Toggle action bar\",\"w\":32.8,\"h\":32.8,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"reka-dropdown-menu-trigger-v-7\",\"cls\":\"menu__trigger dock-trigger dock-dropdown-trigger\",\"name\":\"Menu\",\"w\":40,\"h\":32,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"div\",\"id\":\"\",\"cls\":\"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden\",\"name\":\"Stops Select a stop on the rail to set its position or remove it.  Interpolation TypeLinear Color spaceOKLCh Hue methodShorter Direction90°Easing1 → 2linearCSSlinear-gradient(90deg, oklch(75% 0.15 145deg) 0%, oklch(65% 0.18 265deg) 100%)\",\"w\":378,\"h\":931.5,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0\",\"name\":\"Add gradient stop at 50%\",\"w\":24,\"h\":24,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0\",\"name\":\"Gradient stop 1 of 2\",\"w\":24,\"h\":24,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"rail-handle absolute rounded-full cursor-grab active:cursor-grabbing z-0\",\"name\":\"Gradient stop 2 of 2\",\"w\":24,\"h\":24,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)\",\"name\":\"Type\",\"w\":346,\"h\":54,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)\",\"name\":\"Color space\",\"w\":346,\"h\":54,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-(--control-h-sm)\",\"name\":\"Hue method\",\"w\":346,\"h\":54,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"glass-disclosure-trigger-v-35\",\"cls\":\"disclosure-trigger disclosure-group-trigger interval-head w-full flex items-center gap-2.5 py-2 text-left\",\"name\":\"1 → 2linear\",\"w\":344,\"h\":44,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact\",\"name\":\"Copy rendered CSS (easing baked in)\",\"w\":28,\"h\":28,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"div\",\"id\":\"\",\"cls\":\"fading-scroll fading-scroll--y pane-scroll-fade flex flex-col flex-1 min-h-0 min-w-0 overflow-x-hidden\",\"name\":\"Start a new paletteNo saved palettes yet.Add colors, then save.\",\"w\":378,\"h\":346.6,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"input\",\"id\":\"\",\"cls\":\"input-bar-field\",\"name\":\"Search your palettes\",\"w\":291,\"h\":31.5,\"attributedTo\":\"self\"},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"id\":\"\",\"cls\":\"button tap-squish focus-ring add-slot-ghost btn-interactive shrink-0 cursor-pointer\",\"name\":\"Add current color lab(92% 88.8 20) to palette\",\"w\":66,\"h\":66,\"attributedTo\":\"self\"}]}\n"
+                    },
+                    {
+                      "text": "[W4-A2] undersized=0\n\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:48:30.943Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-8a741c23ad3f14c02bd3",
+          "file": "smoke/mobile/a11y-control-targets.spec.ts",
+          "line": 316,
+          "column": 1
+        },
+        {
+          "title": "A3-coarse · the size axis owns control height AND takes the coarse lift",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10367,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[W4-SIZED-COARSE] {\"route\":\"/\",\"rows\":[{\"route\":\"/\",\"tag\":\"input\",\"slot\":\"input\",\"size\":\"sm\",\"cls\":\"field-control glass-control-edge slug-input text-mono-small min-w-0\",\"blockSize\":54,\"token\":0,\"controlFloor\":0}]}\n"
+                    },
+                    {
+                      "text": "[W4-SIZED-COARSE] {\"route\":\"/#/gradient\",\"rows\":[{\"route\":\"/#/gradient\",\"tag\":\"input\",\"slot\":\"input\",\"size\":\"sm\",\"cls\":\"field-control glass-control-edge slug-input text-mono-small min-w-0\",\"blockSize\":54,\"token\":0,\"controlFloor\":0},{\"route\":\"/#/gradient\",\"tag\":\"button\",\"slot\":\"button\",\"size\":\"lg\",\"cls\":\"button tap-squish focus-ring add-slot-ghost btn-interactive shrink-0 cursor-pointer\",\"blockSize\":66,\"token\":66,\"controlFloor\":44}]}\n"
+                    },
+                    {
+                      "text": "[W4-A3-COARSE] measured=1 mismatches=0 unlifted=0\n\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:48:50.606Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-affd073113a8dc85bf58",
+          "file": "smoke/mobile/a11y-control-targets.spec.ts",
+          "line": 345,
+          "column": 1
+        },
+        {
+          "title": "A4-coarse · zero nameless interactive elements",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10601,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[W4-A4-COARSE] nameless=0\n\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:49:00.984Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-a9a2419a65f80dd9ac3d",
+          "file": "smoke/mobile/a11y-control-targets.spec.ts",
+          "line": 403,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/blob-presence-mobile.spec.ts",
+      "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 27614,
+                  "error": {
+                    "message": "Error: wrapper top inside card\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m679.75\u001b[39m\nReceived:    \u001b[31m127.625\u001b[39m",
+                    "stack": "Error: wrapper top inside card\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m679.75\u001b[39m\nReceived:    \u001b[31m127.625\u001b[39m\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:142:50",
+                    "location": {
+                      "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts",
+                      "column": 50,
+                      "line": 142
+                    },
+                    "snippet": "  140 |     if (!wrapper || !card) throw new Error(\"seat geometry not laid out\");\n  141 |     expect(wrapper.x, \"wrapper left inside card\").toBeGreaterThanOrEqual(card.x - 1);\n> 142 |     expect(wrapper.y, \"wrapper top inside card\").toBeGreaterThanOrEqual(card.y - 1);\n      |                                                  ^\n  143 |     expect(\n  144 |         wrapper.x + wrapper.width,\n  145 |         \"wrapper right inside card\","
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts",
+                        "column": 50,
+                        "line": 142
+                      },
+                      "message": "Error: wrapper top inside card\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m679.75\u001b[39m\nReceived:    \u001b[31m127.625\u001b[39m\n\n  140 |     if (!wrapper || !card) throw new Error(\"seat geometry not laid out\");\n  141 |     expect(wrapper.x, \"wrapper left inside card\").toBeGreaterThanOrEqual(card.x - 1);\n> 142 |     expect(wrapper.y, \"wrapper top inside card\").toBeGreaterThanOrEqual(card.y - 1);\n      |                                                  ^\n  143 |     expect(\n  144 |         wrapper.x + wrapper.width,\n  145 |         \"wrapper right inside card\",\n    at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:142:50"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:49:13.848Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q/r1-smoke-mobile/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts",
+                    "column": 50,
+                    "line": 142
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7439aca74411744a3e2e-ffab1df391e40ca0b205",
+          "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24597,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[blob-390] PRM window=3000ms draws=0 frames=370\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:49:47.006Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7439aca74411744a3e2e-822a3643bd4834207941",
+          "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+          "line": 202,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/page-load-mobile.spec.ts",
+      "file": "smoke/mobile/page-load-mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mobile boot: both regions render + dock visible + zero console errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4515,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:50:12.644Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9ff076b922bbe15ae47-0a5f09fd057a6bfaaad5",
+          "file": "smoke/mobile/page-load-mobile.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/walk.spec.ts",
+      "file": "smoke/mobile/walk.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mobile walk: every region of every scene is present, across routes and back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 41946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T19:50:17.372Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "886318b0cb8cacda09d7-bd6209a074d972024b18",
+          "file": "smoke/mobile/walk.spec.ts",
+          "line": 75,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T19:48:29.978Z",
+    "duration": 150802.863,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,544 @@
+{
+  "config": {
+    "configFile": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/playwright.config.ts",
+    "rootDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke",
+        "name": "smoke",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke",
+        "testIgnore": [
+          "**/admin/**",
+          "**/mobile/**",
+          "**/safari/**",
+          "**/perf/**",
+          "**/reactivity-instant.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-admin",
+        "name": "smoke-admin",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/admin",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-mobile",
+        "name": "smoke-mobile",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-reactivity",
+        "name": "smoke-reactivity",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke",
+        "testIgnore": [],
+        "testMatch": [
+          "**/reactivity-instant.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-perf",
+        "name": "smoke-perf",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/perf",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "oracles-safari",
+        "name": "oracles-safari",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/oracles",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke-safari",
+        "name": "smoke-safari",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/safari",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "visual",
+        "name": "visual",
+        "testDir": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/visual",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.visual.spec.ts",
+          "**/census-parity.spec.ts",
+          "**/golden-integrity.spec.ts",
+          "**/substrate-integrity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.60.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/mobile/a11y-control-targets.spec.ts",
+      "file": "smoke/mobile/a11y-control-targets.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "A2 · coarse-pointer target size — every attributed target box is ≥24×24",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11127,
+                  "error": {
+                    "message": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation",
+                    "stack": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation\n    at signature (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:143:14)\n    at ready (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:158:28)\n    at /Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:321:9",
+                    "location": {
+                      "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts",
+                      "column": 14,
+                      "line": 143
+                    },
+                    "snippet": "  141 |     // transition is shorter than that window, so a mid-flight sample cannot pass.\n  142 |     const signature = () =>\n> 143 |         page.evaluate(\n      |              ^\n  144 |             (sel) =>\n  145 |                 Array.from(document.querySelectorAll(sel))\n  146 |                     .map((el) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts",
+                        "column": 14,
+                        "line": 143
+                      },
+                      "message": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation\n\n  141 |     // transition is shorter than that window, so a mid-flight sample cannot pass.\n  142 |     const signature = () =>\n> 143 |         page.evaluate(\n      |              ^\n  144 |             (sel) =>\n  145 |                 Array.from(document.querySelectorAll(sel))\n  146 |                     .map((el) => {\n    at signature (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:143:14)\n    at ready (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:158:28)\n    at /Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:321:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:29:24.567Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile/a11y-control-targets-A2-·--cc824-ibuted-target-box-is-≥24×24-smoke-mobile/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile/a11y-control-targets-A2-·--cc824-ibuted-target-box-is-≥24×24-smoke-mobile/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts",
+                    "column": 14,
+                    "line": 143
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-8a741c23ad3f14c02bd3",
+          "file": "smoke/mobile/a11y-control-targets.spec.ts",
+          "line": 316,
+          "column": 1
+        },
+        {
+          "title": "A3-coarse · the size axis owns control height AND takes the coarse lift",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13365,
+                  "error": {
+                    "message": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation",
+                    "stack": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation\n    at signature (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:143:14)\n    at ready (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:158:28)\n    at /Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:352:9",
+                    "location": {
+                      "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts",
+                      "column": 14,
+                      "line": 143
+                    },
+                    "snippet": "  141 |     // transition is shorter than that window, so a mid-flight sample cannot pass.\n  142 |     const signature = () =>\n> 143 |         page.evaluate(\n      |              ^\n  144 |             (sel) =>\n  145 |                 Array.from(document.querySelectorAll(sel))\n  146 |                     .map((el) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts",
+                        "column": 14,
+                        "line": 143
+                      },
+                      "message": "Error: page.evaluate: Execution context was destroyed, most likely because of a navigation\n\n  141 |     // transition is shorter than that window, so a mid-flight sample cannot pass.\n  142 |     const signature = () =>\n> 143 |         page.evaluate(\n      |              ^\n  144 |             (sel) =>\n  145 |                 Array.from(document.querySelectorAll(sel))\n  146 |                     .map((el) => {\n    at signature (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:143:14)\n    at ready (/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:158:28)\n    at /Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts:352:9"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "[W4-SIZED-COARSE] {\"route\":\"/\",\"rows\":[{\"route\":\"/\",\"tag\":\"input\",\"slot\":\"input\",\"size\":\"sm\",\"cls\":\"field-control glass-control-edge slug-input text-mono-small min-w-0\",\"blockSize\":54,\"token\":0,\"controlFloor\":0}]}\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:29:37.981Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile/a11y-control-targets-A3-co-3d3cf-t-AND-takes-the-coarse-lift-smoke-mobile/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/mkbabb/.dev-logs/w12u-q2/out/r1-smoke-mobile/a11y-control-targets-A3-co-3d3cf-t-AND-takes-the-coarse-lift-smoke-mobile/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/mkbabb/.dev-logs/w12u-q2/tree-5731fe6ce/e2e/smoke/mobile/a11y-control-targets.spec.ts",
+                    "column": 14,
+                    "line": 143
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-affd073113a8dc85bf58",
+          "file": "smoke/mobile/a11y-control-targets.spec.ts",
+          "line": 345,
+          "column": 1
+        },
+        {
+          "title": "A4-coarse · zero nameless interactive elements",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10305,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[W4-A4-COARSE] nameless=0\n\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:29:52.559Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07ac07ebf1139f41d528-a9a2419a65f80dd9ac3d",
+          "file": "smoke/mobile/a11y-control-targets.spec.ts",
+          "line": 403,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/blob-presence-mobile.spec.ts",
+      "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12743,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[blob-390] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))\n  canvas=179.2px (formula 179.2) scrollWidth=390 idle draws=81 frames=82 idle p50=29.3ms (§6.2 gate ≤13ms — asserted on real GPU)\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:30:03.678Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7439aca74411744a3e2e-ffab1df391e40ca0b205",
+          "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+          "line": 71,
+          "column": 1
+        },
+        {
+          "title": "hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7010,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[blob-390] PRM window=3000ms draws=0 frames=394\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:30:16.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7439aca74411744a3e2e-822a3643bd4834207941",
+          "file": "smoke/mobile/blob-presence-mobile.spec.ts",
+          "line": 209,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/page-load-mobile.spec.ts",
+      "file": "smoke/mobile/page-load-mobile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mobile boot: both regions render + dock visible + zero console errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 705,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:30:23.814Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9ff076b922bbe15ae47-0a5f09fd057a6bfaaad5",
+          "file": "smoke/mobile/page-load-mobile.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "smoke/mobile/walk.spec.ts",
+      "file": "smoke/mobile/walk.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mobile walk: every region of every scene is present, across routes and back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "smoke-mobile",
+              "projectName": "smoke-mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:30:24.536Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "886318b0cb8cacda09d7-bd6209a074d972024b18",
+          "file": "smoke/mobile/walk.spec.ts",
+          "line": 75,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:29:21.745Z",
+    "duration": 69524.126,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

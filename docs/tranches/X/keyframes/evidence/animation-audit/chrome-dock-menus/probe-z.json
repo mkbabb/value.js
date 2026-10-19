@@ -1,0 +1,105 @@
+{
+ "scene-select": {
+  "overlayTop": 95,
+  "dockBottom": 99.25,
+  "tetherZ": "40",
+  "overlayZ": "130",
+  "wrapperZ": "130",
+  "hits": [
+   [
+    96,
+    "overlay"
+   ],
+   [
+    97,
+    "overlay"
+   ],
+   [
+    98,
+    "overlay"
+   ],
+   [
+    99,
+    "overlay"
+   ],
+   [
+    100,
+    "overlay"
+   ],
+   [
+    101,
+    "overlay"
+   ],
+   [
+    102,
+    "overlay"
+   ]
+  ]
+ },
+ "mbabb-menu": {
+  "overlayTop": 95,
+  "dockBottom": 99.25,
+  "tetherZ": "40",
+  "overlayZ": "130",
+  "wrapperZ": "130",
+  "hits": [
+   [
+    96,
+    "overlay"
+   ],
+   [
+    97,
+    "overlay"
+   ],
+   [
+    98,
+    "overlay"
+   ],
+   [
+    99,
+    "overlay"
+   ],
+   [
+    100,
+    "overlay"
+   ],
+   [
+    101,
+    "overlay"
+   ],
+   [
+    102,
+    "overlay"
+   ]
+  ]
+ },
+ "share-popover": {
+  "overlayTop": 97,
+  "dockBottom": 99.25,
+  "tetherZ": "40",
+  "overlayZ": "130",
+  "wrapperZ": "130",
+  "hits": [
+   [
+    98,
+    "overlay"
+   ],
+   [
+    99,
+    "overlay"
+   ],
+   [
+    100,
+    "overlay"
+   ],
+   [
+    101,
+    "overlay"
+   ],
+   [
+    102,
+    "overlay"
+   ]
+  ]
+ }
+}

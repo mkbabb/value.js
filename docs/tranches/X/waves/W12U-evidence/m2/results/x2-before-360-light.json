@@ -1,0 +1,79 @@
+[
+ {
+  "W": 360,
+  "H": 780,
+  "THEME": "light",
+  "route": "/",
+  "undo": true,
+  "fixedInHost": 0,
+  "maxSW": 376,
+  "sw": 376,
+  "iw": 376,
+  "f1": true,
+  "f2": false,
+  "f3": true,
+  "f4": true,
+  "f5": false,
+  "rimServed": 32.6,
+  "rimT33": 2.8,
+  "carriers": [
+   "pane-shell[none] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid",
+   "pane-plate[none] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid"
+  ],
+  "orn": [
+   "div 232.0..344.0 clip=null",
+   "canvas 198.4..377.6 clip=null"
+  ],
+  "stageClip": false
+ },
+ {
+  "W": 360,
+  "H": 780,
+  "THEME": "light",
+  "route": "/palettes",
+  "undo": true,
+  "fixedInHost": 0,
+  "maxSW": 376,
+  "sw": 376,
+  "iw": 376,
+  "f1": true,
+  "f2": false,
+  "f3": true,
+  "f4": true,
+  "f5": false,
+  "rimServed": 34.6,
+  "rimT33": 1.5,
+  "carriers": [
+   "pane-shell[none] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid",
+   "pane-plate[none] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid"
+  ],
+  "orn": [
+   "div 232.0..344.0 clip=null",
+   "canvas 198.4..377.6 clip=null"
+  ],
+  "stageClip": false
+ },
+ {
+  "W": 360,
+  "H": 780,
+  "THEME": "light",
+  "route": "/admin/tags",
+  "undo": true,
+  "fixedInHost": 0,
+  "maxSW": 378,
+  "sw": 376,
+  "iw": 376,
+  "f1": true,
+  "f2": false,
+  "f3": true,
+  "f4": true,
+  "f5": false,
+  "rimServed": 32.2,
+  "rimT33": 1.5,
+  "carriers": [
+   "pane-shell[none] before -16.0..376.0 card 16.0..344.0 shadow=rgba(255, 255, 255, 0.1) 0px 1px 0px 0px border=1px solid"
+  ],
+  "orn": [],
+  "stageClip": false
+ }
+]

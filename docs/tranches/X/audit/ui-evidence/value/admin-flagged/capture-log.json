@@ -1,0 +1,26 @@
+{
+ "seat": "admin-flagged",
+ "app_tree": {
+  "repo": "value.js",
+  "head_at_complete_run": "7fdd0c9f",
+  "dirty_at_complete_run": 5,
+  "head_at_last_retry": "7df67bf2",
+  "dirty_at_last_retry": 4
+ },
+ "glass_tree": {
+  "repo": "glass-ui",
+  "head": "ddf6385a",
+  "dirty": 0,
+  "installed_in_value_js": "7.0.0"
+ },
+ "complete_contexts": [
+  "1440-light (a..l, 14 frames; m-signed-out lost to a reload timeout)"
+ ],
+ "partial_contexts": [
+  "1440-dark: a-empty, b-loading only",
+  "390-light: a-empty, b-loading (12:35, head 7fdd0c9f); later retries = ERR-390-light.png shell 'Loading the scene...' (admin chunk never arrived; 0 admin calls)",
+  "390-dark: not captured"
+ ],
+ "environment_block": "shared vite dev server :9000 (pid 50026, started ~05:13) stopped accepting connections ~12:38-13:15 (curl connect timeouts; ~10-19 concurrent audit capture.mjs processes); screenshot fonts-wait hangs 12:33/12:43; 390 and dark row/dialog states NOT captured. Servers were never restarted per LAW.",
+ "api": "fully stubbed at the browser (page.route); dismiss/delete fulfilled by the stub; admin calls recorded in manifest-1440-light.json"
+}

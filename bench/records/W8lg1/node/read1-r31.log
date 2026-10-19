@@ -1,0 +1,16 @@
+parseCssColor          acc      n=6460 k=2 retired 21.545ms spread 4.318 | product x0.649 (28/31<1, min/min x0.564) | load 475.07 -> 475.07
+parseCssScalar         acc      n=7460 k=1 retired 16.76ms spread 10.925 | product x0.6 (26/31<1, min/min x0.53) | load 468.98 -> 468.98
+parseCssValue          acc      n=13023 k=1 retired 183.534ms spread 6.498 | product x0.389 (27/31<1, min/min x0.352) | load 464.66 -> 470.64
+parseCssValues         acc      n=13023 k=1 retired 149.21ms spread 6.899 | product x0.366 (28/31<1, min/min x0.348) | load 470.64 -> 475.16
+parseKeyframeSelector  acc      n=56 k=2048 retired 27.312ms spread 4.316 | product x0.706 (30/31<1, min/min x0.701) | load 475.16 -> 475.16
+parseTimingFunction    acc      n=509 k=32 retired 23.428ms spread 6.836 | product x0.554 (29/31<1, min/min x0.544) | load 473.78 -> 473.78
+parseStylesheet        acc      n=2503 k=1 retired 41.122ms spread 5.574 | product x0.613 (30/31<1, min/min x0.552) | load 473.78 -> 474.28
+parseCssColor          rej      n=23484 k=1 retired 26.672ms spread 5.521 | product x0.724 (27/31<1, min/min x0.684) | load 474.28 -> 474.1
+parseCssScalar         rej      n=22484 k=1 retired 38.615ms spread 9.732 | product x0.592 (26/31<1, min/min x0.604) | load 474.1 -> 474.1
+parseCssValue          rej      n=16921 k=1 retired 98.444ms spread 5.343 | product x0.537 (29/31<1, min/min x0.511) | load 471.61 -> 467.23
+parseCssValues         rej      n=16921 k=1 retired 95.845ms spread 7.382 | product x0.513 (26/31<1, min/min x0.513) | load 464.49 -> 460.29
+parseKeyframeSelector  rej      n=29888 k=1 retired 7.641ms spread 5.975 | product x0.69 (29/31<1, min/min x0.669) | load 460.29 -> 456.02
+parseTimingFunction    rej      n=29435 k=4 retired 46.294ms spread 9.67 | product x0.671 (24/31<1, min/min x0.685) | load 456.02 -> 452.65
+parseStylesheet        rej      n=27441 k=1 retired 105.194ms spread 10.236 | product x0.527 (25/31<1, min/min x0.444) | load 452.65 -> 443.02
+parseStylesheet        large-eq n=4 k=2 retired 26.109ms spread 22.777 | product x0.519 (24/31<1, min/min x0.698) | load 443.02 -> 444.7
+DONE read 1 rounds 31

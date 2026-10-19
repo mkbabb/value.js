@@ -1,0 +1,10 @@
+e2e/smoke/oracles/o9-shadow-palette.spec.ts
+e2e/smoke/oracles/o11-header-gates.spec.ts
+e2e/smoke/oracles/o20-generate-plate.spec.ts
+e2e/smoke/views/mix.spec.ts
+e2e/smoke/views/gradient.spec.ts
+e2e/smoke/views/companion-pane-track-start.spec.ts
+e2e/smoke/dual-pane-1440.spec.ts
+e2e/smoke/oracles/o10d-display-voice-census.spec.ts
+e2e/smoke/oracles/o7-card-census.spec.ts
+e2e/smoke/scene-action-contract.spec.ts

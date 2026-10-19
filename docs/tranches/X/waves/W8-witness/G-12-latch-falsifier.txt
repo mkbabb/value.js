@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5-5
+# G-12 falsifier — X.W8.d, 2026-10-17. The stored latch (the retired shape W8.md G-12 names: a ref seeded from the view + a one-way watch, no else) reintroduced in a scratch edit, the suite run, then the derived computed restored from a byte copy.
+
+## FALSIFIED (stored latch reintroduced)
+$ npx vitest run demo/test/shell/dock-admin-mode.test.ts --maxWorkers=2
+   × G-12 · useDockAdminMode — the admin latch is derived > anonymous /#/ → /#/atmosphere → back(): no gold on /#/ 19ms
+     → expected true to be false // Object.is equality
+   × G-12 · useDockAdminMode — the admin latch is derived > authed: gold on an admin view, cleared on back() to /#/ (vitest-stubbed session) 2ms
+     → expected true to be false // Object.is equality
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  demo/test/shell/dock-admin-mode.test.ts > G-12 · useDockAdminMode — the admin latch is derived > anonymous /#/ → /#/atmosphere → back(): no gold on /#/
+      Tests  2 failed (2)
+exit: 1
+
+## RESTORED (derived computed, the committed bytes)
+$ npx vitest run demo/test/shell/dock-admin-mode.test.ts --maxWorkers=2
+ ✓ demo/test/shell/dock-admin-mode.test.ts (2 tests) 16ms
+      Tests  2 passed (2)
+$ git diff --stat -- demo/shell/dock/composables/useDockAdminMode.ts
+(empty = restored byte-identical)

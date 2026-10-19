@@ -1,0 +1,7 @@
+Checking formatting...
+[warn] demo/workbenches/gradient/GradientPane.vue
+[warn] demo/workbenches/mix/MixPane.vue
+[warn] demo/workbenches/mix/MixSourceSelector.vue
+[warn] e2e/smoke/views/gradient.spec.ts
+[warn] Code style issues found in 4 files. Run Prettier with --write to fix.
+EXIT=1

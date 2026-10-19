@@ -1,0 +1,79 @@
+SERVED MODEL: claude-opus-5[1m]
+
+W4.md §8 artefact 7 — navprobe-recheck.txt  ·  X.W4.a  ·  2026-09-18
+====================================================================
+
+THE ROW, verbatim (W4.md:438-441):
+
+  "MT-F005's original element was a nameless *button* in the dock inventory; at HEAD
+   no such mounted button exists and the desktop-only nameless control is the palette
+   search input. Re-run `docs/tranches/V/megatranche/audit/probes/navprobe.mjs` at open
+   and record whether the menu-gated instance survives; either way the row closes with
+   evidence."
+
+INVOCATION — execute-no-write, spent ONCE (§4 File Bounds: "execute, no write"),
+probe parsimony §5.2 honoured (one webkit launch, one page, one navigation):
+
+  ⟨cmd⟩ npx vite --port 9000            (the probe hard-codes http://localhost:9000, webkit)
+  ⟨cmd⟩ node docs/tranches/V/megatranche/audit/probes/navprobe.mjs
+  → EXIT 0.  The probe file was NOT modified (git status clean on that path).
+
+VERDICT: **THE NAMELESS BUTTON SURVIVES.**  The spec's premise — "at HEAD no such
+mounted button exists" — is **MEASURED FALSE** at webkit / 1440×900 on `/`.
+
+RAW OUTPUT
+----------
+=== visible interactive on / ===
+[{"tag":"button","name":"Save edit","href":null},{"tag":"button","name":"Cancel edit","href":null},{"tag":"button","name":"Switch to slug","href":null},{"tag":"button","name":"Generate new slug","href":null},{"tag":"button","name":"Cancel","href":null},{"tag":"button","name":"Back","href":null},{"tag":"button","name":"Reset color","href":null},{"tag":"button","name":"Copy color","href":null},{"tag":"button","name":"Random color","href":null},{"tag":"button","name":"Palettes","href":null},{"tag":"button","name":"Extract palette","href":null},{"tag":"button","name":"","href":null},{"tag":"button","name":"Open color input","href":null},{"tag":"button","name":"Select view","href":null},{"tag":"button","name":"Toggle action bar","href":null},{"tag":"button","name":"Login","href":null},{"tag":"button","name":"@mbabb","href":null},{"tag":"button","name":"Select color space","href":null},{"tag":"button","name":"l channel","href":null},{"tag":"button","name":"a channel","href":null},{"tag":"button","name":"b channel","href":null},{"tag":"button","name":"alpha channel","href":null},{"tag":"button","name":"Select color space","href":null}]
+
+BEFORE: {"path":"/","textLen":897,"first":"Lab 92.0 % , 88.8 , 20.0 L a b α 92.0% 88.8 20.0 82.7% About"}
+TOOLS MENU ITEMS: []
+pageErrors: []
+
+IDENTIFICATION (one bounded read beside the probe, same stack, same matrix — the row
+says "either way the row closes with evidence", and a surviving nameless control that
+is not identified closes nothing):
+
+  element   <button class="send-btn btn-interactive"> with an <svg> ArrowRight child
+  box       24 × 24 (it PASSES A1/A2; the defect is the NAME, not the target)
+  name      "" under BOTH rules — navprobe's (aria-label || textContent) AND W4.md §6's
+            (aria-label > aria-labelledby text > textContent > title > img[alt])
+  source    demo/shell/dock/ColorInput.vue:67-81 — TWO sibling seats, `v-if="proposeMode"`
+            (submitProposedName) and `v-else` (onSubmitColor); neither carries a name
+  outerHTML <button data-v-55dadc03="" class="send-btn btn-interactive"><svg …>
+
+WHY THE GATE MATRICES DO NOT SEE IT — measured, not assumed:
+
+  ⟨reopen-baseline.json⟩ send-btn rows in the census, all four cells:
+     smoke        1280×720 chromium  /            → 0
+     smoke        1280×720 chromium  /#/gradient  → 0
+     smoke-mobile Pixel 7  chromium  /            → 0
+     smoke-mobile Pixel 7  chromium  /#/gradient  → 0
+
+  The seat is inside the dock's ColorInput PopoverTrigger and is not mounted-and-visible
+  at either project viewport. navprobe's matrix (webkit, 1440×900) reaches it; the two
+  gate projects do not. A2's own falsifier law is honoured here in the other direction:
+  the two matrices are separate cells and neither may be inferred from the other — so
+  this row is recorded at the matrix that measured it, and is NOT imported into a cell
+  that did not.
+
+BOUNDS — the finding is an ESCALATION, and NOT A BYTE WAS WRITTEN:
+
+  ⟨cmd⟩ grep -c "ColorInput.vue" docs/tranches/X/waves/W4.md → 0
+
+  `demo/shell/dock/ColorInput.vue` sits in NO W4 §4 bounds row — not the open partition's,
+  not the trigger-gated `.g` table's. Curing it here would be the quiet widening §3a
+  forbids. It is therefore filed, with this measurement, as a §3a file-bounds ESCALATION
+  carried out of X.W4.a, and the W4 §8 artefact-7 row closes WITH EVIDENCE — on the
+  opposite verdict from the one the spec anticipated.
+
+  Recommended home (stated, not taken): the nearest bounds holder for `demo/shell/dock/**`
+  is X.W4.d (Dock.vue, ActionBarLayer.vue, GenericActionBar.vue, ActionToolbar.vue), but
+  its scope is the typed action contract, not naming — so the honest route is a dated E-3
+  bounds addendum naming ColorInput.vue, decided by the orchestrator, never by this seat.
+
+SECOND ROW THE PROBE CLOSES: "TOOLS MENU ITEMS: []" — the probe's Tools-menu arm found a
+trigger and opened it, and the menu published zero `[role=menuitem]/[role=option]/
+[role=menuitemradio]` entries. The "menu-gated instance" the row asks after is therefore
+not reachable through that arm at HEAD; the surviving nameless button above is NOT
+menu-gated — it is mounted in the dock's color-input cluster on `/`.

@@ -1,0 +1,1266 @@
+{
+ "tag": "l3-list-node",
+ "instrument": "bench/paired (X.P.W7 .o)",
+ "arms": [
+  "product",
+  "slist2"
+ ],
+ "reps": 3,
+ "rounds": 11,
+ "spreadRule": 1.6,
+ "provenance": {
+  "valuejsHead": "99b28da7ab7a8154f9e03e6704f11d51c10e3d18",
+  "srcDirty": "",
+  "retiredAt": "2155142bad8b7ac8292ad2263f232a47a656f36e",
+  "bankedManifestOk": "79/79",
+  "readers": [
+   "ruleList",
+   "atPrelude",
+   "isPropertyName",
+   "syntaxText",
+   "syntaxComponents",
+   "scopePrelude",
+   "functionHead",
+   "functionParam",
+   "paramHead",
+   "declaration",
+   "emptyListComma",
+   "timelineArgs",
+   "opensTimeline",
+   "isTimelineLength",
+   "isDashedIdent"
+  ],
+  "node": "v26.0.0",
+  "esbuild": "0.27.7"
+ },
+ "uptimeStart": "10:40  up 1 day,  8:43, 4 users, load averages: 15.42 21.67 23.66",
+ "cells": [
+  {
+   "rep": 0,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.42 21.67 23.66",
+   "uptimeAfter": "10:40  up 1 day,  8:43, 4 users, load averages: 15.42 21.67 23.66",
+   "load": [
+    15.42,
+    15.42
+   ],
+   "retiredSpread": 1.183,
+   "medianMs": {
+    "retired": 30.837,
+    "product": 15.892,
+    "slist2": 16.19
+   },
+   "minMs": {
+    "retired": 28.716,
+    "product": 14.122,
+    "slist2": 14.316
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.523,
+     "pairedMax": 0.587,
+     "roundsBelow1": 11,
+     "ofMedians": 0.515,
+     "ofMins": 0.492
+    },
+    "slist2": {
+     "paired": 0.527,
+     "pairedMax": 0.703,
+     "roundsBelow1": 11,
+     "ofMedians": 0.525,
+     "ofMins": 0.499
+    }
+   },
+   "raw": {
+    "retired": [
+     32.73299999999995,
+     30.820875,
+     31.426167000000078,
+     31.556125000000065,
+     29.325083999999947,
+     30.787624999999935,
+     30.20674999999983,
+     30.836917000000085,
+     28.71641599999998,
+     31.922083000000157,
+     33.98266599999988
+    ],
+    "product": [
+     18.849666999999954,
+     17.067333000000076,
+     18.448499999999967,
+     16.495250000000055,
+     15.787874999999985,
+     15.612708999999995,
+     15.999750000000176,
+     14.64650000000006,
+     14.122457999999824,
+     15.892249999999876,
+     15.282249999999976
+    ],
+    "slist2": [
+     23.015459000000078,
+     16.19033300000001,
+     16.815375000000017,
+     16.634333999999967,
+     17.837750000000028,
+     15.531834000000117,
+     14.31574999999998,
+     14.950207999999975,
+     15.619792000000189,
+     18.01495799999998,
+     16.166708999999855
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 0,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.42 21.67 23.66",
+   "uptimeAfter": "10:40  up 1 day,  8:43, 4 users, load averages: 15.42 21.67 23.66",
+   "load": [
+    15.42,
+    15.42
+   ],
+   "retiredSpread": 1.206,
+   "medianMs": {
+    "retired": 28.371,
+    "product": 11.358,
+    "slist2": 10.78
+   },
+   "minMs": {
+    "retired": 27.416,
+    "product": 8.996,
+    "slist2": 8.728
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.385,
+     "pairedMax": 0.426,
+     "roundsBelow1": 11,
+     "ofMedians": 0.4,
+     "ofMins": 0.328
+    },
+    "slist2": {
+     "paired": 0.354,
+     "pairedMax": 0.413,
+     "roundsBelow1": 11,
+     "ofMedians": 0.38,
+     "ofMins": 0.318
+    }
+   },
+   "raw": {
+    "retired": [
+     27.41583399999996,
+     27.47808299999997,
+     28.098749999999995,
+     27.624167000000057,
+     27.434333000000038,
+     29.88716599999998,
+     28.370832999999948,
+     30.253583999999933,
+     30.55595900000003,
+     33.055624999999964,
+     31.67050000000006
+    ],
+    "product": [
+     11.357500000000016,
+     8.996417000000008,
+     11.83216600000003,
+     11.763000000000034,
+     11.45104200000003,
+     10.860833999999954,
+     11.009042000000022,
+     10.543333999999959,
+     10.902375000000006,
+     11.67329099999995,
+     12.192791000000057
+    ],
+    "slist2": [
+     11.319541000000015,
+     8.727915999999993,
+     9.448624999999993,
+     10.77962500000001,
+     11.182290999999964,
+     10.899333999999953,
+     9.392582999999945,
+     10.708499999999958,
+     11.351792000000046,
+     10.386249999999905,
+     10.867083999999977
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 0,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.42 21.67 23.66",
+   "uptimeAfter": "10:40  up 1 day,  8:43, 4 users, load averages: 15.07 21.50 23.59",
+   "load": [
+    15.42,
+    15.07
+   ],
+   "retiredSpread": 1.187,
+   "medianMs": {
+    "retired": 51.393,
+    "product": 27.025,
+    "slist2": 28.284
+   },
+   "minMs": {
+    "retired": 47.735,
+    "product": 24.529,
+    "slist2": 24.91
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.532,
+     "pairedMax": 0.672,
+     "roundsBelow1": 11,
+     "ofMedians": 0.526,
+     "ofMins": 0.514
+    },
+    "slist2": {
+     "paired": 0.547,
+     "pairedMax": 0.629,
+     "roundsBelow1": 11,
+     "ofMedians": 0.55,
+     "ofMins": 0.522
+    }
+   },
+   "raw": {
+    "retired": [
+     51.392832999999996,
+     56.66470800000002,
+     48.4826250000001,
+     49.05712500000004,
+     50.671499999999924,
+     51.66004100000009,
+     49.21733399999994,
+     53.889625000000024,
+     47.73462500000005,
+     53.266332999999804,
+     52.88133300000004
+    ],
+    "product": [
+     34.52404200000001,
+     26.96199999999999,
+     27.40883299999996,
+     27.292582999999922,
+     27.251125000000002,
+     26.876125000000002,
+     27.025250000000142,
+     25.573708000000124,
+     24.672624999999925,
+     24.52929099999983,
+     28.144041000000016
+    ],
+    "slist2": [
+     32.326374999999985,
+     31.249708000000055,
+     29.51954099999989,
+     24.90995900000007,
+     28.139042000000018,
+     28.28362500000003,
+     26.209749999999985,
+     25.851292000000058,
+     28.96858300000008,
+     27.206916999999976,
+     28.308666999999787
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 1,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "slist2",
+    "product",
+    "retired"
+   ],
+   "rev": true,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.07 21.50 23.59",
+   "uptimeAfter": "10:40  up 1 day,  8:43, 4 users, load averages: 15.07 21.50 23.59",
+   "load": [
+    15.07,
+    15.07
+   ],
+   "retiredSpread": 1.099,
+   "medianMs": {
+    "slist2": 15.237,
+    "product": 15.173,
+    "retired": 30.325
+   },
+   "minMs": {
+    "slist2": 14.48,
+    "product": 14.536,
+    "retired": 29.13
+   },
+   "ratio": {
+    "slist2": {
+     "paired": 0.502,
+     "pairedMax": 0.662,
+     "roundsBelow1": 11,
+     "ofMedians": 0.502,
+     "ofMins": 0.497
+    },
+    "product": {
+     "paired": 0.499,
+     "pairedMax": 0.66,
+     "roundsBelow1": 11,
+     "ofMedians": 0.5,
+     "ofMins": 0.499
+    }
+   },
+   "raw": {
+    "slist2": [
+     20.065165999999977,
+     15.409417000000076,
+     15.236667000000011,
+     16.189457999999945,
+     16.518790999999965,
+     14.868165999999974,
+     15.076750000000061,
+     15.110625000000027,
+     16.29341599999998,
+     14.615416000000096,
+     14.479916000000003
+    ],
+    "product": [
+     20.006374999999935,
+     14.993124999999964,
+     15.172625000000039,
+     14.90466600000002,
+     16.31970799999999,
+     15.226541999999995,
+     16.8520410000001,
+     16.856500000000096,
+     14.535875000000033,
+     14.564875000000029,
+     14.579416999999921
+    ],
+    "retired": [
+     30.324707999999987,
+     29.129500000000007,
+     30.41254200000003,
+     30.211332999999968,
+     31.603958000000034,
+     30.734958000000006,
+     30.01908299999991,
+     32.025750000000016,
+     30.80466699999988,
+     30.048000000000002,
+     29.50295899999992
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 1,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "slist2",
+    "product",
+    "retired"
+   ],
+   "rev": true,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.07 21.50 23.59",
+   "uptimeAfter": "10:40  up 1 day,  8:43, 4 users, load averages: 15.07 21.50 23.59",
+   "load": [
+    15.07,
+    15.07
+   ],
+   "retiredSpread": 1.174,
+   "medianMs": {
+    "slist2": 9.797,
+    "product": 10.411,
+    "retired": 27.422
+   },
+   "minMs": {
+    "slist2": 9.367,
+    "product": 9.219,
+    "retired": 25.731
+   },
+   "ratio": {
+    "slist2": {
+     "paired": 0.366,
+     "pairedMax": 0.416,
+     "roundsBelow1": 11,
+     "ofMedians": 0.357,
+     "ofMins": 0.364
+    },
+    "product": {
+     "paired": 0.383,
+     "pairedMax": 0.464,
+     "roundsBelow1": 11,
+     "ofMedians": 0.38,
+     "ofMins": 0.358
+    }
+   },
+   "raw": {
+    "slist2": [
+     11.303957999999966,
+     10.075125000000014,
+     11.330749999999966,
+     11.06004100000007,
+     9.397459000000026,
+     9.524125000000026,
+     9.878540999999927,
+     9.556208000000083,
+     9.367250000000013,
+     9.487541999999962,
+     9.796749999999975
+    ],
+    "product": [
+     12.593541000000016,
+     9.219499999999982,
+     11.197208000000046,
+     11.269542000000001,
+     9.83624999999995,
+     10.312915999999973,
+     11.84741699999995,
+     9.887500000000045,
+     11.136875000000032,
+     10.410957999999937,
+     9.304833999999914
+    ],
+    "retired": [
+     27.159875,
+     28.18320799999998,
+     28.04841600000003,
+     30.20020800000009,
+     28.624624999999924,
+     27.42208299999993,
+     25.940707999999972,
+     25.807209000000057,
+     27.35220800000002,
+     25.730707999999936,
+     27.98854199999994
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 1,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "slist2",
+    "product",
+    "retired"
+   ],
+   "rev": true,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.07 21.50 23.59",
+   "uptimeAfter": "10:40  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "load": [
+    15.07,
+    15.46
+   ],
+   "retiredSpread": 1.355,
+   "medianMs": {
+    "slist2": 32.612,
+    "product": 31.596,
+    "retired": 57.75
+   },
+   "minMs": {
+    "slist2": 26.266,
+    "product": 27.488,
+    "retired": 51.462
+   },
+   "ratio": {
+    "slist2": {
+     "paired": 0.548,
+     "pairedMax": 0.598,
+     "roundsBelow1": 11,
+     "ofMedians": 0.565,
+     "ofMins": 0.51
+    },
+    "product": {
+     "paired": 0.556,
+     "pairedMax": 0.728,
+     "roundsBelow1": 11,
+     "ofMedians": 0.547,
+     "ofMins": 0.534
+    }
+   },
+   "raw": {
+    "slist2": [
+     34.10304199999996,
+     34.19274999999993,
+     32.5618750000001,
+     32.61245799999983,
+     26.70962499999996,
+     29.404666000000134,
+     26.265625,
+     26.522042000000056,
+     32.86516699999993,
+     33.614250000000084,
+     33.75575000000026
+    ],
+    "product": [
+     36.73554100000001,
+     42.68091699999991,
+     35.38445899999988,
+     35.38324999999986,
+     29.894833000000062,
+     30.140791000000036,
+     27.487666999999874,
+     28.27391700000021,
+     30.142291999999998,
+     31.59649999999965,
+     37.48533300000008
+    ],
+    "retired": [
+     60.54504199999997,
+     58.615749999999935,
+     55.94512500000019,
+     69.70849999999996,
+     57.75020800000016,
+     53.65391700000009,
+     51.46199999999999,
+     57.89512500000001,
+     55.195000000000164,
+     56.228250000000116,
+     67.41750000000002
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 2,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:40  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "uptimeAfter": "10:41  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "load": [
+    15.46,
+    15.46
+   ],
+   "retiredSpread": 1.993,
+   "medianMs": {
+    "retired": 42.619,
+    "product": 22.681,
+    "slist2": 22.53
+   },
+   "minMs": {
+    "retired": 35.432,
+    "product": 18.605,
+    "slist2": 19.127
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.555,
+     "pairedMax": 0.692,
+     "roundsBelow1": 11,
+     "ofMedians": 0.532,
+     "ofMins": 0.525
+    },
+    "slist2": {
+     "paired": 0.545,
+     "pairedMax": 0.708,
+     "roundsBelow1": 11,
+     "ofMedians": 0.529,
+     "ofMins": 0.54
+    }
+   },
+   "raw": {
+    "retired": [
+     70.601542,
+     51.81995900000004,
+     42.61912499999994,
+     39.16341699999998,
+     35.432417000000214,
+     38.34279199999992,
+     37.34125000000017,
+     42.66833299999985,
+     50.334540999999945,
+     42.76979200000005,
+     38.4195830000001
+    ],
+    "product": [
+     29.103165999999987,
+     28.771624999999972,
+     21.637457999999924,
+     22.467959000000064,
+     18.605375000000095,
+     18.95029199999999,
+     21.258749999999964,
+     23.41341699999998,
+     34.82549999999992,
+     24.96570799999995,
+     22.68137499999989
+    ],
+    "slist2": [
+     40.29187499999989,
+     35.01249999999993,
+     21.65045800000007,
+     21.132666999999856,
+     19.321957999999995,
+     19.126666999999998,
+     24.180541999999832,
+     30.19987500000002,
+     27.577375000000075,
+     22.529583000000002,
+     20.47462500000006
+    ]
+   },
+   "clean": false
+  },
+  {
+   "rep": 2,
+   "attempt": 1,
+   "entry": "parseStylesheet",
+   "class": "rej",
+   "n": 27441,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:41  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "uptimeAfter": "10:41  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "load": [
+    15.46,
+    15.46
+   ],
+   "retiredSpread": 1.18,
+   "medianMs": {
+    "retired": 34.967,
+    "product": 19.172,
+    "slist2": 19.521
+   },
+   "minMs": {
+    "retired": 33.042,
+    "product": 17.113,
+    "slist2": 16.495
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.553,
+     "pairedMax": 0.613,
+     "roundsBelow1": 11,
+     "ofMedians": 0.548,
+     "ofMins": 0.518
+    },
+    "slist2": {
+     "paired": 0.555,
+     "pairedMax": 0.602,
+     "roundsBelow1": 11,
+     "ofMedians": 0.558,
+     "ofMins": 0.499
+    }
+   },
+   "raw": {
+    "retired": [
+     34.49000000000001,
+     37.33141699999999,
+     35.07229099999995,
+     33.04233399999998,
+     33.41029100000003,
+     36.379457999999886,
+     37.087625000000116,
+     39.00458299999991,
+     34.96729200000004,
+     34.513749999999845,
+     33.85058300000014
+    ],
+    "product": [
+     21.14645799999994,
+     18.818291000000045,
+     19.172416999999996,
+     18.27170799999999,
+     19.41862500000002,
+     18.050707999999986,
+     21.170916999999918,
+     22.35524999999984,
+     20.265957999999955,
+     17.11324999999988,
+     17.997333000000026
+    ],
+    "slist2": [
+     20.75908400000003,
+     18.06491600000004,
+     18.60195900000008,
+     18.134124999999926,
+     19.52145799999994,
+     20.325833999999986,
+     21.175791000000117,
+     21.549416000000065,
+     20.52325000000019,
+     19.151208000000224,
+     16.495124999999916
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 2,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:41  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "uptimeAfter": "10:41  up 1 day,  8:43, 4 users, load averages: 15.46 21.47 23.56",
+   "load": [
+    15.46,
+    15.46
+   ],
+   "retiredSpread": 1.257,
+   "medianMs": {
+    "retired": 16.154,
+    "product": 6.636,
+    "slist2": 6.311
+   },
+   "minMs": {
+    "retired": 14.419,
+    "product": 5.658,
+    "slist2": 4.678
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.422,
+     "pairedMax": 0.556,
+     "roundsBelow1": 11,
+     "ofMedians": 0.411,
+     "ofMins": 0.392
+    },
+    "slist2": {
+     "paired": 0.389,
+     "pairedMax": 0.495,
+     "roundsBelow1": 11,
+     "ofMedians": 0.391,
+     "ofMins": 0.324
+    }
+   },
+   "raw": {
+    "retired": [
+     17.058625000000006,
+     15.815917000000013,
+     17.084375000000023,
+     16.07800000000003,
+     16.15366700000004,
+     16.427208000000064,
+     14.419374999999945,
+     14.759041000000025,
+     15.814707999999996,
+     18.128375000000005,
+     16.420792000000006
+    ],
+    "product": [
+     9.490208999999993,
+     6.877249999999947,
+     6.635917000000006,
+     6.820499999999981,
+     6.342291999999929,
+     6.452834000000053,
+     6.311582999999928,
+     6.080708999999956,
+     6.679459000000065,
+     8.616624999999999,
+     5.657708000000071
+    ],
+    "slist2": [
+     8.446541999999965,
+     6.387875000000008,
+     6.6777909999999565,
+     6.311417000000006,
+     6.5019589999999425,
+     4.67841599999997,
+     5.350041999999917,
+     5.708167000000003,
+     5.705040999999937,
+     7.06045800000004,
+     6.049750000000017
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 2,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "whole",
+   "n": 29944,
+   "k": 1,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product",
+    "slist2"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "10:41  up 1 day,  8:43, 4 users, load averages: 15.58 21.40 23.53",
+   "uptimeAfter": "10:41  up 1 day,  8:43, 4 users, load averages: 15.58 21.40 23.53",
+   "load": [
+    15.58,
+    15.58
+   ],
+   "retiredSpread": 1.359,
+   "medianMs": {
+    "retired": 55.575,
+    "product": 33.581,
+    "slist2": 33.309
+   },
+   "minMs": {
+    "retired": 51.068,
+    "product": 27.21,
+    "slist2": 27.665
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.573,
+     "pairedMax": 0.683,
+     "roundsBelow1": 11,
+     "ofMedians": 0.604,
+     "ofMins": 0.533
+    },
+    "slist2": {
+     "paired": 0.549,
+     "pairedMax": 0.671,
+     "roundsBelow1": 11,
+     "ofMedians": 0.599,
+     "ofMins": 0.542
+    }
+   },
+   "raw": {
+    "retired": [
+     57.882041999999956,
+     55.57466599999998,
+     54.316290999999865,
+     54.75345900000002,
+     51.06787499999996,
+     51.96100000000001,
+     69.42216600000006,
+     62.68870900000002,
+     63.075124999999844,
+     58.650458999999955,
+     53.79429100000016
+    ],
+    "product": [
+     36.722999999999956,
+     31.86241700000005,
+     35.077790999999934,
+     30.238000000000056,
+     34.865583000000015,
+     27.673332999999957,
+     41.160707999999886,
+     33.30283399999985,
+     34.9670000000001,
+     33.58091600000034,
+     27.210042000000158
+    ],
+    "slist2": [
+     36.667708000000175,
+     32.99025000000006,
+     28.933916999999838,
+     29.285834000000023,
+     33.30891699999984,
+     34.8862079999999,
+     44.62279100000001,
+     34.40283400000021,
+     33.89920799999982,
+     30.617874999999913,
+     27.665250000000015
+    ]
+   },
+   "clean": true
+  }
+ ],
+ "uptimeEnd": "10:41  up 1 day,  8:43, 4 users, load averages: 15.58 21.40 23.53",
+ "summary": {
+  "product": {
+   "rej|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 1,
+    "ratios": [
+     0.523,
+     0.499,
+     0.553
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.183,
+      "paired": 0.523
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.099,
+      "paired": 0.499
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 1,
+      "clean": false,
+      "spread": 1.993,
+      "paired": 0.555
+     },
+     {
+      "rep": 2,
+      "attempt": 1,
+      "k": 1,
+      "clean": true,
+      "spread": 1.18,
+      "paired": 0.553
+     }
+    ],
+    "median": 0.523,
+    "max": 0.553,
+    "allBelow1": true
+   },
+   "large|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 0,
+    "ratios": [
+     0.385,
+     0.383,
+     0.422
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.206,
+      "paired": 0.385
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.174,
+      "paired": 0.383
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.257,
+      "paired": 0.422
+     }
+    ],
+    "median": 0.385,
+    "max": 0.422,
+    "allBelow1": true
+   },
+   "whole|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 0,
+    "ratios": [
+     0.532,
+     0.556,
+     0.573
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.187,
+      "paired": 0.532
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.355,
+      "paired": 0.556
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.359,
+      "paired": 0.573
+     }
+    ],
+    "median": 0.556,
+    "max": 0.573,
+    "allBelow1": true
+   }
+  },
+  "slist2": {
+   "rej|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 1,
+    "ratios": [
+     0.527,
+     0.502,
+     0.555
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.183,
+      "paired": 0.527
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.099,
+      "paired": 0.502
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 1,
+      "clean": false,
+      "spread": 1.993,
+      "paired": 0.545
+     },
+     {
+      "rep": 2,
+      "attempt": 1,
+      "k": 1,
+      "clean": true,
+      "spread": 1.18,
+      "paired": 0.555
+     }
+    ],
+    "median": 0.527,
+    "max": 0.555,
+    "allBelow1": true
+   },
+   "large|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 0,
+    "ratios": [
+     0.354,
+     0.366,
+     0.389
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.206,
+      "paired": 0.354
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.174,
+      "paired": 0.366
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.257,
+      "paired": 0.389
+     }
+    ],
+    "median": 0.366,
+    "max": 0.389,
+    "allBelow1": true
+   },
+   "whole|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 0,
+    "ratios": [
+     0.547,
+     0.548,
+     0.549
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.187,
+      "paired": 0.547
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.355,
+      "paired": 0.548
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 1,
+      "clean": true,
+      "spread": 1.359,
+      "paired": 0.549
+     }
+    ],
+    "median": 0.548,
+    "max": 0.549,
+    "allBelow1": true
+   }
+  }
+ },
+ "gates": {
+  "product": {
+   "whole-7/7": {
+    "green": 1,
+    "of": 7,
+    "read": 1,
+    "verdict": "RED"
+   },
+   "accepted-7/7": null,
+   "rejected-7/7 (G-acc/rej, recorded)": {
+    "green": 1,
+    "of": 7,
+    "read": 1,
+    "verdict": "RED"
+   },
+   "O-2 (stock/retired >= 1.3 all 7, >= 4 parseStylesheet)": {
+    "medians": {
+     "parseCssColor": null,
+     "parseCssScalar": null,
+     "parseCssValue": null,
+     "parseCssValues": null,
+     "parseKeyframeSelector": null,
+     "parseTimingFunction": null,
+     "parseStylesheet": 0.556
+    },
+    "verdict": "DOES NOT HOLD"
+   }
+  },
+  "slist2": {
+   "whole-7/7": {
+    "green": 1,
+    "of": 7,
+    "read": 1,
+    "verdict": "RED"
+   },
+   "accepted-7/7": null,
+   "rejected-7/7 (G-acc/rej, recorded)": {
+    "green": 1,
+    "of": 7,
+    "read": 1,
+    "verdict": "RED"
+   },
+   "O-2 (stock/retired >= 1.3 all 7, >= 4 parseStylesheet)": {
+    "medians": {
+     "parseCssColor": null,
+     "parseCssScalar": null,
+     "parseCssValue": null,
+     "parseCssValues": null,
+     "parseKeyframeSelector": null,
+     "parseTimingFunction": null,
+     "parseStylesheet": 0.548
+    },
+    "verdict": "DOES NOT HOLD"
+   }
+  }
+ }
+}

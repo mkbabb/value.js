@@ -1,0 +1,13 @@
+# SERVED MODEL: claude-opus-5-5 — X.KF.W13X.r3res2f gate readings (logs beside are *.log, gitignored)
+falsifier-red-r1: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ Tests 3 failed | 1 passed (4)
+falsifier-red-r2: ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ Tests 3 failed | 1 passed (4)
+falsifier-green-r1:  Tests 4 passed (4)
+falsifier-green-r2:  Tests 4 passed (4)
+css-tests-r1:  Tests 487 passed (487)
+css-tests-r2:  Tests 487 passed (487)
+typecheck-r1 (npm run typecheck): exit 0
+typecheck-r2 (npm run typecheck): exit 0
+typecheck-test-post-oracle-r1 (vue-tsc -p tsconfig.test.json, after the v4-css-emerging oracle edit): exit 0
+typecheck-test-post-oracle-r2 (vue-tsc -p tsconfig.test.json, after the v4-css-emerging oracle edit): exit 0

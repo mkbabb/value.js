@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 import { ATMOSPHERE_TESTID } from "../fixtures/webgl-appearance";
 import { detectRenderer, isSoftwareGL } from "../perf/frame-budget";
 import { sampleRegion, meanAbsDiff } from "../fixtures/frame-diff";
@@ -66,7 +67,7 @@ test("O-26 aurora perceptibility — the field migrates unmistakably over 10s", 
     test.setTimeout(45_000);
 
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(MID_C_SEED));
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     const renderer = await detectRenderer(page);
     console.log(

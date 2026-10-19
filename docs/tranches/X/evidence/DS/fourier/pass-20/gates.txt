@@ -1,0 +1,7 @@
+X-DS fourier pass 20 cure (critic F20C), 2026-10-18. No fourier file changed: DS-F20C-G0 is glass-owned (O-87 FLAT-LIGHTING; dock and transport also O-88), DS-F20C-N1 is record-and-close (no cure owed). fourier HEAD 75182fb (m/w1-bump-migration), unchanged.
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e: no file changed, so no spec touches a changed file and none was run; pass 19's not-found runs (120/120 x2) stand on the identical tree.
+No golden was re-baselined.
+Probe: f20p-probe.mjs, headless real Chrome (channel chrome, DPR 2, touch below 1024) on plain npx vite :3265: the critic's 20 route cells (visualize, equation, morph, gallery, paper x light/dark x 1440/390) and nf-rest-{light,dark}-{1440,390}; f20p-probe-after.json.
+Census: fourier scripts/ds-census.mjs --chrome --base http://localhost:3265 (census-after.json): static totals and sites, computed perPage and sum identical to pass 19; sums 386/978/292/292/0/0/0/208/0/0. RED on glass rows only.

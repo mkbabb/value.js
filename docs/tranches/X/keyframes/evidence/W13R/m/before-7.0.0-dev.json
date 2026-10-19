@@ -1,0 +1,111 @@
+{
+  "skipped": false,
+  "value": {
+    "url": "http://localhost:5173/",
+    "label": "before-7.0.0-dev",
+    "htmlDark": false,
+    "when": "2026-09-23T21:17:11.633Z",
+    "rows": [
+      {
+        "i": 0,
+        "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content dock-overflow-wrap do",
+        "rect": [
+          690,
+          43,
+          60,
+          56
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "bgImage": "none",
+        "backdrop": "none",
+        "meanRGB": [
+          227,
+          219,
+          223
+        ],
+        "chromaSpread": 8,
+        "luma": 221
+      },
+      {
+        "i": 1,
+        "cls": "dock-plate",
+        "rect": [
+          690,
+          43,
+          60,
+          56
+        ],
+        "bg": "color(srgb 0.915707 0.8696 0.829086 / 0.328)",
+        "bgImage": "none",
+        "backdrop": "blur(7px) saturate(1.2)",
+        "meanRGB": [
+          227,
+          219,
+          223
+        ],
+        "chromaSpread": 8,
+        "luma": 221
+      },
+      {
+        "i": 2,
+        "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+        "rect": [
+          613,
+          765,
+          214,
+          56
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "bgImage": "none",
+        "backdrop": "none",
+        "meanRGB": [
+          230,
+          222,
+          223
+        ],
+        "chromaSpread": 8,
+        "luma": 224
+      },
+      {
+        "i": 3,
+        "cls": "dock-plate",
+        "rect": [
+          613,
+          765,
+          214,
+          56
+        ],
+        "bg": "color(srgb 0.944493 0.90279 0.864649 / 0.52)",
+        "bgImage": "none",
+        "backdrop": "blur(7px) saturate(1.2)",
+        "meanRGB": [
+          230,
+          222,
+          223
+        ],
+        "chromaSpread": 8,
+        "luma": 224
+      },
+      {
+        "i": 4,
+        "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+        "rect": [
+          775,
+          773,
+          40,
+          40
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "bgImage": "none",
+        "backdrop": "none",
+        "meanRGB": [
+          220,
+          213,
+          214
+        ],
+        "chromaSpread": 7,
+        "luma": 215
+      }
+    ]
+  }
+}

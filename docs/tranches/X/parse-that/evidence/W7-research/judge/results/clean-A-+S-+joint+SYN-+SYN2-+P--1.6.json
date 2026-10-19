@@ -1,0 +1,823 @@
+{
+ "spread": 1.6,
+ "prefixes": [
+  "A-",
+  "S-",
+  "joint",
+  "SYN-",
+  "SYN2-",
+  "P-"
+ ],
+ "arms": {
+  "tsc-proto-pos": {
+   "parseCssColor": {
+    "cleanCells": 4,
+    "dirtyCells": 0,
+    "max": 0.847,
+    "median": 0.84,
+    "below1": 4,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.809,
+     0.818,
+     0.84,
+     0.847
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 4,
+    "dirtyCells": 0,
+    "max": 0.751,
+    "median": 0.75,
+    "below1": 4,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.707,
+     0.74,
+     0.75,
+     0.751
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 0.589,
+    "median": 0.558,
+    "below1": 3,
+    "load": "25.14-60.26",
+    "ratios": [
+     0.476,
+     0.558,
+     0.589
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 0.595,
+    "median": 0.511,
+    "below1": 3,
+    "load": "24.4-56.88",
+    "ratios": [
+     0.503,
+     0.511,
+     0.595
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 0.857,
+    "median": 0.719,
+    "below1": 3,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.707,
+     0.719,
+     0.857
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 7,
+    "dirtyCells": 3,
+    "max": 1.124,
+    "median": 1.038,
+    "below1": 3,
+    "load": "23.73-51.92",
+    "ratios": [
+     0.877,
+     0.884,
+     0.958,
+     1.038,
+     1.085,
+     1.103,
+     1.124
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 4,
+    "dirtyCells": 0,
+    "max": 0.841,
+    "median": 0.827,
+    "below1": 4,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.751,
+     0.826,
+     0.827,
+     0.841
+    ]
+   }
+  },
+  "tsc-emit-pos": {
+   "parseCssColor": {
+    "cleanCells": 8,
+    "dirtyCells": 1,
+    "max": 0.871,
+    "median": 0.802,
+    "below1": 8,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.715,
+     0.741,
+     0.775,
+     0.785,
+     0.802,
+     0.802,
+     0.803,
+     0.871
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 7,
+    "dirtyCells": 2,
+    "max": 0.761,
+    "median": 0.711,
+    "below1": 7,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.649,
+     0.668,
+     0.674,
+     0.711,
+     0.725,
+     0.75,
+     0.761
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 6,
+    "dirtyCells": 3,
+    "max": 0.577,
+    "median": 0.534,
+    "below1": 6,
+    "load": "25.14-60.26",
+    "ratios": [
+     0.439,
+     0.477,
+     0.534,
+     0.534,
+     0.542,
+     0.577
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 8,
+    "dirtyCells": 1,
+    "max": 0.531,
+    "median": 0.503,
+    "below1": 8,
+    "load": "24.4-56.88",
+    "ratios": [
+     0.448,
+     0.479,
+     0.48,
+     0.499,
+     0.503,
+     0.505,
+     0.515,
+     0.531
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 6,
+    "dirtyCells": 3,
+    "max": 0.735,
+    "median": 0.716,
+    "below1": 6,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.673,
+     0.705,
+     0.713,
+     0.716,
+     0.72,
+     0.735
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 11,
+    "dirtyCells": 4,
+    "max": 0.849,
+    "median": 0.784,
+    "below1": 11,
+    "load": "23.73-51.92",
+    "ratios": [
+     0.698,
+     0.724,
+     0.725,
+     0.747,
+     0.775,
+     0.784,
+     0.798,
+     0.812,
+     0.826,
+     0.826,
+     0.849
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 7,
+    "dirtyCells": 2,
+    "max": 0.781,
+    "median": 0.769,
+    "below1": 7,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.67,
+     0.765,
+     0.768,
+     0.769,
+     0.774,
+     0.778,
+     0.781
+    ]
+   }
+  },
+  "aot-text": {
+   "parseCssColor": {
+    "cleanCells": 8,
+    "dirtyCells": 1,
+    "max": 0.892,
+    "median": 0.83,
+    "below1": 8,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.772,
+     0.794,
+     0.806,
+     0.813,
+     0.83,
+     0.831,
+     0.866,
+     0.892
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 7,
+    "dirtyCells": 2,
+    "max": 0.826,
+    "median": 0.759,
+    "below1": 7,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.69,
+     0.735,
+     0.751,
+     0.759,
+     0.761,
+     0.763,
+     0.826
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 6,
+    "dirtyCells": 3,
+    "max": 0.543,
+    "median": 0.525,
+    "below1": 6,
+    "load": "25.14-60.26",
+    "ratios": [
+     0.453,
+     0.475,
+     0.511,
+     0.525,
+     0.539,
+     0.543
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 8,
+    "dirtyCells": 1,
+    "max": 0.541,
+    "median": 0.515,
+    "below1": 8,
+    "load": "24.4-56.88",
+    "ratios": [
+     0.461,
+     0.479,
+     0.508,
+     0.511,
+     0.515,
+     0.538,
+     0.541,
+     0.541
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 6,
+    "dirtyCells": 3,
+    "max": 0.877,
+    "median": 0.853,
+    "below1": 6,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.793,
+     0.8,
+     0.805,
+     0.853,
+     0.854,
+     0.877
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 11,
+    "dirtyCells": 4,
+    "max": 0.946,
+    "median": 0.918,
+    "below1": 11,
+    "load": "23.73-51.92",
+    "ratios": [
+     0.83,
+     0.833,
+     0.843,
+     0.898,
+     0.909,
+     0.918,
+     0.928,
+     0.932,
+     0.936,
+     0.942,
+     0.946
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 7,
+    "dirtyCells": 2,
+    "max": 0.905,
+    "median": 0.867,
+    "below1": 7,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.75,
+     0.844,
+     0.854,
+     0.867,
+     0.889,
+     0.898,
+     0.905
+    ]
+   }
+  },
+  "fx-final": {
+   "parseCssColor": {
+    "cleanCells": 4,
+    "dirtyCells": 0,
+    "max": 0.954,
+    "median": 0.896,
+    "below1": 4,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.857,
+     0.893,
+     0.896,
+     0.954
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 4,
+    "dirtyCells": 0,
+    "max": 0.859,
+    "median": 0.856,
+    "below1": 4,
+    "load": "22.71-64.03",
+    "ratios": [
+     0.738,
+     0.804,
+     0.856,
+     0.859
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 0.626,
+    "median": 0.616,
+    "below1": 3,
+    "load": "25.14-60.26",
+    "ratios": [
+     0.528,
+     0.616,
+     0.626
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 0.649,
+    "median": 0.547,
+    "below1": 3,
+    "load": "24.4-56.88",
+    "ratios": [
+     0.536,
+     0.547,
+     0.649
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 0.935,
+    "median": 0.854,
+    "below1": 3,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.854,
+     0.854,
+     0.935
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 3,
+    "dirtyCells": 1,
+    "max": 1.174,
+    "median": 1.111,
+    "below1": 1,
+    "load": "23.73-51.92",
+    "ratios": [
+     0.999,
+     1.111,
+     1.174
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 4,
+    "dirtyCells": 0,
+    "max": 0.916,
+    "median": 0.878,
+    "below1": 4,
+    "load": "23.73-55.05",
+    "ratios": [
+     0.784,
+     0.859,
+     0.878,
+     0.916
+    ]
+   }
+  },
+  "stock": {
+   "parseCssColor": {
+    "cleanCells": 1,
+    "dirtyCells": 1,
+    "max": 1.762,
+    "median": 1.762,
+    "below1": 0,
+    "load": "34.44-34.44",
+    "ratios": [
+     1.762
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 1.57,
+    "median": 1.57,
+    "below1": 0,
+    "load": "33.2-46.82",
+    "ratios": [
+     1.565,
+     1.57
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 2.386,
+    "median": 2.386,
+    "below1": 0,
+    "load": "32.39-44.51",
+    "ratios": [
+     2.374,
+     2.386
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 2.419,
+    "median": 2.419,
+    "below1": 0,
+    "load": "30.65-40.21",
+    "ratios": [
+     2.314,
+     2.419
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 1.335,
+    "median": 1.335,
+    "below1": 0,
+    "load": "30.65-38.27",
+    "ratios": [
+     1.268,
+     1.335
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 6.061,
+    "median": 6.061,
+    "below1": 0,
+    "load": "27.47-37.36",
+    "ratios": [
+     5.587,
+     6.061
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 1.434,
+    "median": 1.434,
+    "below1": 0,
+    "load": "30.65-38.27",
+    "ratios": [
+     1.378,
+     1.434
+    ]
+   }
+  },
+  "np-direct": {
+   "parseCssColor": {
+    "cleanCells": 1,
+    "dirtyCells": 1,
+    "max": 1.532,
+    "median": 1.532,
+    "below1": 0,
+    "load": "34.44-34.44",
+    "ratios": [
+     1.532
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 1.361,
+    "median": 1.361,
+    "below1": 0,
+    "load": "33.2-46.82",
+    "ratios": [
+     1.3,
+     1.361
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 0.945,
+    "median": 0.945,
+    "below1": 2,
+    "load": "32.39-44.51",
+    "ratios": [
+     0.892,
+     0.945
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 0.904,
+    "median": 0.904,
+    "below1": 2,
+    "load": "30.65-40.21",
+    "ratios": [
+     0.88,
+     0.904
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 1.322,
+    "median": 1.322,
+    "below1": 0,
+    "load": "30.65-38.27",
+    "ratios": [
+     1.251,
+     1.322
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 2.556,
+    "median": 2.556,
+    "below1": 0,
+    "load": "27.47-37.36",
+    "ratios": [
+     2.549,
+     2.556
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 2,
+    "dirtyCells": 0,
+    "max": 1.321,
+    "median": 1.321,
+    "below1": 0,
+    "load": "30.65-38.27",
+    "ratios": [
+     1.275,
+     1.321
+    ]
+   }
+  },
+  "jx-aot-pos": {
+   "parseCssColor": {
+    "cleanCells": 4,
+    "dirtyCells": 1,
+    "max": 0.839,
+    "median": 0.819,
+    "below1": 4,
+    "load": "38.89-43.16",
+    "ratios": [
+     0.77,
+     0.774,
+     0.819,
+     0.839
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.726,
+    "median": 0.691,
+    "below1": 3,
+    "load": "38.39-40.32",
+    "ratios": [
+     0.659,
+     0.691,
+     0.726
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.518,
+    "median": 0.507,
+    "below1": 3,
+    "load": "35.93-42.5",
+    "ratios": [
+     0.494,
+     0.507,
+     0.518
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 5,
+    "dirtyCells": 0,
+    "max": 0.525,
+    "median": 0.502,
+    "below1": 5,
+    "load": "35.22-44.79",
+    "ratios": [
+     0.461,
+     0.483,
+     0.502,
+     0.512,
+     0.525
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.695,
+    "median": 0.67,
+    "below1": 3,
+    "load": "35.22-41.2",
+    "ratios": [
+     0.624,
+     0.67,
+     0.695
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 4,
+    "dirtyCells": 1,
+    "max": 0.834,
+    "median": 0.8,
+    "below1": 4,
+    "load": "34.72-43.16",
+    "ratios": [
+     0.746,
+     0.768,
+     0.8,
+     0.834
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.806,
+    "median": 0.78,
+    "below1": 3,
+    "load": "35.22-41.2",
+    "ratios": [
+     0.751,
+     0.78,
+     0.806
+    ]
+   }
+  },
+  "jx-aot-pos-sa": {
+   "parseCssColor": {
+    "cleanCells": 4,
+    "dirtyCells": 1,
+    "max": 0.845,
+    "median": 0.786,
+    "below1": 4,
+    "load": "38.89-43.16",
+    "ratios": [
+     0.744,
+     0.777,
+     0.786,
+     0.845
+    ]
+   },
+   "parseCssScalar": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.734,
+    "median": 0.73,
+    "below1": 3,
+    "load": "38.39-40.32",
+    "ratios": [
+     0.709,
+     0.73,
+     0.734
+    ]
+   },
+   "parseCssValue": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.513,
+    "median": 0.507,
+    "below1": 3,
+    "load": "35.93-42.5",
+    "ratios": [
+     0.497,
+     0.507,
+     0.513
+    ]
+   },
+   "parseCssValues": {
+    "cleanCells": 5,
+    "dirtyCells": 0,
+    "max": 0.511,
+    "median": 0.506,
+    "below1": 5,
+    "load": "35.22-44.79",
+    "ratios": [
+     0.44,
+     0.497,
+     0.506,
+     0.507,
+     0.511
+    ]
+   },
+   "parseKeyframeSelector": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.693,
+    "median": 0.679,
+    "below1": 3,
+    "load": "35.22-41.2",
+    "ratios": [
+     0.67,
+     0.679,
+     0.693
+    ]
+   },
+   "parseStylesheet": {
+    "cleanCells": 4,
+    "dirtyCells": 1,
+    "max": 0.793,
+    "median": 0.788,
+    "below1": 4,
+    "load": "34.72-43.16",
+    "ratios": [
+     0.719,
+     0.726,
+     0.788,
+     0.793
+    ]
+   },
+   "parseTimingFunction": {
+    "cleanCells": 3,
+    "dirtyCells": 2,
+    "max": 0.838,
+    "median": 0.778,
+    "below1": 3,
+    "load": "35.22-41.2",
+    "ratios": [
+     0.775,
+     0.778,
+     0.838
+    ]
+   }
+  }
+ }
+}

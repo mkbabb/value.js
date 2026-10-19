@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+head ca0b1a0b start 16:11:36 load 541.03 428.79 284.48
+> vue-tsc --noEmit -p tsconfig.json && vue-tsc --noEmit -p tsconfig.test.json && npm run proof:structure
+
+
+> @mkbabb/keyframes.js@6.0.0 proof:structure
+> node scripts/gates/structure/index.mjs
+
+proof:structure — scope=src
+proof:structure — PASS: scope=src clean (0 violations across R1–R6)
+EXIT=
+end 16:12:30 load 427.67 422.29 291.46

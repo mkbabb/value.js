@@ -1,0 +1,48 @@
+SERVED MODEL: claude-opus-5-5[1m]
+(node:23678) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:23707) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:23716) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+[1A[2K[smoke] › e2e/smoke/oracles/o25-atmosphere-response.spec.ts:124:1 › X:ATMO-1 — the named atoms move with the seed, read from committed frames
+h030 · north-west field: ΔE2000 vs unseeded 16.26 · vs h120 51.72
+
+[1A[2Kh030 · west field: ΔE2000 vs unseeded 16.52 · vs h120 51.95
+
+[1A[2Kh030 · east field: ΔE2000 vs unseeded 16.86 · vs h120 52.59
+
+[1A[2Kh030 · south-east field: ΔE2000 vs unseeded 16.87 · vs h120 52.80
+
+[1A[2Kh120 · north-west field: ΔE2000 vs unseeded 61.42 · vs h210 29.83
+
+[1A[2Kh120 · west field: ΔE2000 vs unseeded 61.98 · vs h210 30.10
+
+[1A[2Kh120 · east field: ΔE2000 vs unseeded 62.59 · vs h210 32.01
+
+[1A[2Kh120 · south-east field: ΔE2000 vs unseeded 62.33 · vs h210 32.73
+
+[1A[2Kh210 · north-west field: ΔE2000 vs unseeded 40.37 · vs h300 30.35
+
+[1A[2Kh210 · west field: ΔE2000 vs unseeded 40.40 · vs h300 30.70
+
+[1A[2Kh210 · east field: ΔE2000 vs unseeded 44.93 · vs h300 31.71
+
+[1A[2Kh210 · south-east field: ΔE2000 vs unseeded 47.55 · vs h300 31.83
+
+[1A[2Kh300 · north-west field: ΔE2000 vs unseeded 32.91 · vs h030 34.92
+
+[1A[2Kh300 · west field: ΔE2000 vs unseeded 32.11 · vs h030 34.30
+
+[1A[2Kh300 · east field: ΔE2000 vs unseeded 29.25 · vs h030 33.46
+
+[1A[2Kh300 · south-east field: ΔE2000 vs unseeded 28.91 · vs h030 33.74
+
+[1A[2K  1 passed (2.0s)
+EXIT=0

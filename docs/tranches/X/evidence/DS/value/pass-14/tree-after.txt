@@ -1,0 +1,4 @@
+Capture window 19:59-20:18:50 EDT (server :9011 up 19:59; capture.log 20:04, overlays.json 20:06, login.json 20:07, v14.json 20:11, census-after.json 20:18:50).
+tree-before.txt: `git status --short -- demo` empty at HEAD 5ca07270e (the pass-14 cures committed).
+After the window: another seat's hunks appeared in demo/color-session/{format-color,generate-color,ink,palettes-ramp,picker-color,view-accent}.ts, all with mtime 20:23:12, i.e. AFTER the last reading. Every frame, probe and census cell of this pass was read on a demo tree equal to committed HEAD.
+The :9011 server was then found hung (95% CPU, no response); it was force-stopped, and nothing of this seat is left running.

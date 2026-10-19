@@ -1,0 +1,100 @@
+// SERVED MODEL: claude-opus-5-5
+//
+// X.P.W8 `.cust2` (W8.md ADDENDUM 2026-10-15 (d); COHESION §0fe.1 + §0fc.2; C1-1 / W8semi-CUSTOM): a custom
+// property's value is a css-variables-1 §2 `<declaration-value>`, which may hold a `;` nested inside a `()`,
+// `[]` or `{}` block — only a TOP-LEVEL `;` ends the declaration (css-syntax-3 §5.4.6). `.semi` refused a `;`
+// in every value, so `--x: f(a;b)` regressed; a registered property's value still refuses it. Such a value is
+// the raw token sequence css-variables-1 §2 defines, kept whole as authored.
+
+import { describe, expect, it } from "vitest";
+
+import { parseStylesheet, serializeCssValue } from "../../src/css/index";
+import { parseCustomPropertyValue } from "../../src/css/bbnf/index";
+import { parseDeclarations } from "../../src/css/rules";
+import type { Declaration } from "../../src/css/types";
+
+const declarations = (body: string): readonly Declaration[] => {
+    const parsed = parseDeclarations(body);
+    if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} → ${JSON.stringify(parsed.diagnostics)}`);
+    return parsed.value;
+};
+
+const serialize = (rows: readonly Declaration[]): string =>
+    rows.map(({ name, value, important }) => {
+        const text = serializeCssValue(value);
+        if (!text.ok) throw new Error(`unserializable: ${name}`);
+        return `${name}: ${text.value}${important ? " !important" : ""};`;
+    }).join(" ");
+
+const refusedWithSyntax = (source: string): void => {
+    const parsed = parseStylesheet(source);
+    expect(parsed.ok).toBe(false);
+    if (parsed.ok) return;
+    expect(parsed.diagnostics.map((row) => row.code)).toContain("css_syntax");
+};
+
+describe("a custom property admits a `;` nested inside a block (css-variables-1 §2)", () => {
+    it.each([
+        "a{--x:f(a;b)}",
+        "a{--x:[a;[b]]}",
+        "a{--x:{a;b}}",
+        "a{--x:\"a;b\"}",
+        "a{--x:[a;b]}",
+        "a{--x:f(a ; b) c}",
+        "a{--x:f(g(a;b))}",
+        "a{--x:f(;)}",
+        "a{--x:f(a, b; c)}",
+        "a{--x:[a;b] f(1px;2px)}",
+        "a{--x:{a:b;c:d}; color: red}",
+        "a{--x:f(\"a;)\";b)}",
+    ])("%j is ACCEPTED", (source) => {
+        const parsed = parseStylesheet(source);
+        expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.diagnostics)).toBe(true);
+    });
+
+    it.each(["--x:f(a;b)", "--x:[a;[b]]", "--x:{a;b}", "--x:\"a;b\"", "--x:[a;b]", "--x:f(a ; b) c", "--x:f(g(a;b))",
+        "--x:f(;)", "--x:f(a, b; c)", "--x:{a:b;c:d}; color: red"])("%j round-trips", (body) => {
+        const once = declarations(body);
+        const text = serialize(once);
+        expect(declarations(text)).toEqual(once);
+        expect(serialize(declarations(text))).toBe(text);
+    });
+
+    it("keeps the value as authored: the raw `<declaration-value>` token sequence", () => {
+        expect(serialize(declarations("--x:f(a;b)"))).toBe("--x: f(a;b);");
+        expect(serialize(declarations("--x:[a;[b]]"))).toBe("--x: [a;[b]];");
+        expect(serialize(declarations("--x:{a;b}"))).toBe("--x: {a;b};");
+        expect(serialize(declarations("--x:\"a;b\""))).toBe("--x: \"a;b\";");
+    });
+
+    it("the empty custom value stays ACCEPTED: `a{--x: ;}`", () => {
+        expect(parseStylesheet("a{--x: ;}").ok).toBe(true);
+    });
+});
+
+describe("a top-level `;` still ends the declaration (css-syntax-3 §5.4.6)", () => {
+    it("`a{--x:a;b}` is not one value: the second row is no declaration", () => {
+        refusedWithSyntax("a{--x:a;b}");
+    });
+
+    it.each(["a;b", ";", "f(a);b", "a ; b", "[a];b", "\"a\";b"])("parseCustomPropertyValue(%j) is refused", (source) => {
+        expect(parseCustomPropertyValue(source).ok).toBe(false);
+    });
+});
+
+describe("an unbalanced block is refused (css-syntax-3 §5.4.8)", () => {
+    it.each(["a{--x:[a;b}", "a{--x:{a;b]}", "a{--x:[a}", "a{--x:f(a;[b)}"])("%j yields a css_syntax diagnostic", refusedWithSyntax);
+
+    it.each(["[a;b", "f(a;b", "{a;b]", "(a;b]"])("parseCustomPropertyValue(%j) is refused", (source) => {
+        expect(parseCustomPropertyValue(source).ok).toBe(false);
+    });
+});
+
+describe("a registered property's value still refuses a nested `;` (X.P.W8 `.semi`)", () => {
+    it.each([
+        "a{transform:rotate(0;1deg)}",
+        "@keyframes k{0%{transform:translate(0;1px)}}",
+        "a{grid-template-columns:[a;b] 1fr}",
+        "a{color:f(a;b)}",
+    ])("%j yields ok:false with a css_syntax diagnostic", refusedWithSyntax);
+});

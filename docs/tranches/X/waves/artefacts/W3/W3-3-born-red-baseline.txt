@@ -1,0 +1,92 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W3 · X.W3.3 (Write contract, X.A3) — BORN-RED BASELINE
+========================================================
+Taken at HEAD 3a7aa908 (branch tranche-u), 2026-09-18, BEFORE any cure byte.
+Every figure double-run back to back; both runs byte-identical.
+
+SELF-COUNT LAW: this unit's own born-RED spec file
+(`api/src/modules/palette/__tests__/palette-write-contract.test.ts`) lives under `api/src` and
+names `matchedCount`/`UpdateResult` in its assertions. Every count below therefore EXCLUDES
+`__tests__` and is stated as a production-byte count — the same denominator W3.md:309 used.
+Undisambiguated, the same greps read matchedCount=4 · UpdateResult=3, and 3 of those 4 hits are
+this seat's own test rows.
+
+--- §6 baseline greps (G-8 · G-9 · G-10 · G-11), production bytes only ---
+RUN 1:
+  matchedCount_api=1  matchedCount_palette_domain=0  assertIfMatch_callsites=2  UpdateResult_api=0
+RUN 2:
+  matchedCount_api=1  matchedCount_palette_domain=0  assertIfMatch_callsites=2  UpdateResult_api=0
+
+G-8  ⟨cmd⟩ sed -n '107,115p' api/src/modules/palette/repository/palette.ts
+    update(
+        slug: string,
+        update: UpdateFilter<Palette>,
+        session?: ClientSession,
+    ): Promise<void> {
+        return this.col
+            .updateOne({ slug }, update, session ? { session } : undefined)
+            .then(() => undefined);
+    }
+     — the result is DISCARDED (`.then(() => undefined)`), the filter is `{ slug }` alone.
+     ⟨cmd⟩ grep -rn "matchedCount" api/src | grep -v __tests__
+       →  1 hit, modules/color/repository/proposedName.ts:79 — ZERO in the palette domain,
+          exactly as W3.md:309 measured at 41450f02.
+
+G-9  ⟨cmd⟩ grep -rn 'assertIfMatch(' api/src | grep -v 'export function' | grep -v __tests__
+api/src/modules/palette/routes/crud.ts:122:            assertIfMatch(ifMatch, paletteETag(current));
+api/src/modules/palette/routes/publish.ts:39:            assertIfMatch(ifMatch, paletteETag(current));
+     — 2 call sites, routes/crud.ts:122 and routes/publish.ts:39; NONE on /revert.
+
+G-10 ⟨cmd⟩ sed -n '92,99p' api/src/platform/http/idempotency.ts
+export const idempotency: MiddlewareHandler = async (c, next) => {
+    const idempotencyKey = c.req.header("Idempotency-Key");
+
+    // Opt-in: no key → never replay, never capture.
+    if (!idempotencyKey || idempotencyKey.trim() === "") {
+        await next();
+        return;
+    }
+     — absent key ⇒ `await next()` unconditionally (opt-in). Spec cites :94-99; the true
+       bytes are :92-99 (the export opens at :92). INTENT taken at the true bytes.
+
+G-11 ⟨cmd⟩ sed -n '82,83p' api/src/modules/palette/routes/versions.ts
+        return c.json(formatPalette(palette));
+    },
+     — `c.json(...)` with no status ⇒ 200. Spec cites :66; the true byte is :82 (X.W3.1 added
+       the list-route authorization and X.W3.2 the joined detail read above it). DRIFTED —
+       INTENT taken at :82.
+
+--- suite BEFORE this unit (⟨cmd⟩ cd api && npm test) ---
+  Test Files  2 failed | 37 passed (39)
+       Tests  2 failed | 227 passed (229)
+  The two reds are X.W3.2's returned ESC-W3.2-PAYLOAD-ADDRESSED-TESTS
+  (palette-forks.test.ts:68-71 · palettes-forks.test.ts:147-163) — inherited, not this unit's.
+
+--- the born-RED spec, run against the UNCURED bytes ---
+⟨cmd⟩ npx vitest run src/modules/palette/__tests__/palette-write-contract.test.ts --reporter=verbose
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-8: update() returns the driver's UpdateResult instead of discarding it 36ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-8: a fenced update whose ETag predicate still holds writes exactly one row 16ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-8: a fenced update whose ETag predicate went stale throws 412 and writes NOTHING 21ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-8: the fence follows the ETag — a hashless palette is fenced on updatedAt 26ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-9: revert without If-Match → 428 22ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-9: revert with a stale If-Match → 412, and the palette is byte-unchanged 23ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-9: revert with the current If-Match proceeds 27ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-10: revert without Idempotency-Key → 400 17ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-10: fork create without Idempotency-Key → 400 16ms
+ ✓ src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-10: fork create with an Idempotency-Key → 201 15ms
+ ✓ src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-10: a replayed key returns the stored response and does not re-run the handler 19ms
+ ✓ src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-10: the requirement is scoped — PATCH without a key is still served 18ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-11: revert → 201 and the body carries the APPENDED revision, not a bare palette 21ms
+ × src/modules/palette/__tests__/palette-write-contract.test.ts > palette write contract (X-W3 · X.W3.3) > G-11: the appended revision the 201 carries is exactly what /versions then lists first 16ms
+
+  Tests  11 failed | 3 passed (14)
+
+The three passing rows are deliberate both-sides CONTROLS, not slack:
+  · "fork create with an Idempotency-Key → 201"  — the happy path must keep working, so a cure
+    that simply walls fork create reads RED.
+  · "a replayed key returns the stored response" — CC-039's LRU replay already works; G-10 adds
+    the REQUIREMENT, and must not break the replay it rides on.
+  · "PATCH without a key is still served"        — the requirement is scoped to revert + fork
+    create; a blanket rule would read RED here.
+No test.skip, no test.fail(), no allowlist.

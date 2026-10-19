@@ -1,0 +1,68 @@
+{
+ "script": "bench.mjs",
+ "mode": "joint",
+ "rounds": 7,
+ "arms": [
+  "fx-fused-dcr",
+  "fx-fused-dcr+a"
+ ],
+ "node": "v26.0.0",
+ "sources": 29944,
+ "uptimeStart": "18:05  up 1 day, 54 mins, 3 users, load averages: 14.22 24.53 26.73",
+ "cells": [
+  {
+   "entry": "parseStylesheet",
+   "arms": [
+    "fx-fused-dcr",
+    "fx-fused-dcr+a"
+   ],
+   "uptimeBefore": "18:05  up 1 day, 54 mins, 3 users, load averages: 14.22 24.53 26.73",
+   "uptimeAfter": "18:05  up 1 day, 54 mins, 3 users, load averages: 14.20 24.35 26.65",
+   "res": {
+    "retired": {
+     "medianMs": 101.98,
+     "minMs": 71.69,
+     "pairedRatio": 1,
+     "ms": [
+      71.69,
+      201.44,
+      106.4,
+      77.54,
+      104.57,
+      95.43,
+      101.98
+     ]
+    },
+    "fx-fused-dcr": {
+     "medianMs": 212.49,
+     "minMs": 179.31,
+     "pairedRatio": 2.075,
+     "ms": [
+      217.73,
+      295.91,
+      220.84,
+      179.31,
+      184.54,
+      194.83,
+      212.49
+     ]
+    },
+    "fx-fused-dcr+a": {
+     "medianMs": 181.19,
+     "minMs": 141.4,
+     "pairedRatio": 1.848,
+     "ms": [
+      323.07,
+      164.03,
+      480.35,
+      143.28,
+      181.37,
+      181.19,
+      141.4
+     ]
+    }
+   }
+  }
+ ],
+ "uptimeEnd": "18:05  up 1 day, 54 mins, 3 users, load averages: 14.20 24.35 26.65"
+}

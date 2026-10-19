@@ -1,0 +1,27 @@
+swap cube->amiga · load 46.76 · LoAF>50 [{"start":6193,"dur":101,"scripts":[]},{"start":6313,"dur":189,"scripts":["ViewTransitionCallback /assets/index-C43enX_8.js 6","import.then /assets/index-C43enX_8.js 138","FrameRequestCallback /assets/progress-Bnzf-W0u.js 22"]},{"start":6510,"dur":52,"scripts":["import.then /assets/index-C43enX_8.js 6","import.then /assets/KeyframesStringControls-KtCiCObT.js 25","import.then /assets/formatEditorCSS-DjIHDfKm.js 8","FrameRequestCallback /assets/vendor-monaco-nwzXcI7Q.js 9"]}]
+JS self by file:
+  49.5ms /assets/vendor-reka-ui-C_Tr5-Vi.js
+  47.8ms /assets/vendor-three-nw0IrzH_.js
+  15.8ms /assets/glass-ui-ClrkbClX.js
+  14.5ms /assets/KeyframesStringControls-KtCiCObT.js
+  13.9ms /assets/vendor-monaco-nwzXcI7Q.js
+  12.1ms /assets/index-C43enX_8.js
+  7.5ms /assets/public-BzaX3NtH.js
+  2.3ms /assets/AmigaScene-9I_2OE6k.js
+  2.0ms /assets/vendor-prettier-BlTWbCTH.js
+  0.4ms /assets/binary-search-U2Hj7143.js
+  0.3ms /assets/progress-Bnzf-W0u.js
+  0.3ms /assets/keyboard-DBqyvHKw.js
+JS self by function:
+  14.6ms so /assets/glass-ui-ClrkbClX.js:1
+  14.1ms v /assets/KeyframesStringControls-KtCiCObT.js:6
+  12.4ms C /assets/vendor-three-nw0IrzH_.js:4046
+  8.2ms setSize /assets/vendor-three-nw0IrzH_.js:4104
+  4.6ms n /assets/vendor-three-nw0IrzH_.js:3956
+  2.6ms (anon) /assets/index-C43enX_8.js:15
+  2.1ms o /assets/index-C43enX_8.js:15
+  2.0ms (anon) /assets/index-C43enX_8.js:19
+  1.8ms ri /assets/vendor-reka-ui-C_Tr5-Vi.js:1
+  1.7ms T /assets/vendor-reka-ui-C_Tr5-Vi.js:3
+  1.5ms forceContextLoss /assets/vendor-three-nw0IrzH_.js:4104
+  1.5ms (anon) /assets/vendor-reka-ui-C_Tr5-Vi.js:5

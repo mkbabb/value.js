@@ -36,7 +36,7 @@
  *
  * ── WHY A SEED MATRIX, NOT ONE DEFAULT BOOT ─────────────────────────────────
  * X-W1-FOLD R16/R17. The boot model is resolved BEFORE the app is constructed
- * (`demo/color-picker/composables/boot/hydrate.ts`): URL hash, else the
+ * (`demo/app/composables/boot/hydrate.ts`): URL hash, else the
  * persisted store, else the default. `useColorPipeline`'s
  * `channelNumber(convertPickerColor(color,"hsv"),"h")` then runs in App.vue's
  * setup — OUTSIDE the ErrorBoundary, which is inside App's own template — so an
@@ -244,7 +244,7 @@ const CONTENT_TYPES = {
 /**
  * Serve a built directory at a BARE loopback origin on an ephemeral port.
  * Deliberately NOT an SPA fallback server: the demo uses `createWebHashHistory`
- * (`demo/color-picker/router/index.ts:41`), so every route is one document, and
+ * (`demo/app/router/index.ts:41`), so every route is one document, and
  * a catch-all rewrite would hide a genuinely missing asset behind index.html.
  */
 async function serveStatic(root) {

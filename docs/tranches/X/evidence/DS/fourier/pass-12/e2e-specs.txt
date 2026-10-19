@@ -1,0 +1,17 @@
+e2e/f-w14-control-row.spec.ts
+e2e/f-w14-uia.spec.ts
+e2e/f-w14v-au1.spec.ts
+e2e/f-w14-dpr.spec.ts
+e2e/f-w14-residuals.spec.ts
+e2e/f-w14v-au5.spec.ts
+e2e/f-w14v-au6.spec.ts
+e2e/f-w14u-gallery.spec.ts
+e2e/f-w14u-shell.spec.ts
+e2e/f-w14u-misc.spec.ts
+e2e/f-w14u-vstage.spec.ts
+e2e/f-w14v-au3.spec.ts
+e2e/f-w14v-au0.spec.ts
+e2e/shell-header.spec.ts
+e2e/f-w14v-nav.spec.ts
+e2e/visual-baseline.spec.ts
+e2e/visualization-ux.spec.ts

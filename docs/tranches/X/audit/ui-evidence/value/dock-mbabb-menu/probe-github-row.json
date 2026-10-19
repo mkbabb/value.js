@@ -1,0 +1,35 @@
+{
+ "rowTag": "DIV > A(block)",
+ "rowInner": {
+  "aDisplay": "block",
+  "svgDisplay": "block",
+  "aRect": {
+   "x": 745,
+   "y": 178.6640625,
+   "width": 53.5859375,
+   "height": 36.953125,
+   "top": 178.6640625,
+   "right": 798.5859375,
+   "bottom": 215.6171875,
+   "left": 745
+  },
+  "rowRect": {
+   "x": 737,
+   "y": 172.6640625,
+   "width": 200.625,
+   "height": 48.953125,
+   "top": 172.6640625,
+   "right": 937.625,
+   "bottom": 221.6171875,
+   "left": 737
+  }
+ },
+ "afterEnter": {
+  "popups": [],
+  "menuOpen": 0
+ },
+ "afterPaddingClick": {
+  "popups": [],
+  "menuOpen": 0
+ }
+}

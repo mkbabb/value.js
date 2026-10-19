@@ -1,0 +1,24 @@
+{
+  "hit": [
+    {
+      "x": 160.24274444580078,
+      "y": 458.032958984375,
+      "inside": true,
+      "hit": "DIV.current-line current-line-margin-both",
+      "pe": "auto"
+    },
+    {
+      "x": 274.7079391479492,
+      "y": 561.8784790039062,
+      "inside": true,
+      "hit": "DIV.view-lines monaco-mouse-cursor-text",
+      "pe": "auto"
+    }
+  ],
+  "afterMouseClick": "DIV CSS native-edit-context",
+  "afterProgrammaticFocus": "DIV CSS native-edit-context",
+  "afterEnd": "native-edit-context",
+  "midType": "native-edit-context",
+  "textAfter": "transform: rotate(90deg); oklch()",
+  "errorShown": "css syntax at \"oklch()\" — expected declaration"
+}

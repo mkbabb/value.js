@@ -1,0 +1,36 @@
+idle 1955 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 2959 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 3962 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 4964 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 5975 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 6978 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 7989 dock-scroll-x expanded fit-content dock-inline 279 BODY
+idle 8995 dock-scroll-x expanded fit-content dock-inline 279 BODY
+hovered 10856 dock-scroll-x expanded fit-content dock-inline 279 BODY
+left+1s 11872 dock-scroll-x expanded fit-content dock-inline 279 BODY
+left+2s 12876 dock-scroll-x expanded fit-content dock-inline 279 BODY
+left+3s 13878 dock-scroll-x expanded fit-content dock-inline 279 BODY
+left+4s 14881 dock-scroll-x collapsed fit-content dock-inline 64 BODY
+left+5s 15890 dock-scroll-x collapsed fit-content dock-inline 56 BODY
+left+6s 16892 dock-scroll-x collapsed fit-content dock-inline 56 BODY
+tab0 17079 dock-scroll-x collapsed fit-content dock-inline 56 DIV[fv]
+tab1 17091 dock-scroll-x collapsed fit-content dock-inline 56 INPUT[fv]
+tab2 17094 dock-scroll-x collapsed fit-content dock-inline 56 INPUT[fv]
+tab3 17096 dock-scroll-x collapsed fit-content dock-inline 56 INPUT[fv]
+tab4 17107 dock-scroll-x collapsed fit-content dock-inline 56 BUTTON[fv]
+tab5 17110 dock-scroll-x collapsed fit-content dock-inline 56 BUTTON[fv]
+tab6 17112 dock-scroll-x collapsed fit-content dock-inline 56 Edit easing curve[fv]
+tab7 17122 dock-scroll-x collapsed fit-content dock-inline 56 BUTTON[fv]
+tab8 17125 dock-scroll-x collapsed fit-content dock-inline 56 BUTTON[fv]
+tab9 17128 dock-scroll-x collapsed fit-content dock-inline 56 Scrub animation timeline[fv]
+tab10 17131 dock-scroll-x collapsed fit-content dock-inline 56 BUTTON[fv]
+tab11 17141 dock-scroll-x collapsed fit-content dock-inline 56 BUTTON[fv]
+tab12 17146 dock-scroll-x expanded fit-content dock-inline 56 Pause animation[fv]@bottom[INERT]
+tab12+200ms 17357 dock-scroll-x expanded fit-content dock-inline 279 BODY
+tab12+400ms 17579 dock-scroll-x expanded fit-content dock-inline 279 BODY
+tab12+600ms 17789 dock-scroll-x expanded fit-content dock-inline 279 BODY
+tab12+800ms 18007 dock-scroll-x expanded fit-content dock-inline 279 BODY
+tab12+1000ms 18210 dock-scroll-x expanded fit-content dock-inline 279 BODY
+tab12+1200ms 18413 dock-scroll-x expanded fit-content dock-inline 279 BODY
+tab-next 18626 dock-scroll-x expanded fit-content dock-inline 279 Scene[fv]
+tab-next+400 19029 dock-scroll-x expanded fit-content dock-inline 279 Scene[fv]

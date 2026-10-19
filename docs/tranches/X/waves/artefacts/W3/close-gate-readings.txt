@@ -1,0 +1,169 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X-W3 CLOSE — the 22 §6 gates re-measured by the close seat at the settled bytes
+# VERIFY-ONLY. 2026-09-18, branch tranche-u. Every reading below is this seat's own
+# command against the tree as it stands, not a quotation of a unit receipt.
+
+===== G-1 (P0) =====
+$ grep -rn 'assertReadable' api/src | wc -l
+       7
+$ grep -rn 'assertPaletteReadable' api/src
+api/src/modules/palette/service/crud.ts:32:import { assertPaletteReadable } from "./visibility.js";
+api/src/modules/palette/service/crud.ts:53:    const doc = await assertPaletteReadable(services, slug, currentUserSlug);
+api/src/modules/palette/service/versions.ts:14:import { assertPaletteReadable } from "./visibility.js";
+api/src/modules/palette/service/versions.ts:143:    await assertPaletteReadable(services, paletteSlug, viewer);
+api/src/modules/palette/service/visibility.ts:108:export async function assertPaletteReadable(
+api/src/modules/palette/routes/versions.ts:29:import { assertPaletteReadable } from "../service/visibility.js";
+api/src/modules/palette/routes/versions.ts:48:    await assertPaletteReadable(c.var.services, slug, c.var.userSlug);
+
+===== G-2 =====
+$ grep -n 'assertPaletteReadable\|GoneError' api/src/modules/palette/service/crud.ts
+22:import { ConflictError, GoneError, NotFoundError } from "../../../platform/http/errors/index.js";
+32:import { assertPaletteReadable } from "./visibility.js";
+53:    const doc = await assertPaletteReadable(services, slug, currentUserSlug);
+63:        throw new GoneError("Palette has been deleted");
+
+===== G-3 =====
+$ grep -n 'assertPaletteReadable' api/src/modules/palette/routes/versions.ts
+29:import { assertPaletteReadable } from "../service/visibility.js";
+48:    await assertPaletteReadable(c.var.services, slug, c.var.userSlug);
+
+===== G-4  (RED) =====
+$ grep -n 'getProvenance' api/src/modules/palette/service/forks.ts api/src/modules/palette/routes/forks.ts
+api/src/modules/palette/service/forks.ts:181:export async function getProvenance(
+api/src/modules/palette/routes/forks.ts:15:import { forkPalette, getProvenance, listForks } from "../service/forks.js";
+api/src/modules/palette/routes/forks.ts:74:    const chain = await getProvenance(c.var.services, slug);
+
+===== G-5 =====
+$ grep -rn 'getVersionByHash' api/src | grep -v __tests__
+api/src/modules/palette/service/versions.ts:125: * Replaces the global `getVersionByHash`, which took a hash alone: any caller
+$ grep -rn 'findByPaletteAndHash' api/src | wc -l
+       5
+
+===== G-6 (P0) — cure at the bytes, wire clause NOT measurable =====
+$ grep -n 'findByPaletteAndHash' api/src/modules/palette/service/versions.ts
+144:    const version = await services.repositories.paletteVersions.findByPaletteAndHash(
+184:    const version = await services.repositories.paletteVersions.findByPaletteAndHash(
+the gate's own wire row now answers 428 (X.W3.3's If-Match precondition) BEFORE the join it measures:
+  FAIL palette-versions.test.ts > G-6: owner of A reverting to a hash belonging to B -> 404  (expected 404, received 428)
+
+===== G-7 =====
+$ grep -rn 'payloadHash' api/src | wc -l
+      38
+$ grep -rn 'revisionNo' api/src | wc -l
+      42
+$ ls -1 api/src/platform/migrations/
+check.ts
+x-w3-visibility-payloadhash.ts
+
+===== G-8 (RED — wiring returned) =====
+$ grep -rn 'matchedCount' api/src | grep -v __tests__
+api/src/modules/color/repository/proposedName.ts:79:        return result.matchedCount > 0;
+api/src/modules/palette/etag.ts:73:    if (result.matchedCount !== 1) {
+api/src/modules/palette/repository/palette.ts:113:     * The driver's `UpdateResult` is RETURNED, not discarded: `matchedCount`
+api/src/modules/palette/repository/palette.ts:121:     * validated `If-Match` against, and `matchedCount === 0` means another
+
+===== G-9 =====
+$ grep -rn 'assertIfMatch(' api/src | grep -v 'export function' | grep -v __tests__
+api/src/modules/palette/routes/crud.ts:122:            assertIfMatch(ifMatch, paletteETag(current));
+api/src/modules/palette/routes/publish.ts:39:            assertIfMatch(ifMatch, paletteETag(current));
+api/src/modules/palette/routes/versions.ts:86:            assertIfMatch(ifMatch, paletteETag(current));
+
+===== G-10 =====
+$ grep -n 'IDEMPOTENCY_REQUIRED' api/src/platform/http/idempotency.ts
+9: *   - Header ABSENT on an operation in `IDEMPOTENCY_REQUIRED` (revert + fork
+91:const IDEMPOTENCY_REQUIRED: readonly { method: string; path: RegExp }[] = [
+97:    return IDEMPOTENCY_REQUIRED.some(
+140:        // `IDEMPOTENCY_REQUIRED`) — absent key → 400, before the handler runs.
+
+===== G-11 =====
+$ grep -n '201' api/src/modules/palette/routes/versions.ts
+8: *                                   REQUIRED, answers 201 with the appended
+101:        // X-W3 · G-11 (fold §B) — a revert CREATES a release; it answers 201,
+105:        // history"), so a bare 201 would close this gate and strand that one.
+127:            201,
+
+===== G-12 (RED — X.W3.4 never ran) =====
+$ grep -n 'forksRouter.post' api/src/modules/palette/routes/forks.ts
+19:forksRouter.post("/:slug/fork", async (c) => {
+$ grep -n 'visibility:' api/src/modules/palette/service/forks.ts
+76:        visibility: "public",
+
+===== G-13 (RED — X.W3.4 never ran) =====
+$ sed -n '70,86p' api/src/modules/palette/repository/palette.ts
+
+    findForksOf(slug: string, skip: number, limit: number): Promise<WithId<Palette>[]> {
+        return this.col
+            .find({ forkOf: slug, deletedAt: null })
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
+            .toArray();
+    }
+
+    countForksOf(slug: string, session?: ClientSession): Promise<number> {
+        return this.col.countDocuments(
+            { forkOf: slug, deletedAt: null },
+            session ? { session } : undefined,
+        );
+    }
+
+
+===== G-14 (RED — X.W3.4 never ran) =====
+$ grep -n 'forkCount' api/src/modules/palette/format.ts
+38:    forkCount: number;
+74:        forkCount: rest.forkCount,
+
+===== G-15 (RED — X.W3.5 never ran) =====
+$ grep -n 'PALETTE_VISIBILITIES' api/src/modules/palette/model.ts
+19:export const PALETTE_VISIBILITIES = ["public", "unlisted", "private"] as const;
+20:export type PaletteVisibility = (typeof PALETTE_VISIBILITIES)[number];
+$ grep -c 'moderation' api/src/modules/palette/model.ts
+0
+$ grep -n 'unlisted' api/src/platform/migrations/check.ts
+58:            d.visibility === "unlisted" ||
+
+===== G-16 (DECISION — UNDISPOSED; X.W3.5 never ran) =====
+$ grep -c 'diff' api/src/modules/palette/routes/index.ts
+0
+
+===== G-17 =====
+$ grep -rn 'ADMIN-POLICY' api/src | wc -l
+       3
+$ grep -c 'authorizeAdminPaletteOp' api/src/modules/admin/service/palettes.ts
+4
+$ grep -c 'palettes.findBySlug' api/src/modules/admin/service/palettes.ts
+0
+
+===== G-18 (P0) =====
+$ grep -rn 'router.beforeEach' demo --include='*.ts'
+demo/color-picker/router/guards.ts:50:    router.beforeEach((to) => {
+(runtime: see e2e-route-guard.txt — 3 passed, this seat's own run)
+
+===== G-19 (structural) =====
+$ grep -c 'return ColorPicker;' demo/shell/usePaneRouter.ts
+1
+$ grep -n 'function componentFor' demo/shell/usePaneRouter.ts
+127:function componentFor(name: LeftPane | RightPane): Component | null {
+
+===== G-20 =====
+$ grep -n 'not-found' demo/color-picker/router/index.ts
+40:    // which rendered correctly and answered the wrong question; `not-found` is a
+45:    { path: "/:pathMatch(.*)*", name: "not-found", component: NotFoundPane },
+$ grep -c 'component: Stub' demo/color-picker/router/index.ts
+14
+
+===== G-21 (HANDOFF — RED, ESC-W3-G21) =====
+$ grep -c 'Stub' docs/tranches/X/waves/W5.md
+0
+$ grep -c 'Stub' docs/tranches/X/refinement/X-W5-FOLD.md
+0
+
+===== G-22 (RED) =====
+cd api && npm test -> Test Files 3 failed | 37 passed (40) · Tests 3 failed | 241 passed (244)  [double-run identical]
+npm run typecheck -> exit 0 (vue-tsc lib + demo + test, tsc e2e)
+e2e/smoke/admin/route-guard.spec.ts -> 3 passed
+$ grep -rn 'test.fail\|test.skip' api/src --include='*.ts' | wc -l
+       0
+$ grep -c 'test.fail\|test.skip\|test.fixme' e2e/smoke/admin/route-guard.spec.ts
+0

@@ -1,0 +1,42 @@
+SERVED MODEL: claude-opus-5-5[1m]
+X-W6 Repair 1 — probe readings, 2026-09-22 (copied verbatim from the seat's tool output; headless chromium)
+
+## probe-blob-arrival.mjs (C1-3 / C1-7) — seed oklch(0.65 0.3 150), 1440x900, times in ms from navigation
+### :8290 warm (another run in flight)
+0 gotoMs 524 anchor/canvas 3049.3 fcp 576
+1 gotoMs 496 anchor/canvas 2973.7 fcp 544
+2 gotoMs 553 anchor/canvas 3330.6 fcp 616
+### :8390 FRESHLY SPAWNED vite (first navigation = cold on-demand transform)
+0 gotoMs 14247 canvas 17138.2 fcp 13848
+1 gotoMs 736   canvas 2450.1  fcp 784
+2 gotoMs 625   canvas 16243   fcp 660
+### :8390, beat marks (overture b0..b4)
+0 canvas 6428.6 marks b0@27 b1@3631 b3@3721 b2@4249 b4@5262 fcp 3800
+1 canvas 2051.9 marks b0@19 b1@382 b3@462 b2@1084 b4@2034 fcp 528
+2 canvas 3136.9 marks b0@16 b1@420 b3@504 b2@1113 b4@2110 fcp 572
+3 canvas 2880.8 marks b0@11 b1@373 b3@461 b2@1111 b4@2071 fcp 536
+4 canvas 3252.1 marks b0@10 b1@363 b3@436 b2@1106 b4@2093 fcp 496
+(a second batch of 8: canvas 1645..5166 ms)
+
+## probe-listbox-close.mjs (C1-2 / f3) — About card space picks, 1280x720 swiftshader, :8290, load 22.8
+Display P3 hidden 2851 ms · HSL 10 · Lab 2886 · OKLCh 887 · XYZ 1409 · HWB 902 · Rec. 2020 828 · sRGB Linear 823 · Kelvin 824 · RGB 3404 · stuck 0
+
+## probe-listbox-stuck.mjs (C1-2 / f3) — first pick after a 4 s idle, :8290, load 86-88
+STUCK Display P3
+   DIV ds=closed anim=glass-reveal-out|0.15s|running|1 op=1 tr=none anims=glass-reveal-out:running:0/150
+   HTML anims=--saved-bg-1:running:0/200,--saved-bg-0:running:0/200,--saved-bg-3:running:0/200,--saved-bg-2:running:0/200,--saved-bg:running:0/200
+   docHidden=visible prm=false
+   rAF@ [-5,8989,11762,12610]
+   canvases atmosphere-canvas 300x150 | goo-blob-canvas 63x63
+
+## probe-raf-cadence.mjs — Home idle, then a ground-stop write, :8290, load 86 -> 68
+asis   idle rAF@ [17198,17772,18106,18794,18802]
+asis   ground-transition rAF@ [4008,5687,9458,10321,11817,15267,15275,15283]
+noblur idle rAF@ [3877,4248,4352,5557,5566,5693,7328,7840]
+noblur ground-transition rAF@ [389,952,1060,2507,4415,4590,7044,7865]
+(noblur = an injected `*{backdrop-filter:none!important}` in the probe page only; N=1 per arm, not conclusive)
+
+## probe-pane-settle.mjs — "/" -> Gradient via the view select, :8390 fresh
+1000 []
+4000 [stage wrapper vj-enter-enter-active tf=matrix(... -563.2, 0) anims=transform:running:0, pane card tf=matrix(... 563.2, 0) anims=transform:running:0]
+10000 []

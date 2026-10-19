@@ -1,0 +1,4 @@
+o5c-base: load 14.12 boot=196ms boot=124ms boot=138ms
+o5c: load 17.59 boot=137ms boot=106ms boot=126ms
+o5c-base: load 15.21 boot=199ms boot=141ms boot=128ms
+o5c: load 13.44 boot=146ms boot=98ms boot=96ms

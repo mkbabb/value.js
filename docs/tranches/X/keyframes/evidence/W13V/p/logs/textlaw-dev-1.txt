@@ -1,0 +1,50 @@
+light 1440x900 home     field=16px | stage: tiles=0 p1bad=0 p2bad=0
+light 1440x900 cube     field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+light 1440x900 amiga    field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+light 1440x900 square   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+light 1440x900 easing   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0 | easing: tiles=0 p1bad=0 p2bad=0
+light 1440x900 spring   field=16px | stage: tiles=4 p1bad=0 p2bad=0 | controls: tiles=4 p1bad=0 p2bad=0 | keyframes: tiles=4 p1bad=0 p2bad=0 | timeline: tiles=4 p1bad=0 p2bad=0 | spring: tiles=4 p1bad=0 p2bad=0
+light 1440x900 sequence field=16px | stage: tiles=0 p1bad=0 p2bad=0
+light 390x844 home     field=16px | stage: tiles=0 p1bad=0 p2bad=0
+light 390x844 cube     field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+light 390x844 amiga    field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+light 390x844 square   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+light 390x844 easing   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0 | easing: tiles=0 p1bad=0 p2bad=0
+light 390x844 spring   field=16px | stage: tiles=4 p1bad=0 p2bad=0 | controls: tiles=4 p1bad=0 p2bad=0 | keyframes: tiles=4 p1bad=0 p2bad=0 | timeline: tiles=4 p1bad=0 p2bad=0 | spring: tiles=4 p1bad=0 p2bad=0
+light 390x844 sequence field=16px | stage: tiles=0 p1bad=0 p2bad=0
+dark 1440x900 home     field=16px | stage: tiles=0 p1bad=0 p2bad=0
+dark 1440x900 cube     field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+dark 1440x900 amiga    field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+dark 1440x900 square   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+dark 1440x900 easing   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0 | easing: tiles=0 p1bad=0 p2bad=0
+dark 1440x900 spring   field=16px | stage: tiles=4 p1bad=0 p2bad=0 | controls: tiles=4 p1bad=0 p2bad=0 | keyframes: tiles=4 p1bad=0 p2bad=0 | timeline: tiles=4 p1bad=0 p2bad=0 | spring: tiles=4 p1bad=0 p2bad=0
+dark 1440x900 sequence field=16px | stage: tiles=0 p1bad=0 p2bad=0
+dark 390x844 home     field=16px | stage: tiles=0 p1bad=0 p2bad=0
+dark 390x844 cube     field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+dark 390x844 amiga    field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+dark 390x844 square   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0
+dark 390x844 easing   field=16px | stage: tiles=0 p1bad=0 p2bad=0 | controls: tiles=0 p1bad=0 p2bad=0 | keyframes: tiles=0 p1bad=0 p2bad=0 | timeline: tiles=0 p1bad=0 p2bad=0 | easing: tiles=0 p1bad=0 p2bad=0
+dark 390x844 spring   field=16px | stage: tiles=4 p1bad=0 p2bad=0 | controls: tiles=4 p1bad=0 p2bad=0 | keyframes: tiles=4 p1bad=0 p2bad=0 | timeline: tiles=4 p1bad=0 p2bad=0 | spring: tiles=4 p1bad=0 p2bad=0
+dark 390x844 sequence field=16px | stage: tiles=0 p1bad=0 p2bad=0
+--- distinct multi-line selectable tiles (route/view element text lines radius):
+  spring/stage button.toggle-group__item.control-surface[radio] "smooth0.5 s · ζ 0.86" 2L r=16
+  spring/stage button.toggle-group__item.control-surface[radio] "snappy0.35 s · ζ 0.65" 2L r=16
+  spring/stage button.toggle-group__item.control-surface[radio] "bouncy0.5 s · ζ 0.45" 2L r=16
+  spring/stage button.toggle-group__item.control-surface[radio] "gentle0.7 s · ζ 1" 2L r=16
+  spring/controls button.toggle-group__item.control-surface[radio] "smooth0.5 s · ζ 0.86" 2L r=16
+  spring/controls button.toggle-group__item.control-surface[radio] "snappy0.35 s · ζ 0.65" 2L r=16
+  spring/controls button.toggle-group__item.control-surface[radio] "bouncy0.5 s · ζ 0.45" 2L r=16
+  spring/controls button.toggle-group__item.control-surface[radio] "gentle0.7 s · ζ 1" 2L r=16
+  spring/keyframes button.toggle-group__item.control-surface[radio] "smooth0.5 s · ζ 0.86" 2L r=16
+  spring/keyframes button.toggle-group__item.control-surface[radio] "snappy0.35 s · ζ 0.65" 2L r=16
+  spring/keyframes button.toggle-group__item.control-surface[radio] "bouncy0.5 s · ζ 0.45" 2L r=16
+  spring/keyframes button.toggle-group__item.control-surface[radio] "gentle0.7 s · ζ 1" 2L r=16
+  spring/timeline button.toggle-group__item.control-surface[radio] "smooth0.5 s · ζ 0.86" 2L r=16
+  spring/timeline button.toggle-group__item.control-surface[radio] "snappy0.35 s · ζ 0.65" 2L r=16
+  spring/timeline button.toggle-group__item.control-surface[radio] "bouncy0.5 s · ζ 0.45" 2L r=16
+  spring/timeline button.toggle-group__item.control-surface[radio] "gentle0.7 s · ζ 1" 2L r=16
+  spring/spring button.toggle-group__item.control-surface[radio] "smooth0.5 s · ζ 0.86" 2L r=16
+  spring/spring button.toggle-group__item.control-surface[radio] "snappy0.35 s · ζ 0.65" 2L r=16
+  spring/spring button.toggle-group__item.control-surface[radio] "bouncy0.5 s · ζ 0.45" 2L r=16
+  spring/spring button.toggle-group__item.control-surface[radio] "gentle0.7 s · ζ 1" 2L r=16
+tile-reads=80 p1-fail=0 p2-fail=0

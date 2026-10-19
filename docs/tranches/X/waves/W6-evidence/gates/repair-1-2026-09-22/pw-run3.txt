@@ -1,0 +1,385 @@
+(node:20174) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 25 tests using 1 worker
+
+(node:20199) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)
+  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('option', { name: 'Gradient', exact: true })
+        - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-66" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:39:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:64:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--fa6c7--s-color-no-mirrored-bleed--smoke/error-context.md
+
+
+(node:21007) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[2/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip
+  2) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+
+    Error: Test timeout of 30000ms exceeded
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:45:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:84:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--8acc1-peat-border-box-origin-clip-smoke/error-context.md
+
+
+(node:21855) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[3/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+  3) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('combobox', { name: 'Select view' })
+        - locator resolved to <button dir="ltr" type="button" role="combobox" data-v-f4747a24="" data-state="closed" aria-expanded="false" aria-required="false" aria-label="Select view" aria-autocomplete="none" aria-controls="reka-select-content-v-2" class="dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none">…</button>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+
+
+       at smoke/fixtures/dock.ts:64
+
+      62 |     const viewSelect = page.getByRole("combobox", { name: "Select view" });
+      63 |     await expect(viewSelect).toBeVisible();
+    > 64 |     await viewSelect.click();
+         |                      ^
+      65 |
+      66 |     // Assert the listbox actually opened, so a closed-listbox regression
+      67 |     // surfaces HERE with a clear message rather than as a downstream
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:64:22)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:39:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:111:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--7e308-ss-ui-slider-track-register-smoke/error-context.md
+
+
+(node:22644) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[4/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal
+  4) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('option', { name: 'Gradient', exact: true })
+        - locator resolved to <div role="option" tabindex="-1" data-v-f4747a24="" aria-selected="false" data-state="unchecked" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-66" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center text-dropdown outline-none data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled py-1.5 px-2.5">…</div>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+
+
+       at smoke/fixtures/dock.ts:78
+
+      76 |     const option = page.getByRole("option", { name, exact: true });
+      77 |     await expect(option).toBeVisible();
+    > 78 |     await option.click();
+         |                  ^
+      79 | }
+      80 |
+      81 | /**
+        at openView (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:78:18)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:39:5)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:147:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--bb2b6-ramp-paints-its-own-ordinal-smoke/error-context.md
+
+
+(node:23476) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[5/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal
+  5) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+    Expected: 3
+    Received: 2
+
+    Call log:
+      - Expect "toHaveCount" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByTestId('gradient-stop-bar').last().locator('[data-stop-id]')
+        13 × locator resolved to 2 elements
+           - unexpected value "2"
+
+
+      220 |         const rb = (await live.boundingBox())!;
+      221 |         await page.mouse.click(hb.x + hb.width / 2, rb.y + 4);
+    > 222 |         await expect(live.locator("[data-stop-id]")).toHaveCount(before.length + 1);
+          |                                                      ^
+      223 |
+      224 |         const after = await ids();
+      225 |         const mintedId = after.find((id) => !before.includes(id))!;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o21-gradient-rail.spec.ts:222:54
+
+    Error Context: test-results/oracles-o21-gradient-rail--c9334-pixel-reads-its-own-ordinal-smoke/error-context.md
+
+
+(node:24174) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[6/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:245:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail
+[7/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:313:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width
+[8/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:366:1 › stop inspector numeric entry round-trips to the ordinal the rail paints
+[9/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:422:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound
+[10/25] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:491:1 › one removal owner: the floor is a disabled control carrying its reason
+[11/25] [smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+[smoke] › e2e/smoke/oracles/o22-specimen-legibility.spec.ts:76:1 › every specimen caption fits its box
+X.W6.f f4 CENSUS — 0/18 captions overflow
+  box (narrowest clientWidth): 78px
+  worst scrollWidth: 397px (46 chars, "color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)")
+  per-character advance: 8.630px
+  caption type: font-size 14.048px letter-spacing normal
+  fits  259/259 px  30ch  rgb(385.3 143.4 199.6 / 82.7%)
+  fits  285/285 px  33ch  hsl(346deg -1295% 103.7% / 82.7%)
+  fits  225/225 px  26ch  hsv · 346 · 0.6279 · 1.511
+  fits  285/285 px  33ch  hwb(346deg 56.23% -51.1% / 82.7%)
+  fits  207/207 px  24ch  lab(92% 88.8 20 / 82.7%)
+  fits  268/268 px  31ch  lch(92% 91.02 12.69deg / 82.7%)
+  fits  302/302 px  35ch  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  fits  320/320 px  37ch  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  fits  328/328 px  38ch  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  fits  112/112 px  13ch  kelvin · 5309
+  fits  389/389 px  45ch  color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  fits  389/389 px  45ch  color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  fits  363/363 px  42ch  color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  fits  397/397 px  46ch  color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  fits  354/354 px  41ch  color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  fits  276/276 px  32ch  ictcp · 0.5591 · 0.0437 · 0.1739
+  fits  285/285 px  33ch  jzazbz · 0.2215 · 0.1177 · 0.0428
+  fits   78/78 px   9ch  #ff8fc8d3
+
+[12/25] [smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:213:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+[smoke] › e2e/smoke/oracles/o23-specimen-gamut-honesty.spec.ts:213:1 › out-of-gamut rows are marked, and no printed coordinate was projected
+X.W6.f f6 CENSUS — seed lab(92% 88.8 20 / 82.70%)
+  rgb           css       MARKED    rgb(385.3 143.4 199.6 / 82.7%)
+  hsl           css       MARKED    hsl(346deg -1295% 103.7% / 82.7%)
+  hsv           channels  MARKED    hsv · 346 · 0.6279 · 1.511
+  hwb           css       MARKED    hwb(346deg 56.23% -51.1% / 82.7%)
+  lab           css       in-gamut  lab(92% 88.8 20 / 82.7%)
+  lch           css       in-gamut  lch(92% 91.02 12.69deg / 82.7%)
+  oklab         css       in-gamut  oklab(95.83% 0.2684 0.0465 / 82.7%)
+  oklch         css       in-gamut  oklch(95.83% 0.2725 9.834deg / 82.7%)
+  xyz           css       in-gamut  color(xyz 1.267 0.7878 0.6296 / 82.7%)
+  kelvin        channels  in-gamut  kelvin · 5309
+  srgb-linear   css       MARKED    color(srgb-linear 2.58 0.2763 0.5753 / 82.7%)
+  display-p3    css       MARKED    color(display-p3 1.402 0.6284 0.7905 / 82.7%)
+  a98-rgb       css       MARKED    color(a98-rgb 1.347 0.5571 0.7701 / 82.7%)
+  prophoto-rgb  css       MARKED    color(prophoto-rgb 1.27 0.6889 0.7346 / 82.7%)
+  rec2020       css       MARKED    color(rec2020 1.258 0.7095 0.798 / 82.7%)
+  ictcp         channels  in-gamut  ictcp · 0.5591 · 0.0437 · 0.1739
+  jzazbz        channels  in-gamut  jzazbz · 0.2215 · 0.1177 · 0.0428
+  hex           css       MARKED    #ff8fc8d3
+
+X.W6.f f6(ii) — worst un-projected Lab recovery 7.517e-1 (hsl); bound 1; clipped control (hex) 4.061e+1
+
+[13/25] [smoke] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+[smoke] › e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts:73:1 › every catalog row mounts its own silhouette, keyed off the seed and not the filter url
+X.W6.f f8 CENSUS — distinctVisualSignatures = 18 of 18
+  (url-keyed would report 18 — the recorded false-GREEN trap, excluded)
+  rgb           seed=139 bg=lab(92 88.8 20 / 0.827) radius=23.4211% 70.4608% 75.3555% 45.2175% / 43.6606% 24.8166% 51.9599% 50.8219%
+  hsl           seed=151 bg=lab(92 88.8 20 / 0.827) radius=38.62% 42.1289% 41.8862% 78.9748% / 76.6361% 26.1014% 23.3427% 61.5578%
+  hsv           seed=161 bg=lab(92 88.8 20 / 0.827) radius=63.356% 24.9525% 74.3151% 61.3301% / 24.3797% 75.4923% 49.3263% 58.6792%
+  hwb           seed= 17 bg=lab(92 88.8 20 / 0.827) radius=35.3019% 71.9359% 60.0809% 47.318% / 50.8487% 28.0749% 61.6113% 71.0058%
+  lab           seed= 63 bg=lab(92 88.8 20 / 0.827) radius=58.1404% 72.6354% 69.7% 61.9799% / 23.0273% 35.3412% 37.9846% 76.2753%
+  lch           seed=135 bg=lab(92 88.8 20 / 0.827) radius=75.9955% 55.4428% 56.1283% 40.4491% / 47.7428% 23.8725% 31.0119% 39.9504%
+  oklab         seed=185 bg=lab(92 88.8 20 / 0.827) radius=34.5921% 25.4806% 29.5453% 53.2048% / 65.5605% 39.9849% 58.6353% 24.6319%
+  oklch         seed=  1 bg=lab(92 88.8 20 / 0.827) radius=64.9889% 30.2963% 66.2162% 63.1166% / 34.8126% 63.9556% 67.884% 75.654%
+  xyz           seed=123 bg=lab(92 88.8 20 / 0.827) radius=77.9535% 32.3528% 62.8153% 24.5566% / 76.1964% 22.2908% 31.2272% 46.3252%
+  kelvin        seed=249 bg=lab(92 88.8 20 / 0.827) radius=32.7486% 68.2008% 73.2236% 42.5248% / 53.2509% 74.7796% 31.0369% 68.0678%
+  srgb-linear   seed=102 bg=lab(92 88.8 20 / 0.827) radius=24.4176% 49.9775% 34.8167% 61.1069% / 63.0184% 25.6046% 69.8946% 53.9848%
+  display-p3    seed=118 bg=lab(92 88.8 20 / 0.827) radius=52.2055% 67.0283% 49.9445% 55.1341% / 72.2384% 25.2067% 42.9991% 37.827%
+  a98-rgb       seed=202 bg=lab(92 88.8 20 / 0.827) radius=58.0477% 29.6316% 57.1131% 59.5696% / 72.4616% 33.2626% 38.2899% 44.2414%
+  prophoto-rgb  seed=179 bg=lab(92 88.8 20 / 0.827) radius=30.7185% 62.8157% 22.9077% 68.3142% / 42.2426% 21.2406% 69.0458% 35.6567%
+  rec2020       seed= 14 bg=lab(92 88.8 20 / 0.827) radius=66.624% 30.9382% 43.441% 60.978% / 58.1172% 57.2564% 67.4878% 28.8015%
+  ictcp         seed=  3 bg=lab(92 88.8 20 / 0.827) radius=33.267% 72.0988% 57.0025% 62.8495% / 26.7332% 57.697% 63.8372% 65.6862%
+  jzazbz        seed=235 bg=lab(92 88.8 20 / 0.827) radius=42.5542% 59.1851% 37.6087% 28.2555% / 70.6899% 20.5531% 61.1712% 51.1076%
+  hex           seed=213 bg=lab(92 88.8 20 / 0.827) radius=33.6998% 50.5583% 70.2832% 45.9203% / 65.4062% 70.224% 66.447% 44.4037%
+
+[14/25] [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors
+  6) [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:46:18
+
+    Error Context: test-results/views-gradient-gradient-vi-bff74-er-with-zero-console-errors-smoke/error-context.md
+
+
+(node:29213) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[15/25] [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)
+  7) [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:80:18
+
+    Error Context: test-results/views-gradient-the-rail-is-b352d-rries-type-direction-T-21b--smoke/error-context.md
+
+
+(node:30095) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[16/25] [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1)
+  8) [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 8000ms
+      - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+
+
+      20 |     await openView(page, "Gradient");
+      21 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 22 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      23 |     // The swap spring must be at rest before interactions — the cold-load
+      24 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      25 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:22:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:125:18
+
+    Error Context: test-results/views-gradient-selecting-a-fa66d-ithout-destroying-it-P7-R1--smoke/error-context.md
+
+
+(node:30906) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[17/25] [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict
+  9) [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.scrollIntoViewIfNeeded: Test timeout of 30000ms exceeded.
+    Call log:
+      - attempting scroll into view action
+        - waiting for element to be stable
+
+
+      168 |
+      169 |     // Three stops, so there is an interior neighbour to cross.
+    > 170 |     await bar(main).scrollIntoViewIfNeeded();
+          |                     ^
+      171 |     const box = (await bar(main).boundingBox())!;
+      172 |     await bar(main).click({ position: { x: box.width * 0.5, y: box.height / 2 } });
+      173 |     await expect(handles(main)).toHaveCount(3);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:170:21
+
+    Error Context: test-results/views-gradient-neighbour-c-a8543--re-applies-with-no-verdict-smoke/error-context.md
+
+
+(node:31695) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[18/25] [smoke] › e2e/smoke/views/gradient.spec.ts:209:1 › a grab is not a teleport, and no secondary button mints
+[19/25] [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove
+[20/25] [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved
+[21/25] [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched
+[22/25] [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop
+[23/25] [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal
+[24/25] [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10)
+[25/25] [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora
+  9 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal 
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict 
+  16 passed (9.7m)
+EXIT 1

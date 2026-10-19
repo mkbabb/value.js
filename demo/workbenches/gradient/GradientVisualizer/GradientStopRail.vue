@@ -1,0 +1,1013 @@
+<script setup lang="ts">
+/**
+ * GradientStopRail — the stop rail: the ramp, the handles and their gestures
+ * (drag, the keyboard grab and caret, crowding lanes, the click-to-add ghost).
+ * A2-VA-L1-11 split the 1099-line GradientStopEditor into this rail and
+ * GradientStopInspector; GradientVisualizer composes the two, the inspector
+ * seated through this rail's scoped slot. The rail keeps the selection model,
+ * the ONE removal owner (its Delete key and the inspector's Remove both land in
+ * `requestRemove`) and the seat's polite channel, and hands them to the slot.
+ */
+import { ref, computed, watchEffect, useTemplateRef } from "vue";
+import { useElementSize } from "@vueuse/core";
+import { clamp, scale } from "@mkbabb/value.js/math";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "../../../color-session/picker-color";
+import type { GradientStop } from "../model/types";
+import { sampleAt } from "../model/sample";
+import { formatColorLiteral, railPosition } from "../composables/useGradientCSS";
+
+const { stops, railRamp, interpolationSpace, hueMethod, canRemove } = defineProps<{
+    stops: GradientStop[];
+    /**
+     * The model's OWN removal floor (X-W6 · X.W6.b — b4). The seat used to
+     * re-derive it as `stops.length > 2`: a second author of one rule, so a
+     * model that changed its floor would leave the seat offering a removal the
+     * model refuses. The rule has ONE owner now — `useGradientModel.canRemove`
+     * — and the seat reads it.
+     */
+    canRemove: boolean;
+    /**
+     * The rail-normalized 90° projection (`serializeRailRamp`, T.W6-2): the
+     * rail ALWAYS paints this — at every type/direction — so handles,
+     * add-ghost and ramp share one axis by construction. The true render
+     * string (type + direction applied) is the render tile's job.
+     */
+    railRamp: string;
+    /**
+     * The space and hue method the ramp travels through (X-W6 · X.W6.c). With
+     * the stops they are everything the ONE sampling law reads, so the ghost
+     * and the caret sample the ramp through `sampleAt` themselves — the same
+     * law that painted `railRamp` beneath them — instead of through a sampler
+     * callback the owner re-implemented.
+     */
+    interpolationSpace: PickerSpace;
+    hueMethod: HueInterpolationMethod;
+}>();
+
+/** The ramp's colour at a position (0–100), in the one literal dialect. */
+function rampColorAt(position: number): string {
+    return formatColorLiteral(
+        sampleAt({ stops, interpolationSpace, hueMethod }, position),
+    );
+}
+
+const emit = defineEmits<{
+    "update:position": [id: string, position: number];
+    add: [position: number];
+    remove: [id: string];
+}>();
+
+defineSlots<{
+    /** The selected-stop inspector seat (GradientStopInspector). */
+    default(props: {
+        selectedStop: GradientStop | null;
+        selectedIndex: number;
+        count: number;
+        removalRefusal: string | null;
+        notice: string;
+        requestRemove: (target?: GradientStop) => void;
+        commitPosition: (value: number | null | undefined) => void;
+    }): unknown;
+}>();
+
+// The ONE selection channel (X-W6 · X.W6.a). The former `select` emit rode
+// beside this model and the owner wrote the same ref from both, so a selection
+// had two writers and no owner.
+const selectedId = defineModel<string | null>("selectedId", { default: null });
+
+const barRef = useTemplateRef<HTMLDivElement>("barRef");
+// The rail's laid-out width: the seat fan below is a function of how many
+// ordinal units a seat covers, which is a function of this.
+const { width: barWidth } = useElementSize(barRef);
+const draggingId = ref<string | null>(null);
+// S.W4 / W4-3: hover state for the handle scale — the inline `transform`
+// shadows any `hover:` class utility, so hover must be modeled here and
+// folded into the same inline expression.
+const hoveredId = ref<string | null>(null);
+
+// ── The add affordance (W5-11 / P1-3: the dblclick/warp truce) ──
+// The old bar-pointerdown WARPED the nearest stop to the click point and
+// started a drag — dblclick-to-add fired that twice first, corrupting a stop
+// before adding one. The truce: the bar NEVER moves an existing stop. A bar
+// click ADDS a stop at that position (a hover ghost previews exactly what
+// will land — the gesture is self-evident, no instruction line needed);
+// drags start ONLY on a handle.
+const hoverPos = ref<number | null>(null);
+let pendingAdd: { x: number; y: number } | null = null;
+
+// ── The keyboard caret (X-W4 · CC-042 / D-7 · r3 row 7) ──
+// The add gesture was POINTER-ONLY — "NO keyboard path to CREATE a stop exists
+// at all". The caret is the keyboard twin of the hover ghost: a real, named
+// `<button>` seat parked on the rail, moved by the arrows / Home / End /
+// PageUp / PageDown and minting at its own position on Enter or Space. It takes
+// NOTHING from the pointer gesture: it carries no `data-stop-id`, so a press
+// that lands on it still travels the bar's own add path (`onBarPointerDown` /
+// `onBarPointerUp`) and mints at the pointer, and it mints only from the
+// keyboard, so no gesture is ever doubled.
+const caretPos = ref(50);
+const caretColor = computed(() => rampColorAt(caretPos.value));
+
+// ── The keyboard grab (VISUAL-CONSTITUTION §5.2, the stop row) ──
+// "after Space grabs … Space drops, Escape cancels". It is the keyboard twin of
+// a pointer drag: Escape returns the stop to where the grab began. It is a
+// POSITION gesture and never an ordinal reorder — the model's own
+// normalise-on-write (X-W6 / CC-058 / GRADSTOP-A §14) derives the ordinal from
+// the position, and §15 bans any minimum-separation law outright.
+const grabbed = ref<{ id: string; origin: number } | null>(null);
+
+function isGrabbed(id: string): boolean {
+    return grabbed.value?.id === id;
+}
+
+/** The keyboard steps: one percent, ten under Shift / Page (§5.2). */
+const STEP = 1;
+const PAGE_STEP = 10;
+
+/**
+ * The gesture dead zone, in CSS px. A press inside it is a tap, not a drag:
+ * it is what the bar's add path already used to tell a click from a scrub, and
+ * the handle now shares it, so a stop's FIRST position write waits for the
+ * pointer to actually travel (X-W6 · X.W6.a — a5).
+ */
+const DEAD_ZONE = 4;
+
+/**
+ * A live handle drag. `grabDx` is the pointer's offset from the handle's own
+ * CENTRE at the press, captured against a rect read ONCE at pointerdown: every
+ * later position is read at `clientX - grabDx`, so grabbing a handle 8px off
+ * centre and travelling 1px moves the stop 1px — never 10 (a5, the teleport).
+ */
+interface HandleDrag {
+    id: string;
+    axis: RailAxis;
+    grabDx: number;
+    pressX: number;
+    pressY: number;
+    wasSelected: boolean;
+    moved: boolean;
+}
+let drag: HandleDrag | null = null;
+
+// ── Geometry: the ONE axis (X-W6 · X.W6.a — a3 / a4 / a12) ──
+//
+// There is no `HANDLE_HALF` px literal any more. The axis inset is half a
+// handle seat and is declared ONCE, as `--rail-inset` in this file's own scoped
+// CSS; the seat is sized from the same property, so the two can never drift at
+// a type-scale change (the +1.5px-at-rootFS-20 overhang was exactly that
+// drift). `railPosition` is the ONE map: the rail ramp's colour-stop positions
+// and every handle's `left` are the SAME CSS expression, and the inverse below
+// reads the SAME custom property the expression reads.
+
+interface RailAxis {
+    /** Client-x of ordinal 0 — the first handle's centre. */
+    originX: number;
+    /** Distance from ordinal 0 to ordinal 100, in CSS px. */
+    track: number;
+}
+
+function railAxis(bar: HTMLElement): RailAxis {
+    const rect = bar.getBoundingClientRect();
+    const cs = getComputedStyle(bar);
+    const inset = parseFloat(cs.getPropertyValue("--rail-inset"));
+    const borderLeft = parseFloat(cs.borderLeftWidth);
+    const borderRight = parseFloat(cs.borderRightWidth);
+    // `left` percentages resolve against the containing block's PADDING box,
+    // which is the same box the ramp is painted over.
+    const paddingBox = rect.width - borderLeft - borderRight;
+    return {
+        originX: rect.left + borderLeft + inset,
+        // A rail with no laid-out track has no axis to invert; `scale` refuses
+        // an empty input range, so the degenerate case is named here.
+        track: Math.max(1, paddingBox - inset * 2),
+    };
+}
+
+/** The inverse of `railPosition`: a client-x back onto the ordinal axis. */
+function positionFromX(axis: RailAxis, clientX: number): number {
+    return round1(
+        clamp(scale(clientX, axis.originX, axis.originX + axis.track, 0, 100), 0, 100),
+    );
+}
+
+/** 0–100, at the model's own tenth-of-a-percent resolution. */
+function round1(position: number): number {
+    return Math.round(clamp(position, 0, 100) * 10) / 10;
+}
+
+function handleLeft(position: number): string {
+    return railPosition(position / 100);
+}
+
+// ── Crowding, disambiguated (X-W6 · X.W6.b — GRADSTOP-A §15) ────────────────
+//
+// §15 forbids curing crowding by forbidding coincidence: CSS hard stops REQUIRE
+// two stops at one ordinal, and the model admits them. What crowding must not
+// do is make a stop unreachable — measured on this rail with fifteen stops
+// inside fourteen percent, where the seat at 0% could not be pressed at all
+// because its neighbour at 1% covered it whole. So crowded seats FAN: each one
+// takes the first lane of the seat band whose last occupant is at least a seat
+// away, and the band grows to hold the lanes in use. No position is changed, no
+// separation is imposed — only the seats move, and only on the axis the ordinal
+// does not live on.
+
+/** How wide a seat is, expressed in the ordinal units the stops live in. */
+const seatSpan = ref(0);
+watchEffect(() => {
+    void barWidth.value; // re-measure whenever the rail is re-laid out
+    const bar = barRef.value;
+    if (!bar) return;
+    const inset = parseFloat(getComputedStyle(bar).getPropertyValue("--rail-inset"));
+    if (!Number.isFinite(inset)) return;
+    seatSpan.value = (inset * 2 * 100) / railAxis(bar).track;
+});
+
+/** Lanes beyond this would grow the instrument without bound; past it the
+ *  fan reuses the lane whose last occupant is furthest behind. */
+const MAX_LANES = 3;
+
+const laneOf = computed(() => {
+    const lanes = new Map<string, number>();
+    const lastAt: number[] = [];
+    const span = seatSpan.value;
+    for (const stop of stops) {
+        if (span <= 0) {
+            lanes.set(stop.id, 0);
+            continue;
+        }
+        let lane = lastAt.findIndex((last) => stop.position - last >= span);
+        if (lane === -1) {
+            lane =
+                lastAt.length < MAX_LANES
+                    ? lastAt.length
+                    : lastAt.indexOf(Math.min(...lastAt));
+        }
+        lastAt[lane] = stop.position;
+        lanes.set(stop.id, lane);
+    }
+    return lanes;
+});
+
+/** The deepest lane in use — the band reserves exactly that many rows. */
+const laneCount = computed(() => Math.max(0, ...laneOf.value.values()));
+
+// Handle scale ladder: selected/dragging/grabbed (1.25) > hover (1.1) > rest (1).
+function handleScale(id: string): number {
+    if (selectedId.value === id || draggingId.value === id || isGrabbed(id))
+        return 1.25;
+    return hoveredId.value === id ? 1.1 : 1;
+}
+
+function formatPercent(position: number): string {
+    return String(Math.round(position * 10) / 10);
+}
+
+/**
+ * The stop's accessible NAME carries its identity and ORDINAL (§5.2: "announce
+ * stop identity, percentage, ordinal"); its VALUE carries the percentage, so a
+ * drag re-announces the value rather than renaming the control on every frame.
+ */
+function stopName(index: number): string {
+    return `Gradient stop ${index + 1} of ${stops.length}`;
+}
+
+/**
+ * Human-readable and unit-aware — never the raw float `aria-valuenow` carries.
+ *
+ * X-W6 · X.W6.b — b1: the ORDINAL rides the VALUE, unconditionally. It used to
+ * ride the accessible NAME alone, and a name is announced when a control takes
+ * focus, not when its value changes — so a drag that carried a stop PAST its
+ * neighbour changed the ordinal silently. The ordinal is a function of the
+ * position (GRADSTOP-A §14), so it belongs to the thing that is re-announced
+ * whenever the position moves.
+ */
+function stopValueText(stop: GradientStop, index: number): string {
+    const text = `Stop ${index + 1} of ${stops.length}, position ${formatPercent(stop.position)}%`;
+    return isGrabbed(stop.id) ? `${text}, grabbed` : text;
+}
+
+const selectedStop = computed(
+    () => stops.find((s) => s.id === selectedId.value) ?? null,
+);
+const selectedIndex = computed(() => stops.findIndex((s) => s.id === selectedId.value));
+
+const ghostColor = computed(() =>
+    hoverPos.value !== null ? rampColorAt(hoverPos.value) : null,
+);
+
+// ── Bar gestures: hover ghost + click-to-add (never warp, never drag) ──
+
+function barPosition(e: PointerEvent): number | null {
+    const bar = barRef.value;
+    return bar ? positionFromX(railAxis(bar), e.clientX) : null;
+}
+
+function onBarPointerDown(e: PointerEvent) {
+    // Only the primary button mints (X-W6 · a7). A middle- or right-press used
+    // to travel the whole add path and leave a stop behind with no caveat.
+    if (e.button !== 0) return;
+    const target = e.target as HTMLElement;
+    if (target.closest("[data-stop-id]")) return; // handles own their gestures
+    pendingAdd = { x: e.clientX, y: e.clientY };
+}
+
+function onBarPointerMove(e: PointerEvent) {
+    // A live handle drag owns every move, whole: the pointer is captured on the
+    // RAIL for the gesture's life (see `onHandlePointerDown`), so its moves land
+    // here and are the drag's alone — one move, one position write (a8).
+    if (drag) {
+        dragTo(e);
+        return;
+    }
+    const target = e.target as HTMLElement;
+    hoverPos.value = target.closest("[data-stop-id]") ? null : barPosition(e);
+}
+
+function onBarPointerUp(e: PointerEvent) {
+    if (drag) {
+        endDrag();
+        return;
+    }
+    if (!pendingAdd) return;
+    const moved =
+        Math.abs(e.clientX - pendingAdd.x) > DEAD_ZONE ||
+        Math.abs(e.clientY - pendingAdd.y) > DEAD_ZONE;
+    pendingAdd = null;
+    if (moved) return;
+    const position = barPosition(e);
+    if (position !== null) emit("add", position);
+}
+
+/**
+ * A cancelled press or drag commits NOTHING — it only disarms (GRADSTOP-A §12):
+ * no mint, no position write, no selection change.
+ */
+function onBarPointerCancel() {
+    pendingAdd = null;
+    drag = null;
+    draggingId.value = null;
+}
+
+function onBarPointerLeave() {
+    hoverPos.value = null;
+    pendingAdd = null;
+}
+
+// ── Handle gestures: drag / select ──
+
+function onHandlePointerDown(e: PointerEvent, id: string) {
+    if (e.button !== 0) return;
+    e.stopPropagation();
+    const bar = barRef.value;
+    if (!bar) return;
+    // A pointer drag ends any keyboard grab — one gesture owns the stop at a
+    // time, and a grab left armed behind a drag would make Escape teleport.
+    grabbed.value = null;
+
+    const seat = e.currentTarget as HTMLElement;
+    const seatRect = seat.getBoundingClientRect();
+    drag = {
+        id,
+        axis: railAxis(bar),
+        grabDx: e.clientX - (seatRect.left + seatRect.width / 2),
+        pressX: e.clientX,
+        pressY: e.clientY,
+        wasSelected: selectedId.value === id,
+        moved: false,
+    };
+    draggingId.value = id;
+    selectedId.value = id;
+    // The gesture is captured on the RAIL, never on the handle (X-W6 · X.W6.a3,
+    // COHESION §0bb R-v1). Every position write re-sorts the stops, so the keyed
+    // `v-for` MOVES a handle's node when it crosses a neighbour — and a node
+    // moved in the DOM loses pointer capture. Captured on the seat, a leftward
+    // crossing dropped the gesture at the crossing (released at ~10%, settled at
+    // 27.4%). The rail's node is the one element whose identity the re-order
+    // cannot touch, so the drag lives on it from press to release.
+    bar.setPointerCapture(e.pointerId);
+    // `e.preventDefault()` is DELETED. It was what kept a real mouse press from
+    // focusing the handle, so a pointer user's selection had no keyboard seat
+    // (a6). Focus is taken explicitly because WebKit does not focus a button on
+    // press either — the two engines now agree by construction, not by default.
+    seat.focus();
+}
+
+function dragTo(e: PointerEvent) {
+    if (!drag) return;
+    if (!drag.moved) {
+        const travelled =
+            Math.abs(e.clientX - drag.pressX) > DEAD_ZONE ||
+            Math.abs(e.clientY - drag.pressY) > DEAD_ZONE;
+        if (!travelled) return; // the first write waits for the dead zone
+        drag.moved = true;
+    }
+    emit("update:position", drag.id, positionFromX(drag.axis, e.clientX - drag.grabDx));
+}
+
+function endDrag() {
+    // A press that never became a drag ON the already-selected handle is a
+    // re-tap: it deselects without moving the stop (Escape's pointer twin).
+    if (drag && drag.wasSelected && !drag.moved) selectedId.value = null;
+    drag = null;
+    draggingId.value = null;
+}
+
+// ── Removal: ONE owner, an explicit floor, a stated reason (X.W6.b — b4) ──
+//
+// The floor used to be expressed as ABSENCE (`v-if="selectedStop && removable"`
+// on the only control) plus a SILENT early return in the remover — so a user at
+// the floor was told nothing at all, and a keyboard user pressing Delete got
+// silence twice over. The floor is now a DISABLED control carrying its reason,
+// and every trigger lands in `requestRemove`.
+
+/** The seat's polite channel: the one place a refusal or a completed removal is spoken. */
+const notice = ref("");
+
+/** The refusal, or null when the removal is legal. Rendered, announced, and
+ *  used as the control's own disabled condition — one predicate, three uses. */
+function refusalFor(stop: GradientStop | null): string | null {
+    if (!stop) return "Select a stop on the rail to remove it.";
+    if (!canRemove)
+        return "A gradient needs at least two stops, so this one cannot be removed.";
+    return null;
+}
+
+const removalRefusal = computed(() => refusalFor(selectedStop.value));
+
+/**
+ * THE ONE REMOVAL OWNER. The inspector's control calls it with no argument (it
+ * acts on the selection); a handle's Delete/Backspace calls it with the stop the
+ * key was pressed on, passed BY VALUE rather than read back through the
+ * `selectedId` model — a `defineModel` write round-trips through the parent, so
+ * reading it back in the same tick is a stale read waiting to happen.
+ */
+function requestRemove(target?: GradientStop) {
+    const stop = target ?? selectedStop.value;
+    const refusal = refusalFor(stop);
+    if (refusal) {
+        notice.value = refusal; // never a silent return
+        return;
+    }
+    const doomed = stop!;
+    if (selectedId.value === doomed.id) selectedId.value = null;
+    if (isGrabbed(doomed.id)) grabbed.value = null;
+    notice.value = `Removed the stop at ${formatPercent(doomed.position)}%.`;
+    emit("remove", doomed.id);
+}
+
+function moveStop(stop: GradientStop, position: number) {
+    selectedId.value = stop.id;
+    emit("update:position", stop.id, round1(position));
+}
+
+/**
+ * The inspector's numeric position entry (X.W6.b — b3). Before this, a stop's
+ * position existed only as a whole-percent accessible name and inside the CSS
+ * string: a user who knew the number they wanted could only approach it by
+ * dragging at it. The field writes through the SAME sole mutator every other
+ * gesture writes through, so entry and paint cannot disagree.
+ *
+ * X.W12.u2 (UIA-V-45): the field is glass's NumberField (reka underneath), not
+ * a hand-rolled 5ch `<input type=number>` that cut "74.7" to "7‹". It parses,
+ * clamps to [0,100] and commits on Enter / blur / step, so a half-typed entry
+ * is never a position; a cleared field commits nothing.
+ */
+function onPositionCommit(value: number | null | undefined) {
+    const stop = selectedStop.value;
+    if (!stop || value == null || !Number.isFinite(value)) return;
+    moveStop(stop, value);
+}
+
+/**
+ * The stop's keyboard grammar, in the VISUAL-CONSTITUTION §5.2 rows it answers:
+ *
+ * - Right/Up increase the serialized percentage, Left/Down decrease, by one
+ *   percent (ten under Shift); Page Up/Down take the ten-percent step.
+ * - **Home = 0%, End = 100%, unconditionally** — they are the axis's ends, not
+ *   an ordinal's, so they read the same whichever direction the gradient runs.
+ * - Space grabs, Space drops, Escape cancels back to the grab's origin; an
+ *   ungrabbed Escape clears the selection while the handle keeps focus.
+ * - Delete/Backspace removes (when removal is legal).
+ *
+ * Every arm emits a POSITION; none reorders. `aria-valuetext` is what announces
+ * the move, so nothing here depends on the whole-percent accessible name
+ * (GRADSTOP-A §6).
+ */
+function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
+    const step = e.shiftKey ? PAGE_STEP : STEP;
+    switch (e.key) {
+        case "ArrowLeft":
+        case "ArrowDown":
+            moveStop(stop, stop.position - step);
+            break;
+        case "ArrowRight":
+        case "ArrowUp":
+            moveStop(stop, stop.position + step);
+            break;
+        case "PageDown":
+            moveStop(stop, stop.position - PAGE_STEP);
+            break;
+        case "PageUp":
+            moveStop(stop, stop.position + PAGE_STEP);
+            break;
+        case "Home":
+            moveStop(stop, 0);
+            break;
+        case "End":
+            moveStop(stop, 100);
+            break;
+        case " ":
+            if (isGrabbed(stop.id)) {
+                grabbed.value = null; // drop: the move stands where it is
+            } else {
+                grabbed.value = { id: stop.id, origin: stop.position };
+                selectedId.value = stop.id;
+            }
+            break;
+        case "Delete":
+        case "Backspace":
+            // The keyboard's trigger for the ONE removal owner — never a second
+            // removal path, and never silent when the floor refuses (b4).
+            requestRemove(stop);
+            break;
+        case "Escape": {
+            const grab = grabbed.value;
+            if (grab && grab.id === stop.id) {
+                grabbed.value = null;
+                moveStop(stop, grab.origin); // cancel: back where the grab began
+            } else {
+                selectedId.value = null;
+            }
+            break;
+        }
+        default:
+            return; // never swallow a key this grammar does not own
+    }
+    e.preventDefault();
+}
+
+/**
+ * The caret's own grammar — the same axis keys, with Enter/Space minting a stop
+ * at the caret instead of moving one. Activation is handled HERE (and the event
+ * defaulted) so the platform's own click never fires: the bar's pointer-add path
+ * stays the single owner of a pointer press, wherever it lands.
+ */
+function onCaretKeydown(e: KeyboardEvent) {
+    const step = e.shiftKey ? PAGE_STEP : STEP;
+    switch (e.key) {
+        case "ArrowLeft":
+        case "ArrowDown":
+            caretPos.value = round1(caretPos.value - step);
+            break;
+        case "ArrowRight":
+        case "ArrowUp":
+            caretPos.value = round1(caretPos.value + step);
+            break;
+        case "PageDown":
+            caretPos.value = round1(caretPos.value - PAGE_STEP);
+            break;
+        case "PageUp":
+            caretPos.value = round1(caretPos.value + PAGE_STEP);
+            break;
+        case "Home":
+            caretPos.value = 0;
+            break;
+        case "End":
+            caretPos.value = 100;
+            break;
+        case "Enter":
+        case " ":
+            emit("add", caretPos.value);
+            break;
+        default:
+            return;
+    }
+    e.preventDefault();
+}
+</script>
+
+<template>
+    <!-- `relative`: the remove chip anchors to the RAIL root, and the root
+         RESERVES the chip's band below the rail (X-W6 · a10) so the chip can
+         never paint across a sibling rule. -->
+    <div
+        class="rail-seat relative flex flex-col gap-1"
+        :style="{ '--rail-lane-count': String(laneCount) }"
+    >
+        <!-- The editing rail (T.W6-2 re-author): a pill-silhouette instrument
+             (T-46 — the glass-ui slider-track rounding register) painting the
+             NORMALIZED ramp projection. Its paint stack is an owned material
+             contract (`.gradient-rail`, scoped below), never a per-callsite
+             `background` shorthand. Hover ghost previews the add; handles
+             drag; the selected handle carries a touch-true remove chip. -->
+        <div
+            ref="barRef"
+            data-testid="gradient-stop-bar"
+            role="group"
+            aria-label="Gradient stop rail"
+            :class="[
+                'gradient-rail relative select-none touch-none',
+                draggingId ? 'cursor-grabbing' : 'cursor-copy',
+            ]"
+            :style="{ '--rail-ramp': railRamp }"
+            @pointerdown="onBarPointerDown"
+            @pointermove="onBarPointerMove"
+            @pointerup="onBarPointerUp"
+            @pointercancel="onBarPointerCancel"
+            @pointerleave="onBarPointerLeave"
+        >
+            <!-- The add ghost: a dashed twin of the handle species, filled
+                 with the exact ramp color a click would mint (W5-11 — the
+                 affordance replaces the instruction line). -->
+            <div
+                v-if="hoverPos !== null && !draggingId"
+                class="rail-ghost rail-swatch absolute rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
+                :style="{
+                    left: handleLeft(hoverPos),
+                    '--swatch': ghostColor ?? 'transparent',
+                    transform: 'translate(-50%, -50%)',
+                }"
+                aria-hidden="true"
+            />
+
+            <!-- The keyboard caret seat (X-W4 · C1): the rail's add gesture,
+                 operable without a pointer. It shows itself only when it takes
+                 keyboard focus — the pointer user already has the hover ghost
+                 above — and it carries no `data-stop-id`, so a pointer press
+                 landing on it is still the BAR's add, at the pointer. -->
+            <button
+                type="button"
+                data-testid="gradient-stop-caret"
+                class="rail-caret rail-swatch absolute rounded-full border-2 border-dashed border-white/70 z-0"
+                :aria-label="`Add gradient stop at ${formatPercent(caretPos)}%`"
+                :style="{
+                    left: handleLeft(caretPos),
+                    '--swatch': caretColor,
+                    transform: 'translate(-50%, -50%)',
+                }"
+                @keydown="onCaretKeydown"
+            />
+
+            <!-- Stop handles. The BUTTON is the ≥24×24 target and the seat that
+                 owns role / value / name / focus (X-W4 · C2/C4); the FACE inside
+                 it is the painted silhouette, carrying the DUAL-CONTRAST resting
+                 ring (X-W6 · a11). -->
+            <button
+                v-for="(stop, index) in stops"
+                :key="stop.id"
+                :data-stop-id="stop.id"
+                :data-grabbed="isGrabbed(stop.id) ? '' : undefined"
+                :data-selected="selectedId === stop.id ? '' : undefined"
+                type="button"
+                role="slider"
+                aria-orientation="horizontal"
+                :aria-valuemin="0"
+                :aria-valuemax="100"
+                :aria-valuenow="stop.position"
+                :aria-valuetext="stopValueText(stop, index)"
+                :aria-label="stopName(index)"
+                :aria-selected="selectedId === stop.id"
+                class="rail-handle absolute rounded-full cursor-grab active:cursor-grabbing"
+                :class="[selectedId === stop.id ? 'z-10' : 'z-0']"
+                :style="{
+                    left: handleLeft(stop.position),
+                    /* The seat's lane on the band — the crowding cure, on the
+                       axis the ordinal does not live on (§15). */
+                    '--seat-lane': String(laneOf.get(stop.id) ?? 0),
+                    /* S.W4 / W4-3: the hover scale rides the INLINE transform —
+                       the `hover:scale-110` utility was DEAD, shadowed by this
+                       inline `transform` (inline style always outranks the
+                       class). Selected/dragging/grabbed (1.25) outranks hover
+                       (1.1). T.W5 R9 (ridden here per the cross-wave clause):
+                       the handle's scale settle is SPATIAL — `--spring-present` @
+                       its own clock, never the squeezed generic 0.3s — declared in
+                       the stylesheet's no-preference block (X.W6.e — e2). */
+                    transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
+                }"
+                @pointerdown="(e) => onHandlePointerDown(e, stop.id)"
+                @pointerenter="hoveredId = stop.id"
+                @pointerleave="hoveredId = null"
+                @keydown="(e) => onHandleKeydown(e, stop)"
+            >
+                <span
+                    class="rail-handle-face rail-swatch absolute top-1/2 left-1/2 rounded-full"
+                    aria-hidden="true"
+                    :style="{
+                        /* The per-stop COLOR is the only thing inline here — it
+                           is per-stop DATA; the checker ground, the colour layer
+                           over it, the lift and both rings are stylesheet
+                           contracts (`.rail-swatch`, U-F25 / X-W6 a11, below). */
+                        '--swatch': stop.cssColor,
+                    }"
+                />
+            </button>
+        </div>
+
+        <!-- ── The selected-stop inspector seat (X-W6 · X.W6.b — b3 / b4) ──
+             The floating remove chip is GONE; the inspector is the ONE removal
+             control and the numeric position entry, in normal flow inside this
+             seat (so it reads the seat's geometry). A2-VA-L1-11: it is its own
+             component (GradientStopInspector), composed here by the host
+             through this scoped slot — the rail stays the owner of the
+             selection, the removal rule and the polite channel, and hands
+             them out. -->
+        <slot
+            :selected-stop="selectedStop"
+            :selected-index="selectedIndex"
+            :count="stops.length"
+            :removal-refusal="removalRefusal"
+            :notice="notice"
+            :request-remove="requestRemove"
+            :commit-position="onPositionCommit"
+        />
+    </div>
+</template>
+
+<style scoped>
+/* ── THE ONE AXIS (X-W6 · X.W6.a — a3 / a4 / a12) ─────────────────────────────
+   `--rail-inset` is half a handle seat and `--rail-track` is the span between
+   the two terminal handle CENTRES. Both the handles' `left` and every
+   colour-stop position in `--rail-ramp` are the one expression
+   `calc(var(--rail-inset) + var(--rail-track) * <ordinal>)` (minted once, in
+   `useGradientCSS.railPosition`), and the inverse map in this file's script
+   reads `--rail-inset` back off this element — so there is no px literal on
+   either side to drift at a type-scale change, and the ramp cannot paint an
+   ordinal at a pixel where no handle sits.
+
+   `--rail-inset` is REGISTERED so it computes to a length: an unregistered
+   custom property hands JavaScript back its own token text, and an axis the
+   script cannot read is an axis the script must guess. */
+@property --rail-inset {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 12px;
+}
+
+/* ── The rail's owned paint stack (T.W6-2 — a MATERIAL CONTRACT, not a
+   shorthand assembly; t-gradient-surfaces §5's cure). The former per-callsite
+   `background: <render-string>, var(--alpha-checker)` on a glass-wash box
+   resolved origin `padding-box` / clip `border-box` / `repeat`, so the ramp
+   TILED into the 1px border ring and each border column showed the OPPOSITE
+   terminal's color (the shot-visible mirrored slivers). Here the ramp is a
+   border-box layer, no-repeat, sized to the full box: silhouette and ramp
+   agree to the pixel at both ends by construction. The alpha-checker ground
+   tiles beneath (S owner-ruling 2026-07-05); the glass grammar — hairline +
+   soft lift — sits OUTSIDE the ramp's geometry. Pill silhouette per T-46:
+   the glass-ui slider-track rounding register (`--radius-pill`).
+
+   X-W6 · a3: the hairline is an INSET RING, never a `border`. A border puts
+   the ramp's gradient box (border box) and the handles' containing block
+   (padding box) one pixel out of step at every ordinal — the two-language
+   disagreement this unit exists to delete — for a paint no eye can tell
+   apart. */
+.gradient-rail {
+    block-size: var(--rail-height);
+    border-radius: var(--radius-pill, 9999px);
+    background: var(--rail-ramp), var(--alpha-checker);
+    background-origin: border-box;
+    background-clip: border-box;
+    background-repeat: no-repeat, repeat;
+    background-size:
+        100% 100%,
+        16px 16px;
+    box-shadow: inset 0 0 0 1px var(--card-edge);
+}
+
+/* ── The seat's own register (X-W6 · a9 / a10 / a12) ──
+   One handle size, one rail height, one chip size, one coarse touch target —
+   every other geometry below is DERIVED from these four, so a type-scale
+   change moves the whole instrument together instead of pulling the axis away
+   from its handles or the chip into the next section's rule. */
+.rail-seat {
+    --rail-handle-size: max(1.5rem, 24px);
+    --rail-face-size: 1.25rem;
+    --rail-height: 2.5rem;
+    --rail-touch: var(--touch-target, 2.75rem);
+    /* The hit rung actually in force for the pointer class in use: on a fine
+       pointer the seat IS the ≥24px box (X-W4 · C4), on a coarse one the
+       ::before below carries `--rail-touch`. One property, so the seat band's
+       geometry derives from the rung instead of guessing at it. */
+    --rail-hit: var(--rail-handle-size);
+    /* The seat's own rhythm (the `gap-1` the rail and the chip band sit on),
+       reused as the gutter BETWEEN the two coarse hit regions. */
+    --rail-gutter: 0.25rem;
+    /* The axis, declared on the SEAT so the rail's handles and the chip that
+       tracks the selected one read the same two properties. The seat draws no
+       horizontal padding, so `100%` is the same length in both containing
+       blocks — one axis, not two that happen to agree. */
+    --rail-inset: calc(var(--rail-handle-size) / 2);
+    --rail-track: calc(100% - 2 * var(--rail-inset));
+    /* ── THE SEAT BAND (X-W6 · X.W6.b — b2, the freed meniscus) ──────────────
+       The handles used to ride the ramp's own centre line, and each one's hit
+       rung masked its own width of rail: at 12 stops only 149px of 462 (32.3%)
+       could still mint, and the rail's leftmost band — the meniscus — was dead
+       from frame one, because the terminal handle's rung owned it. Nothing
+       about a stop requires it to sit ON the ramp: its ordinal is an X, and X
+       is exactly what the one axis fixes (a3). So the seats take their own band
+       below the ramp, clear of it by the gutter at whatever hit rung is in
+       force, and the WHOLE ramp becomes the add gesture's ground — at every
+       rail width and every stop count. Crowding is then disambiguated on the
+       seat band (§15: never by a minimum-separation law) instead of being paid
+       for out of the add surface. */
+    --rail-handle-top: calc(
+        var(--rail-height) + var(--rail-gutter) + var(--rail-hit) / 2
+    );
+    /* One lane of the band: a seat plus the gutter that keeps two lanes from
+       sharing a row of pixels. `--rail-lane-count` is the deepest lane in use,
+       set on this element by the script. */
+    --rail-lane-step: calc(var(--rail-hit) + var(--rail-gutter));
+    --rail-lane-count: 0;
+}
+
+/* …and the band is reserved by the RAIL, not by the seat root: the seats are
+   absolutely positioned against the rail, so a reservation on the root would
+   reserve space after the inspector rather than between the two — measured on
+   the coarse cell, where the seats landed on top of the inspector and its
+   control could not be reached. The rail's own margin is the reservation, so
+   everything below it starts where the seats end. */
+.gradient-rail {
+    margin-block-end: calc(
+        var(--rail-handle-top) + var(--rail-lane-count) * var(--rail-lane-step) +
+            var(--rail-hit) / 2 - var(--rail-height)
+    );
+}
+
+/* The coarse rung is the one the ::before carries below; the band follows it,
+   so the ramp is free of BOTH rungs, not only of the fine one. */
+@media (pointer: coarse) {
+    .rail-seat {
+        --rail-hit: var(--rail-touch);
+    }
+}
+
+/* ── The focus affordance SYSTEM (U.W-A11Y · U-F25 · BR-1; X-W4 · C4) ──
+   The keyboard-operable seats carried a material lift (--shadow-sm) in the
+   CASCADE (hoisted off the inline style at U-F25, Pole A; the lift itself is
+   retired at X-DS pass 1 · V1-18 — a handle is a flat disc with its rings), so
+   the focus ring is never clobbered by an inline box-shadow on the ring layer
+   (the twin of the 4e6c178 dead-hover miss; the `--ring` token the dead
+   `focus-visible:ring-*` utility reached also resolved empty). X-W4 splits the
+   handle's two jobs across two elements — the lift on the face it belongs to,
+   the ring on the 24px seat it surrounds — so the clobbering is now impossible
+   rather than merely avoided. The ring is DUAL-CONTRAST: a 1px inner dark
+   hairline UNDER a 3px outer light ring (the ONE `--focus-ring-inner/-outer`
+   recipe, focus-ring.css), so at least one of its edges contrasts against ANY
+   ramp colour it is drawn over. */
+/* X-W4 · C4 — the TARGET box. The seat a pointer and the keyboard address is a
+   ≥24 CSS-px box on every pointer class (WCAG 2.5.8); `1.5rem` tracks the type
+   scale exactly as the 20px silhouette always has, and the `max()` holds the
+   absolute floor if the root ever shrinks below 16px. The handle's PAINT is the
+   `.rail-handle-face` inside it, so the visual row is unchanged: only the seat
+   grew, which is what "the target is what must grow" means. */
+/* The seats, the caret and the ghost all sit on the ONE band (b2) — the `top`
+   they used to carry as `top-1/2` is the band's own property now, so the three
+   cannot drift apart and the ramp's own rows stay free. A crowded seat takes a
+   LANE of that band (`--seat-lane`, assigned in script): the fan is what keeps
+   a coincident stop reachable without imposing a separation the model forbids
+   (§15). The caret and the ghost are previews of the gesture, not stops, so
+   they stay on lane 0. */
+.rail-handle {
+    top: calc(var(--rail-handle-top) + var(--seat-lane, 0) * var(--rail-lane-step));
+    inline-size: var(--rail-handle-size);
+    block-size: var(--rail-handle-size);
+}
+.rail-caret {
+    top: var(--rail-handle-top);
+    inline-size: var(--rail-handle-size);
+    block-size: var(--rail-handle-size);
+}
+/* The ghost is a preview of the painted SILHOUETTE, not of the seat. */
+.rail-ghost {
+    top: var(--rail-handle-top);
+    inline-size: var(--rail-face-size);
+    block-size: var(--rail-face-size);
+}
+/* The caret is the keyboard's affordance alone: invisible until it takes
+   keyboard focus (the pointer already has the hover ghost), never removed from
+   the DOM — a seat that is not there cannot be Tabbed to. */
+.rail-caret {
+    opacity: 0;
+}
+.rail-caret:focus-visible {
+    opacity: 1;
+}
+/* ── The swatch paint stack (X-W6 · X.W6.c — c1 · G4c) ──
+   A stop's colour is an UNTRUSTED literal (`setStopsFromColors` writes palette
+   strings straight in), and it used to share one `background` SHORTHAND with
+   the checker ground it sits on — so an unparseable literal dropped the whole
+   declaration and took the ground with it (computed `background-image: none`):
+   an invisible stop was indistinguishable from a transparent one. The ground
+   and the colour are now two boxes. The element paints the checker from the
+   stylesheet; its `::after` paints `--swatch` over it (S owner-ruling
+   2026-07-05: the colour sits OVER the ground). A literal the browser rejects
+   invalidates only the overlay's `background-color`, which falls to its
+   initial `transparent` — the ground survives, so the failure is visible as a
+   checker, never as nothing. */
+.rail-swatch {
+    background: var(--alpha-checker);
+}
+.rail-swatch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--swatch);
+    pointer-events: none;
+}
+
+/* A grabbed stop says so with the cursor as well as with `aria-valuetext`. */
+.rail-handle[data-grabbed] {
+    cursor: grabbing;
+}
+
+/* ── The RESTING ring is dual-contrast too (X-W6 · a11) ──
+   A white-on-white ramp painted the old `border-white/80` face at 1.00:1 — the
+   handles simply disappeared. The face now carries the same two-pole recipe the
+   focus ring uses: a dark hairline INSIDE a light ring, so whatever colour the
+   ramp puts under a handle, one of the two edges clears 3:1 against it. The
+   focus ring still reads, because it is drawn on the SEAT (a wider box) and so
+   lands outside the face's own band. */
+.rail-handle-face {
+    inline-size: var(--rail-face-size);
+    block-size: var(--rail-face-size);
+    translate: -50% -50%;
+    box-shadow:
+        inset 0 0 0 1px var(--focus-ring-inner),
+        0 0 0 2px var(--focus-ring-outer);
+}
+.rail-handle[data-selected] .rail-handle-face {
+    box-shadow:
+        inset 0 0 0 2px var(--focus-ring-inner),
+        0 0 0 3px var(--focus-ring-outer);
+}
+.rail-handle:focus-visible,
+.rail-caret:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 1px var(--focus-ring-inner),
+        0 0 0 3px var(--focus-ring-outer);
+}
+
+/* ── Motion, declared only where motion is wanted (X-W6 · X.W6.e — e2) ──
+   Every transition in the seat lives in this block, so a reduced-motion reader
+   gets each state change at once BY CONSTRUCTION — not by the global guard in
+   `animations.css` zeroing durations after the fact. */
+@media (prefers-reduced-motion: no-preference) {
+    .rail-handle {
+        transition:
+            box-shadow var(--duration-fast) var(--ease-standard),
+            transform var(--spring-present-duration) var(--spring-present);
+    }
+    .rail-caret {
+        transition: opacity var(--duration-fast) var(--ease-standard);
+    }
+}
+
+/* Forced-colors (WHCM) strips box-shadow → the ring vanishes; a real outline
+   keeps the affordance (links U-F57). The scoped rule also FIRMS the UA's own
+   forced-colors focus outline into a deterministic, branded 2px. */
+@media (forced-colors: active) {
+    .rail-handle:focus-visible,
+    .rail-caret:focus-visible {
+        outline: 2px solid Highlight;
+        outline-offset: 2px;
+    }
+    /* The resting ring is box-shadow too, so WHCM would leave the handles
+       unmarked; a real outline carries the silhouette into forced colors. */
+    .rail-handle-face {
+        outline: 1px solid CanvasText;
+    }
+}
+
+/* ── Always-on hit inflation (U.W-A11Y · U-F27 · Pole A — mount-safe; BR-3) ──
+   The handle box under-serves the producer's 44px COARSE referent, so a
+   centred, transparent ::before carries the coarse rung (pointer-events left at
+   its `auto` initial). On FINE pointers the seat IS the ≥24px box (X-W4 · C4),
+   so `max(1.5rem, 100%)` resolves to the box and the two floors agree by
+   construction; the rule stays because a rung that is only true while another
+   rule holds is the kind that breaks silently.
+
+   X-W6 · X.W6.b: the rung no longer costs the add gesture anything. It used to
+   inflate ON the ramp — which is why `bar.x + 3` minted nothing and why 12
+   stops sterilised two thirds of the rail — and it now inflates on the SEAT
+   BAND, whose whole height sits below the ramp at this rung (`--rail-hit`
+   follows the pointer class, and `--rail-handle-top` derives from it). The
+   pseudo still belongs to the handle button, so a coarse tap anywhere in the
+   rung is a grab and never an unintended mint. */
+.rail-handle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(1.5rem, 100%);
+    height: max(1.5rem, 100%);
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+}
+@media (pointer: coarse) {
+    .rail-handle::before {
+        width: var(--rail-touch);
+        height: var(--rail-touch);
+    }
+}
+</style>

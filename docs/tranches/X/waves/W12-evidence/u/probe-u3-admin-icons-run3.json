@@ -1,0 +1,129 @@
+{
+ "errs": [],
+ "390#/admin/audit": [
+  [
+   "Refresh audit log",
+   44,
+   44,
+   "9999px"
+  ],
+  [
+   "Previous page",
+   52,
+   54,
+   "9999px"
+  ],
+  [
+   "Next page",
+   52,
+   54,
+   "9999px"
+  ]
+ ],
+ "390#/admin/tags": [
+  [
+   "Refresh tags",
+   44,
+   44,
+   "9999px"
+  ],
+  [
+   "Create tag",
+   44,
+   44,
+   "9999px"
+  ]
+ ],
+ "390#/admin/names": [],
+ "390#/admin/flagged": [
+  [
+   "Refresh flagged palettes",
+   44,
+   44,
+   "9999px"
+  ]
+ ],
+ "390#/admin/users": [
+  [
+   "Sort users",
+   44,
+   44,
+   "9999px"
+  ],
+  [
+   "Delete user empty-ghost-33",
+   44,
+   44,
+   "9999px"
+  ],
+  [
+   "Delete user azure-fox-01",
+   44,
+   44,
+   "9999px"
+  ]
+ ],
+ "1440#/admin/audit": [
+  [
+   "Refresh audit log",
+   28,
+   28,
+   "9999px"
+  ],
+  [
+   "Previous page",
+   40,
+   36,
+   "9999px"
+  ],
+  [
+   "Next page",
+   40,
+   36,
+   "9999px"
+  ]
+ ],
+ "1440#/admin/tags": [
+  [
+   "Refresh tags",
+   28,
+   28,
+   "9999px"
+  ],
+  [
+   "Create tag",
+   23,
+   28,
+   "9999px"
+  ]
+ ],
+ "1440#/admin/names": [],
+ "1440#/admin/flagged": [
+  [
+   "Refresh flagged palettes",
+   28,
+   28,
+   "9999px"
+  ]
+ ],
+ "1440#/admin/users": [
+  [
+   "Sort users",
+   28,
+   28,
+   "9999px"
+  ],
+  [
+   "Delete user empty-ghost-33",
+   28,
+   28,
+   "9999px"
+  ],
+  [
+   "Delete user azure-fox-01",
+   28,
+   28,
+   "9999px"
+  ]
+ ]
+}

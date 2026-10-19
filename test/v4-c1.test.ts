@@ -6,7 +6,7 @@ import * as math from "../src/subpaths/math";
 import * as quantize from "../src/subpaths/quantize";
 import * as transform from "../src/subpaths/transform";
 import * as value from "../src/subpaths/value";
-import { serializeKeyframeSelector } from "../src/css/grammar";
+import { serializeKeyframeSelector } from "../src/css/serialize";
 
 const { dominantColor, quantizePixels } = quantize;
 const { isLayoutTrackingUnit } = value;
@@ -479,6 +479,7 @@ describe("Value 4 exact runtime surfaces", () => {
             "hwb",
             "ictcp",
             "interpolateHue",
+            "isAnyColor",
             "jzazbz",
             "kelvin",
             "lab",
@@ -486,13 +487,19 @@ describe("Value 4 exact runtime surfaces", () => {
             "linearSrgb",
             "mapColorToGamut",
             "mixColors",
+            "mixColorsInto",
             "oklab",
             "oklch",
+            "parseCssColor",
             "prophotoRgb",
             "rec2020",
             "rgb",
             "safeAccentColor",
+            "sampleColorRamp",
+            "serializeCssColor",
+            "toHex",
             "toRgba8",
+            "toRgba8Into",
             "xyz",
         ]);
         expect(Object.keys(css).sort()).toEqual([
@@ -514,6 +521,7 @@ describe("Value 4 exact runtime surfaces", () => {
             "parseStylesheet",
             "parseTimingFunction",
             "serializeCssColor",
+            "serializeCssValue",
             "serializeTimelineOptions",
         ]);
         expect(Object.keys(easing).sort()).toEqual([
@@ -528,6 +536,7 @@ describe("Value 4 exact runtime surfaces", () => {
             "easeOutCubic",
             "easeOutExpo",
             "easing",
+            "easingNames",
             "jumpTerms",
             "linear",
             "linearEasing",
@@ -547,14 +556,8 @@ describe("Value 4 exact runtime surfaces", () => {
         ]);
         expect(Object.keys(transform).sort()).toEqual([
             "PathGeometry",
-            "decomposeMatrix2D",
-            "decomposeMatrix3D",
             "getPointAtLength",
             "getTotalLength",
-            "interpolateDecomposed",
-            "recomposeMatrix2D",
-            "recomposeMatrix3D",
-            "slerp",
         ]);
         expect(Object.keys(quantize).sort()).toEqual([
             "dominantColor",

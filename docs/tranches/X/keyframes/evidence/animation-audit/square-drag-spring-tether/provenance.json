@@ -1,0 +1,1 @@
+{"capture.mjs+probe2.mjs":{"khead":"d78bed01","dirty":4},"probe3.mjs+probe4.mjs+end":{"khead":"3c8199c5","dirty":2,"note":"git diff d78bed01..3c8199c5 touches nothing under demo/scenes/square or demo/components/instrument/transport"},"gpu":"ANGLE Metal Apple M5 Max","browser":"headed chromium 1440x900 dsf1"}

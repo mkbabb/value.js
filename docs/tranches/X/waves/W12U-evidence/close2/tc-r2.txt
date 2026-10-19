@@ -1,0 +1,7 @@
+[guarded] waiting for headroom (load 87 > 72)
+lib 0
+demo 0
+test 0
+e2e 0
+load { 77.76 84.95 73.55 }
+done

@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `R`: Red component (0 to 1)
--   `G`: Green component (0 to 1)
--   `B`: Blue component (0 to 1)
-
 ### Historical Context
 
 RGB emerged alongside color television in the mid-20th century, grounded in trichromatic color vision theory—three cone cell types in the retina, each sensitive to a different band of wavelengths. It's the native language of display hardware, mapping directly to the red, green, and blue subpixels of a screen.
@@ -43,13 +37,13 @@ The sRGB gamut forms a cube from (0,0,0) black to (1,1,1) white. It covers a mod
 ### Components
 
 1. **`R` (Red)**:
-   <Katex expression="R = 0 \text{ (no red) to } 1 \text{ (full red intensity)}" :display-mode="false" />
+   0 (no red) to 1 (full red intensity)
 
 2. **`G` (Green)**:
-   <Katex expression="G = 0 \text{ (no green) to } 1 \text{ (full green intensity)}" :display-mode="false" />
+   0 (no green) to 1 (full green intensity)
 
 3. **`B` (Blue)**:
-   <Katex expression="B = 0 \text{ (no blue) to } 1 \text{ (full blue intensity)}" :display-mode="false" />
+   0 (no blue) to 1 (full blue intensity)
 
 ### sRGB and Linear RGB
 

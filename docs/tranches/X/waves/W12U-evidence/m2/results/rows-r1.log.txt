@@ -1,0 +1,55 @@
+# load 252.68 220.64 227.46
+360x780 light flagged consumer-crushed 0/20 (glass G-2 long-name wrap 1) · users crushed 0/47 → GREEN
+390x844 light flagged consumer-crushed 0/20 (glass G-2 long-name wrap 1) · users crushed 0/47 → GREEN
+430x932 light flagged consumer-crushed 0/20 (glass G-2 long-name wrap 1) · users crushed 0/47 → GREEN
+360x780 light rest GEO {"docSW":360,"plate":"94-266","run":"dock-layer.dock-layer--full 106-254 sw/cw 346/149 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+360x780 light toggled GEO {"docSW":360,"plate":"16-344","run":"dock-layer.dock-layer--full 28-332 sw/cw 346/304 auto","out":["Open color input"],"hidden":["Open color input"],"apply":null,"coarse":true} RED
+360x780 light colour-input GEO {"docSW":360,"plate":"16-344","run":"dock-layer.dock-layer--full 28-332 sw/cw 346/304 auto","out":["Propose color name"],"hidden":["Propose color name"],"apply":"44x44","coarse":true} RED
+360x780 light slug-edit GEO {"docSW":360,"plate":"26-335","run":"dock-layer.dock-layer--full 38-323 sw/cw 346/285 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+RED 2/3
+390x844 light rest GEO {"docSW":390,"plate":"109-281","run":"dock-layer.dock-layer--full 121-269 sw/cw 346/149 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+390x844 light toggled GEO {"docSW":390,"plate":"16-374","run":"dock-layer.dock-layer--full 28-362 sw/cw 346/334 auto","out":[],"hidden":["Open color input"],"apply":null,"coarse":true} GREEN
+390x844 light colour-input GEO {"docSW":390,"plate":"16-374","run":"dock-layer.dock-layer--full 28-362 sw/cw 348/334 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+430x932 light rest GEO {"docSW":430,"plate":"129-301","run":"dock-layer.dock-layer--full 141-289 sw/cw 346/149 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 light toggled GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 346/346 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 light colour-input GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 348/346 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+430x932 light slug-edit GEO {"docSW":430,"plate":"47-384","run":"dock-layer.dock-layer--full 59-372 sw/cw 346/313 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+360x780 light card0 /Versions/ width GREEN · place(G-1) RED {"l":0,"r":360,"w":360,"vw":360,"t":1946,"b":2418,"h":472,"vh":780,"sy":0,"pos":"relative","cb":null,"title":"Version history"}
+360x780 light card4 /Versions/ width GREEN · place(G-1) RED {"l":0,"r":360,"w":360,"vw":360,"t":1426,"b":1898,"h":472,"vh":780,"sy":520,"pos":"relative","cb":null,"title":"Version history"}
+GREEN 2/2
+844x390 light flag-report GREEN {"t":16,"b":374,"h":358,"vh":390,"titleIn":true,"lastBtnIn":false,"scrolls":true}
+360x780 light flag-report GREEN {"t":129.2,"b":650.8,"h":522,"vh":780,"titleIn":true,"lastBtnIn":true,"scrolls":false}
+430x932 light flag-report GREEN {"t":217.2,"b":714.8,"h":498,"vh":932,"titleIn":true,"lastBtnIn":true,"scrolls":false}
+GREEN 3/3
+(a) 844x390 light card-menu GREEN before={"sy":197,"trig":233} after={"sy":197,"trig":233,"menu":[0,229],"vh":390}
+(a) 360x780 light card-menu GREEN before={"sy":0,"trig":446} after={"sy":0,"trig":446,"menu":[58,442],"vh":780}
+GREEN 2/2 (a)
+360x780 dark flagged consumer-crushed 0/20 (glass G-2 long-name wrap 1) · users crushed 0/47 → GREEN
+390x844 dark flagged consumer-crushed 0/20 (glass G-2 long-name wrap 1) · users crushed 0/47 → GREEN
+360x780 dark rest GEO {"docSW":360,"plate":"94-266","run":"dock-layer.dock-layer--full 106-254 sw/cw 346/149 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+360x780 dark toggled GEO {"docSW":360,"plate":"16-344","run":"dock-layer.dock-layer--full 28-332 sw/cw 346/304 auto","out":["Open color input"],"hidden":["Open color input"],"apply":null,"coarse":true} RED
+360x780 dark colour-input GEO {"docSW":360,"plate":"16-344","run":"dock-layer.dock-layer--full 28-332 sw/cw 346/304 auto","out":["Propose color name"],"hidden":["Propose color name"],"apply":"44x44","coarse":true} RED
+360x780 dark slug-edit GEO {"docSW":360,"plate":"26-335","run":"dock-layer.dock-layer--full 38-323 sw/cw 346/285 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+RED 2/3
+390x844 dark rest GEO {"docSW":390,"plate":"109-281","run":"dock-layer.dock-layer--full 121-269 sw/cw 346/149 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+390x844 dark toggled GEO {"docSW":390,"plate":"16-374","run":"dock-layer.dock-layer--full 28-362 sw/cw 346/334 auto","out":[],"hidden":["Open color input"],"apply":null,"coarse":true} GREEN
+390x844 dark colour-input GEO {"docSW":390,"plate":"16-374","run":"dock-layer.dock-layer--full 28-362 sw/cw 348/334 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+390x844 dark slug-edit GEO {"docSW":390,"plate":"35-356","run":"dock-layer.dock-layer--full 47-344 sw/cw 346/297 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+430x932 dark rest GEO {"docSW":430,"plate":"129-301","run":"dock-layer.dock-layer--full 141-289 sw/cw 346/149 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 dark toggled GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 346/346 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+430x932 dark colour-input GEO {"docSW":430,"plate":"30-400","run":"dock-layer.dock-layer--full 42-388 sw/cw 348/346 auto","out":[],"hidden":["Propose color name"],"apply":"44x44","coarse":true} GREEN
+430x932 dark slug-edit GEO {"docSW":430,"plate":"47-384","run":"dock-layer.dock-layer--full 59-372 sw/cw 346/313 auto","out":[],"hidden":[],"apply":null,"coarse":true} GREEN
+GREEN 3/3
+360x780 dark card0 /Versions/ width GREEN · place(G-1) RED {"l":0,"r":360,"w":360,"vw":360,"t":1946,"b":2418,"h":472,"vh":780,"sy":0,"pos":"relative","cb":null,"title":"Version history"}
+360x780 dark card4 /Versions/ width GREEN · place(G-1) RED {"l":0,"r":360,"w":360,"vw":360,"t":1426,"b":1898,"h":472,"vh":780,"sy":520,"pos":"relative","cb":null,"title":"Version history"}
+GREEN 2/2
+844x390 dark flag-report GREEN {"t":16,"b":374,"h":358,"vh":390,"titleIn":true,"lastBtnIn":false,"scrolls":true}
+360x780 dark flag-report GREEN {"t":129.2,"b":650.8,"h":522,"vh":780,"titleIn":true,"lastBtnIn":true,"scrolls":false}
+430x932 dark flag-report GREEN {"t":217.2,"b":714.8,"h":498,"vh":932,"titleIn":true,"lastBtnIn":true,"scrolls":false}
+GREEN 3/3
+(a) 844x390 dark card-menu GREEN before={"sy":197,"trig":233} after={"sy":197,"trig":233,"menu":[0,229],"vh":390}
+(a) 360x780 dark card-menu GREEN before={"sy":0,"trig":446} after={"sy":0,"trig":446,"menu":[58,442],"vh":780}
+GREEN 2/2 (a)
+# load 344.05 295.66 264.63

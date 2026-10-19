@@ -1,0 +1,974 @@
+{
+  "base": "http://localhost:9011",
+  "dialogs": [],
+  "admin": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "flaggedFile": "admin-flagged-1440-light.png",
+      "flagged": {
+        "mono": [
+          {
+            "text": "2 flagged",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "crimson-owl-77",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "2",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "spam",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "offensive",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "harsh clash",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "palette deleted",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "duplicate",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "counts": [
+          {
+            "text": "2",
+            "title": "2 reports",
+            "color": "oklch(0.289468 0.00386159 34.63)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "title": "1 report",
+            "color": "oklch(0.289468 0.00386159 34.63)",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "captionUtil": 0
+      },
+      "auditFile": "admin-audit-1440-light.png",
+      "audit": {
+        "chips": [
+          {
+            "text": "palette.feature",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "user.delete",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "flag.dismiss",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          }
+        ],
+        "refresh": {
+          "x": 1188,
+          "y": 230.6,
+          "w": 28,
+          "h": 28
+        },
+        "count": {
+          "x": 1091.4,
+          "y": 233.1,
+          "w": 88.6,
+          "h": 23
+        },
+        "filters": [
+          {
+            "x": 224,
+            "y": 226.6,
+            "w": 128,
+            "h": 36
+          },
+          {
+            "x": 360,
+            "y": 226.6,
+            "w": 723.4,
+            "h": 36
+          }
+        ],
+        "actors": [
+          {
+            "text": "by azure-fox-01",
+            "clipped": false
+          },
+          {
+            "text": "by an unrecorded admin",
+            "clipped": false
+          },
+          {
+            "text": "by crimson-owl-77",
+            "clipped": false
+          }
+        ]
+      },
+      "namesFile": "admin-names-1440-light.png",
+      "names": {
+        "family": "\"Plus Jakarta Sans\"",
+        "track": {
+          "top": 226.6,
+          "bottom": 269.2
+        },
+        "tabs": [
+          {
+            "top": 230.6,
+            "bottom": 265.2
+          },
+          {
+            "top": 230.6,
+            "bottom": 265.2
+          }
+        ],
+        "indicator": [
+          {
+            "top": 230.7,
+            "bottom": 282.4
+          }
+        ],
+        "labels": [
+          "Pending · 2",
+          "Approved · 0"
+        ]
+      },
+      "tagsFile": "admin-tags-1440-light.png",
+      "tags": [
+        {
+          "text": "moody",
+          "border": "0px",
+          "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "duotone",
+          "border": "0px",
+          "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "pastel",
+          "border": "0px",
+          "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        }
+      ],
+      "cardChip": null
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "flaggedFile": "admin-flagged-390-light.png",
+      "flagged": {
+        "mono": [
+          {
+            "text": "2 flagged",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "crimson-owl-77",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "2",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "spam",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "offensive",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "harsh clash",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "palette deleted",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "duplicate",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "counts": [
+          {
+            "text": "2",
+            "title": "2 reports",
+            "color": "oklch(0.289468 0.00386159 34.63)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "title": "1 report",
+            "color": "oklch(0.289468 0.00386159 34.63)",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "captionUtil": 0
+      },
+      "auditFile": "admin-audit-390-light.png",
+      "audit": {
+        "chips": [
+          {
+            "text": "palette.feature",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "user.delete",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          },
+          {
+            "text": "flag.dismiss",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(237, 230, 222)"
+          }
+        ],
+        "refresh": {
+          "x": 329,
+          "y": 272.3,
+          "w": 28,
+          "h": 28
+        },
+        "count": {
+          "x": 245.4,
+          "y": 276.5,
+          "w": 75.6,
+          "h": 19.6
+        },
+        "filters": [
+          {
+            "x": 33,
+            "y": 228.3,
+            "w": 128,
+            "h": 36
+          },
+          {
+            "x": 169,
+            "y": 228.3,
+            "w": 188,
+            "h": 36
+          }
+        ],
+        "actors": [
+          {
+            "text": "by azure-fox-01",
+            "clipped": false
+          },
+          {
+            "text": "by an unrecorded admin",
+            "clipped": false
+          },
+          {
+            "text": "by crimson-owl-77",
+            "clipped": false
+          }
+        ]
+      },
+      "namesFile": "admin-names-390-light.png",
+      "names": {
+        "family": "\"Plus Jakarta Sans\"",
+        "track": {
+          "top": 228.2,
+          "bottom": 260.5
+        },
+        "tabs": [
+          {
+            "top": 231.2,
+            "bottom": 257.5
+          },
+          {
+            "top": 231.2,
+            "bottom": 257.5
+          }
+        ],
+        "indicator": [
+          {
+            "top": 231.3,
+            "bottom": 263.1
+          }
+        ],
+        "labels": [
+          "Pending · 2",
+          "Approved · 0"
+        ]
+      },
+      "tagsFile": "admin-tags-390-light.png",
+      "tags": [
+        {
+          "text": "moody",
+          "border": "0px",
+          "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "duotone",
+          "border": "0px",
+          "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "pastel",
+          "border": "0px",
+          "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        }
+      ],
+      "cardChip": null
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "flaggedFile": "admin-flagged-1440-dark.png",
+      "flagged": {
+        "mono": [
+          {
+            "text": "2 flagged",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "crimson-owl-77",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "2",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "spam",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "offensive",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "harsh clash",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "palette deleted",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "duplicate",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "counts": [
+          {
+            "text": "2",
+            "title": "2 reports",
+            "color": "oklch(0.712763 0.00382185 41.8684)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "title": "1 report",
+            "color": "oklch(0.712763 0.00382185 41.8684)",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "captionUtil": 0
+      },
+      "auditFile": "admin-audit-1440-dark.png",
+      "audit": {
+        "chips": [
+          {
+            "text": "palette.feature",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "user.delete",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "flag.dismiss",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          }
+        ],
+        "refresh": {
+          "x": 1188,
+          "y": 230.6,
+          "w": 28,
+          "h": 28
+        },
+        "count": {
+          "x": 1091.4,
+          "y": 233.1,
+          "w": 88.6,
+          "h": 23
+        },
+        "filters": [
+          {
+            "x": 224,
+            "y": 226.6,
+            "w": 128,
+            "h": 36
+          },
+          {
+            "x": 360,
+            "y": 226.6,
+            "w": 723.4,
+            "h": 36
+          }
+        ],
+        "actors": [
+          {
+            "text": "by azure-fox-01",
+            "clipped": false
+          },
+          {
+            "text": "by an unrecorded admin",
+            "clipped": false
+          },
+          {
+            "text": "by crimson-owl-77",
+            "clipped": false
+          }
+        ]
+      },
+      "namesFile": "admin-names-1440-dark.png",
+      "names": {
+        "family": "\"Plus Jakarta Sans\"",
+        "track": {
+          "top": 226.6,
+          "bottom": 269.2
+        },
+        "tabs": [
+          {
+            "top": 230.6,
+            "bottom": 265.2
+          },
+          {
+            "top": 230.6,
+            "bottom": 265.2
+          }
+        ],
+        "indicator": [
+          {
+            "top": 230.7,
+            "bottom": 282.4
+          }
+        ],
+        "labels": [
+          "Pending · 2",
+          "Approved · 0"
+        ]
+      },
+      "tagsFile": "admin-tags-1440-dark.png",
+      "tags": [
+        {
+          "text": "moody",
+          "border": "0px",
+          "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "duotone",
+          "border": "0px",
+          "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "pastel",
+          "border": "0px",
+          "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        }
+      ],
+      "cardChip": null
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "flaggedFile": "admin-flagged-390-dark.png",
+      "flagged": {
+        "mono": [
+          {
+            "text": "2 flagged",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "crimson-owl-77",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "2",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "spam",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "offensive",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "harsh clash",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "palette deleted",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "duplicate",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "Jul 4",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "counts": [
+          {
+            "text": "2",
+            "title": "2 reports",
+            "color": "oklch(0.712763 0.00382185 41.8684)",
+            "bg": "rgba(0, 0, 0, 0)"
+          },
+          {
+            "text": "1",
+            "title": "1 report",
+            "color": "oklch(0.712763 0.00382185 41.8684)",
+            "bg": "rgba(0, 0, 0, 0)"
+          }
+        ],
+        "captionUtil": 0
+      },
+      "auditFile": "admin-audit-390-dark.png",
+      "audit": {
+        "chips": [
+          {
+            "text": "palette.feature",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "user.delete",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          },
+          {
+            "text": "flag.dismiss",
+            "transform": "none",
+            "tracking": "normal",
+            "variant": "normal",
+            "family": "\"Fira Code\"",
+            "bg": "rgb(47, 40, 35)"
+          }
+        ],
+        "refresh": {
+          "x": 329,
+          "y": 272.2,
+          "w": 28,
+          "h": 28
+        },
+        "count": {
+          "x": 245.4,
+          "y": 276.4,
+          "w": 75.6,
+          "h": 19.6
+        },
+        "filters": [
+          {
+            "x": 33,
+            "y": 228.2,
+            "w": 128,
+            "h": 36
+          },
+          {
+            "x": 169,
+            "y": 228.2,
+            "w": 188,
+            "h": 36
+          }
+        ],
+        "actors": [
+          {
+            "text": "by azure-fox-01",
+            "clipped": false
+          },
+          {
+            "text": "by an unrecorded admin",
+            "clipped": false
+          },
+          {
+            "text": "by crimson-owl-77",
+            "clipped": false
+          }
+        ]
+      },
+      "namesFile": "admin-names-390-dark.png",
+      "names": {
+        "family": "\"Plus Jakarta Sans\"",
+        "track": {
+          "top": 228.2,
+          "bottom": 260.5
+        },
+        "tabs": [
+          {
+            "top": 231.2,
+            "bottom": 257.5
+          },
+          {
+            "top": 231.2,
+            "bottom": 257.5
+          }
+        ],
+        "indicator": [
+          {
+            "top": 231.3,
+            "bottom": 263.1
+          }
+        ],
+        "labels": [
+          "Pending · 2",
+          "Approved · 0"
+        ]
+      },
+      "tagsFile": "admin-tags-390-dark.png",
+      "tags": [
+        {
+          "text": "moody",
+          "border": "0px",
+          "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "duotone",
+          "border": "0px",
+          "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        },
+        {
+          "text": "pastel",
+          "border": "0px",
+          "bg": "oklab(0.22863 0.00364291 0.00732781 / 0.6)",
+          "family": "\"Plus Jakarta Sans\"",
+          "size": "11px"
+        }
+      ],
+      "cardChip": null
+    }
+  ]
+}

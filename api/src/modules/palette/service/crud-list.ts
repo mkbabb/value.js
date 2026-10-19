@@ -73,6 +73,20 @@ function encodeCursor(doc: WithId<Palette>): string {
 
 type SortMode = "newest" | "popular" | "most-forked";
 
+/**
+ * X-W3 · G-14 — `most-forked` sorts on the STORED `forkCount`, and that is the
+ * one remaining thing the stored field is for.
+ *
+ * Its contract is explicitly APPROXIMATE: it is maintained by blind
+ * `$inc`/`$dec` (`repository/palette.ts: incrementForkCount`), it counts
+ * children this viewer may not read, and a delete→restore round trip that hit
+ * the decrement floor leaves it high. A keyset sort needs ONE indexed scalar
+ * per row and cannot be driven by a per-viewer aggregate, so the ordering
+ * stays on the approximation — while the `forkCount` each card PUBLISHES is
+ * the exact viewer-filtered count computed at format time. An ordering that is
+ * approximately right is a ranking choice; a count that is wrong is a
+ * disclosure, which is why only one of the two was left on the stored field.
+ */
 function sortSpecFor(sort: SortMode): Sort {
     return sort === "popular"
         ? { voteCount: -1, createdAt: -1, _id: -1 }
@@ -289,7 +303,17 @@ export async function listPalettes(
     const lastReturned = matched.at(-1);
     const nextCursor = hasMore && lastReturned ? encodeCursor(lastReturned) : null;
 
-    const data = matched.map((r) => formatPalette(r, votedSlugs));
+    // X-W3 · G-14 — one grouped join for the whole page (never an N+1), so
+    // every card's `forkCount` is this caller's filtered count rather than the
+    // stored approximation the `most-forked` sort still reads.
+    const forkCounts = await services.repositories.palettes.countForksOfMany(
+        matched.map((r) => r.slug),
+        currentUserSlug,
+    );
+
+    const data = matched.map((r) =>
+        formatPalette(r, { forkCount: forkCounts.get(r.slug) ?? 0, votedSlugs }),
+    );
     return { data, nextCursor, hasMore };
 }
 
@@ -316,8 +340,16 @@ export async function listMine(
         services.repositories.palettes.findByUserSlug(userSlug, clampedOffset, clampedLimit),
         services.repositories.palettes.countByUserSlug(userSlug),
     ]);
+    // X-W3 · G-14: `listMine` is the owner's own shelf, so the viewer is the
+    // owner and their private children count toward their own totals.
+    const forkCounts = await services.repositories.palettes.countForksOfMany(
+        results.map((r) => r.slug),
+        userSlug,
+    );
     return {
-        data: results.map((r) => formatPalette(r)),
+        data: results.map((r) =>
+            formatPalette(r, { forkCount: forkCounts.get(r.slug) ?? 0 }),
+        ),
         total,
         limit: clampedLimit,
         offset: clampedOffset,

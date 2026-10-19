@@ -1,0 +1,200 @@
+{
+ "script": "compile.mjs",
+ "node": "v26.0.0",
+ "rounds": 11,
+ "uptimeStart": "17:31  up 1 day, 20 mins, 3 users, load averages: 6.83 11.93 18.11",
+ "cold": {
+  "candidate": [
+   {
+    "sinceBootToScript": 53.15,
+    "importMs": 5.34,
+    "firstParseMs": 9.3,
+    "secondParseMs": 0.452
+   },
+   {
+    "sinceBootToScript": 51.33,
+    "importMs": 5.25,
+    "firstParseMs": 8.95,
+    "secondParseMs": 0.319
+   },
+   {
+    "sinceBootToScript": 51.31,
+    "importMs": 5.11,
+    "firstParseMs": 9.02,
+    "secondParseMs": 0.328
+   },
+   {
+    "sinceBootToScript": 52.58,
+    "importMs": 5.68,
+    "firstParseMs": 8.89,
+    "secondParseMs": 0.326
+   },
+   {
+    "sinceBootToScript": 56.89,
+    "importMs": 5.69,
+    "firstParseMs": 9.97,
+    "secondParseMs": 0.346
+   },
+   {
+    "sinceBootToScript": 51.64,
+    "importMs": 5.62,
+    "firstParseMs": 9.04,
+    "secondParseMs": 0.329
+   },
+   {
+    "sinceBootToScript": 50.84,
+    "importMs": 5.4,
+    "firstParseMs": 8.73,
+    "secondParseMs": 0.311
+   },
+   {
+    "sinceBootToScript": 49.85,
+    "importMs": 5.17,
+    "firstParseMs": 8.78,
+    "secondParseMs": 0.343
+   },
+   {
+    "sinceBootToScript": 50.29,
+    "importMs": 4.92,
+    "firstParseMs": 8.51,
+    "secondParseMs": 0.341
+   },
+   {
+    "sinceBootToScript": 51.96,
+    "importMs": 5.11,
+    "firstParseMs": 9.1,
+    "secondParseMs": 0.333
+   },
+   {
+    "sinceBootToScript": 53.42,
+    "importMs": 5.55,
+    "firstParseMs": 9.08,
+    "secondParseMs": 0.321
+   }
+  ],
+  "retired": [
+   {
+    "sinceBootToScript": 55.06,
+    "importMs": 1.26,
+    "firstParseMs": 0.28,
+    "secondParseMs": 0.549
+   },
+   {
+    "sinceBootToScript": 51.84,
+    "importMs": 1.08,
+    "firstParseMs": 0.27,
+    "secondParseMs": 0.378
+   },
+   {
+    "sinceBootToScript": 54.13,
+    "importMs": 1.08,
+    "firstParseMs": 0.26,
+    "secondParseMs": 0.377
+   },
+   {
+    "sinceBootToScript": 53.48,
+    "importMs": 1.36,
+    "firstParseMs": 0.27,
+    "secondParseMs": 0.434
+   },
+   {
+    "sinceBootToScript": 53.48,
+    "importMs": 1.35,
+    "firstParseMs": 0.28,
+    "secondParseMs": 0.388
+   },
+   {
+    "sinceBootToScript": 51.31,
+    "importMs": 1.12,
+    "firstParseMs": 0.26,
+    "secondParseMs": 0.437
+   },
+   {
+    "sinceBootToScript": 50.59,
+    "importMs": 1.11,
+    "firstParseMs": 0.29,
+    "secondParseMs": 0.388
+   },
+   {
+    "sinceBootToScript": 51.29,
+    "importMs": 1.07,
+    "firstParseMs": 0.26,
+    "secondParseMs": 0.372
+   },
+   {
+    "sinceBootToScript": 50.27,
+    "importMs": 1.06,
+    "firstParseMs": 0.28,
+    "secondParseMs": 0.445
+   },
+   {
+    "sinceBootToScript": 49.41,
+    "importMs": 1.07,
+    "firstParseMs": 0.25,
+    "secondParseMs": 0.373
+   },
+   {
+    "sinceBootToScript": 53.25,
+    "importMs": 1.27,
+    "firstParseMs": 0.29,
+    "secondParseMs": 0.421
+   }
+  ]
+ },
+ "uptimeAfterCold": "17:31  up 1 day, 20 mins, 3 users, load averages: 6.83 11.93 18.11",
+ "coldSummary": {
+  "candidate": {
+   "importMs": {
+    "median": 5.34,
+    "min": 4.92
+   },
+   "firstParseMs": {
+    "median": 9.02,
+    "min": 8.51
+   },
+   "secondParseMs": {
+    "median": 0.33,
+    "min": 0.31
+   }
+  },
+  "retired": {
+   "importMs": {
+    "median": 1.11,
+    "min": 1.06
+   },
+   "firstParseMs": {
+    "median": 0.27,
+    "min": 0.25
+   },
+   "secondParseMs": {
+    "median": 0.39,
+    "min": 0.37
+   }
+  }
+ },
+ "warmPhases": {
+  "astMs": {
+   "median": 2.47,
+   "min": 1.61
+  },
+  "analysisMs": {
+   "median": 0.81,
+   "min": 0.74
+  },
+  "toParserMs": {
+   "median": 0.23,
+   "min": 0.21
+  },
+  "attachMs": {
+   "median": 0.01,
+   "min": 0.01
+  },
+  "wholeBBNFToParserMs": {
+   "median": 3.59,
+   "min": 2.58
+  }
+ },
+ "grammarChars": 18697,
+ "ruleCount": 160,
+ "uptimeEnd": "17:31  up 1 day, 20 mins, 3 users, load averages: 6.83 11.93 18.11"
+}

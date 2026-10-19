@@ -1,0 +1,21 @@
+p 1440 light EXIT 0
+e 1440 light EXIT 0
+p 390 dark EXIT 0
+e 390 dark EXIT 0
+m 390x844 light EXIT 0 {"states":30,"red":0} 
+m 390x844 dark EXIT 0 {"states":30,"red":0} 
+m 844x390 light EXIT 0 {"states":30,"red":0} 
+m 844x390 dark EXIT 0 {"states":30,"red":0} 
+m 430x932 light EXIT 0 {"states":30,"red":0} 
+m 430x932 dark EXIT 0 {"states":30,"red":0} 
+m 932x430 light EXIT 0 {"states":30,"red":0} 
+m 932x430 dark EXIT 0 {"states":30,"red":0} 
+d 1440 light EXIT 0
+d 1440 dark EXIT 0
+d 390 light EXIT 0
+d 390 dark EXIT 0
+dclose1-1440-dark.json: docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+dclose1-1440-light.json: docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+dclose1-390-dark.json: docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+dclose1-390-light.json: docks 12 · collapsed 12 · vertical 0 · spill 0 (max 0 px) · clipped 0
+DONE

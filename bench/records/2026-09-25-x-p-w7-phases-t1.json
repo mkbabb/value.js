@@ -1,0 +1,109 @@
+{
+ "tag": "t1",
+ "instrument": "bench/paired/phases.mjs (X.P.W7.l4)",
+ "rounds": 11,
+ "arms": [
+  "retired",
+  "product"
+ ],
+ "sheets": 4,
+ "values": 16469,
+ "results": [
+  {
+   "engine": "node",
+   "phase": "sheet",
+   "k": 4,
+   "msPerPass": {
+    "retired": 17.017,
+    "product": 5.955
+   },
+   "ratio": {
+    "product": 0.352
+   },
+   "uptime": [
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.65 41.79 56.63",
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.65 41.79 56.63"
+   ]
+  },
+  {
+   "engine": "node",
+   "phase": "values",
+   "k": 1,
+   "msPerPass": {
+    "retired": 71.584,
+    "product": 19.883
+   },
+   "ratio": {
+    "product": 0.282
+   },
+   "uptime": [
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.65 41.79 56.63",
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.65 41.79 56.63"
+   ]
+  },
+  {
+   "engine": "node",
+   "phase": "rules",
+   "k": 4,
+   "msPerPass": {
+    "retired": 19.707,
+    "product": 2.862
+   },
+   "ratio": {
+    "product": 0.147
+   },
+   "uptime": [
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.65 41.79 56.63",
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.04 41.40 56.41"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "phase": "sheet",
+   "k": 16,
+   "msPerPass": {
+    "retired": 10.188,
+    "product": 10.188
+   },
+   "ratio": {
+    "product": 1.006
+   },
+   "uptime": [
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.04 41.40 56.41",
+    "12:34  up 1 day, 10:37, 3 users, load averages: 23.67 40.84 56.12"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "phase": "values",
+   "k": 2,
+   "msPerPass": {
+    "retired": 98.5,
+    "product": 41
+   },
+   "ratio": {
+    "product": 0.427
+   },
+   "uptime": [
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.04 41.40 56.41",
+    "12:34  up 1 day, 10:37, 3 users, load averages: 23.30 40.48 55.90"
+   ]
+  },
+  {
+   "engine": "firefox",
+   "phase": "rules",
+   "k": 16,
+   "msPerPass": {
+    "retired": 12.875,
+    "product": 4.563
+   },
+   "ratio": {
+    "product": 0.348
+   },
+   "uptime": [
+    "12:34  up 1 day, 10:36, 3 users, load averages: 25.04 41.40 56.41",
+    "12:34  up 1 day, 10:37, 3 users, load averages: 23.68 40.27 55.74"
+   ]
+  }
+ ]
+}

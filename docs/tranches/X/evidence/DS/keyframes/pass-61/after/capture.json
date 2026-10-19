@@ -1,0 +1,46 @@
+{
+ "inline-lead-light": {
+  "leadText": "Import Rotations",
+  "before": {
+   "hintShown": true,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0
+  },
+  "after": {
+   "hintShown": false,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0
+  }
+ },
+ "dialog-light": {
+  "title": "Import CSS @keyframes",
+  "confirm": "Import",
+  "glyphFirst": true,
+  "glyphLeft": 856,
+  "buttonLeft": 839
+ },
+ "inline-lead-dark": {
+  "leadText": "Import Rotations",
+  "before": {
+   "hintShown": true,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0
+  },
+  "after": {
+   "hintShown": false,
+   "dialogOpen": false,
+   "dialogTitle": null,
+   "stops": 0
+  }
+ },
+ "dialog-dark": {
+  "title": "Import CSS @keyframes",
+  "confirm": "Import",
+  "glyphFirst": true,
+  "glyphLeft": 856,
+  "buttonLeft": 839
+ }
+}

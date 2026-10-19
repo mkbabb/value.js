@@ -1,0 +1,955 @@
+{
+ "390": {
+  "empty": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    29,
+    789,
+    361,
+    1214
+   ],
+   "track": [
+    47,
+    1031,
+    343,
+    1079
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    873,
+    343,
+    969
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    874,
+    293,
+    1069
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 1079,
+   "playheadLeft": "0px",
+   "playheadX": 48,
+   "panRowH": 18,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "populated": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    29,
+    215,
+    361,
+    539
+   ],
+   "track": [
+    47,
+    457,
+    343,
+    505
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    299,
+    343,
+    395
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    300,
+    293,
+    495
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 56,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 334,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    497,
+    497,
+    497
+   ],
+   "trackBottom": 505,
+   "playheadLeft": "0px",
+   "playheadX": 48,
+   "panRowH": 18,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 1148,
+   "ih": 844
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\nPreview unavailable — Attempting to parse an unsupported color function \"color\"\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Preview unavailable: Attempting to parse an unsupported colo",
+   "rect": [
+    83,
+    367,
+    307,
+    602
+   ],
+   "coversUndo": true,
+   "img": false,
+   "ellipsized": 1
+  },
+  "selected": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    29,
+    355,
+    361,
+    1030
+   ],
+   "track": [
+    47,
+    597,
+    343,
+    645
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(0, 0, 0)",
+   "stage": [
+    47,
+    439,
+    343,
+    535
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    440,
+    293,
+    635
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 56,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 334,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    637,
+    637
+   ],
+   "trackBottom": 645,
+   "playheadLeft": "0px",
+   "playheadX": 48,
+   "panRowH": 18,
+   "monaco": 1,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 1015,
+   "ih": 844
+  },
+  "removeGlyph": "lucide lucide-x-icon lucide-x icon-xs",
+  "afterRoundTrip": 0,
+  "expanded": {
+   "mounted": 3,
+   "visible": 3,
+   "card": [
+    17,
+    223,
+    373,
+    748
+   ],
+   "track": [
+    17,
+    519,
+    373,
+    647
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    17,
+    297,
+    373,
+    457
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    298,
+    293,
+    493
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 647,
+   "playheadLeft": "0px",
+   "playheadX": 18,
+   "panRowH": 18,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ },
+ "1440": {
+  "empty": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    457
+   ],
+   "track": [
+    89,
+    290,
+    460,
+    338
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    129,
+    387,
+    354
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 338,
+   "playheadLeft": "0px",
+   "playheadX": 90.203125,
+   "panRowH": 22,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "populated": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    372
+   ],
+   "track": [
+    89,
+    290,
+    460,
+    338
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    129,
+    387,
+    354
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 98,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 451,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    330,
+    330,
+    330
+   ],
+   "trackBottom": 338,
+   "playheadLeft": "0px",
+   "playheadX": 90.203125,
+   "panRowH": 22,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 900,
+   "ih": 900
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\nPreview unavailable — Attempting to parse an unsupported color function \"color\"\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Preview unavailable: Attempting to parse an unsupported colo",
+   "rect": [
+    163,
+    22,
+    387,
+    293
+   ],
+   "coversUndo": true,
+   "img": false,
+   "ellipsized": 1
+  },
+  "selected": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    703
+   ],
+   "track": [
+    89,
+    290,
+    460,
+    338
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    129,
+    387,
+    354
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 98,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 451,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    330,
+    330
+   ],
+   "trackBottom": 338,
+   "playheadLeft": "0px",
+   "playheadX": 90.203125,
+   "panRowH": 22,
+   "monaco": 1,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 900,
+   "ih": 900
+  },
+  "removeGlyph": "lucide lucide-x-icon lucide-x icon-xs",
+  "afterRoundTrip": 0,
+  "expanded": {
+   "mounted": 3,
+   "visible": 3,
+   "card": [
+    60,
+    319,
+    501,
+    838
+   ],
+   "track": [
+    60,
+    601,
+    501,
+    729
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(112, 89, 66)",
+   "stage": [
+    60,
+    375,
+    501,
+    535
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    168,
+    376,
+    393,
+    601
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 729,
+   "playheadLeft": "0px",
+   "playheadX": 61.203125,
+   "panRowH": 22,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ },
+ "1440d": {
+  "empty": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    457
+   ],
+   "track": [
+    89,
+    290,
+    460,
+    338
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    129,
+    387,
+    354
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 338,
+   "playheadLeft": "0px",
+   "playheadX": 90.203125,
+   "panRowH": 22,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 900,
+   "ih": 900
+  },
+  "populated": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    372
+   ],
+   "track": [
+    89,
+    290,
+    460,
+    338
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    129,
+    387,
+    354
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 98,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 451,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    330,
+    330,
+    330
+   ],
+   "trackBottom": 338,
+   "playheadLeft": "0px",
+   "playheadX": 90.203125,
+   "panRowH": 22,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 900,
+   "ih": 900
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\nPreview unavailable — Attempting to parse an unsupported color function \"color\"\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Preview unavailable: Attempting to parse an unsupported colo",
+   "rect": [
+    163,
+    22,
+    387,
+    293
+   ],
+   "coversUndo": true,
+   "img": false,
+   "ellipsized": 1
+  },
+  "selected": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    71,
+    62,
+    478,
+    703
+   ],
+   "track": [
+    89,
+    290,
+    460,
+    338
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    89,
+    128,
+    460,
+    224
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    162,
+    129,
+    387,
+    354
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 98,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 275,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 451,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    330,
+    330
+   ],
+   "trackBottom": 338,
+   "playheadLeft": "0px",
+   "playheadX": 90.203125,
+   "panRowH": 22,
+   "monaco": 1,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 900,
+   "ih": 900
+  },
+  "removeGlyph": "lucide lucide-x-icon lucide-x icon-xs",
+  "error": "Error: page.evaluate: Target crashed ",
+  "pageErrors": []
+ },
+ "390d": {
+  "empty": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    29,
+    789,
+    361,
+    1214
+   ],
+   "track": [
+    47,
+    1031,
+    343,
+    1079
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(255, 255, 255)",
+   "stage": [
+    47,
+    873,
+    343,
+    969
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    874,
+    293,
+    1069
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 1079,
+   "playheadLeft": "0px",
+   "playheadX": 48,
+   "panRowH": 18,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "populated": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    29,
+    215,
+    361,
+    539
+   ],
+   "track": [
+    47,
+    457,
+    343,
+    505
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(255, 255, 255)",
+   "stage": [
+    47,
+    299,
+    343,
+    395
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    300,
+    293,
+    495
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 56,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 334,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    497,
+    497,
+    497
+   ],
+   "trackBottom": 505,
+   "playheadLeft": "0px",
+   "playheadX": 48,
+   "panRowH": 18,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 1148,
+   "ih": 844
+  },
+  "transportLabel": "Pause animation",
+  "playDistinct": 1,
+  "markerCount": 3,
+  "tooltip": {
+   "text": "50%\nPreview unavailable — Attempting to parse an unsupported color function \"color\"\ntransform: rotateX(90deg)\nopacity: 0.5\nKeyframe at 50%. Preview unavailable: Attempting to parse an unsupported colo",
+   "rect": [
+    83,
+    367,
+    307,
+    602
+   ],
+   "coversUndo": true,
+   "img": false,
+   "ellipsized": 1
+  },
+  "selected": {
+   "mounted": 3,
+   "visible": 1,
+   "card": [
+    29,
+    355,
+    361,
+    1030
+   ],
+   "track": [
+    47,
+    597,
+    343,
+    645
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(255, 255, 255)",
+   "stage": [
+    47,
+    439,
+    343,
+    535
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    440,
+    293,
+    635
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [
+    {
+     "x": 56,
+     "inL": false,
+     "inR": true
+    },
+    {
+     "x": 195,
+     "inL": true,
+     "inR": true
+    },
+    {
+     "x": 334,
+     "inL": true,
+     "inR": false
+    }
+   ],
+   "caretTops": [
+    637,
+    637
+   ],
+   "trackBottom": 645,
+   "playheadLeft": "0px",
+   "playheadX": 48,
+   "panRowH": 18,
+   "monaco": 1,
+   "upperErr": [],
+   "emptyText": false,
+   "percentMentions": 8,
+   "sh": 1015,
+   "ih": 844
+  },
+  "removeGlyph": "lucide lucide-x-icon lucide-x icon-xs",
+  "afterRoundTrip": 0,
+  "expanded": {
+   "mounted": 3,
+   "visible": 3,
+   "card": [
+    17,
+    223,
+    373,
+    748
+   ],
+   "track": [
+    17,
+    519,
+    373,
+    647
+   ],
+   "trackRadius": "10px",
+   "trackBorder": "rgb(195, 185, 172)",
+   "stage": [
+    17,
+    297,
+    373,
+    457
+   ],
+   "stageVisible": true,
+   "stageRadius": "10px",
+   "stageChild": true,
+   "subj": [
+    98,
+    298,
+    293,
+    493
+   ],
+   "subjTransform": "matrix(1, 0, 0, 1, 0, 0)",
+   "subjFits": false,
+   "markers": [],
+   "caretTops": [],
+   "trackBottom": 647,
+   "playheadLeft": "0px",
+   "playheadX": 18,
+   "panRowH": 18,
+   "monaco": 0,
+   "upperErr": [],
+   "emptyText": true,
+   "percentMentions": 5,
+   "sh": 1148,
+   "ih": 844
+  },
+  "clear": {
+   "dialog": false,
+   "markers": 0
+  },
+  "pageErrors": []
+ }
+}

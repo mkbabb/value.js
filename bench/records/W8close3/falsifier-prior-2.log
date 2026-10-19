@@ -1,0 +1,124 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js/.worktrees/w8close3/prior
+
+ ❯ test/css/bbnf-semicolon.test.ts (20 tests | 13 failed) 35ms
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:rotate(0;1deg)}" yields ok:false with a css_syntax diagnostic 10ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "@keyframes k{0%{transform:translate(0;1px)}}" yields ok:false with a css_syntax diagnostic 4ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "@keyframes k{from{filter:drop-shadow(0 0;1px red)}}" yields ok:false with a css_syntax diagnostic 2ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:translate(0 ; 1px)}" yields ok:false with a css_syntax diagnostic 1ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:rotate(0deg) scale(1;2)}" yields ok:false with a css_syntax diagnostic 0ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{filter:blur(1px;2px)}" yields ok:false with a css_syntax diagnostic 0ms
+     → expected true to be false // Object.is equality
+   ✓ a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{color:rgb(1;2;3)}" yields ok:false with a css_syntax diagnostic 2ms
+   ✓ a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{width:calc(1px;2px)}" yields ok:false with a css_syntax diagnostic 2ms
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{width:var(--a,1px;2px)}" yields ok:false with a css_syntax diagnostic 1ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("rotate(0;1deg)") names the `;` at 8 0ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("translate(0 ; 1px)") names the `;` at 12 0ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("var(--a,1px;2px)") names the `;` at 11 0ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("calc(1px;2px)") names the `;` at 8 7ms
+     → expected { code: 'css_syntax', start: +0, …(3) } to match object { code: 'css_syntax', start: 8, …(3) }
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("0;1px") names the `;` at 1 1ms
+     → expected true to be false // Object.is equality
+   × a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue(";") names the `;` at 0 0ms
+     → expected true to be false // Object.is equality
+   ✓ a `;` that is a token's own text stays valid > "a{transform:rotate(0deg)}" parses 0ms
+   ✓ a `;` that is a token's own text stays valid > "a{transform:rotate(0)scale(1)}" parses 0ms
+   ✓ a `;` that is a token's own text stays valid > "a{content:\"a;b\"}" parses 0ms
+   ✓ a `;` that is a token's own text stays valid > "a{background:url(a;b.png)}" parses 0ms
+   ✓ a `;` that is a token's own text stays valid > "@keyframes k{0%{transform:translate(0,1px)}}" parses 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:rotate(0;1deg)}" yields ok:false with a css_syntax diagnostic
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "@keyframes k{0%{transform:translate(0;1px)}}" yields ok:false with a css_syntax diagnostic
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "@keyframes k{from{filter:drop-shadow(0 0;1px red)}}" yields ok:false with a css_syntax diagnostic
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:translate(0 ; 1px)}" yields ok:false with a css_syntax diagnostic
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{transform:rotate(0deg) scale(1;2)}" yields ok:false with a css_syntax diagnostic
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{filter:blur(1px;2px)}" yields ok:false with a css_syntax diagnostic
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > "a{width:var(--a,1px;2px)}" yields ok:false with a css_syntax diagnostic
+AssertionError: expected true to be false // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- false[39m
+[31m+ true[39m
+
+ ❯ test/css/bbnf-semicolon.test.ts:28:27
+     26|     ])("%j yields ok:false with a css_syntax diagnostic", (source) => {
+     27|         const parsed = parseStylesheet(source);
+     28|         expect(parsed.ok).toBe(false);
+       |                           ^
+     29|         if (parsed.ok) return;
+     30|         expect(parsed.diagnostics.map((row) => row.code)).toContain("c…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/13]⎯
+
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("rotate(0;1deg)") names the `;` at 8
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("translate(0 ; 1px)") names the `;` at 12
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("var(--a,1px;2px)") names the `;` at 11
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("0;1px") names the `;` at 1
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue(";") names the `;` at 0
+AssertionError: expected true to be false // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- false[39m
+[31m+ true[39m
+
+ ❯ test/css/bbnf-semicolon.test.ts:42:27
+     40|     ] as const)("parseCssValue(%j) names the `;` at %i", (source, star…
+     41|         const parsed = parseCssValue(source);
+     42|         expect(parsed.ok).toBe(false);
+       |                           ^
+     43|         expect(parsed.diagnostics).toHaveLength(1);
+     44|         expect(parsed.diagnostics[0]).toMatchObject({ code: "css_synta…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/13]⎯
+
+ FAIL  test/css/bbnf-semicolon.test.ts > a `;` inside a function block is refused (css-syntax-3 §5.4.6) > parseCssValue("calc(1px;2px)") names the `;` at 8
+AssertionError: expected { code: 'css_syntax', start: +0, …(3) } to match object { code: 'css_syntax', start: 8, …(3) }
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[2m  {[22m
+[32m-   "actual": ";",[39m
+[31m+   "actual": "calc(1px;2px)",[39m
+[2m    "code": "css_syntax",[22m
+[32m-   "end": 9,[39m
+[31m+   "end": 13,[39m
+[2m    "expected": [[22m
+[32m-     "scalar",[39m
+[31m+     "calculation",[39m
+[2m    ],[22m
+[32m-   "start": 8,[39m
+[31m+   "start": 0,[39m
+[2m  }[22m
+
+ ❯ test/css/bbnf-semicolon.test.ts:44:39
+     42|         expect(parsed.ok).toBe(false);
+     43|         expect(parsed.diagnostics).toHaveLength(1);
+     44|         expect(parsed.diagnostics[0]).toMatchObject({ code: "css_synta…
+       |                                       ^
+     45|     });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/13]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  13 failed | 7 passed (20)
+   Start at  12:57:33
+   Duration  4.05s (transform 1.43s, setup 190ms, collect 2.09s, tests 35ms, environment 820ms, prepare 133ms)
+

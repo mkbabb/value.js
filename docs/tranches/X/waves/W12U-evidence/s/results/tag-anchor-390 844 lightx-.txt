@@ -1,0 +1,8 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+browser.newContext: viewport.width: expected integer, got float NaN
+    at async file:///Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/s/probe-tag-anchor.mjs:15:17
+
+Node.js v26.0.0

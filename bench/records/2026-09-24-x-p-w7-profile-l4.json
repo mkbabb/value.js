@@ -1,0 +1,1909 @@
+{
+ "tag": "l4",
+ "instrument": "bench/paired/profile.mjs (X.P.W7.l)",
+ "passes": 5,
+ "cells": "parseStylesheet:large",
+ "valuejsHead": "d0f58b9c64857e286f5bc8ace023ee5c772255e1",
+ "uptimeStart": "12:30  up 1 day, 10:33, 3 users, load averages: 32.34 52.19 63.08",
+ "versions": {
+  "node": "v26.0.0",
+  "firefox": "150.0.2",
+  "chromium": "148.0.7778.96",
+  "webkit": "26.4"
+ },
+ "results": [
+  {
+   "engine": "node",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "wallMsPerPass": 14.96,
+   "entryMsPerPass": 13.49,
+   "glueMsPerPass": 1.46,
+   "actionMsPerPass": 2.43,
+   "calls": 84363,
+   "fails": 18171,
+   "actionCalls": 32018,
+   "discarded": 57,
+   "entries": [
+    {
+     "name": "ruleList",
+     "calls": 117,
+     "refused": 0,
+     "ms": 5.384
+    },
+    {
+     "name": "valueTop",
+     "calls": 1972,
+     "refused": 5,
+     "ms": 4.432
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "refused": 0,
+     "ms": 1.241
+    },
+    {
+     "name": "atPrelude",
+     "calls": 1011,
+     "refused": 900,
+     "ms": 0.86
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "refused": 0,
+     "ms": 0.828
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "refused": 0,
+     "ms": 0.706
+    },
+    {
+     "name": "keyframeSelector",
+     "calls": 15,
+     "refused": 0,
+     "ms": 0.023
+    },
+    {
+     "name": "commaSpans",
+     "calls": 10,
+     "refused": 0,
+     "ms": 0.02
+    }
+   ],
+   "functions": [
+    {
+     "label": "ruleList/v",
+     "calls": 117,
+     "fails": 0,
+     "ms": 5.364,
+     "discarded": 0
+    },
+    {
+     "label": "ruleBlock/v",
+     "calls": 3266,
+     "fails": 1,
+     "ms": 4.674,
+     "discarded": 0
+    },
+    {
+     "label": "commaList/v",
+     "calls": 2131,
+     "fails": 0,
+     "ms": 4.311,
+     "discarded": 0
+    },
+    {
+     "label": "valueTop/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 4.309,
+     "discarded": 0
+    },
+    {
+     "label": "slashList/v",
+     "calls": 2216,
+     "fails": 0,
+     "ms": 3.94,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r",
+     "calls": 10548,
+     "fails": 0,
+     "ms": 3.862,
+     "discarded": 0
+    },
+    {
+     "label": "spaceList/v",
+     "calls": 2218,
+     "fails": 0,
+     "ms": 3.575,
+     "discarded": 0
+    },
+    {
+     "label": "blockTail/v",
+     "calls": 3259,
+     "fails": 1,
+     "ms": 3.23,
+     "discarded": 0
+    },
+    {
+     "label": "valueTerm/v",
+     "calls": 2641,
+     "fails": 2,
+     "ms": 3.011,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r alt h1187",
+     "calls": 7289,
+     "fails": 0,
+     "ms": 1.411,
+     "discarded": 0
+    },
+    {
+     "label": "declaration/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 1.118,
+     "discarded": 0
+    },
+    {
+     "label": "colorCall/v",
+     "calls": 598,
+     "fails": 206,
+     "ms": 0.831,
+     "discarded": 0
+    },
+    {
+     "label": "atPrelude/v",
+     "calls": 1011,
+     "fails": 900,
+     "ms": 0.796,
+     "discarded": 0
+    },
+    {
+     "label": "semiItems/v",
+     "calls": 913,
+     "fails": 0,
+     "ms": 0.771,
+     "discarded": 0
+    },
+    {
+     "label": "commaItems/v",
+     "calls": 907,
+     "fails": 0,
+     "ms": 0.648,
+     "discarded": 0
+    },
+    {
+     "label": "quoted/r",
+     "calls": 475,
+     "fails": 1,
+     "ms": 0.601,
+     "discarded": 0
+    },
+    {
+     "label": "identTerm/v",
+     "calls": 1148,
+     "fails": 4,
+     "ms": 0.582,
+     "discarded": 0
+    },
+    {
+     "label": "preludeRun/r",
+     "calls": 3267,
+     "fails": 0,
+     "ms": 0.487,
+     "discarded": 0
+    },
+    {
+     "label": "call/v",
+     "calls": 1243,
+     "fails": 1204,
+     "ms": 0.466,
+     "discarded": 22
+    },
+    {
+     "label": "varCall/v",
+     "calls": 132,
+     "fails": 16,
+     "ms": 0.426,
+     "discarded": 0
+    },
+    {
+     "label": "declName/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 0.37,
+     "discarded": 0
+    },
+    {
+     "label": "numeric/v",
+     "calls": 1010,
+     "fails": 136,
+     "ms": 0.347,
+     "discarded": 0
+    },
+    {
+     "label": "varBody/v",
+     "calls": 116,
+     "fails": 0,
+     "ms": 0.312,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/v",
+     "calls": 1566,
+     "fails": 0,
+     "ms": 0.281,
+     "discarded": 0
+    },
+    {
+     "label": "ruleGap/v",
+     "calls": 3382,
+     "fails": 0,
+     "ms": 0.277,
+     "discarded": 0
+    },
+    {
+     "label": "rgbFn/v",
+     "calls": 82,
+     "fails": 47,
+     "ms": 0.274,
+     "discarded": 0
+    },
+    {
+     "label": "hex/v",
+     "calls": 357,
+     "fails": 0,
+     "ms": 0.264,
+     "discarded": 0
+    },
+    {
+     "label": "textGroup/r",
+     "calls": 1225,
+     "fails": 0,
+     "ms": 0.203,
+     "discarded": 0
+    },
+    {
+     "label": "atOther/v",
+     "calls": 1006,
+     "fails": 900,
+     "ms": 0.194,
+     "discarded": 0
+    },
+    {
+     "label": "declValue/r",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 0.171,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/r",
+     "calls": 913,
+     "fails": 0,
+     "ms": 0.157,
+     "discarded": 0
+    },
+    {
+     "label": "rgbLegacyNum/v",
+     "calls": 35,
+     "fails": 0,
+     "ms": 0.151,
+     "discarded": 0
+    },
+    {
+     "label": "callName/v",
+     "calls": 1243,
+     "fails": 1200,
+     "ms": 0.143,
+     "discarded": 0
+    },
+    {
+     "label": "ws/r",
+     "calls": 4009,
+     "fails": 0,
+     "ms": 0.13,
+     "discarded": 0
+    },
+    {
+     "label": "textBody/r",
+     "calls": 1225,
+     "fails": 0,
+     "ms": 0.118,
+     "discarded": 0
+    },
+    {
+     "label": "commaRun/r",
+     "calls": 917,
+     "fails": 0,
+     "ms": 0.116,
+     "discarded": 0
+    },
+    {
+     "label": "commaRun/v",
+     "calls": 536,
+     "fails": 0,
+     "ms": 0.106,
+     "discarded": 0
+    },
+    {
+     "label": "openComment/r",
+     "calls": 3266,
+     "fails": 3266,
+     "ms": 0.088,
+     "discarded": 0
+    },
+    {
+     "label": "atName/v",
+     "calls": 1006,
+     "fails": 900,
+     "ms": 0.058,
+     "discarded": 0
+    },
+    {
+     "label": "rgbModern/v",
+     "calls": 35,
+     "fails": 35,
+     "ms": 0.055,
+     "discarded": 35
+    }
+   ],
+   "actions": [
+    {
+     "name": "identTerm",
+     "calls": 1144,
+     "ms": 0.437
+    },
+    {
+     "name": "spaceList",
+     "calls": 2218,
+     "ms": 0.212
+    },
+    {
+     "name": "numeric",
+     "calls": 874,
+     "ms": 0.208
+    },
+    {
+     "name": "hex",
+     "calls": 357,
+     "ms": 0.198
+    },
+    {
+     "name": "ruleBlock",
+     "calls": 3265,
+     "ms": 0.14
+    },
+    {
+     "name": "declName",
+     "calls": 1972,
+     "ms": 0.14
+    },
+    {
+     "name": "blockTail",
+     "calls": 3258,
+     "ms": 0.105
+    },
+    {
+     "name": "semiRun",
+     "calls": 2479,
+     "ms": 0.094
+    },
+    {
+     "name": "slashList",
+     "calls": 2216,
+     "ms": 0.091
+    },
+    {
+     "name": "commaList",
+     "calls": 2131,
+     "ms": 0.089
+    },
+    {
+     "name": "preludeRun",
+     "calls": 3266,
+     "ms": 0.087
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "ms": 0.087
+    },
+    {
+     "name": "declValue",
+     "calls": 1972,
+     "ms": 0.073
+    },
+    {
+     "name": "ruleList",
+     "calls": 117,
+     "ms": 0.071
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "ms": 0.07
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "ms": 0.056
+    },
+    {
+     "name": "commaRun",
+     "calls": 1453,
+     "ms": 0.055
+    },
+    {
+     "name": "rgbLegacyNum",
+     "calls": 35,
+     "ms": 0.054
+    },
+    {
+     "name": "colorCall",
+     "calls": 392,
+     "ms": 0.037
+    },
+    {
+     "name": "varCall",
+     "calls": 116,
+     "ms": 0.034
+    },
+    {
+     "name": "number",
+     "calls": 175,
+     "ms": 0.014
+    },
+    {
+     "name": "atName",
+     "calls": 106,
+     "ms": 0.013
+    },
+    {
+     "name": "atOther",
+     "calls": 106,
+     "ms": 0.012
+    },
+    {
+     "name": "call",
+     "calls": 39,
+     "ms": 0.01
+    },
+    {
+     "name": "declImportant",
+     "calls": 311,
+     "ms": 0.009
+    }
+   ]
+  },
+  {
+   "engine": "firefox",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "wallMsPerPass": 35.6,
+   "entryMsPerPass": 30.8,
+   "glueMsPerPass": 4.8,
+   "actionMsPerPass": 7.8,
+   "calls": 84363,
+   "fails": 18171,
+   "actionCalls": 32018,
+   "discarded": 57,
+   "entries": [
+    {
+     "name": "ruleList",
+     "calls": 117,
+     "refused": 0,
+     "ms": 11.4
+    },
+    {
+     "name": "valueTop",
+     "calls": 1972,
+     "refused": 5,
+     "ms": 10.2
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "refused": 0,
+     "ms": 3
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "refused": 0,
+     "ms": 2.2
+    },
+    {
+     "name": "atPrelude",
+     "calls": 1011,
+     "refused": 900,
+     "ms": 2
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "refused": 0,
+     "ms": 1.8
+    },
+    {
+     "name": "commaSpans",
+     "calls": 10,
+     "refused": 0,
+     "ms": 0.2
+    },
+    {
+     "name": "keyframeSelector",
+     "calls": 15,
+     "refused": 0,
+     "ms": 0
+    }
+   ],
+   "functions": [
+    {
+     "label": "ruleList/v",
+     "calls": 117,
+     "fails": 0,
+     "ms": 11.4,
+     "discarded": 0
+    },
+    {
+     "label": "valueTop/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 10,
+     "discarded": 0
+    },
+    {
+     "label": "commaList/v",
+     "calls": 2131,
+     "fails": 0,
+     "ms": 9.8,
+     "discarded": 0
+    },
+    {
+     "label": "slashList/v",
+     "calls": 2216,
+     "fails": 0,
+     "ms": 9.8,
+     "discarded": 0
+    },
+    {
+     "label": "spaceList/v",
+     "calls": 2218,
+     "fails": 0,
+     "ms": 8.8,
+     "discarded": 0
+    },
+    {
+     "label": "ruleBlock/v",
+     "calls": 3266,
+     "fails": 1,
+     "ms": 8.8,
+     "discarded": 0
+    },
+    {
+     "label": "valueTerm/v",
+     "calls": 2641,
+     "fails": 2,
+     "ms": 7.6,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r",
+     "calls": 10548,
+     "fails": 0,
+     "ms": 6.8,
+     "discarded": 0
+    },
+    {
+     "label": "blockTail/v",
+     "calls": 3259,
+     "fails": 1,
+     "ms": 5.4,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r alt h1187",
+     "calls": 7289,
+     "fails": 0,
+     "ms": 3.2,
+     "discarded": 0
+    },
+    {
+     "label": "declaration/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 2.8,
+     "discarded": 0
+    },
+    {
+     "label": "colorCall/v",
+     "calls": 598,
+     "fails": 206,
+     "ms": 2.4,
+     "discarded": 0
+    },
+    {
+     "label": "atPrelude/v",
+     "calls": 1011,
+     "fails": 900,
+     "ms": 2,
+     "discarded": 0
+    },
+    {
+     "label": "numeric/v",
+     "calls": 1010,
+     "fails": 136,
+     "ms": 1.8,
+     "discarded": 0
+    },
+    {
+     "label": "commaItems/v",
+     "calls": 907,
+     "fails": 0,
+     "ms": 1.8,
+     "discarded": 0
+    },
+    {
+     "label": "semiItems/v",
+     "calls": 913,
+     "fails": 0,
+     "ms": 1.6,
+     "discarded": 0
+    },
+    {
+     "label": "identTerm/v",
+     "calls": 1148,
+     "fails": 4,
+     "ms": 1.2,
+     "discarded": 0
+    },
+    {
+     "label": "varCall/v",
+     "calls": 132,
+     "fails": 16,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/v",
+     "calls": 1566,
+     "fails": 0,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "ruleGap/v",
+     "calls": 3382,
+     "fails": 0,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "atOther/v",
+     "calls": 1006,
+     "fails": 900,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "call/v",
+     "calls": 1243,
+     "fails": 1204,
+     "ms": 0.8,
+     "discarded": 22
+    },
+    {
+     "label": "varBody/v",
+     "calls": 116,
+     "fails": 0,
+     "ms": 0.8,
+     "discarded": 0
+    },
+    {
+     "label": "hex/v",
+     "calls": 357,
+     "fails": 0,
+     "ms": 0.8,
+     "discarded": 0
+    },
+    {
+     "label": "quoted/r",
+     "calls": 475,
+     "fails": 1,
+     "ms": 0.8,
+     "discarded": 0
+    },
+    {
+     "label": "callName/v",
+     "calls": 1243,
+     "fails": 1200,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "relativeColor/v",
+     "calls": 241,
+     "fails": 241,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "declName/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "preludeRun/r",
+     "calls": 3267,
+     "fails": 0,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "declValue/r",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "rgbFn/v",
+     "calls": 82,
+     "fails": 47,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "relativeHead/v",
+     "calls": 241,
+     "fails": 241,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "commaRun/v",
+     "calls": 536,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "restText/v",
+     "calls": 112,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "atName/v",
+     "calls": 1006,
+     "fails": 900,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "atKeyframes/v",
+     "calls": 1011,
+     "fails": 1006,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "operator/v",
+     "calls": 134,
+     "fails": 122,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "number/v",
+     "calls": 175,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "component/v",
+     "calls": 70,
+     "fails": 35,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "hwbFn/v",
+     "calls": 48,
+     "fails": 48,
+     "ms": 0.2,
+     "discarded": 0
+    }
+   ],
+   "actions": [
+    {
+     "name": "identTerm",
+     "calls": 1144,
+     "ms": 1
+    },
+    {
+     "name": "numeric",
+     "calls": 874,
+     "ms": 1
+    },
+    {
+     "name": "hex",
+     "calls": 357,
+     "ms": 0.8
+    },
+    {
+     "name": "commaRun",
+     "calls": 1453,
+     "ms": 0.8
+    },
+    {
+     "name": "preludeRun",
+     "calls": 3266,
+     "ms": 0.8
+    },
+    {
+     "name": "spaceList",
+     "calls": 2218,
+     "ms": 0.6
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "ms": 0.4
+    },
+    {
+     "name": "semiRun",
+     "calls": 2479,
+     "ms": 0.4
+    },
+    {
+     "name": "slashList",
+     "calls": 2216,
+     "ms": 0.2
+    },
+    {
+     "name": "colorCall",
+     "calls": 392,
+     "ms": 0.2
+    },
+    {
+     "name": "number",
+     "calls": 175,
+     "ms": 0.2
+    },
+    {
+     "name": "blockTail",
+     "calls": 3258,
+     "ms": 0.2
+    },
+    {
+     "name": "ruleBlock",
+     "calls": 3265,
+     "ms": 0.2
+    },
+    {
+     "name": "atOther",
+     "calls": 106,
+     "ms": 0.2
+    },
+    {
+     "name": "declName",
+     "calls": 1972,
+     "ms": 0.2
+    },
+    {
+     "name": "declValue",
+     "calls": 1972,
+     "ms": 0.2
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "ms": 0.2
+    },
+    {
+     "name": "commaSpans",
+     "calls": 10,
+     "ms": 0.2
+    },
+    {
+     "name": "commaList",
+     "calls": 2131,
+     "ms": 0
+    },
+    {
+     "name": "badTerm",
+     "calls": 6,
+     "ms": 0
+    },
+    {
+     "name": "operator",
+     "calls": 12,
+     "ms": 0
+    },
+    {
+     "name": "string",
+     "calls": 56,
+     "ms": 0
+    },
+    {
+     "name": "call",
+     "calls": 39,
+     "ms": 0
+    },
+    {
+     "name": "varCall",
+     "calls": 116,
+     "ms": 0
+    },
+    {
+     "name": "percentage",
+     "calls": 10,
+     "ms": 0
+    }
+   ]
+  },
+  {
+   "engine": "chromium",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "wallMsPerPass": 39.74,
+   "entryMsPerPass": 38.32,
+   "glueMsPerPass": 1.42,
+   "actionMsPerPass": 5.36,
+   "calls": 84363,
+   "fails": 18171,
+   "actionCalls": 32018,
+   "discarded": 57,
+   "entries": [
+    {
+     "name": "ruleList",
+     "calls": 117,
+     "refused": 0,
+     "ms": 14.92
+    },
+    {
+     "name": "valueTop",
+     "calls": 1972,
+     "refused": 5,
+     "ms": 11.42
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "refused": 0,
+     "ms": 4.26
+    },
+    {
+     "name": "atPrelude",
+     "calls": 1011,
+     "refused": 900,
+     "ms": 3.3
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "refused": 0,
+     "ms": 2.76
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "refused": 0,
+     "ms": 1.62
+    },
+    {
+     "name": "keyframeSelector",
+     "calls": 15,
+     "refused": 0,
+     "ms": 0.02
+    },
+    {
+     "name": "commaSpans",
+     "calls": 10,
+     "refused": 0,
+     "ms": 0.02
+    }
+   ],
+   "functions": [
+    {
+     "label": "ruleList/v",
+     "calls": 117,
+     "fails": 0,
+     "ms": 14.9,
+     "discarded": 0
+    },
+    {
+     "label": "ruleBlock/v",
+     "calls": 3266,
+     "fails": 1,
+     "ms": 13.22,
+     "discarded": 0
+    },
+    {
+     "label": "valueTop/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 10.76,
+     "discarded": 0
+    },
+    {
+     "label": "commaList/v",
+     "calls": 2131,
+     "fails": 0,
+     "ms": 10.12,
+     "discarded": 0
+    },
+    {
+     "label": "slashList/v",
+     "calls": 2216,
+     "fails": 0,
+     "ms": 8.86,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r",
+     "calls": 10548,
+     "fails": 0,
+     "ms": 8.42,
+     "discarded": 0
+    },
+    {
+     "label": "blockTail/v",
+     "calls": 3259,
+     "fails": 1,
+     "ms": 7.82,
+     "discarded": 0
+    },
+    {
+     "label": "spaceList/v",
+     "calls": 2218,
+     "fails": 0,
+     "ms": 7.36,
+     "discarded": 0
+    },
+    {
+     "label": "valueTerm/v",
+     "calls": 2641,
+     "fails": 2,
+     "ms": 5.82,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r alt h1187",
+     "calls": 7289,
+     "fails": 0,
+     "ms": 3.9,
+     "discarded": 0
+    },
+    {
+     "label": "declaration/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 3.78,
+     "discarded": 0
+    },
+    {
+     "label": "atPrelude/v",
+     "calls": 1011,
+     "fails": 900,
+     "ms": 3.02,
+     "discarded": 0
+    },
+    {
+     "label": "semiItems/v",
+     "calls": 913,
+     "fails": 0,
+     "ms": 2.44,
+     "discarded": 0
+    },
+    {
+     "label": "colorCall/v",
+     "calls": 598,
+     "fails": 206,
+     "ms": 1.48,
+     "discarded": 0
+    },
+    {
+     "label": "commaItems/v",
+     "calls": 907,
+     "fails": 0,
+     "ms": 1.42,
+     "discarded": 0
+    },
+    {
+     "label": "preludeRun/r",
+     "calls": 3267,
+     "fails": 0,
+     "ms": 1.38,
+     "discarded": 0
+    },
+    {
+     "label": "call/v",
+     "calls": 1243,
+     "fails": 1204,
+     "ms": 1.12,
+     "discarded": 22
+    },
+    {
+     "label": "declName/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 1.1,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/v",
+     "calls": 1566,
+     "fails": 0,
+     "ms": 0.92,
+     "discarded": 0
+    },
+    {
+     "label": "quoted/r",
+     "calls": 475,
+     "fails": 1,
+     "ms": 0.86,
+     "discarded": 0
+    },
+    {
+     "label": "varCall/v",
+     "calls": 132,
+     "fails": 16,
+     "ms": 0.82,
+     "discarded": 0
+    },
+    {
+     "label": "identTerm/v",
+     "calls": 1148,
+     "fails": 4,
+     "ms": 0.78,
+     "discarded": 0
+    },
+    {
+     "label": "textGroup/r",
+     "calls": 1225,
+     "fails": 0,
+     "ms": 0.76,
+     "discarded": 0
+    },
+    {
+     "label": "varBody/v",
+     "calls": 116,
+     "fails": 0,
+     "ms": 0.62,
+     "discarded": 0
+    },
+    {
+     "label": "atOther/v",
+     "calls": 1006,
+     "fails": 900,
+     "ms": 0.62,
+     "discarded": 0
+    },
+    {
+     "label": "numeric/v",
+     "calls": 1010,
+     "fails": 136,
+     "ms": 0.52,
+     "discarded": 0
+    },
+    {
+     "label": "rgbFn/v",
+     "calls": 82,
+     "fails": 47,
+     "ms": 0.46,
+     "discarded": 0
+    },
+    {
+     "label": "ruleGap/v",
+     "calls": 3382,
+     "fails": 0,
+     "ms": 0.46,
+     "discarded": 0
+    },
+    {
+     "label": "hex/v",
+     "calls": 357,
+     "fails": 0,
+     "ms": 0.44,
+     "discarded": 0
+    },
+    {
+     "label": "ws/r",
+     "calls": 4009,
+     "fails": 0,
+     "ms": 0.44,
+     "discarded": 0
+    },
+    {
+     "label": "openComment/r",
+     "calls": 3266,
+     "fails": 3266,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "declValue/r",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/r",
+     "calls": 913,
+     "fails": 0,
+     "ms": 0.38,
+     "discarded": 0
+    },
+    {
+     "label": "textBody/r",
+     "calls": 1225,
+     "fails": 0,
+     "ms": 0.34,
+     "discarded": 0
+    },
+    {
+     "label": "commaRun/r",
+     "calls": 917,
+     "fails": 0,
+     "ms": 0.3,
+     "discarded": 0
+    },
+    {
+     "label": "commaRun/v",
+     "calls": 536,
+     "fails": 0,
+     "ms": 0.28,
+     "discarded": 0
+    },
+    {
+     "label": "rgbLegacyNum/v",
+     "calls": 35,
+     "fails": 0,
+     "ms": 0.26,
+     "discarded": 0
+    },
+    {
+     "label": "atViewTimeline/v",
+     "calls": 1006,
+     "fails": 1006,
+     "ms": 0.26,
+     "discarded": 0
+    },
+    {
+     "label": "atKeyframes/v",
+     "calls": 1011,
+     "fails": 1006,
+     "ms": 0.22,
+     "discarded": 0
+    },
+    {
+     "label": "atProperty/v",
+     "calls": 1006,
+     "fails": 1006,
+     "ms": 0.2,
+     "discarded": 0
+    }
+   ],
+   "actions": [
+    {
+     "name": "preludeRun",
+     "calls": 3266,
+     "ms": 0.56
+    },
+    {
+     "name": "ruleBlock",
+     "calls": 3265,
+     "ms": 0.52
+    },
+    {
+     "name": "identTerm",
+     "calls": 1144,
+     "ms": 0.44
+    },
+    {
+     "name": "blockTail",
+     "calls": 3258,
+     "ms": 0.44
+    },
+    {
+     "name": "commaList",
+     "calls": 2131,
+     "ms": 0.3
+    },
+    {
+     "name": "slashList",
+     "calls": 2216,
+     "ms": 0.3
+    },
+    {
+     "name": "spaceList",
+     "calls": 2218,
+     "ms": 0.28
+    },
+    {
+     "name": "numeric",
+     "calls": 874,
+     "ms": 0.28
+    },
+    {
+     "name": "hex",
+     "calls": 357,
+     "ms": 0.28
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "ms": 0.28
+    },
+    {
+     "name": "semiRun",
+     "calls": 2479,
+     "ms": 0.26
+    },
+    {
+     "name": "declValue",
+     "calls": 1972,
+     "ms": 0.24
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "ms": 0.22
+    },
+    {
+     "name": "declName",
+     "calls": 1972,
+     "ms": 0.22
+    },
+    {
+     "name": "commaRun",
+     "calls": 1453,
+     "ms": 0.18
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "ms": 0.18
+    },
+    {
+     "name": "rgbLegacyNum",
+     "calls": 35,
+     "ms": 0.08
+    },
+    {
+     "name": "string",
+     "calls": 56,
+     "ms": 0.06
+    },
+    {
+     "name": "varCall",
+     "calls": 116,
+     "ms": 0.06
+    },
+    {
+     "name": "colorCall",
+     "calls": 392,
+     "ms": 0.06
+    },
+    {
+     "name": "ruleList",
+     "calls": 117,
+     "ms": 0.06
+    },
+    {
+     "name": "restText",
+     "calls": 112,
+     "ms": 0.02
+    },
+    {
+     "name": "atOther",
+     "calls": 106,
+     "ms": 0.02
+    },
+    {
+     "name": "declImportant",
+     "calls": 311,
+     "ms": 0.02
+    },
+    {
+     "name": "badTerm",
+     "calls": 6,
+     "ms": 0
+    }
+   ]
+  },
+  {
+   "engine": "webkit",
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "wallMsPerPass": 23,
+   "entryMsPerPass": 20.6,
+   "glueMsPerPass": 2.4,
+   "actionMsPerPass": 4.8,
+   "calls": 84363,
+   "fails": 18171,
+   "actionCalls": 32018,
+   "discarded": 57,
+   "entries": [
+    {
+     "name": "valueTop",
+     "calls": 1972,
+     "refused": 5,
+     "ms": 7.8
+    },
+    {
+     "name": "ruleList",
+     "calls": 117,
+     "refused": 0,
+     "ms": 7.6
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "refused": 0,
+     "ms": 1.8
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "refused": 0,
+     "ms": 1.6
+    },
+    {
+     "name": "atPrelude",
+     "calls": 1011,
+     "refused": 900,
+     "ms": 1.2
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "refused": 0,
+     "ms": 0.4
+    },
+    {
+     "name": "keyframeSelector",
+     "calls": 15,
+     "refused": 0,
+     "ms": 0.2
+    },
+    {
+     "name": "commaSpans",
+     "calls": 10,
+     "refused": 0,
+     "ms": 0
+    }
+   ],
+   "functions": [
+    {
+     "label": "valueTop/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 7.6,
+     "discarded": 0
+    },
+    {
+     "label": "ruleList/v",
+     "calls": 117,
+     "fails": 0,
+     "ms": 7.4,
+     "discarded": 0
+    },
+    {
+     "label": "commaList/v",
+     "calls": 2131,
+     "fails": 0,
+     "ms": 7.2,
+     "discarded": 0
+    },
+    {
+     "label": "slashList/v",
+     "calls": 2216,
+     "fails": 0,
+     "ms": 6.6,
+     "discarded": 0
+    },
+    {
+     "label": "ruleBlock/v",
+     "calls": 3266,
+     "fails": 1,
+     "ms": 6.2,
+     "discarded": 0
+    },
+    {
+     "label": "spaceList/v",
+     "calls": 2218,
+     "fails": 0,
+     "ms": 5.6,
+     "discarded": 0
+    },
+    {
+     "label": "valueTerm/v",
+     "calls": 2641,
+     "fails": 2,
+     "ms": 5,
+     "discarded": 0
+    },
+    {
+     "label": "blockTail/v",
+     "calls": 3259,
+     "fails": 1,
+     "ms": 3.8,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r",
+     "calls": 10548,
+     "fails": 0,
+     "ms": 3.8,
+     "discarded": 0
+    },
+    {
+     "label": "declaration/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 1.8,
+     "discarded": 0
+    },
+    {
+     "label": "semiItems/v",
+     "calls": 913,
+     "fails": 0,
+     "ms": 1.6,
+     "discarded": 0
+    },
+    {
+     "label": "colorCall/v",
+     "calls": 598,
+     "fails": 206,
+     "ms": 1.4,
+     "discarded": 0
+    },
+    {
+     "label": "blockBody/r alt h1187",
+     "calls": 7289,
+     "fails": 0,
+     "ms": 1.2,
+     "discarded": 0
+    },
+    {
+     "label": "identTerm/v",
+     "calls": 1148,
+     "fails": 4,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "varCall/v",
+     "calls": 132,
+     "fails": 16,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "quoted/r",
+     "calls": 475,
+     "fails": 1,
+     "ms": 1,
+     "discarded": 0
+    },
+    {
+     "label": "call/v",
+     "calls": 1243,
+     "fails": 1204,
+     "ms": 0.8,
+     "discarded": 22
+    },
+    {
+     "label": "ruleGap/v",
+     "calls": 3382,
+     "fails": 0,
+     "ms": 0.8,
+     "discarded": 0
+    },
+    {
+     "label": "atPrelude/v",
+     "calls": 1011,
+     "fails": 900,
+     "ms": 0.8,
+     "discarded": 0
+    },
+    {
+     "label": "declName/v",
+     "calls": 1972,
+     "fails": 0,
+     "ms": 0.8,
+     "discarded": 0
+    },
+    {
+     "label": "varBody/v",
+     "calls": 116,
+     "fails": 0,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "hex/v",
+     "calls": 357,
+     "fails": 0,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/v",
+     "calls": 1566,
+     "fails": 0,
+     "ms": 0.6,
+     "discarded": 0
+    },
+    {
+     "label": "rgbFn/v",
+     "calls": 82,
+     "fails": 47,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "commaItems/v",
+     "calls": 907,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "commaRun/r",
+     "calls": 917,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "preludeRun/r",
+     "calls": 3267,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "openQuote/r",
+     "calls": 1,
+     "fails": 0,
+     "ms": 0.4,
+     "discarded": 0
+    },
+    {
+     "label": "callName/v",
+     "calls": 1243,
+     "fails": 1200,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "hslFn/v",
+     "calls": 48,
+     "fails": 48,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "legacyAlpha/v",
+     "calls": 35,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "rgbLegacyNum/v",
+     "calls": 35,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "restText/v",
+     "calls": 112,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "atOther/v",
+     "calls": 1006,
+     "fails": 900,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "atRest/v",
+     "calls": 106,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "ws/r",
+     "calls": 4009,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "comma/r",
+     "calls": 192,
+     "fails": 2,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "semiRun/r",
+     "calls": 913,
+     "fails": 0,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "openComment/r",
+     "calls": 3266,
+     "fails": 3266,
+     "ms": 0.2,
+     "discarded": 0
+    },
+    {
+     "label": "badTerm/v",
+     "calls": 6,
+     "fails": 0,
+     "ms": 0,
+     "discarded": 0
+    }
+   ],
+   "actions": [
+    {
+     "name": "identTerm",
+     "calls": 1144,
+     "ms": 1
+    },
+    {
+     "name": "hex",
+     "calls": 357,
+     "ms": 0.6
+    },
+    {
+     "name": "semiRun",
+     "calls": 2479,
+     "ms": 0.6
+    },
+    {
+     "name": "ruleBlock",
+     "calls": 3265,
+     "ms": 0.6
+    },
+    {
+     "name": "commaList",
+     "calls": 2131,
+     "ms": 0.4
+    },
+    {
+     "name": "slashList",
+     "calls": 2216,
+     "ms": 0.4
+    },
+    {
+     "name": "declaration",
+     "calls": 1972,
+     "ms": 0.4
+    },
+    {
+     "name": "varCall",
+     "calls": 116,
+     "ms": 0.2
+    },
+    {
+     "name": "semiItems",
+     "calls": 913,
+     "ms": 0.2
+    },
+    {
+     "name": "blockTail",
+     "calls": 3258,
+     "ms": 0.2
+    },
+    {
+     "name": "declName",
+     "calls": 1972,
+     "ms": 0.2
+    },
+    {
+     "name": "spaceList",
+     "calls": 2218,
+     "ms": 0
+    },
+    {
+     "name": "badTerm",
+     "calls": 6,
+     "ms": 0
+    },
+    {
+     "name": "operator",
+     "calls": 12,
+     "ms": 0
+    },
+    {
+     "name": "string",
+     "calls": 56,
+     "ms": 0
+    },
+    {
+     "name": "numeric",
+     "calls": 874,
+     "ms": 0
+    },
+    {
+     "name": "call",
+     "calls": 39,
+     "ms": 0
+    },
+    {
+     "name": "colorCall",
+     "calls": 392,
+     "ms": 0
+    },
+    {
+     "name": "number",
+     "calls": 175,
+     "ms": 0
+    },
+    {
+     "name": "percentage",
+     "calls": 10,
+     "ms": 0
+    },
+    {
+     "name": "rgbLegacyNum",
+     "calls": 35,
+     "ms": 0
+    },
+    {
+     "name": "selectorKeyword",
+     "calls": 5,
+     "ms": 0
+    },
+    {
+     "name": "commaRun",
+     "calls": 1453,
+     "ms": 0
+    },
+    {
+     "name": "commaItems",
+     "calls": 907,
+     "ms": 0
+    },
+    {
+     "name": "restText",
+     "calls": 112,
+     "ms": 0
+    }
+   ]
+  }
+ ],
+ "uptimeEnd": "12:31  up 1 day, 10:33, 3 users, load averages: 31.51 51.35 62.65"
+}

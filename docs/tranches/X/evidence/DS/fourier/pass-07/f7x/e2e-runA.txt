@@ -1,0 +1,180 @@
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+[WebServer] Generated an empty chunk: "vendor-paper".
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+Running 124 tests using 1 worker
+
+[G-h after 1440] 15 rows
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=0 inline=1 thumb=1 fill=1 h=36
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=90.7
+  edit            Magnet radius                      idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=68
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+  ✓    1 [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 1440 › every slider row on the one idiom · one height · type + spacing scales (13.7s)
+[G-h after 390] 14 rows
+  equation        Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  equation        Displayed harmonics                idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  morph           Settle Out duration (ms)           idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           Morph duration (ms)                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           Settle In duration (ms)            idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           Low harmonic level                 idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  morph           High harmonic level                idiom=1 hint=0 line=1 beneath=1 inline=0 thumb=1 fill=1 h=64
+  image           Harmonics                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  image           Sample Points                      idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  image           ML Threshold                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  image           Blur Sigma                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  image           Min Area %                         idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  image           Max Contours                       idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  image           Smoothing                          idiom=1 hint=1 line=1 beneath=1 inline=0 thumb=1 fill=1 h=81.8
+  scales {"home":{"offType":[],"offSpace":[]},"paper":{"offType":[],"offSpace":[]},"gallery":{"offType":[],"offSpace":[]},"shape-extractor":{"offType":[],"offSpace":[]},"equation":{"offType":[],"offSpace":[]},"morph":{"offType":[],"offSpace":[]},"image":{"offType":[],"offSpace":[]}}
+  ✓    2 [chromium] › e2e/f-w14-control-row.spec.ts:217:9 › G-h control-row idiom @ 390 › every slider row on the one idiom · one height · type + spacing scales (9.7s)
+  ✓    3 [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 4.2.1 (Residue Theorem) scrolls #thm-residue into the viewport (1.3s)
+  ✓    4 [chromium] › e2e/f-w14-uia-r2.spec.ts:38:9 › UIA-F-26 — Enter on a theorem result lands on that theorem › Thm 2.10.2 (Parseval's Identity) scrolls #thm-parseval into the viewport (1.2s)
+  ✓    5 [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "convergence": no raw TeX in any label, KaTeX present, no mark inside the math (759ms)
+  ✓    6 [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "pipeline": no raw TeX in any label, KaTeX present, no mark inside the math (779ms)
+  ✓    7 [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "Parseval": no raw TeX in any label, KaTeX present, no mark inside the math (778ms)
+  ✓    8 [chromium] › e2e/f-w14-uia-r2.spec.ts:71:9 › UIA-F-21 — paper search labels typeset their math › "energy": no raw TeX in any label, KaTeX present, no mark inside the math (751ms)
+  ✓    9 [chromium] › e2e/f-w14-uia-r2.spec.ts:99:5 › UIA-F-46 — Like is a toggle (consumer half; the persisting endpoint routes to the server) › a second press un-likes: the count returns and aria-pressed clears, in the modal and on the card (1.4s)
+  ✓   10 [chromium] › e2e/f-w14-uia-r2.spec.ts:145:5 › UIA-F-63 / UIA-F-65 — the palette's empty and Clear states › F-63: the open, empty palette does not say 'No results'; a real miss does (1.3s)
+  ✓   11 [chromium] › e2e/f-w14-uia-r2.spec.ts:154:5 › UIA-F-63 / UIA-F-65 — the palette's empty and Clear states › F-65: Clear empties the field, keeps the palette open and focuses its input (1.5s)
+  ✓   12 [chromium] › e2e/f-w14-uia-r2.spec.ts:177:5 › UIA-F-59 — the inline results panel shows whole titles on the producer's menu plate, inside the sidebar column › the panel is the sidebar column's width, inside the viewport, at --radius-card, on the menu plate, no title cut (883ms)
+  ✓   13 [chromium] › e2e/f-w14-uia-r2.spec.ts:216:5 › UIA-F-62 — the mobile search bar: one clear, one close, no Expand › the floating bar drops Expand; 'Clear search' clears and keeps the search open (1.3s)
+  ✓   14 [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 light › morph idle · shape extractor · unknown route · storage blocked (2.1s)
+  ✓   15 [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 1440 dark › morph idle · shape extractor · unknown route · storage blocked (2.1s)
+  ✓   16 [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 1440 storage blocked › the root with site data blocked (1.9s)
+  ✓   17 [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 light › morph idle · shape extractor · unknown route · storage blocked (1.8s)
+  ✓   18 [chromium] › e2e/f-w14u-misc.spec.ts:102:13 › frames 390 dark › morph idle · shape extractor · unknown route · storage blocked (1.8s)
+  ✓   19 [chromium] › e2e/f-w14u-misc.spec.ts:118:9 › frames 390 storage blocked › the root with site data blocked (1.7s)
+  ✓   20 [chromium] › e2e/f-w14u-misc.spec.ts:130:5 › m115 UIA-F-115 — the morph stage is the page's dominant content (1440) › a large stage beside the controls (523ms)
+  ✓   21 [chromium] › e2e/f-w14u-misc.spec.ts:143:5 › m115 UIA-F-115 — the stage stays in view while tuning (390) › scrolled to the level strip, the stage is still on screen (750ms)
+  ✓   22 [chromium] › e2e/f-w14u-misc.spec.ts:156:5 › m117 UIA-F-117 — the readouts never move the controls (390) › the first control keeps its place through a whole morph (2.0s)
+  ✓   23 [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs (1.4s)
+  ✓   24 [chromium] › e2e/f-w14u-misc.spec.ts:190:5 › m209 UIA-F-209 — the number fields keep a field's measure at 390 › no field renders as a circle (464ms)
+  ✓   25 [chromium] › e2e/f-w14u-misc.spec.ts:202:5 › m210 UIA-F-210 — a preview tile previews; it never rewrites the range › Low and High hold, the chosen tile is in view, the strip fades where it continues (1.1s)
+  ✓   26 [chromium] › e2e/f-w14u-misc.spec.ts:226:5 › m254 UIA-F-254 — /morph's micro-issues › no nested scroller · Export is secondary by the stage · bound tiles not in a basis hue (524ms)
+  ✓   27 [chromium] › e2e/f-w14u-misc.spec.ts:254:5 › m57 UIA-F-57 (.shell R-1, the morph remainder) — the tile label sits on a named rung › the n= label is on the caption rung, not the dead text-sm (508ms)
+  ✓   28 [chromium] › e2e/f-w14u-misc.spec.ts:277:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (1440) › multi-line, on a surface at the field radius, with a Copy control (639ms)
+  ✓   29 [chromium] › e2e/f-w14u-misc.spec.ts:277:9 › x118 UIA-F-118 — the extractor output is a readable, copyable holder (390) › multi-line, on a surface at the field radius, with a Copy control (539ms)
+  ✓   30 [chromium] › e2e/f-w14u-misc.spec.ts:306:5 › x211 UIA-F-211 — the extractor has a heading hierarchy, glass frames and a centred column (1440) › title rung above body, subjects on Cards, the column centred and bounded (617ms)
+  ✓   31 [chromium] › e2e/f-w14u-misc.spec.ts:328:5 › x255 UIA-F-255 — the extractor's micro-issues › titled and noindexed · the extract action reports each run (732ms)
+  ✓   32 [chromium] › e2e/f-w14u-misc.spec.ts:363:5 › r119 UIA-F-119 — the dock's section comes from the route's meta › trailing slash and /v/ mark Visualize; tools and unknown paths mark none (2.4s)
+  ✓   33 [chromium] › e2e/f-w14u-misc.spec.ts:383:5 › r212 UIA-F-212 — one remembered-tab writer, from the route's meta › a saved visualization and a trailing-slash path are remembered as Visualize (2.2s)
+[r120 /paper, carried] pageerrors=0
+  ✓   34 [chromium] › e2e/f-w14u-misc.spec.ts:399:9 › r120 UIA-F-120 — blocked site data never white-screens the app (1440) › the root redirects and the shell mounts; the pages this unit owns render (599ms)
+[r120 /paper, carried] pageerrors=0
+  ✓   35 [chromium] › e2e/f-w14u-misc.spec.ts:399:9 › r120 UIA-F-120 — blocked site data never white-screens the app (390) › the root redirects and the shell mounts; the pages this unit owns render (561ms)
+  ✓   36 [chromium] › e2e/f-w14u-misc.spec.ts:424:5 › r213 UIA-F-213 — a storage write after boot never crashes (auth) › logging in with site data blocked keeps the session in memory (592ms)
+  ✓   37 [chromium] › e2e/f-w14u-misc.spec.ts:445:5 › v246 UIA-F-246 — /s/ resolves to the entity it names › a saved visualization's slug opens /v/; an image slug opens /w/ (1.1s)
+  ✓   38 [chromium] › e2e/f-w14u-misc.spec.ts:478:5 › v246 UIA-F-246 ⊕ g96 UIA-F-96 (.gallery R-1) — one view transition per navigation › gallery → saved visualization morphs once (2.0s)
+  ✓   39 [chromium] › e2e/f-w14u-misc.spec.ts:496:5 › a256 UIA-F-256 (.shell R-2) — a failed logout is reported, not toasted as done › the server refuses the delete: an error, and the account stays (1.1s)
+  ✓   40 [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames light › 1440 › frame 1440 light (1.9s)
+  ✓   41 [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames light › 390 › frame 390 light (1.1s)
+  ✓   42 [chromium] › e2e/f-w14u-paper.spec.ts:52:13 › frames dark › 1440 › frame 1440 dark (2.0s)
+  ✓   43 [chromium] › e2e/f-w14u-paper.spec.ts:70:13 › frames dark › 390 › frame 390 dark (1.2s)
+  ✓   44 [chromium] › e2e/f-w14u-paper.spec.ts:86:5 › paper-desktop 1440 › UIA-F-61: the article is glass Card, the rail glass-quiet, one light source, one top line (516ms)
+  ✓   45 [chromium] › e2e/f-w14u-paper.spec.ts:114:5 › paper-desktop 1440 › UIA-F-156: a compact disclosure, a wider rail, one active class (no inline style) (548ms)
+  ✓   46 [chromium] › e2e/f-w14u-paper.spec.ts:134:5 › paper-desktop 1440 › UIA-F-164 + UIA-F-234: no statistics tooltip on a row; a collapsed CONTENTS reclaims its space (2.4s)
+  ✓   47 [chromium] › e2e/f-w14u-paper.spec.ts:156:5 › paper-desktop 1440 › X-DS F1-09: the page readout is homed in the ToC drawer, never over the article (691ms)
+  ✓   48 [chromium] › e2e/f-w14u-paper.spec.ts:178:5 › paper-desktop 1440 › UIA-F-147 (consumer half): ToC rows ride Button's sm rung; no local radius or padding override (550ms)
+  ✓   49 [chromium] › e2e/f-w14u-paper.spec.ts:195:5 › paper-desktop 1440 › UIA-F-157: the reading progress is glass ScrollProgressRim and it tracks the scroll (654ms)
+  ✓   50 [chromium] › e2e/f-w14u-paper.spec.ts:213:5 › paper-search 1440 › UIA-F-158: a query with no match says so in the inline panel (776ms)
+  ✓   51 [chromium] › e2e/f-w14u-paper.spec.ts:221:5 › paper-search 1440 › UIA-F-159: one inline surface and ⌘K — no Expand; ⌘K from the field carries the query (1.3s)
+  ✓   52 [chromium] › e2e/f-w14u-paper.spec.ts:235:5 › paper-search 1440 › UIA-F-160: inline options are not tab stops; one cursor; canon Badge (1.7s)
+  ✓   53 [chromium] › e2e/f-w14u-paper.spec.ts:265:5 › paper-search 1440 › UIA-F-161: word-start matching with contiguous highlights; a scattered subsequence matches nothing (1.3s)
+  ✓   54 [chromium] › e2e/f-w14u-paper.spec.ts:280:5 › paper-search 1440 › UIA-F-64: the palette is glass Command — input, groups per type, items, empty (1.4s)
+  ✓   55 [chromium] › e2e/f-w14u-paper.spec.ts:300:5 › paper-search 1440 › UIA-F-235: search fields do not spellcheck (723ms)
+  ✓   56 [chromium] › e2e/f-w14u-paper.spec.ts:314:5 › paper-mobile 390 › UIA-F-66: floating ToC rows are start-aligned; Scroll to top is one line (656ms)
+  ✓   57 [chromium] › e2e/f-w14u-paper.spec.ts:341:5 › paper-mobile 390 › UIA-F-67: the phone ToC is glass Popover; no inline overflow write; every level reachable (4.3s)
+  ✓   58 [chromium] › e2e/f-w14u-paper.spec.ts:365:5 › paper-mobile 390 › UIA-F-162: content first — no inline chapter list; a compact bar at the top; one icon radius (470ms)
+  ✓   59 [chromium] › e2e/f-w14u-paper.spec.ts:397:5 › paper-mobile 390 › UIA-F-163: no consumer :hover paint outside (hover: hover) (525ms)
+  ✓   60 [chromium] › e2e/f-w14u-paper.spec.ts:425:5 › paper-mobile 390 › UIA-F-236: the bar reports chapter and section, is inset from the edges, the chip stays clear (2.0s)
+  ✓   61 [chromium] › e2e/f-w14u-paper.spec.ts:466:5 › paper-mobile 390 › UIA-F-158 + UIA-F-235: the phone search says 'No results'; its panel is the bar's width with a gap (1.0s)
+  ✓   62 [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (1440) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter (984ms)
+  ✓   63 [chromium] › e2e/f-w14u-vstage.spec.ts:107:9 › F.W14U.vstage — the empty stage (390) › e69 · F-69 ⊕ F-165 ⊕ F-237 — a composed empty state on one grid and the gutter (895ms)
+  ✓   64 [chromium] › e2e/f-w14u-vstage.spec.ts:140:5 › F.W14U.vstage — drops and upload failures (1440) › e166 · F-166 ⊕ F-237 — the stage signals, the header band cannot navigate, a rejection says why (2.4s)
+  ✓   65 [chromium] › e2e/f-w14u-vstage.spec.ts:172:5 › F.W14U.vstage — drops and upload failures (1440) › e167 · F-167 — an upload failure is shown at the drop target; an unknown slug throws nothing (1.9s)
+  ✓   66 [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (1440) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage (899ms)
+  ✓   67 [chromium] › e2e/f-w14u-vstage.spec.ts:201:9 › F.W14U.vstage — loading and error keep the chassis (390) › e70 · F-70 ⊕ F-71 ⊕ F-238 — the busy mark and the error card render inside the stage (794ms)
+  ✓   68 [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 light) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box (1.1s)
+  ✓   69 [chromium] › e2e/f-w14u-vstage.spec.ts:225:9 › F.W14U.vstage — computing (1440 dark) › e73 · F-73 — the stage says computing in the DOM; the canvas paints no drop box (1.2s)
+  ✓   70 [chromium] › e2e/f-w14u-vstage.spec.ts:258:5 › F.W14U.vstage — upload and publish (1440) › e133 · F-133 (consumer) — the upload button says it is uploading (1.3s)
+  ✓   71 [chromium] › e2e/f-w14u-vstage.spec.ts:272:5 › F.W14U.vstage — upload and publish (1440) › e95 · F-95 ⊕ F-245 — logged out, Publish sends nothing and opens the inline sign-in (5.0s)
+  ✓   72 [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view (3.0s)
+  ✓   73 [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan (1.9s)
+  ✓   74 [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (1440) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue (2.7s)
+  ✓   75 [chromium] › e2e/f-w14u-vstage.spec.ts:300:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e169 ⊕ e239 · F-169 ⊕ F-239 — a compact image row, no Preview layer, one amplitude view (2.7s)
+  ✓   76 [chromium] › e2e/f-w14u-vstage.spec.ts:339:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e170 · F-170 ⊕ F-238 — the Fourier mode is a three-option chooser; no 2+1 orphan (1.3s)
+  ✓   77 [chromium] › e2e/f-w14u-vstage.spec.ts:371:9 › F.W14U.vstage — the loaded image mode's sidebar (390) › e171 · F-171 ⊕ F-146 ⊕ F-172 — Advanced is a glass disclosure; tooltips only on focusable triggers; each slider its owner's hue (1.9s)
+  ✓   78 [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (1440) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp (613ms)
+  ✓   79 [chromium] › e2e/f-w14u-vstage.spec.ts:489:9 › F.W14U.vstage — the error card (390) › e168 · F-168 (error limb) — the load error is glass's Card with a heading, no stamp (532ms)
+  ✓   80 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-light › frames the unread views d1440-light (28.9s)
+  ✓   81 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-light › frames the unread views m390-light (33.2s)
+  ✓   82 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-light › frames the unread views t768-light (29.0s)
+  ✓   83 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-light › frames the unread views t1024-light (27.5s)
+  ✓   84 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark (29.0s)
+  ✓   85 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 m390-dark › frames the unread views m390-dark (33.1s)
+  ✓   86 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t768-dark › frames the unread views t768-dark (29.1s)
+  ✓   87 [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 t1024-dark › frames the unread views t1024-dark (27.5s)
+  ✓   88 [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m360-light-loggedin › frames the logged-in shell m360-light-loggedin (3.4s)
+  ✓   89 [chromium] › e2e/f-w14v-au0.spec.ts:354:9 › au0 m430-light-loggedin › frames the logged-in shell m430-light-loggedin (3.4s)
+  ✓   90 [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (portrait 390) › the document never scrolls by the inset (8.6s)
+  ✓   91 [chromium] › e2e/f-w14v-au1.spec.ts:84:9 › au1 L2-1 (landscape 844) › the document never scrolls by the inset (9.0s)
+  ✓   92 [chromium] › e2e/f-w14v-au1.spec.ts:133:5 › au1 L2-2 consumer half (390 portrait) › the animation dock ends above the inset, in the stage and in fullscreen (6.2s)
+  ✓   93 [chromium] › e2e/f-w14v-au1.spec.ts:158:5 › au1 L2-3 (844×390, insets L/R 47) › interactive content keeps clear of the notch sides on every route (12.3s)
+  ✓   94 [chromium] › e2e/f-w14v-au1.spec.ts:220:5 › au1 L2-4 (844×390) › /v and /equation put the controls beside the stage, with no tab row (7.5s)
+  ✓   95 [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (360) › the Controls/Canvas strip is centred on the column, inside its gutter (7.0s)
+  ✓   96 [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (390) › the Controls/Canvas strip is centred on the column, inside its gutter (7.1s)
+  ✓   97 [chromium] › e2e/f-w14v-au1.spec.ts:247:9 › au1 L2-5 (430) › the Controls/Canvas strip is centred on the column, inside its gutter (7.1s)
+  ✓   98 [chromium] › e2e/f-w14v-au1.spec.ts:270:5 › au1 L2-16 (844×390 /paper) › the floating bar is one title rung and its ToC plate ends above the inset (2.4s)
+  ✓   99 [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (1440) › the content edge holds across route switches (8.1s)
+  ✓  100 [chromium] › e2e/f-w14v-au1.spec.ts:324:9 › au1 L3-6 consumer half (390) › the content edge holds across route switches (12.0s)
+  ✓  101 [chromium] › e2e/f-w14v-au1.spec.ts:344:5 › au1 L2-17 (390 touch) › the modal Like, the /equation layer triggers and the About links are ≥ 44 px (5.3s)
+  ✓  102 [chromium] › e2e/f-w14v-au1.spec.ts:379:5 › au1 X-1 (1024×768) › the stage is either beside the controls or a full tab, never a stacked strip (4.1s)
+  ✓  103 [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (360 logged in) › the app dock's layer does not pan sideways once the Account group mounts (9.3s)
+  ✓  104 [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (390 logged in) › the app dock's layer does not pan sideways once the Account group mounts (9.1s)
+  ✓  105 [chromium] › e2e/f-w14v-au3.spec.ts:97:5 › X.F.W14V.au3 — equation and morph (1440) › L1-5 · the /visualize equation panel renders through EquationResult (5.5s)
+  ✓  106 [chromium] › e2e/f-w14v-au3.spec.ts:106:5 › X.F.W14V.au3 — equation and morph (1440) › L1-6 · one coefficients panel on /visualize and /equation (7.7s)
+  ✓  107 [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /morph, and the class paints nothing (1.7s)
+  ✓  108 [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /equation, and the class paints nothing (3.6s)
+  ✓  109 [chromium] › e2e/f-w14v-au3.spec.ts:146:9 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · no cartoon-card on /visualize, and the class paints nothing (4.1s)
+  ✓  110 [chromium] › e2e/f-w14v-au3.spec.ts:156:5 › X.F.W14V.au3 — equation and morph (1440) › L1-13 · the morph control is a glass Surface, the cards glass Cards (1.7s)
+  ✓  111 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1024 › "Fourier Transform": the results plate sits inside the sidebar column and every title wraps unclipped (998ms)
+  ✓  112 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1024 › "convergence": the results plate sits inside the sidebar column and every title wraps unclipped (988ms)
+  ✓  113 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1024 › "Parseval": the results plate sits inside the sidebar column and every title wraps unclipped (993ms)
+  ✓  114 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1440 › "Fourier Transform": the results plate sits inside the sidebar column and every title wraps unclipped (1.1s)
+  ✓  115 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1440 › "convergence": the results plate sits inside the sidebar column and every title wraps unclipped (1.1s)
+  ✓  116 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1440 › "Parseval": the results plate sits inside the sidebar column and every title wraps unclipped (1.0s)
+  ✓  117 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1920 › "Fourier Transform": the results plate sits inside the sidebar column and every title wraps unclipped (1.1s)
+  ✓  118 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1920 › "convergence": the results plate sits inside the sidebar column and every title wraps unclipped (1.1s)
+  ✓  119 [chromium] › e2e/f-w14v-x7.spec.ts:35:13 › A2-FO-X-7 x UIA-F-59 @1920 › "Parseval": the results plate sits inside the sidebar column and every title wraps unclipped (1.1s)
+  ✓  120 [chromium] › e2e/paper-performance.spec.ts:150:5 › Paper performance › initial paper render stays windowed (496ms)
+  ✓  121 [chromium] › e2e/paper-performance.spec.ts:158:5 › Paper performance › forward scrolling never regresses the page indicator back to 1 (2.2s)
+  ✓  122 [chromium] › e2e/paper-performance.spec.ts:176:5 › Paper performance › far TOC jumps land on DFT as Matrix Multiplication without over-mounting (933ms)
+  ✓  123 [chromium] › e2e/paper-performance.spec.ts:235:5 › Paper performance › long scroll keeps mounted sections bounded and logs no browser errors (2.6s)
+  ✓  124 [chromium] › e2e/paper-performance.spec.ts:270:5 › Paper performance › appendix proofs, proof math, code listings, and bibliography render canonically (3.1s)
+
+  124 passed (9.0m)

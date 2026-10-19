@@ -1,0 +1,162 @@
+{
+ "eq-light": [
+  {
+   "lab": "About this approximation",
+   "emphasis": "quiet",
+   "tone": "neutral",
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "ink": "rgb(112, 89, 66)"
+  },
+  {
+   "lab": "Copy LaTeX",
+   "emphasis": "quiet",
+   "tone": "neutral",
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "ink": "rgb(112, 89, 66)"
+  },
+  {
+   "lab": "Pause the convergence sweep",
+   "emphasis": "secondary",
+   "tone": "neutral",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)",
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.",
+   "ink": "rgb(28, 25, 23)"
+  },
+  {
+   "lab": "Compute",
+   "emphasis": "primary",
+   "tone": "neutral",
+   "bg": "oklab(0.958891 0.0089115 0.0269842)",
+   "shadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.",
+   "ink": "rgb(28, 25, 23)"
+  }
+ ],
+ "mono-light": [
+  {
+   "cls": "eq-toggle-icon eq-toggle-icon--mono",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label legend-label--golden",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  }
+ ],
+ "morph-light": {
+  "rest": {
+   "t": "none",
+   "w": 416,
+   "bc": "oklab(0.216128 0.00350075 0.00518669 / 0.04)"
+  },
+  "hov": {
+   "t": "none",
+   "w": 416,
+   "bc": "color(srgb 0.859497 0.139733 0.139504 / 0.5)"
+  }
+ },
+ "gallery-delete-light": {
+  "emphasis": "quiet",
+  "tone": "destructive",
+  "cls": "button tap-squish focus-ring",
+  "bg": "rgba(0, 0, 0, 0)",
+  "ink": "rgb(219, 36, 36)",
+  "shadow": "none"
+ },
+ "eq-dark": [
+  {
+   "lab": "About this approximation",
+   "emphasis": "quiet",
+   "tone": "neutral",
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "ink": "rgb(195, 185, 172)"
+  },
+  {
+   "lab": "Copy LaTeX",
+   "emphasis": "quiet",
+   "tone": "neutral",
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "ink": "rgb(195, 185, 172)"
+  },
+  {
+   "lab": "Pause the convergence sweep",
+   "emphasis": "secondary",
+   "tone": "neutral",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)",
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0",
+   "ink": "rgb(233, 230, 226)"
+  },
+  {
+   "lab": "Compute",
+   "emphasis": "primary",
+   "tone": "neutral",
+   "bg": "oklab(0.31489 0.0117949 0.0248798)",
+   "shadow": "rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0",
+   "ink": "rgb(233, 230, 226)"
+  }
+ ],
+ "mono-dark": [
+  {
+   "cls": "eq-toggle-icon eq-toggle-icon--mono",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label legend-label--golden",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  },
+  {
+   "cls": "legend-label",
+   "ff": "\"Fira Code\", \"Fira Code Fallback\", \"Fira"
+  }
+ ],
+ "morph-dark": {
+  "rest": {
+   "t": "none",
+   "w": 416,
+   "bc": "oklab(0.925196 0.00238398 0.00574207 / 0.04)"
+  },
+  "hov": {
+   "t": "none",
+   "w": 416,
+   "bc": "color(srgb 0.877849 0.362313 0.362194 / 0.5)"
+  }
+ },
+ "gallery-delete-dark": {
+  "emphasis": "quiet",
+  "tone": "destructive",
+  "cls": "button tap-squish focus-ring",
+  "bg": "rgba(0, 0, 0, 0)",
+  "ink": "oklch(0.702 0.184 27.5)",
+  "shadow": "none"
+ }
+}

@@ -1,0 +1,11 @@
+17:09  up 15:12, 3 users, load averages: 52.06 59.91 80.93
+0 379 {"fps4":1,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"1.000","an":"glass-reveal-out","pe":"auto","a":["glass-reveal-out:running:0"]}]}
+0 2168 {"fps4":1,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"1.000","an":"glass-reveal-out","pe":"auto","a":["glass-reveal-out:running:0"]}]}
+0 3223 {"fps4":1,"vis":"visible","focus":true,"n":0,"c":[]}
+1 1126 {"fps4":1,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"1.000","an":"glass-reveal-out","pe":"auto","a":["glass-reveal-out:running:0"]}]}
+1 2127 {"fps4":2,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"1.000","an":"glass-reveal-out","pe":"auto","a":["glass-reveal-out:running:0"]}]}
+1 3615 {"fps4":2,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"0.000","an":"","pe":"","a":[]}]}
+1 4541 {"fps4":1,"vis":"visible","focus":true,"n":0,"c":[]}
+2 483 {"fps4":1,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"1.000","an":"glass-reveal-out","pe":"auto","a":["glass-reveal-out:running:0"]}]}
+2 1328 {"fps4":2,"vis":"visible","focus":true,"n":1,"c":[{"st":"closed","op":"0.000","an":"","pe":"","a":[]}]}
+2 6262 {"fps4":1,"vis":"visible","focus":true,"n":0,"c":[]}

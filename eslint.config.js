@@ -37,8 +37,9 @@ export default [
             "dist/**",
             "node_modules/**",
             "coverage/**",
-            "docs/precepts/**",
-            "docs/tranches/C/**",
+            // Documentation and banked tooling (tranche workflow/probe
+            // scripts), not product code (COHESION §0bt.3).
+            "docs/**",
             ".playwright-mcp/**",
             // Session-harness worktrees + symlinks (e.g. a `keyframes.js`
             // symlink to a sibling DIRECTORY, which `eslint .` globs as a .js
@@ -218,25 +219,51 @@ export default [
         },
     },
     {
-        // G-DEMO-3b (U.W-DEMO · U-F47) — the palette-browser mega-feature is
-        // reached through its BARREL SEAM (the top-level index.ts or a
-        // sub-barrel it re-exports), never a raw internal `.vue` file. The seam
-        // is the feature's stable public API; a raw-file reach couples a
-        // consumer to internal layout. Barrel reaches (`.../card`, `.../dialog`,
-        // `.../admin`, `.../search`, `.../slug`, `.../status`) do NOT match —
-        // only paths ending in a raw `.vue` are banned. This object's file glob
-        // is the NON-composables demo consumer trees; it is DISJOINT from the
-        // composables-layer object below, so neither clobbers the other's
-        // `no-restricted-imports` (flat config does not array-merge that rule
-        // across matching objects — the last match wins wholesale).
-        files: [
-            "demo/color-picker/**/*.ts",
-            "demo/color-picker/**/*.vue",
-            "demo/@/components/**/*.ts",
-            "demo/@/components/**/*.vue",
-            "demo/@/lib/**/*.ts",
-            "demo/@/lib/**/*.vue",
-        ],
+        // G5 (X.W9.a) — the crash SHAPE, not the instance.
+        //
+        // The shipped `parseCssColor("oklch()")` TypeError was authored by a
+        // `!` that silenced `noUncheckedIndexedAccess` on a parse-derived index
+        // (`grammar.ts:181`'s `slash[0]!`). Until this object landed, eslint had
+        // no rule that could see it: X.W9.a retired 94 assertions under
+        // `src/css/` and X.W9.b 155 under the two trees below, but a measured
+        // absence is not a ratchet — nothing stopped the next `!` from
+        // returning. Authored by X.W9.a, written here by X.W9.f, which is this
+        // file's sole writer in the wave (§Disjointness 4a).
+        files: ["src/css/**/*.ts"],
+        rules: {
+            "@typescript-eslint/no-non-null-assertion": "error",
+        },
+    },
+    {
+        // G10 (X.W9.b) — the same ratchet over the two trees whose assertions
+        // that unit retired: `src/transform/` (decompose 113 · path 35, the
+        // matrix family retiring with its module) and `src/foundation/`
+        // (math 7, retired by the stated precondition protocol at X.W9.c).
+        // Scoped, not src-wide: `src/easing.ts`'s `linearEasing` reads are
+        // bounded by its own loop conditions and are outside both authoring
+        // units' cures, so widening this glob would assert a green no unit
+        // measured. Authored by X.W9.b, written here by X.W9.f (§4a).
+        files: ["src/transform/**/*.ts", "src/foundation/**/*.ts"],
+        rules: {
+            "@typescript-eslint/no-non-null-assertion": "error",
+        },
+    },
+    {
+        // G-6 (X.W8.b · CC-078) — THE SHADCN BARRELS STAY DEAD.
+        //
+        // The 19 `demo/ui/<family>/index.ts` forwarding barrels were pure
+        // re-exports of `@mkbabb/glass-ui` (deleted at X-W12U.k `2ae7344d2`);
+        // every consumer imports its real owner, the narrowest published glass
+        // subpath. This ban makes a re-grown barrel import an error at the
+        // product boundary. A segment-exact `ui` match: `@mkbabb/glass-ui/*`
+        // and `demo/shared/ui/*` components are not barrel paths and pass.
+        //
+        // It replaces the two U.W-DEMO objects (G-DEMO-1 · 3a · 3b) whose six
+        // globs under the shadcn-era demo tree matched 0 files after W43 and whose
+        // patterns named a path alias with 0 importers. One object over the
+        // whole demo tree: flat config resolves `no-restricted-imports` by
+        // last match wins, so a second demo-region object would clobber it.
+        files: ["demo/**/*.ts", "demo/**/*.vue"],
         rules: {
             "no-restricted-imports": [
                 "error",
@@ -244,62 +271,106 @@ export default [
                     patterns: [
                         {
                             group: [
-                                "@components/custom/palette-browser/**/*.vue",
+                                "**/ui/alert",
+                                "**/ui/avatar",
+                                "**/ui/badge",
+                                "**/ui/button",
+                                "**/ui/card",
+                                "**/ui/checkbox",
+                                "**/ui/collapsible",
+                                "**/ui/dialog",
+                                "**/ui/dropdown-menu",
+                                "**/ui/input",
+                                "**/ui/label",
+                                "**/ui/popover",
+                                "**/ui/radio-group",
+                                "**/ui/select",
+                                "**/ui/separator",
+                                "**/ui/skeleton",
+                                "**/ui/slider",
+                                "**/ui/switch",
+                                "**/ui/tooltip",
                             ],
                             message:
-                                "G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file.",
+                                "G-6 (X.W8.b): the demo/ui shadcn barrels are deleted — import the real owner, the narrowest @mkbabb/glass-ui subpath.",
                         },
                     ],
                 },
             ],
         },
     },
+    // G-14 (X.W8.e · CC-082 ⊕ CC-090's measured-cap half) — THE LoC CAP IS A
+    // WIRED RATCHET, NOT A CANON NUMBER.
+    //
+    // One `max-lines` object per band, each pinned at that band's measured
+    // worst file at HEAD 62fdd2b3b (2026-10-17; `wc -l` = eslint's own count,
+    // blank lines and comments included). GREEN at HEAD by construction: the
+    // ratchet forbids growth, it does not claim the cure. A band's number only
+    // ever DESCENDS — when a split lands (demo: X-W5/X-W6 owners; src: X-W9's
+    // CC-090), the lander lowers the pin to the new measured worst; raising a
+    // pin is a canon change, never a lint fix. `docs/tranches/V/ARCHITECTURE.md`
+    // §Colocation idiom states the same pins.
     {
-        // G-DEMO-1 (U.W-DEMO · U-F45) + G-DEMO-3a (U-F47) — the shared
-        // composables layer (`demo/@/composables/`) is a CLEAN LOWER LAYER. It
-        // reaches DOWN into the library and sideways within itself; it must
-        // never reach UP into app-root boot (`demo/color-picker/`, the color-
-        // spine near-cycle G-DEMO-1 dissolves) and never into a feature's
-        // internal composables (`@components/custom/*/composables/`, the E-1
-        // colocation inversion G-DEMO-3a dissolves). Wired STANDING so a future
-        // feature edit cannot silently re-invert the demo module graph. The
-        // three bans live in ONE object over ONE file glob because flat config
-        // resolves `no-restricted-imports` by last-match-wins (no merge) — a
-        // single object is the only override-safe encoding for a file region
-        // that needs multiple bans. (The bare `@components/custom/color-picker`
-        // barrel is ALLOWED — `**/color-picker/**` requires a trailing segment,
-        // so only the raw-relative app-root reach + picker-internal subpaths are
-        // banned; the G-DEMO-3b raw-`.vue` ban is re-declared here since this
-        // object owns the composables region's rule value.)
+        // demo — GradientStopRail.vue
+        files: ["demo/**/*.ts", "demo/**/*.vue"],
+        rules: { "max-lines": ["error", { max: 1013 }] },
+    },
+    {
+        // src (the library's authored `.ts`; the BBNF-generated `.js` under
+        // src/css/bbnf/generated/ is emitted, not authored) — transform/path.ts
+        files: ["src/**/*.ts"],
+        rules: { "max-lines": ["error", { max: 672 }] },
+    },
+    {
+        // api/src product modules — palette/service/crud-list.ts
+        files: ["api/src/**/*.ts"],
+        ignores: ["api/src/**/__tests__/**"],
+        rules: { "max-lines": ["error", { max: 357 }] },
+    },
+    {
+        // api/src tests — palette/__tests__/palette-versions.test.ts
+        files: ["api/src/**/__tests__/**/*.ts"],
+        rules: { "max-lines": ["error", { max: 539 }] },
+    },
+    {
+        // X-W4 · X.W4.d gate D2 (CC-043) — THE ACTION PATH CARRIES NO UNTYPED HOP.
+        //
+        // The repo-wide `@typescript-eslint/no-explicit-any` is "off" (the two
+        // objects above, for `**/*.ts` and `**/*.vue`); this object re-arms it as
+        // an ERROR over the action path and nothing else. Flat config resolves a
+        // rule by LAST MATCH WINS, so this object must stay last for the files it
+        // names.
+        //
+        // The file list is `W4.md` §5 "X.W4.d"'s own Files enumeration — the
+        // wave's definition of "the action-path files", authored before the
+        // measurement — minus `demo/picker/ColorPicker.vue`, whose single
+        // `any` is a display-space bridge on a `ColorSpaceSelector` that types
+        // its `modelValue` as `string` (the selector is X-W6/X-W7's file, and
+        // §6 D2's own RED census never counted it). Its action-path bytes carry
+        // no `any`, and the residual is recorded in the unit receipt rather than
+        // silently globbed away.
+        //
+        // SCOPE, STATED EXACTLY (X-W4 Repair 1 · Check 1 defect 4). D2's gate
+        // command's third leg is the GLOB `demo/shell/dock/**`; this object arms
+        // seven NAMED files, two of which sit in that glob. The two files inside
+        // the glob that carried a type-level `any` the armed run could not see
+        // were both `catch (e: any)` and both pre-date this wave (`6dde42ad`):
+        //   · `demo/shell/dock/layers/SlugEditLayer.vue:57` — a W4 §4 row, CURED
+        //     at Repair 1 to `catch (e: unknown)`;
+        //   · `demo/shell/dock/ColorInput.vue:242` — in NO W4 §4 row, so arming
+        //     the literal glob here would make D2 unfixable in bounds. It is
+        //     NAMED and escalated (Check 1 defects 3 and 4) — not excluded by a
+        //     silent glob and not padded away.
         files: [
-            "demo/@/composables/**/*.ts",
-            "demo/@/composables/**/*.vue",
+            "demo/app/App.vue",
+            "demo/shell/usePaneRouter.ts",
+            "demo/shell/dock/Dock.vue",
+            "demo/shell/dock/layers/ActionBarLayer.vue",
+            "demo/shell/dock/layers/GenericActionBar.vue",
+            "demo/color-session/keys.ts",
         ],
         rules: {
-            "no-restricted-imports": [
-                "error",
-                {
-                    patterns: [
-                        {
-                            group: ["**/color-picker/**"],
-                            message:
-                                "G-DEMO-1: the shared color layer (demo/@/composables/color) must never import app-root boot (demo/color-picker) — the spine is a clean lower layer.",
-                        },
-                        {
-                            group: ["@components/custom/*/composables/**"],
-                            message:
-                                "G-DEMO-3a: the shared composables layer must not import feature internals — features depend on shared, never the reverse.",
-                        },
-                        {
-                            group: [
-                                "@components/custom/palette-browser/**/*.vue",
-                            ],
-                            message:
-                                "G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file.",
-                        },
-                    ],
-                },
-            ],
+            "@typescript-eslint/no-explicit-any": "error",
         },
     },
 ];

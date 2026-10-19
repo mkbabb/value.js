@@ -1,0 +1,122 @@
+{
+ "light": {
+  "literal1440": {
+   "copyInkGap": 15
+  },
+  "spring1440": {
+   "field": 128,
+   "xAxisBottom": 478,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": true
+  },
+  "entry1440": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(28, 25, 23)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  },
+  "literal390": {
+   "copyInkGap": 24
+  },
+  "entry390": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(28, 25, 23)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  }
+ },
+ "dark": {
+  "literal1440": {
+   "copyInkGap": 15
+  },
+  "spring1440": {
+   "field": 128,
+   "xAxisBottom": 478,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": true
+  },
+  "entry1440": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(233, 230, 226)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  },
+  "literal390": {
+   "copyInkGap": 24
+  },
+  "entry390": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(233, 230, 226)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  }
+ },
+ "spring1440x900": {
+  "field": 128,
+  "xAxisBottom": 478,
+  "fold": 527,
+  "fadeEnd": 40,
+  "fadeStart": 487,
+  "axisAboveFade": true
+ },
+ "spring1280x760": {
+  "field": 128,
+  "xAxisBottom": 449,
+  "fold": 417,
+  "fadeEnd": 40,
+  "fadeStart": 377,
+  "axisAboveFade": false
+ },
+ "spring1280x800": {
+  "field": 128,
+  "xAxisBottom": 469,
+  "fold": 432,
+  "fadeEnd": 40,
+  "fadeStart": 392,
+  "axisAboveFade": false
+ },
+ "spring1024x700": {
+  "field": 128,
+  "xAxisBottom": 418,
+  "fold": 392,
+  "fadeEnd": 40,
+  "fadeStart": 352,
+  "axisAboveFade": false
+ },
+ "spring1440x1080": {
+  "field": 192,
+  "xAxisBottom": 553,
+  "fold": 707,
+  "fadeEnd": 40,
+  "fadeStart": 667,
+  "axisAboveFade": true
+ }
+}

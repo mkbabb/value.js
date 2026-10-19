@@ -1,0 +1,368 @@
+{
+ "equation-light-1440": {
+  "layers": [
+   {
+    "label": "Function",
+    "labelCut": false,
+    "sub": "f(t)",
+    "subCut": false
+   },
+   {
+    "label": "Controls",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "21 harmonics · n = ±20",
+    "subCut": false
+   }
+  ],
+  "primaries": [
+   {
+    "t": "Compute",
+    "glyph": true
+   }
+  ],
+  "compute": {
+   "color": "rgb(28, 25, 23)",
+   "bg": "oklab(0.958876 0.00822509 0.0271508)",
+   "border": "rgba(0, 0, 0, 0)"
+  },
+  "computeHover": {
+   "color": "rgb(28, 25, 23)",
+   "bg": "oklab(0.958876 0.00822509 0.0271508)",
+   "border": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "w-light-1440": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Choose an image",
+    "glyph": true
+   }
+  ]
+ },
+ "v-light-1440": {
+  "layers": [
+   {
+    "label": "Image",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Basis",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Contour",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "201 harmonics · n = ±200",
+    "subCut": false
+   }
+  ],
+  "primaries": []
+ },
+ "v-error-light-1440": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "no-such-route-light-1440": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "equation-light-390": {
+  "layers": [
+   {
+    "label": "Function",
+    "labelCut": false,
+    "sub": "f(t)",
+    "subCut": false
+   },
+   {
+    "label": "Controls",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "21 harmonics · n = ±20",
+    "subCut": false
+   }
+  ],
+  "primaries": [
+   {
+    "t": "Compute",
+    "glyph": true
+   }
+  ],
+  "compute": {
+   "color": "rgb(28, 25, 23)",
+   "bg": "oklab(0.958876 0.00822509 0.0271508)",
+   "border": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "w-light-390": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Choose an image",
+    "glyph": true
+   }
+  ]
+ },
+ "v-light-390": {
+  "layers": [
+   {
+    "label": "Image",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Basis",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Contour",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "201 harmonics · n = ±200",
+    "subCut": false
+   }
+  ],
+  "primaries": []
+ },
+ "v-error-light-390": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "no-such-route-light-390": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "equation-dark-1440": {
+  "layers": [
+   {
+    "label": "Function",
+    "labelCut": false,
+    "sub": "f(t)",
+    "subCut": false
+   },
+   {
+    "label": "Controls",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "21 harmonics · n = ±20",
+    "subCut": false
+   }
+  ],
+  "primaries": [
+   {
+    "t": "Compute",
+    "glyph": true
+   }
+  ],
+  "compute": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "oklab(0.314888 0.0121448 0.0246023)",
+   "border": "rgba(0, 0, 0, 0)"
+  },
+  "computeHover": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "oklab(0.314888 0.0121448 0.0246023)",
+   "border": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "w-dark-1440": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Choose an image",
+    "glyph": true
+   }
+  ]
+ },
+ "v-dark-1440": {
+  "layers": [
+   {
+    "label": "Image",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Basis",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Contour",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "201 harmonics · n = ±200",
+    "subCut": false
+   }
+  ],
+  "primaries": []
+ },
+ "v-error-dark-1440": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "no-such-route-dark-1440": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "equation-dark-390": {
+  "layers": [
+   {
+    "label": "Function",
+    "labelCut": false,
+    "sub": "f(t)",
+    "subCut": false
+   },
+   {
+    "label": "Controls",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "21 harmonics · n = ±20",
+    "subCut": false
+   }
+  ],
+  "primaries": [
+   {
+    "t": "Compute",
+    "glyph": true
+   }
+  ],
+  "compute": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "oklab(0.314888 0.0121448 0.0246023)",
+   "border": "rgba(0, 0, 0, 0)"
+  }
+ },
+ "w-dark-390": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Choose an image",
+    "glyph": true
+   }
+  ]
+ },
+ "v-dark-390": {
+  "layers": [
+   {
+    "label": "Image",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Basis",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Contour",
+    "labelCut": false,
+    "sub": null,
+    "subCut": null
+   },
+   {
+    "label": "Coefficients",
+    "labelCut": false,
+    "sub": "201 harmonics · n = ±200",
+    "subCut": false
+   }
+  ],
+  "primaries": []
+ },
+ "v-error-dark-390": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ },
+ "no-such-route-dark-390": {
+  "layers": [],
+  "primaries": [
+   {
+    "t": "Upload a new image",
+    "glyph": true
+   }
+  ]
+ }
+}

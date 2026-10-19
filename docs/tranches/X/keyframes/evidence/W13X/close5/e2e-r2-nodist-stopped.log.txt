@@ -1,0 +1,51 @@
+# 2026-10-16 06:15:20 load: 18.06 24.74 26.44 dir: /Users/mkbabb/Programming/keyframes-wt-W13X-open4 head: 57fb241a dirty: 
+run-demo-roster — 6 observation(s) · one shared chromium + one served dist snapshot
+
+──── smoke ────
+  ✓ entry chunk assets/index-DhTTKDXv.js is substantial (308988 B > 50000 B floor)
+  ✓ entry's static import graph excludes vendor-monaco / vendor-three
+  ✓ CSS asset emitted (assets/index-DZnyjz2C.css)
+  ✓ critical-CSS <style data-critical> block inlined
+  ✓ main stylesheet deferred (media=print onload swap)
+  ✓ no loading-splash residue
+demo-smoke — inv γ (the demo cannot ship blank)
+  ✓ #app mounts with non-trivial children
+  ✓ home hero text renders
+  ✗ heavy chunks requested at first paint: http://127.0.0.1:53103/assets/vendor-three-nw0IrzH_.js
+  ✓ zero console errors during mount
+  ✓ zero uncaught pageerror during mount
+  ✓ no literal '[object Object]' text node
+
+demo-smoke — FAIL (1): the built demo violates inv γ.
+
+──── occlusion ────
+occlusion observation — inv δ (no page occludes on any viewport) [controls: closed]
+  ○ controls-open axis skipped — set KF_CAPTURE_OPEN_PANEL=1 to run it (the open state is where docks genuinely occlude).
+  ✓ home/mobile/closed       subject 311×116 in-bounds, no overflow, no content occlusion
+  ✓ home/laptop/closed       subject 1203×373 in-bounds, no overflow, no content occlusion
+  ✓ home/desktop/closed      subject 1354×186 in-bounds, no overflow, no content occlusion
+  ✓ cube/mobile/closed       subject 188×188 in-bounds, no overflow, no content occlusion
+  ✓ cube/laptop/closed       subject 240×240 in-bounds, no overflow, no content occlusion
+  ✓ cube/desktop/closed      subject 272×296 in-bounds, no overflow, no content occlusion
+
+──── usability ────
+usability observation — G.W11 live behavior + T.D10 per-char hero contract
+  ✓ route-reachability: all 1 scene id(s) resolve a declared non-redirecting route (home)
+  ✓ (2d static) zero live `depth-text` references in editor-shell/ — the hero ink costume is dead (T.D10)
+  ✓ (2a) hero inter-word gap > 0 (min 44.3px across 1 same-line adjacent word pair(s) of 3 word wrappers — the LCP reads with spaces)
+  ✓ (2b) hero sr-only mirror spells the DECLARED title ("Select an animation", read from EditorStartScreen.vue)
+  ✓ (2b) hero sr-only a11y mirror spells the title with spaces ("Select an animation")
+  ✓ (2b) hero text-wrap: balance substrate intact (words own wrapping)
+  ✓ (2c) per-char split — 17 .wave-char spans == the 17 non-whitespace glyphs of the DECLARED title (VERDICT #3: each individual char uplifts)
+  ✓ (2c) per-char delays strictly monotone in global char order (first: 0, 0.08, 0.16, 0.24, 0.32s — one wave crossing the whole line)
+  ✓ (2c) every char span resolves a live animation-name (17/17)
+  ✓ (2d light) hero ink honest — weight 400, char color == resolved --foreground
+  ✓ (2d dark) hero ink honest — weight 400, char color == resolved --foreground
+  ✓ unique aria-label: no two simultaneously-rendered controls share an aria-label (editor scene)
+  ✓ no uncaught pageerror across the home + editor drive (PB-2)
+
+usability observation — PASS: the live behaviors hold (G.W11) and the hero rides the T.D10 per-char two-tier contract (X-5 gap + sr-mirror kept, monotone global-index wave, honest ink).
+
+──── subject-animates ────
+subject-animates observation — the subject-write seam
+  ✗ browser half REQUIRED (KF_REQUIRE_BROWSER=1) but dist/keyframes.js not built (run `npm run build` first) — the subject-write oracle cannot pass vacuously (W7-1)

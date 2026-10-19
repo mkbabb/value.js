@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5
+normal UpdateLayoutTree=392ms/101 Layout=321ms/92 Paint=94ms/935 FunctionCall=143ms/632 RunTask=2386ms/942 avgElems 167
+freeze-root UpdateLayoutTree=231ms/97 Layout=247ms/90 Paint=61ms/695 FunctionCall=148ms/621 RunTask=2189ms/1380 avgElems 82
+--palettes-ramp,--seal-ink,--saved-bg,--ink UpdateLayoutTree=406ms/102 Layout=318ms/94 Paint=98ms/941 FunctionCall=151ms/642 RunTask=2503ms/1560 avgElems 173
+normal UpdateLayoutTree=419ms/98 Layout=329ms/90 Paint=97ms/927 FunctionCall=151ms/627 RunTask=2479ms/1835 avgElems 174
+freeze-root UpdateLayoutTree=239ms/96 Layout=268ms/89 Paint=60ms/709 FunctionCall=163ms/612 RunTask=2021ms/1345 avgElems 88
+--palettes-ramp,--seal-ink,--saved-bg,--ink UpdateLayoutTree=406ms/102 Layout=336ms/91 Paint=114ms/918 FunctionCall=157ms/674 RunTask=2481ms/1566 avgElems 164

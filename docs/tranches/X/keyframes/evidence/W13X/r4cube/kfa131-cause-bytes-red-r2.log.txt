@@ -1,0 +1,30 @@
+load 160.75 174.81 191.37
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+(node:98817) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ |demo| test/demo/scenes/r4cube-playing-and-paused-edit.test.ts (3 tests | 1 failed | 2 skipped) 11618ms
+     × KFA-131 — the `playing` class follows the machine: present while playing, gone once paused, back on resume 2434ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |demo| test/demo/scenes/r4cube-playing-and-paused-edit.test.ts > X.KF.W13X.r4cube — the cube's playing state and the paused matrix edit > KFA-131 — the `playing` class follows the machine: present while playing, gone once paused, back on resume
+AssertionError: expected [ 'idle-hover', 'preserve-3d' ] to include 'playing'
+ ❯ test/demo/scenes/r4cube-playing-and-paused-edit.test.ts:119:31
+    117|         await play();
+    118|         expect(exposed.facility.group.started && !exposed.facility.gro…
+    119|         expect(rollClasses()).toContain("playing");
+       |                               ^
+    120|         await pause();
+    121|         expect(rollClasses()).not.toContain("playing");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 skipped (3)
+   Start at  18:55:15
+   Duration  43.90s (transform 23.20s, setup 62ms, import 21.64s, tests 11.62s, environment 7.32s)
+
+EXIT=1

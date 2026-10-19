@@ -1,0 +1,59 @@
+### plate-mass + palette-card-layout, patient harness budget (--hookTimeout=300000 --testTimeout=300000), read 1 start 17:34:24 load1=164.98
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+(node:85551) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ demo/test/palettes/plate-mass.test.ts (4 tests | 4 skipped) 209109ms
+   ↓ plate at 390 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 390 px > N-17 · the loading skeleton is the silhouette of the settled card
+   ↓ plate at 1440 px > G20 · both plates at k = 16 sit inside the budget, and k does not grow them
+   ↓ plate at 1440 px > N-17 · the loading skeleton is the silhouette of the settled card
+(node:97882) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ demo/test/palettes/palette-card-layout.test.ts (6 tests | 6 skipped) 62104ms
+   ↓ G9 · the meta row at 390×844 with a legal payload > does not overflow; the name keeps a rendered width
+   ↓ G10 · the no-overflow law and the height law at every fixture N > no fixture overflows its card or the page
+   ↓ G10 · the no-overflow law and the height law at every fixture N > one card height across the whole fixture set
+   ↓ G11 · root-only: the cast and the hover register live on the card root > the card casts nothing, and the hover register is the root's own rise
+   ↓ N-13 · the reduced-motion disclosure completes > collapse under prefers-reduced-motion removes the swatch subtree
+   ↓ N-13 · the reduced-motion disclosure completes > the animated disclosure (no preference) still completes on its height morph
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  demo/test/palettes/palette-card-layout.test.ts [ demo/test/palettes/palette-card-layout.test.ts ]
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/palette-card-layout.test.ts:26:1
+     24| let seat: HarnessSeat;
+     25| 
+     26| beforeAll(async () => {
+       | ^
+     27|     seat = await openHarness({ width: 390, height: 844 });
+     28| }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 390 px
+ FAIL  demo/test/palettes/plate-mass.test.ts > plate at 1440 px
+Error: Hook timed out in 60000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ demo/test/palettes/plate-mass.test.ts:82:5
+     80| ])("plate at $width px", (viewport) => {
+     81|     let seat: HarnessSeat;
+     82|     beforeAll(async () => {
+       |     ^
+     83|         seat = await openHarness(viewport);
+     84|     }, 60_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  10 skipped (10)
+   Start at  17:34:29
+   Duration  289.52s (transform 636ms, setup 386ms, collect 4.87s, tests 271.21s, environment 0ms, prepare 806ms)
+
+JSON report written to /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W12U-evidence/q/results/vitest-patient-r1.json
+VITEST EXIT 1
+### end 17:39:22 load1=94.13

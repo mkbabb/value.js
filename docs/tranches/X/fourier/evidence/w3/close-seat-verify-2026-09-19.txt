@@ -1,0 +1,195 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.F.W3 — CLOSE SEAT (VERIFY-ONLY, cures nothing). 2026-09-19.
+Every reading below was executed at THIS seat against the settled bytes and double-run where the
+command is non-deterministic. Refs: fourier main `m/w1-bump-migration` @ 21e11b0 · `x-f-w3-b` @
+b9995b3 · `x/f3d` @ 74084fa · `x/f3e` @ 8aa9252 · value.js `tranche-u`.
+
+=== ACT 0 — CRASH-RECOVERY SWEEP (standing law, first act) ===
+$ git -C /Users/mkbabb/Programming/value.js status --porcelain
+ M docs/tranches/V/reformation/CARRY-LEDGER.md      <- sibling/standing V row, NOT this seat's set
+ M scripts/dev/dev.sh                               <- unowned, NEVER touched (DR-24)
+$ git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain
+?? .worktrees/                                      <- §5b's own declared residue
+Nothing inherited inside this seat's writable set. Nothing stashed, restored or reset.
+
+=== ACT 1 — COMMITS EXIST AND TOUCH ONLY THEIR UNIT'S WRITABLE SET ===
+$ git log --oneline 0a16b83..21e11b0                -> .a 77b9bc0 · f36541a · a08809b ; .c 21e11b0  (4 on main)
+$ git log --oneline 21e11b0..x-f-w3-b               -> .b da417da · b9995b3            (2)
+$ git log --oneline 21e11b0..x/f3d | wc -l          -> 18   (.d)
+$ git log --oneline 21e11b0..x/f3e | wc -l          -> 32   (= 18 .d + 14 .e)
+$ git merge-base --is-ancestor x/f3d x/f3e          -> YES
+Roster 4 + 2 + 18 + 14 = 38 fourier commits; .f 5 value.js commits + record + LEDGER row. Reproduced.
+
+Bounds audit, per unit, from `git show --stat` / `git log --name-only`:
+  .a  9 + 6 + 1 paths — all in §5a Files (`web/e2e/**` is .a's for g4/g5)            IN BOUNDS
+  .c  8 paths        — all in §5c Files                                              IN BOUNDS
+  .b  5 paths        — all in §5b Files                                              IN BOUNDS
+  .d 24 paths        — §5d Files ⊕ `web/e2e/**` (keystone, after .a) ⊕ ONE create,
+                       `visualization/gallery/BatchActionBar.vue`, which §5a split (5)
+                       authorises by name ("AdminFlaggedPanel.vue + its extracted module")
+                       and §1 Creates names ("one shared admin toolbar"); disclosed at the
+                       .d receipt                                                    IN BOUNDS (disclosed)
+  .e 26 paths        — 25 in §5e Files / §1 Creates …
+                       *** web/src/lib/colors.ts  — NOT IN BOUNDS ***
+  .f  7 value.js paths — register · 6 evidence files · COHESION · INBOX · record · LEDGER
+                       `scripts/dev/dev.sh` in 0 of 38 + 7 commits                   IN BOUNDS
+
+LANDED-WRONG (recorded, NOT fixed — this seat cures nothing):
+$ git show --stat -M 9fd0684
+ web/index.html        | 49 ++++---   <- §1 bounds row `<repo>/web/index.html`, §5e Files   OK
+ web/src/App.vue       | 33 ++++--    <- §1 bounds row `App.vue`, §5e Files                 OK
+ web/src/lib/colors.ts | 61 ++++---   <- NO §1 Bounds row, NO §5e Files line
+$ git cat-file -e 21e11b0:web/src/lib/colors.ts && echo PRE-EXISTING   -> PRE-EXISTING (214 lines)
+$ /usr/bin/grep -c 'colors\.ts' docs/tranches/X/fourier/waves/F-W3.md  -> 0  (exit 1)
+  §1's Creates clause admits NEW files under `web/src/lib/**` / `web/src/composables/**`; this is a
+  MODIFY of a pre-existing file, which the Creates clause does not reach. `.e`'s own self-count
+  ("26 paths, every one inside this unit's writable set") is overbroad by exactly this one path.
+  Class: §6 line 1 — bounds expansion. Owner: `.e` / the integration seat. NOT swept here.
+
+=== ACT 2 — EVERY SPEC GATE RE-RUN AT THIS SEAT ===
+g1  $ git show 0a16b83:…/PaperSearch.vue | awk '/<style scoped>/,…' | grep -cE '\{\s*$'  -> 2
+    $ git show 21e11b0:…/PaperSearch.vue | …                                             -> 2
+    The 48->2 collapse (43 dead rules) is REAL in the bytes, and the surviving block's own
+    docblock names its author: "X·F F.W4 `.e` — `PSM-1` … the colocation repair."  The close's
+    BEFORE cell credits `.c`; the bytes credit F.W4's `.e`.  PROVENANCE CORRECTION, verdict unmoved.
+    Tree-wide mechanical re-derivation NOT RUNNABLE here: §7's S-4 checker is an F.W0 addition;
+    $ ls web/eslint.config.js -> present, $ grep -c layer web/eslint.config.js -> 0.
+    Two hand-rolled checker iterations at this seat returned known false-positive classes
+    (`.W3`/`.css` in prose, Vue `<Transition>`-minted classes, third-party `.katex`); §6's
+    three-iteration halt was respected and no third was attempted.        GREEN at its witness
+g2  $ /usr/bin/grep -rn -- "--slider-scrub" web/src | wc -l               -> 0   @ 21e11b0
+    contrast leg ASSERTED LIVE, not by absence: slider-scrub-contrast.spec.ts light + dark arms
+    2 passed (inside the 8-passed double-run below).                                     GREEN
+g3  $ /usr/bin/grep -rn 'glass-ui/timeline' web/src | wc -l               -> 0 (SR-1 refusal)
+    $ wc -l GlassTimeline.vue ConvergenceTimeline.vue                     -> 356 / 176 (one composition)
+    $ /usr/bin/grep -rn 'pointercancel' web/src | wc -l                   -> 5           GREEN
+g4  LIVE, at a vite dev server this seat started at :3000, run TWICE:
+    "K-4 (a) — a press and release that moves NOTHING still closes the session"   PASSED ×2
+    "K-4 (b) — a CANCELLED pointer closes the session and the clock keeps running" PASSED ×2
+    "the latch is gone — a second scrub opens after the first"                     PASSED ×2   GREEN
+g5  "an arrow press moves the value and it survives the next frames"               PASSED ×2
+    "Home and End reach both ends of the axis"                                     PASSED ×2
+    "the thumb announces the harmonic it moved to, not the raw float"              PASSED ×2   GREEN
+    (run 1: `npx playwright test e2e/timeline-scrub.spec.ts` -> 6 passed (2.5s);
+     run 2: + e2e/slider-scrub-contrast.spec.ts             -> 8 passed (2.5s))
+g6  producer pin: $ grep -m1 '"version"' node_modules/@mkbabb/glass-ui/package.json -> 8.0.0
+    (= `17a11bc5`, F.W0 G-13's ADOPTED cell). Verdict CONSUMED at `.a`; unmoved.       CONSUMED
+g7  @ b9995b3: $ /usr/bin/grep -rc 'easing-preview' web/src | grep -v ':0$'  -> EMPTY (0 hits)
+               $ /usr/bin/grep -rn '@mkbabb/glass-ui/easing' web/src        -> EasingPicker.vue:3 ·
+                                                                               MorphPhaseConfig.vue:143
+    @ 21e11b0: -> EasingCurvePreview.vue:2 · MorphPhaseConfig.vue:2 = 4 hits / 2 files (RED baseline)
+                                                            GREEN on the branch · RED on main
+g8  @ b9995b3: $ grep -c 'DropdownMenuRadioItem' EasingPicker.vue          -> 3 (v-for over the six)
+               $ grep -n 'from "@mkbabb/glass-ui' EasingPicker.vue          -> ./easing :3 · ./menu :9
+               ANIMATION_EASINGS keys = linear · sine · quad · cubic · circ · expo = SIX chips
+               $ ls …/EasingCurvePreview.vue                                -> No such file (deleted)
+               $ /usr/bin/grep -rn 'ToggleChip' src | wc -l                 -> 2, BOTH prose refusals
+                 (":31 CHASSIS LOCK (Toggle.js:68 …)" · ":34 The ToggleChip route is REFUSED")
+               $ /usr/bin/grep -rn 'role="radiogroup"' src | wc -l          -> 0 (K-18 kill honoured)
+    Live half: one bounded browser probe run at a :3101 dev server on this branch reached the app
+    header's menu, not the picker (EasingPicker renders menu CONTENT, it owns no trigger); the
+    probe was stopped there under §5.2 parsimony rather than iterated. The gate demotes the live
+    keystroke item to CONFIRMATORY and `.b` banked it in full.
+                                                            GREEN on the branch · RED on main
+g9  @ 21e11b0: $ /usr/bin/grep -rl 'is-active' web/src | sort -> 7 files; sites -> 22
+    @ 8aa9252:                                               -> 6 files; sites -> 20
+      (FunctionInput · MobileFloatingToc · PaperSidebar · EasingPicker · GallerySearchBar · style.css)
+    The vocabulary is PUBLISHED (style.css) and applied in `.e`'s and `.b`'s files; `.a`/`.c` are
+    CLOSED under §5a-v2 law 2 and `.d` recorded without sweeping.                  HONEST-RED
+g10 SliderControl @ a08809b (main): `defineOptions({ inheritAttrs: false })` :84 WITH the explicit
+    split — `chassisAttrs = {class: attrs.class, style: attrs.style}` :88 v-bind onto the chassis
+    :135, `{class:_class, style:_style, ...rest}` :91 onto the inner host, and `emit("valueCommit",…)`
+    :116. The anti-rule ("NEVER blanket") is honoured by construction, not by absence.
+    Tooltip @ 8aa9252: `defineOptions({ inheritAttrs: false })` :51 WITH a pre-placed
+    `v-bind="$attrs"` :144 on the CONTENT host.  @ 21e11b0: $ grep -c inheritAttrs Tooltip.vue -> 0.
+    CanvasOverlayButton.vue: absent (F.W0's `git rm`), so 0 of 9 sites survive to unify.
+                                                            GREEN at the union · PARTIAL at main
+g11 @ 8aa9252: FR-TT-3 measure knob LANDED (`measure?: string` :90, default "16rem" :92,
+    `--app-tooltip-measure` :97, `max-width: var(--app-tooltip-measure, 16rem)` :176 inside
+    `@layer glass-overrides`). FR-TT-20 NOT normalized: import identities still TWO —
+    `@/components/ui/tooltip` ×9 ⊕ `@/components/ui/tooltip/Tooltip.vue` at PaperSidebar.vue:2
+    (`.c`'s CLOSED file). Naming leg unminted at the 17 icon-only triggers.        HONEST-RED
+g12 The closed OR, per subpath:
+      ./fading-scroll — state (a): $ grep -rn 'glass-ui/fading-scroll' web/src -> 3 @ 8aa9252, 1 @ main
+      ./forms         — state (b): register §3, id `fr-AdminUserList FR-AUL-6`, reason (not an
+                        export of the 8.0.0 70-key map; X-EXT-2 re-seats to ./input), seat+date
+      ./search        — state (b): register §3, id `fr-PaperSearchModal PSM-9` (≡ MISS-B3 ≡ C:C-6
+                        ≡ C-2), reason (no FuzzySearch twin at 8.0.0; the producer scorer
+                        reproduces FR-PSD-TYPE ⊕ PSM-14), seat+date
+    3 of 3 in state (a) or (b); the (b) rows are register rows and hold at BOTH refs.   GREEN 3/3
+g13 $ git show --stat 21e11b0 -> ONE commit, 8 files; body names FR-PS-BDT · FR-PS-CLIP · FR-PS-Z ·
+    MISS-DU1 · MISS-DU4 · FR-PS-HL · FR-PSD-TYPE · ★NAV-1. No rider deferred, no split.   GREEN
+g14 leg 1 GREEN by dispatch (O-20 §B-4/§D-2 carry `--viz-amber` only; the cartoon ask RETIRED).
+    leg 2 RED: $ grep -n 'application sites' web/src/style.css @ 8aa9252 -> :211 still reads
+      "14 application sites (13 files; one …)" against G-12's reconciled 21/14 (19/13 strict).
+    leg 3 RED: the D-15 comment at VisualizationView.vue:220 stands beside the LIVE `.cartoon-card`
+      at :191.  Both files are `.e`'s and `.e` touched both.                        HONEST-RED
+g15 @ 21e11b0: `function timeAgo` -> 5 ; `startsWith("fourier")` -> 7.
+    @ 8aa9252: `function timeAgo` -> lib/time.ts ⊕ 2 residual (AdminFlaggedPanel ·
+    GalleryDraftsSection, `.d`'s); `startsWith("fourier")` -> 6; lib/basis.ts + lib/time.ts exist.
+                                              `.e`-scoped GREEN · HONEST-RED tree-wide
+g16 $ /usr/bin/grep -rn '@layer' web/src @ 8aa9252 -> every DECLARATION block is
+    `@layer glass-overrides` (Tooltip.vue:174 · HarmonicLevelGrid.vue:328 · AppHeader.vue:368);
+    the remainder are prose citing the producer's own layers. ZERO naive wraps.
+    Lint half: eslint.config.js EXISTS, $ grep -c layer -> 0 — the rule is F.W0's (§7).
+                                              anti-cure half GREEN (static) · lint half HONEST-RED
+g17 $ /usr/bin/grep -nE 'denominator|[Aa]ggregate shadow' fourier/docs/tranches/F/SUBSTRATE-LEDGER.md
+    -> G-12's table (§2.2.2) carries FIFTEEN rows and NOT ONE is the shadow aggregate; §2.2.6's
+    forbidden-figure register names none of `1 990` / `2 079` / `1 315`.  Condition (1) UNMET.
+    Condition (2) MET: $ sed -n '3591,3672p' execution/C/F-W3.md |
+      /usr/bin/grep -nE -e '1[[:space:]]?990' -e '2[[:space:]]?079' -e '1[[:space:]]?315' | wc -l -> 0
+    (the same detector over THIS file returns 0 by construction — no figure is quoted here).
+                                              HONEST-RED (relieved: F.W0 publishes, F.W3 quotes)
+g18 $ git -C fourier status --porcelain -> `?? .worktrees/` alone = §5b's declared residue.  GREEN
+g19 §8 artefact re-run VERBATIM, not re-invented:
+    $ tail -n +2 evidence/w3/g19-comm.sh | sh
+      canonical sha256-at-quote-time: f44362757458      <- == the spec's pinned digest
+      spec      sha256-at-quote-time: 5b42a3b6e185
+      LHS canonical pairs: 919   records: 59
+      RHS register  pairs: 919   records: 59
+      --- comm -3 … --- (no output)
+      --- comm -3 line count: 0 ---
+      duplicate pairs LHS: 0  RHS: 0
+    Both columns EMPTY: no ESCAPE, no FABRICATION.                                       GREEN
+g20 $ ls -la docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md -> present, 29 875 B
+    §1 = the four named anti-cures with their kill cites; §3 = g12's two (b) rows; the kills and
+    no-ops enumerated.  S-15 form: $ shasum -a 256 <O-20 packet> | cut -c1-12 -> f6e04c86ddb8,
+    byte-identical to the addendum's pin (no re-send, no rewrite).
+    $ /usr/bin/grep -c 'F3-[0-9]' docs/tranches/X/COHESION.md -> 14 (the §4a F3-1..F3-13 accretion).
+    $ git -C ../glass-ui status --porcelain | wc -l -> 0 (producer READ-ONLY at every seat).  GREEN
+
+=== ACT 3 — §7 CADENCE, AT THIS SEAT, AT MAIN ===
+$ npx vue-tsc -b --noEmit
+  src/components/visualization/ContourEditorCanvas.vue(42,9): error TS6133: 'dragging' is declared
+  but its value is never read.
+  -> ONE diagnostic, in a file in NO §1 bounds row, untouched by every unit. Identical to the
+     pristine baseline `.b` measured.
+$ npx vite build -> exit 0, "✓ built in 2.85s", eager entry 489.13 kB.
+  ** Which side of FR-NP-32 this was taken on, as OP-5 requires it be stated **: the CLEARED side.
+  The installed pin is `@mkbabb/glass-ui@8.0.0` (package.json `^8.0.0`), not the corrupt `4.0.0`
+  dist the RED baseline names; the build parses its own `dist/styles/index.css`.
+$ npx playwright test (the wave's own specs) -> 6 passed, then 8 passed. No webServer in
+  playwright.config.ts, so the 30 backend-dependent specs remain unrunnable here (E-d2); the two
+  specs this wave AUTHORED need no backend (the route's compute is stubbed in-spec) and were run.
+
+=== ACT 4 — INTEGRATION, MEASURED NOT ASSUMED (ESC-W3f-1) ===
+$ git diff --name-only 21e11b0 b9995b3 | sort > b ; git diff --name-only 21e11b0 8aa9252 | sort > e
+$ comm -12 b e | wc -l                                             -> 0   (file-disjoint)
+$ git merge-tree $(git merge-base b9995b3 8aa9252) b9995b3 8aa9252 | grep -c '^changed in both' -> 0
+The merge is trivial and STILL OWED. This seat is VERIFY-ONLY and did not take it.
+
+=== ACT 5 — E13, THE FOUR-PATH SWEEP, RE-RUN HERE ===
+(1) value.js docs/tranches/V/coordination/INBOX.md
+    $ /usr/bin/grep -cE '^\| [IO]-[0-9]+[a-z]? \|' -> 79 rows
+    UNREAD classified BY POSITION from the Status cell, never a bare `grep -i unread`
+    (the bare grep returns 73 and is worthless here): 6 rows contain the token ANYWHERE; each is
+    prose INSIDE a cell whose own verb leads — O-20 **SENT** · I-30 **ROWED** · I-31 **FOLDED** ·
+    I-32 **READ IN FULL + ROUTED — TERMINAL** · I-35 **ROWED** · O-39 **SENT**.
+    -> 0 rows whose Status is UNREAD. Double-run 0 ≡ 0.
+(2) glass-ui docs/tranches/BK/coordination/ -> 9 members   (3) keyframes.js V/coordination/ -> 13
+(4) sci-report/atlas P/coordination/ -> 28
+    $ find <the four> -type f -name '*.md' -newermt "2026-09-19 00:00" -> TWO: value.js's own
+    INBOX.md (self) and keyframes' INBOUND-LEDGER.md (their ledger of OUR mail; its tail states
+    "Nothing is owed by this side on either letter"). ZERO unrowed letters addressed to value.js.
+E13 MET: no UNREAD mail in scope.

@@ -1,0 +1,226 @@
+[
+ {
+  "cell": "sequence@1440/light",
+  "view": "sequence",
+  "vw": 1440,
+  "vh": 900,
+  "P1": false,
+  "square": [
+   "div.seq-stage.cascade-chase 670x262 sides=4 bg=rgba(0, 0, 0, 0)"
+  ],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 175509,
+  "bigger": [],
+  "P3": false,
+  "ell": [
+   "h2.text-display.text-foreground.truncate"
+  ],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": false,
+  "reg": [
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers"
+  ]
+ },
+ {
+  "cell": "sequence@1440/dark",
+  "view": "sequence",
+  "vw": 1440,
+  "vh": 900,
+  "P1": false,
+  "square": [
+   "div.seq-stage.cascade-chase 670x262 sides=4 bg=rgba(0, 0, 0, 0)"
+  ],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 175509,
+  "bigger": [],
+  "P3": false,
+  "ell": [
+   "h2.text-display.text-foreground.truncate"
+  ],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": false,
+  "reg": [
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers"
+  ]
+ },
+ {
+  "cell": "sequence@1024/light",
+  "view": "sequence",
+  "vw": 1024,
+  "vh": 768,
+  "P1": false,
+  "square": [
+   "div.seq-stage.cascade-chase 526x257 sides=4 bg=rgba(0, 0, 0, 0)"
+  ],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 135281,
+  "bigger": [],
+  "P3": false,
+  "ell": [
+   "h2.text-display.text-foreground.truncate"
+  ],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": false,
+  "reg": [
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers"
+  ]
+ },
+ {
+  "cell": "sequence@1024/dark",
+  "view": "sequence",
+  "vw": 1024,
+  "vh": 768,
+  "P1": false,
+  "square": [
+   "div.seq-stage.cascade-chase 526x257 sides=4 bg=rgba(0, 0, 0, 0)"
+  ],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 135281,
+  "bigger": [],
+  "P3": false,
+  "ell": [
+   "h2.text-display.text-foreground.truncate"
+  ],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": false,
+  "reg": [
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers"
+  ]
+ },
+ {
+  "cell": "sequence@390/light",
+  "view": "sequence",
+  "vw": 390,
+  "vh": 844,
+  "P1": false,
+  "square": [
+   "div.seq-stage.cascade-chase 300x228 sides=4 bg=rgba(0, 0, 0, 0)"
+  ],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 68269,
+  "bigger": [],
+  "P3": false,
+  "ell": [
+   "h2.text-display.text-foreground.truncate"
+  ],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": false,
+  "reg": [
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers"
+  ]
+ },
+ {
+  "cell": "sequence@390/dark",
+  "view": "sequence",
+  "vw": 390,
+  "vh": 844,
+  "P1": false,
+  "square": [
+   "div.seq-stage.cascade-chase 300x228 sides=4 bg=rgba(0, 0, 0, 0)"
+  ],
+  "P2": true,
+  "primary": "div.seq-stage.cascade-chase",
+  "primaryArea": 68269,
+  "bigger": [],
+  "P3": false,
+  "ell": [
+   "h2.text-display.text-foreground.truncate"
+  ],
+  "ellGlass": [],
+  "clip": [],
+  "esc": [],
+  "P4": false,
+  "reg": [
+   "\"1@0ms\" 2 registers",
+   "\"2@260ms\" 2 registers",
+   "\"3@520ms\" 2 registers",
+   "\"4@780ms\" 2 registers",
+   "\"5@1040ms\" 2 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers",
+   "stage row 3 registers"
+  ]
+ }
+]

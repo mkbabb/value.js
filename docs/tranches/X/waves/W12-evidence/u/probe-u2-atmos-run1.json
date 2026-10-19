@@ -1,0 +1,82 @@
+[
+ {
+  "vp": 1440,
+  "scheme": "light",
+  "triggers": [
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ]
+  ],
+  "options": [
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ],
+   [
+    "normal",
+    "16.4px"
+   ]
+  ]
+ },
+ {
+  "vp": 390,
+  "scheme": "dark",
+  "triggers": [
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ]
+  ],
+  "options": [
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ],
+   [
+    "normal",
+    "14px"
+   ]
+  ]
+ }
+]

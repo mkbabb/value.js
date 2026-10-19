@@ -1,0 +1,186 @@
+{
+ "scheme": "light",
+ "at": "2026-09-25T16:27:16.907Z",
+ "rows": [
+  {
+   "ground": 60,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "pixel": [
+    59,
+    58,
+    56
+   ]
+  },
+  {
+   "ground": 60,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "pixel": [
+    59,
+    57,
+    55
+   ]
+  },
+  {
+   "ground": 60,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "pixel": [
+    59,
+    56,
+    53
+   ]
+  },
+  {
+   "ground": 100,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "pixel": [
+    95,
+    94,
+    92
+   ]
+  },
+  {
+   "ground": 100,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "pixel": [
+    93,
+    91,
+    89
+   ]
+  },
+  {
+   "ground": 100,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "pixel": [
+    91,
+    89,
+    86
+   ]
+  },
+  {
+   "ground": 128,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "pixel": [
+    120,
+    119,
+    117
+   ]
+  },
+  {
+   "ground": 128,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "pixel": [
+    117,
+    115,
+    113
+   ]
+  },
+  {
+   "ground": 128,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "pixel": [
+    114,
+    112,
+    109
+   ]
+  },
+  {
+   "ground": 160,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "pixel": [
+    149,
+    148,
+    146
+   ]
+  },
+  {
+   "ground": 160,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "pixel": [
+    145,
+    143,
+    141
+   ]
+  },
+  {
+   "ground": 160,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "pixel": [
+    141,
+    138,
+    135
+   ]
+  },
+  {
+   "ground": 186,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "pixel": [
+    173,
+    171,
+    170
+   ]
+  },
+  {
+   "ground": 186,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "pixel": [
+    167,
+    165,
+    163
+   ]
+  },
+  {
+   "ground": 186,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "pixel": [
+    162,
+    159,
+    156
+   ]
+  },
+  {
+   "ground": 220,
+   "token": "--glass-plate-quiet",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.1)",
+   "pixel": [
+    203,
+    202,
+    200
+   ]
+  },
+  {
+   "ground": 220,
+   "token": "--glass-plate-resting",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.14)",
+   "pixel": [
+    196,
+    194,
+    192
+   ]
+  },
+  {
+   "ground": 220,
+   "token": "--glass-plate-floating",
+   "css": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+   "pixel": [
+    190,
+    187,
+    184
+   ]
+  }
+ ]
+}

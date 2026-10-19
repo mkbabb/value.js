@@ -1,4 +1,5 @@
 import { userTest as test, expect } from "../fixtures/user-auth";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #6 — palette-fork (remix a non-owned remote palette).
@@ -42,7 +43,7 @@ test("remix a remote palette POSTs /palettes/<slug>/fork with parent slug", asyn
     });
 
     await page.goto("/#/browse");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await main.getByRole("button", { name: "Palette menu" }).first().click();
     await page.getByRole("menuitem", { name: /Remix/ }).click();

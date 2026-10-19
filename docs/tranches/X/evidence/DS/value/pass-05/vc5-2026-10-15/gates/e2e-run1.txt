@@ -1,0 +1,339 @@
+(node:79637) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 29 tests using 1 worker
+
+[1A[2K(node:79692) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/29] [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:25:5 › O-15a · the seal abrogation (negative watch) › the collapsed seal computes border-style none — no rim resurrection
+[1A[2K[2/29] [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:50:5 › O-15a · the seal abrogation (negative watch) › the register-law sibling stays dispositioned — no geometric ring on mix dots
+[1A[2K[3/29] [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"none"[39m
+
+      118 |             }
+      119 |         }
+    > 120 |         expect(shadow).not.toBe("none");
+          |                            ^
+      121 |         // …and the shadow's canvas is unclipped (asserted above: the inner
+      122 |         // computes overflow visible at settled rest).
+      123 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:120:28
+
+    Error Context: test-results/oracles-o15-dock-register--5d424-capsule-shadow-render-whole-smoke/error-context.md
+
+
+[1A[2K(node:82038) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/29] [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7m8px 12[27mpx"[39m
+    Received: [31m"[7m4[27mpx"[39m
+
+      144 |         // delivered through the producer's own --dock-compact-control-padding
+      145 |         // token hook, so a producer register change surfaces here.
+    > 146 |         expect(box.padding).toBe("8px 12px");
+          |                             ^
+      147 |         expect(box.marginLeft).toBe("4px");
+      148 |         expect(box.marginRight).toBe("4px");
+      149 |         expect(box.gap).not.toBe("normal");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o15-dock-register.spec.ts:146:29
+
+    Error Context: test-results/oracles-o15-dock-register--85717-s-the-true-button-box-model-smoke/error-context.md
+
+
+[1A[2K(node:82690) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/29] [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:152:5 › O-15b · the Tools clip release + register pass (W6-8) › zero native title on the dock set (the UA-slab retirement)
+[1A[2K[6/29] [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:174:5 › O-15b · the Tools clip release + register pass (W6-8) › the separator folds into the slot's arrival — one presence grammar
+[1A[2K[7/29] [smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+[1A[2K[smoke] › e2e/smoke/oracles/o21-space-catalog-truth.spec.ts:109:1 › every offered space states its own facts, and the guide is never a bare heading
+X.W6.f f3 CENSUS — 18 spaces walked on the live About route
+  rgb           created=1931                 guide=authored       A color space based on the additive mixture of red, green, and b…
+  hsl           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hsv           created=1978                 guide=authored       A cylindrical representation of the RGB color space, with a focu…
+  hwb           created=1978                 guide=authored       A cylindrical representation of the RGB color space, using White…
+  lab           created=1976                 guide=authored       The L*a*b* color space is a three-dimensional color model design…
+  lch           created=1976                 guide=authored       A cylindrical representation of the Lab color space.…
+  oklab         created=2019                 guide=authored       A perceptually uniform color space designed to be more intuitive…
+  oklch         created=2019                 guide=authored       A cylindrical representation of the OKLab color space.…
+  xyz           created=1931                 guide=authored       The CIE 1931 XYZ color space is a device-independent color space…
+  kelvin        created=Beginning of time    guide=authored       The Kelvin color space represents the color of an ideal black-bo…
+  srgb-linear   created=1996                 guide=none-authored  The sRGB primaries and white point with the transfer function re…
+  display-p3    created=2015                 guide=none-authored  A display-referred wide-gamut space: the DCI-P3 primaries carrie…
+  a98-rgb       created=1998                 guide=none-authored  Adobe's 1998 wide-gamut RGB working space, defined to encompass …
+  prophoto-rgb  created=2000                 guide=none-authored  Kodak's very wide RGB working space, whose primaries lie partly …
+  rec2020       created=2012                 guide=none-authored  The ultra-high-definition broadcast space whose red, green and b…
+  ictcp         created=2016                 guide=none-authored  An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS c…
+  jzazbz        created=2017                 guide=none-authored  A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2…
+  hex           created=1996                 guide=authored       A compact hexadecimal notation for sRGB colors, widely used in w…
+X.W6.f — spaces that did NOT survive the model→URL→model round-trip: ictcp→oklch, jzazbz→oklch  [PRE-EXISTING, escalated: see the note at the foot of this file]
+
+[1A[2K[8/29] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 0[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Array [[22m
+    [2m    "stage:Gradient",[22m
+    [31m+   "undefined:null",[39m
+    [2m    "inspector:Palettes",[22m
+    [2m  ][22m
+
+      115 |
+      116 |     // The route resolves ONE scene row: the Gradient stage, the Palettes companion.
+    > 117 |     expect(await regionsOf(page)).toEqual(["stage:Gradient", "inspector:Palettes"]);
+          |                                   ^
+      118 |
+      119 |     // STAGE: the authoring surface lives in the stage and nowhere else.
+      120 |     const rail = stage.getByTestId("gradient-stop-bar");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:117:35
+
+    Error Context: test-results/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/error-context.md
+
+
+[1A[2K(node:90666) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[9/29] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+[1A[2K[10/29] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[1A[2K[11/29] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[1A[2K[12/29] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[j4] blob preview@rest=0.000 last="Reset" inViewport=true hit=true rect={"x":607.703125,"y":206.96875,"w":83.296875,"h":36} preview@last=0.880
+
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+
+    Expected to fail, but passed.
+
+
+[1A[2K(node:92215) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[13/29] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[j4] atmosphere preview@rest=0.305 last="Reset" inViewport=true hit=true rect={"x":519.703125,"y":395.15625,"w":83.296875,"h":36} preview@last=0.302
+
+[1A[2K[14/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:106:5 › D1 · one contract, ONE render path › the color scene renders through the one action row
+[1A[2K[15/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:125:5 › D1 · one contract, ONE render path › a workbench scene renders through the SAME row and shape
+[1A[2K[16/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:139:5 › D1 · one contract, ONE render path › the Picker priority is GONE: /mix renders the mix set, not the picker's
+[1A[2K[17/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  5) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-abb86--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:93803) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[18/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  6) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-94d05--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:94663) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[19/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable
+[1A[2K  7) [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 3[39m
+    [31m+ Received  + 3[39m
+
+    [2m  Array [[22m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [32m-   "unavailable",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [31m+   "ready",[39m
+    [2m  ][22m
+
+      179 |
+      180 |             // (1) The state is MODELLED, not absent. `undefined` is not a state.
+    > 181 |             expect(await states(page)).toEqual(expected.map(() => "unavailable"));
+          |                                        ^
+      182 |
+      183 |             // (2) The seat is NOT operable — D4's falsifier reads exactly this.
+      184 |             const buttons = row(page).locator("[data-scene-action] button");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/scene-action-contract.spec.ts:181:40
+
+    Error Context: test-results/scene-action-contract-D4-·-50666--unavailable-and-inoperable-smoke/error-context.md
+
+
+[1A[2K(node:95302) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[20/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:205:5 › D4 · a registered target is READY, and dispatches for real › Generate on the desktop branch: three ready seats, and one real dispatch
+[1A[2K[21/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:250:5 › §8 artefact 8 — the dock action bar's frames (desktop matrix) › the Mix view's bar, framed
+[1A[2K[22/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:262:5 › §8 artefact 8 — the dock action bar's frames (390 viewport) › the Mix view's bar with no pane registered, framed
+[1A[2K[23/29] [smoke] › e2e/smoke/scene-action-contract.spec.ts:272:5 › AB-32 · the collapse CARRIES the active/selected member › the palette-open indicator survives the contract collapse
+[1A[2K[24/29] [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1440x900 {"picker":621.265625,"about":621.265625,"docScroll":900,"innerHeight":900,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7451,"insideCard":true},"card":{"overflow":"visible visible","radius":0}}
+
+[1A[2K  8) [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller 
+
+    Error: the card clips its scroller
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^(hidden|clip) (hidden|clip)$/[39m
+    Received string:  [31m"visible visible"[39m
+
+      157 |                     `the body overflows its scroller (${s.scrollHeight} > ${s.clientHeight})`,
+      158 |                 ).toBeGreaterThan(s.clientHeight);
+    > 159 |                 expect(r.card.overflow, "the card clips its scroller").toMatch(
+          |                                                                        ^
+      160 |                     /^(hidden|clip) (hidden|clip)$/,
+      161 |                 );
+      162 |                 expect(r.card.radius, "the card has a corner radius").toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-about-clip.spec.ts:159:72
+
+    Error Context: test-results/w12-about-clip-X-W12-c-·-t-cf492-1px-radius-clipped-scroller-smoke/error-context.md
+
+
+[1A[2K(node:96870) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[25/29] [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › no page overflow on the block axis
+[w12-about-clip] 1440x900 overflow docScroll=900 inner=900 picker=621.265625 about=621.265625
+
+[1A[2K[26/29] [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 1280x800 {"picker":617.015625,"about":617.015625,"docScroll":800,"innerHeight":800,"scroller":{"glass":true,"clientHeight":460,"scrollHeight":7394,"insideCard":true},"card":{"overflow":"visible visible","radius":0}}
+
+[1A[2K  9) [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller 
+
+    Error: the card clips its scroller
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^(hidden|clip) (hidden|clip)$/[39m
+    Received string:  [31m"visible visible"[39m
+
+      157 |                     `the body overflows its scroller (${s.scrollHeight} > ${s.clientHeight})`,
+      158 |                 ).toBeGreaterThan(s.clientHeight);
+    > 159 |                 expect(r.card.overflow, "the card clips its scroller").toMatch(
+          |                                                                        ^
+      160 |                     /^(hidden|clip) (hidden|clip)$/,
+      161 |                 );
+      162 |                 expect(r.card.radius, "the card has a corner radius").toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-about-clip.spec.ts:159:72
+
+    Error Context: test-results/w12-about-clip-X-W12-c-·-t-d616d-1px-radius-clipped-scroller-smoke/error-context.md
+
+
+[1A[2K(node:97461) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[27/29] [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › no page overflow on the block axis
+[w12-about-clip] 1280x800 overflow docScroll=800 inner=800 picker=617.015625 about=617.015625
+
+[1A[2K[28/29] [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller
+[w12-about-clip] 2846x1650-eq {"picker":621.265625,"about":621.265625,"docScroll":825,"innerHeight":825,"scroller":{"glass":true,"clientHeight":459,"scrollHeight":7449,"insideCard":true},"card":{"overflow":"visible visible","radius":0}}
+
+[1A[2K  10) [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller 
+
+    Error: the card clips its scroller
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^(hidden|clip) (hidden|clip)$/[39m
+    Received string:  [31m"visible visible"[39m
+
+      157 |                     `the body overflows its scroller (${s.scrollHeight} > ${s.clientHeight})`,
+      158 |                 ).toBeGreaterThan(s.clientHeight);
+    > 159 |                 expect(r.card.overflow, "the card clips its scroller").toMatch(
+          |                                                                        ^
+      160 |                     /^(hidden|clip) (hidden|clip)$/,
+      161 |                 );
+      162 |                 expect(r.card.radius, "the card has a corner radius").toBeGreaterThan(
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/w12-about-clip.spec.ts:159:72
+
+    Error Context: test-results/w12-about-clip-X-W12-c-·-t-c4e74-1px-radius-clipped-scroller-smoke/error-context.md
+
+
+[1A[2K(node:98192) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[29/29] [smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[1A[2K[smoke] › e2e/smoke/w12-about-clip.spec.ts:194:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › no page overflow on the block axis
+[w12-about-clip] 2846x1650-eq overflow docScroll=825 inner=825 picker=621.265625 about=621.265625
+
+[1A[2K  10 failed
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:87:5 › O-15b · the Tools clip release + register pass (W6-8) › settled rest releases the clip — the hover capsule + shadow render whole 
+    [smoke] › e2e/smoke/oracles/o15-dock-register.spec.ts:125:5 › O-15b · the Tools clip release + register pass (W6-8) › T-36 (§0.6): the Tools trigger wears the true-button box-model 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Generate: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Gradient: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/scene-action-contract.spec.ts:172:9 › D4 · an unregistered target is a TYPED, SURFACED state — never silence › Mix: every action is named, modelled 'unavailable', and inoperable 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1440x900 › About == Picker ±1px, radius-clipped scroller 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 1280x800 › About == Picker ±1px, radius-clipped scroller 
+    [smoke] › e2e/smoke/w12-about-clip.spec.ts:124:13 › X.W12.c · the About pane is the Picker pane's height › 2846x1650-eq › About == Picker ±1px, radius-clipped scroller 
+  19 passed (4.5m)

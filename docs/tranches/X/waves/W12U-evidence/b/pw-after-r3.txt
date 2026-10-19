@@ -1,0 +1,134 @@
+SERVED MODEL: claude-opus-5-5
+
+Running 15 tests using 1 worker
+
+
+[1/15] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:118:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc
+[2/15] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:172:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget
+[smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:172:1 › O-12 · 3 — idle frame cost at the seat: the live bead draws, at most once per frame, cadence in budget
+[o12-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=21 frames=21 p50=133.3ms (gate ≤13ms real-GPU)
+
+[3/15] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:212:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:212:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[o12-hover-active] renderer=SOFTWARE-GL frames=120 p50=217.6ms (gate ≤20ms real-GPU)
+
+[4/15] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:256:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:256:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[o12-backing] renderer=SOFTWARE-GL backing 180x180 css 180.2x180.2 dpr 1 → ratio 0.999 (full-res ≈ 1.0; R2 wreck ≈ 0.35; floor 0.6)
+
+[5/15] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:76:1 › w12-picker-blob · idle: the bead still moves after 5 s without input
+[smoke] › e2e/smoke/w12-picker-blob.spec.ts:76:1 › w12-picker-blob · idle: the bead still moves after 5 s without input
+[w12-blob] idle 5000ms → max frame diff 10.286/255 · 40 draws
+
+[6/15] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:87:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it
+[smoke] › e2e/smoke/w12-picker-blob.spec.ts:87:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it
+[w12-blob] hover after 5000ms idle → max frame diff 7.062/255 · 40 draws
+
+[7/15] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:99:1 › w12-picker-blob · PRM: the producer holds one static frame
+[smoke] › e2e/smoke/w12-picker-blob.spec.ts:99:1 › w12-picker-blob · PRM: the producer holds one static frame
+[w12-blob] PRM → max frame diff 0.000/255 · 0 draws
+
+[8/15] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:83:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:83:1 › hero blob idle frame cost: live, one draw per frame, cadence in budget (the settled seam, no wall-clock park)
+[blob-idle-cost] renderer=SOFTWARE-GL window=3000ms draws=12 frames=12 p50=233.4ms
+
+[9/15] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:121:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:121:1 › hero blob under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[blob-idle-cost] PRM window=3000ms draws=0 frames=367
+
+[10/15] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 357.59 · ΔC -0.02105 (stated ±0.04) · px 2324
+
+[11/15] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.6185 C 0.13866 h 141.06 · ΔC -0.04035 (stated ±0.04) · px 2324
+
+  1) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.13866 vs the gamut-mapped current chroma 0.17901
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.04
+    Received:    0.04034575571009966
+
+      272 |             Math.abs(paintedC - targetC),
+      273 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 274 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      275 |     });
+      276 | }
+      277 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:274:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+
+
+[12/15] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.5642 C 0.17842 h 319.61 · ΔC -0.07483 (stated ±0.04) · px 2324
+
+  2) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.17842 vs the gamut-mapped current chroma 0.25325
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.04
+    Received:    0.07483337692122963
+
+      272 |             Math.abs(paintedC - targetC),
+      273 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 274 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      275 |     });
+      276 | }
+      277 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:274:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+
+
+[13/15] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law)
+  3) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+
+    Error: scrollWidth == viewport (no horizontal overflow)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 390
+    Received: 406
+
+      128 |         () => document.documentElement.scrollWidth,
+      129 |     );
+    > 130 |     expect(scrollWidth, "scrollWidth == viewport (no horizontal overflow)").toBe(
+          |                                                                             ^
+      131 |         vp.width,
+      132 |     );
+      133 |     // The WRAPPER bounds every painted goo pixel (orbit-reach 0.49 ≤ 0.5);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:130:77
+
+    Error Context: test-results/blob-presence-mobile-hero--1f13f-ame-budget-Q7-the-seat-law--smoke-mobile/error-context.md
+
+
+
+[14/15] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:202:1 › hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:202:1 › hero blob at 390 under prefers-reduced-motion: one static frame, then parked (0 idle draws)
+[blob-390] PRM window=3000ms draws=0 frames=365
+
+
+[15/15] [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:47:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate)
+[smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:47:1 › idle picker frame budget with the hero live: one draw per frame, p50 ≤ 13ms (built-bundle gate)
+[frame-budget:idle] renderer=SOFTWARE-GL (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver))
+  hero live: draws=28 over frames=28 window=3000ms p50=84.1ms p95=192.1ms
+  §6.2 GATE: idle p50 ≤ 13ms (hero live)  [asserted on real GPU — probe-idle-cost.mjs GPU=1]
+
+  3 failed
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:194:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:71:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, live within its idle frame budget (Q7 + the seat law) 
+  12 passed (5.6m)
+EXIT 1

@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { openView } from "./fixtures/dock";
+import { openView, mainPane } from "./fixtures/dock";
 import { instrumentWebglDraws, GOO_BLOB_TESTID, lastCanvasDrawCount } from "./fixtures/webgl-appearance";
 
 /**
@@ -49,7 +49,7 @@ test("goo-blob canvas survives view switch without webglcontextlost", async ({
 
     // Switch away → switch back. Exercises unmount/remount.
     await openView(page, "Browse");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     await openView(page, "Home");
     const blob = page.getByTestId("goo-blob-canvas").last();

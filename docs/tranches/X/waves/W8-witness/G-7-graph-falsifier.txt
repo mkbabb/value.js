@@ -1,0 +1,16 @@
+SERVED MODEL: claude-opus-5-5
+# G-7 falsifier — X.W8.c, 2026-10-17 (W8.md G-7: "reintroduce the Dock.vue → './' edge; the oracle must go RED")
+# 1. cp demo/shell/dock/Dock.vue <scratch>/Dock.vue.keep
+# 2. inserted after Dock.vue:3 →  import { GlassDock, DockLayerGroup, DockLayer } from "./";
+# 3. ~/.claude/guard/guarded --light -- node docs/tranches/V/megatranche/workflows/graph-v3.mjs --print-sccs
+#    exit 0 (the oracle prints components; RED = a file-level [runtime]/[load] line present). File-level lines:
+[load] size=2 Dock owner=X.W8.c
+    · demo/shell/dock/Dock.vue
+    · demo/shell/dock/index.ts
+--
+[runtime] size=2 Dock owner=X.W8.c
+    · demo/shell/dock/Dock.vue
+    · demo/shell/dock/index.ts
+#    → RED: the Dock SCC re-forms in BOTH classes (runtime + load). The oracle is not blind.
+# 4. cp <scratch>/Dock.vue.keep demo/shell/dock/Dock.vue  (restored; the edge is gone)
+# 5. same command → exit 0, sha256/16 27d38866c7fae674 = the AFTER digest (27d38866c7fae674); file-level lines: 0

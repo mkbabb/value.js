@@ -1,0 +1,8 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: TypeError: null is not an object (evaluating 'h.getAttribute("aria-label").match(/([\d.]+)%/)[1]')
+    at /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-axis.mjs:35:22
+
+Node.js v26.0.0

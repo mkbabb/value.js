@@ -14,7 +14,7 @@ const BUILT = "http://localhost:8611";
 const OUT = "docs/tranches/T/audit/pi/w8";
 mkdirSync(`${OUT}/motion`, { recursive: true });
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 const report = [];
 const log = (s) => {
     console.log(s);

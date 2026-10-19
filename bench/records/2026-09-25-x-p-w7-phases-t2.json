@@ -1,0 +1,61 @@
+{
+ "tag": "t2",
+ "instrument": "bench/paired/phases.mjs (X.P.W7.l4)",
+ "rounds": 11,
+ "arms": [
+  "retired",
+  "product"
+ ],
+ "sheets": 4,
+ "values": 16469,
+ "results": [
+  {
+   "engine": "node",
+   "phase": "sheet",
+   "k": 1,
+   "msPerPass": {
+    "retired": 88.46,
+    "product": 14.624
+   },
+   "ratio": {
+    "product": 0.226
+   },
+   "uptime": [
+    "12:37  up 1 day, 10:40, 3 users, load averages: 60.41 45.41 54.15",
+    "12:37  up 1 day, 10:40, 3 users, load averages: 59.10 45.39 54.09"
+   ]
+  },
+  {
+   "engine": "node",
+   "phase": "values",
+   "k": 1,
+   "msPerPass": {
+    "retired": 146.946,
+    "product": 38.536
+   },
+   "ratio": {
+    "product": 0.262
+   },
+   "uptime": [
+    "12:37  up 1 day, 10:40, 3 users, load averages: 60.41 45.41 54.15",
+    "12:37  up 1 day, 10:40, 3 users, load averages: 59.10 45.39 54.09"
+   ]
+  },
+  {
+   "engine": "node",
+   "phase": "rules",
+   "k": 2,
+   "msPerPass": {
+    "retired": 17.691,
+    "product": 2.744
+   },
+   "ratio": {
+    "product": 0.166
+   },
+   "uptime": [
+    "12:37  up 1 day, 10:40, 3 users, load averages: 60.41 45.41 54.15",
+    "12:37  up 1 day, 10:40, 3 users, load averages: 59.10 45.39 54.09"
+   ]
+  }
+ ]
+}

@@ -54,7 +54,7 @@
  *                            … Ride the X-W1 matrix with the parameterised
  *                            space/color sweep."* The URL shape is the product's
  *                            own: `#/?space=…&color=…`, parsed by
- *                            `demo/color-picker/composables/boot/hydrate.ts`,
+ *                            `demo/app/composables/boot/hydrate.ts`,
  *                            which requires BOTH keys or falls through.
  *
  * ─── §OPEN — what these arms do NOT discharge, said rather than implied ──────
@@ -71,6 +71,7 @@
  * not discharge."*
  */
 import { routeBrowsePalettesDelayed } from "../smoke/fixtures/browse-palettes";
+import { mainPane } from "../smoke/fixtures/dock";
 import { SCHEMES } from "./census";
 import {
     gotoRoute,
@@ -152,7 +153,7 @@ test.describe("seeded-fixture", () => {
             // NOT `gotoRoute`: `networkidle` never arrives while the fixture holds
             // the request open, which is the entire point of the fixture.
             await page.goto("/#/browse", { waitUntil: "commit", timeout: 60_000 });
-            await page.waitForSelector('main[aria-label="Color tool panes"]', {
+            await mainPane(page).waitFor({
                 state: "visible",
                 timeout: 30_000,
             });
@@ -228,7 +229,7 @@ test.describe("forced-state", () => {
         await page.setViewportSize(DESKTOP);
 
         await page.goto("/#/browse", { waitUntil: "commit", timeout: 60_000 });
-        await page.waitForSelector('main[aria-label="Color tool panes"]', {
+        await mainPane(page).waitFor({
             state: "visible",
             timeout: 30_000,
         });

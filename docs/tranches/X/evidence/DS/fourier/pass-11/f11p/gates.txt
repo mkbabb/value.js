@@ -1,0 +1,9 @@
+X-DS fourier pass 11 cure (critic F11C), 2026-10-18 — gates on the cured tree (web/src/style.css, DS-F11C-L1)
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116 (20 files); run 2 116/116 (20 files) (vitest-1.log, vitest-2.log)
+e2e: 20 specs (e2e-specs.txt; every spec that reaches /paper, .paper-article or a proof), headless, --project=chromium --project=mobile-chromium --workers=1, BASE_URL=http://localhost:3231 (private vite, serve.mjs)
+  run A: 227 passed (10.6m), exit 0 (e2e-runA.txt)
+  run B: 227 passed (10.4m), exit 0 (e2e-runB.txt)
+  web/e2e/screenshots/f-w14/after-* rewritten by each run were restored to HEAD (e2e-exits.txt)
+No golden re-baselined.
+Census: scripts/ds-census.mjs --chrome on :3231 (census-after.json): static and computed sums identical to pass 10.

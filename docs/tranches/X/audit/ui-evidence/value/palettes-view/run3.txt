@@ -1,0 +1,9 @@
+FAIL swatchhover__1440__light TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL swatchhover__1440__dark TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL swatchhover__390__light TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL swatchhover__390__dark TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL dock__1440__light TimeoutError: locator.waitFor: Timeout 90000ms exceeded.
+FAIL dock__1440__dark TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL dock__390__light TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL dock__390__dark TimeoutError: page.goto: Timeout 90000ms exceeded.
+FAIL menucolor__1440__light Error: page.goto: net::ERR_ABORTED; maybe frame was detached?

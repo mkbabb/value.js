@@ -1,0 +1,24 @@
+SERVED MODEL: claude-fable-5-1
+# KF.W13.a · G-KFW13-0 — the SAME test under a SCRATCHPAD config that inlines @mkbabb/glass-ui (the repo's vitest.config.ts NOT written; the probe config lives outside the repo), double-run, kf HEAD 2736b5e5, 2026-09-20T04:20:21Z
+
+## the probe config, verbatim (scratchpad, never committed)
+// READ-ONLY PROBE (KF.W13.a) — the repo's vitest.config.ts is NOT written.
+// Measures whether inlining @mkbabb/glass-ui (so the repo's own
+// `@mkbabb/keyframes.js` alias reaches the producer's dist chunks) is the
+// whole distance between the mechanism proof and a runnable mount.
+import { mergeConfig } from "vitest/config";
+import base from "/Users/mkbabb/Programming/keyframes.js/vitest.config.ts";
+export default mergeConfig(base, {
+    root: "/Users/mkbabb/Programming/keyframes.js",
+    test: { server: { deps: { inline: [/@mkbabb\/glass-ui/] } } },
+});
+
+## run 1 — ⟨cmd⟩ npx vitest run --config <scratchpad>/vitest.probe.config.ts --project demo test/demo/app/dock-context-slot-resolution.test.ts
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+
+## run 2 — ⟨cmd⟩ npx vitest run --config <scratchpad>/vitest.probe.config.ts --project demo test/demo/app/dock-context-slot-resolution.test.ts
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+ Test Files  1 passed (1)
+      Tests  3 passed (3)

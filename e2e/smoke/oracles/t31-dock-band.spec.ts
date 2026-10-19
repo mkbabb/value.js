@@ -184,7 +184,7 @@ test.describe("T-31/T-57 · band-height invariance across the collapse↔expand 
         await page.waitForTimeout(300);
         const expanded = await read();
 
-        // Leave the dock; the producer collapse-delay (5000ms) fires the morph.
+        // Leave the dock; the producer idle window (3600 ms since glass 9.0.0) fires the morph.
         await page.mouse.move(dockBox.x + dockBox.width / 2, dockBox.y + 320);
         await expect
             .poll(async () => (await read()).collapsed, { timeout: 12000 })

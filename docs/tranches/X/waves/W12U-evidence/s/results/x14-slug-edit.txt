@@ -1,0 +1,2 @@
+360x780 light slug-edit ["Slug or admin token:177x44@50-227 ph\"slug or token\"112>177","Switch to slug:44x44@233-277","Cancel:44x44@302-346"]
+844x390 dark slug-edit ["Slug or admin token:189x44@279-468 ph\"slug or token\"119>189","Switch to slug:44x44@474-518","Cancel:44x44@543-587"]

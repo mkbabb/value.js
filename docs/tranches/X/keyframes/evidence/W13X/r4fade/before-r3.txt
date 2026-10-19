@@ -1,0 +1,6 @@
+18:50  up 5 days, 23:53, 2 users, load averages: 44.05 72.49 73.53
+F1 spring 1440x900 seen=true fallbackMin=0 after[0..9]=[1,1,1,1,1,1,1,1,1,1] sub1Frames=0 settled=1 -> RED
+F1 amiga 1440x900 seen=true fallbackMin=0 after[0..9]=[1,1,1,1,1,1,1,1,1,1] sub1Frames=0 settled=1 -> RED
+F2 spring 1440x900 seen=true fallbackMin=0 after[0..9]=[0,0,0,0,0,0,0,0,0,0] sub1Frames=40 settled=0 -> RED
+F2 amiga 1440x900 seen=true fallbackMin=0 after[0..9]=[0,0,0,0,0,0,0,0,0,0] sub1Frames=40 settled=0 -> RED
+TOTAL 0/4 GREEN

@@ -1,0 +1,10 @@
+SERVED MODEL: claude-opus-5-5[1m]
+# h1 negative control 2026-09-22 — HeroBlob.vue mutated in the working tree ONLY (reseedHeroStops: .map((s) => oklchStopToHex({ ...s, C: s.C * 0.3 }))), run, then restored by git checkout of that one path; never committed
+# ⟨cmd⟩ npx playwright test e2e/smoke/webgl-blob-idle.spec.ts -g "hero blob carries current chroma" --project=smoke --reporter=line
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb · target C (gamut-mapped) 0.02105 · painted core median L 0.8628 C 0.03099 h 354.41 · ΔC 0.00993 (stated ±0.04) · px 2324
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb · target C (gamut-mapped) 0.17901 · painted core median L 0.7432 C 0.07096 h 137.41 · ΔC -0.10804 (stated ±0.04) · px 2324
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb · target C (gamut-mapped) 0.25325 · painted core median L 0.6617 C 0.08026 h 321.96 · ΔC -0.17299 (stated ±0.04) · px 2324
+  2 failed
+  1 passed (40.5s)
+# the born reading (unmutated tree, before this file's double-run), same command:
+[h1] lab(92% 88.8 20) painted C 0.04766 ΔC 0.02661 · oklch(0.65 0.3 150) painted C 0.16915 ΔC -0.00986 · oklch(0.55 0.37 328) painted C 0.23410 ΔC -0.01915 · 3 passed (41.4s)

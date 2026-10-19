@@ -1,0 +1,58 @@
+{
+ "light-1440": {
+  "count": 2,
+  "text": "Proof . Using Rodrigues' formula and int",
+  "borderLeft": "3px solid rgb(198, 180, 159)",
+  "radius": "0px 8px 8px 0px",
+  "background": "rgba(0, 0, 0, 0)",
+  "bgImage": "none",
+  "padding": "14px 16px",
+  "blockLeft": 551,
+  "labelLeft": 570,
+  "bodyLeft": 570,
+  "paragraphLeft": 551,
+  "labelMinusParagraph": 19
+ },
+ "light-390": {
+  "count": 2,
+  "text": "Proof . Using Rodrigues' formula and int",
+  "borderLeft": "3px solid rgb(198, 180, 159)",
+  "radius": "0px 8px 8px 0px",
+  "background": "rgba(0, 0, 0, 0)",
+  "bgImage": "none",
+  "padding": "14px 16px",
+  "blockLeft": 33,
+  "labelLeft": 52,
+  "bodyLeft": 52,
+  "paragraphLeft": 33,
+  "labelMinusParagraph": 19
+ },
+ "dark-1440": {
+  "count": 2,
+  "text": "Proof . Using Rodrigues' formula and int",
+  "borderLeft": "3px solid rgb(101, 87, 73)",
+  "radius": "0px 8px 8px 0px",
+  "background": "rgba(0, 0, 0, 0)",
+  "bgImage": "none",
+  "padding": "14px 16px",
+  "blockLeft": 551,
+  "labelLeft": 570,
+  "bodyLeft": 570,
+  "paragraphLeft": 551,
+  "labelMinusParagraph": 19
+ },
+ "dark-390": {
+  "count": 2,
+  "text": "Proof . Using Rodrigues' formula and int",
+  "borderLeft": "3px solid rgb(101, 87, 73)",
+  "radius": "0px 8px 8px 0px",
+  "background": "rgba(0, 0, 0, 0)",
+  "bgImage": "none",
+  "padding": "14px 16px",
+  "blockLeft": 33,
+  "labelLeft": 52,
+  "bodyLeft": 52,
+  "paragraphLeft": 33,
+  "labelMinusParagraph": 19
+ }
+}

@@ -1,0 +1,46 @@
+[
+ {
+  "tag": "390-dark-palettes",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-palettes-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "390-light-palettes-empty",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-light-palettes-empty-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "1440-light-dock",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "1440-light-dock-FAIL.png"
+  ],
+  "dom": []
+ },
+ {
+  "tag": "390-dark-dock",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/mix\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/mix\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": [],
+  "shots": [
+   "390-dark-dock-FAIL.png"
+  ],
+  "dom": []
+ }
+]

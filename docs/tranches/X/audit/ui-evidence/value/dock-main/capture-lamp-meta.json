@@ -1,0 +1,102 @@
+[
+ {
+  "vp": "d",
+  "theme": "light",
+  "aborted": [
+   "localhost:3000"
+  ],
+  "lamp": {
+   "variant": "unavailable",
+   "text": "backend offline — saved locally",
+   "rect": [
+    1217,
+    33,
+    207,
+    23
+   ],
+   "dock": [
+    484,
+    10,
+    471,
+    62
+   ],
+   "radius": "9999px",
+   "font": "11px"
+  }
+ },
+ {
+  "vp": "d",
+  "theme": "dark",
+  "aborted": [
+   "localhost:3000"
+  ],
+  "lamp": {
+   "variant": "unavailable",
+   "text": "backend offline — saved locally",
+   "rect": [
+    1217,
+    33,
+    207,
+    23
+   ],
+   "dock": [
+    484,
+    10,
+    471,
+    62
+   ],
+   "radius": "9999px",
+   "font": "11px"
+  }
+ },
+ {
+  "vp": "m",
+  "theme": "light",
+  "aborted": [
+   "localhost:3000"
+  ],
+  "lamp": {
+   "variant": "unavailable",
+   "text": "backend offline — saved locally",
+   "rect": [
+    348,
+    43,
+    26,
+    18
+   ],
+   "dock": [
+    109,
+    23,
+    172,
+    52
+   ],
+   "radius": "9999px",
+   "font": "11px"
+  }
+ },
+ {
+  "vp": "m",
+  "theme": "dark",
+  "aborted": [
+   "localhost:3000"
+  ],
+  "lamp": {
+   "variant": "unavailable",
+   "text": "backend offline — saved locally",
+   "rect": [
+    348,
+    43,
+    26,
+    18
+   ],
+   "dock": [
+    109,
+    23,
+    172,
+    52
+   ],
+   "radius": "9999px",
+   "font": "11px"
+  }
+ }
+]

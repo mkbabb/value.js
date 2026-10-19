@@ -1,0 +1,468 @@
+[
+ {
+  "cfg": "1440x900-light",
+  "static": {
+   "stageW": 878,
+   "stageH": 646,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 381,
+     "h": 381
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 381,
+     "h": 381
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.778,
+   "haloA": 0.7,
+   "legend": {
+    "top": 712,
+    "bottom": 756,
+    "vh": 900,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "190.48px"
+  },
+  "dyn": {
+   "end": {
+    "dx": 190,
+    "dy": 190,
+    "marginR": 133,
+    "marginB": 17,
+    "halfW": 439,
+    "halfH": 323,
+    "boxHalf": 108
+   },
+   "tether": {
+    "opacity": 1,
+    "length": 273,
+    "visible": 31,
+    "of": 61
+   },
+   "heldNotDrag": 0,
+   "heldFrames": 89,
+   "flingMoving": 28,
+   "flingMovingNotDrag": 0,
+   "diag": {
+    "frames": 129,
+    "axisFlips": 0,
+    "widthPopMax": 0.418,
+    "maxShear": 1.176,
+    "maxAniso": 0.025,
+    "firstShear": 0.102,
+    "bothPinned": 0,
+    "shearStepMax": 0.1
+   },
+   "tapDragFrames": 0,
+   "play": {
+    "restFill": "#52e898",
+    "firstMovedIdx": 6,
+    "firstFillJump": 0,
+    "maxFillStep": 0.037,
+    "drops400": 0,
+    "minChroma": 0.137
+   },
+   "grab": {
+    "preRot": 114.848,
+    "scaleJump": 0.004,
+    "restRot": 0,
+    "restFillDE": 0,
+    "homeRot": 0,
+    "homeFillDE": 0
+   },
+   "reset": {
+    "fillDE": 0,
+    "rot": 0,
+    "tx": 0,
+    "ty": 0,
+    "badge": "settled",
+    "mode": "idle",
+    "scrub": [
+     "705.0999999999985"
+    ],
+    "homeRot": 0,
+    "homeFillDE": 0,
+    "homeTx": 0
+   },
+   "tumble": {
+    "sweepFrames": 54,
+    "firstSweepDE": 0,
+    "restAt": 830,
+    "sweepEndAt": 737,
+    "lingerMs": -93,
+    "overshootDeg": 5.459,
+    "minAfterPeak": -0.056
+   },
+   "bloom": {
+    "sweep": true,
+    "haloVsFill": 0.003
+   },
+   "tumblePlay": {
+    "preRot": 4.769,
+    "sweepAfter300": 0,
+    "of": 40,
+    "maxRotStep": 6.013
+   }
+  },
+  "panes": {
+   "keyframes": {
+    "orphanRows": 0,
+    "rows": 2,
+    "trash": [],
+    "demoBoxes": 1
+   },
+   "timeline": {
+    "orphanRows": 1,
+    "rows": 3,
+    "trash": [
+     {
+      "label": "Clear all keyframes",
+      "disabled": false
+     }
+    ],
+    "demoBoxes": 2
+   }
+  },
+  "static2": {
+   "stageW": 878,
+   "stageH": 646,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 381,
+     "h": 381
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 381,
+     "h": 381
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.559,
+   "haloA": 0.12,
+   "legend": {
+    "top": 712,
+    "bottom": 756,
+    "vh": 900,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "190.48px"
+  }
+ },
+ {
+  "cfg": "1440x900-dark",
+  "static": {
+   "stageW": 878,
+   "stageH": 646,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 381,
+     "h": 381
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 381,
+     "h": 381
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.466,
+   "haloA": 0.7,
+   "legend": {
+    "top": 712,
+    "bottom": 756,
+    "vh": 900,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "190.48px"
+  },
+  "static2": {
+   "stageW": 878,
+   "stageH": 646,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 381,
+     "h": 381
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 381,
+     "h": 381
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.466,
+   "haloA": 0.7,
+   "legend": {
+    "top": 712,
+    "bottom": 756,
+    "vh": 900,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "190.48px"
+  }
+ },
+ {
+  "cfg": "390x844-light",
+  "static": {
+   "stageW": 334,
+   "stageH": 641,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 172,
+     "h": 172
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 172,
+     "h": 172
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.778,
+   "haloA": 0.7,
+   "legend": {
+    "top": 687,
+    "bottom": 726,
+    "vh": 844,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "86.224px"
+  },
+  "dyn": {
+   "end": {
+    "dx": 86,
+    "dy": 86,
+    "marginR": 17,
+    "marginB": 171,
+    "halfW": 167,
+    "halfH": 321,
+    "boxHalf": 56
+   },
+   "tether": {
+    "opacity": 1,
+    "length": 124,
+    "visible": 25,
+    "of": 61
+   },
+   "heldNotDrag": 0,
+   "heldFrames": 89,
+   "flingMoving": 26,
+   "flingMovingNotDrag": 0,
+   "diag": {
+    "frames": 128,
+    "axisFlips": 0,
+    "widthPopMax": 0.518,
+    "maxShear": 2.53,
+    "maxAniso": 0.055,
+    "firstShear": 0.207,
+    "bothPinned": 0,
+    "shearStepMax": 0.179
+   },
+   "tapDragFrames": 0,
+   "play": {
+    "restFill": "#52e898",
+    "firstMovedIdx": 6,
+    "firstFillJump": 0,
+    "maxFillStep": 0.044,
+    "drops400": 0,
+    "minChroma": 0.137
+   },
+   "grab": {
+    "preRot": 151.577,
+    "scaleJump": 0.003,
+    "restRot": 0,
+    "restFillDE": 0,
+    "homeRot": -0.001,
+    "homeFillDE": 0
+   },
+   "reset": {
+    "fillDE": 0,
+    "rot": 0,
+    "tx": 0,
+    "ty": 0,
+    "badge": "settled",
+    "mode": "idle",
+    "scrub": [
+     "0.12",
+     "714.4000000000015"
+    ],
+    "homeRot": 0,
+    "homeFillDE": 0,
+    "homeTx": 0
+   },
+   "tumble": {
+    "sweepFrames": 54,
+    "firstSweepDE": 0,
+    "restAt": 840,
+    "sweepEndAt": 749,
+    "lingerMs": -91,
+    "overshootDeg": 5.459,
+    "minAfterPeak": -0.056
+   },
+   "bloom": {
+    "sweep": true,
+    "haloVsFill": 0.003
+   },
+   "tumblePlay": {
+    "preRot": 4.737,
+    "sweepAfter300": 0,
+    "of": 40,
+    "maxRotStep": 5.965
+   }
+  },
+  "static2": {
+   "stageW": 334,
+   "stageH": 641,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 172,
+     "h": 172
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 172,
+     "h": 172
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.559,
+   "haloA": 0.12,
+   "legend": {
+    "top": 687,
+    "bottom": 726,
+    "vh": 844,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "86.224px"
+  }
+ },
+ {
+  "cfg": "390x844-dark",
+  "static": {
+   "stageW": 334,
+   "stageH": 641,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 172,
+     "h": 172
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 172,
+     "h": 172
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.466,
+   "haloA": 0.7,
+   "legend": {
+    "top": 687,
+    "bottom": 726,
+    "vh": 844,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "86.224px"
+  },
+  "static2": {
+   "stageW": 334,
+   "stageH": 641,
+   "fields": [
+    {
+     "horiz": false,
+     "vert": true,
+     "w": 172,
+     "h": 172
+    },
+    {
+     "horiz": true,
+     "vert": false,
+     "w": 172,
+     "h": 172
+    }
+   ],
+   "badge": {
+    "w": 64,
+    "h": 18,
+    "radius": "1.67772e+07px",
+    "glass": false
+   },
+   "haloL": 0.466,
+   "haloA": 0.7,
+   "legend": {
+    "top": 687,
+    "bottom": 726,
+    "vh": 844,
+    "covered": false,
+    "coveredBy": "square-arena"
+   },
+   "travelProp": "86.224px"
+  }
+ }
+]

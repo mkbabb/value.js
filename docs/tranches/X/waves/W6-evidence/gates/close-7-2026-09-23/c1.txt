@@ -1,0 +1,3 @@
+SERVED MODEL: claude-opus-5-5[1m]
+GATE G4 (structure) — GREEN
+EXIT=0

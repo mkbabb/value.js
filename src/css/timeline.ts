@@ -9,20 +9,20 @@ import type {
     TimelineAxis,
     TimelineScopeValue,
 } from "./types";
-import { failure, splitTopLevel, success } from "./grammar";
+import { splitTopLevel } from "./bbnf/index";
+import { isDashedIdent, isTimelineLength, timelineArgs } from "./bbnf/sheet";
+import { failure, success } from "./result";
 
 const AXES = new Set<TimelineAxis>(["block", "inline", "x", "y"]);
 const SCROLLERS = new Set(["nearest", "root", "self"] as const);
-const LENGTH_PERCENTAGE = /^auto$|^[+-]?(?:\d+\.?\d*|\.\d+)(?:%|[a-z]+)?$/i;
 export function parseAnimationTimeline(source: string): ParseResult<AnimationTimelineValue> {
     const input = source.trim();
     const lower = input.toLowerCase();
-    if (lower === "auto" || lower === "none") return success({ kind: lower });
-    const scroll = input.match(/^scroll\((.*)\)$/i);
-    if (scroll) {
-        const args = splitTopLevel(scroll[1]!.replace(/,/g, " "), "space");
+    if (lower === "auto" || lower === "none") return success(Object.freeze({ kind: lower }));
+    const scrollArgs = timelineArgs("scroll", input);
+    if (scrollArgs !== null) {
         const result: { kind: "scroll"; scroller?: "nearest" | "root" | "self"; axis?: TimelineAxis } = { kind: "scroll" };
-        for (const arg of args) {
+        for (const arg of scrollArgs) {
             const token = arg.toLowerCase();
             if (SCROLLERS.has(token as "nearest" | "root" | "self") && result.scroller === undefined) {
                 result.scroller = token as "nearest" | "root" | "self";
@@ -31,54 +31,59 @@ export function parseAnimationTimeline(source: string): ParseResult<AnimationTim
             }
             else return failure(source, "timeline_option_invalid", ["scroll timeline"]);
         }
-        return success(result);
+        return success(Object.freeze(result));
     }
-    const view = input.match(/^view\((.*)\)$/i);
-    if (view) {
-        const args = splitTopLevel(view[1]!.replace(/,/g, " "), "space");
+    const viewArgs = timelineArgs("view", input);
+    if (viewArgs !== null) {
         const result: { kind: "view"; axis?: TimelineAxis; inset?: { start: string; end?: string } } = { kind: "view" };
         const inset: string[] = [];
-        for (const arg of args) {
+        for (const arg of viewArgs) {
             const token = arg.toLowerCase();
             if (AXES.has(token as TimelineAxis) && result.axis === undefined) result.axis = token as TimelineAxis;
-            else if (LENGTH_PERCENTAGE.test(arg) && inset.length < 2) inset.push(arg);
+            else if (isTimelineLength(arg) && inset.length < 2) inset.push(arg);
             else return failure(source, "timeline_option_invalid", ["view timeline"]);
         }
-        if (inset[0]) result.inset = inset[1] ? { start: inset[0], end: inset[1] } : { start: inset[0] };
-        return success(result);
+        if (inset[0]) result.inset = Object.freeze(inset[1] ? { start: inset[0], end: inset[1] } : { start: inset[0] });
+        return success(Object.freeze(result));
     }
-    return /^--[-\w]+$/.test(input) ? success({ kind: "name", name: input }) : failure(source, "timeline_option_invalid", ["timeline"]);
+    return isDashedIdent(input) ? success(Object.freeze({ kind: "name", name: input })) : failure(source, "timeline_option_invalid", ["timeline"]);
 }
 
 const RANGE_PHASES = new Set<RangePhase>(["normal", "cover", "contain", "entry", "exit", "entry-crossing", "exit-crossing"]);
-function rangeBoundary(tokens: string[]): RangeBoundary | null {
+function rangeBoundary(tokens: readonly string[]): RangeBoundary | null {
     if (tokens.length === 0 || tokens.length > 2) return null;
     const phase = tokens[0]?.toLowerCase() as RangePhase;
     if (RANGE_PHASES.has(phase)) {
         return tokens[1] === undefined
-            ? { phase }
-            : LENGTH_PERCENTAGE.test(tokens[1]) ? { phase, offset: tokens[1] } : null;
+            ? Object.freeze({ phase })
+            : isTimelineLength(tokens[1]) ? Object.freeze({ phase, offset: tokens[1] }) : null;
     }
-    return tokens.length === 1 && tokens[0] !== undefined && LENGTH_PERCENTAGE.test(tokens[0])
-        ? { offset: tokens[0] }
+    return tokens.length === 1 && tokens[0] !== undefined && isTimelineLength(tokens[0])
+        ? Object.freeze({ offset: tokens[0] })
         : null;
 }
 export function parseAnimationRange(source: string): ParseResult<AnimationRangeValue> {
     const input = source.trim();
     const comma = splitTopLevel(input, ",");
-    if (comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
-    if (comma.length === 2) {
-        const start = rangeBoundary(splitTopLevel(comma[0]!, "space"));
-        const end = rangeBoundary(splitTopLevel(comma[1]!, "space"));
-        return start && end ? success({ start, end }) : failure(source, "timeline_option_invalid", ["animation range"]);
+    if (!comma || comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
+    // The `> 2` refusal above leaves length 0, 1 or 2, so "both halves are present"
+    // is exactly the old `comma.length === 2` — carried in the type instead of an assertion.
+    const [commaStart, commaEnd] = comma;
+    if (commaStart !== undefined && commaEnd !== undefined) {
+        const startTokens = splitTopLevel(commaStart, "space");
+        const endTokens = splitTopLevel(commaEnd, "space");
+        const start = startTokens && rangeBoundary(startTokens);
+        const end = endTokens && rangeBoundary(endTokens);
+        return start && end ? success(Object.freeze({ start, end })) : failure(source, "timeline_option_invalid", ["animation range"]);
     }
     const tokens = splitTopLevel(input, "space");
+    if (!tokens) return failure(source, "timeline_option_invalid", ["animation range"]);
     const single = rangeBoundary(tokens);
-    if (single) return success({ start: single });
+    if (single) return success(Object.freeze({ start: single }));
     for (const split of [2, 1]) {
         const start = rangeBoundary(tokens.slice(0, split));
         const end = rangeBoundary(tokens.slice(split));
-        if (start && end) return success({ start, end });
+        if (start && end) return success(Object.freeze({ start, end }));
     }
     return failure(source, "timeline_option_invalid", ["animation range"]);
 }

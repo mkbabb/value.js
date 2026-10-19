@@ -1,0 +1,14 @@
+load-start { 327.27 616.39 409.48 } 16:38:44 file=9a7a89443a glass=10.1.0 (node_modules/@mkbabb/glass-ui/package.json; deps cache forced 16:27)
+spring 1024x768 light
+  served (cured bytes): gtc=288px clipRight=358 field.right=338 (cut -20) legendText.right=376.1 (cut 18.1)
+  track forced to auto (= HEAD ca0b1a0b): gtc=326.125px clipRight=358 field.right=376.1 (cut 18.1) legendText.right=376.1 (cut 18.1)
+spring 1024x768 dark
+  served (cured bytes): gtc=288px clipRight=358 field.right=338 (cut -20) legendText.right=376.1 (cut 18.1)
+  track forced to auto (= HEAD ca0b1a0b): gtc=326.125px clipRight=358 field.right=376.1 (cut 18.1) legendText.right=376.1 (cut 18.1)
+spring 1440x900 light
+  served (cured bytes): gtc=363.188px clipRight=476.4 field.right=456.4 (cut -20) legendText.right=436.9 (cut -39.5)
+  track forced to auto (= HEAD ca0b1a0b): gtc=363.188px clipRight=476.4 field.right=456.4 (cut -20) legendText.right=436.9 (cut -39.5)
+spring 1440x900 dark
+  served (cured bytes): gtc=363.188px clipRight=476.4 field.right=456.4 (cut -20) legendText.right=436.9 (cut -39.5)
+  track forced to auto (= HEAD ca0b1a0b): gtc=363.188px clipRight=476.4 field.right=456.4 (cut -20) legendText.right=436.9 (cut -39.5)
+load-end { 858.92 722.86 469.01 } 16:40:03

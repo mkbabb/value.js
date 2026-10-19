@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * T.W3 W3-1 · O-7 — THE CARD-MATERIAL CENSUS, ARMED (SYNTHESIS §6.1 O-7; the
@@ -91,6 +91,16 @@ async function resolveRungTokens(page: import("@playwright/test").Page) {
 async function censusView(page: import("@playwright/test").Page) {
     return page.evaluate(() => {
         const main = document.querySelector("main");
+        // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`;
+        // X-W7L C-CARD-STAMP): glass 8.0.0 retired the `data-tier` stamp — the
+        // rung is the `glass-<tier>` class — and struck the `grain` prop with
+        // its `data-grain` stamp; a card arms grain with glass's
+        // `paper-grain-overlay`, whose `::after` paints the paper relief.
+        const tierOf = (el: Element) =>
+            /\bglass-(resting|quiet|floating|overlay)\b/.exec(el.className.toString())?.[1] ??
+            "(none)";
+        const grainOf = (el: Element) =>
+            String(getComputedStyle(el, "::after").backgroundImage.includes("data:image/svg+xml"));
         const cards = Array.from(
             main?.querySelectorAll<HTMLElement>('[data-slot="card"]') ?? [],
         )
@@ -100,8 +110,8 @@ async function censusView(page: import("@playwright/test").Page) {
             // is REQUIRED to sit inside a resting plate by that row).
             .filter((el) => el.dataset.surface !== "veil")
             .map((el) => ({
-                tier: el.dataset.tier ?? "(none)",
-                grain: el.dataset.grain ?? "(none)",
+                tier: tierOf(el),
+                grain: grainOf(el),
                 shadow: getComputedStyle(el).boxShadow !== "none",
             }));
         // T.W6.5-P (T-34) — the VEIL fixture census: every mounted veil card
@@ -117,12 +127,12 @@ async function censusView(page: import("@playwright/test").Page) {
                 '[data-slot="card"]',
             );
             return {
-                tier: el.dataset.tier ?? "(none)",
+                tier: tierOf(el),
                 bg: cs.backgroundColor,
                 backdrop: cs.backdropFilter || "none",
                 shadow: cs.boxShadow,
                 borderWidth: Number.parseFloat(cs.borderTopWidth) || 0,
-                hostTier: host?.dataset.tier ?? "(none)",
+                hostTier: host ? tierOf(host) : "(none)",
             };
         });
         const fixture = (sel: string) => {
@@ -192,9 +202,7 @@ for (const scheme of ["light", "dark"] as const) {
     }, testInfo) => {
         test.setTimeout(120_000);
         await page.goto("/");
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
         if (scheme === "dark") {
             await page.evaluate(() =>
                 document.documentElement.classList.add("dark"),
@@ -208,8 +216,7 @@ for (const scheme of ["light", "dark"] as const) {
             // that is true of the previous view across the swap), then on a
             // card being visible.
             await expect(
-                page
-                    .getByRole("main", { name: "Color tool panes" })
+                mainPane(page)
                     .getByRole("heading", { name: VIEW_HEADING[view] })
                     .filter({ visible: true })
                     .last(),
@@ -340,8 +347,12 @@ for (const scheme of ["light", "dark"] as const) {
                         `${view} (${scheme}): the seat carries backdrop-blur (RC-3)`,
                     )
                     .toBe("none");
-                // The drawn ink edge (ONE `--card-edge` hairline family) + the
-                // chip-scale stamp — the elevation PaletteCard rides.
+                // The drawn ink edge (ONE `--card-edge` hairline family). The
+                // chip-scale stamp is ABROGATED (X-DS pass 1 · V1-02, the
+                // owner's 2026-10-06 flat-lighting order, COHESION §0ej): a
+                // fixture seated inside a plate casts nothing, so the row now
+                // asserts the stamp's ABSENCE at rest (re-aimed, not dropped —
+                // a resurrected stamp reds it).
                 expect
                     .soft(
                         seat.edgeStyle,
@@ -361,8 +372,8 @@ for (const scheme of ["light", "dark"] as const) {
                     )
                     .toBe(tokens.cardEdge);
                 expect
-                    .soft(seat.stamp, `${view} (${scheme}): the cartoon stamp missing`)
-                    .toBe(true);
+                    .soft(seat.stamp, `${view} (${scheme}): the cartoon stamp resurrected on a seated fixture`)
+                    .toBe(false);
                 // The 24rem dock cap is DEAD: a seated field runs its host
                 // column (t-mobile F-7's 78px right-rag class).
                 expect
@@ -402,13 +413,10 @@ test("O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead w
     test.setTimeout(60_000);
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await openView(page, "Palettes");
     await expect(
-        page
-            .getByRole("main", { name: "Color tool panes" })
+        mainPane(page)
             .getByRole("heading", { name: "My Palettes" })
             .filter({ visible: true })
             .last(),
@@ -443,9 +451,7 @@ test("O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band 
     test.setTimeout(60_000);
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     for (const scheme of ["light", "dark"] as const) {
         await page.evaluate(

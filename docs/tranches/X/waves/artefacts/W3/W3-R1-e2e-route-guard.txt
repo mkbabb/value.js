@@ -1,0 +1,18 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W3 Repair 1 — §8 artefact 6: the e2e route-guard spec at the settled bytes
+clock: 2026-09-18 19:42:21 EDT  ·  HEAD: 9caed304 docs(X ledger): F.W4 row — .c PARTIAL, the inversion lock inverted at 8.0.0, three escalations named
+
+⟨cmd⟩ npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts
+
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:6042) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:50:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (4.6s)
+  ✓  2 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:71:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (1.8s)
+[2m[WebServer] [22m[2m7:42:30 PM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to load users: SyntaxError: Unexpected token '<', "<!doctype "... is not valid JSON
+  ✓  3 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:88:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (1.2s)
+
+  3 passed (9.5s)

@@ -1,0 +1,22 @@
+GATE f5 (specimen grammar) — GREEN
+  65610 specimens over 18 spaces; css=14 channels=4
+  longest 50/52 chars — prophoto-rgb: color(prophoto-rgb -0.1672 0.1012 -0.1676 / 12.7%)
+  rgb           css       32ch  rgb(-87.76 48.65 -7.339 / 12.7%)
+  hsl           css       37ch  hsl(92.96deg -205.8% -11.09% / 12.7%)
+  hsv           channels  29ch  hsv · 280.8 · 0.8893 · 0.3014
+  hwb           css       38ch  hwb(0.1443deg -13.21% -17.52% / 12.7%)
+  lab           css       32ch  lab(12.5% -93.75 -93.75 / 12.7%)
+  lch           css       33ch  lch(12.5% 156.3 216.9deg / 12.7%)
+  oklab         css       37ch  oklab(-10.44% -0.4849 0.0401 / 12.7%)
+  oklch         css       38ch  oklch(-10.44% 0.4865 175.3deg / 12.7%)
+  xyz           css       42ch  color(xyz -0.0327 -0.0002 -0.0665 / 12.7%)
+  kelvin        channels  14ch  kelvin · 40000
+  srgb-linear   css       49ch  color(srgb-linear -0.0889 0.0297 -0.0255 / 12.7%)
+  display-p3    css       48ch  color(display-p3 -0.3024 0.1759 -0.0193 / 12.7%)
+  a98-rgb       css       45ch  color(a98-rgb -0.2677 0.2022 -0.1807 / 12.7%)
+  prophoto-rgb  css       50ch  color(prophoto-rgb -0.1672 0.1012 -0.1676 / 12.7%)
+  rec2020       css       45ch  color(rec2020 -0.2894 0.2005 -0.0543 / 12.7%)
+  ictcp         channels  34ch  ictcp · 0.0953 · -0.0454 · -0.8545
+  jzazbz        channels  35ch  jzazbz · 0.0208 · -0.2585 · -0.1754
+  hex           css        9ch  #003abe00
+EXIT=0

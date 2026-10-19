@@ -1,0 +1,11 @@
+SERVED MODEL: claude-opus-5-5
+BASE 4e525939bafd102132151aa010a2f6becd871d06 src 04ca6b93f090aa8ac6b01c306f603fffd033c5a1 grammar.js 46151e469a39a17d6d58b3e40bf25aa1d6ff134c
+CUST 1c04f8c68e59eacd762e71a6235c83e07591f12e src 603226dd399f7b2077a646ff694edd4352060cb1 grammar.js 7917954392c1fa97921ed7f3d8250b8e32e13ef9
+parseCssColor           154582 3f369b2f0cb61238   193596 70c272c7cbe8bcc3  CHANGED
+parseCssScalar          154553 cba60c8972e6db10   193566 19342a9721ef81b7  CHANGED
+parseCssValue           154552 b2d6595e0a4a78af   193565 32a092ec91c406eb  CHANGED
+parseCssValues          154710 9a6575d190c3ab69   193723 df1ca8bbdaa9dafc  CHANGED
+parseKeyframeSelector   154747 511f9c7d20dea1c4   193760 d633adf305184e26  CHANGED
+parseTimingFunction     154553 5f8805e0feb7be56   193566 eb598be2248eb28f  CHANGED
+parseStylesheet         176065 3b8cfd899782636a   215114 4fb2cee1e8faee94  CHANGED
+ENTRIES CHANGED 7 of 7

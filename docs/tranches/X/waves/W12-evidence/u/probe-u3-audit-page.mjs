@@ -1,0 +1,24 @@
+// SERVED MODEL: claude-opus-5-5 — X.W12.u3: an audit page turn is a refetch — rows + pager stay mounted, focus stays on the pager (UIA-V-173). Setup lines copied from the audit probe (fixture 47 entries; page 2 held 900 ms).
+import { chromium } from "/Users/mkbabb/Programming/value.js/node_modules/playwright/index.mjs";
+import { writeFileSync } from "node:fs";
+const OUT = new URL(".", import.meta.url).pathname;
+const ALL = Array.from({ length: 47 }, (_, i) => ({ id: `a${i}`, timestamp: new Date(Date.UTC(2026, 8, 23, 14) - i * 3.7e6).toISOString(), action: ["approve-color","delete-color","delete-user","delete-palette","impersonate","reject-color"][i % 6], target: ["color:ocean-mist-7f3a","user:azure-fox-01","palette:sunset-drift-9c21b4e7d0a1","color:very-long-colour-name-that-keeps-going-and-going-8812ff","user:quiet-river-bright-owl"][i % 5] }));
+const out = { errs: [] };
+const browser = await chromium.launch({ headless: true });
+const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: "light", deviceScaleFactor: 2 });
+await ctx.routeWebSocket(/:9000\//, () => {}).catch(() => {});
+await ctx.addInitScript(() => { try { if (!sessionStorage.getItem("__s")) { localStorage.setItem("vueuse-color-scheme", "light"); localStorage.setItem("palette-admin-token", "dev"); sessionStorage.setItem("__s", "1"); } } catch {} });
+const page = await ctx.newPage(); page.setDefaultTimeout(60000);
+await page.route(/\/admin\/audit\?/, async (r) => { const u = new URL(r.request().url()); const off = +u.searchParams.get("offset") || 0; if (off > 0) await new Promise((res) => setTimeout(res, 900)); return r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ data: ALL.slice(off, off + 20), total: 47, limit: 20, offset: off }) }); });
+await page.goto("http://localhost:9000/#/admin/audit", { waitUntil: "domcontentloaded", timeout: 180000 });
+await page.waitForSelector('[aria-label="Filter by action"]', { timeout: 90000 });
+await page.waitForFunction(() => !document.querySelector('[aria-label="Loading audit log"]'), null, { timeout: 30000 });
+await page.waitForTimeout(1200);
+const next = page.getByRole("button", { name: /next/i }).first();
+await next.focus(); await page.keyboard.press("Enter");
+const sample = () => page.evaluate(() => { const g = document.querySelector('[aria-label="Filter by action"]').closest(".grid"); const a = document.activeElement; return { skeleton: !!document.querySelector('[aria-label="Loading audit log"]'), rows: g.querySelectorAll(":scope > div.min-w-0.flex").length, pager: !!document.querySelector('button[aria-label*="ext" i], button:has(svg)') && [...document.querySelectorAll("button")].some((b) => /next/i.test(b.getAttribute("aria-label") ?? b.innerText)), busy: g.getAttribute("aria-busy"), focus: a?.tagName + ":" + (a?.getAttribute("aria-label") ?? a?.innerText?.slice(0, 20)), cardH: Math.round(document.querySelector(".pane-scroll-fade")?.getBoundingClientRect().height ?? 0), pageText: document.body.innerText.match(/\d+ \/ \d+|Page \d+ of \d+/)?.[0] ?? null }; });
+out.during = await sample();
+await page.waitForTimeout(1500);
+out.after = await sample();
+writeFileSync(`${OUT}probe-u3-audit-page${process.env.RUN ?? ""}.json`, JSON.stringify(out, null, 1));
+await browser.close(); console.log(JSON.stringify(out));

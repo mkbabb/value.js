@@ -1,0 +1,102 @@
+{
+ "demo/app/ErrorBoundary.vue": {
+  "kind": "repeated",
+  "per": "region",
+  "why": "one containment boundary around each scene region (the dual-pane views seat two)"
+ },
+ "demo/shell/PaneSlot.vue": {
+  "kind": "repeated",
+  "per": "region",
+  "why": "the one mount path, once per region of the scene"
+ },
+ "demo/shared/ui/PaneHeader.vue": {
+  "kind": "repeated",
+  "per": "pane",
+  "why": "each pane's own title band; two panes on a dual-pane view"
+ },
+ "demo/shared/ui/EmptyState.vue": {
+  "kind": "repeated",
+  "per": "pane",
+  "why": "each pane states its own empty or error condition"
+ },
+ "demo/shell/PaneErrorPlate.vue": {
+  "kind": "repeated",
+  "per": "region",
+  "why": "a region whose chunk failed; the census does not read a view in this state (UNREAD)"
+ },
+ "demo/shared/ui/watercolor-dot/WatercolorDot.vue": {
+  "kind": "repeated",
+  "per": "colour",
+  "why": "one dot per colour shown (dock seal, swatches, list specimens)"
+ },
+ "demo/shell/dock/ActionButton.vue": {
+  "kind": "repeated",
+  "per": "scene action",
+  "why": "one seat per named action of the scene's action set"
+ },
+ "demo/palettes/inspector/PaletteInspector.vue": {
+  "kind": "repeated",
+  "per": "palette",
+  "why": "one card per palette in the grid"
+ },
+ "demo/palettes/inspector/PaletteCardMenu.vue": {
+  "kind": "repeated",
+  "per": "palette",
+  "why": "one menu per palette card"
+ },
+ "demo/palettes/inspector/PaletteCardMeta.vue": {
+  "kind": "repeated",
+  "per": "palette",
+  "why": "one meta cluster per palette card"
+ },
+ "demo/shared/ui/PaletteSpecimen.vue": {
+  "kind": "repeated",
+  "per": "palette",
+  "why": "one specimen per palette"
+ },
+ "demo/shared/ui/PaletteColorStrip.vue": {
+  "kind": "repeated",
+  "per": "palette",
+  "why": "one strip per palette (plus the Generate plate's own palette)"
+ },
+ "demo/shared/ui/ActionFeedback.vue": {
+  "kind": "repeated",
+  "per": "verdict owner",
+  "why": "each palette card announces its own act; the pane announces pane-level acts"
+ },
+ "demo/scenes/about/katex/Katex.vue": {
+  "kind": "repeated",
+  "per": "formula",
+  "why": "one typeset formula per expression in the About prose"
+ },
+ "demo/shared/ui/ColorSpaceSelector.vue": {
+  "kind": "ruled",
+  "row": "A2-VA-K-1",
+  "why": "on / the picker header and the About title each seat the selector over ONE model: a mirrored pair ratified at S.W4 W4-1 (S-21, 'both hosts get the W4-1 grammar verbatim') and T.W4-1. Two mounts for one job; retiring either host's control is an owner DESIGN-RULING, so it is reported, not cured"
+ },
+ "demo/shell/PaneShell.vue": {
+  "kind": "repeated",
+  "per": "pane",
+  "why": "A2-VA-L1-1: the one pane shell, once per pane (two panes on a dual-pane view)"
+ },
+ "demo/shared/ui/SwatchButton.vue": {
+  "kind": "repeated",
+  "per": "colour",
+  "why": "A2-VA-L1-15: one swatch button per colour shown"
+ },
+ "demo/shared/ui/api-status/ApiStatusChip.vue": {
+  "kind": "repeated",
+  "per": "seat",
+  "why": "A2-VA-L1-9: the one status chip on each of its two seats (the dock lamp and the palette editor surface), each its own live region"
+ },
+ "demo/palettes/browser/card/PaletteCardGrid.vue": {
+  "kind": "repeated",
+  "per": "pane",
+  "why": "one palette grid per pane that lists palettes: on /browse the stage (the community list) and the companion (your saved list) each own one"
+ },
+ "demo/palettes/admin/panels/AdminListItem.vue": {
+  "kind": "repeated",
+  "per": "row",
+  "why": "one row per listed item in an admin list (a name awaiting review, a tag); 47 on the seeded Names page"
+ }
+}

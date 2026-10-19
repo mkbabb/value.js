@@ -1,0 +1,98 @@
+{
+ "seat": "tag-edit-popover",
+ "base": "http://localhost:9000/",
+ "head": "f95a2f77",
+ "dirty": 5,
+ "frames": [
+  {
+   "file": "1440-light-00-browse-rest.png",
+   "state": "browse loaded, before open",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-01-card-menu-edit-tags-item.png",
+   "state": "card menu open (the reach)",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-02-open.png",
+   "state": "open (current tag: warm)",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-03-row-hover.png",
+   "state": "open, row hover",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-04-tag-added.png",
+   "state": "tag added (cool)",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-05-tag-removed.png",
+   "state": "tag removed (warm)",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-06-keyboard-focus.png",
+   "state": "keyboard focus in list",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-07-list-scrolled.png",
+   "state": "catalog scrolled to end",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-08-closed-card-reflects.png",
+   "state": "closed; card reflects new tags",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-09-save-failed-open.png",
+   "state": "tag added, PATCH 500 (popover open)",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-10-save-failed-closed.png",
+   "state": "after failed save, popover closed",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-11-catalog-loading.png",
+   "state": "catalog loading (4s delay)",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-12-catalog-unreachable.png",
+   "state": "catalog GET refused",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-13-catalog-empty.png",
+   "state": "catalog empty",
+   "head": "f95a2f77",
+   "dirty": 5
+  },
+  {
+   "file": "1440-light-14-open-from-dock.png",
+   "state": "open via dock tags verb",
+   "head": "f95a2f77",
+   "dirty": 5
+  }
+ ]
+}

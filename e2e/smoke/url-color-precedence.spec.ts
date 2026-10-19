@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 
 /**
  * S.W2 · W2-1 — the URL-color persistence-precedence gate.
@@ -64,7 +65,7 @@ test("URL hash color WINS over populated localStorage (readout + trigger + accen
 
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(URL_BLUE));
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
 
     // Readout — the H-channel component value reflects the URL hue (260), not
@@ -100,7 +101,7 @@ test("localStorage RESTORES the last session when the hash carries no color", as
     // No color in the hash → the URL does not win → the pipeline restores.
     await page.goto("/");
 
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
 
     // Readout reflects the restored stored hue (145), not the default pick.

@@ -1,7 +1,8 @@
-import type { Color, ColorIssue } from "../color/model";
+// One colour-vocabulary spelling inside src/css/: `../value` (ESC-W9f-CSSD-VOCAB-SPELLING — a second spelling re-emits `_2` duplicates into css.d.ts).
+import type { ColorIssue } from "../color/index";
 import type { Result } from "../foundation/result";
 import type { JumpPosition } from "../easing";
-import type { CssList, CssScalar, CssValue } from "../value";
+import type { Color, CssList, CssScalar, CssValue } from "../value";
 
 export type CssColorSpace =
     | "rgb" | "hsl" | "hwb" | "lab" | "lch" | "oklab" | "oklch"
@@ -63,10 +64,18 @@ export type CustomFunctionDescriptor = Readonly<{
     result?: CssValue;
     declarations?: readonly Declaration[];
 }>;
+/** A css-values-4 §7.3 `<time>` unit, lowercased. */
+export type CssTimeUnit = "s" | "ms";
 export type CSSAnimationOptions = Readonly<{
     name?: string;
+    /** Seconds. */
     duration?: number;
+    /** The `<time>` unit the author wrote for `duration` (UIA-KF-177). */
+    durationUnit?: CssTimeUnit;
+    /** Seconds. */
     delay?: number;
+    /** The `<time>` unit the author wrote for `delay` (UIA-KF-177). */
+    delayUnit?: CssTimeUnit;
     iterationCount?: number;
     direction?: "normal" | "reverse" | "alternate" | "alternate-reverse";
     fillMode?: "none" | "forwards" | "backwards" | "both";

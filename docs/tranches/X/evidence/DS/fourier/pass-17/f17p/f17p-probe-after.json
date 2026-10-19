@@ -1,0 +1,180 @@
+{
+ "light-1440": {
+  "gallery": {
+   "cardWidth": 271,
+   "cardGap": "8px",
+   "cardPad": "12px",
+   "chipBottom": 441.984375,
+   "statsTop": 449.984375,
+   "eyeTop": 449.984375,
+   "chipToStats": 8,
+   "chipToEyeInk": 8
+  },
+  "tocHead": {
+   "header": {
+    "x": 173,
+    "y": 147,
+    "w": 290,
+    "h": 58.7
+   },
+   "label": {
+    "x": 183,
+    "y": 156.2,
+    "w": 102.5,
+    "h": 21.6
+   },
+   "readout": {
+    "x": 183,
+    "y": 187,
+    "w": 270,
+    "h": 18.7
+   },
+   "readoutText": "pg 4/110",
+   "buttons": [
+    {
+     "x": 329,
+     "y": 147,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "x": 371,
+     "y": 147,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "x": 413,
+     "y": 147,
+     "w": 40,
+     "h": 40
+    }
+   ]
+  },
+  "dl": [
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   },
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   }
+  ]
+ },
+ "light-390": {
+  "gallery": {
+   "cardWidth": 173,
+   "cardGap": "4px",
+   "cardPad": "8px",
+   "chipBottom": 417.796875,
+   "statsTop": 421.796875,
+   "eyeTop": 421.796875,
+   "chipToStats": 4,
+   "chipToEyeInk": 4
+  },
+  "dl": [
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   },
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   }
+  ]
+ },
+ "dark-1440": {
+  "gallery": {
+   "cardWidth": 271,
+   "cardGap": "8px",
+   "cardPad": "12px",
+   "chipBottom": 441.984375,
+   "statsTop": 449.984375,
+   "eyeTop": 449.984375,
+   "chipToStats": 8,
+   "chipToEyeInk": 8
+  },
+  "tocHead": {
+   "header": {
+    "x": 173,
+    "y": 147,
+    "w": 290,
+    "h": 58.7
+   },
+   "label": {
+    "x": 183,
+    "y": 156.2,
+    "w": 102.5,
+    "h": 21.6
+   },
+   "readout": {
+    "x": 183,
+    "y": 187,
+    "w": 270,
+    "h": 18.7
+   },
+   "readoutText": "pg 4/110",
+   "buttons": [
+    {
+     "x": 329,
+     "y": 147,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "x": 371,
+     "y": 147,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "x": 413,
+     "y": 147,
+     "w": 40,
+     "h": 40
+    }
+   ]
+  },
+  "dl": [
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   },
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   }
+  ]
+ },
+ "dark-390": {
+  "gallery": {
+   "cardWidth": 173,
+   "cardGap": "4px",
+   "cardPad": "8px",
+   "chipBottom": 417.796875,
+   "statsTop": 421.796875,
+   "eyeTop": 421.796875,
+   "chipToStats": 4,
+   "chipToEyeInk": 4
+  },
+  "dl": [
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   },
+   {
+    "text": "",
+    "h": 0,
+    "fontWeight": "700"
+   }
+  ]
+ }
+}

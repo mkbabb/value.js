@@ -1,0 +1,468 @@
+[
+ {
+  "viewport": "1440x900",
+  "scene": "home",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "1440x900",
+  "scene": "cube",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "1440x900",
+  "scene": "amiga",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "1440x900",
+  "scene": "square",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [
+   {
+    "tag": "span",
+    "role": "slider",
+    "label": "Horizontal position"
+   },
+   {
+    "tag": "span",
+    "role": "slider",
+    "label": "Vertical position"
+   }
+  ],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "1440x900",
+  "scene": "easing",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "1440x900",
+  "scene": "spring",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Spring target"
+   }
+  ],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "1440x900",
+  "scene": "sequence",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 1 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 2 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 3 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 4 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 5 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Scrub the sequence master clock"
+   }
+  ],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "home",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 3,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "cube",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 3,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "amiga",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 3,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "square",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 3,
+  "stageEditors": [
+   {
+    "tag": "span",
+    "role": "slider",
+    "label": "Horizontal position"
+   },
+   {
+    "tag": "span",
+    "role": "slider",
+    "label": "Vertical position"
+   }
+  ],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "easing",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 3,
+  "stageEditors": [],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "spring",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "Controls tab",
+    "disabled": false
+   },
+   {
+    "name": "Controls panel",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   },
+   {
+    "name": "Scene",
+    "disabled": false
+   }
+  ],
+  "dockRows": 3,
+  "stageEditors": [
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Spring target"
+   }
+  ],
+  "stageKeyframesBlock": false
+ },
+ {
+  "viewport": "390x844",
+  "scene": "sequence",
+  "dockItems": [
+   {
+    "name": "Scene",
+    "disabled": false
+   },
+   {
+    "name": "@mbabb menu",
+    "disabled": false
+   }
+  ],
+  "dockRows": 2,
+  "stageEditors": [
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 1 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 2 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 3 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 4 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Re-time row 5 start offset"
+   },
+   {
+    "tag": "div",
+    "role": "slider",
+    "label": "Scrub the sequence master clock"
+   }
+  ],
+  "stageKeyframesBlock": false
+ }
+]

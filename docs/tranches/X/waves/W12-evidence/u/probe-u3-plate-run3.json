@@ -1,0 +1,59 @@
+[
+ {
+  "plate": [
+   16,
+   358
+  ],
+  "card": [
+   16,
+   358
+  ],
+  "detail": null,
+  "texts": [
+   "This scene could not be loaded. Reload to continue."
+  ],
+  "alertDocOverflow": false,
+  "docSW": 390,
+  "vp": 390,
+  "scheme": "light",
+  "inside": null
+ },
+ {
+  "plate": [
+   16,
+   358
+  ],
+  "card": [
+   16,
+   358
+  ],
+  "detail": null,
+  "texts": [
+   "This scene could not be loaded. Reload to continue."
+  ],
+  "alertDocOverflow": false,
+  "docSW": 390,
+  "vp": 390,
+  "scheme": "dark",
+  "inside": null
+ },
+ {
+  "plate": [
+   729,
+   512
+  ],
+  "card": [
+   729,
+   512
+  ],
+  "detail": null,
+  "texts": [
+   "This scene could not be loaded. Reload to continue."
+  ],
+  "alertDocOverflow": false,
+  "docSW": 1440,
+  "vp": 1440,
+  "scheme": "dark",
+  "inside": null
+ }
+]

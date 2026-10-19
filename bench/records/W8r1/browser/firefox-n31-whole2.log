@@ -1,0 +1,8 @@
+firefox r0a0 parseCssScalar         whole    n=29944 k=2 S=14 product x0.674 (31/31<1) spread 1.313
+firefox r1a0 parseCssScalar         whole    n=29944 k=2 S=14 product x0.675 (31/31<1) spread 1.329
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|whole|parseCssScalar             <1 x0.674 x0.675
+15:56  up 3 days, 20:59, 3 users, load averages: 115.10 122.89 146.99 
+ 15:59  up 3 days, 21:01, 3 users, load averages: 86.48 109.71 138.49 → bench/records/2026-09-24-x-p-w7-browser-w8r1-firefox-n31-whole2.json
+DONE w8r1-firefox-n31-whole2

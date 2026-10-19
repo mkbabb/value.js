@@ -1,0 +1,13 @@
+X-DS fourier pass 16 cure (critic F16C), 2026-10-18. fourier 95eed0c (m/w1-bump-migration; one rule in web/src/style.css), latex-paper unchanged.
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e, headless, --project=chromium --project=mobile-chromium --workers=1, BASE_URL=http://localhost:3262 (plain `npx vite`), the 10 specs that reach /paper, .paper-article or the ToC rail (e2e-specs.txt, 82 tests), machine load 15-37 from other workflows:
+  run A: 80 passed, 2 failed (f-w14u-t t4 context teardown timeout; pi-capture morph @1280x800 context teardown timeout) (e2e-runA.txt)
+  run B: 79 passed, 3 failed (f-w14-uia-r2 UIA-F-26 Parseval 30s timeout; pi-capture home @375x667 and workspace @1440x900 30s timeouts) (e2e-runB.txt)
+  All five are timeouts and the two runs failed on different tests. Rerun on their own against the cured tree: 5/5 passed, twice (e2e-rerun-1.txt, e2e-rerun-2.txt).
+  This is the paper surface x2 with load flakes shown passing in isolation, not a clean x2 on the full set.
+No golden was re-baselined; the runs left no tracked file modified.
+Probe: f16p-probe.mjs, headless real Chrome (channel chrome, DPR 2, touch below 1024), vite :3261. Display (2.70) seated near the top.
+  light-390 and dark-390: (2.70) scrollWidth 324 <= clientWidth 324, katex 16px, --math-edge-end 0px; (2.74) 343 vs 301 (overflow 42), --math-edge-end 40px (cue kept).
+  seat-hermite/: first readings seated on Hermite Orthogonality (as pass 14/15): light-1440 (2.70) 624/624 at 19.8px (1.1em kept); light-390 frame. Attempts that stalled under load: probe-attempt1-timeout.log, probe-dark-attempt1-timeout.log, probe-dark-390-attempt-stall.log, f16p-probe-attempt1.json, f16p-probe-after-dark-1440_dark-390.json (void).
+Census: scripts/ds-census.mjs --chrome on :3262 (census-after.json): static identical to pass 15; computed sums 386/978/292/292/0/0/0/208/0/0, identical to pass 15. RED on glass rows only.

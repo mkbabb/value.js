@@ -2,7 +2,8 @@ import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { deflateSync } from "node:zlib";
 
-import { openView } from "./fixtures/dock";
+import { openView, mainPane } from "./fixtures/dock";
+import type { Palette } from "../fixtures/palette-envelopes";
 
 /**
  * SERVED MODEL: claude-opus-5[1m]
@@ -36,8 +37,6 @@ function collectPageErrors(page: Page): string[] {
     return errors;
 }
 
-const main = (page: Page) => page.getByRole("main", { name: "Color tool panes" });
-
 // ── R14 · BrowsePane M1 — the Retry gate ────────────────────────────────────
 //
 // MECHANISM (the corpus's, re-stated so a green here is readable): a leading
@@ -48,23 +47,64 @@ const main = (page: Page) => page.getByRole("main", { name: "Color tool panes" }
 // and even a backend restore), transiently in prod. `PaletteCard.vue` and
 // `PaletteCardSkeleton.vue` compile dev-fragment the same way, so the gate is
 // written against the HOST, not against one component.
+const RECOVERED_PALETTE: Palette = {
+    name: "Recovered Palette",
+    slug: "recovered-palette",
+    userSlug: "gallery",
+    colors: [
+        { css: "#e11d48", position: 0 },
+        { css: "#2563eb", position: 1 },
+    ],
+    createdAt: "2026-07-05T00:00:00.000Z",
+    updatedAt: "2026-07-05T00:00:00.000Z",
+    isLocal: false,
+    visibility: "public",
+    tier: "standard",
+    published: true,
+};
+
 test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async ({
     page,
 }) => {
     let abort = true;
-    await page.route("**/palettes*", (route) =>
-        abort ? route.abort("failed") : route.continue(),
+    // X.W7.g2 (§0bk.3 · ESC-W7g-R14-GLOB): the REST path only. The former glob
+    // `**/palettes*` also aborted Vite's `demo/palettes/*` source modules, so
+    // the app never booted and the gate read RED before any Retry. Same guard
+    // as `fixtures/browse-palettes.ts` and o9: Vite's own prefixes and any
+    // path with a file extension are never the API.
+    await page.route(
+        (url) =>
+            !/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname) &&
+            !/\.\w+$/.test(url.pathname) &&
+            /(^|\/)palettes(\/|$)/.test(url.pathname),
+        // X.W7.z1 (§0bt.1 · ESC-W7g2-R14-RECOVERY): the recovered backend
+        // ANSWERS. Under e2e `VITE_API_URL` is the Vite origin itself, so a
+        // `route.continue()` reached the SPA's `index.html` (200 text/html) —
+        // there is no backend to recover. The recovered leg is the backend's
+        // JSON page, fulfilled (the `fixtures/browse-palettes.ts` idiom).
+        (route) =>
+            abort
+                ? route.abort("failed")
+                : route.fulfill({
+                      status: 200,
+                      contentType: "application/json",
+                      body: JSON.stringify({
+                          data: [RECOVERED_PALETTE],
+                          nextCursor: null,
+                          hasMore: false,
+                      }),
+                  }),
     );
 
     await page.goto("/#/browse");
-    await expect(main(page)).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
-    const errorPlate = page.getByText(/The commons is unreachable/);
+    const errorPlate = page.getByText(/Couldn't reach the palette service\./);
     await expect(errorPlate, "the error plate paints at all").toBeVisible({
         timeout: 15_000,
     });
 
-    const retry = page.getByRole("button", { name: "Retry" });
+    const retry = mainPane(page).getByRole("button", { name: "Retry" });
     await expect(retry).toBeVisible();
     await retry.click();
 
@@ -77,10 +117,21 @@ test("R14 · pressing Retry on a dead Browse wall leaves a plate behind", async 
     ).toBeVisible({ timeout: 8000 });
 
     // …and it recovers when the backend does, rather than holding the blank.
+    //
+    // R2 · DEAD-LOCATOR RULING (X-W1 repair 1, Check 1 D-4). This bound
+    // `"article, [data-palette-card], .palette-card"` — a three-member union in
+    // which EVERY member was dead, so the recovery leg could not pass however
+    // the product behaved. Measured: `[data-palette-card]` appears in 0 bytes of
+    // `demo/`, `src/` or the installed `@mkbabb/glass-ui`; the only class in the
+    // tree is `.palette-card-grid` (`PaletteCardGrid.vue:4`), which `.palette-card`
+    // does not match, class tokens being exact; and ⟨`grep -rn '<article' demo/
+    // --include='*.vue'`⟩ → **0** — `PaletteCard.vue:22` carries `role="article"`
+    // on a `<div>`, which the CSS tag selector `article` never matches. The live
+    // hook is the ROLE, which is also what `views/browse-loading.spec.ts` binds.
     abort = false;
     await retry.click();
     await expect(
-        main(page).locator("article, [data-palette-card], .palette-card").first(),
+        mainPane(page).getByRole("article").first(),
         "the wall never repopulated after the backend recovered — KeepAlive is holding a stranded leave",
     ).toBeVisible({ timeout: 15_000 });
 });
@@ -101,7 +152,7 @@ test("R15 · an achromatic colour then LCh does not kill the pane grid", async (
     // Click 1 — an achromatic colour, by URL (the same seed a user reaches by
     // dragging chroma to zero; the two-click shape is preserved below).
     await page.goto("/?color=%23808080");
-    await expect(main(page)).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     // Click 2 — switch the space to LCh through the app's own control.
     const spaceTrigger = page
@@ -150,7 +201,7 @@ for (const seed of BOOT_SEEDS) {
         const errors = collectPageErrors(page);
         await page.goto(`/?color=${encodeURIComponent(seed)}`);
         await expect(
-            main(page),
+            mainPane(page),
             `boot at seed "${seed}" never mounted — useColorPipeline.ts:75-76 runs unguarded in App.vue:245's setup, OUTSIDE the ErrorBoundary, and 28 of 256 greys round-trip to hsv-powerless (cure: X-W9 / X-W5)`,
         ).toBeVisible({ timeout: 20_000 });
 
@@ -178,7 +229,7 @@ for (const color of NONE_COLORS) {
         const errors = collectPageErrors(page);
         await page.goto(`/?color=${encodeURIComponent(color)}`);
         await expect(
-            main(page),
+            mainPane(page),
             `a LEGAL none-hue URL did not boot — the throw is in ROOT SETUP and ErrorBoundary sits one level too low to catch it (main.ts:5-7 mounts bare); cure halves are X-W5 (demo Result propagation) + X-W9 (library Result battery)`,
         ).toBeVisible({ timeout: 20_000 });
 
@@ -262,36 +313,60 @@ async function openExtract(page: Page) {
     await page.goto("/");
     await openView(page, "Extract");
     await expect(
-        main(page).getByRole("heading", { name: "Extract" }).last(),
+        mainPane(page).getByRole("heading", { name: "Extract" }).last(),
     ).toBeVisible({ timeout: 10_000 });
+}
+
+/**
+ * X.W7.g3 (R-16/R-17): the extract file dialog is `useFileDialog`'s, owned by
+ * the workbench — no hidden `<input>` sits in the pane any more. The file goes
+ * in the way a user's does: activate the empty drop zone, answer the chooser.
+ */
+async function chooseFile(page: Page, file: { name: string; mimeType: string; buffer: Buffer }) {
+    const chooser = page.waitForEvent("filechooser");
+    await mainPane(page).locator('[role="button"][aria-label="Upload image"]').first().click();
+    await (await chooser).setFiles(file);
 }
 
 test("R18 · a real image file develops a palette", async ({ page }) => {
     const errors = collectPageErrors(page);
     await openExtract(page);
 
-    const input = main(page).locator('input[type="file"]').first();
-    await expect(
-        input,
-        "the extract route publishes a file input at all",
-    ).toBeAttached();
-    await input.setInputFiles({
+    await chooseFile(page, {
         name: "x-w1-fixture.png",
         mimeType: "image/png",
         buffer: FIXTURE_PNG,
     });
 
     await expect(
-        main(page).locator("img[alt='Uploaded image']"),
+        mainPane(page).locator("img[alt='Uploaded image']"),
         "the drop zone never showed the uploaded image — the file path itself is broken",
     ).toBeVisible({ timeout: 15_000 });
 
+    // R2 · DEAD-LOCATOR RULING (X-W1 repair 1, Check 1 D-4). This bound
+    // `".extract-swatch, [data-extract-swatch], [data-palette-swatch]"`, and all
+    // three members are dead: ⟨`grep -rl` each literal over `demo/ src/` and the
+    // installed `@mkbabb/glass-ui`⟩ → **0 files** apiece. A developed extract
+    // palette renders through `ExtractWorkbench.vue:145`'s `<PaletteCard>` →
+    // `PaletteCardSwatches.vue:25` → `SwatchHoverMenu.vue:18/:33`, whose swatch
+    // carries `aria-label="Color swatch <css>"`. That is the live hook, so that
+    // is what this arm binds. The arm's RED must come from R18's mechanism —
+    // the extract flow no gate had ever handed a file — never from a selector
+    // that could not have matched under any behaviour.
+    //
+    // DEAD-LOCATOR RULING 2 (X.W7.g3, measured 2026-09-23 on the served dev
+    // page): `[aria-label^="Color swatch "]` is dead again — glass-ui 7's
+    // `WatercolorDot` is `inheritAttrs: false` and forwards only class/style
+    // (dist/watercolor-dot.js :80/:94), so the swatch's name never reaches the
+    // DOM (the swatch-name row is glass-owned, CC-044 → X-W4.g). The live
+    // consumer hook for "a palette developed" is the developed specimen's own
+    // strip — one `[data-band]` per returned colour, rendered only by a
+    // developed card (the ghost and the skeleton carry none). The minted
+    // fixture holds four distinct colours, so the strip holds four bands.
     await expect(
-        main(page)
-            .locator(".extract-swatch, [data-extract-swatch], [data-palette-swatch]")
-            .first(),
+        mainPane(page).locator('[role="article"][aria-label^="Palette: "] [data-band]'),
         "no palette developed from a valid image: no gate had ever handed this route a file (setInputFiles was 0 repo-wide), so the whole flow was unmeasured",
-    ).toBeVisible({ timeout: 20_000 });
+    ).toHaveCount(4, { timeout: 20_000 });
 
     expect(errors, "extracting a valid image logged errors").toEqual([]);
 });
@@ -301,8 +376,7 @@ test("R18 · a corrupt file surfaces a visible error, never a silent half-state"
 }) => {
     await openExtract(page);
 
-    const input = main(page).locator('input[type="file"]').first();
-    await input.setInputFiles({
+    await chooseFile(page, {
         name: "x-w1-corrupt.png",
         mimeType: "image/png",
         buffer: Buffer.from("this is not a PNG at all", "utf8"),
@@ -328,7 +402,7 @@ test.describe("R19 · the mobile menu dropdown", () => {
     }) => {
         const errors = collectPageErrors(page);
         await page.goto("/");
-        await expect(main(page)).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         const trigger = page.getByRole("button", { name: "Menu" });
         await expect(

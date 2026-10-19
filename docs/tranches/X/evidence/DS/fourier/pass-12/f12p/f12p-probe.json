@@ -1,0 +1,102 @@
+{
+ "light-1440": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)",
+   "padding": "12px 20px",
+   "radius": "0px 8px 8px 0px",
+   "borderLeft": "3px solid oklch(0.532 0.18 317.5)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 551,
+   "labelLeft": 574,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating",
+   "padding": "12px 20px",
+   "radius": "0px",
+   "borderLeft": "3px solid rgb(198, 180, 159)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 551,
+   "labelLeft": 574,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "labelStep": 0
+ },
+ "light-390": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)",
+   "padding": "12px 20px",
+   "radius": "0px 8px 8px 0px",
+   "borderLeft": "3px solid oklch(0.532 0.18 317.5)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 33,
+   "labelLeft": 56,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating",
+   "padding": "12px 20px",
+   "radius": "0px",
+   "borderLeft": "3px solid rgb(198, 180, 159)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 33,
+   "labelLeft": 56,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "labelStep": 0
+ },
+ "dark-1440": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)",
+   "padding": "12px 20px",
+   "radius": "0px 8px 8px 0px",
+   "borderLeft": "3px solid oklch(0.739 0.134 318.1)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 551,
+   "labelLeft": 574,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating",
+   "padding": "12px 20px",
+   "radius": "0px",
+   "borderLeft": "3px solid rgb(101, 87, 73)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 551,
+   "labelLeft": 574,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "labelStep": 0
+ },
+ "dark-390": {
+  "theorem": {
+   "text": "Theorem 2.6.3.1 — Hermite Orthogonality∫−∞∞Hn(x)",
+   "padding": "12px 20px",
+   "radius": "0px 8px 8px 0px",
+   "borderLeft": "3px solid oklch(0.739 0.134 318.1)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 33,
+   "labelLeft": 56,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "proof": {
+   "text": "Proof . Using Rodrigues' formula and integrating",
+   "padding": "12px 20px",
+   "radius": "0px",
+   "borderLeft": "3px solid rgb(101, 87, 73)",
+   "background": "rgba(0, 0, 0, 0)",
+   "blockLeft": 33,
+   "labelLeft": 56,
+   "labelOffset": 23,
+   "labelTopOffset": 12
+  },
+  "labelStep": 0
+ }
+}

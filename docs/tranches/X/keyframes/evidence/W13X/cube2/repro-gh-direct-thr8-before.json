@@ -1,0 +1,81 @@
+{
+ "label": "gh-direct-thr8",
+ "base": "http://localhost:5194",
+ "mode": "direct",
+ "thr": "8",
+ "N": 10,
+ "runsWithThrow": 0,
+ "load1": "39.65",
+ "runs": [
+  {
+   "i": 0,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6773,
+   "errs": []
+  },
+  {
+   "i": 1,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6971,
+   "errs": []
+  },
+  {
+   "i": 2,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6778,
+   "errs": []
+  },
+  {
+   "i": 3,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6762,
+   "errs": []
+  },
+  {
+   "i": 4,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 7006,
+   "errs": []
+  },
+  {
+   "i": 5,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6824,
+   "errs": []
+  },
+  {
+   "i": 6,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6696,
+   "errs": []
+  },
+  {
+   "i": 7,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 7003,
+   "errs": []
+  },
+  {
+   "i": 8,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 6472,
+   "errs": []
+  },
+  {
+   "i": 9,
+   "throws": 0,
+   "spinDistinct": 15,
+   "ms": 8722,
+   "errs": []
+  }
+ ]
+}

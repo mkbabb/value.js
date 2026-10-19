@@ -1,0 +1,42 @@
+{
+ "identical": 980,
+ "gone": [],
+ "moved": [
+  {
+   "section": "collect:parseStylesheet(sheet)",
+   "key": 3115,
+   "source": null,
+   "nonAscii": null,
+   "cpCase": false,
+   "golden": {
+    "diagnostics": [
+     {
+      "actual": "url(./ppmycota-logo-2-CAWHh5aE.svg)",
+      "code": "css_syntax",
+      "end": 35,
+      "expected": [
+       "scalar"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   },
+   "arm": {
+    "diagnostics": [
+     {
+      "actual": "oklch(from var(--foreground) clamp(.28,l,.34) clamp(.03,c,.05) h)",
+      "code": "color_context_required",
+      "end": 65,
+      "expected": [
+       "context-free color"
+      ],
+      "start": 0
+     }
+    ],
+    "ok": false
+   }
+  }
+ ],
+ "new": []
+}

@@ -1,4 +1,5 @@
 import { userTest as test, expect } from "../fixtures/user-auth";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #5 — palette-delete (delete an owned remote palette).
@@ -42,9 +43,11 @@ test("delete an owned remote palette DELETEs /palettes/<slug>", async ({
     });
 
     await page.goto("/#/browse");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await main.getByRole("button", { name: "Palette menu" }).first().click();
     await page.getByRole("menuitem", { name: /^Delete$/ }).click();
+    // UIA-V-111 (X.W12U.s1): the owner's delete is confirmed first.
+    await page.getByRole("dialog").getByRole("button", { name: "Delete palette" }).click();
     await expect.poll(() => deleteCalled).toBe(true);
 });

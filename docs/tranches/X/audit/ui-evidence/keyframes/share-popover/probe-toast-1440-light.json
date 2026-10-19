@@ -1,0 +1,1547 @@
+{
+ "vp": "1440",
+ "theme": "light",
+ "samples": {
+  "P1-copy-toast": [
+   {
+    "t": 0,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Link copied to clipboard!",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   }
+  ],
+  "P2-restore-toast": [
+   {
+    "t": 0,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 1000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 1250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 1500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 1750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 2000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 2250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 2500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   },
+   {
+    "t": 2750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     0,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": []
+   }
+  ],
+  "P3-restore-same-scene-toast": [
+   {
+    "t": 0,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 2750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   }
+  ],
+  "P4-error-nostate-toast": [
+   {
+    "t": 0,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     76,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   }
+  ],
+  "P5-error-invalid-toast": [
+   {
+    "t": 0,
+    "toaster": [
+     0,
+     900,
+     1440,
+     152,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       976,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     152,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       976,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     152,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       976,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     152,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       976,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     152,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       976,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     152,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       900,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "No shared state found in URL",
+      "r": [
+       0,
+       976,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "true"
+     }
+    ]
+   }
+  ],
+  "P6-probe-nonstate-json": [
+   {
+    "t": 0,
+    "toaster": [
+     0,
+     900,
+     1440,
+     198,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       1022,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     198,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       1022,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 500,
+    "toaster": [
+     0,
+     900,
+     1440,
+     198,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       1022,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 750,
+    "toaster": [
+     0,
+     900,
+     1440,
+     198,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       1022,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1000,
+    "toaster": [
+     0,
+     900,
+     1440,
+     198,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     },
+     {
+      "t": "Invalid shared state",
+      "r": [
+       0,
+       1022,
+       320,
+       76,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   },
+   {
+    "t": 1250,
+    "toaster": [
+     0,
+     900,
+     1440,
+     122,
+     "1",
+     "none",
+     "static"
+    ],
+    "parent": "SECTION",
+    "toasts": [
+     {
+      "t": "State restored!Animation state loaded fr",
+      "r": [
+       0,
+       900,
+       320,
+       122,
+       "1",
+       "none",
+       "static"
+      ],
+      "mounted": "true",
+      "removed": "false"
+     }
+    ]
+   }
+  ]
+ },
+ "hashAfter": "#/cube",
+ "p4open": 1,
+ "p5inputInvalid": null,
+ "p6open": 0
+}

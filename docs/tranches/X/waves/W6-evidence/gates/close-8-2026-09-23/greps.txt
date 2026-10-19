@@ -1,0 +1,13 @@
+f2: 0
+f7a: 0
+f7b: 0
+f8 tag=: 0
+f9a: 2
+f9b: 0
+f10: 0
+i3 armRuntime: 0
+j Stub: 14
+H2 file: 1
+H2 o29 MOTION-SOURCED: 2 cite: 2
+glass: 7.0.0
+H3 R1 EXIT=0

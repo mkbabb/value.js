@@ -1,0 +1,70 @@
+{
+ "light-1440": {
+  "primary": "light-dark(hsl(24 10% 10%),oklch(0.739 0.134 318.1))",
+  "subs": [
+   {
+    "text": "1.1.Fourier's Problem",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   },
+   {
+    "text": "1.2.1.Sturm-Liouville Theory",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   }
+  ]
+ },
+ "light-390": {
+  "primary": "light-dark(hsl(24 10% 10%),oklch(0.739 0.134 318.1))",
+  "subs": [
+   {
+    "text": "1.1.Fourier's Problem",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   },
+   {
+    "text": "1.2.1.Sturm-Liouville Theory",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   }
+  ]
+ },
+ "dark-1440": {
+  "primary": "oklch(0.739 0.134 318.1)",
+  "subs": [
+   {
+    "text": "1.1.Fourier's Problem",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   },
+   {
+    "text": "1.2.1.Sturm-Liouville Theory",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   }
+  ]
+ },
+ "dark-390": {
+  "primary": "oklch(0.739 0.134 318.1)",
+  "subs": [
+   {
+    "text": "1.1.Fourier's Problem",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   },
+   {
+    "text": "1.2.1.Sturm-Liouville Theory",
+    "mt": "40px",
+    "above": 40,
+    "below": 20
+   }
+  ]
+ }
+}

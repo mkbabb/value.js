@@ -1,0 +1,85 @@
+{
+ "scheme": "light",
+ "url": "http://localhost:9000/",
+ "at": "2026-09-25T16:35:20.746Z",
+ "ambientL": "0.7900",
+ "modelGroundY": 0.493,
+ "rows": [
+  {
+   "sel": ".dock-plate",
+   "box": [
+    480,
+    10,
+    479,
+    61
+   ],
+   "composite": {
+    "Ymin": 0,
+    "Ymed": 0.3824,
+    "Ymax": 0.3853
+   },
+   "ground": {
+    "Ymin": 0,
+    "Ymed": 0.4507,
+    "Ymax": 0.4599
+   }
+  },
+  {
+   "sel": "[data-surface=\"veil\"]",
+   "box": [
+    220,
+    512,
+    469,
+    190
+   ],
+   "composite": {
+    "Ymin": 0.0378,
+    "Ymed": 0.1683,
+    "Ymax": 0.8936
+   },
+   "ground": {
+    "Ymin": 0.2968,
+    "Ymed": 0.2968,
+    "Ymax": 0.3579
+   }
+  },
+  {
+   "sel": ".glass-resting",
+   "box": [
+    199,
+    112,
+    512,
+    609
+   ],
+   "composite": {
+    "Ymin": 0.0021,
+    "Ymed": 0.1695,
+    "Ymax": 1
+   },
+   "ground": {
+    "Ymin": 0.2955,
+    "Ymed": 0.3021,
+    "Ymax": 1
+   }
+  },
+  {
+   "sel": ".glass-resting",
+   "box": [
+    729,
+    112,
+    512,
+    609
+   ],
+   "composite": {
+    "Ymin": 0.01,
+    "Ymed": 0.2967,
+    "Ymax": 0.7618
+   },
+   "ground": {
+    "Ymin": 0.3007,
+    "Ymed": 0.3894,
+    "Ymax": 0.4781
+   }
+  }
+ ]
+}

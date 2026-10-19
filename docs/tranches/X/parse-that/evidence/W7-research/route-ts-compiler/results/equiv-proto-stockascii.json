@@ -1,0 +1,70 @@
+{
+ "arm": "proto-stockascii",
+ "corpus": 29944,
+ "entries": {
+  "parseCssColor": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 14790,
+    "cand": 14790
+   },
+   "samples": []
+  },
+  "parseCssScalar": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 23601,
+    "cand": 23601
+   },
+   "samples": []
+  },
+  "parseCssValue": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 17605,
+    "cand": 17605
+   },
+   "samples": []
+  },
+  "parseCssValues": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 17605,
+    "cand": 17605
+   },
+   "samples": []
+  },
+  "parseKeyframeSelector": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 29944,
+    "cand": 29944
+   },
+   "samples": []
+  },
+  "parseTimingFunction": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 27096,
+    "cand": 27096
+   },
+   "samples": []
+  },
+  "parseStylesheet": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 28186,
+    "cand": 28186
+   },
+   "samples": []
+  }
+ },
+ "totalMismatches": 0
+}

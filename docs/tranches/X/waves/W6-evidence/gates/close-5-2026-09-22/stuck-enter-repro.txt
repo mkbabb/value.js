@@ -1,0 +1,7 @@
+⟨cmd⟩ node .close5-stuck.mjs (5 fresh browsers, first nav, 6 s settle, fresh vite :8891)
+0 {"barX":-351,"enterFrom":2,"enterActive":2}
+1 {"barX":224,"enterFrom":0,"enterActive":0}
+2 {"barX":224,"enterFrom":0,"enterActive":0}
+3 {"barX":224,"enterFrom":0,"enterActive":0}
+4 {"barX":224,"enterFrom":0,"enterActive":0}
+EXIT=0

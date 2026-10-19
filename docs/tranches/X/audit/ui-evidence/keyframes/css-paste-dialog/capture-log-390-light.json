@@ -1,0 +1,626 @@
+{
+  "kf": {
+    "sha": "60477b06",
+    "dirty": 7
+  },
+  "glass": {
+    "sha": "6433284a",
+    "dirty": 1
+  },
+  "when": "2026-09-23T17:30:25.958Z",
+  "runs": [
+    {
+      "tag": "390-light",
+      "frames": [],
+      "notes": {
+        "fail:import-open": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Import', exact: true }).filter({ visible: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=",
+        "fail:typed-focus": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=dialog-content] textarea').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:parse-error": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=dialog-content] textarea').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:no-stops": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=dialog-content] textarea').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:long-line": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=dialog-content] textarea').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:keyboard-focus": "TimeoutError: locator.focus: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=dialog-content] textarea').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:busy": "TimeoutError: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=dialog-content] textarea').filter({ visible: true }).first()\u001b[22m\n",
+        "fail:addcss": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Add CSS', exact: true }).filter({ visible: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type",
+        "fail:reopen-draft": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Import', exact: true }).filter({ visible: true }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button type="
+      },
+      "errs": [
+        "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "tag": "390-light",
+      "frames": [
+        {
+          "frame": "20-spring-add-trigger-hover-390-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 390,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": {
+            "box": [
+              81,
+              660,
+              1,
+              1
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "font": "12.179px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "",
+            "t": "Add keyframes"
+          },
+          "focus": "Controls panel fv=false outline=none/none",
+          "docOverflowX": [
+            390,
+            390
+          ]
+        },
+        {
+          "frame": "21-spring-add-open-390-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 390,
+          "dialog": {
+            "box": [
+              0,
+              178,
+              390,
+              488
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "512px",
+            "inlineSize": "390px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              25,
+              310,
+              340,
+              237
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "14px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 0,
+            "scrollH": 234,
+            "clientH": 234
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                25,
+                563,
+                340,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "14px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule gap-2",
+              "disabled": true,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                349,
+                209,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              25,
+              627,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "none",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Add keyframes fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / ",
+          "docOverflowX": [
+            390,
+            390
+          ],
+          "crop": "21-spring-add-open-390-light-crop.png"
+        },
+        {
+          "frame": "22-spring-add-parse-error-390-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 390,
+          "dialog": {
+            "box": [
+              0,
+              178,
+              390,
+              488
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "512px",
+            "inlineSize": "390px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              25,
+              310,
+              340,
+              237
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "14px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 37,
+            "scrollH": 234,
+            "clientH": 234
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                25,
+                563,
+                340,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "14px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                349,
+                209,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              25,
+              627,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "matrix(0, 0, 0, 1, 0, 0)",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Could not add keyframesInvalid animation CSS: css_syntax at 0-5: expected scalar, got calc(Retry",
+              "type": "error",
+              "box": [
+                0,
+                844,
+                256,
+                139
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add keyframes fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            390,
+            390
+          ],
+          "crop": "22-spring-add-parse-error-390-light-crop.png"
+        },
+        {
+          "frame": "23-spring-add-submit-sweep-390-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 390,
+          "dialog": {
+            "box": [
+              0,
+              178,
+              390,
+              488
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "512px",
+            "inlineSize": "390px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              25,
+              310,
+              340,
+              237
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "14px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 58,
+            "scrollH": 234,
+            "clientH": 234
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                22,
+                562,
+                345,
+                41
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "14px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                349,
+                209,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              25,
+              627,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "matrix(0.148104, 0, 0, 1, 0, 0)",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Could not add keyframesCannot interpolate mixed percentage lengths for \"transform\" without a property-specific percentage basis.Retry",
+              "type": "error",
+              "box": [
+                0,
+                844,
+                256,
+                178
+              ],
+              "op": "1"
+            },
+            {
+              "t": "Could not add keyframesInvalid animation CSS: css_syntax at 0-5: expected scalar, got calc(Retry",
+              "type": "error",
+              "box": [
+                0,
+                1022,
+                256,
+                139
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add keyframes fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            390,
+            390
+          ],
+          "crop": "23-spring-add-submit-sweep-390-light-crop.png"
+        },
+        {
+          "frame": "24-spring-add-after-390-light.png",
+          "kf": {
+            "sha": "531aa3f1",
+            "dirty": 2
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 390,
+          "dialog": {
+            "box": [
+              0,
+              178,
+              390,
+              488
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "512px",
+            "inlineSize": "390px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              25,
+              310,
+              340,
+              237
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "14px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 58,
+            "scrollH": 234,
+            "clientH": 234
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                25,
+                563,
+                340,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "14px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                349,
+                209,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              25,
+              627,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "matrix(0, 0, 0, 1, 0, 0)",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Could not add keyframesCannot interpolate mixed percentage lengths for \"transform\" without a property-specific percentage basis.Retry",
+              "type": "error",
+              "box": [
+                0,
+                844,
+                256,
+                178
+              ],
+              "op": "1"
+            },
+            {
+              "t": "Could not add keyframesInvalid animation CSS: css_syntax at 0-5: expected scalar, got calc(Retry",
+              "type": "error",
+              "box": [
+                0,
+                1022,
+                256,
+                139
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add keyframes fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            390,
+            390
+          ],
+          "crop": "24-spring-add-after-390-light-crop.png"
+        }
+      ],
+      "notes": {
+        "triggerCount": 2
+      },
+      "errs": [
+        "console: TypeError: Invalid animation CSS: css_syntax at 0-5: expected scalar, got calc(\n    at parseAnimationCSS (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/demo/components/instrument/keyframes/utils/parseAnimationCSS.ts:21:9)\n",
+        "console: TypeError: Cannot interpolate mixed percentage lengths for \"transform\" without a property-specific percentage basis.\n    at createInterpSlot (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/compile/frame/interp"
+      ]
+    }
+  ]
+}

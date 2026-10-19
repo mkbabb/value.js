@@ -1,0 +1,10 @@
+
+Running 6 tests using 2 workers
+
+[1/6] [chromium] › e2e/f-w14-uia.spec.ts:411:5 › UIA-F-36 — the users batch bar docks below the list without displacing it › ticking a row neither moves the rows nor seats the bar off-screen
+[2/6] [chromium] › e2e/f-w14-uia.spec.ts:434:5 › UIA-F-37 — the mobile users toolbar keeps its search usable › at 390 the search field spans the panel; the sort Select carries no literal height
+[3/6] [chromium] › e2e/f-w14-uia.spec.ts:457:5 › UIA-F-42 — at 390 every audit field is legible (cured by .t's DataTable, b5a650f) › no audit cell collapses to 0 px and no action badge overflows its pill
+[4/6] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ mobile (375×667) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[5/6] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ laptop (1280×800) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+[6/6] [chromium] › e2e/visualization-crud.spec.ts:457:9 › visualization CRUD lifecycle @ desktop (1440×900) @mutating › full lifecycle: upload → draft → publish → unlisted → delete → restore @mutating
+  6 passed (46.7s)

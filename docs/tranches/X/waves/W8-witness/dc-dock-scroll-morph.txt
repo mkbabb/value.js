@@ -1,0 +1,14 @@
+SERVED MODEL: claude-opus-5-5
+X.W8.dc · DOCK-SCROLL-MORPH (§0bc; relay O-55) — read-only, 2026-10-17
+$ node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"
+10.1.0
+$ grep -n -iE 'scroll|progress|rim|compact' dist/components/dock/composables/useDockShellProps.d.ts dist/components/dock/index.d.ts dist/components/dock/GlassDock.vue.d.ts | wc -l
+0
+$ grep -rn 'collapseOnScroll' dist --include='*.d.ts' | cut -d: -f1 | sort -u
+dist/components/dock/composables/useDockSearch.d.ts
+dist/composables/motion/scroll/useScrollChrome.d.ts
+$ grep -n -iE 'radius|clip|dock' dist/components/scroll-progress-rim/*.d.ts | wc -l
+0
+$ grep -n 'N-7a' ../glass-ui/docs/tranches/BL/LEDGER.md
+292:| N-7a | c:82 | OPEN | BUILD | W-0.8 | seat | compact-on-scroll and the rim as an opt-in plate seat (W-0.8 §8) |
+READING: GlassDock's props carry no scroll/compact/progress member (0); collapseOnScroll exists only on useDockSearch (the search seam's opt-in shrink+fade via useScrollChrome), not a compact-on-scroll dock; ScrollProgressRim is standalone with no radius/clip/dock coupling (0). glass BL N-7a (compact-on-scroll + the rim as an opt-in plate seat) OPEN at W-0.8. => honest-RED by id, O-55; no consumer copy written.

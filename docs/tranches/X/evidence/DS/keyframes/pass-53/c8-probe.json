@@ -1,0 +1,347 @@
+{
+ "fails": [],
+ "cells": {
+  "spring-1440x900-light-600ms": {
+   "scrollTop": 200,
+   "maxScroll": 200,
+   "portTop": 191.8,
+   "fold": 509.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    491,
+    509.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 704.2,
+   "freePlate": 45.9,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "318px"
+  },
+  "spring-1440x900-light-2500ms": {
+   "scrollTop": 200,
+   "maxScroll": 200,
+   "portTop": 191.8,
+   "fold": 509.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    491,
+    509.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 704.2,
+   "freePlate": 45.9,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "318px"
+  },
+  "spring-1440x900-light-scrolled-up": {
+   "on": true
+  },
+  "spring-1280x800-light-600ms": {
+   "scrollTop": 194,
+   "maxScroll": 194,
+   "portTop": 185.8,
+   "fold": 508.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    490.5,
+    508.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 628.4,
+   "freePlate": 26.3,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "323px"
+  },
+  "spring-1280x800-light-2500ms": {
+   "scrollTop": 194,
+   "maxScroll": 194,
+   "portTop": 185.8,
+   "fold": 508.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    490.5,
+    508.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 628.4,
+   "freePlate": 26.3,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "323px"
+  },
+  "spring-1280x800-light-scrolled-up": {
+   "on": true
+  },
+  "spring-1440x1080-light-600ms": {
+   "scrollTop": 49,
+   "maxScroll": 49,
+   "portTop": 202.6,
+   "fold": 671.6,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    652.8,
+    671.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 866,
+   "freePlate": 64.1,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "469px"
+  },
+  "spring-1440x1080-light-2500ms": {
+   "scrollTop": 49,
+   "maxScroll": 49,
+   "portTop": 202.6,
+   "fold": 671.6,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    652.8,
+    671.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 866,
+   "freePlate": 64.1,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "469px"
+  },
+  "spring-1440x1080-light-scrolled-up": {
+   "on": true
+  },
+  "spring-1440x900-dark-600ms": {
+   "scrollTop": 200,
+   "maxScroll": 200,
+   "portTop": 191.8,
+   "fold": 509.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    491,
+    509.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 704.2,
+   "freePlate": 45.9,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "318px"
+  },
+  "spring-1440x900-dark-2500ms": {
+   "scrollTop": 200,
+   "maxScroll": 200,
+   "portTop": 191.8,
+   "fold": 509.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    491,
+    509.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 704.2,
+   "freePlate": 45.9,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "318px"
+  },
+  "spring-1440x900-dark-scrolled-up": {
+   "on": true
+  },
+  "spring-1280x800-dark-600ms": {
+   "scrollTop": 194,
+   "maxScroll": 194,
+   "portTop": 185.8,
+   "fold": 508.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    490.5,
+    508.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 628.4,
+   "freePlate": 26.3,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "323px"
+  },
+  "spring-1280x800-dark-2500ms": {
+   "scrollTop": 194,
+   "maxScroll": 194,
+   "portTop": 185.8,
+   "fold": 508.8,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    490.5,
+    508.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 628.4,
+   "freePlate": 26.3,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "323px"
+  },
+  "spring-1280x800-dark-scrolled-up": {
+   "on": true
+  },
+  "spring-1440x1080-dark-600ms": {
+   "scrollTop": 49,
+   "maxScroll": 49,
+   "portTop": 202.6,
+   "fold": 671.6,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    652.8,
+    671.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 866,
+   "freePlate": 64.1,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "469px"
+  },
+  "spring-1440x1080-dark-2500ms": {
+   "scrollTop": 49,
+   "maxScroll": 49,
+   "portTop": 202.6,
+   "fold": 671.6,
+   "fade": 16,
+   "startFade": false,
+   "fadeStartPx": 0,
+   "labels": [
+    652.8,
+    671.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 866,
+   "freePlate": 64.1,
+   "titleInPort": false,
+   "cuts": [],
+   "faded": [],
+   "maxBlockSize": "469px"
+  },
+  "spring-1440x1080-dark-scrolled-up": {
+   "on": true
+  }
+ }
+}

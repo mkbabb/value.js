@@ -1,0 +1,56 @@
+### 04:02:12 VJS_E2E_PORT=8813 npx playwright test e2e/smoke/oracles/o29-scene-contracts.spec.ts
+(node:68562) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:68613) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 6 tests using 1 worker
+
+[1A[2K(node:68618) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions
+[1A[2K[2m[WebServer] [22m[2m4:02:19 AM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[Vue warn]: Template ref "visualizer" used on a non-ref value. It will not work in the production build.
+
+[1A[2K[2/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene
+[1A[2K[2m[WebServer] [22m[2m4:02:29 AM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[Vue warn]: Template ref "visualizer" used on a non-ref value. It will not work in the production build.
+
+[1A[2K[3/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:379:5 › preview survives — blob: the preview repaints after a forced WebGL context loss
+[1A[2K[4/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:379:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss
+[1A[2K[5/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450
+[j4] blob preview@rest=1.000 last="Reset" inViewport=true hit=true rect={"x":383.4375,"y":378.953125,"w":84.03125,"h":36} preview@last=0.000
+
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+
+    Error: the preview is not reachable beside the last control
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      599 |                 withLast,
+      600 |                 "the preview is not reachable beside the last control",
+    > 601 |             ).toBeGreaterThan(0);
+          |               ^
+      602 |         });
+      603 |     }
+      604 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:601:15
+
+    Error Context: test-results/oracles-o29-scene-contract-1e91c-e-both-reachable-at-720×450-smoke/error-context.md
+
+
+[1A[2K(node:69227) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/6] [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[1A[2K[smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450
+[j4] atmosphere preview@rest=0.164 last="Reset" inViewport=true hit=true rect={"x":383.4375,"y":378.96875,"w":84.03125,"h":36} preview@last=0.079
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:578:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+  5 passed (40.9s)
+EXIT=1

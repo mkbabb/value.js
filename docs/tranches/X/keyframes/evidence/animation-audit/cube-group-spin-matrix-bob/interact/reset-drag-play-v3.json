@@ -1,0 +1,141 @@
+{
+ "khead": "d78bed01",
+ "kdirty": "4",
+ "armB_resetDragPlay": {
+  "buttonsAtLoad": [
+   {
+    "label": "Pause animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Pause animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "afterReset": {
+   "cube": "rotateX(0deg) rotateY(0turn) rotateZ(0deg)",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+   "bob": "translateY(0px)"
+  },
+  "buttonsAfterReset": [
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Play animation",
+    "vis": false,
+    "rect": [
+     535,
+     765,
+     32,
+     40
+    ]
+   }
+  ],
+  "afterDrag": {
+   "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+   "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+   "bob": "translateY(0px)"
+  },
+  "buttonsBeforePlay": [
+   {
+    "label": "Play animation",
+    "vis": false,
+    "rect": [
+     692,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     654,
+     773,
+     32,
+     40
+    ]
+   }
+  ],
+  "clicked": [
+   612,
+   776,
+   34
+  ],
+  "buttonsAfterPlay": [
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     593,
+     773,
+     40,
+     40
+    ]
+   },
+   {
+    "label": "Play animation",
+    "vis": true,
+    "rect": [
+     546,
+     773,
+     32,
+     40
+    ]
+   }
+  ],
+  "seriesAfterPlay": [
+   {
+    "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   },
+   {
+    "cube": "matrix3d(0.305884, -0.347442, 0.886408, 0, -0.346477, 0.8265",
+    "pose": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1",
+    "bob": "translateY(0px)"
+   }
+  ]
+ }
+}

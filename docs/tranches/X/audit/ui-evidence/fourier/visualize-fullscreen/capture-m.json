@@ -1,0 +1,488 @@
+{
+ "light": [
+  {
+   "n": "a-canvas-tab",
+   "view": null,
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@265,147(inert)",
+    "Publish to Gallery@339,147(inert)",
+    "Equation@392,147(inert)",
+    "Fullscreen@466,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "b-topdock-tapped-centre",
+   "view": "{\"editing\":true,\"overlay\":false,\"equation\":false}",
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    134,
+    138,
+    122,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "Fullscreen@148,147",
+    "Edit contour@193,145"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "b2-topdock-expanded-via-summary",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    100,
+    138,
+    190,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "View options@114,147",
+    "Publish to Gallery@188,147",
+    "Equation@242,147",
+    "Fullscreen@316,147",
+    "Edit contour@229,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "0-fs-open",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    100,
+    138,
+    190,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "View options@-19,147",
+    "Publish to Gallery@54,147",
+    "Equation@108,147",
+    "Fullscreen@182,147",
+    "Edit contour@229,147"
+   ],
+   "adock": [
+    135,
+    766,
+    119,
+    66,
+    "collapsed"
+   ],
+   "canvasCss": "372.119px",
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "1-fs-playing",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@131,147(inert)",
+    "Publish to Gallery@205,147(inert)",
+    "Equation@259,147(inert)",
+    "Fullscreen@333,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": [
+    135,
+    766,
+    119,
+    66,
+    "collapsed"
+   ],
+   "canvasCss": "372.119px",
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "2-fs-anim-dock-expanded",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@131,147(inert)",
+    "Publish to Gallery@205,147(inert)",
+    "Equation@259,147(inert)",
+    "Fullscreen@333,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": [
+    39,
+    766,
+    312,
+    66,
+    "expanded"
+   ],
+   "canvasCss": "372.119px",
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "3-fs-more-menu",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@131,147(inert)",
+    "Publish to Gallery@205,147(inert)",
+    "Equation@259,147(inert)",
+    "Fullscreen@333,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": [
+    39,
+    766,
+    312,
+    66,
+    "expanded"
+   ],
+   "canvasCss": "372.119px",
+   "menu": {
+    "rect": [
+     127,
+     395,
+     204,
+     384
+    ],
+    "visibleOnTop": false
+   },
+   "scrollW": 390
+  },
+  {
+   "n": "c-topdock-expanded-for-edit",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    100,
+    138,
+    190,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "View options@-10,147",
+    "Publish to Gallery@64,147",
+    "Equation@118,147",
+    "Fullscreen@192,147",
+    "Edit contour@229,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "6-fs-editing",
+   "view": "{\"editing\":true,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": true,
+   "dock": [
+    134,
+    138,
+    122,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "Fullscreen@146,145",
+    "Edit contour@195,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  }
+ ],
+ "dark": [
+  {
+   "n": "a-canvas-tab",
+   "view": null,
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@265,147(inert)",
+    "Publish to Gallery@339,147(inert)",
+    "Equation@392,147(inert)",
+    "Fullscreen@466,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "b-topdock-tapped-centre",
+   "view": "{\"editing\":true,\"overlay\":false,\"equation\":false}",
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    134,
+    138,
+    122,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "Fullscreen@148,147",
+    "Edit contour@193,145"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "b2-topdock-expanded-via-summary",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    100,
+    138,
+    190,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "View options@114,147",
+    "Publish to Gallery@188,147",
+    "Equation@242,147",
+    "Fullscreen@316,147",
+    "Edit contour@229,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "0-fs-open",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    100,
+    138,
+    190,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "View options@-19,147",
+    "Publish to Gallery@54,147",
+    "Equation@108,147",
+    "Fullscreen@182,147",
+    "Edit contour@229,147"
+   ],
+   "adock": [
+    135,
+    766,
+    119,
+    66,
+    "collapsed"
+   ],
+   "canvasCss": "372.119px",
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "1-fs-playing",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@131,147(inert)",
+    "Publish to Gallery@205,147(inert)",
+    "Equation@259,147(inert)",
+    "Fullscreen@333,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": [
+    135,
+    766,
+    119,
+    66,
+    "collapsed"
+   ],
+   "canvasCss": "372.119px",
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "2-fs-anim-dock-expanded",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@131,147(inert)",
+    "Publish to Gallery@205,147(inert)",
+    "Equation@259,147(inert)",
+    "Fullscreen@333,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": [
+    39,
+    766,
+    312,
+    66,
+    "expanded"
+   ],
+   "canvasCss": "372.119px",
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "3-fs-more-menu",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": false,
+   "dock": [
+    265,
+    138,
+    112,
+    66,
+    "collapsed"
+   ],
+   "controls": [
+    "View options@131,147(inert)",
+    "Publish to Gallery@205,147(inert)",
+    "Equation@259,147(inert)",
+    "Fullscreen@333,147(inert)",
+    "Expand dock@274,147",
+    "Edit contour@321,147"
+   ],
+   "adock": [
+    39,
+    766,
+    312,
+    66,
+    "expanded"
+   ],
+   "canvasCss": "372.119px",
+   "menu": {
+    "rect": [
+     127,
+     395,
+     204,
+     384
+    ],
+    "visibleOnTop": false
+   },
+   "scrollW": 390
+  },
+  {
+   "n": "c-topdock-expanded-for-edit",
+   "view": "{\"editing\":false,\"overlay\":false,\"equation\":false}",
+   "dlg": false,
+   "editorShellInDlg": false,
+   "dock": [
+    100,
+    138,
+    190,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "View options@-10,147",
+    "Publish to Gallery@64,147",
+    "Equation@118,147",
+    "Fullscreen@192,147",
+    "Edit contour@229,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  },
+  {
+   "n": "6-fs-editing",
+   "view": "{\"editing\":true,\"overlay\":false,\"equation\":false}",
+   "dlg": true,
+   "editorShellInDlg": true,
+   "dock": [
+    134,
+    138,
+    122,
+    66,
+    "expanded"
+   ],
+   "controls": [
+    "Fullscreen@146,145",
+    "Edit contour@195,147"
+   ],
+   "adock": null,
+   "menu": null,
+   "scrollW": 390
+  }
+ ]
+}

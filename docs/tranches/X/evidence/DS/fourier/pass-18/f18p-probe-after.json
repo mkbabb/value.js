@@ -1,0 +1,86 @@
+{
+ "light-1440": {
+  "nf": {
+   "cardX": 518.7,
+   "cardW": 402.5,
+   "pad": 0,
+   "contentRight": 900.3,
+   "rightSlack": 21
+  }
+ },
+ "light-390": {
+  "nf": {
+   "cardX": 16,
+   "cardW": 358,
+   "pad": 0,
+   "contentRight": 361,
+   "rightSlack": 13
+  },
+  "band": {
+   "btn": {
+    "x": 21,
+    "r": 229.5,
+    "w": 208.5
+   },
+   "label": {
+    "x": 45,
+    "r": 154.8,
+    "w": 109.8
+   },
+   "chevron": {
+    "x": 158.8,
+    "r": 172.8,
+    "w": 14
+   },
+   "readout": {
+    "x": 233.5,
+    "r": 311,
+    "w": 77.5
+   },
+   "text": "0.1.Introduction",
+   "labelToChevron": 4
+  }
+ },
+ "dark-1440": {
+  "nf": {
+   "cardX": 518.7,
+   "cardW": 402.5,
+   "pad": 0,
+   "contentRight": 900.3,
+   "rightSlack": 21
+  }
+ },
+ "dark-390": {
+  "nf": {
+   "cardX": 16,
+   "cardW": 358,
+   "pad": 0,
+   "contentRight": 361,
+   "rightSlack": 13
+  },
+  "band": {
+   "btn": {
+    "x": 21,
+    "r": 229.5,
+    "w": 208.5
+   },
+   "label": {
+    "x": 45,
+    "r": 154.8,
+    "w": 109.8
+   },
+   "chevron": {
+    "x": 158.8,
+    "r": 172.8,
+    "w": 14
+   },
+   "readout": {
+    "x": 233.5,
+    "r": 311,
+    "w": 77.5
+   },
+   "text": "0.1.Introduction",
+   "labelToChevron": 4
+  }
+ }
+}

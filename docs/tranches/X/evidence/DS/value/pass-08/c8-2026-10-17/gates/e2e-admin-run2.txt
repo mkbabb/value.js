@@ -1,0 +1,19 @@
+(node:21133) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2m[WebServer] [22m(node:21291) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:21336) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows (10.6s)
+  ✓  2 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:58:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows (2.4s)
+  ✓  3 [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:99:1 › admin-flagged renders a seeded flagged palette + moderation actions (569ms)
+  ✓  4 [smoke-admin] › e2e/smoke/admin/admin-walk.spec.ts:52:1 › walk all 5 admin views sequentially with zero console errors (6.6s)
+  ✓  5 [smoke-admin] › e2e/smoke/admin/o10d-admin-title-voice.spec.ts:17:1 › O-10d (admin) — the flagged-panel palette name speaks the display voice, ≤500, non-italic (365ms)
+  ✓  6 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:51:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts (372ms)
+  ✓  7 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:72:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect (327ms)
+  ✓  8 [smoke-admin] › e2e/smoke/admin/route-guard.spec.ts:89:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (308ms)
+
+  8 passed (24.0s)

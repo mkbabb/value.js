@@ -1,0 +1,50 @@
+=== RUN 1 load  54.79 54.51 88.57
+[WebServer] ┆                  ^-- Unexpected end of input
+[WebServer] ┆                      ^-- Unexpected token Delim('*')
+[WebServer] ┆                       ^-- Unexpected token Delim('*')
+[WebServer] ┆                        ^-- Unexpected token Delim('*')
+[WebServer] ┆                     ^-- Unexpected token Delim('.')
+[WebServer] ┆                        ^-- Unexpected end of input
+[WebServer] ┆                                     ^-- Unexpected token Delim('/')
+[WebServer] ┆                ^-- Unexpected token Ident("…")
+[WebServer] ┆                        ^-- Unexpected end of input
+[WebServer] ┆                              ^-- Unexpected end of input
+[WebServer] ┆                        ^-- Unexpected token Delim('.')
+[WebServer] ┆                              ^-- Unexpected token Delim('.')
+[WebServer] ┆                    ^-- Unexpected end of input
+[WebServer] ┆                                     ^-- Unexpected end of input
+[WebServer] ┆                    ^-- Unexpected token Delim('.')
+[WebServer] ┆                                     ^-- Unexpected token Delim('.')
+[w12-drag REAL-GPU] surface: moves=28 frames=105 p50=16.7 p95=33.3 longTasks=1 maxTask=54
+[w12-drag REAL-GPU] slider L: moves=33 frames=93 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider a: moves=31 frames=93 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider b: moves=32 frames=90 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider alpha: moves=40 frames=121 p50=16.7 p95=16.7 longTasks=0 maxTask=0
+[w12-drag] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev T=16.70 budget p50<=17.70 p95<=34.40
+[w12u-p REAL-GPU] surface: moves=28 frames=108 p50=16.7 p95=33.4 longTasks=1 maxTask=53 dockRoving=0/0f dockText=27
+[w12u-p REAL-GPU] slider L: moves=31 frames=92 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=31
+[w12u-p REAL-GPU] slider a: moves=35 frames=89 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=35
+[w12u-p REAL-GPU] slider b: moves=29 frames=101 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=28
+[w12u-p REAL-GPU] slider alpha: moves=47 frames=132 p50=16.7 p95=16.7 longTasks=0 maxTask=0 dockRoving=0/0f dockText=46
+[w12u-p] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev bisect=none T=16.70 budget p50<=17.70 p95<=34.40
+  2 passed (2.5m)
+=== RUN 2 load  72.66 62.97 86.54
+[w12-drag REAL-GPU] surface: moves=29 frames=94 p50=16.7 p95=33.3 longTasks=1 maxTask=51
+[w12-drag REAL-GPU] slider L: moves=41 frames=89 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider a: moves=40 frames=89 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider b: moves=37 frames=86 p50=16.7 p95=33.4 longTasks=0 maxTask=0
+[w12-drag REAL-GPU] slider alpha: moves=62 frames=121 p50=16.7 p95=16.8 longTasks=0 maxTask=0
+[w12-drag] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev T=16.70 budget p50<=17.70 p95<=34.40
+[w12u-p REAL-GPU] surface: moves=34 frames=106 p50=16.7 p95=33.4 longTasks=1 maxTask=50 dockRoving=0/0f dockText=33
+[w12u-p REAL-GPU] slider L: moves=36 frames=91 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=36
+[w12u-p REAL-GPU] slider a: moves=37 frames=91 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=36
+[w12u-p REAL-GPU] slider b: moves=35 frames=92 p50=16.7 p95=33.4 longTasks=0 maxTask=0 dockRoving=0/0f dockText=35
+[w12u-p REAL-GPU] slider alpha: moves=26 frames=69 p50=16.7 p95=116.6 longTasks=12 maxTask=130 dockRoving=0/0f dockText=2
+[w12u-p] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) origin=dev bisect=none T=16.70 budget p50<=17.70 p95<=34.40
+    Error: slider alpha: drag frame p95 over 2·T (T=16.70 ms)
+    expect(received).toBeLessThanOrEqual(expected)
+      275 |             expect(r.p50, `${r.name}: drag frame p50 over 1·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(budget.p50Ms);
+    > 276 |             expect(r.p95, `${r.name}: drag frame p95 over 2·T (T=${budget.T.toFixed(2)} ms)`).toBeLessThanOrEqual(budget.p95Ms);
+    Error Context: test-results/w12u-p-drag-w12u-p-—-colou-0b5e5-s-not-re-rendered-per-frame-smoke/error-context.md
+  1 failed
+  1 passed (1.7m)

@@ -1,0 +1,11 @@
+captured 390-light-01-switch-open.png
+captured 390-light-02-switch-settled.png
+captured 390-light-06-focus-tab1.png
+captured 390-light-07-focus-tab2.png
+captured 390-light-08-after-escape.png
+FAILED 390 light B locator.fill: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('input[aria-label="Slug or admin token"]')
+captured 390-light-11-publish-api-down-outcome.png
+captured 390-light-12-regenerate-mode.png
+done 8 frames {"head":"aaae783b","dirty":5}

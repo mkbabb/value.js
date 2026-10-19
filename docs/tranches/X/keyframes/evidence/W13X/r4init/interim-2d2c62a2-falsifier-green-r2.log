@@ -1,0 +1,10 @@
+kf 2d2c62a2 clean=0 · 13:22  up 5 days, 18:24, 2 users, load averages: 12.68 11.33 13.13
+
+ RUN  v4.1.8 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/r4init-after
+
+
+ Test Files  2 passed (2)
+      Tests  8 passed (8)
+   Start at  13:22:13
+   Duration  4.96s (transform 1.96s, setup 23ms, import 2.57s, tests 2.42s, environment 518ms)
+

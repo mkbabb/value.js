@@ -1,0 +1,14 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/generate/generate-rail.test.ts (1 test) 563ms
+   ✓ GenerateControls count control > V3C-05: Colors is glass's scrubber at the sm rung, with no content-as-track rail  562ms
+ ✓ demo/test/export/byte-exact.test.ts (31 tests) 3025ms
+   ✓ PNG export (§7) > decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans  1414ms
+   ✓ PNG export (§7) > is deterministic: two serializations are byte-identical  1514ms
+
+ Test Files  2 passed (2)
+      Tests  32 passed (32)
+   Start at  06:53:48
+   Duration  3.57s (transform 308ms, setup 63ms, collect 188ms, tests 3.59s, environment 374ms, prepare 70ms)
+

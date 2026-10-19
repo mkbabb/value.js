@@ -1,0 +1,26 @@
+light 1440x900 cube     y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+light 1440x900 amiga    y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+light 1440x900 square   y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=2 code=0 -> PASS
+light 1440x900 easing   y3 stadium-multi=0 | presets=28 rad=16px inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+light 1440x900 spring   y3 stadium-multi=0 | presets=4 rad=16px inner=0 | fig title=[1,1,1] legend=[1,1] | primary=1 violet=1 code=0 -> PASS
+light 1440x900 sequence y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+light 390x844 cube     y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+light 390x844 amiga    y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+light 390x844 square   y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=2 code=0 -> PASS
+light 390x844 easing   y3 stadium-multi=0 | presets=28 rad=16px inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+light 390x844 spring   y3 stadium-multi=0 | presets=4 rad=16px inner=0 | fig title=[1,1,1] legend=[1,1] | primary=1 violet=1 code=0 -> PASS
+light 390x844 sequence y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+dark 1440x900 cube     y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+dark 1440x900 amiga    y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+dark 1440x900 square   y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=2 code=0 -> PASS
+dark 1440x900 easing   y3 stadium-multi=0 | presets=28 rad=16px inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+dark 1440x900 spring   y3 stadium-multi=0 | presets=4 rad=16px inner=0 | fig title=[1,1,1] legend=[1,1] | primary=1 violet=1 code=0 -> PASS
+dark 1440x900 sequence y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+dark 390x844 cube     y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+dark 390x844 amiga    y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=0 code=0 -> PASS
+dark 390x844 square   y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=0 violet=2 code=0 -> PASS
+dark 390x844 easing   y3 stadium-multi=0 | presets=28 rad=16px inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+dark 390x844 spring   y3 stadium-multi=0 | presets=4 rad=16px inner=0 | fig title=[1,1,1] legend=[1,1] | primary=1 violet=1 code=0 -> PASS
+dark 390x844 sequence y3 stadium-multi=0 | presets=0 rad= inner=0 | fig title=[] legend=[] | primary=1 violet=1 code=0 -> PASS
+fails=0
+EXIT 0

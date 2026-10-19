@@ -1,0 +1,7 @@
+## HEAD bytes (f4bd4fd9)
+[1440x900 light] RED  {"filter":{"sets":0,"chips":0,"boxes":0,"labels":0,"name":null,"chipH":0},"editor":{"sets":0,"chips":0,"boxes":9,"labels":0,"name":null,"chipH":0},"inertWhileSaving":null}
+## cured
+[1440x900 light] PASS {"filter":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":null,"chipH":27},"editor":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":"Tags of Remote 0","chipH":29},"inertWhileSaving":true}
+[390x844 light] PASS {"filter":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":null,"chipH":44},"editor":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":"Tags of Remote 0","chipH":47},"inertWhileSaving":true}
+[1440x900 dark] PASS {"filter":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":null,"chipH":27},"editor":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":"Tags of Remote 0","chipH":29},"inertWhileSaving":true}
+[390x844 dark] PASS {"filter":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":null,"chipH":44},"editor":{"sets":1,"chips":9,"boxes":0,"labels":3,"name":"Tags of Remote 0","chipH":47},"inertWhileSaving":true}

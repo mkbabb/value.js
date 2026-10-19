@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `H`: Hue (0° to 360°)
--   `S`: Saturation (0 to 1)
--   `L`: Lightness (0 to 1)
-
 ### Historical Context
 
 HSL was developed in the 1970s as part of computer graphics research—an attempt to give humans a more intuitive handle on color than raw RGB triplets. It separates **hue** (the color itself) from **saturation** (intensity) and **lightness** (brightness), mapping neatly onto how people talk about color in practice.
@@ -40,15 +34,15 @@ HSL was developed in the 1970s as part of computer graphics research—an attemp
 ### Components
 
 1. **`H` (Hue)**:
-   <Katex expression="H = 0^\circ \text{ to } 360^\circ" :display-mode="false" /> (normalized to 0–1)
+   0° to 360° (normalized to 0–1)
 
    The color wheel: 0°/360° red, 60° yellow, 120° green, 180° cyan, 240° blue, 300° magenta.
 
 2. **`S` (Saturation)**:
-   <Katex expression="S = 0 \text{ (grayscale) to } 1 \text{ (fully saturated)}" :display-mode="false" />
+   0 (grayscale) to 1 (fully saturated)
 
 3. **`L` (Lightness)**:
-   <Katex expression="L = 0 \text{ (black) to } 1 \text{ (white)}" :display-mode="false" />
+   0 (black) to 1 (white)
 
    0.5 is the "pure" color—fully saturated at medium brightness.
 

@@ -1,0 +1,570 @@
+{
+ "light": {
+  "literal1440": {
+   "copyInkGap": 15
+  },
+  "spring1440": {
+   "field": 128,
+   "xAxisBottom": 659,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      570
+     ],
+     "label": [
+      268,
+      566,
+      321,
+      580
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      590
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      610
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      556
+     ],
+     "label": null
+    }
+   ]
+  },
+  "entry1440": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(28, 25, 23)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  },
+  "entrySpring1440": {
+   "field": 128,
+   "xAxisBottom": 659,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      570
+     ],
+     "label": [
+      268,
+      566,
+      321,
+      580
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      590
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      610
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      556
+     ],
+     "label": null
+    }
+   ]
+  },
+  "literal390": {
+   "copyInkGap": 24
+  },
+  "entry390": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(28, 25, 23)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  }
+ },
+ "dark": {
+  "literal1440": {
+   "copyInkGap": 15
+  },
+  "spring1440": {
+   "field": 128,
+   "xAxisBottom": 659,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      570
+     ],
+     "label": [
+      268,
+      566,
+      321,
+      580
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      590
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      610
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      556
+     ],
+     "label": null
+    }
+   ]
+  },
+  "entry1440": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(233, 230, 226)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  },
+  "entrySpring1440": {
+   "field": 128,
+   "xAxisBottom": 659,
+   "fold": 527,
+   "fadeEnd": 40,
+   "fadeStart": 487,
+   "axisAboveFade": false,
+   "presets": [
+    278,
+    417
+   ],
+   "presetsAboveFade": true,
+   "pips": [
+    {
+     "name": "smooth",
+     "current": true,
+     "dot": [
+      255,
+      570
+     ],
+     "label": [
+      268,
+      566,
+      321,
+      580
+     ]
+    },
+    {
+     "name": "snappy",
+     "current": false,
+     "dot": [
+      213,
+      590
+     ],
+     "label": null
+    },
+    {
+     "name": "bouncy",
+     "current": false,
+     "dot": [
+      255,
+      610
+     ],
+     "label": null
+    },
+    {
+     "name": "gentle",
+     "current": false,
+     "dot": [
+      311,
+      556
+     ],
+     "label": null
+    }
+   ]
+  },
+  "literal390": {
+   "copyInkGap": 24
+  },
+  "entry390": {
+   "copyInkGap": 16,
+   "copyCentreVsLabel": 1,
+   "preset": {
+    "text": "smooth",
+    "weight": "500",
+    "color": "rgb(233, 230, 226)",
+    "background": "rgba(0, 0, 0, 0)",
+    "shadow": "none"
+   },
+   "chipLeft": false
+  }
+ },
+ "spring1440x900": {
+  "field": 128,
+  "xAxisBottom": 659,
+  "fold": 527,
+  "fadeEnd": 40,
+  "fadeStart": 487,
+  "axisAboveFade": false,
+  "presets": [
+   278,
+   417
+  ],
+  "presetsAboveFade": true,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     255,
+     570
+    ],
+    "label": [
+     268,
+     566,
+     321,
+     580
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     213,
+     590
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     255,
+     610
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     311,
+     556
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1280x760": {
+  "field": 128,
+  "xAxisBottom": 673,
+  "fold": 417,
+  "fadeEnd": 40,
+  "fadeStart": 377,
+  "axisAboveFade": false,
+  "presets": [
+   251,
+   433
+  ],
+  "presetsAboveFade": false,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     241,
+     584
+    ],
+    "label": [
+     254,
+     581,
+     306,
+     595
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     202,
+     605
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     241,
+     624
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     293,
+     571
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1280x800": {
+  "field": 128,
+  "xAxisBottom": 693,
+  "fold": 432,
+  "fadeEnd": 40,
+  "fadeStart": 392,
+  "axisAboveFade": false,
+  "presets": [
+   271,
+   453
+  ],
+  "presetsAboveFade": false,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     241,
+     604
+    ],
+    "label": [
+     254,
+     601,
+     306,
+     615
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     202,
+     625
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     241,
+     644
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     293,
+     591
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1024x700": {
+  "field": 128,
+  "xAxisBottom": 636,
+  "fold": 392,
+  "fadeEnd": 40,
+  "fadeStart": 352,
+  "axisAboveFade": false,
+  "presets": [
+   221,
+   398
+  ],
+  "presetsAboveFade": false,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     198,
+     548
+    ],
+    "label": [
+     212,
+     544,
+     261,
+     558
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     161,
+     568
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     198,
+     588
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     248,
+     534
+    ],
+    "label": null
+   }
+  ]
+ },
+ "spring1440x1080": {
+  "field": 128,
+  "xAxisBottom": 670,
+  "fold": 679,
+  "fadeEnd": 0,
+  "fadeStart": 679,
+  "axisAboveFade": true,
+  "presets": [
+   288,
+   428
+  ],
+  "presetsAboveFade": true,
+  "pips": [
+   {
+    "name": "smooth",
+    "current": true,
+    "dot": [
+     255,
+     581
+    ],
+    "label": [
+     268,
+     577,
+     321,
+     591
+    ]
+   },
+   {
+    "name": "snappy",
+    "current": false,
+    "dot": [
+     213,
+     601
+    ],
+    "label": null
+   },
+   {
+    "name": "bouncy",
+    "current": false,
+    "dot": [
+     255,
+     620
+    ],
+    "label": null
+   },
+   {
+    "name": "gentle",
+    "current": false,
+    "dot": [
+     311,
+     567
+    ],
+    "label": null
+   }
+  ]
+ }
+}

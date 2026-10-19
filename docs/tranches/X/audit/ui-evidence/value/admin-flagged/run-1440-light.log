@@ -1,0 +1,18 @@
+captured a-empty-1440-light.png
+captured b-loading-1440-light.png
+captured c-reports-1440-light.png
+captured c-reports-full-1440-light.png
+captured d-pagination-1440-light.png
+captured e-dismiss-hover-1440-light.png
+captured f-delete-hover-1440-light.png
+captured g-delete-kbdfocus-1440-light.png
+captured h-confirm-dialog-1440-light.png
+captured h2-confirm-tab-1440-light.png
+captured i-after-delete-1440-light.png
+captured j-after-dismiss-1440-light.png
+captured k-page2-1440-light.png
+captured l-load-error-1440-light.png
+ERR 1440-light TimeoutError: page.reload: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for navigation until "load"[22m
+

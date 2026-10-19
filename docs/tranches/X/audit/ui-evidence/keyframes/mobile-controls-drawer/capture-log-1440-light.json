@@ -1,0 +1,128 @@
+{
+ "tree": "/Users/mkbabb/Programming/keyframes.js",
+ "sha": "531aa3f1",
+ "dirty": 24,
+ "when": "2026-09-23T17:49:07.837Z",
+ "runs": [
+  {
+   "tag": "1440-light",
+   "frames": [
+    {
+     "frame": "40-cube-desktop-rail-1440-light.png",
+     "vw": 1440,
+     "vh": 900,
+     "dark": false,
+     "docks": [
+      {
+       "x": 690,
+       "y": 43,
+       "w": 60,
+       "h": 56,
+       "b": 99,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear collapsed fit-content d"
+      },
+      {
+       "x": 581,
+       "y": 765,
+       "w": 279,
+       "h": 56,
+       "b": 821,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded "
+      }
+     ],
+     "rail": {
+      "x": 43,
+      "y": 54,
+      "w": 475,
+      "h": 632,
+      "b": 686,
+      "cls": "controls-pane-wrapper col-start-1 row-start-1 min-w-0 relative z-controls controls-pane--open",
+      "vis": "block"
+     },
+     "focus": "BODY"
+    },
+    {
+     "frame": "41-cube-desktop-keyframes-1440-light.png",
+     "vw": 1440,
+     "vh": 900,
+     "dark": false,
+     "docks": [
+      {
+       "x": 509,
+       "y": 43,
+       "w": 423,
+       "h": 56,
+       "b": 99,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 692,
+       "y": 765,
+       "w": 56,
+       "h": 56,
+       "b": 821,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "rail": {
+      "x": 43,
+      "y": 54,
+      "w": 475,
+      "h": 614,
+      "b": 668,
+      "cls": "controls-pane-wrapper col-start-1 row-start-1 min-w-0 relative z-controls controls-pane--open controls-pane--hovered",
+      "vis": "block"
+     },
+     "focus": "Controls tab [fv]"
+    },
+    {
+     "frame": "42-cube-desktop-timeline-1440-light.png",
+     "vw": 1440,
+     "vh": 900,
+     "dark": false,
+     "docks": [
+      {
+       "x": 521,
+       "y": 43,
+       "w": 398,
+       "h": 56,
+       "b": 99,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear expanded fit-content do"
+      },
+      {
+       "x": 692,
+       "y": 765,
+       "w": 56,
+       "h": 56,
+       "b": 821,
+       "z": "0",
+       "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed"
+      }
+     ],
+     "rail": {
+      "x": 43,
+      "y": 54,
+      "w": 475,
+      "h": 555,
+      "b": 609,
+      "cls": "controls-pane-wrapper col-start-1 row-start-1 min-w-0 relative z-controls controls-pane--open controls-pane--hovered",
+      "vis": "block"
+     },
+     "focus": "Controls tab [fv]"
+    }
+   ],
+   "notes": [
+    "pick Keyframes: ok:Controls|Keyframes|Timeline",
+    "pick Timeline: ok:Controls|Keyframes|Timeline"
+   ],
+   "errs": [
+    "cube: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  }
+ ]
+}

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * S.W6-5 — WebKit atmosphere + hero verification (the missing Safari repro).
@@ -45,7 +46,11 @@ import type { Page } from "@playwright/test";
  * compositor screenshot + read layout — read-only, never interaction.
  */
 
-const BOOT_URL = "/#/picker?space=oklch&color=oklch(0.65 0.22 250)";
+// The picker scene's address is `/#/` (router `name: "picker"`). Since X-W3's
+// G-20 the old `/#/picker` resolves to the `not-found` scene, which mounts
+// neither GL surface — so both tests timed out waiting for canvases that scene
+// never has, at any host load (X-W12U .q, the addendum (e) WebKit re-read).
+const BOOT_URL = "/#/?space=oklch&color=oklch(0.65 0.22 250)";
 
 const CONSOLE_FAIL_SUBSTRINGS = [
     "webglcontextlost",
@@ -87,9 +92,7 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         await installFailureCapture(page, failures);
 
         await page.goto(BOOT_URL);
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         const atmosphere = page.getByTestId("atmosphere-canvas");
         await expect(atmosphere).toBeAttached();
@@ -164,9 +167,7 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         await installFailureCapture(page, failures);
 
         await page.goto(BOOT_URL);
-        await expect(
-            page.getByRole("main", { name: "Color tool panes" }),
-        ).toBeVisible();
+        await expect(mainPane(page)).toBeVisible();
 
         // BOTH GL surfaces live — the dual-WebGL2-contention vehicle.
         const canvas = page.getByTestId("goo-blob-canvas").last();

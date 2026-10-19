@@ -1,0 +1,226 @@
+SERVED MODEL: claude-opus-5[1m]
+X-W9.c — WHICH ASSERTION-FREE BODY KEEPS THE HOT-LOOP SHAPE.
+
+The spec: 'lerpArray is keyframes' FrameCompiler hot loop' (W9.md :222-223). Under
+noUncheckedIndexedAccess a Float64Array index read is number|undefined, so retiring the
+two non-null assertions forces a choice of body. This table is why the shipped body is
+the counted loop with both reads narrowed, and NOT the value-walked (for..of) form the
+first draft used. node v26.0.0, darwin arm64, best-of-3, interleaved.
+
+⟨cmd⟩ npx vite-node lerparray-shapes.mts   run 1:
+K        preCure        A        B        C        D     (ms, best of 3; ratio to preCure)
+1            6.5     15.4     16.6     48.3     15.3   preCure=1.00 A=2.35 B=2.54 C=7.41 D=2.35
+2           11.0     10.6     13.3     45.2     10.8   preCure=1.00 A=0.96 B=1.21 C=4.09 D=0.97
+8            7.9      7.9     15.9     66.6      8.6   preCure=1.00 A=0.99 B=2.01 C=8.41 D=1.08
+64           8.8      9.1     52.1    112.0      8.8   preCure=1.00 A=1.03 B=5.88 C=12.65 D=0.99
+                                           run 2:
+K        preCure        A        B        C        D     (ms, best of 3; ratio to preCure)
+1            7.5     16.9     17.6     48.7     15.4   preCure=1.00 A=2.25 B=2.34 C=6.47 D=2.05
+2           11.3     10.8     13.8     45.2     11.2   preCure=1.00 A=0.96 B=1.22 C=4.02 D=0.99
+8            7.6      7.8     15.1     61.4      7.8   preCure=1.00 A=1.03 B=1.99 C=8.08 D=1.03
+64           8.5      8.6     49.5    103.1      8.9   preCure=1.00 A=1.02 B=5.86 C=12.19 D=1.05
+
+  preCure = the HEAD body (two non-null assertions, NO precondition check) — the floor.
+  A       = counted loop, both reads narrowed          <- SHIPPED
+  B       = for..of over start, stop narrowed          <- rejected: 1.26x-5.88x
+  C       = start.forEach, stop narrowed               <- rejected: 4.21x-11.92x
+  D       = counted loop, reads narrowed separately    <- equal to A, no reason to prefer
+
+READING: the shipped body costs 1.00-1.02x of the un-narrowed loop for K>=2 — the
+multi-channel band this carrier exists for and the only band its own docstring endorses.
+At K=1 it is ~2.3x of a 1-element loop (about 3ns/call of entry check + narrowing);
+K=1 is the band the docstring already tells callers not to use it in.
+
+================ the same question for deCasteljau ================
+⟨cmd⟩ npx vite-node decasteljau-shapes.mts   run 1:
+points   preCure(ms)   fold(ms)  triangle(ms)   ratios vs preCure
+2             22.5       26.8         23.6    fold=1.19 triangle=1.05
+4             32.3       81.3         32.1    fold=2.51 triangle=0.99
+8             31.7      116.7         32.0    fold=3.68 triangle=1.01
+16            41.6      181.2         41.4    fold=4.36 triangle=1.00
+                                             run 2:
+points   preCure(ms)   fold(ms)  triangle(ms)   ratios vs preCure
+2             24.7       29.1         24.9    fold=1.18 triangle=1.01
+4             32.6       83.6         32.5    fold=2.56 triangle=1.00
+8             31.6      118.1         32.2    fold=3.73 triangle=1.02
+16            42.2      183.6         42.0    fold=4.36 triangle=1.00
+
+  fold     = index-free pairwise fold (level walked by value) <- rejected: 1.15x-4.38x
+  triangle = the HEAD in-place triangle with both reads narrowed <- SHIPPED, 1.00-1.03x
+
+================ harness sources ================
+----- lerparray-shapes.mts -----
+// X-W9.c — which assertion-free `lerpArray` body keeps the hot-loop shape?
+// All candidates carry the same entry precondition check; they differ only in
+// how the per-element read is made total without a non-null assertion.
+const guard = (start: Float64Array, stop: Float64Array, out: Float64Array, n: number) => {
+    if (stop.length !== n || out.length !== n) throw new RangeError("mismatch");
+};
+
+// 0 — PRE-CURE (two non-null assertions, no check). The floor.
+const preCure = (start: Float64Array, stop: Float64Array, t: number, out: Float64Array) => {
+    const n = start.length;
+    const u = 1 - t;
+    for (let i = 0; i < n; i++) out[i] = u * start[i]! + t * stop[i]!;
+    return out;
+};
+// A — counted loop, both reads narrowed
+const A = (start: Float64Array, stop: Float64Array, t: number, out: Float64Array) => {
+    const n = start.length;
+    guard(start, stop, out, n);
+    const u = 1 - t;
+    for (let i = 0; i < n; i++) {
+        const from = start[i];
+        const to = stop[i];
+        if (from === undefined || to === undefined) throw new RangeError("short");
+        out[i] = u * from + t * to;
+    }
+    return out;
+};
+// B — for...of over `start`, `stop` narrowed
+const B = (start: Float64Array, stop: Float64Array, t: number, out: Float64Array) => {
+    const n = start.length;
+    guard(start, stop, out, n);
+    const u = 1 - t;
+    let i = 0;
+    for (const from of start) {
+        const to = stop[i];
+        if (to === undefined) throw new RangeError("short");
+        out[i] = u * from + t * to;
+        i += 1;
+    }
+    return out;
+};
+// C — forEach over `start`, `stop` narrowed
+const C = (start: Float64Array, stop: Float64Array, t: number, out: Float64Array) => {
+    const n = start.length;
+    guard(start, stop, out, n);
+    const u = 1 - t;
+    start.forEach((from, i) => {
+        const to = stop[i];
+        if (to === undefined) throw new RangeError("short");
+        out[i] = u * from + t * to;
+    });
+    return out;
+};
+// D — counted loop, entry check only, reads narrowed by `?? NaN`-free `Number.isNaN`-free
+//     subarray view: `stop.subarray(i, i + 1)[0]` — still narrowed, measured for completeness
+const D = (start: Float64Array, stop: Float64Array, t: number, out: Float64Array) => {
+    const n = start.length;
+    guard(start, stop, out, n);
+    const u = 1 - t;
+    for (let i = 0; i < n; i++) {
+        const to = stop[i];
+        if (to === undefined) throw new RangeError("short");
+        const from = start[i];
+        if (from === undefined) throw new RangeError("short");
+        out[i] = u * from + t * to;
+    }
+    return out;
+};
+
+const time = (fn: (s: Float64Array, e: Float64Array, t: number, o: Float64Array) => unknown, K: number, iters: number) => {
+    const start = Float64Array.from({ length: K }, (_, i) => Math.sin(i));
+    const stop = Float64Array.from({ length: K }, (_, i) => Math.cos(i));
+    const out = new Float64Array(K);
+    for (let i = 0; i < 20000; i++) fn(start, stop, (i % 64) / 64, out);
+    const t0 = process.hrtime.bigint();
+    for (let i = 0; i < iters; i++) fn(start, stop, (i % 64) / 64, out);
+    return Number(process.hrtime.bigint() - t0) / 1e6;
+};
+
+const shapes = { preCure, A, B, C, D } as const;
+console.log("K      " + Object.keys(shapes).map((k) => k.padStart(9)).join("") + "     (ms, best of 3; ratio to preCure)");
+for (const [K, iters] of [
+    [1, 3_000_000],
+    [2, 2_000_000],
+    [8, 1_000_000],
+    [64, 250_000],
+] as const) {
+    const best: Record<string, number> = {};
+    for (const k of Object.keys(shapes)) best[k] = Infinity;
+    for (let round = 0; round < 3; round++)
+        for (const [k, fn] of Object.entries(shapes))
+            best[k] = Math.min(best[k]!, time(fn, K, iters));
+    console.log(
+        String(K).padEnd(7) +
+            Object.keys(shapes).map((k) => best[k]!.toFixed(1).padStart(9)).join("") +
+            "   " +
+            Object.keys(shapes).map((k) => `${k}=${(best[k]! / best.preCure!).toFixed(2)}`).join(" "),
+    );
+}
+----- decasteljau-shapes.mts -----
+// X-W9.c — cost of the assertion-free `deCasteljau` (pairwise fold) against the
+// pre-cure in-place triangle, and against a narrowed in-place variant.
+const lerp = (a: number, b: number, t: number) => (1 - a * 0) * 0 + ((1 - t) * a + t * b);
+
+const preCure = (t: number, points: readonly number[]) => {
+    const n = points.length - 1;
+    const b = [...points];
+    for (let i = 1; i <= n; i++)
+        for (let j = 0; j <= n - i; j++) b[j] = (1 - t) * b[j]! + t * b[j + 1]!;
+    return b[0]!;
+};
+// FOLD — shipped shape: level walked by value, one live guard
+const fold = (t: number, points: readonly number[]): number => {
+    let level: readonly number[] = points;
+    while (level.length > 1) {
+        const next: number[] = [];
+        let left: number | undefined;
+        for (const right of level) {
+            if (left !== undefined) next.push((1 - t) * left + t * right);
+            left = right;
+        }
+        level = next;
+    }
+    const [value] = level;
+    if (value === undefined) throw new RangeError("empty");
+    return value;
+};
+// TRIANGLE-NARROWED — in-place, per-element narrowing, one live + one dead guard
+const triangle = (t: number, points: readonly number[]): number => {
+    const n = points.length - 1;
+    if (n < 0) throw new RangeError("empty");
+    const b = [...points];
+    for (let i = 1; i <= n; i++)
+        for (let j = 0; j <= n - i; j++) {
+            const l = b[j];
+            const r = b[j + 1];
+            if (l === undefined || r === undefined) throw new RangeError("short");
+            b[j] = (1 - t) * l + t * r;
+        }
+    const value = b[0];
+    if (value === undefined) throw new RangeError("empty");
+    return value;
+};
+
+const time = (fn: (t: number, p: readonly number[]) => number, degree: number, iters: number) => {
+    const points = Array.from({ length: degree }, (_, i) => Math.sin(i) * 10);
+    for (let i = 0; i < 50000; i++) fn((i % 64) / 64, points);
+    const t0 = process.hrtime.bigint();
+    let sink = 0;
+    for (let i = 0; i < iters; i++) sink += fn((i % 64) / 64, points);
+    if (!Number.isFinite(sink)) throw new Error("sink");
+    return Number(process.hrtime.bigint() - t0) / 1e6;
+};
+
+void lerp;
+const shapes = { preCure, fold, triangle } as const;
+console.log("points   preCure(ms)   fold(ms)  triangle(ms)   ratios vs preCure");
+for (const [degree, iters] of [
+    [2, 2_000_000],
+    [4, 2_000_000],
+    [8, 1_000_000],
+    [16, 500_000],
+] as const) {
+    const best: Record<string, number> = { preCure: Infinity, fold: Infinity, triangle: Infinity };
+    for (let round = 0; round < 3; round++)
+        for (const [k, fn] of Object.entries(shapes)) best[k] = Math.min(best[k]!, time(fn, degree, iters));
+    console.log(
+        String(degree).padEnd(8) +
+            best.preCure!.toFixed(1).padStart(10) +
+            best.fold!.toFixed(1).padStart(11) +
+            best.triangle!.toFixed(1).padStart(13) +
+            `    fold=${(best.fold! / best.preCure!).toFixed(2)} triangle=${(best.triangle! / best.preCure!).toFixed(2)}`,
+    );
+}

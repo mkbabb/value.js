@@ -1,0 +1,15 @@
+(node:38224) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:38274) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 3 tests using 1 worker
+
+[1A[2K(node:38344) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/3] [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:13:1 › admin-users renders seeded user rows
+[1A[2K[2/3] [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:58:5 › names moderation at 390px (F-1) › approve/reject stay on-card and operable with long-string rows
+[1A[2K[3/3] [smoke-admin] › e2e/smoke/admin/admin-populated.spec.ts:99:1 › admin-flagged renders a seeded flagged palette + moderation actions
+[1A[2K  3 passed (23.2s)

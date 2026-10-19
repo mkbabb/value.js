@@ -5,7 +5,7 @@
 //
 // THE DEFECT, re-derived against the live files. `test/status-lamp.test.ts`
 // holds 19 assertions and never mounts the SFC — it exercises
-// `resolveLampState`, the pure resolver, and stops there. `@vue/test-utils`
+// `resolveApiStatus`, the pure resolver, and stops there. `@vue/test-utils`
 // was installed with ZERO importers repo-wide. And `o22-status-lamp.spec.ts`
 // asserts count, attribute and geometry, never TEXT and never an accessible
 // name. So the one thing a user actually reads — the words in the lamp — was
@@ -29,21 +29,22 @@
 //
 // NOTE carried from R30: MT-DOCK-LAYERS-1's G-Q (lamp `role:"status"`) and
 // G-K(iii) retire the M2/M3 mutation classes when they land. This gate does
-// not re-assert what those retire — it reads the ROLE off `resolveLampState`'s
+// not re-assert what those retire — it reads the ROLE off `resolveApiStatus`'s
 // own answer rather than pinning a literal, so a ruled role change moves the
 // resolver and this gate follows it.
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 import { ref } from "vue";
 
-import DockStatusLamp from "../demo/shell/dock/DockStatusLamp.vue";
+import ApiStatusChip from "../demo/shared/ui/api-status/ApiStatusChip.vue";
 import { API_CLIENT_KEY } from "../demo/platform/transport/useApiClient";
 import type { ApiAvailability } from "../demo/platform/transport/availability";
-import { resolveLampState } from "../demo/shell/dock/status-lamp";
+import { resolveApiStatus } from "../demo/shared/ui/api-status/api-status";
 
 /** Mount the lamp with its ONE injection supplied (R53's lock). */
 function mountLamp(availability: ApiAvailability) {
-    return mount(DockStatusLamp, {
+    return mount(ApiStatusChip, {
+        props: { seat: "dock" },
         global: {
             provide: {
                 [API_CLIENT_KEY as unknown as symbol]: {
@@ -73,7 +74,7 @@ describe("R30 · DockStatusLamp renders the words it promises", () => {
 
     for (const availability of ["misconfigured", "unavailable"] as const) {
         it(`${availability}: the rendered text IS the resolver's label`, () => {
-            const expected = resolveLampState(availability, true);
+            const expected = resolveApiStatus(availability, true);
             expect(expected, `${availability} resolves to a lamp`).not.toBeNull();
 
             const wrapper = mountLamp(availability);
@@ -84,9 +85,9 @@ describe("R30 · DockStatusLamp renders the words it promises", () => {
             expect(lamp.text().trim()).toBe(expected!.label);
             // …and they are in the label span, not leaked from the dot, which
             // is aria-hidden and must stay empty.
-            expect(wrapper.find(".lamp-label").text().trim()).toBe(expected!.label);
-            expect(wrapper.find(".lamp-dot").text()).toBe("");
-            expect(wrapper.find(".lamp-dot").attributes("aria-hidden")).toBe("true");
+            expect(wrapper.find(".api-status-label").text().trim()).toBe(expected!.label);
+            expect(wrapper.find(".api-status-dot").text()).toBe("");
+            expect(wrapper.find(".api-status-dot").attributes("aria-hidden")).toBe("true");
 
             // The register travels with the words: the role is READ from the
             // resolver, never pinned to a literal here.
@@ -98,7 +99,7 @@ describe("R30 · DockStatusLamp renders the words it promises", () => {
 
     for (const availability of ["available", "unknown"] as const) {
         it(`${availability}: a healthy band carries NO lamp — nothing renders`, () => {
-            expect(resolveLampState(availability, true)).toBeNull();
+            expect(resolveApiStatus(availability, true)).toBeNull();
             const wrapper = mountLamp(availability);
             expect(wrapper.find(".dock-status-lamp").exists()).toBe(false);
             expect(wrapper.text().trim()).toBe("");

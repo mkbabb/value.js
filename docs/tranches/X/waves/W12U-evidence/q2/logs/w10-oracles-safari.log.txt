@@ -1,0 +1,15 @@
+### oracles-safari (w10) start 10-16 07:39:26 load1=29.71 tree=/Users/mkbabb/.dev-logs/w12u-q2/tree-bd9e828e0
+(node:45550) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:45582) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[O-3 dark] real-GPU renderer=Apple GPU → OKLCh L=0.355 C=0.105 h=29.7°
+  ✓  1 [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (dark) (4.4s)
+[O-3 light] real-GPU renderer=Apple GPU → OKLCh L=0.686 C=0.155 h=39.6°
+  ✓  2 [oracles-safari] › e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts:34:5 › O-3 headed real-GPU cold-load — post-arm the field is chromatic (light) (4.2s)
+
+  2 passed (9.5s)
+### oracles-safari end 10-16 07:39:37 load1=31.01 exit=0

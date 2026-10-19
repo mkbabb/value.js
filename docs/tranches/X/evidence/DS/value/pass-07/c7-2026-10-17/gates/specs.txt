@@ -1,0 +1,2 @@
+smoke: e2e/smoke/page-load.spec.ts e2e/smoke/w12u-x-admin-tags.spec.ts e2e/smoke/walk.spec.ts e2e/smoke/oracles/o11-header-gates.spec.ts e2e/smoke/oracles/o20-generate-plate.spec.ts e2e/smoke/oracles/o24-specimen-dot-identity.spec.ts e2e/smoke/oracles/o9-shadow-palette.spec.ts e2e/smoke/oracles/o14-preview-truth.spec.ts e2e/smoke/flows/palette-save.spec.ts
+smoke-admin: e2e/smoke/admin/route-guard.spec.ts

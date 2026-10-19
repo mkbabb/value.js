@@ -1,0 +1,6 @@
+15:15  up 3 days, 20:17, 3 users, load averages: 178.34 155.59 120.73
+     × SCENE_ANNOUNCER_KEY is declared in injectionKeys.ts, not in a component 5ms
+     × the Suspense fallback is SceneSkeleton.vue 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  2 failed (2)

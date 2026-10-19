@@ -1,0 +1,40 @@
+(node:13304) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+[1A[2K(node:13483) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora
+[1A[2K  1) [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora ───────────────────
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - taking element screenshot[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - attempting scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying scroll into view action[22m
+    [2m    - waiting for element to be stable[22m
+
+
+      488 |     const frames: Buffer[] = [];
+      489 |     for (let i = 0; i < 5; i++) {
+    > 490 |         frames.push(await rail.screenshot({ animations: "allow" }));
+          |                                ^
+      491 |         await page.waitForTimeout(300);
+      492 |     }
+      493 |     const moved = frames.slice(1).some((f) => !f.equals(frames[0]!));
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:490:32
+
+    Error Context: test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora ────────────────────
+EXIT 1

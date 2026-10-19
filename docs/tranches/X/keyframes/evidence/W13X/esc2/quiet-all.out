@@ -1,0 +1,28 @@
+before-r1 start 16:58:03 load=24.41
+before-r1: 12/25
+before-r1 end load=31.15
+after-dev-r1 start 17:05:08 load=24.31
+after-dev-r1: 25/25
+after-dev-r1 end load=20.85
+before-r2 start 17:07:45 load=20.85
+before-r2: 12/25
+before-r2 end load=26.96
+after-dev-r2 start 17:11:20 load=24.39
+after-dev-r2: 25/25
+after-dev-r2 end load=24.68
+check r1 EXIT=0
+lint r1 EXIT=0
+test:demo r1 start 17:14:12 load=23.23
+EXIT=0
+ Test Files  122 passed (122)
+      Tests  820 passed (820)
+   Duration  21.73s (transform 57.57s, setup 3.47s, import 118.02s, tests 60.34s, environment 122.67s)
+test:demo r1 end load=31.17
+check r2 EXIT=0
+lint r2 EXIT=0
+test:demo r2 start 17:19:35 load=22.24
+EXIT=0
+ Test Files  122 passed (122)
+      Tests  820 passed (820)
+   Duration  29.09s (transform 61.43s, setup 4.77s, import 149.73s, tests 91.73s, environment 189.95s)
+test:demo r2 end load=34.90

@@ -327,3 +327,194 @@ task's edict "the RETIRED matrices are NOT carried" applied):**
     successor = M-12 tri-fold + L-18 + M-23 (prov row 29 / C-05).
 
 *One file written (this one). All verification read-only; no product byte, no git mutation.*
+
+---
+
+## DATED APPEND 2026-09-17 (X-W6 open seat · `claude-opus-5[1m]`) — CC-118, minted under COHESION §0k.3 · S-8
+
+**Authority**: `docs/tranches/X/COHESION.md` **§0k.3**, escalation row **S-8** (MT-CSP-1 ⇄ the
+carry-cut ledger, X-W6 · X-W8 · W0.1), ruled 2026-09-17 under the begin-word's delegation, verbatim:
+*"**Q1(a) mint the carry-cut id** — X-W6's open seat appends the row (⟨ConfigSliderPane · MT-CSP-1⟩)
+to `CARRY-CUT-LEDGER.md` by dated append, home **X-W6** (`demo/scenes/ConfigSliderPane.vue` is a
+scene); **Q2(b) curable now** via the CSP register's G-PAINT single cut (C-3/D-3/D-4/D-14) — the
+measurement-backed ruling — while CC-105's `--slider-track-bg` wait stays X-W4.g's own; W0.1 keeps the
+tension row, S-8 books the id: two rows, no double-book."*
+
+**E-3 form**: this is a **dated append beside**, never an in-place edit of §1's dated table. §1.H is
+untouched; the row below is read as if seated in §1.H and is cited as **CC-118** everywhere.
+
+**Measured at the mint** (read-only, 2026-09-17 sitting; wall clock 2026-09-19):
+⟨cmd⟩ `grep -n 'MT-CSP-1\|ConfigSliderPane' docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md`
+→ **no match** (the id was genuinely unminted — S-8's *"no CC id names the component today"* reproduces).
+⟨cmd⟩ `ls -la demo/scenes/ConfigSliderPane.vue` → present, **10,709 B**.
+⟨cmd⟩ `grep -o 'CC-[0-9]\{3\}' … | sort -u | tail -1` → **CC-117**, so the next free id is **CC-118**.
+
+| # | original-ID(s) | src | gist | TERMINAL DISPOSITION | evidence |
+|---|---|---|---|---|---|
+| CC-118 | ConfigSliderPane · **MT-CSP-1** (C-3 · D-3 · D-4 · D-14 ⊕ D-1's demo half) | mt | the config-console sliders paint **nothing**: the spectrum variant is defeated by the producer's own `[data-variant=spectrum] .slider-range{background:0 0}` while the inert track carries `--ink-muted` as a ~23,000px² text-ink area fill — figure/ground inverted, extent at 1.00:1, and `variant="spectrum"` is unconditional on 34 non-chromatic axes | **BUILD → X-W6**, home ruled by COHESION §0k.3 S-8 Q1(a) (`demo/scenes/ConfigSliderPane.vue` is a scene). **Q2(b) CURABLE NOW** — the **G-PAINT single cut**, one atomic commit with the o18 re-aim (CSP-O8): SFC:202's `--ink-muted` feed deleted, `data-variant !== "spectrum"` inside `.config-console` only (the foundation:571 shim STAYS serving the picker), settled `.slider-range` background non-transparent, range-vs-track ≥3:1. **Separated and NOT folded here**: CC-105's 4 `--slider-track-bg` sites stay **X-W4.g's** glass-8 repin limb, and the slider forced-colors arm stays **glass-owned** (INBOX I-20, RELAY). W0.1 keeps the tension row; this row books the id — **two rows, no double-book** | `registry/adjudicated/ConfigSliderPane.md` §1 (C-3:49 · D-3:62 · D-4:63 · D-14:73 · D-1:60), §4 G-PAINT:124, build-order:120; COHESION §0k.3 S-8:1104, Consequence:1106 |
+
+**Disposition status at the mint**: `BUILD → X-W6`, **unspent**. Nothing in this append cures a byte,
+schedules a unit, or alters any existing row; `W6.md` (2026-08-03) is IMMUTABLE and is **not** amended
+by this mint — CC-118's cure is scheduled by whichever X-W6 or successor surface the sitting names,
+and until then it is carried, not silently dropped (H4: every row leaves with exactly one disposition).
+
+*One file appended (this block). All verification read-only; no product byte.*
+
+## DATED APPEND 2026-10-17 (X-W10 · X.W10.c arbiter seat · `claude-opus-5-5`) — CC-098..CC-102 cite their canon
+
+**The design law for CC-098 (Golden Glass · Breath of Life · Movement of Momentum), CC-099, CC-100,
+CC-101 and CC-102 is `demo/DESIGN.md`** — re-authored whole at X.W10.c from the twice-authored
+apotheosis (`docs/tranches/X/design/APOTHEOSIS.md`; open rulings at
+`docs/tranches/X/waves/W10-ADDENDUM-2026-10-17-open.md`). Its § 1 states the three laws
+(BREATH OF LIFE as law §1; MOVEMENT OF MOMENTUM = glass's *Liquid Weight is Universal*, with the
+OP-2 carve held as the `observer-curve` parameter; GOLDEN GLASS as an OP-3 MARK), § 2 the
+elevation / one-silhouette / one-light law (CC-100), § 3.2 the condense spacing ratio 1/φ (CC-101),
+§ 5.6 the reduced-motion law and the carve (CC-099), § 3 the producer-contract citation (CC-102).
+No row above changes its disposition: each stays **BUILD → X-W10** until its gate reads GREEN at
+X-W10's close. *One file appended (this block); no product byte.*
+
+## §4 THE TERMINAL STATE TABLE — DATED APPEND 2026-10-18 (X-W11 · X.W11.a · `claude-opus-5-5`)
+
+**Authority**: `docs/tranches/X/waves/W11.md` §Agent Units X.W11.a (`:119-131`), G1 (`:180-192`),
+Dispositions (`:366-374`); `docs/tranches/X/refinement/X-W11-FOLD.md` §2a S1. Sitting of record
+2026-09-17 (COHESION §0j). **E-3 form**: an append after the file's last byte; §0–§3 and both earlier
+dated appends are untouched. Mirror: `docs/tranches/X/close/LEDGER-FINAL.md` (same rows, same cells).
+
+**Denominator: 118** = the 117 rows of §1 + **CC-118** (the 2026-09-17 dated append, COHESION §0k.3
+S-8). W11.md's "117" predates that mint; the walk takes every row that has a §1-or-append origin.
+
+**The four terminal words** (one per row, each with its argument): **VERIFIED** `<commit>` (each hash
+resolves by `git cat-file -e`; the owning wave's cure commit, or for a FOLD-to-wave row the wave's
+authoring and/or CLOSED-promotion commit) · **RETIRED** `<tombstone path>` (authored by the owning
+wave or producer; X-W11 authors none) · **BLOCKED-ON** `<exact release condition>` + a re-trigger
+command · **DEGRADED-TO-BOUNDARY** `<row-id>` (fold S1; the row moves to
+`docs/tranches/X/close/BOUNDARY-CARRY.md`). The §1.M bank's eleven conditions are copied from §1
+**verbatim** (L-4) and stay BLOCKED-ON; a "measured at walk" note beside each records the trigger's
+reading at the installed bytes and never changes the word. A VERIFIED word here is the row's landed
+and gate-proven state; the per-wave **VERIFIED stamp** remains X-W11's R-A act at `.e`.
+
+**Counts, read from the rows below**: VERIFIED **83** · RETIRED **18** (the 17 RETIRE rows + CC-029,
+whose own disposition retires it at close with a tombstone) · BLOCKED-ON **17** (the 11 §1.M rows +
+CC-010 · CC-033 · CC-035 · CC-036 · CC-059 · CC-067) · DEGRADED-TO-BOUNDARY **0** · total **118**.
+
+<!-- prettier-ignore -->
+| # | terminal word | argument | re-trigger | home · note |
+|---|---|---|---|---|
+| CC-001 | **VERIFIED** | `c9aa1fdf4` (graph v3 + frontend denominator, X-W0.h) · `549353fd0` (completeness split, X-W0.c) · close `d5ac877c2` | — | FOLD → X-W0; X-W0 CLOSED (honest-RED HG-8 byte-diff clause, ESC-N1) |
+| CC-002 | **VERIFIED** | `c4af0ef9` | — | carried in, not re-proven (W11.md Dispositions) |
+| CC-003 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON** (re-derived against I-21 per C-07): installed `@mkbabb/glass-ui` major **≥ 8** AND `./watercolor-dot` **absent** from packed exports AND the **consumer-painted indicator slot (TR#84)** present in declarations + packed exports AND the Glass receipt names its keyboard/orientation/motion contract — all four machine-checked before the writer opens product source. Under I-21 the trigger also inherits: **no chassis arms exist at 8.0.0** (A-17), the repin census is one event (no repin, no shim, no copied selector before it). The glass-independent remainder partitions to X-W4 (CC-040..047) | census conditions 1–2: `node -p "const p=require('./node_modules/@mkbabb/glass-ui/package.json');[+p.version.split('.')[0]>=8,!Object.keys(p.exports).some(k=>/watercolor/.test(k))].join()"` (`true,true` at walk) · condition 3: `grep -rn indicator node_modules/@mkbabb/glass-ui/dist --include='*.d.ts' \| grep -ic slot` (0 at walk; fires ≥ 1) · then condition 4's receipt read and the census PASS line | §1.M bank; measured at walk (glass 10.1.0 installed): c1 TRUE · c2 TRUE (`./watercolor-dot` ABSENT) · c3 FALSE (slot 0) — not fired |
+| CC-004 | **VERIFIED** | close `3e933c332` | — | FOLD → X-W5 (V·MT3 re-homed); X-W5 CLOSED honest-RED (g2 · B3 · A3 · C3 · C7 · A5-OUTLINE · o12 · D1) |
+| CC-005 | **VERIFIED** | close `e24361c6d` | — | FOLD → X-W6 (V·MT4); X-W6 CLOSED honest-RED (B1-G3D · g1 · I3-SEED-SIZE) |
+| CC-006 | **VERIFIED** | close `a994800cc` | — | FOLD → X-W7 (V·MT5); X-W7 CLOSED honest-RED (G3 · G11 · G14-grep · C-5/NG-6) |
+| CC-007 | **VERIFIED** | close `6eb8f0268` | — | FOLD → X-W8 (V·MT6); X-W8 CLOSED honest-RED (ink D6/T-35 → O-62 (a) · DOCK-SCROLL-MORPH → O-55) |
+| CC-008 | **VERIFIED** | close `03f76440f` · cut `f3fccfb76` | — | FOLD → X-W9 (V·MT7); X-W9 CLOSED honest-RED (G3 · G12, relieved §0ac) |
+| CC-009 | **VERIFIED** | close `7466ed9e5` | — | FOLD → X-W10 (V·MT8); X-W10 CLOSED |
+| CC-010 | **BLOCKED-ON** | X-W11's own completion law: W11.md §6 G2–G12 + fold §2b G13/G15/G17 GREEN or relieved at X-W11's release close (units `.b` `.c` `.d` `.h` `.e`) and the R-A stamp act (`.e`); this §4 table is its G1 act | `grep -c '^\| X-W11 .*CLOSED' docs/tranches/X/execution/LEDGER.md` (0 at walk; fires at 1) | FOLD → X-W11; terminal at `.e`'s close, not here |
+| CC-011 | **RETIRED** | `docs/tranches/X/W0/ROUTING-LAW-V-L5.md` | — | executed at X-W0.i (`2012dbfa5`) |
+| CC-012 | **VERIFIED** | `befbc05a3` | — | X-W0.a track-or-archive |
+| CC-013 | **VERIFIED** | `5937b6de0` | — | X-W0.b prompt recap as tracked canon |
+| CC-014 | **VERIFIED** | `f7197d716` | — | X-W0.g owner sitting (seven rows ruled) |
+| CC-015 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-1) | — | X-W0.f `b5673ae03` |
+| CC-016 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-2) | — | X-W0.f `b5673ae03`; verb DELETE (COHESION §0j.A) |
+| CC-017 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-3) | — | X-W0.f `b5673ae03` |
+| CC-018 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-4) | — | X-W0.f `b5673ae03`; option (a) at the X-W0.g sitting |
+| CC-019 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-6) | — | X-W0.g `f7197d716` |
+| CC-020 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-7) | — | X-W0.g `f7197d716` |
+| CC-021 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-8) | — | RETIRED-BY-ASSIGNMENT; `scripts/dev/dev.sh` NEVER-touch permanent for X (DR-24) |
+| CC-022 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-5) | — | X-W0.f `b5673ae03`; FIXED at kf 6 |
+| CC-023 | **RETIRED** | `docs/tranches/X/W0/TOMBSTONES.md` (TS-9) | — | X-W0.g `f7197d716`; the permanent 301 accepted in canon |
+| CC-024 | **VERIFIED** | `c9aa1fdf4` | — | FOLD → X-W0.h (frontend denominator authority) |
+| CC-025 | **VERIFIED** | `58be3626` · `549353fd0` · repair `de85e26c1` | — | X-W0.c completeness toolchain; HG-7 cured at X-W0.k |
+| CC-026 | **VERIFIED** | `9f4b22a72` | — | X-W0.d 7e28 census (126/126 accounted) |
+| CC-027 | **VERIFIED** | `af03de5c2` | — | X-W0.e three axes re-run + motion quarantine |
+| CC-028 | **VERIFIED** | `338c513b` | — | carried in, not re-proven (W11.md Dispositions) |
+| CC-029 | **RETIRED** | `docs/tranches/X/evidence/w1/real-gpu/TOMBSTONE.md` | — | real-GPU half retired `20a7b6230` (its own disposition: no session → RETIRED with tombstone); software-GL half = CC-030 (`e2347c0e5`) |
+| CC-030 | **VERIFIED** | `e2347c0e5` | — | X-W1.b `e2e/visual/` — 207 goldens committed |
+| CC-031 | **VERIFIED** | `ec6541584` · falsifier `dfc65a3e1` | — | X-W1.a verification surface; one-time falsifier demonstrated (run 35388604746) |
+| CC-032 | **VERIFIED** | `cad51f9e7` | — | X-W1.c boot-smoke both modes (re-read GREEN at X-W11 open, 8/8 + 8/8) |
+| CC-033 | **BLOCKED-ON** | one non-skipped, successful `deploy-pages` run at a master commit that is an ancestor of the release tag, and production re-probed for the released build (X-W1 honest-RED G-19 · G-20; X-W11 G6 is the receiving cell, unit `.c`) | `gh run list --workflow deploy-pages.yml --limit 5 --json conclusion,headSha` (3/3 `skipped` at X-W11 open; fires on a `success` row) | merge landed `04d2d8089` (G-18 GREEN); deploy arm never fired |
+| CC-034 | **VERIFIED** | `7bc728389` | — | X-W1.d deploy resolves glass-ui from the registry |
+| CC-035 | **BLOCKED-ON** | glass blob `settled` reachable within the fixture window on software GL (producer `blob.js` quiescence predicate — b-F1/b-F2 at the glass BH/BI relay); then the wall-clock park retires (X-W2 honest-RED G5, §3a "Quiescence does not park") | `grep -rnE "BLOB_IDLE_MS\|SLEEPY_POSE_MS" demo/ e2e/ \| wc -l` (26 at X-W2 Check 2; fires at 0 after the producer cure) | value half landed: G1 GREEN (boot-path `glass-ui/blob` 3 → 0), G8 `BLOB_HERO` tombstoned |
+| CC-036 | **BLOCKED-ON** | p75 TBT ≤ 300 ms over N ≥ 20 on `mobile-4x-cpu` at a quiescent bench or X-W1's pinned `ubuntu-24.04` job (X-W2 honest-RED G3, §11 guardrail 2) | the W2.md G3 probe: `e2e/smoke/perf/serve-built.mjs` + the N=20 TBT run (1,137 ms at X-W2 Check 2; fires ≤ 300) | G2 · G4 · G6 · G7 GREEN; Q14 numbers SUPERSEDED |
+| CC-037 | **VERIFIED** | `504819eac` | — | X-W3.6 fail-closed admin guard; Stub-render limb handed to X-W5 (CC-049) by W3.md D-4 |
+| CC-038 | **VERIFIED** | `326dbe579` · `9b3e6923b` · `0324197ed` · `66537044f` · `d7e5f30c1` · `22d2eb650` · `fcf51523f` | — | X.A1..X.A5 in forced order; X-W3 CLOSED honest-RED G-21 only |
+| CC-039 | **RETIRED** | `docs/tranches/X/contracts/WRITE-CONTRACT.md` | — | recorded as a deployment fact at `47ea10290` (X.A3 · D-3) |
+| CC-040 | **VERIFIED** | `8934de857` | — | X-W4.a shell control geometry; X-W4 CLOSED, honest-RED set EMPTY |
+| CC-041 | **VERIFIED** | `8934de857` | — | X-W4.a (A4 naming) |
+| CC-042 | **VERIFIED** | `666978d4c` | — | X-W4.c gradient stop keyboard grammar (C1–C4) |
+| CC-043 | **VERIFIED** | `e64002e9c` | — | X-W4.d one owner-tokened SceneActionSet |
+| CC-044 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON CC-003's trigger** — one atomic cut: delete every `watercolor-dot` import, native button owns click/focus/name/disabled/keyboard, paint-only local `WatercolorSwatch` into the TR#84 slot; no pre-8 wrapper (a second migration is forbidden) | census conditions 1–2: `node -p "const p=require('./node_modules/@mkbabb/glass-ui/package.json');[+p.version.split('.')[0]>=8,!Object.keys(p.exports).some(k=>/watercolor/.test(k))].join()"` (`true,true` at walk) · condition 3: `grep -rn indicator node_modules/@mkbabb/glass-ui/dist --include='*.d.ts' \| grep -ic slot` (0 at walk; fires ≥ 1) · then condition 4's receipt read and the census PASS line | §1.M bank (CC-003's trigger); measured at walk: `glass-ui/watercolor-dot` importers in `demo/` = 0 (relocated to `demo/shared/ui/watercolor-dot/` by the 10.x repin, X-W7L); trigger not fired (c3 = 0) |
+| CC-045 | **VERIFIED** | `8934de857` | — | X-W4.a (A3 `size="xs"` adopt) |
+| CC-046 | **VERIFIED** | `583715162` | — | X-W4.b (B3) |
+| CC-047 | **VERIFIED** | `583715162` | — | X-W4.b (B1 · B2 SelectTrigger titles via LabeledField) |
+| CC-048 | **VERIFIED** | `adc312f64` | — | X-W5.b block law (B4 GREEN); B3 relieved/routed → X-W6 (CC-056) |
+| CC-049 | **VERIFIED** | `50633f195` · `fdf3e9e07` | — | X-W5.c one mount, ordered regions; C3 fork census routed → X-W8 `.i` (`82bd72d2f`) |
+| CC-050 | **VERIFIED** | `de99ec156` | — | X-W5.a one route H1 (A5 GREEN; A5-OUTLINE relieved/routed → X-W10) |
+| CC-051 | **VERIFIED** | `50633f195` · `82bd72d2f` | — | block-axis half X-W5.c + the C3 viewport forks deleted at X-W8 `.i`; inline-axis half rides CC-056 |
+| CC-052 | **VERIFIED** | `e2f56558f` | — | X-W5.e P-1 exact Browse/Library posture (E1 · E2 GREEN) |
+| CC-053 | **VERIFIED** | authoring `e0346d0c6` · close `3e933c332` | — | FOLD → X-W5 wave authoring (consumes `registry/adjudicated/App.md`) |
+| CC-054 | **VERIFIED** | `2183b814f` · `bdee09cec` | — | X-W5.d frame-budget oracle; D1 GREEN of record (headed real GPU) |
+| CC-055 | **VERIFIED** | `2183b814f` · `52dc0a5b5` | — | X-W5.d scene motion; dock-layer half rides CC-080 (`15932a93a`) |
+| CC-056 | **VERIFIED** | `17dd0df47` | — | X-W6.j Gradient pilot → Mix canary → adoption |
+| CC-057 | **VERIFIED** | `17dd0df47` · `177301823` | — | X-W6.j; J4-SHORT-LANDSCAPE-BLOB marker retired at `177301823` (property holds, X-W12U) |
+| CC-058 | **VERIFIED** | `f90aeb029` · `7dff25f6b` · `e07bff630` · `b1c5ff34` | — | X-W6.a/.b/.c; residual: b1 `B1-G3D` honest-RED-by-instrument (§0ax) — the roster re-point of G3d is X-W11's browser cell (`.d`); D-6/D2-16 limb → bank (CC-044) |
+| CC-059 | **BLOCKED-ON** | the picker card's last failing interval (`demo/picker/seat.css:84` `gap: calc(var(--spectrum-stamp) + 1rem)`, authored by the X-DS program `082e1abbd` after X-W12 measured g1 GREEN) re-derived on the spacing canon — ESC-W10-g1-1, owner the orchestrator (X-W6 honest-RED g1 → X-W10 `.g1` `db364be64`) | `CARD_RHYTHM_ORIGIN=<served origin> node docs/tranches/V/megatranche/audit/probes/x-w6/gate-card-rhythm.mjs` (`GATE g1 — RED: 1 interval(s) fail` at X-W10; fires on GREEN) | readout dead band cured at `82ba99e19` (X-W12 `.d`) |
+| CC-060 | **VERIFIED** | `9557e6b56` | — | X-W6.d d1 one derived radius register |
+| CC-061 | **VERIFIED** | `a87f89303` | — | X-W6.h h1/h2 GREEN (sRGB buffer; `H1-P3` honest-RED-by-physics, §0aq) |
+| CC-062 | **VERIFIED** | `e69aaf95f` · `4233e83e` | — | X-W6.g g2 GREEN ×3 (`.s2` settle read, §0ba W5D4-SETTLE-READ) |
+| CC-063 | **VERIFIED** | `78af2c6a9` | — | X-W6.d d2 GREEN (DATED ASK · local restyle 0) |
+| CC-064 | **VERIFIED** | `3c5589561` | — | X-W6.e structural PRM, no private rAF |
+| CC-065 | **VERIFIED** | `e68e8889b` · tombstone `c2f17badc` | — | X-W6.i i1; DR-01 RETIRED-AS-LANDED tombstone first |
+| CC-066 | **VERIFIED** | `4cb294b97` | — | X-W6.i i2 dark lBand door REACHABLE |
+| CC-067 | **BLOCKED-ON** | the glass producer's pre-module derive seed (O-53; the §0ay (a) IIFE measures 50,989 B gzip > the 12 KB bar) — cold-load first painted atmosphere = seeded pick (X-W6 honest-RED i3 `I3-SEED-SIZE`) | `npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts --project=smoke --workers=1` (1 failed at X-W6 Check 1; fires on pass) | oracle landed `e68e8889b`; cure banked unlanded `d30ac9371` |
+| CC-068 | **VERIFIED** | `e0e204a9b` | — | X-W6.f X:CSS-1 one total space catalog (f1–f10 GREEN) |
+| CC-069 | **VERIFIED** | `877710a23` | — | X-W7.c shadow silhouette + hover register; G11 goldens honest-RED → X-W10 |
+| CC-070 | **VERIFIED** | `b970fe963` | — | X-W7.f display formatting facility |
+| CC-071 | **VERIFIED** | `41002df50` · `8fe6a2db4` | — | X-W7.g OM-15 abrogation (G19) + ShadowPalette plate (G20) |
+| CC-072 | **VERIFIED** | `9250dd192` · `76a4d1cf7` | — | X-W7.c arbitrary-N law + N-fixtures battery |
+| CC-073 | **VERIFIED** | `cb03d5714` · `486689477` · `1d4d375bf` | — | X-W7.b export truth + X-W7.d UI half |
+| CC-074 | **VERIFIED** | `9250dd192` | — | X-W7.c consumer-side priority-collapse; producer revival stays glass-owned |
+| CC-075 | **VERIFIED** | `4cb3d4869` | — | X-W7.e deliberate dismissal; G14 grep honest-RED at X-W7 discharged by the 10.x repin (12 sites at walk) |
+| CC-076 | **VERIFIED** | authoring `e0346d0c6` · close `a994800cc` | — | FOLD → X-W7 wave authoring (Admin DAG rows → G13–G15) |
+| CC-077 | **VERIFIED** | authoring `e0346d0c6` · close `a994800cc` | — | FOLD → X-W7 wave authoring (palette apotheoses) |
+| CC-078 | **VERIFIED** | `62bc3fbde` · census `17090b54a` | — | X-W8.a/.b — 19 barrels deleted; C-16 re-measure recorded |
+| CC-079 | **VERIFIED** | `9b92f36c9` | — | X-W8.c four SCCs closed by ownership |
+| CC-080 | **VERIFIED** | `15932a93a` | — | X-W8.d `useLayerTransition` shim retired clean-break |
+| CC-081 | **VERIFIED** | `62bc3fbde` · `15932a93a` · `42727db0f` | — | limbs distributed: Button/Skeleton/dead-surface/overlay at X-W8 (G-9 · G-10 · G-11); Checkbox at X-W7; ICtCp at X-W9.h |
+| CC-082 | **VERIFIED** | `df5737679` | — | X-W8.e LoC cap ruled WIRED (G-14) |
+| CC-083 | **VERIFIED** | authoring `e0346d0c6` · `15932a93a` | — | FOLD → X-W8 wave authoring; the crossfade row co-landed with CC-080 |
+| CC-084 | **VERIFIED** | `97ab39916` · `c18a78f81` · cut `f3fccfb76` | — | X-W9.a typed failure at `grammar.ts:181` (R1); G3 relieved by leg-scope ruling ESC-W9a-G3-LEG-SCOPE (§0ac) |
+| CC-085 | **VERIFIED** | `474846cec` | — | X-W9.b path totality |
+| CC-086 | **VERIFIED** | `0e37318e4` | — | X-W9.g canon doc-diff |
+| CC-087 | **VERIFIED** | `0e37318e4` | — | X-W9.g parse-that position recorded under the readopt decree |
+| CC-088 | **VERIFIED** | `f3fccfb76` | — | X-W9.f SCI-1 in the same dated 4.1.0 cut as CC-084 |
+| CC-089 | **VERIFIED** | `42727db0f` | — | X-W9.e external colour vectors; circular oracle renamed |
+| CC-090 | **VERIFIED** | `c8848bed2` | — | X-W9.d stylesheet split (RD-9) |
+| CC-091 | **VERIFIED** | authoring `e0346d0c6` · close `03f76440f` | — | FOLD → X-W9 wave authoring (library-band W.L1..W.L7) |
+| CC-092 | **RETIRED** | `docs/tranches/X/execution/A/X-W9.md` (X-W9.f DECLINE at the bytes, `:4131`) | — | CLOSED-DECLINED; runnable second-consumer re-trigger preserved |
+| CC-093 | **RETIRED** | `docs/tranches/X/waves/evidence/W9/close-gates-2026-09-18.txt` (G26 fence = 0) | — | prune list + G26 fence |
+| CC-094 | **RETIRED** | `docs/tranches/X/waves/evidence/W9/matrix-family-census.md` | — | X-W9.b `4be221892`; `PathGeometry` preserved |
+| CC-095 | **RETIRED** | `docs/tranches/X/parse-that/evidence/W1/BAR-LEDGER-2026-09-17.md` | — | superseded by G28's three-leg bar |
+| CC-096 | **VERIFIED** | authoring `e0346d0c6` · close `03f76440f` | — | FOLD → X-W9 wave-open staged reading (G1–G4 · G19 · G28) |
+| CC-097 | **VERIFIED** | authoring `e0346d0c6` · close `03f76440f` | — | FOLD → X-W9 gate contract (G28 restatement rule) |
+| CC-098 | **VERIFIED** | `3bb272f05` | — | X-W10.c `demo/DESIGN.md` re-authored from the twice-authored apotheosis (G-1 · G-2 · G-3) |
+| CC-099 | **VERIFIED** | `b5727dcb7` | — | X-W10.d PRM-scoped scroll-driven motion (G-4) |
+| CC-100 | **VERIFIED** | `3bb272f05` | — | X-W10.e G-6 — canon limb (Laws M-1..M-3); facet limb discharged |
+| CC-101 | **VERIFIED** | `b5727dcb7` | — | X-W10.d condense spacing register (G-5) |
+| CC-102 | **VERIFIED** | `8f04b4d5d` | — | X-W10.f producer-contract citation (G-7) |
+| CC-103 | **RETIRED** | `docs/tranches/X/execution/A/X-W10.md` (X.W10.f DR-13 survivor table, one terminal verb per row) | — | bundle retired at `8f04b4d5d`; G-8 GREEN ×2 |
+| CC-104 | **VERIFIED** | `505429cac` | — | FOLD → X-W10 open precondition; discharged by COHESION §0k.2 (substitute recorded `1f4fdf996`) |
+| CC-105 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON the 8.0.0 repin census event**: migrate the 4 sites + collapse the twins in the SAME census; no pre-repin shim, no copied selector | a dated census returning PASS at its elected target: `grep -rlE '^> ## \*\*PASS' docs/tranches/X/W0/ \| wc -l` (0 at walk — X-W0.j reads FAIL 1/4; fires ≥ 1) | §1.M bank; measured at walk: `--slider-track-bg` in `demo/` = 0 (migrated to `--glass-slider-track-background` by the 10.x repin, X-W7R/X-W7L); the twins-collapse limb unmeasured; no census since X-W0.j |
+| CC-106 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON the #35 adopt at the 8.0.0 repin census** — deletion rides the same cut | a dated census returning PASS at its elected target: `grep -rlE '^> ## \*\*PASS' docs/tranches/X/W0/ \| wc -l` (0 at walk — X-W0.j reads FAIL 1/4; fires ≥ 1) | §1.M bank; measured at walk: `useSliderAnnouncements.ts` still tracked (1); `getValueText` in glass dist = 0 |
+| CC-107 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON TR#47's dock publish** — the probe retires against the shipped pair | `grep -rl 'glass-tint-source' node_modules/@mkbabb/glass-ui/dist \| wc -l` (0 at walk; fires ≥ 1) | §1.M bank; measured at walk: `--glass-tint-source` in glass dist = 0; `paintedTintOf` in `demo/` = 0 |
+| CC-108 | **RETIRED** | `../glass-ui/docs/tranches/BJ/coordination/glass-outbound-2026-07-29-o19-receipt.md` | — | RETIRED-BY-PRODUCER (A-17 chassis death); producer-authored receipt, INBOX I-21 |
+| CC-109 | **VERIFIED** | `ad240462c` | — | FOLD → glass seat; DISCHARGED BY THE VERDICT at the X-W0.j census (`GLASS8-REPIN-CENSUS.md` §9.1) — transposed verbatim |
+| CC-110 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON TR#47's resolution** — then retire DockStatusLamp's wrong-question viewport fallback our side | `grep -rn '@container dock' node_modules/@mkbabb/glass-ui/dist \| wc -l` + the TR#47 resolution in a dated census | §1.M bank; measured at walk: `@container dock` in glass dist = 0 (resolution-by-deletion is possible; the receiving surface confirms) |
+| CC-111 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON that publication** — then delete the hand-copied `44.9375rem` from both bespoke skeletons | a dated census returning PASS at its elected target: `grep -rlE '^> ## \*\*PASS' docs/tranches/X/W0/ \| wc -l` (0 at walk — X-W0.j reads FAIL 1/4; fires ≥ 1) | §1.M bank; measured at walk: `44.9375rem` in `demo/` = 0; the publication itself unconfirmed |
+| CC-112 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON TR#78's canon publication**; X-W10 cites the named contract meanwhile (CC-102) — no consumer reads dist to write its canon again | a dated census returning PASS at its elected target: `grep -rlE '^> ## \*\*PASS' docs/tranches/X/W0/ \| wc -l` (0 at walk — X-W0.j reads FAIL 1/4; fires ≥ 1) | §1.M bank; X-W10 cites the named contract meanwhile (CC-102); X-W10's close carries CC-112 BLOCKED-ON TR#78 unchanged |
+| CC-113 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON TR#84 ⊕⁷ (+#32/#71 twins)**: the consumer-painted indicator slot at 8.0.0, both orientations — we paint the relocated `WatercolorSwatch` into it and inherit the bounce (loupe grammar at #35/#32/#71, #26 the one spring authority); **no watercolor bytes return to the library** | condition 3: `grep -rn indicator node_modules/@mkbabb/glass-ui/dist --include='*.d.ts' \| grep -ic slot` (0 at walk; fires ≥ 1), both orientations, then the census PASS line | §1.M bank; measured at walk: c3 slot = 0 — not fired |
+| CC-114 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON glass TR#22 ⊕⁷** (`--glass-shadow-capsule` indirection, witness #47); consumer adopt at the 8.0.0 repin census; no local patch (masking-fallback ban) | `grep -rl 'glass-shadow-capsule' node_modules/@mkbabb/glass-ui/dist \| wc -l` + CENSUS | §1.M bank; measured at walk: `--glass-shadow-capsule` present in 3 glass dist files at 10.1.0 — the producer limb may have SHIPPED; the consumer adopt awaits the repin census (X-W4.g) |
+| CC-115 | **BLOCKED-ON** | verbatim §1.M — **BLOCKED-ON TR#87 shipping at 8.0.0**; consumer adopts at the repin census; the interim consumer formatting rides CC-070's facility | `grep -rlE 'coalesceMetric\|coalesce-metric' node_modules/@mkbabb/glass-ui/dist \| wc -l` + CENSUS | §1.M bank; measured at walk: `coalesce-metric` present in 4 glass dist files at 10.1.0 — the producer limb may have SHIPPED; the consumer adopt awaits the repin census (X-W4.g) |
+| CC-116 | **VERIFIED** | `ad240462c` | — | FOLD → glass TR seats; DISCHARGED BY THE VERDICT (`GLASS8-REPIN-CENSUS.md` §9.2), 31/31 stand as received — transposed verbatim |
+| CC-117 | **VERIFIED** | `ad240462c` | — | EVIDENCE-ONLY · FOLD → coordination INBOX row I-24 · NO VALUE ACT · NO X WAVE ROW (`GLASS8-REPIN-CENSUS.md` §9.3, stated once) — transposed verbatim |
+| CC-118 | **VERIFIED** | `082e1abbd` · `ddd399786` | — | dated-append row (BUILD → X-W6, unspent at X-W6's close); G-PAINT's mechanism landed by the X-DS program (V1C-06: `variant="spectrum"` and the `--ink-muted` track feed deleted; V2C-06: the one scalar range ink) — the range-vs-track ≥ 3:1 arm is re-read by X-W11's browser cell (`.d`) |

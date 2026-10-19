@@ -1,0 +1,664 @@
+(node:25958) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 25 tests using 1 worker
+
+(node:25999) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light (39.4s)
+(node:27388) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark (33.3s)
+(node:28556) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   3 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light (48.5s)
+(node:30199) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   4 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark (1.6m)
+(node:36376) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   5 [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:104:1 › the recalibrated register's computed tokens hold (the named-knob tripwire) (17.0s)
+  ✘   6 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions (30.1s)
+(node:38777) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   7 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene (24.7s)
+(node:40550) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   8 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss (28.9s)
+(node:42495) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   9 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — atmosphere: the preview repaints after a forced WebGL context loss (24.9s)
+[j4] blob preview@rest=0.000 last="Reset" inViewport=true hit=true rect={"x":607.703125,"y":206.65625,"w":83.296875,"h":36} preview@last=0.821
+  ✓  10 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 (21.8s)
+(node:45286) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  11 [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 (9.9s)
+(node:46073) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  12 [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start (32.0s)
+(node:48255) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  13 [smoke] › e2e/smoke/views/gradient.spec.ts:50:1 › gradient view renders direction slider with zero console errors (1.2m)
+(node:55467) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  14 [smoke] › e2e/smoke/views/gradient.spec.ts:85:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) (39.0s)
+  ✘  15 [smoke] › e2e/smoke/views/gradient.spec.ts:130:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) (30.2s)
+(node:59424) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  16 [smoke] › e2e/smoke/views/gradient.spec.ts:172:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict (1.5m)
+  ✘  17 [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints (36.3s)
+(node:65319) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  18 [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove (1.1m)
+(node:68628) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  19 [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved (2.3m)
+(node:75277) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  20 [smoke] › e2e/smoke/views/gradient.spec.ts:392:1 › garbage input fails LOUD and leaves the model untouched (2.9m)
+(node:84447) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  21 [smoke] › e2e/smoke/views/gradient.spec.ts:416:1 › radial geometry is model-or-reject, never a silent drop (2.3m)
+(node:89813) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  22 [smoke] › e2e/smoke/views/gradient.spec.ts:430:1 › easing row carries its live ramp; steps mode lands in the literal (2.1m)
+(node:94785) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  23 [smoke] › e2e/smoke/views/gradient.spec.ts:465:1 › no pane subtree rests on a permanent compositing transform (W5-10) (1.8m)
+(node:99310) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  24 [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora (1.7m)
+(node:3128) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘  25 [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget (1.5m)
+
+
+  1) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()[22m
+
+
+      56 |     // a future re-wording of the label cannot silently kill the census again.
+      57 |     const plate = main.getByTestId("gradient-render-tile").last();
+    > 58 |     await expect(plate).toBeVisible();
+         |                         ^
+      59 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      60 |     // enter transition otherwise screenshots the plate mid-flight (see
+      61 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:58:25)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: test-results/oracles-o19-netting-luma-n-1e301-lta-≥59-255-—-desktop-light-smoke/error-context.md
+
+  2) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()[22m
+
+
+      56 |     // a future re-wording of the label cannot silently kill the census again.
+      57 |     const plate = main.getByTestId("gradient-render-tile").last();
+    > 58 |     await expect(plate).toBeVisible();
+         |                         ^
+      59 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      60 |     // enter transition otherwise screenshots the plate mid-flight (see
+      61 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:58:25)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: test-results/oracles-o19-netting-luma-n-77d75-elta-≥45-255-—-desktop-dark-smoke/error-context.md
+
+  3) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m59[39m
+    Received:    [31m14.04480000000001[39m
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       95 |                     { timeout: 10_000 },
+       96 |                 )
+    >  97 |                 .toBeGreaterThanOrEqual(FLOORS[scheme]);
+          |                  ^
+       98 |
+       99 |             expect(consoleErrors).toEqual([]);
+      100 |         });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:97:18
+
+    Error Context: test-results/oracles-o19-netting-luma-n-a84db-a-delta-≥59-255-—-390-light-smoke/error-context.md
+
+  4) [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').getByTestId('gradient-render-tile').last()[22m
+
+
+      56 |     // a future re-wording of the label cannot silently kill the census again.
+      57 |     const plate = main.getByTestId("gradient-render-tile").last();
+    > 58 |     await expect(plate).toBeVisible();
+         |                         ^
+      59 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      60 |     // enter transition otherwise screenshots the plate mid-flight (see
+      61 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:58:25)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o19-netting-luma.spec.ts:79:27
+
+    Error Context: test-results/oracles-o19-netting-luma-n-9dc3e-ma-delta-≥45-255-—-390-dark-smoke/error-context.md
+
+  5) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 0[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Array [[22m
+    [2m    "stage:Gradient",[22m
+    [31m+   "undefined:null",[39m
+    [2m    "inspector:Palettes",[22m
+    [2m  ][22m
+
+      115 |
+      116 |     // The route resolves ONE scene row: the Gradient stage, the Palettes companion.
+    > 117 |     expect(await regionsOf(page)).toEqual(["stage:Gradient", "inspector:Palettes"]);
+          |                                   ^
+      118 |
+      119 |     // STAGE: the authoring surface lives in the stage and nowhere else.
+      120 |     const rail = stage.getByTestId("gradient-stop-bar");
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:117:35
+
+    Error Context: test-results/oracles-o29-scene-contract-23e43-ctor-and-its-stable-actions-smoke/error-context.md
+
+  6) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene 
+
+    Error: the region never settled
+
+    the region never settled
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m""[39m
+    Received: [31m"div.pane-shell.relative runs 1 animation(s)"[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at smoke/fixtures/settle.ts:85
+
+      83 |             { timeout, message: "the region never settled" },
+      84 |         )
+    > 85 |         .toBe("");
+         |          ^
+      86 | }
+      87 |
+        at regionSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/settle.ts:85:10)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:246:11
+
+    Error Context: test-results/oracles-o29-scene-contract-2a7d3-n-canvas-bound-to-its-scene-smoke/error-context.md
+
+  7) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeAttached[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-testid="goo-blob-canvas"]').first()
+    Expected: attached
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeAttached" with timeout 15000ms[22m
+    [2m  - waiting for locator('[data-testid="goo-blob-canvas"]').first()[22m
+
+
+      386 |         await openScene(page, hash, stageLabel);
+      387 |         const canvas = page.locator(selector).first();
+    > 388 |         await expect(canvas).toBeAttached({ timeout: 15_000 });
+          |                              ^
+      389 |
+      390 |         if (hash === "atmosphere") {
+      391 |             // The atmosphere's SUBSTRATE is the producer's device-tier law
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:388:30
+
+    Error Context: test-results/oracles-o29-scene-contract-3ec41-a-forced-WebGL-context-loss-smoke/error-context.md
+
+  8) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+
+    Expected to fail, but passed.
+
+  9) [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 
+
+    Error: the scene has no interactive control at all
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBeNull[2m()[22m
+
+    Received: [31mnull[39m
+
+      501 |     }, INTERACTIVE);
+      502 |     const el = handle.asElement();
+    > 503 |     expect(el, "the scene has no interactive control at all").not.toBeNull();
+          |                                                                   ^
+      504 |     await el!.scrollIntoViewIfNeeded();
+      505 |     await page.waitForTimeout(250);
+      506 |     return el!.evaluate((node) => {
+        at lastControlReach (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:503:67)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o29-scene-contracts.spec.ts:595:26
+
+    Error Context: test-results/oracles-o29-scene-contract-b5706-e-both-reachable-at-720×450-smoke/error-context.md
+
+  10) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    Error: the region never settled
+
+    the region never settled
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m""[39m
+    Received: [31m"div.pane-shell.relative runs 1 animation(s)"[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at smoke/fixtures/settle.ts:85
+
+      83 |             { timeout, message: "the region never settled" },
+      84 |         )
+    > 85 |         .toBe("");
+         |          ^
+      86 | }
+      87 |
+        at regionSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/settle.ts:85:10)
+        at readRowOnce (/Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:92:11)
+        at readRow (/Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:70:21)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:151:21
+
+    Error Context: test-results/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+  11) [smoke] › e2e/smoke/views/gradient.spec.ts:50:1 › gradient view renders direction slider with zero console errors 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:28:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:55:18
+
+    Error Context: test-results/views-gradient-gradient-vi-bff74-er-with-zero-console-errors-smoke/error-context.md
+
+  12) [smoke] › e2e/smoke/views/gradient.spec.ts:130:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) 
+
+    Error: the region never settled
+
+    Timeout 15000ms exceeded while waiting on the predicate
+
+       at smoke/fixtures/settle.ts:85
+
+      83 |             { timeout, message: "the region never settled" },
+      84 |         )
+    > 85 |         .toBe("");
+         |          ^
+      86 | }
+      87 |
+        at regionSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/settle.ts:85:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:35:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:134:18
+
+    Error Context: test-results/views-gradient-selecting-a-fa66d-ithout-destroying-it-P7-R1--smoke/error-context.md
+
+  13) [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       at smoke/fixtures/dock.ts:111
+
+      109 |             { timeout: 15_000 },
+      110 |         )
+    > 111 |         .toBe(false);
+          |          ^
+      112 | }
+      113 |
+      114 | /**
+        at paneSettled (/Users/mkbabb/Programming/value.js/e2e/smoke/fixtures/dock.ts:111:10)
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:28:11)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:268:18
+
+    Error Context: test-results/views-gradient-a-grab-is-n-2555f-d-no-secondary-button-mints-smoke/error-context.md
+
+  14) [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:304:18
+
+    Error Context: test-results/views-gradient-stop-add-ba-2271f--drag-and-touch-true-remove-smoke/error-context.md
+
+  15) [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:366:18
+
+    Error Context: test-results/views-gradient-round-trip--0e4a5-lly-with-literals-preserved-smoke/error-context.md
+
+  16) [smoke] › e2e/smoke/views/gradient.spec.ts:392:1 › garbage input fails LOUD and leaves the model untouched 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:394:18
+
+    Error Context: test-results/views-gradient-garbage-inp-9b0f0--leaves-the-model-untouched-smoke/error-context.md
+
+  17) [smoke] › e2e/smoke/views/gradient.spec.ts:416:1 › radial geometry is model-or-reject, never a silent drop 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:418:18
+
+    Error Context: test-results/views-gradient-radial-geom-dc505--reject-never-a-silent-drop-smoke/error-context.md
+
+  18) [smoke] › e2e/smoke/views/gradient.spec.ts:430:1 › easing row carries its live ramp; steps mode lands in the literal 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:434:18
+
+    Error Context: test-results/views-gradient-easing-row--6c09b-s-mode-lands-in-the-literal-smoke/error-context.md
+
+  19) [smoke] › e2e/smoke/views/gradient.spec.ts:465:1 › no pane subtree rests on a permanent compositing transform (W5-10) 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Gradient' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      22 |     await openView(page, "Gradient");
+      23 |     const main = page.getByRole("main", { name: "Gradient" });
+    > 24 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      25 |     // The swap spring must be at rest before interactions — the cold-load
+      26 |     // stall-then-resume enter transition defeats Playwright's bounding-box
+      27 |     // stability check (see paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:24:74)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:469:18
+
+    Error Context: test-results/views-gradient-no-pane-sub-41efa-ompositing-transform-W5-10--smoke/error-context.md
+
+  20) [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora ──────────────────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"`@mkbabb/glass-ui` **10.1.0**"[39m
+    Received string:    [31m"SERVED MODEL: claude-opus-5-5[1m]·[39m
+    [31m# Glass-forward ask — a strip-scale aurora motion primitive for the gradient selector·[39m
+    [31m**Row**: CC-064 · MT-F041 · gate **e1** (`W6.md` §5 X.W6.e).[39m
+    [31m**Dated**: 2026-09-22, branch `tranche-u`, against installed `@mkbabb/glass-ui` **7.0.0**.[39m
+    [31m**Direction**: consumer (value.js) → producer (glass-ui). **glass-ui is READ-ONLY, ALWAYS** — this is a[39m
+    [31mletter; no byte of the producer tree was written to author it.[39m
+    [31m**Follows**: the early notice **B-1** in `valuejs-outbound-2026-07-28-o18-watercolor-toggle-loupe.md`[39m
+    [31m§B — *\"If the wave mechanism lands as a variant of your aurora/gradient primitives rather than[39m
+    [31mdemo-side, a follow-up ask will carry the exact shape.\"* This is that follow-up.[39m
+    [31m**Authority for the branch**: `W6.md` X.W6.e — *\"If the wave mechanism proves to belong inside the[39m
+    [31mglass gradient/aurora primitive, it leaves as a marked BJ ask (same two-way falsifier as d2).\"*[39m
+    [31m**Machine oracle**: `npx playwright test e2e/smoke/views/gradient.spec.ts -g \"gradient selector aurora\"`.[39m
+    [31mIt re-runs the census in §2 on every run and **reds the day a fitting primitive ships** — so this letter[39m
+    [31mcannot outlive the fact that justifies it — and it reds equally if the wave animates the ramp locally.·[39m
+    [31m---·[39m
+    [31m## 1. The mandate, verbatim·[39m
+    [31mOwner, 2026-07-28 (MT-F041): *\"let's plan to add a bit of dyannism to the gradient selector--it should[39m
+    [31mbecome a SUBTLE aurora insofar as the gradient waves a bit.\"* Standing constraints (`W6.md` X.W6.e):[39m
+    [31mconsume the shared field/motion law from `@mkbabb/glass-ui/aurora`; **no new animation species**; **no[39m
+    [31mprivate rAF loop**; PRM honoured **structurally** (declared inside[39m
+    [31m`@media (prefers-reduced-motion: no-preference)`), never by leaning on the global reduce guard.·[39m
+    [31m## 2. The census — why no published primitive fits (re-run by the gate)·[39m
+    [31m`@mkbabb/glass-ui` **7.0.0**, 74 published subpaths. `./aurora` (`dist/components/aurora/index.d.ts`,[39m
+    [31msha256 `6c9b1bce53361513260ccea723826dd724604d6cc220a58383856f0c1694466d`) publishes:·[39m
+    [31m| export | what it is | fits a strip wave? |[39m
+    [31m|---|---|---|[39m
+    [31m| `Aurora` (component) | the full-field painterly background: one WebGL2 canvas sized to its container | **no** — see (a), (b) |[39m
+    [31m| `useAurora`, `createAurora`, `useCursorInteraction` | the WebGL runtime and its pointer bridge | **no** — the same substrate |[39m
+    [31m| `resolveRenderMode`, `isSoftwareWebGLRenderer` | the substrate selector (`\"webgl\" \\| \"css\" \\| \"auto\"`) | — (a guard, not a surface) |[39m
+    [31m| `deriveAurora`, `paletteToCssGradient`, `cssToOklch`, `flattenPalette`, … | colour helpers: palette derivation and a **static** CSS gradient string | **no** — no motion |[39m
+    [31m| `auroraFallbackGround`, `sampleAuroraField`, `nucleiFieldStatic` | the **static** first-frame ground | **no** — no motion |[39m
+    [31m| `DEFAULT_AURORA_CONFIG`, atoms, presets | configuration | — |·[39m
+    [31mAnd the stylesheet: `grep -rhoE '@keyframes [a-z-]*aurora[a-z-]*' dist` → **0**. The aurora motion[39m
+    [31mvocabulary exists **only** inside the WebGL runtime.·[39m
+    [31mThree measured facts close the local routes:·[39m
+    [31m- **(a) The CSS substrate is still.** `renderMode.d.ts`: a software rasteriser takes the `\"css\"`[39m
+    [31m  substrate — *\"the static gradient placeholder\"* — by the producer's own safe default, and the named[39m
+    [31m  escape `forceWebGLUnderSoftwareRaster` exists *\"for a deterministic test that ACCEPTS the[39m
+    [31m  per-composite raster cost\"*, not for a product surface. A strip that waves only on a GPU is a strip[39m
+    [31m  that never waves on the smoke cell and on every GPU-blocklisted device (value.js's own[39m
+    [31m  `o26-aurora-perceptibility` records the same: the atmosphere is a still under headless GL).[39m
+    [31m- **(b) A second full-field WebGL canvas per gradient pane** is a second GPU context on the route that[39m
+    [31m  already hosts the atmosphere's — for a ~40 px strip.[39m
+    [31m- **(c) The rail's one-axis law forbids moving the ramp.** The gradient rail paints each colour at the[39m
+    [31m  ordinal its handle sits on (X.W6.a a3/a4; X.W6.c c2: the ghost, the caret and the rail agree to the[39m
+    [31m  sample). A wave that displaces colour along the axis would put a colour under a handle that does not[39m
+    [31m  own it. The motion therefore has to live on an axis the ordinal does not — a veil, a luminance drift,[39m
+    [31m  a silhouette — which is a new primitive, not a configuration of `Aurora`.·[39m
+    [31mA consumer-side cure would therefore mint either a new `@keyframes` species (banned) or a private rAF[39m
+    [31mloop (banned). **The mechanism belongs to the producer.**·[39m
+    [31m## 3. The ask·[39m
+    [31mA **strip-scale aurora motion primitive** in `./aurora` (or a sibling subpath), one of:·[39m
+    [31m1. **`<AuroraStrip>`** — wraps a caller-supplied background (a CSS gradient string, or `OklchStop[]`)[39m
+    [31m   and overlays the aurora field's drift as a **veil** that never displaces the caller's colours along[39m
+    [31m   the strip's long axis (luminance / chroma breathing, or a gently waving silhouette); or[39m
+    [31m2. **a utility + keyframes pair** (e.g. `glass-aurora-drift`) applicable to any element as an extra[39m
+    [31m   background layer, with the drift's tempo and amplitude from the motion tokens (`--motion-tempo`,[39m
+    [31m   the aurora breath).·[39m
+    [31mEither way, the contract we need:·[39m
+    [31m- a **CSS substrate that moves** (no WebGL context per strip), so the wave exists on every renderer;[39m
+    [31m- motion declared **inside `prefers-reduced-motion: no-preference`** in the producer's own stylesheet[39m
+    [31m  (still, not merely slowed, under reduce);[39m
+    [31m- subtle by default (the owner's word), with one documented amplitude knob;[39m
+    [31m- no colour displacement along the long axis (the one-axis law above).·[39m
+    [31m**Consumer commitment**: value.js composes it on the gradient rail (`GradientStopEditor.vue`'s[39m
+    [31m`.gradient-rail`) and nowhere else in this wave; the e1 oracle then flips to the composing branch and[39m
+    [31mmeasures the motion as a settled-frame delta at a fixed colour.·[39m
+    [31m*Sent by the value.js X-W6 wave (Repair 1), 2026-09-22. Reply folds per E13.*[39m
+    [31m"[39m
+
+      724 |         expect(existsSync(askPath), "no fitting primitive and no dated ask").toBe(true);
+      725 |         const ask = readFileSync(askPath, "utf8");
+    > 726 |         expect(ask).toContain(`\`@mkbabb/glass-ui\` **${manifest.version}**`);
+          |                     ^
+      727 |         expect(ask, "the ask's census hash is stale — re-run the census").toContain(indexHash);
+      728 |         for (const name of ["Aurora", "useAurora", "createAurora", "paletteToCssGradient", "auroraFallbackGround"]) {
+      729 |             expect(exported, `the census row ${name} is no longer published`).toContain(name);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:726:21
+
+    Error Context: test-results/views-gradient-gradient-selector-aurora-smoke/error-context.md
+
+  21) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('.add-slot-ghost').first()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for locator('main[aria-labelledby="route-title"]:has(> h1#route-title)').locator('.add-slot-ghost').first()[22m
+
+
+      51 |     // contract that is broken.
+      52 |     const addSlot = main.locator(".add-slot-ghost").first();
+    > 53 |     await expect(addSlot).toBeVisible();
+         |                           ^
+      54 |     await expect(
+      55 |         addSlot,
+      56 |         "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/mix.spec.ts:53:27
+
+    Error Context: test-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md
+
+  21 failed
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — desktop, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — desktop, dark 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥59/255 — 390, light 
+    [smoke] › e2e/smoke/oracles/o19-netting-luma.spec.ts:71:9 › netting luma delta ≥45/255 — 390, dark 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:109:1 › gradient scene — the Gradient stage owns its authoring stage, its selected-stop inspector and its stable actions 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:233:1 › mix canary — one interaction owner, no nested controls, the narration canvas bound to its scene 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:380:5 › preview survives — blob: the preview repaints after a forced WebGL context loss 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — blob: the last control and the preview are both reachable at 720×450 
+    [smoke] › e2e/smoke/oracles/o29-scene-contracts.spec.ts:579:9 › j4 short landscape › short landscape — atmosphere: the last control and the preview are both reachable at 720×450 
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:50:1 › gradient view renders direction slider with zero console errors 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:130:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:266:1 › a grab is not a teleport, and no secondary button mints 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:300:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:362:1 › round-trip: authored CSS applies atomically with literals preserved 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:392:1 › garbage input fails LOUD and leaves the model untouched 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:416:1 › radial geometry is model-or-reject, never a silent drop 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:430:1 › easing row carries its live ramp; steps mode lands in the literal 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:465:1 › no pane subtree rests on a permanent compositing transform (W5-10) 
+    [smoke] › e2e/smoke/views/gradient.spec.ts:613:1 › gradient selector aurora ────────────────────
+    [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+  4 passed (34.7m)
+EXIT 1

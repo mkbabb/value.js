@@ -1,0 +1,42 @@
+{
+ "khead": "d78bed01",
+ "kdirty": "4",
+ "runs": [
+  {
+   "label": "unthrottled",
+   "mountMs": 503,
+   "unmountMs": 560,
+   "lifeMs": 58,
+   "samples": 4,
+   "bandVisibleSamples": 4,
+   "firstBandMs": 2,
+   "fails": [
+    "404 http://localhost:5173/assets/icons/favicon.svg"
+   ],
+   "screencast": 8
+  },
+  {
+   "label": "fast3g",
+   "mountMs": 60919,
+   "unmountMs": 67938,
+   "lifeMs": 7019,
+   "samples": 423,
+   "bandVisibleSamples": 184,
+   "firstBandMs": 2,
+   "fails": [],
+   "screencast": 330
+  },
+  {
+   "label": "slow3g",
+   "mountMs": null,
+   "unmountMs": null,
+   "lifeMs": null,
+   "samples": 0,
+   "bandVisibleSamples": 0,
+   "firstBandMs": null,
+   "fails": [],
+   "screencast": 2
+  }
+ ],
+ "khead2": "d78bed01"
+}

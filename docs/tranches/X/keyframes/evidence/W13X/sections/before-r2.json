@@ -1,0 +1,882 @@
+{
+ "run": "before-r2",
+ "base": "http://localhost:5331",
+ "da": [
+  {
+   "cfg": "spring-1440x900-light",
+   "stage": "glass-resting.card.spring-target.relative",
+   "gap": 84.2,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "sequence-1440x900-light",
+   "stage": "glass-resting.card.seq-target.w-full",
+   "gap": 84.2,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "easing-1440x900-light",
+   "stage": "glass-resting.card.easing-target.easing-gallery",
+   "gap": 84.2,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "cube-1440x900-light",
+   "stage": "(no stage surface: the scene draws on the page ground)",
+   "gap": 72,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "spring-1024x768-light",
+   "stage": "glass-resting.card.spring-target.relative",
+   "gap": 80.4,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "sequence-1024x768-light",
+   "stage": "glass-resting.card.seq-target.w-full",
+   "gap": 80.4,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "easing-1024x768-light",
+   "stage": "glass-resting.card.easing-target.easing-gallery",
+   "gap": 80.4,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "cube-1024x768-light",
+   "stage": "(no stage surface: the scene draws on the page ground)",
+   "gap": 72,
+   "gutter": [
+    251,
+    250,
+    248
+   ],
+   "ground": [
+    251,
+    250,
+    248
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    3,
+    3
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "spring-1440x900-dark",
+   "stage": "glass-resting.card.spring-target.relative",
+   "gap": 84.2,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "sequence-1440x900-dark",
+   "stage": "glass-resting.card.seq-target.w-full",
+   "gap": 84.2,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "easing-1440x900-dark",
+   "stage": "glass-resting.card.easing-target.easing-gallery",
+   "gap": 84.2,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "cube-1440x900-dark",
+   "stage": "(no stage surface: the scene draws on the page ground)",
+   "gap": 72,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "spring-1024x768-dark",
+   "stage": "glass-resting.card.spring-target.relative",
+   "gap": 80.4,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "sequence-1024x768-dark",
+   "stage": "glass-resting.card.seq-target.w-full",
+   "gap": 80.4,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "easing-1024x768-dark",
+   "stage": "glass-resting.card.easing-target.easing-gallery",
+   "gap": 80.4,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  },
+  {
+   "cfg": "cube-1024x768-dark",
+   "stage": "(no stage surface: the scene draws on the page ground)",
+   "gap": 72,
+   "gutter": [
+    11,
+    10,
+    9
+   ],
+   "ground": [
+    11,
+    10,
+    9
+   ],
+   "delta": [
+    0,
+    0,
+    0
+   ],
+   "spread": 0,
+   "chroma": [
+    2,
+    2
+   ],
+   "band": "NONE"
+  }
+ ],
+ "db": [
+  {
+   "cfg": "cube-1440x900-light",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 64
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 64
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  },
+  {
+   "cfg": "cube-390x844-light",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 72
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 72
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  },
+  {
+   "cfg": "cube-1440x900-dark",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 64
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 64
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  },
+  {
+   "cfg": "cube-390x844-dark",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 72
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 72
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  }
+ ],
+ "ribbon": [
+  {
+   "cfg": "cube-Keyframes-1440x900-light",
+   "rows": [
+    [
+     "Apply CSS",
+     "Copy",
+     "Format",
+     "Export CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Apply CSS",
+    "pressed": null
+   },
+   "oneRow": "GREEN"
+  },
+  {
+   "cfg": "cube-Timeline-1440x900-light",
+   "rows": [
+    [
+     "Snapshot",
+     "Import",
+     "Export"
+    ],
+    [
+     "Add CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Snapshot",
+    "pressed": null
+   },
+   "oneRow": "RED"
+  },
+  {
+   "cfg": "cube-Keyframes-390x844-light",
+   "rows": [
+    [
+     "Apply CSS",
+     "Copy",
+     "Format",
+     "Export CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Apply CSS",
+    "pressed": null
+   },
+   "oneRow": "GREEN"
+  },
+  {
+   "cfg": "cube-Timeline-390x844-light",
+   "rows": [
+    [
+     "Snapshot",
+     "Import"
+    ],
+    [
+     "Export",
+     "Add CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Snapshot",
+    "pressed": null
+   },
+   "oneRow": "RED"
+  },
+  {
+   "cfg": "cube-Keyframes-1440x900-dark",
+   "rows": [
+    [
+     "Apply CSS",
+     "Copy",
+     "Format",
+     "Export CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Apply CSS",
+    "pressed": null
+   },
+   "oneRow": "GREEN"
+  },
+  {
+   "cfg": "cube-Timeline-1440x900-dark",
+   "rows": [
+    [
+     "Snapshot",
+     "Import",
+     "Export"
+    ],
+    [
+     "Add CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Snapshot",
+    "pressed": null
+   },
+   "oneRow": "RED"
+  },
+  {
+   "cfg": "cube-Keyframes-390x844-dark",
+   "rows": [
+    [
+     "Apply CSS",
+     "Copy",
+     "Format",
+     "Export CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Apply CSS",
+    "pressed": null
+   },
+   "oneRow": "GREEN"
+  },
+  {
+   "cfg": "cube-Timeline-390x844-dark",
+   "rows": [
+    [
+     "Snapshot",
+     "Import"
+    ],
+    [
+     "Export",
+     "Add CSS"
+    ]
+   ],
+   "lead": {
+    "name": "Snapshot",
+    "pressed": null
+   },
+   "oneRow": "RED"
+  }
+ ],
+ "header": [
+  {
+   "cfg": "spring-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-1440x900-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-390x844-light",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-1440x900-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "spring-Entry-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "sequence-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "easing-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 0,
+   "L1_8": "RED"
+  },
+  {
+   "cfg": "square-390x844-dark",
+   "headers": 0,
+   "titles": [],
+   "statusInHeader": 0,
+   "statusOutside": 1,
+   "L1_8": "RED"
+  }
+ ],
+ "dialog": [
+  {
+   "cfg": "Keyboard-shortcuts-1440-light",
+   "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '@mbabb menu' }).first()\u001b[22m\n"
+  },
+  {
+   "cfg": "Clear-all-1440-light",
+   "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '@mbabb menu' }).first()\u001b[22m\n"
+  },
+  {
+   "cfg": "Keyboard-shortcuts-1440-dark",
+   "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '@mbabb menu' }).first()\u001b[22m\n"
+  },
+  {
+   "cfg": "Clear-all-1440-dark",
+   "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '@mbabb menu' }).first()\u001b[22m\n"
+  }
+ ]
+}

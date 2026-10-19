@@ -1,0 +1,5 @@
+[]
+easing-1440-light Standard:5/3c/3+2 Sine:3/3c/3 Quad:3/3c/3 Cubic:4/3c/3+1 Expo:3/3c/3 Circ:3/3c/3 Back:4/3c/3+1 Steps:3/3c/3
+easing-390-light Standard:5/2c/2+2+1 Sine:3/2c/2+1 Quad:3/2c/2+1 Cubic:4/2c/2+2 Expo:3/2c/2+1 Circ:3/2c/2+1 Back:4/2c/2+2 Steps:3/2c/2+1
+easing-1440-dark Standard:5/3c/3+2 Sine:3/3c/3 Quad:3/3c/3 Cubic:4/3c/3+1 Expo:3/3c/3 Circ:3/3c/3 Back:4/3c/3+1 Steps:3/3c/3
+easing-390-dark Standard:5/2c/2+2+1 Sine:3/2c/2+1 Quad:3/2c/2+1 Cubic:4/2c/2+2 Expo:3/2c/2+1 Circ:3/2c/2+1 Back:4/2c/2+2 Steps:3/2c/2+1

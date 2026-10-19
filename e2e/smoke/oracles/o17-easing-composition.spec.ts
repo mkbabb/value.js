@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView } from "../fixtures/dock";
+import { openView, mainPane } from "../fixtures/dock";
 
 /**
  * T.W6 W6-3 · O-17 — THE EASING COMPOSITION ORACLE (SYNTHESIS §6.1 O-17;
@@ -34,12 +34,15 @@ import { openView } from "../fixtures/dock";
 async function openEasingBench(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
-    const head = main.locator("button[aria-controls^='easing-interval-']").first();
+    const main = mainPane(page);
+    // A2-VA-L1-12 (X-W12U .k2): the rows are glass Accordion items; the head
+    // is the item's trigger button (`.interval-head`) and the row is the region
+    // its own aria-controls names (glass mints the ids).
+    const head = main.locator("button.interval-head").first();
     await expect(head).toBeVisible();
     // The bench mounts with row 0 open; normalize in case a prior step closed it.
     if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
-    const row = main.locator("#easing-interval-0");
+    const row = main.locator(`[id="${await head.getAttribute("aria-controls")}"]`);
     await expect(row).toBeVisible();
     return row;
 }
@@ -60,7 +63,12 @@ async function discloseAuthoring(row: Locator): Promise<Locator> {
     // binds the node that EXISTS and states the broken contract on its own
     // line; glass-ui is READ-ONLY (BH relay) and `demo/` is this wave's
     // Triumvirate trigger, so the cure is routed, not hacked in here.
-    const svg = row.locator("#easing-authoring-0 svg");
+    // X-W12U .q2 re-baseline to glass 10.1.0 (X.W7L.m `c8a4959dd`): the
+    // EasingPicker canvas now ships `role: "img"` + `aria-label`
+    // (`glass-ui/dist/easing.js:77-78`), and the stage also mounts a second
+    // svg (an icon), so a bare `svg` is a strict-mode violation. The canvas is
+    // the node the seat's Law-3 override keys on.
+    const svg = row.locator('#easing-authoring-0 svg[role="img"]');
     await expect(svg).toBeVisible();
     await expect(
         svg,
@@ -141,6 +149,75 @@ for (const viewport of [
     });
 }
 
+// X-DS value pass 14 (V14C-01) — HANDLE REGISTRATION: the bezier handles and
+// the axis labels are drawn in the plot's box. The handle overlay
+// (`[data-slot="easing-handles"]`, absolute inset-0) and the curve svg share
+// the canvas wrapper; a cap on the svg alone drew the handles ~55px off the
+// curve's ends at 1440. Each handle's screen centre must equal the PLOT's own
+// viewBox→screen mapping of that handle's (cx, cy) within 1px; for the seeded
+// linear curve, cubic-bezier(0, 0, 1, 1), those are the plot's two corners.
+for (const viewport of [
+    { name: "1440", width: 1440, height: 900 },
+    { name: "390", width: 390, height: 844 },
+] as const) {
+    test(`O-17 handle registration — each control point sits on the plot it controls — ${viewport.name}`, async ({
+        page,
+    }) => {
+        const consoleErrors = setupEnvNoise(page);
+        await page.setViewportSize({ width: viewport.width, height: viewport.height });
+        const row = await openEasingBench(page);
+        const svg = await discloseAuthoring(row);
+        await expectZeroLetterbox(svg);
+        const handles = row.locator(
+            '#easing-authoring-0 [data-slot="easing-handles"] circle[role="slider"]',
+        );
+        await expect(handles).toHaveCount(2);
+        const plot = await svg.evaluate((el) => {
+            const s = el as unknown as SVGSVGElement;
+            const ctm = s.getScreenCTM();
+            if (!ctm) throw new Error("no screen CTM");
+            const r = s.getBoundingClientRect();
+            const map = (x: number, y: number) => {
+                const p = new DOMPoint(x, y).matrixTransform(ctm);
+                return { x: p.x, y: p.y };
+            };
+            return { m: { a: ctm.a, b: ctm.b, c: ctm.c, d: ctm.d, e: ctm.e, f: ctm.f }, right: r.right, corner00: map(0, 1), corner11: map(1, 0) };
+        });
+        const got = await handles.evaluateAll((els) =>
+            els.map((el) => {
+                const c = el as unknown as SVGCircleElement;
+                const r = c.getBoundingClientRect();
+                return {
+                    cx: c.cx.baseVal.value,
+                    cy: c.cy.baseVal.value,
+                    x: r.left + r.width / 2,
+                    y: r.top + r.height / 2,
+                };
+            }),
+        );
+        const { a, b, c: cc, d, e, f } = plot.m;
+        for (const h of got) {
+            const px = a * h.cx + cc * h.cy + e;
+            const py = b * h.cx + d * h.cy + f;
+            expect(Math.abs(h.x - px), `handle (${h.cx}, ${h.cy}) x vs the plot`).toBeLessThanOrEqual(1);
+            expect(Math.abs(h.y - py), `handle (${h.cx}, ${h.cy}) y vs the plot`).toBeLessThanOrEqual(1);
+        }
+        // The seeded linear: control point 1 on the plot's (0,0) corner, 2 on its (1,1).
+        expect(Math.abs(got[0]!.x - plot.corner00.x)).toBeLessThanOrEqual(1);
+        expect(Math.abs(got[0]!.y - plot.corner00.y)).toBeLessThanOrEqual(1);
+        expect(Math.abs(got[1]!.x - plot.corner11.x)).toBeLessThanOrEqual(1);
+        expect(Math.abs(got[1]!.y - plot.corner11.y)).toBeLessThanOrEqual(1);
+        // The "1" axis label sits at the plot's top-right, inside the plot box.
+        const one = await row
+            .locator('#easing-authoring-0 [data-slot="easing-curve"] > span')
+            .last()
+            .evaluate((el) => el.getBoundingClientRect().toJSON());
+        expect(one.right).toBeLessThanOrEqual(plot.right + 1);
+        expect(plot.right - one.right).toBeLessThanOrEqual(8);
+        expect(consoleErrors).toEqual([]);
+    });
+}
+
 test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page }) => {
     const consoleErrors = setupEnvNoise(page);
     const row = await openEasingBench(page);
@@ -167,9 +244,12 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page 
         return count;
     });
     expect(stampCount).toBeLessThanOrEqual(1);
-    // The canvas well itself is FLAT (census CC-4's inversion cured).
+    // The canvas well itself is FLAT (census CC-4's inversion cured). At glass
+    // 10.1.0 (X.W7L.m `c8a4959dd`) the well is the picker root
+    // `[data-slot="easing-picker"]`; no `.glass-card` exists (re-baselined
+    // X-W12U .q2 beside the seat's own Law-2 hook cure).
     const cardShadow = await row
-        .locator("#easing-authoring-0 .glass-card")
+        .locator('#easing-authoring-0 [data-slot="easing-picker"]')
         .first()
         .evaluate((el) => getComputedStyle(el).boxShadow);
     expect(cardShadow).toBe("none");
@@ -177,7 +257,15 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page 
     // ── 3. Dot rest: no travel dot (r=0.03), no play pill; bezier canvas
     //      carries exactly its 2 endpoints + 2 handles.
     await expect(svg.locator("circle[r='0.03']")).toHaveCount(0);
-    await expect(svg.locator("circle")).toHaveCount(4);
+    // Re-baselined X-W12U .q2 to glass 10.1.0 (X.W7L.m `c8a4959dd`): the two
+    // bezier handles moved off the curve canvas onto the picker's own handle
+    // overlay (`[data-slot="easing-handles"]`, each a `role="slider"` circle,
+    // `glass-ui/dist/easing.js:635-670`); the canvas keeps its 2 endpoints.
+    // Still exactly 2 endpoints + 2 handles.
+    await expect(svg.locator("circle")).toHaveCount(2);
+    await expect(
+        row.locator('#easing-authoring-0 [data-slot="easing-handles"] circle[role="slider"]'),
+    ).toHaveCount(2);
     await expect(
         row.getByRole("button", { name: /trace the curve|climb the staircase/i }),
     ).toHaveCount(0);
@@ -205,12 +293,12 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page 
         "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
     );
     // The head speaks the NAME, never the literal (closed-row anatomy).
-    const head = page.locator("button[aria-controls='easing-interval-0']").first();
+    const head = page.locator("button.interval-head").first();
     await expect(head).toContainText("ease-out-back");
     await head.click(); // close the row
     const benchLiteral = await page.evaluate(() => {
         for (const node of document.querySelectorAll<HTMLElement>(
-            "button[aria-controls^='easing-interval-']",
+            "button.interval-head",
         )) {
             if (/(cubic-bezier|steps)\s*\(/.test(node.textContent ?? "")) {
                 return node.textContent;

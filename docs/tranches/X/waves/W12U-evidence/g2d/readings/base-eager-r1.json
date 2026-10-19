@@ -1,0 +1,133 @@
+{
+  "schema": "x-w2.eager-bytes/1",
+  "tool": "scripts/perf/eager-bytes.mjs",
+  "generatedAt": "2026-10-16T22:25:19.600Z",
+  "dist": "dist/gh-pages",
+  "method": "zlib.gzipSync (default level) over the emitted files ON DISK; <noscript> stripped before collection (F-3); NEVER PerformanceResourceTiming.transferSize (W2.md §ENV — serve-built.mjs sends no Content-Encoding).",
+  "indexHtml": {
+    "path": "index.html",
+    "raw": 15380,
+    "gz": 5637,
+    "noscriptBlocksStripped": 1
+  },
+  "eagerJs": {
+    "count": 9,
+    "raw": 1095664,
+    "gz": 331628,
+    "files": [
+      {
+        "href": "./assets/index-C-PSv_Z0.js",
+        "role": "entry-module",
+        "path": "assets/index-C-PSv_Z0.js",
+        "raw": 477887,
+        "gz": 157770
+      },
+      {
+        "href": "./assets/rolldown-runtime-QTnfLwEv.js",
+        "role": "modulepreload",
+        "path": "assets/rolldown-runtime-QTnfLwEv.js",
+        "raw": 694,
+        "gz": 423
+      },
+      {
+        "href": "./assets/vue.runtime.esm-bundler-CZavfU-W.js",
+        "role": "modulepreload",
+        "path": "assets/vue.runtime.esm-bundler-CZavfU-W.js",
+        "raw": 109858,
+        "gz": 41722
+      },
+      {
+        "href": "./assets/dist-pmtx1RBP.js",
+        "role": "modulepreload",
+        "path": "assets/dist-pmtx1RBP.js",
+        "raw": 16460,
+        "gz": 6877
+      },
+      {
+        "href": "./assets/collapsible-DFzK29Oh-C5iJczKI.js",
+        "role": "modulepreload",
+        "path": "assets/collapsible-DFzK29Oh-C5iJczKI.js",
+        "raw": 16902,
+        "gz": 6410
+      },
+      {
+        "href": "./assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js",
+        "role": "modulepreload",
+        "path": "assets/_plugin-vue_export-helper-B3ysoDQm-DFYL2p1x.js",
+        "raw": 26075,
+        "gz": 9324
+      },
+      {
+        "href": "./assets/PaneShell-CVQwfdyN.js",
+        "role": "modulepreload",
+        "path": "assets/PaneShell-CVQwfdyN.js",
+        "raw": 281168,
+        "gz": 72034
+      },
+      {
+        "href": "./assets/css-CgSD0JjG.js",
+        "role": "modulepreload",
+        "path": "assets/css-CgSD0JjG.js",
+        "raw": 165380,
+        "gz": 36386
+      },
+      {
+        "href": "./assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+        "role": "modulepreload",
+        "path": "assets/useIntersectionPause-CzKR3EyP-wc6qCxjJ.js",
+        "raw": 1240,
+        "gz": 682
+      }
+    ]
+  },
+  "renderBlockingCss": {
+    "count": 2,
+    "raw": 537448,
+    "gz": 90618,
+    "files": [
+      {
+        "href": "./assets/PaneShell-CcJ7XM36.css",
+        "media": null,
+        "path": "assets/PaneShell-CcJ7XM36.css",
+        "raw": 1828,
+        "gz": 719
+      },
+      {
+        "href": "./assets/index-CYHkvQvf.css",
+        "media": null,
+        "path": "assets/index-CYHkvQvf.css",
+        "raw": 535620,
+        "gz": 89899
+      }
+    ]
+  },
+  "excludedCss": {
+    "count": 1,
+    "raw": 132840,
+    "gz": 100386,
+    "files": [
+      {
+        "href": "./assets/glass-fonts-PBJY3762.css",
+        "media": "print",
+        "why": "async (media=print swap)",
+        "path": "assets/glass-fonts-PBJY3762.css",
+        "raw": 132840,
+        "gz": 100386
+      }
+    ]
+  },
+  "duplicateRefs": [],
+  "skippedRemoteRefs": [],
+  "totals": {
+    "eagerRaw": 1633112,
+    "eagerGz": 422246
+  },
+  "budget": {
+    "gate": "W2.md §6 G2",
+    "eagerJsGzMax": 286720,
+    "eagerJsGz": 331628,
+    "marginBytes": -44908,
+    "verdict": "RED",
+    "note": "CSS is MEASURED, NOT GATED (W2.md §ENV). The enforcing gate is e2e/smoke/perf/eager-payload.spec.ts."
+  }
+}

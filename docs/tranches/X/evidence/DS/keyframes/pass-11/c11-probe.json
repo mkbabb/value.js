@@ -1,0 +1,188 @@
+{
+ "light": {
+  "keyframesFacet": {
+   "frameLeft": 73,
+   "titleInset": 20,
+   "numerals": [
+    {
+     "n": "1",
+     "inset": 29
+    },
+    {
+     "n": "10",
+     "inset": 20
+    }
+   ],
+   "gutterWidth": 25,
+   "title": {
+    "title": "Rotations",
+    "x": 93,
+    "y": 72
+   }
+  },
+  "timelineFacet": {
+   "title": {
+    "title": "Timeline",
+    "x": 93,
+    "y": 72
+   },
+   "track": {
+    "border": "1px rgb(198, 180, 159)"
+   }
+  },
+  "easingTitle": {
+   "title": "Easing",
+   "x": 93,
+   "y": 72
+  },
+  "literal1440": {
+   "copyGapFromArgs": 7,
+   "copyCentreVsLastLine": 0
+  },
+  "springTitle": {
+   "title": "Physics",
+   "x": 94,
+   "y": 73
+  },
+  "spring": {
+   "surfaceBottom": 527,
+   "fieldBlock": 168,
+   "xAxisBottom": 518,
+   "xAxisAboveFold": true,
+   "zetaTicksWhole": true,
+   "presetName": "\"Plus Jakarta Sans\" 16.4px 500",
+   "presetValue": "\"Fira Code\" 16.4px 400"
+  },
+  "entry1440": {
+   "cardBottom": 457,
+   "dismissTop": 489,
+   "gap": 32,
+   "dismissToFooter": 121,
+   "artifactRowLeft": 6,
+   "artifactInkLeft": 21,
+   "captionInkLeft": 21
+  },
+  "literal390": {
+   "lines": 2,
+   "copyGapFromArgs": 7,
+   "copyCentreVsLastLine": 0
+  },
+  "entry390": {
+   "cardBottom": 410,
+   "dismissTop": 438,
+   "gap": 28,
+   "dismissToFooter": 116,
+   "artifactRowLeft": 6,
+   "artifactInkLeft": 21,
+   "captionInkLeft": 21
+  }
+ },
+ "dark": {
+  "keyframesFacet": {
+   "frameLeft": 73,
+   "titleInset": 20,
+   "numerals": [
+    {
+     "n": "1",
+     "inset": 29
+    },
+    {
+     "n": "10",
+     "inset": 20
+    }
+   ],
+   "gutterWidth": 25,
+   "title": {
+    "title": "Rotations",
+    "x": 93,
+    "y": 72
+   }
+  },
+  "timelineFacet": {
+   "title": {
+    "title": "Timeline",
+    "x": 93,
+    "y": 72
+   },
+   "track": {
+    "border": "1px rgb(101, 87, 73)"
+   }
+  },
+  "easingTitle": {
+   "title": "Easing",
+   "x": 93,
+   "y": 72
+  },
+  "literal1440": {
+   "copyGapFromArgs": 7,
+   "copyCentreVsLastLine": 0
+  },
+  "springTitle": {
+   "title": "Physics",
+   "x": 94,
+   "y": 73
+  },
+  "spring": {
+   "surfaceBottom": 527,
+   "fieldBlock": 168,
+   "xAxisBottom": 518,
+   "xAxisAboveFold": true,
+   "zetaTicksWhole": true,
+   "presetName": "\"Plus Jakarta Sans\" 16.4px 500",
+   "presetValue": "\"Fira Code\" 16.4px 400"
+  },
+  "entry1440": {
+   "cardBottom": 457,
+   "dismissTop": 489,
+   "gap": 32,
+   "dismissToFooter": 121,
+   "artifactRowLeft": 6,
+   "artifactInkLeft": 21,
+   "captionInkLeft": 21
+  },
+  "literal390": {
+   "lines": 2,
+   "copyGapFromArgs": 7,
+   "copyCentreVsLastLine": 0
+  },
+  "entry390": {
+   "cardBottom": 410,
+   "dismissTop": 438,
+   "gap": 28,
+   "dismissToFooter": 116,
+   "artifactRowLeft": 6,
+   "artifactInkLeft": 21,
+   "captionInkLeft": 21
+  }
+ },
+ "spring1440x900": {
+  "field": 168,
+  "xAxisBottom": 518,
+  "surfaceBottom": 527,
+  "xAxisAboveFold": true
+ },
+ "spring1280x760": {
+  "field": 128,
+  "xAxisBottom": 449,
+  "surfaceBottom": 417,
+  "xAxisAboveFold": false
+ },
+ "spring1280x800": {
+  "field": 128,
+  "xAxisBottom": 469,
+  "surfaceBottom": 432,
+  "xAxisAboveFold": false
+ },
+ "spring1024x700": {
+  "field": 128,
+  "xAxisBottom": 418,
+  "surfaceBottom": 392,
+  "xAxisAboveFold": false
+ },
+ "spring1440x1080": {
+  "field": 192,
+  "xAxisBottom": 553,
+  "surfaceBottom": 707,
+  "xAxisAboveFold": true
+ }
+}

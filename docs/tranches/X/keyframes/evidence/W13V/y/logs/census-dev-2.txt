@@ -1,0 +1,22 @@
+1440x900 home     dock[1row]=Scene | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+1440x900 cube     dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+1440x900 amiga    dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+1440x900 square   dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=2 span/slider:Horizontal position,span/slider:Vertical position kfBlock=false
+1440x900 easing   dock[1row]=Scene | Controls | Keyframes | Timeline | Curve | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+1440x900 spring   dock[1row]=Scene | Controls | Keyframes | Timeline | Physics | @mbabb menu | Scene :: stageEditors=1 div/slider:Spring target kfBlock=false
+1440x900 sequence dock[1row]=Scene | Controls(off) | Keyframes(off) | Timeline(off) | Scene facet(off) | @mbabb menu | Scene :: stageEditors=6 div/slider:Re-time row 1 start offset,div/slider:Re-time row 2 start offset,div/slider:Re-time row 3 start offset,div/slider:Re-time row 4 start offset,div/slider:Re-time row 5 start offset,div/slider:Scrub the sequence master clock kfBlock=false
+390x844 home     dock[1row]=Scene | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+390x844 cube     dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+390x844 amiga    dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+390x844 square   dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=2 span/slider:Horizontal position,span/slider:Vertical position kfBlock=false
+390x844 easing   dock[1row]=Scene | Controls | Keyframes | Timeline | Curve | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+390x844 spring   dock[1row]=Scene | Controls | Keyframes | Timeline | Physics | @mbabb menu | Scene :: stageEditors=1 div/slider:Spring target kfBlock=false
+390x844 sequence dock[1row]=Scene | Controls(off) | Keyframes(off) | Timeline(off) | Scene facet(off) | @mbabb menu | Scene :: stageEditors=6 div/slider:Re-time row 1 start offset,div/slider:Re-time row 2 start offset,div/slider:Re-time row 3 start offset,div/slider:Re-time row 4 start offset,div/slider:Re-time row 5 start offset,div/slider:Scrub the sequence master clock kfBlock=false
+360x740 home     dock[1row]=Scene | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+360x740 cube     dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+360x740 amiga    dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+360x740 square   dock[1row]=Scene | Controls | Keyframes | Timeline | Scene facet(off) | @mbabb menu | Scene :: stageEditors=2 span/slider:Horizontal position,span/slider:Vertical position kfBlock=false
+360x740 easing   dock[1row]=Scene | Controls | Keyframes | Timeline | Curve | @mbabb menu | Scene :: stageEditors=0 kfBlock=false
+360x740 spring   dock[1row]=Scene | Controls | Keyframes | Timeline | Physics | @mbabb menu | Scene :: stageEditors=1 div/slider:Spring target kfBlock=false
+360x740 sequence dock[1row]=Scene | Controls(off) | Keyframes(off) | Timeline(off) | Scene facet(off) | @mbabb menu | Scene :: stageEditors=6 div/slider:Re-time row 1 start offset,div/slider:Re-time row 2 start offset,div/slider:Re-time row 3 start offset,div/slider:Re-time row 4 start offset,div/slider:Re-time row 5 start offset,div/slider:Scrub the sequence master clock kfBlock=false
+EXIT 0

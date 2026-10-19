@@ -1,0 +1,5 @@
+CELL d1440 light done load=131.58 124.09 90.28
+CELL d1440 dark done load=169.36 141.88 101.66
+CELL v390 light done load=138.41 142.15 108.05
+CELL v390 dark done (named mirror :9131, restarted 15:37) load=188.29 199.58 187.44
+MATRIX-EXIT

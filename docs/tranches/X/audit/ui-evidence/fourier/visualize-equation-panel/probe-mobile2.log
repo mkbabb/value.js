@@ -1,0 +1,11 @@
+canvas tabs 1
+after-canvas-tab {"dock":[265,138,112,66],"expanded":null,"controls":["View options@265,147,47x47","Publish to Gallery@339,147,47x47","Equation@392,147,47x47","Fullscreen@466,147,47x47","Expand dock@274,147,47x47","Edit contour@321,147,47x47"],"editing":true,"eq":false}
+expand-dock count 1
+summary bb {"x":274.046875,"y":147.3984375,"width":46.796875,"height":46.796875}
+after-tap-dock+300 {"dock":[107,138,177,66],"expanded":null,"controls":["View options@121,147,47x47","Publish to Gallery@194,147,47x47","Equation@248,147,47x47","Fullscreen@322,147,47x47","Edit contour@223,147,47x47"],"editing":true,"eq":false}
+after-tap-dock+900 {"dock":[100,138,190,66],"expanded":null,"controls":["View options@114,147,47x47","Publish to Gallery@188,147,47x47","Equation@242,147,47x47","Fullscreen@316,147,47x47","Edit contour@229,147,47x47"],"editing":true,"eq":false}
+after-tap-dock+2500 {"dock":[211,138,126,66],"expanded":null,"controls":["View options@235,147,47x47","Publish to Gallery@309,147,47x47","Equation@363,147,47x47","Fullscreen@437,147,47x47","Expand dock@235,147,47x47","Edit contour@266,147,47x47"],"editing":true,"eq":false}
+hit@eq-center {"tag":"DIV","eqVisible":true,"dockOverflow":"visible","dockW":"190/190"}
+eq count 1
+eq bb {"x":372.1904296875,"y":147.3984375,"width":46.796875,"height":46.796875}
+after-tap-eq {"dock":[265,138,112,66],"expanded":null,"controls":["View options@265,147,47x47","Publish to Gallery@339,147,47x47","Equation@392,147,47x47","Fullscreen@466,147,47x47","Expand dock@274,147,47x47","Edit contour@321,147,47x47"],"editing":true,"eq":false}

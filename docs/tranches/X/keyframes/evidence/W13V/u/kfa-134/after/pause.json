@@ -1,0 +1,30 @@
+[
+ {
+  "vp": 1440,
+  "control": {
+   "pressed": "false",
+   "x": 43.1953125,
+   "y": 685.265625,
+   "w": 36,
+   "h": 36
+  },
+  "tabReached": true,
+  "pressedAfter": "true",
+  "maxLiftBeforePx": 15.97,
+  "maxLiftAfterPx": 0
+ },
+ {
+  "vp": 390,
+  "control": {
+   "pressed": "false",
+   "x": 177,
+   "y": 640.3828125,
+   "w": 36,
+   "h": 36
+  },
+  "tabReached": true,
+  "pressedAfter": "true",
+  "maxLiftBeforePx": 5,
+  "maxLiftAfterPx": 0
+ }
+]

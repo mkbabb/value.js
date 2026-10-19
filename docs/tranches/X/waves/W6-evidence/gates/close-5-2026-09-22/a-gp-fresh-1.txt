@@ -1,0 +1,12 @@
+⟨cmd⟩ GRADIENT_URL=http://localhost:8891/#/gradient node docs/tranches/X/waves/W6-evidence/gradient/gate-a-gesture-paint.mjs (fresh server)
+  · a5 grab-offset 8px: travel@1px=0.00px  travel@120px=120.00px
+  · a6 activeElement=BUTTON/stop-2-mudhefuv  [27.4,100] → [27.4,98]
+  · a7 stops: before=2 middle=2 right=2 cancel=2
+  · a8 aria-valuenow writes over 5 pointermoves: 5
+  · a10 chip band [324.2,348.2]  rules intersected: 0
+  · a11 white-ramp ring:fill [{"ordinal":0,"width":20,"innerRatio":14.6,"outerRatio":1.04},{"ordinal":100,"width":20,"innerRatio":14.6,"outerRatio":1.04}]
+  · a9 coarse target 44px (half 22px); rows inside the handle's own target claimed by the destructive control: []
+  · a9 chip reachability: 3 → 2 after a tap at the chip's own centre
+
+GATE X.W6.a (gesture + paint) — GREEN
+EXIT=0

@@ -1,0 +1,150 @@
+2026-10-14T16:05:28.634Z goto picker-1440-light
+2026-10-14T16:05:31.145Z loaded
+FAIL picker-1440-light TimeoutError: locator.waitFor: Timeout 180000ms exceeded.
+Call log:
+[2m  - waiting for locator('.glass-dock').first() to be visible[22m
+
+2026-10-14T16:08:31.312Z goto extract-1440-light
+2026-10-14T16:08:31.557Z loaded
+FAIL extract-1440-light TimeoutError: locator.waitFor: Timeout 180000ms exceeded.
+Call log:
+[2m  - waiting for locator('.glass-dock').first() to be visible[22m
+
+2026-10-14T16:11:31.727Z goto atmosphere-1440-dark
+2026-10-14T16:11:32.048Z loaded
+FAIL atmosphere-1440-dark TimeoutError: locator.waitFor: Timeout 180000ms exceeded.
+Call log:
+[2m  - waiting for locator('.glass-dock').first() to be visible[22m
+
+2026-10-14T16:14:32.189Z goto palettes-1440-light
+2026-10-14T16:14:32.531Z loaded
+FAIL palettes-1440-light Error: locator.waitFor: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('.glass-dock').first() to be visible[22m
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+browserContext.newPage: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-uQwoDB --remote-debugging-pipe --no-startup-window
+<launched> pid=16552
+[pid=16552][err] Trying to load the allocator multiple times. This is *not* supported.
+[pid=16552][err] [16740:14331655:1014/120528.579784:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120528.580336:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120528.586542:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120528.586632:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120528.587146:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120528.587219:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120528.587646:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120528.587731:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120528.587954:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120528.588007:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16552:14331602:1014/120531.013819:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=16552][err] [17427:14335526:1014/120549.389904:VERBOSE1:chrome/updater/event_history.cc:176] Failed to set permissions on /Library/Application Support/Google/GoogleUpdater/updater_history.jsonl: Operation not permitted (1)
+[pid=16552][err] [17427:14335526:1014/120549.392260:VERBOSE1:chrome/updater/updater.cc:375] Version: 157.0.8089.0, opt, ARM_64, command line: /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake-all --system --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[pid=16552][err] [17427:14335526:1014/120549.392302:VERBOSE1:chrome/updater/updater.cc:378] OS version: 26.4.1, arch: arm64, System uptime (seconds): 313512, parent pid: 16552
+[pid=16552][err] [17427:14335526:1014/120549.396029:VERBOSE1:chrome/updater/updater.cc:383] Available disk space in install directory (/Library/Application Support/Google/GoogleUpdater): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17427:14335526:1014/120549.396078:VERBOSE1:chrome/updater/updater.cc:387] Available disk space in temporary directory (/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17427:14335526:1014/120549.396147:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17429:14335531:1014/120549.406563:VERBOSE1:chrome/updater/event_history.cc:176] Failed to set permissions on /Library/Application Support/Google/GoogleUpdater/updater_history.jsonl: Operation not permitted (1)
+[pid=16552][err] [17429:14335531:1014/120549.408636:VERBOSE1:chrome/updater/updater.cc:375] Version: 157.0.8089.0, opt, ARM_64, command line: /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --system --database=/Library/Application Support/Google/GoogleUpdater/157.0.8089.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=157.0.8089.0 --handshake-fd=4 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[pid=16552][err] [17429:14335531:1014/120549.408669:VERBOSE1:chrome/updater/updater.cc:378] OS version: 26.4.1, arch: arm64, System uptime (seconds): 313512, parent pid: 1
+[pid=16552][err] [17429:14335531:1014/120549.411592:VERBOSE1:chrome/updater/updater.cc:383] Available disk space in install directory (/Library/Application Support/Google/GoogleUpdater): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17429:14335531:1014/120549.411645:VERBOSE1:chrome/updater/updater.cc:387] Available disk space in temporary directory (/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17429:14335531:1014/120549.411706:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17429:14335531:1014/120549.411788:ERROR:third_party/crashpad/crashpad/client/crash_report_database_mac.mm:109] mkdir /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/Crashpad/new: Permission denied (13)
+[pid=16552][err] [17429:14335531:1014/120549.411844:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17429:14335531:1014/120549.411859:VERBOSE1:chrome/updater/updater.cc:420] UpdaterMain (--crash-handler) returned 1.
+[pid=16552][err] [17427:14335526:1014/120549.412789:ERROR:third_party/crashpad/crashpad/util/file/file_io.cc:103] ReadExactly: expected 8, observed 0
+[pid=16552][err] [17427:14335526:1014/120549.412936:VERBOSE1:chrome/updater/crash_reporter.cc:119] Failed to start handler.
+[pid=16552][err] [17427:14335526:1014/120549.413032:ERROR:third_party/crashpad/crashpad/client/crash_report_database_mac.mm:109] mkdir /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/Crashpad/new: Permission denied (13)
+[pid=16552][err] [17427:14335526:1014/120549.413088:ERROR:chrome/updater/crash_client.cc:77] Failed to initialize Crashpad database.
+[pid=16552][err] [17427:14335526:1014/120549.413111:VERBOSE1:chrome/updater/updater.cc:101] Crash reporting is not available.
+[pid=16552][err] [17427:14335539:1014/120549.413607:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Library/Application Support/Google/GoogleUpdater/157.0.8089.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system`
+[pid=16552][err] [17431:14335545:1014/120549.422315:VERBOSE1:chrome/updater/event_history.cc:176] Failed to set permissions on /Library/Application Support/Google/GoogleUpdater/updater_history.jsonl: Operation not permitted (1)
+[pid=16552][err] [17431:14335545:1014/120549.424677:VERBOSE1:chrome/updater/updater.cc:375] Version: 157.0.8089.0, opt, ARM_64, command line: /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[pid=16552][err] [17431:14335545:1014/120549.424706:VERBOSE1:chrome/updater/updater.cc:378] OS version: 26.4.1, arch: arm64, System uptime (seconds): 313512, parent pid: 17427
+[pid=16552][err] [17431:14335545:1014/120549.427802:VERBOSE1:chrome/updater/updater.cc:383] Available disk space in install directory (/Library/Application Support/Google/GoogleUpdater): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17431:14335545:1014/120549.427870:VERBOSE1:chrome/updater/updater.cc:387] Available disk space in temporary directory (/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17431:14335545:1014/120549.427942:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17433:14335550:1014/120549.437876:VERBOSE1:chrome/updater/event_history.cc:176] Failed to set permissions on /Library/Application Support/Google/GoogleUpdater/updater_history.jsonl: Operation not permitted (1)
+[pid=16552][err] [17433:14335550:1014/120549.439871:VERBOSE1:chrome/updater/updater.cc:375] Version: 157.0.8089.0, opt, ARM_64, command line: /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --system --database=/Library/Application Support/Google/GoogleUpdater/157.0.8089.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=157.0.8089.0 --handshake-fd=4 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[pid=16552][err] [17433:14335550:1014/120549.439929:VERBOSE1:chrome/updater/updater.cc:378] OS version: 26.4.1, arch: arm64, System uptime (seconds): 313512, parent pid: 1
+[pid=16552][err] [17433:14335550:1014/120549.442468:VERBOSE1:chrome/updater/updater.cc:383] Available disk space in install directory (/Library/Application Support/Google/GoogleUpdater): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17433:14335550:1014/120549.442518:VERBOSE1:chrome/updater/updater.cc:387] Available disk space in temporary directory (/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/): 558912212992B (520.528GiB) / 1995165736960B (1.815TiB)
+[pid=16552][err] [17433:14335550:1014/120549.442582:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17433:14335550:1014/120549.442642:ERROR:third_party/crashpad/crashpad/client/crash_report_database_mac.mm:109] mkdir /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/Crashpad/new: Permission denied (13)
+[pid=16552][err] [17433:14335550:1014/120549.442699:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17433:14335550:1014/120549.442723:VERBOSE1:chrome/updater/updater.cc:420] UpdaterMain (--crash-handler) returned 1.
+[pid=16552][err] [17431:14335545:1014/120549.443744:ERROR:third_party/crashpad/crashpad/util/file/file_io.cc:103] ReadExactly: expected 8, observed 0
+[pid=16552][err] [17431:14335545:1014/120549.443866:VERBOSE1:chrome/updater/crash_reporter.cc:119] Failed to start handler.
+[pid=16552][err] [17431:14335545:1014/120549.443931:ERROR:third_party/crashpad/crashpad/client/crash_report_database_mac.mm:109] mkdir /Library/Application Support/Google/GoogleUpdater/157.0.8089.0/Crashpad/new: Permission denied (13)
+[pid=16552][err] [17431:14335545:1014/120549.443954:ERROR:chrome/updater/crash_client.cc:77] Failed to initialize Crashpad database.
+[pid=16552][err] [17431:14335545:1014/120549.443971:VERBOSE1:chrome/updater/updater.cc:101] Crash reporting is not available.
+[pid=16552][err] [17431:14335545:1014/120549.444259:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run
+[pid=16552][err] [16552:14331602:1014/120554.988217:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=16552][err] [17431:14335545:1014/120607.366303:VERBOSE1:chrome/updater/app/app.cc:52] Shutdown: 0
+[pid=16552][err] [17431:14335545:1014/120607.366905:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17431:14335545:1014/120607.366958:VERBOSE1:chrome/updater/updater.cc:420] UpdaterMain (--wake) returned 0.
+[pid=16552][err] [17427:14335539:1014/120607.404122:VERBOSE1:chrome/updater/app/app_wakeall.cc:68] `/Library/Application Support/Google/GoogleUpdater/157.0.8089.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system` exited 0
+[pid=16552][err] [17427:14335539:1014/120607.404207:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Library/Application Support/Google/GoogleUpdater/150.0.7863.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system`
+[pid=16552][err] [17427:14335539:1014/120607.404335:VERBOSE1:chrome/updater/app/app_wakeall.cc:64] `/Library/Application Support/Google/GoogleUpdater/150.0.7863.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system` process invalid: Permission denied (13)
+[pid=16552][err] [17427:14335539:1014/120607.404358:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system`
+[pid=16552][err] [17427:14335539:1014/120607.404444:VERBOSE1:chrome/updater/app/app_wakeall.cc:64] `/Library/Application Support/Google/GoogleUpdater/152.0.7933.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --system` process invalid: Permission denied (13)
+[pid=16552][err] [17427:14335526:1014/120607.404512:VERBOSE1:chrome/updater/app/app.cc:52] Shutdown: 0
+[pid=16552][err] [17427:14335526:1014/120607.404788:VERBOSE1:chrome/updater/event_history.cc:239] Failed to write history event: logging not initialized
+[pid=16552][err] [17427:14335526:1014/120607.404808:VERBOSE1:chrome/updater/updater.cc:420] UpdaterMain (--wake-all) returned 0.
+[pid=16552][err] [16552:14331602:1014/120649.847329:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=16552][err] Trying to load the allocator multiple times. This is *not* supported.
+[pid=16552][err] WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+[pid=16552][err] I0000 00:00:1791994108.211690 14384594 environment.cc:526] Selected adapter: Apple M5 Max, arch=metal-3, vendor=apple, backend=Metal, adapterType=Integrated GPU
+[pid=16552][err] I0000 00:00:1791994108.217979 14384650 environment.cc:526] Selected adapter: Apple M5 Max, arch=metal-3, vendor=apple, backend=Metal, adapterType=Integrated GPU
+[pid=16552][err] [16740:14331655:1014/120831.170612:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:376] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox.
+[pid=16552][err] [16740:14331655:1014/120831.170636:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox.
+[pid=16552][err] [16552:14331653:1014/120831.183619:ERROR:base/process/process_mac.cc:45] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[pid=16552][err] [16552:14331653:1014/120831.183642:ERROR:base/process/process_mac.cc:90] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+[pid=16552][err] [16740:14331655:1014/120831.271213:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120831.271288:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120831.272606:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120831.272665:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120831.273158:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120831.273222:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120831.273368:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120831.273420:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/120831.273549:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/120831.273603:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16552:14331602:1014/120835.081870:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=16552][err] [16740:14331655:1014/121131.578773:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:376] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox.
+[pid=16552][err] [16740:14331655:1014/121131.578791:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox.
+[pid=16552][err] [16740:14331655:1014/121131.660187:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121131.660255:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121131.660744:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121131.660794:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121131.661352:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121131.661406:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121131.661533:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121131.661577:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121131.661689:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121131.661769:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16552:14331602:1014/121145.805848:ERROR:google_apis/gcm/engine/registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[pid=16552][err] [16740:14331655:1014/121432.156595:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121432.156654:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121432.157784:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121432.157840:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121432.158908:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121432.158959:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121432.159087:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121432.159128:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331655:1014/121432.159234:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552][err] [16740:14331709:1014/121432.159285:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[pid=16552] <gracefully close start>
+[pid=16552][err] [16740:14331655:1014/121532.105386:ERROR:gpu/command_buffer/service/shared_image/shared_image_manager.cc:376] SharedImageManager::ProduceOverlay: Trying to Produce a Overlay representation from a non-existent mailbox.
+[pid=16552][err] [16740:14331655:1014/121532.105400:ERROR:components/viz/service/display_embedder/skia_output_device_buffer_queue.cc:258] Invalid mailbox.
+[pid=16552][err] [16552:14331653:1014/121532.106548:ERROR:base/process/process_mac.cc:45] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[pid=16552][err] [16552:14331653:1014/121532.106569:ERROR:base/process/process_mac.cc:90] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+    at /Users/mkbabb/Programming/value.js/docs/tranches/X/evidence/DS/value/pass-03/critic-2026-10-14/shoot.mjs:12:28
+
+Node.js v26.0.0

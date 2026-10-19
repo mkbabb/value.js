@@ -1,4 +1,5 @@
 import { adminTest as test, expect } from "../fixtures/admin-auth";
+import { mainPane } from "../../fixtures/dock";
 
 /**
  * E.W3 Lane A admin flow #12 — palette-feature.
@@ -42,7 +43,7 @@ test("admin feature palette POSTs /admin/palettes/<slug>/feature", async ({ page
     });
 
     await page.goto("/#/browse");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await main.getByRole("button", { name: "Palette menu" }).first().click();
     await page.getByRole("menuitem", { name: /^Feature$/ }).click();

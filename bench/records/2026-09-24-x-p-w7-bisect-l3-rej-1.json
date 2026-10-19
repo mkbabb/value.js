@@ -1,0 +1,95 @@
+{
+ "tag": "l3-rej-1",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "rej",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "product",
+  "ruleList",
+  "retiredFault",
+  "productFault",
+  "ruleListFault",
+  "wrapperFault",
+  "failureFault",
+  "retiredBlocks",
+  "productBlocks"
+ ],
+ "valuejsHead": "0ef3ffed99b236861f926a2e09f6ecc98a733457",
+ "uptimeStart": "9:48  up 1 day,  7:51, 4 users, load averages: 38.53 27.80 15.95",
+ "versions": {
+  "node": "v26.0.0",
+  "firefox": "150.0.2"
+ },
+ "results": {
+  "node": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 69.33,
+    "product": 42.85,
+    "ruleList": 6.08,
+    "retiredFault": 15.05,
+    "productFault": 8.72,
+    "ruleListFault": 5.56,
+    "wrapperFault": 6.36,
+    "failureFault": 2.79,
+    "retiredBlocks": 40.4,
+    "productBlocks": 14.9
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.609,
+    "ruleList": 0.165,
+    "retiredFault": 0.355,
+    "productFault": 0.224,
+    "ruleListFault": 0.128,
+    "wrapperFault": 0.151,
+    "failureFault": 0.072,
+    "retiredBlocks": 0.689,
+    "productBlocks": 0.339
+   }
+  },
+  "firefox": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 106,
+    "product": 133,
+    "ruleList": 21.5,
+    "retiredFault": 42.5,
+    "productFault": 44,
+    "ruleListFault": 12.5,
+    "wrapperFault": 12,
+    "failureFault": 15,
+    "retiredBlocks": 79.5,
+    "productBlocks": 68
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 1.306,
+    "ruleList": 0.227,
+    "retiredFault": 0.393,
+    "productFault": 0.536,
+    "ruleListFault": 0.165,
+    "wrapperFault": 0.156,
+    "failureFault": 0.247,
+    "retiredBlocks": 0.706,
+    "productBlocks": 0.613
+   }
+  }
+ },
+ "uptimeEnd": "9:48  up 1 day,  7:51, 4 users, load averages: 53.24 32.30 17.99"
+}

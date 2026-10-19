@@ -1,0 +1,26 @@
+{
+  "light": {
+    "hover": {
+      "cls": "loupe",
+      "border": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px"
+    },
+    "pinned": {
+      "cls": "loupe loupe-pinned",
+      "border": "oklch(0.304649 0.0817905 129.834)",
+      "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px"
+    }
+  },
+  "dark": {
+    "hover": {
+      "cls": "loupe",
+      "border": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px"
+    },
+    "pinned": {
+      "cls": "loupe loupe-pinned",
+      "border": "oklch(0.958322 0.08 129.834)",
+      "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.15) 0px 4px 16px 0px"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": "2",
+ "paused": {
+  "cube": "rotateX(151.191deg) rotateY(0.419974turn) ro",
+  "bob": "translateY(4.9143px)",
+  "slider": "2266.634"
+ },
+ "sliderAttrs": {
+  "min": "0",
+  "max": "5000",
+  "disabled": null,
+  "opacity": "1"
+ },
+ "afterKeys": {
+  "cube": "rotateX(173.795deg) rotateY(0.482763turn) ro",
+  "bob": "translateY(4.9143px)",
+  "slider": "2450"
+ },
+ "drag": [
+  {
+   "cube": "rotateX(167.599deg) rotateY(0.465552turn) ro",
+   "bob": "translateY(4.9143px)",
+   "slider": "2400"
+  },
+  {
+   "cube": "rotateX(210.838deg) rotateY(0.58566turn) rot",
+   "bob": "translateY(4.9143px)",
+   "slider": "2750"
+  },
+  {
+   "cube": "rotateX(251.836deg) rotateY(0.699544turn) ro",
+   "bob": "translateY(4.9143px)",
+   "slider": "3100"
+  },
+  {
+   "cube": "rotateX(287.905deg) rotateY(0.799735turn) ro",
+   "bob": "translateY(4.9143px)",
+   "slider": "3449.9999999999995"
+  },
+  {
+   "cube": "rotateX(313.502deg) rotateY(0.870838turn) ro",
+   "bob": "translateY(4.9143px)",
+   "slider": "3750"
+  },
+  {
+   "cube": "rotateX(336.33deg) rotateY(0.934249turn) rot",
+   "bob": "translateY(4.9143px)",
+   "slider": "4100"
+  }
+ ],
+ "afterDrag": {
+  "cube": "rotateX(336.33deg) rotateY(0.934249turn) rot",
+  "bob": "translateY(4.9143px)",
+  "slider": "4100"
+ }
+}

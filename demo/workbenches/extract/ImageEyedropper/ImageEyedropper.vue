@@ -15,11 +15,16 @@
                 <DockSeparator />
 
                 <!-- Sampled color swatch + label -->
+                <!-- X.W12U.s3 · UIA-V-588: each Add / Apply REMOUNTS the swatch
+                     (the key is the confirmation count), so every confirmation
+                     replays the pop from its first frame; nothing waits on an
+                     `animationend` the dot never delivered (the class used to
+                     stay on, and a repeat Add gave no feedback). -->
                 <WatercolorDot
                     v-if="sampledColor"
+                    :key="confirmations"
                     :color="sampledColor"
-                    :class="['shrink-0 transition-transform', swatchPulse ? 'swatch-pulse' : 'w-7 h-7']"
-                    @animationend="swatchPulse = false"
+                    :class="['shrink-0 transition-transform', confirmations > 0 ? 'swatch-pulse' : 'w-7 h-7']"
                 />
                 <!-- Not-yet-sampled slot — the shipped ghost variant (A3, U18):
                      the seeded silhouette the sampled color will fill. -->
@@ -27,13 +32,12 @@
                     v-else
                     color="var(--muted-foreground)"
                     variant="ghost"
-                    tag="div"
                     seed="eyedropper-empty"
                     class="w-7 h-7 shrink-0"
                 />
 
                 <span class="text-mono-small text-muted-foreground truncate select-all">
-                    {{ formattedColor ?? 'Tap to sample' }}
+                    {{ formattedColor ? formatCssCaption(formattedColor) : samplePrompt }}
                 </span>
 
                 <!-- Spacer -->
@@ -90,15 +94,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
+import { ref, onMounted, onActivated, onBeforeUnmount, onDeactivated, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
+import { useMediaQuery } from "@vueuse/core";
 import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
 
 import { useInertiaGesture } from "./composables/useInertiaGesture";
 import { useImageSampler, type DisplayColorSpace } from "./composables/useImageSampler";
 import { useLoupeCanvas } from "./composables/useLoupeCanvas";
 import { LOUPE_SIZE } from "./constants";
+import { formatCssCaption } from "../../../color-session/format-color";
 
 const { imageUrl, colorSpace = "hex" } = defineProps<{
     imageUrl: string;
@@ -123,7 +129,12 @@ const pinned = ref(false);
 let justUnpinned = false;
 
 // Swatch pulse animation
-const swatchPulse = ref(false);
+// UIA-V-588: the count of confirmed Add / Apply acts — the swatch's key.
+const confirmations = ref(0);
+// X.W12U.s3 · UIA-V-H2: the prompt names the gesture the pointer has —
+// "Tap" on a coarse pointer, "Click" on a fine one.
+const coarsePointer = useMediaQuery("(pointer: coarse)");
+const samplePrompt = computed(() => (coarsePointer.value ? "Tap to sample" : "Click to sample"));
 
 // --- Image sampler (offscreen canvas + sampleAt + formatInColorSpace) ---
 const sampler = useImageSampler({
@@ -138,7 +149,7 @@ const sampler = useImageSampler({
 
 // --- Loupe canvas (draw + visibility/position state) ---
 const loupe = useLoupeCanvas({
-    getOffscreenCanvas: () => sampler.getOffscreenCanvas(),
+    getImageCanvas: () => sampler.getImageCanvas(),
     viewportToImage: (rx, ry) => sampler.viewportToImage(rx, ry),
 });
 
@@ -212,14 +223,14 @@ function onTransitionEnd() {
 function onAddToPalette() {
     if (sampledColor.value) {
         emit("addToPalette", sampledColor.value);
-        swatchPulse.value = true;
+        confirmations.value++;
     }
 }
 
 function onApplyColor() {
     if (sampledColor.value) {
         emit("pick", sampledColor.value);
-        swatchPulse.value = true;
+        confirmations.value++;
     }
 }
 
@@ -236,11 +247,31 @@ function onKeyDown(e: KeyboardEvent) {
 
 onMounted(() => {
     loadAndFit();
+    armKeys();
+});
+
+// X.W5.a · gate N1 — the DEACTIVATION contract (see PaneSlot's header).
+// A parked eyedropper kept a WINDOW keydown handler armed: its Escape/Enter
+// keys answered from a pane the user could not see. The listener is the one
+// thing re-armed on return — a key handler is the pane's operability, and the
+// user did re-open the pane.
+function armKeys() {
     window.addEventListener("keydown", onKeyDown);
+}
+
+function releaseKeys() {
+    window.removeEventListener("keydown", onKeyDown);
+}
+
+onActivated(armKeys);
+
+onDeactivated(() => {
+    releaseKeys();
+    sampler.dispose();
 });
 
 onBeforeUnmount(() => {
-    window.removeEventListener("keydown", onKeyDown);
+    releaseKeys();
     sampler.dispose();
 });
 
@@ -263,16 +294,18 @@ watch(() => imageUrl, () => { loadAndFit(); });
     position: absolute;
     border-radius: 50%;
     border: 2px solid color-mix(in srgb, var(--shadow-color) 50%, transparent);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 15%, transparent), 0 0 0 1px color-mix(in srgb, var(--shadow-color) 30%, transparent);
+    /* X-DS pass 1 (V1-18): the loupe truly floats over the image — ONE neutral
+     * shadow; the border above is its ring. */
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 15%, transparent);
     pointer-events: none;
     z-index: var(--z-controls);
     overflow: hidden;
     transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
+/* X-DS pass 6: the pin speaks in the ring alone; the loupe keeps its one shadow. */
 .loupe-pinned {
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 40%, transparent), 0 4px 16px color-mix(in srgb, var(--shadow-color) 20%, transparent);
 }
 
 /* Action button hover → sampled color */
@@ -285,14 +318,14 @@ watch(() => imageUrl, () => { loadAndFit(); });
 .swatch-pulse {
     width: 1.75rem;
     height: 1.75rem;
-    animation: swatch-pop 0.65s var(--ease-spring) forwards;
+    animation: swatch-pop var(--duration-fast) var(--ease-standard) forwards;
 }
 
+/* X-DS VR3-07: one settle. The confirmation stays (a swatch was added); the
+ * 70% overshoot with a double bounce on a spring was affected motion. */
 @keyframes swatch-pop {
     0%   { transform: scale(1); }
-    25%  { transform: scale(1.7); }
-    50%  { transform: scale(0.85); }
-    75%  { transform: scale(1.1); }
+    40%  { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
 </style>

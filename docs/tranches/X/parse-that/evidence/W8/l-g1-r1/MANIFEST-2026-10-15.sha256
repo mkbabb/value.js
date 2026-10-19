@@ -1,0 +1,13 @@
+# SERVED MODEL: claude-opus-5-5 — X.P.W8 .ifsemi R-4 (COHESION §0fg.5, 2026-10-15), dated manifest beside README.md (E-3): README.md names bench/records/W8r1/MANIFEST-r1.sha256, which was never committed; this manifest covers every file of this directory, bootstrap-read-e-bytes.txt included (re-derived byte-identical x2 by 'node bench/paired/bootstrap.mjs bench/records/W8r1/browser/*.json'). README.md also names bootstrap-read-final.txt, which is absent here. Check with: grep -v '^#' MANIFEST-2026-10-15.sha256 | shasum -a 256 -c
+a524216077e77dede1f51fef8d74758093e68d40db3956cf4893f3502ae20043  README.md
+871764f5b5d6b45a4fbccbd2f951c043a9040282f189dbd8efaeb9c7c87501f0  bootstrap-read-e-bytes.txt
+175eefd98b3664d46dd65914dd1c1330ee2b7b021f308961d0317de824a8d6da  bucket-diag.mjs
+db4e8962909e6adaa7eb5d6dff7a81b79a52103d6a2f19de92a64bf509f49859  bucket-firefox-parseCssColor-acc-candidate-hexColor.txt
+e75a746c2c238bede7200ab4ba2351dc9d3b329ee6ad3df656b591c55252b3cf  bucket-firefox-parseCssColor-acc.txt
+fe17b287ae8bdfc4b8e11fc3490c7003772cf17615f8298d8d4a697cbdad1db6  bucket-firefox-parseCssColor-rej.txt
+c26dd61ddc5aa7d861fd9da5227d085d369bdab1534c772b94869067438d3173  color-mix-verdicts.mjs
+771e26122985ac3bdce62da54c53d9691785198cd6b5af0153165407ad63a6bb  color-mix-verdicts.txt
+40fe0d886721a2467173b26e737e584f78f75cc336f4d9ef145c6d477d26dd62  hexcolor-identity.mjs
+fbf652324b251528a1c68b337915c3ea4ef2201b44c87a9eed29a2ad7834fe10  hexcolor-identity.txt
+9d0b50286bd468f1cdc7b0e60178cddc32f6f4be5ffc62f49806d9c6ec83f338  verdict-agreement.mjs
+25b306d70f50233c2016acbb875ba98202b29cc4896bdf54d9466e086cc4eac7  verdict-agreement.txt

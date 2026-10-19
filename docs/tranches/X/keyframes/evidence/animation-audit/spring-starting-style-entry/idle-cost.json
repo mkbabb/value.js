@@ -1,0 +1,30 @@
+{
+ "restSweep": {
+  "label": "Play animation",
+  "d": {
+   "LayoutCount": 0,
+   "RecalcStyleCount": 0,
+   "ScriptDuration": 0.005,
+   "TaskDuration": 0.019
+  }
+ },
+ "entrySelected": {
+  "label": "Pause animation",
+  "d": {
+   "LayoutCount": 0,
+   "RecalcStyleCount": 120,
+   "ScriptDuration": 0.014,
+   "TaskDuration": 0.161
+  }
+ },
+ "entryPaused": {
+  "label": "Play animation",
+  "d": {
+   "LayoutCount": 0,
+   "RecalcStyleCount": 21,
+   "ScriptDuration": 0.004,
+   "TaskDuration": 0.031
+  }
+ },
+ "kf": "3c8199c5"
+}

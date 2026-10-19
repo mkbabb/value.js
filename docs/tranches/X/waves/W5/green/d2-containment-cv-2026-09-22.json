@@ -1,0 +1,80 @@
+{
+ "servedModel": "claude-opus-5-5[1m]",
+ "unit": "X.W5.d2",
+ "gate": "containment arm (§0ax ESC-W5d2-2)",
+ "probe": "green/d2-cv-probe.mjs",
+ "landed": [
+  {
+   "probe": "cv-probe (X.W5.d2 containment arm)",
+   "base": "http://127.0.0.1:8131",
+   "at": "2026-09-23T01:22:56.517Z",
+   "settled": {
+    "sections": 33,
+    "cvAuto": 33,
+    "probed": 17,
+    "skipped": 14
+   },
+   "midLeave": {
+    "contain": "layout paint",
+    "clipMargin": "10px",
+    "h": 7459,
+    "sections": 33,
+    "cvAuto": 33,
+    "probed": 17,
+    "skipped": 14
+   },
+   "containAfterSwap": [
+    "none",
+    "content"
+   ]
+  },
+  {
+   "probe": "cv-probe (X.W5.d2 containment arm)",
+   "base": "http://127.0.0.1:8131",
+   "at": "2026-09-23T01:23:01.454Z",
+   "settled": {
+    "sections": 33,
+    "cvAuto": 33,
+    "probed": 17,
+    "skipped": 14
+   },
+   "midLeave": {
+    "contain": "layout paint",
+    "clipMargin": "10px",
+    "h": 7459,
+    "sections": 33,
+    "cvAuto": 33,
+    "probed": 17,
+    "skipped": 14
+   },
+   "containAfterSwap": [
+    "none",
+    "content"
+   ]
+  }
+ ],
+ "control": {
+  "probe": "cv-probe (X.W5.d2 containment arm)",
+  "base": "http://127.0.0.1:8132",
+  "at": "2026-09-23T01:23:10.482Z",
+  "settled": {
+   "sections": 33,
+   "cvAuto": 33,
+   "probed": 17,
+   "skipped": 14
+  },
+  "midLeave": {
+   "contain": "content",
+   "clipMargin": "0px",
+   "h": 7459,
+   "sections": 33,
+   "cvAuto": 33,
+   "probed": 17,
+   "skipped": 14
+  },
+  "containAfterSwap": [
+   "none",
+   "content"
+  ]
+ }
+}

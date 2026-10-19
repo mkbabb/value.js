@@ -1,0 +1,276 @@
+{
+ "morph-light-1440": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(28, 25, 23)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 122,
+   "tileH": 122,
+   "ratio": 1,
+   "radius": "20px",
+   "radiusOverW": 0.164,
+   "svg": [
+    64,
+    64
+   ],
+   "labelPx": 14.384
+  }
+ },
+ "morph-light-1024": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(28, 25, 23)"
+  },
+  "shellScrolled": {
+   "mainScrollTop": 200,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(28, 25, 23)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 96.4,
+   "tileH": 107.6,
+   "ratio": 1.116,
+   "radius": "20px",
+   "radiusOverW": 0.207,
+   "svg": [
+    64,
+    64
+   ],
+   "labelPx": 13.5104
+  }
+ },
+ "morph-light-390": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(28, 25, 23)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 60,
+   "tileH": 79.8,
+   "ratio": 1.33,
+   "radius": "30px",
+   "radiusOverW": 0.5,
+   "svg": [
+    50,
+    50
+   ],
+   "labelPx": 12.179
+  }
+ },
+ "gallery-light-1440": {
+  "gallery": {
+   "vw": 1440,
+   "host": [
+    0,
+    1440
+   ],
+   "hostCenter": 720,
+   "toolbar": [
+    0,
+    1440
+   ],
+   "toolbarCenter": 720,
+   "dockCenter": 720,
+   "cols": "272px 272px 272px 272px 272px",
+   "cards": 4,
+   "firstCardX": 16,
+   "lastCardRight": 1140
+  }
+ },
+ "gallery-light-390": {
+  "gallery": {
+   "vw": 390,
+   "host": [
+    0,
+    390
+   ],
+   "hostCenter": 195,
+   "toolbar": [
+    0,
+    390
+   ],
+   "toolbarCenter": 195,
+   "dockCenter": 195,
+   "cols": "173px 173px",
+   "cards": 4,
+   "firstCardX": 16,
+   "lastCardRight": 374
+  }
+ },
+ "equation-light-1440": {
+  "aside": {
+   "aside": [
+    100,
+    888
+   ],
+   "scrollH": 810,
+   "clientH": 786,
+   "scrollTop": 0,
+   "fadeEnd": "",
+   "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 16px), rgba(0, 0, 0, 0) 100%)",
+   "asideBorderBottom": "1px solid oklab(0.779403 0.0118501 0.0342689 / 0.6)",
+   "fsBorderBottom": "0px solid rgb(28, 25, 23)",
+   "scrolledEnd": null
+  }
+ },
+ "morph-dark-1440": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(233, 230, 226)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 122,
+   "tileH": 122,
+   "ratio": 1,
+   "radius": "20px",
+   "radiusOverW": 0.164,
+   "svg": [
+    64,
+    64
+   ],
+   "labelPx": 14.384
+  }
+ },
+ "morph-dark-1024": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(233, 230, 226)"
+  },
+  "shellScrolled": {
+   "mainScrollTop": 200,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(233, 230, 226)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 96.4,
+   "tileH": 107.6,
+   "ratio": 1.116,
+   "radius": "20px",
+   "radiusOverW": 0.207,
+   "svg": [
+    64,
+    64
+   ],
+   "labelPx": 13.5104
+  }
+ },
+ "morph-dark-390": {
+  "shellTop": {
+   "mainScrollTop": 0,
+   "mainScrollable": true,
+   "scrolled": null,
+   "borderTop": "0px solid rgb(233, 230, 226)"
+  },
+  "levels": {
+   "perRow": [
+    5,
+    5
+   ],
+   "tilesWhole": 10,
+   "tileW": 60,
+   "tileH": 79.8,
+   "ratio": 1.33,
+   "radius": "30px",
+   "radiusOverW": 0.5,
+   "svg": [
+    50,
+    50
+   ],
+   "labelPx": 12.179
+  }
+ },
+ "gallery-dark-1440": {
+  "gallery": {
+   "vw": 1440,
+   "host": [
+    0,
+    1440
+   ],
+   "hostCenter": 720,
+   "toolbar": [
+    0,
+    1440
+   ],
+   "toolbarCenter": 720,
+   "dockCenter": 720,
+   "cols": "272px 272px 272px 272px 272px",
+   "cards": 4,
+   "firstCardX": 16,
+   "lastCardRight": 1140
+  }
+ },
+ "gallery-dark-390": {
+  "gallery": {
+   "vw": 390,
+   "host": [
+    0,
+    390
+   ],
+   "hostCenter": 195,
+   "toolbar": [
+    0,
+    390
+   ],
+   "toolbarCenter": 195,
+   "dockCenter": 195,
+   "cols": "173px 173px",
+   "cards": 4,
+   "firstCardX": 16,
+   "lastCardRight": 374
+  }
+ },
+ "equation-dark-1440": {
+  "aside": {
+   "aside": [
+    100,
+    888
+   ],
+   "scrollH": 810,
+   "clientH": 786,
+   "scrollTop": 0,
+   "fadeEnd": "",
+   "mask": "linear-gradient(rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 16px), rgba(0, 0, 0, 0) 100%)",
+   "asideBorderBottom": "1px solid oklab(0.465229 0.0110701 0.0260825 / 0.6)",
+   "fsBorderBottom": "0px solid rgb(233, 230, 226)",
+   "scrolledEnd": null
+  }
+ }
+}

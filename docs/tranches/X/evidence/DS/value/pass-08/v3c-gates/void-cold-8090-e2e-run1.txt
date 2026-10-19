@@ -1,0 +1,244 @@
+(node:19973) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:20276) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 9 tests using 1 worker
+
+[1A[2K(node:20668) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/9] [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/", waiting until "load"[22m
+
+
+      24 |         page,
+      25 |     }) => {
+    > 26 |         await page.goto("/");
+         |                    ^
+      27 |         await page.waitForSelector(".glass-dock");
+      28 |         await openView(page, "Generate");
+      29 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:26:20
+
+    Error Context: test-results/oracles-o20-generate-plate-92ae8-late-the-orphan-row-is-dead-smoke/error-context.md
+
+
+[1A[2K(node:22805) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/9] [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields
+[1A[2K  2) [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:8090/", waiting until "load"[22m
+
+
+      61 |         page,
+      62 |     }) => {
+    > 63 |         await page.goto("/");
+         |                    ^
+      64 |         await page.waitForSelector(".glass-dock");
+      65 |         await openView(page, "Generate");
+      66 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o20-generate-plate.spec.ts:63:20
+
+    Error Context: test-results/oracles-o20-generate-plate-216a9-palette-selecting-it-yields-smoke/error-context.md
+
+
+[1A[2K(node:25248) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/9] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static
+[1A[2K  3) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/#/extract", waiting until "load"[22m
+
+
+      143 |     page,
+      144 | }) => {
+    > 145 |     await page.goto("/#/extract");
+          |                ^
+      146 |     const extractPane = pane(page, "Extract");
+      147 |     await expect(extractPane).toBeVisible();
+      148 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:145:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--0ad53-ng-STILL-at-rest-PRM-static-smoke/error-context.md
+
+
+[1A[2K(node:27698) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[4/9] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:189:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K  4) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:189:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/", waiting until "load"[22m
+
+
+      190 |     page,
+      191 | }) => {
+    > 192 |     await page.goto("/");
+          |                ^
+      193 |     await openView(page, "Mix");
+      194 |     const mixPane = pane(page, "Mix");
+      195 |     await expect(mixPane).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:192:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--40d45-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+
+[1A[2K(node:29988) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[5/9] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:208:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K  5) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:208:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:8090/", waiting until "load"[22m
+
+
+      209 |     page,
+      210 | }) => {
+    > 211 |     await page.goto("/");
+          |                ^
+      212 |     await openView(page, "Palettes");
+      213 |     const palettesPane = pane(page, "My Palettes");
+      214 |     await expect(palettesPane).toBeVisible();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:211:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--6f646-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+
+[1A[2K(node:32288) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[6/9] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:220:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K  6) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:220:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/#/browse", waiting until "load"[22m
+
+
+      241 |             }),
+      242 |     );
+    > 243 |     await page.goto("/#/browse");
+          |                ^
+      244 |     const browsePane = pane(page, "Browse");
+      245 |     await expect(browsePane).toBeVisible();
+      246 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:243:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--ba8cf-he-trio-dashes-zero-fillers-smoke/error-context.md
+
+
+[1A[2K(node:34440) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[7/9] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:251:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)
+[1A[2K  7) [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:251:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:8090/#/browse", waiting until "load"[22m
+
+
+      255 |     // browse store reads a deterministic load FAILURE → the PLAIN error
+      256 |     // register (untouched by R12): no ghost, no trio, no announced work.
+    > 257 |     await page.goto("/#/browse");
+          |                ^
+      258 |     const browsePane = pane(page, "Browse");
+      259 |     await expect(browsePane).toBeVisible();
+      260 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o9-shadow-palette.spec.ts:257:16
+
+    Error Context: test-results/oracles-o9-shadow-palette--9f619-rio-R7-surviving-semantics--smoke/error-context.md
+
+
+[1A[2K(node:36027) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[8/9] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[1A[2K  8) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/#/", waiting until "load"[22m
+
+
+      119 |     test("companion panes share one track start", async ({ page }) => {
+      120 |         // ── the marked scene: Picker ↔ About (OM-9) ──────────────────────
+    > 121 |         await page.goto("/#/");
+          |                    ^
+      122 |         const picker = await readRow(page, "Picker");
+      123 |         const about = await readRow(page, "About");
+      124 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/companion-pane-track-start.spec.ts:121:20
+
+    Error Context: test-results/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+
+[1A[2K(node:37621) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[9/9] [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget
+[1A[2K  9) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: page.goto: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/", waiting until "load"[22m
+
+
+      31 |     const consoleErrors = setupEnvNoise(page);
+      32 |
+    > 33 |     await page.goto("/");
+         |                ^
+      34 |     await openView(page, "Mix");
+      35 |
+      36 |     const main = mainPane(page);
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/mix.spec.ts:33:16
+
+    Error Context: test-results/views-mix-mix-flow-converg-60bbb--result-plate-within-budget-smoke/error-context.md
+
+
+[1A[2K  9 failed
+    [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:23:5 › O-20 · the Generate verb joins the plate chrome › verb, actions, and bench-note seed live INSIDE the plate; the orphan row is dead 
+    [smoke] › e2e/smoke/oracles/o20-generate-plate.spec.ts:60:5 › O-20 · the Generate verb joins the plate chrome › T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:189:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:208:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:220:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers 
+    [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:251:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics) 
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+    [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget 
+EXIT 1

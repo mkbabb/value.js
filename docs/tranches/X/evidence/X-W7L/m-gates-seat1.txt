@@ -1,0 +1,18 @@
+SERVED MODEL: claude-opus-5-5
+# X.W7L.m seat 1 gate re-reads at HEAD f873929a (glass 10.1.0 installed; load at start 85.42)
+## tc1: EXIT 0
+## lint1: EXIT 0
+## tc2: EXIT 0
+## lint2: EXIT 0
+## vitest r1
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+ Test Files  2 failed | 70 passed (72)
+      Tests  2 failed | 958 passed (960)
+## vitest r2
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+ Test Files  2 failed | 70 passed (72)
+      Tests  2 failed | 958 passed (960)

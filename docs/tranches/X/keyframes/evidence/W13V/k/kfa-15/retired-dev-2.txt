@@ -1,0 +1,8 @@
+1440x900 home     load:0
+1440x900 cube     load:0 | Controls:open surfaces=0 | Keyframes:open surfaces=0 | Timeline:open surfaces=0 | Scene facet:off
+1440x900 amiga    load:0 | Controls:open surfaces=0 | Keyframes:open surfaces=0 | Timeline:open surfaces=0 | Scene facet:off
+1440x900 square   load:0 | Controls:open surfaces=0 | Keyframes:open surfaces=0 | Timeline:open surfaces=0 | Scene facet:off
+1440x900 easing   load:0 | Controls:open surfaces=0 | Keyframes:open surfaces=0 | Timeline:open surfaces=0 | Curve:open surfaces=0
+1440x900 spring   load:0 | Controls:open surfaces=0 | Keyframes:open surfaces=0 | Timeline:open surfaces=0 | Physics:open surfaces=0
+1440x900 sequence load:0 | Controls:off | Keyframes:off | Timeline:off | Scene facet:off
+KFA-15 surface nodes (.progress-bar + pre[contenteditable]) across every state: 0 · items not opened: 0

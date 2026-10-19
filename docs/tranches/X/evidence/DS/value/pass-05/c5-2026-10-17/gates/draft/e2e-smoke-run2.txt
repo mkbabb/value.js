@@ -1,0 +1,98 @@
+(node:87649) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:87725) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 49 tests using 1 worker
+
+[1A[2K(node:87877) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/49] [smoke] › e2e/smoke/a11y-slider-operation.spec.ts:34:1 › BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value across the range
+[1A[2K[smoke] › e2e/smoke/a11y-slider-operation.spec.ts:34:1 › BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value across the range
+[BR-8] channel sliders found: 4
+
+[1A[2K[BR-8] L channel: Home=0 End=1 ArrowLeft=0.9990000000000001 → MOVES
+
+[1A[2K[BR-8] A channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[BR-8] B channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[BR-8] ALPHA channel: Home=0 End=1 ArrowLeft=0.999 → MOVES
+
+[1A[2K[2/49] [smoke] › e2e/smoke/crash-battery.spec.ts:66:1 › R14 · pressing Retry on a dead Browse wall leaves a plate behind
+[1A[2K[3/49] [smoke] › e2e/smoke/crash-battery.spec.ts:147:1 › R15 · an achromatic colour then LCh does not kill the pane grid
+[1A[2K[4/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=black
+[1A[2K[5/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=white
+[1A[2K[6/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#000000
+[1A[2K[7/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#808080
+[1A[2K[8/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=#fefefe
+[1A[2K[9/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=rgb(17,17,17)
+[1A[2K[10/49] [smoke] › e2e/smoke/crash-battery.spec.ts:200:5 › R16 · the app boots at ?color=hsl(0 0% 50%)
+[1A[2K[11/49] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: oklch(0.5 0 none)
+[1A[2K[12/49] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: lch(50 0 none)
+[1A[2K[13/49] [smoke] › e2e/smoke/crash-battery.spec.ts:228:5 › R17 · a legal none-hue URL boots: hsl(none 0% 50%)
+[1A[2K[14/49] [smoke] › e2e/smoke/crash-battery.spec.ts:331:1 › R18 · a real image file develops a palette
+[1A[2K[15/49] [smoke] › e2e/smoke/crash-battery.spec.ts:374:1 › R18 · a corrupt file surfaces a visible error, never a silent half-state
+[1A[2K[16/49] [smoke] › e2e/smoke/crash-battery.spec.ts:400:5 › R19 · the mobile menu dropdown › opens, publishes its rows, and its external link is operable
+[1A[2K[17/49] [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes'
+[1A[2K[18/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title)
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+
+    Error: empty-state statement off the display face
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoMatch[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected pattern: [32m/^"?Fraunces\b/[39m
+    Received string:  [31m"\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif"[39m
+
+      216 |                 voice.fontFamily,
+      217 |                 "empty-state statement off the display face",
+    > 218 |             ).toMatch(DISPLAY_FACE);
+          |               ^
+      219 |         }
+      220 |     }
+      221 | });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10d-display-voice-census.spec.ts:218:15
+
+    Error Context: test-results/oracles-o10d-display-voice-c5977-lay-voice-the-picker-title--smoke/error-context.md
+
+
+[1A[2K(node:89480) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[19/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:223:1 › O-10d census — user-data names (browse wall): display voice, ≤500, non-italic; line-clamp under the serif
+[1A[2K[20/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:275:1 › O-10d census — the 390 phone band: the card name truncates to ONE line under the serif
+[1A[2K[21/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:305:1 › O-10d census — gated title surfaces: report dialog · versions drawer · hover-card titles
+[1A[2K[22/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:392:1 › O-10d census — the rename-input morph re-verified under the serif (seeded local palette)
+[1A[2K[23/49] [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:469:1 › O-10d census — MigratePalettesDialog (session-gated): the SOURCE register row
+[1A[2K[24/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (light)
+[1A[2K[25/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:200:5 › O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (dark)
+[1A[2K[26/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:410:1 › O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached)
+[1A[2K[27/49] [smoke] › e2e/smoke/oracles/o7-card-census.spec.ts:448:1 › O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached)
+[1A[2K[28/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:142:1 › O-9 · Extract — the instrument face: live-k ghost that re-segments without growing, STILL at rest, PRM-static
+[1A[2K[29/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:198:1 › O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[30/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:217:1 › O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[31/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:229:1 › O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers
+[1A[2K[32/49] [smoke] › e2e/smoke/oracles/o9-shadow-palette.spec.ts:260:1 › O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)
+[1A[2K[33/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:28:5 › G13 · admin rows › feature — the verdict is announced in the users scene
+[1A[2K[34/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:34:5 › G13 · admin rows › admin delete — the row leaves and the verdict is announced
+[1A[2K[35/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:43:5 › G13 · admin rows › delete-all (a user's palettes) — confirmed, then announced
+[1A[2K[36/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:59:5 › G13 · admin rows › prune — the confirm names the global scope; the verdict is announced
+[1A[2K[37/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:67:5 › G13 · admin rows › flag dismiss — the row leaves and the verdict is announced
+[1A[2K[38/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:75:5 › G13 · admin rows › tag delete — the chip leaves and the verdict is announced
+[1A[2K[39/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:84:5 › G13 · admin rows › name approve — the verdict is announced
+[1A[2K[40/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:128:5 › G13 · user rows › report — a success is announced on the card
+[1A[2K[41/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:133:5 › G13 · user rows › report — a failure is announced as a failure, never as a success (W7.22)
+[1A[2K[42/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:160:5 › G13 · library rows › publish at N = 51 — refused in words before any request (G10 pre-flight)
+[1A[2K[43/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:174:5 › G13 · library rows › export failure — the typed outcome is rendered on the card (G7 · ESC-W7b-HOST)
+[1A[2K[44/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:190:5 › G13 · library rows › rename — the new name is what the card shows
+[1A[2K[45/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:201:5 › G13 · library rows › delete — the card leaves the library
+[1A[2K[46/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:219:5 › G13 · admin rows (Repair 1) › row 15 · delete user — confirmed, the row leaves, the verdict is announced
+[1A[2K[47/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:255:5 › G13 · user rows (Repair 1) › row 4 · version revert — the card reads the server's palette and says Reverted
+[1A[2K[48/49] [smoke] › e2e/smoke/oracles/w7-mutation-visibility.spec.ts:306:5 › G13 · library rows (Repair 1) › row 14 · delete-all — confirmed, then the grid is the true-empty plate
+[1A[2K[49/49] [smoke] › e2e/smoke/walk.spec.ts:17:1 › walk all user views sequentially with zero console errors
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/oracles/o10d-display-voice-census.spec.ts:171:1 › O-10d census — every heading across the 7-view walk speaks the display voice (+ the picker title) 
+  48 passed (2.6m)

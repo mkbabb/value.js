@@ -1,0 +1,10 @@
+12:52  up 4 days, 17:54, 2 users, load averages: 99.49 68.57 64.42
+firefox r0a0 parseCssScalar         whole    n=29944 k=2 S=14 product x0.676 (31/31<1) spread 1.246
+firefox r1a0 parseCssScalar         whole    n=29944 k=2 S=14 product x0.678 (31/31<1) spread 1.671 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|whole|parseCssScalar             <1 x0.676 x0.678(SA)
+12:52  up 4 days, 17:54, 2 users, load averages: 99.49 68.57 64.42 
+ 12:53  up 4 days, 17:56, 2 users, load averages: 57.83 63.83 63.11 → bench/records/2026-09-24-x-p-w7-browser-w8lg1r-firefox-n31-whole.json
+DONE w8lg1r-firefox-n31-whole
+12:53  up 4 days, 17:56, 2 users, load averages: 67.13 65.66 63.76

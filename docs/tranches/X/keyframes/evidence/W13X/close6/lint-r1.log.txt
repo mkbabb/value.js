@@ -1,0 +1,10 @@
+# 2026-10-16 07:02:56 load: 14.51 16.70 20.01 dir: /Users/mkbabb/Programming/keyframes-wt-W13X-open4 head: 389e31d2 dirty: 
+
+> @mkbabb/keyframes.js@6.0.0 lint
+> depcruise --config .dependency-cruiser.cjs src demo && eslint demo
+
+
+✔ no dependency violations found (457 modules, 1661 dependencies cruised)
+
+EXIT=0
+# end 07:03:04 load: 15.03 16.77 20.01

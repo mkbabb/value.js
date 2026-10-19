@@ -1,0 +1,548 @@
+{
+ "spring-rest-1440x900": {
+  "scrollTop": 0,
+  "scrollHeight": 333,
+  "client": 333,
+  "maxBlock": "",
+  "headed": false,
+  "port": [
+   191.8,
+   525.1
+  ],
+  "surface": [
+   128,
+   534.1
+  ],
+  "surfaceMbs": "",
+  "wrap": [
+   127,
+   750.1
+  ],
+  "response": [
+   191.8,
+   212.2
+  ],
+  "damping": [
+   252.2,
+   272.5
+  ],
+  "bouncy": null,
+  "ribbon": null,
+  "chain": [
+   "div.fading-scroll.fading-scroll--y.flex 192-525 mbs=",
+   "div.configurator-layer-body.py-2.space-y-2 184-533 mbs=",
+   "div.min-h-0.overflow-hidden 184-533 mbs=",
+   "div.configurator-layer-region.grid.motion-reduce:transition-none 184-533 mbs=",
+   "div.configurator-layer.pane-bounded 128-534 mbs=",
+   "div.panel-content.p-0.flex 128-534 mbs=",
+   "div.w-full.flex.flex-col 128-534 mbs=",
+   "div. 128-534 mbs=",
+   "div.flex-1.flex.flex-col 128-534 mbs=",
+   "div.w-full.flex-1.flex 128-534 mbs=",
+   "div.channel-controls.flex.flex-col 128-534 mbs=",
+   "div.fading-scroll.fading-scroll--y.controls-surface 128-534 mbs=",
+   "div.glass-quiet.card.pane-frame 127-750 mbs=",
+   "div.controls-content.h-full.flex 127-750 mbs=",
+   "div.controls-pane.group/controls.min-w-0 127-750 mbs="
+  ]
+ },
+ "spring-open-1440x900": {
+  "scrollTop": 200,
+  "scrollHeight": 518,
+  "client": 318,
+  "maxBlock": "318px",
+  "headed": true,
+  "port": [
+   191.8,
+   509.8
+  ],
+  "surface": [
+   128,
+   518.8
+  ],
+  "surfaceMbs": "",
+  "wrap": [
+   127,
+   750.1
+  ],
+  "response": [
+   -8.2,
+   12.2
+  ],
+  "damping": [
+   52.2,
+   72.5
+  ],
+  "bouncy": null,
+  "ribbon": null,
+  "chain": [
+   "div.fading-scroll.fading-scroll--y.flex 192-510 mbs=318px",
+   "div.configurator-layer-body.py-2.space-y-2 184-518 mbs=",
+   "div.min-h-0.overflow-hidden 184-518 mbs=",
+   "div.configurator-layer-region.grid.motion-reduce:transition-none 184-518 mbs=",
+   "div.configurator-layer.pane-bounded 128-519 mbs=",
+   "div.panel-content.p-0.flex 128-519 mbs=",
+   "div.w-full.flex.flex-col 128-519 mbs=",
+   "div. 128-519 mbs=",
+   "div.flex-1.flex.flex-col 128-519 mbs=",
+   "div.w-full.flex-1.flex 128-519 mbs=",
+   "div.channel-controls.flex.flex-col 128-519 mbs=",
+   "div.fading-scroll.fading-scroll--y.controls-surface 128-519 mbs=",
+   "div.glass-quiet.card.pane-frame 127-750 mbs=",
+   "div.controls-content.h-full.flex 127-750 mbs=",
+   "div.controls-pane.group/controls.min-w-0 127-750 mbs="
+  ]
+ },
+ "spring-rest-1280x800": {
+  "scrollTop": 0,
+  "scrollHeight": 323,
+  "client": 323,
+  "maxBlock": "",
+  "headed": false,
+  "port": [
+   185.8,
+   509.2
+  ],
+  "surface": [
+   122,
+   518.2
+  ],
+  "surfaceMbs": "",
+  "wrap": [
+   121,
+   654.7
+  ],
+  "response": [
+   185.8,
+   205.7
+  ],
+  "damping": [
+   245.7,
+   265.5
+  ],
+  "bouncy": null,
+  "ribbon": null,
+  "chain": [
+   "div.fading-scroll.fading-scroll--y.flex 186-509 mbs=",
+   "div.configurator-layer-body.py-2.space-y-2 178-517 mbs=",
+   "div.min-h-0.overflow-hidden 178-517 mbs=",
+   "div.configurator-layer-region.grid.motion-reduce:transition-none 178-517 mbs=",
+   "div.configurator-layer.pane-bounded 122-518 mbs=",
+   "div.panel-content.p-0.flex 122-518 mbs=",
+   "div.w-full.flex.flex-col 122-518 mbs=",
+   "div. 122-518 mbs=",
+   "div.flex-1.flex.flex-col 122-518 mbs=",
+   "div.w-full.flex-1.flex 122-518 mbs=",
+   "div.channel-controls.flex.flex-col 122-518 mbs=",
+   "div.fading-scroll.fading-scroll--y.controls-surface 122-518 mbs=",
+   "div.glass-quiet.card.pane-frame 121-655 mbs=",
+   "div.controls-content.h-full.flex 121-655 mbs=",
+   "div.controls-pane.group/controls.min-w-0 121-655 mbs="
+  ]
+ },
+ "spring-open-1280x800": {
+  "scrollTop": 194,
+  "scrollHeight": 517,
+  "client": 323,
+  "maxBlock": "323px",
+  "headed": true,
+  "port": [
+   185.8,
+   508.8
+  ],
+  "surface": [
+   122,
+   517.8
+  ],
+  "surfaceMbs": "",
+  "wrap": [
+   121,
+   654.7
+  ],
+  "response": [
+   -8.2,
+   11.7
+  ],
+  "damping": [
+   51.7,
+   71.5
+  ],
+  "bouncy": null,
+  "ribbon": null,
+  "chain": [
+   "div.fading-scroll.fading-scroll--y.flex 186-509 mbs=323px",
+   "div.configurator-layer-body.py-2.space-y-2 178-517 mbs=",
+   "div.min-h-0.overflow-hidden 178-517 mbs=",
+   "div.configurator-layer-region.grid.motion-reduce:transition-none 178-517 mbs=",
+   "div.configurator-layer.pane-bounded 122-518 mbs=",
+   "div.panel-content.p-0.flex 122-518 mbs=",
+   "div.w-full.flex.flex-col 122-518 mbs=",
+   "div. 122-518 mbs=",
+   "div.flex-1.flex.flex-col 122-518 mbs=",
+   "div.w-full.flex-1.flex 122-518 mbs=",
+   "div.channel-controls.flex.flex-col 122-518 mbs=",
+   "div.fading-scroll.fading-scroll--y.controls-surface 122-518 mbs=",
+   "div.glass-quiet.card.pane-frame 121-655 mbs=",
+   "div.controls-content.h-full.flex 121-655 mbs=",
+   "div.controls-pane.group/controls.min-w-0 121-655 mbs="
+  ]
+ },
+ "spring-rest-1440x1080": {
+  "scrollTop": 0,
+  "scrollHeight": 333,
+  "client": 333,
+  "maxBlock": "",
+  "headed": false,
+  "port": [
+   202.6,
+   535.9
+  ],
+  "surface": [
+   138.8,
+   544.9
+  ],
+  "surfaceMbs": "",
+  "wrap": [
+   137.8,
+   930
+  ],
+  "response": [
+   202.6,
+   223
+  ],
+  "damping": [
+   263,
+   283.3
+  ],
+  "bouncy": null,
+  "ribbon": null,
+  "chain": [
+   "div.fading-scroll.fading-scroll--y.flex 203-536 mbs=",
+   "div.configurator-layer-body.py-2.space-y-2 195-544 mbs=",
+   "div.min-h-0.overflow-hidden 195-544 mbs=",
+   "div.configurator-layer-region.grid.motion-reduce:transition-none 195-544 mbs=",
+   "div.configurator-layer.pane-bounded 139-545 mbs=",
+   "div.panel-content.p-0.flex 139-545 mbs=",
+   "div.w-full.flex.flex-col 139-545 mbs=",
+   "div. 139-545 mbs=",
+   "div.flex-1.flex.flex-col 139-545 mbs=",
+   "div.w-full.flex-1.flex 139-545 mbs=",
+   "div.channel-controls.flex.flex-col 139-545 mbs=",
+   "div.fading-scroll.fading-scroll--y.controls-surface 139-545 mbs=",
+   "div.glass-quiet.card.pane-frame 138-930 mbs=",
+   "div.controls-content.h-full.flex 138-930 mbs=",
+   "div.controls-pane.group/controls.min-w-0 138-930 mbs="
+  ]
+ },
+ "spring-open-1440x1080": {
+  "scrollTop": 49,
+  "scrollHeight": 518,
+  "client": 469,
+  "maxBlock": "469px",
+  "headed": true,
+  "port": [
+   202.6,
+   671.6
+  ],
+  "surface": [
+   138.8,
+   680.6
+  ],
+  "surfaceMbs": "",
+  "wrap": [
+   137.8,
+   930
+  ],
+  "response": [
+   153.6,
+   174
+  ],
+  "damping": [
+   214,
+   234.3
+  ],
+  "bouncy": null,
+  "ribbon": null,
+  "chain": [
+   "div.fading-scroll.fading-scroll--y.flex 203-672 mbs=469px",
+   "div.configurator-layer-body.py-2.space-y-2 195-680 mbs=",
+   "div.min-h-0.overflow-hidden 195-680 mbs=",
+   "div.configurator-layer-region.grid.motion-reduce:transition-none 195-680 mbs=",
+   "div.configurator-layer.pane-bounded 139-681 mbs=",
+   "div.panel-content.p-0.flex 139-681 mbs=",
+   "div.w-full.flex.flex-col 139-681 mbs=",
+   "div. 139-681 mbs=",
+   "div.flex-1.flex.flex-col 139-681 mbs=",
+   "div.w-full.flex-1.flex 139-681 mbs=",
+   "div.channel-controls.flex.flex-col 139-681 mbs=",
+   "div.fading-scroll.fading-scroll--y.controls-surface 139-681 mbs=",
+   "div.glass-quiet.card.pane-frame 138-930 mbs=",
+   "div.controls-content.h-full.flex 138-930 mbs=",
+   "div.controls-pane.group/controls.min-w-0 138-930 mbs="
+  ]
+ },
+ "easing-1440x900": {
+  "drawer": [
+   254,
+   653
+  ],
+  "maxBlock": "399px",
+  "scrollTop": 0,
+  "plate": [
+   204,
+   733
+  ],
+  "parent": [
+   204,
+   733
+  ],
+  "rows": [
+   {
+    "k": "H:Standard",
+    "r": [
+     256,
+     286
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     294,
+     460
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     294,
+     460
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     294,
+     460
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     468,
+     634
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     468,
+     634
+    ]
+   },
+   {
+    "k": "H:Sine",
+    "r": [
+     654,
+     684
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     692,
+     858
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     692,
+     858
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     692,
+     858
+    ]
+   }
+  ]
+ },
+ "easing-390x844": {
+  "drawer": [
+   262,
+   654
+  ],
+  "maxBlock": "392px",
+  "scrollTop": 0,
+  "plate": [
+   197,
+   698
+  ],
+  "parent": [
+   197,
+   698
+  ],
+  "rows": [
+   {
+    "k": "H:Standard",
+    "r": [
+     264,
+     288
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     296,
+     403
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     296,
+     403
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     411,
+     519
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     411,
+     519
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     527,
+     634
+    ]
+   },
+   {
+    "k": "H:Sine",
+    "r": [
+     654,
+     678
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     686,
+     794
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     686,
+     794
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     802,
+     909
+    ]
+   }
+  ]
+ },
+ "easing-1280x800": {
+  "drawer": [
+   245,
+   612
+  ],
+  "maxBlock": "367px",
+  "scrollTop": 0,
+  "plate": [
+   196,
+   638
+  ],
+  "parent": [
+   196,
+   638
+  ],
+  "rows": [
+   {
+    "k": "H:Standard",
+    "r": [
+     247,
+     277
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     285,
+     434
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     285,
+     434
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     285,
+     434
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     442,
+     591
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     442,
+     591
+    ]
+   },
+   {
+    "k": "H:Sine",
+    "r": [
+     611,
+     642
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     650,
+     799
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     650,
+     799
+    ]
+   },
+   {
+    "k": "t",
+    "r": [
+     650,
+     799
+    ]
+   }
+  ]
+ }
+}

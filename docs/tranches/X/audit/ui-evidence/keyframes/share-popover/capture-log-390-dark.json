@@ -1,0 +1,1005 @@
+{
+  "sha": "60477b06",
+  "dirty": 7,
+  "when": "2026-09-23T17:25:46.962Z",
+  "runs": [
+    {
+      "tag": "390-dark",
+      "frames": [
+        {
+          "frame": "00-menu-open-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "DIV:menu",
+          "trigger": {
+            "x": 15,
+            "y": 129,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(195, 185, 172)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(195, 185, 172)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "false",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none hover:opacity-50"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 123,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "00-menu-open-390-dark-crop.png"
+        },
+        {
+          "frame": "00b-trigger-hover-390-dark-crop.png"
+        },
+        {
+          "frame": "01-popover-open-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "INPUT:Share URL or hash to load",
+          "trigger": {
+            "x": 15,
+            "y": 128,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(233, 230, 226)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "true",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none opacity-100"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 122,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": true
+          },
+          "popover": {
+            "x": 0,
+            "y": 172,
+            "w": 288,
+            "h": 83,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "20.352px 16px",
+            "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+            "cls": "popover-content glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal z-popover w-72"
+          },
+          "input": {
+            "x": 17,
+            "y": 193,
+            "w": 170,
+            "h": 40,
+            "radius": "9999px",
+            "bg": "rgb(63, 55, 49)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Fira Code\" 14px 400",
+            "pad": "0px 16px",
+            "border": "1.5px rgb(186, 183, 171)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srg",
+            "backdrop": "none",
+            "value": "",
+            "placeholder": "Paste share URL...",
+            "invalid": null,
+            "cls": "field-control glass-defined font-mono flex-1"
+          },
+          "buttons": [
+            {
+              "title": "Load shared state",
+              "disabled": true,
+              "x": 193,
+              "y": 195,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            },
+            {
+              "title": "Copy share link",
+              "disabled": false,
+              "x": 235,
+              "y": 195,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            }
+          ],
+          "popClipped": false,
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "01-popover-open-390-dark-crop.png"
+        },
+        {
+          "frame": "01b-tab1-390-dark-crop.png"
+        },
+        {
+          "frame": "01c-tab2-390-dark-crop.png"
+        },
+        {
+          "frame": "02-copied-toast-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "BUTTON:Share animation",
+          "trigger": {
+            "x": 15,
+            "y": 129,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(195, 185, 172)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(195, 185, 172)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "false",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none hover:opacity-50"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 123,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "toasts": [
+            {
+              "type": "success",
+              "text": "Link copied to clipboard!",
+              "x": 0,
+              "y": 844,
+              "w": 256,
+              "h": 72,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            }
+          ],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          },
+          "clipboard": "http://localhost:5173#/cube?state=JTdCJTIyb3B0aW9ucyUyMiUzQSU3QiUyMmN1YmUlMjIlM0ElN0IlMjJNYXRyaXglMjIlM0ElN0IlMjJhbmltYX",
+          "clipLen": 2942
+        },
+        {
+          "frame": "02f-copied-toast-FULLPAGE-390-dark.png",
+          "docH": 916
+        },
+        {
+          "frame": "02b-after-copy-settle-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "BUTTON:Share animation",
+          "trigger": {
+            "x": 15,
+            "y": 129,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(195, 185, 172)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(195, 185, 172)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "false",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none hover:opacity-50"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 123,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "03a-pasted-390-dark.png",
+          "hash": "#/amiga",
+          "theme": "dark",
+          "focus": "INPUT:Share URL or hash to load",
+          "trigger": {
+            "x": 15,
+            "y": 128,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(233, 230, 226)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "true",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none opacity-100"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 122,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "popover": {
+            "x": 0,
+            "y": 172,
+            "w": 288,
+            "h": 83,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "20.352px 16px",
+            "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+            "cls": "popover-content glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal z-popover w-72"
+          },
+          "input": {
+            "x": 17,
+            "y": 193,
+            "w": 170,
+            "h": 40,
+            "radius": "9999px",
+            "bg": "rgb(63, 55, 49)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Fira Code\" 14px 400",
+            "pad": "0px 16px",
+            "border": "1.5px rgb(186, 183, 171)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srg",
+            "backdrop": "none",
+            "value": "http://localhost:5173#/cube?state=JTdCJT",
+            "placeholder": "Paste share URL...",
+            "invalid": null,
+            "cls": "field-control glass-defined font-mono flex-1"
+          },
+          "buttons": [
+            {
+              "title": "Load shared state",
+              "disabled": false,
+              "x": 193,
+              "y": 195,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            },
+            {
+              "title": "Copy share link",
+              "disabled": false,
+              "x": 235,
+              "y": 195,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            }
+          ],
+          "popClipped": false,
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "03a-pasted-390-dark-crop.png"
+        },
+        {
+          "frame": "03-restore-success-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "DIV:",
+          "trigger": {
+            "x": 15,
+            "y": 128,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(233, 230, 226)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "false",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none hover:opacity-50"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 122,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "03f-restore-success-FULLPAGE-390-dark.png"
+        },
+        {
+          "afterRestore": {
+            "menuOpen": true,
+            "bodyPE": "none",
+            "focus": "scene-host h-full w-full"
+          }
+        },
+        {
+          "reopenFail": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '@mbabb"
+        },
+        {
+          "frame": "04-error-no-state-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "INPUT:Share URL or hash to load",
+          "trigger": {
+            "x": 15,
+            "y": 128,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(233, 230, 226)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "true",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none opacity-100"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 122,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "popover": {
+            "x": 0,
+            "y": 172,
+            "w": 288,
+            "h": 83,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "20.352px 16px",
+            "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+            "cls": "popover-content glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal z-popover w-72"
+          },
+          "input": {
+            "x": 17,
+            "y": 193,
+            "w": 170,
+            "h": 40,
+            "radius": "9999px",
+            "bg": "rgb(63, 55, 49)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Fira Code\" 14px 400",
+            "pad": "0px 16px",
+            "border": "1.5px rgb(186, 183, 171)",
+            "shadow": "color(srgb 0.73 0.718 0.67 / 0.3) 0px 0px 0px 2px, color(srg",
+            "backdrop": "none",
+            "value": "http://localhost:5173/#/cube",
+            "placeholder": "Paste share URL...",
+            "invalid": null,
+            "cls": "field-control glass-defined font-mono flex-1"
+          },
+          "buttons": [
+            {
+              "title": "Load shared state",
+              "disabled": false,
+              "x": 193,
+              "y": 195,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            },
+            {
+              "title": "Copy share link",
+              "disabled": false,
+              "x": 235,
+              "y": 195,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            }
+          ],
+          "popClipped": false,
+          "toasts": [
+            {
+              "type": "error",
+              "text": "No shared state found in URL",
+              "x": 0,
+              "y": 844,
+              "w": 256,
+              "h": 72,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            }
+          ],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "04-error-no-state-390-dark-crop.png"
+        },
+        {
+          "frame": "05-error-invalid-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "BUTTON:Load shared state",
+          "trigger": {
+            "x": 15,
+            "y": 129,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(195, 185, 172)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(195, 185, 172)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "true",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none opacity-100"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 123,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "popover": {
+            "x": 0,
+            "y": 173,
+            "w": 288,
+            "h": 83,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "20.352px 16px",
+            "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.05)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)",
+            "cls": "popover-content glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal z-popover w-72"
+          },
+          "input": {
+            "x": 17,
+            "y": 194,
+            "w": 170,
+            "h": 40,
+            "radius": "9999px",
+            "bg": "rgb(63, 55, 49)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Fira Code\" 14px 400",
+            "pad": "0px 16px",
+            "border": "1.5px color(srgb 0.914 0.9 0.886 / 0.05)",
+            "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+            "backdrop": "none",
+            "value": "@@not-base64@@",
+            "placeholder": "Paste share URL...",
+            "invalid": null,
+            "cls": "field-control glass-defined font-mono flex-1"
+          },
+          "buttons": [
+            {
+              "title": "Load shared state",
+              "disabled": false,
+              "x": 193,
+              "y": 196,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+              "color": "rgb(233, 230, 226)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(233, 230, 226)",
+              "shadow": "none",
+              "backdrop": "none"
+            },
+            {
+              "title": "Copy share link",
+              "disabled": false,
+              "x": 235,
+              "y": 196,
+              "w": 36,
+              "h": 36,
+              "radius": "9999px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "color": "rgb(195, 185, 172)",
+              "font": "\"Plus Jakarta Sans\" 14px 500",
+              "pad": "0px",
+              "border": "0px rgb(195, 185, 172)",
+              "shadow": "none",
+              "backdrop": "none"
+            }
+          ],
+          "popClipped": false,
+          "toasts": [
+            {
+              "type": "error",
+              "text": "Invalid shared state",
+              "x": 0,
+              "y": 844,
+              "w": 256,
+              "h": 72,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            },
+            {
+              "type": "error",
+              "text": "No shared state found in URL",
+              "x": 0,
+              "y": 916,
+              "w": 256,
+              "h": 72,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            }
+          ],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "05-error-invalid-390-dark-crop.png"
+        },
+        {
+          "frame": "05b-toast-clicked-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "BUTTON:@mbabb menu",
+          "toasts": [
+            {
+              "type": "error",
+              "text": "Invalid shared state",
+              "x": 0,
+              "y": 700,
+              "w": 256,
+              "h": 72,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            },
+            {
+              "type": "error",
+              "text": "No shared state found in URL",
+              "x": 0,
+              "y": 772,
+              "w": 256,
+              "h": 72,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            }
+          ],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "06-probe-nonstate-json-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "BUTTON:Share animation",
+          "trigger": {
+            "x": 15,
+            "y": 128,
+            "w": 28,
+            "h": 36,
+            "radius": "9999px",
+            "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 500",
+            "pad": "0px",
+            "border": "0px rgb(233, 230, 226)",
+            "shadow": "none",
+            "backdrop": "none",
+            "expanded": "false",
+            "cls": "button tap-squish focus-ring transition-opacity duration-fast motion-reduce:transition-none hover:opacity-50"
+          },
+          "menu": {
+            "x": 0,
+            "y": 116,
+            "w": 273,
+            "h": 332,
+            "radius": "12px",
+            "bg": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 16px 400",
+            "pad": "6px",
+            "border": "1px rgb(101, 87, 73)",
+            "shadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+            "backdrop": "blur(11px) saturate(1.28) brightness(1.1)"
+          },
+          "shareRow": {
+            "x": 7,
+            "y": 122,
+            "w": 259,
+            "h": 48,
+            "radius": "8px",
+            "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+            "color": "rgb(233, 230, 226)",
+            "font": "\"Plus Jakarta Sans\" 14px 400",
+            "pad": "6px 8px",
+            "border": "0px rgb(101, 87, 73)",
+            "shadow": "none",
+            "backdrop": "none",
+            "hl": false
+          },
+          "toasts": [
+            {
+              "type": "success",
+              "text": "State restored!Animation state loaded from shared URL.",
+              "x": 0,
+              "y": 844,
+              "w": 256,
+              "h": 111,
+              "radius": "12px",
+              "bg": "rgb(233, 230, 226)",
+              "color": "rgb(11, 10, 9)",
+              "font": "\"Plus Jakarta Sans\" 16px 400",
+              "pad": "12px 16px",
+              "border": "0px rgb(101, 87, 73)",
+              "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0",
+              "backdrop": "none"
+            }
+          ],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        },
+        {
+          "frame": "07-deeplink-restore-390-dark.png",
+          "hash": "#/cube",
+          "theme": "dark",
+          "focus": "DIV:Drawer position",
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          },
+          "requested": "#/cube?state=JTdCJTIyb3B0aW9ucyUyMiUzQSU3QiUyMmN1YmUlMjIlM0E"
+        },
+        {
+          "frame": "08-deeplink-garbage-390-dark.png",
+          "hash": "#/amiga",
+          "theme": "dark",
+          "focus": "DIV:Drawer position",
+          "toasts": [],
+          "toaster": {
+            "pos": "bottom/right",
+            "cls": ""
+          }
+        }
+      ],
+      "errs": {
+        "a": [
+          "error:Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+        ],
+        "b": [
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+        ],
+        "c": [
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+        ],
+        "d": [
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+        ],
+        "e": [
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent.",
+          "warning:Warning: Missing `Description` or `aria-describedby=\"undefined\"` for DialogContent."
+        ]
+      }
+    }
+  ]
+}

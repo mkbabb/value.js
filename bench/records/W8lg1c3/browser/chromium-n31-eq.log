@@ -1,0 +1,50 @@
+20:16  up 6 days,  1:18, 2 users, load averages: 18.05 17.26 18.70
+chromium r0a0 parseCssColor          acc-eq   n=4835 k=4 S=1 product x0.553 (31/31<1) spread 1.077
+chromium r0a0 parseCssScalar         acc-eq   n=5835 k=4 S=1 product x0.518 (31/31<1) spread 1.163
+chromium r0a0 parseCssValue          acc-eq   n=10441 k=1 S=1 product x0.313 (31/31<1) spread 1.154
+chromium r0a0 parseCssValues         acc-eq   n=10441 k=1 S=1 product x0.317 (31/31<1) spread 1.162
+chromium r0a0 parseKeyframeSelector  acc-eq   n=56 k=4096 S=1 product x0.745 (31/31<1) spread 1.154
+chromium r0a0 parseTimingFunction    acc-eq   n=362 k=64 S=1 product x0.602 (31/31<1) spread 1.051
+chromium r0a0 parseStylesheet        acc-eq   n=1962 k=2 S=1 product x0.515 (31/31<1) spread 1.224
+chromium r0a0 parseCssColor          rej-eq   n=21760 k=2 S=1 product x0.432 (31/31<1) spread 1.157
+chromium r0a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.37 (31/31<1) spread 1.075
+chromium r0a0 parseCssValue          rej-eq   n=15821 k=1 S=1 product x0.451 (31/31<1) spread 1.177
+chromium r0a0 parseCssValues         rej-eq   n=15821 k=1 S=1 product x0.441 (31/31<1) spread 1.15
+chromium r0a0 parseKeyframeSelector  rej-eq   n=29888 k=4 S=1 product x0.705 (31/31<1) spread 1.154
+chromium r0a0 parseTimingFunction    rej-eq   n=29412 k=4 S=1 product x0.627 (31/31<1) spread 1.088
+chromium r0a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.467 (31/31<1) spread 1.057
+chromium r1a0 parseCssScalar         acc-eq   n=5835 k=4 S=1 product x0.643 (31/31<1) spread 1.205
+chromium r1a0 parseCssValue          acc-eq   n=10441 k=1 S=1 product x0.318 (31/31<1) spread 1.096
+chromium r1a0 parseCssValues         acc-eq   n=10441 k=1 S=1 product x0.327 (31/31<1) spread 1.07
+chromium r1a0 parseKeyframeSelector  acc-eq   n=56 k=2048 S=1 product x0.857 (31/31<1) spread 1.123
+chromium r1a0 parseTimingFunction    acc-eq   n=362 k=64 S=1 product x0.643 (31/31<1) spread 1.175
+chromium r1a0 parseStylesheet        acc-eq   n=1962 k=2 S=1 product x0.509 (31/31<1) spread 1.042
+chromium r1a0 parseCssColor          acc-eq   n=4835 k=4 S=1 product x0.715 (31/31<1) spread 1.082
+chromium r1a0 parseCssScalar         rej-eq   n=20759 k=1 S=1 product x0.379 (31/31<1) spread 1.17
+chromium r1a0 parseCssValue          rej-eq   n=15821 k=1 S=1 product x0.45 (31/31<1) spread 1.067
+chromium r1a0 parseCssValues         rej-eq   n=15821 k=1 S=1 product x0.449 (31/31<1) spread 1.04
+chromium r1a0 parseKeyframeSelector  rej-eq   n=29888 k=4 S=1 product x0.688 (31/31<1) spread 1.044
+chromium r1a0 parseTimingFunction    rej-eq   n=29412 k=4 S=1 product x0.629 (31/31<1) spread 1.064
+chromium r1a0 parseStylesheet        rej-eq   n=27197 k=1 S=1 product x0.523 (31/31<1) spread 1.075
+chromium r1a0 parseCssColor          rej-eq   n=21760 k=2 S=1 product x0.443 (31/31<1) spread 1.145
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product chromium|acc-eq|parseCssColor            <1 x0.553 x0.715
+product chromium|acc-eq|parseCssScalar           <1 x0.518 x0.643
+product chromium|acc-eq|parseCssValue            <1 x0.313 x0.318
+product chromium|acc-eq|parseCssValues           <1 x0.317 x0.327
+product chromium|acc-eq|parseKeyframeSelector    <1 x0.745 x0.857
+product chromium|acc-eq|parseTimingFunction      <1 x0.602 x0.643
+product chromium|acc-eq|parseStylesheet          <1 x0.515 x0.509
+product chromium|rej-eq|parseCssColor            <1 x0.432 x0.443
+product chromium|rej-eq|parseCssScalar           <1 x0.37 x0.379
+product chromium|rej-eq|parseCssValue            <1 x0.451 x0.45
+product chromium|rej-eq|parseCssValues           <1 x0.441 x0.449
+product chromium|rej-eq|parseKeyframeSelector    <1 x0.705 x0.688
+product chromium|rej-eq|parseTimingFunction      <1 x0.627 x0.629
+product chromium|rej-eq|parseStylesheet          <1 x0.467 x0.523
+20:16  up 6 days,  1:18, 2 users, load averages: 18.29 17.32 18.71 
+ 20:17  up 6 days,  1:20, 2 users, load averages: 20.05 17.91 18.81 → bench/records/2026-09-24-x-p-w7-browser-w8lg1c3-chromium-n31-eq.json
+DONE w8lg1c3-chromium-n31-eq
+guarded exit 0
+20:17  up 6 days,  1:20, 2 users, load averages: 19.73 17.88 18.80

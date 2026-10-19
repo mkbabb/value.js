@@ -1,0 +1,224 @@
+{
+ "light": {
+  "veil/browse": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "veil/extract": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "veil/mix": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "veil/gradient": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "filterTrigger": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "rgba(0, 0, 0, 0)"
+  },
+  "searchTop": 219,
+  "filterPopover": {
+   "fg": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+   "mfg": "oklch(27.101261854333% 0.003861589952 34.629978305623deg)",
+   "labels": [
+    {
+     "t": "Sort",
+     "ff": "\"Plus Jakarta Sans\"",
+     "tt": "none",
+     "c": "oklch(0.216129 0.00624853 56.0356)"
+    },
+    {
+     "t": "Show",
+     "ff": "\"Plus Jakarta Sans\"",
+     "tt": "none",
+     "c": "oklch(0.216129 0.00624853 56.0356)"
+    },
+    {
+     "t": "Find by color",
+     "ff": "\"Plus Jakarta Sans\"",
+     "tt": "none",
+     "c": "oklch(0.216129 0.00624853 56.0356)"
+    }
+   ],
+   "chips": [
+    {
+     "t": "Popular",
+     "c": "oklch(0.271013 0.00386159 34.63)"
+    },
+    {
+     "t": "Most forked",
+     "c": "oklch(0.271013 0.00386159 34.63)"
+    },
+    {
+     "t": "Featured",
+     "c": "oklab(0.250047 0.0032972 0.00333585)"
+    }
+   ],
+   "inputBg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "searchBtnBg": "rgba(0, 0, 0, 0)"
+  },
+  "gradientMenu": [
+   {
+    "t": "Left-to-right or angled",
+    "c": "oklch(0.271013 0.00386159 34.63)"
+   },
+   {
+    "t": "Center-outward circle",
+    "c": "oklch(0.271013 0.00386159 34.63)"
+   },
+   {
+    "t": "Angular sweep",
+    "c": "oklch(0.271013 0.00386159 34.63)"
+   }
+  ],
+  "stopField": {
+   "bg": "oklab(0.216128 0.00350075 0.00518669 / 0.08)",
+   "border": "oklab(0.216129 0.00349092 0.00518243 / 0.48)"
+  },
+  "extractAlign": {
+   "cameraGlyphX": 225,
+   "colorsLabelX": 224
+  },
+  "blobTracks": [
+   {
+    "slider": 6,
+    "track": 6,
+    "range": "oklab(0.216128 0.00350075 0.00518669 / 0.88)"
+   },
+   {
+    "slider": 6,
+    "track": 6,
+    "range": "oklab(0.216128 0.00350075 0.00518669 / 0.88)"
+   },
+   {
+    "slider": 6,
+    "track": 6,
+    "range": "oklab(0.216128 0.00350075 0.00518669 / 0.88)"
+   }
+  ],
+  "blobHeadRule": "0px / parent 0px",
+  "heights/generate": {
+   "generate": 415,
+   "palettes": 480
+  },
+  "heights/browse": {
+   "browse": 364,
+   "palettes": 480
+  }
+ },
+ "dark": {
+  "veil/browse": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "veil/extract": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "veil/mix": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "veil/gradient": {
+   "headerBottom": 220,
+   "inset": "0px",
+   "beforeBottom": 220
+  },
+  "filterTrigger": {
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "rgba(0, 0, 0, 0)"
+  },
+  "searchTop": 220,
+  "filterPopover": {
+   "fg": "oklch(92.520158240924% 0.006184225801 67.748284889725deg)",
+   "mfg": "oklch(70.777693558367% 0.003821851545 41.86844006185deg)",
+   "labels": [
+    {
+     "t": "Sort",
+     "ff": "\"Plus Jakarta Sans\"",
+     "tt": "none",
+     "c": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    {
+     "t": "Show",
+     "ff": "\"Plus Jakarta Sans\"",
+     "tt": "none",
+     "c": "oklch(0.925202 0.00618423 67.7483)"
+    },
+    {
+     "t": "Find by color",
+     "ff": "\"Plus Jakarta Sans\"",
+     "tt": "none",
+     "c": "oklch(0.925202 0.00618423 67.7483)"
+    }
+   ],
+   "chips": [
+    {
+     "t": "Popular",
+     "c": "oklch(0.707777 0.00382185 41.8684)"
+    },
+    {
+     "t": "Most forked",
+     "c": "oklch(0.707777 0.00382185 41.8684)"
+    },
+    {
+     "t": "Featured",
+     "c": "oklab(0.790833 0.00265344 0.00376283)"
+    }
+   ],
+   "inputBg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "searchBtnBg": "rgba(0, 0, 0, 0)"
+  },
+  "gradientMenu": [
+   {
+    "t": "Left-to-right or angled",
+    "c": "oklch(0.707777 0.00382185 41.8684)"
+   },
+   {
+    "t": "Center-outward circle",
+    "c": "oklch(0.707777 0.00382185 41.8684)"
+   },
+   {
+    "t": "Angular sweep",
+    "c": "oklch(0.707777 0.00382185 41.8684)"
+   }
+  ],
+  "stopField": {
+   "bg": "oklab(0.925196 0.00238398 0.00574207 / 0.08)",
+   "border": "oklab(0.925202 0.00234182 0.00572368 / 0.48)"
+  },
+  "extractAlign": {
+   "cameraGlyphX": 225,
+   "colorsLabelX": 224
+  },
+  "blobTracks": [],
+  "blobHeadRule": null,
+  "heights/generate": {
+   "generate": 415,
+   "palettes": 480
+  },
+  "heights/browse": {
+   "browse": 364,
+   "palettes": 480
+  }
+ },
+ "generateName390": {
+  "box": 152,
+  "scroll": 173,
+  "textOverflow": "ellipsis",
+  "overflow": "clip"
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "cube-keyframes-1440-light": {
+  "region": "Rotations",
+  "title": "Rotations",
+  "expanded": "true",
+  "status": "Parsed",
+  "statusRight": 432,
+  "chevronLeft": 440,
+  "headerRight": 476,
+  "expandersInPane": [
+   "Cube",
+   "@mbabb",
+   "Expand dock",
+   "Rotations",
+   "Rotations",
+   "Expand dock"
+  ]
+ },
+ "cube-keyframes-390-light": {
+  "region": "Rotations",
+  "title": "Rotations",
+  "expanded": "true",
+  "status": "Parsed",
+  "statusRight": 336,
+  "chevronLeft": 340,
+  "headerRight": 376,
+  "expandersInPane": [
+   "Cube",
+   "@mbabb",
+   "Expand dock",
+   "Rotations",
+   "Expand dock",
+   "Rotations"
+  ]
+ },
+ "spring-peak-open-1440x900-light": {
+  "scrollTop": 200,
+  "max": 200,
+  "settledMs": 181,
+  "portTop": 191.8,
+  "bouncyTop": null
+ },
+ "spring-peak-open-1280x800-light": {
+  "scrollTop": 194,
+  "max": 194,
+  "settledMs": 170,
+  "portTop": 185.8,
+  "bouncyTop": null
+ },
+ "spring-peak-open-1440x1080-light": {
+  "scrollTop": 49,
+  "max": 49,
+  "settledMs": 169,
+  "portTop": 202.6,
+  "bouncyTop": null
+ },
+ "cube-keyframes-1440-dark": {
+  "region": "Rotations",
+  "title": "Rotations",
+  "expanded": "true",
+  "status": "Parsed",
+  "statusRight": 432,
+  "chevronLeft": 440,
+  "headerRight": 476,
+  "expandersInPane": [
+   "Cube",
+   "@mbabb",
+   "Expand dock",
+   "Rotations",
+   "Rotations",
+   "Expand dock"
+  ]
+ },
+ "cube-keyframes-390-dark": {
+  "region": "Rotations",
+  "title": "Rotations",
+  "expanded": "true",
+  "status": "Parsed",
+  "statusRight": 336,
+  "chevronLeft": 340,
+  "headerRight": 376,
+  "expandersInPane": [
+   "Cube",
+   "@mbabb",
+   "Expand dock",
+   "Rotations",
+   "Expand dock",
+   "Rotations"
+  ]
+ },
+ "spring-peak-open-1440x900-dark": {
+  "scrollTop": 200,
+  "max": 200,
+  "settledMs": 169,
+  "portTop": 191.8,
+  "bouncyTop": null
+ },
+ "spring-peak-open-1280x800-dark": {
+  "scrollTop": 194,
+  "max": 194,
+  "settledMs": 171,
+  "portTop": 185.8,
+  "bouncyTop": null
+ },
+ "spring-peak-open-1440x1080-dark": {
+  "scrollTop": 49,
+  "max": 49,
+  "settledMs": 170,
+  "portTop": 202.6,
+  "bouncyTop": null
+ }
+}

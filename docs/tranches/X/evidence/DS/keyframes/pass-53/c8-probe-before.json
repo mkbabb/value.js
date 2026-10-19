@@ -1,0 +1,436 @@
+{
+ "fails": [
+  "1440x900 light @600ms: the port's top edge 191.8 crosses button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8 | button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8",
+  "1440x900 light @2500ms: the port's top edge 191.8 crosses button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8 | button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8",
+  "1280x800 light @600ms: the port's top edge 185.8 crosses button.toggle-group__item 126.5-187.4 | button.toggle-group__item 126.5-187.4",
+  "1280x800 light @600ms: under the start fade (top 185.8, fade 16): button.toggle-group__item 195.4-256.2 | button.toggle-group__item 195.4-256.2",
+  "1280x800 light @2500ms: the port's top edge 185.8 crosses button.toggle-group__item 126.5-187.4 | button.toggle-group__item 126.5-187.4",
+  "1280x800 light @2500ms: under the start fade (top 185.8, fade 16): button.toggle-group__item 195.4-256.2 | button.toggle-group__item 195.4-256.2",
+  "1440x1080 light @600ms: the port's top edge 202.6 crosses div.param-row 168.6-217 | div.labeled-field 168.6-217 | div.labeled-field-control 197-217 | span.glass-slider 197-217 | span.slider-track 197-217 | span.slider-range 197-217",
+  "1440x1080 light @2500ms: the port's top edge 202.6 crosses div.param-row 168.6-217 | div.labeled-field 168.6-217 | div.labeled-field-control 197-217 | span.glass-slider 197-217 | span.slider-track 197-217 | span.slider-range 197-217",
+  "1440x900 dark @600ms: the port's top edge 191.8 crosses button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8 | button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8",
+  "1440x900 dark @2500ms: the port's top edge 191.8 crosses button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8 | button.toggle-group__item 136.5-201.8 | span.preset-values 170.5-192.8",
+  "1280x800 dark @600ms: the port's top edge 185.8 crosses button.toggle-group__item 126.5-187.4 | button.toggle-group__item 126.5-187.4",
+  "1280x800 dark @600ms: under the start fade (top 185.8, fade 16): button.toggle-group__item 195.4-256.2 | button.toggle-group__item 195.4-256.2",
+  "1280x800 dark @2500ms: the port's top edge 185.8 crosses button.toggle-group__item 126.5-187.4 | button.toggle-group__item 126.5-187.4",
+  "1280x800 dark @2500ms: under the start fade (top 185.8, fade 16): button.toggle-group__item 195.4-256.2 | button.toggle-group__item 195.4-256.2",
+  "1440x1080 dark @600ms: the port's top edge 202.6 crosses div.param-row 168.6-217 | div.labeled-field 168.6-217 | div.labeled-field-control 197-217 | span.glass-slider 197-217 | span.slider-track 197-217 | span.slider-range 197-217",
+  "1440x1080 dark @2500ms: the port's top edge 202.6 crosses div.param-row 168.6-217 | div.labeled-field 168.6-217 | div.labeled-field-control 197-217 | span.glass-slider 197-217 | span.slider-track 197-217 | span.slider-range 197-217"
+ ],
+ "cells": {
+  "spring-1440x900-light-600ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 715.2,
+   "freePlate": 34.9,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8",
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8"
+   ],
+   "faded": [],
+   "maxBlockSize": "329px"
+  },
+  "spring-1440x900-light-2500ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 715.2,
+   "freePlate": 34.9,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8",
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8"
+   ],
+   "faded": [],
+   "maxBlockSize": "329px"
+  },
+  "spring-1440x900-light-scrolled-up": {
+   "on": true
+  },
+  "spring-1280x800-light-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 630.4,
+   "freePlate": 24.3,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 126.5-187.4",
+    "button.toggle-group__item 126.5-187.4"
+   ],
+   "faded": [
+    "button.toggle-group__item 195.4-256.2",
+    "button.toggle-group__item 195.4-256.2"
+   ],
+   "maxBlockSize": "325px"
+  },
+  "spring-1280x800-light-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 630.4,
+   "freePlate": 24.3,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 126.5-187.4",
+    "button.toggle-group__item 126.5-187.4"
+   ],
+   "faded": [
+    "button.toggle-group__item 195.4-256.2",
+    "button.toggle-group__item 195.4-256.2"
+   ],
+   "maxBlockSize": "325px"
+  },
+  "spring-1280x800-light-scrolled-up": {
+   "on": true
+  },
+  "spring-1440x1080-light-600ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 881,
+   "freePlate": 49.1,
+   "titleInPort": false,
+   "cuts": [
+    "div.param-row 168.6-217",
+    "div.labeled-field 168.6-217",
+    "div.labeled-field-control 197-217",
+    "span.glass-slider 197-217",
+    "span.slider-track 197-217",
+    "span.slider-range 197-217"
+   ],
+   "faded": [],
+   "maxBlockSize": "484px"
+  },
+  "spring-1440x1080-light-2500ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 881,
+   "freePlate": 49.1,
+   "titleInPort": false,
+   "cuts": [
+    "div.param-row 168.6-217",
+    "div.labeled-field 168.6-217",
+    "div.labeled-field-control 197-217",
+    "span.glass-slider 197-217",
+    "span.slider-track 197-217",
+    "span.slider-range 197-217"
+   ],
+   "faded": [],
+   "maxBlockSize": "484px"
+  },
+  "spring-1440x1080-light-scrolled-up": {
+   "on": true
+  },
+  "spring-1440x900-dark-600ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 715.2,
+   "freePlate": 34.9,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8",
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8"
+   ],
+   "faded": [],
+   "maxBlockSize": "329px"
+  },
+  "spring-1440x900-dark-2500ms": {
+   "scrollTop": 189,
+   "maxScroll": 189,
+   "portTop": 191.8,
+   "fold": 520.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    502,
+    520.7
+   ],
+   "title": [
+    137,
+    175.8
+   ],
+   "card": [
+    127,
+    750.1
+   ],
+   "ribbonFoot": 715.2,
+   "freePlate": 34.9,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8",
+    "button.toggle-group__item 136.5-201.8",
+    "span.preset-values 170.5-192.8"
+   ],
+   "faded": [],
+   "maxBlockSize": "329px"
+  },
+  "spring-1440x900-dark-scrolled-up": {
+   "on": true
+  },
+  "spring-1280x800-dark-600ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 630.4,
+   "freePlate": 24.3,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 126.5-187.4",
+    "button.toggle-group__item 126.5-187.4"
+   ],
+   "faded": [
+    "button.toggle-group__item 195.4-256.2",
+    "button.toggle-group__item 195.4-256.2"
+   ],
+   "maxBlockSize": "325px"
+  },
+  "spring-1280x800-dark-2500ms": {
+   "scrollTop": 192,
+   "maxScroll": 192,
+   "portTop": 185.8,
+   "fold": 510.8,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    492.5,
+    510.7
+   ],
+   "title": [
+    131,
+    169.8
+   ],
+   "card": [
+    121,
+    654.7
+   ],
+   "ribbonFoot": 630.4,
+   "freePlate": 24.3,
+   "titleInPort": false,
+   "cuts": [
+    "button.toggle-group__item 126.5-187.4",
+    "button.toggle-group__item 126.5-187.4"
+   ],
+   "faded": [
+    "button.toggle-group__item 195.4-256.2",
+    "button.toggle-group__item 195.4-256.2"
+   ],
+   "maxBlockSize": "325px"
+  },
+  "spring-1280x800-dark-scrolled-up": {
+   "on": true
+  },
+  "spring-1440x1080-dark-600ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 881,
+   "freePlate": 49.1,
+   "titleInPort": false,
+   "cuts": [
+    "div.param-row 168.6-217",
+    "div.labeled-field 168.6-217",
+    "div.labeled-field-control 197-217",
+    "span.glass-slider 197-217",
+    "span.slider-track 197-217",
+    "span.slider-range 197-217"
+   ],
+   "faded": [],
+   "maxBlockSize": "484px"
+  },
+  "spring-1440x1080-dark-2500ms": {
+   "scrollTop": 34,
+   "maxScroll": 34,
+   "portTop": 202.6,
+   "fold": 686.6,
+   "fade": 16,
+   "startFade": true,
+   "fadeStartPx": 16,
+   "labels": [
+    667.8,
+    686.5
+   ],
+   "title": [
+    147.8,
+    186.6
+   ],
+   "card": [
+    137.8,
+    930
+   ],
+   "ribbonFoot": 881,
+   "freePlate": 49.1,
+   "titleInPort": false,
+   "cuts": [
+    "div.param-row 168.6-217",
+    "div.labeled-field 168.6-217",
+    "div.labeled-field-control 197-217",
+    "span.glass-slider 197-217",
+    "span.slider-track 197-217",
+    "span.slider-range 197-217"
+   ],
+   "faded": [],
+   "maxBlockSize": "484px"
+  },
+  "spring-1440x1080-dark-scrolled-up": {
+   "on": true
+  }
+ }
+}

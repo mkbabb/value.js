@@ -1,0 +1,102 @@
+{
+ "tag": "l-rej-3",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "rej",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "retiredFault",
+  "productFault",
+  "ruleListFault",
+  "wrapperFault",
+  "failureFault"
+ ],
+ "valuejsHead": "5dffa9878fa2f839ab5707fbe74cb9389a9c328b",
+ "uptimeStart": "15:06  up 13:09, 3 users, load averages: 41.87 38.59 30.67",
+ "versions": {
+  "chromium": "148.0.7778.96",
+  "webkit": "26.4",
+  "firefox": "150.0.2"
+ },
+ "results": {
+  "chromium": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 35.75,
+    "retiredFault": 12.1,
+    "productFault": 8,
+    "ruleListFault": 5.35,
+    "wrapperFault": 5.15,
+    "failureFault": 2.75
+   },
+   "ofRetired": {
+    "retired": 1,
+    "retiredFault": 0.347,
+    "productFault": 0.228,
+    "ruleListFault": 0.149,
+    "wrapperFault": 0.148,
+    "failureFault": 0.078
+   }
+  },
+  "webkit": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 51.5,
+    "retiredFault": 18,
+    "productFault": 17,
+    "ruleListFault": 6,
+    "wrapperFault": 6,
+    "failureFault": 11
+   },
+   "ofRetired": {
+    "retired": 1,
+    "retiredFault": 0.353,
+    "productFault": 0.337,
+    "ruleListFault": 0.115,
+    "wrapperFault": 0.115,
+    "failureFault": 0.214
+   }
+  },
+  "firefox": {
+   "n": 27441,
+   "harvested": {
+    "bodies": 5949,
+    "declarations": 5971,
+    "values": 5822,
+    "fault": 25167,
+    "blocks": 2274
+   },
+   "ms": {
+    "retired": 39.5,
+    "retiredFault": 14,
+    "productFault": 21.5,
+    "ruleListFault": 9,
+    "wrapperFault": 9.5,
+    "failureFault": 10
+   },
+   "ofRetired": {
+    "retired": 1,
+    "retiredFault": 0.351,
+    "productFault": 0.531,
+    "ruleListFault": 0.228,
+    "wrapperFault": 0.234,
+    "failureFault": 0.247
+   }
+  }
+ },
+ "uptimeEnd": "15:06  up 13:09, 3 users, load averages: 38.52 37.98 30.54"
+}

@@ -1,0 +1,1226 @@
+[
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "bootRaster": {
+   "stillOnAtA": true,
+   "diffPx": 0
+  },
+  "rest": {
+   "vw": 1440,
+   "card": {
+    "x": 605.6,
+    "y": 269.6,
+    "w": 704,
+    "h": 360.9,
+    "r": 1309.6,
+    "b": 630.4
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 715.6,
+    "y": 397,
+    "w": 560,
+    "h": 32,
+    "r": 1275.6,
+    "b": 429
+   },
+   "playhead": {
+    "x": 715.6,
+    "y": 364.6,
+    "w": 576,
+    "h": 24,
+    "r": 1291.6,
+    "b": 388.6
+   },
+   "rowsBlock": {
+    "x": 639.6,
+    "y": 396.6,
+    "w": 636,
+    "h": 199.9,
+    "r": 1275.6,
+    "b": 596.4
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [
+    "0"
+   ],
+   "header": {
+    "x": 606.6,
+    "y": 270.6,
+    "w": 702,
+    "h": 65,
+    "r": 1308.6,
+    "b": 335.6
+   },
+   "headerLines": 1,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock0msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.32801 0.241"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 0,
+     "tw": 560,
+     "rs": 0,
+     "p": 0
+    },
+    {
+     "i": 1,
+     "cx": 75.1,
+     "tw": 560,
+     "rs": 0.13402061855670103,
+     "p": 0
+    },
+    {
+     "i": 2,
+     "cx": 150.1,
+     "tw": 560,
+     "rs": 0.26804123711340205,
+     "p": 0
+    },
+    {
+     "i": 3,
+     "cx": 225.2,
+     "tw": 560,
+     "rs": 0.4020618556701031,
+     "p": 0
+    },
+    {
+     "i": 4,
+     "cx": 300.2,
+     "tw": 560,
+     "rs": 0.5360824742268041,
+     "p": 0
+    }
+   ],
+   "docSH": 900,
+   "vh": 900
+  },
+  "play": {
+   "plateauMs": 266,
+   "maxJumpPx": 192,
+   "backJumpPx": -16.4,
+   "maxOverCardPx": -10.1,
+   "cardYSpread": 0,
+   "cardHSpread": 0,
+   "row1p": [
+    0.3064,
+    0.7349,
+    0.6969,
+    0.7002,
+    0.7,
+    0.7,
+    0.7,
+    0.9989,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "end": {
+   "vw": 1440,
+   "card": {
+    "x": 605.6,
+    "y": 269.6,
+    "w": 704,
+    "h": 360.9,
+    "r": 1309.6,
+    "b": 630.4
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 715.6,
+    "y": 397,
+    "w": 560,
+    "h": 32,
+    "r": 1275.6,
+    "b": 429
+   },
+   "playhead": {
+    "x": 715.6,
+    "y": 364.6,
+    "w": 576,
+    "h": 24,
+    "r": 1291.6,
+    "b": 388.6
+   },
+   "rowsBlock": {
+    "x": 639.6,
+    "y": 396.6,
+    "w": 636,
+    "h": 199.9,
+    "r": 1275.6,
+    "b": 596.4
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [],
+   "header": {
+    "x": 606.6,
+    "y": 270.6,
+    "w": 702,
+    "h": 65,
+    "r": 1308.6,
+    "b": 335.6
+   },
+   "headerLines": 1,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock1940msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.32801 0.241"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0,
+     "p": 1
+    },
+    {
+     "i": 1,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.13402061855670103,
+     "p": 1
+    },
+    {
+     "i": 2,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.26804123711340205,
+     "p": 1
+    },
+    {
+     "i": 3,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.4020618556701031,
+     "p": 1
+    },
+    {
+     "i": 4,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.5360824742268041,
+     "p": 1
+    }
+   ],
+   "docSH": 900,
+   "vh": 900
+  },
+  "freshFromEnd": {
+   "plateauMs": 33,
+   "maxJumpPx": 196.9,
+   "backJumpPx": -16.1,
+   "maxOverCardPx": -137.4
+  },
+  "midBeforeReel": {
+   "vw": 1440,
+   "card": {
+    "x": 605.6,
+    "y": 269.6,
+    "w": 704,
+    "h": 360.9,
+    "r": 1309.6,
+    "b": 630.4
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 715.6,
+    "y": 397,
+    "w": 560,
+    "h": 32,
+    "r": 1275.6,
+    "b": 429
+   },
+   "playhead": {
+    "x": 715.6,
+    "y": 364.6,
+    "w": 576,
+    "h": 24,
+    "r": 1291.6,
+    "b": 388.6
+   },
+   "rowsBlock": {
+    "x": 639.6,
+    "y": 396.6,
+    "w": 636,
+    "h": 199.9,
+    "r": 1275.6,
+    "b": 596.4
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [],
+   "header": {
+    "x": 606.6,
+    "y": 270.6,
+    "w": 702,
+    "h": 65,
+    "r": 1308.6,
+    "b": 335.6
+   },
+   "headerLines": 1,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock1196msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.32801 0.241"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0,
+     "p": 1
+    },
+    {
+     "i": 1,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.13402061855670103,
+     "p": 1
+    },
+    {
+     "i": 2,
+     "cx": 569.9,
+     "tw": 560,
+     "rs": 0.26804123711340205,
+     "p": 1.0240902348744083
+    },
+    {
+     "i": 3,
+     "cx": 459.5,
+     "tw": 560,
+     "rs": 0.4020618556701031,
+     "p": 0.7
+    },
+    {
+     "i": 4,
+     "cx": 484.5,
+     "tw": 560,
+     "rs": 0.5360824742268041,
+     "p": 0.7092154145606773
+    }
+   ],
+   "docSH": 900,
+   "vh": 900
+  },
+  "reelMid": {
+   "plateauMs": 1923,
+   "maxJumpPx": 484.9,
+   "backJumpPx": -484.9,
+   "maxOverCardPx": 27.9,
+   "busyFrames": 38,
+   "endVsBefore": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "reelWhilePlaying": {
+   "statusDuringReel": [
+    "ready"
+   ],
+   "busyFrames": 38,
+   "verbAfter": "Play animation",
+   "pAfter": 0.7092,
+   "pAtEndOfBusy": 1
+  }
+ },
+ {
+  "vp": "390x844",
+  "theme": "light",
+  "rest": {
+   "vw": 390,
+   "card": {
+    "x": 28,
+    "y": 235.1,
+    "w": 334,
+    "h": 373.8,
+    "r": 362,
+    "b": 608.9
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 138,
+    "y": 413.3,
+    "w": 190,
+    "h": 32,
+    "r": 328,
+    "b": 445.3
+   },
+   "playhead": {
+    "x": 138,
+    "y": 385.3,
+    "w": 206,
+    "h": 20,
+    "r": 344,
+    "b": 405.3
+   },
+   "rowsBlock": {
+    "x": 62,
+    "y": 413.3,
+    "w": 266,
+    "h": 169.6,
+    "r": 328,
+    "b": 582.9
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [
+    "0"
+   ],
+   "header": {
+    "x": 29,
+    "y": 236.1,
+    "w": 332,
+    "h": 128.2,
+    "r": 361,
+    "b": 364.3
+   },
+   "headerLines": 5,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock0msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.32801 0.241"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 0,
+     "tw": 190,
+     "rs": 0,
+     "p": 0
+    },
+    {
+     "i": 1,
+     "cx": 25.5,
+     "tw": 190,
+     "rs": 0.13402061855670103,
+     "p": 0
+    },
+    {
+     "i": 2,
+     "cx": 50.9,
+     "tw": 190,
+     "rs": 0.26804123711340205,
+     "p": 0
+    },
+    {
+     "i": 3,
+     "cx": 76.4,
+     "tw": 190,
+     "rs": 0.4020618556701031,
+     "p": 0
+    },
+    {
+     "i": 4,
+     "cx": 101.9,
+     "tw": 190,
+     "rs": 0.5360824742268041,
+     "p": 0
+    }
+   ],
+   "docSH": 1015,
+   "vh": 844
+  },
+  "play": {
+   "plateauMs": 268,
+   "maxJumpPx": 67.6,
+   "backJumpPx": -5.4,
+   "maxOverCardPx": -17.3,
+   "cardYSpread": 0,
+   "cardHSpread": 0,
+   "row1p": [
+    0,
+    0.7576,
+    0.6952,
+    0.7004,
+    0.7,
+    0.7,
+    0.7,
+    1.0009,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "end": {
+   "vw": 390,
+   "card": {
+    "x": 28,
+    "y": 235.1,
+    "w": 334,
+    "h": 373.8,
+    "r": 362,
+    "b": 608.9
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 138,
+    "y": 413.3,
+    "w": 190,
+    "h": 32,
+    "r": 328,
+    "b": 445.3
+   },
+   "playhead": {
+    "x": 138,
+    "y": 385.3,
+    "w": 206,
+    "h": 20,
+    "r": 344,
+    "b": 405.3
+   },
+   "rowsBlock": {
+    "x": 62,
+    "y": 413.3,
+    "w": 266,
+    "h": 169.6,
+    "r": 328,
+    "b": 582.9
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [],
+   "header": {
+    "x": 29,
+    "y": 236.1,
+    "w": 332,
+    "h": 128.2,
+    "r": 361,
+    "b": 364.3
+   },
+   "headerLines": 5,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock1940msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.32801 0.241"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0,
+     "p": 1
+    },
+    {
+     "i": 1,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.13402061855670103,
+     "p": 1
+    },
+    {
+     "i": 2,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.26804123711340205,
+     "p": 1
+    },
+    {
+     "i": 3,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.4020618556701031,
+     "p": 1
+    },
+    {
+     "i": 4,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.5360824742268041,
+     "p": 1
+    }
+   ],
+   "docSH": 1015,
+   "vh": 844
+  }
+ },
+ {
+  "vp": "1440x900",
+  "theme": "dark",
+  "rest": {
+   "vw": 1440,
+   "card": {
+    "x": 605.6,
+    "y": 269.6,
+    "w": 704,
+    "h": 360.9,
+    "r": 1309.6,
+    "b": 630.4
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 715.6,
+    "y": 397,
+    "w": 560,
+    "h": 32,
+    "r": 1275.6,
+    "b": 429
+   },
+   "playhead": {
+    "x": 715.6,
+    "y": 364.6,
+    "w": 576,
+    "h": 24,
+    "r": 1291.6,
+    "b": 388.6
+   },
+   "rowsBlock": {
+    "x": 639.6,
+    "y": 396.6,
+    "w": 636,
+    "h": 199.9,
+    "r": 1275.6,
+    "b": 596.4
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [
+    "0"
+   ],
+   "header": {
+    "x": 606.6,
+    "y": 270.6,
+    "w": 702,
+    "h": 65,
+    "r": 1308.6,
+    "b": 335.6
+   },
+   "headerLines": 1,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock0msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.845866 0.74"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 0,
+     "tw": 560,
+     "rs": 0,
+     "p": 0
+    },
+    {
+     "i": 1,
+     "cx": 75.1,
+     "tw": 560,
+     "rs": 0.13402061855670103,
+     "p": 0
+    },
+    {
+     "i": 2,
+     "cx": 150.1,
+     "tw": 560,
+     "rs": 0.26804123711340205,
+     "p": 0
+    },
+    {
+     "i": 3,
+     "cx": 225.2,
+     "tw": 560,
+     "rs": 0.4020618556701031,
+     "p": 0
+    },
+    {
+     "i": 4,
+     "cx": 300.2,
+     "tw": 560,
+     "rs": 0.5360824742268041,
+     "p": 0
+    }
+   ],
+   "docSH": 900,
+   "vh": 900
+  },
+  "play": {
+   "plateauMs": 268,
+   "maxJumpPx": 202.8,
+   "backJumpPx": -17.4,
+   "maxOverCardPx": -8.1,
+   "cardYSpread": 0,
+   "cardHSpread": 0,
+   "row1p": [
+    0.6942,
+    0.7009,
+    0.6999,
+    0.7,
+    0.7,
+    0.7,
+    1.0237,
+    1.0001,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "end": {
+   "vw": 1440,
+   "card": {
+    "x": 605.6,
+    "y": 269.6,
+    "w": 704,
+    "h": 360.9,
+    "r": 1309.6,
+    "b": 630.4
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 715.6,
+    "y": 397,
+    "w": 560,
+    "h": 32,
+    "r": 1275.6,
+    "b": 429
+   },
+   "playhead": {
+    "x": 715.6,
+    "y": 364.6,
+    "w": 576,
+    "h": 24,
+    "r": 1291.6,
+    "b": 388.6
+   },
+   "rowsBlock": {
+    "x": 639.6,
+    "y": 396.6,
+    "w": 636,
+    "h": 199.9,
+    "r": 1275.6,
+    "b": 596.4
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [],
+   "header": {
+    "x": 606.6,
+    "y": 270.6,
+    "w": 702,
+    "h": 65,
+    "r": 1308.6,
+    "b": 335.6
+   },
+   "headerLines": 1,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock1940msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.845866 0.74"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0,
+     "p": 1
+    },
+    {
+     "i": 1,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.13402061855670103,
+     "p": 1
+    },
+    {
+     "i": 2,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.26804123711340205,
+     "p": 1
+    },
+    {
+     "i": 3,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.4020618556701031,
+     "p": 1
+    },
+    {
+     "i": 4,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.5360824742268041,
+     "p": 1
+    }
+   ],
+   "docSH": 900,
+   "vh": 900
+  },
+  "freshFromEnd": {
+   "plateauMs": 35,
+   "maxJumpPx": 193.8,
+   "backJumpPx": -15.9,
+   "maxOverCardPx": -137.3
+  },
+  "midBeforeReel": {
+   "vw": 1440,
+   "card": {
+    "x": 605.6,
+    "y": 269.6,
+    "w": 704,
+    "h": 360.9,
+    "r": 1309.6,
+    "b": 630.4
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 715.6,
+    "y": 397,
+    "w": 560,
+    "h": 32,
+    "r": 1275.6,
+    "b": 429
+   },
+   "playhead": {
+    "x": 715.6,
+    "y": 364.6,
+    "w": 576,
+    "h": 24,
+    "r": 1291.6,
+    "b": 388.6
+   },
+   "rowsBlock": {
+    "x": 639.6,
+    "y": 396.6,
+    "w": 636,
+    "h": 199.9,
+    "r": 1275.6,
+    "b": 596.4
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [],
+   "header": {
+    "x": 606.6,
+    "y": 270.6,
+    "w": 702,
+    "h": 65,
+    "r": 1308.6,
+    "b": 335.6
+   },
+   "headerLines": 1,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock1232msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.845866 0.74"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0,
+     "p": 1
+    },
+    {
+     "i": 1,
+     "cx": 560,
+     "tw": 560,
+     "rs": 0.13402061855670103,
+     "p": 1
+    },
+    {
+     "i": 2,
+     "cx": 559.2,
+     "tw": 560,
+     "rs": 0.26804123711340205,
+     "p": 0.9981619685080788
+    },
+    {
+     "i": 3,
+     "cx": 459.5,
+     "tw": 560,
+     "rs": 0.4020618556701031,
+     "p": 0.7
+    },
+    {
+     "i": 4,
+     "cx": 480.9,
+     "tw": 560,
+     "rs": 0.5360824742268041,
+     "p": 0.695620022960239
+    }
+   ],
+   "docSH": 900,
+   "vh": 900
+  },
+  "reelMid": {
+   "plateauMs": 2052,
+   "maxJumpPx": 234.3,
+   "backJumpPx": -234.3,
+   "maxOverCardPx": 28.7,
+   "busyFrames": 34,
+   "endVsBefore": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "reelWhilePlaying": {
+   "statusDuringReel": [
+    "ready"
+   ],
+   "busyFrames": 33,
+   "verbAfter": "Play animation",
+   "pAfter": 0.6956,
+   "pAtEndOfBusy": 1
+  }
+ },
+ {
+  "vp": "390x844",
+  "theme": "dark",
+  "rest": {
+   "vw": 390,
+   "card": {
+    "x": 28,
+    "y": 235.1,
+    "w": 334,
+    "h": 373.8,
+    "r": 362,
+    "b": 608.9
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 138,
+    "y": 413.3,
+    "w": 190,
+    "h": 32,
+    "r": 328,
+    "b": 445.3
+   },
+   "playhead": {
+    "x": 138,
+    "y": 385.3,
+    "w": 206,
+    "h": 20,
+    "r": 344,
+    "b": 405.3
+   },
+   "rowsBlock": {
+    "x": 62,
+    "y": 413.3,
+    "w": 266,
+    "h": 169.6,
+    "r": 328,
+    "b": 582.9
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [
+    "0"
+   ],
+   "header": {
+    "x": 29,
+    "y": 236.1,
+    "w": 332,
+    "h": 128.2,
+    "r": 361,
+    "b": 364.3
+   },
+   "headerLines": 5,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock0msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.845866 0.74"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 0,
+     "tw": 190,
+     "rs": 0,
+     "p": 0
+    },
+    {
+     "i": 1,
+     "cx": 25.5,
+     "tw": 190,
+     "rs": 0.13402061855670103,
+     "p": 0
+    },
+    {
+     "i": 2,
+     "cx": 50.9,
+     "tw": 190,
+     "rs": 0.26804123711340205,
+     "p": 0
+    },
+    {
+     "i": 3,
+     "cx": 76.4,
+     "tw": 190,
+     "rs": 0.4020618556701031,
+     "p": 0
+    },
+    {
+     "i": 4,
+     "cx": 101.9,
+     "tw": 190,
+     "rs": 0.5360824742268041,
+     "p": 0
+    }
+   ],
+   "docSH": 1015,
+   "vh": 844
+  },
+  "play": {
+   "plateauMs": 272,
+   "maxJumpPx": 67.1,
+   "backJumpPx": -5.6,
+   "maxOverCardPx": -17.3,
+   "cardYSpread": 0,
+   "cardHSpread": 0,
+   "row1p": [
+    0,
+    0.7576,
+    0.6952,
+    0.7004,
+    0.7,
+    0.7,
+    0.7,
+    1.0014,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  "end": {
+   "vw": 390,
+   "card": {
+    "x": 28,
+    "y": 235.1,
+    "w": 334,
+    "h": 373.8,
+    "r": 362,
+    "b": 608.9
+   },
+   "axes": 1,
+   "playheads": 1,
+   "msLabels": 5,
+   "inlineEditors": 0,
+   "track": {
+    "x": 138,
+    "y": 413.3,
+    "w": 190,
+    "h": 32,
+    "r": 328,
+    "b": 445.3
+   },
+   "playhead": {
+    "x": 138,
+    "y": 385.3,
+    "w": 206,
+    "h": 20,
+    "r": 344,
+    "b": 405.3
+   },
+   "rowsBlock": {
+    "x": 62,
+    "y": 413.3,
+    "w": 266,
+    "h": 169.6,
+    "r": 328,
+    "b": 582.9
+   },
+   "phCoversRows": false,
+   "phWidthMinusTrack": 16,
+   "phOverLabels": [],
+   "header": {
+    "x": 29,
+    "y": 236.1,
+    "w": 332,
+    "h": 128.2,
+    "r": 361,
+    "b": 364.3
+   },
+   "headerLines": 5,
+   "badge": true,
+   "headerText": "Sequence stagger × 5clock1940msready",
+   "plate": {
+    "radius": "0px",
+    "border": "1px solid",
+    "bg": "linear-gradient(color(srgb 0.845866 0.74"
+   },
+   "railBg": "color(srgb 0.9 0.3 0.9 / 0.08)",
+   "balls": [
+    {
+     "i": 0,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0,
+     "p": 1
+    },
+    {
+     "i": 1,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.13402061855670103,
+     "p": 1
+    },
+    {
+     "i": 2,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.26804123711340205,
+     "p": 1
+    },
+    {
+     "i": 3,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.4020618556701031,
+     "p": 1
+    },
+    {
+     "i": 4,
+     "cx": 190,
+     "tw": 190,
+     "rs": 0.5360824742268041,
+     "p": 1
+    }
+   ],
+   "docSH": 1015,
+   "vh": 844
+  }
+ },
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "scenario": "cube->sequence",
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: /^Sequence/ }).first()\u001b[22m\n"
+ }
+]

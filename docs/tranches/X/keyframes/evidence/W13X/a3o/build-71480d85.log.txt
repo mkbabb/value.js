@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+# 2026-10-16 06:59:04 head: 71480d85 dirty: 0
+
+✓ built in 2.14s
+EXIT=0

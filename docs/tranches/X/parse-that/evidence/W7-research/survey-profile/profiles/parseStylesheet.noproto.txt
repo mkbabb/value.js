@@ -1,0 +1,38 @@
+# parseStylesheet.noproto.cpuprofile — 5424 ms sampled (idle excluded)
+## by layer
+ 36.7% value.js actions (src/css/bbnf)
+ 30.9% parse-that core
+  9.4% value.js stylesheet/css layer
+  9.4% regex engine (irregexp code)
+  7.8% bbnf-lang output
+  2.2% GC
+  2.0% V8 (program: runtime/regex/IC)
+  0.4% value.js colour/value model
+  0.0% bundle other
+  1.2% node/harness JS (loader, script)
+## top 25 self
+ 15.2% tagsOf · src/css/bbnf/stylesheet.ts:25   [value.js actions (src/css/bbnf)]
+  6.6% textOf · src/css/bbnf/stylesheet.ts:11   [value.js actions (src/css/bbnf)]
+  5.7% (anon) · src/css/bbnf/stylesheet.ts:49   [value.js actions (src/css/bbnf)]
+  5.4% regexParser · parse-that/src/parse/leaf.ts:190   [parse-that core]
+  4.8% map · parse-that/src/parse/parser.ts:211   [parse-that core]
+  4.8% dispatchParser · bbnf-lang/src/generate.ts:398   [bbnf-lang output]
+  4.8% deepFreeze · src/css/result.ts:13   [value.js stylesheet/css layer]
+  4.3% (anon) · parse-that/src/parse/lazy.ts:20   [parse-that core]
+  2.5% many · parse-that/src/parse/parser.ts:587   [parse-that core]
+  2.5% reset · parse-that/src/parse/parser.ts:41   [parse-that core]
+  2.4% allParser · parse-that/src/parse/leaf.ts:113   [parse-that core]
+  2.2% (garbage collector) ·    [GC]
+  2.0% mergeErrorState · parse-that/src/parse/utils.ts:37   [parse-that core]
+  2.0% (program) ·    [V8 (program: runtime/regex/IC)]
+  1.9% failure · src/css/result.ts:27   [value.js stylesheet/css layer]
+  1.7% all2 · bbnf-lang/src/generate.ts:343   [bbnf-lang output]
+  1.6% (anon) · src/css/bbnf/stylesheet.ts:50   [value.js actions (src/css/bbnf)]
+  1.4% anyParser · parse-that/src/parse/leaf.ts:31   [parse-that core]
+  1.2% RegExp: [^{;()"']+ ·    [regex engine (irregexp code)]
+  1.1% dispatchParser · bbnf-lang/src/generate.ts:433   [bbnf-lang output]
+  1.1% RegExp: [^()"']+ ·    [regex engine (irregexp code)]
+  1.1% stringParser · parse-that/src/parse/leaf.ts:148   [parse-that core]
+  1.0% isTag · src/css/bbnf/stylesheet.ts:22   [value.js actions (src/css/bbnf)]
+  1.0% mapState · parse-that/src/parse/parser.ts:232   [parse-that core]
+  0.8% parseItems · src/css/stylesheet.ts:198   [value.js stylesheet/css layer]

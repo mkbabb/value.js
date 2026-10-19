@@ -1,0 +1,64 @@
+{
+ "morph-light": {
+  "grid": [
+   617,
+   1259
+  ],
+  "moreEnd": true,
+  "stripFade": "3rem",
+  "maskImage": "linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0))",
+  "lastTile": [
+   1253,
+   1351
+  ],
+  "lastTileVisiblePx": 6
+ },
+ "v-rest-light": {
+  "legendLeft": 17,
+  "epicycleLeftMin": 37,
+  "stageInset": "16px"
+ },
+ "v-hover-light": {
+  "legendLeft": 17,
+  "epicycleLeftMin": 32,
+  "stageInset": "16px"
+ },
+ "modal-light": {
+  "font": [
+   "18.608px",
+   "400"
+  ],
+  "color": "rgb(28, 25, 23)"
+ },
+ "morph-dark": {
+  "grid": [
+   617,
+   1259
+  ],
+  "moreEnd": true,
+  "stripFade": "3rem",
+  "maskImage": "linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0) 0px, rgb(0, 0, 0) calc(100% - 48px), rgba(0, 0, 0, 0))",
+  "lastTile": [
+   1253,
+   1351
+  ],
+  "lastTileVisiblePx": 6
+ },
+ "v-rest-dark": {
+  "legendLeft": 17,
+  "epicycleLeftMin": 26,
+  "stageInset": "16px"
+ },
+ "v-hover-dark": {
+  "legendLeft": 17,
+  "epicycleLeftMin": 32,
+  "stageInset": "16px"
+ },
+ "modal-dark": {
+  "font": [
+   "18.608px",
+   "400"
+  ],
+  "color": "rgb(233, 230, 226)"
+ }
+}

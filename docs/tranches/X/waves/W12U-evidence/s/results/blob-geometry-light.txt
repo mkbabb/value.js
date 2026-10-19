@@ -1,0 +1,2 @@
+[light]
+PASS V-47 Body Radius drives the hero: min=542px max=12631px ratio=23.30 frame=113x114 slider 0.08→0.45

@@ -61,8 +61,7 @@
  * gate). The family owns the CURVE + TOKEN pairing; a consuming site may
  * parameterise only GEOMETRY through the `--vj-*` custom properties (set on
  * the transitioning element or an ancestor — custom props inherit). The
- * standing inventory + per-site mapping lives at
- * docs/tranches/R/audit/R.W4-visual-runtime/transition-inventory.md.
+ * law is demo/DESIGN.md § 5.3 (The three families — a fourth is a defect).
  *
  *   vj-enter     — a surface ARRIVES or DEPARTS (panes, overlays, drawers,
  *                  toolbars, list items). Spring-smooth entrance, accelerate
@@ -76,14 +75,15 @@
  *                  spring entrance, quick retire. Geometry:
  *                  --vj-celebrate-x/-y/-scale (+ collapse/expanded).
  *
- * The global prefers-reduced-motion guard below neutralises all three.
+ * Under reduced motion glass's layered guard (`a11y-overrides.css`) zeroes
+ * their durations (DESIGN.md §5.6).
  * ----------------------------------------------------------------------- */
 
 /* ── Family 1 · enter/exit ── */
 .vj-enter-enter-active {
     transition:
         opacity var(--duration-normal) var(--ease-decelerate),
-        transform var(--spring-smooth-duration) var(--spring-smooth);
+        transform var(--spring-present-duration) var(--spring-present);
 }
 .vj-enter-leave-active {
     transition:
@@ -97,14 +97,14 @@
         rotate(var(--vj-enter-rot, 0deg)) scale(var(--vj-enter-scale, 1));
 }
 .vj-enter-move {
-    transition: transform var(--spring-smooth-duration) var(--spring-smooth);
+    transition: transform var(--spring-present-duration) var(--spring-present);
 }
 
 /* ── Family 2 · morph ── */
 .vj-morph-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-snappy-duration) var(--spring-snappy),
+        transform var(--spring-present-duration) var(--spring-present),
         max-height var(--duration-normal) var(--ease-decelerate);
     overflow: hidden;
 }
@@ -135,14 +135,14 @@
     max-height: var(--vj-morph-expanded, none);
 }
 .vj-morph-move {
-    transition: transform var(--spring-snappy-duration) var(--spring-snappy);
+    transition: transform var(--spring-present-duration) var(--spring-present);
 }
 
 /* ── Family 3 · celebration ── */
 .vj-celebrate-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-bouncy-duration) var(--spring-bouncy),
+        transform var(--spring-present-duration) var(--spring-present),
         max-height var(--duration-normal) var(--ease-decelerate);
     overflow: hidden;
 }
@@ -173,43 +173,51 @@
     100% { transform: scale(1); }
 }
 
-/* -----------------------------------------------------------------------
- * Global prefers-reduced-motion guard
- * Neutralises CSS keyframe animations and transitions app-wide for users
- * who have requested reduced motion in their OS/browser settings.
- * The goo-blob WebGL RAF loop is handled separately in useMetaballRenderer
- * (single-frame render on reduced-motion).  The aurora RAF is glass-ui-owned
- * and honours the query internally.
- * ----------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+/* --- The dock's element micro-animations (X.W12.e, moved from the dock SFCs) ---
+ * Glass owns the dock's LAYER motion (DockLayerGroup → DockCrossfade on the one
+ * dock spring); what stays value.js's is element-level feedback inside a face:
+ * the action-button flash/spin (ActionButton.vue), the color input's mode flash
+ * and name crown (ColorInput.vue), and the status lamp's breathing dot
+ * (shared/ui/api-status/ApiStatusChip.vue, used only under no-preference). Moved here verbatim so
+ * demo/shell/dock carries 0 local @keyframes; none is deleted. */
+@keyframes action-pulse {
+    0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; transform: scale(1.3); }
+    50%  { stroke: var(--flash-color, currentColor); stroke-width: 2.5; transform: scale(1.15); }
+    100% { stroke: currentColor; stroke-width: 2; transform: scale(1); }
+}
+@keyframes action-spin {
+    0%   { transform: rotate(0deg) scale(1.3); }
+    100% { transform: rotate(-360deg) scale(1); }
+}
+@keyframes input-mode-flash {
+    0% { transform: scaleX(0.97); opacity: 0.6; }
+    100% { transform: scaleX(1); opacity: 1; }
+}
+@keyframes crown-appear {
+    0%   { opacity: 0; color: var(--color-gold-light); transform: scale(0) rotate(-15deg); }
+    40%  { opacity: 1; color: var(--ink-gold); transform: scale(1.4) rotate(5deg); }
+    70%  { color: var(--ink-gold); transform: scale(0.95) rotate(-2deg); }
+    100% { color: var(--ink-gold); transform: scale(1) rotate(0deg); }
+}
+@keyframes lamp-dot-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
 }
 
 /* -----------------------------------------------------------------------
- * Reduced-motion overlay opacity carve-out (B.W1 Lane B)
- * The global guard above is too blunt for reka-ui Dialog/Sheet/Popover
- * overlays, which drive transitions off [data-state]. This block MUST
- * come after the global guard so its later source order wins the cascade
- * over `transition-duration: 0.01ms` (equal specificity, equal !important).
+ * Reduced motion — no global kill here (X.W10.d · CC-099 · demo/DESIGN.md
+ * §5.6). glass ships the app-wide guard inside `@layer components`
+ * (`utilities/a11y-overrides.css`); for `!important` a layered declaration
+ * outranks an unlayered one, so the unlayered `*` block that stood here
+ * duplicated that guard and lost the cascade to it (measured: under reduce a
+ * plain element reads glass's `transition-duration: 0s`, not this file's
+ * 0.01ms). New motion follows Law R-1 instead: declared inside
+ * `@media (prefers-reduced-motion: no-preference)`, as the stagger utility
+ * above is. The `@layer base` overlay-fade carve-out went with the guard: an
+ * overlay's state reads instantly under reduce, and the exemption's home is
+ * glass's guard (DESIGN.md §5.6). WebGL RAF loops (the hero blob, the
+ * aurora) fence on the query in their own drivers.
  * ----------------------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-    /* keep state-change opacity fades on overlay primitives — the fade
-     * communicates state without inducing vestibular stress. */
-    [data-state="open"],
-    [data-state="closed"],
-    [data-state="open"]::before,
-    [data-state="closed"]::after {
-        transition-duration: 150ms !important;
-        transition-property: opacity !important;
-    }
-}
 
 /* -----------------------------------------------------------------------
  * Pane swap — the App-shell enter/exit family (R.W4 Lane B / B1; moved
@@ -222,40 +230,116 @@
  * slots' off-canvas slide + cartoon-swagger rotate, opacity pinned (the
  * swap reads as travel, not a fade). Direct-child (`>`) on purpose: an
  * inherited `--vj-enter-*` var would leak the pane geometry into nested
- * in-pane transitions. The PaneSlot <Transition> stays DEFAULT mode (the
- * R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion).
+ * in-pane transitions. The PaneSlot <Transition> runs `mode="out-in"`
+ * (X.W5.d2 — the leave travels out, then the enter travels in; the former
+ * simultaneous cross-slide co-mounted two in-flow panes, fold W5F-04; the
+ * measured record is PaneSlot.vue's header).
  * ----------------------------------------------------------------------- */
-.pane-wrapper--left > .vj-enter-enter-from,
-.pane-wrapper--left > .vj-enter-leave-to {
+/* X.W5.d · gate D3 (fold W5F-45 / NEW-DU-5) — RE-KEYED onto the region ROLE.
+ * The family was keyed off the physical `--left`/`--right` wrapper modifiers,
+ * and on mobile every wrapper wore `--left`, so every swap entered from the
+ * left and left to the left: forward and back were motion-identical and the
+ * `--right` geometry was unreachable by construction. After X.W5.c a region's
+ * side is not a fact the schema states — its ROLE is (`viewSchema.ts`
+ * `RegionRole`) — so each role owns its travel, and EVERY role in the
+ * vocabulary carries an enter + leave rule, including `action`, which no route
+ * declares today (a role with no motion rule is the D3 arm-2 failure, so the
+ * vocabulary is covered whole, not the roles a census happens to see).
+ *   · stage     — the protagonist; travels on the inline-start side (the
+ *                 former `--left` geometry, byte-kept).
+ *   · inspector — the companion; travels on the inline-end side (the former
+ *                 `--right` geometry, byte-kept — reachable at every width now).
+ *   · action    — a command surface; rises from the block-end edge.
+ * Each rule below is the FORWARD reading. The DIRECTION arm follows it. */
+.pane-wrapper--stage > .vj-enter-enter-from,
+.pane-wrapper--stage > .vj-enter-leave-to {
     opacity: 1;
     transform: translateX(-110%) rotate(-2deg);
 }
-.pane-wrapper--right > .vj-enter-enter-from,
-.pane-wrapper--right > .vj-enter-leave-to {
+.pane-wrapper--inspector > .vj-enter-enter-from,
+.pane-wrapper--inspector > .vj-enter-leave-to {
     opacity: 1;
     transform: translateX(110%) rotate(2deg);
+}
+.pane-wrapper--action > .vj-enter-enter-from,
+.pane-wrapper--action > .vj-enter-leave-to {
+    opacity: 1;
+    transform: translateY(110%) rotate(0deg);
+}
+
+/* X.W5.d · gate D3's direction arm — the scene-direction token.
+ * `PaneSlot` stamps `data-scene-direction="forward" | "back"` on the entering
+ * AND the leaving pane (its before-enter / before-leave hooks), read from the
+ * route's position in the scene table's own order (`VIEW_MAP`, the dock's
+ * order): a hop to a later scene is `forward`, to an earlier one `back`. A
+ * `back` hop MIRRORS each role's travel, so the two directions are never
+ * motion-identical — at any width, the 390 column included. The forward rules
+ * above are not moved or re-valued (the preserve-animations edict: motion is
+ * added, never deleted); this block only adds the mirrored reading. */
+.pane-wrapper--stage > [data-scene-direction="back"].vj-enter-enter-from,
+.pane-wrapper--stage > [data-scene-direction="back"].vj-enter-leave-to {
+    transform: translateX(110%) rotate(2deg);
+}
+.pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-enter-from,
+.pane-wrapper--inspector > [data-scene-direction="back"].vj-enter-leave-to {
+    transform: translateX(-110%) rotate(-2deg);
+}
+.pane-wrapper--action > [data-scene-direction="back"].vj-enter-enter-from,
+.pane-wrapper--action > [data-scene-direction="back"].vj-enter-leave-to {
+    transform: translateY(-110%) rotate(0deg);
 }
 
 /* W3-4 (S.W3): promote the pane to its own compositor layer for the
  * DURATION of the enter/leave transition ONLY (`*-active`) — never a
  * standing `will-change` layer. The browser drops the hint the moment the
  * transition class is removed. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--left > .vj-enter-leave-active,
-.pane-wrapper--right > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-leave-active {
+.pane-wrapper--stage > .vj-enter-enter-active,
+.pane-wrapper--stage > .vj-enter-leave-active,
+.pane-wrapper--inspector > .vj-enter-enter-active,
+.pane-wrapper--inspector > .vj-enter-leave-active,
+.pane-wrapper--action > .vj-enter-enter-active,
+.pane-wrapper--action > .vj-enter-leave-active {
     will-change: transform;
 }
 
+/* X.W5.d2 · §0ax ESC-W5d2-2 (DESIGN RULED) — CONTAINMENT, not amputation.
+ * The →/gradient travel cost was the About pane's real content (7459 px at
+ * 1440) travelling as one promoted layer: the swap re-laid-out and re-painted
+ * the whole subtree across the travel. For the swap's duration ONLY (the same
+ * `*-active` window as the layer hint above, dropped with it), the leaving
+ * and the entering pane are `contain: layout paint`: nothing inside can move
+ * layout outside it or paint outside its box, so the travel invalidates one
+ * bounded box. The About pane's off-viewport sections keep their
+ * `content-visibility: auto` (Markdown.vue) under this containment — it is
+ * the reason they stay skipped while travelling, and nothing here overrides
+ * it. No motion is removed or retuned: the distance, the rotation, the
+ * springs and the direction arm are byte-kept (the preserve-animations
+ * edict; P-5a/P-5b REFUSED).
+ * `overflow-clip-margin` keeps the card's cartoon offset shadow unclipped by
+ * the paint containment — the plate's widest cast is `--shadow-cartoon`'s
+ * 8px reach (foundation.css; no hover stamp exists), and 10px keeps a 2px
+ * margin over it. */
+.pane-wrapper--stage > .vj-enter-enter-active,
+.pane-wrapper--stage > .vj-enter-leave-active,
+.pane-wrapper--inspector > .vj-enter-enter-active,
+.pane-wrapper--inspector > .vj-enter-leave-active,
+.pane-wrapper--action > .vj-enter-enter-active,
+.pane-wrapper--action > .vj-enter-leave-active {
+    contain: layout paint;
+    overflow-clip-margin: 10px;
+}
+
 /* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
- * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-snappy`
+ * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-panel`
  * at the spring's OWN clock. The superseded W3-5 retune kept the smooth
  * curve but squeezed it onto `--duration-normal` — the named
  * normalized-spring-on-generic-clock anti-pattern (a spring linear()
  * reaches ~0.5 by ~6% of ANY clock → all travel in the first ~60ms,
  * then dead air; t-transitions-liquid F2). PKT-2 (the ~0.3s preset) is
  * unanswered at this cut, so the swap lands on arm (i) —
- * `--spring-snappy` @ `--spring-snappy-duration` (0.4s true settle);
+ * `--spring-panel` @ `--spring-panel-duration` (0.45s settle at glass 10.1.0;
+ * the panel role is glass's successor for the retired 0.44s `--spring-snappy`
+ * pane clock — X-W7L, mapped by intent per glass MIGRATION §8.0.0);
  * decision recorded on the T.md §7.2 book row.
  * The LEAVE is the exit law: strictly SHORTER than the enter, bezier
  * `--ease-out`, never an overshoot — the outgoing plate is gone before
@@ -264,14 +348,16 @@
  * incoming pane arrived — the F2 mid-flight collision). Both rules stay
  * SCOPED to the pane wrappers: the un-scoped vj-enter family above is
  * the F6 KEEP set, untouched. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-enter-active {
+.pane-wrapper--stage > .vj-enter-enter-active,
+.pane-wrapper--inspector > .vj-enter-enter-active,
+.pane-wrapper--action > .vj-enter-enter-active {
     transition:
         opacity var(--duration-fast) var(--ease-decelerate),
-        transform var(--spring-snappy-duration) var(--spring-snappy);
+        transform var(--spring-panel-duration) var(--spring-panel);
 }
-.pane-wrapper--left > .vj-enter-leave-active,
-.pane-wrapper--right > .vj-enter-leave-active {
+.pane-wrapper--stage > .vj-enter-leave-active,
+.pane-wrapper--inspector > .vj-enter-leave-active,
+.pane-wrapper--action > .vj-enter-leave-active {
     transition:
         opacity var(--duration-fast) var(--ease-out),
         transform var(--duration-fast) var(--ease-out);

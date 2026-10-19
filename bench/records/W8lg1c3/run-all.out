@@ -1,0 +1,12 @@
+END bench/records/W8lg1c3/node/node-read1.log guarded exit 0
+END bench/records/W8lg1c3/node/node-read2.log guarded exit 0
+END bench/records/W8lg1c3/browser/chromium-n31-main.log guarded exit 0
+END bench/records/W8lg1c3/browser/chromium-n31-eq.log guarded exit 0
+END bench/records/W8lg1c3/browser/webkit-n31-main.log guarded exit 0
+END bench/records/W8lg1c3/browser/webkit-n31-eq.log guarded exit 0
+END bench/records/W8lg1c3/browser/firefox-n31-acc.log guarded exit 0
+END bench/records/W8lg1c3/browser/firefox-n31-rej.log guarded exit 0
+END bench/records/W8lg1c3/browser/firefox-n31-leq.log guarded exit 0
+END bench/records/W8lg1c3/browser/firefox-n31-eq.log guarded exit 0
+END bench/records/W8lg1c3/browser/firefox-n31-whole.log guarded exit 0
+ALLDONE

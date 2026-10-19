@@ -1,0 +1,11 @@
+SERVED MODEL: claude-opus-5-5
+# X.P.W8.cust2 E-6 reads (2026-10-15), pinned emitter f0059db14 (bench/records/W8cust/gen-pinned.mjs); esbuild --minify --loader=js | wc -c / | gzip | wc -c
+13:42  up 5 days, 18:45, 2 users, load averages: 30.70 35.42 26.19
+# first F draft (semiRun = ( /[^()[{;"']+/ | quoted | customBlk ) *, no textGroup, no lone-bracket fallback): 109697 / 15182 x2 -- L-G2 +1455 rows (splitTopLevel(;) refused every unclosed [/{ and any }/] inside a () block): withdrawn, see receipt
+variant F final (working tree, file sha256 310c8de0264f): 110324 / 15239
+variant F final (working tree, file sha256 310c8de0264f): 110324 / 15239
+2f590daa8 (before): 104733 / 14635
+2f590daa8 (before): 104733 / 14635
+ceiling (COHESION §0fe.1): 125646 / 15300
+HEAD 7516f0d8c (committed): 110324 / 15239
+HEAD 7516f0d8c (committed): 110324 / 15239

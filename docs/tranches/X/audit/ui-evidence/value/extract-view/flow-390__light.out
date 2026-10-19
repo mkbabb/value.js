@@ -1,0 +1,9 @@
+OK loaded__390__light cube.png loaded
+OK k12__390__light k -> 12 via kbd (slider keeps focus)
+OK eyedropper__390__light eyedropper open
+OK loupe__390__light hover loupe
+OK pinned__390__light tap -> pinned
+OK swatchpop__390__light add-to-palette -> swatch-pop mid-animation
+OK afteradd__390__light after add (any confirmation?)
+OK zoom__390__light Escape unpin, wheel zoom x6
+OK closed__390__light Escape closes eyedropper

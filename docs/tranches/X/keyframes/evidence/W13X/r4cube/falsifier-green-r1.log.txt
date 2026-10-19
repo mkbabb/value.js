@@ -1,0 +1,13 @@
+load 145.65 167.39 187.35
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+(node:2573) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  18:56:21
+   Duration  29.71s (transform 18.17s, setup 168ms, import 16.97s, tests 8.07s, environment 3.34s)
+
+EXIT=0

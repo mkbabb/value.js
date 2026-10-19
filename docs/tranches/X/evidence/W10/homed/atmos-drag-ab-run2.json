@@ -1,0 +1,56 @@
+{
+  "origin": "http://localhost:9041",
+  "arms": {
+    "A": {
+      "css": "",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+      "blurred": 4,
+      "rows": {
+        "surface": {
+          "frames": 102,
+          "p50": 16.7,
+          "p95": 33.4
+        },
+        "slider L": {
+          "frames": 116,
+          "p50": 16.7,
+          "p95": 16.8
+        }
+      }
+    },
+    "B": {
+      "css": ".sliders-console{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+      "blurred": 3,
+      "rows": {
+        "surface": {
+          "frames": 87,
+          "p50": 16.7,
+          "p95": 50
+        },
+        "slider L": {
+          "frames": 82,
+          "p50": 16.8,
+          "p95": 33.4
+        }
+      }
+    },
+    "C": {
+      "css": ".atmosphere-canvas{visibility:hidden!important}",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+      "blurred": 4,
+      "rows": {
+        "surface": {
+          "frames": 100,
+          "p50": 16.7,
+          "p95": 33.4
+        },
+        "slider L": {
+          "frames": 109,
+          "p50": 16.7,
+          "p95": 33.4
+        }
+      }
+    }
+  }
+}

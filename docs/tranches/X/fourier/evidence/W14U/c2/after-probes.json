@@ -1,0 +1,204 @@
+[
+ {
+  "scheme": "light",
+  "probe": "Delete point hovered glyph",
+  "computed": "oklab(0.513782 0.147761 -0.0146602)",
+  "disabled": false,
+  "ink": [
+   164,
+   58,
+   108
+  ],
+  "frame": "after-hover-delete-1440-light.png",
+  "x": 589,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   221,
+   212,
+   204
+  ],
+  "ratio": 4.22
+ },
+ {
+  "scheme": "light",
+  "probe": "Save contour hovered glyph",
+  "computed": "oklab(0.488282 0.130899 0.0775813)",
+  "disabled": false,
+  "ink": [
+   165,
+   51,
+   36
+  ],
+  "frame": "after-hover-save-1440-light.png",
+  "x": 432,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   244,
+   213,
+   204
+  ],
+  "ratio": 4.92
+ },
+ {
+  "scheme": "light",
+  "probe": "Smooth contour hovered glyph on its row tint",
+  "highlighted": true,
+  "ink": [
+   122,
+   81,
+   29
+  ],
+  "frame": "after-hover-smooth-1440-light.png",
+  "x": 652,
+  "y": 594,
+  "need": 3,
+  "surface": [
+   206,
+   182,
+   152
+  ],
+  "ratio": 3.56
+ },
+ {
+  "scheme": "light",
+  "probe": "Simplify contour hovered glyph on its row tint",
+  "highlighted": true,
+  "ink": [
+   45,
+   71,
+   141
+  ],
+  "frame": "after-hover-simplify-1440-light.png",
+  "x": 652,
+  "y": 638,
+  "need": 3,
+  "surface": [
+   208,
+   186,
+   159
+  ],
+  "ratio": 4.67
+ },
+ {
+  "scheme": "light",
+  "probe": "Magnet glyph (on) on the menu",
+  "ink": [
+   165,
+   51,
+   36
+  ],
+  "frame": "after-hover-simplify-1440-light.png",
+  "x": 654,
+  "y": 495,
+  "need": 3,
+  "surface": [
+   211,
+   192,
+   167
+  ],
+  "ratio": 3.83
+ },
+ {
+  "scheme": "dark",
+  "probe": "Delete point hovered glyph",
+  "computed": "oklab(0.743549 0.0984259 -0.00763984)",
+  "disabled": false,
+  "ink": [
+   222,
+   146,
+   174
+  ],
+  "frame": "after-hover-delete-1440-dark.png",
+  "x": 589,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   47,
+   37,
+   29
+  ],
+  "ratio": 6.29
+ },
+ {
+  "scheme": "dark",
+  "probe": "Save contour hovered glyph",
+  "computed": "oklab(0.751049 0.100497 0.0547776)",
+  "disabled": false,
+  "ink": [
+   238,
+   145,
+   133
+  ],
+  "frame": "after-hover-save-1440-dark.png",
+  "x": 432,
+  "y": 847,
+  "need": 3,
+  "surface": [
+   80,
+   53,
+   44
+  ],
+  "ratio": 4.78
+ },
+ {
+  "scheme": "dark",
+  "probe": "Smooth contour hovered glyph on its row tint",
+  "highlighted": true,
+  "ink": [
+   233,
+   197,
+   141
+  ],
+  "frame": "after-hover-smooth-1440-dark.png",
+  "x": 652,
+  "y": 594,
+  "need": 3,
+  "surface": [
+   88,
+   66,
+   38
+  ],
+  "ratio": 5.78
+ },
+ {
+  "scheme": "dark",
+  "probe": "Simplify contour hovered glyph on its row tint",
+  "highlighted": true,
+  "ink": [
+   159,
+   179,
+   231
+  ],
+  "frame": "after-hover-simplify-1440-dark.png",
+  "x": 652,
+  "y": 638,
+  "need": 3,
+  "surface": [
+   76,
+   54,
+   29
+  ],
+  "ratio": 5.44
+ },
+ {
+  "scheme": "dark",
+  "probe": "Magnet glyph (on) on the menu",
+  "ink": [
+   238,
+   145,
+   133
+  ],
+  "frame": "after-hover-simplify-1440-dark.png",
+  "x": 654,
+  "y": 495,
+  "need": 3,
+  "surface": [
+   69,
+   49,
+   27
+  ],
+  "ratio": 5.28
+ }
+]

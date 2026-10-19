@@ -1,0 +1,63 @@
+d-light GET /api/images/sheer-waiting-salmon-dolphin
+d-light POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+d-light GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+d-light GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+d-light POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+d-light POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+d-light pageerror: Transition was skipped
+d-light-fresh GET /api/images/sheer-waiting-salmon-dolphin
+d-light-fresh POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+d-light-fresh GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+d-light-fresh GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+d-light-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+d-light-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+d-light-fresh STUB-LIST /api/visualizations?limit=20&sort=newest
+d-light no gallery card
+d-dark GET /api/images/sheer-waiting-salmon-dolphin
+d-dark POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+d-dark GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+d-dark GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+d-dark POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+d-dark POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+d-dark pageerror: Transition was skipped
+d-dark-fresh GET /api/images/sheer-waiting-salmon-dolphin
+d-dark-fresh POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+d-dark-fresh GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+d-dark-fresh GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+d-dark-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+d-dark-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+d-dark-fresh STUB-LIST /api/visualizations?limit=20&sort=newest
+d-dark no gallery card
+m-light GET /api/images/sheer-waiting-salmon-dolphin
+m-light POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+m-light GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+m-light GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+m-light POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+m-light POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+m-light pageerror: Transition was skipped
+m-light-fresh GET /api/images/sheer-waiting-salmon-dolphin
+m-light-fresh POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+m-light-fresh GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+m-light-fresh GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+m-light-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+m-light-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+m-light-fresh STUB-LIST /api/visualizations?limit=20&sort=newest
+m-light no gallery card
+m-dark GET /api/images/sheer-waiting-salmon-dolphin
+m-dark POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+m-dark GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+m-dark GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+m-dark POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+m-dark POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+m-dark pageerror: Transition was skipped
+m-dark-fresh GET /api/images/sheer-waiting-salmon-dolphin
+m-dark-fresh POST /api/images/sheer-waiting-salmon-dolphin/extract-contour
+m-dark-fresh GET /api/images/sheer-waiting-salmon-dolphin/overlay?resize=1024
+m-dark-fresh GET /api/images/sheer-waiting-salmon-dolphin/thumbnail
+m-dark-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/epicycles
+m-dark-fresh POST /api/contours/55b81b1cdcc15ece3d5ace50c4657ed2f06a69d38af619a61bc956dd68192a65/compute/bases
+m-dark-fresh STUB-LIST /api/visualizations?limit=20&sort=newest
+m-dark no gallery card
+## probe-gallery.mjs (TIER=featured -> *-D?b-*, TIER=normal -> *-D?n-*)
+featured: every vp/theme -> pageerror "useCarousel must be used within a <Carousel />", gallery wedged "0 loaded" + spinner, no card
+normal: card found; modal CTA -> landed /w/sheer-waiting-salmon-dolphin vt=0 (no View Transition); STUB-GET hit only by the modal's view-count read, never by the visualizer

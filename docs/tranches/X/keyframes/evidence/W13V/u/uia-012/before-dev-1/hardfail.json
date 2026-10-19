@@ -1,0 +1,19 @@
+{
+ "base": "http://localhost:5173/",
+ "legs": [
+  {
+   "text": "}}} @@ nope {",
+   "toasts": [
+    "Keyframes parsed 🎉"
+   ],
+   "markers": 0
+  },
+  {
+   "text": "rotate( ; )",
+   "toasts": [
+    "Failed to parse keyframes 🔧Invalid animation CSS: css_syntax at 0-11: expected rule, got rotate( ; )"
+   ],
+   "markers": 0
+  }
+ ]
+}

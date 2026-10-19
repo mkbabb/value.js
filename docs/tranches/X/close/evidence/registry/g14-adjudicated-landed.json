@@ -1,0 +1,1546 @@
+{
+    "SERVED MODEL": "claude-opus-5-5",
+    "gate": "G14 — ADJUDICATED→landed sweep (X-W11-FOLD §2b N2)",
+    "unit": "X.W11.a",
+    "date": "2026-10-18",
+    "sittingOfRecord": "2026-09-17",
+    "scope": "the X-W11 fold's §1z roster: 85 registry rows from the three assigned apotheoses (PreviewRamp 27 · ColorNutritionLabel 27 · PaletteColorStrip 31); the 12 §1z-b correction rows resolve to these ids and add no wave-naming row",
+    "values": ["landed <commit>", "NOT-CARRIED", "DEGRADED-TO-BOUNDARY"],
+    "method": "for each roster row and each X wave its §1z disposition names: locate the receiving wave fold's row(s) that cite the registry id at the bytes; a row with no citing fold row is NOT-CARRIED; a row whose every receiving fold row routes it NO-WAVE-OWNER is DEGRADED-TO-BOUNDARY; otherwise it is landed at the receiving wave's CLOSED-promotion commit (evidence class WAVE-CLOSE — the fold row sits in the wave's executed fold under the reading rule 'spec THEN addendum' and the wave's L-20 check returned CONFORMANT). X-W11 is not mapped here (it stamps itself at .e). The builder's source is LEDGER-FINAL.md §B.",
+    "closeCommits": {
+        "X-W1": "3730ff844",
+        "X-W5": "3e933c332",
+        "X-W6": "e24361c6d",
+        "X-W7": "a994800cc",
+        "X-W8": "6eb8f0268",
+        "X-W9": "03f76440f",
+        "X-W10": "7466ed9e5"
+    },
+    "perWave": {
+        "X-W1": {
+            "landed": 7,
+            "NOT-CARRIED": 0,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": [],
+            "verifiedEligible": true
+        },
+        "X-W5": {
+            "landed": 3,
+            "NOT-CARRIED": 0,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": [],
+            "verifiedEligible": true
+        },
+        "X-W6": {
+            "landed": 18,
+            "NOT-CARRIED": 1,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": ["CNL-24"],
+            "verifiedEligible": false
+        },
+        "X-W7": {
+            "landed": 25,
+            "NOT-CARRIED": 0,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": [],
+            "verifiedEligible": true
+        },
+        "X-W8": {
+            "landed": 5,
+            "NOT-CARRIED": 0,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": [],
+            "verifiedEligible": true
+        },
+        "X-W9": {
+            "landed": 6,
+            "NOT-CARRIED": 0,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": [],
+            "verifiedEligible": true
+        },
+        "X-W10": {
+            "landed": 4,
+            "NOT-CARRIED": 1,
+            "DEGRADED-TO-BOUNDARY": 0,
+            "notCarried": ["R-12"],
+            "verifiedEligible": false
+        }
+    },
+    "rows": [
+        {
+            "id": "R-1",
+            "record": "PreviewRamp.md",
+            "severity": "BLOCKER",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.10"],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·255 (docs/tranches/X/refinement/X-W6-FOLD.md:622)",
+                        "W6·256 (docs/tranches/X/refinement/X-W6-FOLD.md:623)",
+                        "W6·259 (docs/tranches/X/refinement/X-W6-FOLD.md:626)",
+                        "W6·260 (docs/tranches/X/refinement/X-W6-FOLD.md:627)",
+                        "W6·528 (docs/tranches/X/refinement/X-W6-FOLD.md:1610)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·255, W6·256, W6·259, W6·260, W6·528 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-2",
+            "record": "PreviewRamp.md",
+            "severity": "BLOCKER",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.10"],
+            "receiving": [
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "0a. (docs/tranches/X/refinement/X-W1-FOLD.md:50)",
+                        "R1 (docs/tranches/X/refinement/X-W1-FOLD.md:83)",
+                        "R2 (docs/tranches/X/refinement/X-W1-FOLD.md:108)",
+                        "R3 (docs/tranches/X/refinement/X-W1-FOLD.md:151)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R1, R2, R3, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                },
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·256 (docs/tranches/X/refinement/X-W6-FOLD.md:623)",
+                        "W6·263 (docs/tranches/X/refinement/X-W6-FOLD.md:630)",
+                        "W6·528 (docs/tranches/X/refinement/X-W6-FOLD.md:1610)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·256, W6·263, W6·528 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                },
+                {
+                    "wave": "X-W11",
+                    "foldRows": [
+                        "0a. (docs/tranches/X/refinement/X-W11-FOLD.md:55)",
+                        "W11.10 (docs/tranches/X/refinement/X-W11-FOLD.md:310)",
+                        "6.1 (docs/tranches/X/refinement/X-W11-FOLD.md:936)",
+                        "6.2 (docs/tranches/X/refinement/X-W11-FOLD.md:974)"
+                    ],
+                    "verdict": "SELF",
+                    "why": "X-W11 maps its own rows at .e (R-A stamp act)"
+                }
+            ]
+        },
+        {
+            "id": "R-3",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·325 (docs/tranches/X/refinement/X-W6-FOLD.md:706)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·325 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-4",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-5",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·257 (docs/tranches/X/refinement/X-W6-FOLD.md:624)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·257 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-6",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.4"],
+            "receiving": []
+        },
+        {
+            "id": "R-7",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-8",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·258 (docs/tranches/X/refinement/X-W6-FOLD.md:625)",
+                        "W6·463 (docs/tranches/X/refinement/X-W6-FOLD.md:810)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·258, W6·463 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-9",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.13"],
+            "receiving": [
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "R2 (docs/tranches/X/refinement/X-W1-FOLD.md:108)",
+                        "R39 (docs/tranches/X/refinement/X-W1-FOLD.md:680)",
+                        "R41 (docs/tranches/X/refinement/X-W1-FOLD.md:700)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R2, R39, R41, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-10",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.14"],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·259 (docs/tranches/X/refinement/X-W6-FOLD.md:626)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·259 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-11",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·260 (docs/tranches/X/refinement/X-W6-FOLD.md:627)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·260 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-12",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W10",
+                    "foldRows": [],
+                    "verdict": "NOT-CARRIED",
+                    "why": "no fold row in docs/tranches/X/refinement/X-W10-FOLD.md cites R-12 at the bytes"
+                }
+            ]
+        },
+        {
+            "id": "R-13",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-14",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-15",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-16",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·261 (docs/tranches/X/refinement/X-W6-FOLD.md:628)",
+                        "W6·462 (docs/tranches/X/refinement/X-W6-FOLD.md:809)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·261, W6·462 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-17",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·262 (docs/tranches/X/refinement/X-W6-FOLD.md:629)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·262 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-18",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·263 (docs/tranches/X/refinement/X-W6-FOLD.md:630)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·263 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-19",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.10"],
+            "receiving": [
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "0a. (docs/tranches/X/refinement/X-W1-FOLD.md:50)",
+                        "R3 (docs/tranches/X/refinement/X-W1-FOLD.md:151)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R3, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-20",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W8",
+                    "foldRows": ["W8.15 (docs/tranches/X/refinement/X-W8-FOLD.md:569)"],
+                    "verdict": "landed 6eb8f0268",
+                    "why": "fold row(s) W8.15 sit in X-W8's executed fold (reading rule: spec THEN addendum); X-W8 CLOSED CONFORMANT at 6eb8f0268 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-21",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-22",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·264 (docs/tranches/X/refinement/X-W6-FOLD.md:631)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·264 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-23",
+            "record": "PreviewRamp.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W10",
+                    "foldRows": [
+                        "X-W10.65 (docs/tranches/X/refinement/X-W10-FOLD.md:1146)"
+                    ],
+                    "verdict": "landed 7466ed9e5",
+                    "why": "fold row(s) X-W10.65 sit in X-W10's executed fold (reading rule: spec THEN addendum); X-W10 CLOSED CONFORMANT at 7466ed9e5 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "R-24",
+            "record": "PreviewRamp.md",
+            "severity": "INFO",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-25",
+            "record": "PreviewRamp.md",
+            "severity": "INFO",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "R-26",
+            "record": "PreviewRamp.md",
+            "severity": "INFO",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "ADJ-1",
+            "record": "PreviewRamp.md",
+            "severity": "MAJOR (process)",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.4"],
+            "receiving": []
+        },
+        {
+            "id": "CNL-1",
+            "record": "ColorNutritionLabel.md",
+            "severity": "BLOCKER",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·152 (docs/tranches/X/refinement/X-W6-FOLD.md:472)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·152 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-2",
+            "record": "ColorNutritionLabel.md",
+            "severity": "BLOCKER",
+            "bound": false,
+            "conditionalBound": true,
+            "foldW11": ["W11.6", "W11.7"],
+            "receiving": [
+                {
+                    "wave": "X-W9",
+                    "foldRows": [
+                        "W9.3 (docs/tranches/X/refinement/X-W9-FOLD.md:149)",
+                        "W9.22 (docs/tranches/X/refinement/X-W9-FOLD.md:607)",
+                        "15. (docs/tranches/X/refinement/X-W9-FOLD.md:819)",
+                        "16. (docs/tranches/X/refinement/X-W9-FOLD.md:848)"
+                    ],
+                    "verdict": "landed 03f76440f",
+                    "why": "fold row(s) W9.3, W9.22 sit in X-W9's executed fold (reading rule: spec THEN addendum); X-W9 CLOSED CONFORMANT at 03f76440f — evidence class WAVE-CLOSE, not a per-row byte commit"
+                },
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "R15 (docs/tranches/X/refinement/X-W1-FOLD.md:340)",
+                        "R16 (docs/tranches/X/refinement/X-W1-FOLD.md:351)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R15, R16, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-3",
+            "record": "ColorNutritionLabel.md",
+            "severity": "BLOCKER",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.6"],
+            "receiving": [
+                {
+                    "wave": "X-W9",
+                    "foldRows": ["W9.3 (docs/tranches/X/refinement/X-W9-FOLD.md:149)"],
+                    "verdict": "landed 03f76440f",
+                    "why": "fold row(s) W9.3 sit in X-W9's executed fold (reading rule: spec THEN addendum); X-W9 CLOSED CONFORMANT at 03f76440f — evidence class WAVE-CLOSE, not a per-row byte commit"
+                },
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "R16 (docs/tranches/X/refinement/X-W1-FOLD.md:351)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)",
+                        "2a. (docs/tranches/X/refinement/X-W1-FOLD.md:854)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R16, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-4",
+            "record": "ColorNutritionLabel.md",
+            "severity": "BLOCKER",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W9",
+                    "foldRows": [
+                        "W9.6 (docs/tranches/X/refinement/X-W9-FOLD.md:254)",
+                        "17.0 (docs/tranches/X/refinement/X-W9-FOLD.md:895)",
+                        "W9.35 (docs/tranches/X/refinement/X-W9-FOLD.md:1000)"
+                    ],
+                    "verdict": "landed 03f76440f",
+                    "why": "fold row(s) W9.6, 17.0, W9.35 sit in X-W9's executed fold (reading rule: spec THEN addendum); X-W9 CLOSED CONFORMANT at 03f76440f — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-5",
+            "record": "ColorNutritionLabel.md",
+            "severity": "BLOCKER",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.9", "W11.10"],
+            "receiving": [
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "R33 (docs/tranches/X/refinement/X-W1-FOLD.md:554)",
+                        "R35 (docs/tranches/X/refinement/X-W1-FOLD.md:595)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)",
+                        "3. (docs/tranches/X/refinement/X-W1-FOLD.md:902)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R33, R35, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-6",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "CNL-7",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·169 (docs/tranches/X/refinement/X-W6-FOLD.md:489)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·169 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-8",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "CNL-9",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "CNL-10",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.14"],
+            "receiving": [
+                {
+                    "wave": "X-W10",
+                    "foldRows": [
+                        "X-W10.30 (docs/tranches/X/refinement/X-W10-FOLD.md:507)"
+                    ],
+                    "verdict": "landed 7466ed9e5",
+                    "why": "fold row(s) X-W10.30 sit in X-W10's executed fold (reading rule: spec THEN addendum); X-W10 CLOSED CONFORMANT at 7466ed9e5 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-11",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "CNL-12",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.16"],
+            "receiving": [
+                {
+                    "wave": "X-W5",
+                    "foldRows": [
+                        "1.C (docs/tranches/X/refinement/X-W5-FOLD.md:69)",
+                        "6b.ii (docs/tranches/X/refinement/X-W5-FOLD.md:303)"
+                    ],
+                    "verdict": "landed 3e933c332",
+                    "why": "fold row(s) 1.C sit in X-W5's executed fold (reading rule: spec THEN addendum); X-W5 CLOSED CONFORMANT at 3e933c332 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-13",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W9",
+                    "foldRows": [
+                        "W9.5 (docs/tranches/X/refinement/X-W9-FOLD.md:217)",
+                        "8. (docs/tranches/X/refinement/X-W9-FOLD.md:516)",
+                        "W9.31 (docs/tranches/X/refinement/X-W9-FOLD.md:974)"
+                    ],
+                    "verdict": "landed 03f76440f",
+                    "why": "fold row(s) W9.5, W9.31 sit in X-W9's executed fold (reading rule: spec THEN addendum); X-W9 CLOSED CONFORMANT at 03f76440f — evidence class WAVE-CLOSE, not a per-row byte commit"
+                },
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·170 (docs/tranches/X/refinement/X-W6-FOLD.md:490)",
+                        "5. (docs/tranches/X/refinement/X-W6-FOLD.md:1085)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·170 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-14",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W9",
+                    "foldRows": [
+                        "W9.5 (docs/tranches/X/refinement/X-W9-FOLD.md:217)",
+                        "W9.32 (docs/tranches/X/refinement/X-W9-FOLD.md:981)"
+                    ],
+                    "verdict": "landed 03f76440f",
+                    "why": "fold row(s) W9.5, W9.32 sit in X-W9's executed fold (reading rule: spec THEN addendum); X-W9 CLOSED CONFORMANT at 03f76440f — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-15",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.12"],
+            "receiving": [
+                {
+                    "wave": "X-W8",
+                    "foldRows": ["W8.1 (docs/tranches/X/refinement/X-W8-FOLD.md:82)"],
+                    "verdict": "landed 6eb8f0268",
+                    "why": "fold row(s) W8.1 sit in X-W8's executed fold (reading rule: spec THEN addendum); X-W8 CLOSED CONFORMANT at 6eb8f0268 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-16",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        },
+        {
+            "id": "CNL-17",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.10"],
+            "receiving": [
+                {
+                    "wave": "X-W1",
+                    "foldRows": [
+                        "R33 (docs/tranches/X/refinement/X-W1-FOLD.md:554)",
+                        "R45 (docs/tranches/X/refinement/X-W1-FOLD.md:752)"
+                    ],
+                    "verdict": "landed 3730ff844",
+                    "why": "fold row(s) R33, R45 sit in X-W1's executed fold (reading rule: spec THEN addendum); X-W1 CLOSED CONFORMANT at 3730ff844 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-18",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.7"],
+            "receiving": [
+                {
+                    "wave": "X-W9",
+                    "foldRows": [
+                        "W9.22 (docs/tranches/X/refinement/X-W9-FOLD.md:607)",
+                        "14. (docs/tranches/X/refinement/X-W9-FOLD.md:795)"
+                    ],
+                    "verdict": "landed 03f76440f",
+                    "why": "fold row(s) W9.22 sit in X-W9's executed fold (reading rule: spec THEN addendum); X-W9 CLOSED CONFORMANT at 03f76440f — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-19",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.14"],
+            "receiving": []
+        },
+        {
+            "id": "CNL-20",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.16"],
+            "receiving": [
+                {
+                    "wave": "X-W5",
+                    "foldRows": [
+                        "6a. (docs/tranches/X/refinement/X-W5-FOLD.md:247)",
+                        "6b.ii (docs/tranches/X/refinement/X-W5-FOLD.md:303)",
+                        "6h. (docs/tranches/X/refinement/X-W5-FOLD.md:370)"
+                    ],
+                    "verdict": "landed 3e933c332",
+                    "why": "fold row(s)  sit in X-W5's executed fold (reading rule: spec THEN addendum); X-W5 CLOSED CONFORMANT at 3e933c332 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-21",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·171 (docs/tranches/X/refinement/X-W6-FOLD.md:491)",
+                        "W6·344 (docs/tranches/X/refinement/X-W6-FOLD.md:835)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·171, W6·344 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-22",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·172 (docs/tranches/X/refinement/X-W6-FOLD.md:492)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·172 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-23",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·173 (docs/tranches/X/refinement/X-W6-FOLD.md:493)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·173 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-24",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·174 (docs/tranches/X/refinement/X-W6-FOLD.md:494)",
+                        "W6·184 (docs/tranches/X/refinement/X-W6-FOLD.md:509)"
+                    ],
+                    "verdict": "NOT-CARRIED",
+                    "why": "two limbs at X-W6: the .f content limb landed (e0e204a9b), but the rhythm limb rides gate g1 (W6·184), which is X-W6 honest-RED → ESC-W10-g1-1 (CC-059 BLOCKED-ON); a row is mapped landed only whole"
+                }
+            ]
+        },
+        {
+            "id": "CNL-25",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MINOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W10",
+                    "foldRows": [
+                        "X-W10.97 (docs/tranches/X/refinement/X-W10-FOLD.md:1938)",
+                        "6e. (docs/tranches/X/refinement/X-W10-FOLD.md:2093)",
+                        "6f. (docs/tranches/X/refinement/X-W10-FOLD.md:2139)",
+                        "6g. (docs/tranches/X/refinement/X-W10-FOLD.md:2155)",
+                        "6h. (docs/tranches/X/refinement/X-W10-FOLD.md:2173)"
+                    ],
+                    "verdict": "landed 7466ed9e5",
+                    "why": "fold row(s) X-W10.97 sit in X-W10's executed fold (reading rule: spec THEN addendum); X-W10 CLOSED CONFORMANT at 7466ed9e5 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-26",
+            "record": "ColorNutritionLabel.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W5",
+                    "foldRows": [
+                        "1.C (docs/tranches/X/refinement/X-W5-FOLD.md:69)",
+                        "2a. (docs/tranches/X/refinement/X-W5-FOLD.md:149)"
+                    ],
+                    "verdict": "landed 3e933c332",
+                    "why": "fold row(s) 1.C sit in X-W5's executed fold (reading rule: spec THEN addendum); X-W5 CLOSED CONFORMANT at 3e933c332 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "CNL-27",
+            "record": "ColorNutritionLabel.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W6",
+                    "foldRows": [
+                        "W6·175 (docs/tranches/X/refinement/X-W6-FOLD.md:495)"
+                    ],
+                    "verdict": "landed e24361c6d",
+                    "why": "fold row(s) W6·175 sit in X-W6's executed fold (reading rule: spec THEN addendum); X-W6 CLOSED CONFORMANT at e24361c6d — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-1",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.3"],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "C-1 (docs/tranches/X/refinement/X-W7-FOLD.md:30)",
+                        "W7.27 (docs/tranches/X/refinement/X-W7-FOLD.md:118)",
+                        "W7.258 (docs/tranches/X/refinement/X-W7-FOLD.md:856)",
+                        "W7.272 (docs/tranches/X/refinement/X-W7-FOLD.md:884)",
+                        "W7.377 (docs/tranches/X/refinement/X-W7-FOLD.md:1130)",
+                        "§R1.13 (docs/tranches/X/refinement/X-W7-FOLD.md:1178)",
+                        "W7.504 (docs/tranches/X/refinement/X-W7-FOLD.md:1503)",
+                        "§R3.3 (docs/tranches/X/refinement/X-W7-FOLD.md:2168)",
+                        "W7.624 (docs/tranches/X/refinement/X-W7-FOLD.md:2197)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.27, W7.258, W7.272, W7.377, W7.504, W7.624 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-2",
+            "record": "PaletteColorStrip.md",
+            "severity": "BLOCKER-class FOLD → **PC-7**",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.4", "W11.11"],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.26 (docs/tranches/X/refinement/X-W7-FOLD.md:116)",
+                        "W7.629 (docs/tranches/X/refinement/X-W7-FOLD.md:2207)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.26, W7.629 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-3",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.15"],
+            "receiving": []
+        },
+        {
+            "id": "PCS-4",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.9"],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.258 (docs/tranches/X/refinement/X-W7-FOLD.md:856)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.258 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-5",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.259 (docs/tranches/X/refinement/X-W7-FOLD.md:858)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.259 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-6",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.194 (docs/tranches/X/refinement/X-W7-FOLD.md:711)",
+                        "W7.260 (docs/tranches/X/refinement/X-W7-FOLD.md:860)",
+                        "W7.280 (docs/tranches/X/refinement/X-W7-FOLD.md:900)",
+                        "W7.587 (docs/tranches/X/refinement/X-W7-FOLD.md:2093)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.194, W7.260, W7.280, W7.587 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-7",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.261 (docs/tranches/X/refinement/X-W7-FOLD.md:862)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.261 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-8",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.13 (docs/tranches/X/refinement/X-W7-FOLD.md:88)",
+                        "W7.262 (docs/tranches/X/refinement/X-W7-FOLD.md:864)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.13, W7.262 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-9",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W8",
+                    "foldRows": [
+                        "W8.26 (docs/tranches/X/refinement/X-W8-FOLD.md:697)",
+                        "W8.46 (docs/tranches/X/refinement/X-W8-FOLD.md:1089)"
+                    ],
+                    "verdict": "landed 6eb8f0268",
+                    "why": "fold row(s) W8.26, W8.46 sit in X-W8's executed fold (reading rule: spec THEN addendum); X-W8 CLOSED CONFORMANT at 6eb8f0268 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-10",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.263 (docs/tranches/X/refinement/X-W7-FOLD.md:866)",
+                        "§R1.13 (docs/tranches/X/refinement/X-W7-FOLD.md:1178)",
+                        "W7.424 (docs/tranches/X/refinement/X-W7-FOLD.md:1239)",
+                        "W7.512 (docs/tranches/X/refinement/X-W7-FOLD.md:1526)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.263, W7.424, W7.512 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-11",
+            "record": "PaletteColorStrip.md",
+            "severity": "MAJOR",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.15"],
+            "receiving": []
+        },
+        {
+            "id": "PCS-12",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.264 (docs/tranches/X/refinement/X-W7-FOLD.md:868)",
+                        "W7.275 (docs/tranches/X/refinement/X-W7-FOLD.md:890)",
+                        "W7.277 (docs/tranches/X/refinement/X-W7-FOLD.md:894)",
+                        "§R1.13 (docs/tranches/X/refinement/X-W7-FOLD.md:1178)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.264, W7.275, W7.277 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-13",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.12"],
+            "receiving": [
+                {
+                    "wave": "X-W8",
+                    "foldRows": ["W8.5 (docs/tranches/X/refinement/X-W8-FOLD.md:143)"],
+                    "verdict": "landed 6eb8f0268",
+                    "why": "fold row(s) W8.5 sit in X-W8's executed fold (reading rule: spec THEN addendum); X-W8 CLOSED CONFORMANT at 6eb8f0268 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-14",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.247 (docs/tranches/X/refinement/X-W7-FOLD.md:829)",
+                        "W7.265 (docs/tranches/X/refinement/X-W7-FOLD.md:870)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.247, W7.265 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-15",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.266 (docs/tranches/X/refinement/X-W7-FOLD.md:872)",
+                        "W7.279 (docs/tranches/X/refinement/X-W7-FOLD.md:898)",
+                        "W7.624 (docs/tranches/X/refinement/X-W7-FOLD.md:2197)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.266, W7.279, W7.624 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-16",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.17"],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.183 (docs/tranches/X/refinement/X-W7-FOLD.md:689)",
+                        "W7.267 (docs/tranches/X/refinement/X-W7-FOLD.md:874)",
+                        "W7.518 (docs/tranches/X/refinement/X-W7-FOLD.md:1547)",
+                        "W7.523 (docs/tranches/X/refinement/X-W7-FOLD.md:1561)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.183, W7.267, W7.518, W7.523 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-17",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.268 (docs/tranches/X/refinement/X-W7-FOLD.md:876)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.268 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-18",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.269 (docs/tranches/X/refinement/X-W7-FOLD.md:878)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.269 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-19",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.3"],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "C-2 (docs/tranches/X/refinement/X-W7-FOLD.md:32)",
+                        "§R1.5 (docs/tranches/X/refinement/X-W7-FOLD.md:849)",
+                        "W7.630 (docs/tranches/X/refinement/X-W7-FOLD.md:2209)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.630 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-20",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.197 (docs/tranches/X/refinement/X-W7-FOLD.md:717)",
+                        "W7.270 (docs/tranches/X/refinement/X-W7-FOLD.md:880)",
+                        "W7.474 (docs/tranches/X/refinement/X-W7-FOLD.md:1414)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.197, W7.270, W7.474 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-21",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.271 (docs/tranches/X/refinement/X-W7-FOLD.md:882)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.271 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-22",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": ["W11.10"],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "C-1 (docs/tranches/X/refinement/X-W7-FOLD.md:30)",
+                        "W7.273 (docs/tranches/X/refinement/X-W7-FOLD.md:886)",
+                        "§R3.3 (docs/tranches/X/refinement/X-W7-FOLD.md:2168)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.273 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-23",
+            "record": "PaletteColorStrip.md",
+            "severity": "MINOR",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.272 (docs/tranches/X/refinement/X-W7-FOLD.md:884)",
+                        "W7.377 (docs/tranches/X/refinement/X-W7-FOLD.md:1130)",
+                        "N-17 (docs/tranches/X/refinement/X-W7-FOLD.md:1634)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.272, W7.377, N-17 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-24",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.273 (docs/tranches/X/refinement/X-W7-FOLD.md:886)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.273 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-25",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.274 (docs/tranches/X/refinement/X-W7-FOLD.md:888)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.274 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-26",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.264 (docs/tranches/X/refinement/X-W7-FOLD.md:868)",
+                        "W7.275 (docs/tranches/X/refinement/X-W7-FOLD.md:890)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.264, W7.275 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-27",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.276 (docs/tranches/X/refinement/X-W7-FOLD.md:892)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.276 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                },
+                {
+                    "wave": "X-W10",
+                    "foldRows": [
+                        "X-W10.81 (docs/tranches/X/refinement/X-W10-FOLD.md:1429)",
+                        "5. (docs/tranches/X/refinement/X-W10-FOLD.md:1687)"
+                    ],
+                    "verdict": "landed 7466ed9e5",
+                    "why": "fold row(s) X-W10.81 sit in X-W10's executed fold (reading rule: spec THEN addendum); X-W10 CLOSED CONFORMANT at 7466ed9e5 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-28",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.264 (docs/tranches/X/refinement/X-W7-FOLD.md:868)",
+                        "W7.277 (docs/tranches/X/refinement/X-W7-FOLD.md:894)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.264, W7.277 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-29",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": false,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": [
+                {
+                    "wave": "X-W7",
+                    "foldRows": [
+                        "W7.278 (docs/tranches/X/refinement/X-W7-FOLD.md:896)"
+                    ],
+                    "verdict": "landed a994800cc",
+                    "why": "fold row(s) W7.278 sit in X-W7's executed fold (reading rule: spec THEN addendum); X-W7 CLOSED CONFORMANT at a994800cc — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-30",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": ["W11.13"],
+            "receiving": [
+                {
+                    "wave": "X-W8",
+                    "foldRows": [
+                        "1. (docs/tranches/X/refinement/X-W8-FOLD.md:54)",
+                        "W8.7 (docs/tranches/X/refinement/X-W8-FOLD.md:181)"
+                    ],
+                    "verdict": "landed 6eb8f0268",
+                    "why": "fold row(s) W8.7 sit in X-W8's executed fold (reading rule: spec THEN addendum); X-W8 CLOSED CONFORMANT at 6eb8f0268 — evidence class WAVE-CLOSE, not a per-row byte commit"
+                }
+            ]
+        },
+        {
+            "id": "PCS-31",
+            "record": "PaletteColorStrip.md",
+            "severity": "INFO",
+            "bound": true,
+            "conditionalBound": false,
+            "foldW11": [],
+            "receiving": []
+        }
+    ]
+}

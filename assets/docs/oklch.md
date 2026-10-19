@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `L`: Lightness (0 to 1)
--   `C`: Chroma (0 to ~0.4)
--   `H`: Hue (0° to 360°)
-
 ### Historical Context
 
 OKLCh is the polar form of [OKLab](https://bottosson.github.io/posts/oklab/), published by Björn Ottosson in 2020 to address the perceptual non-uniformities in older Lab/LCh models. The relationship is the same—Cartesian `a`/`b` re-expressed as chroma and hue—but the underlying OKLab space produces better uniformity, especially in blues and purples where CIE L\*a\*b\* shows significant error. OKLCh is a first-class color function in **CSS Color Level 4**.
@@ -33,7 +27,7 @@ OKLCh is the polar form of [OKLab](https://bottosson.github.io/posts/oklab/), pu
 -   Newer; less support in legacy tools and older design software
 -   Conversion chain is longer than RGB or HSL (OKLCh → OKLab → XYZ → linear RGB → sRGB)
 -   Not directly displayable—still needs gamut mapping to a device space
--   The `0`–`1` lightness scale differs from Lab/LCh's `0`–`100`, which can cause confusion
+-   The 0–1 lightness scale differs from Lab/LCh's 0–100, which can cause confusion
 
 ---
 
@@ -41,11 +35,11 @@ OKLCh is the polar form of [OKLab](https://bottosson.github.io/posts/oklab/), pu
 
 ### Components
 
-1. **`L` (Lightness)**: `0` (black) to `1` (white). Note the `0`–`1` range, not `0`–`100` as in CIE L\*.
+1. **`L` (Lightness)**: 0 (black) to 1 (white). Note the 0–1 range, not 0–100 as in CIE L\*.
 
-2. **`C` (Chroma)**: `0` (achromatic) to roughly `0.4` for the most saturated colors. The scale is much smaller than CIE LCh's.
+2. **`C` (Chroma)**: 0 (achromatic) to roughly 0.4 for the most saturated colors. The scale is much smaller than CIE LCh's.
 
-3. **`H` (Hue)**: `0` to `360` degrees (or `0`–`1` normalized). Same angular concept as LCh, but hue spacing is more perceptually even—the "blue problem" in CIE LCh (where blues compress into a narrow hue range) is largely resolved.
+3. **`H` (Hue)**: 0 to 360 degrees (or 0–1 normalized). Same angular concept as LCh, but hue spacing is more perceptually even—the "blue problem" in CIE LCh (where blues compress into a narrow hue range) is largely resolved.
 
 ### Relationship to OKLab
 

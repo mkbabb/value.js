@@ -1,0 +1,50 @@
+{
+ "selected": "Bouncing X",
+ "options": [
+  "Spin",
+  "Bouncing X",
+  "Bouncing Y"
+ ],
+ "res": [
+  {
+   "frac": 0.1,
+   "now": null,
+   "px": 1.351,
+   "py": -3.652,
+   "spin": 3.138,
+   "playing": false
+  },
+  {
+   "frac": 0.3,
+   "now": null,
+   "px": 4.592,
+   "py": -3.652,
+   "spin": 3.138,
+   "playing": false
+  },
+  {
+   "frac": 0.5,
+   "now": null,
+   "px": 0,
+   "py": -3.652,
+   "spin": 3.138,
+   "playing": false
+  },
+  {
+   "frac": 0.7,
+   "now": null,
+   "px": -4.592,
+   "py": -3.652,
+   "spin": 3.138,
+   "playing": false
+  },
+  {
+   "frac": 0.9,
+   "now": null,
+   "px": -1.351,
+   "py": -3.652,
+   "spin": 3.138,
+   "playing": false
+  }
+ ]
+}

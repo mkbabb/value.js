@@ -51,12 +51,27 @@ const PALETTE_INVARIANTS: Array<{
         valid: (d) => "userSlug" in d,
     },
     // I.W1: every palette doc carries the canonical visibility + tier fields.
+    //
+    // X-W3 · G-15 (D9): the enum is TWO-STATE. `unlisted` is no longer a legal
+    // at-rest value, and this probe is what makes that true of the DATA and not
+    // only of the type — the server refuses to boot against a collection the
+    // `x-w3-visibility-payloadhash` migration has not mapped. The branch that
+    // used to accept `unlisted` here is deleted, not widened to a warning: an
+    // accepted-but-unrepresentable state is exactly the drift the probe exists
+    // to catch.
     {
         field: "visibility",
+        valid: (d) => d.visibility === "public" || d.visibility === "private",
+    },
+    // X-W3 · G-15: the moderation clock (D9). Absent reads `clear` — the same
+    // answer `isReadable` gives — so absence is legal; a value OUTSIDE the
+    // closed enum is not, because no reader could say what it means.
+    {
+        field: "moderation",
         valid: (d) =>
-            d.visibility === "public" ||
-            d.visibility === "unlisted" ||
-            d.visibility === "private",
+            !("moderation" in d) ||
+            d.moderation === "clear" ||
+            d.moderation === "withdrawn",
     },
     {
         field: "tier",
@@ -92,6 +107,7 @@ export async function checkMigrations(db: Db): Promise<MigrationCheckResult> {
                 oklabColors: 1,
                 userSlug: 1,
                 visibility: 1,
+                moderation: 1,
                 tier: 1,
                 deletedAt: 1,
             },

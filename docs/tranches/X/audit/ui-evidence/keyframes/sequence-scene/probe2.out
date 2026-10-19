@@ -1,0 +1,149 @@
+{
+ "stage": [
+  385,
+  300,
+  670,
+  262
+ ],
+ "axis": [
+  478,
+  313,
+  560,
+  24
+ ],
+ "rows": [
+  402,
+  345,
+  636,
+  200
+ ],
+ "track1": [
+  478,
+  345,
+  560,
+  32
+ ],
+ "playheadTrack": [
+  478,
+  313,
+  576,
+  24
+ ],
+ "playhead": [
+  477,
+  313,
+  2,
+  24
+ ],
+ "stageGrid": "gridTemplateRows:24px 199.875px gridTemplateColumns:64px 560px",
+ "rail": "height:2px backgroundColor:color(srgb 0.9 0.3 0.9 / 0.08) opacity:1",
+ "scrubRail": [
+  385,
+  644,
+  670,
+  2
+ ],
+ "scrubRailCs": "height:2px backgroundColor:color(srgb 0.493698 0.351392 0.798991 / 0.08)",
+ "metric": {
+  "html": "<span data-v-b88c8fa3=\"\" class=\"metric readout-accent shrink-0\" data-orientation=\"inline\" data-size=\"md\"><span class=\"metric__label\">clock</span><span class=\"metric__reading\"><span class=\"metric__value\">0</span><span class=\"metric__unit\">ms</span></span><!----></span>",
+  "r": [
+   653,
+   248,
+   109,
+   21
+  ]
+ },
+ "btn": "borderRadius:9999px width:28px height:28px",
+ "handleGrip": "width:44px height:32px",
+ "titleSize": "fontSize:41.888px fontFamily:\"Instrument Serif\", \"Instrument Serif Fallback\", Georgia, serif",
+ "capSize": "fontSize:14.384px fontFamily:\"Fira Code\", monospace",
+ "axisSize": "fontSize:11px",
+ "labelFont": "fontSize:14.384px",
+ "timecode": "fontSize:16.4px",
+ "dockBtns": [
+  "Scene 642,43,156,39 vis=hidden op=1",
+  "@mbabb menu 682,86,75,31 vis=hidden op=1",
+  "Scene 702,53,36,36 vis=visible op=1",
+  "Play the reel — a cascading wave replay 929,237,28,28 vis=visible op=1",
+  "Reset the storyboard rows to the default stagger 965,237,28,28 vis=visible op=1",
+  "Play animation 668,773,40,40 vis=visible op=1",
+  "Reset animation 733,773,40,40 vis=visible op=1",
+  "Play animation 606,765,32,40 vis=hidden op=1"
+ ]
+}
+{
+ "stage": [
+  41,
+  298,
+  308,
+  228
+ ],
+ "axis": [
+  134,
+  311,
+  198,
+  20
+ ],
+ "rows": [
+  58,
+  339,
+  274,
+  170
+ ],
+ "track1": [
+  134,
+  339,
+  198,
+  32
+ ],
+ "playheadTrack": [
+  134,
+  311,
+  214,
+  20
+ ],
+ "playhead": [
+  133,
+  311,
+  2,
+  20
+ ],
+ "stageGrid": "gridTemplateRows:20px 169.594px gridTemplateColumns:64px 198px",
+ "rail": "height:2px backgroundColor:color(srgb 0.9 0.3 0.9 / 0.08) opacity:1",
+ "scrubRail": [
+  41,
+  597,
+  308,
+  2
+ ],
+ "scrubRailCs": "height:2px backgroundColor:color(srgb 0.493698 0.351392 0.798991 / 0.08)",
+ "metric": {
+  "html": "<span data-v-b88c8fa3=\"\" class=\"metric readout-accent shrink-0\" data-orientation=\"inline\" data-size=\"md\"><span class=\"metric__label\">clock</span><span class=\"metric__reading\"><span class=\"metric__value\">0</span><span class=\"metric__unit\">ms</span></span><!----></span>",
+  "r": [
+   241,
+   227,
+   101,
+   19
+  ]
+ },
+ "btn": "borderRadius:9999px width:28px height:28px",
+ "handleGrip": "width:44px height:32px",
+ "titleSize": "fontSize:25.888px fontFamily:\"Instrument Serif\", \"Instrument Serif Fallback\", Georgia, serif",
+ "capSize": "fontSize:12.179px fontFamily:\"Fira Code\", monospace",
+ "axisSize": "fontSize:11px",
+ "labelFont": "fontSize:12.179px",
+ "timecode": "fontSize:14px",
+ "dockBtns": [
+  "Scene 128,30,134,32 vis=hidden op=1",
+  "@mbabb menu 165,66,60,26 vis=hidden op=1",
+  "Scene 177,40,36,36 vis=visible op=1",
+  "Play the reel — a cascading wave replay 41,251,28,28 vis=visible op=1",
+  "Reset the storyboard rows to the default stagger 77,251,28,28 vis=visible op=1",
+  "Play animation 143,737,40,40 vis=visible op=1",
+  "Reset animation 208,737,40,40 vis=visible op=1",
+  "Play animation 92,729,32,40 vis=hidden op=1"
+ ]
+}
+531aa3f1
+       24
+

@@ -1,0 +1,28 @@
+GREEN KFA-166 1440x900-light dock expanded after 10 s idle: false
+GREEN UIA-KF-018 1440x900-light dock tab stops ["Pause animation","Select animation","Reset animation"] · BODY hits 1
+GREEN UIA-KF-256 1440x900-light trigger font 18.608px h 35.9 row 40.0 dock-label false
+GREEN UIA-KF-257 1440x900-light 'Select animation' tooltips 0 · wrapper 'transport-row flex items-center'
+GREEN UIA-KF-152 1440x900-light listbox bottom 753.0 vs dock top 764.6
+GREEN KFA-167 1440x900-light per-row --dot-p []
+GREEN UIA-KF-151 1440x900-light rows [{"dot":null,"status":null,"bold":false,"ind":false},{"dot":null,"status":null,"bold":false,"ind":false},{"dot":null,"status":null,"bold":false,"ind":false}]
+GREEN KFA-54 1440x900-light after 7 s: open true dock expanded true listbox x 662.0 → 662.0
+GREEN KFA-174 1440x900-light cube paused: thumb 4950/5000 -> 50 400 ms after Reverse
+GREEN KFA-104 1440x900-light spring: select 'Entry' — dock Play animation -> Play animation
+GREEN UIA-KF-154 1440x900-light collapsed(false) '' vs expanded(true) ''
+GREEN UIA-KF-225 1440x900-light square: stage-card bottom 763.3 vs dock top 764.6
+GREEN UIA-KF-051 1440x900-light easing: ribbon btn-playback 1, Play twin false
+RED   UIA-KF-225 1440x900-light easing: stage-card bottom 773.0 vs dock top 764.6
+GREEN UIA-KF-155 1440x900-light easing: ribbon Play absent
+GREEN KFA-166 390x844-dark dock expanded after 10 s idle: false
+NOTE  UIA-KF-018 390x844-dark not read: the controls Sheet opens modal at boot and traps Tab (Close does not release it) — .mobile / SHEET-POSITION, not the transport
+GREEN UIA-KF-256 390x844-dark trigger font 16px h 32.0 row 44.0 dock-label false
+GREEN UIA-KF-257 390x844-dark 'Select animation' tooltips 0 · wrapper 'transport-row flex items-center'
+GREEN UIA-KF-152 390x844-dark listbox bottom 710.5 vs dock top 722.6
+GREEN KFA-167 390x844-dark per-row --dot-p []
+GREEN UIA-KF-151 390x844-dark rows [{"dot":null,"status":null,"bold":false,"ind":false},{"dot":null,"status":null,"bold":false,"ind":false},{"dot":null,"status":null,"bold":false,"ind":false}]
+GREEN KFA-54 390x844-dark after 7 s: open true dock expanded true listbox x 143.0 → 143.0
+GREEN UIA-KF-154 390x844-dark collapsed(false) '' vs expanded(true) ''
+RED   UIA-KF-225 390x844-dark square: stage-card bottom 727.5 vs dock top 722.6
+GREEN UIA-KF-051 390x844-dark easing: ribbon btn-playback 1, Play twin false
+RED   UIA-KF-225 390x844-dark easing: stage-card bottom 727.5 vs dock top 722.6
+GREEN UIA-KF-155 390x844-dark easing: ribbon Play absent

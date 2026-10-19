@@ -1,0 +1,21 @@
+SERVED MODEL: claude-fable-5-1
+# X.F.W3.f — g20 (THE REGISTER AND THE LETTER exist; S-15 form) transcript, 2026-09-19
+
+## the register half
+ls docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md -> docs/tranches/X/fourier/F-W3-DO-NOT-EXECUTE.md
+line 1 -> SERVED MODEL: claude-fable-5-1
+killed-prescription rows (^| K-) -> 18 ; anti-cure rows (^| **AC-) -> 4 ; g12 (b) rows (NOT ADOPTED (state b)) -> 2
+the spec 598 row names 18 killed prescriptions: count of " · " separators + 1 in that cell -> 18
+
+## the letter half — S-15 re-baseline: the packet, its sha, its dispositions
+O-20 sha256 | cut -c1-12 -> f6e04c86ddb8 (pinned f6e04c86ddb8 at the addendum)
+O-20 rows carrying the five addendum items: PD-1 -> A-10 ; viz-easing -> B-4 ; clipboard -> B-5 ; viz-amber -> B-4/D-2. ; DOCK-ACTIVE -> D-1
+REFUTATION of the addendum partition (11 residual): AX-1/CU-1 in O-20 -> 1 (B-6 line); FR-COB-7 in O-20 -> 1 (A-11 line)
+I-32 dispositions: B-6 -> CURE-NOW ; A-11a -> KILL ; A-11b -> ANSWER ; B-4 -> KILL ; B-5 -> DECLINE ; A-10 -> CURE-NOW(comments)
+NWO-1 S-1 (FR-COB-7 struck): 1
+O-32 1.2 AA-3 withdrawn: 1
+residual items ABSENT from O-20 / I-32 / I-33 / NWO-1 / O-32 / O-33 (grep -l, each): LF-1=0 FR-COB-22=0 confirm-dialog=0 disclosure-trigger=0 PAW-53=0 FR-TT-13=0 FR-TT-18=0 D-14-fallback=0 PSM-14=0 
+(tier-* : NWO-1 L-4 asks the tier-tint HOME; the accretion rides it as a rider and adds only the chip-plate token ask)
+glass-ui porcelain (READ-ONLY law): 0 rows
+
+VERDICT g20: register EXISTS (this seat) · cargo ACCRETED to COHESION section-4a as rows F3-1..F3-13 (no letter opened, no re-send, no ask withdrawn) -> GREEN in the S-15 form.

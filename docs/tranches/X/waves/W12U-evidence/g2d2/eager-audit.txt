@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5-5
+X.W12U.g2d2 — the eager-graph audit RE-READ on the .g2s2 packaging (classes and rules: g2d/eager-audit.txt + g2d/audit-classify.mjs, unchanged).
+Trees (committed bytes, detached worktrees via g2d/build-tree.sh): base = b9da2db7d (the .g2s2 receipt; product = 1c04f8c68) · m1 = 4a6db59b5 · final = 56e2abb58.
+Each tree read x2: scripts/perf/eager-bytes.mjs + g2d/eager-files.mjs + g2d/audit-classify.mjs; r1 == r2 (cmp) for every tree (readings/<tree>-*-r{1,2}).
+
+G2 eager JS gz (eager-bytes.mjs):   base 313,423 x2 · m1 313,396 x2 · final 293,980 x2 (count 11 each)   cap 307,200 (COHESION §0fr.1)
+
+class   base gz  ->  final gz   reading on the new packaging
+P        274,458 ->  273,726    needed before first paint (Vue runtime/router, shell, PaneSlot, picker, colour session, dock face, atmosphere ground/ink, boot hydration)
+R1             0 ->        0    lib ./css share: FELL TO 0 at .g2s2 (was 33,221 at g2d); the colour grammar (color-grammar 10,202) + actions 5,087 are the <color> parse the boot needs -> P by rule
+R2        21,554 ->    2,432    glass families pinned by the ROOT barrel's eager reachability. CURED here: the three eager root importers were
+                                PaneLoadingPlate (Skeleton) + ProfileSection / MobileMenuDropdown (Avatar, AvatarImage); each became lazy at its root import.
+                                Left: HoverCard (reka) + status-dot 197 + Toggle 583 — co-located by glass's own chunking (glass dist popover chunk imports
+                                HoverCard*), reached from first-paint glass subpaths; no demo root import pins them (producer chunk shape, not a demo move)
+R3         6,789 ->    7,229    ProfileSection / MobileMenuDropdown / SlugEditLayer SFCs. The SFCs render first-paint dock triggers (the module is needed at
+                                mount); SlugEditLayer mounts in its DockLayer at boot and exposes onStartSlugEdit/onCopySlug, called synchronously by the menus
+                                through a template ref — lazy would make the first call a no-op before its chunk lands (a feature risk). Splitting a menu's body
+                                into a new module is a wrapper/new module, not a root-import move (LOCK: KISS, no wrapper). Not moved.
+R4         7,958 ->    7,938    providePalettePorts composes admin/migration/version/tag ports SYNCHRONOUSLY at boot (injected contract) — a port redesign, not a
+                                root-import move (as g2d). Not moved.
+R5         2,667 ->    2,660    vue-router devtools chunk: a bundler define in vite.config.ts — outside this unit's writable set (demo/**). Not moved.
+
+Moves (each at its ROOT import, no wrapper module; one commit each; gz from committed trees x2):
+  1  4a6db59b5  ProfileSection.vue + MobileMenuDropdown.vue: Avatar/AvatarImage -> defineAsyncComponent(() => import("@mkbabb/glass-ui").then(m => m.X))
+                (rendered only inside DropdownMenuContent)                                         313,423 -> 313,396   -27 alone (Skeleton still pins the root)
+  2  56e2abb58  PaneLoadingPlate.vue: Skeleton -> defineAsyncComponent(...)  (plate shows only after PANE_LOAD_DELAY_MS
+                on an in-flight pane chunk; bars aria-hidden)  -> no eager module reaches the glass root   313,396 -> 293,980   -19,416
+  total                                                                                             313,423 -> 293,980   -19,443
+Scratch arms (never committed; exp/armD.sh, exp/armE.sh on b9da2db7d): armD 313,396 (== m1) · armE 293,980 (== final).

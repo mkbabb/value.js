@@ -1,0 +1,27 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W3 · X.W3.3 — L-19 FALSIFIERS: each gate fails for EXACTLY one reason
+=======================================================================
+Method: each arm is applied to the CURED tree, measured, then restored by `cp` from a scratchpad
+copy taken before the first arm. The git index was never touched — no stash, no `checkout --`,
+no reset — and ⟨cmd⟩ `git status --porcelain api/` is EMPTY after the last restore.
+
+Baseline (cured, no arm applied): Tests 15 passed (15).
+
+| arm | edit | reading | what it proves |
+|-----|------|---------|----------------|
+| F-1 (G-8)  | `update()`'s filter forced back to `{ slug }` — the ETag clause dropped | 2 failed \| 13 passed | the two fence rows red, and ONLY those: the `UpdateResult` return and `assertFenceHeld` itself stay green, so the fence and the result-plumbing are independent bytes |
+| F-2 (G-9)  | the `assertIfMatch` call deleted from the revert handler | 2 failed \| 13 passed | the 428 row and the 412 row red; the "current If-Match proceeds" row stays green (it would pass without the check too — it is the control, not the gate) |
+| F-3 (G-10) | the `/revert` entry removed from `IDEMPOTENCY_REQUIRED` | 1 failed \| 14 passed | exactly the revert-400 row; fork create's 400 stays green — the two operations are separately armed, not one blanket rule |
+| F-4 (G-11) | `c.json({…palette, revision}, 201)` → `c.json(formatPalette(palette), 201)` (a BARE 201) | 2 failed \| 13 passed | fold §CrossEdges §B is measured, not decorative: the status alone is not the gate. Both payload rows red while every status row stays green |
+| F-5 (G-10) | the fork matcher narrowed `/forks?$/` → `/forks$/` (plural only) | 1 failed \| 14 passed | the `s?` is load-bearing TODAY (the mounted route is singular `POST /:slug/fork`), and it is what carries the requirement across X.W3.4's G-12 rename instead of silently dropping it |
+
+Per-row transcripts (the ✓/× lines of each arm) are reproducible with:
+  ⟨cmd⟩ npx vitest run src/modules/palette/__tests__/palette-write-contract.test.ts --reporter=verbose
+
+NOT authored as falsifiers, deliberately: G-8's WIRE arm (a concurrent write between the route's
+read and the service's write yielding 412 on PATCH / publish / revert). Its cure lives in three
+service files outside this unit's writable set (ESC-W3.3-CAS-CALLERS), so a spec row for it would
+be a permanently-red suite rather than a born-RED gate. G-8 is therefore reported RED with its
+mechanism built and measured at the repository, and its wiring returned — never a green-by-
+apparatus reading.

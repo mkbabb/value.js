@@ -1,0 +1,41 @@
+{
+ "base": "http://localhost:9321",
+ "res": [
+  {
+   "width": 462,
+   "theme": "light",
+   "ok": true,
+   "text": "linear-gradient(\n  90deg in oklch longer hue,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "textLines": 5,
+   "lineBoxes": 5,
+   "noMidLiteralBreak": true
+  },
+  {
+   "width": 324,
+   "theme": "light",
+   "ok": true,
+   "text": "linear-gradient(\n  90deg in oklch longer hue,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "textLines": 5,
+   "lineBoxes": 5,
+   "noMidLiteralBreak": true
+  },
+  {
+   "width": 462,
+   "theme": "dark",
+   "ok": true,
+   "text": "linear-gradient(\n  90deg in oklch longer hue,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "textLines": 5,
+   "lineBoxes": 5,
+   "noMidLiteralBreak": true
+  },
+  {
+   "width": 324,
+   "theme": "dark",
+   "ok": true,
+   "text": "linear-gradient(\n  90deg in oklch longer hue,\n  oklch(75% 0.15 145deg) 0%,\n  oklch(65% 0.18 265deg) 100%\n)",
+   "textLines": 5,
+   "lineBoxes": 5,
+   "noMidLiteralBreak": true
+  }
+ ]
+}

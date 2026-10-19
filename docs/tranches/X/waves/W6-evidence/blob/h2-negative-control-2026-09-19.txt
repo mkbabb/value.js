@@ -1,0 +1,20 @@
+SERVED MODEL: claude-opus-5[1m]
+X.W6.h · gate h2 NEGATIVE CONTROL — the falsifier fires (L-18 target 1).
+
+Taken at the SETTLED bytes (after prettier), so this transcript measures the file that
+is committed. The gate must not be satisfiable by prose: ONE digit of ONE published
+figure was mutated in the census (derive.maxC 0.08794842 -> 0.08794942, a 1e-6 change)
+and the gate re-run. It RED-ed and named the row by key. The census was then restored
+byte-identical and the gate re-run twice, GREEN both times.
+
+$ sed -i '' 's/derive.maxC = 0.08794842/derive.maxC = 0.08794942/' W6-blob-pipeline-census.md
+$ node docs/tranches/X/gates/gate-blob-pipeline.mjs      # exit 1
+GATE h2 (blob pipeline census) — RED
+  seed lab(92% 88.8 20) → oklch L 0.9583 C 0.27245 h 9.83
+  sRGB ceiling at the seed's own (L,h) = 0.02105 — the seed is 12.9× outside the gamut it must be painted in
+  stage 1  1×1-canvas / defaultBlobColorResolver clip → C 0.14949 (L 0.9583→0.7862), 100.0% of ceiling
+  stage 2  deriveBlobPalette → C 0.08795…0.00971, 100.0% of ceiling; chromaCeiling lever inert = true
+  stage 3  oklchStopToHex → |ΔC| ≤ 4.09e-4
+  control  hue+lightness-preserving gamutMapStop → C 0.02105
+  census   13 published figures, 12 re-derived here
+  FAIL `derive.maxC` does not reproduce — census 0.08794942, measured here 0.087948 (Δ 1.00e-6)

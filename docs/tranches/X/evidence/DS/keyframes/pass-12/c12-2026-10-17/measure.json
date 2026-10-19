@@ -1,0 +1,82 @@
+{
+ "row": {
+  "rowWidth": 365.1875,
+  "rem": 16,
+  "naturalOneRow": 437.390625,
+  "labelsShown": [
+   [
+    "Snapshot",
+    []
+   ],
+   [
+    "Import CSS, replacing the timeline",
+    [
+     false
+    ]
+   ],
+   [
+    "Add CSS, merging into the timeline",
+    [
+     false
+    ]
+   ],
+   [
+    "Export CSS",
+    [
+     false
+    ]
+   ],
+   [
+    "More timeline actions",
+    []
+   ]
+  ],
+  "lead": {
+   "box": [
+    113.71875,
+    229.859375
+   ],
+   "padL": "14px",
+   "padR": "14px",
+   "content": [
+    128.71875,
+    214.859375
+   ],
+   "glyphToEdge": 15,
+   "wordToEdge": 15,
+   "contentBox": 88.140625,
+   "contentWidth": 86.140625
+  }
+ },
+ "well": {
+  "stage": {
+   "top": 191.828125,
+   "bottom": 287.828125,
+   "left": 93.203125,
+   "right": 456.390625,
+   "h": 94,
+   "w": 361
+  },
+  "frame": {
+   "w": "270px",
+   "h": "270px",
+   "transform": "translate(-50%, -50%) scale(0.201003)"
+  },
+  "subj": {
+   "cls": "cube preserve-3d animation relative flex items-center justify-center justify-items-center",
+   "transformStyle": "preserve-3d",
+   "perspective": "none",
+   "sideSize": "min(30vh, 25vw, 18rem)",
+   "sideOffset": "calc(min(30vh, 25vw, 18rem) / 2)",
+   "transform": "matrix3d(0.270548, -0.823662, 0.498382, 0, 0.444243, -0.352461, -0.823662, 0, 0.854079, 0.444243, 0.270548, 0, 0, 0, 0, 1)"
+  },
+  "painted": {
+   "minT": 193.34153747558594,
+   "maxB": 286.314697265625,
+   "minL": 227.93600463867188,
+   "maxR": 321.6577453613281
+  },
+  "overflowTop": -1.5134124755859375,
+  "overflowBottom": -1.513427734375
+ }
+}

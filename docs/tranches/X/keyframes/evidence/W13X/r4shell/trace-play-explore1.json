@@ -1,0 +1,87 @@
+{
+ "run": "explore1",
+ "mode": "play",
+ "load": [
+  "351.15",
+  "345.23"
+ ],
+ "maxGap": 600,
+ "gapAt": 790,
+ "loafOver50": 5,
+ "loafMax": 597,
+ "loafMaxBlocking": 117,
+ "loaf": [
+  {
+   "start": 7126,
+   "dur": 170,
+   "blocking": 0,
+   "scripts": []
+  },
+  {
+   "start": 7477,
+   "dur": 60,
+   "blocking": 3,
+   "scripts": []
+  },
+  {
+   "start": 7835,
+   "dur": 177,
+   "blocking": 117,
+   "scripts": [
+    {
+     "inv": "ViewTransitionCallback",
+     "src": "/transition/useSceneTransition.ts",
+     "fn": "",
+     "dur": 165
+    }
+   ]
+  },
+  {
+   "start": 8117,
+   "dur": 597,
+   "blocking": 0,
+   "scripts": []
+  },
+  {
+   "start": 8715,
+   "dur": 118,
+   "blocking": 0,
+   "scripts": [
+    {
+     "inv": "FrameRequestCallback",
+     "src": "/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/physics/playback.ts",
+     "fn": "frame",
+     "dur": 5
+    }
+   ]
+  }
+ ],
+ "topSelf": [
+  "440.5ms (idle) :0",
+  "38.2ms (program) :0",
+  "11.7ms getPropertyValue :0",
+  "8.8ms elementsFromPoint :0",
+  "8.2ms getMaxX /@fs/Users/mkbabb/Programming/keyframes.js/demo/components/playback/AnimationVis:64",
+  "7.0ms get offsetWidth :0",
+  "6.8ms (garbage collector) :0",
+  "3.9ms getBoundingClientRect :0",
+  "3.8ms setRef /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:2925",
+  "3.3ms getStyleProperties /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:7353",
+  "3.1ms getNextHostNode /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:5905",
+  "2.6ms mountComponent /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:5496",
+  "2.5ms guardReactiveProps /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:6467",
+  "2.1ms createVNodeWithArgsTransform /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:6384"
+ ],
+ "topFiles": [
+  "506.6ms ?",
+  "53.5ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e",
+  "8.5ms /@fs/Users/mkbabb/Programming/keyframes.js/demo/components/playback/AnimationVis",
+  "7.0ms offsetWidth",
+  "6.8ms collector)",
+  "5.2ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/dist-CWHMI1qW",
+  "3.4ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/class-names-F",
+  "1.6ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/@mkbabb_value",
+  "1.5ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/@mkbabb_glass",
+  "1.1ms /@fs/Users/mkbabb/Programming/keyframes.js/demo/components/instrument/transport/"
+ ]
+}

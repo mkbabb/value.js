@@ -1,0 +1,730 @@
+[
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.585,
+  "sliderFill": 0.585,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 439,
+  "stageHalfH": 396,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "1024x768",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.72,
+  "sliderFill": 0.72,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 312,
+  "stageHalfH": 352,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.216128 0.00350075 0.00518669 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0.216128 0.00350075 0.00518669 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "768x1024",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.334,
+  "sliderFill": 0.334,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 384,
+  "stageHalfH": 512,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "430x932",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.641,
+  "sliderFill": 0.641,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 215,
+  "stageHalfH": 466,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "390x844",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.72,
+  "sliderFill": 0.72,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 195,
+  "stageHalfH": 422,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "360x780",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.792,
+  "sliderFill": 0.792,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 180,
+  "stageHalfH": 390,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "844x390",
+  "theme": "light",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.761,
+  "sliderFill": 0.761,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 422,
+  "stageHalfH": 195,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(198, 180, 159)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0 0 0 / 0.48)|rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklab(0 0 0 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "1440x900",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.585,
+  "sliderFill": 0.585,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 439,
+  "stageHalfH": 396,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "1024x768",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 16,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.72,
+  "sliderFill": 0.72,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 312,
+  "stageHalfH": 352,
+  "sheetCard": false,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.925196 0.00238398 0.00574207 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.925196 0.00238398 0.00574207 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "768x1024",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.334,
+  "sliderFill": 0.334,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 384,
+  "stageHalfH": 512,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "430x932",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.641,
+  "sliderFill": 0.641,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 215,
+  "stageHalfH": 466,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "390x844",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.72,
+  "sliderFill": 0.72,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 195,
+  "stageHalfH": 422,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "360x780",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.792,
+  "sliderFill": 0.792,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 180,
+  "stageHalfH": 390,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ },
+ {
+  "vp": "844x390",
+  "theme": "dark",
+  "pose": 1,
+  "open": true,
+  "cells": 16,
+  "overlap": 16,
+  "uniqueLabels": 11,
+  "labels": "Sx y z Pw x Sy z Pw x y Sz Pw Tx Ty Tz w",
+  "inView": 0,
+  "small": 0,
+  "inputW": 56,
+  "inputH": 56,
+  "inputRadius": 9999,
+  "disc": true,
+  "bogusAttrs": 3,
+  "gridFill": 0.761,
+  "sliderFill": 0.761,
+  "sliderName": "",
+  "readout": "",
+  "panelName": "",
+  "fixedToggle": 1,
+  "stageHalfW": 422,
+  "stageHalfH": 195,
+  "sheetCard": true,
+  "inViewScrolled": 16,
+  "bounds": {
+   "1": [
+    -360,
+    360
+   ],
+   "3": [
+    -360,
+    360
+   ],
+   "12": [
+    -1000,
+    1000
+   ],
+   "15": [
+    -360,
+    360
+   ]
+  },
+  "selSliderName": "",
+  "selReadout": "",
+  "selDistinct": false,
+  "sel5": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "sel6": "rgba(0, 0, 0, 0)|rgb(101, 87, 73)|rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px|none#rgba(0, 0, 0, 0)|oklab(0.999994 0.0000455678 0.0000200868 / 0.48)|rgba(255, 255, 255, 0.08) 0px 1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.08) 0px 1px 2px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px|none#",
+  "headVis": false,
+  "dockLbl": true
+ }
+]

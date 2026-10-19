@@ -1,0 +1,4 @@
+# load { 16.73 18.67 19.97 }
+390x844 light L1-9 degraded RED {"chips":[],"legacy":0}
+RED 1 (of 38)
+# load { 14.62 18.13 19.65 }

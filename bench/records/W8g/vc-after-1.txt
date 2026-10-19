@@ -1,0 +1,15 @@
+(node:21275) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+V-C · WPT 5a5b2b591b39 · cases-2026-10-07.json · 6267 cases · 431 ruled rows
+module          cases  pass  ruled  refused  serialization  serialize-error  accepted  MISS
+css-color        1810   515     31      143            716                0       405  1264
+css-easing         35    17      0        0              5                0        13    18
+css-fonts         897   262      0        0            403                0       232   635
+css-grid          669   267    400        2              0                0         0     2
+css-images       1829    41      0        1           1443                0       344  1788
+css-transforms    231    78      0        0             80                0        73   153
+css-values        796   282      0       10              2                0       502   514
+TOTAL            6267  1462    431      156           2649                0      1569  4374
+MISS refused css/css-grid/parsing/grid-auto-columns-valid.html grid-auto-columns: "auto /**/" expected=["auto"]
+MISS refused css/css-grid/parsing/grid-auto-rows-valid.html grid-auto-rows: "auto /**/" expected=["auto"]
+V-C RED: 4374 unruled misses, 0 stale ruled rows

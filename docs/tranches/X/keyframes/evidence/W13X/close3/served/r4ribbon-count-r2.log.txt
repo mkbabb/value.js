@@ -1,0 +1,36 @@
+# 20:32:46 load: { 16.78 16.93 17.47 } base=http://localhost:5398/ kf=c761d639
+GREEN cube     [rest] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN cube     [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN cube     [keyframes] ribbons=0 inBar=0 ids=none panel=Keyframes
+GREEN cube     [timeline] ribbons=0 inBar=0 ids=none panel=Timeline
+GREEN cube     [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN square   [rest] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN square   [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN square   [keyframes] ribbons=0 inBar=0 ids=none panel=Keyframes
+GREEN square   [timeline] ribbons=0 inBar=0 ids=none panel=Timeline
+GREEN square   [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN easing   [rest] ribbons=1 inBar=1 ids=none panel=Curve
+GREEN easing   [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN easing   [keyframes] ribbons=0 inBar=0 ids=none panel=Keyframes
+GREEN easing   [timeline] ribbons=0 inBar=0 ids=none panel=Timeline
+GREEN easing   [easing] ribbons=1 inBar=1 ids=none panel=Curve
+GREEN easing   [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN spring   [rest] ribbons=1 inBar=1 ids=none panel=Physics
+GREEN spring   [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN spring   [keyframes] ribbons=0 inBar=0 ids=none panel=Keyframes
+GREEN spring   [timeline] ribbons=0 inBar=0 ids=none panel=Timeline
+GREEN spring   [spring] ribbons=1 inBar=1 ids=none panel=Physics
+GREEN spring   [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN sequence [rest] ribbons=0 inBar=0 ids=none panel=-
+GREEN sequence [controls] ribbons=0 inBar=0 ids=none panel=-
+GREEN sequence [keyframes] ribbons=0 inBar=0 ids=none panel=-
+GREEN sequence [timeline] ribbons=0 inBar=0 ids=none panel=-
+GREEN sequence [controls] ribbons=0 inBar=0 ids=none panel=-
+GREEN amiga    [rest] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN amiga    [controls] ribbons=1 inBar=1 ids=none panel=Controls
+GREEN amiga    [keyframes] ribbons=0 inBar=0 ids=none panel=Keyframes
+GREEN amiga    [timeline] ribbons=0 inBar=0 ids=none panel=Timeline
+GREEN amiga    [controls] ribbons=1 inBar=1 ids=none panel=Controls
+pageerrors=0 
+red=0
+# end 20:33:36

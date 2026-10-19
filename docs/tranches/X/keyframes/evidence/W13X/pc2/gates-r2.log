@@ -1,0 +1,6 @@
+wait 0 load 991 16:58:38
+wait 1 load 931 16:59:38
+check load-start { 50.98 361.03 573.31 } 17:00:38 kf=cb58c2e5
+check EXIT 0 load-end { 994.82 114.09 836.32 } 17:03:36
+lint EXIT 0 load-end { 851.91 331.00 886.28 } 17:04:10
+DONE

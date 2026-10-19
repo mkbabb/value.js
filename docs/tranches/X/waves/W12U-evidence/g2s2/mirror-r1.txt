@@ -1,0 +1,57 @@
+SERVED MODEL: claude-opus-5-5
+
+ RUN  v3.2.6 /Users/mkbabb/.dev-logs/w12u-g2d/g2s2/tree
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > assay · parseCssColor: MIRROR-DEFECTS 0
+assay · parseCssColor: 27021 cells · {"AGREE":24437,"DECLARED_DIVERGENCE":2584,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"PB-08":88,"SP-1":4,"PB-04/05":508,"ADJ-2":33,"PB-12":1032,"ID-5":426,"ADJ-3+PB-04/05":85,"PB-09/10":57,"ADJ-3":110,"PB-04/05+PB-01/02":127,"PB-01/02":46,"ADJ-3+PB-01/02":6,"GROUND-C":44,"ADJ-2+PB-04/05":11,"ADJ-2+ADJ-3+PB-04/05":1,"ADJ-3+PB-04/05+PB-01/02":3,"ADJ-2+ADJ-3":3} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > assay · parseCssScalar: MIRROR-DEFECTS 0
+assay · parseCssScalar: 27021 cells · {"AGREE":24436,"DECLARED_DIVERGENCE":2585,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"PB-08":88,"SP-1":4,"PB-04/05":508,"ADJ-2":33,"PB-12":1032,"W8g-NAI":1,"ID-5":426,"ADJ-3+PB-04/05":85,"PB-09/10":57,"ADJ-3":110,"PB-04/05+PB-01/02":127,"PB-01/02":46,"ADJ-3+PB-01/02":6,"GROUND-C":44,"ADJ-2+PB-04/05":11,"ADJ-2+ADJ-3+PB-04/05":1,"ADJ-3+PB-04/05+PB-01/02":3,"ADJ-2+ADJ-3":3} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > assay · parseCssValue: MIRROR-DEFECTS 0
+assay · parseCssValue: 27021 cells · {"AGREE":23492,"DECLARED_DIVERGENCE":3529,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"GAP-URL0":5,"GAP-URL":4,"PB-08":88,"SP-1":4,"PB-04/05":508,"ADJ-2":33,"PB-12":1818,"W8g-NAI":1,"ID-5":426,"ADJ-3+PB-04/05":85,"PB-09/10":57,"W8semi-SEMI":132,"ADJ-3":110,"PB-04/05+PB-01/02":127,"PB-01/02":46,"ADJ-3+PB-01/02":6,"GROUND-C":44,"ID-2":17,"ADJ-2+PB-04/05":11,"ADJ-2+ADJ-3+PB-04/05":1,"ADJ-3+PB-04/05+PB-01/02":3,"ADJ-2+ADJ-3":3} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > assay · parseCssValues: MIRROR-DEFECTS 0
+assay · parseCssValues: 27021 cells · {"AGREE":23492,"DECLARED_DIVERGENCE":3529,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"GAP-URL0":5,"GAP-URL":4,"PB-08":88,"SP-1":4,"PB-04/05":508,"ADJ-2":33,"PB-12":1818,"W8g-NAI":1,"ID-5":426,"ADJ-3+PB-04/05":85,"PB-09/10":57,"W8semi-SEMI":132,"ADJ-3":110,"PB-04/05+PB-01/02":127,"PB-01/02":46,"ADJ-3+PB-01/02":6,"GROUND-C":44,"ID-2":17,"ADJ-2+PB-04/05":11,"ADJ-2+ADJ-3+PB-04/05":1,"ADJ-3+PB-04/05+PB-01/02":3,"ADJ-2+ADJ-3":3} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > assay · parseKeyframeSelector: MIRROR-DEFECTS 0
+assay · parseKeyframeSelector: 27021 cells · {"AGREE":27021,"DECLARED_DIVERGENCE":0,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > assay · parseTimingFunction: MIRROR-DEFECTS 0
+assay · parseTimingFunction: 27021 cells · {"AGREE":26851,"DECLARED_DIVERGENCE":170,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"PB-12":146,"GROUND-C":23,"ID-2":1} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > real · parseCssColor: MIRROR-DEFECTS 0
+real · parseCssColor: 3049 cells · {"AGREE":2284,"DECLARED_DIVERGENCE":765,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"C5-MIX":678,"SC-2":2,"PB-08":7,"SP-1":3,"PB-09/10":1,"SC-1":33,"ID-5":7,"PB-01/02":33,"PB-04/05+PB-01/02":1} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > real · parseCssScalar: MIRROR-DEFECTS 0
+real · parseCssScalar: 3049 cells · {"AGREE":2284,"DECLARED_DIVERGENCE":765,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"C5-MIX":678,"SC-2":2,"PB-08":7,"SP-1":3,"PB-09/10":1,"SC-1":33,"ID-5":7,"PB-01/02":33,"PB-04/05+PB-01/02":1} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > real · parseCssValue: MIRROR-DEFECTS 0
+real · parseCssValue: 3049 cells · {"AGREE":2895,"DECLARED_DIVERGENCE":154,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"W8semi-SEMI":4,"PB-01/02":66,"GAP-LN":3,"GAP-GRP":6,"PB-12":2,"SC-2":2,"W8t-MIX":17,"C5-MIX":1,"PB-08":7,"SP-1":3,"PB-09/10":1,"SC-1":33,"ID-5":7,"PB-04/05+PB-01/02":1,"W8g-NAI":1} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > real · parseCssValues: MIRROR-DEFECTS 0
+real · parseCssValues: 3049 cells · {"AGREE":2895,"DECLARED_DIVERGENCE":154,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {"W8semi-SEMI":4,"PB-01/02":66,"GAP-LN":3,"GAP-GRP":6,"PB-12":2,"SC-2":2,"W8t-MIX":17,"C5-MIX":1,"PB-08":7,"SP-1":3,"PB-09/10":1,"SC-1":33,"ID-5":7,"PB-04/05+PB-01/02":1,"W8g-NAI":1} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > real · parseKeyframeSelector: MIRROR-DEFECTS 0
+real · parseKeyframeSelector: 3049 cells · {"AGREE":3049,"DECLARED_DIVERGENCE":0,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {} · MIRROR-DEFECTS 0
+
+stdout | bench/css-equivalence/equivalence.measure.test.ts > X.P.W6.h — BBNF grammar ≡ the retired hand parser (G-h1) > real · parseTimingFunction: MIRROR-DEFECTS 0
+real · parseTimingFunction: 3049 cells · {"AGREE":3049,"DECLARED_DIVERGENCE":0,"FIXTURE_R1":0,"DIVERGENT_VALUE":0,"MIS_ACCEPT":0,"FALSE_REJECT_IN_SHAPE":0,"CANDIDATE_THREW":0,"CANDIDATE_SHAPE":0,"ADJUDICATION_UNHONOURED":0} · rulings {} · MIRROR-DEFECTS 0
+
+ ✓ bench/css-equivalence/equivalence.measure.test.ts (15 tests) 1133ms
+stdout | bench/css-equivalence/stylesheet.measure.test.ts > X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > 32021 sheets: STYLESHEET DEFECTS 0
+parseStylesheet × 32021: {"AGREE":30246,"VALUE_GRAMMAR":1729,"BOTH_REFUSE":30,"DEFECT":0} · classes {"SH-2":1,"SH-1":13,"SH-3":2} · STYLESHEET DEFECTS 0
+
+stdout | bench/css-equivalence/stylesheet.measure.test.ts > X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > parseAnimationTimeline × 32021 sources: STYLESHEET DEFECTS 0
+parseAnimationTimeline × 32021: AGREE 32021 · STYLESHEET DEFECTS 0
+
+stdout | bench/css-equivalence/stylesheet.measure.test.ts > X.P.W6.x — parseStylesheet: stylesheet.bbnf ≡ the retired stylesheet layer > parseAnimationRange × 32021 sources: STYLESHEET DEFECTS 0
+parseAnimationRange × 32021: AGREE 32021 · STYLESHEET DEFECTS 0
+
+ ✓ bench/css-equivalence/stylesheet.measure.test.ts (4 tests) 387ms
+
+ Test Files  2 passed (2)
+      Tests  19 passed (19)
+   Start at  21:45:14
+   Duration  2.14s (transform 239ms, setup 0ms, collect 1.87s, tests 1.52s, environment 0ms, prepare 73ms)
+

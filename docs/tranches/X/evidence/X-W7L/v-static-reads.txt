@@ -1,0 +1,68 @@
+SERVED MODEL: claude-opus-5-5 — X.W7L.v static reads at glass 10.1.0 (installed), 2026-09-25, HEAD 6db0cb1a
+== version: node -p require('node_modules/@mkbabb/glass-ui/package.json').version → 10.1.0
+
+== DOCK-SCROLL-MORPH (O-55 R-1/R-2)
+grep -n '?:' node_modules/@mkbabb/glass-ui/dist/components/dock/composables/useDockShellProps.d.ts →
+  15:    fitContent?: boolean;
+  21:    backdropMode?: DockBackdropMode;
+  42:    shape?: "pill" | "rounded" | "card";
+  49:    orientation?: "horizontal" | "vertical";
+  59:    collapse?: DockCollapse;
+  66:    backgroundCanvas?: HTMLCanvasElement | (() => HTMLCanvasElement | null) | string | null;
+GlassDock slots →
+  persistent?: (props
+  default?: (props
+  collapsed?: (props
+  search?: (props
+  'persistent-end'?: (props
+grep -ci dock node_modules/@mkbabb/glass-ui/dist/components/scroll-progress-rim/types.d.ts → 0
+
+== I3-SEED-SIZE (O-53 R-1)
+exports matching /aurora|derive/ → ./aurora
+wc -c dist/aurora.js → 203503 B; #version ×3
+esbuild --bundle --minify --format=esm (externals vue, @vueuse/core, @mkbabb/value.js) of 'import { deriveAurora, paletteToCssGradient } from "@mkbabb/glass-ui/aurora"' | gzip -9 | wc -c ×2 →
+  r1 52775 B · #version ×2 · 'uniform ' ×81 (budget 12288 B)
+  r2 52775 B · #version ×2 · 'uniform ' ×81 (budget 12288 B)
+
+== G3-FALLTHROUGH-TYPES (O-57 R-1): {extends tsconfig.demo.json, vueCompilerOptions.strictTemplates:true} → npx vue-tsc -p <probe> --noEmit ×2
+  r1 EXIT 2
+  r2 EXIT 2
+  r1 errors 277 · files 65
+  r2 errors 277 · files 65
+  cmp r1 r2 → byte-identical
+     8 error TS2322
+   269 error TS2353
+  TS2353 on native element attr types (HTMLAttributes & ReservedProps): 61
+  top TS2353 keys:
+    127 and ''
+    111 and 'onClick'
+     13 and 'title'
+      5 and 'dataAdminAccess'
+      2 and 'onKeydown'
+      2 and 'key'
+
+== O-68 ConfiguratorLayer #actions: grep -n 'actions' ConfiguratorLayer.vue.d.ts →
+  46:     * When the `#actions` header slot shows. `"open"` (default) shows it only
+  49:    actionsWhen?: "open" | "always";
+  62:    actions?: (props: typeof __VLS_6) => any;
+  72:    actionsWhen: "open" | "always";
+== O-75 Configurator layout="detached": grep -c detached Configurator.vue.d.ts → 4
+== O-80: grep -rl 'useDockOverflowFit|DockOverflowFit' dist → 0 files; ls dist/components/dock/styles | grep -c overflow → 0
+== L2-6 touch floor: tr '}' '\n' < dist/components/dock/styles/controls/touch-floor.css | head -3 →
+  @layer components{@media (pointer: coarse){.dock-icon-button:not(.dock-icon-button--compact):not(:where(.glass-dock *)){min-block-size: var(--dock-touch-target,2.75rem);min-inline-size: var(--dock-tou
+  :is(.dock-trigger,.dock-select-trigger,.dock-dropdown-trigger){position: relative;
+  :is(.dock-trigger,.dock-select-trigger,.dock-dropdown-trigger)::after{content: "";position: absolute;inset-block-start: 50%;inset-inline-start: 50%;inline-size: max(100%,var(--dock-touch-target,2.75re
+== L2-9 / L3-6 coarse tokens: grep -o '@media (pointer: coarse){:root{[^}]*}' dist/styles/tokens/light-dark.css →
+  @media (pointer: coarse){:root{--ui-scale: var(--ui-coarse-scale,1.5);--control-floor: var(--touch-target,2.75rem);}
+  --control-text in sizing.css → --control-text: calc(var(--type-small) * var(--ui-scale))
+== L3-2 CardHeader slots: grep '?: (props' CardHeader.vue.d.ts → default?: (props 
+== L3-3 ConfiguratorRow props (no layout/orientation): sub?: name?: description?: canReset?: size?: class?: default?: onReset?: 
+== L1-6 ConfirmDialog: grep -rl ConfirmDialog --include='*.d.ts' dist → 0 files
+== L1-7 dock attribution menu: grep -rli attribution --include='*.d.ts' dist/components/dock → 0 files
+== L2-12 dock safe-area: grep -rl safe-area-inset dist/components/dock → 0 files; whole dist → node_modules/@mkbabb/glass-ui/dist/components/deck/styles/stage.css 
+== L2-1 / L2-3 overlay: grep -o -- '--overlay-max-block:[^;]*' dist/styles/tokens/offsets.css → --overlay-max-block: min(24rem,60dvh)
+== L1-2 condense: grep -rl 'data-condensed' dist → node_modules/@mkbabb/glass-ui/dist/components/card/scroll.css ; demo: grep -rn data-condensed demo → 0 hits; CardHeader shrink prop → 1
+== L2-1 overlay-role clamp: node_modules/@mkbabb/glass-ui/dist/styles/glass/overlay-plate.css; rules naming --reka-popper-available-height →
+  .glass-overlay-plate[data-reveal="menu"]{min-inline-size: var(--overlay-min-width);max-block-size: min( var(--overlay-max-block),var(--reka-popper-available-height,var(--overlay-max-block)) );overflow-y: auto;
+  .glass-overlay-plate[data-reveal="tooltip"]{--radius-ctx: var(--radius-panel);--radius-inset: var(--overlay-pad-hint);padding: var(--overlay-pad-hint);font-size: var(--tooltip-text);line-height: var(--type-leading-captio
+  [data-slot="select-content"]{--glass-veil-tier: var(--glass-veil-overlay);--overlay-viewport-inset: 4px;--overlay-option-radius: calc( var(--radius-card) - var(--overlay-viewport-inset) );background-image: linear-gradien

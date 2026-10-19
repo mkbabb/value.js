@@ -11,8 +11,6 @@ import {
 import type { ColorModel } from "./color-model";
 import { colorToHexString } from "./color-model";
 
-const DIGITS = 2;
-
 export function useSliderGradients(deps: {
     model: ShallowRef<ColorModel>;
     currentColorOpaque: ComputedRef<PickerColor>;

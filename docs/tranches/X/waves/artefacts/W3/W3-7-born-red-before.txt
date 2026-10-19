@@ -1,0 +1,153 @@
+SERVED MODEL: claude-opus-5[1m]
+# X.W3.7 · GF-R1 — BORN-RED transcript — the seven-row transport cluster BEFORE any cure, at HEAD 02238dbb (the E-3 addendum commit). 6 failed / 5 passed, double-run identical.
+# Probe: scratchpad-resident (W3.md §4 grants this unit no test/** path); source embedded in W3-7-transport-cluster-record.md §5.
+# ---
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > inside the window every caller is refused (the half that already holds)
+[AP-17] inside-window admitted = 0 of 10
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > BORN-RED: past the window, exactly ONE of 10 callers is admitted
+[AP-17] first-window-open admitted = 10 of 10
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > FALSIFIER: the NEXT window still opens — the cure admits, it does not wedge
+[AP-17] window1 admitted = 10 of 10 · window2 admitted = 10 of 10
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-31 — markApiReachable defends `misconfigured` > BORN-RED: a reachable mark never clears a designed misconfig
+[AP-31] after markApiReachable → available
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-33 — initApiEnvironment is idempotent in fact, not only in prose > BORN-RED: a second call is a no-op — one latch, ONE console.error
+[AP-33] console.error calls after 3 inits = 3
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-24 — importing the transport module mutates no global state > BORN-RED: importing client.ts leaves the latch `unknown` and the console silent
+[AP-24] after bare import of client.ts → availability=misconfigured · console.error=1
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-30 — the third conjunct's reachability, measured (recorded, not rebuilt) > at the ONLY call site's input shape, legs 1+2 force leg 3 true
+[AP-30] third conjunct is a tautology at the only call site — RECORDED (moot-on-AP-1), detector left pure+total
+
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts (11 tests | 6 failed) 20ms
+   ✓ AP-17 — the cooldown gate admits exactly ONE probe per window > inside the window every caller is refused (the half that already holds) 2ms
+   × AP-17 — the cooldown gate admits exactly ONE probe per window > BORN-RED: past the window, exactly ONE of 10 callers is admitted 3ms
+     → expected 10 to be 1 // Object.is equality
+   × AP-17 — the cooldown gate admits exactly ONE probe per window > FALSIFIER: the NEXT window still opens — the cure admits, it does not wedge 0ms
+     → expected 10 to be 1 // Object.is equality
+   ✓ AP-17 — the cooldown gate admits exactly ONE probe per window > a failed probe re-arms the window (markApiUnreachable, :170) 0ms
+   ✓ AP-17 — the cooldown gate admits exactly ONE probe per window > a successful probe releases the latch entirely 0ms
+   × AP-31 — markApiReachable defends `misconfigured` > BORN-RED: a reachable mark never clears a designed misconfig 1ms
+     → expected 'available' to be 'misconfigured' // Object.is equality
+   ✓ AP-31 — markApiReachable defends `misconfigured` > and still releases a real `unavailable` latch (the falsifier) 0ms
+   × AP-33 — initApiEnvironment is idempotent in fact, not only in prose > BORN-RED: a second call is a no-op — one latch, ONE console.error 2ms
+     → expected "error" to be called 1 times, but got 3 times
+   × AP-24 — importing the transport module mutates no global state > BORN-RED: importing client.ts leaves the latch `unknown` and the console silent 8ms
+     → expected 'misconfigured' to be 'unknown' // Object.is equality
+   × AP-24 — importing the transport module mutates no global state > and `provideApiClient()` IS the explicit seat that inits 3ms
+     → expected 'misconfigured' to be 'unknown' // Object.is equality
+   ✓ AP-30 — the third conjunct's reachability, measured (recorded, not rebuilt) > at the ONLY call site's input shape, legs 1+2 force leg 3 true 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > BORN-RED: past the window, exactly ONE of 10 callers is admitted
+AssertionError: expected 10 to be 1 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 10[39m
+
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts:70:26
+     68|         const admitted = admittedOf(10);
+     69|         console.log(`[AP-17] first-window-open admitted = ${admitted} …
+     70|         expect(admitted).toBe(1);
+       |                          ^
+     71|     });
+     72| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > FALSIFIER: the NEXT window still opens — the cure admits, it does not wedge
+AssertionError: expected 10 to be 1 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 10[39m
+
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts:82:23
+     80|             `[AP-17] window1 admitted = ${first} of 10 · window2 admit…
+     81|         );
+     82|         expect(first).toBe(1);
+       |                       ^
+     83|         expect(second).toBe(1);
+     84|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-31 — markApiReachable defends `misconfigured` > BORN-RED: a reachable mark never clears a designed misconfig
+AssertionError: expected 'available' to be 'misconfigured' // Object.is equality
+
+Expected: [32m"misconfigured"[39m
+Received: [31m"available"[39m
+
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts:110:39
+    108|         markApiReachable();
+    109|         console.log(`[AP-31] after markApiReachable → ${apiAvailabilit…
+    110|         expect(apiAvailability.value).toBe("misconfigured");
+       |                                       ^
+    111|     });
+    112| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-33 — initApiEnvironment is idempotent in fact, not only in prose > BORN-RED: a second call is a no-op — one latch, ONE console.error
+AssertionError: expected "error" to be called 1 times, but got 3 times
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts:137:30
+    135|         );
+    136|         expect(avail.apiAvailability.value).toBe("misconfigured");
+    137|         expect(consoleError).toHaveBeenCalledTimes(1);
+       |                              ^
+    138|     });
+    139| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-24 — importing the transport module mutates no global state > BORN-RED: importing client.ts leaves the latch `unknown` and the console silent
+AssertionError: expected 'misconfigured' to be 'unknown' // Object.is equality
+
+Expected: [32m"unknown"[39m
+Received: [31m"misconfigured"[39m
+
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts:157:45
+    155|             `[AP-24] after bare import of client.ts → availability=${a…
+    156|         );
+    157|         expect(avail.apiAvailability.value).toBe("unknown");
+       |                                             ^
+    158|         expect(consoleError).not.toHaveBeenCalled();
+    159|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-24 — importing the transport module mutates no global state > and `provideApiClient()` IS the explicit seat that inits
+AssertionError: expected 'misconfigured' to be 'unknown' // Object.is equality
+
+Expected: [32m"unknown"[39m
+Received: [31m"misconfigured"[39m
+
+ ❯ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts:173:45
+    171|         // client.ts) must not have inited. Without this line the test…
+    172|         // before the cure, for the very side effect it exists to reti…
+    173|         expect(avail.apiAvailability.value).toBe("unknown");
+       |                                             ^
+    174|         const app = createApp({
+    175|             setup() {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 5 passed (11)
+   Start at  18:10:13
+   Duration  372ms (transform 36ms, setup 0ms, collect 36ms, tests 20ms, environment 111ms, prepare 36ms)
+

@@ -1,0 +1,1542 @@
+SERVED MODEL: claude-opus-5[1m]
+X.P.W3.m — the four re-run gates, the anchor form and its control, the remainder probe, and G-2's own reading, all at this seat's clock (2026-09-19), every one double-run.
+
+════════════════════════ g1-A.txt ════════════════════════
+X.P.W3.a — css-universe (G-1: UNIVERSE-52-TOTAL)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+  index    6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/index.ts — 1310 B, sha256 c09d076ed779fede
+  types    6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/types.ts — 5879 B, sha256 109327ce94fdcc37
+  oracle   docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js — sha256 8b5381305ea26236
+  frozen   docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.d.ts — sha256 c81d095213d112c6
+universe   19 runtime + 33 types = 52
+candidate  ac1 — entry typescript/src/css/build/ac1.js · dts typescript/src/css/build/ac1.d.ts
+
+pin agreement (the frozen declaration vs the pinned src/css/types.ts, one extractor)
+  type names     barrel−published ∅ · published−barrel ∅
+  runtime names  barrel−published ∅ · published−barrel ∅
+  member/literal disagreements 0
+
+corpus (W3.md §5 .a — the six arms, folded as a UNION)
+arm              declared  read   provenance                                                                                      
+───────────────  ────────  ─────  ────────────────────────────────────────────────────────────────────────────────────────────────
+ground-a         210       210    docs/tranches/V/megatranche/prototypes/css-parser/cand-f/totality.test.ts:60-71 — the 21×10 empt
+fuzz-f           4000      4000   docs/tranches/V/megatranche/prototypes/css-parser/cand-f/totality.test.ts:206-240 — mutation fuz
+fuzz-o           30000     30000  experiments/w2/corpus/fuzz-gen.mjs — mulberry32 seed 0x5eedc0de, 30000 rows, replay sha256 39f39
+named            148       148    docs/tranches/V/megatranche/prototypes/css-parser/fixtures/css-color-4-named-colors.json — 148 n
+p1               403       403    harness/equivalence/corpus.json — 403 strings, generated 2026-07-20T15:47:15.254Z               
+r1               172       172    experiments/w2/corpus/r1.json — 172 inputs + 7 declared non-string boundary cases, derived from 
+stylesheet-band  470       470    typescript/test/css-totality/lib/stylesheet-band.mjs — mulberry32 seed 0x3c1b7a5d, 10 shapes × 2
+  arm total 35403 · UNION 27074 · overlap 8329 · declared non-string boundary 7
+  written to typescript/test/css-totality/corpus.json — rows sha256 49be0f9885615d31
+
+assignability  one compile, 33 types × 2 directions
+  program      typescript/test/css-totality/generated/assignability.generated.ts — 16942 B, sha256 8a1b8ab116224e77
+  frozen copy  typescript/test/css-totality/generated/frozen-4.0.0.d.ts — sha256 733fb88e284dfd46
+  candidate    import type * as Candidate from "../../../src/css/build/ac1"
+  tsc exit     0 · diagnostics attributed 0 · unattributed 0
+
+THE 52-ROW MATRIX
+────────────────────────────────────────────────────────────────────────────────────────────────────
+#   export                      kind     arity  family      accept  reject  cells  verdict  missing                                                         
+──  ──────────────────────────  ───────  ─────  ──────────  ──────  ──────  ─────  ───────  ────────────────────────────────────────────────────────────────
+1   parseCssColor               runtime  1      parser      5993    21081   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+2   parseCssScalar              runtime  1      parser      6472    20602   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+3   parseCssValue               runtime  1      parser      9753    17321   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+4   parseCssValues              runtime  1      parser      9753    17321   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+5   parseKeyframeSelector       runtime  1      parser      20      27054   27074  TOTAL                                                                    
+6   parseTimingFunction         runtime  1      parser      357     26717   27074  PARTIAL  FALSE_REJECT_IN_SHAPE ×1 · MIS_ACCEPT ×23                       
+7   serializeCssColor           runtime  1      structured  400     7       407    TOTAL                                                                    
+8   coerceToSyntax              runtime  2      coercer     634     32800   33434  TOTAL                                                                    
+9   parseAnimationRange         runtime  1      parser      41      27033   27074  TOTAL                                                                    
+10  parseAnimationTimeline      runtime  1      parser      4       27070   27074  TOTAL                                                                    
+11  serializeTimelineOptions    runtime  1      structured  200     7       207    TOTAL                                                                    
+12  collectAnimationOptions     runtime  1      structured  400     7       407    TOTAL                                                                    
+13  collectCustomFunctions      runtime  1      structured  400     7       407    TOTAL                                                                    
+14  collectDeclarations         runtime  1      structured  400     7       407    TOTAL                                                                    
+15  collectKeyframes            runtime  1      structured  400     7       407    TOTAL                                                                    
+16  collectPropertyDescriptors  runtime  1      structured  400     7       407    TOTAL                                                                    
+17  collectStyleRules           runtime  1      structured  400     7       407    TOTAL                                                                    
+18  collectTimelineOptions      runtime  1      structured  400     7       407    TOTAL                                                                    
+19  parseStylesheet             runtime  1      parser      2545    24529   27074  PARTIAL  FALSE_REJECT_IN_SHAPE ×185 · DIVERGENT_VALUE ×2 · MIS_ACCEPT ×19
+20  AnimationRangeValue         type     —      type        1       1       2      TOTAL                                                                    
+21  AnimationTimelineValue      type     —      type        1       1       2      TOTAL                                                                    
+22  AnimationTriggerValue       type     —      type        1       1       2      TOTAL                                                                    
+23  CSSAnimationOptions         type     —      type        1       1       2      TOTAL                                                                    
+24  CSSPropertyDescriptor       type     —      type        1       1       2      TOTAL                                                                    
+25  CSSTimelineOptions          type     —      type        1       1       2      TOTAL                                                                    
+26  CollectedRule               type     —      type        1       1       2      TOTAL                                                                    
+27  CssColor                    type     —      type        1       1       2      TOTAL                                                                    
+28  CssColorSpace               type     —      type        1       1       2      TOTAL                                                                    
+29  CssLinearStop               type     —      type        1       1       2      TOTAL                                                                    
+30  CssTimingFunction           type     —      type        1       1       2      TOTAL                                                                    
+31  CustomFunctionDescriptor    type     —      type        1       1       2      TOTAL                                                                    
+32  CustomFunctionParameter     type     —      type        1       1       2      TOTAL                                                                    
+33  CustomFunctionRule          type     —      type        1       1       2      TOTAL                                                                    
+34  Declaration                 type     —      type        1       1       2      TOTAL                                                                    
+35  KeyframeRule                type     —      type        1       1       2      TOTAL                                                                    
+36  KeyframeSelector            type     —      type        1       1       2      TOTAL                                                                    
+37  KeyframesBlock              type     —      type        1       1       2      TOTAL                                                                    
+38  ParseIssue                  type     —      type        1       1       2      TOTAL                                                                    
+39  ParseResult                 type     —      type        1       1       2      TOTAL                                                                    
+40  PropertyRule                type     —      type        1       1       2      TOTAL                                                                    
+41  RangeBoundary               type     —      type        1       1       2      TOTAL                                                                    
+42  RangePhase                  type     —      type        1       1       2      TOTAL                                                                    
+43  ScrollTimelineDescriptor    type     —      type        1       1       2      TOTAL                                                                    
+44  ScrollerKeyword             type     —      type        1       1       2      TOTAL                                                                    
+45  StyleRule                   type     —      type        1       1       2      TOTAL                                                                    
+46  Stylesheet                  type     —      type        1       1       2      TOTAL                                                                    
+47  StylesheetItem              type     —      type        1       1       2      TOTAL                                                                    
+48  TimelineAxis                type     —      type        1       1       2      TOTAL                                                                    
+49  TimelineScopeValue          type     —      type        1       1       2      TOTAL                                                                    
+50  TriggerType                 type     —      type        1       1       2      TOTAL                                                                    
+51  ViewInset                   type     —      type        1       1       2      TOTAL                                                                    
+52  ViewTimelineDescriptor      type     —      type        1       1       2      TOTAL                                                                    
+
+tally  runtime 13 TOTAL / 6 PARTIAL / 0 ABSENT · types 33 / 0 / 0 · ALL 46 of 52 TOTAL
+
+adjudicated conflicts (W3.md §5 .a — each is a `.d` DIVERGENCE-LEDGER row, never a silent pick)
+id     G-6  input                       incumbent                              candidate                              adjudication wants  honoured
+─────  ───  ──────────────────────────  ─────────────────────────────────────  ─────────────────────────────────────  ──────────────────  ────────
+PB-01  a    "rgba(1, 2, 3, 0.5)"        reject css_syntax                      ok {"space":"rgb","channels":[1,2,3],  accept              YES     
+PB-02  b    "hsla(120, 50%, 50%, 0.5)"  reject css_syntax                      ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-03  c    "hsl(120 50 50)"            ok {"space":"hsl","channels":[120,50,  ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-03  c    "hsl(120 50% 50%)"          ok {"space":"hsl","channels":[120,0.5  ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-04  d    "rgb(300 -20 3)"            ok {"space":"rgb","channels":[300,-20  ok {"space":"rgb","channels":[255,0,3  accept              YES     
+PB-05  e    "rgb(1 2 3 / 1.5)"          reject css_syntax                      ok {"space":"rgb","channels":[1,2,3],  accept              YES     
+PB-06  f    "rgb(1,2,3,)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-07  g    "rgb(1 2 3 / )"             ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-08  h    "rgb(1, 2 3)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-09  i    "hsl(120%, 50%, 50%)"       ok {"space":"hsl","channels":[432,0.5  reject css_syntax                      reject              YES     
+PB-10  j    "lch(50% 50% 50%)"          ok {"space":"lch","channels":[50,75,1  reject css_syntax                      reject              YES     
+PB-11  k    "hwb(120, 30%, 40%)"        ok {"space":"hwb","channels":[120,0.3  reject css_syntax                      reject              YES     
+PB-12  l    "rgb(1. 2 3)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-13  —    "currentcolor"              reject color_context_required          reject color_context_required          reject              YES     
+ADJ-1  —    "hsl(480 50% 50%)"          ok {"space":"hsl","channels":[480,0.5  ok {"space":"hsl","channels":[480,0.5  accept              YES     
+ADJ-1  —    "hsl(-120 50% 50%)"         ok {"space":"hsl","channels":[-120,0.  ok {"space":"hsl","channels":[-120,0.  accept              YES     
+ADJ-2  —    "rgb(50%20%30%)"            reject css_syntax                      ok {"space":"rgb","channels":[127.5,5  accept              YES     
+ADJ-2  —    "rgb(1.5.5 3)"              reject css_syntax                      ok {"space":"rgb","channels":[1.5,0.5  accept              YES     
+ADJ-2  —    "hsl(120 50%50%)"           reject css_syntax                      ok {"space":"hsl","channels":[120,0.5  accept              YES     
+ADJ-3  —    "rgb(1e400 0 0)"            reject css_syntax                      ok {"space":"rgb","channels":[255,0,0  accept              YES     
+ADJ-3  —    "lab(50 1e400 0)"           reject css_syntax                      reject css_syntax                      reject              YES     
+ADJ-3  —    "hsl(1e400 0% 50%)"         reject css_syntax                      reject css_syntax                      reject              YES     
+
+adjudication CLASS predicates (E-h2 — one per ruling id; census ≤ the ruling's measured population)
+ruling    population (pinned)  population (measured)  census — widest entry  ≤ pin  governed, by entry                                                            
+────────  ───────────────────  ─────────────────────  ─────────────────────  ─────  ──────────────────────────────────────────────────────────────────────────────
+PB-08     2220                 2220                   2220                   YES    parseCssColor 2220 · parseCssScalar 2220 · parseCssValue 2220 · parseCssValues
+PB-11     0                    0                      0                      YES                                                                                  
+SP-1      6                    6                      6                      YES    parseCssColor 6 · parseCssScalar 6 · parseCssValue 6 · parseCssValues 6 · coer
+PB-09/10  138                  138                    124                    YES    parseCssColor 124 · parseCssScalar 124 · parseCssValue 124 · parseCssValues 12
+PB-12     5391                 5391                   5391                   YES    parseKeyframeSelector 5391 · parseTimingFunction 5391 · parseCssColor 4902 · p
+ADJ-2     990                  990                    48                     YES    parseCssColor 48 · parseCssScalar 48 · parseCssValue 48 · parseCssValues 48 · 
+ADJ-3     630                  630                    227                    YES    parseCssColor 227 · parseCssScalar 227 · parseCssValue 227 · parseCssValues 22
+PB-04/05  7939                 7939                   4207                   YES    parseCssValue 4207 · parseCssValues 4207 · parseCssColor 4203 · parseCssScalar
+PB-01/02  1110                 1110                   429                    YES    parseCssColor 429 · parseCssScalar 429 · parseCssValue 429 · parseCssValues 42
+PB-03     2991                 2991                   565                    YES    parseCssColor 565 · parseCssScalar 565 · parseCssValue 565 · parseCssValues 56
+  10 class predicates · 13217 cells governed at the widest entry · 0 census OVER its pinned population · 0 population drifted from its pin
+
+the honest remainder, BY ID (W3.md §6 G-1 — "52/52 or the honest remainder, by id")
+export               misses  remainder, by id                                                                                              
+───────────────────  ──────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+parseCssColor        10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssScalar       10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssValue        10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssValues       10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseTimingFunction  24      23× GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here') · 1× F-k4 the incumbent accepts an EMPTY argu
+parseStylesheet      206     172× BND-1 non-string boundary · 11× SH-1 blocks()'s signed paren counter (escalated by .j) · 7× F-k1 the incu
+  16 adjudications · 22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured by the candidate
+
+emitted  /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/u52-A.json — 146660 B, sha256 9d4f965d4eda9cea828f7a9b6566bd43542e1cad58dfc9763630208dfe8bc6aa
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+RED — 6 of 52 rows are not TOTAL (6 PARTIAL, 0 ABSENT).
+
+════════════════════════ g1-B.txt ════════════════════════
+X.P.W3.a — css-universe (G-1: UNIVERSE-52-TOTAL)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+  index    6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/index.ts — 1310 B, sha256 c09d076ed779fede
+  types    6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/types.ts — 5879 B, sha256 109327ce94fdcc37
+  oracle   docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js — sha256 8b5381305ea26236
+  frozen   docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.d.ts — sha256 c81d095213d112c6
+universe   19 runtime + 33 types = 52
+candidate  ac1 — entry typescript/src/css/build/ac1.js · dts typescript/src/css/build/ac1.d.ts
+
+pin agreement (the frozen declaration vs the pinned src/css/types.ts, one extractor)
+  type names     barrel−published ∅ · published−barrel ∅
+  runtime names  barrel−published ∅ · published−barrel ∅
+  member/literal disagreements 0
+
+corpus (W3.md §5 .a — the six arms, folded as a UNION)
+arm              declared  read   provenance                                                                                      
+───────────────  ────────  ─────  ────────────────────────────────────────────────────────────────────────────────────────────────
+ground-a         210       210    docs/tranches/V/megatranche/prototypes/css-parser/cand-f/totality.test.ts:60-71 — the 21×10 empt
+fuzz-f           4000      4000   docs/tranches/V/megatranche/prototypes/css-parser/cand-f/totality.test.ts:206-240 — mutation fuz
+fuzz-o           30000     30000  experiments/w2/corpus/fuzz-gen.mjs — mulberry32 seed 0x5eedc0de, 30000 rows, replay sha256 39f39
+named            148       148    docs/tranches/V/megatranche/prototypes/css-parser/fixtures/css-color-4-named-colors.json — 148 n
+p1               403       403    harness/equivalence/corpus.json — 403 strings, generated 2026-07-20T15:47:15.254Z               
+r1               172       172    experiments/w2/corpus/r1.json — 172 inputs + 7 declared non-string boundary cases, derived from 
+stylesheet-band  470       470    typescript/test/css-totality/lib/stylesheet-band.mjs — mulberry32 seed 0x3c1b7a5d, 10 shapes × 2
+  arm total 35403 · UNION 27074 · overlap 8329 · declared non-string boundary 7
+  written to typescript/test/css-totality/corpus.json — rows sha256 49be0f9885615d31
+
+assignability  one compile, 33 types × 2 directions
+  program      typescript/test/css-totality/generated/assignability.generated.ts — 16942 B, sha256 8a1b8ab116224e77
+  frozen copy  typescript/test/css-totality/generated/frozen-4.0.0.d.ts — sha256 733fb88e284dfd46
+  candidate    import type * as Candidate from "../../../src/css/build/ac1"
+  tsc exit     0 · diagnostics attributed 0 · unattributed 0
+
+THE 52-ROW MATRIX
+────────────────────────────────────────────────────────────────────────────────────────────────────
+#   export                      kind     arity  family      accept  reject  cells  verdict  missing                                                         
+──  ──────────────────────────  ───────  ─────  ──────────  ──────  ──────  ─────  ───────  ────────────────────────────────────────────────────────────────
+1   parseCssColor               runtime  1      parser      5993    21081   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+2   parseCssScalar              runtime  1      parser      6472    20602   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+3   parseCssValue               runtime  1      parser      9753    17321   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+4   parseCssValues              runtime  1      parser      9753    17321   27074  PARTIAL  MIS_ACCEPT ×10                                                  
+5   parseKeyframeSelector       runtime  1      parser      20      27054   27074  TOTAL                                                                    
+6   parseTimingFunction         runtime  1      parser      357     26717   27074  PARTIAL  FALSE_REJECT_IN_SHAPE ×1 · MIS_ACCEPT ×23                       
+7   serializeCssColor           runtime  1      structured  400     7       407    TOTAL                                                                    
+8   coerceToSyntax              runtime  2      coercer     634     32800   33434  TOTAL                                                                    
+9   parseAnimationRange         runtime  1      parser      41      27033   27074  TOTAL                                                                    
+10  parseAnimationTimeline      runtime  1      parser      4       27070   27074  TOTAL                                                                    
+11  serializeTimelineOptions    runtime  1      structured  200     7       207    TOTAL                                                                    
+12  collectAnimationOptions     runtime  1      structured  400     7       407    TOTAL                                                                    
+13  collectCustomFunctions      runtime  1      structured  400     7       407    TOTAL                                                                    
+14  collectDeclarations         runtime  1      structured  400     7       407    TOTAL                                                                    
+15  collectKeyframes            runtime  1      structured  400     7       407    TOTAL                                                                    
+16  collectPropertyDescriptors  runtime  1      structured  400     7       407    TOTAL                                                                    
+17  collectStyleRules           runtime  1      structured  400     7       407    TOTAL                                                                    
+18  collectTimelineOptions      runtime  1      structured  400     7       407    TOTAL                                                                    
+19  parseStylesheet             runtime  1      parser      2545    24529   27074  PARTIAL  FALSE_REJECT_IN_SHAPE ×185 · DIVERGENT_VALUE ×2 · MIS_ACCEPT ×19
+20  AnimationRangeValue         type     —      type        1       1       2      TOTAL                                                                    
+21  AnimationTimelineValue      type     —      type        1       1       2      TOTAL                                                                    
+22  AnimationTriggerValue       type     —      type        1       1       2      TOTAL                                                                    
+23  CSSAnimationOptions         type     —      type        1       1       2      TOTAL                                                                    
+24  CSSPropertyDescriptor       type     —      type        1       1       2      TOTAL                                                                    
+25  CSSTimelineOptions          type     —      type        1       1       2      TOTAL                                                                    
+26  CollectedRule               type     —      type        1       1       2      TOTAL                                                                    
+27  CssColor                    type     —      type        1       1       2      TOTAL                                                                    
+28  CssColorSpace               type     —      type        1       1       2      TOTAL                                                                    
+29  CssLinearStop               type     —      type        1       1       2      TOTAL                                                                    
+30  CssTimingFunction           type     —      type        1       1       2      TOTAL                                                                    
+31  CustomFunctionDescriptor    type     —      type        1       1       2      TOTAL                                                                    
+32  CustomFunctionParameter     type     —      type        1       1       2      TOTAL                                                                    
+33  CustomFunctionRule          type     —      type        1       1       2      TOTAL                                                                    
+34  Declaration                 type     —      type        1       1       2      TOTAL                                                                    
+35  KeyframeRule                type     —      type        1       1       2      TOTAL                                                                    
+36  KeyframeSelector            type     —      type        1       1       2      TOTAL                                                                    
+37  KeyframesBlock              type     —      type        1       1       2      TOTAL                                                                    
+38  ParseIssue                  type     —      type        1       1       2      TOTAL                                                                    
+39  ParseResult                 type     —      type        1       1       2      TOTAL                                                                    
+40  PropertyRule                type     —      type        1       1       2      TOTAL                                                                    
+41  RangeBoundary               type     —      type        1       1       2      TOTAL                                                                    
+42  RangePhase                  type     —      type        1       1       2      TOTAL                                                                    
+43  ScrollTimelineDescriptor    type     —      type        1       1       2      TOTAL                                                                    
+44  ScrollerKeyword             type     —      type        1       1       2      TOTAL                                                                    
+45  StyleRule                   type     —      type        1       1       2      TOTAL                                                                    
+46  Stylesheet                  type     —      type        1       1       2      TOTAL                                                                    
+47  StylesheetItem              type     —      type        1       1       2      TOTAL                                                                    
+48  TimelineAxis                type     —      type        1       1       2      TOTAL                                                                    
+49  TimelineScopeValue          type     —      type        1       1       2      TOTAL                                                                    
+50  TriggerType                 type     —      type        1       1       2      TOTAL                                                                    
+51  ViewInset                   type     —      type        1       1       2      TOTAL                                                                    
+52  ViewTimelineDescriptor      type     —      type        1       1       2      TOTAL                                                                    
+
+tally  runtime 13 TOTAL / 6 PARTIAL / 0 ABSENT · types 33 / 0 / 0 · ALL 46 of 52 TOTAL
+
+adjudicated conflicts (W3.md §5 .a — each is a `.d` DIVERGENCE-LEDGER row, never a silent pick)
+id     G-6  input                       incumbent                              candidate                              adjudication wants  honoured
+─────  ───  ──────────────────────────  ─────────────────────────────────────  ─────────────────────────────────────  ──────────────────  ────────
+PB-01  a    "rgba(1, 2, 3, 0.5)"        reject css_syntax                      ok {"space":"rgb","channels":[1,2,3],  accept              YES     
+PB-02  b    "hsla(120, 50%, 50%, 0.5)"  reject css_syntax                      ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-03  c    "hsl(120 50 50)"            ok {"space":"hsl","channels":[120,50,  ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-03  c    "hsl(120 50% 50%)"          ok {"space":"hsl","channels":[120,0.5  ok {"space":"hsl","channels":[120,0.5  accept              YES     
+PB-04  d    "rgb(300 -20 3)"            ok {"space":"rgb","channels":[300,-20  ok {"space":"rgb","channels":[255,0,3  accept              YES     
+PB-05  e    "rgb(1 2 3 / 1.5)"          reject css_syntax                      ok {"space":"rgb","channels":[1,2,3],  accept              YES     
+PB-06  f    "rgb(1,2,3,)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-07  g    "rgb(1 2 3 / )"             ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-08  h    "rgb(1, 2 3)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-09  i    "hsl(120%, 50%, 50%)"       ok {"space":"hsl","channels":[432,0.5  reject css_syntax                      reject              YES     
+PB-10  j    "lch(50% 50% 50%)"          ok {"space":"lch","channels":[50,75,1  reject css_syntax                      reject              YES     
+PB-11  k    "hwb(120, 30%, 40%)"        ok {"space":"hwb","channels":[120,0.3  reject css_syntax                      reject              YES     
+PB-12  l    "rgb(1. 2 3)"               ok {"space":"rgb","channels":[1,2,3],  reject css_syntax                      reject              YES     
+PB-13  —    "currentcolor"              reject color_context_required          reject color_context_required          reject              YES     
+ADJ-1  —    "hsl(480 50% 50%)"          ok {"space":"hsl","channels":[480,0.5  ok {"space":"hsl","channels":[480,0.5  accept              YES     
+ADJ-1  —    "hsl(-120 50% 50%)"         ok {"space":"hsl","channels":[-120,0.  ok {"space":"hsl","channels":[-120,0.  accept              YES     
+ADJ-2  —    "rgb(50%20%30%)"            reject css_syntax                      ok {"space":"rgb","channels":[127.5,5  accept              YES     
+ADJ-2  —    "rgb(1.5.5 3)"              reject css_syntax                      ok {"space":"rgb","channels":[1.5,0.5  accept              YES     
+ADJ-2  —    "hsl(120 50%50%)"           reject css_syntax                      ok {"space":"hsl","channels":[120,0.5  accept              YES     
+ADJ-3  —    "rgb(1e400 0 0)"            reject css_syntax                      ok {"space":"rgb","channels":[255,0,0  accept              YES     
+ADJ-3  —    "lab(50 1e400 0)"           reject css_syntax                      reject css_syntax                      reject              YES     
+ADJ-3  —    "hsl(1e400 0% 50%)"         reject css_syntax                      reject css_syntax                      reject              YES     
+
+adjudication CLASS predicates (E-h2 — one per ruling id; census ≤ the ruling's measured population)
+ruling    population (pinned)  population (measured)  census — widest entry  ≤ pin  governed, by entry                                                            
+────────  ───────────────────  ─────────────────────  ─────────────────────  ─────  ──────────────────────────────────────────────────────────────────────────────
+PB-08     2220                 2220                   2220                   YES    parseCssColor 2220 · parseCssScalar 2220 · parseCssValue 2220 · parseCssValues
+PB-11     0                    0                      0                      YES                                                                                  
+SP-1      6                    6                      6                      YES    parseCssColor 6 · parseCssScalar 6 · parseCssValue 6 · parseCssValues 6 · coer
+PB-09/10  138                  138                    124                    YES    parseCssColor 124 · parseCssScalar 124 · parseCssValue 124 · parseCssValues 12
+PB-12     5391                 5391                   5391                   YES    parseKeyframeSelector 5391 · parseTimingFunction 5391 · parseCssColor 4902 · p
+ADJ-2     990                  990                    48                     YES    parseCssColor 48 · parseCssScalar 48 · parseCssValue 48 · parseCssValues 48 · 
+ADJ-3     630                  630                    227                    YES    parseCssColor 227 · parseCssScalar 227 · parseCssValue 227 · parseCssValues 22
+PB-04/05  7939                 7939                   4207                   YES    parseCssValue 4207 · parseCssValues 4207 · parseCssColor 4203 · parseCssScalar
+PB-01/02  1110                 1110                   429                    YES    parseCssColor 429 · parseCssScalar 429 · parseCssValue 429 · parseCssValues 42
+PB-03     2991                 2991                   565                    YES    parseCssColor 565 · parseCssScalar 565 · parseCssValue 565 · parseCssValues 56
+  10 class predicates · 13217 cells governed at the widest entry · 0 census OVER its pinned population · 0 population drifted from its pin
+
+the honest remainder, BY ID (W3.md §6 G-1 — "52/52 or the honest remainder, by id")
+export               misses  remainder, by id                                                                                              
+───────────────────  ──────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+parseCssColor        10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssScalar       10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssValue        10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseCssValues       10      9× F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> arguments, or
+parseTimingFunction  24      23× GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here') · 1× F-k4 the incumbent accepts an EMPTY argu
+parseStylesheet      206     172× BND-1 non-string boundary · 11× SH-1 blocks()'s signed paren counter (escalated by .j) · 7× F-k1 the incu
+  16 adjudications · 22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured by the candidate
+
+emitted  /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/u52-B.json — 146660 B, sha256 9d4f965d4eda9cea828f7a9b6566bd43542e1cad58dfc9763630208dfe8bc6aa
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+RED — 6 of 52 rows are not TOTAL (6 PARTIAL, 0 ABSENT).
+
+════════════════════════ g4-spec-A.txt ════════════════════════
+X.P.W3.b — CSS RECOVERY CLOSURE (G-4 · G-8)
+
+corpus          typescript/test/css-totality/corpus.json — 27074 inputs, shape {rows:[{src}]} · F-c3 {id,src} rows unwrapped 172
+frozen union    c654824e:src/css/types.ts
+reachable set   34 modules from 2 public entries (3 authored) · bare specifiers [node:module, node:path, node:url, tsx/esm/api]
+executed        812412 calls · 719208 rejections · 724972 issues, over 2 lowerings × 3 entries
+
+CTRL  a 23rd operation halts the si fires  
+CTRL  a missing operation halts the fires  
+CTRL  a ninth code halts the frozen fires  
+CTRL  a missing code halts the froz fires  
+CTRL  an unknown label has no named fires  
+CTRL  the silence instrument sees a fires  
+
+C-1   ⊆ built graph                 GREEN  1164 code sites · declared [animation_option_invalid color_context_required css_syntax keyframe_selector_invalid timeline_option_invalid trailing_input] · outside frozen 0 · intrinsics [css_syntax trailing_input] verified at 19 lowering sites, undeclared 0
+C-2   ⊆ executed corpus             GREEN  emitted [animation_option_invalid color_context_required css_syntax keyframe_selector_invalid syntax_descriptor_invalid syntax_mismatch timeline_option_invalid trailing_input] · outside frozen 0
+C-3   ⊇ executed corpus             GREEN  frozen \ emitted = 0
+C-4   no fallback arm               RED    authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 719208 rejections
+C-5   tuple law                     GREEN  ok:false with an empty tuple 0 · ok:true carrying diagnostics 0
+C-6   span law                      GREEN  spans outside [0,len] or with a mismatched actual 0 · empty expected 0
+C-7   G-8 expected[0] named         GREEN  724972 issues · unnamed first expectations 0 · label surface 126 rows
+C-8   G-8 unarmed                   GREEN  isDiagnosticsEnabled() before=false after=false
+C-9   G-8 silence                   GREEN  executed writes 0 · authored call sites 0 · inherited 1 (unguarded 0) · references 3 · strict letter: 1 call site(s) on the reachable set
+C-10  22-operator closure           GREEN  signature 22 · destructured 22 · both differences ∅
+
+fallback arms, every site with its window (the inspection's own evidence):
+  inherited typescript/src/css/lowering-js/index.mjs:84
+      82: const actual = source.slice(f);
+      83: sg.D.push({
+      84: code: sg.far.code === null ? "css_syntax" : sg.far.code,
+  inherited typescript/src/css/lowering-wasm/index.mjs:146
+      144: (t) => t.gget(G.farf).set(f));
+      145: b.gget(G.farcode).i32(0).x("i32.lt_s").if_(I32,
+      146: (t) => t.i32(CODES.indexOf("css_syntax")),
+
+console.* CALL sites in the reachable set:
+  inherited typescript/src/parse/parser.ts:67  console.error(  guard: isDiagnosticsEnabled()
+
+union authentication  c654824e:src/css/types.ts → 8 codes, both differences ∅
+branch census         default: 5 (authored 0) · else 30 (authored 0)
+
+RED — 9 of 10 legs green; negative controls all fire.
+
+════════════════════════ g4-spec-B.txt ════════════════════════
+X.P.W3.b — CSS RECOVERY CLOSURE (G-4 · G-8)
+
+corpus          typescript/test/css-totality/corpus.json — 27074 inputs, shape {rows:[{src}]} · F-c3 {id,src} rows unwrapped 172
+frozen union    c654824e:src/css/types.ts
+reachable set   34 modules from 2 public entries (3 authored) · bare specifiers [node:module, node:path, node:url, tsx/esm/api]
+executed        812412 calls · 719208 rejections · 724972 issues, over 2 lowerings × 3 entries
+
+CTRL  a 23rd operation halts the si fires  
+CTRL  a missing operation halts the fires  
+CTRL  a ninth code halts the frozen fires  
+CTRL  a missing code halts the froz fires  
+CTRL  an unknown label has no named fires  
+CTRL  the silence instrument sees a fires  
+
+C-1   ⊆ built graph                 GREEN  1164 code sites · declared [animation_option_invalid color_context_required css_syntax keyframe_selector_invalid timeline_option_invalid trailing_input] · outside frozen 0 · intrinsics [css_syntax trailing_input] verified at 19 lowering sites, undeclared 0
+C-2   ⊆ executed corpus             GREEN  emitted [animation_option_invalid color_context_required css_syntax keyframe_selector_invalid syntax_descriptor_invalid syntax_mismatch timeline_option_invalid trailing_input] · outside frozen 0
+C-3   ⊇ executed corpus             GREEN  frozen \ emitted = 0
+C-4   no fallback arm               RED    authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 719208 rejections
+C-5   tuple law                     GREEN  ok:false with an empty tuple 0 · ok:true carrying diagnostics 0
+C-6   span law                      GREEN  spans outside [0,len] or with a mismatched actual 0 · empty expected 0
+C-7   G-8 expected[0] named         GREEN  724972 issues · unnamed first expectations 0 · label surface 126 rows
+C-8   G-8 unarmed                   GREEN  isDiagnosticsEnabled() before=false after=false
+C-9   G-8 silence                   GREEN  executed writes 0 · authored call sites 0 · inherited 1 (unguarded 0) · references 3 · strict letter: 1 call site(s) on the reachable set
+C-10  22-operator closure           GREEN  signature 22 · destructured 22 · both differences ∅
+
+fallback arms, every site with its window (the inspection's own evidence):
+  inherited typescript/src/css/lowering-js/index.mjs:84
+      82: const actual = source.slice(f);
+      83: sg.D.push({
+      84: code: sg.far.code === null ? "css_syntax" : sg.far.code,
+  inherited typescript/src/css/lowering-wasm/index.mjs:146
+      144: (t) => t.gget(G.farf).set(f));
+      145: b.gget(G.farcode).i32(0).x("i32.lt_s").if_(I32,
+      146: (t) => t.i32(CODES.indexOf("css_syntax")),
+
+console.* CALL sites in the reachable set:
+  inherited typescript/src/parse/parser.ts:67  console.error(  guard: isDiagnosticsEnabled()
+
+union authentication  c654824e:src/css/types.ts → 8 codes, both differences ∅
+branch census         default: 5 (authored 0) · else 30 (authored 0)
+
+RED — 9 of 10 legs green; negative controls all fire.
+
+════════════════════════ g7-A.txt ════════════════════════
+(node:92179) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/mkbabb/Programming/parse-that-css-totality-p2/harness/equivalence/taxonomy.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/mkbabb/Programming/parse-that-css-totality-p2/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+X.P.W3.d — css-equivalence, FULL SURFACE (G-7)
+────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+oracle     value.js-4.0.0.tgz — 37290 B · sha256 7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae
+           sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==
+           cross-check vs the unpacked cand-o vendor tree: AGREE (css.js + css.d.ts byte-identical)
+taxonomy   UNMOVED · sha256 554c2993cebd3ed3 · classes A DIVERGENT_VALUE / B MIS_ACCEPT / C FALSE_REJECT_IN_SHAPE
+corpus     27074 rows → 27021 distinct · run 27021 · F-c3 unwrapped 172 · replay pin AGREES
+shape      color heads [color, hsl, hwb, lab, lch, oklab, oklch, rgb] · timing heads [cubic-bezier, linear, steps]
+universe   19 runtime + 33 types = 52
+
+  parseCssColor               runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        2462   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssScalar              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        2462   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssValue               runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        3249   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseCssValues              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        3249   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseKeyframeSelector       runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseTimingFunction         runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 24 (spec-undecided 24) · lowerings AGREE
+                                MIS_ACCEPT                   23   e.g. "linear(174.89818022586405 7e422%, 0e356 1e-315%
+                                FALSE_REJECT_IN_SHAPE         1   e.g. "steps(1e43,, start)"
+                                DECLARED_DIVERGENCE         146   e.g. "steps(7., jump-start)"
+  serializeCssColor           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  coerceToSyntax              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+                                DECLARED_DIVERGENCE         193   e.g. "hsl(120, 500, 50%) @ <color>"
+                                FIXTURE_R1                  120   e.g. "rgb() @ <angle>"
+  parseAnimationRange         runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseAnimationTimeline      runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  serializeTimelineOptions    runtime  COMPARED     200 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectAnimationOptions     runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectCustomFunctions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectDeclarations         runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectKeyframes            runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectPropertyDescriptors  runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectStyleRules           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectTimelineOptions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseStylesheet             runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 34 (spec-undecided 32) · lowerings AGREE
+                                DIVERGENT_VALUE               2   e.g. "  @property --ratio { syntax: \"<number>\"; inh
+                                MIS_ACCEPT                   19   e.g. ".c ){ color: #28cA }"
+                                FALSE_REJECT_IN_SHAPE        13   e.g. "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }
+                                DECLARED_DIVERGENCE         734   e.g. ".c { color: var(--a) } a { background-color: ok
+  AnimationRangeValue         type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  AnimationTimelineValue      type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  AnimationTriggerValue       type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSAnimationOptions         type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSPropertyDescriptor       type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSTimelineOptions          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CollectedRule               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssColor                    type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  CssColorSpace               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssLinearStop               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssTimingFunction           type     COMPARED     re-exported from the pinned declaration · 9 members · 9 literals
+  CustomFunctionDescriptor    type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CustomFunctionParameter     type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CustomFunctionRule          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  Declaration                 type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  KeyframeRule                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  KeyframeSelector            type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  KeyframesBlock              type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ParseIssue                  type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ParseResult                 type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  PropertyRule                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  RangeBoundary               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  RangePhase                  type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ScrollTimelineDescriptor    type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ScrollerKeyword             type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  StyleRule                   type     COMPARED     re-exported from the pinned declaration · 4 members · 1 literals
+  Stylesheet                  type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  StylesheetItem              type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TimelineAxis                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TimelineScopeValue          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TriggerType                 type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ViewInset                   type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ViewTimelineDescriptor      type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+
+────────────────────────────────────────────────────────────────────────────────────────────────
+rows       52 · COMPARED 24 · NO-PEER 28
+ledger     38 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9
+           empty consumer-direction fields: 0
+           GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  98   (of which spec-undecided 96)
+
+RED — the equivalence floor is NOT held at full surface. 98 mirror-defects over 24 compared rows.
+
+════════════════════════ g7-B.txt ════════════════════════
+(node:92448) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/mkbabb/Programming/parse-that-css-totality-p2/harness/equivalence/taxonomy.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/mkbabb/Programming/parse-that-css-totality-p2/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+X.P.W3.d — css-equivalence, FULL SURFACE (G-7)
+────────────────────────────────────────────────────────────────────────────────────────────────
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+oracle     value.js-4.0.0.tgz — 37290 B · sha256 7f80658ca4e16e99ccbb41ad6c9d8c08b2e5f86a7c951d2a833c97f89fb303ae
+           sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==
+           cross-check vs the unpacked cand-o vendor tree: AGREE (css.js + css.d.ts byte-identical)
+taxonomy   UNMOVED · sha256 554c2993cebd3ed3 · classes A DIVERGENT_VALUE / B MIS_ACCEPT / C FALSE_REJECT_IN_SHAPE
+corpus     27074 rows → 27021 distinct · run 27021 · F-c3 unwrapped 172 · replay pin AGREES
+shape      color heads [color, hsl, hwb, lab, lch, oklab, oklch, rgb] · timing heads [cubic-bezier, linear, steps]
+universe   19 runtime + 33 types = 52
+
+  parseCssColor               runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        2462   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssScalar              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        2462   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  211   e.g. "rgb()"
+  parseCssValue               runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        3249   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseCssValues              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 10 (spec-undecided 10) · lowerings AGREE
+                                MIS_ACCEPT                   10   e.g. "rgb(none, 6e167, 27%, 6e316)"
+                                DECLARED_DIVERGENCE        3249   e.g. "oklch(,0% 0.15 50deg)"
+                                FIXTURE_R1                  120   e.g. "rgb()"
+  parseKeyframeSelector       runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseTimingFunction         runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 24 (spec-undecided 24) · lowerings AGREE
+                                MIS_ACCEPT                   23   e.g. "linear(174.89818022586405 7e422%, 0e356 1e-315%
+                                FALSE_REJECT_IN_SHAPE         1   e.g. "steps(1e43,, start)"
+                                DECLARED_DIVERGENCE         146   e.g. "steps(7., jump-start)"
+  serializeCssColor           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  coerceToSyntax              runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+                                DECLARED_DIVERGENCE         193   e.g. "hsl(120, 500, 50%) @ <color>"
+                                FIXTURE_R1                  120   e.g. "rgb() @ <angle>"
+  parseAnimationRange         runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseAnimationTimeline      runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  serializeTimelineOptions    runtime  COMPARED     200 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectAnimationOptions     runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectCustomFunctions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectDeclarations         runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectKeyframes            runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectPropertyDescriptors  runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectStyleRules           runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  collectTimelineOptions      runtime  COMPARED     400 cells × 2 lowerings · mirror-defects 0 (spec-undecided 0) · lowerings AGREE
+  parseStylesheet             runtime  COMPARED     27021 cells × 2 lowerings · mirror-defects 34 (spec-undecided 32) · lowerings AGREE
+                                DIVERGENT_VALUE               2   e.g. "  @property --ratio { syntax: \"<number>\"; inh
+                                MIS_ACCEPT                   19   e.g. ".c ){ color: #28cA }"
+                                FALSE_REJECT_IN_SHAPE        13   e.g. "\t { border-color: hsl(5.deg 4e-169 5. / 10%) }
+                                DECLARED_DIVERGENCE         734   e.g. ".c { color: var(--a) } a { background-color: ok
+  AnimationRangeValue         type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  AnimationTimelineValue      type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  AnimationTriggerValue       type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSAnimationOptions         type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSPropertyDescriptor       type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CSSTimelineOptions          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CollectedRule               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssColor                    type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  CssColorSpace               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssLinearStop               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CssTimingFunction           type     COMPARED     re-exported from the pinned declaration · 9 members · 9 literals
+  CustomFunctionDescriptor    type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CustomFunctionParameter     type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  CustomFunctionRule          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  Declaration                 type     COMPARED     re-exported from the pinned declaration · 3 members · 0 literals
+  KeyframeRule                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  KeyframeSelector            type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  KeyframesBlock              type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ParseIssue                  type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ParseResult                 type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  PropertyRule                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  RangeBoundary               type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  RangePhase                  type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ScrollTimelineDescriptor    type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ScrollerKeyword             type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  StyleRule                   type     COMPARED     re-exported from the pinned declaration · 4 members · 1 literals
+  Stylesheet                  type     COMPARED     re-exported from the pinned declaration · 0 members · 0 literals
+  StylesheetItem              type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TimelineAxis                type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TimelineScopeValue          type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  TriggerType                 type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ViewInset                   type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+  ViewTimelineDescriptor      type     NO-PEER      CN-3  not declared by the candidate's `.d.ts` — declared coverage narrowing (ledger CN-3)
+
+────────────────────────────────────────────────────────────────────────────────────────────────
+rows       52 · COMPARED 24 · NO-PEER 28
+ledger     38 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · CAPACITY 9
+           empty consumer-direction fields: 0
+           GATE-VERDICT anchors present: 5/5
+MIRROR-DEFECTS  98   (of which spec-undecided 96)
+
+RED — the equivalence floor is NOT held at full surface. 98 mirror-defects over 24 compared rows.
+
+════════════════════════ g9-A.txt ════════════════════════
+
+ RUN  v3.2.7 /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript
+
+ ❯ test/css-recovery/boundary/depth.test.ts (15 tests | 4 failed) 9ms
+   ✓ the bound is a declared value the mechanism actually carries > js: Θ.depthBound, the lowering's own theta, and the label all read 64 1ms
+   ✓ the bound is a declared value the mechanism actually carries > wasm: Θ.depthBound, the lowering's own theta, and the label all read 64 0ms
+   ✓ the bound is a declared value the mechanism actually carries > NEGATIVE CONTROL — a lowering whose Θ disagrees with the declaration HALTS 0ms
+   ✓ the bound is a declared value the mechanism actually carries > the witness generator produces exactly the nesting it claims 0ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > js: depth 64 (AT the bound) is an ordinary rejection, not a depth rejection 1ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > js: depth 65 (ONE PAST the bound) is a typed depth rejection 0ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > wasm: depth 64 (AT the bound) is an ordinary rejection, not a depth rejection 1ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > wasm: depth 65 (ONE PAST the bound) is a typed depth rejection 0ms
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7761 returns ok:false with the depth code, never a RangeError 3ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7762 returns ok:false with the depth code, never a RangeError 0ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7761 returns ok:false with the depth code, never a RangeError 0ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7762 returns ok:false with the depth code, never a RangeError 0ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   ✓ PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: two orders of magnitude past PT-04's cliff is still a typed rejection 0ms
+   ✓ the bound is parametric, not a magic number > js: a caller-declared Θ of 8 moves the cliff to 8/9, in the same shape 0ms
+   ✓ the bound is parametric, not a magic number > wasm: a caller-declared Θ of 8 moves the cliff to 8/9, in the same shape 0ms
+ ❯ test/css-recovery/boundary/latch.test.ts (7 tests | 2 failed) 196ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > exactly ONE `memoize(` / `mergeMemos(` site under src/css: the declared instrument 6ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > the PUBLIC ENTRY module names no part of the arming surface, so no entry can reach it 1ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > parsing does not arm the instrument's latch — read before anything in this file arms it 185ms
+   ✓ the arm-state, within one process > L-1 READABLE — the arm-state can be observed, and reads false before anything arms it 0ms
+   ✓ the arm-state, within one process > L-2 ARMS — constructing a memoizer sets it, so the reader is not stuck on one value 0ms
+   × the arm-state, within one process > L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store 3ms
+     → BORN-RED (O-15 PT-03, reproduced at typescript/src/parse/packrat.ts:273/297): resetPackrat() clears MEMO/HEADS/GROWING and returns early while PACKRAT_ARMED stays true — the latch is one-way. The cure is a write in typescript/src/parse/packrat.ts, which is in no row of W3.md §4 and which X.P.W3.0's dated §4 addendum §A-3 declines to admit; a write there is a §3a File-bound expansion, and the library's own comment at :147-152 makes the naive one-line disarm a cross-input/re-entrancy soundness regression. Returned as ESC-c1, not worked around.: expected true to be false // Object.is equality
+   × the arm-state, within one process > the whole reading, published as one record 0ms
+     → expected false to be true // Object.is equality
+ ❯ test/css-recovery/boundary/boundary.test.ts (209 tests | 1 failed) 49ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > rejects the falsifier's own shape: ok:false with an EMPTY diagnostics tuple 1ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > rejects `undefined` — the second half of PT-07 0ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > rejects a ninth code and an unnamed expectation 0ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > accepts a well-formed rejection 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > the boundary result is frozen — one caller cannot mutate the next caller's rejection 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > covers `.a`'s own declared boundary rows, and is a strict superset of them 9ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > the GROUND-A cross-product is read, not typed: 210 inputs 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssColor over all 210 — 0 throws, 0 undefined, 0 accepts 3ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseTimingFunction over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseStylesheet over all 210 — 0 throws, 0 undefined, 0 accepts 3ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssScalar over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssValue over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssValues over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseKeyframeSelector over all 210 — 0 throws, 0 undefined, 0 accepts 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseAnimationTimeline over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseAnimationRange over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssColor over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseTimingFunction over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseStylesheet over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssScalar over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssValue over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssValues over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseKeyframeSelector over all 210 — 0 throws, 0 undefined, 0 accepts 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseAnimationTimeline over all 210 — 0 throws, 0 undefined, 0 accepts 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseAnimationRange over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > the ten heads `W3.md` §6 G-3 pastes, which threw 10/10 against the incumbent 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > R1 itself — `parseCssColor("oklch()")`, the named enemy — is a typed rejection 0ms
+   × the unrealized entries are NAMED, never stubbed > the six the grammar does not carry are declared and absent from the surface 4ms
+     → expected [] to deeply equal [ 'parseCssScalar', …(5) ]
+   ✓ the shield did not fire anywhere in this file > SHIELD.caught did not move across every assertion above 0ms
+ ✓ test/css-recovery/boundary/no-throw.test.ts (31 tests) 2053ms
+   ✓ T-2 · js — the whole corpus through the PUBLIC entries > 9 entries × 27255 sources: 0 throws, 0 undefined  1049ms
+   ✓ T-2 · wasm — the whole corpus through the PUBLIC entries > 9 entries × 27255 sources: 0 throws, 0 undefined  551ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css-recovery/boundary/capacity.test.ts [ test/css-recovery/boundary/capacity.test.ts ]
+Error: the 'recoveries' witness family never names its region up to 8192
+ ❯ pairFor test/css-recovery/boundary/capacity.test.ts:283:27
+    281|     const js = entryFor("js", prod);
+    282|     const n = firstFiring((k) => namesRegion(js(witnessAtCapacity(regi…
+    283|     if (n === null) throw new Error(`the '${region}' witness family ne…
+       |                           ^
+    284|     return { prod, at: bandRow(`${region} AT (n=${n - 1})`, prod, witn…
+    285| };
+ ❯ test/css-recovery/boundary/capacity.test.ts:290:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css-recovery/boundary/boundary.test.ts > the unrealized entries are NAMED, never stubbed > the six the grammar does not carry are declared and absent from the surface
+AssertionError: expected [] to deeply equal [ 'parseCssScalar', …(5) ]
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [[39m
+[32m-   "parseCssScalar",[39m
+[32m-   "parseCssValue",[39m
+[32m-   "parseCssValues",[39m
+[32m-   "parseKeyframeSelector",[39m
+[32m-   "parseAnimationTimeline",[39m
+[32m-   "parseAnimationRange",[39m
+[32m- ][39m
+[31m+ [][39m
+
+ ❯ test/css-recovery/boundary/boundary.test.ts:223:36
+    221| describe("the unrealized entries are NAMED, never stubbed", () => {
+    222|     it("the six the grammar does not carry are declared and absent fro…
+    223|         expect(UNREALIZED_ENTRIES).toEqual([
+       |                                    ^
+    224|             "parseCssScalar",
+    225|             "parseCssValue",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7761 returns ok:false with the depth code, never a RangeError
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7762 returns ok:false with the depth code, never a RangeError
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7761 returns ok:false with the depth code, never a RangeError
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7762 returns ok:false with the depth code, never a RangeError
+AssertionError: expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+
+Expected: [32m"<[7mnesting-depth> (at most 64 level[27ms)"[39m
+Received: [31m"<[7minput-window> (at most 14107 code unit[27ms)"[39m
+
+ ❯ test/css-recovery/boundary/depth.test.ts:101:55
+     99|                 expect(r!.ok).toBe(false);
+    100|                 expect(r!.diagnostics[0].code).toBe("css_syntax");
+    101|                 expect(r!.diagnostics[0].expected[0]).toBe(DEPTH_PRODU…
+       |                                                       ^
+    102|             });
+    103|         }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  test/css-recovery/boundary/latch.test.ts > the arm-state, within one process > L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store
+AssertionError: BORN-RED (O-15 PT-03, reproduced at typescript/src/parse/packrat.ts:273/297): resetPackrat() clears MEMO/HEADS/GROWING and returns early while PACKRAT_ARMED stays true — the latch is one-way. The cure is a write in typescript/src/parse/packrat.ts, which is in no row of W3.md §4 and which X.P.W3.0's dated §4 addendum §A-3 declines to admit; a write there is a §3a File-bound expansion, and the library's own comment at :147-152 makes the naive one-line disarm a cross-input/re-entrancy soundness regression. Returned as ESC-c1, not worked around.: expected true to be false // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- false[39m
+[31m+ true[39m
+
+ ❯ test/css-recovery/boundary/latch.test.ts:147:11
+    145|                 "File-bound expansion, and the library's own comment a…
+    146|                 "disarm a cross-input/re-entrancy soundness regression…
+    147|         ).toBe(false);
+       |           ^
+    148|     });
+    149| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  test/css-recovery/boundary/latch.test.ts > the arm-state, within one process > the whole reading, published as one record
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css-recovery/boundary/latch.test.ts:157:35
+    155|         // `symmetric` is the gate's own conjunct. It is asserted, and…
+    156|         // recorded twice on purpose: once as the leg, once as the rec…
+    157|         expect(reading.symmetric).toBe(true);
+       |                                   ^
+    158|     });
+    159| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+
+ Test Files  4 failed | 1 passed (5)
+      Tests  7 failed | 255 passed (262)
+   Start at  03:49:00
+   Duration  2.54s (transform 178ms, setup 0ms, collect 873ms, tests 2.31s, environment 0ms, prepare 216ms)
+
+
+════════════════════════ g9-B.txt ════════════════════════
+
+ RUN  v3.2.7 /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript
+
+ ❯ test/css-recovery/boundary/depth.test.ts (15 tests | 4 failed) 7ms
+   ✓ the bound is a declared value the mechanism actually carries > js: Θ.depthBound, the lowering's own theta, and the label all read 64 1ms
+   ✓ the bound is a declared value the mechanism actually carries > wasm: Θ.depthBound, the lowering's own theta, and the label all read 64 0ms
+   ✓ the bound is a declared value the mechanism actually carries > NEGATIVE CONTROL — a lowering whose Θ disagrees with the declaration HALTS 0ms
+   ✓ the bound is a declared value the mechanism actually carries > the witness generator produces exactly the nesting it claims 0ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > js: depth 64 (AT the bound) is an ordinary rejection, not a depth rejection 1ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > js: depth 65 (ONE PAST the bound) is a typed depth rejection 0ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > wasm: depth 64 (AT the bound) is an ordinary rejection, not a depth rejection 1ms
+   ✓ at the bound and one past it — ok:false both times, no thrown error > wasm: depth 65 (ONE PAST the bound) is a typed depth rejection 0ms
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7761 returns ok:false with the depth code, never a RangeError 3ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7762 returns ok:false with the depth code, never a RangeError 0ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7761 returns ok:false with the depth code, never a RangeError 0ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   × PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7762 returns ok:false with the depth code, never a RangeError 0ms
+     → expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+   ✓ PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: two orders of magnitude past PT-04's cliff is still a typed rejection 0ms
+   ✓ the bound is parametric, not a magic number > js: a caller-declared Θ of 8 moves the cliff to 8/9, in the same shape 0ms
+   ✓ the bound is parametric, not a magic number > wasm: a caller-declared Θ of 8 moves the cliff to 8/9, in the same shape 0ms
+ ❯ test/css-recovery/boundary/latch.test.ts (7 tests | 2 failed) 174ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > exactly ONE `memoize(` / `mergeMemos(` site under src/css: the declared instrument 5ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > the PUBLIC ENTRY module names no part of the arming surface, so no entry can reach it 1ms
+   ✓ L-4 — the candidate's parse path constructs no memoizer > parsing does not arm the instrument's latch — read before anything in this file arms it 164ms
+   ✓ the arm-state, within one process > L-1 READABLE — the arm-state can be observed, and reads false before anything arms it 0ms
+   ✓ the arm-state, within one process > L-2 ARMS — constructing a memoizer sets it, so the reader is not stuck on one value 0ms
+   × the arm-state, within one process > L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store 3ms
+     → BORN-RED (O-15 PT-03, reproduced at typescript/src/parse/packrat.ts:273/297): resetPackrat() clears MEMO/HEADS/GROWING and returns early while PACKRAT_ARMED stays true — the latch is one-way. The cure is a write in typescript/src/parse/packrat.ts, which is in no row of W3.md §4 and which X.P.W3.0's dated §4 addendum §A-3 declines to admit; a write there is a §3a File-bound expansion, and the library's own comment at :147-152 makes the naive one-line disarm a cross-input/re-entrancy soundness regression. Returned as ESC-c1, not worked around.: expected true to be false // Object.is equality
+   × the arm-state, within one process > the whole reading, published as one record 0ms
+     → expected false to be true // Object.is equality
+ ❯ test/css-recovery/boundary/boundary.test.ts (209 tests | 1 failed) 49ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > rejects the falsifier's own shape: ok:false with an EMPTY diagnostics tuple 1ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > rejects `undefined` — the second half of PT-07 0ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > rejects a ninth code and an unnamed expectation 0ms
+   ✓ the predicate itself can fail for its intended reason (negative controls) > accepts a well-formed rejection 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssColor(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseTimingFunction(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseStylesheet(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssScalar(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValue(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseCssValues(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseKeyframeSelector(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationTimeline(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > js/parseAnimationRange(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssColor(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseTimingFunction(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseStylesheet(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssScalar(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValue(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseCssValues(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseKeyframeSelector(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationTimeline(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(null) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(undefined) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(number) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(object) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(symbol) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(array) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(boolean) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(NaN) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(bigint) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > wasm/parseAnimationRange(function) 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > the boundary result is frozen — one caller cannot mutate the next caller's rejection 0ms
+   ✓ PT-07 — a non-string argument is a typed rejection, never a raw TypeError > covers `.a`'s own declared boundary rows, and is a strict superset of them 10ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > the GROUND-A cross-product is read, not typed: 210 inputs 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssColor over all 210 — 0 throws, 0 undefined, 0 accepts 3ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseTimingFunction over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseStylesheet over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssScalar over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssValue over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseCssValues over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseKeyframeSelector over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseAnimationTimeline over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > js/parseAnimationRange over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssColor over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseTimingFunction over all 210 — 0 throws, 0 undefined, 0 accepts 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseStylesheet over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssScalar over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssValue over all 210 — 0 throws, 0 undefined, 0 accepts 2ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseCssValues over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseKeyframeSelector over all 210 — 0 throws, 0 undefined, 0 accepts 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseAnimationTimeline over all 210 — 0 throws, 0 undefined, 0 accepts 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > wasm/parseAnimationRange over all 210 — 0 throws, 0 undefined, 0 accepts 1ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > the ten heads `W3.md` §6 G-3 pastes, which threw 10/10 against the incumbent 0ms
+   ✓ the R1 class — every degenerate function head is a typed rejection > R1 itself — `parseCssColor("oklch()")`, the named enemy — is a typed rejection 0ms
+   × the unrealized entries are NAMED, never stubbed > the six the grammar does not carry are declared and absent from the surface 3ms
+     → expected [] to deeply equal [ 'parseCssScalar', …(5) ]
+   ✓ the shield did not fire anywhere in this file > SHIELD.caught did not move across every assertion above 0ms
+ ✓ test/css-recovery/boundary/no-throw.test.ts (31 tests) 2037ms
+   ✓ T-2 · js — the whole corpus through the PUBLIC entries > 9 entries × 27255 sources: 0 throws, 0 undefined  1032ms
+   ✓ T-3 · js — the same corpus through the RAW, UNSHIELDED path > cand-O's instrument: the raw path never throws on its own  304ms
+   ✓ T-2 · wasm — the whole corpus through the PUBLIC entries > 9 entries × 27255 sources: 0 throws, 0 undefined  550ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css-recovery/boundary/capacity.test.ts [ test/css-recovery/boundary/capacity.test.ts ]
+Error: the 'recoveries' witness family never names its region up to 8192
+ ❯ pairFor test/css-recovery/boundary/capacity.test.ts:283:27
+    281|     const js = entryFor("js", prod);
+    282|     const n = firstFiring((k) => namesRegion(js(witnessAtCapacity(regi…
+    283|     if (n === null) throw new Error(`the '${region}' witness family ne…
+       |                           ^
+    284|     return { prod, at: bandRow(`${region} AT (n=${n - 1})`, prod, witn…
+    285| };
+ ❯ test/css-recovery/boundary/capacity.test.ts:290:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css-recovery/boundary/boundary.test.ts > the unrealized entries are NAMED, never stubbed > the six the grammar does not carry are declared and absent from the surface
+AssertionError: expected [] to deeply equal [ 'parseCssScalar', …(5) ]
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- [[39m
+[32m-   "parseCssScalar",[39m
+[32m-   "parseCssValue",[39m
+[32m-   "parseCssValues",[39m
+[32m-   "parseKeyframeSelector",[39m
+[32m-   "parseAnimationTimeline",[39m
+[32m-   "parseAnimationRange",[39m
+[32m- ][39m
+[31m+ [][39m
+
+ ❯ test/css-recovery/boundary/boundary.test.ts:223:36
+    221| describe("the unrealized entries are NAMED, never stubbed", () => {
+    222|     it("the six the grammar does not carry are declared and absent fro…
+    223|         expect(UNREALIZED_ENTRIES).toEqual([
+       |                                    ^
+    224|             "parseCssScalar",
+    225|             "parseCssValue",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7761 returns ok:false with the depth code, never a RangeError
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > js: depth 7762 returns ok:false with the depth code, never a RangeError
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7761 returns ok:false with the depth code, never a RangeError
+ FAIL  test/css-recovery/boundary/depth.test.ts > PT-04's own coordinate — 7,761 and 7,762 — is a regression fixture, not a limit > wasm: depth 7762 returns ok:false with the depth code, never a RangeError
+AssertionError: expected '<input-window> (at most 14107 code un…' to be '<nesting-depth> (at most 64 levels)' // Object.is equality
+
+Expected: [32m"<[7mnesting-depth> (at most 64 level[27ms)"[39m
+Received: [31m"<[7minput-window> (at most 14107 code unit[27ms)"[39m
+
+ ❯ test/css-recovery/boundary/depth.test.ts:101:55
+     99|                 expect(r!.ok).toBe(false);
+    100|                 expect(r!.diagnostics[0].code).toBe("css_syntax");
+    101|                 expect(r!.diagnostics[0].expected[0]).toBe(DEPTH_PRODU…
+       |                                                       ^
+    102|             });
+    103|         }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/8]⎯
+
+ FAIL  test/css-recovery/boundary/latch.test.ts > the arm-state, within one process > L-3 RESETTABLE — resetPackrat() must DISARM, not merely clear the memo store
+AssertionError: BORN-RED (O-15 PT-03, reproduced at typescript/src/parse/packrat.ts:273/297): resetPackrat() clears MEMO/HEADS/GROWING and returns early while PACKRAT_ARMED stays true — the latch is one-way. The cure is a write in typescript/src/parse/packrat.ts, which is in no row of W3.md §4 and which X.P.W3.0's dated §4 addendum §A-3 declines to admit; a write there is a §3a File-bound expansion, and the library's own comment at :147-152 makes the naive one-line disarm a cross-input/re-entrancy soundness regression. Returned as ESC-c1, not worked around.: expected true to be false // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- false[39m
+[31m+ true[39m
+
+ ❯ test/css-recovery/boundary/latch.test.ts:147:11
+    145|                 "File-bound expansion, and the library's own comment a…
+    146|                 "disarm a cross-input/re-entrancy soundness regression…
+    147|         ).toBe(false);
+       |           ^
+    148|     });
+    149| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/8]⎯
+
+ FAIL  test/css-recovery/boundary/latch.test.ts > the arm-state, within one process > the whole reading, published as one record
+AssertionError: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css-recovery/boundary/latch.test.ts:157:35
+    155|         // `symmetric` is the gate's own conjunct. It is asserted, and…
+    156|         // recorded twice on purpose: once as the leg, once as the rec…
+    157|         expect(reading.symmetric).toBe(true);
+       |                                   ^
+    158|     });
+    159| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/8]⎯
+
+
+ Test Files  4 failed | 1 passed (5)
+      Tests  7 failed | 255 passed (262)
+   Start at  03:49:10
+   Duration  2.50s (transform 143ms, setup 0ms, collect 838ms, tests 2.27s, environment 0ms, prepare 205ms)
+
+
+════════════════════════ anchor-1.txt ════════════════════════
+X.P.W3.m — R1 ANCHOR, CANDIDATE SIDE (--at typescript/src/css)
+────────────────────────────────────────────────────────────────────────────────
+probe      docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs — sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+           corpus LIFTED from it: 9 entries × 172 inputs = 1548 calls per lowering
+candidate  typescript/src/css/entry.mjs — sha256 570ab836f56a58638713d26eb33ba4516f962012ea11de84002bd549a5d8363e
+unrealized NONE — all nine frozen parsers are published
+
+js lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+wasm lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+────────────────────────────────────────────────────────────────────────────────
+js    0 throws · 0 undefined / 1548 calls
+wasm  0 throws · 0 undefined / 1548 calls
+
+GREEN — every public parser of the candidate surface is total, in BOTH lowerings.
+
+════════════════════════ anchor-2.txt ════════════════════════
+X.P.W3.m — R1 ANCHOR, CANDIDATE SIDE (--at typescript/src/css)
+────────────────────────────────────────────────────────────────────────────────
+probe      docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs — sha256 77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec
+           corpus LIFTED from it: 9 entries × 172 inputs = 1548 calls per lowering
+candidate  typescript/src/css/entry.mjs — sha256 570ab836f56a58638713d26eb33ba4516f962012ea11de84002bd549a5d8363e
+unrealized NONE — all nine frozen parsers are published
+
+js lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+wasm lowering
+────────────────────────────────────────────────────────────────────────────────
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+UNDEFINED RETURNS: 0
+
+────────────────────────────────────────────────────────────────────────────────
+js    0 throws · 0 undefined / 1548 calls
+wasm  0 throws · 0 undefined / 1548 calls
+
+GREEN — every public parser of the candidate surface is total, in BOTH lowerings.
+
+════════════════════════ anchor-control.txt ════════════════════════
+file:///Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/r1-anchor-candidate.mjs:51
+    if (!m) throw new Error(`anchor-candidate: the probe no longer declares ${what} — HALT (the two readings would not be over one corpus)`);
+                  ^
+
+Error: anchor-candidate: the probe no longer declares FNS — HALT (the two readings would not be over one corpus)
+    at lift (file:///Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/r1-anchor-candidate.mjs:51:19)
+    at main (file:///Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/r1-anchor-candidate.mjs:60:17)
+    at file:///Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/r1-anchor-candidate.mjs:132:20
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:642:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v26.0.0
+
+════════════════════════ remainder-A.txt ════════════════════════
+
+================================================================================================
+parseStylesheet — 206 misses
+   172  BND-1 non-string boundary
+    11  SH-1 blocks()'s signed paren counter (escalated by .j)
+     7  F-k1 the incumbent's UNANCHORED component read (trailing garbage inside a component value); UNAD
+     6  F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> ar
+     5  E-j1 at-rule family (unauthored, escalated by .j)
+     3  unattributed
+     2  GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')
+
+  --- unattributed (3) ---
+    FALSE_REJECT_IN_SHAPE  "b { col!r: rgb(9. none -76 / 0.) }"
+    FALSE_REJECT_IN_SHAPE  "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }"
+    FALSE_REJECT_IN_SHAPE  "b { background-color: var(--brand) -!important }"
+
+  --- SH-1 blocks()'s signed paren counter (escalated by .j) (11) ---
+    FALSE_REJECT_IN_SHAPE  ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }"
+    FALSE_REJECT_IN_SHAPE  ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }"
+    FALSE_REJECT_IN_SHAPE  "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }"
+    MIS_ACCEPT             ".c ){ color: #28cA }"
+    MIS_ACCEPT             "(c { color: rgb(9e219 97% 1e-174 / .704) !important }"
+    MIS_ACCEPT             "b ({ border-color: #928618E2 }"
+    MIS_ACCEPT             ".c({ color: #DdDB }"
+    MIS_ACCEPT             ".c( { border-color: var(--x-y) }"
+    MIS_ACCEPT             "#d { color: rgb(183 4e24 18.179 / +43) }@@ ; #d { border-color: var(--x-y, currentcolor) }"
+    MIS_ACCEPT             "( { border-color: #26FA }"
+    MIS_ACCEPT             "#d ){ background-color: var(--a, rebeccapurple) }"
+
+  --- E-j1 at-rule family (unauthored, escalated by .j) (5) ---
+    DIVERGENT_VALUE        "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 au
+    DIVERGENT_VALUE        "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 au
+    FALSE_REJECT_IN_SHAPE  "/* c */ @view-timeline --v { axis: x; inset: 10px 20px } @namespace svg url(http{://www.w3.org/2000/svg);/* c */ "
+    FALSE_REJECT_IN_SHAPE  ";@view-timeline --viewer { subject: none; inset: 10px } ; @charset \"utf-8\"; ; @namespace svg url(http://www.w3.org/2000/s;vg);"
+    FALSE_REJECT_IN_SHAPE  "@namespace svg url(http://www.w;.org/2000/svg); /* note */"
+
+================================================================================================
+parseCssColor — 10 misses
+     9  F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> ar
+     1  GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')
+
+================================================================================================
+parseTimingFunction — 24 misses
+    23  GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')
+     1  F-k4 the incumbent accepts an EMPTY argument (`steps(1e43,, start)`); css-syntax-3 §5.4.1 gives 
+
+════════════════════════ remainder-B.txt ════════════════════════
+
+================================================================================================
+parseStylesheet — 206 misses
+   172  BND-1 non-string boundary
+    11  SH-1 blocks()'s signed paren counter (escalated by .j)
+     7  F-k1 the incumbent's UNANCHORED component read (trailing garbage inside a component value); UNAD
+     6  F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> ar
+     5  E-j1 at-rule family (unauthored, escalated by .j)
+     3  unattributed
+     2  GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')
+
+  --- unattributed (3) ---
+    FALSE_REJECT_IN_SHAPE  "b { col!r: rgb(9. none -76 / 0.) }"
+    FALSE_REJECT_IN_SHAPE  "b { background-color: #74173d96 } a { border-colo!r: hsl(50% 1e-366 67.310) }"
+    FALSE_REJECT_IN_SHAPE  "b { background-color: var(--brand) -!important }"
+
+  --- SH-1 blocks()'s signed paren counter (escalated by .j) (11) ---
+    FALSE_REJECT_IN_SHAPE  ".c { border-color: #ee584b } .c}{ color: rgb(4e258 -0 1. / 71%) } b { border-color: var(--x-y) }"
+    FALSE_REJECT_IN_SHAPE  ".c { background-color: rgb(-0 .504 6e-128 / 9e-415) } GARBAGE ) ;(#d { background-color: #eFEbC78B }"
+    FALSE_REJECT_IN_SHAPE  "#d { background-color: hsl(73.416 -338 -290)!important } .c { border-color: var(--x-y) }"
+    MIS_ACCEPT             ".c ){ color: #28cA }"
+    MIS_ACCEPT             "(c { color: rgb(9e219 97% 1e-174 / .704) !important }"
+    MIS_ACCEPT             "b ({ border-color: #928618E2 }"
+    MIS_ACCEPT             ".c({ color: #DdDB }"
+    MIS_ACCEPT             ".c( { border-color: var(--x-y) }"
+    MIS_ACCEPT             "#d { color: rgb(183 4e24 18.179 / +43) }@@ ; #d { border-color: var(--x-y, currentcolor) }"
+    MIS_ACCEPT             "( { border-color: #26FA }"
+    MIS_ACCEPT             "#d ){ background-color: var(--a, rebeccapurple) }"
+
+  --- E-j1 at-rule family (unauthored, escalated by .j) (5) ---
+    DIVERGENT_VALUE        "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 au
+    DIVERGENT_VALUE        "  @property --ratio { syntax: \"<number>\"; inherits: false; initial-value: 1 } h1, h2 {/* c */ img { @container (width > 400px) { nav { margin: 0 au
+    FALSE_REJECT_IN_SHAPE  "/* c */ @view-timeline --v { axis: x; inset: 10px 20px } @namespace svg url(http{://www.w3.org/2000/svg);/* c */ "
+    FALSE_REJECT_IN_SHAPE  ";@view-timeline --viewer { subject: none; inset: 10px } ; @charset \"utf-8\"; ; @namespace svg url(http://www.w3.org/2000/s;vg);"
+    FALSE_REJECT_IN_SHAPE  "@namespace svg url(http://www.w;.org/2000/svg); /* note */"
+
+================================================================================================
+parseCssColor — 10 misses
+     9  F-k2 the candidate ACCEPTS a legacy comma form the spec forbids — mixed <number>/<percentage> ar
+     1  GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')
+
+================================================================================================
+parseTimingFunction — 24 misses
+    23  GROUND-C ±Infinity (owner-owed; W3.md §10 'not opened here')
+     1  F-k4 the incumbent accepts an EMPTY argument (`steps(1e43,, start)`); css-syntax-3 §5.4.1 gives 
+
+════════════════════════ g2-incumbent.txt ════════════════════════
+(node:3565) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+
+GREEN — every public parser is total.
+
+════════════════════════ g2-incumbent-2.txt ════════════════════════
+(node:3930) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ok   parseCssColor               0/172 throw
+ok   parseCssScalar              0/172 throw
+ok   parseCssValue               0/172 throw
+ok   parseCssValues              0/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 0 throws / 1548 calls
+DISTINCT FAILURE MODES: 0
+
+GREEN — every public parser is total.

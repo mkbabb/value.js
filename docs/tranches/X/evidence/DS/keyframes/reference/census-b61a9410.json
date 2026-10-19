@@ -1,0 +1,1630 @@
+{
+  "tool": "ds-census",
+  "app": "keyframes.js",
+  "at": "2026-10-06T16:57:25.003Z",
+  "static": {
+    "tally": {
+      "files": 75,
+      "boxShadowDecls": 20,
+      "boxShadowLayers": 25,
+      "boxShadowTokenRefs": 4,
+      "insetHighlightLayers": 7,
+      "textShadowDecls": 0,
+      "filterDropShadow": 4,
+      "filterBlur": 0,
+      "backdropBlur": 0,
+      "gradientFills": 7,
+      "keyframes": 5,
+      "loopingAnimations": 1,
+      "shadowTokenDefs": 0,
+      "twLightingClasses": 1
+    },
+    "hits": [
+      {
+        "kind": "keyframes",
+        "at": "demo/app/App.skeleton.vue:53",
+        "text": "@keyframes scene-skeleton-appear"
+      },
+      {
+        "kind": "keyframes",
+        "at": "demo/components/instrument/shell/AnimatedText.vue:169",
+        "text": "@keyframes charLift"
+      },
+      {
+        "kind": "looping-animation",
+        "at": "demo/components/instrument/shell/AnimatedText.vue:165",
+        "text": "animation: charLift var(--wave-cycle) infinite both"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/components/instrument/shell/EditorShell.vue:263",
+        "text": "linear-gradient(to right, var(--graph-line-major) 1px, transparent 1px), linear-gradient(to bottom, var(--graph-line-major) 1px, transparent"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/components/instrument/timeline/components/SequenceLanes.vue:346",
+        "text": "1 layer(s): var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "tw-class",
+        "at": "demo/components/playback/AnimationVisualizer.vue:51",
+        "text": "shadow-sm"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/components/playback/AnimationVisualizer.vue:357",
+        "text": "2 layer(s): 0 2px 10px color-mix(in srgb, var(--ball-tone) var(--ball-glow, 35%), transparent), var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / "
+      },
+      {
+        "kind": "drop-shadow",
+        "at": "demo/scenes/cube/CubeAxisLines.vue:162",
+        "text": "filter: drop-shadow( 0 0 calc(var(--axis-active) * 6px) color-mix(in srgb, var(--color) calc(var(--axis-active) * 80%), transparent) )"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/scenes/cube/CubeTarget.css:171",
+        "text": "linear-gradient( 145deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%, rgba(0, 0, 0, 0.14) 100% )"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/cube/CubeTarget.css:177",
+        "text": "2 layer(s): inset 0 1px 0 0 rgba(255, 255, 255, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.1)"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/scenes/cube/CubeTarget.css:206",
+        "text": "radial-gradient( 120% 120% at 78% 18%, rgba(255, 255, 255, calc(0.05 + 0.5 * var(--lit, 0.5))) 0%, rgba(255, 255, 255, 0) 52% ), linear-grad"
+      },
+      {
+        "kind": "keyframes",
+        "at": "demo/scenes/sequence/SequenceTarget.css:168",
+        "text": "@keyframes seq-lane-drop"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/sequence/SequenceTarget.css:138",
+        "text": "1 layer(s): 0 0 calc(2px + var(--ball-p, 0) * 16px + var(--seq-glow, 0) * 6px) calc(var(--ball-p, 0) * 4px) color-mix(in srgb, var(--ball-to"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/spring/SpringHeatmap.vue:546",
+        "text": "1 layer(s): var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/spring/SpringHeatmap.vue:638",
+        "text": "2 layer(s): 0 0 0 1.5px color-mix(in srgb, var(--color-progress) 70%, transparent), 0 0 8px color-mix(in srgb, var(--color-progress) 55%, tr"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/scenes/spring/SpringHeatmap.vue:664",
+        "text": "linear-gradient( in oklab to right, color-mix(in oklab, var(--color-progress) 0%, var(--background)), color-mix(in oklab, var(--color-progre"
+      },
+      {
+        "kind": "keyframes",
+        "at": "demo/scenes/spring/SpringTarget.vue:868",
+        "text": "@keyframes spring-settle-pulse"
+      },
+      {
+        "kind": "drop-shadow",
+        "at": "demo/scenes/spring/SpringTarget.vue:871",
+        "text": "filter: drop-shadow(0 0 4px color-mix(in srgb, var(--ball-tone, var(--color-progress)) 60%, transparent))"
+      },
+      {
+        "kind": "drop-shadow",
+        "at": "demo/scenes/spring/SpringTarget.vue:948",
+        "text": "filter: drop-shadow(0 0 5px color-mix(in srgb, var(--ball-tone, var(--color-progress)) 50%, transparent))"
+      },
+      {
+        "kind": "drop-shadow",
+        "at": "demo/scenes/spring/SpringTrace.vue:382",
+        "text": "filter: drop-shadow( 0 0 3px color-mix(in srgb, var(--color-progress) 45%, transparent) )"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/spring/StartingStyleTarget.vue:348",
+        "text": "1 layer(s): 0 8px 32px color-mix(in srgb, var(--color-progress) 24%, transparent)"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/scenes/square/SquareScene.css:120",
+        "text": "linear-gradient( to bottom, color-mix(in oklab, var(--subject-fill) 92%, white 8%), var(--subject-fill) )"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:126",
+        "text": "2 layer(s): inset 0 1px 0 color-mix(in srgb, white 22%, transparent), 0 0 0 0.5rem var(--square-ring)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:161",
+        "text": "2 layer(s): inset 0 1px 0 color-mix(in srgb, white 28%, transparent), 0 0 0 0.5rem color-mix(in srgb, var(--color-progress) 12%, transparent"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:185",
+        "text": "2 layer(s): inset 0 1px 0 color-mix(in srgb, white 28%, transparent), 0 0 0 0.5rem color-mix( in srgb, var(--color-progress) calc(22% + var("
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:210",
+        "text": "1 layer(s): 0 0 0 0 color-mix(in srgb, var(--color-progress) 55%, transparent)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:218",
+        "text": "1 layer(s): 0 0 0 0.15rem color-mix(in srgb, var(--color-progress) 80%, transparent)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:233",
+        "text": "2 layer(s): inset 0 1px 0 color-mix(in srgb, white 30%, transparent), 0 0 1.5rem 0.25rem color-mix(in srgb, var(--subject-fill) 35%, transpa"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/scenes/square/SquareScene.css:262",
+        "text": "2 layer(s): inset 0 1px 0 color-mix(in srgb, white 22%, transparent), 0 0 0 0.5rem var(--square-ring)"
+      },
+      {
+        "kind": "keyframes",
+        "at": "demo/styles/design-idioms.css:389",
+        "text": "@keyframes enter"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/design-idioms.css:106",
+        "text": "1 layer(s): var(--focus-ring-shadow)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/design-idioms.css:180",
+        "text": "1 layer(s): var(--shadow-cartoon-lg)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/design-idioms.css:207",
+        "text": "1 layer(s): 0 2px 10px color-mix(in srgb, var(--ball-tone, var(--color-progress)) var(--ball-glow, 35%), transparent)"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/design-idioms.css:234",
+        "text": "1 layer(s): 0 2px 10px color-mix(in srgb, var(--ball-tone, var(--color-progress)) var(--ball-glow, 35%), transparent)"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/styles/design-idioms.css:246",
+        "text": "linear-gradient(to top, var(--border) 1px, transparent 1px), repeating-linear-gradient( to bottom, var(--border) 0 1px, transparent 1px calc"
+      },
+      {
+        "kind": "gradient",
+        "at": "demo/styles/design-idioms.css:255",
+        "text": "repeating-linear-gradient( to right, var(--border) 0 1px, transparent 1px calc(100% / 4) )"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/playback-idiom.css:83",
+        "text": "2 layer(s): 0 0 0 1px color-mix(in srgb, var(--color-progress) 35%, transparent), 0 2px 10px color-mix(in srgb, var(--color-progress) 25%, t"
+      },
+      {
+        "kind": "box-shadow",
+        "at": "demo/styles/playback-idiom.css:105",
+        "text": "1 layer(s): 0 1px 6px color-mix(in srgb, var(--color-progress) 14%, transparent)"
+      }
+    ]
+  },
+  "computed": {
+    "base": "http://127.0.0.1:49702/",
+    "widths": [
+      1440,
+      390
+    ],
+    "totals": {
+      "chrome": {
+        "shadowEls": 0,
+        "shadowLayers": 0,
+        "maxLayers": 0,
+        "nonFloatingShadowEls": 0,
+        "insetHighlights": 0,
+        "textShadow": 88,
+        "dropShadow": 0,
+        "filterBlur": 0,
+        "backdropBlur": 0,
+        "controlGradients": 0,
+        "loopingAnimations": 88
+      },
+      "subject": {
+        "shadowEls": 0,
+        "shadowLayers": 0,
+        "maxLayers": 0,
+        "nonFloatingShadowEls": 0,
+        "insetHighlights": 0,
+        "textShadow": 0,
+        "dropShadow": 0,
+        "filterBlur": 0,
+        "backdropBlur": 0,
+        "controlGradients": 0,
+        "loopingAnimations": 28,
+        "gradientFills": 0
+      }
+    },
+    "pages": [
+      {
+        "route": "home",
+        "scheme": "light",
+        "width": 1440,
+        "chrome": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 22,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 22
+        },
+        "subject": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 0,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 7,
+          "gradientFills": 0
+        },
+        "offenders": [
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "svg",
+            "detail": "spin"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          }
+        ]
+      },
+      {
+        "route": "home",
+        "scheme": "dark",
+        "width": 1440,
+        "chrome": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 22,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 22
+        },
+        "subject": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 0,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 7,
+          "gradientFills": 0
+        },
+        "offenders": [
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "svg",
+            "detail": "spin"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          }
+        ]
+      },
+      {
+        "route": "home",
+        "scheme": "light",
+        "width": 390,
+        "chrome": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 22,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 22
+        },
+        "subject": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 0,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 7,
+          "gradientFills": 0
+        },
+        "offenders": [
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(166, 166, 166) 1px 1px 0px, rgb(166, 166, 166) 2px 2px 0px, rgb(166, 166, 166) 3px 3px 0px, rgb(166, 166, 166) 4px 4px 0px, rgb(166, 166, 166) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "svg",
+            "detail": "spin"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          }
+        ]
+      },
+      {
+        "route": "home",
+        "scheme": "dark",
+        "width": 390,
+        "chrome": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 22,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 22
+        },
+        "subject": {
+          "shadowEls": 0,
+          "shadowLayers": 0,
+          "maxLayers": 0,
+          "nonFloatingShadowEls": 0,
+          "insetHighlights": 0,
+          "textShadow": 0,
+          "dropShadow": 0,
+          "filterBlur": 0,
+          "backdropBlur": 0,
+          "controlGradients": 0,
+          "loopingAnimations": 7,
+          "gradientFills": 0
+        },
+        "offenders": [
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "text-shadow",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "rgb(115, 115, 115) 1px 1px 0px, rgb(115, 115, 115) 2px 2px 0px, rgb(115, 115, 115) 3px 3px 0px, rgb(115, 115, 115) 4px 4px 0px, rgb(115, 115, 115) 5px 5px 0px, "
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.depth-text",
+            "detail": "liftDown-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "chrome",
+            "kind": "looping-animation",
+            "el": "span.lift-down.dot-fade.depth-text",
+            "detail": "dotFade-0a7ba3ff"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "svg",
+            "detail": "spin"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          },
+          {
+            "bucket": "subject",
+            "kind": "looping-animation",
+            "el": "span.rainbow-wrapper.opacity-100",
+            "detail": "rainbow"
+          }
+        ]
+      }
+    ]
+  },
+  "allowance": {
+    "verdict": "RED",
+    "checks": {
+      "static: no inset highlight layers": false,
+      "static: no text-shadow": true,
+      "static: no drop-shadow filters": false,
+      "static: no looping animations": false,
+      "chrome: ≤1 shadow layer per element": true,
+      "chrome: shadows only on floating surfaces": true,
+      "chrome: no inset highlights": true,
+      "chrome: no text-shadow": false,
+      "chrome: no drop-shadow / filter blur": true,
+      "chrome: no control gradients": true,
+      "chrome: no looping animations": false,
+      "subject: no shadow / text-shadow / drop-shadow": true
+    }
+  }
+}

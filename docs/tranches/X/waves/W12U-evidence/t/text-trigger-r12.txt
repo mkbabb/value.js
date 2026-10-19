@@ -1,0 +1,9 @@
+=== RUN 1 load  90.72 93.72 93.87
+    Error: page.goto: Test timeout of 60000ms exceeded.
+    Error Context: test-results/w12-text-trigger-X-W12-t-·-d0d08-cts-by-keyboard-and-pointer-smoke/error-context.md
+  1 failed
+  7 passed (2.0m)
+=== RUN 2 load  94.91 97.07 95.37
+  8 passed (1.2m)
+=== RUN 3 load  75.09 90.14 92.86
+  8 passed (1.6m)

@@ -1,0 +1,127 @@
+{
+  "sequence": {
+    "sequence-1440-light": {
+      "titleBottom": 203.984375,
+      "lane1Top": 227.984375,
+      "lane5Bottom": 693.046875,
+      "cardBottom": 750.0625,
+      "above": 24,
+      "below": 57.015625,
+      "gap": 66.578125,
+      "laneH": 39.75,
+      "rowGap": "66.5819px"
+    },
+    "sequence-1440-dark": {
+      "titleBottom": 203.984375,
+      "lane1Top": 227.984375,
+      "lane5Bottom": 693.046875,
+      "cardBottom": 750.0625,
+      "above": 24,
+      "below": 57.015625,
+      "gap": 66.578125,
+      "laneH": 39.75,
+      "rowGap": "66.5819px"
+    },
+    "sequence-390-light": {
+      "titleBottom": 169.0625,
+      "lane1Top": 193.0625,
+      "lane5Bottom": 657.515625,
+      "cardBottom": 714.5625,
+      "above": 24,
+      "below": 57.046875,
+      "gap": 66.484375,
+      "laneH": 39.703125,
+      "rowGap": "66.4844px"
+    },
+    "sequence-390-dark": {
+      "titleBottom": 169.0625,
+      "lane1Top": 193.0625,
+      "lane5Bottom": 657.515625,
+      "cardBottom": 714.5625,
+      "above": 24,
+      "below": 57.046875,
+      "gap": 66.484375,
+      "laneH": 39.703125,
+      "rowGap": "66.4844px"
+    }
+  },
+  "spring": {
+    "spring-1440-light": {
+      "title": {
+        "x": 573.59375,
+        "bottom": 185.890625
+      },
+      "primary": {
+        "x": 573.59375,
+        "right": 706.703125,
+        "y": 189.890625,
+        "bottom": 214.5
+      },
+      "secondary": {
+        "x": 730.703125,
+        "y": 189.890625,
+        "bottom": 214.5
+      },
+      "gapX": 24,
+      "ticks": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(198, 180, 159) calc(25% - 1px), rgb(198, 180, 159) 25%)"
+    },
+    "spring-1440-dark": {
+      "title": {
+        "x": 573.59375,
+        "bottom": 185.890625
+      },
+      "primary": {
+        "x": 573.59375,
+        "right": 706.703125,
+        "y": 189.890625,
+        "bottom": 214.5
+      },
+      "secondary": {
+        "x": 730.703125,
+        "y": 189.890625,
+        "bottom": 214.5
+      },
+      "gapX": 24,
+      "ticks": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(101, 87, 73) calc(25% - 1px), rgb(101, 87, 73) 25%)"
+    },
+    "spring-390-light": {
+      "title": {
+        "x": 49,
+        "bottom": 151.421875
+      },
+      "primary": {
+        "x": 49,
+        "right": 172.734375,
+        "y": 155.421875,
+        "bottom": 176.421875
+      },
+      "secondary": {
+        "x": 196.734375,
+        "y": 155.421875,
+        "bottom": 176.421875
+      },
+      "gapX": 24,
+      "ticks": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(198, 180, 159) calc(25% - 1px), rgb(198, 180, 159) 25%)"
+    },
+    "spring-390-dark": {
+      "title": {
+        "x": 49,
+        "bottom": 151.421875
+      },
+      "primary": {
+        "x": 49,
+        "right": 172.734375,
+        "y": 155.421875,
+        "bottom": 176.421875
+      },
+      "secondary": {
+        "x": 196.734375,
+        "y": 155.421875,
+        "bottom": 176.421875
+      },
+      "gapX": 24,
+      "ticks": "repeating-linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) calc(25% - 1px), rgb(101, 87, 73) calc(25% - 1px), rgb(101, 87, 73) 25%)"
+    }
+  },
+  "fails": []
+}

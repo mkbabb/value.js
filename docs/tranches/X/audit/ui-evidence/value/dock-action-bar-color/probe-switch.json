@@ -1,0 +1,220 @@
+{
+ "1440-A-color-open": {
+  "dock": [
+   557,
+   883
+  ],
+  "back": [
+   569,
+   609
+  ],
+  "row": [
+   634,
+   818
+  ],
+  "tools": [
+   699,
+   803
+  ],
+  "hash": "#/",
+  "seats": "color,color,color,color,color"
+ },
+ "1440-options": [
+  "Home",
+  "Palettes",
+  "Browse",
+  "Extract",
+  "Mix",
+  "Generate",
+  "Gradient"
+ ],
+ "1440-B-generate-main": {
+  "dock": [
+   473,
+   967
+  ],
+  "back": [
+   485,
+   525
+  ],
+  "row": [
+   550,
+   658
+  ],
+  "tools": [
+   638,
+   742
+  ],
+  "hash": "#/generate",
+  "seats": "generate,generate,generate"
+ },
+ "1440-C-generate-open": {
+  "dock": [
+   473,
+   967
+  ],
+  "back": [
+   485,
+   525
+  ],
+  "row": [
+   550,
+   658
+  ],
+  "tools": [
+   633,
+   748
+  ],
+  "hash": "#/generate",
+  "seats": "generate,generate,generate"
+ },
+ "1440-D-history-back-color": {
+  "dock": [
+   484,
+   956
+  ],
+  "back": [
+   496,
+   536
+  ],
+  "row": [
+   561,
+   745
+  ],
+  "tools": [
+   621,
+   736
+  ],
+  "hash": "#/",
+  "seats": "color,color,color,color,color"
+ },
+ "1440-E-history-fwd-generate": {
+  "dock": [
+   473,
+   967
+  ],
+  "back": [
+   485,
+   525
+  ],
+  "row": [
+   550,
+   658
+  ],
+  "tools": [
+   633,
+   748
+  ],
+  "hash": "#/generate",
+  "seats": "generate,generate,generate"
+ },
+ "390-A-color-open": {
+  "dock": [
+   39,
+   351
+  ],
+  "back": [
+   51,
+   91
+  ],
+  "row": [
+   116,
+   300
+  ],
+  "tools": [
+   117,
+   149
+  ],
+  "hash": "#/",
+  "seats": "color,color,color,color,color"
+ },
+ "390-options": [
+  "Home",
+  "Palettes",
+  "Browse",
+  "Extract",
+  "Mix",
+  "Generate",
+  "Gradient"
+ ],
+ "390-B-generate-main": {
+  "dock": [
+   109,
+   281
+  ],
+  "back": [
+   121,
+   161
+  ],
+  "row": [
+   186,
+   294
+  ],
+  "tools": [
+   187,
+   219
+  ],
+  "hash": "#/generate",
+  "seats": "generate,generate,generate"
+ },
+ "390-C-generate-open": {
+  "dock": [
+   97,
+   294
+  ],
+  "back": [
+   109,
+   149
+  ],
+  "row": [
+   174,
+   282
+  ],
+  "tools": [
+   175,
+   207
+  ],
+  "hash": "#/generate",
+  "seats": "generate,generate,generate"
+ },
+ "390-D-history-back-color": {
+  "dock": [
+   39,
+   351
+  ],
+  "back": [
+   51,
+   91
+  ],
+  "row": [
+   116,
+   300
+  ],
+  "tools": [
+   117,
+   149
+  ],
+  "hash": "#/",
+  "seats": "color,color,color,color,color"
+ },
+ "390-E-history-fwd-generate": {
+  "dock": [
+   97,
+   294
+  ],
+  "back": [
+   109,
+   149
+  ],
+  "row": [
+   174,
+   282
+  ],
+  "tools": [
+   175,
+   207
+  ],
+  "hash": "#/generate",
+  "seats": "generate,generate,generate"
+ }
+}

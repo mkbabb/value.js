@@ -1,0 +1,61 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4.c — G-6 RECIPROCITY, BOTH ENDS. The two-file grep, run at the REPAIR-1 seat's own clock.
+Wall clock: 2026-09-19T11:27:49Z · repo /Users/mkbabb/Programming/value.js · branch tranche-u · HEAD cce3b718
+
+W4.md §6 G-6 falsifier, verbatim: "a grep -rn 'RC-P' docs/tranches/X/{keyframes,fourier}/waves/
+returning fewer than two hits fails. A sentence that cites this wave by *number* instead of by
+predicate name fails. X·P may not satisfy this gate by writing in those directories."
+
+X.P.W4 WROTE NO BYTE IN EITHER DIRECTORY. Both sentences were authored by their own seats, before
+this wave acted; this file records a measurement, never an act.
+
+================================================================================
+LEG 1+2 — the falsifier's own command
+================================================================================
+$ grep -rn 'RC-P' docs/tranches/X/keyframes/waves/ docs/tranches/X/fourier/waves/ | wc -l
+      25
+$ grep -rln 'RC-P' docs/tranches/X/keyframes/waves/ docs/tranches/X/fourier/waves/
+docs/tranches/X/keyframes/waves/KF-W2.md
+docs/tranches/X/keyframes/waves/KF-W3.md
+docs/tranches/X/keyframes/waves/KF-W10.md
+docs/tranches/X/keyframes/waves/KF-W5.md
+docs/tranches/X/fourier/waves/F-W0.md
+
+--- LEG 1 · X·KF — the KF.W3 sentence, verbatim at KF-W3.md:9 ---
+$ sed -n '9p' docs/tranches/X/keyframes/waves/KF-W3.md
+> **This wave opens if and only if `RC-P(V)` evaluates TRUE per `docs/tranches/X/parse-that/RELEASE-CONDITION.md` §6a, run against the registry coordinate `V`; the repin 4.0.0→`V`, the `serializeCssValue` fork retirement, and the DUAL-1 unification are all downstream of that evaluation.**
+
+--- LEG 2 · X·F — the F.W0 sentence, inside its dated addendum-beside at F-W0.md:459 ---
+$ sed -n '459p' docs/tranches/X/fourier/waves/F-W0.md | tr '|' '
+' | grep -n 'fourier receives parser effects'
+fourier receives parser effects only through an admitted, packed value.js release satisfying `RC-P`; the direct `parse-that → fourier` edge is forbidden and is asserted absent by the two-grep probe.
+
+--- BY PREDICATE NAME, NEVER BY WAVE NUMBER (the second falsifier) ---
+$ grep -rn 'X.P.W4\|X·P.W4' docs/tranches/X/keyframes/waves/KF-W3.md docs/tranches/X/fourier/waves/F-W0.md | grep -c 'opens if and only if\|receives parser effects'
+0
+  (0 = neither reciprocity sentence cites this wave by number; both cite the predicate RC-P)
+
+================================================================================
+LEG 3 — the X·V adoption sentence. ABSENT, and SPEC-RELIEVED to G-9.
+================================================================================
+$ grep -rn 'SEAM-CONTRACT' docs/tranches/X/waves/ | wc -l
+       0
+W4.md §6 G-6's own RED baseline: "the third sentence has no file to live in at all — that is G-9."
+OP-4's finding stands: none of X-W0..X-W11 adopts a parser. X·P may not author an X·V wave
+("A sub-tranche does not get to write another sub-tranche's waves"), so leg 3 is RECORDED ABSENT
+and routed to G-9's terminal disposition — pre-ruled (C) at COHESION §0i.1, RECORDING owed to .d.
+
+================================================================================
+THE FILE BOTH LANDED SENTENCES CITE BY PATH
+================================================================================
+$ ls -l docs/tranches/X/parse-that/RELEASE-CONDITION.md
+ls: docs/tranches/X/parse-that/RELEASE-CONDITION.md: No such file or directory
+
+================================================================================
+VERDICT
+================================================================================
+LEG 1  GREEN — KF-W3.md:9, verbatim, by predicate name.
+LEG 2  GREEN — F-W0.md:459, verbatim inside the dated addendum-beside, by predicate name.
+LEG 3  ABSENT, SPEC-RELIEVED — G-9's gap; the recording is .d's.
+Legs 1 and 2 were GREEN BEFORE this wave acted (F-w4c-3): declared, never claimed as a cure.

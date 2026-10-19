@@ -1,0 +1,115 @@
+{
+ "kids": [
+  {
+   "i": 0,
+   "nth": 1,
+   "tag": "button",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "label": "Scene",
+   "display": "flex",
+   "x": 505,
+   "onset": "",
+   "delay": "0s"
+  },
+  {
+   "i": 1,
+   "nth": 2,
+   "tag": "div",
+   "cls": "dock-separator",
+   "label": "",
+   "display": "block",
+   "x": 628,
+   "onset": "",
+   "delay": "0s"
+  },
+  {
+   "i": 2,
+   "nth": 3,
+   "tag": "button",
+   "cls": "dock-trigger dock-select-trigger dock-label",
+   "label": "Controls tab",
+   "display": "flex",
+   "x": 643,
+   "onset": "",
+   "delay": "0s"
+  },
+  {
+   "i": 3,
+   "nth": 4,
+   "tag": "div",
+   "cls": "dock-separator",
+   "label": "",
+   "display": "block",
+   "x": 797,
+   "onset": "",
+   "delay": "0s"
+  },
+  {
+   "i": 4,
+   "nth": 5,
+   "tag": "button",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover gl",
+   "label": "Controls panel",
+   "display": "flex",
+   "x": 812,
+   "onset": "",
+   "delay": "0s"
+  },
+  {
+   "i": 5,
+   "nth": 6,
+   "tag": "button",
+   "cls": "menu__trigger dock-trigger dock-dropdown-trigger text-mono-c",
+   "label": "@mbabb menu",
+   "display": "flex",
+   "x": 860,
+   "onset": "",
+   "delay": "0s"
+  }
+ ],
+ "full": {
+  "overflow": [
+   "auto",
+   "hidden"
+  ],
+  "padBlock": [
+   "4px",
+   "4px"
+  ],
+  "top": 47,
+  "bottom": 95,
+  "clientTop": 51
+ },
+ "caps": [
+  {
+   "label": "Scene",
+   "top": 52,
+   "bottom": 91,
+   "h": 39
+  },
+  {
+   "label": "Controls tab",
+   "top": 52,
+   "bottom": 91,
+   "h": 39
+  },
+  {
+   "label": "Controls panel",
+   "top": 51,
+   "bottom": 91,
+   "h": 40
+  },
+  {
+   "label": "@mbabb menu",
+   "top": 56,
+   "bottom": 87,
+   "h": 31
+  }
+ ],
+ "focusRing": {
+  "label": "durationdelayite",
+  "outline": "auto 1px off 0px",
+  "top": 62,
+  "bottom": 454
+ }
+}

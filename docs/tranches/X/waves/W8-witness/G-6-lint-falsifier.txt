@@ -1,0 +1,31 @@
+SERVED MODEL: claude-opus-5-5
+
+# G-6 lint falsifier (X.W8.b, 2026-10-17) — mandatory demonstration, W8.md G-6
+
+Act: prepend to demo/shared/debounce.ts the two lines
+    import { Button } from "../ui/button";
+    void Button;
+then run the whole-tree lint, then restore the file byte-for-byte from a scratch copy.
+
+$ ~/.claude/guard/guarded --light -- npm run lint   # with the barrel import re-added
+
+> @mkbabb/value.js@4.1.0 lint
+> eslint . --max-warnings=0
+
+
+demo/shared/debounce.ts
+  1:1  error  '../ui/button' import is restricted from being used by a pattern. G-6 (X.W8.b): the demo/ui shadcn barrels are deleted — import the real owner, the narrowest @mkbabb/glass-ui subpath  no-restricted-imports
+
+✖ 1 problem (1 error, 0 warnings)
+
+exit=1
+
+$ ~/.claude/guard/guarded --light -- npm run lint   # after revert
+
+> @mkbabb/value.js@4.1.0 lint
+> eslint . --max-warnings=0
+
+exit=0
+
+$ ~/.claude/guard/guarded --light -- npx eslint demo src api e2e test --max-warnings=0
+exit=0

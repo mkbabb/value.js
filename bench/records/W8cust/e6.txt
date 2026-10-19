@@ -1,0 +1,22 @@
+SERVED MODEL: claude-opus-5-5
+# X.P.W8.cust E-6 reads (2026-10-14), esbuild --minify | wc -c / | gzip | wc -c
+13:23  up 4 days, 18:26, 2 users, load averages: 101.14 66.42 60.12
+HEAD 2f590daa8 (product): 104733 / 14635
+candidate (raw term set + semiRun pairing; sha256 64cd0eb5): 109302 / 15278
+HEAD 2f590daa8 (product): 104733 / 14635
+candidate (raw term set + semiRun pairing; sha256 64cd0eb5): 109302 / 15278
+# Variants measured this sitting (each regenerated through the pinned emitter f0059db14; single read each, working copy):
+# A structured term set (customComma/Slash/Space/Term/Call/Args + text customBlock over customArgs): 138339 / 18881 (text mode emits a recognize twin of the whole value grammar)
+# B structured term set, raw text blocks (blockRun):                                                112459 / 15525
+# C raw term set (customRaw text + customBlock + blockRun, alternations) + semiRun pairing:           110709 / 15316
+# D raw term set, sequences in place of alternations (candidate) + semiRun pairing:                  109302 / 15278  (falsifiers GREEN, test/css 266/267 — the 1 RED is a structured-call assertion the raw set does not make)
+# D without the semiRun pairing:                                                                     109196 / 15231
+# E floor: ONE rule (customRaw over existing quoted/textGroup/blockTail + a non-nesting [..] regex), no semiRun pairing (does not cure [a;[b]] nesting): 107145 / 15073
+# Ceiling (COHESION §0fc.1): 125646 / 14800. Every lawful variant crosses the gz ceiling: floor +438 B over 14635, candidate +643 B.
+# 2026-10-15 resume seat (claude-opus-5-5), host load 13 at open; pinned emitter f0059db14 (bbnf-lang-x-p-w7-typescript); gz = esbuild --minify | gzip | wc -c
+# F compact raw set (string-aware guard + customBlk/blockRun recursive, shared by semiRun):   109796 / 15200 (x2)
+# G = F without the semiRun change ([a;b]/{a;b} still split at the sheet level - not a cure):   15177
+# H probe floor: customTop gains ONE trivial alternative `customRaw = /x;/` (no cure at all):    14742  (+107 B: the per-entry cost of any new alternative)
+# I non-cure probe: customRaw = /(?=[^;]*;)/ , textBody (reuses () nesting only; admits top-level ; and unbalanced []{}): 14732
+# J recursive []/{} set, simple guard, semiRun unchanged:                                       15168  (+533: a new recursive bracket rule pair costs ~430 B gz in this emitter)
+# Conclusion: a cure meeting §0fc.2 (blocks of all three kinds nest; top-level ; refused) needs a recursive three-bracket rule set (no recursion in JS regex); every such variant measured 15168..15278 B gz > 14,800 B. Product restored to 2f590daa8 bytes; --check 9f54614b x2; gz 14635 x2.

@@ -1,0 +1,600 @@
+{
+ "sitting": 4,
+ "started": "2026-09-18T16:24:14.921Z",
+ "base": "http://localhost:3000",
+ "records": {
+  "workspace:url": "http://localhost:3000/w/eager-crafting-pine-frog",
+  "FR-CP-5:chevron": {
+   "rulesEmitted": [
+    {
+     "sel": ".\\@container .paper-grain-overlay .paper-underpaint .pointer-events-auto .pointer-events-none .collapse .invisible .visible .sr-only .cartoon-card .cartoon-surf",
+     "css": "@layer utilities {\n  .\\@container { container-type: inline-size; }\n  .paper-grain-overlay {\n  position: relative; isolation: isolate;\n  &::after { content: \"\"; position: absolute; inset: 0px; border-radius: inherit; poin"
+    },
+    {
+     "sel": ".pointer-events-auto .pointer-events-none .collapse .visible .sr-only .absolute .fixed .relative .static .sticky .inset-0 .inset-x-0 .start-2 .top-0 .top-1 .top",
+     "css": "@layer components {\n  .pointer-events-auto { pointer-events: auto; }\n  .pointer-events-none { pointer-events: none; }\n  .collapse { visibility: collapse; }\n  .visible { visibility: visible; }\n  .sr-only { clip-path: inse"
+    }
+   ],
+   "chevronClass": "lucide lucide-chevron-down h-4 w-4 shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-disclosure",
+   "before": {
+    "rotate": "none",
+    "transform": "none",
+    "trigState": "closed",
+    "ariaExpanded": "false",
+    "groupState": "closed",
+    "groupIsTrigger": true,
+    "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+   },
+   "open": [
+    {
+     "ms": 1,
+     "rotate": "0deg",
+     "transform": "none",
+     "trigState": "open",
+     "ariaExpanded": "true",
+     "groupState": "open",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 43,
+     "rotate": "0deg",
+     "transform": "none",
+     "trigState": "open",
+     "ariaExpanded": "true",
+     "groupState": "open",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 101,
+     "rotate": "30.9521deg",
+     "transform": "none",
+     "trigState": "open",
+     "ariaExpanded": "true",
+     "groupState": "open",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 202,
+     "rotate": "186.12deg",
+     "transform": "none",
+     "trigState": "open",
+     "ariaExpanded": "true",
+     "groupState": "open",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 401,
+     "rotate": "180deg",
+     "transform": "none",
+     "trigState": "open",
+     "ariaExpanded": "true",
+     "groupState": "open",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 903,
+     "rotate": "180deg",
+     "transform": "none",
+     "trigState": "open",
+     "ariaExpanded": "true",
+     "groupState": "open",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    }
+   ],
+   "close": [
+    {
+     "ms": 5,
+     "rotate": "180deg",
+     "transform": "none",
+     "trigState": "closed",
+     "ariaExpanded": "false",
+     "groupState": "closed",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 46,
+     "rotate": "181.458deg",
+     "transform": "none",
+     "trigState": "closed",
+     "ariaExpanded": "false",
+     "groupState": "closed",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 105,
+     "rotate": "100.74deg",
+     "transform": "none",
+     "trigState": "closed",
+     "ariaExpanded": "false",
+     "groupState": "closed",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 207,
+     "rotate": "-2.736deg",
+     "transform": "none",
+     "trigState": "closed",
+     "ariaExpanded": "false",
+     "groupState": "closed",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 400,
+     "rotate": "none",
+     "transform": "none",
+     "trigState": "closed",
+     "ariaExpanded": "false",
+     "groupState": "closed",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    },
+    {
+     "ms": 901,
+     "rotate": "none",
+     "transform": "none",
+     "trigState": "closed",
+     "ariaExpanded": "false",
+     "groupState": "closed",
+     "groupIsTrigger": true,
+     "nearestStateHost": "BUTTON.configurator-layer-trigger group flex w-"
+    }
+   ],
+   "rotates": true
+  },
+  "ESC-3:workspace": [
+   {
+    "ariaLabel": "Playback speed",
+    "text": "1×",
+    "classes": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "0px none rgb(0, 0, 0)",
+    "borderRadius": "9999px",
+    "height": "28px",
+    "fontSize": "14px",
+    "visible": true,
+    "size": [
+     56,
+     28
+    ]
+   },
+   {
+    "ariaLabel": "Contour extraction strategy",
+    "text": "Auto",
+    "classes": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex cursor-pointer items-center justify-between px-3 py-2 text-dropdown placeholde",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "2px solid oklab(0.216128 0.00350075 0.00518669 / 0.15)",
+    "borderRadius": "10px",
+    "height": "40px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     341,
+     40
+    ]
+   }
+  ],
+  "controls-dock": {
+   "pencilVisible": true,
+   "uploadVisible": true
+  },
+  "G10:workspace/ContourPreview.Preview": {
+   "h0": 180,
+   "frames": 177,
+   "closeCompletedAtMs": 215,
+   "completes": true,
+   "distinctIntermediateHeights": 8,
+   "sampleIntermediate": [
+    176,
+    167,
+    128,
+    88,
+    49,
+    42,
+    22,
+    8
+   ],
+   "animNamesSeen": [
+    "disclosure-close"
+   ],
+   "last": {
+    "ms": 1505.7,
+    "present": true,
+    "state": "closed",
+    "hidden": true,
+    "h": 0,
+    "anim": "disclosure-close",
+    "disp": "none"
+   },
+   "animates": true,
+   "reopenedAriaExpanded": "true"
+  },
+  "ESC-3:workspace-dock": [
+   {
+    "ariaLabel": "Playback speed",
+    "text": "1×",
+    "classes": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex w-full cursor-pointer items-center justify-between rounded-",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "0px none rgb(0, 0, 0)",
+    "borderRadius": "9999px",
+    "height": "28px",
+    "fontSize": "14px",
+    "visible": true,
+    "size": [
+     56,
+     28
+    ]
+   },
+   {
+    "ariaLabel": "Contour extraction strategy",
+    "text": "Auto",
+    "classes": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex cursor-pointer items-center justify-between px-3 py-2 text-dropdown placeholde",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "2px solid oklab(0.216128 0.00350075 0.00518669 / 0.15)",
+    "borderRadius": "10px",
+    "height": "40px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     341,
+     40
+    ]
+   }
+  ],
+  "tooltip:panel": [
+   {
+    "tag": "DIV",
+    "classes": "glass-floating glass-overlay-plate glass-reveal z-tooltip",
+    "text": "Pause animationPause animation",
+    "fontSize": "14.048px",
+    "padding": "8px",
+    "borderRadius": "12px",
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.",
+    "background": "color(srgb 0.20397 0.148263 0.0829736 / 0.18)",
+    "inner": {
+     "fontSize": "14.048px",
+     "padding": "0px",
+     "borderRadius": "0px"
+    }
+   },
+   {
+    "tag": "SPAN",
+    "classes": "",
+    "text": "Pause animation",
+    "fontSize": "14.048px",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "background": "rgba(0, 0, 0, 0)",
+    "inner": null
+   }
+  ],
+  "G18:drag": {
+   "trackBox": {
+    "x": 87,
+    "y": 737,
+    "width": 658,
+    "height": 20
+   },
+   "thumbAttrs": {
+    "box": {
+     "x": 554.171875,
+     "y": 737,
+     "width": 0,
+     "height": 20,
+     "top": 737,
+     "right": 554.171875,
+     "bottom": 757,
+     "left": 554.171875
+    },
+    "valuenow": "71",
+    "cls": "slider-thumb glass-specular-track"
+   },
+   "pressAt": {
+    "cx": 185.7,
+    "cy": 747
+   },
+   "stBefore": {
+    "scrubbing": false,
+    "t": 0.714,
+    "playing": true
+   },
+   "midSeries": [
+    {
+     "scrubbing": true,
+     "t": 0.18,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.23,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.28,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.33,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.38,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.43,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.48,
+     "playing": true
+    },
+    {
+     "scrubbing": true,
+     "t": 0.53,
+     "playing": true
+    }
+   ],
+   "after": {
+    "scrubbing": false,
+    "t": 0.538,
+    "playing": true,
+    "calls": [
+     {
+      "name": "seek",
+      "ms": 14688.1,
+      "t": 0.7148,
+      "scrubbing": false
+     },
+     {
+      "name": "startScrub",
+      "ms": 14688.2,
+      "t": 0.15,
+      "scrubbing": false
+     },
+     {
+      "name": "seek",
+      "ms": 14795.8,
+      "t": 0.15,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 14892.7,
+      "t": 0.17,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15035.6,
+      "t": 0.18,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15134.8,
+      "t": 0.2,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15231.2,
+      "t": 0.22,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15318.2,
+      "t": 0.23,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15404,
+      "t": 0.25,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15488.2,
+      "t": 0.27,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15657.4,
+      "t": 0.28,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15744.5,
+      "t": 0.3,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15830.2,
+      "t": 0.32,
+      "scrubbing": true
+     },
+     {
+      "name": "seek",
+      "ms": 15919.8,
+      "t": 0.33,
+      "scrubbing": true
+     }
+    ],
+    "callNames": [
+     "seek",
+     "startScrub",
+     "endScrub"
+    ],
+    "totalCalls": 26,
+    "rootPointerdownSeen": 1,
+    "firstRootPointerdown": {
+     "phase": "root-capture",
+     "target": "slider-range glass-liquid-fill",
+     "ms": 14686.3
+    }
+   },
+   "startScrubFired": true,
+   "scrubbingTrueMidDrag": true,
+   "scrubbingFalseAfter": true,
+   "endScrubFired": true,
+   "orderFirstThree": [
+    "seek@14688.1(t=0.7148,scrubbing=false)",
+    "startScrub@14688.2(t=0.15,scrubbing=false)",
+    "seek@14795.8(t=0.15,scrubbing=true)"
+   ]
+  },
+  "publish:control": {
+   "uploadVisible": true
+  },
+  "publish:after": {
+   "url": "http://localhost:3000/w/eager-crafting-pine-frog",
+   "toasts": [
+    "Notification ErrorCould not create snapshot",
+    "Notification ErrorOwner required"
+   ]
+  },
+  "gallery:cards": {
+   "cardCount": 0,
+   "firstCard": null,
+   "badge": null
+  },
+  "ESC-3:gallery-drawer": [
+   {
+    "ariaLabel": null,
+    "text": "All tiers",
+    "classes": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex cursor-pointer items-center justify-between px-3 py-2 text-dropdown placeholde",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "borderRadius": "10px",
+    "height": "32px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     239,
+     32
+    ]
+   },
+   {
+    "ariaLabel": null,
+    "text": "Newest",
+    "classes": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex cursor-pointer items-center justify-between px-3 py-2 text-dropdown placeholde",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "borderRadius": "10px",
+    "height": "32px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     239,
+     32
+    ]
+   }
+  ],
+  "ESC-3:gallery-admin": {
+   "triggers": [],
+   "adminSurface": {
+    "adminOverlayButtons": 0,
+    "bodyHasAdminText": true,
+    "url": "http://localhost:3000/gallery"
+   }
+  },
+  "ESC-3:morph": [
+   {
+    "ariaLabel": null,
+    "text": "Linear",
+    "classes": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+    "borderRadius": "9999px",
+    "height": "40px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     244,
+     40
+    ]
+   },
+   {
+    "ariaLabel": null,
+    "text": "Linear",
+    "classes": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+    "borderRadius": "9999px",
+    "height": "40px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     244,
+     40
+    ]
+   },
+   {
+    "ariaLabel": null,
+    "text": "Linear",
+    "classes": "control-surface glass-control-edge glass-capsule-hover h-(--control-h-md) tap-squish focus-ring flex cursor-pointer items-center justify-between rounded-pill px",
+    "hasEdgeClass": true,
+    "hasCapsuleHover": true,
+    "boxShadow": "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border": "1px solid color(srgb 0.11 0.098 0.09 / 0.14)",
+    "borderRadius": "9999px",
+    "height": "40px",
+    "fontSize": "16px",
+    "visible": true,
+    "size": [
+     244,
+     40
+    ]
+   }
+  ]
+ },
+ "shots": {
+  "03-workspace-editor-preview-disclosure": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/03-workspace-editor-preview-disclosure.jpg",
+  "05-workspace-tooltip-on-play": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/05-workspace-tooltip-on-play.jpg",
+  "04-workspace-animation-dock": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/04-workspace-animation-dock.jpg",
+  "08-gallery": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/08-gallery.jpg",
+  "09-gallery-filter-drawer": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/09-gallery-filter-drawer.jpg",
+  "10-gallery-admin": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/10-gallery-admin.jpg",
+  "11-morph": "/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/evidence/w1/shots/11-morph.jpg"
+ },
+ "consoleErrors": [
+  "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+ ],
+ "finished": "2026-09-18T16:24:43.167Z"
+}

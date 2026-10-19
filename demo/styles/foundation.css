@@ -14,23 +14,29 @@
  * still covers the FULL demo utility surface (every `lg:*`/`sm:*`/… the tree
  * uses), so the explicit `@source` below stays load-bearing regardless.
  *
+ * (X.W5.b · gate N9: the sentence that used to stand here claimed a CI
+ * emission probe asserts the pane-visibility witnesses survive the build.
+ * It is STRUCK. Measured 2026-09-19: the named probe does not exist, no
+ * workflow step invokes it and no package script names it; it was pruned
+ * with the proof-theater at `6d6d3521`. The `@source` directives below are
+ * still load-bearing on their own terms — an explicit scan root is a
+ * mechanism, not a claim about CI — but NOTHING here asserts that a
+ * build-output emission gate runs. The struck path is quoted, and the
+ * either/or rationale recorded, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.b.)
+ *
  * Tailwind v4 auto-detection roots its scan at the GIT REPOSITORY ROOT and
  * prunes `.gitignore` matches; that *happens* to cover App.vue today, but the
  * coverage is implicit — it silently evaporates outside a git checkout, or if
  * `demo/` is ever gitignored, exactly the P9 phantom-utility failure mode
  * (inv-N-7). The two `@source` directives below (declared after the glass-ui
  * `@import`s) make the demo-author tree's scan EXPLICIT and git-independent.
- * The paths resolve relative to THIS file (`demo/@/styles/`): `../../color-picker`
- * reaches the App.vue shell, `..` reaches the `@/` component/composable tree.
+ * The paths resolve relative to THIS file (`demo/styles/`): `../app`
+ * reaches the App.vue shell, `..` reaches the rest of the demo tree.
  * Scoped to the authored CODE files by extension (`{vue,ts,html}`) so the
  * sibling `.css` files (this one + animations.css/utils.css) — which are NOT
  * content templates — stay out of the candidate-extraction set.
  *
- * The CI emission probe (.github/workflows/ci.yml → scripts/ci/css-emission-probe.mjs)
- * asserts the pane-visibility witnesses survive the build — the `[data-layout]`
- * display rules (present, un-media'd) + the `sm:max-w-lg` clamp (gated at 40rem)
- * — so a future scan/emission regression fails loud instead of shipping a blank
- * desktop.
  */
 
 /*
@@ -88,7 +94,7 @@
  * glass-ui `@import`s so its `@utility` registrations (text-mono-small &c.,
  * consumed by `.slug-pill`'s `@apply` below) are in scope before any candidate
  * extraction runs. */
-@source "../../color-picker/**/*.{vue,ts,html}";
+@source "../app/**/*.{vue,ts,html}";
 @source "../**/*.{vue,ts,html}";
 
 @theme {
@@ -116,7 +122,6 @@
      * shell's own top padding.) */
     --max-width-tooltip:      12.5rem;
     --min-width-menu:         var(--menu-min-w);
-    --shadow-card-hover:      var(--shadow-cartoon-hover);
 
     /* ── The bare-utility transition default (S.W3-5) ──
      * Tailwind v4's un-modified `transition` / `transition-*` utilities fall
@@ -134,6 +139,15 @@
      * the first-class `border-card-edge` utility instead of a magic
      * `border-[var(--card-edge)]` reach (DESIGN.md §Idioms NOT used). */
     --color-card-edge: var(--card-edge);
+
+    /* ── The interior-rule bridge (X-DS pass 10 · V10-01) ──
+     * ONE interior-rule voice, glass first: an in-card rule (a footer or
+     * section rule, the line between a card's rows) paints glass's own seam
+     * ink (`--ink-seam`, the same tone glass <Separator> paints), never the
+     * perimeter `--card-edge` and never the khaki `--border`. A pure consume of
+     * glass's token as the `border-seam` utility; `--card-edge` stays the
+     * PERIMETER hairline (card outline, wells, code paper). */
+    --color-seam: color-mix(in oklab, var(--foreground) calc(var(--ink-seam) * 100%), transparent);
 
     /* ── The material-ladder bridges (T.W3-1 — D1; owned in :root below) ──
      * `bg-well` / `bg-stage` / `text-on-stage-chrome` etc. resolve the rung-2
@@ -164,7 +178,21 @@
  *   --dock-h      = icon-btn + vertical padding + border  (the band's floor)
  *   --dock-inset  = the shell's top padding (the band's breathing room)
  *   --dock-gap    = the DESIGNED gap between the two bands (the grid row-gap)
- *   --content-max-h = the cap on the pane container's height
+ *   --app-gutter  = the shell's inline gutter, both sides (X.W5.b; the former
+ *                   --app-padding-x, renamed to say what it is — a gutter the
+ *                   .pane-container's inline clamp subtracts, not a padding
+ *                   value some box happens to read)
+ *
+ * THE BLOCK-AXIS CAP IS GONE (X.W5.b · V·L1 · gates B2/B4). A token used to be
+ * declared here as "the cap on the pane container's height", with two @media
+ * arms below re-pinning it by viewport aspect. The token, its base declaration
+ * and the bare 21/9 arm are DELETED: the shell FLOORS the block axis
+ * (`min-block-size: 100svh` on .app-layout) and caps it nowhere. Deleting the
+ * token is the point — with no property left to set, "cap the page by viewport
+ * aspect" is unrepresentable rather than merely unset (L-8), which is why gate
+ * B4's census is a repo-wide grep on the identifier and why that identifier is
+ * written out exactly once, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.b, and nowhere under `demo/`.
  *
  * .app-layout is a TWO-BAND GRID (`auto 1fr`): the dock band (<nav>, in-flow,
  * static) sits ATOP as row 1; the scene band (<main>) sits BELOW as row 2.
@@ -210,7 +238,7 @@
      * demo-authored alike — resolves Fraunces BY CONSTRUCTION (never via the
      * dead `--font-display` runtime var, never via `!important` overrides).
      * Fraunces' single brand source is the SELF-HOSTED @font-face set in
-     * demo/color-picker/index.html (W2-3/LS-6 — the Google-Fonts network
+     * demo/app/index.html (W2-3/LS-6 — the Google-Fonts network
      * actor retired; the glass-ui corpus carries no Fraunces); Jakarta +
      * Fira load as real faces from the corpus import above. "Fraunces
      * Fallback" is the size-adjust-tuned Georgia (the bounded ink gate's
@@ -229,6 +257,41 @@
      * EXISTING `--glass-tint-source`/`--glass-tint-strength` knob (no new
      * surface, no demo-local glass recipe). */
     --accent-live: oklch(0.632 0.214 13.5);
+
+    /* ── The de-emphasis rung (X.W7.z2 · R-15 ≡ C-11) ──
+     * `--ink-muted` is the certified plate-caption ink: `useAtmosphereBoot`
+     * stamps the live value on the root (`resolveMutedInk`, floor-clamped
+     * against the resting plate). This is its stylesheet declaration, so the
+     * pre-boot read is never the sub-floor `--muted-foreground`: the value
+     * `resolveMutedInk` yields at the pre-palette ambient (L 0.5 → resting
+     * rung 0.808). The dark arm lives in `.dark` below. */
+    --ink-muted: oklch(0.369 0.004 34.6);
+
+    /* ── The primary plate ink (X-DS pass 4 · V4C-01) ──
+     * `--ink-primary` is the scheme foreground certified against the same
+     * composited resting plate (`resolvePlateInk`), stamped live by
+     * `useAtmosphereBoot` beside `--ink-muted`. `shell.css` seats it as the
+     * in-plate `--foreground`. Pre-boot it is the scheme foreground itself
+     * (computed here, on the root, in either scheme). */
+    --ink-primary: var(--foreground);
+
+    /* ── The gold identity ink (X-DS pass 15 · V15-01) ──
+     * `--color-gold`'s hue with its lightness certified against the same
+     * resting plate (at the text floor, so the glyph clears 3:1 on the
+     * real plate), stamped live by
+     * `useAtmosphereBoot`. Pre-boot it is the raw gold. Pass 17 (V17C-01)
+     * rebinds it per ground: the dock band (Dock.vue), the seal's wax
+     * (`--seal-ink-gold`) and the floating plate (`--ink-gold-floating`,
+     * shell.css); `.gold-ink` (utils.css) is the one reader. */
+    --ink-gold: var(--color-gold);
+
+    /* ── The modal plate's destructive ink (X-DS pass 16 · V16-01) ──
+     * glass's `--destructive` with its lightness certified against the modal
+     * ground (the floating plate over the scrim), stamped live by
+     * `useAtmosphereBoot`; `shell.css` seats it on the modal root. Pre-boot
+     * it is glass's red (computed here, on the root). The primary/muted pair
+     * falls back to the floating pair in `shell.css`. */
+    --ink-modal-destructive: var(--destructive);
 
     /* ── The per-view accent (S.W7 · W7-4 — navigation reads chromatically,
      * gamut-guaranteed). The former CSS relative-color derivation
@@ -308,24 +371,28 @@
      * own position/size — it is a complete background LAYER; compose it via
      * `background:`, not `background-image:`. Consumers: the picker's alpha
      * slider track (ComponentSliders), the gradient editor bar + stop wells
-     * (GradientStopEditor). */
+     * (GradientStopRail). */
     --alpha-checker: repeating-conic-gradient(
             color-mix(in oklab, var(--foreground) 14%, var(--background)) 0% 25%,
             var(--background) 0% 50%
         ) left top / 16px 16px;
 
     /* ── THE MATERIAL LADDER, rungs 2 + 4 (T.W3-1 — SYNTHESIS §2 D1) ──
-     * Rung-2 WELL: the recessed in-plate fixture — an OPAQUE tone-step of the
-     * plate, NO backdrop-blur (nothing live sits behind an in-plate fixture;
-     * blurring the aurora THROUGH the host is the mud generator, t-card-material
-     * RC-3). The tone-step is the D1 bracket default: 8% `--foreground` into
-     * `--card`, oklab, judged inside [6%, 10%] at the O-7 census. INTERIM demo
+     * Rung-2 WELL: the recessed in-plate fixture — a tone-step of the plate,
+     * NO backdrop-blur (nothing live sits behind an in-plate fixture; blurring
+     * the aurora THROUGH the host is the mud generator, t-card-material RC-3).
+     * X-DS pass 1 (V1-03): the step is taken OF THE HOST, not of the static
+     * neutral `--card`. The opaque `--card` mix dropped a grey-brown (dark) or
+     * cream (light) slab onto the live-tinted plate — the fixture louder than
+     * its container, and in the wrong hue family. The well is now the same 8%
+     * `--foreground` step (the D1 bracket [6%, 10%]) laid as a wash over
+     * whatever plate it sits on, so it inherits the plate's hue. INTERIM demo
      * mint — the producer `.glass-well`/`--glass-bg-well` rung is packet P3;
      * this token swaps onto it at the adopt event (BOOKED, T.W3 §BOOKS).
      * Consumers: `.dashed-well`, PaletteCard (+skeleton), the gradient
      * perceived-space plate + stop chip, VersionHistoryDrawer rows, the mix
      * result plate — the six parallel hand-mints D1 retires. */
-    --well-bg: color-mix(in oklab, var(--card) 92%, var(--foreground) 8%);
+    --well-bg: color-mix(in oklab, var(--foreground) 8%, transparent);
 
     /* Rung-4 STAGE: the named near-black pair for photographic/media grounds
      * (extract image stage, caption veils, on-stage chrome). Scheme-INVARIANT
@@ -341,7 +408,7 @@
  * The rung-2 WELL as a seated sub-card CLASS — ONE home for the console
  * species (the picker's sliders console + ConfigSliderPane, the app's
  * second slider population — the M-34 population clause), so no consumer
- * ever re-mints the recipe. Opaque tone-step of the plate (--well-bg), the
+ * ever re-mints the recipe. The tone-step of the plate (--well-bg), the
  * ONE hairline (--card-edge), the panel radius rung; NO backdrop-blur
  * (nothing live behind an in-plate fixture — C5's material ruling), NO
  * cartoon shadow (depth law 2: the plate already casts the pane's rung).
@@ -353,7 +420,35 @@
     border-radius: var(--radius-panel);
 }
 
+/* X-DS value pass 9 (V9C-02): THE SCALAR ROW'S ONE RHYTHM. The scalar
+ * population rides glass's `sm` rung (the config consoles, Extract's K and kC,
+ * Generate's count, Gradient's Direction; no other site takes `sm`). glass seats
+ * that slider in its touch-target band (`--slider-touch-target`, 1.5rem) only
+ * under a coarse pointer; under a fine one the root collapsed to its 9 px track,
+ * so the rail sat 5 px under its label on Generate and Gradient, 7-9 on the
+ * consoles, and 13 on Extract, whose rows carried a hand-made 24 px band. The
+ * band is now the rung's at every pointer, from glass's own token, and the
+ * per-site band retires (Extract's K keeps its box only to seat the developed
+ * rail behind the track). Layout only: no lighting is touched. */
+[data-slot="slider"][data-size="sm"] {
+    min-block-size: var(--slider-touch-target, 1.5rem);
+}
+
 :root {
+
+    /* X-DS pass 5 (V5C-09): THE SCALAR RAIL (see utils.css, THE SCALAR RANGE
+     * INK). At glass's `sm` rung (0.75rem) the range is a slab: a column of
+     * /blob's 31 scalars was the heaviest ink on the pane. The weight drops,
+     * the ink stays: the `sm` rung the scalar population rides (the config
+     * consoles, Extract's K and kC, Gradient's Direction) takes glass's own
+     * unsized track height, 0.375rem, its line. Declared here, after glass's
+     * token sheet, so the token wins by order. The spectrum sliders size their
+     * track from the thumb, not this token.
+     * X-DS pass 6 (V6C-02): glass's scrubber is thumbless, its leading edge is
+     * the handle; at 0.375rem no handle was left to read (a progress meter, a
+     * 6 px focus body). 0.5625rem keeps the leading edge legible as a grip and
+     * stays lighter than glass's 0.75rem slab. */
+    --slider-track-height-sm: 0.5625rem;
 
     --shadow-color: var(--foreground);
 
@@ -364,14 +459,23 @@
      * `shadow-card` consumers and explicit `shadow-cartoon` consumers render
      * one cartoon language — no fourth ad-hoc shadow recipe. */
     --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent);
-    --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 85%, transparent);
     --shadow-card: var(--shadow-cartoon);
-    --shadow-card-hover: var(--shadow-cartoon-hover);
 
-    /* PROJECT OVERRIDE: monospace fonts for Select and DropdownMenu triggers
-     * (glass-ui defaults to inherit). */
-    --select-font: var(--font-mono);
-    --dropdown-menu-font: var(--font-mono);
+    /* The DropdownMenu/Select font pins are BOTH deleted — inert declarations,
+     * not a ruled change of voice.
+     *
+     * X.W5.b · gate N13 (2026-09-19, glass 7.0.0) deleted the Select half:
+     * `--select-font` had zero occurrences in the installed producer.
+     *
+     * X-W7L (2026-09-25, glass 10.1.0) deletes the menu half on the same
+     * measurement: `--dropdown-menu-font` has ZERO occurrences in the
+     * installed 10.1.0 package. glass 8.0.0's overlay register (`bca22bd9`,
+     * BK #89 W-OVERLAY) removed the unlayered `.dropdown-menu-content,
+     * .dropdown-sub-content { font-family: var(--dropdown-menu-font) }` block
+     * with no MIGRATION row. A producer seam is a LETTER, never a local patch
+     * (glass-ui is READ-ONLY): the mono-menu ask rides the glass relay with
+     * the Select ask (INBOX, X-W7L). If the producer restores the seam, the pin
+     * returns here. */
 
     /* ── The display-weight pin (T.W4-1 — D2 "non-bold"; the P10 booked swap) ──
      * The owner's non-bold edict for the display voice, pinned at :root the
@@ -422,10 +526,6 @@
     --dock-band-min-h: calc(var(--size-icon-btn) + 2rem);
     --dock-inset: 1rem;
     --dock-gap: 1rem;
-    /* The scene band's own height IS the honest cap (row 2 of the shell
-     * grid resolves it by construction); the desktop/ultra-wide designed
-     * clamps below override it. */
-    --content-max-h: 100%;
 
     /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
      * The cards GROW then clamp, handled generally: `--pane-min` is the floor,
@@ -444,11 +544,17 @@
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
     --menu-min-w: 11rem;
 
-    /* App-shell horizontal padding (D.W4 Lane A §4.1 / §5.3 drift) — was a
-     * silent 1rem literal coupled between .app-layout's `padding: … 1rem …`
-     * and .pane-container's `max-width: calc(… + 2rem)`. Both now read this
-     * token so the coupling is explicit and survives a future tightening. */
-    --app-padding-x: 1rem;
+    /* The app-shell INLINE gutter, both sides (D.W4 Lane A §4.1 / §5.3 drift)
+     * — was a silent 1rem literal coupled between .app-layout's
+     * `padding: … 1rem …` and .pane-container's `max-width: calc(… + 2rem)`.
+     * Both read this token, so the coupling is explicit and survives a future
+     * tightening. X.W5.b renamed it from `--app-padding-x`: it is not a
+     * padding value that one box happens to apply, it is the shell's gutter —
+     * the .pane-container's inline clamp SUBTRACTS it on both sides, which is
+     * a gutter's job and not a padding's. The rename is inline-axis naming
+     * only; the axis itself is untouched here (CC-051's inline half rides
+     * CC-056 / V·L3 at X-W6). */
+    --app-gutter: 1rem;
 
     /* ── The φ ladder (S.W4-8 — promoted from Markdown.vue's private scoped
      * block; design-docs-about P3). 1rem base, neighbours a factor of
@@ -462,23 +568,53 @@
     --phi-4: 2.618rem; /* base × φ² */
 }
 
+/* X.W12U.m · A2-VA-L2-4 — SHORT VIEWPORTS (a phone in landscape, 844×390).
+ * The band tokens above are tuned for portrait and desktop; at 390 px tall the
+ * shell spent 127.5 px (33%) on chrome before the stage. Below 30rem of height
+ * the breathing room halves and the band floor drops from the expanded-pill
+ * reserve to the icon atom + 0.5rem. The reserve exists for the collapse ↔
+ * expand morph, and below 1024 px the dock never collapses (Dock.vue `isDesktop`),
+ * so a short phone has no morph to reserve for; the pill's own height still
+ * floors the band. The route H1 sheds its margin here (App.vue). */
+@media (max-height: 30rem) {
+    :root {
+        --dock-inset: 0.5rem;
+        --dock-gap: 0.5rem;
+    }
+}
+/* the reserve drops only where the dock cannot collapse (Dock.vue:87).
+ * X.W12U.o5c (COHESION §0fv.2) — the floor now HOLDS the settled pill here too.
+ * The dock mounts in the task after first paint, so the band's first-paint
+ * height is its floor alone; at `+ 0.5rem` (48 px) the band painted short and
+ * grew to the pill-floored 62.5 px (pill 56 + the inline-flex line-box
+ * descent 6.5) when the dock mounted, shifting the pane 15 px (CLS 0.0143 at
+ * 844×390). The reserve is the measured settled band rounded up to the rem
+ * grid, the same idiom as the 72 px reserve above (`+ 1.5rem` = 64 ≥ 62.5);
+ * it retires to the producer pill-height rung with the other. */
+@media (max-height: 30rem) and (width < 1024px) {
+    :root {
+        --dock-band-min-h: calc(var(--size-icon-btn) + 1.5rem);
+    }
+}
+
 /* Desktop: tighter dock margins.
- * The aspect law (R.W3 Lane A / A4): the desktop grammar — tighter dock,
- * capped content height, the dual grid below — fires on width AND landscape.
- * A portrait tablet ≥ 1024px wide runs the single-slot mobile grammar with the
- * relaxed dvh-based `--content-max-h` (the D6-03 portrait pathology: two
- * columns marooned mid-screen on a 1080×1750 slab). */
+ * The aspect law (R.W3 Lane A / A4): the desktop grammar — tighter dock, the
+ * dual grid below — fires on width AND landscape. A portrait tablet ≥ 1024px
+ * wide runs the single-slot mobile grammar (the D6-03 portrait pathology: two
+ * columns marooned mid-screen on a 1080×1750 slab).
+ *
+ * X.W5.b — this arm KEEPS its two --dock-* rows and loses its third: the
+ * aspect-keyed block-axis cap it used to re-pin here is gone with the token
+ * (gate B2). The query itself survives because the dock's designed margins
+ * are a real desktop-grammar decision; only the cap left. Its sibling — the
+ * bare ultrawide aspect-only arm that set nothing BUT the cap — died whole
+ * in the same commit, taking the source-scoped viewport-dimension media
+ * census from 7 to 6 (gate C7 stages the rest at X.W5.c; the census is a
+ * grep, so this note deliberately spells no query). */
 @media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
     :root {
         --dock-inset: 0.5rem;
         --dock-gap: 0.5rem;
-        --content-max-h: clamp(34rem, 86dvh, 52rem);
-    }
-}
-
-@media (min-aspect-ratio: 21 / 9) {
-    :root {
-        --content-max-h: clamp(30rem, 62dvh, 38rem);
     }
 }
 
@@ -513,10 +649,11 @@
      * the owner rules which register dark speaks in. */
     --shadow-color: color(srgb 0.11 0.098 0.09);
 
-    /* Lighter cartoon shadows in dark mode; --shadow-card / --shadow-card-hover
-     * resolve through these via the var() reference set in :root. */
+    /* Lighter cartoon shadow in dark mode; --shadow-card resolves through it
+     * via the var() reference set in :root. (The 10px hover rung and its
+     * --shadow-card-hover alias are deleted, X-DS pass 11 · V11-T1: no plate
+     * lifts its stamp on hover any more.) */
     --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
-    --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
 
     --shadow: hsl(0 0% 45%);
 
@@ -524,6 +661,10 @@
      * glass-ui's dark arm re-declares --focus-ring-color to warm gray; re-pin
      * it to the accent axis (`--accent-live` is contrast-guarded per scheme). */
     --focus-ring-color: var(--accent-live);
+
+    /* The de-emphasis rung's dark arm (X.W7.z2 · R-15): `resolveMutedInk`
+     * at the pre-palette ambient (resting rung 0.352); boot overwrites it. */
+    --ink-muted: oklch(0.789 0.004 41.9);
 }
 
 /* ── The text-selection ink (T.W8 · P11-R1/T-24) ──
@@ -544,16 +685,6 @@
 ::-moz-selection {
     background: color-mix(in srgb, var(--accent-live) 32%, transparent);
     color: var(--foreground);
-}
-
-/* Underline tab variant — active tab gets a colored bottom border.
- * Apply this class to the Tabs root; set --active-tab-color via :style.
- * MARKER (A.W2 / coordination/Q.md §3): this is a demo-side override of a
- * reka-ui attribute selector. It is retired once glass-ui ships a Tabs
- * `underline` variant; until then the override stays. */
-.underline-tabs button[role="tab"][data-state="active"] {
-    border-bottom: 2px solid var(--active-tab-color, var(--primary));
-    border-radius: 0;
 }
 
 /* MARKER (S owner-ruling 2026-07-05, alpha-checker lane): restatement of
@@ -600,7 +731,7 @@
          * 135deg, 4 stops); only the registered per-stop `<color>` properties
          * `--saved-bg-0..3` move (written by useAtmosphere's sink + the
          * index.html fouc-guard boot script — boot/ground.ts is the record
-         * of truth). Each stop rides the :root 200ms transition below, so a
+         * of truth). Each stop rides the `.ground-breath` 200ms transition below, so a
          * discrete pick breathes into the new family in OKLab (F-12) and the
          * boot crossfade blends like-with-like (F-4). `--saved-bg` (the base
          * stop) stays as the solid fallback var; first-ever visits get the
@@ -613,18 +744,49 @@
             var(--saved-bg-2, var(--saved-bg, var(--background))) 67%,
             var(--saved-bg-3, var(--saved-bg, var(--background))) 100%
         );
+        /* X.W12.a · UIA-V-57 / UIA-V-56 (OA-18): the ground is VIEWPORT-FIXED,
+         * the same box as the atmosphere canvas (App.vue). Unattached, the
+         * propagated root background's positioning area was the document:
+         * on a long page the 135deg ramp stretched over thousands of px (a
+         * flat single-stop slab wherever the field was absent) and restarted
+         * at its darkest stop past the layout (the near-black plum seam at
+         * scroll-end in dark). Fixed, it paints the whole ramp in every
+         * viewport — the W2-3 no-field terminal is the palette, never a band. */
+        background-attachment: fixed;
         color: var(--foreground);
     }
-    :root {
-        /* W2-2 — the ground's material clock: each registered `--saved-bg-*`
-         * stop (registered in index.html, pre-paint) interpolates as a
-         * `<color>` — OKLab by CSS Color 4's default — over 200ms decelerate.
-         * The rAF re-derive under a continuous drag outruns this (one write
-         * per frame → the transition restarts at the fresh value, visually
-         * the live tracking the drag already had — W2-5's byte-identity
-         * clause holds); only DISCRETE picks (swatch click, palette apply)
-         * ride the full 200ms breath. PRM: a color crossfade is a state
-         * change, not motion — kept under reduced motion by design. */
+    /* W2-2 — the ground's material clock: each registered `--saved-bg-*`
+     * stop (registered in index.html, pre-paint) interpolates as a `<color>`
+     * — OKLab by CSS Color 4's default — over 200ms decelerate. Only DISCRETE
+     * picks (swatch click, palette apply) ride the full 200ms breath; the rAF
+     * re-derive under a continuous drag restarts it at each fresh value (the
+     * live tracking the drag already had — W2-5's byte-identity clause
+     * holds). PRM: a color crossfade is a state change, not motion — kept
+     * under reduced motion by design.
+     *
+     * X-W12 Repair 1 (H-1 · GROUND-CLOCK-ON-ROOT): the clock runs on a LEAF,
+     * never on `:root`. A transition running on the root restyled the whole
+     * document every animation frame of a drag (563 elements, ~7 ms/frame —
+     * `.a` act 7). The stops are still WRITTEN on the root (useAtmosphere's
+     * sink, the fouc-guard boot script; the oracles read them there), so the
+     * root and body carry the settled value at once; `.ground-breath` (the
+     * descendant-less fixed plate in index.html, under every layer) inherits
+     * each write, transitions it alone, and paints the breathing ramp over
+     * the body's settled one — one element restyled per frame. */
+    .ground-breath {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        contain: strict;
+        background-color: var(--saved-bg, var(--background));
+        background-image: linear-gradient(
+            135deg,
+            var(--saved-bg-0, var(--saved-bg, var(--background))) 0%,
+            var(--saved-bg-1, var(--saved-bg, var(--background))) 33%,
+            var(--saved-bg-2, var(--saved-bg, var(--background))) 67%,
+            var(--saved-bg-3, var(--saved-bg, var(--background))) 100%
+        );
         transition:
             --saved-bg-0 200ms var(--ease-decelerate),
             --saved-bg-1 200ms var(--ease-decelerate),

@@ -1,0 +1,37 @@
+{
+  "hit": [
+    {
+      "x": 160.23092651367188,
+      "y": 458.019287109375,
+      "inside": true,
+      "hit": "DIV.current-line current-line-margin-both",
+      "pe": "auto"
+    },
+    {
+      "x": 274.7079315185547,
+      "y": 561.8728332519531,
+      "inside": true,
+      "hit": "DIV.view-lines monaco-mouse-cursor-text",
+      "pe": "auto"
+    }
+  ],
+  "afterMouseClick": "DIV CSS native-edit-context",
+  "afterProgrammaticFocus": "DIV CSS native-edit-context",
+  "afterEnd": "native-edit-context",
+  "trace": [
+    "Enter=>native-edit-context | transform: rotate(90deg); / ",
+    "c=>native-edit-context | transform: rotate(90deg); / c",
+    "o=>native-edit-context | transform: rotate(90deg); / co",
+    "l=>native-edit-context | transform: rotate(90deg); / col",
+    "o=>native-edit-context | transform: rotate(90deg); / colo",
+    "r=>native-edit-context | transform: rotate(90deg); / color",
+    ":=>native-edit-context | transform: rotate(90deg); / color:",
+    " =>native-edit-context | transform: rotate(90deg); / color: ",
+    "r=>native-edit-context | transform: rotate(90deg); / color: r",
+    "e=>native-edit-context | transform: rotate(90deg); / color: re",
+    "d=>native-edit-context | transform: rotate(90deg); / color: red",
+    ";=>native-edit-context | transform: rotate(90deg); / color: red;"
+  ],
+  "textAfter": "transform: rotate(90deg); | color: red;",
+  "errorShown": null
+}

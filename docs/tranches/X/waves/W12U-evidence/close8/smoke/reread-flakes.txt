@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5
+### e2e/smoke/perf/o24-lcp-identity.spec.ts:100 (smoke-perf) r1 load1=11.42
+  ✓  1 [smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle (11.7s)
+  1 passed (14.1s)
+### e2e/smoke/perf/o24-lcp-identity.spec.ts:100 (smoke-perf) r2 load1=11.79
+  ✓  1 [smoke-perf] › e2e/smoke/perf/o24-lcp-identity.spec.ts:100:1 › O-24 LCP identity + reveal-only law — both schemes, built bundle (11.7s)
+  1 passed (13.1s)

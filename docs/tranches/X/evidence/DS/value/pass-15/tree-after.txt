@@ -1,0 +1,19 @@
+ M demo/DESIGN.md
+ M demo/app/ErrorBoundary.vue
+ M demo/app/composables/boot/useAtmosphereBoot.ts
+ M demo/color-session/useContrastSafeColor.ts
+ M demo/palettes/BrowsePane.vue
+ M demo/palettes/admin/AdminPane.vue
+ M demo/palettes/admin/panels/AdminAuditPanel.vue
+ M demo/palettes/admin/panels/AdminFlaggedPanel.vue
+ M demo/palettes/admin/panels/AdminNamesPanel.vue
+ M demo/palettes/admin/panels/AdminTagsPanel.vue
+ M demo/palettes/admin/panels/AdminUsersPanel.vue
+ M demo/shared/ui/PaletteSpecimen.vue
+ M demo/shell/PaneErrorPlate.vue
+ M demo/shell/viewSchema.ts
+ M demo/styles/foundation.css
+ M demo/workbenches/generate/GenerateControls.vue
+ M demo/workbenches/mix/MixConfigBar.vue
+?? demo/test/shell/button-voice.test.ts
+Fri Oct 16 21:21:51 EDT 2026

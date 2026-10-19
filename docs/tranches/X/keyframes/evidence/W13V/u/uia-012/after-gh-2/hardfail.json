@@ -1,0 +1,19 @@
+{
+ "base": "http://127.0.0.1:4190/",
+ "legs": [
+  {
+   "text": "}}} @@ nope {",
+   "toasts": [
+    "Failed to parse keyframes 🔧Invalid animation CSS: the input is non-empty but parsed to zero @keyframes rules (no animatable stops) — the re"
+   ],
+   "markers": 0
+  },
+  {
+   "text": "rotate( ; )",
+   "toasts": [
+    "Failed to parse keyframes 🔧Invalid animation CSS: css_syntax at 0-11: expected rule, got rotate( ; )"
+   ],
+   "markers": 0
+  }
+ ]
+}

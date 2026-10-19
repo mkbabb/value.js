@@ -1,0 +1,56 @@
+(node:83711) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[WebServer] (node:83739) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[WebServer] (Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 22 tests using 1 worker
+
+(node:83743) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓   1 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:60:1 › terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed) (13.4s)
+  ✓   2 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:80:1 › the owned paint stack: normalized 90° ramp, no-repeat, border-box origin+clip (4.1s)
+  ✓   3 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register (4.6s)
+  ✓   4 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:143:1 › one axis: every handle centre sits where the ramp paints its own ordinal (3.3s)
+  ✓   5 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:188:1 › the forward and inverse maps are inverse: a press at a handle's own pixel reads its own ordinal (8.2s)
+  ✓   6 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:254:1 › type-scale containment: at rootFS 20px the terminal handles stay inside the rail (3.7s)
+  ✓   7 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:322:1 › the seat rail frees the meniscus: every rail ordinal mints, at any rail width (6.3s)
+  ✓   8 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:375:1 › stop inspector numeric entry round-trips to the ordinal the rail paints (4.0s)
+  ✓   9 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:431:1 › keyboard grammar is total: an interior stop answers every key, a terminal holds its bound (3.8s)
+  ✓  10 [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:500:1 › one removal owner: the floor is a disabled control carrying its reason (4.3s)
+  ✓  11 [smoke] › e2e/smoke/views/gradient.spec.ts:41:1 › gradient view renders direction slider with zero console errors (3.3s)
+  ✓  12 [smoke] › e2e/smoke/views/gradient.spec.ts:76:1 › the rail is a normalized 90° projection; the render tile carries type + direction (T-21b) (7.1s)
+  ✓  13 [smoke] › e2e/smoke/views/gradient.spec.ts:121:1 › selecting a stop marks it; Escape and re-tap release it without destroying it (P7-R1) (4.2s)
+  ✓  14 [smoke] › e2e/smoke/views/gradient.spec.ts:163:1 › neighbour-crossing drag round-trips: the emitted CSS re-applies with no verdict (5.0s)
+  ✓  15 [smoke] › e2e/smoke/views/gradient.spec.ts:209:1 › a grab is not a teleport, and no secondary button mints (3.7s)
+  ✘  16 [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove (4.3s)
+(node:85140) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  17 [smoke] › e2e/smoke/views/gradient.spec.ts:299:1 › round-trip: authored CSS applies atomically with literals preserved (9.7s)
+  ✓  18 [smoke] › e2e/smoke/views/gradient.spec.ts:329:1 › garbage input fails LOUD and leaves the model untouched (4.9s)
+  ✓  19 [smoke] › e2e/smoke/views/gradient.spec.ts:353:1 › radial geometry is model-or-reject, never a silent drop (4.4s)
+  ✓  20 [smoke] › e2e/smoke/views/gradient.spec.ts:367:1 › easing row carries its live ramp; steps mode lands in the literal (3.3s)
+  ✓  21 [smoke] › e2e/smoke/views/gradient.spec.ts:401:1 › no pane subtree rests on a permanent compositing transform (W5-10) (4.9s)
+  ✓  22 [smoke] › e2e/smoke/views/gradient.spec.ts:451:1 › gradient selector aurora (3.2s)
+
+
+  1) [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 277.2
+    Received:   12
+
+      280 |     }));
+      281 |     const railWidth = (await bar(main).boundingBox())!.width;
+    > 282 |     expect(moved.left).toBeGreaterThan(railWidth * 0.6);
+          |                        ^
+      283 |     expect(moved.valueNow).toBeGreaterThan(60);
+      284 |
+      285 |     // ── remove: selecting the handle reveals the remove chip (W5-11 — the
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/views/gradient.spec.ts:282:24
+
+    Error Context: ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/rep1w6/tr/views-gradient-stop-add-ba-2271f--drag-and-touch-true-remove-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/views/gradient.spec.ts:243:1 › stop add (bar click mints the ramp color), drag, and touch-true remove 
+  21 passed (1.9m)

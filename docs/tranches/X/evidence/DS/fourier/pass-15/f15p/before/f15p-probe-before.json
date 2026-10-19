@@ -1,0 +1,122 @@
+{
+ "light-1440": {
+  "count": 7,
+  "gapsByClass": {
+   "theorem->theorem": [
+    16
+   ],
+   "theorem->proof": [
+    16
+   ],
+   "proof->theorem": [
+    20
+   ]
+  },
+  "target": {
+   "cls": "theorem->theorem",
+   "a": "Definition 2.6.3.1 — Hermite Polynomials",
+   "b": "Theorem 2.6.3.1 — Hermite Orthogonality",
+   "gap": 16,
+   "aMb": "16px",
+   "bMt": "16px"
+  },
+  "sample": [
+   {
+    "cls": "theorem->theorem",
+    "a": "Definition 2.6.2.1 — Gram-Schmidt Orthog",
+    "b": "Example 2.6.2.1 — Gram-Schmidt for {1,x,",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "theorem->theorem",
+    "a": "Definition 2.6.2.2 — Legendre Polynomial",
+    "b": "Theorem 2.6.2.1 — Rodrigues' Formula Sat",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "theorem->proof",
+    "a": "Theorem 2.6.2.1 — Rodrigues' Formula Sat",
+    "b": "Proof .",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "proof->theorem",
+    "a": "Proof .",
+    "b": "Theorem 2.6.4 — Legendre Orthogonality N",
+    "gap": 20,
+    "aMb": "20px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "theorem->proof",
+    "a": "Theorem 2.6.4 — Legendre Orthogonality N",
+    "b": "Proof .",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "theorem->theorem",
+    "a": "Definition 2.6.3.1 — Hermite Polynomials",
+    "b": "Theorem 2.6.3.1 — Hermite Orthogonality",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "theorem->proof",
+    "a": "Theorem 2.6.3.1 — Hermite Orthogonality",
+    "b": "Proof .",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   }
+  ]
+ },
+ "light-390": {
+  "count": 2,
+  "gapsByClass": {
+   "theorem->theorem": [
+    16
+   ],
+   "theorem->proof": [
+    16
+   ]
+  },
+  "target": {
+   "cls": "theorem->theorem",
+   "a": "Definition 2.6.3.1 — Hermite Polynomials",
+   "b": "Theorem 2.6.3.1 — Hermite Orthogonality",
+   "gap": 16,
+   "aMb": "16px",
+   "bMt": "16px"
+  },
+  "sample": [
+   {
+    "cls": "theorem->theorem",
+    "a": "Definition 2.6.3.1 — Hermite Polynomials",
+    "b": "Theorem 2.6.3.1 — Hermite Orthogonality",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   },
+   {
+    "cls": "theorem->proof",
+    "a": "Theorem 2.6.3.1 — Hermite Orthogonality",
+    "b": "Proof .",
+    "gap": 16,
+    "aMb": "16px",
+    "bMt": "16px"
+   }
+  ]
+ },
+ "dark-1440": {
+  "err": "page.waitForTimeout: Target page, context or browser has been closed"
+ }
+}

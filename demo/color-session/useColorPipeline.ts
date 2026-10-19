@@ -1,5 +1,5 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
-import { debounce } from "../shared/utils";
+import { debounce } from "../shared/debounce";
 import {
     PICKER_CHANNELS,
     channelNumber,
@@ -15,7 +15,6 @@ import { clampColorToSpaceDomain } from "./valueDomain";
 import type { ColorModel } from "./color-model";
 import {
     createDefaultColorModel,
-    toCSSColorString,
     colorToHexString,
     resolveColorSpace,
 } from "./color-model";
@@ -24,8 +23,6 @@ import { useSliderGradients } from "./useSliderGradients";
 import { useColorNameResolution } from "./useColorNameResolution";
 import { useColorPersistence } from "./useColorPersistence";
 import { useAtmosphereFrameCoalesce } from "./useAtmosphereFrameCoalesce";
-
-const DIGITS = 2;
 
 /**
  * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Merges the former
@@ -127,6 +124,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         parseAndSetColor,
         parseAndSetColorDebounced,
         parseError,
+        clearParseError,
         generateRandomColor,
         astEcho,
         gamutVerdict,
@@ -211,9 +209,9 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
 
     function onPaletteAddColor(cssColor: string) {
         const savedColors = [...model.value.savedColors];
-        const currentStr = toCSSColorString(model.value.color);
+        const currentStr = serializePickerColor(model.value.color);
         const alreadyExists = savedColors.some(
-            (c) => toCSSColorString(c) === currentStr,
+            (c) => serializePickerColor(c) === currentStr,
         );
         if (alreadyExists) return;
         try {
@@ -310,6 +308,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         parseAndSetColor,
         parseAndSetColorDebounced,
         parseError,
+        clearParseError,
         applyExternalColor,
         applyColorString,
         astEcho,
@@ -327,8 +326,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // App-level entry points
         resetToDefaults,
         restoreFromStorage,
-        // Constants
-        DIGITS,
     };
 }
 

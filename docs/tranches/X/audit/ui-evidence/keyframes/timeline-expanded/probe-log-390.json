@@ -1,0 +1,378 @@
+{
+  "kf": {
+    "sha": "531aa3f1",
+    "dirty": 4
+  },
+  "runs": [
+    {
+      "tag": "390-light",
+      "drawerOpenAfterTab": false,
+      "probe": {
+        "hits": {
+          "Snapshot": {
+            "box": [
+              84,
+              970,
+              110,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          },
+          "Import": {
+            "box": [
+              202,
+              970,
+              92,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          },
+          "Export": {
+            "box": [
+              87,
+              1014,
+              91,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          },
+          "Add CSS": {
+            "box": [
+              186,
+              1014,
+              105,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          }
+        },
+        "hscroll": [],
+        "cell": [
+          0,
+          216,
+          390,
+          506
+        ],
+        "cellScroll": [
+          1546,
+          504,
+          "hidden"
+        ],
+        "copies": [
+          {
+            "box": [
+              17,
+              229,
+              356,
+              507
+            ],
+            "markers": 0
+          },
+          {
+            "box": [
+              17,
+              736,
+              356,
+              507
+            ],
+            "markers": 0
+          },
+          {
+            "box": [
+              17,
+              1244,
+              356,
+              507
+            ],
+            "markers": 0
+          }
+        ],
+        "pane": null,
+        "paneCs": null,
+        "cellZ": "40",
+        "ribbon": [
+          13,
+          956,
+          364,
+          116
+        ],
+        "layout": [
+          0,
+          36,
+          390,
+          772
+        ],
+        "rows": "[top] 0px [stage] 772px [bottom] 0px",
+        "cols": null,
+        "stageCell": [
+          0,
+          0,
+          390,
+          844
+        ],
+        "docs": [
+          [
+            39,
+            30,
+            312,
+            86
+          ],
+          [
+            167,
+            729,
+            56,
+            56
+          ]
+        ]
+      },
+      "selectOk": "TimeoutError: locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#timeline-expanded-target .keyframe-marker').nth(1)\u001b[22m\n",
+      "after": {
+        "hscroll": [],
+        "editorInCell": false,
+        "cellScroll": [
+          1546,
+          504
+        ]
+      },
+      "tabWalk": [
+        "Controls panel@copy-1@y38",
+        "@mbabb menu@copy-1@y82",
+        "Clear all keyframes@copy0@y237",
+        "Collapse timeline@copy0@y237",
+        "Playhead — scrub the animation@copy0@y507",
+        "Clear all keyframes@copy1@y451",
+        "Collapse timeline@copy1@y451",
+        "Playhead — scrub the animation@copy1@y405",
+        "Clear all keyframes@copy2@y642",
+        "Collapse timeline@copy2@y642",
+        "Playhead — scrub the animation@copy2@y480",
+        "Pause animation@copy-1@y737",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)",
+        "Export@copy-1@y1014(offscreen)",
+        "Add CSS@copy-1@y1014(offscreen)",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)",
+        "Export@copy-1@y1014(offscreen)",
+        "Add CSS@copy-1@y1014(offscreen)",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)",
+        "Export@copy-1@y1014(offscreen)",
+        "Add CSS@copy-1@y1014(offscreen)",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)",
+        "Export@copy-1@y1014(offscreen)",
+        "Add CSS@copy-1@y1014(offscreen)"
+      ],
+      "afterTab": {
+        "cellScrollTop": 1041.5,
+        "hscroll": []
+      }
+    },
+    {
+      "tag": "390-dark",
+      "drawerOpenAfterTab": false,
+      "probe": {
+        "hits": {
+          "Snapshot": {
+            "box": [
+              84,
+              970,
+              110,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          },
+          "Import": {
+            "box": [
+              202,
+              970,
+              92,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          },
+          "Export": {
+            "box": [
+              87,
+              1014,
+              91,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          },
+          "Add CSS": {
+            "box": [
+              186,
+              1014,
+              105,
+              36
+            ],
+            "hitSelf": false,
+            "top": null,
+            "inCell": false
+          }
+        },
+        "hscroll": [],
+        "cell": [
+          0,
+          216,
+          390,
+          506
+        ],
+        "cellScroll": [
+          1469,
+          504,
+          "hidden"
+        ],
+        "copies": [
+          {
+            "box": [
+              17,
+              229,
+              356,
+              430
+            ],
+            "markers": 4
+          },
+          {
+            "box": [
+              17,
+              659,
+              356,
+              507
+            ],
+            "markers": 0
+          },
+          {
+            "box": [
+              17,
+              1167,
+              356,
+              507
+            ],
+            "markers": 0
+          }
+        ],
+        "pane": null,
+        "paneCs": null,
+        "cellZ": "40",
+        "ribbon": [
+          13,
+          956,
+          364,
+          116
+        ],
+        "layout": [
+          0,
+          36,
+          390,
+          772
+        ],
+        "rows": "[top] 0px [stage] 772px [bottom] 0px",
+        "cols": null,
+        "stageCell": [
+          0,
+          0,
+          390,
+          844
+        ],
+        "docs": [
+          [
+            39,
+            30,
+            312,
+            86
+          ],
+          [
+            167,
+            729,
+            56,
+            56
+          ]
+        ]
+      },
+      "selectOk": true,
+      "after": {
+        "hscroll": [],
+        "editorInCell": true,
+        "cellScroll": [
+          1800,
+          504
+        ]
+      },
+      "tabWalk": [
+        "Clear all keyframes@copy0@y237",
+        "Collapse timeline@copy0@y237",
+        "Playhead — scrub the animation@copy0@y507",
+        "Keyframe at 0% — drag or arrow to move@copy0@y554",
+        "Keyframe at 35% — drag or arrow to move@copy0@y550",
+        "Keyframe at 70% — drag or arrow to move@copy0@y554",
+        "Keyframe at 100% — drag or arrow to move@copy0@y554",
+        "Keyframe at 0% — edit the position@copy0@y594",
+        "Keyframe at 35% — edit the position@copy0@y594",
+        "Keyframe at 70% — edit the position@copy0@y594",
+        "Keyframe at 100% — edit the position@copy0@y594",
+        "Keyframe label@copy0@y676",
+        "Remove keyframe@copy0@y678",
+        "CSS@copy0@y459",
+        "Clear all keyframes@copy1@y685",
+        "Collapse timeline@copy1@y685",
+        "Playhead — scrub the animation@copy1@y405",
+        "Clear all keyframes@copy2@y642",
+        "Collapse timeline@copy2@y642",
+        "Playhead — scrub the animation@copy2@y480",
+        "Pause animation@copy-1@y737",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)",
+        "Export@copy-1@y1014(offscreen)",
+        "Add CSS@copy-1@y1014(offscreen)",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)",
+        "Export@copy-1@y1014(offscreen)",
+        "Add CSS@copy-1@y1014(offscreen)",
+        "Drawer position@copy-1@y680",
+        "Timeline expan@copy-1@y732",
+        "Collapse@copy-1@y848(offscreen)",
+        "Snapshot@copy-1@y970(offscreen)",
+        "Import@copy-1@y970(offscreen)"
+      ],
+      "afterTab": {
+        "cellScrollTop": 1295.5,
+        "hscroll": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+ "node": "v26.0.0",
+ "bbnf": "/Users/mkbabb/Programming/value.js/node_modules/@mkbabb/bbnf-lang/dist/bbnf.cjs",
+ "rounds": 9,
+ "rows": {
+  "twitter": {
+   "A_tsEmit": {
+    "median_ms": 1.99,
+    "min_ms": 1.794,
+    "ratio_vs_B_median": 0.907,
+    "ratio_vs_B_min": 0.912
+   },
+   "B_interpRaw": {
+    "median_ms": 2.194,
+    "min_ms": 1.968,
+    "ratio_vs_B_median": 1,
+    "ratio_vs_B_min": 1
+   },
+   "B0_interpVal": {
+    "median_ms": 4.174,
+    "min_ms": 3.749,
+    "ratio_vs_B_median": 1.902,
+    "ratio_vs_B_min": 1.905
+   },
+   "N_jsonParse": {
+    "median_ms": 0.759,
+    "min_ms": 0.64,
+    "ratio_vs_B_median": 0.346,
+    "ratio_vs_B_min": 0.325
+   }
+  },
+  "citm_catalog": {
+   "A_tsEmit": {
+    "median_ms": 4.973,
+    "min_ms": 4.822,
+    "ratio_vs_B_median": 0.836,
+    "ratio_vs_B_min": 0.825
+   },
+   "B_interpRaw": {
+    "median_ms": 5.947,
+    "min_ms": 5.846,
+    "ratio_vs_B_median": 1,
+    "ratio_vs_B_min": 1
+   },
+   "B0_interpVal": {
+    "median_ms": 9.092,
+    "min_ms": 8.698,
+    "ratio_vs_B_median": 1.529,
+    "ratio_vs_B_min": 1.488
+   },
+   "N_jsonParse": {
+    "median_ms": 1.584,
+    "min_ms": 1.552,
+    "ratio_vs_B_median": 0.266,
+    "ratio_vs_B_min": 0.265
+   }
+  },
+  "canada": {
+   "A_tsEmit": {
+    "median_ms": 8.748,
+    "min_ms": 8.284,
+    "ratio_vs_B_median": 0.686,
+    "ratio_vs_B_min": 0.677
+   },
+   "B_interpRaw": {
+    "median_ms": 12.755,
+    "min_ms": 12.236,
+    "ratio_vs_B_median": 1,
+    "ratio_vs_B_min": 1
+   },
+   "B0_interpVal": {
+    "median_ms": 17.17,
+    "min_ms": 16.835,
+    "ratio_vs_B_median": 1.346,
+    "ratio_vs_B_min": 1.376
+   },
+   "N_jsonParse": {
+    "median_ms": 4.672,
+    "min_ms": 4.224,
+    "ratio_vs_B_median": 0.366,
+    "ratio_vs_B_min": 0.345
+   }
+  }
+ }
+}

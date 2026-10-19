@@ -1,0 +1,67 @@
+(node:99825) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:99857) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 4 tests using 1 worker
+
+[1A[2K(node:99888) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/4] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K  1) [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground 
+
+    Error: light confirm title reads 2.19:1 off the frame
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.19[39m
+
+      92 |             for (const [name, row] of rows) {
+      93 |                 const ratio = await pixelRatio(page, dialog, row);
+    > 94 |                 expect(ratio, `${scheme} confirm ${name} reads ${ratio}:1 off the frame`).toBeGreaterThanOrEqual(TEXT_FLOOR);
+         |                                                                                           ^
+      95 |             }
+      96 |         });
+      97 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/o18-modal-ink.spec.ts:94:91
+
+    Error Context: test-results/o18-modal-ink-O-18-·-V16-0-38f0e-the-composited-modal-ground-smoke-admin/error-context.md
+
+
+[1A[2K(node:593) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[2/4] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K  2) [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground 
+
+    Error: light Report title reads 2.09:1 off the frame
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: >= [32m4.5[39m
+    Received:    [31m2.09[39m
+
+      121 |             for (const [name, row] of rows) {
+      122 |                 const ratio = await pixelRatio(page, dialog, row);
+    > 123 |                 expect(ratio, `${scheme} Report ${name} reads ${ratio}:1 off the frame`).toBeGreaterThanOrEqual(TEXT_FLOOR);
+          |                                                                                          ^
+      124 |             }
+      125 |         });
+      126 |     });
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/admin/o18-modal-ink.spec.ts:123:90
+
+    Error Context: test-results/o18-modal-ink-O-18-·-V16-0-5b587-the-composited-modal-ground-smoke-admin/error-context.md
+
+
+[1A[2K(node:816) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[3/4] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (dark) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K[4/4] [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (dark) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground
+[1A[2K  2 failed
+    [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:76:9 › O-18 · V16-01 the modal plate's ink (light) › the admin confirm: title, body and Cancel ≥4.5:1 on the composited modal ground 
+    [smoke-admin] › e2e/smoke/admin/o18-modal-ink.spec.ts:98:9 › O-18 · V16-01 the modal plate's ink (light) › the Report dialog: title, body, every reason and Cancel ≥4.5:1 on the composited modal ground 
+  2 passed (35.5s)

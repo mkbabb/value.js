@@ -1,0 +1,6 @@
+"calc(env(é) + 1px)" {"ok":true,"value":{"kind":"call","name":"calc","args":[{"kind":"list","separator":"space","items":[{"kind":"call","name":"env","args":[{"ki
+"calc(env(\\31 a) + 1px)" {"ok":true,"value":{"kind":"call","name":"calc","args":[{"kind":"list","separator":"space","items":[{"kind":"call","name":"env","args":[{"ki
+"calc(env(safe-area-inset-top) + 1px)" {"ok":true,"value":{"kind":"call","name":"calc","args":[{"kind":"list","separator":"space","items":[{"kind":"call","name":"env","args":[{"ki
+"calc(var(--x) + 1px)" {"ok":true,"value":{"kind":"call","name":"calc","args":[{"kind":"list","separator":"space","items":[{"kind":"call","name":"var","args":[{"ki
+"calc(var(-) + 1px)" {"ok":true,"value":{"kind":"call","name":"calc","args":[{"kind":"list","separator":"space","items":[{"kind":"call","name":"var","args":[{"ki
+"calc(var(--) + 1px)" {"ok":true,"value":{"kind":"call","name":"calc","args":[{"kind":"list","separator":"space","items":[{"kind":"call","name":"var","args":[{"ki

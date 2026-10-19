@@ -6,6 +6,7 @@
  * `{ ok: false, reason }` verdict — never a partial. Every token must be
  * consumed as direction / color / % position; anything the model cannot
  * represent (radial geometry, interpolation hints, corner `to` keywords,
+ * an interpolation space the model has no CSS name for,
  * non-% positions) REJECTS with a one-line reason instead of silently
  * dropping.
  *
@@ -19,12 +20,10 @@
  */
 
 import { parseCssColor, parseCssScalar } from "@mkbabb/value.js/css";
-import { linearInterval } from "./useGradientCSS";
-import type {
-    GradientType,
-    GradientStop,
-    GradientInterval,
-} from "./useGradientModel";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "../../../color-session/picker-color";
+import { isPolarCssSpace, linearInterval, spaceFromCssName } from "./useGradientCSS";
+import type { GradientType, GradientStop } from "../model/types";
 
 
 /** UID generator for parsed stops. */
@@ -33,12 +32,26 @@ function uid(): string {
     return `stop-${++nextParseId}-${Date.now().toString(36)}`;
 }
 
-/** A COMPLETE parsed gradient — every field present, ≥2 stops. */
+/**
+ * A COMPLETE parsed gradient — every field present, ≥2 stops, and every stop
+ * carrying the easing of the interval it OPENS (X-W6 · X.W6.a: the parallel
+ * `intervals` array is gone, so a parsed model can no longer be complete in
+ * its stops and incomplete in its curves).
+ */
 export interface ParsedGradientModel {
     type: GradientType;
     direction: number;
     stops: GradientStop[];
-    intervals: GradientInterval[];
+    /** The authored ` in <space> [<hue> hue]` clause, when the CSS names one.
+     *  Absent, the model keeps its own space (HSV, which CSS cannot name,
+     *  serializes with no clause and must survive its own round-trip). */
+    interpolation?: ParsedInterpolation;
+}
+
+/** A parsed <color-interpolation-method>, in the model's own terms. */
+export interface ParsedInterpolation {
+    space: PickerSpace;
+    hueMethod: HueInterpolationMethod;
 }
 
 /** Model-or-reject: the whole model, or a one-line reason. Never a partial. */
@@ -127,12 +140,65 @@ const TO_SIDE_DEGREES: Record<string, number> = {
 
 interface Preamble {
     direction: number;
+    interpolation?: ParsedInterpolation;
     error?: string;
+}
+
+const HUE_METHODS: readonly HueInterpolationMethod[] = [
+    "shorter",
+    "longer",
+    "increasing",
+    "decreasing",
+];
+
+/**
+ * Lift the css-color-4 §12 `in <space> [<hue> hue]` clause out of segment 0's
+ * tokens (css-images-4 lets it sit before or after the geometry). Returns the
+ * remaining geometry tokens, or an error for a clause the model cannot hold.
+ */
+function liftInterpolation(
+    tokens: string[],
+): { rest: string[]; interpolation?: ParsedInterpolation; error?: string } {
+    const at = tokens.findIndex((t) => t.toLowerCase() === "in");
+    if (at < 0) return { rest: tokens };
+    const name = tokens[at + 1]?.toLowerCase();
+    const space = name ? spaceFromCssName(name) : null;
+    if (!name || !space) {
+        return { rest: tokens, error: `interpolation space "${name ?? ""}" isn't modeled` };
+    }
+    let end = at + 2;
+    let hueMethod: HueInterpolationMethod = "shorter";
+    const hueWord = tokens[end]?.toLowerCase() as HueInterpolationMethod | undefined;
+    if (hueWord && HUE_METHODS.includes(hueWord) && tokens[end + 1]?.toLowerCase() === "hue") {
+        if (!isPolarCssSpace(name)) {
+            return { rest: tokens, error: `a hue method needs a polar space ("in ${name}")` };
+        }
+        hueMethod = hueWord;
+        end += 2;
+    }
+    return {
+        rest: [...tokens.slice(0, at), ...tokens.slice(end)],
+        interpolation: { space, hueMethod },
+    };
 }
 
 /** Parse segment 0 as a direction preamble; null ⇒ segment 0 is a stop. */
 function parsePreamble(seg: string, type: GradientType): Preamble | null {
-    const tokens = tokenizeTopLevel(seg);
+    const lifted = liftInterpolation(tokenizeTopLevel(seg));
+    if (lifted.error) return { direction: 0, error: lifted.error };
+    const { interpolation } = lifted;
+    const geometry = parseGeometry(lifted.rest, seg, type);
+    if (!interpolation) return geometry;
+    // A clause makes segment 0 a preamble even with no geometry beside it.
+    if (lifted.rest.length === 0) {
+        return { direction: type === "linear" ? 180 : 0, interpolation };
+    }
+    if (!geometry) return { direction: 0, error: `unmodeled first argument ("${seg}")` };
+    return { ...geometry, interpolation };
+}
+
+/** Segment 0's geometry tokens (the clause already lifted). */
+function parseGeometry(tokens: string[], seg: string, type: GradientType): Preamble | null {
     if (tokens.length === 0) return { direction: 0, error: "empty first argument" };
     const first = tokens[0]!.toLowerCase();
 
@@ -212,12 +278,14 @@ export function parseGradientCSS(css: string): GradientParseResult {
     }
 
     let direction = type === "linear" ? 180 : 0;
+    let interpolation: ParsedInterpolation | undefined;
     let startIdx = 0;
 
     const preamble = segments.length > 0 ? parsePreamble(segments[0]!, type) : null;
     if (preamble) {
         if (preamble.error) return reject(preamble.error);
         direction = preamble.direction;
+        interpolation = preamble.interpolation;
         startIdx = 1;
     }
 
@@ -248,12 +316,25 @@ export function parseGradientCSS(css: string): GradientParseResult {
             return reject(`a stop takes at most 2 positions ("${segments[i]}")`);
         }
 
+        // Every parsed stop seeds the `linear` preset (easing-disposition
+        // §1.6: no persisted artifact names an easing; the catalogue is a
+        // live-editing affordance).
         if (positions.length === 0) {
-            stops.push({ id: uid(), cssColor: colorToken, position: -1 });
+            stops.push({
+                id: uid(),
+                cssColor: colorToken,
+                position: -1,
+                easing: linearInterval(),
+            });
         } else {
             // Double positions are CSS shorthand for two coincident-color stops.
             for (const p of positions) {
-                stops.push({ id: uid(), cssColor: colorToken, position: p });
+                stops.push({
+                    id: uid(),
+                    cssColor: colorToken,
+                    position: p,
+                    easing: linearInterval(),
+                });
             }
         }
     }
@@ -289,13 +370,10 @@ export function parseGradientCSS(css: string): GradientParseResult {
         }
     }
 
-    // Every parsed interval seeds the `linear` preset (easing-disposition
-    // §1.6: no persisted artifact names an easing; the catalogue is a
-    // live-editing affordance).
-    const intervals: GradientInterval[] = [];
-    for (let j = 0; j < stops.length - 1; j++) {
-        intervals.push(linearInterval());
-    }
-
-    return { ok: true, model: { type, direction, stops, intervals } };
+    return {
+        ok: true,
+        model: interpolation
+            ? { type, direction, stops, interpolation }
+            : { type, direction, stops },
+    };
 }

@@ -1,0 +1,30 @@
+[
+ {
+  "tag": "swatchhover__1440__light",
+  "sha": "f82daf4a",
+  "dirty": "6",
+  "fail": "TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ },
+ {
+  "tag": "swatchhover__1440__dark",
+  "sha": "f82daf4a",
+  "dirty": "6",
+  "fail": "TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ },
+ {
+  "tag": "swatchhover__390__light",
+  "sha": "f82daf4a",
+  "dirty": "6",
+  "fail": "TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ },
+ {
+  "tag": "swatchhover__390__dark",
+  "sha": "f82daf4a",
+  "dirty": "6",
+  "fail": "TimeoutError: page.goto: Timeout 90000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ }
+]

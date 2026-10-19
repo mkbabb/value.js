@@ -1,0 +1,296 @@
+{
+ "tag": "g-base-node",
+ "instrument": "bench/paired (X.P.W7 .o)",
+ "arms": [
+  "product"
+ ],
+ "reps": 3,
+ "rounds": 11,
+ "spreadRule": 1.6,
+ "provenance": {
+  "valuejsHead": "a2aec4cb8cc5c2c8d59710ec6bbe45bf78566cc6",
+  "srcDirty": "",
+  "retiredAt": "2155142bad8b7ac8292ad2263f232a47a656f36e",
+  "bankedManifestOk": "79/79",
+  "readers": [
+   "ruleList",
+   "atPrelude",
+   "isPropertyName",
+   "syntaxText",
+   "syntaxComponents",
+   "scopePrelude",
+   "functionHead",
+   "functionParam",
+   "paramHead",
+   "declaration",
+   "emptyListComma",
+   "timelineArgs",
+   "opensTimeline",
+   "isTimelineLength",
+   "isDashedIdent"
+  ],
+  "node": "v26.0.0",
+  "esbuild": "0.27.7"
+ },
+ "uptimeStart": "11:07  up  9:10, 1 user, load averages: 17.01 22.00 26.49",
+ "cells": [
+  {
+   "rep": 0,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "11:07  up  9:10, 1 user, load averages: 17.01 22.00 26.49",
+   "uptimeAfter": "11:07  up  9:10, 1 user, load averages: 17.01 22.00 26.49",
+   "load": [
+    17.01,
+    17.01
+   ],
+   "retiredSpread": 1.337,
+   "medianMs": {
+    "retired": 27.144,
+    "product": 10.501
+   },
+   "minMs": {
+    "retired": 24.114,
+    "product": 9.06
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.379,
+     "pairedMax": 0.5,
+     "roundsBelow1": 11,
+     "ofMedians": 0.387,
+     "ofMins": 0.376
+    }
+   },
+   "raw": {
+    "retired": [
+     26.438750000000027,
+     27.82299999999998,
+     28.24795899999998,
+     25.431290999999987,
+     27.898249999999962,
+     27.143707999999947,
+     24.11358400000006,
+     25.042500000000018,
+     26.368791999999985,
+     32.234375,
+     32.193500000000085
+    ],
+    "product": [
+     13.21591699999999,
+     9.060249999999996,
+     11.082790999999986,
+     11.576624999999979,
+     10.26608299999998,
+     9.800166999999988,
+     10.739125000000058,
+     9.361833000000047,
+     9.987292000000025,
+     10.500541999999996,
+     12.255625000000009
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 1,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "product",
+    "retired"
+   ],
+   "rev": true,
+   "node": "v26.0.0",
+   "uptimeBefore": "11:07  up  9:10, 1 user, load averages: 17.01 22.00 26.49",
+   "uptimeAfter": "11:07  up  9:10, 1 user, load averages: 16.20 21.75 26.38",
+   "load": [
+    17.01,
+    16.2
+   ],
+   "retiredSpread": 1.167,
+   "medianMs": {
+    "product": 10.779,
+    "retired": 25.508
+   },
+   "minMs": {
+    "product": 8.567,
+    "retired": 24.406
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.422,
+     "pairedMax": 0.546,
+     "roundsBelow1": 11,
+     "ofMedians": 0.423,
+     "ofMins": 0.351
+    }
+   },
+   "raw": {
+    "product": [
+     15.549915999999996,
+     11.52570899999995,
+     9.874708999999996,
+     10.779041000000007,
+     9.410832999999968,
+     10.189917000000037,
+     10.457250000000045,
+     8.567458999999985,
+     11.506834000000026,
+     11.618582999999944,
+     12.019999999999982
+    ],
+    "retired": [
+     28.491749999999968,
+     25.30366700000002,
+     25.50766699999997,
+     25.791957999999966,
+     24.97729099999998,
+     25.351957999999968,
+     24.405666999999994,
+     25.28491699999995,
+     26.422582999999918,
+     26.100459,
+     28.486083000000008
+    ]
+   },
+   "clean": true
+  },
+  {
+   "rep": 2,
+   "attempt": 0,
+   "entry": "parseStylesheet",
+   "class": "large",
+   "n": 4,
+   "k": 2,
+   "warmup": 3,
+   "rounds": 11,
+   "arms": [
+    "retired",
+    "product"
+   ],
+   "rev": false,
+   "node": "v26.0.0",
+   "uptimeBefore": "11:07  up  9:10, 1 user, load averages: 16.20 21.75 26.38",
+   "uptimeAfter": "11:07  up  9:10, 1 user, load averages: 16.20 21.75 26.38",
+   "load": [
+    16.2,
+    16.2
+   ],
+   "retiredSpread": 1.38,
+   "medianMs": {
+    "retired": 28.985,
+    "product": 11.394
+   },
+   "minMs": {
+    "retired": 24.108,
+    "product": 9.7
+   },
+   "ratio": {
+    "product": {
+     "paired": 0.395,
+     "pairedMax": 0.473,
+     "roundsBelow1": 11,
+     "ofMedians": 0.393,
+     "ofMins": 0.402
+    }
+   },
+   "raw": {
+    "retired": [
+     33.26379099999997,
+     33.225292000000024,
+     30.17425000000003,
+     31.29787500000009,
+     27.970000000000027,
+     30.894542,
+     24.107583999999974,
+     28.94166699999994,
+     26.738749999999982,
+     28.985167000000047,
+     26.770624999999995
+    ],
+    "product": [
+     15.298874999999953,
+     12.014165999999989,
+     13.867291999999907,
+     12.667832999999973,
+     9.700166999999965,
+     11.328499999999963,
+     11.393583000000035,
+     11.117374999999925,
+     9.919125000000008,
+     11.444582999999966,
+     10.754791999999952
+    ]
+   },
+   "clean": true
+  }
+ ],
+ "uptimeEnd": "11:07  up  9:10, 1 user, load averages: 16.20 21.75 26.38",
+ "summary": {
+  "product": {
+   "large|parseStylesheet": {
+    "cleanCells": 3,
+    "setAside": 0,
+    "ratios": [
+     0.379,
+     0.422,
+     0.395
+    ],
+    "every": [
+     {
+      "rep": 0,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.337,
+      "paired": 0.379
+     },
+     {
+      "rep": 1,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.167,
+      "paired": 0.422
+     },
+     {
+      "rep": 2,
+      "attempt": 0,
+      "k": 2,
+      "clean": true,
+      "spread": 1.38,
+      "paired": 0.395
+     }
+    ],
+    "median": 0.395,
+    "max": 0.422,
+    "allBelow1": true
+   }
+  }
+ },
+ "gates": {
+  "product": {
+   "whole-7/7": null,
+   "accepted-7/7": null,
+   "rejected-7/7 (G-acc/rej, recorded)": null,
+   "O-2 (stock/retired >= 1.3 all 7, >= 4 parseStylesheet)": null
+  }
+ }
+}

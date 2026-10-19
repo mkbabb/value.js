@@ -1,0 +1,14 @@
+SERVED MODEL: claude-opus-5-5
+# X.W8.i — targeted vitest over the fork-touched SFCs (guarded --light; full suite guard-refused: kernel zone 13.5M)
+## run 1
+ Test Files  6 passed (6)
+      Tests  101 passed (101)
+## run 2
+ Test Files  6 passed (6)
+      Tests  101 passed (101)
+## canaries
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  test/spectrum-luma.test.ts > spectrumLuma — the shared plate regime > C-5 · BORN-RED — the selected stroke clears 3:1 against the field at every hue
+ FAIL  demo/test/shell/reka-binding-idiom.test.ts > NG-6 · the reka binding-correctness canary > a `:checked` binding drives NOTHING — the stale-binding class, caught
+ Test Files  2 failed (2)
+      Tests  2 failed | 5 passed (7)

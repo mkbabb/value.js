@@ -1,0 +1,8 @@
+load 71.62 73.42 51.15
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  14:58:35
+   Duration  13.05s (transform 8.07s, setup 123ms, import 6.75s, tests 3.38s, environment 2.25s)
+
+EXIT=0

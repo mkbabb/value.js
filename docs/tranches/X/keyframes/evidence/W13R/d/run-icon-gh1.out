@@ -1,0 +1,13 @@
+cube rest {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":172,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["bob","pose","cube"],"live":"","tag":"span","anims":0}
+cube open {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":213,"diffOutside":191,"outsideAt":[[13.25,-6.24],[14.25,-6.24],[15.25,-6.24],[16.25,-6.24],[17.25,-6.24],[18.25,-6.24],[19.25,-6.24],[20.25,-6.24]],"visible":true,"layers":["bob","pose","cube"],"live":"","tag":"span","anims":0}
+amiga rest {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":161,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["grid","shadow","ball"],"live":"","tag":"span","anims":0}
+amiga open {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":118,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["grid","shadow","ball"],"live":"","tag":"span","anims":0}
+square rest {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":95,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["field","box"],"live":"","tag":"span","anims":0}
+square open {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":256,"diffOutside":306,"outsideAt":[[11.13,-6.24],[12.13,-6.24],[13.13,-6.24],[14.13,-6.24],[15.13,-6.24],[16.13,-6.24],[17.13,-6.24],[18.13,-6.24]],"visible":true,"layers":["field","box"],"live":"","tag":"span","anims":0}
+easing rest {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":50,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["curve","rail","ball"],"live":"","tag":"span","anims":0}
+easing open {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":202,"diffOutside":309,"outsideAt":[[10.28,-6.24],[11.28,-6.24],[12.28,-6.24],[13.28,-6.24],[14.28,-6.24],[15.28,-6.24],[16.28,-6.24],[17.28,-6.24]],"visible":true,"layers":["curve","rail","ball"],"live":"","tag":"span","anims":0}
+spring rest {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":49,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["lanes","balls"],"live":"","tag":"span","anims":0}
+spring open {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":46,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["lanes","balls"],"live":"","tag":"span","anims":0}
+sequence rest {"trig":{"hovered":false,"running":[]},"bboxDelta":0,"diffInside":116,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["rails","travellers"],"live":"","tag":"span","anims":0}
+sequence open {"trig":{"hovered":true,"running":[]},"bboxDelta":0,"diffInside":97,"diffOutside":0,"outsideAt":[],"visible":true,"layers":["rails","travellers"],"live":"","tag":"span","anims":0}
+pageerrors 0 

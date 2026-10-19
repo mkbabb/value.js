@@ -1,0 +1,7 @@
+10-16 02:13:08 r3 smoke-admin rev=75ebff961 exit=0 load1=24.96
+10-16 02:14:23 r3 smoke-mobile rev=75ebff961 exit=0 load1=27.08
+10-16 02:14:50 r3 smoke-reactivity rev=75ebff961 exit=1 load1=27.06
+10-16 02:19:46 r3 smoke-perf rev=75ebff961 exit=1 load1=35.61
+10-16 02:48:51 r3 smoke rev=75ebff961 exit=1 load1=50.12
+10-16 02:53:46 r3 smoke-safari rev=75ebff961 exit=0 load1=28.31
+10-16 03:07:33 r3 oracles-safari rev=75ebff961 exit=1 load1=22.96

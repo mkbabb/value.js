@@ -1,0 +1,12 @@
+## HEAD bytes
+[1440x900 light] RED  {"featured":"clicked","box":[260,925],"inside":false,"find":"in","clear":"out(888..916)"}
+[390x844 light] RED  {"featured":"clicked","box":[275,960],"inside":false,"find":"in","clear":"out(907..951)"}
+## cured
+[1440x900 light] PASS {"featured":"clicked","box":[44,419],"inside":true,"find":"in","clear":"in"}
+[390x844 light] PASS {"featured":"clicked","box":[275,712],"inside":true,"find":"in","clear":"in"}
+[360x780 light] PASS {"featured":"clicked","box":[275,712],"inside":true,"find":"in","clear":"in"}
+[844x390 light] RED  {"featured":"unreachable","box":[-280,215],"inside":false,"find":"in","clear":"absent"}
+[1440x900 dark] PASS {"featured":"clicked","box":[260,635],"inside":true,"find":"in","clear":"in"}
+[390x844 dark] PASS {"featured":"clicked","box":[275,712],"inside":true,"find":"in","clear":"in"}
+[360x780 dark] PASS {"featured":"clicked","box":[275,712],"inside":true,"find":"in","clear":"in"}
+[844x390 dark] RED  {"featured":"unreachable","box":[-280,215],"inside":false,"find":"in","clear":"absent"}

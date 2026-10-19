@@ -1,0 +1,17 @@
+SERVED MODEL: claude-opus-5-5
+X.W12U.g2s — does an EAGER import of parseCssColor from `./css` drag the stylesheet grammar into the eager chunk
+when a LAZY chunk uses another `./css` export? (vite build, the demo's bundler; tree = the scratch worktree with
+cure-2b.patch applied and `npm run build`; ⟨node b.mjs⟩, light-guarded; cols: chunk raw gz grammar-marker)
+
+reexport/ (main.js eager `import { parseCssColor } from <tree>/dist/subpaths/css.js`; lazy.js `parseTimingFunction` from css.js)
+  index-KAS0vDfb.js 191508 39138 atKeyframes:true  lazy:false   <- the whole ./css grammar rides the EAGER chunk
+  lazy-sr9Zl_US.js  90     102   atKeyframes:false lazy:true
+reexport/ variant (main.js imports parseCssColor from <tree>/dist/subpaths/color.js instead; lazy.js unchanged)
+  index-DoiiL6-b.js 61785  16345 atKeyframes:false lazy:false   <- colour grammar only, eager
+  lazy-DjkpACH_.js  129569 23156 atKeyframes:true  lazy:true    <- the stylesheet grammar goes lazy
+facade/ (synthetic: lib/facade.js re-exports pc from c.js and pt from g.js, sideEffects:false; main eager pc, lazy pt)
+  index-CJBu-i9Q.js 1991 1013 atKeyframes:false lazy:false
+  lazy-B0YEntKU.js  151  141  atKeyframes:true  lazy:true       <- a re-export-only facade does not drag g.js eager
+
+Reading: chunk placement is per MODULE. `dist/subpaths/css.js` holds the grammar's own statements, so ANY eager
+importer of `./css` (even for a name css.js only re-exports) places the whole grammar in the eager chunk.

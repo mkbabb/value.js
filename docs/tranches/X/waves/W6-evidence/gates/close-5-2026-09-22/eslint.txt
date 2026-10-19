@@ -1,0 +1,2 @@
+⟨cmd⟩ npx eslint demo
+EXIT=0

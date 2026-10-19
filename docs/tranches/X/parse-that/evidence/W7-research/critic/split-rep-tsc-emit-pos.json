@@ -1,0 +1,34 @@
+{
+ "arm": "tsc-emit-pos",
+ "rounds": 11,
+ "uptimeStart": "19:58  up 1 day,  2:47, 4 users, load averages: 45.35 63.98 82.00",
+ "entries": {
+  "parseCssColor": {
+   "accepted": 6460,
+   "reps": 1,
+   "paired": 0.734,
+   "below1": 11,
+   "ofMins": 0.8,
+   "medMs": {
+    "retired": 13.29,
+    "cand": 9.24
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 45.35 63.98 82.00",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 45.35 63.98 82.00"
+  },
+  "parseKeyframeSelector": {
+   "accepted": 56,
+   "reps": 1024,
+   "paired": 1.368,
+   "below1": 0,
+   "ofMins": 1.356,
+   "medMs": {
+    "retired": 12.53,
+    "cand": 17.14
+   },
+   "uptimeBefore": "19:58  up 1 day,  2:47, 4 users, load averages: 45.35 63.98 82.00",
+   "uptimeAfter": "19:58  up 1 day,  2:47, 4 users, load averages: 45.35 63.98 82.00"
+  }
+ },
+ "uptimeEnd": "19:58  up 1 day,  2:47, 4 users, load averages: 45.35 63.98 82.00"
+}

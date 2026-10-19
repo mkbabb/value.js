@@ -1,0 +1,468 @@
+
+Running 27 tests using 3 workers
+
+  ✘   1 [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap (4.9s)
+  ✓   2 [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 1440 light › frames 1440 light — the closed dock (magnet on) and the open menu (7.2s)
+  ✘   3 [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) (8.0s)
+  ✓   4 [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 390 light › frames 390 light — the closed dock (magnet on) and the open menu (5.7s)
+  ✓   5 [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 1440 dark › frames 1440 dark — the closed dock (magnet on) and the open menu (6.7s)
+  ✓   6 [chromium] › e2e/f-w14v-c3.spec.ts:172:13 › X.F.W14V.c3 — frames 390 dark › frames 390 dark — the closed dock (magnet on) and the open menu (5.3s)
+  ✓   7 [chromium] › e2e/f-w14v-p.spec.ts:96:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p1: signed out → the inline sign-in, then the publish resumes (5.3s)
+  ✓   8 [chromium] › e2e/f-w14v-p.spec.ts:106:5 › F.W14V.p — a signed-out Publish reaches the inline sign-in and resumes › p2: a stale sign-in → the server's owner_required reaches the inline sign-in, never the raw toast (5.4s)
+  ✘  11 [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate (1.7s)
+  ✓   9 [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1440: the toast and the Configurator's aside do not intersect (4.0s)
+  ✘  10 [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect (3.5s)
+  ✘  12 [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate (1.5s)
+  ✓  13 [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › expanded: every element inside the plate (3.0s)
+  ✓  14 [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › expanded: every element inside the plate (3.7s)
+  ✘  15 [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate (2.7s)
+  ✘  17 [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate (2.0s)
+  ✓  16 [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › expanded: every element inside the plate (4.1s)
+  ✘  20 [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate (1.5s)
+  ✓  19 [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › expanded: every element inside the plate (3.1s)
+  ✓  18 [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › expanded: every element inside the plate (3.2s)
+  ✓  21 [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › expanded: every element inside the plate (3.1s)
+  ✘  23 [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate (2.1s)
+  ✘  22 [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap (30.1s)
+  ✓  26 [chromium] › e2e/visual-checkpoint.spec.ts:145:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 8 — `text-admin-label`, reached through S1's admin entry (945ms)
+  ✘  24 [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached (30.1s)
+  ✘  25 [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened (30.1s)
+  ✓  27 [chromium] › e2e/visual-checkpoint.spec.ts:164:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 3 — the `.disclosure-content` body register, taken as the consumer sees it (9.7s)
+
+
+  1) [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+
+    Error: magnet on: the trigger carries a mark in the magnet's hue (MAGNET-STATE-HIDDEN while 0; found [])
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      133 |         const on = await magnetHueOnTrigger(page);
+      134 |         expect.soft(off, "magnet off: the trigger carries no mark in the magnet's hue").toEqual([]);
+    > 135 |         expect.soft(on.length, `magnet on: the trigger carries a mark in the magnet's hue (MAGNET-STATE-HIDDEN while 0; found ${JSON.stringify(on)})`).toBeGreaterThan(0);
+          |                                                                                                                                                        ^
+      136 |     });
+      137 |
+      138 |     test("c3g — Smooth, Simplify and Reset keep glass's menu icon gap", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:135:152
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-c3-X-F-W14V-c3-—-th-c8bfd-a-mark-in-its-hue-off-none--chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-c3-X-F-W14V-c3-—-th-c8bfd-a-mark-in-its-hue-off-none--chromium/error-context.md
+
+  2) [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+
+    Error: Smooth contour: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Smooth contour: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    Error: Simplify contour: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Simplify contour: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    Error: Reset to extraction: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+      160 |                 return { gap: Math.round(gap * 100) / 100, glassGap: cg === "normal" ? 0 : parseFloat(cg) };
+      161 |             });
+    > 162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+          |                                                                                                                     ^
+      163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+      164 |         }
+      165 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:162:117
+
+    Error: Reset to extraction: icon-to-label gap 0px >= glass's 0px, and not flush
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0.5
+    Received:    0
+
+      161 |             });
+      162 |             expect.soft(m.glassGap, `${name}: glass publishes a DropdownMenuItem icon gap (MENU-ICON-GAP while 0)`).toBeGreaterThan(0);
+    > 163 |             expect.soft(m.gap, `${name}: icon-to-label gap ${m.gap}px >= glass's ${m.glassGap}px, and not flush`).toBeGreaterThanOrEqual(Math.max(m.glassGap, 0.5));
+          |                                                                                                                   ^
+      164 |         }
+      165 |     });
+      166 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-c3.spec.ts:163:115
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-c3-X-F-W14V-c3-—-th-9bf6d--keep-glass-s-menu-icon-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-c3-X-F-W14V-c3-—-th-9bf6d--keep-glass-s-menu-icon-gap-chromium/error-context.md
+
+  3) [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+
+    Error: toast {"x":620,"y":656.96875,"width":388,"height":95.03125} over aside {"x":656,"y":88,"width":352,"height":668}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 33451
+
+      148 |                 y: Math.max(0, Math.min(a.y + a.height, t.y + t.height) - Math.max(a.y, t.y)),
+      149 |             };
+    > 150 |             expect(overlap.x * overlap.y, `toast ${JSON.stringify(t)} over aside ${JSON.stringify(a)}`).toBe(0);
+          |                                                                                                         ^
+      151 |         });
+      152 |     }
+      153 | });
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-p.spec.ts:150:105
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-p-F-W14V-p-—-a-toas-8254a-or-s-aside-do-not-intersect-chromium/error-context.md
+
+  4) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [552,582] vs plate [451,553]",
+    +   "span.metric__unit [587,596] vs plate [451,553]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--0620e-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--0620e-ry-element-inside-the-plate-chromium/error-context.md
+
+  5) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [552,582] vs plate [451,553]",
+    +   "span.metric__unit [587,596] vs plate [451,553]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--2e642-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--2e642-ry-element-inside-the-plate-chromium/error-context.md
+
+  6) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [380,408] vs plate [279,381]",
+    +   "span.metric__unit [413,421] vs plate [279,381]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--26cd8-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--26cd8-ry-element-inside-the-plate-chromium/error-context.md
+
+  7) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [380,408] vs plate [279,381]",
+    +   "span.metric__unit [413,421] vs plate [279,381]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--de1b0-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--de1b0-ry-element-inside-the-plate-chromium/error-context.md
+
+  8) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [247,272] vs plate [140,250]",
+    +   "span.metric__unit [277,284] vs plate [140,250]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--3fab1-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--3fab1-ry-element-inside-the-plate-chromium/error-context.md
+
+  9) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [247,272] vs plate [140,250]",
+    +   "span.metric__unit [277,284] vs plate [140,250]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--23afc-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--23afc-ry-element-inside-the-plate-chromium/error-context.md
+
+  10) [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      94 |
+      95 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 96 |         await expect(card).toBeVisible({ timeout: 30_000 });
+         |                            ^
+      97 |         await freeze(page);
+      98 |
+      99 |         await expect(card).toHaveScreenshot("checkpoint-card-resting.png", SHOT);
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/visual-checkpoint.spec.ts:96:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--31402--rim-and-its-fused-card-gap-chromium/error-context.md
+
+  11) [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      114 |
+      115 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 116 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      117 |         await freeze(page);
+      118 |         await card.hover();
+      119 |
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/visual-checkpoint.spec.ts:116:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--e192e-o-spec-in-the-suite-reached-chromium/error-context.md
+
+  12) [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+    Expected: visible
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Open img-amber-fox-spiral-one' })
+
+
+      132 |
+      133 |         const card = page.getByRole("button", { name: `Open ${ENTRY.image_slug}` });
+    > 134 |         await expect(card).toBeVisible({ timeout: 30_000 });
+          |                            ^
+      135 |         await card.click();
+      136 |
+      137 |         const modal = page.getByRole("dialog");
+        at /Users/mkbabb/Programming/fourier-analysis/.worktrees/ds-p4/web/e2e/visual-checkpoint.spec.ts:134:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/visual-checkpoint-G-F9-23--b1f8e-dal-no-spec-had-ever-opened-chromium/error-context.md
+
+  12 failed
+    [chromium] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+    [chromium] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+    [chromium] › e2e/f-w14v-p.spec.ts:130:9 › F.W14V.p — a toast never covers the controls pane › p3 @1024: the toast and the Configurator's aside do not intersect 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/visual-checkpoint.spec.ts:81:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › items 1 · 6 · 7 — the card's shadow, its badge rim and its fused-card gap 
+    [chromium] › e2e/visual-checkpoint.spec.ts:102:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 2 — `cartoon-card` hover, the state no spec in the suite reached 
+    [chromium] › e2e/visual-checkpoint.spec.ts:123:5 › G-F9-23 — the F.W1 checkpoint set, instrumented › item 5 — GCM-22's `p-0` insets, on a modal no spec had ever opened 
+  15 passed (1.6m)

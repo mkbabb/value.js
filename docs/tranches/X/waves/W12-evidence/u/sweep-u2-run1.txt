@@ -1,0 +1,4 @@
+SERVED MODEL: claude-opus-5-5 — X.W12.u2 removed-glass-prop sweep re-run
+demo/shell/dock/menus/MobileMenuDropdown.vue:111	<DropdownMenuItem> (@mkbabb/glass-ui#DropdownMenuItem)	as-child
+demo/shell/dock/menus/ProfileSection.vue:175	<DropdownMenuItem> (@mkbabb/glass-ui#DropdownMenuItem)	as-child
+TOTAL 2

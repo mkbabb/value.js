@@ -1,0 +1,12 @@
+SERVED MODEL: claude-opus-5-5
+HEAD ca0b1a0b 121.81 227.75 240.45
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes-wt-W13X-close
+
+
+ Test Files  1 passed (1)
+      Tests  42 passed (42)
+   Start at  16:18:05
+   Duration  8.54s (transform 5.37s, setup 27ms, import 6.54s, tests 429ms, environment 1.21s)
+
+EXIT=0

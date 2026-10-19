@@ -1,0 +1,49 @@
+[
+ {
+  "vp": 1440,
+  "trigger": {
+   "tag": "BUTTON",
+   "aria": "Color swatch lab(92% 88.8 20)",
+   "expanded": null,
+   "haspopup": null
+  },
+  "editBox": {
+   "x": 745,
+   "y": 401.34375,
+   "width": 28,
+   "height": 28
+  },
+  "inView": true,
+  "panel": null,
+  "closedOnEscape": true
+ },
+ {
+  "vp": 390,
+  "trigger": {
+   "tag": "BUTTON",
+   "aria": "Color swatch lab(92% 88.8 20)",
+   "expanded": "false",
+   "haspopup": "dialog"
+  },
+  "editBox": {
+   "x": 22,
+   "y": 564.34375,
+   "width": 28,
+   "height": 28
+  },
+  "inView": true,
+  "panel": {
+   "slot": null,
+   "role": "dialog",
+   "aria": "Actions for lab(92% 88.8 20)",
+   "hidden": null,
+   "bg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+   "radius": "12px",
+   "x": 5,
+   "y": 543,
+   "w": 126,
+   "h": 71
+  },
+  "closedOnEscape": true
+ }
+]

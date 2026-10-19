@@ -1,0 +1,13 @@
+/#/blob 1280 800 trim 21px
+/#/blob 1100 760 trim 19px
+/#/blob 1440 900 trim 19px
+/#/blob 390 844 trim 0px
+/#/blob 1440 900 trim 19px
+/#/blob final trim 19px
+/#/atmosphere 1280 800 trim 0px
+/#/atmosphere 1100 760 trim 0px
+/#/atmosphere 1440 900 trim 0px
+/#/atmosphere 390 844 trim 0px
+/#/atmosphere 1440 900 trim 0px
+/#/atmosphere final trim 0px
+{"errors":[]}

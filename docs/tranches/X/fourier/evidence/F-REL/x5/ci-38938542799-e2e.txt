@@ -1,0 +1,31 @@
+SERVED MODEL: claude-opus-5-5
+# fourier CI 38938542799 (workflow_dispatch, m/w1-bump-migration @ 2a519c9) — e2e job verdict excerpt
+job: e2e (Playwright, COMPUTE_RATE_LIMIT=1000) success
+job: production compose boot + health success
+job: api/tests (with live Mongo) success
+job: web (vue-tsc + vite build) success
+job: inv-27 evidence (covering run id + SHA) success
+  ✓  337 [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (360 logged in) › the app dock's layer does not pan sideways once the Account group mounts (11.2s)
+  ✓  338 [chromium] › e2e/f-w14v-au1.spec.ts:397:9 › au1 X-5 (390 logged in) › the app dock's layer does not pan sideways once the Account group mounts (11.3s)
+  5 flaky
+    [chromium] › e2e/equation-interaction.spec.ts:77:5 › S2 — /equation: compute → notation → budget → reload (G-F9-6) › the four-step interaction drives the route and its requests 
+    [chromium] › e2e/f-w13-image-controls.spec.ts:200:5 › G-b — F.W13 image-mode controls act (frame 3) › with an image: the play control is the dock's circle and toggles playback 
+    [chromium] › e2e/f-w14u-paper.spec.ts:466:5 › paper-mobile 390 › UIA-F-158 + UIA-F-235: the phone search says 'No results'; its panel is the bar's width with a gap 
+    [chromium] › e2e/f-w14v-au0.spec.ts:331:13 › au0 d1440-dark › frames the unread views d1440-dark 
+    [chromium] › e2e/f-w14v-eq2.spec.ts:39:5 › X.F.W14V.eq2 — q1 /equation on the detached Configurator (1440) › q1 one detached Configurator: series + plot in #stage, sections as layers in the aside 
+  3 skipped
+  525 passed (53.1m)
+  13 failed
+    [honest-red] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+    [honest-red] › e2e/f-w14v-c3.spec.ts:128:5 › X.F.W14V.c3 — the editor dock's leftovers › c3m — the More-tools trigger shows the magnet's state (on: a mark in its hue; off: none) 
+    [honest-red] › e2e/f-w14v-c3.spec.ts:138:5 › X.F.W14V.c3 — the editor dock's leftovers › c3g — Smooth, Simplify and Reset keep glass's menu icon gap 
+    [honest-red] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+    [honest-red] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+    [honest-red] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+    [honest-red] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+    [honest-red] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+    [honest-red] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+    [honest-red] › e2e/gallery-admin-a11y.spec.ts:91:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin banner: the stat cells are graded for the first time 
+    [honest-red] › e2e/gallery-admin-a11y.spec.ts:103:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin users panel 
+    [honest-red] › e2e/gallery-admin-a11y.spec.ts:114:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin flagged panel 
+    [honest-red] › e2e/gallery-admin-a11y.spec.ts:125:5 › X·F F.W4 — admin-mode a11y (G-F4-ADMIN-AXE) › admin audit log panel 

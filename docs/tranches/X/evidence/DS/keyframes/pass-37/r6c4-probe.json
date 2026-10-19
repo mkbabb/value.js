@@ -1,0 +1,281 @@
+{
+ "easing": {
+  "easing-1440-light": {
+   "cardBottom": 750.1,
+   "drawerBottom": 721.1,
+   "band": 29,
+   "inset": 29,
+   "landed": null
+  },
+  "easing-1440-dark": {
+   "cardBottom": 750.1,
+   "drawerBottom": 721.1,
+   "band": 29,
+   "inset": 29,
+   "landed": null
+  },
+  "easing-390-light": {
+   "cardBottom": 714.6,
+   "drawerBottom": 689.6,
+   "band": 25,
+   "inset": 25,
+   "landed": null
+  },
+  "easing-390-dark": {
+   "cardBottom": 714.6,
+   "drawerBottom": 689.6,
+   "band": 25,
+   "inset": 25,
+   "landed": null
+  }
+ },
+ "title": {
+  "cube-1440-light": {
+   "text": "Rotations",
+   "y": 137,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "18.608px 400"
+  },
+  "amiga-1440-light": {
+   "text": "Spin",
+   "y": 137,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "18.608px 400"
+  },
+  "square-1440-light": {
+   "text": "Transform",
+   "y": 137,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "18.608px 400"
+  },
+  "cube-1440-dark": {
+   "text": "Rotations",
+   "y": 137,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "18.608px 400"
+  },
+  "amiga-1440-dark": {
+   "text": "Spin",
+   "y": 137,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "18.608px 400"
+  },
+  "square-1440-dark": {
+   "text": "Transform",
+   "y": 137,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "18.608px 400"
+  },
+  "cube-390-light": {
+   "text": "Rotations",
+   "y": 797,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "16px 400"
+  },
+  "amiga-390-light": {
+   "text": "Spin",
+   "y": 797,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "16px 400"
+  },
+  "square-390-light": {
+   "text": "Transform",
+   "y": 797,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "16px 400"
+  },
+  "cube-390-dark": {
+   "text": "Rotations",
+   "y": 797,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "16px 400"
+  },
+  "amiga-390-dark": {
+   "text": "Spin",
+   "y": 797,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "16px 400"
+  },
+  "square-390-dark": {
+   "text": "Transform",
+   "y": 797,
+   "h": 39,
+   "visible": true,
+   "aboveFirstField": true,
+   "font": "16px 400"
+  }
+ },
+ "editor": {
+  "cube-keyframes-1440-light": {
+   "allLinesInView": true,
+   "lastBottom": 619.8,
+   "editorBottom": 635.8,
+   "verticalSlider": [
+    0,
+    452
+   ],
+   "visualLines": 20,
+   "viewRight": 465.2,
+   "widest": 461.6,
+   "slider": null,
+   "text": [
+    ".Rotations {",
+    "  animation-name: Rotations;",
+    "  animation-duration: 5s;",
+    "  animation-timing-function: ease-in-out;",
+    "  animation-iteration-count: infinite;",
+    "  animation-direction: alternate;",
+    "  animation-fill-mode: forwards;",
+    "}",
+    "",
+    "@keyframes Rotations {",
+    "  0% {",
+    "    transform: rotateX(0deg) ",
+    "      rotateY(0turn) rotateZ(0deg);",
+    "  }",
+    "  100% {",
+    "    transform: rotateX(var(--rotationX)) ",
+    "      rotateY(1turn) rotateZ(360deg);",
+    "  }",
+    "}",
+    ""
+   ]
+  },
+  "cube-keyframes-1440-dark": {
+   "allLinesInView": true,
+   "lastBottom": 619.8,
+   "editorBottom": 635.8,
+   "verticalSlider": [
+    0,
+    452
+   ],
+   "visualLines": 20,
+   "viewRight": 465.2,
+   "widest": 461.6,
+   "slider": null,
+   "text": [
+    ".Rotations {",
+    "  animation-name: Rotations;",
+    "  animation-duration: 5s;",
+    "  animation-timing-function: ease-in-out;",
+    "  animation-iteration-count: infinite;",
+    "  animation-direction: alternate;",
+    "  animation-fill-mode: forwards;",
+    "}",
+    "",
+    "@keyframes Rotations {",
+    "  0% {",
+    "    transform: rotateX(0deg) ",
+    "      rotateY(0turn) rotateZ(0deg);",
+    "  }",
+    "  100% {",
+    "    transform: rotateX(var(--rotationX)) ",
+    "      rotateY(1turn) rotateZ(360deg);",
+    "  }",
+    "}",
+    ""
+   ]
+  },
+  "cube-keyframes-390-light": {
+   "allLinesInView": true,
+   "lastBottom": 1363.4,
+   "editorBottom": 1379.4,
+   "verticalSlider": [
+    0,
+    536
+   ],
+   "visualLines": 24,
+   "viewRight": 369,
+   "widest": 352,
+   "slider": null,
+   "text": [
+    ".Rotations {",
+    "  animation-name: Rotations;",
+    "  animation-duration: 5s;",
+    "  animation-timing-function: ",
+    "    ease-in-out;",
+    "  animation-iteration-count: ",
+    "    infinite;",
+    "  animation-direction: alternate;",
+    "  animation-fill-mode: forwards;",
+    "}",
+    "",
+    "@keyframes Rotations {",
+    "  0% {",
+    "    transform: rotateX(0deg) ",
+    "      rotateY(0turn) rotateZ(0deg);",
+    "  }",
+    "  100% {",
+    "    transform: ",
+    "      rotateX(var(--rotationX)) ",
+    "      rotateY(1turn) ",
+    "      rotateZ(360deg);",
+    "  }",
+    "}",
+    ""
+   ]
+  },
+  "cube-keyframes-390-dark": {
+   "allLinesInView": true,
+   "lastBottom": 1363.4,
+   "editorBottom": 1379.4,
+   "verticalSlider": [
+    0,
+    536
+   ],
+   "visualLines": 24,
+   "viewRight": 369,
+   "widest": 352,
+   "slider": null,
+   "text": [
+    ".Rotations {",
+    "  animation-name: Rotations;",
+    "  animation-duration: 5s;",
+    "  animation-timing-function: ",
+    "    ease-in-out;",
+    "  animation-iteration-count: ",
+    "    infinite;",
+    "  animation-direction: alternate;",
+    "  animation-fill-mode: forwards;",
+    "}",
+    "",
+    "@keyframes Rotations {",
+    "  0% {",
+    "    transform: rotateX(0deg) ",
+    "      rotateY(0turn) rotateZ(0deg);",
+    "  }",
+    "  100% {",
+    "    transform: ",
+    "      rotateX(var(--rotationX)) ",
+    "      rotateY(1turn) ",
+    "      rotateZ(360deg);",
+    "  }",
+    "}",
+    ""
+   ]
+  }
+ },
+ "fails": []
+}

@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5[1m]
+GATE G3 (stop seat) — RED
+  G3d  key "Home" is a no-op on a focused stop handle (VISUAL-CONSTITUTION §5.2 requires Home=0%, End=100% and Up/Down at the same signed step; expected 0%). style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)".
+  G3d  key "ArrowDown" is a no-op on a focused stop handle (VISUAL-CONSTITUTION §5.2 requires Home=0%, End=100% and Up/Down at the same signed step; expected -1%). style.left stayed "calc(var(--rail-inset) + var(--rail-track) * 0)".
+EXIT=1

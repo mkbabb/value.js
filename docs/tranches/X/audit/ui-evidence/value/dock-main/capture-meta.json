@@ -1,0 +1,4688 @@
+{
+ "captured": "2026-09-23T15:47:20.311Z",
+ "value": {
+  "head": "e97c8afc",
+  "dirty": "22"
+ },
+ "glass": {
+  "head": "1c1f1f67",
+  "dirty": "0"
+ },
+ "frames": {
+  "d-light-01-page-expanded": {
+   "full": true,
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-02-dock-expanded": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-03-hover-tools": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-04-hover-login": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-05-focus-0-Select_view": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-05-focus-1-Toggle_action_bar": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-05-focus-2-Login": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-05-focus-3-_mbabb": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-06-view-select-open": {
+   "full": true,
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-07-mbabb-menu-open": {
+   "full": true,
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-08-actionbar-layer": {
+   "dock": {
+    "x": 557,
+    "y": 9.7890625,
+    "width": 326,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-09-back-to-main": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-10-page-collapsed": {
+   "full": true,
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "d-light-11-seal": {
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "d-light-12-morph-expand": {
+   "times": [
+    91,
+    235,
+    349,
+    492,
+    640,
+    722,
+    790,
+    900,
+    971,
+    1041,
+    1158,
+    1254,
+    1355,
+    1457
+   ]
+  },
+  "d-light-13-morph-collapse": {
+   "started": true,
+   "times2": [
+    5166,
+    5451,
+    5535,
+    5798,
+    5914,
+    6062,
+    6134,
+    6230,
+    6322,
+    6402
+   ]
+  },
+  "d-light-14-expand-raf-trace": {
+   "from": [
+    56,
+    56
+   ],
+   "out": [
+    [
+     2,
+     56,
+     56,
+     "c"
+    ],
+    [
+     18,
+     56,
+     56,
+     "c"
+    ],
+    [
+     36,
+     56,
+     56,
+     "c"
+    ],
+    [
+     53,
+     56,
+     56,
+     "c"
+    ],
+    [
+     75,
+     56,
+     62,
+     "e"
+    ],
+    [
+     84,
+     77,
+     62,
+     "e"
+    ],
+    [
+     101,
+     119,
+     62,
+     "e"
+    ],
+    [
+     119,
+     176,
+     62,
+     "e"
+    ],
+    [
+     137,
+     243,
+     62,
+     "e"
+    ],
+    [
+     152,
+     298,
+     62,
+     "e"
+    ],
+    [
+     169,
+     344,
+     62,
+     "e"
+    ],
+    [
+     186,
+     382,
+     62,
+     "e"
+    ],
+    [
+     203,
+     412,
+     62,
+     "e"
+    ],
+    [
+     219,
+     434,
+     62,
+     "e"
+    ],
+    [
+     234,
+     450,
+     62,
+     "e"
+    ],
+    [
+     253,
+     460,
+     62,
+     "e"
+    ],
+    [
+     271,
+     468,
+     62,
+     "e"
+    ],
+    [
+     286,
+     471,
+     62,
+     "e"
+    ],
+    [
+     302,
+     471,
+     62,
+     "e"
+    ],
+    [
+     319,
+     471,
+     62,
+     "e"
+    ],
+    [
+     336,
+     471,
+     62,
+     "e"
+    ],
+    [
+     352,
+     471,
+     62,
+     "e"
+    ],
+    [
+     368,
+     471,
+     62,
+     "e"
+    ],
+    [
+     386,
+     471,
+     62,
+     "e"
+    ],
+    [
+     402,
+     471,
+     62,
+     "e"
+    ],
+    [
+     419,
+     471,
+     62,
+     "e"
+    ],
+    [
+     436,
+     471,
+     62,
+     "e"
+    ],
+    [
+     452,
+     471,
+     62,
+     "e"
+    ],
+    [
+     469,
+     471,
+     62,
+     "e"
+    ],
+    [
+     486,
+     471,
+     62,
+     "e"
+    ],
+    [
+     501,
+     471,
+     62,
+     "e"
+    ],
+    [
+     519,
+     471,
+     62,
+     "e"
+    ],
+    [
+     536,
+     471,
+     62,
+     "e"
+    ],
+    [
+     552,
+     471,
+     62,
+     "e"
+    ],
+    [
+     569,
+     471,
+     62,
+     "e"
+    ],
+    [
+     586,
+     471,
+     62,
+     "e"
+    ],
+    [
+     602,
+     471,
+     62,
+     "e"
+    ],
+    [
+     620,
+     471,
+     62,
+     "e"
+    ],
+    [
+     636,
+     471,
+     62,
+     "e"
+    ],
+    [
+     652,
+     471,
+     62,
+     "e"
+    ],
+    [
+     669,
+     471,
+     62,
+     "e"
+    ],
+    [
+     686,
+     471,
+     62,
+     "e"
+    ],
+    [
+     701,
+     471,
+     62,
+     "e"
+    ],
+    [
+     718,
+     471,
+     62,
+     "e"
+    ],
+    [
+     736,
+     471,
+     62,
+     "e"
+    ],
+    [
+     752,
+     471,
+     62,
+     "e"
+    ],
+    [
+     767,
+     471,
+     62,
+     "e"
+    ],
+    [
+     786,
+     471,
+     62,
+     "e"
+    ],
+    [
+     801,
+     471,
+     62,
+     "e"
+    ],
+    [
+     819,
+     471,
+     62,
+     "e"
+    ],
+    [
+     834,
+     471,
+     62,
+     "e"
+    ],
+    [
+     853,
+     471,
+     62,
+     "e"
+    ],
+    [
+     869,
+     471,
+     62,
+     "e"
+    ],
+    [
+     886,
+     471,
+     62,
+     "e"
+    ],
+    [
+     901,
+     471,
+     62,
+     "e"
+    ],
+    [
+     919,
+     471,
+     62,
+     "e"
+    ],
+    [
+     936,
+     471,
+     62,
+     "e"
+    ],
+    [
+     952,
+     471,
+     62,
+     "e"
+    ],
+    [
+     969,
+     471,
+     62,
+     "e"
+    ],
+    [
+     986,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1001,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1019,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1035,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1052,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1069,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1086,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1103,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1120,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1136,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1151,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1169,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1184,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1201,
+     471,
+     62,
+     "e"
+    ]
+   ]
+  },
+  "m-light-01-page-expanded": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-light-02-dock-expanded": {
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-light-03-menu-open": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-light-04-view-select-open": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-light-05-actionbar-layer": {
+   "dock": {
+    "x": 39,
+    "y": 20.25,
+    "width": 312,
+    "height": 58,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-light-06-after-idle-scroll": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": -779.75,
+    "width": 172,
+    "height": 58,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "d-dark-01-page-expanded": {
+   "full": true,
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-02-dock-expanded": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-03-hover-tools": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-04-hover-login": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-05-focus-0-Select_view": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-05-focus-1-Toggle_action_bar": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-05-focus-2-Login": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-05-focus-3-_mbabb": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-06-view-select-open": {
+   "full": true,
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-07-mbabb-menu-open": {
+   "full": true,
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-08-actionbar-layer": {
+   "dock": {
+    "x": 557,
+    "y": 9.7890625,
+    "width": 326,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-09-back-to-main": {
+   "dock": {
+    "x": 484.265625,
+    "y": 9.7890625,
+    "width": 471.46875,
+    "height": 62,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-10-page-collapsed": {
+   "full": true,
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "d-dark-11-seal": {
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "d-dark-12-morph-expand": {
+   "times": [
+    113,
+    237,
+    350,
+    466,
+    585,
+    680,
+    778,
+    884,
+    977,
+    1061,
+    1141,
+    1229,
+    1321,
+    1402
+   ]
+  },
+  "d-dark-13-morph-collapse": {
+   "started": true,
+   "times2": [
+    5154,
+    5273,
+    5391,
+    5510,
+    5627,
+    5740,
+    5859,
+    5973,
+    6084,
+    6202
+   ]
+  },
+  "d-dark-14-expand-raf-trace": {
+   "from": [
+    56,
+    56
+   ],
+   "out": [
+    [
+     10,
+     56,
+     56,
+     "c"
+    ],
+    [
+     28,
+     56,
+     56,
+     "c"
+    ],
+    [
+     44,
+     56,
+     56,
+     "c"
+    ],
+    [
+     62,
+     56,
+     56,
+     "c"
+    ],
+    [
+     83,
+     56,
+     62,
+     "e"
+    ],
+    [
+     95,
+     77,
+     62,
+     "e"
+    ],
+    [
+     112,
+     125,
+     62,
+     "e"
+    ],
+    [
+     129,
+     184,
+     62,
+     "e"
+    ],
+    [
+     145,
+     243,
+     62,
+     "e"
+    ],
+    [
+     160,
+     298,
+     62,
+     "e"
+    ],
+    [
+     177,
+     340,
+     62,
+     "e"
+    ],
+    [
+     195,
+     380,
+     62,
+     "e"
+    ],
+    [
+     212,
+     412,
+     62,
+     "e"
+    ],
+    [
+     229,
+     434,
+     62,
+     "e"
+    ],
+    [
+     245,
+     450,
+     62,
+     "e"
+    ],
+    [
+     262,
+     461,
+     62,
+     "e"
+    ],
+    [
+     279,
+     468,
+     62,
+     "e"
+    ],
+    [
+     295,
+     471,
+     62,
+     "e"
+    ],
+    [
+     312,
+     471,
+     62,
+     "e"
+    ],
+    [
+     329,
+     471,
+     62,
+     "e"
+    ],
+    [
+     345,
+     471,
+     62,
+     "e"
+    ],
+    [
+     362,
+     471,
+     62,
+     "e"
+    ],
+    [
+     379,
+     471,
+     62,
+     "e"
+    ],
+    [
+     395,
+     471,
+     62,
+     "e"
+    ],
+    [
+     412,
+     471,
+     62,
+     "e"
+    ],
+    [
+     429,
+     471,
+     62,
+     "e"
+    ],
+    [
+     446,
+     471,
+     62,
+     "e"
+    ],
+    [
+     462,
+     471,
+     62,
+     "e"
+    ],
+    [
+     479,
+     471,
+     62,
+     "e"
+    ],
+    [
+     496,
+     471,
+     62,
+     "e"
+    ],
+    [
+     512,
+     471,
+     62,
+     "e"
+    ],
+    [
+     529,
+     471,
+     62,
+     "e"
+    ],
+    [
+     545,
+     471,
+     62,
+     "e"
+    ],
+    [
+     561,
+     471,
+     62,
+     "e"
+    ],
+    [
+     579,
+     471,
+     62,
+     "e"
+    ],
+    [
+     596,
+     471,
+     62,
+     "e"
+    ],
+    [
+     611,
+     471,
+     62,
+     "e"
+    ],
+    [
+     629,
+     471,
+     62,
+     "e"
+    ],
+    [
+     644,
+     471,
+     62,
+     "e"
+    ],
+    [
+     662,
+     471,
+     62,
+     "e"
+    ],
+    [
+     679,
+     471,
+     62,
+     "e"
+    ],
+    [
+     695,
+     471,
+     62,
+     "e"
+    ],
+    [
+     712,
+     471,
+     62,
+     "e"
+    ],
+    [
+     728,
+     471,
+     62,
+     "e"
+    ],
+    [
+     744,
+     471,
+     62,
+     "e"
+    ],
+    [
+     762,
+     471,
+     62,
+     "e"
+    ],
+    [
+     779,
+     471,
+     62,
+     "e"
+    ],
+    [
+     795,
+     471,
+     62,
+     "e"
+    ],
+    [
+     812,
+     471,
+     62,
+     "e"
+    ],
+    [
+     829,
+     471,
+     62,
+     "e"
+    ],
+    [
+     845,
+     471,
+     62,
+     "e"
+    ],
+    [
+     862,
+     471,
+     62,
+     "e"
+    ],
+    [
+     877,
+     471,
+     62,
+     "e"
+    ],
+    [
+     896,
+     471,
+     62,
+     "e"
+    ],
+    [
+     910,
+     471,
+     62,
+     "e"
+    ],
+    [
+     929,
+     471,
+     62,
+     "e"
+    ],
+    [
+     945,
+     471,
+     62,
+     "e"
+    ],
+    [
+     962,
+     471,
+     62,
+     "e"
+    ],
+    [
+     979,
+     471,
+     62,
+     "e"
+    ],
+    [
+     995,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1012,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1029,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1045,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1062,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1079,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1095,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1112,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1129,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1145,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1162,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1179,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1195,
+     471,
+     62,
+     "e"
+    ],
+    [
+     1212,
+     471,
+     62,
+     "e"
+    ]
+   ]
+  },
+  "m-dark-01-page-expanded": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-dark-02-dock-expanded": {
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-dark-03-menu-open": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-dark-04-view-select-open": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": 23.25,
+    "width": 172,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-dark-05-actionbar-layer": {
+   "dock": {
+    "x": 39,
+    "y": 20.25,
+    "width": 312,
+    "height": 58,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-dark-06-after-idle-scroll": {
+   "full": true,
+   "dock": {
+    "x": 109,
+    "y": -779.75,
+    "width": 172,
+    "height": 58,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "d-light-20-admin-page": {
+   "full": true,
+   "dock": {
+    "x": 557.8515625,
+    "y": 12.7890625,
+    "width": 324.296875,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-21-admin-dock": {
+   "dock": {
+    "x": 557.8515625,
+    "y": 12.7890625,
+    "width": 324.296875,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-22-admin-view-select": {
+   "full": true,
+   "dock": {
+    "x": 557.8515625,
+    "y": 12.7890625,
+    "width": 324.296875,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-light-23-admin-seal": {
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "d-light-24-admin-auth-picker-dock": {
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "m-light-20-admin-page": {
+   "full": true,
+   "dock": {
+    "x": 129,
+    "y": 23.25,
+    "width": 132,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-light-21-admin-dock": {
+   "dock": {
+    "x": 129,
+    "y": 23.25,
+    "width": 132,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "d-dark-20-admin-page": {
+   "full": true,
+   "dock": {
+    "x": 557.8515625,
+    "y": 12.7890625,
+    "width": 324.296875,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-21-admin-dock": {
+   "dock": {
+    "x": 557.8515625,
+    "y": 12.7890625,
+    "width": 324.296875,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-22-admin-view-select": {
+   "full": true,
+   "dock": {
+    "x": 557.8515625,
+    "y": 12.7890625,
+    "width": 324.296875,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline"
+   }
+  },
+  "d-dark-23-admin-seal": {
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "d-dark-24-admin-auth-picker-dock": {
+   "dock": {
+    "x": 692,
+    "y": 12.7890625,
+    "width": 56,
+    "height": 56,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-inline"
+   }
+  },
+  "m-dark-20-admin-page": {
+   "full": true,
+   "dock": {
+    "x": 129,
+    "y": 23.25,
+    "width": 132,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "m-dark-21-admin-dock": {
+   "dock": {
+    "x": 129,
+    "y": 23.25,
+    "width": 132,
+    "height": 52,
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline"
+   }
+  },
+  "d-light-30-lamp-offline-page": {
+   "full": true,
+   "dock": null
+  },
+  "m-light-30-lamp-offline-page": {
+   "full": true,
+   "dock": null
+  }
+ },
+ "radii": {
+  "d-light-expanded": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+    "label": "→lab(92% 88.8 20 / 82.7%)HomeT",
+    "w": 471,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 471,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "color(srgb 0.931227 0.845921 0.816039 / 0.5392)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 107,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-1.5 text-mon",
+    "label": "Login",
+    "w": 86,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-light-actionbar": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+    "label": "→lab(92% 88.8 20 / 82.7%)HomeT",
+    "w": 326,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 326,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "oklab(0.946496 0.00678277 0.0150976 / 0.808)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 107,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-1.5 text-mon",
+    "label": "Login",
+    "w": 86,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-light-collapsed": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-in",
+    "label": "→lab(92% 88.8 20 / 82.7%)HomeT",
+    "w": 56,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 56,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "color(srgb 0.915707 0.8696 0.829086 / 0.328)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 107,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-1.5 text-mon",
+    "label": "Login",
+    "w": 86,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "m-light-expanded": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content a",
+    "label": "→lab(92% 88.8 20 / 82.7%) Logi",
+    "w": 172,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 172,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "color(srgb 0.931227 0.845921 0.816039 / 0.5392)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 56,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "14px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 32,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "label": "Menu",
+    "w": 40,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "m-light-actionbar": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content a",
+    "label": "→lab(92% 88.8 20 / 82.7%) Logi",
+    "w": 312,
+    "h": 58,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 312,
+    "h": 58,
+    "radius": "9999px",
+    "bg": "oklab(0.946496 0.00678277 0.0150976 / 0.808)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 56,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "14px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 32,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.8)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "label": "Menu",
+    "w": 40,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-dark-expanded": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+    "label": "→lab(92% 88.8 20 / 82.7%)HomeT",
+    "w": 471,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 471,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "color(srgb 0.390298 0.334077 0.29024 / 0.5776)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 107,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-1.5 text-mon",
+    "label": "Login",
+    "w": 86,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-dark-actionbar": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+    "label": "→lab(92% 88.8 20 / 82.7%)HomeT",
+    "w": 326,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 326,
+    "h": 62,
+    "radius": "9999px",
+    "bg": "oklab(0.376058 0.0119116 0.0216629 / 0.8944)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 107,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-1.5 text-mon",
+    "label": "Login",
+    "w": 86,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-dark-collapsed": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x collapsed fit-content dock-in",
+    "label": "→lab(92% 88.8 20 / 82.7%)HomeT",
+    "w": 56,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "color(srgb 0.11 0.098 0.09 / 0.12) 0px 0px 12px 0px",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 56,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "color(srgb 0.384569 0.327254 0.277957 / 0.4544)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 107,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-1.5 text-mon",
+    "label": "Login",
+    "w": 86,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "m-dark-expanded": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content a",
+    "label": "→lab(92% 88.8 20 / 82.7%) Logi",
+    "w": 172,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 172,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "color(srgb 0.390298 0.334077 0.29024 / 0.5776)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 56,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "14px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 32,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "label": "Menu",
+    "w": 40,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "m-dark-actionbar": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content a",
+    "label": "→lab(92% 88.8 20 / 82.7%) Logi",
+    "w": 312,
+    "h": 58,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 312,
+    "h": 58,
+    "radius": "9999px",
+    "bg": "oklab(0.376058 0.0119116 0.0216629 / 0.8944)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Back",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Reset color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Copy color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Random color",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Palettes",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-r",
+    "label": "Extract palette",
+    "w": 32,
+    "h": 32,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "send-btn btn-interactive",
+    "label": "",
+    "w": 24,
+    "h": 24,
+    "radius": "4px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+    "label": "Open color input",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 56,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "14px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 32,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "color(srgb 0.2074 0.165013 0.1326 / 0.88)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "label": "Menu",
+    "w": 40,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-light-admin": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+    "label": "→UsersTools admin  @mbabb",
+    "w": 324,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 324,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "color(srgb 0.931227 0.845921 0.816039 / 0.5392)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 103,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "span",
+    "cls": "slug-pill cursor-default whitespace-nowrap gold-shimmer",
+    "label": "admin",
+    "w": 68,
+    "h": 29,
+    "radius": "1.67772e+07px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px solid",
+    "boxShadow": "none",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "2px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "m-light-admin": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content a",
+    "label": "→ admin  @mbabb",
+    "w": 132,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 132,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "color(srgb 0.931227 0.845921 0.816039 / 0.5392)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 56,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "14px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 32,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "label": "Menu",
+    "w": 40,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-dark-admin": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inl",
+    "label": "→UsersTools admin  @mbabb",
+    "w": 324,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 324,
+    "h": 56,
+    "radius": "9999px",
+    "bg": "color(srgb 0.390298 0.334077 0.29024 / 0.5776)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 103,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16.4px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 105,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "span",
+    "cls": "slug-pill cursor-default whitespace-nowrap gold-shimmer",
+    "label": "admin",
+    "w": 68,
+    "h": 29,
+    "radius": "1.67772e+07px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "1px solid",
+    "boxShadow": "none",
+    "font": "16.4px 700 \"Fira Code\"",
+    "pad": "2px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__t",
+    "label": "@mbabb",
+    "w": 77,
+    "h": 28,
+    "radius": "9999px",
+    "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+    "border": "0px none",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16.4px 500 \"Fira Code\"",
+    "pad": "0px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "18.608px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "m-dark-admin": [
+   {
+    "tag": "div",
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content a",
+    "label": "→ admin  @mbabb",
+    "w": 132,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px solid",
+    "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 25",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "8px 12px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-plate",
+    "label": "",
+    "w": 132,
+    "h": 52,
+    "radius": "9999px",
+    "bg": "color(srgb 0.390298 0.334077 0.29024 / 0.5776)",
+    "border": "1.5px solid",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Save edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "label": "Cancel edit",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Switch to slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Generate new slug",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact slug-c",
+    "label": "Cancel",
+    "w": 24,
+    "h": 24,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+    "label": "Select view",
+    "w": 56,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "14px 400 Fraunces",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "button",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+    "label": "Toggle action bar",
+    "w": 32,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px"
+   },
+   {
+    "tag": "button",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "label": "Menu",
+    "w": 40,
+    "h": 32,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "4px 8px"
+   },
+   {
+    "tag": "div",
+    "cls": "dock-seal",
+    "label": "",
+    "w": 40,
+    "h": 40,
+    "radius": "9999px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "0px none",
+    "boxShadow": "none",
+    "font": "16px 400 \"Plus Jakarta Sans\"",
+    "pad": "0px"
+   }
+  ],
+  "d-light-lamp": [],
+  "m-light-lamp": []
+ },
+ "notes": [
+  "light 1440: idle collapse fired after ~4700ms (pointer outside)",
+  "light 1440 console errors: 0 ",
+  "light 390 kebab-candidates: 2",
+  "light 390: after 7s idle dock cls=glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline",
+  "light 390: after scroll dock cls=glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline",
+  "light 390 console errors: 0 ",
+  "dark 1440: idle collapse fired after ~4810ms (pointer outside)",
+  "dark 1440 console errors: 0 ",
+  "dark 390 kebab-candidates: 2",
+  "dark 390: after 7s idle dock cls=glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline",
+  "dark 390: after scroll dock cls=glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded pinned fit-content always-expanded dock-inline",
+  "dark 390 console errors: 0 ",
+  "admin d light console errors: 1 Failed to load resource: the server responded with a status of 403 (Forbidden)",
+  "admin m light console errors: 1 Failed to load resource: the server responded with a status of 403 (Forbidden)",
+  "admin d dark console errors: 1 Failed to load resource: the server responded with a status of 403 (Forbidden)",
+  "admin m dark console errors: 1 Failed to load resource: the server responded with a status of 403 (Forbidden)",
+  "lamp d offline: null",
+  "lamp d offline: band=null dock=null errors=Failed to load resource: net::ERR_FAILED | Failed to load resource: net::ERR_FAILED | Failed to load resource: net::ERR_FAILED",
+  "lamp m offline: null",
+  "lamp m offline: band=null dock=null errors=Failed to load resource: net::ERR_FAILED | Failed to load resource: net::ERR_FAILED",
+  "lamp healthy: false"
+ ]
+}

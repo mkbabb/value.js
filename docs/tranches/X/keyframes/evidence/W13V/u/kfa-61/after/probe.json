@@ -1,0 +1,77 @@
+[
+ {
+  "scene": "cube",
+  "scheme": "light",
+  "a": {
+   "variant": "scrubber",
+   "now": "3939.3999999999996",
+   "max": "5000",
+   "track": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+   "range": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+   "rangeBgImg": "none",
+   "rangeW": 286.15625,
+   "thumb": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(28, 25, 23) 0px",
+    "w": 0,
+    "op": "0"
+   },
+   "box": {
+    "x": 85.203125,
+    "y": 460.953125,
+    "w": 379.1953125,
+    "h": 36
+   }
+  }
+ },
+ {
+  "scene": "cube",
+  "scheme": "dark",
+  "a": {
+   "variant": "scrubber",
+   "now": "3970.1",
+   "max": "5000",
+   "track": "color(srgb 0.1232 0.10912 0.0968 / 0.5)",
+   "range": "oklab(0.42 0.0155291 0.0579556 / 0.88)",
+   "rangeBgImg": "none",
+   "rangeW": 288.390625,
+   "thumb": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(233, 230, 226) 0px",
+    "w": 0,
+    "op": "0"
+   },
+   "box": {
+    "x": 85.203125,
+    "y": 460.953125,
+    "w": 379.1953125,
+    "h": 36
+   }
+  }
+ },
+ {
+  "scene": "amiga",
+  "scheme": "light",
+  "a": {
+   "variant": "scrubber",
+   "now": "0",
+   "max": "8000",
+   "track": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+   "range": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+   "rangeBgImg": "none",
+   "rangeW": 0,
+   "thumb": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "border": "rgb(28, 25, 23) 0px",
+    "w": 0,
+    "op": "0"
+   },
+   "box": {
+    "x": 85.203125,
+    "y": 460.953125,
+    "w": 379.1953125,
+    "h": 36
+   }
+  }
+ }
+]

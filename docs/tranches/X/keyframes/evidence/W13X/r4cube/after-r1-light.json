@@ -1,0 +1,68 @@
+{
+ "run": "after-r1",
+ "theme": "light",
+ "loadStart": "76.21",
+ "homePlaying": {
+  "playingClass": false,
+  "willChange": "auto",
+  "transport": [
+   "Pause the title animation",
+   "Play animation"
+  ]
+ },
+ "homePoses": 1,
+ "cubePlaying": {
+  "playingClass": true,
+  "willChange": "transform",
+  "transport": [
+   "Pause animation"
+  ]
+ },
+ "cubePaused": {
+  "playingClass": false,
+  "willChange": "auto",
+  "transport": [
+   "Play animation"
+  ]
+ },
+ "cellPaused": {
+  "leg": "cell-paused",
+  "samples": 73,
+  "distinctPoses": 19,
+  "first": "matrix(1, 0, 0.0392107, 1, 0, 0)",
+  "last": "matrix(1.05602, 0, 0.0392107, 1, 0, 0)",
+  "transport": [
+   "Play animation"
+  ]
+ },
+ "resetPaused": {
+  "acted": true,
+  "leg": "reset-paused",
+  "samples": 73,
+  "distinctPoses": 31,
+  "first": "matrix(1.05602, 0, 0.0392107, 1, 0, 0)",
+  "last": "matrix(1, 0, 0.0392107, 1, 0, 0)",
+  "transport": [
+   "Play animation"
+  ]
+ },
+ "cubeResumed": {
+  "playingClass": true,
+  "willChange": "transform",
+  "transport": [
+   "Pause animation"
+  ]
+ },
+ "errors": [],
+ "loadEnd": "69.01",
+ "predicates": {
+  "KFA-131 home at rest: die still, no class, no resident layer": true,
+  "KFA-131 /cube playing class + will-change": true,
+  "KFA-131 paused drops the class": true,
+  "KFA-131 resumed restores the class": true,
+  "MPEU cell edit paints while paused": true,
+  "MPEU reset paints while paused": true,
+  "MPEU edit does not resume": true,
+  "no page errors": true
+ }
+}

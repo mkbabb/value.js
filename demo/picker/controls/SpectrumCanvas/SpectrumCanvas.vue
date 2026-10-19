@@ -1,6 +1,6 @@
 <template>
     <!-- Direct saturation/value field. -->
-    <figure class="m-0 min-w-0 w-full flex flex-col">
+    <figure class="spectrum-figure m-0 min-w-0 w-full flex flex-col">
         <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
              so role="img" with a reactive descriptive label, not role="slider". -->
         <div
@@ -20,10 +20,12 @@
             @touchmove.passive="spectrumGate.handleScrollCheck($event)"
             @touchend.passive="spectrumGate.handleTouchEnd()"
         >
+            <!-- X-DS pass 3 (V3C-06): the thumb keeps its organic outline (the
+                 identity, §0dm) and is STILL at rest. The perpetual 2s rAF
+                 wobble carried no state; the outline re-seeds with the colour,
+                 so it changes only while the user moves it. -->
             <WatercolorDot
                 :color="cssColorOpaque"
-                animate
-                :cycle-duration="2000"
                 :range="[15, 85]"
                 class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                 :style="spectrumDotStyle"
@@ -35,10 +37,10 @@
 <script setup lang="ts">
 import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { useTouchGate } from "@mkbabb/glass-ui";
+import { WatercolorDot } from "../../../shared/ui/watercolor-dot";
+import { useTouchGate } from "@mkbabb/glass-ui/dom";
 import { channelNumber, withChannel } from "../../../color-session/picker-color";
-import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+import { POINTER_DEBUG_KEY } from "../../debug/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
 import { COLOR_MODEL_KEY } from "../../../color-session/keys";
 
@@ -107,18 +109,34 @@ const scheduleSpectrumUpdate = (event: PointerEvent) => {
     }
 };
 
+// X.W12U.p — the surface's rect is read ONCE per drag (at pointerdown) and
+// held until the drag ends. Read inside the rAF update instead, it forced a
+// synchronous style+layout every frame against the previous frame's recolour
+// (the drag's own writes), before this frame's writes dirtied it again.
+let dragRect: DOMRect | null = null;
+// The thumb's radius in px, read with the rect (once per drag).
+let dragInset: number | null = null;
+const thumbInset = () =>
+    (spectrumRef.value?.querySelector<HTMLElement>(".spectrum-dot")?.offsetHeight ?? 0) / 2;
+
 const updateSpectrumColor = (
     coords: { clientX: number; clientY: number },
 ) => {
     if (!spectrumRef.value) return;
-    const rect = spectrumRef.value.getBoundingClientRect();
+    const rect = dragRect ?? spectrumRef.value.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
 
     const x = clamp(coords.clientX - rect.left, 0, rect.width);
-    const y = clamp(coords.clientY - rect.top, 0, rect.height);
+    // X-DS pass 3 (V3C-07): the thumb's VERTICAL travel is inset by its radius
+    // (useSpectrumPlateStyle), so at full value it sits inside the plate rather
+    // than riding half over the value readout above it. The pointer maps over
+    // the same inset span, so the thumb stays under the pointer.
+    const inset = dragInset ?? thumbInset();
+    const span = Math.max(1, rect.height - 2 * inset);
+    const y = clamp(coords.clientY - rect.top - inset, 0, span);
 
     const s = clamp(x / rect.width, 0, 1);
-    const v = clamp(1 - y / rect.height, 0, 1);
+    const v = clamp(1 - y / span, 0, 1);
 
     rawS.value = s;
     rawV.value = v;
@@ -149,6 +167,8 @@ const handleSpectrumDown = (event: PointerEvent) => {
     capturedPointerId = event.pointerId;
     capturedElement = el;
     isDragging.value = true;
+    dragRect = spectrumRef.value?.getBoundingClientRect() ?? null;
+    dragInset = thumbInset();
 
     debug.setGauge("spec.isDragging", true);
     debug.setGauge("spec.capturedPid", event.pointerId);
@@ -196,6 +216,8 @@ const stopDragging = () => {
         cancelAnimationFrame(spectrumRafId);
         spectrumRafId = null;
     }
+    dragRect = null;
+    dragInset = null;
     isDragging.value = false;
 };
 
@@ -228,13 +250,30 @@ onUnmounted(() => {
 @reference "../../../styles/foundation.css";
 
 .spectrum-picker {
+    /* The thumb's size, read by the thumb and by its inset travel (V3C-07). */
+    --spectrum-dot-size: 1.75rem;
     border-radius: var(--radius-xl);
-    box-shadow: 0px 0px 0px 0px transparent;
-    transition: box-shadow var(--duration-normal) var(--ease-standard);
+    /* X-DS pass 1 (V1-27): the original's signature (684c818f) — the hard
+     * offset tinted by the live colour — stands AT REST again; it was hover-only
+     * since the 03b9daed decomposition. One layer, zero blur, same direction as
+     * the card's own stamp.
+     * X-DS VC4-01: the stamp's ink is ONE token per scheme. Light: the live
+     * colour half-way to black (darker than its light ground). Dark: the live
+     * HUE and chroma at the stone caster's lightness band, so the "shadow"
+     * stays darker than the dark card it falls on — a light live colour
+     * (L 92%) mixed with black painted a lit pink rim brighter than the
+     * ground, the class T-53 cured for the cards (foundation.css `.dark`). */
+    --spectrum-stamp-ink: color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
+    box-shadow: var(--spectrum-stamp, 8px) var(--spectrum-stamp, 8px) 0px 0px var(--spectrum-stamp-ink);
     overflow: visible;
-    &:hover {
-        box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
-    }
+}
+.dark .spectrum-picker {
+    /* The live hue at the stone caster's band (--shadow-color, L ~0.2, near
+     * neutral): lightness scaled under the dark card ground, chroma capped so
+     * the out-of-gamut clip cannot swing the hue to red or lift the ink. A
+     * plain mix of the live colour into the stone stays above the ground for
+     * a light live colour (L 0.92 at 30% gives L ~0.42 over a ~0.32 ground). */
+    --spectrum-stamp-ink: oklch(from var(--spectrum-shadow, transparent) calc(l * 0.22) min(c, 0.07) h);
 }
 
 /* R.W3 Lane E / E1 — beat two: the field paints in ~180ms after the plate
@@ -251,17 +290,19 @@ onUnmounted(() => {
             background-size: 100% 100%, 100% 100%;
         }
     }
-    .spectrum-picker {
+    /* X.W12.b — the picker pane's FIRST arrival only (`data-arrival`,
+     * ColorPicker.vue): a KeepAlive return re-inserts this field, which
+     * restarted the paint-in under the pane-swap travel. */
+    .pane-shell[data-arrival="first"] .spectrum-picker {
         animation: field-paint-in 420ms var(--ease-standard) 180ms both;
     }
 }
 
 .spectrum-dot {
     position: absolute;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: var(--spectrum-dot-size);
+    height: var(--spectrum-dot-size);
     border: 2px solid var(--dot-border, var(--background));
-    box-shadow: var(--shadow-sm);
     /* The wet-edge filter is the WatercolorDot's own internalised per-instance
        <filter> (glass-ui superset) — no global #watercolor-filter override here. */
     &:hover {

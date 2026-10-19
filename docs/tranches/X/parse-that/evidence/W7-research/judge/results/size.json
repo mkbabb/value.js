@@ -1,0 +1,42 @@
+{
+ "retired": {
+  "bytes": 67206,
+  "minBytes": 36883,
+  "gzipMinBytes": 12333
+ },
+ "stock": {
+  "bytes": 229917,
+  "minBytes": 123852,
+  "gzipMinBytes": 40755
+ },
+ "tsc-proto-pos": {
+  "bytes": 224995,
+  "minBytes": 126329,
+  "gzipMinBytes": 41878
+ },
+ "tsc-emit-pos": {
+  "bytes": 190087,
+  "minBytes": 109500,
+  "gzipMinBytes": 36606
+ },
+ "aot-text": {
+  "bytes": 343461,
+  "minBytes": 159442,
+  "gzipMinBytes": 32629
+ },
+ "fx-final": {
+  "bytes": 222002,
+  "minBytes": 123535,
+  "gzipMinBytes": 41153
+ },
+ "aot-generated-text": {
+  "bytes": 171600,
+  "minBytes": 106142,
+  "gzipMinBytes": 13504
+ },
+ "aot-generated-full": {
+  "bytes": 166190,
+  "minBytes": 103243,
+  "gzipMinBytes": 13019
+ }
+}

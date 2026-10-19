@@ -1,0 +1,24 @@
+776 productOk 678 {
+  'css_syntax/CSS color': 773,
+  'color_context_required/context-free color': 1,
+  'css_syntax/color': 1,
+  'css_syntax/color components': 1
+} {
+  OK: 678,
+  'color_context_required/context-free color': 75,
+  'css_syntax/color': 19,
+  'css_syntax/<percentage [0,100]>': 4
+}
+[
+  'COLOR-MIX(IN OKLCH LONGER HUE, RED, BLUE)',
+  'color-mix(in hsl increasing hue, red, transparent)',
+  'color-mix(in hsl, hsl(120deg 10% 20% / .4) 0%, hsl(30deg 30% 40% / .8) 0%)',
+  'color-mix(in hsl, hsl(330deg 50% 50%), hsl(50deg 50% 50%))',
+  'color-mix(in hsl, rgb(46, 56, 46) 75%, rgb(133, 102, 71) 25%)',
+  'color-mix(in hwb increasing hue, hwb(60deg 30% 40%), hwb(40deg 30% 40%))',
+  'color-mix(in hwb, hwb(120deg 10% 20% / .4) 0%, hwb(30deg 30% 40% / .8))',
+  'color-mix(in hwb, hwb(330deg 30% 40%), hwb(50deg 30% 40%))',
+  'color-mix(in hwb, rgba(26, 204, 26, 0.4) 0%, rgba(153, 115, 77, 0.8) 0%)',
+  'color-mix(in lab, lab(10 20 30) 0%, lab(50 60 70) 100%)'
+]
+rej total 23484 product accepts 1724

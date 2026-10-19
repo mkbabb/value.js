@@ -1,0 +1,6366 @@
+{
+ "SERVED MODEL": "claude-opus-5-5",
+ "schema": "x-w11.h.png-shadow/1",
+ "unit": "X.W11.h",
+ "ruling": "COHESION §0k.1 — the .gitignore PNG shadow (8800 ignored files under docs/ at X-W0) -> X-W11's close walk",
+ "measuredAt": "2026-10-18",
+ "head": "d39c3e03b",
+ "rule": ".gitignore:34 '*.png' (only '!demo/**/*.png' re-included, :35)",
+ "method": {
+  "ignored": "git ls-files --others --ignored --exclude-standard -- docs/ | grep -i '\\.png$'",
+  "tracked": "git ls-files -- docs | grep -i '\\.png$'",
+  "cited": "git grep -h -o -I -E '[A-Za-z0-9_.@+=-]+/[A-Za-z0-9_.@+=-]+.png' -- docs | sort -u (tracked text only); an ignored PNG counts as cited when its '<parent>/<basename>' is one of those tokens (an upper bound: a parent/basename shared by two directories counts for both; 3538 distinct ignored parent/basename pairs are named)"
+ },
+ "dispositions": {
+  "CITED-UNTRACKED": "a tracked docs file names >=1 of this directory's ignored PNGs: by L-7 the cited witness does not exist until force-added; owed to the wave whose record cites it (its own bounds), never this unit's (writable: this file only)",
+  "UNCITED-LOCAL": "no tracked docs file names any of this directory's ignored PNGs: local working captures the .gitignore:34 law shadows as designed; retained untracked, never evidence"
+ },
+ "totals": {
+  "dirs": 904,
+  "ignoredPng": 49518,
+  "trackedPng": 7782,
+  "citedPng": 7224,
+  "byDisposition": {
+   "UNCITED-LOCAL": {
+    "dirs": 510,
+    "ignoredPng": 28961,
+    "citedPng": 0
+   },
+   "CITED-UNTRACKED": {
+    "dirs": 394,
+    "ignoredPng": 20557,
+    "citedPng": 7224
+   }
+  }
+ },
+ "rows": [
+  {
+   "dir": "docs/tranches/A/audit/W0-playwright-boot",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/A/audit/W1-playwright",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/A/audit/W2-playwright",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/A/audit/W3-playwright",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/A/audit/W4-playwright",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/A/audit/W5-playwright",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/A/audit/W7-visual-runtime",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/A/research/screenshots",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/B/audit/B.W1-layout",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/B/audit/B.W2-playwright",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/B/audit/B.W3-playwright",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/B/audit/B.W4-visual-runtime",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/D/audit/D.W0-playwright",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/D/audit/D.W6-visual-runtime",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/K/audit/visual-evidence-2026-06-02",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/K/audit/visual-evidence-2026-06-02/grand-audit",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/K/audit/visual-evidence-2026-06-02/grand-audit/local",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/N/audit/impl/shots",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/N/audit/impl/shots/w6",
+   "ignoredPng": 80,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/N/audit/lanes2/shots",
+   "ignoredPng": 83,
+   "citedByTrackedDoc": 22,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/N/audit/user-audit-2026-06-12",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/R/audit/R.W3-visual-runtime/baseline",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/R/audit/R.W3-visual-runtime/close",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/R/audit/R.W3-visual-runtime/lane-b",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/R/audit/R.W4-visual-runtime/baseline",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/R/audit/R.W4-visual-runtime/close",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/card-lighting-forensics",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/assets",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/assets/blob-atmosphere",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/assets/design-picker",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/design-browse-palettes",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/design-dock-shell",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/design-gradient-shots",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/lanes/evidence/design-docs-about",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w3-after/drag",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w3-after/mix",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w3-after/view-switch",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w3-before/drag",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w3-before/mix",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w3-before/view-switch",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w4-after",
+   "ignoredPng": 41,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w4-before",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/blob/mobile-390x844--dark",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/blob/mobile-390x844--light",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/blob/wide-1440x900--dark",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/blob/wide-1440x900--light",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/cold/mobile-390x844--dark",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/cold/mobile-390x844--light",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/cold/wide-1440x900--dark",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/cold/wide-1440x900--light",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-after/live",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/blob/mobile-390x844--dark",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/blob/mobile-390x844--light",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/blob/wide-1440x900--dark",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/blob/wide-1440x900--light",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/cold/mobile-390x844--dark",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/cold/mobile-390x844--light",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/cold/wide-1440x900--dark",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/cold/wide-1440x900--light",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w6-before/live",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w7-after",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/S/audit/pi/w7-before",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/owner-screenshots",
+   "ignoredPng": 52,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/u-gestalt/frames",
+   "ignoredPng": 64,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w45/picker",
+   "ignoredPng": 17,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/about",
+   "ignoredPng": 39,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/admin",
+   "ignoredPng": 58,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/blob",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/boot/cold-dark",
+   "ignoredPng": 392,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/boot/cold-light",
+   "ignoredPng": 383,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/boot/returning-dark",
+   "ignoredPng": 357,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/boot/returning-light",
+   "ignoredPng": 411,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/config",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/dock",
+   "ignoredPng": 50,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/easing",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/extract",
+   "ignoredPng": 21,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/field",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/gradient",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/microchrome",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/mix-generate",
+   "ignoredPng": 81,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/mix-generate/motion",
+   "ignoredPng": 116,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/dark-browse-to-home",
+   "ignoredPng": 167,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/dark-gradient-to-mix",
+   "ignoredPng": 162,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/dark-home-to-gradient",
+   "ignoredPng": 194,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/dark-mix-to-browse",
+   "ignoredPng": 159,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/light-browse-to-home",
+   "ignoredPng": 128,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/light-gradient-to-mix",
+   "ignoredPng": 159,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/light-home-to-gradient",
+   "ignoredPng": 169,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/motion/light-mix-to-browse",
+   "ignoredPng": 177,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/palettes",
+   "ignoredPng": 39,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/T/audit/pi/w8/picker",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/U/audit/w-a11y/pi",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 15,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/U/audit/w-visual/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 10,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/U/audit/w-visual/pi",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/apotheosis/fable-era/probe",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/apotheosis/probe",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AboutPane/evidence",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AboutPane/frames",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ActionFeedback/evidence-r2",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminAuditPanel/evidence",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminAuditPanel/pi",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminNamesPanel",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminTagsPanel/evidence",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminUsersPanel/frames",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminUsersPanel/frames-C2",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminUsersPanel/frames-D2",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminUsersPanel/frames-D3",
+   "ignoredPng": 30,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AdminUsersPanel/frames-impl",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ApiOfflineChip/evidence",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AuroraPane/frames",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/AuroraPane/pass2/frames",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane/evidence",
+   "ignoredPng": 29,
+   "citedByTrackedDoc": 24,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane/probe-C2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane/probe-C3",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L5",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/BrowsePane/shots",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ColorSpaceSelector",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ColorSpaceSelector/evidence",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ConfigSliderPane/frames",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/pass-4",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/frames-D",
+   "ignoredPng": 30,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/frames-D10",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/frames-D14",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/frames-D3",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 9,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/frames-D4",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/probe",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/shots",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/EmptyState/probes",
+   "ignoredPng": 29,
+   "citedByTrackedDoc": 15,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ErrorBoundary/evidence",
+   "ignoredPng": 21,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/ErrorBoundary/evidence-r2",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/FlagReportDialog/evidence",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/FlagReportDialog/evidence/challenge-C",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/Katex/evidence",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/Katex/frames",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/Markdown/evidence",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/Markdown/frames",
+   "ignoredPng": 37,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/Markdown/frames/pass-2",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/MigratePalettesDialog",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/MigratePalettesDialog/probe-D/shots",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/MiniColorPicker",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/MiniColorPicker/evidence",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/MiniColorPicker/shots",
+   "ignoredPng": 14,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/MiniColorPicker/shots-p2",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCard/evidence",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCard/shots",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardMenu/evidence",
+   "ignoredPng": 54,
+   "citedByTrackedDoc": 35,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardMenu/evidence/pass-2",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardMenu/evidence/pass-3",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardMenu/evidence/pass-4",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardMenu/evidence/pass-5",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardMenu/evidence/pass4",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteCardSwatches",
+   "ignoredPng": 17,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaletteColorStrip",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PalettesPane/probe",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PalettesPane/probe-p5",
+   "ignoredPng": 21,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PalettesPane/probes-pass3",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaneHeader",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PaneHeader/shots",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PreviewRamp",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PreviewStrip",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PreviewStrip/frames-D",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PreviewStrip/probes-D2/frames",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/PreviewStrip/probes-D2/out",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 18,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p3-L",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p4",
+   "ignoredPng": 39,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5",
+   "ignoredPng": 134,
+   "citedByTrackedDoc": 38,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-r4",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/shots",
+   "ignoredPng": 31,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SearchFilterBar/shots-p3",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/SwatchHoverMenu/evidence",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/TagEditPopover/evidence",
+   "ignoredPng": 32,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/VersionHistoryDrawer/evidence-C",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/VersionHistoryDrawer/evidence-D",
+   "ignoredPng": 43,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/VersionHistoryDrawer/shots",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/picker-componentsliders-consolerail/evidence-r2",
+   "ignoredPng": 46,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/picker-componentsliders/frames",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/picker-pointerdebugoverlay/evidence-r2",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-actionbarlayer",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-actionbartoggle",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-actionbartoggle/probe",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-actionbutton",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/frames",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 19,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-dock",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-dockstatuslamp/frames",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-dockstatuslamp/probe",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-dockviewselect",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-dockviewselect/probe",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-profilesection",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-dock-slugeditlayer",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/shell-paneslot/frames",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-controls/evidence",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-controls/evidence/pass-3",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-controls/evidence/pass-4",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/evidence",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/pass2-probe",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/pass2-probe-D/shots",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/pass3-probe",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/evidence",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/frames",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/probe",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/shots",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-pane/evidence",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/frames",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/frames-crop",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/frames-final",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/frames-focus",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/frames-populated",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/frames-states",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/probe",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-extract-workbench/probe-r3",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-generate-controls/frames",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-generate-controls/frames-D3",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-codeeditor",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-codeeditor/evidence",
+   "ignoredPng": 110,
+   "citedByTrackedDoc": 17,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-codeeditor/probe",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingauthoringstage/evidence",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingauthoringstage/frames",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingauthoringstage/shots",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/frames",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/frames-r3",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/probes",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingspecimenstrip",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingspecimenstrip/evidence",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingspecimenstrip/frames",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-easingspecimenstrip/shots",
+   "ignoredPng": 33,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 9,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/pi",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-gradient-visualizer/evidence",
+   "ignoredPng": 32,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-animationcanvas",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-configbar",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-configbar/frames",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-pane/evidence",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-pane/evidence/challenge-C",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-pane/frames",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-pane/shots",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/evidence",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/evidence/r5",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/evidence/r6",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/frames",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/shots",
+   "ignoredPng": 43,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-sourceselector/evidence",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-sourceselector/evidence/r3",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/components/wb-mix-sourceselector/frames",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/safari-real",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 27,
+   "trackedPng": 8,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/forced-colors-desktop",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/keyboard-focus-desktop",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/reduced-motion-desktop",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/rtl-mobile",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 15,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/V/megatranche/audit/visual/shots/zoom-200-desktop",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/fourier-L1/frames",
+   "ignoredPng": 14,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/fourier-L3/crops",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/fourier-L3/frames",
+   "ignoredPng": 90,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/fourier-L3/small",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L1/frames",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L2/frames",
+   "ignoredPng": 374,
+   "citedByTrackedDoc": 14,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/1440-dark",
+   "ignoredPng": 42,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/1440-light",
+   "ignoredPng": 42,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/390-dark",
+   "ignoredPng": 75,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/390-dark-lifted",
+   "ignoredPng": 35,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/390-light",
+   "ignoredPng": 75,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/390-light-lifted",
+   "ignoredPng": 35,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-L3/frames/_probe",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/keyframes-register/frames",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/value-L3/frames",
+   "ignoredPng": 192,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/audit/audit-2/value-register/frames",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/equation-explorer",
+   "ignoredPng": 60,
+   "citedByTrackedDoc": 16,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-admin-audit",
+   "ignoredPng": 93,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-admin-banner-batch",
+   "ignoredPng": 90,
+   "citedByTrackedDoc": 14,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-admin-flagged",
+   "ignoredPng": 68,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-admin-users",
+   "ignoredPng": 86,
+   "citedByTrackedDoc": 14,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-card-modal",
+   "ignoredPng": 43,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-drafts",
+   "ignoredPng": 29,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/gallery-public",
+   "ignoredPng": 69,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/morph-demo",
+   "ignoredPng": 50,
+   "citedByTrackedDoc": 14,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/morph-demo/confirm",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/paper-desktop",
+   "ignoredPng": 33,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/paper-mobile-floating-toc",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/paper-search-inline",
+   "ignoredPng": 56,
+   "citedByTrackedDoc": 9,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/paper-search-modal",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/root-redirect-and-404",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 10,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/shape-extractor-internal",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/shell-about-popover",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/shell-app-dock",
+   "ignoredPng": 62,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/shell-login-inline",
+   "ignoredPng": 92,
+   "citedByTrackedDoc": 10,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/shell-nav-dropdown",
+   "ignoredPng": 58,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/toasts",
+   "ignoredPng": 66,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualization-saved",
+   "ignoredPng": 60,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-animation-more-menu",
+   "ignoredPng": 74,
+   "citedByTrackedDoc": 9,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-contour-editor",
+   "ignoredPng": 41,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-contour-editor/crops",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-empty",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-equation-panel",
+   "ignoredPng": 46,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-export-modal",
+   "ignoredPng": 45,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-fullscreen",
+   "ignoredPng": 39,
+   "citedByTrackedDoc": 14,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-loaded-image-mode",
+   "ignoredPng": 52,
+   "citedByTrackedDoc": 9,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-loaded-image-mode/crops",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-loading-error",
+   "ignoredPng": 40,
+   "citedByTrackedDoc": 15,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-publish-flow",
+   "ignoredPng": 59,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/fourier/visualize-view-options-popover",
+   "ignoredPng": 55,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/amiga-scene",
+   "ignoredPng": 89,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/clear-all-confirm-dialog",
+   "ignoredPng": 74,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/controls-advanced-layer",
+   "ignoredPng": 91,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/controls-tab-channel-options",
+   "ignoredPng": 106,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/controls-timing-function-detail",
+   "ignoredPng": 73,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/css-paste-dialog",
+   "ignoredPng": 90,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/css-paste-dialog/confirm",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/cube-matrix-controls-tab",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/cube-scene",
+   "ignoredPng": 128,
+   "citedByTrackedDoc": 10,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/dock-controls-tab-select",
+   "ignoredPng": 108,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/dock-scene-select",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/easing-curve-tab",
+   "ignoredPng": 104,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/easing-scene-specimens",
+   "ignoredPng": 129,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/easing-scene-specimens/confirm",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/home-hero",
+   "ignoredPng": 43,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/home-hero/confirm",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/keyboard-shortcuts-modal",
+   "ignoredPng": 68,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/keyframes-tab-css-editor",
+   "ignoredPng": 78,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/mbabb-menu",
+   "ignoredPng": 74,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/mobile-controls-drawer",
+   "ignoredPng": 64,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/scene-loading-skeleton",
+   "ignoredPng": 41,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/sequence-scene",
+   "ignoredPng": 88,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/share-popover",
+   "ignoredPng": 98,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/spring-discrete-view",
+   "ignoredPng": 116,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/spring-physics-tab",
+   "ignoredPng": 111,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/spring-scene-solver",
+   "ignoredPng": 98,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/square-scene",
+   "ignoredPng": 101,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/timeline-expanded",
+   "ignoredPng": 63,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/timeline-tab",
+   "ignoredPng": 184,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/toasts",
+   "ignoredPng": 84,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/top-dock",
+   "ignoredPng": 62,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/top-dock/crops",
+   "ignoredPng": 80,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/keyframes/transport-dock",
+   "ignoredPng": 253,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/about-pane",
+   "ignoredPng": 133,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/about-pane/confirm",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/about-pane/run2",
+   "ignoredPng": 42,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/admin-audit",
+   "ignoredPng": 53,
+   "citedByTrackedDoc": 12,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/admin-flagged",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/admin-names",
+   "ignoredPng": 68,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/admin-tags",
+   "ignoredPng": 53,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/admin-users",
+   "ignoredPng": 74,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/app-ground-atmosphere",
+   "ignoredPng": 140,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/atmosphere-view",
+   "ignoredPng": 98,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/blob-view",
+   "ignoredPng": 66,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/blob-view/crops",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/browse-search-filter",
+   "ignoredPng": 52,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/browse-view",
+   "ignoredPng": 60,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/color-space-select",
+   "ignoredPng": 69,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-action-bar-color",
+   "ignoredPng": 169,
+   "citedByTrackedDoc": 7,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-color-input",
+   "ignoredPng": 50,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-main",
+   "ignoredPng": 119,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-mbabb-menu",
+   "ignoredPng": 39,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-mobile-menu",
+   "ignoredPng": 39,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-mobile-menu/confirm",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-profile-menu",
+   "ignoredPng": 92,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-slug-edit-layer",
+   "ignoredPng": 116,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/dock-view-select",
+   "ignoredPng": 70,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/extract-view",
+   "ignoredPng": 69,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/flag-report-dialog",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/generate-view",
+   "ignoredPng": 90,
+   "citedByTrackedDoc": 10,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/gradient-easing-authoring",
+   "ignoredPng": 60,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/gradient-view",
+   "ignoredPng": 91,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/home-picker",
+   "ignoredPng": 51,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/migrate-palettes-dialog",
+   "ignoredPng": 65,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/mix-view",
+   "ignoredPng": 54,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/not-found",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/palette-card-menu",
+   "ignoredPng": 44,
+   "citedByTrackedDoc": 9,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/palette-scene-actions",
+   "ignoredPng": 116,
+   "citedByTrackedDoc": 13,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/palettes-delete-all-dialog",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/palettes-view",
+   "ignoredPng": 62,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/pane-plates",
+   "ignoredPng": 56,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/pointer-debug-overlay",
+   "ignoredPng": 90,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/tag-edit-popover",
+   "ignoredPng": 57,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/audit/ui-evidence/value/version-history-drawer",
+   "ignoredPng": 44,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-2026-10-08",
+   "ignoredPng": 56,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-2026-10-08/crops",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p1-2026-10-07",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p1-2026-10-07/live",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p1-2026-10-07/scenes",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p15-2026-10-08",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p17-2026-10-18",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p18-2026-10-18",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p2-2026-10-07",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p20-2026-10-18",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/critic-p3-2026-10-14",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-02-critic",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-03/critic-f3r",
+   "ignoredPng": 46,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/critic-f4",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/critic-f4r",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/critic-f6",
+   "ignoredPng": 42,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/critic-f6/probe",
+   "ignoredPng": 32,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/critic-p4-2026-10-15",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/f4c",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-04/f4r",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-05/critic-f7",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-05/critic-p5-2026-10-17",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-06/critic-f6",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-06/critic-f6x",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-06/critic-f8",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-06/critic-p6-2026-10-17",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-07/f7",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-08/critic-f8c",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-08/critic-p8",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-09/critic-f11",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-10/critic",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-10/critic-f12",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-11/critic-f11",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-12/critic-f12",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-12/critic-f12x",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-14/critic-f14c",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-14/critic-f16",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/fourier/pass-15",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p10-2026-10-17/frames",
+   "ignoredPng": 14,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p11-2026-10-08",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p13-2026-10-16/frames",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p15-2026-10-08",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p17-2026-10-17",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p2-2026-10-08",
+   "ignoredPng": 38,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p3-2026-10-08",
+   "ignoredPng": 31,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p5-2026-10-08",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p6-2026-10-15",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-p7-2026-10-08",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-r3p2-2026-10-09",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-r3p3-2026-10-09",
+   "ignoredPng": 17,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-r4p5-2026-10-09",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/critic-r4p7-2026-10-09",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-14/c14-critic",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-19/critic-c20-2026-10-18",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-29/critic-p5",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-32/critic-c8",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-37/critic-p5/frames",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-37/critic-p5/now",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/keyframes/pass-56/after",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/critic-p4r-2026-10-15",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/critic-p4r-2026-10-15/crops",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-01/critic",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-01/critic-2026-10-07",
+   "ignoredPng": 41,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-03/redispatch-2026-10-13/probe-shots",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-04/critic",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-04/critic-vc4-2026-10-15",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-05/critic",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-05/critic-c5-2026-10-17",
+   "ignoredPng": 44,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-05/critic-p5-2026-10-16",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-06",
+   "ignoredPng": 30,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-06/critic",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-06/critic-p7-2026-10-17",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-07/critic",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-07/vc7-2026-10-15",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-07/vc7-critic-2026-10-17",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-07/vc7-critic-2026-10-17/crops",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-09",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-09/critic",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-09/critic-p9r",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-09/probe-shots",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-18/c18-2026-10-18",
+   "ignoredPng": 80,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/DS/value/pass-18/critic-c18-2026-10-18",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/X-W7R/d-frames/base-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/X-W7R/d-frames/base-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/X-W7R/d-frames/iso-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/evidence/X-W7R/d-frames/iso-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/fourier/evidence/F-REL/d-final/verify-1-unpaced",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/fourier/evidence/F-REL/d-final/verify-3",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/fourier/evidence/F-REL/d-verify-before",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/fourier/evidence/W14U/open",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/m",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-expand-collapse",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-expand-collapse/rt",
+   "ignoredPng": 852,
+   "citedByTrackedDoc": 852,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-expand-collapse/seek",
+   "ignoredPng": 96,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/clear-all-dialog/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/clear-all-dialog/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/controls-select/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/controls-select/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/controls-select/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/mbabb-menu/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/mbabb-menu/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/mbabb-menu/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/mbabb-share/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/mbabb-share/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/scene-select/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/scene-select/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/chrome-dock-menus/scene-select/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/controls-pane-drawer/rt",
+   "ignoredPng": 1445,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/controls-pane-drawer/seek",
+   "ignoredPng": 96,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/easing-picker-curve",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-animated-text/screencast",
+   "ignoredPng": 541,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-hero-aurora",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-hero-aurora/amplified",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-hero-aurora/arm",
+   "ignoredPng": 328,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-hero-aurora/live",
+   "ignoredPng": 418,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-hero-aurora/served",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/home-hero-aurora/stepped",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/scene-skeleton-shimmer/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/scene-skeleton-shimmer/live",
+   "ignoredPng": 2050,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/scene-skeleton-shimmer/resolve",
+   "ignoredPng": 68,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/transport-dock/rt",
+   "ignoredPng": 1554,
+   "citedByTrackedDoc": 1234,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/transport-dock/step",
+   "ignoredPng": 234,
+   "citedByTrackedDoc": 234,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/w13u/d",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/w13u/e",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/w13u/t",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13R/v/w13u/w",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13U/d",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13U/d2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13U/e",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13U/t",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13U/w",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/c/after",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/c/before",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/critic/gaps",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 5,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/critic/legs",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/critic/matrix",
+   "ignoredPng": 30,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-18/shots",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-181/run1/shots",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-181/run1/step",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-181/run2/shots",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-181/run2/step",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after/live",
+   "ignoredPng": 783,
+   "citedByTrackedDoc": 83,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after/scrub",
+   "ignoredPng": 224,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after/seek",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after2",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after2/live",
+   "ignoredPng": 783,
+   "citedByTrackedDoc": 83,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after2/scrub",
+   "ignoredPng": 236,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/after2/seek",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/before",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/before/live",
+   "ignoredPng": 720,
+   "citedByTrackedDoc": 83,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/before/scrub",
+   "ignoredPng": 490,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/k/kfa-3/before/seek",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/p/logs",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/s/after",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/s/before",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/s2/after",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/s2/before",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/catch-all/run1",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/catch-all/run2-dev",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/catch-all/run3-gh",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-134/after",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-134/after2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-134/before",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-136/after",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-136/after2",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-136/before",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-228/dev-u2-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-228/dev-u2-2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-228/gh-u2-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-228/gh-u2-2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-228/run1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-228/run2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-61/after",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-61/after2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-61/before",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-95/before",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-95/before-u2-1",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-95/before-u2-2",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-95/gh-u2-1",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-95/gh-u2-2",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/kfa-95/run2",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-001/after-dev-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-001/after-dev-2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-001/after-gh-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-001/after-gh-2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-001/before-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-001/before-2",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-003/after-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-003/after-dev-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-003/after-gh-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-003/after-gh-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-003/before-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-004/after-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-004/after-dev-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-004/after-gh-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-004/after-gh-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-004/before-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-011/after-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-011/after-dev-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-011/after-gh-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-011/after-gh-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-011/before-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-012/after-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-012/after-dev-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-012/after-gh-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-012/after-gh-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-012/before-dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-013/before-dev-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-013/gh-1",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-078/dev-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-078/dev-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-078/gh-1",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13V/u/uia-078/gh-2",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/b/after",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/c/before",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/d/after",
+   "ignoredPng": 76,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/d/after2",
+   "ignoredPng": 72,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/d/before",
+   "ignoredPng": 72,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/e/after",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/e/before",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/m/after/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/m/before/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13W/open",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/amiga/frames/after-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/amiga/frames/after-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/amiga/frames/before-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/amiga/frames/before-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/close4/probes/r3res2a/frames",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/close4/probes/r3res2b/frames",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/close4/probes/r3res2c/frames",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/controls/frames/after-r1",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/controls/frames/before-r1",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/cube/frames",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/dock/frames",
+   "ignoredPng": 56,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/easing/frames",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/after-r1",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/after-r2",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/before-r1",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/before-r2",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/shell-after-r1",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/shell-after-r2",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/shell-before-r1",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/home/frames/shell-before-r2",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/keyframes/frames",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/lib/frames/after-r1",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/lib/frames/after-r2",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/lib/frames/before-r1",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/lib/frames/before-r2",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/mobile/frames",
+   "ignoredPng": 333,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/overlays/frames/after-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/overlays/frames/after-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/overlays/frames/before-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/overlays/frames/before-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/overlays/frames/tooltips-before-r1",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/overlays/frames/tooltips-before-r2",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r3res2a/frames",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r3res2b/frames",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r3res2c/frames",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4fade/frames",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4fade/interim-ff715776",
+   "ignoredPng": 16,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4pane/frames",
+   "ignoredPng": 82,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4ribbon",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4shell/frames/after-r1",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4shell/frames/after-r2",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4shell/frames/before-r1",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4shell/frames/before-r2",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/r4transport/frames",
+   "ignoredPng": 55,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/scene/frames/after-390",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/scene/frames/after-r1",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/scene/frames/after-r2",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/scene/frames/before-390",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/scene/frames/before-r1",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/scene/frames/before-r2",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/sections/frames/after-db-r1",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/sections/frames/after-frames",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/sections/frames/after-r1",
+   "ignoredPng": 46,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/sections/frames/before-db-r1",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/sections/frames/before-frames",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/sections/frames/before-hl-r1",
+   "ignoredPng": 46,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/spring/frames",
+   "ignoredPng": 50,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/transport/frames/after-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/transport/frames/after-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/transport/frames/before-r1",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/W13X/transport/frames/before-r2",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-boing-composite/sheets",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-boing-composite/shots",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-boing-composite/step",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-contact-shadow",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-contact-shadow/frames",
+   "ignoredPng": 498,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-contact-shadow/sheets",
+   "ignoredPng": 21,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-contact-shadow/transport",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 8,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-grid-room-backdrop",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-grid-room-backdrop/confirm",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-grid-room-backdrop/sheets-live",
+   "ignoredPng": 28,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-grid-room-backdrop/step",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture/p1-flick-x",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture/p1b-flick-cast",
+   "ignoredPng": 10,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture/p2-pitch-then-yaw",
+   "ignoredPng": 13,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture/p3-keys",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture/p4-transport",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/amiga-sphere-spin-gesture/p4b-transport",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-expand-collapse",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-expand-collapse/rt",
+   "ignoredPng": 846,
+   "citedByTrackedDoc": 846,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-expand-collapse/seek",
+   "ignoredPng": 96,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-expand-collapse/sheets",
+   "ignoredPng": 52,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/clear-all-dialog/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/clear-all-dialog/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/controls-select/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/controls-select/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/controls-select/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/darkmode-toggle/to-dark",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/darkmode-toggle/to-light",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/mbabb-menu/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/mbabb-menu/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/mbabb-menu/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/mbabb-share/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/mbabb-share/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/scene-select/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/scene-select/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/scene-select/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/share-popover/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/share-popover/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/share-popover/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/sheets",
+   "ignoredPng": 42,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/shortcuts-modal/close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/shortcuts-modal/live",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/chrome-dock-menus/shortcuts-modal/open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/controls-pane-drawer",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/controls-pane-drawer/rt",
+   "ignoredPng": 1193,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/controls-pane-drawer/seek",
+   "ignoredPng": 96,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/controls-pane-drawer/sheets",
+   "ignoredPng": 54,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/copy-button-feedback",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/copy-button-feedback/live",
+   "ignoredPng": 83,
+   "citedByTrackedDoc": 83,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/copy-button-feedback/sheets",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/copy-button-feedback/step",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 48,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-axis-lines",
+   "ignoredPng": 35,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-axis-lines/frames",
+   "ignoredPng": 288,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-axis-lines/screencast",
+   "ignoredPng": 253,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/interact",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/interact/frames",
+   "ignoredPng": 65,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/interact/snap-frames",
+   "ignoredPng": 73,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/live",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/live/frames",
+   "ignoredPng": 543,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/step",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-group-spin-matrix-bob/step/frames",
+   "ignoredPng": 97,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-loader-spin",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-loader-spin/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-loader-spin/live",
+   "ignoredPng": 150,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-loader-spin/live-crop",
+   "ignoredPng": 150,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-loader-spin/pass1",
+   "ignoredPng": 41,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-orbital-drag-inertia",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-orbital-drag-inertia/run3/frames",
+   "ignoredPng": 874,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-orbital-drag-inertia/run3/sheets",
+   "ignoredPng": 37,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-relit-faces",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-relit-faces/A-playback",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-relit-faces/D-drag-playing",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-relit-faces/P-drag-paused",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-relit-faces/T-transport",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/cube-roll-egg",
+   "ignoredPng": 17,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-gallery-race",
+   "ignoredPng": 19,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-gallery-race/frames",
+   "ignoredPng": 568,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-gallery-race/sheets",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve/drag",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 48,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve/live",
+   "ignoredPng": 105,
+   "citedByTrackedDoc": 83,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve/panel-close",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 48,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve/panel-open",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 48,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve/sheets",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/easing-picker-curve/tfp",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 24,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-animated-text",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-animated-text/block",
+   "ignoredPng": 45,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-animated-text/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-animated-text/screencast",
+   "ignoredPng": 420,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-hero-aurora/amplified",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-hero-aurora/arm",
+   "ignoredPng": 328,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-hero-aurora/live",
+   "ignoredPng": 281,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-hero-aurora/served",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-hero-aurora/sheets",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-hero-aurora/stepped",
+   "ignoredPng": 52,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-landing-cube",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-landing-cube/frames",
+   "ignoredPng": 394,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-landing-cube/sheets",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-typing-dots",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/home-typing-dots/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/A_edit_single",
+   "ignoredPng": 50,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/B_edit_burst",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/C_remove_middle",
+   "ignoredPng": 60,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/D_remove_last",
+   "ignoredPng": 63,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/E_dialog_open",
+   "ignoredPng": 35,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/F_dialog_close",
+   "ignoredPng": 34,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/keyframes-editor-cards/G_dialog_submit",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/balldrag",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/drag",
+   "ignoredPng": 53,
+   "citedByTrackedDoc": 48,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/kbd",
+   "ignoredPng": 51,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/live",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/probe2",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/rest",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/reverse",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/playback-ribbon-visualizer/sheets",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 6,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/frames",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/live",
+   "ignoredPng": 727,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/organic/fast3g",
+   "ignoredPng": 330,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/organic/slow3g",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/organic/stills",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/organic/unthrottled",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-skeleton-shimmer/resolve",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/A-amiga-to-square",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/A-cube-to-amiga",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/A-easing-to-spring",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/A-sequence-to-cube",
+   "ignoredPng": 7,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/A-spring-to-sequence",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/A-square-to-easing",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/B-shipped-seek-amiga-to-easing",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/B-shipped-seek-cube-to-amiga",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/CF-screencast-cold-amiga-to-square",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/CF-seek-cold-cube-to-amiga",
+   "ignoredPng": 51,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/CF-seek-warm-square-to-amiga",
+   "ignoredPng": 51,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/scene-swap-transition/D-hash-amiga-to-easing",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-power-on-cascade/A-crop",
+   "ignoredPng": 62,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-power-on-cascade/A-screencast",
+   "ignoredPng": 209,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-power-on-cascade/B-seeked",
+   "ignoredPng": 50,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-power-on-cascade/sheets",
+   "ignoredPng": 11,
+   "citedByTrackedDoc": 5,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg/A-button",
+   "ignoredPng": 91,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg/B-typed",
+   "ignoredPng": 102,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg/C-held-play",
+   "ignoredPng": 88,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg/D-while-playing",
+   "ignoredPng": 88,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg/E-master-live",
+   "ignoredPng": 23,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-reel-egg/sheets",
+   "ignoredPng": 20,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-staggered-rows",
+   "ignoredPng": 30,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-staggered-rows/live",
+   "ignoredPng": 356,
+   "citedByTrackedDoc": 83,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-staggered-rows/scrub",
+   "ignoredPng": 121,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/sequence-staggered-rows/seek",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-derby-egg/runA",
+   "ignoredPng": 179,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-derby-egg/runA/sheets",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-derby-egg/runB",
+   "ignoredPng": 179,
+   "citedByTrackedDoc": 2,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-derby-egg/runB/sheets",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-derby-egg/runC",
+   "ignoredPng": 213,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-derby-egg/runC/sheets",
+   "ignoredPng": 9,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver",
+   "ignoredPng": 4,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/A-rest",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/B-tap-030",
+   "ignoredPng": 83,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/C-tap-090",
+   "ignoredPng": 88,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/D-bouncy-tap-015",
+   "ignoredPng": 104,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/E-drag",
+   "ignoredPng": 166,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/F-play",
+   "ignoredPng": 168,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/F2-play-pill",
+   "ignoredPng": 130,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/G2-tap-while-playing",
+   "ignoredPng": 100,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/H3-pause-then-tap",
+   "ignoredPng": 86,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/J-scrub-panel",
+   "ignoredPng": 82,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/K-reseat-verb",
+   "ignoredPng": 103,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/M-first-tap",
+   "ignoredPng": 84,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/N-reset-pill",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/O-low-zeta-tap",
+   "ignoredPng": 196,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-live-solver/sheets",
+   "ignoredPng": 66,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/A_heatmap_click",
+   "ignoredPng": 33,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/B_heatmap_drag",
+   "ignoredPng": 68,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/C_preset_click",
+   "ignoredPng": 32,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/D_reseat",
+   "ignoredPng": 102,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/E2_play",
+   "ignoredPng": 137,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/G2_scrub",
+   "ignoredPng": 26,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-physics-facet/H_dock_after_facet",
+   "ignoredPng": 12,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry",
+   "ignoredPng": 22,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry/A-mount-entry",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry/B-dismiss-exit",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry/C-reveal-entry",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry/D-dismiss-exit2",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry/E-reveal-entry2",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/spring-starting-style-entry/R-screencast",
+   "ignoredPng": 253,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-drag-spring-tether",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-drag-spring-tether/frames",
+   "ignoredPng": 151,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tour",
+   "ignoredPng": 8,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tour/live",
+   "ignoredPng": 580,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tour/sheets",
+   "ignoredPng": 27,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tour/step",
+   "ignoredPng": 48,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tumble-egg",
+   "ignoredPng": 3,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tumble-egg/frames",
+   "ignoredPng": 346,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/square-tumble-egg/sheets",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 3,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel",
+   "ignoredPng": 36,
+   "citedByTrackedDoc": 11,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/A-enter",
+   "ignoredPng": 71,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/A2-reenter",
+   "ignoredPng": 60,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/D-scrub",
+   "ignoredPng": 51,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/E-play",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/F-metric-swap",
+   "ignoredPng": 25,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/H-collapse",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/H-expand",
+   "ignoredPng": 66,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/timeline-panel/I1-scrub",
+   "ignoredPng": 51,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock",
+   "ignoredPng": 2,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock/confirm",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock/drift",
+   "ignoredPng": 15,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock/psel",
+   "ignoredPng": 24,
+   "citedByTrackedDoc": 24,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock/rt",
+   "ignoredPng": 1234,
+   "citedByTrackedDoc": 1234,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock/sheets",
+   "ignoredPng": 69,
+   "citedByTrackedDoc": 4,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/keyframes/evidence/animation-audit/transport-dock/step",
+   "ignoredPng": 234,
+   "citedByTrackedDoc": 234,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/b/after",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/b/before",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/c/after",
+   "ignoredPng": 6,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/t/after",
+   "ignoredPng": 32,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/t/before",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/u",
+   "ignoredPng": 93,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 24,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/u/admin-flagged",
+   "ignoredPng": 45,
+   "citedByTrackedDoc": 1,
+   "trackedPng": 0,
+   "disposition": "CITED-UNTRACKED"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/u/dock-color-input",
+   "ignoredPng": 142,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12-evidence/u/palettes-view",
+   "ignoredPng": 18,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 2,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12U-evidence/m",
+   "ignoredPng": 1,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W12U-evidence/s/s2/results",
+   "ignoredPng": 5,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 0,
+   "disposition": "UNCITED-LOCAL"
+  },
+  {
+   "dir": "docs/tranches/X/waves/W7L-evidence/dock-ellipse",
+   "ignoredPng": 29,
+   "citedByTrackedDoc": 0,
+   "trackedPng": 2,
+   "disposition": "UNCITED-LOCAL"
+  }
+ ]
+}

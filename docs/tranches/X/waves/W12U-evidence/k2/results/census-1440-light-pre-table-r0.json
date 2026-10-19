@@ -1,0 +1,401 @@
+{
+ "viewport": "1440x900",
+ "theme": "light",
+ "base": "http://localhost:9000",
+ "views": {
+  "/": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/shell/dock/ActionButton.vue": 5,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shared/ui/ColorSpaceSelector.vue": 2,
+    "demo/scenes/about/katex/Katex.vue": 9
+   },
+   "duplicates": [],
+   "ruled": [
+    {
+     "name": "demo/shared/ui/ColorSpaceSelector.vue",
+     "n": 2,
+     "row": "A2-VA-K-1"
+    }
+   ]
+  },
+  "/palettes": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 4,
+    "demo/shell/dock/ActionButton.vue": 5,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shared/ui/ActionFeedback.vue": 7,
+    "demo/palettes/inspector/PaletteInspector.vue": 6,
+    "demo/shared/ui/PaletteSpecimen.vue": 6,
+    "demo/shared/ui/PaletteColorStrip.vue": 6,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 6,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 6
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/browse": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/palettes/browser/card/PaletteCardGrid.vue": 2,
+    "demo/palettes/inspector/PaletteInspector.vue": 14,
+    "demo/shared/ui/PaletteSpecimen.vue": 14,
+    "demo/shared/ui/PaletteColorStrip.vue": 14,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 14,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 14,
+    "demo/shared/ui/ActionFeedback.vue": 15
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/browser/card/PaletteCardGrid.vue",
+     "n": 2,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "/extract": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/shared/ui/ActionFeedback.vue": 7,
+    "demo/palettes/inspector/PaletteInspector.vue": 6,
+    "demo/shared/ui/PaletteSpecimen.vue": 6,
+    "demo/shared/ui/PaletteColorStrip.vue": 6,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 6,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 6
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/mix": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 4,
+    "demo/shell/dock/ActionButton.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shared/ui/PaletteSpecimen.vue": 6,
+    "demo/shared/ui/PaletteColorStrip.vue": 6
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/generate": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 8,
+    "demo/shell/dock/ActionButton.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/shared/ui/SwatchButton.vue": 5,
+    "demo/shared/ui/ActionFeedback.vue": 7,
+    "demo/palettes/inspector/PaletteInspector.vue": 6,
+    "demo/shared/ui/PaletteSpecimen.vue": 6,
+    "demo/shared/ui/PaletteColorStrip.vue": 6,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 6,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 6
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/gradient": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/shell/dock/ActionButton.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/shared/ui/ActionFeedback.vue": 7,
+    "demo/palettes/inspector/PaletteInspector.vue": 6,
+    "demo/shared/ui/PaletteSpecimen.vue": 6,
+    "demo/shared/ui/PaletteColorStrip.vue": 6,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 6,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 6
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/atmosphere": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/blob": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/shell/dock/ActionButton.vue": 5,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/admin/users": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/admin/names": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2,
+    "demo/palettes/admin/panels/AdminListItem.vue": 47
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/admin/panels/AdminListItem.vue",
+     "n": 47,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "/admin/audit": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/admin/flagged": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/admin/tags": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "/nope/xyz": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  }
+ },
+ "overlays": {
+  "dock view select": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/shell/dock/ActionButton.vue": 5,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shared/ui/ColorSpaceSelector.vue": 2,
+    "demo/scenes/about/katex/Katex.vue": 9
+   },
+   "duplicates": [],
+   "ruled": [
+    {
+     "name": "demo/shared/ui/ColorSpaceSelector.vue",
+     "n": 2,
+     "row": "A2-VA-K-1"
+    }
+   ]
+  },
+  "dock menu": {
+   "unopened": "TimeoutError: locator.click: Timeout 60000ms exceeded."
+  },
+  "dock attribution menu": {
+   "unopened": "TimeoutError: locator.click: Timeout 60000ms exceeded."
+  },
+  "color-space select": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 21,
+    "demo/shell/dock/ActionButton.vue": 5,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shared/ui/ColorSpaceSelector.vue": 2,
+    "demo/scenes/about/katex/Katex.vue": 9
+   },
+   "duplicates": [],
+   "ruled": [
+    {
+     "name": "demo/shared/ui/ColorSpaceSelector.vue",
+     "n": 2,
+     "row": "A2-VA-K-1"
+    }
+   ]
+  },
+  "dock color input": {
+   "unopened": "TimeoutError: locator.click: Timeout 60000ms exceeded."
+  },
+  "browse filters": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/palettes/browser/card/PaletteCardGrid.vue": 2,
+    "demo/palettes/inspector/PaletteInspector.vue": 14,
+    "demo/shared/ui/PaletteSpecimen.vue": 14,
+    "demo/shared/ui/PaletteColorStrip.vue": 14,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 14,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 14,
+    "demo/shared/ui/ActionFeedback.vue": 15
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/browser/card/PaletteCardGrid.vue",
+     "n": 2,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "palette card menu": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/palettes/browser/card/PaletteCardGrid.vue": 2,
+    "demo/palettes/inspector/PaletteInspector.vue": 14,
+    "demo/shared/ui/PaletteSpecimen.vue": 14,
+    "demo/shared/ui/PaletteColorStrip.vue": 14,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 14,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 14,
+    "demo/shared/ui/ActionFeedback.vue": 15
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/browser/card/PaletteCardGrid.vue",
+     "n": 2,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "tag-edit popover": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/palettes/browser/card/PaletteCardGrid.vue": 2,
+    "demo/palettes/inspector/PaletteInspector.vue": 14,
+    "demo/shared/ui/PaletteSpecimen.vue": 14,
+    "demo/shared/ui/PaletteColorStrip.vue": 14,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 14,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 14,
+    "demo/shared/ui/ActionFeedback.vue": 15
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/browser/card/PaletteCardGrid.vue",
+     "n": 2,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "version drawer": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/palettes/browser/card/PaletteCardGrid.vue": 2,
+    "demo/palettes/inspector/PaletteInspector.vue": 14,
+    "demo/shared/ui/PaletteSpecimen.vue": 14,
+    "demo/shared/ui/PaletteColorStrip.vue": 17,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 14,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 14,
+    "demo/shared/ui/ActionFeedback.vue": 15
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/browser/card/PaletteCardGrid.vue",
+     "n": 2,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "flag report dialog": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 3,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shell/PaneShell.vue": 2,
+    "demo/shared/ui/PaneHeader.vue": 2,
+    "demo/palettes/browser/card/PaletteCardGrid.vue": 2,
+    "demo/palettes/inspector/PaletteInspector.vue": 14,
+    "demo/shared/ui/PaletteSpecimen.vue": 14,
+    "demo/shared/ui/PaletteColorStrip.vue": 14,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 14,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 14,
+    "demo/shared/ui/ActionFeedback.vue": 15
+   },
+   "duplicates": [
+    {
+     "name": "demo/palettes/browser/card/PaletteCardGrid.vue",
+     "n": 2,
+     "role": "UNREAD"
+    }
+   ],
+   "ruled": []
+  },
+  "delete-all dialog": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 4,
+    "demo/shell/dock/ActionButton.vue": 5,
+    "demo/app/ErrorBoundary.vue": 2,
+    "demo/shell/PaneSlot.vue": 2,
+    "demo/shared/ui/ActionFeedback.vue": 7,
+    "demo/palettes/inspector/PaletteInspector.vue": 6,
+    "demo/shared/ui/PaletteSpecimen.vue": 6,
+    "demo/shared/ui/PaletteColorStrip.vue": 6,
+    "demo/palettes/inspector/PaletteCardMeta.vue": 6,
+    "demo/palettes/inspector/PaletteCardMenu.vue": 6
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "admin user delete confirm": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "admin flagged delete confirm": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  },
+  "admin tag delete confirm": {
+   "multi": {
+    "demo/shared/ui/watercolor-dot/WatercolorDot.vue": 2
+   },
+   "duplicates": [],
+   "ruled": []
+  }
+ }
+}

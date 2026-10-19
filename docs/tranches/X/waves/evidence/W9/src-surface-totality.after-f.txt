@@ -1,0 +1,36 @@
+SERVED MODEL: claude-opus-5[1m]
+G1's command of record after X-W9.f (COHESION 0ac re-points it to the dated sibling).
+27 arms GREEN, 1 RED; the RED is MTS-09 = ESC-W9f-CSSD-VOCAB-SPELLING, one 8-line edit in
+src/css/index.ts, which is NOT in this unit's writable set. Was: exit 1 / 28 failing assertions.
+
+ok   MTS-01  parseCssColor("constructor") returned
+ok   MTS-01  parseCssColor("__proto__") returned
+ok   MTS-01  parseCssScalar("constructor") returned
+ok   MTS-01  parseCssScalar("__proto__") returned
+ok   MTS-01  parseCssValue("constructor") returned
+ok   MTS-01  parseCssValue("__proto__") returned
+ok   MTS-01  parseCssValues("constructor") returned
+ok   MTS-01  parseCssValues("__proto__") returned
+ok   MTS-01  coerceToSyntax("constructor") returned
+ok   MTS-01  coerceToSyntax("__proto__") returned
+ok   MTS-01  parseStylesheet("a{color:constructor}") returned
+ok   MTS-01  parseStylesheet("a{color:__proto__}") returned
+ok   MTS-01  parseStylesheet("@keyframes k{from{color:constructor}}") returned
+ok   MTS-01  parseStylesheet("a{background:linear-gradient(constructor,red)}") returned
+ok   MTS-01  parseStylesheet("a{animation:x 1s steps(2,constructor)}") returned
+ok   MTS-02  steps(2, constructor) -> failure
+ok   MTS-02  steps(2, __proto__) -> failure
+ok   MTS-03  M 0 0 L 10 -> 0
+ok   MTS-03  M 0 0 C 1 1 2 2 3 -> 0
+ok   MTS-03  M 0 0 Q 1 1 2 -> 0
+ok   MTS-03  M 0 0 L 3 4 L 5 -> 5
+ok   MTS-04  compact == expanded (31.403311569547547)
+ok   MTS-05  the six retired matrix symbols are absent from ./transform
+ok   MTS-05  the keyframes MorphSVG seam is intact (PathGeometry, getTotalLength, getPointAtLength)
+ok   MTS-06  deCasteljau(0.5, []) -> RangeError: deCasteljau: points must hold at least one control point; received an empty array
+ok   MTS-06  interpBezier(0.5, []) -> RangeError: interpBezier: points must hold at least one control point; received an empty array
+ok   MTS-06  lerpArray(len3, len2, .5, out3) -> RangeError: lerpArray: start, stop and out must share one length; received 3, 2, 3
+ok   MTS-08  serializeCssValue exported from ./css
+RED  MTS-09  css.d.ts carries 6 unexported declares referenced by the public signatures: Alpha_2, AnyColor, Channel_2, ChannelsBySpace_2, Color_2, SpaceId_2
+
+RED — 1 failing assertions

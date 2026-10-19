@@ -1,0 +1,116 @@
+SERVED MODEL: claude-opus-5[1m]
+X.KF.W13 `.d` — CLOSE seat, VERIFY-ONLY. Every command run by this seat from
+/Users/mkbabb/Programming/keyframes.js at HEAD 05c577ed (origin/master 2736b5e5 before the push),
+sacred checkout clean of product edits. DOUBLE-RUN throughout.
+
+=== G-KFW13-0 (literal, x2) ===
+⟨cmd⟩ npx vitest run --project demo test/demo/app/dock-context-slot-resolution.test.ts
+run 1 -> "No test files found, exiting with code 1"   (filter: test/demo/app/dock-context-slot-resolution.test.ts)
+run 2 -> "No test files found, exiting with code 1"
+⟨cmd⟩ ls test/demo/app/ -> e-w1-encapsulation.test.ts   (the file the gate names does not exist)
+VERDICT: RED — unmoved from the born-RED baseline. `.a` ESCALATED (KF13-E2); L-1 held.
+
+=== G-KFW13-1 (literal + byte clauses, x2) ===
+⟨cmd⟩ npx vitest run --project demo test/demo/app/mbabb-menu-self-hold.test.ts
+run 1 -> "No test files found, exiting with code 1"
+run 2 -> "No test files found, exiting with code 1"
+⟨cmd⟩ grep -rn 'itemsPopupOpen\|items-popup-open\|mbabbPopupOpen' demo | wc -l -> 7 · 7   (must read 0)
+⟨cmd⟩ grep -c 'v-model:open="open"' demo/app/dock/MbabbMenu.vue -> 1 · 1   (MUST-CARRY: correctly still 1)
+⟨cmd⟩ sed -n '109,113p' demo/app/dock/ChromeDock.vue | grep -c 'cannot hold the dock open' -> 1 · 1   (must read 0)
+VERDICT: RED — unmoved. No deletion was spent on a reading.
+
+=== G-KFW13-2 (roster clause, x2) ===
+⟨cmd⟩ git diff 2736b5e5..HEAD -- demo/app | grep -c "headerLeft" -> 0 · 0
+   ... on an EMPTY denominator: ⟨cmd⟩ git diff --name-only 2736b5e5..HEAD | grep -c '^demo/app/' -> 0
+VERDICT: RED — no roster sha exists. The ARB-1 'fill' arm never appeared; the lock was not violated.
+
+=== G-KFW13-3 (x2) ===
+⟨cmd⟩ npx vitest run --project demo test/demo/instrument/transport-keyboard-propagation.test.ts
+run 1 -> Test Files  1 passed (1) / Tests  5 passed (5)
+run 2 -> Test Files  1 passed (1) / Tests  5 passed (5)
+⟨cmd⟩ grep -c '\.stop' demo/components/instrument/transport/TransportDock.vue -> 0 · 0   (was 5)
+⟨cmd⟩ grep -c '\.stop' demo/app/dock/ChromeDock.vue                            -> 0 · 0   (symmetry is the invariant)
+⟨cmd⟩ grep -c 'registerShortcut("Space"' .../AnimationControlsGroup/useControlsKeyboardShortcuts.ts -> 1 · 1
+BUNDLE: git show --stat 31171b0e -> useControlsKeyboardShortcuts.ts | 42 ++ ;
+        TransportDock.vue | 23 +- ; transport-keyboard-propagation.test.ts | 259 ++   (ONE sha)
+VERDICT: GREEN.
+
+=== G-KFW13-4 (x2) ===
+⟨cmd⟩ npx vitest run --project demo test/demo/instrument/transport-play-actuation.test.ts test/demo/instrument/transport-icon-spin.test.ts
+run 1 -> Test Files  2 passed (2) / Tests  21 passed (21)
+run 2 -> Test Files  2 passed (2) / Tests  21 passed (21)
+⟨cmd⟩ grep -c 'instanceof HTMLElement' .../TransportDock/useIconSpin.ts -> 0 · 0   (was 2)
+⟨cmd⟩ grep -c 'blur\|orphan\|stale' test/demo/instrument/transport-play-actuation.test.ts -> 8 · 8  (>= 3)
+BUNDLE: git show --stat dafce6eb -> TransportDock.vue | 3 + ; usePlayActuation.ts | 114 ++-- ;
+        transport-play-actuation.test.ts | 102 ++   (ONE sha, composable AND test)
+        git show --stat 6bbeeedd -> TransportDock.vue | 12 +- ; useIconSpin.ts | 72 ++-- ;
+        transport-icon-spin.test.ts | 139 ++        (ONE sha, composable AND test)
+VERDICT: GREEN.
+
+=== G-KFW13-5 (x2) ===
+⟨cmd⟩ npx vitest run --project demo test/demo/instrument/playback-ribbon-contract.test.ts
+run 1 -> Test Files  1 passed (1) / Tests  13 passed (13)
+run 2 -> Test Files  1 passed (1) / Tests  13 passed (13)
+⟨cmd⟩ grep -c 'aria-label' demo/components/playback/PlaybackRibbon.vue            -> 2 · 2  (>= 1)
+⟨cmd⟩ grep -c 'valueCommit\|value-commit' .../PlaybackRibbon.vue                  -> 3 · 3  (>= 1)
+⟨cmd⟩ grep -c ':step' .../PlaybackRibbon.vue                                      -> 2 · 2  (>= 1)
+⟨cmd⟩ grep -c 'gatedSliderDown' .../PlaybackRibbon.vue                            -> 0 · 0  (L-M1; was 2)
+JOINT: git show --stat 9a63660e -> ChannelOptions.vue | 22 +- ; PlaybackRibbon.vue | 64 ++-- ;
+       playback-ribbon-contract.test.ts | 332 ++   (ONE sha, BOTH files)
+⟨cmd⟩ git merge-base --is-ancestor 2cd314af 9a63660e -> true   (OP-2's close sha is an ancestor)
+VERDICT: GREEN.
+
+=== G-KFW13-6 (x2) ===
+⟨cmd⟩ grep -c 'box-shadow: var(--focus-ring-shadow)' demo/styles/playback-idiom.css -> 1 · 1  (must read 0,
+      or carry the re-derived forced-colors parity with its receipt)
+⟨cmd⟩ sed -n '106,116p' demo/styles/design-idioms.css | grep -c 'outline' -> 3 · 3
+      (the spec's authoring figure is 2 — DRIFT D-1, declared beside at this record's open, NOT patched; E-3)
+⟨cmd⟩ git log --oneline 2736b5e5..HEAD -- demo/styles/design-idioms.css -> (no output)
+      -> NO sha names both stylesheets; the act did not land at all.
+⟨cmd⟩ sed -n '74,77p' demo/styles/playback-idiom.css -> the banked `.btn-playback:focus-visible {
+      box-shadow: var(--focus-ring-shadow); outline: none; }` — byte-untouched, as `.b` promised.
+VERDICT: RED — `.c` was never dispatched. K-5's lock INTACT: no half-act landed.
+
+=== G-KFW13-7 (x2) ===
+⟨cmd⟩ git grep -l 'btn-playback' HEAD -- demo | wc -l -> 8 · 8   (RULINGS-4 R4-4's 7 quoted beside, amended nowhere)
+⟨cmd⟩ grep -rn 'focus-ring' demo | grep '\.vue:' | grep -v 'kf-focus-ring' | grep -v 'focus-ring-shadow' | grep -c 'class='
+      -> 0 · 0   (RULINGS-4's 4 and §B.1 row 6's 2 quoted beside; the movement is LANDED-BY KF.W11)
+⟨cmd⟩ npm run test:demo 2>&1 | tail -3
+run 1 -> Test Files  2 failed | 55 passed (57) / Tests  2 failed | 482 passed (484)
+run 2 -> Test Files  2 failed | 55 passed (57) / Tests  2 failed | 482 passed (484)
+      the two failures, named: test/demo/instrument/css-code-editor-seam.test.ts > (2) KF-CE-1  [KF.W12's carried honest-RED]
+                               test/demo/scenes/spring-trace-truth.test.ts > (4b)              [KF.W11's carried honest-RED]
+      neither file is a KF.W13 §B.2 row. Open banked 2 failed | 52 passed (54) / 2 failed | 453 passed (455):
+      this wave ADDS 3 files / 29 cases, all green, and leaves the inherited pair where it found it.
+⟨cmd⟩ git diff 2736b5e5..HEAD -- test | grep -c 'test.skip\|it.skip\|\.only(' -> 0 · 0
+⟨cmd⟩ npx vue-tsc --noEmit -p tsconfig.json 2>&1 | grep -c 'error TS' -> 9 · 9   (clause demands 0)
+      histogram: MbabbMenu.vue 2 [KF.W13 .a, STILL OWED] · useEasingDemo.ts 2 + EditorShell.vue 1 [KF.W11 .r]
+                 useKeyframeOps.ts 1 [KF.W12] · compositor.ts 1 + waapi.ts 1 + smooth.ts 1 [KF11-E2, src/**]
+KF-AV-28 discharge clause: the literal reads 3 · 3 in the record; all three are QUOTATIONS of the
+      prohibition (record :344 the open's lock, :793 the unit plan, :1103 `.b`'s locks-honoured line),
+      none a receipt. Semantic reading ZERO; KF.W7's discharge set remains EMPTY.
+VERDICT: RED — on the vue-tsc clause, on test:demo's two carried failures, and on the literal above.
+
+=== OUT-OF-BOUNDS AUDIT ===
+⟨cmd⟩ git diff --name-only 2736b5e5..HEAD | sort -u -> 12 paths, every one a §B.2 `.b` row:
+  demo/components/instrument/transport/AnimationControlsGroup/useControlsKeyboardShortcuts.ts
+  demo/components/instrument/transport/TransportDock.vue
+  demo/components/instrument/transport/TransportDock/useIconSpin.ts
+  demo/components/instrument/transport/TransportDock/useMenubarMeasure.ts
+  demo/components/instrument/transport/TransportDock/usePlayActuation.ts
+  demo/components/instrument/transport/channel-controls/ChannelOptions.vue
+  demo/components/playback/PlaybackRibbon.vue
+  demo/styles/playback-idiom.css
+  test/demo/instrument/{playback-ribbon-contract,transport-icon-spin,transport-keyboard-propagation,transport-play-actuation}.test.ts
+⟨cmd⟩ (that list) | grep -cE '^src/|node_modules|scripts/dev/dev\.sh|package\.json|vitest\.config|demo/components/instrument/timeline/|demo/scenes/|demo/components/instrument/keyframes/|AnimationVisualizer|useDragCapture|design-idioms\.css|demo/app/'
+  -> 0     (Do-NOT-touch list measures EMPTY; dev.sh in 0 of 13)
+
+=== FORMAT / LINT CADENCE (spec §Format), at 05c577ed ===
+⟨cmd⟩ npm run proof:structure -> PASS: scope=src clean (0 violations across R1–R6)
+⟨cmd⟩ npm run check -> exit 2 at its vue-tsc leg, on the nine foreign/owed rows above (this wave's landed files: 0)
+⟨cmd⟩ npx eslint demo/app demo/components/instrument/transport demo/components/playback
+  -> 7 problems, ZERO in any file this wave wrote: App.skeleton.vue (1, multi-word-component-names) ·
+     TimingFunctionPanel.vue (3, no-mutating-props) · ControlsPaneWrapper.vue (3) — all KF.W12's rows /
+     pre-existing, byte-untouched by all 13 shas.
+  (the spec's fourth path, demo/styles, is CSS: eslint answers "all of the files matching the glob
+   pattern demo/styles are ignored" — a configuration notice, not a finding.)

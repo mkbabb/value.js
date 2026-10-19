@@ -1,0 +1,237 @@
+
+Running 14 tests using 3 workers
+
+[1/14] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate
+[2/14] [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung
+[3/14] [chromium] › e2e/f-w14u-misc.spec.ts:176:5 › m208 UIA-F-208 — mid-morph, the controls that are dropped look disabled › tiles and Reset are disabled and the stage is busy while it morphs
+[4/14] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › expanded: every element inside the plate
+  1) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [552,582] vs plate [451,553]",
+    +   "span.metric__unit [587,596] vs plate [451,553]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--0620e-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--0620e-ry-element-inside-the-plate-chromium/error-context.md
+
+
+  2) [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+
+    Error: Settle Out is a glass CardTitle in a glass Card
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      138 |         });
+      139 |         expect(read.length, "the four /morph cards (three phases, the levels)").toBe(4);
+    > 140 |         for (const t of read) expect(t.glass, `${t.text} is a glass CardTitle in a glass Card`).toBe(true);
+          |                                                                                                 ^
+      141 |         expect(new Set(read.map((t) => t.size)).size, `one title size (read ${read.map((t) => t.size)})`).toBe(1);
+      142 |         expect(new Set(read.map((t) => t.gap)).size, `one title margin and header inset (read ${read.map((t) => t.gap)})`).toBe(1);
+      143 |     });
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-au3.spec.ts:140:97
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-au3-X-F-W14V-au3-—--5f4f5-ass-s-CardTitle-on-one-rung-chromium/error-context.md
+
+
+[5/14] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate
+[6/14] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › expanded: every element inside the plate
+[7/14] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate
+  3) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [552,582] vs plate [451,553]",
+    +   "span.metric__unit [587,596] vs plate [451,553]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--2e642-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--2e642-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[8/14] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › expanded: every element inside the plate
+  4) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [380,408] vs plate [279,381]",
+    +   "span.metric__unit [413,421] vs plate [279,381]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--26cd8-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--26cd8-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[9/14] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › expanded: every element inside the plate
+[10/14] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate
+[11/14] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate
+  5) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [380,408] vs plate [279,381]",
+    +   "span.metric__unit [413,421] vs plate [279,381]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--de1b0-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--de1b0-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[12/14] [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate
+  6) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [247,272] vs plate [140,250]",
+    +   "span.metric__unit [277,284] vs plate [140,250]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--3fab1-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--3fab1-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[13/14] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › expanded: every element inside the plate
+  7) [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+
+    Error: collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "span.metric__value [247,272] vs plate [140,250]",
+    +   "span.metric__unit [277,284] vs plate [140,250]",
+    + ]
+
+      108 |                 await settle(page);
+      109 |                 await shoot(page, `collapsed-${c.width}-${scheme}`);
+    > 110 |                 expect(await outside(page), "collapsed: elements outside the glass surface (DOCK-SUMMARY-SQUARE while any)").toEqual([]);
+          |                                                                                                                              ^
+      111 |             });
+      112 |
+      113 |             test("expanded: every element inside the plate", async ({ page }) => {
+        at /Users/mkbabb/Programming/fourier-analysis/web/e2e/f-w14v-pd.spec.ts:110:126
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/f-w14v-pd-F-W14V-pd-—-the--23afc-ry-element-inside-the-plate-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/f-w14v-pd-F-W14V-pd-—-the--23afc-ry-element-inside-the-plate-chromium/error-context.md
+
+
+[14/14] [chromium] › e2e/f-w14v-pd.spec.ts:113:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › expanded: every element inside the plate
+  7 failed
+    [chromium] › e2e/f-w14v-au3.spec.ts:119:5 › X.F.W14V.au3 — equation and morph (1440) › L1-12 · every /morph card title is glass's CardTitle on one rung 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1440 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (1024 dark) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 light) › collapsed: every element inside the plate 
+    [chromium] › e2e/f-w14v-pd.spec.ts:104:13 › F.W14V.pd — the playback dock is one glass surface (390 dark) › collapsed: every element inside the plate 
+  7 passed (16.4s)

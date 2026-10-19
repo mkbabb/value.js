@@ -1,0 +1,44 @@
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (3362:0): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] node_modules/@vueuse/core/dist/index.js (5780:22): A comment
+[WebServer] 
+[WebServer] "/* #__PURE__ */"
+[WebServer] 
+[WebServer] in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+[WebServer] Generated an empty chunk: "vendor-paper".
+
+[WebServer] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+TimeoutError: apiRequestContext.post: Timeout 120000ms exceeded.
+Call log:
+  - → POST http://localhost:3131/api/images/placid-stirring-opal-viper/extract-contour
+    - user-agent: Playwright/1.61.0 (arm64; macOS 26.4) node/26.0
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - X-Session-Token: b8c1d744-b96e-4ff0-9227-edf8d87f06fc
+    - content-type: application/json
+    - content-length: 203
+
+
+   at global-seed.ts:112
+
+  110 |     const { image_slug } = (await image.json()) as { image_slug: string };
+  111 |
+> 112 |     const contour = await api.post(`/api/images/${image_slug}/extract-contour`, {
+      |                               ^
+  113 |         headers,
+  114 |         data: { contour_settings: SEED_CONTOUR },
+  115 |         timeout: 120_000,
+    at mint (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:112:31)
+    at globalSeed (/Users/mkbabb/Programming/fourier-analysis/web/e2e/global-seed.ts:164:17)
+
+exit 1

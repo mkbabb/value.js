@@ -1,0 +1,51 @@
+[
+ {
+  "scene": "amiga",
+  "triggers": [
+   {
+    "text": "linear",
+    "svgPath": true,
+    "box": {
+     "x": 187.25,
+     "y": 309,
+     "w": 269.1484375,
+     "h": 40
+    }
+   }
+  ]
+ },
+ {
+  "scene": "square",
+  "triggers": [
+   {
+    "text": "ease-in-out-cubic",
+    "svgPath": true,
+    "box": {
+     "x": 187.25,
+     "y": 309,
+     "w": 269.1484375,
+     "h": 40
+    }
+   }
+  ]
+ },
+ {
+  "scene": "cube",
+  "triggers": [
+   {
+    "text": "ease-in-out",
+    "svgPath": true,
+    "box": {
+     "x": 187.25,
+     "y": 309,
+     "w": 269.1484375,
+     "h": 40
+    }
+   }
+  ]
+ },
+ {
+  "scene": "easing",
+  "triggers": []
+ }
+]

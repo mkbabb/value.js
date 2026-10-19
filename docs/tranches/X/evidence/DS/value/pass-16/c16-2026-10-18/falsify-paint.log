@@ -1,0 +1,31 @@
+[
+ {
+  "label": "control: atmosphere 1440 light",
+  "refused": false,
+  "r": {
+   "ok": true,
+   "tries": 1,
+   "cardEdgeFrac": 0.02355
+  }
+ },
+ {
+  "label": "ground over page (atmosphere 1440 light)",
+  "refused": true,
+  "r": "Error: paint gate: {\"tries\":2,\"cardEdgeFrac\":0}"
+ },
+ {
+  "label": "control: picker 390 dark",
+  "refused": false,
+  "r": {
+   "ok": true,
+   "tries": 1,
+   "cardEdgeFrac": 0.02126,
+   "heroMeanDiff": 28.13
+  }
+ },
+ {
+  "label": "bead undrawn (picker 390 dark)",
+  "refused": true,
+  "r": "Error: paint gate: {\"tries\":2,\"cardEdgeFrac\":0.01864,\"heroMeanDiff\":1.04}"
+ }
+]

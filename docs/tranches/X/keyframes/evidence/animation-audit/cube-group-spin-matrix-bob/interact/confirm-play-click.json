@@ -1,0 +1,106 @@
+{
+ "khead": "3c8199c5",
+ "kdirty": "5",
+ "before": [
+  {
+   "label": "Play animation",
+   "vis": false,
+   "rect": [
+    692,
+    773,
+    40,
+    40
+   ]
+  },
+  {
+   "label": "Play animation",
+   "vis": true,
+   "rect": [
+    654,
+    773,
+    32,
+    40
+   ]
+  }
+ ],
+ "point": [
+  670,
+  793
+ ],
+ "hitBeforeHover": {
+  "tag": "BUTTON",
+  "cls": "button tap-squish focus-ring scale-on-hover text-white round",
+  "btn": "Play animation"
+ },
+ "hit@0": {
+  "tag": "BUTTON",
+  "cls": "button tap-squish focus-ring scale-on-hover text-white round",
+  "btn": "Play animation"
+ },
+ "hit@60": {
+  "tag": "BUTTON",
+  "cls": "dock-trigger dock-select-trigger dock-label",
+  "btn": "Select animation"
+ },
+ "hit@150": {
+  "tag": "BUTTON",
+  "cls": "dock-trigger dock-select-trigger dock-label",
+  "btn": "Select animation"
+ },
+ "hit@300": {
+  "tag": "BUTTON",
+  "cls": "dock-trigger dock-select-trigger dock-label",
+  "btn": "Select animation"
+ },
+ "hit@600": {
+  "tag": "BUTTON",
+  "cls": "dock-trigger dock-select-trigger dock-label",
+  "btn": "Select animation"
+ },
+ "afterHover": [
+  {
+   "label": "Play animation",
+   "vis": true,
+   "rect": [
+    593,
+    773,
+    40,
+    40
+   ]
+  },
+  {
+   "label": "Play animation",
+   "vis": true,
+   "rect": [
+    535,
+    765,
+    32,
+    40
+   ]
+  }
+ ],
+ "afterPress": [
+  {
+   "label": "Play animation",
+   "vis": true,
+   "rect": [
+    593,
+    773,
+    40,
+    40
+   ]
+  },
+  {
+   "label": "Play animation",
+   "vis": false,
+   "rect": [
+    535,
+    765,
+    32,
+    40
+   ]
+  }
+ ],
+ "cubeA": "rotateX(0deg) rotateY(0turn) rotateZ(0de",
+ "cubeB": "rotateX(0deg) rotateY(0turn) rotateZ(0de"
+}

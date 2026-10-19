@@ -1,0 +1,320 @@
+{
+ "arm": "proto-pos",
+ "corpus": 29944,
+ "entries": {
+  "parseCssColor": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 14790,
+    "cand": 14790
+   },
+   "samples": []
+  },
+  "parseCssScalar": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 23601,
+    "cand": 23601
+   },
+   "samples": []
+  },
+  "parseCssValue": {
+   "mismatches": 4,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 17605,
+    "cand": 17606
+   },
+   "samples": [
+    {
+     "s": "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 82,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 6,
+        "end": 7,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "—"
+       }
+      ]
+     }
+    },
+    {
+     "s": "component values — comma, then slash, then space lists; calls; scalars",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 70,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "component values — comma, then slash, then space lists; calls; scalars"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 17,
+        "end": 18,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "—"
+       }
+      ]
+     }
+    },
+    {
+     "s": "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 68,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 19,
+        "end": 20,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "—"
+       }
+      ]
+     }
+    },
+    {
+     "s": "… 74.9%, … 50%, … 100%",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 22,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "… 74.9%, … 50%, … 100%"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 1,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "…"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "parseCssValues": {
+   "mismatches": 4,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 17605,
+    "cand": 17606
+   },
+   "samples": [
+    {
+     "s": "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 82,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "R-b-2 — css-variables-1 §3: a var() in the animation family is valid at parse time"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 6,
+        "end": 7,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "—"
+       }
+      ]
+     }
+    },
+    {
+     "s": "component values — comma, then slash, then space lists; calls; scalars",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 70,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "component values — comma, then slash, then space lists; calls; scalars"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 17,
+        "end": 18,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "—"
+       }
+      ]
+     }
+    },
+    {
+     "s": "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 68,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "keyframe selectors — css-animations-1 §3.2, scroll-animations-1 §4.2"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 19,
+        "end": 20,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "—"
+       }
+      ]
+     }
+    },
+    {
+     "s": "… 74.9%, … 50%, … 100%",
+     "stock": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 22,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "… 74.9%, … 50%, … 100%"
+       }
+      ]
+     },
+     "cand": {
+      "ok": false,
+      "diagnostics": [
+       {
+        "code": "css_syntax",
+        "start": 0,
+        "end": 1,
+        "expected": [
+         "scalar"
+        ],
+        "actual": "…"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "parseKeyframeSelector": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 29944,
+    "cand": 29944
+   },
+   "samples": []
+  },
+  "parseTimingFunction": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 27096,
+    "cand": 27096
+   },
+   "samples": []
+  },
+  "parseStylesheet": {
+   "mismatches": 0,
+   "stockThrows": 0,
+   "agreeRetired": {
+    "stock": 28186,
+    "cand": 28186
+   },
+   "samples": []
+  }
+ },
+ "totalMismatches": 8
+}

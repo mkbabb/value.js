@@ -11,8 +11,9 @@
  * CURRENT-view accent still resolves per the active view's schema shift, so
  * the WCAG 1.4.11 graphics floor (≥ 3:1) must hold POST-gamut-map for EVERY
  * shift the schema can make current, INCLUDING achromatic picks (probed at
- * C ≈ 0), at both ends of the measured ambient band. `resolveSealInk` — the
- * seal-ink rows, unchanged.
+ * C ≈ 0), at both ends of the measured ambient band. `contrastInkFor` — the
+ * seal-ink rows, unchanged (the one-function `resolveSealInk` alias retired at
+ * X.W12U.k, A2-VA-L1-20).
  *
  * WHAT JOINS (W6-4, Q5 RULED): the guarded letterform ramp rows — the THREE
  * analogous stops (the `--palettes-ramp-*` referent, O-14's re-pointed T-10
@@ -34,9 +35,9 @@ import {
 } from "../demo/color-session/view-accent";
 import {
     certifyAccentInk,
+    contrastInkFor,
     resolveSurfaceLightness,
 } from "../demo/color-session/ink";
-import { resolveSealInk } from "../demo/color-picker/composables/boot/view-accents";
 import {
     PALETTES_RAMP_SHIFTS,
     RAMP_TEXT_CONTRAST_FLOOR,
@@ -159,8 +160,8 @@ describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () 
 });
 
 describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 referent; the per-site surface cure)", () => {
-    it("the ruled form: three analogous stops, ±40°; the two per-site floors", () => {
-        expect(PALETTES_RAMP_SHIFTS).toEqual([-40, 0, 40]);
+    it("the ruled form: three stops fanned ±60° (X-DS value pass 4, P4R-01); the two per-site floors", () => {
+        expect(PALETTES_RAMP_SHIFTS).toEqual([-60, 0, 60]);
         expect(RAMP_TEXT_CONTRAST_FLOOR).toBe(4.5);
         expect(RAMP_LARGE_TEXT_CONTRAST_FLOOR).toBe(3);
     });
@@ -268,13 +269,13 @@ describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface ref
 
 describe("W7-4 — the seal ink (the SEEDS.md w7 rider; R1 survivor)", () => {
     it("light wax stamps dark ink; dark wax stamps light ink", () => {
-        expect(resolveSealInk("white")).toBe("oklch(0 0 0)");
-        expect(resolveSealInk("oklch(0.95 0.05 100)")).toBe("oklch(0 0 0)");
-        expect(resolveSealInk("black")).toBe("oklch(1 0 0)");
-        expect(resolveSealInk("oklch(0.3 0.1 260)")).toBe("oklch(1 0 0)");
+        expect(contrastInkFor("white")).toBe("oklch(0 0 0)");
+        expect(contrastInkFor("oklch(0.95 0.05 100)")).toBe("oklch(0 0 0)");
+        expect(contrastInkFor("black")).toBe("oklch(1 0 0)");
+        expect(contrastInkFor("oklch(0.3 0.1 260)")).toBe("oklch(1 0 0)");
     });
 
     it("unparseable wax resolves to null (the caller keeps the last ink)", () => {
-        expect(resolveSealInk("not-a-color")).toBeNull();
+        expect(contrastInkFor("not-a-color")).toBeNull();
     });
 });

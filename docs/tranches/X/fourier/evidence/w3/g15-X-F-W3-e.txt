@@ -1,0 +1,55 @@
+SERVED MODEL: claude-opus-5[1m]
+X.F.W3.e — g15 (SHARED-UTIL consolidation: timeAgo · basis-key · GalleryTier).
+Worktree f3e, branch x/f3e, base 74084fa. Every count double-run at the settled bytes.
+SCOPE: .e-scoped, MINUS the two out-of-bounds sites (ESC-W3R2-1 limb 5).
+
+================ LEG 1 — ONE timeAgo ================
+BEFORE (at base 74084fa):
+⟨cmd⟩ git grep -c "function timeAgo" 74084fa -- web/src
+AFTER (this seat):
+⟨cmd⟩ grep -rn "function timeAgo" src --include=*.vue
+  src/components/visualization/gallery/AdminFlaggedPanel.vue:299:function timeAgo(iso: string | null): string {
+  src/components/visualization/gallery/GalleryDraftsSection.vue:41:function timeAgo(iso: string): string {
+  5 -> 2. Both survivors are .d's files (section-5a-v2 law 2 forbids opening them).
+  The canon: src/lib/time.ts (relativeTime · useTimeAgo · useRelativeTime), 7 unit tests.
+
+================ LEG 2 — ONE BasisKey unit ================
+BEFORE (at base 74084fa):
+⟨cmd⟩ git grep -n "startsWith(\"fourier\")" 74084fa -- web/src
+AFTER (this seat), excluding the canon's own implementation and its docblocks:
+⟨cmd⟩ grep -rn "startsWith(\"fourier\")" src --include=*.vue
+  src/components/visualization/BasisSelector.vue:97:        const otherBases = selected.value.filter(b => !b.startsWith("fourier"));
+  src/components/visualization/gallery/GalleryDraftsSection.vue:56:            const key = b.startsWith("fourier") ? "fourier" : b;
+  src/components/visualization/BasisCanvas.vue:254:        const basisName = basisKey.startsWith("fourier") ? "fourier" : basisKey;
+  7 -> 3 live inline sites. BasisSelector.vue (.a, closed) · GalleryDraftsSection.vue (.d)
+  · BasisCanvas.vue:254 (NO section-1 bounds row — ESCALATED, written nowhere).
+  The mode-label ladder: 4 authorings -> 1 (lib/basis.ts MODE_LABELS, satisfies-checked).
+  The byte-identical 15-line basisLabels clone: 2 -> 0 (both call basisChips).
+  The canon: src/lib/basis.ts (BasisKey · BasisFamily · normalizeBasisKey · basisModeLabel),
+  6 unit tests, one of which IS the F.W5-W8 WAVE-LOCK stated as an expectation.
+
+================ LEG 3 — ONE GalleryTier + a sort canon ================
+BEFORE (at base 74084fa) — the gate's true witness is the INLINE UNION RE-SPELLING (REPAIR 2 D-8):
+⟨cmd⟩ git grep -n "\"featured\" | \"saved\" | \"normal\"" 74084fa -- web/src
+AFTER (this seat), excluding lib/types.ts (the canonical home and its docblock):
+  src/components/visualization/gallery/GalleryFeaturedCarousel.vue:53:    "set-tier": [hash: string, tier: "featured" | "saved" | "normal"];
+  src/components/visualization/GalleryView.vue:152:async function handleSetTier(hash: string, tier: "featured" | "saved" | "normal") {
+  8 sites -> 3. GalleryFeaturedCarousel.vue:53 and GalleryView.vue:152 are .d's;
+  stores/gallery.ts:34 is in NO section-1 bounds row — ESCALATED, written nowhere.
+  Sort union BEFORE: 3 authorings. AFTER:
+  src/stores/gallery.ts:33:    const sort = ref<"newest" | "views" | "likes">("newest");
+  src/lib/types.ts:122:export type GallerySort = "newest" | "views" | "likes";
+  -> lib/types.ts is the canon (GallerySort); the one survivor is stores/gallery.ts:33, out of bounds.
+
+================ DOUBLE-RUN (all three legs), over ALL of src/ ================
+(the canon files lib/time.ts, lib/basis.ts, lib/types.ts and the *.test.ts floors are
+ excluded: they are the homes, not the duplication)
+run 1: timeAgo=2  startsWith(fourier)=3  inline-tier-union=3  inline-sort-union=1
+run 2: timeAgo=2  startsWith(fourier)=3  inline-tier-union=3  inline-sort-union=1
+
+BEFORE, by the same probes at base 74084fa: 5 · 7 · 8 · 3
+
+VERDICT: g15 GREEN over .e's writable set — every in-bounds site retired onto one canon.
+         TREE-WIDE it is HONEST-RED with 8 residual sites named per file, of which TWO
+         (BasisCanvas.vue:254, stores/gallery.ts:34) are a section-6 triumvirate bounds
+         event and are recorded rather than written.

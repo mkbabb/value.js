@@ -1,0 +1,82 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.P.W4.e — G-3 POSITIVE AND NEGATIVE CONTROLS, in a STAGED CONSUMER TREE OUTSIDE BOTH REPOS.
+Dated 2026-09-19. NEW file, beside X.P.W4.b's packed-surface.json — nothing of .b's is overwritten (E-3).
+
+Staged tree: <scratch>/pc-w4e   (neither /Users/mkbabb/Programming/value.js nor
+             /Users/mkbabb/Programming/parse-that-css-totality-p2 is an ancestor of it)
+Node: v26.0.0   npm: 11.12.1   tsc: Version 5.9.3
+
+==============================================================================
+L1/L3 — the tarball, packed and installed into the staged consumer
+==============================================================================
+⟨cmd⟩ npm pack --ignore-scripts --json --pack-destination <stage>/tarball
+⟨cmd⟩ shasum -a 256 <stage>/tarball/mkbabb-parse-that-1.0.0.tgz
+6b51c33608baf0b60273b813eec5ff8df702cf2a3b4fc5053258014208a11103  <stage>/tarball/mkbabb-parse-that-1.0.0.tgz
+  ≡ the sha256 the gate's own two runs printed (6b51c336…), so the control and the gate
+    are reading THE SAME BYTES and not two builds that happen to agree.
+⟨cmd⟩ ls node_modules/@mkbabb/parse-that
+dist package.json src 
+
+==============================================================================
+RUNTIME HALF — 19 of 19, resolved from the INSTALLED path
+==============================================================================
+⟨cmd⟩ node -e "import('@mkbabb/parse-that/css').then(m=>…Object.keys(m).sort())"
+resolved 19 of 19
+coerceToSyntax
+collectAnimationOptions
+collectCustomFunctions
+collectDeclarations
+collectKeyframes
+collectPropertyDescriptors
+collectStyleRules
+collectTimelineOptions
+parseAnimationRange
+parseAnimationTimeline
+parseCssColor
+parseCssScalar
+parseCssValue
+parseCssValues
+parseKeyframeSelector
+parseStylesheet
+parseTimingFunction
+serializeCssColor
+serializeTimelineOptions
+
+==============================================================================
+TYPES HALF — POSITIVE CONTROL: 33 of 33, compiled strictly against the INSTALLED .d.ts
+==============================================================================
+The consumer file is byte-for-byte the one scripts/packed-candidate-surface.mjs generates,
+with ONE token changed: `__check_ParseResult = ParseResult` -> `ParseResult<unknown>`.
+tsconfig: module/moduleResolution NodeNext, strict true, skipLibCheck FALSE, noEmit.
+⟨cmd⟩ node <tsc> -p tsconfig.pc.json ; echo EXIT=$?
+EXIT=0
+  -> exit 0. All THIRTY-THREE frozen type names resolve from the consumer's node_modules.
+
+==============================================================================
+TYPES HALF — NEGATIVE CONTROL: the compile discriminates
+==============================================================================
+⟨cmd⟩ node <tsc> -p tsconfig.nc.json   (imports CssColor + a name the surface does not carry)
+consumer-nc.ts(1,25): error TS2305: Module '"@mkbabb/parse-that/css"' has no exported member 'NotAFrozenType'.
+EXIT=2
+  -> exit 2, TS2305. A green positive control is therefore not a compiler that fails to look.
+
+==============================================================================
+THE RESIDUAL, ISOLATED — why the gate still reads `resolved 19 of 52`
+==============================================================================
+⟨cmd⟩ grep -n '^export declare type ParseResult' <vendored 4.0.0 css.d.ts>
+241:export declare type ParseResult<T> = {
+
+  The FROZEN 4.0.0 surface declares `ParseResult<T>` with ONE REQUIRED type parameter and NO
+  default. scripts/packed-candidate-surface.mjs L400 emits, for every one of the 33 names,
+  the line `export type __check_<N> = <N>;` — which for ParseResult is TS2314 ("Generic type
+  'ParseResult' requires 1 type argument(s)") BY THE FROZEN SURFACE'S OWN SHAPE. The single
+  diagnostic then zeroes the whole types half, because L420 reads
+  `resolved: compile.status === 0 ? true : !named(name) && diagnostics.length === 0`.
+
+  This is not a property of the tarball: the positive control above compiles the SAME 33 names
+  from the SAME installed bytes and exits 0. It is a defect of the ASSERTION FORM, and it is
+  unsatisfiable against the frozen surface for ANY candidate, including value.js 4.0.0 itself.
+  scripts/packed-candidate-surface.mjs is X.P.W4.b's file and is in NO row of this unit's
+  writable set (W4.md third dated addendum, the X.P.W4.e clause), so the one-token cure is
+  RETURNED, not taken. See the receipt's ESCALATION E-w4e-1.

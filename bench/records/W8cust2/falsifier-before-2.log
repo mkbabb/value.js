@@ -1,0 +1,360 @@
+
+ RUN  v3.2.6 /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/red
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts (43 tests | 20 failed) 17ms
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a;b)}" is ACCEPTED 7ms
+     → [{"code":"css_syntax","start":3,"end":4,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;[b]]}" is ACCEPTED 1ms
+     → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:{a;b}}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":0,"end":1,"expected":["declaration"],"actual":"a"}]: expected false to be true // Object.is equality
+   ✓ a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:\"a;b\"}" is ACCEPTED 0ms
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;b]}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a ; b) c}" is ACCEPTED 1ms
+     → [{"code":"css_syntax","start":4,"end":5,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(g(a;b))}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":5,"end":6,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(;)}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":2,"end":3,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a, b; c)}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":6,"end":7,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;b] f(1px;2px)}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]: expected false to be true // Object.is equality
+   ✓ a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:{a:b;c:d}; color: red}" is ACCEPTED 1ms
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(\"a;)\";b)}" is ACCEPTED 0ms
+     → [{"code":"css_syntax","start":7,"end":8,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a;b)" round-trips 0ms
+     → refused: "--x:f(a;b)" → [{"code":"css_syntax","start":3,"end":4,"expected":["scalar"],"actual":";"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:[a;[b]]" round-trips 0ms
+     → refused: "--x:[a;[b]]" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:{a;b}" round-trips 0ms
+     → refused: "--x:{a;b}" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"{a"}]
+   ✓ a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:\"a;b\"" round-trips 0ms
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:[a;b]" round-trips 0ms
+     → refused: "--x:[a;b]" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a ; b) c" round-trips 0ms
+     → refused: "--x:f(a ; b) c" → [{"code":"css_syntax","start":4,"end":5,"expected":["scalar"],"actual":";"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(g(a;b))" round-trips 0ms
+     → refused: "--x:f(g(a;b))" → [{"code":"css_syntax","start":5,"end":6,"expected":["scalar"],"actual":";"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(;)" round-trips 0ms
+     → refused: "--x:f(;)" → [{"code":"css_syntax","start":2,"end":3,"expected":["scalar"],"actual":";"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a, b; c)" round-trips 0ms
+     → refused: "--x:f(a, b; c)" → [{"code":"css_syntax","start":6,"end":7,"expected":["scalar"],"actual":";"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:{a:b;c:d}; color: red" round-trips 0ms
+     → refused: "--x:{a:b;c:d}; color: red" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"{a"}]
+   × a custom property admits a `;` nested inside a block (css-variables-1 §2) > keeps the value as authored: the raw `<declaration-value>` token sequence 0ms
+     → refused: "--x:f(a;b)" → [{"code":"css_syntax","start":3,"end":4,"expected":["scalar"],"actual":";"}]
+   ✓ a custom property admits a `;` nested inside a block (css-variables-1 §2) > the empty custom value stays ACCEPTED: `a{--x: ;}` 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > `a{--x:a;b}` is not one value: the second row is no declaration 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("a;b") is refused 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue(";") is refused 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("f(a);b") is refused 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("a ; b") is refused 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("[a];b") is refused 0ms
+   ✓ a top-level `;` still ends the declaration (css-syntax-3 §5.4.6) > parseCustomPropertyValue("\"a\";b") is refused 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:[a;b}" yields a css_syntax diagnostic 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:{a;b]}" yields a css_syntax diagnostic 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:[a}" yields a css_syntax diagnostic 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > "a{--x:f(a;[b)}" yields a css_syntax diagnostic 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("[a;b") is refused 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("f(a;b") is refused 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("{a;b]") is refused 0ms
+   ✓ an unbalanced block is refused (css-syntax-3 §5.4.8) > parseCustomPropertyValue("(a;b]") is refused 0ms
+   ✓ a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "a{transform:rotate(0;1deg)}" yields ok:false with a css_syntax diagnostic 0ms
+   ✓ a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "@keyframes k{0%{transform:translate(0;1px)}}" yields ok:false with a css_syntax diagnostic 1ms
+   ✓ a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "a{grid-template-columns:[a;b] 1fr}" yields ok:false with a css_syntax diagnostic 0ms
+   ✓ a registered property's value still refuses a nested `;` (X.P.W8 `.semi`) > "a{color:f(a;b)}" yields ok:false with a css_syntax diagnostic 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a;b)}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":3,"end":4,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;[b]]}" is ACCEPTED
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;b]}" is ACCEPTED
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:[a;b] f(1px;2px)}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:{a;b}}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":0,"end":1,"expected":["declaration"],"actual":"a"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a ; b) c}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":4,"end":5,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(g(a;b))}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":5,"end":6,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(;)}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":2,"end":3,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(a, b; c)}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":6,"end":7,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "a{--x:f(\"a;)\";b)}" is ACCEPTED
+AssertionError: [{"code":"css_syntax","start":7,"end":8,"expected":["scalar"],"actual":";"}]: expected false to be true // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- true[39m
+[31m+ false[39m
+
+ ❯ test/css/bbnf-custom-semicolon.test.ts:52:82
+     50|     ])("%j is ACCEPTED", (source) => {
+     51|         const parsed = parseStylesheet(source);
+     52|         expect(parsed.ok, JSON.stringify(parsed.ok ? null : parsed.dia…
+       |                                                                                  ^
+     53|     });
+     54| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a;b)" round-trips
+Error: refused: "--x:f(a;b)" → [{"code":"css_syntax","start":3,"end":4,"expected":["scalar"],"actual":";"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:[a;[b]]" round-trips
+Error: refused: "--x:[a;[b]]" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:{a;b}" round-trips
+Error: refused: "--x:{a;b}" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"{a"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:[a;b]" round-trips
+Error: refused: "--x:[a;b]" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"[a"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a ; b) c" round-trips
+Error: refused: "--x:f(a ; b) c" → [{"code":"css_syntax","start":4,"end":5,"expected":["scalar"],"actual":";"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(g(a;b))" round-trips
+Error: refused: "--x:f(g(a;b))" → [{"code":"css_syntax","start":5,"end":6,"expected":["scalar"],"actual":";"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(;)" round-trips
+Error: refused: "--x:f(;)" → [{"code":"css_syntax","start":2,"end":3,"expected":["scalar"],"actual":";"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:f(a, b; c)" round-trips
+Error: refused: "--x:f(a, b; c)" → [{"code":"css_syntax","start":6,"end":7,"expected":["scalar"],"actual":";"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > "--x:{a:b;c:d}; color: red" round-trips
+Error: refused: "--x:{a:b;c:d}; color: red" → [{"code":"css_syntax","start":0,"end":2,"expected":["scalar"],"actual":"{a"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:57:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/20]⎯
+
+ FAIL  test/css/bbnf-custom-semicolon.test.ts > a custom property admits a `;` nested inside a block (css-variables-1 §2) > keeps the value as authored: the raw `<declaration-value>` token sequence
+Error: refused: "--x:f(a;b)" → [{"code":"css_syntax","start":3,"end":4,"expected":["scalar"],"actual":";"}]
+ ❯ declarations test/css/bbnf-custom-semicolon.test.ts:18:27
+     16| const declarations = (body: string): readonly Declaration[] => {
+     17|     const parsed = parseDeclarations(body);
+     18|     if (!parsed.ok) throw new Error(`refused: ${JSON.stringify(body)} …
+       |                           ^
+     19|     return parsed.value;
+     20| };
+ ❯ test/css/bbnf-custom-semicolon.test.ts:64:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/20]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  20 failed | 23 passed (43)
+   Start at  12:32:42
+   Duration  708ms (transform 163ms, setup 48ms, collect 206ms, tests 17ms, environment 215ms, prepare 45ms)
+

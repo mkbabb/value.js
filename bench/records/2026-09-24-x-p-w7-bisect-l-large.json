@@ -1,0 +1,96 @@
+{
+ "tag": "l-large",
+ "instrument": "bench/paired/bisect.mjs (X.P.W7.l)",
+ "cls": "large",
+ "rounds": 11,
+ "probes": [
+  "retired",
+  "product",
+  "ruleList",
+  "declarations",
+  "declaration",
+  "values"
+ ],
+ "valuejsHead": "7932365cca087bc0552338316ba0a632edd2ef3b",
+ "uptimeStart": "14:55  up 12:58, 3 users, load averages: 33.66 30.40 19.89",
+ "versions": {
+  "chromium": "148.0.7778.96",
+  "webkit": "26.4",
+  "firefox": "150.0.2"
+ },
+ "results": {
+  "chromium": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910
+   },
+   "ms": {
+    "retired": 15.7,
+    "product": 5.3,
+    "ruleList": 2.6,
+    "declarations": 3.05,
+    "declaration": 2.85,
+    "values": 10.8
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 0.341,
+    "ruleList": 0.163,
+    "declarations": 0.19,
+    "declaration": 0.184,
+    "values": 0.699
+   }
+  },
+  "webkit": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910
+   },
+   "ms": {
+    "retired": 14.5,
+    "product": 17,
+    "ruleList": 11,
+    "declarations": 2.5,
+    "declaration": 3.5,
+    "values": 20
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 1.138,
+    "ruleList": 0.741,
+    "declarations": 0.172,
+    "declaration": 0.241,
+    "values": 1.333
+   }
+  },
+  "firefox": {
+   "n": 4,
+   "harvested": {
+    "bodies": 3104,
+    "declarations": 13250,
+    "values": 12910
+   },
+   "ms": {
+    "retired": 12,
+    "product": 14.5,
+    "ruleList": 7,
+    "declarations": 5.5,
+    "declaration": 4.5,
+    "values": 34.5
+   },
+   "ofRetired": {
+    "retired": 1,
+    "product": 1.3,
+    "ruleList": 0.56,
+    "declarations": 0.516,
+    "declaration": 0.389,
+    "values": 2.8
+   }
+  }
+ },
+ "uptimeEnd": "14:56  up 12:58, 3 users, load averages: 36.14 31.01 20.23"
+}

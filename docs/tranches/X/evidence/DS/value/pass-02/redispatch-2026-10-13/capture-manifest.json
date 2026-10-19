@@ -1,0 +1,197 @@
+{
+  "base": "http://localhost:9000",
+  "routes": [
+    "/#/",
+    "/#/palettes",
+    "/#/browse",
+    "/#/extract",
+    "/#/mix",
+    "/#/generate",
+    "/#/gradient",
+    "/#/atmosphere",
+    "/#/blob"
+  ],
+  "results": [
+    {
+      "name": "atmosphere-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "atmosphere-1440-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "atmosphere-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "atmosphere-390-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "blob-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "blob-1440-light.png",
+      "ok": true,
+      "attempt": 2
+    },
+    {
+      "name": "blob-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "blob-390-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "browse-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "browse-1440-light.png",
+      "ok": true,
+      "reshoot": true
+    },
+    {
+      "name": "browse-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "browse-390-light.png",
+      "ok": true,
+      "attempt": 2
+    },
+    {
+      "name": "extract-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "extract-1440-light.png",
+      "ok": true,
+      "reshoot": true
+    },
+    {
+      "name": "extract-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "extract-390-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "generate-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "generate-1440-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "generate-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "generate-390-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "gradient-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "gradient-1440-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "gradient-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "gradient-390-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "mix-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "mix-1440-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "mix-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "mix-390-light.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "palettes-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "palettes-1440-light.png",
+      "ok": true,
+      "reshoot": true
+    },
+    {
+      "name": "palettes-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "palettes-390-light.png",
+      "ok": true,
+      "attempt": 2
+    },
+    {
+      "name": "picker-1440-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "picker-1440-light.png",
+      "ok": true,
+      "reshoot": true
+    },
+    {
+      "name": "picker-390-dark.png",
+      "ok": true,
+      "attempt": 1
+    },
+    {
+      "name": "picker-390-light.png",
+      "ok": true,
+      "attempt": 1,
+      "reshot": "2026-10-14 X-DS VC3-04: the 2026-10-13 frame held PaneErrorPlate (a lazy chunk failed at load 185) and passed the old gate; re-shot with the role=alert gate on the restarted :9000 (VC3-01), tree of 2026-10-14"
+    }
+  ]
+}

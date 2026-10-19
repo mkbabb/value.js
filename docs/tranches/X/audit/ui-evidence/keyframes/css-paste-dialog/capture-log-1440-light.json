@@ -1,0 +1,1836 @@
+{
+  "kf": {
+    "sha": "60477b06",
+    "dirty": 7
+  },
+  "glass": {
+    "sha": "6433284a",
+    "dirty": 1
+  },
+  "when": "2026-09-23T17:21:23.983Z",
+  "runs": [
+    {
+      "tag": "1440-light",
+      "frames": [
+        {
+          "frame": "01-import-open-empty-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              214,
+              672,
+              472
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              326,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 0,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                615,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule gap-2",
+              "disabled": true,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                245,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Import CSS @keyframes fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / ",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "01-import-open-empty-1440-light-crop.png"
+        },
+        {
+          "frame": "02-import-typed-focus-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              214,
+              672,
+              472
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              326,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 54,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                615,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                245,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Import CSS @keyframes fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / ",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "02-import-typed-focus-1440-light-crop.png"
+        },
+        {
+          "frame": "03-import-parse-error-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              201,
+              672,
+              498
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              313,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "color(srgb 0.94464 0.863488 0.82816)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": "true",
+            "describedby": "css-paste-dialog-error",
+            "state": "invalid",
+            "len": 37,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                628,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                232,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": {
+            "box": [
+              409,
+              602,
+              622,
+              10
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(219, 36, 36)",
+            "font": "10px/500 \"Fira Code\", monospace",
+            "pad": "0px",
+            "cls": "text-admin-label text-destructive",
+            "t": "Invalid animation CSS: css_syntax at 0-5: expected scalar, got calc("
+          },
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "BODY:CubeTimeline@mbabb12 fv=false outline=none/none",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "03-import-parse-error-1440-light-crop.png"
+        },
+        {
+          "frame": "04-import-no-stops-error-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              201,
+              672,
+              498
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              313,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "color(srgb 0.94464 0.863488 0.82816)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": "true",
+            "describedby": "css-paste-dialog-error",
+            "state": "invalid",
+            "len": 20,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                628,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                232,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": {
+            "box": [
+              409,
+              602,
+              622,
+              10
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(219, 36, 36)",
+            "font": "10px/500 \"Fira Code\", monospace",
+            "pad": "0px",
+            "cls": "text-admin-label text-destructive",
+            "t": "No @keyframes stops found in that CSS."
+          },
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "BODY:CubeTimeline@mbabb12 fv=false outline=none/none",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "04-import-no-stops-error-1440-light-crop.png"
+        },
+        {
+          "frame": "05-import-long-draft-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              201,
+              672,
+              498
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              313,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "color(srgb 0.94464 0.863488 0.82816)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": "true",
+            "describedby": "css-paste-dialog-error",
+            "state": "invalid",
+            "len": 1367,
+            "scrollH": 368,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                628,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                232,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": {
+            "box": [
+              409,
+              602,
+              622,
+              10
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(219, 36, 36)",
+            "font": "10px/500 \"Fira Code\", monospace",
+            "pad": "0px",
+            "cls": "text-admin-label text-destructive",
+            "t": "No @keyframes stops found in that CSS."
+          },
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Import CSS @keyframes fv=true outline=none/color(srgb 0.86 0.14 0.14 / 0.35) 0px 0px 0px 2px",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "05-import-long-draft-1440-light-crop.png"
+        },
+        {
+          "frame": "06-import-tab-focus-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              201,
+              672,
+              498
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              313,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "color(srgb 0.94464 0.863488 0.82816)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": "true",
+            "describedby": "css-paste-dialog-error",
+            "state": "invalid",
+            "len": 1367,
+            "scrollH": 368,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                628,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                232,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": {
+            "box": [
+              409,
+              602,
+              622,
+              10
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(219, 36, 36)",
+            "font": "10px/500 \"Fira Code\", monospace",
+            "pad": "0px",
+            "cls": "text-admin-label text-destructive",
+            "t": "No @keyframes stops found in that CSS."
+          },
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "BUTTON:Import fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / ",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "06-import-tab-focus-1440-light-crop.png"
+        },
+        {
+          "frame": "07-import-submit-busy-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              385,
+              228,
+              671,
+              444
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              410,
+              333,
+              621,
+              257
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 0,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                916,
+                605,
+                114,
+                38
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule gap-2",
+              "disabled": true,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1014,
+                258,
+                16,
+                15
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Imported 3 keyframes",
+              "type": "success",
+              "box": [
+                0,
+                900,
+                320,
+                76
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BODY:CubeTimeline@mbabb12 fv=false outline=none/none",
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "08-import-success-closed-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "BUTTON:Import fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "09-addcss-open-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              214,
+              672,
+              472
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              326,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 0,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Add",
+              "box": [
+                938,
+                615,
+                93,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule gap-2",
+              "disabled": true,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                245,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Add CSS @keyframes fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / ",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "09-addcss-open-1440-light-crop.png"
+        },
+        {
+          "frame": "10-addcss-parse-error-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              201,
+              672,
+              498
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              313,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "color(srgb 0.94464 0.863488 0.82816)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": "true",
+            "describedby": "css-paste-dialog-error",
+            "state": "invalid",
+            "len": 37,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Add",
+              "box": [
+                937,
+                627,
+                95,
+                41
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                232,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": {
+            "box": [
+              409,
+              602,
+              622,
+              10
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(219, 36, 36)",
+            "font": "10px/500 \"Fira Code\", monospace",
+            "pad": "0px",
+            "cls": "text-admin-label text-destructive",
+            "t": "Invalid animation CSS: css_syntax at 0-5: expected scalar, got calc("
+          },
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "BODY:CubeTimeline@mbabb12 fv=false outline=none/none",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "10-addcss-parse-error-1440-light-crop.png"
+        },
+        {
+          "frame": "11-addcss-merged-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Merged 3 keyframes — 0 added, 3 into existing stops",
+              "type": "success",
+              "box": [
+                0,
+                900,
+                320,
+                104
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add CSS fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "12-import-reopen-after-error-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/cube",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              201,
+              672,
+              498
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              313,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "color(srgb 0.94464 0.863488 0.82816)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": "true",
+            "describedby": "css-paste-dialog-error",
+            "state": "invalid",
+            "len": 37,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Import",
+              "box": [
+                917,
+                628,
+                114,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                232,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": {
+            "box": [
+              409,
+              602,
+              622,
+              10
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(219, 36, 36)",
+            "font": "10px/500 \"Fira Code\", monospace",
+            "pad": "0px",
+            "cls": "text-admin-label text-destructive",
+            "t": "Invalid animation CSS: css_syntax at 0-5: expected scalar, got calc("
+          },
+          "progressBar": null,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Import CSS @keyframes fv=true outline=none/color(srgb 0.86 0.14 0.14 / 0.35) 0px 0px 0px 2px",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "12-import-reopen-after-error-1440-light-crop.png"
+        }
+      ],
+      "notes": {},
+      "errs": [
+        "console: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "tag": "1440-light",
+      "frames": [
+        {
+          "frame": "20-spring-add-trigger-hover-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 1440,
+          "overlay": null,
+          "toasts": [],
+          "tooltip": {
+            "box": [
+              115,
+              479,
+              1,
+              1
+            ],
+            "radius": "0px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(28, 25, 23)",
+            "color": "rgb(28, 25, 23)",
+            "font": "14.384px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "",
+            "t": "Add keyframes"
+          },
+          "focus": "BODY:SpringPhysics@mbabbS fv=false outline=none/none",
+          "docOverflowX": [
+            1440,
+            1440
+          ]
+        },
+        {
+          "frame": "21-spring-add-open-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              198,
+              672,
+              504
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              310,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 0,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                851,
+                599,
+                180,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule gap-2",
+              "disabled": true,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                229,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              409,
+              663,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "none",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [],
+          "tooltip": null,
+          "focus": "Add keyframes fv=true outline=none/color(srgb 0.11 0.098 0.09 / 0.3) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / ",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "21-spring-add-open-1440-light-crop.png"
+        },
+        {
+          "frame": "22-spring-add-parse-error-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              198,
+              672,
+              504
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              310,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 37,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                851,
+                599,
+                180,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                229,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              409,
+              663,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "matrix(0, 0, 0, 1, 0, 0)",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Could not add keyframesInvalid animation CSS: css_syntax at 0-5: expected scalar, got calc(Retry",
+              "type": "error",
+              "box": [
+                0,
+                900,
+                320,
+                154
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add keyframes fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "22-spring-add-parse-error-1440-light-crop.png"
+        },
+        {
+          "frame": "23-spring-add-submit-sweep-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              198,
+              672,
+              504
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              310,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 58,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                849,
+                598,
+                183,
+                41
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                229,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              409,
+              663,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "matrix(0.170766, 0, 0, 1, 0, 0)",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Could not add keyframesCannot interpolate mixed percentage lengths for \"transform\" without a property-specific percentage basis.Retry",
+              "type": "error",
+              "box": [
+                0,
+                900,
+                320,
+                200
+              ],
+              "op": "1"
+            },
+            {
+              "t": "Could not add keyframesInvalid animation CSS: css_syntax at 0-5: expected scalar, got calc(Retry",
+              "type": "error",
+              "box": [
+                0,
+                1100,
+                320,
+                154
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add keyframes fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "23-spring-add-submit-sweep-1440-light-crop.png"
+        },
+        {
+          "frame": "24-spring-add-after-1440-light.png",
+          "kf": {
+            "sha": "60477b06",
+            "dirty": 7
+          },
+          "hash": "#/spring",
+          "dark": false,
+          "vw": 1440,
+          "dialog": {
+            "box": [
+              384,
+              198,
+              672,
+              504
+            ],
+            "radius": "16px",
+            "bg": "oklab(0.930165 0.00555339 0.0132325 / 0.6928)",
+            "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.05)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "30.528px 24px",
+            "cls": "fixed left-1/2 top-1/2 z-modal grid w-full max-w-lg gap-4 [--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-in",
+            "maxW": "672px",
+            "inlineSize": "672px",
+            "overflowY": "auto",
+            "backdrop": "blur(11px) saturate(1.6)"
+          },
+          "header": false,
+          "title": null,
+          "desc": null,
+          "textarea": {
+            "box": [
+              409,
+              310,
+              622,
+              273
+            ],
+            "radius": "16px",
+            "bg": "rgb(243, 236, 226)",
+            "border": "1.5px rgb(112, 89, 66)",
+            "color": "rgb(28, 25, 23)",
+            "font": "16.4px/400 \"Fira Code\", monospace",
+            "pad": "12px 16px",
+            "cls": "field-control glass-defined font-mono border-muted-foreground",
+            "rows": 10,
+            "placeholder": "",
+            "invalid": null,
+            "describedby": null,
+            "state": "default",
+            "len": 58,
+            "scrollH": 270,
+            "clientH": 270
+          },
+          "buttons": [
+            {
+              "t": "Add keyframes",
+              "box": [
+                851,
+                599,
+                180,
+                40
+              ],
+              "radius": "9999px",
+              "bg": "oklab(0.973918 0.00567916 0.0137255 / 0.8)",
+              "border": "0px rgb(0, 0, 0)",
+              "color": "rgb(0, 0, 0)",
+              "font": "16.4px/650 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px 16px",
+              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover gap-2",
+              "disabled": false,
+              "ariaBusy": null,
+              "emph": "primary",
+              "slot": "button"
+            },
+            {
+              "t": "Close",
+              "box": [
+                1015,
+                229,
+                16,
+                16
+              ],
+              "radius": "4px",
+              "bg": "rgba(0, 0, 0, 0)",
+              "border": "0px rgb(198, 180, 159)",
+              "color": "rgb(28, 25, 23)",
+              "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+              "pad": "0px",
+              "cls": "focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabl",
+              "disabled": false,
+              "ariaBusy": null
+            }
+          ],
+          "footer": null,
+          "error": null,
+          "progressBar": {
+            "box": [
+              409,
+              663,
+              0,
+              8
+            ],
+            "radius": "6px",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "0px rgb(198, 180, 159)",
+            "color": "rgb(28, 25, 23)",
+            "font": "18.608px/400 \"Plus Jakarta Sans\", \"Plus Jakarta Sans ",
+            "pad": "0px",
+            "cls": "progress-bar w-full mt-2 origin-left rtl:origin-right scale-x-0",
+            "tf": "matrix(0, 0, 0, 1, 0, 0)",
+            "anims": 0
+          },
+          "overlay": null,
+          "toasts": [
+            {
+              "t": "Could not add keyframesCannot interpolate mixed percentage lengths for \"transform\" without a property-specific percentage basis.Retry",
+              "type": "error",
+              "box": [
+                0,
+                900,
+                320,
+                200
+              ],
+              "op": "1"
+            },
+            {
+              "t": "Could not add keyframesInvalid animation CSS: css_syntax at 0-5: expected scalar, got calc(Retry",
+              "type": "error",
+              "box": [
+                0,
+                1100,
+                320,
+                154
+              ],
+              "op": "1"
+            }
+          ],
+          "tooltip": null,
+          "focus": "BUTTON:Add keyframes fv=false outline=none/rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0",
+          "docOverflowX": [
+            1440,
+            1440
+          ],
+          "crop": "24-spring-add-after-1440-light-crop.png"
+        }
+      ],
+      "notes": {
+        "triggerCount": 2
+      },
+      "errs": [
+        "console: TypeError: Invalid animation CSS: css_syntax at 0-5: expected scalar, got calc(\n    at parseAnimationCSS (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/demo/components/instrument/keyframes/utils/parseAnimationCSS.ts:21:9)\n",
+        "console: TypeError: Cannot interpolate mixed percentage lengths for \"transform\" without a property-specific percentage basis.\n    at createInterpSlot (http://localhost:5173/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/compile/frame/interp"
+      ]
+    }
+  ]
+}

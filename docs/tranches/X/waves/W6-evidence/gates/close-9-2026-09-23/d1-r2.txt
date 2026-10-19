@@ -1,0 +1,14 @@
+⟨EASING_RADIUS_ORIGIN=http://localhost:8981 node docs/tranches/V/megatranche/audit/probes/x-w6/gate-easing-radius.mjs⟩
+negative control: 45×44 capsule → FAIL · 16px corner nested in a row → FAIL
+register: outer 16px · inner 6px · inset 10px · row-body inset 10px
+    1 × panel    outer  div.easing-row.border r=16px 462×681.5
+    2 × panel    circle  span.specimen-dot r=9999px 10×10
+    1 × panel    inner  div.easing-inner-surface.h-5 r=6px 440×20
+   27 × panel    circle  button.glass-chip.glass-capsule r=9999px 44×44
+    1 × panel    inner  div.readout-rail.flex r=6px 440×32
+    1 × d2-ask   read:d2-ask  button.rail-btn.shrink-0 r=4px 24×24
+    1 × panel    inner  div.glass-card.relative r=6px 440×390.8
+    1 × producer read:producer  button.control-surface.glass-control-edge r=9999px 440×40
+panel surfaces measured: 33 · read-only (d2-ask / producer): 2
+GATE d1 (easing radius) — GREEN
+EXIT=0

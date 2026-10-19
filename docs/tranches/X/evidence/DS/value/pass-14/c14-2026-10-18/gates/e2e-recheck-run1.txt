@@ -1,0 +1,64 @@
+=== e2e/smoke/oracles/o17-easing-composition.spec.ts
+(node:69836) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:69844) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:126:5 › O-17 zero letterbox across curve regimes — desktop (11.5s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:126:5 › O-17 zero letterbox across curve regimes — 390 (2.8s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 1440 (2.9s)
+  ✓  4 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:163:5 › O-17 handle registration — each control point sits on the plot it controls — 390 (2.2s)
+  ✓  5 [smoke] › e2e/smoke/oracles/o17-easing-composition.spec.ts:221:1 › O-17 composition: stamps, dot rest, one-literal, mint law (2.8s)
+
+  5 passed (22.7s)
+--- exit 0 e2e/smoke/oracles/o17-easing-composition.spec.ts
+=== e2e/smoke/oracles/o10-type-locks.spec.ts
+(node:71136) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:71172) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  1 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:77:5 › O-10a/e — title type locks (desktop dual grid) › host-independence: family/style/weight identical; size ≡ each host's exact D2 token (4.3s)
+  ✓  2 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:123:5 › O-10a/e — title type locks (desktop dual grid) › height gate @900px: the ×φ header never pushes the picker console into scroll (C1) (2.0s)
+  ✓  3 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:149:5 › O-10a — the mobile matrix (390) › phones: pane title floors one rung ABOVE heading (V9C-02); About = honest 2-line lock (618ms)
+  ✓  4 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:214:5 › O-10c — rendered digit advance (the shipped face) › tabular-nums yields equal digit advance at the readout's weights; prose stays proportional (386ms)
+  ✘  5 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px (15.7m)
+(node:72565) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✓  6 [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (390 phone) › every space inks its own locked line count at 390px (18.6s)
+
+
+  1) [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 180000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[role="option"]').nth(13)[22m
+    [2m    - locator resolved to <div role="option" tabindex="-1" data-v-f1e2f8a9="" aria-selected="false" data-state="unchecked" data-space="prophoto-rgb" data-reka-collection-item="" aria-labelledby="reka-select-item-text-v-1217" class="interactive-item glass-menu-row relative flex w-full cursor-default select-none items-center py-1 ps-7 pe-2 text-dropdown data-[disabled]:cursor-not-allowed data-[disabled]:pointer-events-none data-[disabled]:opacity-disabled">…</div>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      296 |                     (await option.locator("span").first().textContent())?.trim() ??
+      297 |                     `option-${i}`;
+    > 298 |                 await option.click();
+          |                              ^
+      299 |                 const readout = page.locator(".readout").first();
+      300 |                 await expect(readout).toBeVisible();
+      301 |                 const space = spaceName;
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o10-type-locks.spec.ts:298:30
+
+    Error Context: test-results/oracles-o10-type-locks-O-1-80b61-locked-line-count-at-1440px-smoke/error-context.md
+
+  1 failed
+    [smoke] › e2e/smoke/oracles/o10-type-locks.spec.ts:272:9 › O-10b — line locks (32rem band) › every space inks its own locked line count at 1440px 
+  5 passed (16.2m)

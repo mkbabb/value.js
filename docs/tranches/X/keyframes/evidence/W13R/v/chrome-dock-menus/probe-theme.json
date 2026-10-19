@@ -1,0 +1,121 @@
+[
+ {
+  "t": 0,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ },
+ {
+  "t": 28,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ },
+ {
+  "t": 56,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ },
+ {
+  "t": 84,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ },
+ {
+  "t": 112,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ },
+ {
+  "t": 150,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ },
+ {
+  "t": 200,
+  "html": "dark",
+  "plate": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.14)",
+  "scene": {
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "op": "1"
+  },
+  "mbabb": {
+   "color": "rgb(233, 230, 226)",
+   "bg": "color(srgb 0.0927547 0.0503523 0.00879371 / 0.22)",
+   "op": "1"
+  },
+  "kbd": null,
+  "share": null
+ }
+]

@@ -1,0 +1,29 @@
+runs/chromium-smoke.json.gz: executed=343 passed=323 failed=20 flaky=0 skipped=2 -> RED
+  smoke: executed=302 passed=288 failed=14 flaky=0 skipped=2
+  smoke-admin: executed=25 passed=25 failed=0 flaky=0 skipped=0
+  smoke-mobile: executed=7 passed=7 failed=0 flaky=0 skipped=0
+  smoke-reactivity: executed=2 passed=2 failed=0 flaky=0 skipped=0
+  smoke-perf: executed=7 passed=1 failed=6 flaky=0 skipped=0
+  checker_exit=1
+runs/webkit.json.gz: executed=178 passed=152 failed=26 flaky=0 skipped=0 -> RED
+  oracles-safari: executed=174 passed=148 failed=26 flaky=0 skipped=0
+  smoke-safari: executed=4 passed=4 failed=0 flaky=0 skipped=0
+  checker_exit=1
+runs/visual.json.gz: executed=229 passed=9 failed=220 flaky=0 skipped=0 -> RED
+  visual: executed=229 passed=9 failed=220 flaky=0 skipped=0
+  checker_exit=1
+runs/chromium-rerun1.json: executed=20 passed=3 failed=17 flaky=0 skipped=0 -> RED
+  smoke: executed=14 passed=0 failed=14 flaky=0 skipped=0
+  smoke-perf: executed=6 passed=3 failed=3 flaky=0 skipped=0
+  checker_exit=1
+runs/webkit-rerun1.json: executed=26 passed=1 failed=25 flaky=0 skipped=0 -> RED
+  oracles-safari: executed=26 passed=1 failed=25 flaky=0 skipped=0
+  checker_exit=1
+falsifier/control.json: executed=1 passed=1 failed=0 flaky=0 skipped=0 -> GREEN
+  smoke: executed=1 passed=1 failed=0 flaky=0 skipped=0
+  checker_exit=0
+falsifier/falsifier.json: executed=1 passed=0 failed=1 flaky=0 skipped=0 -> RED
+  smoke-falsifier: executed=1 passed=0 failed=1 flaky=0 skipped=0
+  checker_exit=1
+falsifier/vacuity.json: executed=0 passed=0 failed=0 flaky=0 skipped=0 -> VACUOUS
+  checker_exit=1

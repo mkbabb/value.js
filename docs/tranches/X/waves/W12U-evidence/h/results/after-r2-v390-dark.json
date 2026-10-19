@@ -1,0 +1,475 @@
+{
+ "tag": "v390",
+ "theme": "dark",
+ "phase": "after",
+ "W": 390,
+ "H": 844,
+ "base": "http://localhost:9000",
+ "at": "2026-10-07T15:27:16.453Z",
+ "arms": {
+  "L3-1": {
+   "/nope/xyz": {
+    "pairs": [
+     {
+      "title": "Not Found",
+      "t": {
+       "fs": 25.888,
+       "fw": 400,
+       "lines": 1
+      },
+      "headline": "This address names no view of ",
+      "h": {
+       "fs": 20.352,
+       "fw": 600,
+       "lines": 2
+      }
+     }
+    ],
+    "frame": "frames/after-L3-1_nope_xyz-v390-dark.jpg"
+   },
+   "/palettes": {
+    "pairs": [
+     {
+      "title": "My Palettes",
+      "t": {
+       "fs": 25.888,
+       "fw": 400,
+       "lines": 1
+      },
+      "headline": "No saved palettes yet.",
+      "h": {
+       "fs": 20.352,
+       "fw": 600,
+       "lines": 1
+      }
+     }
+    ],
+    "frame": "frames/after-L3-1_palettes-v390-dark.jpg"
+   },
+   "/admin/tags": {
+    "pairs": [
+     {
+      "title": "Tags",
+      "t": {
+       "fs": 25.888,
+       "fw": 400,
+       "lines": 1
+      },
+      "headline": "Couldn't load tags.",
+      "h": {
+       "fs": 20.352,
+       "fw": 600,
+       "lines": 1
+      }
+     }
+    ],
+    "frame": "frames/after-L3-1_admin_tags-v390-dark.jpg"
+   },
+   "pass": true
+  },
+  "L3-2": {
+   "/admin/tags": {
+    "plate": true,
+    "deadControls": [],
+    "frame": "frames/after-L3-2_admin_tags-v390-dark.jpg"
+   },
+   "/admin/flagged": {
+    "plate": true,
+    "deadControls": [],
+    "frame": "frames/after-L3-2_admin_flagged-v390-dark.jpg"
+   },
+   "/admin/users": {
+    "plate": true,
+    "deadControls": [],
+    "frame": "frames/after-L3-2_admin_users-v390-dark.jpg"
+   },
+   "/admin/audit": {
+    "plate": true,
+    "deadControls": [],
+    "frame": "frames/after-L3-2_admin_audit-v390-dark.jpg"
+   },
+   "/atmosphere": {
+    "footerBand": {
+     "x": 17,
+     "y": 792,
+     "w": 356,
+     "h": 65,
+     "b": 857
+    },
+    "frame": "frames/after-L3-2_atmosphere-v390-dark.jpg"
+   },
+   "pass": true
+  },
+  "L3-4": {
+   "wellH": 97,
+   "capMidY": 340,
+   "addMidY": 338,
+   "addTop": 305,
+   "capBottom": 350,
+   "frame": "frames/after-L3-4_palettes-v390-dark.jpg",
+   "pass": true
+  },
+  "L3-5": {
+   "/gradient": {
+    "stage": {
+     "wrapH": 1102,
+     "cardH": 1102,
+     "dead": 34,
+     "emptyFillGap": 881
+    },
+    "inspector": {
+     "wrapH": 466,
+     "cardH": 466,
+     "dead": 49,
+     "emptyFillGap": 17
+    },
+    "frame": "frames/after-L3-5_gradient-v390-dark.jpg"
+   },
+   "/extract": {
+    "stage": {
+     "wrapH": 476,
+     "cardH": 476,
+     "dead": 122,
+     "emptyFillGap": 202
+    },
+    "inspector": {
+     "wrapH": 466,
+     "cardH": 466,
+     "dead": 49,
+     "emptyFillGap": 17
+    },
+    "frame": "frames/after-L3-5_extract-v390-dark.jpg"
+   },
+   "/generate": {
+    "stage": {
+     "wrapH": 507,
+     "cardH": 507,
+     "dead": 17,
+     "emptyFillGap": null
+    },
+    "inspector": {
+     "wrapH": 466,
+     "cardH": 466,
+     "dead": 49,
+     "emptyFillGap": 17
+    },
+    "frame": "frames/after-L3-5_generate-v390-dark.jpg"
+   },
+   "/mix": {
+    "stage": {
+     "wrapH": 537,
+     "cardH": 537,
+     "dead": 31,
+     "emptyFillGap": null
+    },
+    "inspector": {
+     "wrapH": 432,
+     "cardH": 432,
+     "dead": 1,
+     "emptyFillGap": null
+    },
+    "frame": "frames/after-L3-5_mix-v390-dark.jpg"
+   },
+   "/blob": {
+    "stage": {
+     "wrapH": 537,
+     "cardH": 537,
+     "dead": 31,
+     "emptyFillGap": null
+    },
+    "inspector": {
+     "wrapH": 2764,
+     "cardH": 2764,
+     "dead": 11,
+     "emptyFillGap": null
+    },
+    "frame": "frames/after-L3-5_blob-v390-dark.jpg"
+   },
+   "pass": true
+  },
+  "L3-7": {
+   "rest": {
+    "text": "Select a stop on the rail to set its position or remove it.",
+    "rows": 1,
+    "h": 20,
+    "position": null,
+    "posTop": null,
+    "rmTop": null
+   },
+   "sel": {
+    "text": "Stop 1 of 2 Position % Remove A gradient needs at least two stops, so this one cannot be r",
+    "rows": 3,
+    "h": 121,
+    "position": true,
+    "remove": true,
+    "posTop": 360,
+    "rmTop": 369
+   },
+   "frames": [
+    "frames/after-L3-7_rest-v390-dark.jpg",
+    "frames/after-L3-7_selected-v390-dark.jpg"
+   ],
+   "pass": true
+  }
+ },
+ "gates": {
+  "/nope/xyz": {
+   "route": "/nope/xyz",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Not Found",
+     "cMax": 18.2685,
+     "cMaxText": "Back to the picker",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/palettes": {
+   "route": "/palettes",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "92.0%,88.8,20.0",
+     "cMax": 20.352,
+     "cMaxText": "L",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "My Palettes",
+     "cMax": 21,
+     "cMaxText": "Search your palettes...",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/admin/tags": {
+   "route": "/admin/tags",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Tags",
+     "cMax": 18.2685,
+     "cMaxText": "Retry",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/admin/flagged": {
+   "route": "/admin/flagged",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Flagged",
+     "cMax": 18.2685,
+     "cMaxText": "Retry",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/admin/users": {
+   "route": "/admin/users",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Users",
+     "cMax": 21,
+     "cMaxText": "Search users...",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/admin/audit": {
+   "route": "/admin/audit",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Audit Log",
+     "cMax": 18.2685,
+     "cMaxText": "Retry",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/atmosphere": {
+   "route": "/atmosphere",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 20.352,
+     "hMinText": "Field",
+     "cMax": 21,
+     "cMaxText": "Analogous",
+     "P": true,
+     "H": false
+    }
+   ]
+  },
+  "/gradient": {
+   "route": "/gradient",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 20.352,
+     "hMinText": "Stops",
+     "cMax": 21,
+     "cMaxText": "Linear",
+     "P": true,
+     "H": false
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "My Palettes",
+     "cMax": 21,
+     "cMaxText": "Search your palettes...",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/extract": {
+   "route": "/extract",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Extract",
+     "cMax": null,
+     "cMaxText": "",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "My Palettes",
+     "cMax": 14,
+     "cMaxText": "Search your palettes...",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/generate": {
+   "route": "/generate",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "Generate",
+     "cMax": 20.352,
+     "cMaxText": "",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "My Palettes",
+     "cMax": 14,
+     "cMaxText": "Search your palettes...",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/mix": {
+   "route": "/mix",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "92.0%,88.8,20.0",
+     "cMax": 20.352,
+     "cMaxText": "L",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 20.352,
+     "hMinText": "Selected",
+     "cMax": 14,
+     "cMaxText": "OKLab",
+     "P": true,
+     "H": true
+    }
+   ]
+  },
+  "/blob": {
+   "route": "/blob",
+   "regions": [
+    {
+     "role": "stage",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 25.888,
+     "hMinText": "92.0%,88.8,20.0",
+     "cMax": 20.352,
+     "cMaxText": "L",
+     "P": true,
+     "H": true
+    },
+    {
+     "role": "inspector",
+     "primaries": 0,
+     "primaryNames": [],
+     "hMin": 20.352,
+     "hMinText": "Geometry",
+     "cMax": 12.179,
+     "cMaxText": "Copy JSON",
+     "P": true,
+     "H": true
+    }
+   ]
+  }
+ }
+}

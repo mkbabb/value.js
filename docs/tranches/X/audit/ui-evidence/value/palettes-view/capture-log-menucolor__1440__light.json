@@ -1,0 +1,9 @@
+[
+ {
+  "tag": "menucolor__1440__light",
+  "sha": "26836da6",
+  "dirty": "15",
+  "fail": "Error: page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/palettes\", waiting until \"domcontentloaded\"\u001b[22m\n",
+  "errs": []
+ }
+]

@@ -1,0 +1,6 @@
+SERVED MODEL: claude-opus-5-5
+[1440x900 light]
+RED  657 Not Found. /caf%C3%A9/menu?color=oklch(70%25+0.15+180deg)&space=oklch could not be opened — showing the Not Found scene.
+RED  355 {"tab":false,"panel":null,"chips":1,"removeEnabled":false}
+RED  597 {"tab":false,"panel":null,"chips":1,"removeEnabled":false}
+RED  439 {"posted":null,"labelled":false}

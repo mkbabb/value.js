@@ -1,0 +1,364 @@
+{
+ "tiles-light-easing": [
+  {
+   "state": "on",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(198, 180, 159)",
+   "radius": "16px",
+   "outline": "1px solid"
+  },
+  {
+   "state": "off",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(198, 180, 159)",
+   "radius": "16px",
+   "outline": "3px none"
+  },
+  {
+   "state": "on",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(198, 180, 159)",
+   "radius": "16px",
+   "outline": "1px solid"
+  }
+ ],
+ "tiles-light-spring": [
+  {
+   "state": "on",
+   "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.08)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgba(0, 0, 0, 0)",
+   "radius": "16px",
+   "outline": "1px dashed"
+  },
+  {
+   "state": "on",
+   "bg": "color(srgb 0.493698 0.351392 0.798991 / 0.08)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgba(0, 0, 0, 0)",
+   "radius": "16px",
+   "outline": "1px dashed"
+  },
+  {
+   "state": "off",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(198, 180, 159)",
+   "radius": "16px",
+   "outline": "1px dashed"
+  }
+ ],
+ "stagger-header-light": [
+  {
+   "tag": "BUTTON",
+   "label": null,
+   "text": "Stagger",
+   "orient": null,
+   "x": 73
+  },
+  {
+   "tag": "BUTTON",
+   "label": "Reel — play a cascading wave replay",
+   "text": "Reel",
+   "orient": null,
+   "x": 327
+  },
+  {
+   "tag": "DIV",
+   "label": null,
+   "text": "",
+   "orient": "vertical",
+   "x": 391
+  },
+  {
+   "tag": "BUTTON",
+   "label": "Reset the sequence items to the default stagger",
+   "text": "",
+   "orient": null,
+   "x": 396
+  }
+ ],
+ "layer-row-light": {
+  "layerLabel": "rgb(28, 25, 23)",
+  "layerValue": "rgb(112, 89, 66)",
+  "layerValueText": "single-target only",
+  "reverse": "rgb(112, 89, 66)",
+  "preview": "rgb(112, 89, 66)"
+ },
+ "popover-tiles-light": [
+  {
+   "state": "off",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid"
+  },
+  {
+   "state": "off",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid"
+  }
+ ],
+ "tiles-dark-easing": [
+  {
+   "state": "on",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(101, 87, 73)",
+   "radius": "16px",
+   "outline": "1px solid"
+  },
+  {
+   "state": "off",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(101, 87, 73)",
+   "radius": "16px",
+   "outline": "3px none"
+  },
+  {
+   "state": "on",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(101, 87, 73)",
+   "radius": "16px",
+   "outline": "1px solid"
+  }
+ ],
+ "tiles-dark-spring": [
+  {
+   "state": "on",
+   "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.08)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgba(0, 0, 0, 0)",
+   "radius": "16px",
+   "outline": "1px dashed"
+  },
+  {
+   "state": "on",
+   "bg": "color(srgb 0.744689 0.583611 0.927227 / 0.08)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgba(0, 0, 0, 0)",
+   "radius": "16px",
+   "outline": "1px dashed"
+  },
+  {
+   "state": "off",
+   "bg": "rgba(0, 0, 0, 0)",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid rgb(101, 87, 73)",
+   "radius": "16px",
+   "outline": "1px dashed"
+  }
+ ],
+ "stagger-header-dark": [
+  {
+   "tag": "BUTTON",
+   "label": null,
+   "text": "Stagger",
+   "orient": null,
+   "x": 73
+  },
+  {
+   "tag": "BUTTON",
+   "label": "Reel — play a cascading wave replay",
+   "text": "Reel",
+   "orient": null,
+   "x": 327
+  },
+  {
+   "tag": "DIV",
+   "label": null,
+   "text": "",
+   "orient": "vertical",
+   "x": 391
+  },
+  {
+   "tag": "BUTTON",
+   "label": "Reset the sequence items to the default stagger",
+   "text": "",
+   "orient": null,
+   "x": 396
+  }
+ ],
+ "layer-row-dark": {
+  "layerLabel": "rgb(233, 230, 226)",
+  "layerValue": "rgb(195, 185, 172)",
+  "layerValueText": "single-target only",
+  "reverse": "rgb(195, 185, 172)",
+  "preview": "rgb(195, 185, 172)"
+ },
+ "popover-tiles-dark": [
+  {
+   "state": "off",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid"
+  },
+  {
+   "state": "off",
+   "bgi": "none",
+   "shadow": "none",
+   "border": "1px solid"
+  }
+ ],
+ "title-390-light-spring": {
+  "title": {
+   "text": "Spring",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 75
+  },
+  "label": {
+   "text": "Spring Keyframes",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 211
+  }
+ },
+ "title-390-light-easing": {
+  "title": {
+   "text": "ease",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 47
+  },
+  "label": {
+   "text": "Easing",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 78
+  }
+ },
+ "title-390-light-sequence": {
+  "title": {
+   "text": "Sequence",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 105
+  },
+  "label": {
+   "text": "Stagger",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 97
+  }
+ },
+ "title-390-light-square": {
+  "title": {
+   "text": "Transform",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 118
+  },
+  "label": {
+   "text": "Transform",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 119
+  }
+ },
+ "title-390-dark-spring": {
+  "title": {
+   "text": "Spring",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 75
+  },
+  "label": {
+   "text": "Spring Keyframes",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 211
+  }
+ },
+ "title-390-dark-easing": {
+  "title": {
+   "text": "ease",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 47
+  },
+  "label": {
+   "text": "Easing",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 78
+  }
+ },
+ "title-390-dark-sequence": {
+  "title": {
+   "text": "Sequence",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 105
+  },
+  "label": {
+   "text": "Stagger",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 97
+  }
+ },
+ "title-390-dark-square": {
+  "title": {
+   "text": "Transform",
+   "size": "32.928px",
+   "family": "\"Instrument Serif\"",
+   "weight": "400",
+   "w": 118
+  },
+  "label": {
+   "text": "Transform",
+   "size": "25.888px",
+   "family": "\"Plus Jakarta Sans\"",
+   "weight": "600",
+   "w": 119
+  }
+ },
+ "title-1440-spring": {
+  "title": "41.888px",
+  "label": "25.888px"
+ },
+ "title-1440-easing": {
+  "title": "41.888px",
+  "label": "25.888px"
+ },
+ "title-1440-sequence": {
+  "title": "41.888px",
+  "label": "25.888px"
+ },
+ "title-1440-square": {
+  "title": "41.888px",
+  "label": "25.888px"
+ }
+}

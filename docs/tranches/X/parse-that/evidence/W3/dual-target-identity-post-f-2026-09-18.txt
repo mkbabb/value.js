@@ -1,0 +1,24 @@
+SERVED MODEL: claude-fable-5-1 · X.P.W3.f G-5 transcript (run 2 of 2, the --out run) · 2026-09-18 · ⟨cmd⟩ cd <p2>/typescript && node scripts/css-dual-target-identity.mjs --out <this dir>/dual-target-identity-post-f-2026-09-18.json
+X.P.W3.d — css-dual-target-identity (G-5)
+────────────────────────────────────────────────────────────────────────────────────────────────
+js artifact    src/css/build/ac1.js — sha256 5f300b7ea43e1d38
+wasm artifact  src/css/build/ac1.wasm — sha256 80a04a5a1200b1f2
+lowerings      js · wasm (published through src/css/entry.mjs)
+corpus         test/css-totality/corpus.json — 26604 rows → 26551 distinct · run 26551 · F-c3 unwrapped 172
+entries        parseCssColor · parseTimingFunction · parseStylesheet
+canonical      keys [ok, code, start, end, expected, actual] in FIXED order · NO array sorted · NO number rounded
+
+  parseCssColor           26551 cells · six-tuple differ     0 · full-diagnostics differ     0 · value differ     0 · threw 0
+  parseTimingFunction     26551 cells · six-tuple differ     0 · full-diagnostics differ     0 · value differ     0 · threw 0
+  parseStylesheet         26551 cells · six-tuple differ     0 · full-diagnostics differ     0 · value differ     0 · threw 0
+
+  boundary (7 declared non-string values × 3 entries = 21 cells) — identical across both targets: ALL
+
+────────────────────────────────────────────────────────────────────────────────────────────────
+cells                       79674
+six-tuple differing cells   0   (differing bytes 0)
+full-diagnostics differing  0
+value differing cells       0   ← beside the gate, not part of it
+cells where a target threw  0
+
+GREEN — the two targets produce byte-identical {ok, code, start, end, expected, actual} for every corpus input.

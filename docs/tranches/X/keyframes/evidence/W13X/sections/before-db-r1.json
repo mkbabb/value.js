@@ -1,0 +1,150 @@
+{
+ "run": "before-db-r1",
+ "base": "http://localhost:5332",
+ "da": [],
+ "db": [
+  {
+   "cfg": "cube-1440x900-light",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 64
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 64
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  },
+  {
+   "cfg": "cube-390x844-light",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 72
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 72
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  },
+  {
+   "cfg": "cube-1440x900-dark",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 64
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 64
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  },
+  {
+   "cfg": "cube-390x844-dark",
+   "r0": {
+    "resets": [
+     {
+      "label": "Reset",
+      "inHeader": false,
+      "onRow": false
+     }
+    ],
+    "expanded": "true",
+    "ribbonCard": {
+     "buttons": 1,
+     "h": 72
+    },
+    "cell0": "1"
+   },
+   "resets": [
+    {
+     "label": "Reset",
+     "inHeader": false,
+     "onRow": false
+    }
+   ],
+   "ribbonCard": {
+    "buttons": 1,
+    "h": 72
+   },
+   "cellBefore": "1",
+   "cellEdited": "2",
+   "cellAfterReset": "1",
+   "expandedBefore": "true",
+   "expandedAfter": "true",
+   "db": "RED"
+  }
+ ],
+ "ribbon": [],
+ "header": [],
+ "dialog": []
+}

@@ -1,0 +1,64 @@
+{
+ "run": "explore1",
+ "mode": "swap",
+ "load": [
+  "314.56",
+  "316.63"
+ ],
+ "maxGap": 217,
+ "gapAt": 138,
+ "loafOver50": 1,
+ "loafMax": 238,
+ "loafMaxBlocking": 168,
+ "loaf": [
+  {
+   "start": 7483,
+   "dur": 238,
+   "blocking": 168,
+   "scripts": [
+    {
+     "inv": "ViewTransitionCallback",
+     "src": "/transition/useSceneTransition.ts",
+     "fn": "",
+     "dur": 10
+    },
+    {
+     "inv": "import.then",
+     "src": "/scene/scenes.ts",
+     "fn": "",
+     "dur": 185
+    },
+    {
+     "inv": "FrameRequestCallback",
+     "src": "/@fs/Users/mkbabb/Programming/keyframes.js/src/animation/physics/playback.ts",
+     "fn": "frame",
+     "dur": 27
+    }
+   ]
+  }
+ ],
+ "topSelf": [
+  "262.6ms (program) :0",
+  "58.6ms (idle) :0",
+  "6.3ms mergeProps /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:6572",
+  "3.2ms getBoundingClientRect :0",
+  "2.8ms getNextHostNode /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:5905",
+  "2.7ms setFullProps /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:4933",
+  "1.6ms get /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:996",
+  "1.4ms isSameVNodeType /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:6369",
+  "1.4ms patch /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:5261",
+  "1.3ms updateProps /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:4890",
+  "1.1ms get clientWidth :0",
+  "0.7ms (anon) /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/@mkbabb_glass:195",
+  "0.6ms renderSlot /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:3888",
+  "0.6ms patchElement /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e:5402"
+ ],
+ "topFiles": [
+  "324.4ms ?",
+  "22.7ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/vue.runtime.e",
+  "1.1ms clientWidth",
+  "0.7ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/@mkbabb_glass",
+  "0.6ms /@fs/Users/mkbabb/Programming/keyframes.js/demo/components/instrument/transport/",
+  "0.4ms /@fs/Users/mkbabb/Programming/keyframes.js/node_modules/.vite/deps/dist-CWHMI1qW"
+ ]
+}

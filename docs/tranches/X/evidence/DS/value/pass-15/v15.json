@@ -1,0 +1,313 @@
+{
+  "base": "http://localhost:9011",
+  "featured": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "file": "featured-1440-light.png",
+      "badges": [
+        {
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "pixels": {
+        "plate": "rgb(200,78,140)",
+        "glyph": {
+          "ink": "rgb(55,37,1)",
+          "ratio": 3.45
+        },
+        "label": {
+          "ink": "rgb(26,23,21)",
+          "ratio": 4.18
+        },
+        "ringPx": 3
+      }
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "file": "featured-390-light.png",
+      "badges": [
+        {
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "pixels": {
+        "plate": "rgb(201,84,141)",
+        "glyph": {
+          "ink": "rgb(54,38,0)",
+          "ratio": 3.58
+        },
+        "label": null,
+        "ringPx": 3
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "file": "featured-1440-dark.png",
+      "badges": [
+        {
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "pixels": {
+        "plate": "rgb(114,50,70)",
+        "glyph": {
+          "ink": "rgb(228,185,72)",
+          "ratio": 5.01
+        },
+        "label": {
+          "ink": "rgb(235,233,229)",
+          "ratio": 7.66
+        },
+        "ringPx": 3
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "file": "featured-390-dark.png",
+      "badges": [
+        {
+          "color": "oklch(0.925202 0.00618423 67.7483)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "pixels": {
+        "plate": "rgb(121,48,65)",
+        "glyph": {
+          "ink": "rgb(228,185,73)",
+          "ratio": 4.9
+        },
+        "label": null,
+        "ringPx": 3
+      }
+    }
+  ],
+  "admin": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-1440-light.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "oklch(0.751 0.147 84.2)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "counts": {
+        "titleChips": 0,
+        "rowCounts": [
+          {
+            "text": "1",
+            "title": "1 palette",
+            "color": "oklch(0.289468 0.00386159 34.63)"
+          },
+          {
+            "text": "2",
+            "title": "2 palettes",
+            "color": "oklch(0.289468 0.00386159 34.63)"
+          }
+        ],
+        "toolbar": [
+          "2 users"
+        ]
+      },
+      "menuLabels": [
+        "Users",
+        "Names",
+        "Audit log",
+        "Flagged",
+        "Tags",
+        "Atmosphere",
+        "Blob",
+        "Back to app"
+      ],
+      "menuAdminInk": [],
+      "menuFile": "admin-view-menu-1440-light.png"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "file": "admin-users-390-light.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "oklch(0.751 0.147 84.2)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.751 0.147 84.2)",
+          "borderColor": "rgb(198, 180, 159)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "counts": {
+        "titleChips": 0,
+        "rowCounts": [
+          {
+            "text": "1",
+            "title": "1 palette",
+            "color": "oklch(0.289468 0.00386159 34.63)"
+          },
+          {
+            "text": "2",
+            "title": "2 palettes",
+            "color": "oklch(0.289468 0.00386159 34.63)"
+          }
+        ],
+        "toolbar": [
+          "2 users"
+        ]
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-1440-dark.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "oklch(0.784 0.143 86)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "counts": {
+        "titleChips": 0,
+        "rowCounts": [
+          {
+            "text": "1",
+            "title": "1 palette",
+            "color": "oklch(0.712763 0.00382185 41.8684)"
+          },
+          {
+            "text": "2",
+            "title": "2 palettes",
+            "color": "oklch(0.712763 0.00382185 41.8684)"
+          }
+        ],
+        "toolbar": [
+          "2 users"
+        ]
+      },
+      "menuLabels": [
+        "Users",
+        "Names",
+        "Audit log",
+        "Flagged",
+        "Tags",
+        "Atmosphere",
+        "Blob",
+        "Back to app"
+      ],
+      "menuAdminInk": [],
+      "menuFile": "admin-view-menu-1440-dark.png"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "file": "admin-users-390-dark.png",
+      "adminInk": [
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "oklch(0.784 0.143 86)",
+          "backgroundImage": "none",
+          "backgroundClip": "content-box",
+          "running": []
+        },
+        {
+          "color": "oklch(0.784 0.143 86)",
+          "borderColor": "rgb(101, 87, 73)",
+          "backgroundImage": "none",
+          "backgroundClip": "border-box",
+          "running": []
+        }
+      ],
+      "counts": {
+        "titleChips": 0,
+        "rowCounts": [
+          {
+            "text": "1",
+            "title": "1 palette",
+            "color": "oklch(0.712763 0.00382185 41.8684)"
+          },
+          {
+            "text": "2",
+            "title": "2 palettes",
+            "color": "oklch(0.712763 0.00382185 41.8684)"
+          }
+        ],
+        "toolbar": [
+          "2 users"
+        ]
+      }
+    }
+  ]
+}

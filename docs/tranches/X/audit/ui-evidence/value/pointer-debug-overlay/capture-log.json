@@ -1,0 +1,3078 @@
+[
+  {
+    "tag": "01-collapsed__1440__light",
+    "tree": "f82daf4a dirty=6",
+    "note": "?debug=1 boot: collapsed chip",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        860,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        861,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "02-header-focus__1440__light",
+    "tree": "f82daf4a dirty=6",
+    "note": "header keyboard focus (focus-visible ring?)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        860,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        861,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "03-expanded-empty__1440__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "expanded, gauges from interval only",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        731,
+        280,
+        161
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        732,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 88,
+        "ch": 88,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n15001.0\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "04-expanded-after-drags__1440__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "after spectrum drag + slider drag",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 335,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n2786.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n110.10\nsl:l:lostcap\np1\nspan.slider-thumb.glass-specular-track\n109.99\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n109.82\nspec:lo"
+    }
+  },
+  {
+    "tag": "05-log-wheel__1440__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "wheel over log: [logScrollTop,winY,docScrollTop] before=0,0,0 after=0,0,0",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 335,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n2068.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n110.10\nsl:l:lostcap\np1\nspan.slider-thumb.glass-specular-track\n109.99\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n109.82\nspec:lo"
+    }
+  },
+  {
+    "tag": "06-freeze__1440__light",
+    "tree": "f82daf4a dirty=5",
+    "note": "pointer held still 3.3 s on spectrum (FREEZE_DETECTED expected)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 384,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\nFROZEN?\n−\nSTATE\nglobal.activePointer\nYES\nglobal.activePointers\n1.0\nglobal.silenceMs\n4510.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nYES\nspec.capturedPid\n1.0\nsl.l.gate\nno\nEVENTS (7)\n118.39\nFREEZE_DETECTED\np-1\n??\n2510ms silence. stuck: p1@div.spectrum-picker.flex(2.5s)\n115.88\nspec:down\np1\ndiv.spectrum-picker.flex\n110.10\ns"
+    }
+  },
+  {
+    "tag": "07-freeze-release__1440__light",
+    "tree": "f82daf4a dirty=5",
+    "note": "pointer released",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 450,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1731.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n120.66\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n120.66\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n118.39\nFREEZE_DETECTED\np-1\n??\n2510ms silence. stuck: p"
+    }
+  },
+  {
+    "tag": "08-copy__1440__light",
+    "tree": "f82daf4a dirty=5",
+    "note": "Copy JSON clicked; clipboard len=1791",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 450,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n3730.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n120.66\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n120.66\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n118.39\nFREEZE_DETECTED\np-1\n??\n2510ms silence. stuck: p"
+    }
+  },
+  {
+    "tag": "09-reset-hover__1440__light",
+    "tree": "f82daf4a dirty=5",
+    "note": "hover Reset",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 450,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n10230.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n120.66\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n120.66\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n118.39\nFREEZE_DETECTED\np-1\n??\n2510ms silence. stuck: "
+    }
+  },
+  {
+    "tag": "10-reset__1440__light",
+    "tree": "f82daf4a dirty=5",
+    "note": "Reset clicked",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 529,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n6707.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n131180.8\nlastForceReset\n131181.7\nEVENTS (11)\n131.18\nFORCE_RESET_DONE\np-1\n??\n13 els checked\n131.18\nFORCE_RELEASE\np-1\n??\nmanual\n120.66\nspec:lostc"
+    }
+  },
+  {
+    "tag": "11-clear__1440__light",
+    "tree": "f82daf4a dirty=6",
+    "note": "Clear clicked (empty log state)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        598,
+        280,
+        294
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        599,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 221,
+        "ch": 221,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n7901.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n131180.8\nlastForceReset\n131181.7\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "01-collapsed__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "?debug=1 boot: collapsed chip",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        860,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        861,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "02-header-focus__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "header keyboard focus (focus-visible ring?)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        860,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        861,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "03-expanded-empty__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "expanded, gauges from interval only",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        731,
+        280,
+        161
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        732,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 88,
+        "ch": 88,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n96000.0\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "04-expanded-after-drags__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "after spectrum drag + slider drag",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 335,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1586.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n163.07\nsl:l:lostcap\np1\nspan.slider-thumb.glass-specular-track\n162.99\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n162.88\nspec:lo"
+    }
+  },
+  {
+    "tag": "05-log-wheel__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "wheel over log: [logScrollTop,winY,docScrollTop] before=0,0,0 after=0,0,0",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 335,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1311.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n163.07\nsl:l:lostcap\np1\nspan.slider-thumb.glass-specular-track\n162.99\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n162.88\nspec:lo"
+    }
+  },
+  {
+    "tag": "06-freeze__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "pointer held still 3.3 s on spectrum (FREEZE_DETECTED expected)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 384,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\nFROZEN?\n−\nSTATE\nglobal.activePointer\nYES\nglobal.activePointers\n1.0\nglobal.silenceMs\n5356.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nYES\nspec.capturedPid\n1.0\nsl.l.gate\nno\nEVENTS (7)\n169.15\nFREEZE_DETECTED\np-1\n??\n2856ms silence. stuck: p1@div.spectrum-picker.flex(2.9s)\n166.30\nspec:down\np1\ndiv.spectrum-picker.flex\n163.07\ns"
+    }
+  },
+  {
+    "tag": "07-freeze-release__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "pointer released",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 450,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1534.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n172.12\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n172.12\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n169.15\nFREEZE_DETECTED\np-1\n??\n2856ms silence. stuck: p"
+    }
+  },
+  {
+    "tag": "08-copy__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "Copy JSON clicked; clipboard len=1791",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 450,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\ncopied!\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n2535.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n172.12\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n172.12\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n169.15\nFREEZE_DETECTED\np-1\n??\n2856ms silence. "
+    }
+  },
+  {
+    "tag": "09-reset-hover__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "hover Reset",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 450,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n4535.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n172.12\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n172.12\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n169.15\nFREEZE_DETECTED\np-1\n??\n2856ms silence. stuck: p"
+    }
+  },
+  {
+    "tag": "10-reset__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "Reset clicked",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        577,
+        280,
+        315
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        578,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 529,
+        "ch": 243,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n554.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n177098.1\nlastForceReset\n177098.8\nEVENTS (11)\n177.10\nFORCE_RESET_DONE\np-1\n??\n13 els checked\n177.10\nFORCE_RELEASE\np-1\n??\nmanual\n172.12\nspec:lostca"
+    }
+  },
+  {
+    "tag": "11-clear__1440__dark",
+    "tree": "f82daf4a dirty=6",
+    "note": "Clear clicked (empty log state)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        598,
+        280,
+        294
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        599,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 221,
+        "ch": 221,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            858,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        8,
+        1408,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1027.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n177098.1\nlastForceReset\n177098.8\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "01-collapsed__390__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "?debug=1 boot: collapsed chip",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        804,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        805,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "02-header-focus__390__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "header keyboard focus (focus-visible ring?)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        804,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        805,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "03-expanded-empty__390__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "expanded, gauges from interval only",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        675,
+        280,
+        161
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "SPAN.slider-range glass-liquid-fill",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        676,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 88,
+        "ch": 88,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n70001.0\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "04-expanded-after-drags__390__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "after spectrum drag + slider drag",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 318,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1152.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n78.09\nsl:l:gate-block\np1\nspan.slider-thumb.glass-specular-track\n78.09\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n78.07\nspec:up"
+    }
+  },
+  {
+    "tag": "05-log-wheel__390__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "wheel over log: [logScrollTop,winY,docScrollTop] before=0,0,0 after=0,68,68",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "SPAN.slider-range glass-liquid-fill",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 318,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        -52,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1058.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n78.09\nsl:l:gate-block\np1\nspan.slider-thumb.glass-specular-track\n78.09\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n78.07\nspec:up"
+    }
+  },
+  {
+    "tag": "06-freeze__390__light",
+    "tree": "f82daf4a dirty=7",
+    "note": "pointer held still 3.3 s on spectrum (FREEZE_DETECTED expected)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 400,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\nFROZEN?\n−\nSTATE\nglobal.activePointer\nYES\nglobal.activePointers\n1.0\nglobal.silenceMs\n3635.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (8)\n83.76\nFREEZE_DETECTED\np-1\n??\n2634ms silence. stuck: p1@div.spectrum-picker.flex(2.6s)\n81.12\nspec:gate-block\np1\ndiv.spectrum-picker.flex\n81.1"
+    }
+  },
+  {
+    "tag": "07-freeze-release__390__light",
+    "tree": "f82daf4a dirty=8",
+    "note": "pointer released",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 416,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1197.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n85.06\nspec:up\np1\ndiv.spectrum-picker.flex\n83.76\nFREEZE_DETECTED\np-1\n??\n2634ms silence. stuck: p1@div.spectrum-picker.flex(2.6s)\n81.12\nspec:gate-block"
+    }
+  },
+  {
+    "tag": "08-copy__390__light",
+    "tree": "f82daf4a dirty=8",
+    "note": "Copy JSON clicked; clipboard len=1756",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 416,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\ncopied!\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n2197.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n85.06\nspec:up\np1\ndiv.spectrum-picker.flex\n83.76\nFREEZE_DETECTED\np-1\n??\n2634ms silence. stuck: p1@div.spectrum-picker.flex(2.6s)\n81.12\nspec:ga"
+    }
+  },
+  {
+    "tag": "09-reset-hover__390__light",
+    "tree": "f82daf4a dirty=8",
+    "note": "hover Reset",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 416,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n4697.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n85.06\nspec:up\np1\ndiv.spectrum-picker.flex\n83.76\nFREEZE_DETECTED\np-1\n??\n2634ms silence. stuck: p1@div.spectrum-picker.flex(2.6s)\n81.12\nspec:gate-block"
+    }
+  },
+  {
+    "tag": "10-reset__390__light",
+    "tree": "f82daf4a dirty=8",
+    "note": "Reset clicked",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 495,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n562.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n90196.9\nlastForceReset\n90197.7\nEVENTS (11)\n90.20\nFORCE_RESET_DONE\np-1\n??\n13 els checked\n90.20\nFORCE_RELEASE\np-1\n??\nmanual\n85.06\nspec:up\np1\ndiv.s"
+    }
+  },
+  {
+    "tag": "11-clear__390__light",
+    "tree": "f82daf4a dirty=8",
+    "note": "Clear clicked (empty log state)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        542,
+        280,
+        294
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "SPAN.glass-slider channel-slider",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        543,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 221,
+        "ch": 221,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1008.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n90196.9\nlastForceReset\n90197.7\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "01-collapsed__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "?debug=1 boot: collapsed chip",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        804,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        805,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "02-header-focus__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "header keyboard focus (focus-visible ring?)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        804,
+        68,
+        32
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": true,
+      "headerHit": "SPAN.debug-title",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        805,
+        66,
+        30
+      ],
+      "scroll": null,
+      "btns": [],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n+"
+    }
+  },
+  {
+    "tag": "03-expanded-empty__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "expanded, gauges from interval only",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        675,
+        280,
+        161
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "SPAN.slider-range glass-liquid-fill",
+      "headerFocusOutline": "auto",
+      "headerBox": [
+        9,
+        676,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 88,
+        "ch": 88,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n74501.0\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  },
+  {
+    "tag": "04-expanded-after-drags__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "after spectrum drag + slider drag",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 318,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n866.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n114.04\nsl:l:gate-block\np1\nspan.slider-thumb.glass-specular-track\n114.04\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n114.02\nspec:"
+    }
+  },
+  {
+    "tag": "05-log-wheel__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "wheel over log: [logScrollTop,winY,docScrollTop] before=0,0,0 after=0,68,68",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "SPAN.slider-range glass-liquid-fill",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 318,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        -52,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n574.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\nspan.slider-thumb.glass-specular-track\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (5)\n114.04\nsl:l:gate-block\np1\nspan.slider-thumb.glass-specular-track\n114.04\nsl:l:down\np1\nspan.slider-thumb.glass-specular-track\n114.02\nspec:"
+    }
+  },
+  {
+    "tag": "06-freeze__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "pointer held still 3.3 s on spectrum (FREEZE_DETECTED expected)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 367,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\nFROZEN?\n−\nSTATE\nglobal.activePointer\nYES\nglobal.activePointers\n1.0\nglobal.silenceMs\n3486.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nYES\nspec.capturedPid\n1.0\nsl.l.gate\nno\nEVENTS (7)\n119.43\nFREEZE_DETECTED\np-1\n??\n2988ms silence. stuck: p1@div.spectrum-picker.flex(3.0s)\n116.44\nspec:down\np1\ndiv.spectrum-picker.flex\n114.04\ns"
+    }
+  },
+  {
+    "tag": "07-freeze-release__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "pointer released",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 433,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1132.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n120.30\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n120.29\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n119.43\nFREEZE_DETECTED\np-1\n??\n2988ms silence. stuck: p"
+    }
+  },
+  {
+    "tag": "08-copy__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "Copy JSON clicked; clipboard len=1781",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 433,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\ncopied!\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n2132.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n120.30\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n120.29\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n119.43\nFREEZE_DETECTED\np-1\n??\n2988ms silence. "
+    }
+  },
+  {
+    "tag": "09-reset-hover__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "hover Reset",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 433,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n4131.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nEVENTS (9)\n120.30\nspec:lostcap\np1\ndiv.spectrum-picker.flex\n120.29\nspec:up\np1\nCAP\ndiv.spectrum-picker.flex\n119.43\nFREEZE_DETECTED\np-1\n??\n2988ms silence. stuck: p"
+    }
+  },
+  {
+    "tag": "10-reset__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "Reset clicked",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        541,
+        280,
+        295
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "DIV.channel-rows flex-1 min-w-0 flex flex-col justify-around sta",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        542,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 512,
+        "ch": 223,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n629.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n124795.8\nlastForceReset\n124796.5\nEVENTS (11)\n124.80\nFORCE_RESET_DONE\np-1\n??\n13 els checked\n124.80\nFORCE_RELEASE\np-1\n??\nmanual\n120.30\nspec:lostca"
+    }
+  },
+  {
+    "tag": "11-clear__390__dark",
+    "tree": "e518a7a0 dirty=7",
+    "note": "Clear clicked (empty log state)",
+    "errs": [],
+    "probe": {
+      "zIndexRaw": "auto",
+      "zDebugVar": "",
+      "zToast": "160",
+      "box": [
+        8,
+        542,
+        280,
+        294
+      ],
+      "radius": "12px",
+      "bg": "rgba(0, 0, 0, 0.92)",
+      "font": "\"SF Mono\", \"Fira Code\", monospace 10px",
+      "headerHitIsOverlay": false,
+      "headerHit": "SPAN.glass-slider channel-slider",
+      "headerFocusOutline": "none",
+      "headerBox": [
+        9,
+        543,
+        278,
+        30
+      ],
+      "scroll": {
+        "st": 0,
+        "sh": 221,
+        "ch": 221,
+        "pe": "none"
+      },
+      "btns": [
+        {
+          "t": "Reset",
+          "box": [
+            19,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Copy JSON",
+          "box": [
+            106,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        },
+        {
+          "t": "Clear",
+          "box": [
+            194,
+            802,
+            83,
+            27
+          ],
+          "radius": "4px",
+          "font": "10px"
+        }
+      ],
+      "dockBox": [
+        16,
+        16,
+        358,
+        72
+      ],
+      "text": "Debug\n−\nSTATE\nglobal.activePointer\nno\nglobal.activePointers\n0.0\nglobal.silenceMs\n1208.0\nglobal.lastDown.pid\n1.0\nglobal.lastDown.hasCap\nno\nglobal.lastDown.target\ndiv.spectrum-picker.flex\nspec.isDragging\nno\nspec.capturedPid\nnone\nsl.l.gate\nno\nlastForceRelease\n124795.8\nlastForceReset\n124796.5\nEVENTS (0)\nReset\nCopy JSON\nClear"
+    }
+  }
+]

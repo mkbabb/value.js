@@ -1,0 +1,64 @@
+(node:27356) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:27386) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:27411) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register
+[1A[2K[2m[WebServer] [22m[2m1:24:03 AM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[Vue warn]: injection "Symbol(blobConfig)" not found. 
+[2m[WebServer] [22m  at <HeroBlob key=0 class="hero-blob-anchor" onVnodeMounted=fn > 
+[2m[WebServer] [22m  at <AsyncComponentWrapper key=0 class="hero-blob-anchor" onVnodeMounted=fn > 
+[2m[WebServer] [22m  at <ColorPicker key="color-picker" ref=fn<ref> class="picker-shell w-full"  ... > 
+[2m[WebServer] [22m  at <KeepAlive max=12 > 
+[2m[WebServer] [22m  at <BaseTransition onBeforeEnter=fn<onBeforeEnter> onBeforeLeave=fn<hideLeaving> onAfterAppear=fn<settleAppear>  ... > 
+[2m[WebServer] [22m  at <Transition name="vj-enter" appear=true appear-from-class="overture-appear-from"  ... > 
+[2m[WebServer] [22m  at <PaneSlot component= {"name":"AsyncComponentWrapper","__asyncResolved":{"__name":"GradientPane","__hmrId":"9a1f50e7","__file":"/Users/mkbabb/Programming/value-x-w6-gradient/demo/workbenches/gradient/GradientPane.vue"}} component-key="gradient" component-props= {}  ... > 
+[2m[WebServer] [22m  at <ErrorBoundary> 
+[2m[WebServer] [22m  at <App>
+
+[1A[2K[2m[WebServer] [22m[2m1:24:03 AM[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22m[Vue warn]: Invalid vnode type when creating vnode: undefined. 
+[2m[WebServer] [22m  at <HeroBlob key=0 class="hero-blob-anchor" onVnodeMounted=fn > 
+[2m[WebServer] [22m  at <AsyncComponentWrapper key=0 class="hero-blob-anchor" onVnodeMounted=fn > 
+[2m[WebServer] [22m  at <ColorPicker key="color-picker" ref=fn<ref> class="picker-shell w-full"  ... > 
+[2m[WebServer] [22m  at <KeepAlive max=12 > 
+[2m[WebServer] [22m  at <BaseTransition onBeforeEnter=fn<onBeforeEnter> onBeforeLeave=fn<hideLeaving> onAfterAppear=fn<settleAppear>  ... > 
+[2m[WebServer] [22m  at <Transition name="vj-enter" appear=true appear-from-class="overture-appear-from"  ... > 
+[2m[WebServer] [22m  at <PaneSlot component= {"name":"AsyncComponentWrapper","__asyncResolved":{"__name":"GradientPane","__hmrId":"9a1f50e7","__file":"/Users/mkbabb/Programming/value-x-w6-gradient/demo/workbenches/gradient/GradientPane.vue"}} component-key="gradient" component-props= {}  ... > 
+[2m[WebServer] [22m  at <ErrorBoundary> 
+[2m[WebServer] [22m  at <App>
+
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('heading', { name: 'Gradient' }).last()[22m
+
+
+      39 |     await openView(page, "Gradient");
+      40 |     const main = page.getByRole("main", { name: "Color tool panes" });
+    > 41 |     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
+         |                                                                          ^
+      42 |     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
+      43 |     // enter transition otherwise screenshots the rail mid-flight (see
+      44 |     // paneSettled).
+        at openGradient (/Users/mkbabb/Programming/value-x-w6-gradient/e2e/smoke/oracles/o21-gradient-rail.spec.ts:41:74)
+        at /Users/mkbabb/Programming/value-x-w6-gradient/e2e/smoke/oracles/o21-gradient-rail.spec.ts:111:18
+
+    Error Context: test-results/oracles-o21-gradient-rail--7e308-ss-ui-slider-track-register-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/oracles/o21-gradient-rail.spec.ts:107:1 › pill silhouette (T-46): the rail rounds on the glass-ui slider-track register 
+EXIT=1

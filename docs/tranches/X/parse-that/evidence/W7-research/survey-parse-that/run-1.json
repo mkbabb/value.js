@@ -1,0 +1,408 @@
+{
+ "node": "v26.0.0",
+ "inputs": 29944,
+ "rounds": 9,
+ "uptimeStart": "17:18  up 1 day, 7 mins, 3 users, load averages: 33.45 29.20 29.10",
+ "correctness": {
+  "parseCssColor": {
+   "mismatch": 0,
+   "headThrew": 0,
+   "pt082Threw": 0,
+   "okAgree": 6559,
+   "examples": []
+  },
+  "parseCssScalar": {
+   "mismatch": 0,
+   "headThrew": 0,
+   "pt082Threw": 0,
+   "okAgree": 7559,
+   "examples": []
+  },
+  "parseCssValue": {
+   "mismatch": 0,
+   "headThrew": 0,
+   "pt082Threw": 0,
+   "okAgree": 11673,
+   "examples": []
+  },
+  "parseCssValues": {
+   "mismatch": 0,
+   "headThrew": 0,
+   "pt082Threw": 0,
+   "okAgree": 11673,
+   "examples": []
+  },
+  "parseKeyframeSelector": {
+   "mismatch": 0,
+   "headThrew": 0,
+   "pt082Threw": 0,
+   "okAgree": 56,
+   "examples": []
+  },
+  "parseTimingFunction": {
+   "mismatch": 1021,
+   "headThrew": 1021,
+   "pt082Threw": 0,
+   "okAgree": 197,
+   "examples": [
+    {
+     "s": "linear(+34, -280)",
+     "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":34,\"input\":[]},{\"output\":-280,\"input\":[]}]},\"diagnostics\":[]}}",
+     "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+    },
+    {
+     "s": "linear(+76)",
+     "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":11,\"expected\":[\"timing function\"],\"actual\":\"linear(+76)\"}]}}",
+     "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+    },
+    {
+     "s": "linear(30 0e-85%, 6e109)",
+     "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":30,\"input\":[0]},{\"output\":6e+109,\"input\":[]}]},\"diagnostics\":[]}}",
+     "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+    },
+    {
+     "s": "linear(.874, none, 61% 2e182%)",
+     "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":30,\"expected\":[\"timing function\"],\"actual\":\"linear(.874, none, 61% 2e182%)\"}]}}",
+     "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+    },
+    {
+     "s": "linear(161.50351220276207, -352)",
+     "pt082": "{\"r\":{\"ok\":true,\"value\":{\"kind\":\"linear-function\",\"stops\":[{\"output\":161.50351220276207,\"input\":[]},{\"output\":-352,\"input\":[]}]},\"diagnostics\":[]}}",
+     "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+    },
+    {
+     "s": "linear(10.907 .726%, none, no)ne -0%)",
+     "pt082": "{\"r\":{\"ok\":false,\"diagnostics\":[{\"code\":\"css_syntax\",\"start\":0,\"end\":37,\"expected\":[\"timing function\"],\"actual\":\"linear(10.907 .726%, none, no)ne -0%)\"}]}}",
+     "head": "{\"threw\":\"Cannot read properties of undefined (reading 'kind')\"}"
+    }
+   ]
+  }
+ },
+ "timing": {
+  "parseCssColor": {
+   "uptimeBefore": "17:18  up 1 day, 7 mins, 3 users, load averages: 33.45 29.20 29.10",
+   "uptimeAfter": "17:18  up 1 day, 7 mins, 3 users, load averages: 31.18 28.80 28.96",
+   "base": {
+    "medianMs": 25.02,
+    "minMs": 22.08,
+    "rawMs": [
+     25.02,
+     23.2,
+     22.77,
+     22.08,
+     23.3,
+     31.1,
+     31.63,
+     30.02,
+     30.05
+    ]
+   },
+   "pt082": {
+    "medianMs": 56.88,
+    "minMs": 50.82,
+    "rawMs": [
+     50.82,
+     52.82,
+     51.18,
+     54.12,
+     56.88,
+     94.16,
+     81.84,
+     94.63,
+     86.33
+    ]
+   },
+   "head": {
+    "medianMs": 81.05,
+    "minMs": 75.39,
+    "rawMs": [
+     77.33,
+     75.41,
+     75.39,
+     79.2,
+     81.05,
+     88.65,
+     113.73,
+     119.3,
+     109.24
+    ]
+   },
+   "ratio_pt082_over_base_median": 2.273,
+   "ratio_head_over_base_median": 3.239,
+   "ratio_head_over_pt082_median": 1.425,
+   "ratio_pt082_over_base_min": 2.302,
+   "ratio_head_over_base_min": 3.414
+  },
+  "parseCssScalar": {
+   "uptimeBefore": "17:18  up 1 day, 7 mins, 3 users, load averages: 31.18 28.80 28.96",
+   "uptimeAfter": "17:18  up 1 day, 7 mins, 3 users, load averages: 31.18 28.80 28.96",
+   "base": {
+    "medianMs": 34.76,
+    "minMs": 30.75,
+    "rawMs": [
+     36.82,
+     34.68,
+     31.58,
+     30.75,
+     35.47,
+     34.76,
+     35.61,
+     34.26,
+     35.06
+    ]
+   },
+   "pt082": {
+    "medianMs": 73.57,
+    "minMs": 63.18,
+    "rawMs": [
+     87.98,
+     74.18,
+     63.18,
+     63.5,
+     72.91,
+     71.32,
+     75.75,
+     73.57,
+     86.19
+    ]
+   },
+   "head": {
+    "medianMs": 103.71,
+    "minMs": 92.69,
+    "rawMs": [
+     114.11,
+     98.95,
+     92.69,
+     96.84,
+     104.1,
+     105.05,
+     103.71,
+     97.79,
+     112.82
+    ]
+   },
+   "ratio_pt082_over_base_median": 2.117,
+   "ratio_head_over_base_median": 2.984,
+   "ratio_head_over_pt082_median": 1.41,
+   "ratio_pt082_over_base_min": 2.055,
+   "ratio_head_over_base_min": 3.014
+  },
+  "parseCssValue": {
+   "uptimeBefore": "17:18  up 1 day, 7 mins, 3 users, load averages: 29.72 28.54 28.87",
+   "uptimeAfter": "17:18  up 1 day, 7 mins, 3 users, load averages: 30.78 28.78 28.95",
+   "base": {
+    "medianMs": 115.2,
+    "minMs": 107.24,
+    "rawMs": [
+     107.24,
+     115.2,
+     110.89,
+     114.91,
+     128.02,
+     114.73,
+     118.43,
+     115.87,
+     117.77
+    ]
+   },
+   "pt082": {
+    "medianMs": 304.12,
+    "minMs": 291.22,
+    "rawMs": [
+     304.12,
+     339.46,
+     304.01,
+     312.68,
+     311.04,
+     291.22,
+     300.02,
+     351.41,
+     301.1
+    ]
+   },
+   "head": {
+    "medianMs": 463.03,
+    "minMs": 433.44,
+    "rawMs": [
+     463.03,
+     473.14,
+     456.26,
+     458.11,
+     474.99,
+     474.9,
+     499.36,
+     433.44,
+     440.13
+    ]
+   },
+   "ratio_pt082_over_base_median": 2.64,
+   "ratio_head_over_base_median": 4.019,
+   "ratio_head_over_pt082_median": 1.523,
+   "ratio_pt082_over_base_min": 2.716,
+   "ratio_head_over_base_min": 4.042
+  },
+  "parseCssValues": {
+   "uptimeBefore": "17:18  up 1 day, 7 mins, 3 users, load averages: 29.12 28.47 28.84",
+   "uptimeAfter": "17:18  up 1 day, 7 mins, 3 users, load averages: 27.99 28.24 28.76",
+   "base": {
+    "medianMs": 116.38,
+    "minMs": 102.37,
+    "rawMs": [
+     118.98,
+     126.25,
+     126.41,
+     107.6,
+     120.65,
+     116.38,
+     104.49,
+     104.11,
+     102.37
+    ]
+   },
+   "pt082": {
+    "medianMs": 291.77,
+    "minMs": 220.33,
+    "rawMs": [
+     291.77,
+     352.29,
+     302.85,
+     355.68,
+     327.76,
+     230.48,
+     258.61,
+     261.54,
+     220.33
+    ]
+   },
+   "head": {
+    "medianMs": 462.15,
+    "minMs": 356.35,
+    "rawMs": [
+     462.15,
+     480.67,
+     482.65,
+     437.84,
+     469.34,
+     487.54,
+     384.31,
+     356.35,
+     373.87
+    ]
+   },
+   "ratio_pt082_over_base_median": 2.507,
+   "ratio_head_over_base_median": 3.971,
+   "ratio_head_over_pt082_median": 1.584,
+   "ratio_pt082_over_base_min": 2.152,
+   "ratio_head_over_base_min": 3.481
+  },
+  "parseKeyframeSelector": {
+   "uptimeBefore": "17:18  up 1 day, 7 mins, 3 users, load averages: 27.99 28.24 28.76",
+   "uptimeAfter": "17:18  up 1 day, 7 mins, 3 users, load averages: 27.99 28.24 28.76",
+   "base": {
+    "medianMs": 4.51,
+    "minMs": 4.22,
+    "rawMs": [
+     4.51,
+     4.55,
+     4.68,
+     4.22,
+     4.59,
+     4.42,
+     4.63,
+     4.25,
+     4.41
+    ]
+   },
+   "pt082": {
+    "medianMs": 7.71,
+    "minMs": 7.53,
+    "rawMs": [
+     7.71,
+     7.69,
+     7.62,
+     7.8,
+     7.71,
+     7.85,
+     7.53,
+     10.52,
+     7.75
+    ]
+   },
+   "head": {
+    "medianMs": 7.93,
+    "minMs": 7.76,
+    "rawMs": [
+     8.15,
+     8.31,
+     7.77,
+     8.14,
+     8.19,
+     7.87,
+     7.93,
+     7.8,
+     7.76
+    ]
+   },
+   "ratio_pt082_over_base_median": 1.71,
+   "ratio_head_over_base_median": 1.758,
+   "ratio_head_over_pt082_median": 1.029,
+   "ratio_pt082_over_base_min": 1.784,
+   "ratio_head_over_base_min": 1.839
+  },
+  "parseTimingFunction": {
+   "uptimeBefore": "17:18  up 1 day, 7 mins, 3 users, load averages: 27.99 28.24 28.76",
+   "uptimeAfter": "17:18  up 1 day, 7 mins, 3 users, load averages: 27.99 28.24 28.76",
+   "base": {
+    "medianMs": 7.43,
+    "minMs": 7.01,
+    "rawMs": [
+     7.87,
+     7.87,
+     7.76,
+     7.43,
+     7.22,
+     7.44,
+     7.21,
+     7.21,
+     7.01
+    ]
+   },
+   "pt082": {
+    "medianMs": 11.24,
+    "minMs": 11.08,
+    "rawMs": [
+     11.21,
+     11.08,
+     11.88,
+     12.07,
+     11.09,
+     13.34,
+     11.32,
+     11.24,
+     11.09
+    ]
+   },
+   "head": {
+    "medianMs": 20.98,
+    "minMs": 20.07,
+    "rawMs": [
+     22.25,
+     21.39,
+     21.16,
+     20.83,
+     20.98,
+     21.35,
+     20.53,
+     20.92,
+     20.07
+    ]
+   },
+   "ratio_pt082_over_base_median": 1.513,
+   "ratio_head_over_base_median": 2.824,
+   "ratio_head_over_pt082_median": 1.867,
+   "ratio_pt082_over_base_min": 1.581,
+   "ratio_head_over_base_min": 2.863
+  }
+ },
+ "uptimeEnd": "17:18  up 1 day, 7 mins, 3 users, load averages: 27.99 28.24 28.76"
+}

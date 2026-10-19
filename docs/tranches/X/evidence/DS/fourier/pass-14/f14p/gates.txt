@@ -1,0 +1,13 @@
+X-DS fourier pass 14 cure (critic F14C), 2026-10-18. Gates on the cured tree (fourier 47e0df6: web/src/style.css, PaperTocDrawer.vue; root latex-paper ebdf787)
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116; run 2 116/116 (vitest-1.log, vitest-2.log)
+e2e, headless, --project=chromium --project=mobile-chromium --workers=1, BASE_URL=http://localhost:3246 (plain `npx vite`):
+  Attempts on pass 13's 20 specs (e2e-specs.txt) did not complete at machine load 27-37 (other workflows):
+    attempt 1 hit the 40 min guard at 36/227 (e2e-runA-timeout-attempt1.txt); attempt 2 reached 41/227 in 30 min and was stopped (e2e-runA-load-attempt2.txt).
+    Every failure was a 30s test timeout on /v, /gallery or /admin (upload, publish, users toolbar), surfaces this cure does not touch.
+  Narrowed to the 10 specs that reach /paper, .paper-article or the ToC rail (e2e-specs-paper.txt), 82 tests:
+    run A: 80 passed, 2 failed (32.0m). The 2 were 30s timeouts: UIA-F-46 Like toggle (/gallery) and the pi-capture of morph @375x667.
+    run B: 80 passed, 2 failed (34.2m). The 2 were timeouts again, on different tests: UIA-F-159 (the paper's scrollHeight did not reach 5000 within 15s) and the pi-capture of shape-extractor @1280x800.
+    The same 4 tests, rerun on their own on the cured tree: 4/4 passed, twice (e2e-rerun-1.txt, e2e-rerun-2.txt). That points to load flakes, not regressions.
+  Each run rewrote web/e2e/screenshots/*, which was restored to HEAD (e2e-exits.txt). No golden was re-baselined.
+Census: scripts/ds-census.mjs --chrome on :3246 (census-after.json). Static is identical to pass 13. Computed is identical on every cell except /equation|dark|1440, where the capture found 162 elements against 397 (a partly mounted route under load; this cure touches no /equation style). Sums are 380/962/287/287/204/0/0 against 386/978/292/292/208/0/0.

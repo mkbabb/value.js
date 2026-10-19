@@ -1,0 +1,13 @@
+SERVED MODEL: claude-opus-5-5[1m]
+POSITIVE CONTROL — detector fires on a synthetic chassis: dead-name ✓  stage+inspector+action ✓
+
+WAVE DIFF — 1 demo/ files over 2 commits
+  M  demo/color-session/color-space-meta.ts
+
+NEW MODULES — 0
+
+GATE H1 (no copied chassis) — GREEN
+  no added construct parameterises stage + inspector + action;
+  no added module is both housing-shaped and shared across instrument roots;
+  the dead name is not revived.
+EXIT=0

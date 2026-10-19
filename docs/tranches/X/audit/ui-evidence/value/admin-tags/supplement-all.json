@@ -1,0 +1,22 @@
+{
+ "head": "307791a4",
+ "dirty": 15,
+ "frames": [
+  {
+   "tag": "1440-light",
+   "err": "TimeoutError: page.goto: Timeout 300000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/admin/tags\", waiting until \"commit\"\u001b[22m\n"
+  },
+  {
+   "tag": "1440-dark",
+   "err": "TimeoutError: page.goto: Timeout 300000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/admin/tags\", waiting until \"commit\"\u001b[22m\n"
+  },
+  {
+   "tag": "390-light",
+   "err": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/admin/tags\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/admin/tags\", waiting until \"commit\"\u001b[22m\n"
+  },
+  {
+   "tag": "390-dark",
+   "err": "Error: page.goto: net::ERR_CONNECTION_TIMED_OUT at http://localhost:9000/#/admin/tags\nCall log:\n\u001b[2m  - navigating to \"http://localhost:9000/#/admin/tags\", waiting until \"commit\"\u001b[22m\n"
+  }
+ ]
+}

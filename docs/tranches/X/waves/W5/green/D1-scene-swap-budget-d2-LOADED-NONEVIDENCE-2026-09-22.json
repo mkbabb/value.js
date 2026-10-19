@@ -1,0 +1,358 @@
+{
+ "servedModel": "claude-opus-5-5[1m]",
+ "unit": "X.W5.d2",
+ "gate": "D1",
+ "status": "NON-EVIDENCE: §0aq ruled condition load<4 unmet (1-min load 12.7/14.9 at run start); recorded, not cited as a reading",
+ "runs": [
+  {
+   "load": "20:14  up  3:03, 2 users, load averages: 12.69 13.51 18.11",
+   "result": {
+    "gate": "D1",
+    "probe": "scene-swap-budget.mjs",
+    "at": "2026-09-23T00:14:58.432Z",
+    "base": "http://127.0.0.1:8124",
+    "prm": false,
+    "budget": {
+     "over32Ratio": 0.15,
+     "medianMs": 20
+    },
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "frames": 36,
+      "max": 73,
+      "median": 10,
+      "over32": 9,
+      "over50": 6,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "leave",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"
+       },
+       {
+        "phase": "enter",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.25,
+      "budget": false,
+      "animated": true,
+      "motionHonest": true,
+      "pass": false
+     },
+     {
+      "hop": "→/extract",
+      "frames": 44,
+      "max": 63,
+      "median": 13,
+      "over32": 7,
+      "over50": 3,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "back",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "back",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.159,
+      "budget": false,
+      "animated": true,
+      "motionHonest": true,
+      "pass": false
+     },
+     {
+      "hop": "→/mix",
+      "frames": 26,
+      "max": 83,
+      "median": 31,
+      "over32": 12,
+      "over50": 5,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "leave",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"
+       },
+       {
+        "phase": "enter",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.462,
+      "budget": false,
+      "animated": true,
+      "motionHonest": true,
+      "pass": false
+     },
+     {
+      "hop": "→/generate",
+      "frames": 62,
+      "max": 55,
+      "median": 9,
+      "over32": 8,
+      "over50": 2,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "leave",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.129,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+     }
+    ],
+    "pass": false
+   }
+  },
+  {
+   "load": "20:14  up  3:04, 2 users, load averages: 14.87 13.95 18.23",
+   "result": {
+    "gate": "D1",
+    "probe": "scene-swap-budget.mjs",
+    "at": "2026-09-23T00:15:07.034Z",
+    "base": "http://127.0.0.1:8124",
+    "prm": false,
+    "budget": {
+     "over32Ratio": 0.15,
+     "medianMs": 20
+    },
+    "hops": [
+     {
+      "hop": "→/gradient",
+      "frames": 38,
+      "max": 87,
+      "median": 9,
+      "over32": 11,
+      "over50": 5,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "leave",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"
+       },
+       {
+        "phase": "enter",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.289,
+      "budget": false,
+      "animated": true,
+      "motionHonest": true,
+      "pass": false
+     },
+     {
+      "hop": "→/extract",
+      "frames": 48,
+      "max": 68,
+      "median": 14,
+      "over32": 7,
+      "over50": 3,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "back",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "back",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.146,
+      "budget": true,
+      "animated": true,
+      "motionHonest": true,
+      "pass": true
+     },
+     {
+      "hop": "→/mix",
+      "frames": 24,
+      "max": 80,
+      "median": 29,
+      "over32": 10,
+      "over50": 6,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "leave",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"
+       },
+       {
+        "phase": "enter",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.417,
+      "budget": false,
+      "animated": true,
+      "motionHonest": true,
+      "pass": false
+     },
+     {
+      "hop": "→/generate",
+      "frames": 56,
+      "max": 64,
+      "median": 9,
+      "over32": 9,
+      "over50": 1,
+      "motion": [
+       {
+        "phase": "leave",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "leave",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 200,
+        "transform": "none"
+       },
+       {
+        "phase": "enter",
+        "role": "inspector",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, 0.0348995, -0.0348995, 0.999391, 563.2, 0)"
+       },
+       {
+        "phase": "enter",
+        "role": "stage",
+        "direction": "forward",
+        "transformMs": 440,
+        "transform": "matrix(0.999391, -0.0348995, 0.0348995, 0.999391, -563.2, 0)"
+       }
+      ],
+      "over32Ratio": 0.161,
+      "budget": false,
+      "animated": true,
+      "motionHonest": true,
+      "pass": false
+     }
+    ],
+    "pass": false
+   }
+  }
+ ]
+}

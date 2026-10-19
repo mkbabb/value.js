@@ -1,0 +1,6 @@
+### typecheck r1 start 10-15 12:18:43 load1=12.33 head=5546aa900
+lib EXIT 0
+demo EXIT 0
+test EXIT 0
+e2e EXIT 0
+### end 12:19:13 load1=11.73

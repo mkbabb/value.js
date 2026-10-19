@@ -1,0 +1,9 @@
+before-r1 start load { 412.07 329.35 304.68 }
+before-r1 exit 0 end load { 135.83 246.74 279.65 }
+after-dev-r1 start load { 135.83 246.74 279.65 }
+after-dev-r1 exit 0 end load { 139.87 183.59 243.96 }
+before-r2 start load { 139.87 183.59 243.96 }
+before-r2 exit 0 end load { 133.30 147.55 207.22 }
+after-dev-r2 start load { 133.30 147.55 207.22 }
+after-dev-r2 exit 0 end load { 173.24 158.62 197.74 }
+DONE

@@ -1,113 +1,110 @@
 <template>
-    <!-- W5-a11y: role="button" + tabindex + keyboard activation so the drop zone is reachable via keyboard -->
-    <!-- S.W5-6 · F4: the specimen never lies — no veil over the field. The
-         affordance lives at the EDGE: border ink on hover, a crosshair cursor
-         when the click samples, and a corner Fira tag. -->
     <div
+        ref="zoneRef"
         :class="[
-            'group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden',
+            'group relative transition-colors flex flex-col items-center justify-center overflow-hidden',
             'min-h-[140px]',
-            preview && disableClick ? 'cursor-crosshair' : 'cursor-pointer',
-            dragging
-                ? 'border-primary bg-primary/10 scale-[1.01]'
+            disabled ? 'cursor-not-allowed' : preview ? 'cursor-crosshair' : 'cursor-pointer',
+            /* X-DS pass 6 (V6C-11): the dashed edge is the DROP affordance, so
+               it shows only while the zone is empty or dragged over; a loaded
+               image sits in a hairline that inks on hover (the sample cue). */
+            isOverDropZone && !disabled
+                ? 'rounded-panel border-2 border-dashed border-primary bg-primary/10'
                 : preview
-                    ? 'border-transparent hover:border-primary/50 bg-primary/5'
-                    : 'border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10',
+                    ? 'rounded-panel border border-transparent hover:border-primary/50'
+                    : 'dashed-well',
         ]"
-        :style="{ transitionDuration: 'var(--duration-normal)', transitionTimingFunction: 'var(--ease-standard)' }"
         role="button"
-        :tabindex="disableClick ? -1 : 0"
-        :aria-label="preview ? (disableClick ? 'Image preview area, tap to sample colors' : 'Replace image, click or drop a new image') : 'Upload image, click to browse or drop an image here'"
-        @click="!disableClick && openFilePicker()"
-        @keydown.enter.space.prevent="!disableClick && openFilePicker()"
-        @dragover.prevent="dragging = true"
-        @dragleave.prevent="dragging = false"
-        @drop.prevent="onDrop"
+        :tabindex="disabled ? -1 : 0"
+        :aria-disabled="disabled ? 'true' : undefined"
+        :aria-label="preview ? 'Sample colors from the image' : 'Upload image'"
+        :data-dragging="isOverDropZone && !disabled ? 'true' : undefined"
+        @click="activate"
+        @keydown.enter.space.prevent="activate"
     >
-        <input
-            ref="fileInputRef"
-            type="file"
-            accept="image/*"
-            class="hidden"
-            @change="onFileSelected"
-        />
-
+        <!-- W5-a11y: role="button" + tabindex + keyboard activation so the drop zone is reachable via keyboard -->
+        <!-- S.W5-6 · F4: the specimen never lies — no veil over the field. The
+             affordance lives at the EDGE: border ink on hover, a crosshair cursor
+             when the click samples, and a corner badge.
+             X.W7.g3 (§R3.2, wb-extract-imagedropzone): ONE act per state — empty,
+             the zone asks its parent for the file dialog (`open`, R-16: the dialog
+             is owned where both of its triggers live); populated, it samples
+             (`sample`). The phantom `disableClick` degree of freedom is gone (R-19).
+             Drag tracking is `useDropZone`'s enter/leave counter (R-5, R-17). -->
         <!-- morph family: one zone, new content (placeholder ↔ preview). -->
         <Transition name="vj-morph" mode="out-in">
             <img
                 v-if="preview"
                 :key="preview"
                 :src="preview"
-                class="w-full h-full object-contain rounded-xl"
+                class="w-full h-full object-contain rounded-panel"
                 alt="Uploaded image"
             />
             <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha dies — the
                  muted token is already the de-emphasis rung. -->
-            <div v-else class="flex flex-col items-center gap-2 py-6 plate-ink">
-                <ImagePlus class="w-7 h-7" />
-                <span class="text-mono-small text-center px-4">
-                    Drop an image or click to browse
-                </span>
+            <!-- X-DS value pass 4 (P4R-04): the verb is the pane's one intake, so
+                 it takes the plate's foreground ink; only the glyph stays on the
+                 de-emphasis rung (it used to carry the whole column, verb too). -->
+            <div v-else class="flex flex-col items-center gap-2 py-6">
+                <ImagePlus class="w-7 h-7 plate-ink" />
+                <!-- X-DS pass 2 (V2C-14): a verb speaks the pane-verb voice, not
+                     the mono of values. -->
+                <span class="font-display text-small text-center px-4 text-foreground">Upload image</span>
             </div>
         </Transition>
 
-        <!-- Corner Fira tag — the edge affordance (never a wash over the
-             specimen): a tiny chip that inks in on hover/focus. -->
-        <span
+        <!-- R-8 / R-27: the populated affordance is a real badge, painted on
+             every device (no hover gate, no focus-visible dead code) on its own
+             opaque ground — never plate ink composited over specimen pixels.
+             X-DS pass 9 (P9R-06): it speaks the verb with its glyph (the
+             click opens the eyedropper); the bare noun "sample" read as a
+             caption on the user's own image. -->
+        <Badge
             v-if="preview"
-            class="absolute bottom-1.5 right-1.5 rounded-sm bg-background/85 px-1.5 py-0.5 text-mono-caption uppercase tracking-[0.18em] plate-ink opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
-            :style="{ transitionDuration: 'var(--duration-fast)' }"
-            aria-hidden="true"
-        >{{ disableClick ? 'sample' : 'replace' }}</span>
+            data-zone-affordance
+            variant="secondary"
+            size="sm"
+            class="absolute bottom-1.5 right-1.5 gap-1"
+        ><Pipette class="w-3 h-3" aria-hidden="true" />Pick a color</Badge>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, useTemplateRef } from "vue";
-import { ImagePlus } from "@lucide/vue";
+import { useTemplateRef } from "vue";
+import { useDropZone } from "@vueuse/core";
+import { ImagePlus, Pipette } from "@lucide/vue";
+import { Badge } from "@mkbabb/glass-ui/badge";
 
-defineProps<{
+const { preview, disabled = false } = defineProps<{
     preview: string | null;
-    disableClick?: boolean;
+    /** Camera live or a run in flight: the zone takes no intake (R-12). */
+    disabled?: boolean;
 }>();
 
 const emit = defineEmits<{
     file: [file: File];
+    /** Empty zone activated: the owner opens the file dialog. */
+    open: [];
+    /** Populated zone activated: sample colours from the image. */
+    sample: [];
 }>();
 
-const fileInputRef = useTemplateRef<HTMLInputElement>("fileInputRef");
-const dragging = ref(false);
+const zoneRef = useTemplateRef<HTMLElement>("zoneRef");
 
-function openFilePicker() {
-    fileInputRef.value?.click();
+function activate() {
+    if (disabled) return;
+    if (preview) emit("sample");
+    else emit("open");
 }
 
-defineExpose({ openFilePicker });
-
-function onFileSelected(e: Event) {
-    const input = e.target as HTMLInputElement;
-    const file = input.files?.[0];
-    if (file) emit("file", file);
-    input.value = "";
-}
-
-function onDrop(e: DragEvent) {
-    dragging.value = false;
-    const file = e.dataTransfer?.files[0];
-    if (file?.type.startsWith("image/")) {
-        emit("file", file);
-    }
-}
+// X-W7 Repair 1 (EY-10): one intake rule for both paths. A non-image is not
+// silently dropped here; the decode verdict says so in words.
+const { isOverDropZone } = useDropZone(zoneRef, {
+    multiple: false,
+    preventDefaultForUnhandled: true,
+    onDrop(files) {
+        const file = files?.[0];
+        if (file && !disabled) emit("file", file);
+    },
+});
 </script>
-
-<style scoped>
-/* E1-R1 (T.W8 remediation_1): the drop-zone caption family (placeholder icon +
- * prompt, corner Fira tag) threads the certified de-emphasis rung
- * (`--ink-muted` — boot-stamped, floor-clamped against the live resting plate;
- * D6) instead of the STATIC `text-muted-foreground` that failed the text floor
- * over the live-ambient plate in light. */
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-</style>
-

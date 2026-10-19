@@ -35,6 +35,23 @@
 
 :root {
     --code-ink: var(--foreground);
+    /* THE CODE PAPER (X-DS pass 4 · V4C-03): the opaque ground the crayons
+     * below are certified on — the rung-2 well recipe as it was when they
+     * were measured (card 92% + fg 8%), computed HERE on the root so it keeps
+     * the scheme ink in either scheme. A live editor that sits on a
+     * translucent wash over a near-clear card shows the saturated aurora
+     * instead (the numbers measured 1.59-1.77:1 on the default pink in
+     * light), so the gradient editor seats its code on this paper. The crayon
+     * identity is kept; only the ground is made true. `--code-ink` is
+     * root-computed for the same reason. */
+    /* X-DS pass 6 (V6C-10): still opaque and certified, but no longer the
+     * one neutral slab in the app — the ground takes the pane's hue from the
+     * live accent (`--accent-live`, the glass tint feed's source) at a quiet
+     * chroma, capped by the accent's own (a grey pick stays neutral). Its
+     * lightness is PINNED at the measured L of the certified paper (card 92% +
+     * fg: L 0.913 light / 0.345 dark), so the crayons keep their ratios
+     * (re-certified in pass-06/probe-code). */
+    --code-ground: oklch(from var(--accent-live) 0.913 min(c, 0.03) h);
     /* The four crayons + the muted comment, guarded for the light WELL field
      * (the rung-2 code-chip ground, AB-3). */
     --code-comment: hsl(30 22% 34%); /* warm muted gray (well-guarded) */
@@ -45,6 +62,16 @@
 }
 
 .dark {
+    /* X-DS pass 6 (VC6-05): in dark the paper read as a grey slab foreign to
+     * the wine card's wells. The cap was not what drained it: the dark
+     * `--accent-live` is the contrast-guarded LIGHT ink (default pick: L 0.958,
+     * C 0.021), so its own chroma is already a tenth of the pick's. The dark
+     * paper therefore takes 2.5x the ink's chroma, capped at 0.05 (light keeps
+     * its 0.03 cap on the pick's own chroma); a grey pick (C ~ 0) still stays
+     * neutral, and L stays pinned. Every crayon re-certifies over all hues at
+     * the cap (worst: keyword 4.75 at h 175;
+     * pass-06/vc6-2026-10-15/certify-code-ground.json). */
+    --code-ground: oklch(from var(--accent-live) 0.345 min(c * 2.5, 0.05) h);
     /* The same set, lifted for the dark chocolate WELL field. */
     --code-comment: hsl(34 14% 66%); /* warm muted gray (well-guarded) */
     --code-keyword: oklch(0.75 0.15 27);

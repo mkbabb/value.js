@@ -1,0 +1,185 @@
+SERVED MODEL: claude-opus-5-5
+X.W11.b — S3 (X-W11-FOLD W11.7): G3's documented-input set incl. achromatic / white / none-hue
+tree: 879be376f5f912762b551ee6d0b32f3038ff9cb9 · tarball mkbabb-value.js-4.1.0.tgz sha1 9e288aa636b89401f85af094699b0e161b3d1942 (npm pack --ignore-scripts)
+consumer: scratch dir, npm install --ignore-scripts --no-audit --no-fund --package-lock=false <tarball>; imports @mkbabb/value.js/color + /css (the INSTALLED bytes)
+cmd: ~/.claude/guard/guarded --light -- node s3-witness.mjs  (run x2: exit 0, exit 0; outputs byte-identical — cmp)
+why a separate witness: verify-packed-surface.mjs (X-W9-owned, execute-only here) carries NO achromatic row (grep -niE 'achrom|grey|gray|none' → 0;
+  its only white is safeAccentColor's background). This file measures; it does not stand in for the script's missing rows.
+
+inputs × targets: sources {white rgb(255,255,255), black, grey128, rgb(255,255,254), hsl(0,0,1), lch(100,0,0), oklch(1,0,0)}
+  × convertColor targets {rgb hsl hsv hwb lab lch oklab oklch xyz srgb-linear display-p3 a98-rgb prophoto-rgb rec2020 ictcp jzazbz kelvin}
+
+----- witness source -----
+// S3 (X-W11-FOLD W11.7) boundary-input measurement against the INSTALLED tarball.
+// Read-only witness: records input beside verdict for every conversion target.
+const color = await import("@mkbabb/value.js/color");
+const css = await import("@mkbabb/value.js/css");
+const TARGETS = ["rgb","hsl","hsv","hwb","lab","lch","oklab","oklch","xyz","srgb-linear","display-p3","a98-rgb","prophoto-rgb","rec2020","ictcp","jzazbz","kelvin"];
+const SOURCES = {
+  white: () => color.rgb(255,255,255), black: () => color.rgb(0,0,0), grey128: () => color.rgb(128,128,128),
+  "rgb(255,255,254)": () => color.rgb(255,255,254),
+  "hsl(0,0,1) white": () => color.hsl(0,0,1), "lch(100,0,0) white": () => color.lch(100,0,0),
+  "oklch(1,0,0) white": () => color.oklch(1,0,0),
+};
+const show = (r) => { if (!r || typeof r !== "object") return String(r); if ("ok" in r) return r.ok ? { ok: true, channels: Array.from(r.value.channels ?? [], (c) => typeof c === "number" ? +c.toPrecision(15) : c) } : { ok: false, issue: r.error ?? r }; return r; };
+const rows = [];
+for (const [label, make] of Object.entries(SOURCES)) {
+  const src = make();
+  if (!src.ok) { rows.push({ input: label, target: "(construct)", verdict: "FAIL", result: show(src) }); continue; }
+  for (const t of TARGETS) {
+    let out, verdict;
+    try { out = show(color.convertColor(src.value, t)); verdict = out.ok ? (out.channels.every((c) => c === "none" || Number.isFinite(c)) ? "PASS" : "NON-FINITE") : "FAIL"; }
+    catch (e) { out = { threw: String(e?.message ?? e) }; verdict = "THREW"; }
+    rows.push({ input: label, target: t, verdict, result: out });
+  }
+}
+let greysNoneHue = { lch: 0, oklch: 0 }, greyHslFail = [];
+for (let v = 0; v < 256; v++) {
+  const g = color.rgb(v, v, v).value;
+  for (const t of ["lch","oklch"]) { const r = color.convertColor(g, t); if (r.ok && r.value.channels[2] === "none") greysNoneHue[t]++; }
+  const h = color.convertColor(g, "hsl"); if (!h.ok) greyHslFail.push([v, h.error?.code ?? h.error?.kind ?? JSON.stringify(h.error)]);
+}
+const parse = {};
+for (const s of ["oklch()", "oklch(1 0 none)", "hsl(none 0% 100%)", "lch(100% 0 none)", "white", "#fff"]) {
+  try { parse[s] = show(css.parseCssColor(s)); } catch (e) { parse[s] = { threw: String(e?.message ?? e) }; }
+}
+const tally = rows.reduce((a, r) => (a[r.verdict] = (a[r.verdict] ?? 0) + 1, a), {});
+process.stdout.write(JSON.stringify({ tally, nonPass: rows.filter((r) => r.verdict !== "PASS"), greysNoneHue, greyHslFail, parse, rows }, null, 1) + "\n");
+----- summary (from the run's JSON) -----
+tally {"PASS":118,"FAIL":1}
+nonPass [{"input":"white","target":"hsl","verdict":"FAIL","result":{"ok":false,"issue":{"code":"color_non_finite"}}}]
+greysNoneHue (256 greys) {"lch":256,"oklch":256}
+greyHslFail [[255,"color_non_finite"]]
+parseCssColor("oklch()") -> {"ok":false,"issue":{"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":7,"expected":["color"],"actual":"oklch()"}]}}
+parseCssColor("oklch(1 0 none)") -> {"ok":true,"channels":[1,0,"none"]}
+parseCssColor("hsl(none 0% 100%)") -> {"ok":true,"channels":["none",0,1]}
+parseCssColor("lch(100% 0 none)") -> {"ok":true,"channels":[100,0,"none"]}
+parseCssColor("white") -> {"ok":true,"channels":[255,255,255]}
+parseCssColor("#fff") -> {"ok":true,"channels":[255,255,255]}
+rgb(255,255,254)->hsl {"ok":true,"channels":[59.9999999999949,1.00000000000009,0.998039215686275]}
+----- every row (input · target · verdict · result) -----
+white	rgb	PASS	{"ok":true,"channels":[255,255,255]}
+white	hsl	FAIL	{"ok":false,"issue":{"code":"color_non_finite"}}
+white	hsv	PASS	{"ok":true,"channels":[336,5.55111512312578e-16,1]}
+white	hwb	PASS	{"ok":true,"channels":[336,1,-2.22044604925031e-16]}
+white	lab	PASS	{"ok":true,"channels":[100,0,0]}
+white	lch	PASS	{"ok":true,"channels":[100,0,"none"]}
+white	oklab	PASS	{"ok":true,"channels":[1,-4.9960036108132e-16,0]}
+white	oklch	PASS	{"ok":true,"channels":[1,4.9960036108132e-16,"none"]}
+white	xyz	PASS	{"ok":true,"channels":[0.950455927051672,1,1.08905775075988]}
+white	srgb-linear	PASS	{"ok":true,"channels":[1,1,1]}
+white	display-p3	PASS	{"ok":true,"channels":[1,1,1]}
+white	a98-rgb	PASS	{"ok":true,"channels":[1,1,1]}
+white	prophoto-rgb	PASS	{"ok":true,"channels":[1,1,1]}
+white	rec2020	PASS	{"ok":true,"channels":[1,1,1]}
+white	ictcp	PASS	{"ok":true,"channels":[0.580688881041611,1.11022302462516e-16,2.91433543964104e-16]}
+white	jzazbz	PASS	{"ok":true,"channels":[0.222065249535739,-0.000160624926182767,-0.000117033997700022]}
+white	kelvin	PASS	{"ok":true,"channels":[6600]}
+black	rgb	PASS	{"ok":true,"channels":[0,0,0]}
+black	hsl	PASS	{"ok":true,"channels":["none",0,0]}
+black	hsv	PASS	{"ok":true,"channels":["none",0,0]}
+black	hwb	PASS	{"ok":true,"channels":["none",0,1]}
+black	lab	PASS	{"ok":true,"channels":[0,0,0]}
+black	lch	PASS	{"ok":true,"channels":[0,0,"none"]}
+black	oklab	PASS	{"ok":true,"channels":[0,0,0]}
+black	oklch	PASS	{"ok":true,"channels":[0,0,"none"]}
+black	xyz	PASS	{"ok":true,"channels":[0,0,0]}
+black	srgb-linear	PASS	{"ok":true,"channels":[0,0,0]}
+black	display-p3	PASS	{"ok":true,"channels":[0,0,0]}
+black	a98-rgb	PASS	{"ok":true,"channels":[0,0,0]}
+black	prophoto-rgb	PASS	{"ok":true,"channels":[0,0,0]}
+black	rec2020	PASS	{"ok":true,"channels":[0,0,0]}
+black	ictcp	PASS	{"ok":true,"channels":[7.30955902578397e-7,-2.11758236813575e-22,1.32348898008484e-23]}
+black	jzazbz	PASS	{"ok":true,"channels":[0,0,0]}
+black	kelvin	PASS	{"ok":true,"channels":[1000]}
+grey128	rgb	PASS	{"ok":true,"channels":[128,128,128]}
+grey128	hsl	PASS	{"ok":true,"channels":[300,1.11459398141502e-16,0.501960784313725]}
+grey128	hsv	PASS	{"ok":true,"channels":[300,2.21177243187043e-16,0.501960784313726]}
+grey128	hwb	PASS	{"ok":true,"channels":[300,0.501960784313725,0.498039215686274]}
+grey128	lab	PASS	{"ok":true,"channels":[53.585013452169,0,0]}
+grey128	lch	PASS	{"ok":true,"channels":[53.585013452169,0,"none"]}
+grey128	oklab	PASS	{"ok":true,"channels":[0.599870805622147,-5.55111512312578e-16,0]}
+grey128	oklch	PASS	{"ok":true,"channels":[0.599870805622147,5.55111512312578e-16,"none"]}
+grey128	xyz	PASS	{"ok":true,"channels":[0.205165891749594,0.215860500113899,0.235084550731946]}
+grey128	srgb-linear	PASS	{"ok":true,"channels":[0.215860500113899,0.215860500113899,0.215860500113899]}
+grey128	display-p3	PASS	{"ok":true,"channels":[0.501960784313725,0.501960784313725,0.501960784313725]}
+grey128	a98-rgb	PASS	{"ok":true,"channels":[0.498016729754788,0.498016729754788,0.498016729754788]}
+grey128	prophoto-rgb	PASS	{"ok":true,"channels":[0.426674030660767,0.426674030660766,0.426674030660767]}
+grey128	rec2020	PASS	{"ok":true,"channels":[0.527924914041446,0.527924914041446,0.527924914041446]}
+grey128	ictcp	PASS	{"ok":true,"channels":[0.427813644046152,1.11022302462516e-16,-6.24500451351651e-17]}
+grey128	jzazbz	PASS	{"ok":true,"channels":[0.118270249421854,-0.000116302384986222,-0.0000847441129921966]}
+grey128	kelvin	PASS	{"ok":true,"channels":[1000]}
+rgb(255,255,254)	rgb	PASS	{"ok":true,"channels":[255,255,254]}
+rgb(255,255,254)	hsl	PASS	{"ok":true,"channels":[59.9999999999949,1.00000000000009,0.998039215686275]}
+rgb(255,255,254)	hsv	PASS	{"ok":true,"channels":[59.9999999999949,0.0039215686274513,1]}
+rgb(255,255,254)	hwb	PASS	{"ok":true,"channels":[59.9999999999949,0.996078431372549,-2.22044604925031e-16]}
+rgb(255,255,254)	lab	PASS	{"ok":true,"channels":[99.9791398673264,-0.130221877401582,0.478746139272923]}
+rgb(255,255,254)	lch	PASS	{"ok":true,"channels":[99.9791398673264,0.496140709096443,105.216652938073]}
+rgb(255,255,254)	oklab	PASS	{"ok":true,"channels":[0.999722629030982,-0.000371533697672732,0.00126046632803767]}
+rgb(255,255,254)	oklch	PASS	{"ok":true,"channels":[0.999722629030982,0.00131408243752937,106.423351529247]}
+rgb(255,255,254)	xyz	PASS	{"ok":true,"channels":[0.948850026523653,0.999357639788792,1.08060000797898]}
+rgb(255,255,254)	srgb-linear	PASS	{"ok":true,"channels":[1,1,0.99110209711383]}
+rgb(255,255,254)	display-p3	PASS	{"ok":true,"channels":[1,1,0.996430168120926]}
+rgb(255,255,254)	a98-rgb	PASS	{"ok":true,"channels":[1,1,0.99611153677643]}
+rgb(255,255,254)	prophoto-rgb	PASS	{"ok":true,"channels":[0.999304937277634,0.999860772555491,0.995714414902629]}
+rgb(255,255,254)	rec2020	PASS	{"ok":true,"channels":[0.999839400507436,0.999957873432557,0.996671866750746]}
+rgb(255,255,254)	ictcp	PASS	{"ok":true,"channels":[0.580596994570986,-0.00105137317733384,0.00022963907033538]}
+rgb(255,255,254)	jzazbz	PASS	{"ok":true,"channels":[0.221959644430204,-0.000247514779012581,0.000618823520075917]}
+rgb(255,255,254)	kelvin	PASS	{"ok":true,"channels":[6600]}
+hsl(0,0,1) white	rgb	PASS	{"ok":true,"channels":[255,255,255]}
+hsl(0,0,1) white	hsl	PASS	{"ok":true,"channels":[0,0,1]}
+hsl(0,0,1) white	hsv	PASS	{"ok":true,"channels":[336,5.55111512312578e-16,1]}
+hsl(0,0,1) white	hwb	PASS	{"ok":true,"channels":[336,1,-2.22044604925031e-16]}
+hsl(0,0,1) white	lab	PASS	{"ok":true,"channels":[100,0,0]}
+hsl(0,0,1) white	lch	PASS	{"ok":true,"channels":[100,0,"none"]}
+hsl(0,0,1) white	oklab	PASS	{"ok":true,"channels":[1,-4.9960036108132e-16,0]}
+hsl(0,0,1) white	oklch	PASS	{"ok":true,"channels":[1,4.9960036108132e-16,"none"]}
+hsl(0,0,1) white	xyz	PASS	{"ok":true,"channels":[0.950455927051672,1,1.08905775075988]}
+hsl(0,0,1) white	srgb-linear	PASS	{"ok":true,"channels":[1,1,1]}
+hsl(0,0,1) white	display-p3	PASS	{"ok":true,"channels":[1,1,1]}
+hsl(0,0,1) white	a98-rgb	PASS	{"ok":true,"channels":[1,1,1]}
+hsl(0,0,1) white	prophoto-rgb	PASS	{"ok":true,"channels":[1,1,1]}
+hsl(0,0,1) white	rec2020	PASS	{"ok":true,"channels":[1,1,1]}
+hsl(0,0,1) white	ictcp	PASS	{"ok":true,"channels":[0.580688881041611,1.11022302462516e-16,2.91433543964104e-16]}
+hsl(0,0,1) white	jzazbz	PASS	{"ok":true,"channels":[0.222065249535739,-0.000160624926182767,-0.000117033997700022]}
+hsl(0,0,1) white	kelvin	PASS	{"ok":true,"channels":[6600]}
+lch(100,0,0) white	rgb	PASS	{"ok":true,"channels":[255,255,255]}
+lch(100,0,0) white	hsl	PASS	{"ok":true,"channels":[325.714285714286,1.75,1]}
+lch(100,0,0) white	hsv	PASS	{"ok":true,"channels":[325.714285714286,7.77156117237609e-16,1]}
+lch(100,0,0) white	hwb	PASS	{"ok":true,"channels":[325.714285714286,0.999999999999999,-2.22044604925031e-16]}
+lch(100,0,0) white	lab	PASS	{"ok":true,"channels":[100,5.55111512312578e-14,-2.22044604925031e-14]}
+lch(100,0,0) white	lch	PASS	{"ok":true,"channels":[100,0,0]}
+lch(100,0,0) white	oklab	PASS	{"ok":true,"channels":[1,-4.9960036108132e-16,0]}
+lch(100,0,0) white	oklch	PASS	{"ok":true,"channels":[1,4.9960036108132e-16,"none"]}
+lch(100,0,0) white	xyz	PASS	{"ok":true,"channels":[0.950455927051672,1,1.08905775075988]}
+lch(100,0,0) white	srgb-linear	PASS	{"ok":true,"channels":[1,0.999999999999999,1]}
+lch(100,0,0) white	display-p3	PASS	{"ok":true,"channels":[1,0.999999999999999,1]}
+lch(100,0,0) white	a98-rgb	PASS	{"ok":true,"channels":[1,1,1]}
+lch(100,0,0) white	prophoto-rgb	PASS	{"ok":true,"channels":[1,1,1]}
+lch(100,0,0) white	rec2020	PASS	{"ok":true,"channels":[1,1,1]}
+lch(100,0,0) white	ictcp	PASS	{"ok":true,"channels":[0.580688881041611,1.11022302462516e-16,2.91433543964104e-16]}
+lch(100,0,0) white	jzazbz	PASS	{"ok":true,"channels":[0.222065249535743,-0.000160624926230729,-0.000117033997687033]}
+lch(100,0,0) white	kelvin	PASS	{"ok":true,"channels":[6600]}
+oklch(1,0,0) white	rgb	PASS	{"ok":true,"channels":[255,255,255]}
+oklch(1,0,0) white	hsl	PASS	{"ok":true,"channels":[342.857142857143,-2.625,1]}
+oklch(1,0,0) white	hsv	PASS	{"ok":true,"channels":[342.857142857143,2.33146835171283e-15,1]}
+oklch(1,0,0) white	hwb	PASS	{"ok":true,"channels":[342.857142857143,0.999999999999999,-1.55431223447522e-15]}
+oklch(1,0,0) white	lab	PASS	{"ok":true,"channels":[100,2.77555756156289e-13,-2.22044604925031e-14]}
+oklch(1,0,0) white	lch	PASS	{"ok":true,"channels":[100,2.78442518019882e-13,"none"]}
+oklch(1,0,0) white	oklab	PASS	{"ok":true,"channels":[1,-5.55111512312578e-17,0]}
+oklch(1,0,0) white	oklch	PASS	{"ok":true,"channels":[1,0,0]}
+oklch(1,0,0) white	xyz	PASS	{"ok":true,"channels":[0.950455927051673,1,1.08905775075988]}
+oklch(1,0,0) white	srgb-linear	PASS	{"ok":true,"channels":[1,0.999999999999998,1]}
+oklch(1,0,0) white	display-p3	PASS	{"ok":true,"channels":[1,0.999999999999999,1]}
+oklch(1,0,0) white	a98-rgb	PASS	{"ok":true,"channels":[1,0.999999999999999,1]}
+oklch(1,0,0) white	prophoto-rgb	PASS	{"ok":true,"channels":[1,0.999999999999999,1]}
+oklch(1,0,0) white	rec2020	PASS	{"ok":true,"channels":[1,1,1]}
+oklch(1,0,0) white	ictcp	PASS	{"ok":true,"channels":[0.580688881041606,3.38618022510673e-14,4.33680868994202e-14]}
+oklch(1,0,0) white	jzazbz	PASS	{"ok":true,"channels":[0.222065249535743,-0.000160624926230729,-0.000117033997687033]}
+oklch(1,0,0) white	kelvin	PASS	{"ok":true,"channels":[6600]}
+----- verdict -----
+S3 arm RED. Two fold-named defects are LIVE in the packed 4.1.0:
+  (1) white cannot convert to HSL: convertColor(rgb(255,255,255),'hsl') -> {ok:false, code:color_non_finite}; grey sweep fails at exactly v=255 (CNL-18 / X-W9-FOLD W9.22 / NG-8).
+  (2) rgb(255,255,254)->hsl s = 1.00000000000009 (> 1, out of declared domain) (same row).
+  Recorded, not defects: 256/256 greys emit 'none' hue in lch AND oklch (the powerless law); parseCssColor('oklch()') -> ok:false css_syntax (CC-084 R1 crash cured — no throw).
+Owner: X-W9 (W9.22 · anchors.ts encodedToHsl ordering; the script's input rows). ⟨grep -cE 'W9\.22|encodedToHsl|CNL-18|white converts' execution/A/X-W9.md⟩ → 0: no X-W9 receipt names the row.

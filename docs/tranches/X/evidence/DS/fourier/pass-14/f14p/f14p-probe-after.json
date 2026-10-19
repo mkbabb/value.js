@@ -1,0 +1,418 @@
+{
+ "light-1440": {
+  "atRest": {
+   "scrollTop": 0,
+   "dataScrolled": false,
+   "ruleBg": "rgba(0, 0, 0, 0)"
+  },
+  "measureEdges": {
+   "left": 551,
+   "right": 1237
+  },
+  "nums": [
+   {
+    "t": "(2.70)",
+    "ctx": "prose",
+    "right": 1237
+   },
+   {
+    "t": "(2.72)",
+    "ctx": "theorem",
+    "right": 1237
+   },
+   {
+    "t": "(2.73)",
+    "ctx": "theorem",
+    "right": 1237
+   },
+   {
+    "t": "(2.74)",
+    "ctx": "proof",
+    "right": 1237
+   },
+   {
+    "t": "(2.75)",
+    "ctx": "prose",
+    "right": 1237
+   }
+  ],
+  "disp": [
+   {
+    "ctx": "prose",
+    "boxLeft": 551,
+    "boxRight": 1174.9,
+    "inkLeft": 551,
+    "sw": 624,
+    "cw": 624,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "theorem",
+    "boxLeft": 574,
+    "boxRight": 1174.9,
+    "inkLeft": 574,
+    "sw": 601,
+    "cw": 601,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "theorem",
+    "boxLeft": 574,
+    "boxRight": 1174.9,
+    "inkLeft": 574,
+    "sw": 601,
+    "cw": 601,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "proof",
+    "boxLeft": 574,
+    "boxRight": 1174.9,
+    "inkLeft": 574,
+    "sw": 601,
+    "cw": 601,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "prose",
+    "boxLeft": 551,
+    "boxRight": 1174.9,
+    "inkLeft": 551,
+    "sw": 624,
+    "cw": 624,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   }
+  ],
+  "blocks": [
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 1237
+   },
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 1237
+   },
+   {
+    "ctx": "proof",
+    "padding": "12px 0px 12px 20px",
+    "right": 1237
+   }
+  ],
+  "proseRight": [
+   1237,
+   1237,
+   1237
+  ],
+  "navInfo": {
+   "scrollTop": 0,
+   "dataScrolled": false,
+   "headBottom": 205.7,
+   "ruleBg": "rgba(0, 0, 0, 0)",
+   "ruleH": "1px",
+   "ruleW": "290px",
+   "headShadow": "none",
+   "cutRows": []
+  },
+  "railDriven": {
+   "scrollTop": 86,
+   "dataScrolled": true,
+   "ruleBg": "rgb(198, 180, 159)",
+   "border": "light-dark(hsl(32 26% 70%),hsl(30 16% 34%))",
+   "cutRows": [
+    "2.Lens I: Linear Algebra",
+    ""
+   ]
+  }
+ },
+ "light-390": {
+  "measureEdges": {
+   "left": 33,
+   "right": 357
+  },
+  "nums": [
+   {
+    "t": "(2.72)",
+    "ctx": "theorem",
+    "right": 357
+   },
+   {
+    "t": "(2.73)",
+    "ctx": "theorem",
+    "right": 357
+   },
+   {
+    "t": "(2.74)",
+    "ctx": "proof",
+    "right": 357
+   }
+  ],
+  "disp": [
+   {
+    "ctx": "theorem",
+    "boxLeft": 56,
+    "boxRight": 357,
+    "inkLeft": 56,
+    "sw": 301,
+    "cw": 301,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "theorem",
+    "boxLeft": 56,
+    "boxRight": 357,
+    "inkLeft": 56,
+    "sw": 301,
+    "cw": 301,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "proof",
+    "boxLeft": 56,
+    "boxRight": 357,
+    "inkLeft": 56,
+    "sw": 377,
+    "cw": 301,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   }
+  ],
+  "blocks": [
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 357
+   },
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 357
+   },
+   {
+    "ctx": "proof",
+    "padding": "12px 0px 12px 20px",
+    "right": 357
+   }
+  ],
+  "proseRight": [
+   357
+  ],
+  "navInfo": null
+ },
+ "dark-1440": {
+  "atRest": {
+   "scrollTop": 0,
+   "dataScrolled": false,
+   "ruleBg": "rgba(0, 0, 0, 0)"
+  },
+  "measureEdges": {
+   "left": 551,
+   "right": 1237
+  },
+  "nums": [
+   {
+    "t": "(2.70)",
+    "ctx": "prose",
+    "right": 1237
+   },
+   {
+    "t": "(2.72)",
+    "ctx": "theorem",
+    "right": 1237
+   },
+   {
+    "t": "(2.73)",
+    "ctx": "theorem",
+    "right": 1237
+   },
+   {
+    "t": "(2.74)",
+    "ctx": "proof",
+    "right": 1237
+   },
+   {
+    "t": "(2.75)",
+    "ctx": "prose",
+    "right": 1237
+   }
+  ],
+  "disp": [
+   {
+    "ctx": "prose",
+    "boxLeft": 551,
+    "boxRight": 1174.9,
+    "inkLeft": 551,
+    "sw": 624,
+    "cw": 624,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "theorem",
+    "boxLeft": 574,
+    "boxRight": 1174.9,
+    "inkLeft": 574,
+    "sw": 601,
+    "cw": 601,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "theorem",
+    "boxLeft": 574,
+    "boxRight": 1174.9,
+    "inkLeft": 574,
+    "sw": 601,
+    "cw": 601,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "proof",
+    "boxLeft": 574,
+    "boxRight": 1174.9,
+    "inkLeft": 574,
+    "sw": 601,
+    "cw": 601,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "prose",
+    "boxLeft": 551,
+    "boxRight": 1174.9,
+    "inkLeft": 551,
+    "sw": 624,
+    "cw": 624,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   }
+  ],
+  "blocks": [
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 1237
+   },
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 1237
+   },
+   {
+    "ctx": "proof",
+    "padding": "12px 0px 12px 20px",
+    "right": 1237
+   }
+  ],
+  "proseRight": [
+   1237,
+   1237,
+   1237
+  ],
+  "navInfo": {
+   "scrollTop": 0,
+   "dataScrolled": false,
+   "headBottom": 205.7,
+   "ruleBg": "rgba(0, 0, 0, 0)",
+   "ruleH": "1px",
+   "ruleW": "290px",
+   "headShadow": "none",
+   "cutRows": []
+  },
+  "railDriven": {
+   "scrollTop": 86,
+   "dataScrolled": true,
+   "ruleBg": "rgb(101, 87, 73)",
+   "border": "hsl(30 16% 34%)",
+   "cutRows": [
+    "2.Lens I: Linear Algebra",
+    ""
+   ]
+  }
+ },
+ "dark-390": {
+  "measureEdges": {
+   "left": 33,
+   "right": 357
+  },
+  "nums": [
+   {
+    "t": "(2.72)",
+    "ctx": "theorem",
+    "right": 357
+   },
+   {
+    "t": "(2.73)",
+    "ctx": "theorem",
+    "right": 357
+   },
+   {
+    "t": "(2.74)",
+    "ctx": "proof",
+    "right": 357
+   }
+  ],
+  "disp": [
+   {
+    "ctx": "theorem",
+    "boxLeft": 56,
+    "boxRight": 357,
+    "inkLeft": 56,
+    "sw": 301,
+    "cw": 301,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "theorem",
+    "boxLeft": 56,
+    "boxRight": 357,
+    "inkLeft": 56,
+    "sw": 301,
+    "cw": 301,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   },
+   {
+    "ctx": "proof",
+    "boxLeft": 56,
+    "boxRight": 357,
+    "inkLeft": 56,
+    "sw": 377,
+    "cw": 301,
+    "mbPadL": "0px",
+    "mbMarL": "0px"
+   }
+  ],
+  "blocks": [
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 357
+   },
+   {
+    "ctx": "theorem",
+    "padding": "12px 0px 12px 20px",
+    "right": 357
+   },
+   {
+    "ctx": "proof",
+    "padding": "12px 0px 12px 20px",
+    "right": 357
+   }
+  ],
+  "proseRight": [
+   357
+  ],
+  "navInfo": null
+ }
+}

@@ -1,0 +1,12 @@
+⟨cmd⟩ npx vitest run test/gradient-order-invariant.test.ts
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/gradient-order-invariant.test.ts (17 tests) 8ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  22:22:13
+   Duration  548ms (transform 55ms, setup 28ms, collect 60ms, tests 8ms, environment 232ms, prepare 54ms)
+
+EXIT=0

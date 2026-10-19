@@ -1,0 +1,89 @@
+# F.W14U — the fourier UI-audit rows, whole
+
+**Minted by:** COHESION §0cl (2026-09-23). **Opens after:** F.W14 CLOSED. **Model:** Opus 5.5, every seat. **Record:** `docs/tranches/X/execution/C/F-W14U.md`. **Tree:** `/Users/mkbabb/Programming/fourier-analysis`, branch `m/w1-bump-migration`.
+
+## Why
+The owner ordered a full UI audit of every page (OA-37). The fourier register, `docs/tranches/X/audit/UI-AUDIT-fourier.md`, holds 256 rows. F.W14 `.u` dispositioned 88: 33 cured, 4 cured by `.t` or `.h`, 48 GLASS rows routed (O-59/O-63) and 3 SERVER rows routed. **168 are owed**, including BROKEN F-9 and F-14, plus 24 SPLIT consumer halves. The owner's standard for every row is "glass-ui idiomatic, rounded properly, good design hierarchy and usage of space".
+
+## Units
+- **The open seat reads the `.u` receipt** in `execution/C/F-W14.md` and the register whole. It lists every owed row by id and groups the rows by page family, following the register's own page sections. It then mints one unit per family, named `F.W14U.<family>`. Each unit takes a set of files disjoint from the others, so groups whose file sets are disjoint may run in parallel. Units that share a file run serially.
+- BROKEN rows go first, in their family's unit. The SPLIT consumer halves go with their family.
+- **Per row:**
+  - a served-page frame before the cure (headed, 1440 and 390, in the themes the row names)
+  - the cure at the root, with glass idiom and no local copy of a glass surface
+  - a falsifier that reads RED before the cure and GREEN after, twice
+  - a frame after the cure
+  - the row's disposition written into the unit's receipt
+- **GLASS rows** are relay-only. Cite O-59, or add a dated addendum beside O-59 for a newly found glass half.
+- **Bounds:** `web/**` and `web/e2e/**` (additive). **`api/**` is granted** for the server rows: F-35, F-83, F-112, F-39 and F-46's server half. Also the value.js receipt and INBOX rows. The ADJACENT-LINE RULE applies.
+
+## Close
+- All 256 UIA-F rows are dispositioned. Each is either CURED with its falsifier ×2, or routed by id: GLASS to O-59/O-63, SERVER to its api cure.
+- Full e2e at `--workers=1`, twice, with the load recorded. REDs stay within the named baseline set plus the honest-RED ids.
+- `vue-tsc -b` 0. `vitest` GREEN.
+
+## ADDENDUM 2026-09-24 (COHESION §0cq): OA-57/59/60 join F.W14U
+- **Owner, verbatim (2026-09-24):** *"the dock when collapsed is not correct--same with keyframes.js and the docks in the other apps; … the easing curve picker is not organized well with proper design hierarchy and dividing … the side controls pane in fourier should be seperated, not totally attached, like it is now. The table of contents should be hideable in the paper view, it should slide under the paper and become a drawer that expands out to where it is now. The hide/show animation ball preview in keyframes.js should have a eye icon in every view, and it should not impact the fow, it should float in the top right corner and it should animate the hide and show--ensure that we're not duplicating any component in any view, too: KISS, DRY. Audit our component structure for cogency in every project. All issues should be fixed at the glass-ui root, too. The mobile view for the controls and panes in keyframes.js are wrong and not centreed and aligned properly. Audit every mobile view for every mobile app view for all projects, too. Keep ttrack of the projects, too, and hold them in your plans and mind, like parse-that, bbnf, keyframes.js, etc."*
+- **Frames:** `fourier/evidence/W14/owner-2026-09-24-side-pane.png` (the controls pane fused to the viewport edge) and `audit/owner-2026-09-24-collapsed-dock.png`.
+- **New units, run before the family units:**
+  - **`F.W14U.s` the side controls pane is separated, OA-59.** The Configurator's controls pane becomes a detached glass card: an inset gutter from the viewport edge and from the stage, all four corners at `--radius-card`, and its own shadow. It is never flush with or attached to the edge or the stage. This holds at 1440, 1024 and 390, where the mobile sheet keeps its own form. It uses glass's Configurator tokens, and if glass lacks a detached mode, the gap goes to O-65.
+  - **`F.W14U.t` the paper's table of contents becomes a hideable drawer, OA-60.**
+    - A toggle hides the ToC. Hiding it slides the ToC **under** the paper, animated. It collapses to a drawer tab at the paper's edge.
+    - Expanding the tab slides it back out to exactly where it sits now.
+    - The state persists per viewer, with try/catch around storage.
+    - Keyboard: the toggle is a button with `aria-expanded`, and focus returns to the toggle.
+    - Reduced motion is instant.
+    - `PaperSidebar` and `MobileFloatingToc` become one component with two presentations, and no duplicate stays (DRY).
+    - Use glass's drawer or sheet primitive, and relay any gap to O-65.
+  - **`F.W14U.d` the collapsed dock, OA-57, fourier's consumer half.** Read and cure consumer causes. The producer half is O-65, honest-RED **DOCK-COLLAPSED-FORM**.
+
+## ADDENDUM 2026-09-24 (b) — P-1 and P-2 as glass read them (COHESION §0cr)
+- **`.s`, the detached pane.** Glass's Configurator is already a floating, rounded card (I-48 P-1). What is missing is only its placement, and placement is the consumer's layout. `.s` places glass's own card with an inset gutter through fourier's layout, never restyling the card. If glass later ships an inset mode, it is adopted at the landing repin.
+- **`.t`, the paper table-of-contents drawer.** Glass has no edge-drawer-under-content primitive (I-48 P-2). The table of contents is fourier's own content, and hiding it under the paper is fourier's layout. `.t` builds it from fourier's layout: the paper's grid column collapses, and the table of contents translates under the paper surface. The visible surfaces are glass's own, so it copies no glass surface.
+  - The component is written so that one glass primitive can replace the slide. Its motion lives in one place with no bespoke styling of glass surfaces.
+  - If glass's formation ships P-2, fourier adopts it at the landing repin, recorded as **P-2-ADOPT**.
+
+## ADDENDUM 2026-09-24 — OA-66/OA-67 (COHESION §0cs)
+- Record honest-RED **GLASS-SELECT-GREY** (O-66) for Select triggers and selected items painting grey. Check the call sites for any consumer class or dead prop that causes it, and cure those locally. Never override the glass surface. Dock motion stays with glass D2 (O-66 §2).
+
+## ADDENDUM 2026-09-24 — OA-68 (COHESION §0ct)
+- Read every side and canvas dock on the served page, in both themes. Record honest-RED **SIDE-DOCK-EDGE** (O-67) for plate edges that do not close and for badge overlap. Cure only a consumer clip or crowding in the ancestor chain, such as a missing gutter to the panel above. Never override the dock.
+
+## ADDENDUM 2026-09-24 (c) — OA-69: section actions inline in the header (COHESION §0cu)
+- **Owner, verbatim:** *"and the refresh button should be inline in the section when expanded too. Ensure proper design hierarchy and usage of space in all UIs hereof"*. Frame: `fourier/evidence/W14/owner-2026-09-24-section-reset.png`.
+- **`F.W14U.a`:** when glass publishes `ConfiguratorLayer #actions` (O-68), every section's reset moves into the header row, and the body's reset rows are deleted. Until then, record honest-RED **CONFIGURATOR-HEADER-ACTIONS**. Add no local overlay into glass's header.
+- Also apply the owner's "proper design hierarchy and usage of space" to every fourier view, as the family units cure their rows.
+
+## ADDENDUM 2026-09-24 (d) — `.b`, blob integrity (COHESION §0cv)
+- **`F.W14U.b`, bounds `api/**`.** A request for a missing blob answers 404 or a typed error, never 500. An upload whose content-addressed blob file is missing re-stores the bytes, even when the row exists. It needs a falsifier in the api tests: delete the blob file, re-upload, and read it back as 200.
+
+## ADDENDUM 2026-09-24 (e) — the AUDIT-2 register joins F.W14U (COHESION §0cy)
+- **Scope:** `docs/tranches/X/audit/AUDIT-2-fourier.md` (62 rows, `9c7552d3`, read whole). Its "Routing § F.W14U" list is the consumer-half scope, 56 rows. The glass halves ride O-74 and are ADOPT-AT-LANDING.
+- **Re-baseline first.** The register audited `798c98f` plus uncommitted vdock edits, which landed as `7ad6be2`. Re-read A2-FO-L1-7, L1-8, L1-26, L2-2, L2-8, L2-12, L2-19 and L3-7 at the current HEAD and correct their line citations in the record. Re-check the L3 runtime error "DropdownMenu parts must be used within DropdownMenu" (m-dark, in-flight dock).
+- **The views Lens 3 never read, now framed for hierarchy and space:** the admin Audit Log (its L3 frames were blank from the Vite optimized-deps fault), the fullscreen viewer, contour-editor mode, the /w equation Σ panel, View options, the More-options menu, the floating ToC and inline search, the inline login, the About popover, the nav dropdown, /morph at 390 dark, and the Export dialog at 390 light. Frame them at 1440 and 390 in both themes, plus tablet 768×1024 and 1024×768. The logged-in shell is also framed in light at 360 and 430. New findings become `A2-FO-X-n` rows.
+- **Cross-app rows:** `useSafeStorage.ts` is byte-identical to value's, and AdminFlaggedPanel exists in both apps. Cross-cite both with value X-W12U `.k`, and keep one owner per app unless glass rules on a shared home. The four hand-rolled search-with-glyph inputs (PaperSearchInput.vue:88, PaperSearchModal.vue:130, AdminUserList.vue:384, GallerySearchBar.vue:97) become one consumer component until glass Input gains a leading-adornment slot (this joins O-74 §10). EasingPicker.vue and MorphPhaseConfig.vue converge on glass's EasingCurve marker API and preset strip (O-74 erratum E-3) once they land.
+- **The §11 type rows (A2-FO-L3-14, A2-FO-L2-18) are HELD for glass's ruling** (O-74 erratum E-2).
+
+## ADDENDUM 2026-09-24 (f) — (e) and the `.s` completion re-homed to F.W14V (COHESION §0cz)
+- F.W14U opened (seat 0, fourier `67ad614`) **before** addendum (e) was written, so its 15-unit plan does not carry the AUDIT-2 register. **Addendum (e) is homed whole in F.W14V** (`fourier/waves/F-W14V.md`). F.W14U's close cites F.W14V for it and does not count it as owed here.
+- **Owner frame 2026-09-24** (`fourier/evidence/W14/owner-2026-09-24-configurator-shell-band.png`): after `.s` (`10c8e1a`), the gutter between the stage and the detached pane still shows glass `Configurator`'s shell plate. The two surfaces are not distinct. `.s` is therefore **INCOMPLETE, not landed-wrong**: its consumer placement was the lawful half, and the glass half is O-75 CONFIGURATOR-DETACHED. The completion is **F.W14V `.s2`**. F.W14U's close records `.s` as PARTIAL → F.W14V `.s2`.
+
+## ADDENDUM 2026-09-24 (g) — the owner reverses UIA-F-172's colour limb: fourier's colours return (COHESION §0da)
+- **Owner, verbatim (2026-09-24):** *"What happened to the fourier colors in the configurator and the sliders and the like"*. The owner's frame from earlier the same day (`fourier/evidence/W14/owner-2026-09-24-configurator-shell-band.png`, pre-`9a1d932`) shows the colours as they were: the active Epicycles chip tinted in its basis hue, Harmonics red, Sample Points blue.
+- **Ruled:** `.vstage` (`9a1d932`) removed fourier's per-basis colours from the controls on UIA-F-172's reading ("a hue on a control said nothing"). The owner overrules that reading, because the basis hues are fourier's visual language, on the controls as well as the canvas. **UIA-F-172's accent limb is REVERSED.** The rest of `.vstage` (structure, disclosure, tooltips, the stage rows) stands.
+- **Unit `F.W14U.c1` (dispatched at once as a single Opus seat, outside the chassis loop, in files disjoint from the in-flight seat):**
+  1. **Census:** diff the Configurator and its controls' colour use from F.W13 (fourier `98fc769`) through HEAD. Cover the basis chips, sliders, number fields, section headers and eyebrows, the coefficients panel, the contour rows and every ConfiguratorLayer. List every hue that left a control, with the commit and the row that removed it.
+  2. **Restore at the root, idiomatically:** every control that sets a basis-owned or section-owned quantity wears that owner's hue from the ONE palette (`@/lib/colors` `VIZ_COLORS` and the `--section-color-*` tokens). The active basis chip carries its basis tint (ink mixed toward the foreground for contrast, as before). The retired one-accent token is deleted, not left beside the hues. Glass primitives are used as published (a slider takes its colour through its own prop or token). Nothing is restyled inside glass.
+  3. **Falsifier:** `web/e2e/f-w14u-vstage.spec.ts` `e171`'s "one slider accent" assertion is inverted, not deleted (the ADJACENT-LINE RULE): each slider's track colour equals its owner's hue, and the active basis chip's computed background carries its basis hue. RED on `9a1d932`, GREEN ×2 after. Headed frames at 1440 light and dark are banked beside the record.
+  4. **Contrast guard:** every tinted label and ink meets WCAG AA against its surface in both themes (a measured table). Where the red would read as an error, the basis red keeps its hue but is never the error-state ink (the error ink stays glass's `--destructive`).
+
+## ADDENDUM 2026-09-24 (h) — ESC-C-U1 ruled; the 26 open rows re-homed to F.W14V `.u` (COHESION §0dp)
+Every escalation in the record's Close §(2) is ruled here. The rows move whole, by id, to **F.W14V unit `.u`**, which gets the bounds they asked for. F.W14U's close cites F.W14V `.u` for them.
+- **Bounds grants** (most escalations were "the cure site is another unit's file"). `.u` may write `web/src/**`, `web/e2e/**` and, for the server limbs only, `api/**`. This covers: `.vdock` E-1 (F-81 plus F-9's final form); E-3 (F-79 plus F-77's consumer half, **one** `ViewLayersMenu` (DropdownMenu with CheckboxItems) mounted by both docks, a new file); `.vstage` E-1 (F-68, F-168's stage limb, F-170's legend limb); E-2 (F-183, the toast's View action seat in `useToast.ts`, the raw slug in "Published!"); `.vedit` and `.eq` E-1 (F-85 and F-241's glyph and ink limbs, with the hsl literals in `lib/equation/notation.ts` moved onto the palette tokens, per §0da's identity law); `.eq` E-2 and E-4 (the server limbs of F-201 and F-253, and the "Conjectured" tier label).
+- **`.vdock` E-2, F-14 (BROKEN) with F-93, F-182 and F-244:** granted as the register writes it. The **single** live stage (BasisCanvas, ContourEditorCanvas with its ref and listeners, both docks) moves into the fullscreen takeover. There is never a second stage.
+- **`.vdock` E-4, F-173:** the two-line setup change in `e2e/f-w14u-d.spec.ts` d2 is granted under the ADJACENT-LINE RULE (switch the trace off before reading the collapsed dot). The assertion itself is unchanged.
+- **`.vstage` E-3, F-74:** the landed cure (`mobileView` defaults to canvas after upload) stands. `.u` cures the three neighbour oracles it moved at 390 at their cause, or restates them where the old oracle asserted the pre-cure state.
+- **`.vedit` E-2 and `.eq` E-3 (F-177 and F-203 anchoring):** glass 10.x exports no Popover or Tooltip virtual anchor. That is **O-82 POPOVER-ANCHOR** to glass. The consumer records honest-RED until glass ships it; it builds no hand-rolled positioning.
+- **F-149 LOCK, and the F-77 and F-149 consumer halves:** `.u` lands them per the record's analysis.
+- **Close 2's outside-set REDs:** vc `:145 :164 :199` [mobile-chromium] and `f-w13-radius :105` (LW-1, LW-2). These follow the owner-ruled layout changes (the detached Configurator, the restored colours). `.u` **reads each diff first**. A diff that is the owner-ruled change is re-baselined with the diff described in the record; any other diff is cured. **LW-3:** the vite-preview instrument on :4190 becomes managed by the Playwright config's `webServer` for the specs that need it. Nothing unmanaged.
+- **F.W14U closes** CONFORMANT-HONEST-RED once its record cites F.W14V `.u` for these rows.

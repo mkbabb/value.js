@@ -1,4 +1,5 @@
 import { userTest as test, expect } from "../fixtures/user-auth";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #4 — palette-edit (rename a remote palette).
@@ -42,7 +43,7 @@ test("rename a remote palette PATCHes /palettes/<slug> with new name", async ({
     });
 
     await page.goto("/#/browse");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main).toBeVisible();
     await main.getByRole("button", { name: "Palette menu" }).first().click();
     await page.getByRole("menuitem", { name: /Rename/ }).click();

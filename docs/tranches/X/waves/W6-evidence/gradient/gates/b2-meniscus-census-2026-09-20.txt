@@ -1,0 +1,29 @@
+SERVED MODEL: claude-opus-5[1m]
+X.W6.b · b2 — the add-surface census, BEFORE and AFTER, at this seat's own clock
+(2026-09-20), chromium 1440x900 against a freshly started :9000.
+
+The census is the gate's own measure: a column of the ramp's centre row counts as
+"addable" when the topmost element at that pixel IS the ramp
+(`document.elementFromPoint(r.x + x + 0.5, r.y + r.height/2) === bar`).
+
+⟨cmd⟩ node <scratchpad>/probe-clip.mjs   (2 stops — the boot seed)
+
+  BEFORE  bar 462.0 x 40.0 @ (224, 209.7) · handle[0] 24 x 24 @ (224, 217.7)
+          addable 388 / 462  = 84.0%
+          (the two seats + the keyboard caret each mask their own 24px of ramp)
+
+  AFTER   bar 462.0 x 40.0 @ (224, 248.2) · handle[0] 24 x 24 @ (224, 292.2)
+          addable 462 / 462  = 100.0%
+          (the seats sit on their own band: handle top edge 44px below the bar's
+           top = 4px — one `--rail-gutter` — below the ramp's bottom edge)
+
+The 12-stop leg and the `bar.x + 3` leg are held by `gate-seat.mjs` G3f (both
+GREEN AFTER: see b1b2b4-gate-seat-AFTER-run{1,2}.txt) and by the ADDED e2e arm
+"the seat rail frees the meniscus: every rail ordinal mints, at any rail width",
+which re-measures the census at 12 stops at BOTH 1440 and 390 CSS px of width.
+
+Rail clipping, measured before the cure was designed (the seats hang below the
+rail's own box, so the question had to be answered at the bytes, not assumed):
+  DIV.gradient-rail  overflow: visible · contain: none · clip-path: none
+  DIV.rail-seat      overflow: visible · contain: none · clip-path: none
+  (the nearest clipping ancestor is the pane Card, four levels up)

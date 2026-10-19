@@ -1,0 +1,357 @@
+{
+  "kf": "60477b06+7",
+  "easing": {
+    "before": {
+      "pane": [
+        43,
+        54,
+        475,
+        927
+      ],
+      "copy": [
+        103,
+        867,
+        89,
+        36
+      ],
+      "apply": [
+        210,
+        911,
+        129,
+        36
+      ],
+      "scrollers": [
+        {
+          "sh": 787,
+          "ch": 787,
+          "st": 0,
+          "box": [
+            55,
+            54,
+            451,
+            787
+          ],
+          "cls": "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 "
+        },
+        {
+          "sh": 21,
+          "ch": 21,
+          "st": 0,
+          "box": [
+            141,
+            80,
+            311,
+            21
+          ],
+          "cls": "native-edit-context"
+        }
+      ],
+      "docScroll": [
+        900,
+        900
+      ]
+    },
+    "after": {
+      "pane": [
+        43,
+        54,
+        475,
+        927
+      ],
+      "copy": [
+        103,
+        867,
+        89,
+        36
+      ],
+      "apply": [
+        210,
+        911,
+        129,
+        36
+      ],
+      "scrollers": [
+        {
+          "sh": 787,
+          "ch": 787,
+          "st": 0,
+          "box": [
+            55,
+            54,
+            451,
+            787
+          ],
+          "cls": "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 "
+        },
+        {
+          "sh": 1,
+          "ch": 1,
+          "st": 0,
+          "box": [
+            73,
+            64,
+            335,
+            1
+          ],
+          "cls": "native-edit-context"
+        }
+      ],
+      "docScroll": [
+        900,
+        900
+      ]
+    }
+  },
+  "spring": {
+    "before": {
+      "pane": [
+        43,
+        54,
+        475,
+        1727
+      ],
+      "copy": [
+        103,
+        1667,
+        89,
+        36
+      ],
+      "apply": [
+        210,
+        1711,
+        129,
+        36
+      ],
+      "scrollers": [
+        {
+          "sh": 1587,
+          "ch": 1587,
+          "st": 0,
+          "box": [
+            55,
+            54,
+            451,
+            1587
+          ],
+          "cls": "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 "
+        },
+        {
+          "sh": 21,
+          "ch": 21,
+          "st": 0,
+          "box": [
+            141,
+            80,
+            311,
+            21
+          ],
+          "cls": "native-edit-context"
+        },
+        {
+          "sh": 1169,
+          "ch": 416,
+          "st": 0,
+          "box": [
+            89,
+            1199,
+            371,
+            416
+          ],
+          "cls": "keyframes-editor-scroll"
+        },
+        {
+          "sh": 41,
+          "ch": 38,
+          "st": 0,
+          "box": [
+            121,
+            1535,
+            307,
+            40
+          ],
+          "cls": "flex h-10 w-full items-center gap-2 overflow-x-auto scrollba"
+        }
+      ],
+      "docScroll": [
+        900,
+        900
+      ]
+    },
+    "after": {
+      "pane": [
+        43,
+        54,
+        475,
+        1727
+      ],
+      "copy": [
+        103,
+        1667,
+        89,
+        36
+      ],
+      "apply": [
+        210,
+        1711,
+        129,
+        36
+      ],
+      "scrollers": [
+        {
+          "sh": 1587,
+          "ch": 1587,
+          "st": 0,
+          "box": [
+            55,
+            54,
+            451,
+            1587
+          ],
+          "cls": "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 "
+        },
+        {
+          "sh": 1,
+          "ch": 1,
+          "st": 0,
+          "box": [
+            73,
+            64,
+            335,
+            1
+          ],
+          "cls": "native-edit-context"
+        },
+        {
+          "sh": 1169,
+          "ch": 416,
+          "st": 0,
+          "box": [
+            89,
+            1199,
+            371,
+            416
+          ],
+          "cls": "keyframes-editor-scroll"
+        },
+        {
+          "sh": 41,
+          "ch": 38,
+          "st": 0,
+          "box": [
+            121,
+            1535,
+            307,
+            40
+          ],
+          "cls": "flex h-10 w-full items-center gap-2 overflow-x-auto scrollba"
+        }
+      ],
+      "docScroll": [
+        900,
+        900
+      ]
+    }
+  },
+  "cube": {
+    "before": {
+      "pane": [
+        43,
+        54,
+        475,
+        614
+      ],
+      "copy": [
+        103,
+        554,
+        89,
+        36
+      ],
+      "apply": [
+        210,
+        598,
+        129,
+        36
+      ],
+      "scrollers": [
+        {
+          "sh": 474,
+          "ch": 474,
+          "st": 0,
+          "box": [
+            55,
+            54,
+            451,
+            474
+          ],
+          "cls": "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 "
+        },
+        {
+          "sh": 21,
+          "ch": 21,
+          "st": 0,
+          "box": [
+            141,
+            80,
+            311,
+            21
+          ],
+          "cls": "native-edit-context"
+        }
+      ],
+      "docScroll": [
+        900,
+        900
+      ]
+    },
+    "after": {
+      "pane": [
+        43,
+        54,
+        475,
+        614
+      ],
+      "copy": [
+        103,
+        554,
+        89,
+        36
+      ],
+      "apply": [
+        210,
+        598,
+        129,
+        36
+      ],
+      "scrollers": [
+        {
+          "sh": 474,
+          "ch": 474,
+          "st": 0,
+          "box": [
+            55,
+            54,
+            451,
+            474
+          ],
+          "cls": "flex-1 min-h-0 overflow-y-auto flex flex-col pl-4 pr-7 pt-2 "
+        },
+        {
+          "sh": 1,
+          "ch": 1,
+          "st": 0,
+          "box": [
+            73,
+            64,
+            335,
+            1
+          ],
+          "cls": "native-edit-context"
+        }
+      ],
+      "docScroll": [
+        900,
+        900
+      ]
+    }
+  }
+}

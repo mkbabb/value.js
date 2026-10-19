@@ -5,7 +5,7 @@
  * runnable half; the prose record lives in the lane close artefacts).
  *
  * Two suites:
- *   1. The lamp matrix — `resolveLampState` over (availability × dev-gate):
+ *   1. The lamp matrix — `resolveApiStatus` over (availability × dev-gate):
  *      correct variant per precondition, dev-gated, misconfigured ≠
  *      unavailable (distinct variants, distinct roles).
  *   2. The S.W0-1 contract rows, asserted against the UNTOUCHED
@@ -35,7 +35,7 @@ import {
     markApiUnreachable,
     type ApiAvailability,
 } from "../demo/platform/transport/availability";
-import { resolveLampState, type LampState } from "../demo/shell/dock/status-lamp";
+import { resolveApiStatus, type ApiStatus } from "../demo/shared/ui/api-status/api-status";
 
 afterEach(() => {
     // The latch is deliberate module state; reset between tests via its own
@@ -44,8 +44,8 @@ afterEach(() => {
     vi.restoreAllMocks();
 });
 
-describe("O-22 · the lamp variant matrix (resolveLampState)", () => {
-    const matrix: Array<[ApiAvailability, boolean, LampState | null]> = [
+describe("O-22 · the lamp variant matrix (resolveApiStatus)", () => {
+    const matrix: Array<[ApiAvailability, boolean, ApiStatus | null]> = [
         // dev: the two degraded preconditions light their OWN faces
         [
             "misconfigured",
@@ -78,13 +78,13 @@ describe("O-22 · the lamp variant matrix (resolveLampState)", () => {
     it.each(matrix)(
         "availability=%s isDev=%s → the correct face",
         (availability, isDev, expected) => {
-            expect(resolveLampState(availability, isDev)).toEqual(expected);
+            expect(resolveApiStatus(availability, isDev)).toEqual(expected);
         },
     );
 
     it("misconfigured ≠ unavailable — distinct variants AND distinct roles", () => {
-        const mis = resolveLampState("misconfigured", true)!;
-        const off = resolveLampState("unavailable", true)!;
+        const mis = resolveApiStatus("misconfigured", true)!;
+        const off = resolveApiStatus("unavailable", true)!;
         expect(mis.variant).not.toBe(off.variant);
         expect(mis.role).toBe("alert"); // the loud dev-config error
         expect(off.role).toBe("status"); // the quiet honest degradation

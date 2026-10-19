@@ -1,0 +1,9 @@
+
+ RUN  v4.1.8 /Users/mkbabb/Programming/keyframes.js
+
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Start at  23:56:42
+   Duration  9.58s (transform 4.46s, setup 23ms, import 5.31s, tests 3.23s, environment 813ms)
+

@@ -1,0 +1,8 @@
+SERVED MODEL: claude-opus-5-5
+# .lg1r citation by hash — tree from ⟨git archive 333b519ea bench/records/W8lg1r⟩; 12:20  up 5 days, 17:23, 2 users, load averages: 11.83 27.02 54.66
+read 1: MANIFEST OK 56 of 56
+read 1: bootstrap reader sha256 590d5a9c7ea58864a376fe364b7c9f311896f1e20ea0218ff94e1bf9df1e65a4 · GREEN 103 · STRADDLE|RED 0
+read 2: MANIFEST OK 56 of 56
+read 2: bootstrap reader sha256 590d5a9c7ea58864a376fe364b7c9f311896f1e20ea0218ff94e1bf9df1e65a4 · GREEN 103 · STRADDLE|RED 0
+committed bootstrap-read.txt sha256 590d5a9c7ea58864a376fe364b7c9f311896f1e20ea0218ff94e1bf9df1e65a4
+product-hash.txt: product bytes = X.P.W8.semi's final bytes 2f590daa8 (src tree aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9 == HEAD:src aed2aa0817eeb70d45af7cdf3e0175ba1edc6fd9); grammar.js blob 406bb5a1cc486e5271ba0dbb28

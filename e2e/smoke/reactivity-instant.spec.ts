@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A — merge-gate-blocking spec):
@@ -141,7 +142,7 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
     // ColorComponentDisplay readout both re-render from the same model;
     // a divergent readout proves the reactivity chain committed.
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
     const slider = page.getByRole("slider", { name: "L channel" });
     await expect(slider).toBeVisible();

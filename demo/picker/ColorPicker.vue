@@ -1,15 +1,27 @@
 <template>
-    <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
-         clamp via the .pane-container min() formula; the mobile slot wrapper
-         owns the sub-lg width). -->
-    <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
-        <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
-            <!-- U-F9 (T-61/§0.8) — the scroll-contraction sentinel: a 0-height
-                 marker riding the TOP of the Card scroll container (the picker
-                 Card is the mobile scroll host, overflow-y-auto). useHeaderCondense
-                 observes it; crossing the threshold condenses the whole header
-                 block to ONE short strip. -->
-            <div ref="headerSentinel" class="header-sentinel" aria-hidden="true"></div>
+    <div
+        ref="paneShell"
+        class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full"
+        :data-arrival="arrival"
+    >
+        <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
+             clamp via the .pane-container min() formula; the mobile slot wrapper
+             owns the sub-lg width). -->
+        <Card
+            tier="resting"
+            class="paper-grain-overlay relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible"
+        >
+            <!-- A2-VA-L1-2 — ONE condensing header: glass's. The scroll host is
+                 glass's `.card-scroll-host`, an element INSIDE the plate (never
+                 the plate: its feather mask would dissolve the plate's own
+                 edge), and the header is glass `<CardHeader shrink>`, whose
+                 real-box discrete condense (hysteresis threshold + sufficiency
+                 gate, `[data-condensed]`) retires the local useHeaderCondense
+                 fork and its sentinel. The picker scrolls only below `lg`; from
+                 `lg` it fits, so the host is `display: contents` there — no box,
+                 so no clip, no mask, no scroll, and the header never condenses
+                 (the X-DS V6C-01 scroll truth, now glass's `scrollTop` read). -->
+            <div class="card-scroll-host picker-scroll-host flex flex-col min-h-0 min-w-0 lg:contents">
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
                  container, not viewport breakpoints (R.W3 Lane A / A4) — and is
@@ -19,11 +31,8 @@
                  sticky whole-header contraction (Row B, T-61/§0.8, header.css);
                  `gap-y-1` retires into the `--picker-header-rhythm` token. -->
             <CardHeader
-                ref="pickerHeaderEl"
-                :class="[
-                    'picker-header font-display m-0 pt-3 pb-0 z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col items-start',
-                    condensed ? 'is-condensed' : '',
-                ]"
+                shrink
+                class="picker-header font-display m-0 pb-0 [--card-pad:0.75rem] z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col items-start"
             >
                 <!-- Title row = THE BEAD'S BAND (T.W4-5 · D8; t-contradictions
                      C1 order: the seat re-derives AGAINST the settled ×φ title
@@ -40,7 +49,10 @@
                         :model-value="model.selectedColorSpace"
                         v-model:open="selectedColorSpaceOpen"
                         :css-color="cssColor"
-                        @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
+                        @update:model-value="
+                            (colorSpace) =>
+                                updateModel({ selectedColorSpace: colorSpace })
+                        "
                     />
                 </div>
 
@@ -48,7 +60,6 @@
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
                     :space="model.selectedColorSpace"
-                    @update="(v, c) => updateColorComponentDebounced(v, c)"
                     @input="onComponentInput"
                 />
             </CardHeader>
@@ -63,13 +74,14 @@
                  `.stagger-children` see the var unset → 0ms, exactly as before. -->
             <CardContent
                 class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
-                :style="plateOpening ? { '--stagger-base': '220ms' } : undefined"
+                :style="plateOpening ? { '--stagger-base': 'var(--overture-stagger-base)' } : undefined"
             >
-                <div class="flex flex-col gap-3">
+                <div class="picker-body flex flex-col">
                     <SpectrumCanvas />
                     <ComponentSliders />
                 </div>
             </CardContent>
+            </div>
         </Card>
 
         <!-- T.W4-5 — THE SEAT (D8 · Q3 "Flush." · the T-30 centre-ward
@@ -100,18 +112,21 @@
         <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
              DELETED — the edit UX lives in the dock; the commit/cancel state
              machine below stays (keyboard + dock consumers). -->
-        <PointerDebugOverlay />
+        <!-- A2-VA-L1-24: the instrument's overlay is a lazy chunk, fetched only
+             under `debug=1`; it never rides the production picker bundle. -->
+        <PointerDebugOverlay v-if="pointerDebug.state.enabled" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { Card, CardContent, CardHeader } from "../ui/card";
-import ColorSpaceSelector from "../color-session/ColorSpaceSelector.vue";
+import { Card, CardContent, CardHeader } from "@mkbabb/glass-ui/card";
+import ColorSpaceSelector from "../shared/ui/ColorSpaceSelector.vue";
 import ColorComponentDisplay from "./display/ColorComponentDisplay/ColorComponentDisplay.vue";
 import {
     computed,
     defineAsyncComponent,
     inject,
+    onDeactivated,
     onMounted,
     onUnmounted,
     provide,
@@ -123,22 +138,24 @@ import {
 import { useMagicKeys } from "@vueuse/core";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import { toCSSColorString, resolveColorSpace } from "../color-session/color-model";
+import { serializePickerColor } from "../color-session/picker-color";
+import { formatCssCaption } from "../color-session/format-color";
 import { COLOR_MODEL_KEY } from "../color-session/keys";
-import type { ActionBarContext } from "../color-session/keys";
-import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
+import type { ColorSceneTarget } from "../color-session/keys";
+import { OVERTURE_KEY } from "../app/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { COLOR_TARGET_PORT_KEY } from "../palettes/usePalettePorts";
 
-import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
-import { useHeaderCondense } from "./composables/useHeaderCondense";
+import { usePointerDebug, POINTER_DEBUG_KEY } from "./debug/usePointerDebug";
 import "./seat.css";
 import "./header.css";
 
-import { writeClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui/dom";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
-import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
+const PointerDebugOverlay = defineAsyncComponent(
+    () => import("./debug/PointerDebugOverlay.vue"),
+);
 
 const emit = defineEmits<{
     reset: [];
@@ -175,25 +192,6 @@ const { model } = colorModel;
 const pointerDebug = usePointerDebug();
 provide(POINTER_DEBUG_KEY, pointerDebug);
 
-// U-F9 (T-61/§0.8) — the whole-header scroll contraction. The sentinel rides
-// the top of the Card scroll container; `condensed` flips past the threshold
-// and drives the `.is-condensed` strip state (header.css). Threshold sits below
-// the 390 card overflow (~32px at the tightest witnessed phone band) so the
-// contraction is reachable on the mobile scroll where the picker actually
-// scrolls; the desktop picker fits (no scroll → stays expanded, correct). The
-// composable reserves the condense deficit on the scroll root imperatively so
-// the toggle stays stable on barely-overflowing content (no oscillation).
-const headerSentinel = useTemplateRef<HTMLElement>("headerSentinel");
-// glass-ui's <CardHeader> is a single-root SFC; the template ref exposes the
-// component proxy, whose `$el` is the header <div> the composable measures.
-const pickerHeaderRef = useTemplateRef("pickerHeaderEl");
-const pickerHeaderEl = computed<HTMLElement | null>(
-    () => (pickerHeaderRef.value as { $el?: HTMLElement } | null)?.$el ?? null,
-);
-const { condensed } = useHeaderCondense(headerSentinel, pickerHeaderEl, {
-    threshold: 16,
-});
-
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const paletteManager = inject(COLOR_TARGET_PORT_KEY);
 
@@ -211,7 +209,6 @@ const {
     parseAndSetColor,
     parseAndSetColorDebounced,
     generateRandomColor,
-    updateToColorSpace,
     updateColorComponentDebounced,
     onPaletteAddColor,
     onPaletteApply,
@@ -290,7 +287,7 @@ function onStartEdit(target: EditTarget) {
 
 function commitEdit() {
     if (!editTarget.value || !paletteManager) return;
-    const newCss = toCSSColorString(model.value.color);
+    const newCss = serializePickerColor(model.value.color);
     paletteManager.commitColorEdit(
         editTarget.value.paletteId,
         editTarget.value.colorIndex,
@@ -308,20 +305,24 @@ function cancelEdit() {
     preEditModel.value = null;
 }
 
-// --- Action bar context for TopDock (exposed, not provided — TopDock is a sibling) ---
+// --- The color scene's dock target (exposed, not provided — the dock is a
+//     sibling). X-W4 · CC-043: this replaces `ActionBarContext`, whose three
+//     dead members went with it — `cssColorOpaque` and `formattedCurrentColor`
+//     were never read by the bar (it takes the SAFE_ACCENT ink and the input
+//     sub-layer reads the pipeline itself), and `colorModel` was re-provided
+//     under a key App.vue already provides with the SAME object. ---
 
-const paletteActive = computed(() => viewManager.currentView.value !== "picker" || isEditing.value);
+const paletteActive = computed(
+    () => viewManager.currentView.value !== "picker" || isEditing.value,
+);
 
-const actionBarContext: ActionBarContext = {
-    cssColorOpaque,
-    formattedCurrentColor,
+const sceneActionTarget: ColorSceneTarget = {
     isEditing,
     canProposeName,
     paletteActive,
-    colorModel,
     reset: () => emit("reset"),
     copy: () => {
-        updateModel({ inputColor: formattedCurrentColor.value });
+        updateModel({ inputColor: formatCssCaption(formattedCurrentColor.value) });
         void writeClipboard(formattedCurrentColor.value);
     },
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
@@ -340,19 +341,25 @@ defineExpose({
     setCurrentColor,
     applyExternalColor,
     onStartEdit,
-    actionBarContext,
+    sceneActionTarget,
 });
 
 // --- Model watchers ---
 
-watch(
-    () => model.value.selectedColorSpace,
-    (newVal, oldVal) => {
-        if (newVal === oldVal) return;
-        updateToColorSpace(resolveColorSpace(newVal));
-    },
-);
-
+/* X-W6.f · X:CSS-1 (f9) — THE SPACE-SWITCH WATCHER IS DELETED.
+ *
+ * A watcher here owned half of a command that belongs to the control: the
+ * selector emitted a bare space, this component noticed the model had changed
+ * and converted the live colour into it. Two halves, two files, and About — which
+ * hosts the same selector — converted only because this picker happened to be
+ * mounted beside it. The switch is now one act inside `ColorSpaceSelector.vue`,
+ * which calls the pipeline's own `updateToColorSpace`.
+ *
+ * Nothing else regresses, because no other writer of `selectedColorSpace` needed
+ * this watcher: `setCurrentColor`, `parseAndSetColor`, the URL sync and boot
+ * hydration each write the CONVERTED colour and the space in the same patch, so
+ * the watcher's conversion was an idempotent no-op on every one of those paths.
+ */
 watch(
     () => model.value.inputColor,
     (newVal, oldVal) => {
@@ -362,20 +369,46 @@ watch(
     { immediate: true },
 );
 
-// --- The orchestrated open (R.W3 Lane E / E1; retimed S.W3-5) ---
-// One breath, three beats, trimmed to a ~0.85s total (was 1.1–1.2s — the S-9
-// taste pass: a TOOL's fresh-mount breath, not a marketing splash): plate-land
-// (440ms, the cartoon shadow casting in) → field paint-in (SpectrumCanvas) →
-// the channel stagger (+220ms via --stagger-base above). The flag drops at
-// 850ms — after the last channel lands (~760ms), 90ms slack — so space-change
-// stagger re-fires run undelayed.
+// --- The orchestrated open (R.W3 Lane E / E1; retimed S.W3-5; X.W12.b) ---
+// One breath, three beats, SEQUENCED on the overture's glass-token clock:
+// plate-land (`--overture-plate-land` = `--spring-panel-duration`, the cartoon
+// shadow casting in) → field paint-in (SpectrumCanvas) → the channel stagger,
+// whose base is `--overture-stagger-base` (overture.css): it starts when the
+// plate has LANDED, so the rows never rise inside a plate that is still
+// travelling (X.W12.b census, before: stagger-child-in at +220ms ran inside
+// the shell's landing transform — two travels stacked on one surface). The
+// flag drops when the cascade's own animations finish (no wall-clock guess
+// that could cut a late row's delay mid-run), so space-change stagger re-fires
+// run undelayed.
 const plateOpening = ref(true);
+const paneShell = useTemplateRef<HTMLElement>("paneShell");
+
+// X.W12.b (OA-25 — a pane enter runs ONCE, on one owner): the opening beats
+// (plate-land, field paint-in, blob-emerge — overture.css / SpectrumCanvas)
+// belong to the pane's FIRST arrival. A KeepAlive return re-inserts the same
+// elements, and the browser restarts every CSS animation on a re-inserted
+// element, so each return re-ran the whole boot breath INSIDE the pane-swap
+// travel (census, before: plate-land, field-paint-in, stagger-child-in and
+// blob-emerge all re-fired in the gradient→picker window beneath the shell's
+// vj-enter). `data-arrival` scopes those beats to the first arrival; the
+// swap family alone moves a returning pane.
+const arrival = ref<"first" | "return">("first");
+onDeactivated(() => {
+    arrival.value = "return";
+});
 
 // --- Lifecycle ---
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
-    window.setTimeout(() => { plateOpening.value = false; }, 850);
+    requestAnimationFrame(() => {
+        const cascade = Array.from(
+            paneShell.value?.querySelectorAll(".stagger-children > *") ?? [],
+        ).flatMap((el) => el.getAnimations());
+        void Promise.allSettled(cascade.map((a) => a.finished)).then(() => {
+            plateOpening.value = false;
+        });
+    });
 });
 
 onUnmounted(() => {
@@ -393,10 +426,17 @@ onUnmounted(() => {
        morphs forced a reflow every frame of the swap. Transform only now.
        T.W5-R11 (T-14 / D7): the nudge is a SPATIAL travel — it rides
        `--transition-liquid-spatial` at the spring's OWN clock
-       (`--spring-smooth-duration`), never a bezier on a generic clock; the
+       (`--spring-present-duration`), never a bezier on a generic clock; the
        producer's PRM carve re-aliases the token to `--ease-standard` under
-       reduced motion. */
-    transition: transform var(--spring-smooth-duration) var(--transition-liquid-spatial);
+       reduced motion.
+       X.W12.b: this rule (0,2,0 scoped) outranked the overture's former
+       `.overture-appear-active` TRANSITION (0,1,0), so the boot landing ran
+       here — 350ms smooth, no stagger delay — instead of on the overture's
+       clock (census, before: `div.pane-shell transition(transform) 0+350`).
+       The landing is now a keyframe (overture.css), which a transition can
+       neither outrank nor be triggered by; the slot's vj-enter region rules
+       own every swap. */
+    transition: transform var(--spring-present-duration) var(--transition-liquid-spatial);
 }
 
 /* T.W4-5 — THE SEAT lives in the colocated grammar sheet (./seat.css —
@@ -408,7 +448,7 @@ onUnmounted(() => {
  * `.hero-blob-anchor`, no-pop law) and the B1 plate SHADOW CAST-IN
  * (`plate-land` on `.pane-shell > :first-child`, the LCP reveal-only law)
  * live in the boot-colocated overture grammar sheet
- * (demo/color-picker/composables/boot/overture.css). Both selectors are
+ * (demo/app/composables/boot/overture.css). Both selectors are
  * unique to THIS template, so the global rules bind identically to the
  * former scoped ones (moved at the W2-close PP-8 cap cure). */
 </style>

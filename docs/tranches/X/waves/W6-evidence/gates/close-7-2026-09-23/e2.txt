@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5[1m]
+e2 rAF: 0
+files scanned: 15 · requestAnimationFrame calls: 0 · CSS motion declarations: 8
+GATE e2 (PRM idiom) — GREEN
+EXIT=0

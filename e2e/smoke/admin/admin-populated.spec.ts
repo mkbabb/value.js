@@ -1,4 +1,5 @@
 import { adminPopulatedTest as test, expect, USERS, QUEUE } from "./fixtures/admin-populated";
+import { mainPane } from "../fixtures/dock";
 
 /**
  * S.W5-13 — the populated-fixture pattern, proven green.
@@ -18,9 +19,16 @@ test("admin-users renders seeded user rows", async ({ page }) => {
 
     await page.goto("/#/admin/users");
 
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
+    // Re-baselined X-W12U .q2: the route's own `<h1 id="route-title">Users`
+    // paints (X.W12U.m A2-VA-L2-2, `5e512fb7f`), so the substring name
+    // "Users" also matches it and the read raced the pane title's count
+    // ("Users 3") into a strict-mode violation (r4). The leg reads what it
+    // always meant — the Users PANE's title, the h2 card title.
     await expect(
-        page.getByRole("heading", { name: "Users" }).filter({ visible: true }),
+        page
+            .getByRole("heading", { level: 2, name: /^Users\b/ })
+            .filter({ visible: true }),
     ).toBeVisible();
 
     // Every seeded slug renders (the slug-pill). The panel mounts in both
@@ -97,7 +105,7 @@ test("admin-flagged renders a seeded flagged palette + moderation actions", asyn
 
     await page.goto("/#/admin/flagged");
 
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
     await expect(page.getByRole("heading", { name: "Flagged" }).first()).toBeVisible();
 
     // The seeded flagged palette name + a moderation Dismiss action are present.

@@ -1,0 +1,7 @@
+SERVED MODEL: claude-opus-5-5
+product bytes = .e final 5408b73e7 (src tree 516e50f031288df0b7f38009462da1e34d2dcd81 == HEAD:src 516e50f031288df0b7f38009462da1e34d2dcd81)
+b7c2348f195df19e2a600c615f115ade9dfe002b0d7c95d1c414b3174932fe97  bench/paired/_build/product.mjs
+a65bcc4c78e7d1aa72ce23e085895478982b1ac9d4333432604f2a7309efd4b8  bench/paired/_build/retired.mjs
+78afc105dcf7ee039e4a584e9ac4ef568dc4a0b293c9dd0cb1de0c5852b48d99  src/css/bbnf/generated/grammar.js
+64bd543be1bf2bd7afef61a6f7bc3da12ad94da4
+64bd543be1bf2bd7afef61a6f7bc3da12ad94da4

@@ -1,61 +1,86 @@
 <template>
-    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
-        <PaneHeader :description="headerDescription">
+    <PaneShell :description="headerDescription" :gap="3">
+        <!-- A2-VA-L1-1: the one pane shell. -->
+        <template #title>
+            <!-- X-DS pass 15 (V15-02): no count chip beside the title — each
+                 pane's count is said once, where the list speaks (the users
+                 toolbar's "N users", the names tabs' "Pending · N"). -->
             {{ headerTitle }}
-            <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
-        </PaneHeader>
-        <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+        </template>
             <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
                  register (utils.css `.search-seated`; interim, booked onto
                  the P3 seated rung / ASK-D). -->
-            <SearchBar
-                v-if="subView === 'admin-users' || subView === 'admin-names'"
-                v-model="pm.searchQuery.value"
-                class="search-seated"
-                :placeholder="subView === 'admin-users' ? 'Search users...' : 'Search color names...'"
+            <div
+                v-if="subView === 'admin-users'"
+                class="input-bar search-seated"
             >
+                <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                <input
+                    v-model="pm.usersSearch.value"
+                    type="search"
+                    aria-label="Search users"
+                    placeholder="Search users..."
+                    class="input-bar-field"
+                />
                 <UserSortMenu
-                    v-if="subView === 'admin-users'"
                     :sort="pm.userSortMode.value"
                     @update:sort="pm.onUserSortChange"
                 />
-            </SearchBar>
+            </div>
 
-            <!-- Users sub-view -->
-            <AdminUsersPanel
-                v-if="subView === 'admin-users'"
-                ref="adminUsersPanelRef"
-                :users="pm.filteredAdminUsers.value"
-                :loading="pm.loadingUsers.value"
-                :load-error="pm.usersLoadError.value"
-                :expanded-id="pm.expandedId.value"
-                :css-color="cssColorOpaque"
-                :total-users="pm.adminUsers.value.length"
-                @delete-user-palettes="pm.onDeleteUserPalettes"
-                @delete-user="pm.onDeleteUser"
-                @toggle-expand="pm.toggleExpand"
-                @feature="pm.onFeaturePalette"
-                @admin-delete-user-palette="pm.onAdminDeleteUserPalette"
-                @prune="pm.onPrune"
-                @refresh="pm.loadAdminUsers"
-            />
+            <!-- Users sub-view. X.W7.d (fold W7.68 · L-2): the panel injects the
+                 admin port itself — no port member is forwarded as a prop. -->
+            <AdminUsersPanel v-if="subView === 'admin-users'" />
+
+            <!-- X.W7.d (S-13): the moderation act's one visible result. -->
+            <div v-if="subView === 'admin-names'" aria-live="polite" data-admin-notice="names" class="contents">
+                <ActionFeedback
+                    v-if="pm.namesNotice.value"
+                    :key="pm.namesNotice.value.seq"
+                    :message="pm.namesNotice.value.message"
+                    :variant="pm.namesNotice.value.variant"
+                    :visible="true"
+                    :auto-dismiss-ms="pm.namesNotice.value.variant === 'error' ? 0 : 4000"
+                    @update:visible="pm.dismissNamesNotice()"
+                />
+            </div>
 
             <!-- Names sub-view -->
             <AdminNamesPanel
                 v-if="subView === 'admin-names'"
                 :pending-items="pm.filteredColorQueue.value"
                 :approved-items="pm.filteredApproved.value"
+                :pending-pager="pm.queuePager"
+                :approved-pager="pm.approvedPager"
                 :loading-pending="pm.loadingColorQueue.value"
                 :loading-approved="pm.loadingApproved.value"
                 :pending-error="pm.queueLoadError.value"
                 :approved-error="pm.approvedLoadError.value"
-                :css-color-opaque="cssColorOpaque"
+                :access="pm.namesAccess.value"
+                :filtered="pm.namesSearch.value.trim() !== ''"
+                :busy-ids="pm.busyNameIds.value"
                 @approve="pm.onApproveColor"
                 @reject="pm.onRejectColor"
                 @delete="pm.onDeleteColor"
                 @retry-pending="pm.loadColorQueue"
                 @retry-approved="pm.loadApprovedColors"
-            />
+                @clear-search="pm.namesSearch.value = ''"
+            >
+                <!-- X.W5.c2 · gate N15: the names query seats BELOW the
+                     Pending | Approved selector (source order, not `order:`). -->
+                <template #query>
+                    <div class="input-bar search-seated">
+                        <Search class="size-(--search-icon-size) text-muted-foreground shrink-0" aria-hidden="true" />
+                        <input
+                            v-model="pm.namesSearch.value"
+                            type="search"
+                            aria-label="Search color names"
+                            placeholder="Search color names..."
+                            class="input-bar-field"
+                        />
+                    </div>
+                </template>
+            </AdminNamesPanel>
 
             <!-- Audit log sub-view -->
             <AdminAuditPanel v-if="subView === 'admin-audit'" />
@@ -65,40 +90,42 @@
 
             <!-- Tags management sub-view -->
             <AdminTagsPanel v-if="subView === 'admin-tags'" />
-        </div>
-    </Card>
+    </PaneShell>
 </template>
 
 <script setup lang="ts">
+import { Search } from "@lucide/vue";
 import { inject, computed } from "vue";
-import { Card } from "../../ui/card";
-import { Badge } from "../../ui/badge";
 
 import { ADMIN_PORT_KEY } from "../usePalettePorts";
-import { CSS_COLOR_KEY } from "../../color-session/keys";
+import ActionFeedback from "../../shared/ui/ActionFeedback.vue";
 import {
     AdminUsersPanel,
     AdminNamesPanel,
     AdminAuditPanel,
     AdminFlaggedPanel,
     AdminTagsPanel,
-} from "../browser/admin";
-import { UserSortMenu } from "../browser/search";
-import { SearchBar } from "@mkbabb/glass-ui/search";
-import PaneHeader from "../../shared/ui/PaneHeader.vue";
+} from "./panels";
+import UserSortMenu from "./UserSortMenu.vue";
+import PaneShell from "../../shell/PaneShell.vue";
+import type { PaneId } from "../../shell/viewSchema";
+
+// X.W5.c2 · gate N14 (ATP-33): the admin view identity is DECLARED ONCE, in
+// viewSchema.ts's `PaneId` union; this pane derives its sub-view set from it
+// instead of re-spelling a sixth literal union vue-tsc could not relate.
+type AdminSubView = Extract<PaneId, `admin-${string}`>;
 
 const { subView } = defineProps<{
-    subView: "admin-users" | "admin-names" | "admin-audit" | "admin-flagged" | "admin-tags";
+    subView: AdminSubView;
 }>();
 
-const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(ADMIN_PORT_KEY)!;
 
 const headerTitle = computed(() => {
     switch (subView) {
         case "admin-users": return "Users";
         case "admin-names": return "Names";
-        case "admin-audit": return "Audit Log";
+        case "admin-audit": return "Audit log";
         case "admin-flagged": return "Flagged";
         case "admin-tags": return "Tags";
     }
@@ -114,22 +141,4 @@ const headerDescription = computed(() => {
     }
 });
 
-const adminCount = computed(() => {
-    switch (subView) {
-        // A-3: suppress the badge while the roster/queue loads — a "0" over
-        // the loading skeletons lies (the length is 0 before data arrives).
-        case "admin-users":
-            return pm.loadingUsers.value ? null : pm.adminUsers.value.length;
-        // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
-        // pending+approved sum matched neither visible list.
-        case "admin-names":
-            return pm.loadingColorQueue.value
-                ? null
-                : pm.filteredColorQueue.value.length;
-        default: return null;
-    }
-});
-
-// Sync the admin panel ref for prune operations
-const adminUsersPanelRef = pm.adminUsersPanelRef;
 </script>

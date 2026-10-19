@@ -1,0 +1,266 @@
+[
+ {
+  "trial": 0,
+  "open": {
+   "pressed": "true",
+   "dock": [
+    557,
+    883
+   ],
+   "back": [
+    569,
+    609
+   ],
+   "row": [
+    634,
+    818
+   ],
+   "collapsed": false,
+   "hash": "#/"
+  },
+  "back": {
+   "pressed": "false",
+   "dock": [
+    484,
+    956
+   ],
+   "back": [
+    496,
+    536
+   ],
+   "row": [
+    561,
+    745
+   ],
+   "collapsed": false,
+   "hash": "#/"
+  },
+  "switched": {
+   "pressed": "false",
+   "dock": [
+    473,
+    967
+   ],
+   "back": [
+    485,
+    525
+   ],
+   "row": [
+    550,
+    658
+   ],
+   "collapsed": false,
+   "hash": "#/generate"
+  },
+  "reopen": {
+   "pressed": "true",
+   "dock": [
+    622,
+    819
+   ],
+   "back": [
+    634,
+    674
+   ],
+   "row": [
+    699,
+    807
+   ],
+   "collapsed": false,
+   "hash": "#/generate"
+  },
+  "hashNavOpen": {
+   "pressed": "true",
+   "dock": [
+    622,
+    819
+   ],
+   "back": [
+    634,
+    674
+   ],
+   "row": [
+    699,
+    807
+   ],
+   "collapsed": false,
+   "hash": "#/gradient"
+  }
+ },
+ {
+  "trial": 1,
+  "open": {
+   "pressed": "true",
+   "dock": [
+    557,
+    883
+   ],
+   "back": [
+    569,
+    609
+   ],
+   "row": [
+    634,
+    818
+   ],
+   "collapsed": false,
+   "hash": "#/"
+  },
+  "back": {
+   "pressed": "false",
+   "dock": [
+    484,
+    956
+   ],
+   "back": [
+    496,
+    536
+   ],
+   "row": [
+    561,
+    745
+   ],
+   "collapsed": false,
+   "hash": "#/"
+  },
+  "switched": {
+   "pressed": "false",
+   "dock": [
+    473,
+    967
+   ],
+   "back": [
+    485,
+    525
+   ],
+   "row": [
+    550,
+    658
+   ],
+   "collapsed": false,
+   "hash": "#/generate"
+  },
+  "reopen": {
+   "pressed": "true",
+   "dock": [
+    622,
+    819
+   ],
+   "back": [
+    634,
+    674
+   ],
+   "row": [
+    699,
+    807
+   ],
+   "collapsed": false,
+   "hash": "#/generate"
+  },
+  "hashNavOpen": {
+   "pressed": "true",
+   "dock": [
+    622,
+    819
+   ],
+   "back": [
+    634,
+    674
+   ],
+   "row": [
+    699,
+    807
+   ],
+   "collapsed": false,
+   "hash": "#/gradient"
+  }
+ },
+ {
+  "trial": 2,
+  "open": {
+   "pressed": "true",
+   "dock": [
+    557,
+    883
+   ],
+   "back": [
+    569,
+    609
+   ],
+   "row": [
+    634,
+    818
+   ],
+   "collapsed": false,
+   "hash": "#/"
+  },
+  "back": {
+   "pressed": "false",
+   "dock": [
+    484,
+    956
+   ],
+   "back": [
+    496,
+    536
+   ],
+   "row": [
+    561,
+    745
+   ],
+   "collapsed": false,
+   "hash": "#/"
+  },
+  "switched": {
+   "pressed": "false",
+   "dock": [
+    473,
+    967
+   ],
+   "back": [
+    485,
+    525
+   ],
+   "row": [
+    550,
+    658
+   ],
+   "collapsed": false,
+   "hash": "#/generate"
+  },
+  "reopen": {
+   "pressed": "true",
+   "dock": [
+    622,
+    819
+   ],
+   "back": [
+    634,
+    674
+   ],
+   "row": [
+    699,
+    807
+   ],
+   "collapsed": false,
+   "hash": "#/generate"
+  },
+  "hashNavOpen": {
+   "pressed": "true",
+   "dock": [
+    622,
+    819
+   ],
+   "back": [
+    634,
+    674
+   ],
+   "row": [
+    699,
+    807
+   ],
+   "collapsed": false,
+   "hash": "#/gradient"
+  }
+ }
+]

@@ -1,0 +1,6 @@
+SERVED MODEL: claude-opus-5-5
+load 11.61 12.43 12.84
+[o5-gpu m2-r1 s1] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@263 frames=113 median=16.7ms max=2216.5ms (132.7x) gapEnd@2534 dropped=3 (2.7%) canvases=[[142,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[3062,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+[o5-gpu m2-r1 s2] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@310 frames=251 median=16.7ms max=166.7ms (10.0x) gapEnd@200 dropped=1 (0.4%) canvases=[[149,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1131,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+[o5-gpu m2-r1 s3] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version) mainVisible@303 frames=249 median=16.7ms max=183.3ms (11.0x) gapEnd@210 dropped=2 (0.8%) canvases=[[153,"atmosphere-canvas fixed inset-x-0 top-0 -z-1 w-full h-lvh pointer-events-none"],[1143,"goo-blob-canvas"]] legs={"frames":true,"spike":false,"drop":true} RED
+VERDICT RED 0/3 green, 0 fault

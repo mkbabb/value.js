@@ -1,0 +1,122 @@
+{
+ "label": "served-race-before-r2",
+ "base": "http://localhost:5193",
+ "N": 10,
+ "delay": 4000,
+ "invalidRuns": 0,
+ "runsWithThrow": 10,
+ "startLoad": "23.57",
+ "endLoad": "27.73",
+ "runs": [
+  {
+   "i": 0,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 1,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 2,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 3,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 4,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 5,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 6,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 7,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 8,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  },
+  {
+   "i": 9,
+   "deferred": 2,
+   "throws": 3,
+   "spinDistinct": 1,
+   "sheetArrived": false,
+   "errs": [
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar.",
+    "Could not resolve \"var(--rotationX)\" for \"transform\" to a numeric CSS scalar."
+   ]
+  }
+ ]
+}

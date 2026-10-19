@@ -1,0 +1,90 @@
+{
+ "kf0": {
+  "head": "d78bed01",
+  "dirty": 4
+ },
+ "rail": {
+  "x": 583.3984375,
+  "y": 324.484375,
+  "width": 748.3984375,
+  "height": 48
+ },
+ "scenarios": {
+  "A-rest": {
+   "frames": 1,
+   "probeRows": 100,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "B-tap-030": {
+   "frames": 83,
+   "probeRows": 131,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "C-tap-090": {
+   "frames": 88,
+   "probeRows": 144,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "D-bouncy-tap-015": {
+   "frames": 104,
+   "probeRows": 178,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "E-drag": {
+   "frames": 166,
+   "probeRows": 250,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "F-play": {
+   "frames": 168,
+   "probeRows": 183,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "G-tap-while-playing": {
+   "frames": 129,
+   "probeRows": 131,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "H-tap-while-paused": {
+   "frames": 16,
+   "probeRows": 142,
+   "kf": {
+    "head": "d78bed01",
+    "dirty": 4
+   }
+  },
+  "I-reset": {
+   "frames": 21,
+   "probeRows": 1882,
+   "kf": {
+    "head": "3c8199c5",
+    "dirty": 2
+   }
+  }
+ },
+ "kf1": {
+  "head": "3c8199c5",
+  "dirty": 2
+ }
+}

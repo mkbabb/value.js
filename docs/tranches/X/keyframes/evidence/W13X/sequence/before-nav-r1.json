@@ -1,0 +1,14 @@
+[
+ {
+  "vp": "1440x900",
+  "theme": "light",
+  "scenario": "cube->sequence",
+  "firstCardT": 83,
+  "xFirst": 614.3,
+  "xLast": 605.6,
+  "movingFrames": 1,
+  "movingWhileBoot": 1,
+  "lastMoveT": 86,
+  "clickMs": 2547
+ }
+]

@@ -1,0 +1,156 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ demo/test/palettes/palette-specimen.test.ts (4 tests) 428ms
+   ✓ G12 · PaletteSpecimen purity > mounts with zero interactive descendants  404ms
+ ✓ demo/test/shell/pane-popups-and-seats.test.ts (3 tests) 1065ms
+   ✓ A2-VA-L2-11 · usePanePopups > closes the open popup when its kept-alive pane deactivates  338ms
+   ✓ A2-VA-L2-6 · the scene action seat is a DockControl > an inoperable seat is a focusable button marked aria-disabled, and does not emit  457ms
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node
+[Vue warn]: injection "Symbol(palette.library)" not found. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m },
+  { css: [32m'#333333'[39m, source: [32m'picker'[39m },
+  { css: [32m'#444444'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m },
+  { css: [32m'#333333'[39m, source: [32m'picker'[39m },
+  { css: [32m'#444444'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#333333'[39m, source: [32m'picker'[39m },
+  { css: [32m'#444444'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the inspector's slug copy — rejected
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at canvasCtx (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:88:27)
+    at resolveCssColorAlpha (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:100:17)
+    at resolveLiveTint (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:219:22)
+    at resolveLiveTintCached (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:252:18)
+    at surfaceLightnessNow (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:270:9)
+    at safeCss (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:385:13)
+    at ComputedRefImpl.fn (/Users/mkbabb/Programming/value.js/demo/palettes/PaletteInspector.vue:230:39) [90mundefined[39m
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node
+[Vue warn]: injection "Symbol(palette.library)" not found. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+stderr | demo/test/palettes/swatch-identity-keys.test.ts > N-5 · MixSourceSelector chip keys are identities, not indices > a repeated colour pairs in order; a new selection mints a new node
+[Vue warn]: Failed to resolve component: SwatchButton
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <MixSourceSelector mode="colors" selectedColors= [
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#222222'[39m, source: [32m'picker'[39m },
+  { css: [32m'#111111'[39m, source: [32m'picker'[39m },
+  { css: [32m'#999999'[39m, source: [32m'picker'[39m }
+] selectedPalettes= []  ... > 
+  at <VTUROOT>
+
+ ✓ demo/test/palettes/swatch-identity-keys.test.ts (5 tests) 1037ms
+   ✓ N-5 · MixSourceSelector chip keys are identities, not indices > a non-tail removal keeps every surviving chip's DOM node  739ms
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the inspector's slug copy — rejected
+[useClipboard] clipboard writeText rejected: Error: denied
+    at Object.writeText [90m(/Users/mkbabb/Programming/value.js/[39mdemo/test/palettes/copy-verdict.test.ts:71:43[90m)[39m
+    at r [90m(file:///Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@mkbabb/glass-ui[24m/dist/useClipboard-D36OTaeT.js:9:36[90m)[39m
+    at Proxy.copyWithVerdict [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/PaletteInspector.vue:447:26[90m)[39m
+    at $props.expanded.onCopySlug._cache.<computed>._cache.<computed> [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/PaletteInspector.vue:133:39[90m)[39m
+    at callWithErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:200:19[90m)[39m
+    at callWithAsyncErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:207:17[90m)[39m
+    at emit [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:4421:5[90m)[39m
+    at $props.displaySlug.onClick._cache.<computed>._cache.<computed> [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue:16:25[90m)[39m
+    at callWithErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:200:19[90m)[39m
+    at Object.callWithAsyncErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:207:17[90m)[39m
+
+stderr | demo/test/palettes/palette-inspector.test.ts > G7 · the export failure is rendered by its host > a thrown download is said on the inspector's rail
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at canvasCtx (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:88:27)
+    at resolveCssColorAlpha (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:100:17)
+    at resolveLiveTint (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:219:22)
+    at resolveLiveTintCached (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:252:18)
+    at surfaceLightnessNow (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:270:9)
+    at safeCss (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:385:13)
+    at ComputedRefImpl.fn (/Users/mkbabb/Programming/value.js/demo/palettes/PaletteInspector.vue:230:39) [90mundefined[39m
+
+(node:9160) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9157) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+stderr | demo/test/palettes/copy-verdict.test.ts > N-11 · the verdict renders > the editor's swatch copy — rejected
+[useClipboard] clipboard writeText rejected: Error: denied
+    at Object.writeText [90m(/Users/mkbabb/Programming/value.js/[39mdemo/test/palettes/copy-verdict.test.ts:71:43[90m)[39m
+    at r [90m(file:///Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@mkbabb/glass-ui[24m/dist/useClipboard-D36OTaeT.js:9:36[90m)[39m
+    at Object.onCurrentSwatchCopy [90m(/Users/mkbabb/Programming/value.js/[39mdemo/palettes/browser/card/composables/useSwatchActions.ts:101:30[90m)[39m
+    at onClick [90m(/Users/mkbabb/Programming/value.js/[39mdemo/test/palettes/copy-verdict.test.ts:97:78[90m)[39m
+    at callWithErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:200:19[90m)[39m
+    at Object.callWithAsyncErrorHandling [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-core[24m/dist/runtime-core.cjs.js:207:17[90m)[39m
+    at HTMLButtonElement.invoker [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4m@vue/runtime-dom[24m/dist/runtime-dom.cjs.js:704:19[90m)[39m
+    at HTMLButtonElement.callTheUserObjectsOperation [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/generated/EventListener.js:26:30[90m)[39m
+    at innerInvokeEventListeners [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/events/EventTarget-impl.js:350:25[90m)[39m
+    at invokeEventListeners [90m(/Users/mkbabb/Programming/value.js/[39mnode_modules/[4mjsdom[24m/lib/jsdom/living/events/EventTarget-impl.js:286:3[90m)[39m
+
+ ✓ demo/test/palettes/copy-verdict.test.ts (5 tests) 1911ms
+   ✓ N-11 · the verdict renders > the inspector's slug copy — rejected  1296ms
+   ✓ N-11 · the verdict renders > the inspector's slug copy — accepted  567ms
+stderr | demo/test/palettes/version-history-verdicts.test.ts > each failure is handed to the host that renders it > the inspector's rail says the host's verdict
+Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+    at module.exports (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at HTMLCanvasElementImpl.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+    at HTMLCanvasElement.getContext (/Users/mkbabb/Programming/value.js/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+    at canvasCtx (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:88:27)
+    at resolveCssColorAlpha (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:100:17)
+    at resolveLiveTint (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:219:22)
+    at resolveLiveTintCached (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:252:18)
+    at surfaceLightnessNow (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:270:9)
+    at safeCss (/Users/mkbabb/Programming/value.js/demo/color-session/useContrastSafeColor.ts:385:13)
+    at ComputedRefImpl.fn (/Users/mkbabb/Programming/value.js/demo/palettes/PaletteInspector.vue:230:39) [90mundefined[39m
+
+(node:9162) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ demo/test/palettes/version-history-verdicts.test.ts (7 tests) 2064ms
+   ✓ each failure is handed to the host that renders it > the drawer emits load-failed with the reason (not an empty page)  1019ms
+   ✓ each failure is handed to the host that renders it > the inspector's rail says the host's verdict  875ms
+ ✓ demo/test/palettes/palette-inspector.test.ts (8 tests) 3703ms
+   ✓ G7 · the export failure is rendered by its host > a thrown download is said on the inspector's rail  1524ms
+   ✓ G7 · the export failure is rendered by its host > a completed export is said too (same rail)  588ms
+   ✓ the selected entity rides X-W4's typed SceneActionSet > a saved palette offers exactly the menu's verbs for its kind  322ms
+   ✓ the selected entity rides X-W4's typed SceneActionSet > deselect and unmount remove exactly this inspector's target  647ms
+   ✓ S.W5-7 · never the same string twice (Repair 1, Check 1 M-3) > the specimen's name yields while the rename input shows it, and returns on cancel  321ms
+
+ Test Files  6 passed (6)
+      Tests  32 passed (32)
+   Start at  12:02:55
+   Duration  17.96s (transform 8.11s, setup 3.58s, collect 42.15s, tests 10.21s, environment 14.26s, prepare 2.75s)
+

@@ -1,0 +1,151 @@
+{
+ "keyboard": {
+  "seq": [
+   "About Fourier analysis",
+   "Navigate — current section Visualize",
+   "Log in",
+   "Dark mode",
+   "",
+   "Expand dock"
+  ],
+  "afterExpand": [
+   {
+    "a": "View options",
+    "pop": true
+   },
+   {
+    "enterOnEye": true
+   },
+   {
+    "tabTo": "Publish to Gallery",
+    "pop": true
+   },
+   {
+    "tabTo": "Equation",
+    "pop": false
+   },
+   {
+    "tabTo": "Fullscreen",
+    "pop": false
+   }
+  ]
+ },
+ "mobileDock": {
+  "dock": [
+   100,
+   190
+  ],
+  "scrollers": [
+   {
+    "cls": "dock-layer dock-layer--full is-active",
+    "sw": 254,
+    "cw": 121,
+    "ox": "auto"
+   }
+  ],
+  "buttons": [
+   [
+    "View options",
+    114,
+    47,
+    "visible"
+   ],
+   [
+    "Publish to Gallery",
+    188,
+    47,
+    "visible"
+   ],
+   [
+    "Equation",
+    242,
+    47,
+    "visible"
+   ],
+   [
+    "Fullscreen",
+    316,
+    47,
+    "visible"
+   ],
+   [
+    "Edit contour",
+    229,
+    47,
+    "visible"
+   ]
+  ]
+ },
+ "detach": [
+  {
+   "tag": "open",
+   "eye": [
+    114,
+    147
+   ],
+   "pop": [
+    0,
+    18,
+    336,
+    126
+   ],
+   "dockExpanded": true
+  },
+  {
+   "tag": "open+3s idle",
+   "eye": [
+    238,
+    147
+   ],
+   "pop": [
+    54,
+    18,
+    336,
+    126
+   ],
+   "dockExpanded": false
+  },
+  {
+   "tag": "after tap trace",
+   "eye": [
+    265,
+    147
+   ],
+   "pop": [
+    54,
+    18,
+    336,
+    126
+   ],
+   "dockExpanded": false
+  },
+  {
+   "tag": "after tap +3s",
+   "eye": [
+    265,
+    147
+   ],
+   "pop": [
+    54,
+    18,
+    336,
+    126
+   ],
+   "dockExpanded": false
+  },
+  {
+   "tag": "after 2nd tap",
+   "eye": [
+    265,
+    147
+   ],
+   "pop": [
+    54,
+    18,
+    336,
+    126
+   ],
+   "dockExpanded": false
+  }
+ ]
+}

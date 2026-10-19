@@ -1,0 +1,134 @@
+{
+ "gallery-light-1440": {
+  "toolbar": [
+   144,
+   96,
+   1152,
+   44
+  ],
+  "tabs": [
+   160,
+   96,
+   168.9,
+   44
+  ],
+  "search": [
+   344.9,
+   100,
+   512,
+   40
+  ],
+  "grid": [
+   160,
+   156,
+   1120,
+   686
+  ],
+  "columns": 4,
+  "cardWidth": 271,
+  "firstCardX": 160,
+  "lastCardRight": 1280,
+  "scrollW": 1440,
+  "cards": 5,
+  "pageErrors": []
+ },
+ "gallery-dark-1440": {
+  "toolbar": [
+   144,
+   96,
+   1152,
+   44
+  ],
+  "tabs": [
+   160,
+   96,
+   168.9,
+   44
+  ],
+  "search": [
+   344.9,
+   100,
+   512,
+   40
+  ],
+  "grid": [
+   160,
+   156,
+   1120,
+   686
+  ],
+  "columns": 4,
+  "cardWidth": 271,
+  "firstCardX": 160,
+  "lastCardRight": 1280,
+  "scrollW": 1440,
+  "cards": 5,
+  "pageErrors": []
+ },
+ "gallery-light-390": {
+  "toolbar": [
+   0,
+   92,
+   390,
+   110
+  ],
+  "tabs": [
+   16,
+   92,
+   358,
+   44
+  ],
+  "search": [
+   16,
+   142,
+   358,
+   60
+  ],
+  "grid": [
+   16,
+   218,
+   358,
+   752
+  ],
+  "columns": 2,
+  "cardWidth": 173,
+  "firstCardX": 16,
+  "lastCardRight": 374,
+  "scrollW": 390,
+  "cards": 5,
+  "pageErrors": []
+ },
+ "gallery-dark-390": {
+  "toolbar": [
+   0,
+   92,
+   390,
+   110
+  ],
+  "tabs": [
+   16,
+   92,
+   358,
+   44
+  ],
+  "search": [
+   16,
+   142,
+   358,
+   60
+  ],
+  "grid": [
+   16,
+   218,
+   358,
+   752
+  ],
+  "columns": 2,
+  "cardWidth": 173,
+  "firstCardX": 16,
+  "lastCardRight": 374,
+  "scrollW": 390,
+  "cards": 5,
+  "pageErrors": []
+ }
+}

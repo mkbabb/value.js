@@ -1,5 +1,13 @@
 # R.W4 Lane B / B1 — the transition inventory (gate (a) artifact)
 
+> **TOMBSTONE — sealed record, not the standing inventory (X-W10 unit X.W10.f, 2026-10-18).**
+> Captured 2026-07-04, before the demo restructure; the body below is never rewritten and binds
+> nothing. Its paths (`demo/@/styles/animations.css`, `PaletteCard`, the EditDrawer) are history.
+> What moved where: the three families (§2) and their PRM reading (§4) are law in
+> `demo/DESIGN.md` § 5.3 The three families — a fourth is a defect, and § 5.6 Reduced motion is a
+> property of the construct; the per-site motion ownership of §3 is § 5.4 Who owns each motion.
+> The families themselves live in `demo/styles/animations.css`, "THE THREE MOTION FAMILIES".
+
 **Captured**: 2026-07-04, on the running demo (dev, branch `tranche-q`), BEFORE the
 collapse; the AFTER column records the family every site now keys. The three
 families are minted in `demo/@/styles/animations.css` (`vj-enter` · `vj-morph` ·

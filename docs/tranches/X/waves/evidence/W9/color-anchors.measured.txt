@@ -1,0 +1,105 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X-W9.e — G18 external colour oracles, measured either side of the cure.
+Worktree /Users/mkbabb/Programming/value.js-x-w9-e @ fdebfef5 · node v26.0.0 · darwin arm64
+
+==================================================================
+BEFORE — the falsely-named circular oracle, quoted at its own bytes
+==================================================================
+⟨cmd⟩ git show fdebfef5:test/v4-color-behavior.test.ts | sed -n "63,68p"
+    it("matches the independent IEC sRGB dark-band oracle", () => {
+        for (let byte = 1; byte <= 10; byte++) {
+            const converted = unwrap(convertColor(unwrap(rgb(byte, byte, byte)), "xyz"));
+            expect(converted.channels[1]).toBeCloseTo((byte / 255) / 12.92, 12);
+        }
+    });
+
+⟨cmd⟩ ls test/color-anchors.test.ts (BEFORE)
+fatal: path 'test/color-anchors.test.ts' exists on disk, but not in 'fdebfef5'
+
+==================================================================
+AFTER — measured absolute error of every external vector, by family
+==================================================================
+== A. rgb -> xyz (culori xyz65 goldens) ==
+white [0.9504559270516717,1,1.0890577507598784] maxAbsErr 2.220e-16
+red [0.41239079926595934,0.21263900587151027,0.01933081871559182] maxAbsErr 8.327e-17
+srgb(0,0.8,0) [0.21591920006651102,0.43183840013302205,0.07197306668883699] maxAbsErr 1.388e-17
+== B. xyz -> lab (culori lab D50 goldens) ==
+white [100,0,0] maxAbsErr 1.396e-6
+red [54.2905414046719,80.80492817043528,69.89096476862427] maxAbsErr 2.349e-5
+== C. xyz -> oklab (Ottosson triples) ==
+white [0.9999698724958754,-0.00023625776982028057,0.00000815489304883954] maxAbsErr 2.363e-4
+X [0.44993670717466977,1.2357583799754628,-0.018981916810331623] maxAbsErr 2.416e-4
+Y [0.9218156890775832,-0.6712112751817052,0.26340027916664455] maxAbsErr 4.003e-4
+Z [0.15259691129845748,-1.4150876020499517,-0.4488189838639358] maxAbsErr 4.031e-4
+== D. xyz -> ictcp (culori itp goldens) ==
+white [0.5806888810416109,1.1102230246251565e-16,2.914335439641036e-16] maxAbsErr 2.914e-16
+red [0.4278802843622803,-0.11570435976970356,0.2787289473752914] maxAbsErr 3.553e-14
+== E. v4-color-behavior:66 subject — rgb(b,b,b) -> xyz Y ==
+1 0.0002884890205341079 0.00030352698354883757 0.0003305584139986276
+2 0.0005769780410682158 0.0006070539670976751 0.0006611168279972552
+3 0.0008654670616023235 0.0009105809506465126 0.0009916752419958828
+4 0.0011539560821364316 0.0012141079341953503 0.0013222336559945104
+5 0.001442445102670539 0.0015176349177441874 0.001652792069993138
+6 0.001730934123204647 0.0018211619012930252 0.0019833504839917655
+7 0.002019423143738755 0.0021246888848418626 0.0023139088979903934
+8 0.002307912164272863 0.0024282158683907006 0.0026444673119890207
+9 0.0025964011848069704 0.002731742851939537 0.002975025725987648
+10 0.002884890205341078 0.003035269835488375 0.003305584139986276
+
+==================================================================
+AFTER — the sRGB knee, the basis of the replacement assertion
+(IEC 61966-2-1: the line ends at encoded 0.04045 = byte 10.31475)
+==================================================================
+unit(Y at byte 1) = 0.00030352698354883757
+2 Y/b = 0.00030352698354883757 diff from unit = 0.000e+0
+3 Y/b = 0.0003035269835488375 diff from unit = -5.421e-20
+4 Y/b = 0.00030352698354883757 diff from unit = 0.000e+0
+5 Y/b = 0.00030352698354883746 diff from unit = -1.084e-19
+6 Y/b = 0.0003035269835488375 diff from unit = -5.421e-20
+7 Y/b = 0.0003035269835488375 diff from unit = -5.421e-20
+8 Y/b = 0.00030352698354883757 diff from unit = 0.000e+0
+9 Y/b = 0.0003035269835488374 diff from unit = -1.626e-19
+10 Y/b = 0.00030352698354883746 diff from unit = -1.084e-19
+11 Y/b = 0.0003042305239908328 diff from unit = 7.035e-7
+above knee: 128 -> 0.001686410157139838  255 -> 0.00392156862745098
+knee byte: 0.04045*255 = 10.31475
+
+==================================================================
+AFTER — the two suites, DOUBLE-RUN
+==================================================================
+⟨cmd⟩ npx vitest run test/color-anchors.test.ts test/v4-color-behavior.test.ts   [run 1]
+ ✓ test/color-anchors.test.ts (12 tests) 2ms
+ ✓ test/v4-color-behavior.test.ts (8 tests) 4ms
+ Test Files  2 passed (2)
+      Tests  20 passed (20)
+⟨cmd⟩ … [run 2]
+ ✓ test/color-anchors.test.ts (12 tests) 2ms
+ ✓ test/v4-color-behavior.test.ts (8 tests) 4ms
+ Test Files  2 passed (2)
+      Tests  20 passed (20)
+
+==================================================================
+FALSIFIER PROBE — the anchors BIND (they are not vacuous)
+A scratch copy of the suite with ONE golden perturbed per family
+(xyz65 white z +1e-9 · lab-D50 white L* +1e-2 · Ottosson X a +2e-3 ·
+ culori itp red I +1e-8) — each perturbation is smaller than any real
+ matrix/coefficient error and each reddens its own anchor.
+The probe file is NEVER committed; it is deleted at the end of this run.
+==================================================================
+⟨cmd⟩ npx vitest run test/anchors-falsifier.test.ts
+   × EXTERNAL ANCHOR · sRGB → XYZ-D65 vs culori xyz65 goldens > rgb(255, 255, 255) — white 3ms
+   ✓ EXTERNAL ANCHOR · sRGB → XYZ-D65 vs culori xyz65 goldens > rgb(255, 0, 0) — red 0ms
+   ✓ EXTERNAL ANCHOR · sRGB → XYZ-D65 vs culori xyz65 goldens > rgb(0, 204, 0) — #00cc00 0ms
+   × EXTERNAL ANCHOR · XYZ-D65 → Lab-D50 vs culori lab goldens > xyz(white) → lab 0ms
+   ✓ EXTERNAL ANCHOR · XYZ-D65 → Lab-D50 vs culori lab goldens > xyz(red) → lab 0ms
+   ✓ EXTERNAL ANCHOR · XYZ → OKLab vs Ottosson published triples > xyz white → oklab (±0.001) 0ms
+   × EXTERNAL ANCHOR · XYZ → OKLab vs Ottosson published triples > xyz X → oklab (±0.001) 0ms
+   ✓ EXTERNAL ANCHOR · XYZ → OKLab vs Ottosson published triples > xyz Y → oklab (±0.001) 0ms
+   ✓ EXTERNAL ANCHOR · XYZ → OKLab vs Ottosson published triples > xyz Z → oklab (±0.001) 0ms
+   ✓ EXTERNAL ANCHOR · XYZ ↔ ICtCp vs culori itp goldens > xyz(white) → ictcp (culori golden; Ct = Cp = 0 for the achromatic axis) 0ms
+   × EXTERNAL ANCHOR · XYZ ↔ ICtCp vs culori itp goldens > xyz(red) → ictcp (culori golden) 0ms
+   × EXTERNAL ANCHOR · XYZ ↔ ICtCp vs culori itp goldens > ictcp(culori red golden) → xyz returns culori's xyz65 red golden 0ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ Test Files  1 failed (1)
+      Tests  5 failed | 7 passed (12)

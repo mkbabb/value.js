@@ -1,0 +1,143 @@
+### smoke (r2a: re-run of rows 1..73 of r1-smoke.log.txt, 38 ids) start 10-13 17:29:54 load1=292.43
+(node:70731) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 41 tests using 1 worker
+
+(node:70910) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   1 [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 (6.0m)
+(node:92395) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   2 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) (55ms)
+(node:7346) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   3 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) (2ms)
+(node:16106) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  ✘   4 [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) (55.1s)
+
+
+  1) [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 
+
+    [31mTest timeout of 180000ms exceeded.[39m
+
+    [31mTearing down "context" exceeded the test timeout of 180000ms.[39m
+
+    Error: browserContext.close: Test timeout of 180000ms exceeded.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-IqhkXA --remote-debugging-pipe --no-startup-window
+    <launched> pid=71018
+    [pid=71018] <gracefully close start>
+    [pid=71018] <kill>
+    [pid=71018] <will force kill>
+
+    TimeoutError: page.goto: Timeout 60000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:9147/", waiting until "load"[22m
+
+
+      110 |     // the two URLs differ only by hash (the same-document case this cures).
+      111 |     await page.goto("about:blank");
+    > 112 |     await page.goto(route, { timeout: 60_000 });
+          |                ^
+      113 |     await expect(mainPane(page)).toBeVisible({
+      114 |         timeout: 20000,
+      115 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-control-targets.spec.ts:112:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-control-targets.spec.ts:357:9
+
+    Error Context: ../../.dev-logs/w12u-q/r2a-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2a-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2a-smoke/a11y-control-targets-A1-·--0b352-ibuted-target-box-is-≥24×24-smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-HlPUvZ --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=93918[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-6-3e1fd--dropped-text-floor-raised--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+
+    TimeoutError: browserType.launch: Timeout 180000ms exceeded.
+    Call log:
+    [2m  - <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-NlCsbi --remote-debugging-pipe --no-startup-window[22m
+    [2m  - <launched> pid=8981[22m
+
+
+    Error Context: ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-BR-7-85a7f-ack-blur-removed-opaque-bg--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) 
+
+    Test was interrupted.
+
+    Error: browserContext.close: Test ended.
+    Browser logs:
+
+    <launching> /Users/mkbabb/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --user-data-dir=/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/playwright_chromiumdev_profile-5OBfX3 --remote-debugging-pipe --no-startup-window
+    <launched> pid=16147
+    [pid=16147][err] [16186:12322454:1013/174348.224518:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=16147][err] [16186:12322454:1013/174348.266483:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x10c0059c600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+    [pid=16147] <gracefully close start>
+    [pid=16147] <kill>
+    [pid=16147] <will force kill>
+
+    Error: page.goto: Test ended.
+    Call log:
+    [2m  - navigating to "http://localhost:9147/", waiting until "load"[22m
+
+
+      42 |
+      43 | async function ready(page: Page) {
+    > 44 |     await page.goto("/");
+         |                ^
+      45 |     await expect(mainPane(page)).toBeVisible({
+      46 |         timeout: 20000,
+      47 |     });
+        at ready (/Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:44:16)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/a11y-modality-support.spec.ts:274:11
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../.dev-logs/w12u-q/r2a-smoke/a11y-modality-support-U-F5-c7fc3-gion-role-landmark-battery--smoke/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Slow test file: [smoke] › e2e/smoke/a11y-control-targets.spec.ts (6.0m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  3 failed
+    [smoke] › e2e/smoke/a11y-control-targets.spec.ts:352:1 › A1 · fine-pointer target size — every attributed target box is ≥24×24 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:151:1 › BR-6 · prefers-contrast:more — elevated-contrast layer (decorative tint dropped, text floor raised) 
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:187:1 › BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blur removed + opaque bg) 
+  1 interrupted
+    [smoke] › e2e/smoke/a11y-modality-support.spec.ts:271:1 › U-F57 · screen-reader landmark structure + live region (role/landmark battery) 
+  37 did not run

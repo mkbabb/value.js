@@ -1,0 +1,9 @@
+15:31  up 3 days, 20:34, 3 users, load averages: 213.10 215.12 175.46
+ [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+✓ built in 10.09s
+EXIT=0
+15:31  up 3 days, 20:34, 3 users, load averages: 219.28 216.33 176.59

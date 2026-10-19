@@ -1,0 +1,178 @@
+[
+ {
+  "frame": "browse-delete-confirm__1440__light.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "1440",
+  "theme": "light",
+  "dialog": {
+   "role": "dialog",
+   "title": "Delete palette?",
+   "text": "Delete palette? This will delete the palette Sunset Coast for its owner and every viewer. Cancel Delete palette",
+   "bg": "oklab(0.903549 0.0153586 0.0142464 / 0.705088)",
+   "radius": "16px",
+   "w": 512,
+   "h": 166,
+   "x": 464,
+   "y": 367,
+   "buttons": [
+    {
+     "t": "Cancel",
+     "emphasis": "text",
+     "tone": "neutral",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.471189 0.0962884 89.834)"
+    },
+    {
+     "t": "Delete palette",
+     "emphasis": "secondary",
+     "tone": "destructive",
+     "bg": "rgb(219, 36, 36)",
+     "color": "rgb(251, 250, 248)"
+    }
+   ],
+   "focused": "Cancel",
+   "scrollW": 1440
+  }
+ },
+ {
+  "frame": "browse-delete-confirm-tab__1440__light.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "1440",
+  "theme": "light",
+  "focused": "Delete palette"
+ },
+ {
+  "frame": "browse-delete-confirm__1440__dark.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "1440",
+  "theme": "dark",
+  "dialog": {
+   "role": "dialog",
+   "title": "Delete palette?",
+   "text": "Delete palette? This will delete the palette Sunset Coast for its owner and every viewer. Cancel Delete palette",
+   "bg": "oklab(0.419037 0.0102007 0.0159858 / 0.797248)",
+   "radius": "16px",
+   "w": 512,
+   "h": 166,
+   "x": 464,
+   "y": 367,
+   "buttons": [
+    {
+     "t": "Cancel",
+     "emphasis": "text",
+     "tone": "neutral",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.958322 0.0525094 89.834)"
+    },
+    {
+     "t": "Delete palette",
+     "emphasis": "secondary",
+     "tone": "destructive",
+     "bg": "rgb(235, 71, 71)",
+     "color": "rgb(232, 231, 227)"
+    }
+   ],
+   "focused": "Cancel",
+   "scrollW": 1440
+  }
+ },
+ {
+  "frame": "browse-delete-confirm-tab__1440__dark.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "1440",
+  "theme": "dark",
+  "focused": "Delete palette"
+ },
+ {
+  "frame": "browse-delete-confirm__390__light.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "390",
+  "theme": "light",
+  "dialog": {
+   "role": "dialog",
+   "title": "Delete palette?",
+   "text": "Delete palette? This will delete the palette Sunset Coast for its owner and every viewer. Cancel Delete palette",
+   "bg": "oklab(0.903549 0.0153586 0.0142464 / 0.705088)",
+   "radius": "16px",
+   "w": 390,
+   "h": 266,
+   "x": 0,
+   "y": 289,
+   "buttons": [
+    {
+     "t": "Cancel",
+     "emphasis": "text",
+     "tone": "neutral",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.471189 0.0962884 89.834)"
+    },
+    {
+     "t": "Delete palette",
+     "emphasis": "secondary",
+     "tone": "destructive",
+     "bg": "rgb(219, 36, 36)",
+     "color": "rgb(251, 250, 248)"
+    }
+   ],
+   "focused": "Cancel",
+   "scrollW": 390
+  }
+ },
+ {
+  "frame": "browse-delete-confirm-tab__390__light.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "390",
+  "theme": "light",
+  "focused": "Delete palette"
+ },
+ {
+  "frame": "browse-delete-confirm__390__dark.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "390",
+  "theme": "dark",
+  "dialog": {
+   "role": "dialog",
+   "title": "Delete palette?",
+   "text": "Delete palette? This will delete the palette Sunset Coast for its owner and every viewer. Cancel Delete palette",
+   "bg": "oklab(0.419037 0.0102007 0.0159858 / 0.797248)",
+   "radius": "16px",
+   "w": 390,
+   "h": 266,
+   "x": 0,
+   "y": 289,
+   "buttons": [
+    {
+     "t": "Cancel",
+     "emphasis": "text",
+     "tone": "neutral",
+     "bg": "rgba(0, 0, 0, 0)",
+     "color": "oklch(0.958322 0.0525094 89.834)"
+    },
+    {
+     "t": "Delete palette",
+     "emphasis": "secondary",
+     "tone": "destructive",
+     "bg": "rgb(235, 71, 71)",
+     "color": "rgb(232, 231, 227)"
+    }
+   ],
+   "focused": "Cancel",
+   "scrollW": 390
+  }
+ },
+ {
+  "frame": "browse-delete-confirm-tab__390__dark.png",
+  "head": "05defebf",
+  "leg": "browse-delete",
+  "vp": "390",
+  "theme": "dark",
+  "focused": "Delete palette"
+ }
+]

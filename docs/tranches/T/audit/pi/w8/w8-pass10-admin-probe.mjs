@@ -130,7 +130,7 @@ async function newPage(browser, scheme, viewport, mode) {
     return { ctx, page, errors };
 }
 
-const browser = await chromium.launch({ headless: false, channel: "chromium" });
+const browser = await chromium.launch({ headless: true, channel: "chrome" });
 
 log("# T.W8 · PASS 10 ADMIN probe — " + new Date().toISOString());
 log("DEV=" + DEV + "  (bare vite, mock fixture reproduced in-script)\n");

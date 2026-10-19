@@ -1,0 +1,2 @@
+[dark]
+PASS V-107 the second verdict outlives the first's timer visible@+2.2s=true

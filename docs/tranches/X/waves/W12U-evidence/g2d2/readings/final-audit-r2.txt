@@ -1,0 +1,38 @@
+sources=427 attributed gz=293985
+P    273726 gz  401 sources
+R1        0 gz  0 sources
+R2     2432 gz  9 sources
+R3     7229 gz  3 sources
+R4     7938 gz  13 sources
+R5     2660 gz  1 sources
+-- R1
+-- R2
+      743  reka-ui/dist/HoverCard/HoverCardContentImpl.js
+      583  reka-ui/dist/Toggle/Toggle.js
+      316  reka-ui/dist/HoverCard/HoverCardContent.js
+      238  reka-ui/dist/HoverCard/HoverCardRoot.js
+      197  reka-ui/dist/HoverCard/HoverCardTrigger.js
+      197  @mkbabb/glass-ui/dist/status-dot-W4LFiJps.js
+       71  reka-ui/dist/HoverCard/HoverCardPortal.js
+       68  reka-ui/dist/HoverCard/utils.js
+       19  reka-ui/dist/ToggleGroup/ToggleGroupRoot.js
+-- R3
+     3194  demo/shell/dock/menus/ProfileSection.vue
+     2797  demo/shell/dock/menus/MobileMenuDropdown.vue
+     1238  demo/shell/dock/layers/SlugEditLayer.vue
+-- R4
+     1804  demo/palettes/admin/composables/useAdminUsers.ts
+     1217  demo/palettes/useSlugMigration.ts
+     1079  demo/palettes/useColorNameQueue.ts
+      691  demo/palettes/admin/composables/useAdminTags.ts
+      638  demo/palettes/admin/composables/useAdminFlagged.ts
+      613  demo/palettes/api/admin-call.ts
+      344  demo/palettes/api/admin-colors.ts
+      330  demo/palettes/useTagEdit.ts
+      304  demo/palettes/useVersionHistory.ts
+      292  demo/palettes/api/admin-users.ts
+      266  demo/palettes/admin/composables/useAdminAudit.ts
+      200  demo/palettes/api/admin-palettes.ts
+      160  demo/palettes/api/admin-audit.ts
+-- R5
+     2660  vue-router/dist/devtools-DCoWQoU_.js

@@ -1,4 +1,5 @@
 import { test, expect, type Page, type Locator } from "@playwright/test";
+import { mainPane } from "./fixtures/dock";
 
 /**
  * U.W-A11Y · U-F57 (BR-8) — SLIDER KEYBOARD OPERATION (driven, not merely
@@ -20,7 +21,7 @@ import { test, expect, type Page, type Locator } from "@playwright/test";
 
 async function ready(page: Page) {
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
+    await expect(mainPane(page)).toBeVisible({
         timeout: 20000,
     });
 }

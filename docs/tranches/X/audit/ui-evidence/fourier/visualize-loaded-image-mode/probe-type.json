@@ -1,0 +1,200 @@
+[
+ {
+  "sel": ".configurator-section-label",
+  "text": "Image",
+  "size": "25.888px",
+  "weight": "600",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 39,
+  "w": 76
+ },
+ {
+  "sel": ".configurator-section-label",
+  "text": "Decomposition",
+  "size": "25.888px",
+  "weight": "600",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 39,
+  "w": 184
+ },
+ {
+  "sel": ".configurator-section-label",
+  "text": "Contour",
+  "size": "25.888px",
+  "weight": "600",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 39,
+  "w": 103
+ },
+ {
+  "sel": ".configurator-row label, .configurator-row [class*=label]",
+  "text": "Harmonics",
+  "size": "14.5411px",
+  "weight": "500",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 20,
+  "w": 68
+ },
+ {
+  "sel": ".configurator-row label, .configurator-row [class*=label]",
+  "text": "Sample Points",
+  "size": "14.5411px",
+  "weight": "500",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 20,
+  "w": 91
+ },
+ {
+  "sel": ".configurator-row label, .configurator-row [class*=label]",
+  "text": "Strategy",
+  "size": "14.5411px",
+  "weight": "500",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 20,
+  "w": 54
+ },
+ {
+  "sel": ".slider-label > span",
+  "text": "ML Threshold",
+  "size": "14px",
+  "weight": "500",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(112, 89, 66)",
+  "radius": "0px",
+  "h": 20,
+  "w": 88
+ },
+ {
+  "sel": ".slider-label > span",
+  "text": "Blur Sigma",
+  "size": "14px",
+  "weight": "500",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(112, 89, 66)",
+  "radius": "0px",
+  "h": 20,
+  "w": 69
+ },
+ {
+  "sel": ".advanced-trigger",
+  "text": "Advanced",
+  "size": "14px",
+  "weight": "500",
+  "family": "\"Computer Modern Serif",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.4)",
+  "radius": "9999px",
+  "h": 24,
+  "w": 79
+ },
+ {
+  "sel": ".inline-number input, .inline-number",
+  "text": "",
+  "size": "18.608px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 36,
+  "w": 72
+ },
+ {
+  "sel": ".inline-number input, .inline-number",
+  "text": "",
+  "size": "16.4px",
+  "weight": "400",
+  "family": "\"Fira Code\", \"Fira Cod",
+  "color": "rgb(28, 25, 23)",
+  "radius": "9999px",
+  "h": 36,
+  "w": 72
+ },
+ {
+  "sel": ".inline-number input, .inline-number",
+  "text": "",
+  "size": "18.608px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 36,
+  "w": 72
+ },
+ {
+  "sel": "[aria-label='Contour extraction strategy']",
+  "text": "Auto",
+  "size": "16.4px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "9999px",
+  "h": 40,
+  "w": 341
+ },
+ {
+  "sel": ".viz-panel-left img",
+  "text": "",
+  "size": "18.608px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 200,
+  "w": 341
+ },
+ {
+  "sel": ".viz-panel-left img ~ div, .viz-panel-left .group",
+  "text": "Imagesource input",
+  "size": "18.608px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 55,
+  "w": 381
+ },
+ {
+  "sel": ".viz-panel-left img ~ div, .viz-panel-left .group",
+  "text": "",
+  "size": "18.608px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "10px",
+  "h": 200,
+  "w": 341
+ },
+ {
+  "sel": ".viz-panel-left img ~ div, .viz-panel-left .group",
+  "text": "",
+  "size": "18.608px",
+  "weight": "400",
+  "family": "\"Computer Modern Serif",
+  "color": "rgb(28, 25, 23)",
+  "radius": "0px",
+  "h": 200,
+  "w": 341
+ },
+ {
+  "sel": ".caret-value",
+  "text": "t = 0.39",
+  "size": "16.4px",
+  "weight": "500",
+  "family": "\"Fira Code\", \"Fira Cod",
+  "color": "rgb(28, 25, 23)",
+  "radius": "4px",
+  "h": 31,
+  "w": 93
+ }
+]

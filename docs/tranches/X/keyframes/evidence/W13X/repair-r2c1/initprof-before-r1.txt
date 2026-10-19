@@ -1,0 +1,8 @@
+first samples /vendor-three|three\.module/: +105 setStyle:vendor-three-nw0IrzH_.js | +106 setValues:vendor-three-nw0IrzH_.js | +113 e:vendor-three-nw0IrzH_.js | +114 pr:vendor-three-nw0IrzH_.js | +144 ke:vendor-three-nw0IrzH_.js | +144 Co:vendor-three-nw0IrzH_.js
+first samples /vendor-monaco|monaco-editor/: +95 (anon):vendor-monaco-nwzXcI7Q.js | +95 get:vendor-monaco-nwzXcI7Q.js | +95 finalize:vendor-monaco-nwzXcI7Q.js | +96 setStates:vendor-monaco-nwzXcI7Q.js | +96 getAutoClosingPairs:vendor-monaco-nwzXcI7Q.js | +97 handleEvents:vendor-monaco-nwzXcI7Q.js
+swap cube->amiga · load 30.88 · pageerrors 0
+dest(.amiga-canvas) inserted +23 ms · rAF +89 · painted +102 ms (end of the destination's LoAF; message +103)
+first vendor-three sample +105 ms -> paint-before-three GREEN · first vendor-monaco sample +95 ms -> paint-before-monaco RED
+swap LoAF>50: 1 · max JS self 33 ms -> GREEN (<= 200)
+  +15 dur 86 jsSelf 33 [vendor-reka-ui 21.8, index 4.9, vendor-monaco 2.4, glass-ui 2.0, vendor-lucide 0.9] ["ViewTransitionCallback /assets/index-DFVFc36t.js 6","import.then /assets/index-DFVFc36t.js 60"]
+window JS self 140.3 ms [vendor-three 35.9, vendor-reka-ui 34.2, index 15.2, vendor-monaco 12.9, KeyframesStringControls 12.4] · marker offset resolution 0.25 ms

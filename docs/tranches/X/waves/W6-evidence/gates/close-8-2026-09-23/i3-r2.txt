@@ -1,0 +1,76 @@
+### 04:08:12 VJS_E2E_PORT=8828 npx playwright test e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts
+(node:76556) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:76586) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:76590) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+[1A[2K[smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load
+oklch(0.62 0.2 30): first-paint 52ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(167, 53, 129) rgb(229, 69, 98) rgb(255, 121, 41) rgb(255, 180, 49)]; first-paint vs settled ΔE_OK max 0.1595; settled vs unseeded max 0.1845
+
+[1A[2Koklch(0.62 0.2 150): first-paint 40ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(95, 114, 29) rgb(59, 161, 36) rgb(49, 197, 133) rgb(56, 233, 203)]; first-paint vs settled ΔE_OK max 0.2933; settled vs unseeded max 0.3699
+
+[1A[2Koklch(0.62 0.2 260): first-paint 36ms, ground at paint [#b37290 #df8ea7 #ffb0b4 #ffcfc8] → settled [rgb(32, 114, 149) rgb(38, 140, 228) rgb(140, 156, 255) rgb(226, 177, 255)]; first-paint vs settled ΔE_OK max 0.2433; settled vs unseeded max 0.2938
+
+[1A[2K  1) [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+
+    Error: oklch(0.62 0.2 30): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.15948859187521458[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 150): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.29330989323473755[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error: oklch(0.62 0.2 260): the first painted atmosphere is not the seeded one
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m0.02[39m
+    Received:    [31m0.24326322147615295[39m
+
+      146 |                 `${seed}: the first painted atmosphere is not the seeded one`,
+      147 |             )
+    > 148 |             .toBeLessThanOrEqual(FIRST_PAINT_TOLERANCE);
+          |              ^
+      149 |     }
+      150 | });
+      151 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:148:14
+
+    Error Context: test-results/oracles-o28-atmosphere-col-2c82e-eeded-pick-s-on-a-cold-load-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/oracles/o28-atmosphere-coldload.spec.ts:114:1 › the first painted atmosphere is the seeded pick's, on a cold load 
+EXIT=1

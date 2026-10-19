@@ -1,0 +1,59 @@
+X.W6.g · gate g1 — PICKER HEADLINE CARD, VERTICAL INTERVAL CENSUS
+origin http://localhost:9001  cell 1440×900  route /#/?space=lab&color=lab(38%25%2032%2024)
+
+THE SCALE (read from the rendered document):
+  phi       6.11px  --phi-0
+  phi       9.89px  --phi-1
+  phi      16.00px  --phi-2
+  phi      25.89px  --phi-3
+  phi      41.89px  --phi-4
+  token     7.17px  --picker-header-rhythm
+  line     27.91px  1lh @ 18.608px
+  line     79.92px  1lh @ 53.28px
+  line     46.91px  1lh @ 41.888px
+  line     25.80px  1lh @ 23.0384px
+  line     20.35px  1lh @ 20.352px
+  line     21.58px  1lh @ 14.384px
+
+INTERVALS (px measured · px declared by a gap/margin · verdict):
+      0.00     0.00  —              leading   div.glass-resting.card content-top → div.card-header.picker-header top
+                    → ok · 0
+      0.00     0.00  —              between   div.card-header.picker-header bottom → div.card-content.z-1 top
+                    → ok · 0
+      0.00     0.00  —              trailing  div.card-content.z-1 bottom → div.glass-resting.card content-bottom
+                    → ok · 0
+      0.00     0.00  —              leading   div.card-header.picker-header content-top → div.title-row.w-full top
+                    → ok · 0
+      7.16     7.17  row-gap        between   div.title-row.w-full bottom → h3.card-title.readout top
+                    → ok · --picker-header-rhythm
+      0.00     0.00  —              trailing  h3.card-title.readout bottom → div.card-header.picker-header content-bottom
+                    → ok · 0
+      0.00     0.00  —              leading   div.title-row.w-full content-top → button.bg-transparent.border-none top
+                    → ok · 0
+      0.00     0.00  —              trailing  button.bg-transparent.border-none bottom → div.title-row.w-full content-bottom
+                    → ok · 0
+      0.00     0.00  —              leading   h3.card-title.readout content-top → span.readout-cell top
+                    → ok · 0
+      0.00     0.00  —              trailing  span.readout-cell bottom → h3.card-title.readout content-bottom
+                    → ok · 0
+      0.00     0.00  —              leading   div.card-content.z-1 content-top → div.flex.flex-col top
+                    → ok · 0
+     -0.01     0.00  —              trailing  div.flex.flex-col bottom → div.card-content.z-1 content-bottom
+                    → ok · 0
+      0.00     0.00  —              leading   div.flex.flex-col content-top → figure.m-0.min-w-0 top
+                    → ok · 0
+     12.00    12.00  row-gap        between   figure.m-0.min-w-0 bottom → div.glass-quiet.card top
+                    → ok · 2×--phi-0
+      0.00     0.00  —              trailing  div.glass-quiet.card bottom → div.flex.flex-col content-bottom
+                    → ok · 0
+
+LARGEST INTERVAL: 12px — figure.m-0.min-w-0 bottom → div.glass-quiet.card top
+                  → ok · 2×--phi-0
+
+ROW INFLATION (box height · painted height · inflation · verdict):
+     84.97    84.97     0.00  div.title-row.w-full
+                    → ok · 0
+     46.91    52.00    -5.09  h3.card-title.readout
+                    → ok · 0
+
+GATE g1 — GREEN: every vertical interval is declared and resolves to a scale step.

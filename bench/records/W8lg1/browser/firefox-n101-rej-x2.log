@@ -1,0 +1,41 @@
+firefox r0a0 parseCssValues         rej      n=16921 k=1 product x0.887 (62/101<1) spread 12.952 SET-ASIDE
+firefox r0a1 parseCssValues         rej      n=16921 k=1 product x1.02 (49/101<1) spread 4.749 SET-ASIDE
+firefox r0a2 parseCssValues         rej      n=16921 k=1 product x0.894 (65/101<1) spread 10.702 SET-ASIDE
+firefox r0a3 parseCssValues         rej      n=16921 k=1 product x0.91 (62/101<1) spread 9.321 SET-ASIDE
+firefox r0a0 parseKeyframeSelector  rej      n=29888 k=2 product x1.027 (50/101<1) spread 11.875 SET-ASIDE
+firefox r0a1 parseKeyframeSelector  rej      n=29888 k=1 product x0.948 (51/101<1) spread 15.35 SET-ASIDE
+firefox r0a2 parseKeyframeSelector  rej      n=29888 k=2 product x1.039 (48/101<1) spread 12.667 SET-ASIDE
+firefox r0a3 parseKeyframeSelector  rej      n=29888 k=2 product x0.873 (62/101<1) spread 13.017 SET-ASIDE
+firefox r0a0 parseTimingFunction    rej      n=29435 k=1 product x0.789 (65/101<1) spread 16.296 SET-ASIDE
+firefox r0a1 parseTimingFunction    rej      n=29435 k=2 product x0.843 (64/101<1) spread 21.778 SET-ASIDE
+firefox r0a2 parseTimingFunction    rej      n=29435 k=4 product x0.765 (69/101<1) spread 12.812 SET-ASIDE
+firefox r0a3 parseTimingFunction    rej      n=29435 k=2 product x0.904 (55/101<1) spread 23 SET-ASIDE
+firefox r0a0 parseStylesheet        rej      n=27441 k=1 product x0.95 (58/101<1) spread 12.595 SET-ASIDE
+firefox r0a1 parseStylesheet        rej      n=27441 k=2 product x0.9 (62/101<1) spread 22.614 SET-ASIDE
+firefox r0a2 parseStylesheet        rej      n=27441 k=2 product x0.981 (51/101<1) spread 17.813 SET-ASIDE
+firefox r0a3 parseStylesheet        rej      n=27441 k=1 product x0.901 (55/101<1) spread 14.854 SET-ASIDE
+firefox r1a0 parseKeyframeSelector  rej      n=29888 k=8 product x0.981 (54/101<1) spread 10.067 SET-ASIDE
+firefox r1a1 parseKeyframeSelector  rej      n=29888 k=1 product x0.969 (53/101<1) spread 20.333 SET-ASIDE
+firefox r1a2 parseKeyframeSelector  rej      n=29888 k=1 product x0.953 (52/101<1) spread 20.808 SET-ASIDE
+firefox r1a3 parseKeyframeSelector  rej      n=29888 k=1 product x0.867 (57/101<1) spread 23.381 SET-ASIDE
+firefox r1a0 parseTimingFunction    rej      n=29435 k=1 product x0.746 (68/101<1) spread 23.955 SET-ASIDE
+firefox r1a1 parseTimingFunction    rej      n=29435 k=2 product x0.829 (60/101<1) spread 21.615 SET-ASIDE
+firefox r1a2 parseTimingFunction    rej      n=29435 k=1 product x0.872 (59/101<1) spread 44.579 SET-ASIDE
+firefox r1a3 parseTimingFunction    rej      n=29435 k=4 product x0.845 (66/101<1) spread 18.342 SET-ASIDE
+firefox r1a0 parseStylesheet        rej      n=27441 k=1 product x1.068 (49/101<1) spread 41.244 SET-ASIDE
+firefox r1a1 parseStylesheet        rej      n=27441 k=1 product x1.11 (47/101<1) spread 26.067 SET-ASIDE
+firefox r1a2 parseStylesheet        rej      n=27441 k=1 product x0.922 (55/101<1) spread 9.409 SET-ASIDE
+firefox r1a3 parseStylesheet        rej      n=27441 k=2 product x0.948 (73/101<1) spread 4.5 SET-ASIDE
+firefox r1a0 parseCssValues         rej      n=16921 k=2 product x0.944 (61/101<1) spread 6.771 SET-ASIDE
+firefox r1a1 parseCssValues         rej      n=16921 k=2 product x0.937 (58/101<1) spread 10.109 SET-ASIDE
+firefox r1a2 parseCssValues         rej      n=16921 k=1 product x0.891 (56/101<1) spread 8.488 SET-ASIDE
+firefox r1a3 parseCssValues         rej      n=16921 k=1 product x0.976 (52/101<1) spread 12.151 SET-ASIDE
+
+SUMMARY (clean cells' paired ratio arm/retired; every rep listed, set-aside marked)
+product firefox|rej|parseCssValues               RED x0.887(SA) x1.02(SA) x0.894(SA) x0.91(SA) x0.944(SA) x0.937(SA) x0.891(SA) x0.976(SA)
+product firefox|rej|parseKeyframeSelector        RED x1.027(SA) x0.948(SA) x1.039(SA) x0.873(SA) x0.981(SA) x0.969(SA) x0.953(SA) x0.867(SA)
+product firefox|rej|parseTimingFunction          RED x0.789(SA) x0.843(SA) x0.765(SA) x0.904(SA) x0.746(SA) x0.829(SA) x0.872(SA) x0.845(SA)
+product firefox|rej|parseStylesheet              RED x0.95(SA) x0.9(SA) x0.981(SA) x0.901(SA) x1.068(SA) x1.11(SA) x0.922(SA) x0.948(SA)
+13:08  up 1 day, 22:36, 3 users, load averages: 280.40 363.18 374.96 
+ 13:41  up 1 day, 23:09, 3 users, load averages: 112.91 175.24 227.25 → bench/records/2026-09-24-x-p-w7-browser-w8lg1-firefox-n101-rej-x2.json
+DONE w8lg1-firefox-n101-rej-x2

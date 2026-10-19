@@ -1,0 +1,2 @@
+npx vue-tsc -p tsconfig.demo.json --noEmit  14.01s user 1.22s system 8% cpu 3:07.17 total
+exit 0

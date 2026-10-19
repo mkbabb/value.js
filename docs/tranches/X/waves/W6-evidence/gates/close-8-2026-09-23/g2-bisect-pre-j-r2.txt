@@ -1,0 +1,62 @@
+### worktree @9c782daa (pre-.j) VJS_E2E_PORT=8729
+(node:77376) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:77405) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+[1A[2K(node:77420) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2K[1/1] [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.woff2" is outside of Vite serving allow list.
+[2m[WebServer] [22m
+[2m[WebServer] [22m- /Users/mkbabb/Programming/value-x-w6-close8-bisect
+[2m[WebServer] [22m- /Users/mkbabb/Programming/value.js/node_modules/vite/dist/client
+[2m[WebServer] [22m
+[2m[WebServer] [22mRefer to docs https://vite.dev/config/server-options.html#server-fs-allow for configurations and more details.
+[2m[WebServer] [22m
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.woff2" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Size4-Regular.woff2" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Size3-Regular.woff2" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.woff" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.woff" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Size4-Regular.woff" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Size3-Regular.woff" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Math-Italic.ttf" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Main-Regular.ttf" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Size4-Regular.ttf" is outside of Vite serving allow list.
+
+[1A[2K[2m[WebServer] [22mThe request id "/Users/mkbabb/Programming/value.js/node_modules/katex/dist/fonts/KaTeX_Size3-Regular.ttf" is outside of Vite serving allow list.
+
+[1A[2K  1) [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+
+    Error: locator.evaluate: Error: Mix region renders no pane
+        at eval (eval at evaluate (:302:30), <anonymous>:6:22)
+        at UtilityScript.evaluate (<anonymous>:304:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at eval (eval at evaluate (:302:30), <anonymous>:6:22)
+        at UtilityScript.evaluate (<anonymous>:304:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at readRowOnce (/Users/mkbabb/Programming/value-x-w6-close8-bisect/e2e/smoke/views/companion-pane-track-start.spec.ts:93:19)
+        at readRow (/Users/mkbabb/Programming/value-x-w6-close8-bisect/e2e/smoke/views/companion-pane-track-start.spec.ts:70:21)
+        at /Users/mkbabb/Programming/value-x-w6-close8-bisect/e2e/smoke/views/companion-pane-track-start.spec.ts:151:21
+
+    Error Context: test-results/views-companion-pane-track-0799b-panes-share-one-track-start-smoke/error-context.md
+
+
+[1A[2K  1 failed
+    [smoke] › e2e/smoke/views/companion-pane-track-start.spec.ts:119:5 › X.W6.g · g2 — the shared row contract › companion panes share one track start 
+EXIT=1

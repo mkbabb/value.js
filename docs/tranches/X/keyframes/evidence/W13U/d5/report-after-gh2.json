@@ -1,0 +1,328 @@
+{
+ "route": [
+  "cube",
+  "amiga",
+  "square",
+  "spring",
+  "easing",
+  "cube",
+  "spring",
+  "amiga",
+  "easing",
+  "square",
+  "cube"
+ ],
+ "switches": [
+  {
+   "from": "cube",
+   "to": "amiga",
+   "frames": 180,
+   "wMin": 402.49,
+   "wMax": 410.37,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    402.5,
+    410.4
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 0,
+   "surfaceSeq": [
+    "11|Controls|div."
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Cube",
+    "38:Amiga"
+   ],
+   "controlLabelAt": [
+    "0:Controls"
+   ],
+   "paneAt": [
+    "0:div."
+   ]
+  },
+  {
+   "from": "amiga",
+   "to": "square",
+   "frames": 187,
+   "wMin": 410.37,
+   "wMax": 418.26,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    410.4,
+    418.3
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 0,
+   "surfaceSeq": [
+    "11|Controls|div."
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Amiga",
+    "35:Square"
+   ],
+   "controlLabelAt": [
+    "0:Controls"
+   ],
+   "paneAt": [
+    "0:div."
+   ]
+  },
+  {
+   "from": "square",
+   "to": "spring",
+   "frames": 188,
+   "wMin": 401.47,
+   "wMax": 418.26,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    418.3,
+    401.5
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Controls|div.",
+    "11|Physics|"
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Square",
+    "36:Spring"
+   ],
+   "controlLabelAt": [
+    "0:Controls",
+    "36:Physics"
+   ],
+   "paneAt": [
+    "0:div.",
+    "36:"
+   ]
+  },
+  {
+   "from": "spring",
+   "to": "easing",
+   "frames": 188,
+   "wMin": 386.55,
+   "wMax": 401.47,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    401.5,
+    386.6
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Physics|",
+    "11|Curve|"
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Spring",
+    "35:Easing"
+   ],
+   "controlLabelAt": [
+    "0:Physics",
+    "35:Curve"
+   ],
+   "paneAt": [
+    "0:"
+   ]
+  },
+  {
+   "from": "easing",
+   "to": "cube",
+   "frames": 190,
+   "wMin": 386.55,
+   "wMax": 402.49,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    386.6,
+    402.5
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Curve|",
+    "11|Controls|div."
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Easing",
+    "35:Cube"
+   ],
+   "controlLabelAt": [
+    "0:Curve",
+    "35:Controls"
+   ],
+   "paneAt": [
+    "0:",
+    "35:div."
+   ]
+  },
+  {
+   "from": "cube",
+   "to": "spring",
+   "frames": 190,
+   "wMin": 401.47,
+   "wMax": 402.49,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    402.5,
+    401.5
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Controls|div.",
+    "11|Physics|"
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Cube",
+    "35:Spring"
+   ],
+   "controlLabelAt": [
+    "0:Controls",
+    "35:Physics"
+   ],
+   "paneAt": [
+    "0:div.",
+    "35:"
+   ]
+  },
+  {
+   "from": "spring",
+   "to": "amiga",
+   "frames": 187,
+   "wMin": 401.47,
+   "wMax": 410.37,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    401.5,
+    410.4
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Physics|",
+    "11|Controls|div."
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Spring",
+    "34:Amiga"
+   ],
+   "controlLabelAt": [
+    "0:Physics",
+    "34:Controls"
+   ],
+   "paneAt": [
+    "0:",
+    "34:div."
+   ]
+  },
+  {
+   "from": "amiga",
+   "to": "easing",
+   "frames": 190,
+   "wMin": 386.55,
+   "wMax": 410.37,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    410.4,
+    386.6
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Controls|div.",
+    "11|Curve|"
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Amiga",
+    "35:Easing"
+   ],
+   "controlLabelAt": [
+    "0:Controls",
+    "35:Curve"
+   ],
+   "paneAt": [
+    "0:div.",
+    "35:"
+   ]
+  },
+  {
+   "from": "easing",
+   "to": "square",
+   "frames": 189,
+   "wMin": 386.55,
+   "wMax": 418.26,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    386.6,
+    418.3
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 1,
+   "surfaceSeq": [
+    "11|Curve|",
+    "11|Controls|div."
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Easing",
+    "35:Square"
+   ],
+   "controlLabelAt": [
+    "0:Curve",
+    "35:Controls"
+   ],
+   "paneAt": [
+    "0:",
+    "35:div."
+   ]
+  },
+  {
+   "from": "square",
+   "to": "cube",
+   "frames": 190,
+   "wMin": 402.49,
+   "wMax": 418.26,
+   "widthChanges": 1,
+   "widthPlateaus": [
+    418.3,
+    402.5
+   ],
+   "widthReversals": 0,
+   "surfaceSetChanges": 0,
+   "surfaceSeq": [
+    "11|Controls|div."
+   ],
+   "affordanceSeq": "11",
+   "emptySurfaceFrames": 0,
+   "sceneLabelAt": [
+    "0:Square",
+    "36:Cube"
+   ],
+   "controlLabelAt": [
+    "0:Controls"
+   ],
+   "paneAt": [
+    "0:div."
+   ]
+  }
+ ],
+ "errs": []
+}

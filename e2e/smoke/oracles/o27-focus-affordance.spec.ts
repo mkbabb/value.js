@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView, paneSettled } from "../fixtures/dock";
+import { openView, paneSettled, mainPane } from "../fixtures/dock";
 
 /**
  * U.W-A11Y · O-27 — THE A11Y-CONTROLS ORACLE (born-RED; U-F25 focus + U-F27
@@ -33,7 +33,7 @@ test.use({ deviceScaleFactor: 2 });
 async function openGradient(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
-    const main = page.getByRole("main", { name: "Color tool panes" });
+    const main = mainPane(page);
     await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
     await paneSettled(page);
     return main;
@@ -110,7 +110,12 @@ test("BR-3 · fine pointer: effective target ≥ 24px, the 20px visual dot HELD"
     const geom = await handle.evaluate((el) => {
         const before = getComputedStyle(el, "::before");
         // getBoundingClientRect is CSS (layout) px, dpr-independent.
-        const rect = el.getBoundingClientRect();
+        // Re-baselined X-W12U .q2 to X-W4 · C4 (`666978d4c`): "the 20px
+        // silhouette now rides a 24px target" — the SEAT is the ≥24px box and
+        // the visual dot is its `.rail-handle-face`, so the visual reads there.
+        const face = el.querySelector(".rail-handle-face");
+        if (!face) throw new Error("the handle paints no .rail-handle-face");
+        const rect = face.getBoundingClientRect();
         return {
             hitW: parseFloat(before.width),
             hitH: parseFloat(before.height),
@@ -136,11 +141,9 @@ test("BR-4 · every channel slider exposes a human-readable aria-valuetext", asy
 }) => {
     const consoleErrors = setupEnvNoise(page);
     await page.goto("/");
-    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+    await expect(mainPane(page)).toBeVisible();
 
-    const thumbs = page
-        .getByRole("main", { name: "Color tool panes" })
-        .getByRole("slider");
+    const thumbs = mainPane(page).getByRole("slider");
     await expect(thumbs.first()).toBeVisible();
     // The demo sets `aria-valuetext` on the rendered thumb after mount (a
     // post-flush nextTick); poll until it lands before asserting the grammar.
@@ -228,7 +231,7 @@ test("BR-1 forced-colors · focus affordance survives WHCM via a computed outlin
  * `.foo:focus-visible { outline: none }` (specificity 0,2,0) wins in the forced
  * -colors register too. Five controls do exactly that, removing the one property
  * WHCM preserves and keeping the one it strips — against the repo's own written
- * law at `focus-ring.css:31`. `GradientStopEditor` is the sole conformant
+ * law at `focus-ring.css:31`. `GradientStopRail` is the sole conformant
  * control because it re-declares the outline INSIDE its own
  * `@media (forced-colors: active)` block at matching specificity.
  *
@@ -276,7 +279,7 @@ const WHCM_ROSTER: WhcmRosterRow[] = [
     {
         selector: ".rail-handle",
         view: "Gradient",
-        site: "GradientStopEditor.vue:353 — the CONFORMANT control, the instrument's own check",
+        site: "GradientStopRail.vue:869 — the CONFORMANT control, the instrument's own check",
     },
 ];
 
@@ -336,9 +339,21 @@ test("BR-1 forced-colors · EVERY operable control class paints an outline, not 
     const missing: WhcmRosterRow[] = [];
     const wrongRegister: WhcmRosterRow[] = [];
 
+    // The dock's view-select names VIEWS, not panes: the view whose stage is
+    // the Picker is "Home" (`shell/viewSchema.ts` VIEW_MAP, stage pane
+    // `color-picker`; the select reads Home · Palettes · Browse · Extract · Mix
+    // · Generate · Gradient — `W12U-evidence/q2/probes/probe-view-options.mjs`).
+    // Re-baselined X-W12U .q2; the roster keeps its pane names.
+    const VIEW_OPTION = { Picker: "Home", Gradient: "Gradient" } as const;
     for (const view of ["Picker", "Gradient"] as const) {
-        await openView(page, view);
+        await openView(page, VIEW_OPTION[view]);
         await paneSettled(page);
+        // X.W12U.s3 · UIA-V-605: easing rows rest closed; the rail's controls
+        // are measured on an OPEN row, so open the first one.
+        if (view === "Gradient") {
+            const head = page.locator(".interval-head").first();
+            if ((await head.getAttribute("aria-expanded")) !== "true") await head.click();
+        }
         for (const row of WHCM_ROSTER.filter((r) => r.view === view)) {
             const probe = await focusVisibly(page, row.selector);
             if (!probe.present) {

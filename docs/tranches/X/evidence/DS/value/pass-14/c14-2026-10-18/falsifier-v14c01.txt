@@ -1,0 +1,2 @@
+cure {"svgW":304,"wrapW":304,"handles":[{"dx":0,"dy":0},{"dx":0,"dy":0}]} FALSIFIER GREEN
+old-rule {"svgW":304,"wrapW":426,"handles":[{"dx":61,"dy":0},{"dx":61,"dy":0}]} FALSIFIER RED

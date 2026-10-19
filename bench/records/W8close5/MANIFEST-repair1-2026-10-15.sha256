@@ -1,0 +1,2 @@
+# SERVED MODEL: claude-opus-5-5 — X.P.W8 Repair 1 (2026-10-15) addendum beside MANIFEST.sha256 (E-3): C1-2 appended 'export {};' to ifprobe.ts; MANIFEST.sha256 line 18 records the original bytes (git show f8f587daa:bench/records/W8close5/ifprobe.ts). Check with: grep -v '^#' MANIFEST-repair1-2026-10-15.sha256 | shasum -a 256 -c
+86ae085bc085fa74e7a898c97476e80773decc0c1907b7e6adac38f5c633d459  ifprobe.ts

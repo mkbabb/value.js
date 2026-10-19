@@ -2,12 +2,6 @@
 import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
-### Attributes
-
--   `H`: Hue (0° to 360°)
--   `W`: Whiteness (0 to 1)
--   `B`: Blackness (0 to 1)
-
 ### Background
 
 HWB (Hue, Whiteness, Blackness) was proposed by Alvy Ray Smith in 1996 to match how painters actually think: pick a hue, then mix in white or black. It's derived from HSV but replaces saturation and value with two more direct controls—how much white and how much black to add. HWB is part of **CSS Color Level 4**, so it's natively available in modern browsers via `hwb()`.
@@ -21,7 +15,7 @@ The gamut is the same as sRGB. It's a reorganization of the same color cube, not
 ### Components
 
 1. **`H` (Hue)**:
-   <Katex expression="H = 0^\circ \text{ to } 360^\circ" :display-mode="false" /> (often normalized to 0–1)
+   0° to 360° (often normalized to 0–1)
 
    Base color on the wheel:
    - 0°/360° = Red
@@ -32,12 +26,12 @@ The gamut is the same as sRGB. It's a reorganization of the same color cube, not
    - 300° = Magenta
 
 2. **`W` (Whiteness)**:
-   <Katex expression="W = 0 \text{ (no white) to } 1 \text{ (pure white)}" :display-mode="false" />
+   0 (no white) to 1 (pure white)
 
    How much white is mixed into the hue. Higher values produce tints.
 
 3. **`B` (Blackness)**:
-   <Katex expression="B = 0 \text{ (no black) to } 1 \text{ (pure black)}" :display-mode="false" />
+   0 (no black) to 1 (pure black)
 
    How much black is mixed into the hue. Higher values produce shades.
 

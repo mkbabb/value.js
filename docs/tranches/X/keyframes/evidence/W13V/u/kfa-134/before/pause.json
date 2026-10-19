@@ -1,0 +1,16 @@
+[
+ {
+  "vp": 1440,
+  "control": null,
+  "tabReached": false,
+  "maxLiftBeforePx": 15.97,
+  "maxLiftAfterPx": 9.99
+ },
+ {
+  "vp": 390,
+  "control": null,
+  "tabReached": false,
+  "maxLiftBeforePx": 5,
+  "maxLiftAfterPx": 4.59
+ }
+]

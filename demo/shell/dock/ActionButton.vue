@@ -2,20 +2,24 @@
     <Popover
         v-if="!hidden"
         trigger="hover"
-        :open="isOpen"
+        :open="open"
         @update:open="onHoverOpenChange"
         :close-delay="0"
         :open-delay="300"
         class="pointer-events-auto"
     >
         <PopoverTrigger as-child>
-            <!-- W5-a11y: native <button> for keyboard reach, focus-visible ring, and Enter/Space activation -->
-            <button
-                type="button"
-                class="action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm"
+            <!-- X.W12U.m · A2-VA-L2-6 (value half, A2-VA-X-9): the seat IS the
+                 dock's own control. It was a consumer `<button>` held to 32×32
+                 by a scoped rule no glass touch floor reaches; as a DockControl
+                 its hit cell is `--dock-control-size`, which the producer's
+                 density clamp lifts to `--dock-touch-target` (44px) on a coarse
+                 pointer. DockControl keeps a disabled seat focusable
+                 (`aria-disabled`) and suppresses its activation. -->
+            <DockControl
+                class="action-button-wrapper"
                 :aria-label="title"
-                :aria-disabled="disabled || undefined"
-                :disabled="disabled || undefined"
+                :disabled="disabled || false"
                 @click="handleClick"
             >
                 <component
@@ -30,7 +34,7 @@
                     :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
                 />
                 <span v-if="label" class="action-label">{{ label }}</span>
-            </button>
+            </DockControl>
         </PopoverTrigger>
         <PopoverContent class="pointer-events-auto font-display">
             <div>
@@ -46,20 +50,22 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, type Component } from "vue";
+import { ref, type Component } from "vue";
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "../../ui/popover";
-import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
+} from "@mkbabb/glass-ui/popover";
+import { DockControl, useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();
 
-const { hoverKey, activeHover } = defineProps<{
+// A2-VA-L1-16: the seat's hint is one key of its bar's popup mutex
+// (shared/usePopupMutex, held by GenericActionBar) — the seat reads only its own
+// `open`, never the whole bar's state.
+const { open = false } = defineProps<{
     icon: Component;
-    hoverKey: string;
-    activeHover: string | null;
+    open?: boolean;
     title: string;
     description: string;
     label?: string | undefined;
@@ -73,13 +79,11 @@ const { hoverKey, activeHover } = defineProps<{
 
 const emit = defineEmits<{
     action: [];
-    "update:activeHover": [value: string | null];
+    "update:open": [value: boolean];
 }>();
 
-const isOpen = computed(() => activeHover === hoverKey);
-
 function onHoverOpenChange(v: boolean) {
-    emit("update:activeHover", v ? hoverKey : null);
+    emit("update:open", v);
     if (v) {
         dock?.keepOpen();
     } else {
@@ -90,7 +94,7 @@ function onHoverOpenChange(v: boolean) {
 const isClicked = ref(false);
 
 function handleClick() {
-    emit("update:activeHover", null);
+    emit("update:open", false);
     isClicked.value = true;
     setTimeout(() => {
         isClicked.value = false;
@@ -102,36 +106,17 @@ function handleClick() {
 <style scoped>
 @reference "../../styles/foundation.css";
 
-.action-button-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    flex-shrink: 0;
-    background: none;
-    border: none;
-    padding: 0;
-}
 .action-icon:hover {
     transform: scale(1.2);
     stroke: var(--hover-color);
 }
+/* X.W12.e: the action-pulse / action-spin keyframes live in
+ * styles/animations.css (moved, never deleted — 0 local dock keyframes). */
 .action-flash {
     animation: action-pulse 0.4s var(--ease-standard) forwards;
 }
 .action-rotate {
     animation: action-pulse 0.4s var(--ease-standard) forwards,
                action-spin 0.4s var(--ease-standard) forwards;
-}
-@keyframes action-pulse {
-    0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; transform: scale(1.3); }
-    50%  { stroke: var(--flash-color, currentColor); stroke-width: 2.5; transform: scale(1.15); }
-    100% { stroke: currentColor; stroke-width: 2; transform: scale(1); }
-}
-@keyframes action-spin {
-    0%   { transform: rotate(0deg) scale(1.3); }
-    100% { transform: rotate(-360deg) scale(1); }
 }
 </style>

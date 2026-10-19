@@ -1,0 +1,11 @@
+== run 1 vue-tsc -b
+exit 0
+== run 1 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== run 2 vue-tsc -b
+exit 0
+== run 2 vitest
+ Test Files  20 passed (20)
+      Tests  116 passed (116)
+== post-comment vue-tsc -b exit 0

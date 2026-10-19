@@ -2,11 +2,16 @@
  * shell.css — the app-shell LAYOUT surface (W43 · RF-15 §b 5 split from
  * style.css). ARCHITECTURE §1 styles home: foundation.css owns global
  * reset/tokens/material/focus primitives; THIS file owns the shell's layout
- * class rules — the dock-atop band grid, the pane container/wrappers, the
- * [data-layout] display witnesses, and the T-45 pane-card oversampled-blur
- * seat. All layout TOKENS (--dock-*, --pane-*, --content-max-h, …) stay in
+ * class rules — the dock-atop band grid, the pane container and its region
+ * wrappers, and the T-45 pane-card oversampled-blur seat. (X.W5.c: the
+ * `[data-layout]` display witnesses are gone with the breakpoint fork they
+ * mirrored — see THE REGION WRAPPERS below.) All layout TOKENS (--dock-*, --pane-*, --app-gutter, …) stay in
  * foundation :root; this file consumes them. Loaded via foundation's
- * `@import "./shell.css"`.
+ * `@import "./shell.css"`. (X.W5.b: the block-axis cap token that used to sit
+ * in that list no longer exists — see THE BLOCK LAW below. Its identifier is
+ * written out once, in the wave record at
+ * docs/tranches/X/execution/A/X-W5.md § X.W5.b, so that gate B4's repo-wide
+ * census can read zero in `demo/` and mean it.)
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── App layout — THE DOCK-ATOP BAND LAW (T.W6 · T-31) ──
@@ -15,16 +20,80 @@
  * --dock-gap row-gap. The retired trio (see the token doc-comment above):
  * the fixed overlay, the --dock-total padding reservation, the load-bearing
  * z-dock. Occlusion of the dock by any card is impossible by construction —
- * grid rows do not overlap and no z-index is minted anywhere in the shell. */
+ * grid rows do not overlap and no z-index is minted anywhere in the shell.
+ *
+ * ── THE BLOCK LAW (X.W5.b · V·L1 · CC-049 · gates B1–B6) ──────────────────
+ * The shell no longer CAPS the block axis; it FLOORS it. A full-viewport
+ * `height` plus `overflow: hidden` framed the viewport at every size, so
+ * `documentElement.scrollHeight > clientHeight` was FALSE on all ten member
+ * routes at 320×568 and 390×844 — a phone could not reach content the shell
+ * had already clipped (born-RED measured 2026-09-19, banked whole at
+ * docs/tranches/X/waves/W5/born-red/B1-B2-B3-layout-utilization-2026-09-19.json:
+ * at 320×568, seven of ten routes carried content beyond the viewport and
+ * NONE of them scrolled). `min-block-size: 100svh` still fills a short
+ * viewport — the two-band grid's `1fr` row takes the surplus exactly as
+ * before — but a scene taller than the viewport now grows the DOCUMENT
+ * instead of being cut off.
+ *
+ * WHY `svh` AND NOT THE DYNAMIC RUNG FOR THE FLOOR: the dynamic viewport
+ * unit re-measures as mobile browser chrome collapses on scroll, so a floor
+ * written in it reflows the whole grid mid-gesture — a jump the old fixed
+ * frame masked only because nothing could scroll. `svh` is the stable
+ * small-viewport rung: the floor is computed once against the
+ * chrome-expanded viewport and never moves. Gate B4 greps this file for the
+ * dynamic spelling and must read zero, which is why the retired declaration
+ * is described here and quoted only in the wave record
+ * (docs/tranches/X/execution/A/X-W5.md § X.W5.b).
+ *
+ * INSEPARABILITY (fold W5F-42, BINDING): this is a RECOMPOSITION, never an
+ * overflow-deletion. The block-axis cap TOKEN — deleted at its definition,
+ * at its two aspect-keyed re-pins and at every consumer, all in this one
+ * commit — and the frame (`height` + `overflow`) came down TOGETHER, because
+ * every pane's inner scroll-well was bounded through that one chain.
+ * Dropping `overflow` alone would have left the wells bounded by a cap whose
+ * frame no longer existed.
+ *
+ * WHAT DID NOT CHANGE (EB-8 supersession warning, BINDING): the INLINE axis
+ * is untouched. The owner-ruled ≈1050px clamp (2026-07-05) still lives on
+ * `.pane-container` below and is the invariant this wave must not move;
+ * the `position: relative` EB-1 patch is BANNED and is not used here.
+ * CC-051's inline-axis half — ratio, the ultrawide width cap, the Tailwind
+ * responsive prefixes, the four layout tokens — rides CC-056 / V·L3 at X-W6.
+ *
+ * B5 — LOGICAL-AXIS SUPPORT, THE RECORDED READING (2026-09-19, measured, not
+ * assumed; the gate's own command, run in both shipping engines):
+ *     CSS.supports('overflow-block','auto')    → TRUE   (Chromium 148.0.7778.96)
+ *                                              → TRUE   (WebKit 26.4)
+ *     CSS.supports('overflow-inline','auto')   → TRUE  / TRUE
+ *     CSS.supports('min-block-size','100svh')  → TRUE  / TRUE
+ *     CSS.supports('height','100svh')          → TRUE  / TRUE
+ *   DECISION: the reading is TRUE in both engines, so the LOGICAL spelling
+ *   ships — `min-block-size`, not `height`. No physical fallback is
+ *   authored and nothing is banked for a re-trigger: the gate's "if false"
+ *   branch did not fire. The block-axis property here is a FLOOR, so the
+ *   reading that licenses it is `min-block-size`; `overflow-block` is
+ *   recorded because it is the gate's named command and because it is the
+ *   spelling any future single-axis overflow rule must use rather than
+ *   re-minting the physical `overflow-y`. */
 .app-layout {
     display: grid;
     grid-template-rows: auto 1fr;
     row-gap: var(--dock-gap);
-    height: 100dvh;
+    min-block-size: 100svh;
     width: 100%;
     position: relative;
-    overflow: hidden;
-    padding: var(--dock-inset) var(--app-padding-x) 0.5rem;
+    /* X.W12U.m · A2-VA-L2-12 — the shell clears the device's safe areas.
+     * index.html opts into `viewport-fit=cover`, so the page paints edge to
+     * edge (the ground and the atmosphere run under the notch and the home
+     * indicator) and each padding edge is the larger of its own token and the
+     * inset on that side. Measured with the CDP safe-area override (portrait
+     * bottom 34; landscape left/right 47, bottom 21). The side pair is
+     * PHYSICAL on purpose: the insets are physical (a notch is on the left
+     * of the glass whatever the writing direction). */
+    padding-block-start: max(var(--dock-inset), env(safe-area-inset-top, 0px));
+    padding-left: max(var(--app-gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--app-gutter), env(safe-area-inset-right, 0px));
+    padding-block-end: max(0.5rem, env(safe-area-inset-bottom, 0px));
 }
 
 /* The a11y landmarks are the two band rows. <nav> IS the dock band —
@@ -35,7 +104,48 @@
  * shifted the scene +3.0px — the reservation now covers the tallest state by
  * construction, the shorter collapsed seal centring in the reserved box).
  * position: relative seats the band-chrome instruments (the W6-6 status
- * lamp). */
+ * lamp).
+ *
+ * ── B6 · U-7 — THE DOCK POSTURE, DECIDED BY PROBE AND RECORDED HERE ───────
+ * DECISION: the band stays IN FLOW. It is not sticky, not fixed, and mints
+ * no z-index. The block law above gives the document a scroll for the first
+ * time, so "does the dock scroll away?" became a real question; this is the
+ * answer and the reasons, so the choice is not a silent one.
+ *
+ * THE PROBE (390×844, WebKit 26.4, post-cure, 2026-09-19 — six member routes
+ * loaded, each scrolled to the document end):
+ *   #/gradient     docScrollHeight 1003 vs client 844 → 159px of scroll;
+ *                  band top 16 → −143; band fully leaves the viewport.
+ *   #/ · #/browse · #/generate · #/palettes · #/admin/users
+ *                  docScrollHeight 844 = client 844 → 0px of scroll; the
+ *                  band never moves.
+ *   elements intersecting the band's box when scrolled: 0 on every route.
+ *
+ * WHY IN-FLOW WINS ON THAT EVIDENCE:
+ *   1. THE BAND LAW FORBIDS THE ALTERNATIVE'S MECHANISM. T-31 (owner-verbatim)
+ *      retired the fixed overlay, the padding reservation and the load-bearing
+ *      z-dock together, and the comment above states the resulting invariant:
+ *      occlusion of the dock by any card is impossible BY CONSTRUCTION,
+ *      because grid rows do not overlap and no z-index is minted in the shell.
+ *      A sticky band overlaps row 2 the moment it sticks, so it needs a
+ *      z-index and a paint order — it re-opens the exact single point of
+ *      failure the law closed. That is a design ruling, not a preference.
+ *   2. THE MEASURED COST IS BACKWARDS. One route of six scrolls at all, by
+ *      159px — the dock is ~88px of scroll from being on screen again. A
+ *      sticky band would spend 88px of an 844px viewport (10.4%) permanently
+ *      to save an 88px gesture that one route asks for.
+ *   3. THE MATERIAL. The band carries the glass material; stuck over moving
+ *      content it re-samples its backdrop every frame, which is a per-frame
+ *      backdrop-filter repaint on the surface the T-45 seat below exists to
+ *      keep cheap.
+ *
+ * RE-TRIGGER (banked, not hypothetical): X.W5.c collapses every route to one
+ * scrolling column at 390, which is expected to take per-route rendered text
+ * from ~69 to ~893 characters (gate C1). When that lands, re-run this probe:
+ * if the median member route scrolls more than about one viewport, the cost
+ * balance in (2) inverts and the posture is re-decided — against (1), which
+ * does not move, so the cure would then be a dock that returns on scroll-up
+ * rather than one that is permanently stuck. */
 .dock-band {
     position: relative;
     display: flex;
@@ -44,36 +154,85 @@
     min-height: var(--dock-band-min-h);
 }
 
-/* <main> (.pane-main) is the scene band: it centres the pane container
- * within row 2 (the centring the flex shell used to do at the layout root —
- * now the band's own job). */
+/* <main> (.pane-main) is the scene band. X.W12.b (OA-20/OA-25 — no layout
+ * shift during an enter): the band ANCHORS the pane row at its start. It used
+ * to centre the row vertically, which made every region's position a function
+ * of the TALLEST mounted pane: when one region's pane entered, the row's
+ * height changed and the companion that never moved jumped by half the
+ * difference (w12-motion census, before: the boot's About mount grew the row
+ * 685→788px and threw the Picker card up 47px — boot CLS 0.0220 ×2; each pane
+ * switch shifted the kept card by the same 47px, CLS ≈0.02 per switch). The
+ * row is top-anchored under the route title, where the panes already sit
+ * whenever a pane fills the band. */
 .pane-main {
+    /* The row's inline clamp (below), named once so the route caption seats on
+     * the same leading edge as the row (X-DS value pass 8 · V8C-01). */
+    --pane-row-max: min(
+        calc(100vw - var(--app-gutter) * 2),
+        calc(var(--pane-max) * 2 + var(--pane-gap))
+    );
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     /* flex-min-size idiom — let the column shrink to its content. */
     min-height: 0;
     min-width: 0;
 }
 
+/* ── ONE COLUMN, OR AS MANY AS FIT (X.W5.c · V·L2 · gates C1/C7) ──────────
+ * The scene's regions are laid out by SPACE, not by viewport.
+ *
+ * What this replaces: `grid-template-columns: 1fr` plus a
+ * width-AND-aspect media arm (min-width 1024px, min-aspect-ratio 1.1) that switched
+ * `.pane-container--dual` to `repeat(2, minmax(var(--pane-min), 1fr))`. The
+ * media arm was the CSS half of the JS breakpoint fork — the same compound
+ * query App.vue ran through its breakpoint composable to decide which regions
+ * to MOUNT —
+ * and retiring the fork retires its stylesheet twin (gate C7's subtraction).
+ *
+ * `auto-fit` asks the only question that was ever being asked: how many
+ * `--pane-min` tracks fit in the space this container actually has? Two at
+ * 1440 (the composition is unchanged: the container clamps at ≈1050px, so the
+ * tracks land at `--pane-max` exactly as the retired `repeat(2, …)` did), one
+ * at 390 and at 720 (≡ 1440 at 200% zoom), with the second region wrapping to
+ * row 2 — the one scrolling column V·L2 asks for, on the document the block
+ * law (X.W5.b) gave us. `min(--pane-min, 100%)` is what lets a track be
+ * NARROWER than the floor when the viewport itself is: without it the grid
+ * overflows a 390px phone. `auto-fit` (not `auto-fill`) collapses the empty
+ * track, so a one-region scene — Atmosphere, the five admin consoles,
+ * Not Found — still spans the full container instead of sitting in half of it.
+ *
+ * The two gap values are the two this rule carried before, each on the axis it
+ * governed: the dual arm's `--pane-gap` between columns, the base `1rem`
+ * between stacked rows. The INLINE clamp below is untouched (EB-8): the
+ * ≈1050px owner ruling is not this wave's to move, and the ratio / ultrawide
+ * half rides CC-056 · V·L3 at X-W6. */
 .pane-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--pane-min), 100%), 1fr));
+    column-gap: var(--pane-gap);
+    row-gap: 1rem;
     width: 100%;
     /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
      * the container grows fluidly with the viewport (minus .app-layout's
      * horizontal padding, both sides) and clamps at two max-size cards plus
      * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
      * clamp). Equal columns always; no shell self-clamps. */
-    max-width: min(
-        calc(100vw - var(--app-padding-x) * 2),
-        calc(var(--pane-max) * 2 + var(--pane-gap))
-    );
+    max-width: var(--pane-row-max);
     margin: 0 auto;
     position: relative;
-    max-height: var(--content-max-h);
+    /* X.W5.b — the block-axis `max-height` that read the shell's cap token is
+     * DELETED (gates B2/B4). It held this box to 608px inside a 1340.5px
+     * scene band at 3440×1440 (45.4% block extent — the MT-F028 number,
+     * reproduced exactly at wave-open) while the content inside measured 6.2×
+     * the band: the cap was not restraining a long scene, it was hiding one.
+     * The box is now sized by its content. The INLINE clamp above is
+     * untouched — it is the owner-ruled ≈1050px invariant. */
     min-height: 0;
+    /* X.W12.c — the row contract below asks THIS box how many tracks it
+     * holds, so it is the named query container (inline axis only: its width
+     * is `width: 100%` + the clamp above, never its content's). */
+    container: pane-row / inline-size;
 }
 
 /* The pane slots are size containers: in-card sizing rides `cqi` (container
@@ -81,62 +240,268 @@
  * `vw`. Display type rungs are the named exception (viewport-fluid clamps). */
 .pane-wrapper {
     container-type: inline-size;
+    /* X.W12U.m2 · A2-VA-X-2 (COHESION §0et, ESC-W12U-r1-2): A REGION'S PAINT
+     * BAND IS INK, SO THE REGION SAYS SO. Two boxes inside a region overshoot
+     * it by design: the T-45 carrier (below; inset −2r, a paint-only band that
+     * `clip-path` cuts back to the card) and the plate's arrival pose (the
+     * `overture-plate-settle` half-degree turn on the pane root, which swings a
+     * tall plate's corner tens of px sideways for one beat). As in-flow layout
+     * boxes both entered the document's scrollable overflow, and on phones and
+     * tablets the band crossed the viewport edge: docSW = vw + 16 at rest,
+     * more through boot, the layout viewport widened and the page panned.
+     * Layout containment makes a region's descendant overflow INK overflow
+     * (CSS Containment §3.2): it clips nothing and repaints nothing, so the
+     * carrier still samples its full 2r backdrop (no t33 rim), the card's
+     * quiet edge and the stage's hero ornament keep painting past the region,
+     * and `.pane-wrapper--stage` gains no clip. (`container-type` no longer
+     * implies layout containment, so it is stated.) A root/shell clip is the
+     * rejected masking alternative; the carrier block retires with the
+     * producer's P3 ladder rider. Every `contain` below restates `layout`. */
+    contain: layout;
 }
 
-/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the LEFT slot (the picker +
+/* ── THE PLATE INKS: ONE POLARITY PER PLATE (X-DS pass 4 · V4C-01/V4C-02) ──
+ * glass's resting plate is its veil ink at 14% α, so a saturated mid-tone
+ * aurora shows almost straight through it. The boot writer certifies BOTH
+ * plate inks against that composited plate from one referent: `--ink-primary`
+ * (the scheme foreground, walked to the pole that clears 4.5:1) and
+ * `--ink-muted` (a floor-clamped step of the same pole). Inside the panes they
+ * ARE the foreground family, so titles, labels, readout integers, section heads,
+ * quiet and text actions, placeholders and captions all inherit one polarity by
+ * token. Before this, only the captions followed the plate: on the owner brick
+ * in light the captions went near-white while the titles stayed on the static
+ * near-black `--foreground` (2.0-2.7:1). Colour only; glass's material and
+ * lighting are untouched. Root-computed tokens (`--slider-range-bg`,
+ * `--well-bg`, the hairlines) keep the scheme ink they were certified with. */
+.pane-wrapper {
+    --foreground: var(--ink-primary);
+    --card-foreground: var(--ink-primary);
+    --secondary-foreground: var(--ink-primary);
+    --accent-foreground: var(--ink-primary);
+    --muted-foreground: var(--ink-muted);
+    --muted-foreground-strong: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 38.2%);
+    /* glass re-seats the muted pair on its own surfaces
+     * (`:where(.glass-resting, …) { --muted-foreground: var(--on-glass-muted) }`),
+     * so its seam carries the same rungs: no glass rule is overridden. */
+    --on-glass-muted: var(--ink-muted);
+    --on-glass-muted-strong: color-mix(in oklab, var(--ink-muted), var(--ink-primary) 38.2%);
+}
+
+/* X-DS pass 5 (V5C-05): FIELDS ON GLASS STAY GLASS (the register law,
+ * utils.css `.search-seated`). glass's Input and NumberField fill from its
+ * `--input-on-glass` token, an opaque cream "paper" ground; on a glass plate
+ * that reads as a paper pill beside the app's translucent seated fields. The
+ * token is re-seated on the app's glass hosts (the panes and the floating
+ * plate) to the same rung-2 `--well-bg` tone step the seated search wears.
+ * glass's field edge (`--field-control-ink`, declared on `.field-control`
+ * itself) has no host-level seam, so the edge half is cited on O-87.
+ * Pass 13 (V13-01): the dock is a glass host too; its login layer's slug
+ * field fell back to the paper ground, so the dock joins the seat. */
+.pane-wrapper,
+.glass-floating,
+.glass-dock {
+    --input-on-glass: var(--well-bg);
+}
+
+/* X-DS pass 5 (V5C-02): the same certified pair on the FLOATING plate. Reka
+ * portals select menus, popovers and dropdowns to <body>, outside the seat
+ * above, so they kept the scheme's static muted ink, which was never certified
+ * against the floater's composited ground (dark red on a red floater, pink on
+ * pink). glass's floating material (`.glass-floating`) is every floater's
+ * content root; the boot writer certifies `--ink-floating-*` against that rung
+ * (`resolvePlateInk`/`resolveMutedInk` on the floating referent). Colour only:
+ * glass's floating material and its opacity are untouched (V3C-G1 on O-87). */
+.glass-floating {
+    --foreground: var(--ink-floating-primary, var(--ink-primary));
+    --popover-foreground: var(--ink-floating-primary, var(--ink-primary));
+    --card-foreground: var(--ink-floating-primary, var(--ink-primary));
+    --accent-foreground: var(--ink-floating-primary, var(--ink-primary));
+    --muted-foreground: var(--ink-floating-muted, var(--ink-muted));
+    --muted-foreground-strong: color-mix(
+        in oklab,
+        var(--ink-floating-muted, var(--ink-muted)),
+        var(--ink-floating-primary, var(--ink-primary)) 38.2%
+    );
+    --on-glass-muted: var(--ink-floating-muted, var(--ink-muted));
+    --on-glass-muted-strong: color-mix(
+        in oklab,
+        var(--ink-floating-muted, var(--ink-muted)),
+        var(--ink-floating-primary, var(--ink-primary)) 38.2%
+    );
+    /* X-DS pass 17 (V17C-01): the admin gold, certified on this plate. */
+    --ink-gold: var(--ink-gold-floating, var(--color-gold));
+}
+
+/* X-DS pass 16 (V16-01): the same certified pair on the MODAL plate. A dialog
+ * is glass's floating material over glass's 50 % ink scrim, so in light its
+ * ground composites dark, and the floating pair above (solved over the bare
+ * ambient) left dark ink on it: 1.27:1 read off the frame. The boot writer
+ * certifies `--ink-modal-*` against the floating plate over the scrim over the
+ * ambient. Colour only: the plate, its blur and the scrim stay glass's
+ * (the light-modal composite is relayed on O-87, V16-G1). */
+.glass-floating[role="dialog"] {
+    /* the modal root declares no ink of its own, so its title and labels
+     * inherited the page's (light-scheme) body ink; they read the seat. */
+    color: var(--foreground);
+    --foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    /* the destructive verb's red, certified on the same ground (hue kept) */
+    --destructive: var(--ink-modal-destructive);
+    /* the view accent (a dialog's text verbs) and the ink that reads on it */
+    --primary: var(--ink-modal-accent, var(--accent-view));
+    --primary-foreground: var(--ink-modal-accent-fg, var(--background));
+    --popover-foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    --card-foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    --accent-foreground: var(--ink-modal-primary, var(--ink-floating-primary));
+    --muted-foreground: var(--ink-modal-muted, var(--ink-floating-muted));
+    --muted-foreground-strong: color-mix(
+        in oklab,
+        var(--ink-modal-muted, var(--ink-floating-muted)),
+        var(--ink-modal-primary, var(--ink-floating-primary)) 38.2%
+    );
+    --on-glass-muted: var(--ink-modal-muted, var(--ink-floating-muted));
+    --on-glass-muted-strong: color-mix(
+        in oklab,
+        var(--ink-modal-muted, var(--ink-floating-muted)),
+        var(--ink-modal-primary, var(--ink-floating-primary)) 38.2%
+    );
+}
+
+/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the STAGE region (the picker +
  * its corner-breaking hero-blob ornament) paints above the right pane, so the
  * bead's overlap strip is never buried under the About card (the S-4 burial —
  * both glass Cards are z-auto stacking contexts, so DOM order alone painted
  * the LATER right pane over the left pane's overflowing ornament). Grid items
- * take z-index directly (no positioning needed); portaled overlays are
- * unaffected; ZERO per-instance z-index on the ornament itself (the
- * no-z-hacks law — the slot assigns the layer). */
-.pane-wrapper--left {
+ * take z-index directly (no positioning needed). A portaled overlay clears
+ * this layer ONLY when it carries its own: glass's Select and Popover take
+ * z-popover, but glass 10.1.0's DropdownMenuContent ships z-index auto, so a
+ * menu opened over the stage painted UNDER it while reka still routed clicks
+ * to it (X-DS V7R-01). Until glass gives the menu chunk z-popover (relayed
+ * under O-87/O-80), every DropdownMenuContent call site carries glass's own
+ * `z-popover` utility; ZERO per-instance z-index on the ornament itself (the
+ * no-z-hacks law — the slot assigns the layer). X.W5.c: keyed on the region's
+ * ROLE. The ornament overflows because of what the region IS — the protagonist
+ * carrying the hero blob — not because of which side of a grid it landed on,
+ * and after X.W5.c a region's side is not a fact the schema states. */
+.pane-wrapper--stage {
     z-index: 1;
 }
 
-/* MOB-1 (T round-4 — the C-5/D8-1 adjudication landed) — THE LAYOUT DISPLAY
- * WITNESSES key on [data-layout], the single-truth stamp App.vue sets on
- * .app-layout from `isDesktop` (= width AND landscape). The CSS witness IS the
- * JS witness: a portrait tablet ≥ 1024px wide (aspect < 1.1) stamps
- * data-layout="mobile", so the mobile slot shows and the desktop wrappers hide
- * BY CONSTRUCTION — the retired D6-03 portrait pathology needed a width-only
- * `lg:hidden` display exception here; the stamp dissolves it. The v-if
- * single-mount (App.vue X6) is the primary gate; these are the aspect-correct
- * defensive witnesses + the CI emission canary (scripts/ci/css-emission-probe.mjs,
- * re-pointed off the lg:* utilities onto these rules). They are intentionally
- * UN-media'd — the JS drives the breakpoint, so a media wrapper would
- * re-introduce the width-only disagreement the stamp exists to retire. */
-[data-layout="mobile"] .pane-slot-mobile {
-    display: flex;
-}
-[data-layout="desktop"] .pane-wrapper--left {
-    display: flex;
-}
-[data-layout="desktop"] .pane-wrapper--right {
-    display: block;
-}
-/* The mobile pane switcher (Dock.vue's PaneSegmentedControl) is mobile-grammar
- * only — hidden on desktop, shown on the portrait band so BOTH panes stay
- * reachable at 1024×1366 (the width-only `lg:hidden` it replaced marooned the
- * second pane there). */
-[data-layout="desktop"] .dock-mobile-panes {
-    display: none;
+/* ── THE ROW CONTRACT: A COMPANION THAT FOLLOWS THE ROW (X.W12.c · OA-5/OA-21)
+ * Two regions side by side share one grid row, and every item stretches to
+ * the row (the equal-height pairing §0ax P-5a keeps). The row's height is the
+ * TALLER item's content. The About pane's content is a reference text
+ * (7458.8 px at 1440×900, measured at the X-W12 open), so it set the row, the
+ * Picker plate stood 684.8 px tall inside a 7458.8 px track, and the document
+ * scrolled 7585 px against a 900 px viewport. The owner's words: "does not
+ * clip properly to be the same size as the left pane".
+ *
+ * A pane that DECLARES it follows the row (`.pane-row-follow` on its root)
+ * gives its region wrapper `contain: size`: the wrapper contributes nothing
+ * to the row's height, the stage's content sets it, and `align-self: stretch`
+ * then hands the wrapper exactly that height (a stretched grid item is
+ * definite, so the pane's `h-full` resolves against it). The pane scrolls its
+ * body inside its own card on glass's scroll primitive (AboutPane.vue).
+ *
+ * WHY THE CONTAINER QUERY. Stacked in ONE column the companion is alone in
+ * its row, and `contain: size` would collapse it to nothing. The contract
+ * therefore holds only while the grid holds two tracks, which is the exact
+ * `auto-fit` condition of `.pane-container` above: its inline size is at
+ * least two `--pane-min` tracks plus one `--pane-gap`. A size query cannot
+ * read custom properties, so the two token values are written out here —
+ * `--pane-min: 25rem` and `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)`
+ * (foundation.css). A change to either token changes this line with it.
+ *
+ * It sits on the WRAPPER, not the card: the pane swap sets `contain: layout
+ * paint` on the travelling pane (animations.css), and a `contain` declared on
+ * the card would be replaced by it for the travel.
+ *
+ * X.W12U.h · A2-VA-L3-5: the contract is a COMPANION's, so it binds only the
+ * inspector region. Palettes, Mix and the config pane declare it too, and the
+ * config pane is also the sole stage of /atmosphere, where no sibling sets the
+ * row and `contain: size` would collapse it. */
+@container pane-row (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .pane-wrapper--inspector:has(> .pane-row-follow) {
+        contain: size layout;
+        min-block-size: var(--pane-follow-floor, 0px);
+        /* X-DS pass 7 (V7C-04): the row is the companion's CEILING, not its
+         * height. Stretched to the row, a short companion (Mix beside the
+         * picker, My Palettes at its 30rem floor) stood a tall plate with
+         * ≈110–210 px of dead glass under its last control, where the original
+         * sized each card to its content. The wrapper is a column; the card
+         * takes its content height and shrinks to the row only when the
+         * content is longer (a flexed item's size is definite, so the card's
+         * own scroll port still resolves). The floor stays on the wrapper. */
+        display: flex;
+        flex-direction: column;
+    }
+    .pane-wrapper--inspector:has(> .pane-row-follow) > .pane-row-follow {
+        block-size: auto;
+        flex: 0 1 auto;
+        min-block-size: 0;
+    }
 }
 
-/* The dual grid fires on width AND landscape (the aspect law — see the
- * desktop :root block above; portrait keeps the single-column grammar). */
-@media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
-    .pane-container {
-        gap: var(--pane-gap);
-    }
-    .pane-container--dual {
-        /* Equal columns always (the kept 1fr↔1fr invariant), with the floor
-         * explicit: no card ever renders below `--pane-min` on the dual
-         * grid. */
-        grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr));
+/* X-DS pass 3 (V3C-03) — THE FOLLOWER'S FLOOR. Size containment lets a long
+ * companion follow a short leader, but it also let the My Palettes companion
+ * shrink below its own minimum: on Browse (a 362 px leader) the empty state's
+ * hint sat under the end feather, and after a save on Generate (405 px) the
+ * one saved card was sliced at the card's bottom over an empty viewport. The
+ * floor is the companion's minimum content: its seated header plus the search
+ * row, the "Start a new palette" well and ONE saved card, or the whole empty
+ * state (measured 450 and 464 px at 1440, pass-03/probe-companion.mjs), with a
+ * line of slack. A contained grid item still contributes its min-block-size,
+ * so a shorter leader stretches to the floor; a longer one is untouched. */
+.pane-wrapper--inspector[data-pane="palettes"] {
+    --pane-follow-floor: 30rem;
+}
+
+/* X-DS pass 5 (V5C-10): THE FLOOR IS THE COMPANION'S OWN. When the floor (not
+ * the stage) sets the row, the stretched stage card stood to the companion's
+ * 30rem and left dead plate under its content (≈80 px under Generate's Colors
+ * rail, ≈180 px under Browse's empty state). Beside My Palettes the stage
+ * sizes to its content, so the pair may differ in height as the original two
+ * cards did; a taller stage still sets the row and the companion follows it. */
+.pane-container:has(> .pane-wrapper--inspector[data-pane="palettes"]) > .pane-wrapper--stage {
+    align-self: start;
+}
+
+/* X.W12U.m · A2-VA-L2-5 — ONE TRACK: THE ROUTED SUBJECT COMES FIRST.
+ * Palettes, Mix and Blob seat the SHARED picker as their stage, and their own
+ * subject as the inspector. Side by side that reads fine; in one track (the
+ * same condition as above, negated) the shared picker came first and the
+ * route's subject began at y 664 of a 780 px phone, so the three routes opened
+ * on a screen identical to Home's. In one track the shared picker steps after
+ * the subject. Home (`[data-view="picker"]`) is the one view whose stage IS
+ * its subject, so it keeps the picker first. `order` changes the visual
+ * sequence only; the DOM keeps the schema order, so the regions' tab order
+ * still runs picker → subject (the register's specified cure, A2-VA-L2-5). */
+@container pane-row not (inline-size >= calc(2 * 25rem + clamp(0.5rem, 1.25vw, 1.618rem))) {
+    .app-layout:not([data-view="picker"]) .pane-wrapper--stage[data-pane="color-picker"] {
+        order: 1;
     }
 }
+
+/* X.W5.c — THE `[data-layout]` DISPLAY WITNESSES ARE GONE, all four of them.
+ *
+ * They were the defensive half of the single-mount fork: `[data-layout="mobile"]
+ * .pane-slot-mobile {display:flex}`, the desktop-stamped physical left
+ * wrapper `{display:flex}`, its right twin `{display:block}` (their
+ * spellings retired with the side modifiers at X.W5.d · D3) and `[data-layout="desktop"]
+ * .dock-mobile-panes {display:none}` — CSS re-stating, from a stamp App.vue
+ * wrote out of its breakpoint predicate, the same verdict the `v-if` had already
+ * reached. Their own comment called them "the aspect-correct defensive
+ * witnesses" to "the primary gate". With one mount path there is no primary
+ * gate to defend, no stamp to key on, and no mobile-only switcher to hide: the
+ * regions are always mounted and the grid above arranges them from the space it
+ * has. The MECHANISM is not moved elsewhere — it is retired.
+ *
+ * ⟨PSC-21 / gate N9⟩, carried: this block used to name a CI emission probe as
+ * these rules' guarantor. X.W5.b measured that the probe does not exist
+ * anywhere in the tree and took the STRIKE branch; the rules it claimed to
+ * guard are the ones deleted here, exactly as that unit predicted. Nothing in
+ * this file asserts a gate that does not run, and the 27 capability queries
+ * (`prefers-*`, `forced-colors`, `print`, `pointer`, `hover`) are untouched —
+ * C7 subtracts viewport-DIMENSION queries and nothing else. */
 
 /* ═══ T-45 · THE PANE-CARD OVERSAMPLED-BLUR SEAT (T.W6.5 Lane M · the
  * BOOKED-SWAP demo interim; root = producer, P3 rider) ═══════════════════
@@ -165,6 +530,21 @@
  * DIRECT WRAPPER (a static box the card fills by construction): the
  * `.pane-wrapper` slot for the root-Card panes, the one-deep wrapper div
  * for the wrapped panes (the picker's `.pane-shell`, Extract/Config).
+ *
+ * ── THE RE-SEAT (X.W5.c · gate C6, SAME COMMIT as the wrapper cut) ────────
+ * The three forked wrappers this carrier sat on — the mobile single slot and
+ * the desktop left/right pair, one of which was mounted at a time — are cut
+ * to ONE region wrapper, rendered per member of the scene's `regions[]`. The
+ * carrier is re-seated on that element IN THIS COMMIT, which is the whole
+ * reason C6 exists: a cut without the re-seat hands every pane card its OWN
+ * `backdrop-filter` back, and with it the t33 edge-clamp rim the T-45 seat
+ * was built to kill. The selectors below are unchanged BY DESIGN — the region
+ * wrapper keeps the `.pane-wrapper` class, so the carrier, the
+ * `useDevicePixelSnap` measurement query and eleven e2e/probe consumers keep
+ * one seat between them instead of a rename that would have to land in files
+ * this unit may not write. What moved is the ELEMENT the class is on, from
+ * three forked wrappers to one region wrapper; what did not move is the
+ * material, the token or the clip.
  * `clip-path` clips hit-testing too, so the overshoot band can never
  * intercept a pointer. The `:not()` arm keeps the carrier SINGULAR during
  * a mixed pane swap (both structures transiently co-mounted in one slot).
@@ -194,16 +574,14 @@
      * documents), which computes `none` in Chromium — probed live on the
      * built bundle. */
     .pane-wrapper:has(> .glass-resting)::before,
-    .pane-wrapper:not(:has(> .glass-resting))
-        > div:has(> .glass-resting)::before {
+    .pane-wrapper:not(:has(> .glass-resting)) > div:has(> .glass-resting)::before {
         content: "";
         position: absolute;
         inset: calc(-2 * var(--glass-blur-resting-radius, 8px));
         pointer-events: none;
         backdrop-filter: var(--glass-blur-resting);
         clip-path: inset(
-            calc(2 * var(--glass-blur-resting-radius, 8px))
-                round var(--radius-card)
+            calc(2 * var(--glass-blur-resting-radius, 8px)) round var(--radius-card)
         );
     }
 

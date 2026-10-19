@@ -1,0 +1,8 @@
+load-start 455.78 465.91 376.46
+lib 0 0
+demo 0 0
+test 0 0
+e2e 0 0
+docs/tranches/X/waves/W12U-evidence/k2/gate.sh: line 7: 55695 Terminated: 15          "$@" > "$L/gate-$T-$name.out" 2>&1
+lint 143 0
+load-end 464.30 456.77 421.51

@@ -1,0 +1,90 @@
+{
+ "sha": "531aa3f1",
+ "dirty": 2,
+ "light-tabsToBox": 17,
+ "light-focus": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.22) 0px 1px 0px 0px inset, color(srgb 0.986 0.982 0.974 / 0.5) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(48 10% 70%)) 30%, transparent), 0 0 8px",
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle"
+ },
+ "afterSpace": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.22) 0px 1px 0px 0px inset, color(srgb 0.986 0.982 0.974 / 0.5) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(48 10% 70%)) 30%, transparent), 0 0 8px",
+  "badge": "tracking",
+  "tether": "1",
+  "bg": "oklab(0.772236 -0.190624 0.134609)",
+  "tf": "matrix(8.21331e-06, -1.08, 1.08, 8.21331e-06, -89.",
+  "mode": "playback"
+ },
+ "afterTakeover": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.28) 0px 1px 0px 0px inset, color(srgb 0.493698 0.351392 0.798991 / 0.12) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(48 10% 70%)) 30%, transparent), 0 0 8px",
+  "badge": "settled",
+  "tether": "0",
+  "bg": "oklab(0.772027 -0.189669 0.133974)",
+  "tf": "matrix(0.00418429, -1.11999, 1.11999, 0.00418429, ",
+  "mode": "idle"
+ },
+ "afterEscape600": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.22) 0px 1px 0px 0px inset, color(srgb 0.986 0.982 0.974 / 0.5) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(48 10% 70%)) 30%, transparent), 0 0 8px",
+  "badge": "tracking",
+  "tether": "1",
+  "bg": "oklab(0.684245 0.211733 -0.13289)",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle"
+ },
+ "afterEscape4600": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.22) 0px 1px 0px 0px inset, color(srgb 0.986 0.982 0.974 / 0.5) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(48 10% 70%)) 30%, transparent), 0 0 8px",
+  "badge": "tracking",
+  "tether": "1",
+  "bg": "oklab(0.684245 0.211733 -0.13289)",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle"
+ },
+ "afterHome": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.22) 0px 1px 0px 0px inset, color(srgb 0.986 0.982 0.974 / 0.5) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(48 10% 70%)) 30%, transparent), 0 0 8px",
+  "badge": "settled",
+  "tether": "0",
+  "bg": "oklab(0.684245 0.211733 -0.13289)",
+  "tf": "matrix(0.00373597, -0.999993, 0.999993, 0.00373597",
+  "mode": "idle"
+ },
+ "dark-tabsToBox": 17,
+ "dark-focus": {
+  "focused": true,
+  "fv": true,
+  "boxShadow": "color(srgb 1 1 1 / 0.22) 0px 1px 0px 0px inset, color(srgb 0.0436 0.03928 0.0364 / 0.5) 0px 0px 0px 8px",
+  "outline": "none 3px",
+  "ringVar": "0 0 0 2px color-mix(in srgb, hsl(48 10% 70%) 30%, transparent), 0 0 8px color-mix(in srgb, hsl(48 10",
+  "badge": "settled",
+  "tether": "0",
+  "bg": "rgb(82, 232, 152)",
+  "tf": "matrix(1, 0, 0, 1, 0, 0)",
+  "mode": "idle"
+ }
+}

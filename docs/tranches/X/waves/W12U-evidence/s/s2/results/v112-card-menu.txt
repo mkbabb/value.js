@@ -1,0 +1,10 @@
+## HEAD bytes
+[390x844 light] RED  {"cascades":true,"rows":9,"hMin":44,"hMax":71,"icons":[10,16,14],"italic":[],"header":true,"shortcut":false,"inRoot":false,"boxes":[[135,379,327,763],[0,483,276,738]],"inside":true,"overParent":true,"width":192}
+[1440x900 light] RED  {"cascades":true,"rows":9,"hMin":44,"hMax":58,"icons":[11,16],"italic":[],"header":true,"shortcut":false,"inRoot":false,"boxes":[[480,354,672,738],[659,439,884,694]],"inside":true,"overParent":true,"width":192}
+## cured
+[390x844 light] PASS {"cascades":false,"rows":13,"hMin":44,"hMax":44,"icons":[16],"italic":[],"header":false,"shortcut":true,"inRoot":true,"boxes":[[51,379,327,763]],"inside":true,"overParent":false,"width":276}
+[360x780 light] PASS {"cascades":false,"rows":13,"hMin":44,"hMax":44,"icons":[16],"italic":[],"header":false,"shortcut":true,"inRoot":true,"boxes":[[21,379,297,763]],"inside":true,"overParent":false,"width":276}
+[1440x900 light] PASS {"cascades":true,"rows":9,"hMin":44,"hMax":44,"icons":[16],"italic":[],"header":false,"shortcut":true,"inRoot":false,"boxes":[[451,354,672,738],[659,595,884,850]],"inside":true,"overParent":true,"width":221}
+[390x844 dark] PASS {"cascades":false,"rows":13,"hMin":44,"hMax":44,"icons":[16],"italic":[],"header":false,"shortcut":true,"inRoot":true,"boxes":[[51,379,327,763]],"inside":true,"overParent":false,"width":276}
+[360x780 dark] PASS {"cascades":false,"rows":13,"hMin":44,"hMax":44,"icons":[16],"italic":[],"header":false,"shortcut":true,"inRoot":true,"boxes":[[21,379,297,763]],"inside":true,"overParent":false,"width":276}
+[1440x900 dark] PASS {"cascades":true,"rows":9,"hMin":44,"hMax":44,"icons":[16],"italic":[],"header":false,"shortcut":true,"inRoot":false,"boxes":[[451,354,672,738],[659,595,884,850]],"inside":true,"overParent":true,"width":221}

@@ -1,0 +1,9 @@
+X-DS fourier pass 10 cure (critic F10C), 2026-10-17 — gates on the final tree (fourier 4041480)
+vue-tsc -b (guarded --light): run 1 exit 0; run 2 exit 0 (vuetsc-1.log, vuetsc-2.log)
+vitest run --maxWorkers=2 (guarded --light): run 1 116/116 (20 files); run 2 116/116 (20 files) (vitest-1.log, vitest-2.log)
+e2e: 24 specs (e2e-specs.txt; every spec reading .floating-toc, the ToC tree, .stage-column or the shell's scroll state), headless, --project=chromium --project=mobile-chromium --workers=1, BASE_URL=http://localhost:3221 (private vite, serve.mjs); config webServer preview :4190 for f-w14u-misc
+  run A: 245 passed (11.0m), exit 0 (e2e-runA.txt)
+  run B: 245 passed (11.6m), exit 0 (e2e-runB.txt)
+  web/e2e/screenshots/f-w14/after-* rewritten by each run were restored to HEAD (e2e-exits.txt)
+No golden re-baselined.
+Census: scripts/ds-census.mjs --chrome on :3221 (census-after.json): static and computed sums identical to pass 9.

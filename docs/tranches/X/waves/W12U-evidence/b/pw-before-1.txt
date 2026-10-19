@@ -1,0 +1,227 @@
+SERVED MODEL: claude-opus-5-5
+
+# before-1: HEAD bytes, VJS_E2E_PORT=8290 (fresh vite) / 8291 built bundle, --workers=1. after-r2/r3: restated bytes, :9000 dev server / 8291, --workers=1 (comment-only edits landed after r3 started; r4 is the settled-bytes run).
+
+Running 13 tests using 1 worker
+
+
+[1/13] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:81:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc
+  1) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:81:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: expect(locator).toBeAttached() failed
+
+    Locator: locator('[data-testid="goo-blob-canvas"]').last()
+    Expected: attached
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeAttached" with timeout 15000ms
+      - waiting for locator('[data-testid="goo-blob-canvas"]').last()
+
+
+      64 |     await expect(mainPane(page)).toBeVisible();
+      65 |     const blob = page.locator(BLOB_CANVAS).last();
+    > 66 |     await expect(blob).toBeAttached({ timeout: 15_000 });
+         |                        ^
+      67 |     // Wait out the emerge pose (the W2-4 settle-stamp discipline).
+      68 |     const pane = await page
+      69 |         .locator(".pane-wrapper--stage")
+        at bootWithBlob (/Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:66:24)
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:84:20
+
+    Error Context: test-results/oracles-o12-blob-seat-O-12-4e9fa--occluded-by-the-bead-s-arc-smoke/error-context.md
+
+
+
+[2/13] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms
+[smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms
+[o12-hover] mean abs frame diff over the bead box: 1.21/255
+
+  2) [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms 
+
+    Error: hover response 1.21/255 < the 6/255 floor — the approach beat is sub-JND (D4 family)
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 6
+    Received:    1.2133227516457576
+
+      156 |         diff,
+      157 |         `hover response ${diff.toFixed(2)}/255 < the 6/255 floor — the approach beat is sub-JND (D4 family)`,
+    > 158 |     ).toBeGreaterThanOrEqual(6);
+          |       ^
+      159 | });
+      160 |
+      161 | test("O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms", async ({
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/oracles/o12-blob-seat.spec.ts:158:7
+
+    Error Context: test-results/oracles-o12-blob-seat-O-12-0bc19-nswers-a-hover-within-400ms-smoke/error-context.md
+
+
+
+[3/13] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:161:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:161:1 › O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 ≤ 20ms
+[o12-hover-active] renderer=SOFTWARE-GL frames=120 p50=200.1ms (gate ≤20ms real-GPU)
+
+[4/13] [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:205:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:205:1 › O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)
+[o12-backing] renderer=SOFTWARE-GL backing 180x180 css 180.2x180.2 dpr 1 → ratio 0.999 (full-res ≈ 1.0; R2 wreck ≈ 0.35; floor 0.6)
+
+[5/13] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:76:1 › w12-picker-blob · idle: the bead still moves after 5 s without input
+[smoke] › e2e/smoke/w12-picker-blob.spec.ts:76:1 › w12-picker-blob · idle: the bead still moves after 5 s without input
+[w12-blob] idle 5000ms → max frame diff 11.312/255 · 45 draws
+
+[6/13] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:87:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it
+[smoke] › e2e/smoke/w12-picker-blob.spec.ts:87:1 › w12-picker-blob · hover: the bead moves while the pointer rests on it
+[w12-blob] hover after 5000ms idle → max frame diff 7.787/255 · 39 draws
+
+[7/13] [smoke] › e2e/smoke/w12-picker-blob.spec.ts:99:1 › w12-picker-blob · PRM: the producer holds one static frame
+[smoke] › e2e/smoke/w12-picker-blob.spec.ts:99:1 › w12-picker-blob · PRM: the producer holds one static frame
+[w12-blob] PRM → max frame diff 0.000/255 · 0 draws
+
+[8/13] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:53:1 › hero blob parks its WebGL loop after N ms idle (0 un-gated idle rAF)
+  3) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:53:1 › hero blob parks its WebGL loop after N ms idle (0 un-gated idle rAF) 
+
+    Error: blob drew 13 frames over 2500ms of true idle — the render loop is NOT parked (W3-3 idle-gate regressed)
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 5
+    Received:    13
+
+      88 |         after - before,
+      89 |         `blob drew ${after - before} frames over ${SAMPLE_WINDOW_MS}ms of true idle — the render loop is NOT parked (W3-3 idle-gate regressed)`,
+    > 90 |     ).toBeLessThanOrEqual(PARKED_DRAW_SLACK);
+         |       ^
+      91 | });
+      92 |
+      93 | /**
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:90:7
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--3730e-s-idle-0-un-gated-idle-rAF--smoke/error-context.md
+
+
+
+[9/13] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — lab(92% 88.8 20)
+[h1] seed lab(92% 88.8 20) L 0.9583 C 0.27245 h 9.83 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.02105 · painted core median L 1.0000 C 0.00000 h 357.35 · ΔC -0.02105 (stated ±0.04) · px 2324
+
+[10/13] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150)
+[h1] seed oklch(0.65 0.3 150) L 0.6500 C 0.30000 h 150.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.17901 · painted core median L 0.6182 C 0.13863 h 140.95 · ΔC -0.04038 (stated ±0.04) · px 2324
+
+  4) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+
+    Error: painted dominant chroma 0.13863 vs the gamut-mapped current chroma 0.17901
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.04
+    Received:    0.040377606635109364
+
+      224 |             Math.abs(paintedC - targetC),
+      225 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 226 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      227 |     });
+      228 | }
+      229 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:226:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fdd2c-hroma-—-oklch-0-65-0-3-150--smoke/error-context.md
+
+
+
+[11/13] [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328)
+[h1] seed oklch(0.55 0.37 328) L 0.5500 C 0.37000 h 328.00 · buffer srgb (display p3: false) · target C (gamut-mapped) 0.25325 · painted core median L 0.5642 C 0.17842 h 319.81 · ΔC -0.07483 (stated ±0.04) · px 2324
+
+  5) [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+
+    Error: painted dominant chroma 0.17842 vs the gamut-mapped current chroma 0.25325
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 0.04
+    Received:    0.07483337692122963
+
+      224 |             Math.abs(paintedC - targetC),
+      225 |             `painted dominant chroma ${paintedC.toFixed(5)} vs the gamut-mapped current chroma ${targetC.toFixed(5)}`,
+    > 226 |         ).toBeLessThanOrEqual(H1_DELTA_C);
+          |           ^
+      227 |     });
+      228 | }
+      229 |
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/webgl-blob-idle.spec.ts:226:11
+
+    Error Context: test-results/webgl-blob-idle-hero-blob--fc274-roma-—-oklch-0-55-0-37-328--smoke/error-context.md
+
+
+
+[12/13] [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:56:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, idle-parked (Q7 + the seat law)
+  6) [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:56:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, idle-parked (Q7 + the seat law) 
+
+    Error: goo-blob WebGL pipeline never drew at 390 — presence is a dead canvas
+
+    goo-blob WebGL pipeline never drew at 390 — presence is a dead canvas
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+    Call Log:
+    - Test timeout of 30000ms exceeded
+
+      103 |             message: "goo-blob WebGL pipeline never drew at 390 — presence is a dead canvas",
+      104 |         })
+    > 105 |         .toBeGreaterThan(0);
+          |          ^
+      106 |
+      107 |     // ── 2 · CONTAINMENT (the seat identity replaces the corner-break) ─────
+      108 |     const vp = page.viewportSize();
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/mobile/blob-presence-mobile.spec.ts:105:10
+
+    Error Context: test-results/blob-presence-mobile-hero--ea611-dle-parked-Q7-the-seat-law--smoke-mobile/error-context.md
+
+
+
+[13/13] [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:48:1 › idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (built-bundle gate)
+  7) [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:48:1 › idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (built-bundle gate) 
+
+    Error: expect(locator).toBeAttached() failed
+
+    Locator: getByTestId('goo-blob-canvas').last()
+    Expected: attached
+    Timeout: 8000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeAttached" with timeout 8000ms
+      - waiting for getByTestId('goo-blob-canvas').last()
+
+
+      63 |     // The blob must be mounted for this to mean anything (the gate is
+      64 |     // "with the blob mounted").
+    > 65 |     await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached();
+         |                                                              ^
+      66 |
+      67 |     // Anchor the idle countdown: ONE spectrum interaction changes the colour
+      68 |     // (resets HeroBlob's idle timer AND wakes the blob live). From here we do
+        at /Users/mkbabb/Programming/value.js/e2e/smoke/perf/idle-frame-budget.spec.ts:65:62
+
+    Error Context: test-results/idle-frame-budget-idle-pic-755ab-window-N-built-bundle-gate--smoke-perf/error-context.md
+
+
+  7 failed
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:81:1 › O-12 · 1+2 — seat identity (flush, contained) + dock never occluded by the bead's arc 
+    [smoke] › e2e/smoke/oracles/o12-blob-seat.spec.ts:134:1 › O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers a hover within 400ms 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:53:1 › hero blob parks its WebGL loop after N ms idle (0 un-gated idle rAF) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.65 0.3 150) 
+    [smoke] › e2e/smoke/webgl-blob-idle.spec.ts:150:5 › hero blob carries current chroma — oklch(0.55 0.37 328) 
+    [smoke-mobile] › e2e/smoke/mobile/blob-presence-mobile.spec.ts:56:1 › hero blob FULL PRESENCE at 390: formula-sized, contained in the card, idle-parked (Q7 + the seat law) 
+    [smoke-perf] › e2e/smoke/perf/idle-frame-budget.spec.ts:48:1 › idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (built-bundle gate) 
+  6 passed (6.7m)
+EXIT 1

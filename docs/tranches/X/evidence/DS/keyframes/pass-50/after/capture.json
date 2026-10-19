@@ -1,0 +1,66 @@
+{
+ "chevron-light": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ],
+ "chevron-dark": [
+  {
+   "text": "Cube",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  },
+  {
+   "text": "alternate",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "forwards",
+   "state": "closed",
+   "rot": "180deg | none",
+   "openAncestor": "DIV.configurator-layer-region grid motion-reduce:transition-none"
+  },
+  {
+   "text": "replace",
+   "state": "closed",
+   "rot": "none | none",
+   "openAncestor": null
+  },
+  {
+   "text": "Rotations",
+   "state": "closed",
+   "rot": "0deg | none",
+   "openAncestor": null
+  }
+ ]
+}

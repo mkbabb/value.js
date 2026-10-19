@@ -1,0 +1,28 @@
+{
+ "opts": {
+  "Spin": {
+   "duration": 8000,
+   "direction": "normal",
+   "iter": null,
+   "tfCss": "ease-in-out"
+  },
+  "Bouncing X": {
+   "duration": 8000,
+   "direction": "normal",
+   "iter": null,
+   "tfCss": "ease-in-out"
+  },
+  "Bouncing Y": {
+   "duration": 1600,
+   "direction": "normal",
+   "iter": null,
+   "tfCss": "ease-in-out"
+  }
+ },
+ "storeKeys": [
+  "_storeTimestamp",
+  "cube",
+  "amiga"
+ ],
+ "amiga": "[\"amiga\",{\"Spin\":{\"animationOptions\":{\"duration\":\"5s\",\"delay\":\"0ms\",\"iterationCount\":\"infinite\",\"fillMode\":\"forwards\",\"direction\":\"alternate\",\"timingFunction\":\"ease-in-out\",\"respectReducedMotion\":true},\"stepOptions\":{\"steps\":100,\"jumpTerm\":\"jump-start\"},\"cubicBezierOptions\":{\"controlPoints\":[0.2,0.65,0.6,1]}},\"Bouncing X\":{\"animationOptions\":{\"duration\":\"5s\",\"delay\":\"0ms\",\"iterationCount\":\"infinite\",\"fillMode\":\"forwards\",\"direction\":\"alternate\",\"timingFunction\":\"ease-in-out\",\"respectReducedMotion\":true},\"stepOptions\":{\"steps\":100,\"jumpTerm\":\"jump-start\"},\"cubicBezierOptions\":{\"controlPoints\":["
+}

@@ -1,0 +1,14 @@
+(node:52096) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:52204) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[x-w7l sections #/blob] Geometry:0 · Membrane:0 · Color:0 · Lit glass:0 · Pointer:0 · Satellites:0 · Tempo:0
+  ✓  1 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/blob) › no section action sits on a row of its own, and a layer's header action never toggles it (1.8m)
+[x-w7l sections #/atmosphere] Character:0 · Field:0
+  ✓  2 [smoke] › e2e/smoke/x-w7l-detached.spec.ts:195:9 › db · O-68 — a section's action sits on its header row (#/atmosphere) › no section action sits on a row of its own, and a layer's header action never toggles it (17.9s)
+
+  2 passed (2.2m)
+EXIT 0

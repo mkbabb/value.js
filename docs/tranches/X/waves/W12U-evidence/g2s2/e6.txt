@@ -1,0 +1,5 @@
+SERVED MODEL: claude-opus-5-5
+r1 grammar.js raw=112616 gz=15619
+r1 color.js (informational) raw=39446 gz=6147
+r2 grammar.js raw=112616 gz=15619
+r2 color.js (informational) raw=39446 gz=6147

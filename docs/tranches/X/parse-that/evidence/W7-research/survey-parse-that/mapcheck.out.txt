@@ -1,0 +1,4 @@
+fresh a~b same map: true
+after Object.create(b): a~b same map: false
+two prototype-mode states b~c same map: false
+after writes b~c same map: false

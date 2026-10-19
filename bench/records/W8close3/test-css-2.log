@@ -1,0 +1,27 @@
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+ ✓ test/css/hex-color.test.ts (6 tests) 134ms
+ ✓ test/css/bbnf-images.test.ts (10 tests) 210ms
+ ✓ test/css/bbnf-grid.test.ts (8 tests) 138ms
+ ✓ test/css/bbnf-frozen.test.ts (22 tests) 555ms
+ ✓ test/css/css-color5.test.ts (23 tests) 62ms
+ ✓ test/css/bbnf-color5.test.ts (8 tests) 19ms
+ ✓ test/css/bbnf-success-path.test.ts (11 tests) 9ms
+ ✓ test/css/bbnf-gap.test.ts (25 tests) 25ms
+ ✓ test/css/bbnf-fonts.test.ts (8 tests) 23ms
+ ✓ test/css/bbnf-semicolon.test.ts (20 tests) 17ms
+ ✓ test/css/bbnf-depth.test.ts (2 tests) 8ms
+ ✓ test/css/bbnf-refusal.test.ts (13 tests) 9ms
+ ✓ test/css/bbnf-values.test.ts (11 tests) 26ms
+ ✓ test/css/css-var-animation.test.ts (4 tests) 10ms
+ ✓ test/css/custom-property-empty.test.ts (17 tests) 9ms
+ ✓ test/css/bbnf-value.test.ts (7 tests) 16ms
+ ✓ test/css/custom-property-case.test.ts (4 tests) 11ms
+ ✓ test/css/syntax-custom-ident.test.ts (39 tests) 16ms
+
+ Test Files  18 passed (18)
+      Tests  238 passed (238)
+   Start at  12:58:34
+   Duration  8.32s (transform 580ms, setup 907ms, collect 2.82s, tests 1.30s, environment 5.56s, prepare 886ms)
+
