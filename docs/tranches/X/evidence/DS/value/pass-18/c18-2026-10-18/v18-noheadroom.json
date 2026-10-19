@@ -1,0 +1,1119 @@
+{
+  "base": "http://localhost:9481",
+  "cells": [
+    {
+      "cell": "admin-users",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-1440-light.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.47106 0.096655 84.2)",
+          "ground": "rgb(234,141,132)",
+          "ink": "rgb(116,85,0)",
+          "inkOklch": {
+            "L": 0.47,
+            "C": 0.096,
+            "H": 84
+          },
+          "ratio": 2.84,
+          "painted": {
+            "L": 0.47106,
+            "C": 0.096655,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.47106 0.096655 84.2)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(116,85,0)",
+          "inkOklch": {
+            "L": 0.47,
+            "C": 0.096,
+            "H": 84
+          },
+          "ratio": 2.84,
+          "painted": {
+            "L": 0.47106,
+            "C": 0.096655,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.373806 0.0766999 84.2)",
+          "ground": "rgb(234,141,133)",
+          "ink": "rgb(84,61,0)",
+          "inkOklch": {
+            "L": 0.375,
+            "C": 0.077,
+            "H": 84.5
+          },
+          "ratio": 4.23,
+          "painted": {
+            "L": 0.373806,
+            "C": 0.0766999,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(37.38058830488% 0.076699858793 84.2deg)",
+        "dockInkGoldGlyph": "oklch(47.105961056519% 0.0966549946 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "sealFile": "admin-seal-1440-light.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.409504 0.0840245 84.2)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(95,70,0)",
+          "inkOklch": {
+            "L": 0.41,
+            "C": 0.084,
+            "H": 85.2
+          },
+          "ratio": 4.24,
+          "painted": {
+            "L": 0.409504,
+            "C": 0.0840245,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-users",
+      "theme": "light",
+      "width": 390,
+      "file": "admin-users-390-light.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.47106 0.096655 84.2)",
+          "ground": "rgb(234,141,132)",
+          "ink": "rgb(116,85,0)",
+          "inkOklch": {
+            "L": 0.47,
+            "C": 0.096,
+            "H": 84
+          },
+          "ratio": 2.84,
+          "painted": {
+            "L": 0.47106,
+            "C": 0.096655,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": false,
+          "verdict": "absent"
+        },
+        {
+          "name": "adminWord",
+          "found": false,
+          "verdict": "absent"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(37.38058830488% 0.076699858793 84.2deg)",
+        "dockInkGoldGlyph": "oklch(47.105961056519% 0.0966549946 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "admin-users-brown",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-users-brown-1440-light.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.796522 0.147 84.2)",
+          "ground": "rgb(176,83,25)",
+          "ink": "rgb(233,180,54)",
+          "inkOklch": {
+            "L": 0.798,
+            "C": 0.147,
+            "H": 84.4
+          },
+          "ratio": 2.7,
+          "painted": {
+            "L": 0.796522,
+            "C": 0.147,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.796522 0.147 84.2)",
+          "ground": "rgb(176,83,25)",
+          "ink": "rgb(233,180,54)",
+          "inkOklch": {
+            "L": 0.798,
+            "C": 0.147,
+            "H": 84.4
+          },
+          "ratio": 2.7,
+          "painted": {
+            "L": 0.796522,
+            "C": 0.147,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.91946 0.0842673 84.2)",
+          "ground": "rgb(176,83,25)",
+          "ink": "rgb(255,225,164)",
+          "inkOklch": {
+            "L": 0.92,
+            "C": 0.084,
+            "H": 84.6
+          },
+          "ratio": 4.04,
+          "painted": {
+            "L": 0.91946,
+            "C": 0.0842673,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(90.453064534254% 0.100505108069 84.2deg)",
+        "inkGoldFloating": "oklch(89.177729440853% 0.114549593196 84.2deg)",
+        "sealInkGold": "oklch(83.774269130197% 0.147 84.2deg)",
+        "dockInkGold": "oklch(91.946049060114% 0.084267314629 84.2deg)",
+        "dockInkGoldGlyph": "oklch(79.65217610707% 0.147 84.2deg)",
+        "inkDestructive": "oklch(98.536298843429% 0.007084072071 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "pass17Rule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(176,82,25)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 5.16,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(176,82,25)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 5.16,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(176,82,25)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 5.16,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "sealFile": "admin-seal-brown-1440-light.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.837743 0.147 84.2)",
+          "ground": "rgb(142,66,53)",
+          "ink": "rgb(246,193,71)",
+          "inkOklch": {
+            "L": 0.838,
+            "C": 0.147,
+            "H": 84.5
+          },
+          "ratio": 4.24,
+          "painted": {
+            "L": 0.837743,
+            "C": 0.147,
+            "H": 84.2
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "theme": "light",
+      "width": 1440,
+      "file": "admin-view-menu-1440-light.png",
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "ground": "rgb(135,58,62)",
+          "ink": "rgb(28,25,23)",
+          "inkOklch": {
+            "L": 0.216,
+            "C": 0.006,
+            "H": 56
+          },
+          "ratio": 2.25,
+          "painted": {
+            "L": 0.216129,
+            "C": 0.00624853,
+            "H": 56.0356
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.216129 0.00624853 56.0356)",
+          "ground": "rgb(132,55,57)",
+          "ink": "rgb(28,25,23)",
+          "inkOklch": {
+            "L": 0.216,
+            "C": 0.006,
+            "H": 56
+          },
+          "ratio": 2.15,
+          "painted": {
+            "L": 0.216129,
+            "C": 0.00624853,
+            "H": 56.0356
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(37.38058830488% 0.076699858793 84.2deg)",
+        "dockInkGoldGlyph": "oklch(47.105961056519% 0.0966549946 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "admin-users",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-1440-dark.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,18)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "sealFile": "admin-seal-1440-dark.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.41002 0.0839327 86)",
+          "ground": "rgb(255,143,200)",
+          "ink": "rgb(94,70,0)",
+          "inkOklch": {
+            "L": 0.409,
+            "C": 0.084,
+            "H": 86.2
+          },
+          "ratio": 4.26,
+          "painted": {
+            "L": 0.41002,
+            "C": 0.0839327,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-users",
+      "theme": "dark",
+      "width": 390,
+      "file": "admin-users-390-dark.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(140,17,19)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 4.78,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": false,
+          "verdict": "absent"
+        },
+        {
+          "name": "adminWord",
+          "found": false,
+          "verdict": "absent"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "admin-users-brown",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-users-brown-1440-dark.png",
+      "after": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.05,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.05,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.05,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(83.808249155618% 0.143 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "pass17Rule": [
+        {
+          "name": "viewTrigger",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 10.04,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminShield",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 10.04,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "RED"
+        },
+        {
+          "name": "adminWord",
+          "found": true,
+          "color": "oklch(0.9995 0.0005 84.2)",
+          "ground": "rgb(126,31,14)",
+          "ink": "rgb(255,255,254)",
+          "inkOklch": {
+            "L": 1,
+            "C": 0.001,
+            "H": 106.4
+          },
+          "ratio": 10.04,
+          "painted": {
+            "L": 0.9995,
+            "C": 0.0005,
+            "H": 84.2
+          },
+          "verdict": "PLATE-INK-FALLBACK"
+        }
+      ],
+      "sealFile": "admin-seal-brown-1440-dark.png",
+      "seal": [
+        {
+          "name": "seal",
+          "found": true,
+          "color": "oklch(0.838082 0.143 86)",
+          "ground": "rgb(142,66,53)",
+          "ink": "rgb(243,195,77)",
+          "inkOklch": {
+            "L": 0.839,
+            "C": 0.143,
+            "H": 86.3
+          },
+          "ratio": 4.27,
+          "painted": {
+            "L": 0.838082,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ]
+    },
+    {
+      "cell": "admin-view-menu",
+      "theme": "dark",
+      "width": 1440,
+      "file": "admin-view-menu-1440-dark.png",
+      "after": [
+        {
+          "name": "menuAdminIcon",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(106,34,42)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.62,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        },
+        {
+          "name": "menuAdminLabel",
+          "found": true,
+          "color": "oklch(0.784 0.143 86)",
+          "ground": "rgb(113,24,36)",
+          "ink": "rgb(225,177,55)",
+          "inkOklch": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86.1
+          },
+          "ratio": 5.67,
+          "painted": {
+            "L": 0.784,
+            "C": 0.143,
+            "H": 86
+          },
+          "verdict": "GOLD"
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      }
+    },
+    {
+      "cell": "notfound",
+      "theme": "light",
+      "width": 1440,
+      "file": "notfound-1440-light.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.304141 0.124122 27.4847)",
+          "ground": "rgb(213,128,129)",
+          "ink": "rgb(88,0,4)",
+          "inkOklch": {
+            "L": 0.29,
+            "C": 0.118,
+            "H": 27
+          },
+          "ratio": 5.11
+        }
+      ],
+      "raw": "rgb(219, 36, 36)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.858823 0.141176 0.141176 / 0.8)",
+          "ground": "rgb(214,126,131)",
+          "ink": "rgb(205,51,52)",
+          "inkOklch": {
+            "L": 0.561,
+            "C": 0.191,
+            "H": 25.6
+          },
+          "ratio": 1.74
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(37.38058830488% 0.076699858793 84.2deg)",
+        "dockInkGoldGlyph": "oklch(47.105961056519% 0.0966549946 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "notfound",
+      "theme": "light",
+      "width": 390,
+      "file": "notfound-390-light.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.304141 0.124122 27.4847)",
+          "ground": "rgb(214,126,129)",
+          "ink": "rgb(88,0,4)",
+          "inkOklch": {
+            "L": 0.29,
+            "C": 0.118,
+            "H": 27
+          },
+          "ratio": 5.05
+        }
+      ],
+      "raw": "rgb(219, 36, 36)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.858823 0.141176 0.141176 / 0.8)",
+          "ground": "rgb(212,126,130)",
+          "ink": "rgb(206,51,53)",
+          "inkOklch": {
+            "L": 0.563,
+            "C": 0.192,
+            "H": 25.3
+          },
+          "ratio": 1.71
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "inkGoldFloating": "oklch(21.612909107484% 0.00624852743 56.035563601331deg)",
+        "sealInkGold": "oklch(40.950360730081% 0.084024543975 84.2deg)",
+        "dockInkGold": "oklch(37.38058830488% 0.076699858793 84.2deg)",
+        "dockInkGoldGlyph": "oklch(47.105961056519% 0.0966549946 84.2deg)",
+        "inkDestructive": "oklch(30.414055013779% 0.124122042147 27.484704066596deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "admin-tags-error",
+      "theme": "light",
+      "width": 1440,
+      "error": "TimeoutError: locator.waitFor: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"alert\"] svg').first() to be visible\u001b[22m\n"
+    },
+    {
+      "cell": "notfound",
+      "theme": "dark",
+      "width": 1440,
+      "file": "notfound-1440-dark.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.729793 0.166496 27.5)",
+          "ground": "rgb(133,34,36)",
+          "ink": "rgb(255,135,120)",
+          "inkOklch": {
+            "L": 0.753,
+            "C": 0.148,
+            "H": 28.5
+          },
+          "ratio": 3.99
+        }
+      ],
+      "raw": "oklch(0.702 0.184 27.5)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.990965 0.408387 0.360154 / 0.8)",
+          "ground": "rgb(132,33,38)",
+          "ink": "rgb(230,102,92)",
+          "inkOklch": {
+            "L": 0.666,
+            "C": 0.161,
+            "H": 26.8
+          },
+          "ratio": 2.88
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "notfound",
+      "theme": "dark",
+      "width": 390,
+      "file": "notfound-390-dark.png",
+      "after": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "oklch(0.729793 0.166496 27.5)",
+          "ground": "rgb(132,33,37)",
+          "ink": "rgb(255,134,120)",
+          "inkOklch": {
+            "L": 0.752,
+            "C": 0.149,
+            "H": 28
+          },
+          "ratio": 4.01
+        }
+      ],
+      "raw": "oklch(0.702 0.184 27.5)",
+      "oldRule": [
+        {
+          "name": "alertGlyph",
+          "found": true,
+          "color": "color(srgb 0.990965 0.408387 0.360154 / 0.8)",
+          "ground": "rgb(132,32,35)",
+          "ink": "rgb(229,102,92)",
+          "inkOklch": {
+            "L": 0.664,
+            "C": 0.16,
+            "H": 26.8
+          },
+          "ratio": 2.89
+        }
+      ],
+      "tokens": {
+        "rootInkGold": "oklch(0.784 0.143 86.0)",
+        "inkGoldFloating": "oklch(0.784 0.143 86.0)",
+        "sealInkGold": "oklch(41.002044201642% 0.083932650776 86deg)",
+        "dockInkGold": "oklch(0.784 0.143 86.0)",
+        "dockInkGoldGlyph": "oklch(0.784 0.143 86.0)",
+        "inkDestructive": "oklch(72.979293136299% 0.166496050349 27.5deg)",
+        "dockCollapsed": false
+      },
+      "verdict": "GREEN",
+      "oldVerdict": "RED"
+    },
+    {
+      "cell": "admin-tags-error",
+      "theme": "dark",
+      "width": 1440,
+      "error": "TimeoutError: locator.waitFor: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"alert\"] svg').first() to be visible\u001b[22m\n"
+    }
+  ],
+  "admin": [
+    {
+      "route": "/#/admin/users",
+      "width": 1440,
+      "theme": "light",
+      "label": "Users",
+      "file": "admin-users-1440-light.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/users",
+      "width": 1440,
+      "theme": "dark",
+      "label": "Users",
+      "file": "admin-users-1440-dark.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/users",
+      "width": 390,
+      "theme": "light",
+      "label": "Users",
+      "file": "admin-users-390-light.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/users",
+      "width": 390,
+      "theme": "dark",
+      "label": "Users",
+      "file": "admin-users-390-dark.png (shot above)",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Users",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/names",
+      "width": 1440,
+      "theme": "light",
+      "label": "Names",
+      "file": "admin-names-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Names",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/names",
+      "width": 390,
+      "theme": "light",
+      "label": "Names",
+      "file": "admin-names-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Names",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/flagged",
+      "width": 1440,
+      "theme": "light",
+      "label": "Flagged",
+      "file": "admin-flagged-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Flagged",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/flagged",
+      "width": 390,
+      "theme": "light",
+      "label": "Flagged",
+      "file": "admin-flagged-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Flagged",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/tags",
+      "width": 1440,
+      "theme": "light",
+      "label": "Tags",
+      "error": "Error: pane error plate: This panel hit an unexpected error.tags.value is not iterable Try again"
+    },
+    {
+      "route": "/#/admin/tags",
+      "width": 390,
+      "theme": "light",
+      "label": "Tags",
+      "error": "Error: pane error plate: This panel hit an unexpected error.tags.value is not iterable Try again"
+    },
+    {
+      "route": "/#/admin/audit",
+      "width": 1440,
+      "theme": "light",
+      "label": "Audit log",
+      "file": "admin-audit-1440-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Audit log",
+          "px": 41.888,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    },
+    {
+      "route": "/#/admin/audit",
+      "width": 390,
+      "theme": "light",
+      "label": "Audit log",
+      "file": "admin-audit-390-light.png",
+      "visibleH1": 1,
+      "h1": [
+        {
+          "id": "route-title",
+          "text": "Audit log",
+          "px": 32.928,
+          "cls": "card-title pane-header-title font-display"
+        }
+      ],
+      "caption": false,
+      "labelledBy": "route-title",
+      "verdict": "GREEN"
+    }
+  ]
+}
