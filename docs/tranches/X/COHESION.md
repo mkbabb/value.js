@@ -4465,3 +4465,26 @@ The owner reviewed all three running apps and filed `docs/tranches/X/waves/owner
 §0ge.9 and the O-103 letter (`0122db2e0`) both called 10.1.1 "glass's call". That is superseded. The orchestrator relayed the cut live as O-102a (10.1.1 for atlas O-99 G-3, the dropdown-close on dock collapse and the clipped dock popover, plus a shimmer variant on Skeleton), and the owner confirmed it verbatim in the value.js session: *"Agree."* The confirmation was relayed to the glass session. The live relay O-102a stands.
 
 **keyframes semver.** The public `.d.ts` diff since v6.0.0 measures **7.0.0**: `TimingFunctionNames` drops `"steps"`, and `InputAnimationOptions.timingFunction` narrows to `CssEasingLiteral`. The bump waits until the X-OD19 keyframes lane's hero work lands.
+
+## §0gh — 2026-10-19: ESC-FREL-m1-1 RULED, CI mirrors production (owner-delegated, §0ge); F.REL R-4 discharged by the orchestrator; a production host security review was held privately
+1. **ESC-FREL-m1-1 RULED, a fourth arm: the CI cell of record is production's own OS and database version (§0fr.2).**
+   - Production runs mongod **8.0.20** on Ubuntu 22.04 with a 6.8 kernel, measured on the host 2026-10-19. That kernel is untouched by SERVER-121912.
+   - The floating `mongo:8.0` tag (8.0.34 on runners with ≥ 6.19 kernels) is the defect: CI tested a database and kernel that production does not run, and the next production pull would have silently jumped the patch.
+   - **Unit F.REL.m2:**
+     - pin `mongo:8.0.20` EXACTLY at fourier `ci.yml:55,298` and `docker-compose.yml:38`, so production inherits it through the deploy-hook overlay;
+     - every CI job that boots mongo runs on `ubuntu-22.04`, which matches production's OS and kernel family; the seat verifies the label is still supported and states the deprecation date;
+     - master CI is GREEN ×2.
+   - **Rejected:** arm (b), because a production major upgrade (9.0) is not owed by a CI defect; and arm (c), environment bypasses of the guard.
+   - When 8.0.35 ships, the upgrade is a deliberate, separate act on both production and CI together.
+2. **Master e2e's non-mongo reds** (fourier visual-checkpoint items 1·6·7 / 2 / 8, baseline 39292117114): X-DS is CLOSED, so these move to unit **F.REL.v3**. Each is cured at its root, or re-baselined once with an attribution, never blind. It never touches a path dirty with the X-OD19 fourier lane.
+3. **R-4 DISCHARGED by the orchestrator** (2026-10-19, through the owner's VPN SSH). The five rows were the `F.REL .d probe 0/1` drafts that our own prod-verify seats created on 10-09 and 10-16.
+   - Three checks before deleting: exactly five drafts with probe titles; 0 flags; lineage references held by 8 other versions.
+   - A verified private backup was taken (sha256 `2700e016…`), then the 5 drafts and their 5 version rows were deleted, with 5 `admin_audit` `delete:hard` rows written.
+   - After: visualizations 19→14, slugs 404, health 200.
+   - **Incident, owned:** an earlier read-only `mongosh` run inside the 512 MiB-capped mongo container caused a cgroup OOM and a 6 s restart at 18:27:48Z. Journal recovery was clean, with no data loss (19 = 19). Every later database op ran through the backend's own client over stdin.
+4. **Production host security review: done, kept PRIVATE.** The infrastructure details are not for this public repo; the findings are the owner's. The host's posture is sound: SSH is key-only on a non-default port behind the VPN, ufw denies by default, and no database port is published. The findings were routed to the owner:
+   - an unused-but-open cloud firewall rule;
+   - a pending reboot and security packages;
+   - root key login;
+   - production running without its production boot guard or admin token;
+   - the mongo memory limit.
