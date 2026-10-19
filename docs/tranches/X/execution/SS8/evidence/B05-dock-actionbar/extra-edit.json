@@ -1,0 +1,96 @@
+{
+ "seats": [
+  {
+   "token": "color.reset",
+   "disabled": false,
+   "aria": null,
+   "cursor": "pointer"
+  },
+  {
+   "token": "color.copy",
+   "disabled": false,
+   "aria": null,
+   "cursor": "pointer"
+  },
+  {
+   "token": "color.random",
+   "disabled": false,
+   "aria": null,
+   "cursor": "pointer"
+  },
+  {
+   "token": "color.palettes",
+   "disabled": false,
+   "aria": "true",
+   "cursor": "default"
+  },
+  {
+   "token": "color.extract",
+   "disabled": false,
+   "aria": "true",
+   "cursor": "default"
+  }
+ ],
+ "hover": [
+  {
+   "token": "color.palettes",
+   "rest": {
+    "rotate": "none",
+    "transform": "none",
+    "stroke": "oklch(0.285256 0.0610813 72)",
+    "opacity": "0.5",
+    "hover": false
+   },
+   "inkRest": {
+    "plate": [
+     226,
+     115,
+     39
+    ],
+    "ink": [
+     190,
+     103,
+     20
+    ],
+    "ratio": 1.31
+   },
+   "hov": {
+    "rotate": "none",
+    "transform": "none",
+    "stroke": "oklch(0.285256 0.0610813 72)",
+    "hover": false,
+    "btnHover": false
+   }
+  },
+  {
+   "token": "color.extract",
+   "rest": {
+    "rotate": "none",
+    "transform": "none",
+    "stroke": "oklch(0.216129 0.00624853 56.0356)",
+    "opacity": "0.5",
+    "hover": false
+   },
+   "inkRest": {
+    "plate": [
+     226,
+     115,
+     39
+    ],
+    "ink": [
+     182,
+     102,
+     25
+    ],
+    "ratio": 1.37
+   },
+   "hov": {
+    "rotate": "none",
+    "transform": "none",
+    "stroke": "oklch(0.216129 0.00624853 56.0356)",
+    "hover": false,
+    "btnHover": false
+   }
+  }
+ ]
+}

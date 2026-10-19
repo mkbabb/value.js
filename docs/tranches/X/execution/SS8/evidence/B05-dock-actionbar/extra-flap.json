@@ -1,0 +1,58 @@
+[
+ {
+  "gap": "sync",
+  "before": {
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "ov": "visible",
+   "w": 141.5
+  },
+  "after": {
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "ov": "visible",
+   "w": 141.5
+  },
+  "hash": "#/gradient"
+ },
+ {
+  "gap": 0,
+  "before": {
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "ov": "visible",
+   "w": 141.5
+  },
+  "after": {
+   "cls": "action-bar-toggle-slot is-visible is-live",
+   "ov": "hidden",
+   "w": 141.5
+  },
+  "hash": "#/gradient"
+ },
+ {
+  "gap": 30,
+  "before": {
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "ov": "visible",
+   "w": 141.5
+  },
+  "after": {
+   "cls": "action-bar-toggle-slot is-visible is-live",
+   "ov": "hidden",
+   "w": 141.5
+  },
+  "hash": "#/gradient"
+ },
+ {
+  "gap": 120,
+  "before": {
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "ov": "visible",
+   "w": 141.5
+  },
+  "after": {
+   "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "ov": "visible",
+   "w": 141.5
+  },
+  "hash": "#/gradient"
+ }
+]

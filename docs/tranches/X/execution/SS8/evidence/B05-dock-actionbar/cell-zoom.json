@@ -1,0 +1,12 @@
+{
+ "cssViewport": "720x450 @2 (=1440x900 at 200%)",
+ "btn": {
+  "x": 344,
+  "y": 16.5,
+  "w": 48,
+  "h": 40
+ },
+ "label": null,
+ "ariaLabel": "Toggle action bar",
+ "slotW": 56
+}

@@ -1,0 +1,107 @@
+{
+ "tab": {
+  "focusedBack": "Back",
+  "walk": [
+   "l component value",
+   "c component value",
+   "h component value",
+   "l channel",
+   "L channel",
+   "C channel",
+   "H channel",
+   "ALPHA channel",
+   "DefinitionA cylindrical ",
+   "→darakshaHomeTools Login"
+  ],
+  "altWalk": [
+   "Reset color [seat]",
+   "Copy color [seat]",
+   "Random color [seat]",
+   "Palettes [seat]",
+   "Extract palette [seat]",
+   "Open color input",
+   "Select color space",
+   "l component value"
+  ]
+ },
+ "prm": {
+  "legs": [
+   {
+    "l": "boot",
+    "cls": "action-bar-toggle-slot is-visible is-live is-settled",
+    "overflow": "visible",
+    "w": 141.5
+   },
+   {
+    "l": "#/atmosphere",
+    "cls": "action-bar-toggle-slot is-live",
+    "overflow": "hidden",
+    "w": 0
+   },
+   {
+    "l": "#/gradient",
+    "cls": "action-bar-toggle-slot is-visible is-live",
+    "overflow": "hidden",
+    "w": 141.5
+   },
+   {
+    "l": "#/atmosphere",
+    "cls": "action-bar-toggle-slot is-live",
+    "overflow": "hidden",
+    "w": 0
+   },
+   {
+    "l": "#/gradient",
+    "cls": "action-bar-toggle-slot is-visible is-live",
+    "overflow": "hidden",
+    "w": 141.5
+   }
+  ],
+  "hover": {
+   "overflow": "hidden",
+   "transform": "none",
+   "btn": [
+    622.79,
+    755.36
+   ],
+   "inner": [
+    611.84,
+    753.36
+   ]
+  }
+ },
+ "boot": [
+  {
+   "frames": 0,
+   "partial": 0,
+   "lowOpPainted": []
+  },
+  {
+   "frames": 107,
+   "first": {
+    "t": 546,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible"
+   },
+   "final": {
+    "t": 2506,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible is-live is-settled"
+   },
+   "partial": 0,
+   "lowOpPainted": []
+  },
+  {
+   "frames": 0,
+   "partial": 0,
+   "lowOpPainted": []
+  }
+ ],
+ "forced": {
+  "mq": true,
+  "toolsSvgStroke": "oklch(0.516611 0.185 2)",
+  "dock": "glass-dock horizontal shape-pill expanded fit-content"
+ }
+}

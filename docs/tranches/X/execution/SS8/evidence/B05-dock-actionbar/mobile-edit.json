@@ -1,0 +1,114 @@
+{
+ "save": {
+  "arm": "save",
+  "before": [
+   "oklch(72% 0.16 10deg)",
+   "oklch(72% 0.16 82deg)",
+   "oklch(72% 0.16 154deg)",
+   "oklch(72% 0.16 226deg)",
+   "oklch(72% 0.16 298deg)"
+  ],
+  "layer": [
+   {
+    "l": "Save edit",
+    "inert": false,
+    "w": 44
+   },
+   {
+    "l": "Cancel edit",
+    "inert": false,
+    "w": 44
+   },
+   {
+    "l": "Save edit",
+    "inert": false,
+    "w": 0
+   },
+   {
+    "l": "Cancel edit",
+    "inert": false,
+    "w": 0
+   }
+  ],
+  "sliderCount": 4,
+  "moved": {
+   "idx": 0,
+   "label": "L channel",
+   "v0": "0.72",
+   "v1": "0.705"
+  },
+  "titleDuringEdit": "oklch(70.5% 0.16 82deg) · Palettes — Color Picker",
+  "tap": "tapped",
+  "after": [
+   "oklch(72% 0.16 10deg)",
+   "oklch(70.5% 0.16 82deg)",
+   "oklch(72% 0.16 154deg)",
+   "oklch(72% 0.16 226deg)",
+   "oklch(72% 0.16 298deg)"
+  ],
+  "changedIdx": [
+   1
+  ],
+  "layerAfter": [
+   {
+    "inert": true
+   }
+  ],
+  "errors": []
+ },
+ "cancel": {
+  "arm": "cancel",
+  "before": [
+   "oklch(72% 0.16 10deg)",
+   "oklch(72% 0.16 82deg)",
+   "oklch(72% 0.16 154deg)",
+   "oklch(72% 0.16 226deg)",
+   "oklch(72% 0.16 298deg)"
+  ],
+  "layer": [
+   {
+    "l": "Save edit",
+    "inert": false,
+    "w": 44
+   },
+   {
+    "l": "Cancel edit",
+    "inert": false,
+    "w": 44
+   },
+   {
+    "l": "Save edit",
+    "inert": false,
+    "w": 0
+   },
+   {
+    "l": "Cancel edit",
+    "inert": false,
+    "w": 0
+   }
+  ],
+  "sliderCount": 4,
+  "moved": {
+   "idx": 0,
+   "label": "L channel",
+   "v0": "0.72",
+   "v1": "0.705"
+  },
+  "titleDuringEdit": "oklch(70.5% 0.16 82deg) · Palettes — Color Picker",
+  "tap": "tapped",
+  "after": [
+   "oklch(72% 0.16 10deg)",
+   "oklch(72% 0.16 82deg)",
+   "oklch(72% 0.16 154deg)",
+   "oklch(72% 0.16 226deg)",
+   "oklch(72% 0.16 298deg)"
+  ],
+  "changedIdx": [],
+  "layerAfter": [
+   {
+    "inert": true
+   }
+  ],
+  "errors": []
+ }
+}

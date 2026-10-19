@@ -1,0 +1,21 @@
+{
+ "coarse": true,
+ "toolsBtn": {
+  "x": 539.7,
+  "y": 20.9,
+  "w": 119.1,
+  "h": 40
+ },
+ "seat": "color.random",
+ "seatBtn": {
+  "x": 624,
+  "y": 21,
+  "w": 44,
+  "h": 44,
+  "r": 668
+ },
+ "hintsAfterTap": [],
+ "actionFired": true,
+ "colorBefore": "Color Picker | color: oklch(0.305449 0.123328 2);",
+ "colorAfter": "oklch(66.400469064519% 0.153788980325 61.3029844451deg) — Color Picker | color: oklch(0.218001 0.0504909 61.303);"
+}

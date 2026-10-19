@@ -1,0 +1,1848 @@
+{
+ "cell": "desk-dark",
+ "scheme": "dark",
+ "viewport": "1440x900",
+ "route": "/#/",
+ "trace": [
+  {
+   "step": "rest-main",
+   "dock": {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "rect": {
+     "x": 476.3,
+     "y": 12.5,
+     "w": 487.3,
+     "h": 56
+    },
+    "morphing": false,
+    "expandedPx": "487px",
+    "faceCount": 6,
+    "faces": [
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Save edit",
+       "Cancel edit"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Switch to slug",
+       "Cancel"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": true,
+      "labels": [
+       "Back",
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette",
+       "Apply color",
+       "Open color input"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Apply color"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": false,
+      "labels": [
+       "Select view",
+       "Toggle action bar",
+       "Menu"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "bar-open",
+   "dock": {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "rect": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    },
+    "morphing": false,
+    "expandedPx": "342px",
+    "faceCount": 6,
+    "faces": [
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Save edit",
+       "Cancel edit"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Switch to slug",
+       "Cancel"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Back",
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette",
+       "Apply color",
+       "Open color input"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Apply color"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Select view",
+       "Toggle action bar",
+       "Menu"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "input-open",
+   "dock": {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "rect": {
+     "x": 537,
+     "y": 9.5,
+     "w": 366,
+     "h": 62
+    },
+    "morphing": false,
+    "expandedPx": "366px",
+    "faceCount": 6,
+    "faces": [
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Save edit",
+       "Cancel edit"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Switch to slug",
+       "Cancel"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Back",
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette",
+       "Apply color",
+       "Propose color name"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": true,
+      "labels": [
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": false,
+      "labels": [
+       "Apply color"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Select view",
+       "Toggle action bar",
+       "Menu"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "input-closed",
+   "dock": {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "rect": {
+     "x": 537,
+     "y": 9.5,
+     "w": 366,
+     "h": 62
+    },
+    "morphing": false,
+    "expandedPx": "366px",
+    "faceCount": 6,
+    "faces": [
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Save edit",
+       "Cancel edit"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Switch to slug",
+       "Cancel"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Back",
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette",
+       "Apply color",
+       "Open color input"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Apply color"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Select view",
+       "Toggle action bar",
+       "Menu"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "S1-end",
+   "dock": {
+    "cls": "glass-dock horizontal shape-pill expanded fit-content",
+    "rect": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    },
+    "morphing": false,
+    "expandedPx": "342px",
+    "faceCount": 6,
+    "faces": [
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Save edit",
+       "Cancel edit"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Switch to slug",
+       "Cancel"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Back",
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette",
+       "Apply color",
+       "Open color input"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Apply color"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Select view",
+       "Toggle action bar",
+       "Menu"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "step": "S4-end",
+   "dock": {
+    "cls": "glass-dock horizontal shape-pill collapsed fit-content",
+    "rect": {
+     "x": 692,
+     "y": 12.5,
+     "w": 56,
+     "h": 56
+    },
+    "morphing": false,
+    "expandedPx": "487px",
+    "faceCount": 6,
+    "faces": [
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Save edit",
+       "Cancel edit"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Switch to slug",
+       "Cancel"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": true,
+      "labels": [
+       "Back",
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette",
+       "Apply color",
+       "Open color input"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": true,
+      "labels": [
+       "Reset color",
+       "Copy color",
+       "Random color",
+       "Palettes",
+       "Extract palette"
+      ]
+     },
+     {
+      "active": false,
+      "inert": true,
+      "hasRow": false,
+      "labels": [
+       "Apply color"
+      ]
+     },
+     {
+      "active": true,
+      "inert": false,
+      "hasRow": false,
+      "labels": [
+       "Select view",
+       "Toggle action bar",
+       "Menu"
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "boots": [
+  {
+   "frames": 163,
+   "first": {
+    "t": 290,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible"
+   },
+   "final": {
+    "t": 2505,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible is-live is-settled"
+   },
+   "partialWidthFrames": 0,
+   "partialSample": [],
+   "lowOpacityPaintedFrames": 0,
+   "lowOpSample": []
+  },
+  {
+   "frames": 57,
+   "first": {
+    "t": 219,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible"
+   },
+   "final": {
+    "t": 2619,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible is-live is-settled"
+   },
+   "partialWidthFrames": 0,
+   "partialSample": [],
+   "lowOpacityPaintedFrames": 0,
+   "lowOpSample": []
+  },
+  {
+   "frames": 144,
+   "first": {
+    "t": 212,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible"
+   },
+   "final": {
+    "t": 2508,
+    "w": 141.5,
+    "o": 1,
+    "cls": "is-visible is-live is-settled"
+   },
+   "partialWidthFrames": 0,
+   "partialSample": [],
+   "lowOpacityPaintedFrames": 0,
+   "lowOpSample": []
+  }
+ ],
+ "toolsRest": {
+  "present": true,
+  "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+  "slotRect": {
+   "x": 601.3,
+   "y": 20.5,
+   "w": 141.5,
+   "h": 40
+  },
+  "slotOpacity": "1",
+  "slotInert": false,
+  "innerOverflow": "visible",
+  "innerRect": {
+   "x": 601.3,
+   "y": 20.5,
+   "w": 141.5,
+   "h": 40
+  },
+  "btnRect": {
+   "x": 618.3,
+   "y": 20.5,
+   "w": 120.5,
+   "h": 40
+  },
+  "btnPadding": "8px 12px",
+  "ariaPressed": "false",
+  "isActiveCls": false,
+  "faceActive": true,
+  "faceInert": false,
+  "inertAncestor": false,
+  "ariaHiddenAncestor": false,
+  "label": {
+   "text": "Tools",
+   "color": "oklch(0.958322 0.0210531 9.83402)",
+   "font": "16.4px / 22.96px Fraunces, \"Fraunces Fallback\", serif"
+  },
+  "svgs": [
+   {
+    "cls": "lucide lucide-paintbrush-icon lucide-paintbrush w-6 h-6",
+    "x": 630.3,
+    "y": 28.5,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "cls": "lucide lucide-arrow-right-icon lucide-arrow-right w-3 h-3 text-muted-foreground hidden lg:block",
+    "x": 714.8,
+    "y": 34.5,
+    "w": 12,
+    "h": 12
+   }
+  ],
+  "separators": [
+   {
+    "display": "block",
+    "x": 607.3,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   }
+  ]
+ },
+ "mainSeparators": [
+  {
+   "x": 607.8,
+   "w": 1,
+   "h": 27.5
+  },
+  {
+   "x": 755.3,
+   "w": 1,
+   "h": 27.5
+  },
+  {
+   "x": 864.1,
+   "w": 1,
+   "h": 27.5
+  }
+ ],
+ "toolsLabelInk": {
+  "plate": [
+   74,
+   2,
+   45
+  ],
+  "ink": [
+   255,
+   236,
+   238
+  ],
+  "ratio": 13.82
+ },
+ "viewSelectInk": {
+  "plate": [
+   74,
+   2,
+   45
+  ],
+  "ink": [
+   255,
+   236,
+   238
+  ],
+  "ratio": 13.82
+ },
+ "toolsFocus": {
+  "label": "Toggle action bar",
+  "focusVisible": true,
+  "rect": {
+   "x": 618.3,
+   "w": 120.5,
+   "r": 738.8,
+   "y": 20.5,
+   "h": 40
+  },
+  "outline": "solid 2px color(srgb 0.999884 0.924705 0.933067 / 0.48) offset 2px",
+  "boxShadow": "none",
+  "ringVar": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+  "transform": "none"
+ },
+ "toolsRingComposite": {
+  "c": 3.82,
+  "at": [
+   627.3,
+   19.5
+  ],
+  "ring": [
+   165,
+   114,
+   138
+  ],
+  "ground": [
+   82,
+   2,
+   46
+  ]
+ },
+ "swap": {
+  "dockBefore": {
+   "x": 476.3,
+   "y": 12.5,
+   "w": 487.3,
+   "h": 56
+  },
+  "toolsBefore": {
+   "x": 618.3,
+   "y": 20.5,
+   "w": 120.5,
+   "h": 40
+  },
+  "joltTrace": [
+   {
+    "t": 50,
+    "dock": {
+     "x": 549,
+     "y": 10.5,
+     "w": 342,
+     "h": 60
+    }
+   },
+   {
+    "t": 100,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 150,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 200,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 250,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 300,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 350,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 400,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 450,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 500,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 550,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   },
+   {
+    "t": 600,
+    "dock": {
+     "x": 549,
+     "y": 10,
+     "w": 342,
+     "h": 61
+    }
+   }
+  ],
+  "dockAfter": {
+   "x": 549,
+   "y": 10,
+   "w": 342,
+   "h": 61
+  },
+  "toolsAfter": {
+   "present": true,
+   "slotClass": "action-bar-toggle-slot is-visible is-live is-settled",
+   "slotRect": {
+    "x": 673.9,
+    "y": 20.5,
+    "w": 0,
+    "h": 40
+   },
+   "slotOpacity": "1",
+   "slotInert": false,
+   "innerOverflow": "visible",
+   "innerRect": {
+    "x": 673.9,
+    "y": 20.5,
+    "w": 0,
+    "h": 40
+   },
+   "btnRect": {
+    "x": 690.9,
+    "y": 20.5,
+    "w": 120.5,
+    "h": 40
+   },
+   "btnPadding": "8px 12px",
+   "ariaPressed": "true",
+   "isActiveCls": true,
+   "faceActive": false,
+   "faceInert": true,
+   "inertAncestor": true,
+   "ariaHiddenAncestor": true,
+   "label": {
+    "text": "Tools",
+    "color": "oklch(0.958322 0.0210531 9.83402)",
+    "font": "16.4px / 22.96px Fraunces, \"Fraunces Fallback\", serif"
+   },
+   "svgs": [
+    {
+     "cls": "lucide lucide-paintbrush-icon lucide-paintbrush w-6 h-6",
+     "x": 702.9,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "cls": "lucide lucide-arrow-right-icon lucide-arrow-right w-3 h-3 text-muted-foreground hidden lg:block",
+     "x": 787.5,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "separators": [
+    {
+     "display": "block",
+     "x": 679.9,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ]
+  },
+  "activeAfter": {
+   "tag": "DIV",
+   "label": null,
+   "role": null,
+   "text": "lab(92% 88.8 20 / 82.7%)"
+  },
+  "toolsAx": "absent"
+ },
+ "bar": {
+  "present": true,
+  "faceActive": true,
+  "row": {
+   "x": 626,
+   "y": 20.5,
+   "w": 200,
+   "h": 40,
+   "r": 826
+  },
+  "rowJustify": "space-around",
+  "layerRootGap": "0px",
+  "faceContentGap": "6px",
+  "endGaps": {
+   "start": 0,
+   "end": 0
+  },
+  "interGaps": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "pitch": [
+   40,
+   40,
+   40,
+   40
+  ],
+  "seats": [
+   {
+    "token": "color.reset",
+    "state": "ready",
+    "seat": {
+     "x": 626,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 666
+    },
+    "btn": {
+     "x": 626,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 666
+    },
+    "disabledAttr": false,
+    "ariaDisabled": null,
+    "cursor": "pointer",
+    "glyph": {
+     "x": 634,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 658,
+     "cls": "lucide lucide-rotate-ccw-icon lucide-rotate-ccw action-icon w-6 h-6 stroke-foreground transition-[transform,stroke] hover:-rotate-180 duration-normal",
+     "stroke": "oklch(0.925202 0.00618423 67.7483)",
+     "transition": "transform, stroke / 0.3s",
+     "style": "--flash-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg); --hover-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg);"
+    }
+   },
+   {
+    "token": "color.copy",
+    "state": "ready",
+    "seat": {
+     "x": 666,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 706
+    },
+    "btn": {
+     "x": 666,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 706
+    },
+    "disabledAttr": false,
+    "ariaDisabled": null,
+    "cursor": "pointer",
+    "glyph": {
+     "x": 674,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 698,
+     "cls": "lucide lucide-copy-icon lucide-copy action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]",
+     "stroke": "oklch(0.925202 0.00618423 67.7483)",
+     "transition": "transform, stroke / 0.2s",
+     "style": "--flash-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg); --hover-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg);"
+    }
+   },
+   {
+    "token": "color.random",
+    "state": "ready",
+    "seat": {
+     "x": 706,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 746
+    },
+    "btn": {
+     "x": 706,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 746
+    },
+    "disabledAttr": false,
+    "ariaDisabled": null,
+    "cursor": "pointer",
+    "glyph": {
+     "x": 714,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 738,
+     "cls": "lucide lucide-dices-icon lucide-dices action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]",
+     "stroke": "oklch(0.925202 0.00618423 67.7483)",
+     "transition": "transform, stroke / 0.2s",
+     "style": "--flash-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg); --hover-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg);"
+    }
+   },
+   {
+    "token": "color.palettes",
+    "state": "ready",
+    "seat": {
+     "x": 746,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 786
+    },
+    "btn": {
+     "x": 746,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 786
+    },
+    "disabledAttr": false,
+    "ariaDisabled": null,
+    "cursor": "pointer",
+    "glyph": {
+     "x": 754,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 778,
+     "cls": "lucide lucide-palette-icon lucide-palette action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]",
+     "stroke": "oklch(0.925202 0.00618423 67.7483)",
+     "transition": "transform, stroke / 0.2s",
+     "style": "--flash-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg); --hover-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg);"
+    }
+   },
+   {
+    "token": "color.extract",
+    "state": "ready",
+    "seat": {
+     "x": 786,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 826
+    },
+    "btn": {
+     "x": 786,
+     "y": 20.5,
+     "w": 40,
+     "h": 40,
+     "r": 826
+    },
+    "disabledAttr": false,
+    "ariaDisabled": null,
+    "cursor": "pointer",
+    "glyph": {
+     "x": 794,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 818,
+     "cls": "lucide lucide-camera-icon lucide-camera action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]",
+     "stroke": "oklch(0.925202 0.00618423 67.7483)",
+     "transition": "transform, stroke / 0.2s",
+     "style": "--flash-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg); --hover-color: oklch(95.832172477266% 0.021053120065 9.83402284231deg);"
+    }
+   }
+  ],
+  "ctrls": [
+   {
+    "label": "Back",
+    "x": 561,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 601,
+    "glyph": {
+     "x": 569,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 593
+    }
+   },
+   {
+    "label": "Reset color",
+    "x": 626,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 666,
+    "glyph": {
+     "x": 634,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 658
+    }
+   },
+   {
+    "label": "Copy color",
+    "x": 666,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 706,
+    "glyph": {
+     "x": 674,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 698
+    }
+   },
+   {
+    "label": "Random color",
+    "x": 706,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 746,
+    "glyph": {
+     "x": 714,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 738
+    }
+   },
+   {
+    "label": "Palettes",
+    "x": 746,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 786,
+    "glyph": {
+     "x": 754,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 778
+    }
+   },
+   {
+    "label": "Extract palette",
+    "x": 786,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 826,
+    "glyph": {
+     "x": 794,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 818
+    }
+   },
+   {
+    "label": "Apply color",
+    "x": 798,
+    "y": 28.5,
+    "w": 24,
+    "h": 24,
+    "r": 822,
+    "glyph": {
+     "x": 802,
+     "y": 32.5,
+     "w": 16,
+     "h": 16,
+     "r": 818
+    }
+   },
+   {
+    "label": "Open color input",
+    "x": 839,
+    "y": 20.5,
+    "w": 40,
+    "h": 40,
+    "r": 879,
+    "glyph": {
+     "x": 847,
+     "y": 28.5,
+     "w": 24,
+     "h": 24,
+     "r": 871
+    }
+   }
+  ],
+  "seps": [
+   {
+    "x": 613,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5,
+    "r": 614
+   },
+   {
+    "x": 832,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5,
+    "r": 833
+   }
+  ],
+  "durationSources": [
+   {
+    "href": "styles/foundation.css",
+    "sel": ":root, :host",
+    "v": "var(--duration-fast)"
+   }
+  ],
+  "rootDefaultTransitionDuration": "0.2s"
+ },
+ "seatGlyphInk": {
+  "plate": [
+   79,
+   2,
+   45
+  ],
+  "ink": [
+   233,
+   230,
+   226
+  ],
+  "ratio": 12.24
+ },
+ "iconTransition": [
+  "transform, stroke / 0.3s",
+  "transform, stroke / 0.2s",
+  "transform, stroke / 0.2s",
+  "transform, stroke / 0.2s",
+  "transform, stroke / 0.2s"
+ ],
+ "tabWalkFromBack": [
+  "Reset color [seat]",
+  "Copy color [seat]",
+  "Random color [seat]",
+  "Palettes [seat]",
+  "Extract palette [seat]",
+  "Open color input",
+  "Select color space",
+  "l component value",
+  "a component value",
+  "b component value"
+ ],
+ "inputToggleFocus": {
+  "label": "Open color input",
+  "focusVisible": true,
+  "rect": {
+   "x": 839,
+   "w": 40,
+   "r": 879,
+   "y": 20.5,
+   "h": 40
+  },
+  "outline": "solid 2px color(srgb 0.999884 0.924705 0.933067 / 0.48) offset 2px",
+  "boxShadow": "none",
+  "ringVar": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+  "transform": "none"
+ },
+ "sepNearInput": [
+  {
+   "x": 832,
+   "y": 26.8,
+   "w": 1,
+   "h": 27.5,
+   "r": 833
+  }
+ ],
+ "inputSwapJump": {
+  "before": 839,
+  "trace": [
+   {
+    "t": 60,
+    "x": 850.8
+   },
+   {
+    "t": 120,
+    "x": 849
+   },
+   {
+    "t": 180,
+    "x": 849
+   },
+   {
+    "t": 240,
+    "x": 849
+   },
+   {
+    "t": 300,
+    "x": 849
+   },
+   {
+    "t": 360,
+    "x": 849
+   },
+   {
+    "t": 420,
+    "x": 849
+   },
+   {
+    "t": 480,
+    "x": 849
+   },
+   {
+    "t": 540,
+    "x": 849
+   },
+   {
+    "t": 600,
+    "x": 849
+   }
+  ],
+  "dock": {
+   "x": 537,
+   "y": 9.5,
+   "w": 366,
+   "h": 62
+  }
+ },
+ "rotate": [
+  {
+   "token": "color.reset",
+   "cls": "lucide lucide-rotate-ccw-icon lucide-rotate-ccw action-icon w-6 h-6 stroke-foreground transition-[transform,stroke] hover:-rotate-180 duration-normal",
+   "samp": [
+    {
+     "t": 50,
+     "rotate": "-180deg",
+     "transform": "matrix(1.00042, 0, 0, 1.00042, 0, 0)",
+     "hover": true
+    },
+    {
+     "t": 250,
+     "rotate": "-180deg",
+     "transform": "matrix(1.18993, 0, 0, 1.18993, 0, 0)",
+     "hover": true
+    },
+    {
+     "t": 600,
+     "rotate": "-180deg",
+     "transform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+     "hover": true
+    }
+   ]
+  }
+ ],
+ "holdSeq": {
+  "S1_barOpenNoHover": {
+   "edges": [
+    {
+     "collapsed": false,
+     "morphing": false,
+     "w": 342,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 7
+    }
+   ],
+   "morphFrames": [],
+   "morphFrameCount": 0
+  },
+  "S2_hoverClickBack": {
+   "seat": "color.copy",
+   "hintBefore": [
+    "Copy color"
+   ],
+   "hintAfter": [
+    "Copy color"
+   ],
+   "edges": [
+    {
+     "collapsed": false,
+     "morphing": false,
+     "w": 487.3,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 4
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3614
+    },
+    {
+     "collapsed": true,
+     "morphing": false,
+     "w": 56,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 4167
+    }
+   ],
+   "morphFrames": [
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3614
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3658
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3706
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3748
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3797
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3839
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3888
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3931
+    }
+   ],
+   "morphFrameCount": 12
+  },
+  "S3_control": {
+   "edges": [
+    {
+     "collapsed": false,
+     "morphing": false,
+     "w": 487.3,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 7
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3649
+    },
+    {
+     "collapsed": true,
+     "morphing": false,
+     "w": 56,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 4194
+    }
+   ],
+   "morphFrames": [
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3649
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3692
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3736
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3779
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3826
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3869
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3931
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3977
+    }
+   ],
+   "morphFrameCount": 12
+  },
+  "S4_hoverBack": {
+   "hintS4": [
+    "Copy color"
+   ],
+   "edges": [
+    {
+     "collapsed": false,
+     "morphing": false,
+     "w": 487.3,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 6
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3607
+    },
+    {
+     "collapsed": true,
+     "morphing": false,
+     "w": 56,
+     "nestedStagger": false,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 4176
+    }
+   ],
+   "morphFrames": [
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3607
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3654
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3697
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3742
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3786
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3830
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3872
+    },
+    {
+     "collapsed": true,
+     "morphing": true,
+     "w": 487,
+     "nestedStagger": true,
+     "nestedOpacity": "1",
+     "nestedTransform": "none",
+     "t": 3917
+    }
+   ],
+   "morphFrameCount": 13
+  }
+ },
+ "barless": {
+  "tools": {
+   "present": true,
+   "slotClass": "action-bar-toggle-slot",
+   "slotRect": {
+    "x": 695.9,
+    "y": 20.5,
+    "w": 0,
+    "h": 40
+   },
+   "slotOpacity": "0",
+   "slotInert": true,
+   "innerOverflow": "hidden",
+   "innerRect": {
+    "x": 695.9,
+    "y": 20.5,
+    "w": 0,
+    "h": 40
+   },
+   "btnRect": {
+    "x": 712.9,
+    "y": 20.5,
+    "w": 120.5,
+    "h": 40
+   },
+   "btnPadding": "8px 12px",
+   "ariaPressed": "false",
+   "isActiveCls": false,
+   "faceActive": true,
+   "faceInert": false,
+   "inertAncestor": true,
+   "ariaHiddenAncestor": false,
+   "label": {
+    "text": "Tools",
+    "color": "oklch(0.958322 0.0210531 9.83402)",
+    "font": "16.4px / 22.96px Fraunces, \"Fraunces Fallback\", serif"
+   },
+   "svgs": [
+    {
+     "cls": "lucide lucide-paintbrush-icon lucide-paintbrush w-6 h-6",
+     "x": 724.9,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "cls": "lucide lucide-arrow-right-icon lucide-arrow-right w-3 h-3 text-muted-foreground hidden lg:block",
+     "x": 809.4,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "separators": [
+    {
+     "display": "block",
+     "x": 701.9,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ]
+  },
+  "dock": {
+   "cls": "glass-dock horizontal shape-pill expanded fit-content",
+   "rect": {
+    "x": 523.3,
+    "y": 12.5,
+    "w": 393.5,
+    "h": 56
+   },
+   "morphing": false,
+   "expandedPx": "393px",
+   "faceCount": 3,
+   "faces": [
+    {
+     "active": false,
+     "inert": true,
+     "hasRow": false,
+     "labels": [
+      "Save edit",
+      "Cancel edit"
+     ]
+    },
+    {
+     "active": false,
+     "inert": true,
+     "hasRow": false,
+     "labels": [
+      "Switch to slug",
+      "Cancel"
+     ]
+    },
+    {
+     "active": true,
+     "inert": false,
+     "hasRow": false,
+     "labels": [
+      "Select view",
+      "Toggle action bar",
+      "Menu"
+     ]
+    }
+   ]
+  },
+  "clickAttempt": "refused: locator.click: Timeout 1500ms exceeded.",
+  "dockAfter": {
+   "cls": "glass-dock horizontal shape-pill expanded fit-content",
+   "rect": {
+    "x": 523.3,
+    "y": 12.5,
+    "w": 393.5,
+    "h": 56
+   },
+   "morphing": false,
+   "expandedPx": "393px",
+   "faceCount": 3,
+   "faces": [
+    {
+     "active": false,
+     "inert": true,
+     "hasRow": false,
+     "labels": [
+      "Save edit",
+      "Cancel edit"
+     ]
+    },
+    {
+     "active": false,
+     "inert": true,
+     "hasRow": false,
+     "labels": [
+      "Switch to slug",
+      "Cancel"
+     ]
+    },
+    {
+     "active": true,
+     "inert": false,
+     "hasRow": false,
+     "labels": [
+      "Select view",
+      "Toggle action bar",
+      "Menu"
+     ]
+    }
+   ]
+  }
+ }
+}

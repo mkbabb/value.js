@@ -1,0 +1,63 @@
+{
+ "rest": {
+  "mq": true,
+  "toolsSvg": {
+   "stroke": "oklch(0.537335 0.214902 9.83402)",
+   "color": "oklch(0.537335 0.214902 9.83402)",
+   "fca": "preserve-parent-color"
+  },
+  "toolsLabel": {
+   "stroke": "none",
+   "color": "rgb(0, 0, 0)",
+   "fca": "auto"
+  },
+  "toolsBtn": {
+   "border": "0px none rgb(0, 0, 0)",
+   "outline": "rgb(0, 0, 0) none 3px",
+   "bg": "rgba(255, 255, 255, 0)"
+  },
+  "seatSvg": {
+   "stroke": "oklch(0.216129 0.00624853 56.0356)",
+   "color": "rgb(0, 0, 0)",
+   "fca": "preserve-parent-color"
+  },
+  "inputToggleSvg": {
+   "stroke": "oklch(0.216129 0.00624853 56.0356)",
+   "color": "rgb(0, 0, 0)",
+   "fca": "preserve-parent-color"
+  }
+ },
+ "bar": {
+  "mq": true,
+  "toolsSvg": {
+   "stroke": "oklch(0.537335 0.214902 9.83402)",
+   "color": "oklch(0.537335 0.214902 9.83402)",
+   "fca": "preserve-parent-color"
+  },
+  "toolsLabel": {
+   "stroke": "none",
+   "color": "rgb(0, 0, 0)",
+   "fca": "auto"
+  },
+  "toolsBtn": {
+   "border": "2px solid rgba(5, 0, 73, 0.8)",
+   "outline": "rgb(0, 0, 0) none 3px",
+   "bg": "rgb(255, 255, 255)"
+  },
+  "seatSvg": {
+   "stroke": "oklch(0.216129 0.00624853 56.0356)",
+   "color": "rgb(0, 0, 0)",
+   "fca": "preserve-parent-color"
+  },
+  "inputToggleSvg": {
+   "stroke": "oklch(0.216129 0.00624853 56.0356)",
+   "color": "rgb(0, 0, 0)",
+   "fca": "preserve-parent-color"
+  }
+ },
+ "seatFocus": {
+  "label": "Reset color",
+  "outline": "solid 2px rgba(5, 0, 73, 0.8)",
+  "boxShadow": "none"
+ }
+}

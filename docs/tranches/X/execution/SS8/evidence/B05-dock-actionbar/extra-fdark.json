@@ -1,0 +1,150 @@
+{
+ "light": {
+  "rest": {
+   "mq": true,
+   "dark": false,
+   "canvas": "rgb(255, 255, 255)",
+   "toolsSvg": {
+    "stroke": "oklch(0.53375 0.185 2)",
+    "color": "oklch(0.53375 0.185 2)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "toolsLabel": {
+    "stroke": "none",
+    "color": "rgb(0, 0, 0)",
+    "bg": "rgba(255, 255, 255, 0)",
+    "fca": "auto"
+   },
+   "seatSvg": {
+    "stroke": "oklch(0.216129 0.00624853 56.0356)",
+    "color": "rgb(0, 0, 0)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "toolsGlyphInk": {
+    "plate": [
+     255,
+     255,
+     255
+    ],
+    "ink": [
+     186,
+     41,
+     99
+    ],
+    "ratio": 5.86
+   }
+  },
+  "bar": {
+   "mq": true,
+   "dark": false,
+   "canvas": "rgb(255, 255, 255)",
+   "toolsSvg": {
+    "stroke": "oklch(0.53375 0.185 2)",
+    "color": "oklch(0.53375 0.185 2)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "toolsLabel": {
+    "stroke": "none",
+    "color": "rgb(0, 0, 0)",
+    "bg": "rgba(255, 255, 255, 0)",
+    "fca": "auto"
+   },
+   "seatSvg": {
+    "stroke": "oklch(0.216129 0.00624853 56.0356)",
+    "color": "rgb(0, 0, 0)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "seatGlyphInk": {
+    "plate": [
+     255,
+     255,
+     255
+    ],
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ratio": 17.49
+   }
+  }
+ },
+ "dark": {
+  "rest": {
+   "mq": true,
+   "dark": true,
+   "canvas": "rgb(0, 0, 0)",
+   "toolsSvg": {
+    "stroke": "oklch(0.73 0.179343 2)",
+    "color": "oklch(0.73 0.179343 2)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "toolsLabel": {
+    "stroke": "none",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "auto"
+   },
+   "seatSvg": {
+    "stroke": "oklch(0.925202 0.00618423 67.7483)",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "toolsGlyphInk": {
+    "plate": [
+     0,
+     0,
+     0
+    ],
+    "ink": [
+     255,
+     112,
+     159
+    ],
+    "ratio": 8.07
+   }
+  },
+  "bar": {
+   "mq": true,
+   "dark": true,
+   "canvas": "rgb(0, 0, 0)",
+   "toolsSvg": {
+    "stroke": "oklch(0.73 0.179343 2)",
+    "color": "oklch(0.73 0.179343 2)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "toolsLabel": {
+    "stroke": "none",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "auto"
+   },
+   "seatSvg": {
+    "stroke": "oklch(0.925202 0.00618423 67.7483)",
+    "color": "rgb(255, 255, 255)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "fca": "preserve-parent-color"
+   },
+   "seatGlyphInk": {
+    "plate": [
+     0,
+     0,
+     0
+    ],
+    "ink": [
+     233,
+     230,
+     226
+    ],
+    "ratio": 16.88
+   }
+  }
+ }
+}

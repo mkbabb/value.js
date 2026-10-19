@@ -1,0 +1,482 @@
+[
+ {
+  "route": "/",
+  "resolved": "#/ · Color Picker",
+  "slotVisible": true,
+  "slotW": 141.5,
+  "slotInert": false,
+  "btnW": 120.5,
+  "ax": {
+   "ignored": false,
+   "reasons": [],
+   "pressed": "false"
+  },
+  "bar": {
+   "endGaps": {
+    "start": 0,
+    "end": 0
+   },
+   "interGaps": [
+    -2,
+    -2,
+    0,
+    0
+   ],
+   "pitch": [
+    38,
+    42,
+    40,
+    40
+   ],
+   "row": {
+    "x": 626,
+    "y": 20.5,
+    "w": 200,
+    "h": 40,
+    "r": 826
+   },
+   "seatCount": 5,
+   "seats": [
+    {
+     "t": "color.reset",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.copy",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.random",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.palettes",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.extract",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    }
+   ]
+  }
+ },
+ {
+  "route": "/palettes",
+  "resolved": "#/palettes · Palettes — Color Picker",
+  "slotVisible": true,
+  "slotW": 141.5,
+  "slotInert": false,
+  "btnW": 132.6,
+  "ax": {
+   "ignored": false,
+   "reasons": [],
+   "pressed": "false"
+  },
+  "bar": {
+   "endGaps": {
+    "start": 0,
+    "end": 0
+   },
+   "interGaps": [
+    -2,
+    -2,
+    0,
+    0
+   ],
+   "pitch": [
+    38,
+    42,
+    40,
+    40
+   ],
+   "row": {
+    "x": 626,
+    "y": 20.5,
+    "w": 200,
+    "h": 40,
+    "r": 826
+   },
+   "seatCount": 5,
+   "seats": [
+    {
+     "t": "color.reset",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.copy",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.random",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.palettes",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.extract",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    }
+   ]
+  }
+ },
+ {
+  "route": "/browse",
+  "resolved": "#/browse · Browse — Color Picker",
+  "slotVisible": false,
+  "slotW": 0,
+  "slotInert": true,
+  "btnW": 120.5,
+  "ax": "absent"
+ },
+ {
+  "route": "/extract",
+  "resolved": "#/extract · Extract — Color Picker",
+  "slotVisible": false,
+  "slotW": 0,
+  "slotInert": true,
+  "btnW": 120.5,
+  "ax": "absent"
+ },
+ {
+  "route": "/mix",
+  "resolved": "#/mix · Mix — Color Picker",
+  "slotVisible": true,
+  "slotW": 141.5,
+  "slotInert": false,
+  "btnW": 132.6,
+  "ax": {
+   "ignored": false,
+   "reasons": [],
+   "pressed": "false"
+  },
+  "bar": {
+   "endGaps": {
+    "start": 0,
+    "end": 0
+   },
+   "interGaps": [
+    0,
+    0
+   ],
+   "pitch": [
+    40,
+    40
+   ],
+   "row": {
+    "x": 692.5,
+    "y": 20.5,
+    "w": 120,
+    "h": 40,
+    "r": 812.5
+   },
+   "seatCount": 3,
+   "seats": [
+    {
+     "t": "mix.clearSelection",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "mix.startMix",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "mix.copyResult",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    }
+   ]
+  }
+ },
+ {
+  "route": "/generate",
+  "resolved": "#/generate · Generate — Color Picker",
+  "slotVisible": true,
+  "slotW": 141.5,
+  "slotInert": false,
+  "btnW": 132.6,
+  "ax": {
+   "ignored": false,
+   "reasons": [],
+   "pressed": "false"
+  },
+  "bar": {
+   "endGaps": {
+    "start": 0,
+    "end": 0
+   },
+   "interGaps": [
+    0,
+    0
+   ],
+   "pitch": [
+    40,
+    40
+   ],
+   "row": {
+    "x": 692.5,
+    "y": 20.5,
+    "w": 120,
+    "h": 40,
+    "r": 812.5
+   },
+   "seatCount": 3,
+   "seats": [
+    {
+     "t": "generate.regenerate",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "generate.save",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "generate.copyColors",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    }
+   ]
+  }
+ },
+ {
+  "route": "/gradient",
+  "resolved": "#/gradient · Gradient — Color Picker",
+  "slotVisible": true,
+  "slotW": 141.5,
+  "slotInert": false,
+  "btnW": 132.6,
+  "ax": {
+   "ignored": false,
+   "reasons": [],
+   "pressed": "false"
+  },
+  "bar": {
+   "endGaps": {
+    "start": 0,
+    "end": 0
+   },
+   "interGaps": [
+    0,
+    0
+   ],
+   "pitch": [
+    40,
+    40
+   ],
+   "row": {
+    "x": 692.5,
+    "y": -0.5,
+    "w": 120,
+    "h": 40,
+    "r": 812.5
+   },
+   "seatCount": 3,
+   "seats": [
+    {
+     "t": "gradient.reset",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "gradient.copyCSS",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "gradient.seedFromPalette",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    }
+   ]
+  }
+ },
+ {
+  "route": "/atmosphere",
+  "resolved": "#/atmosphere · Atmosphere — Color Picker",
+  "slotVisible": false,
+  "slotW": 0,
+  "slotInert": true,
+  "btnW": 120.5,
+  "ax": "absent"
+ },
+ {
+  "route": "/blob",
+  "resolved": "#/blob · Blob — Color Picker",
+  "slotVisible": true,
+  "slotW": 141.5,
+  "slotInert": false,
+  "btnW": 132.6,
+  "ax": {
+   "ignored": false,
+   "reasons": [],
+   "pressed": "false"
+  },
+  "bar": {
+   "endGaps": {
+    "start": 0,
+    "end": 0
+   },
+   "interGaps": [
+    -2,
+    -2,
+    0,
+    0
+   ],
+   "pitch": [
+    38,
+    42,
+    40,
+    40
+   ],
+   "row": {
+    "x": 626,
+    "y": 20.5,
+    "w": 200,
+    "h": 40,
+    "r": 826
+   },
+   "seatCount": 5,
+   "seats": [
+    {
+     "t": "color.reset",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.copy",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.random",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.palettes",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    },
+    {
+     "t": "color.extract",
+     "st": "ready",
+     "dis": false,
+     "aria": null,
+     "cursor": "pointer",
+     "hoverColor": "oklch(30.464908167469% 0.121841444973 9.83402284231deg)"
+    }
+   ]
+  }
+ },
+ {
+  "route": "/admin/users",
+  "resolved": "#/admin/users · Not found — Color Picker",
+  "slotVisible": false,
+  "slotW": 0,
+  "slotInert": true,
+  "btnW": 120.5,
+  "ax": "absent"
+ },
+ {
+  "route": "/admin/names",
+  "resolved": "#/admin/names · Not found — Color Picker",
+  "slotVisible": false,
+  "slotW": 0,
+  "slotInert": true,
+  "btnW": 120.5,
+  "ax": "absent"
+ },
+ {
+  "route": "/no-such-route",
+  "resolved": "#/no-such-route · Not found — Color Picker",
+  "slotVisible": false,
+  "slotW": 0,
+  "slotInert": true,
+  "btnW": 120.5,
+  "ax": "absent"
+ }
+]
