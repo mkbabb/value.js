@@ -164,7 +164,7 @@ async function armDockObserver(page: Page): Promise<void> {
         // the exact options glass's `useDockRun` observes with → one callback = one syncRoving
         const site = (n: Node) => {
             const el = n instanceof Element ? n : n.parentElement;
-            const seat = el?.closest("[data-dock-seat], .dock-seat, [role='toolbar'] > *");
+            const seat = el?.closest(".dock-seat, [role='toolbar'] > *");
             const label = (x: Element | null | undefined) =>
                 x ? `${x.tagName.toLowerCase()}.${[...x.classList].slice(0, 2).join(".")}` : "?";
             return `${label(seat)}>${label(el)}`;

@@ -371,7 +371,7 @@ test.describe("X.W12.e — the dock sits on glass's primitives", () => {
                 const rows: { node: string; overflow: string; clipPath: string; contain: string; owner: string; cutBlock: number }[] = [];
                 const t = el.getBoundingClientRect();
                 const glassy = (e: Element) =>
-                    [...e.classList].some((c) => /^(glass|dock)[-_]|^glass$|^dock$/.test(c)) || e.closest("[data-glass-owned]") === e;
+                    [...e.classList].some((c) => /^(glass|dock)[-_]|^glass$|^dock$/.test(c));
                 // the walk stops below <body>: html/body overflow is the
                 // viewport's scroll box (and reka's scroll lock), not a clip
                 for (let a = el.parentElement; a && a.tagName !== "BODY"; a = a.parentElement) {
